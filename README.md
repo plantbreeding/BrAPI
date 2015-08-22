@@ -1,2 +1,2 @@
 # API
-Repository linked to brapi.apiary.io
+Repository linked to http://docs.brapi.apiary.io/
