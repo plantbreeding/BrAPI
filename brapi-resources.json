@@ -45,6 +45,15 @@
           "base-url": "https://cassava-test.sgn.cornell.edu/brapi/v1/",
           "certificate": "https://ics.hutton.ac.uk/resources/brapi/certs/cassava-test.sgn.cornell.edu.crt"
         }
+      },
+      {
+        "name": "MGIS",
+        "description": "Musa Germplasm Information System",
+        "logo": "http://www.crop-diversity.org/mgis/sites/crop-diversity.org.mgis/themes/mgis_theme/logo.png",
+        "resource": {
+          "name": "Musa Germplasm Information System",
+          "base-url": "https://www.crop-diversity.org/mgis/brapi/v1/"
+        }
       }
     ]
   }

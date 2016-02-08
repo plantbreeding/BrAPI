@@ -62,4 +62,16 @@
 		</resource>
 	</category>
 
+	<category>
+		<name>MGIS</name>
+		<description>Musa Germplasm Information System<description/>
+		<logo>http://www.crop-diversity.org/mgis/sites/crop-diversity.org.mgis/themes/mgis_theme/logo.png</logo>
+		<resource>
+			<name>Musa Germplasm Information System</name>
+			<base-url>https://www.crop-diversity.org/mgis/brapi/v1/</base-url>
+			<logo/>
+			<description/>
+		</resource>
+	</category>
+
 </brapi-providers>
