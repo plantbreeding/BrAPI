@@ -1,2 +1,2 @@
 # API
-Repository intended to be linked to http://docs.brapi.apiary.io/ for version history tracking.
+Repository intended to version control the BrAPI specifications.
