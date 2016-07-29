@@ -1,2 +1,2 @@
-# API
-Repository intended to version control the BrAPI specifications.
+# BrAPI
+Repository for version control of the BrAPI specifications
