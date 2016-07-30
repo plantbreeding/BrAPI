@@ -1,23 +1,14 @@
-## Variable search [/brapi/v1/variables-search]
+## Variable list [/brapi/v1/variables?category={categoryName}]
 Scope: CORE.
 Status: ACCEPTED.
 
-Search observation variables.
+Call to retrieve a list of observationVariables available in the system.
+`required` means the key has to be provided, but the value may be null.
 
-### Variable search [POST]
+### Variable list [GET]
 
-+ Request (application/json)
-
-        {
-            "observationVariableDbIds" : ["obs-variable-id1", "obs-variable-id1"],
-            "ontologyXrefs" : ["CO:123", "CO:456"],
-            "ontologyDbIds" : ["CO_334:0100632"],
-            "methodDbIds" : ["method-1", "method=2"],
-            "scaleDbIds" : ["scale-1", "scale-2"],
-            "names" : ["caro_spectro"],
-            "dataTypes" : ["numeric"],
-            "classes" : []
-        }
++ Parameters
+    + categoryName (required, string, `Phenology`) ... string containing the name of the category
 
 + Response 200 (application/json)
 

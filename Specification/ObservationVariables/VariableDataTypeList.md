@@ -1,10 +1,11 @@
-## List all Data Types [/brapi/v1/variables/datatypes]
+## Variable data type list [/brapi/v1/variables/datatypes]
 
 Call to retrieve a list of data types the variable can have.
 
-### List all data types [GET]
+### Variable data type list [GET]
+
 + Response 200 (application/json)
-        
+
         {
             "metadata": {
                 "pagination": {
@@ -16,5 +17,7 @@ Call to retrieve a list of data types the variable can have.
                 "status": {},
                 "datafiles": []
             },
-            "result": ["Numeric", "Categorical", "Date", "Text", "Picture", "Boolean"]
+            "result": {
+                "data": ["Numeric", "Categorical", "Date", "Text", "Picture", "Boolean"]
+            }
         }  
