@@ -4,7 +4,7 @@ Implemented by: GnpIS
 
 API to retrieve list and details of observation variables. An observation variable is composed by the unique combination of one Trait, one Method and one Scale.
 
-## Response data types
+## Observation variable data response
 
 `required` means the key has to be provided, but the value may be null.
 
@@ -53,3 +53,16 @@ scale.validValues.min          |          | numeric         | Minimum value (use
 scale.validValues.max          |          | numeric         | Maximum value (used for field data capture control).
 scale.validValues.categories   |          | array of string | List of possible values and their meaning (examples: ["0=low", "1=medium", "2=high"]
 defaultValue                   |    Y     | string          | Variable default value. (examples: "red", "2.3", etc.)
+
+## Ontology data response
+
+`required` means the key has to be provided, but the value may be null.
+
+Variable     | Required | Type   | Description
+------------ | :------: | ------ | -----------------------------------------------
+ontologyDbId |    Y     | string | Ontology database unique identifier
+ontologyName |    Y     | string | Ontology name
+authors      |          | string | Ontology's list of authors (no specific format)
+version      |          | string | Ontology version (no specific format)
+copyright    |          | string | Ontology copyright
+licence      |          | string | Ontology licence
