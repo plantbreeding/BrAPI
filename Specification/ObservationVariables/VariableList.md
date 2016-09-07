@@ -75,7 +75,7 @@ Call to retrieve a list of observationVariables available in the system.
                   "scale": {
                       "scaleDbId": "CO_334:0100526",
                       "name": "ug/g",
-                      "dataType": "Numeric",
+                      "datatype": "Numeric",
                       "decimalPlaces": 2,
                       "xref": null,
                       "validValues": {

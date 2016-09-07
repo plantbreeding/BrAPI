@@ -11,7 +11,7 @@ Used by: Flapjack
 Provides the number of markers on each linkageGroup and the max position on the linkageGroup
 
 + Paramters
-    + mapID (required)
+    + mapId (required)
     + Should we provide pagination?
     
 + Response 200 (application/json)

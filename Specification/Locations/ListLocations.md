@@ -41,8 +41,8 @@ Get a list of locations.
                         "altitude": 12,
                         "additionalInfo": 
                         {
-                            "AnnualMeanRain" : "value", 
-                            "SoilDescription" :"23"
+                            "annualMeanRain" : "value", 
+                            "soilDescription" :"23"
                         }
                     },
                     {
