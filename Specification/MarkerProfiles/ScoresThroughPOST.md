@@ -26,7 +26,7 @@ The format of the tsv response can be found on GitHub (https://github.com/plantb
 
         {
             "metadata": {   
-                "status": {},
+                "status": null,
                 "datafiles": [],
                 "pagination": {
                     "pageSize": 100,

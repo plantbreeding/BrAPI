@@ -43,7 +43,7 @@ For the requested name or synonym, returns an array (possibly empty) of marker r
                     "totalCount": 27338,
                     "totalPages": 28
                 },
-                "status": {},
+                "status": null,
                 "datafiles": []
             },
             "result" : {

@@ -57,7 +57,7 @@ observationValue data type inferred from the ontology
                     "totalPages": 1
                 },
 
-                "status": {},
+                "status": null,
                 "datafiles": []
             },
 

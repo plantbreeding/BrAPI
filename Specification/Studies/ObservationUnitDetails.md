@@ -18,7 +18,7 @@ The main API call for field data collection, to retrieve all the observation uni
                     "totalCount": 2,
                     "totalPages": 1
                 },
-                "status" : {},
+                "status" : null,
                 "datafiles": []
             },
             "result" : { 

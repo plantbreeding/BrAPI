@@ -15,7 +15,7 @@ Retrieve all plots where there are measurements for the given observation variab
     
         {
             "metadata" : 
-                "status": {},
+                "status": null,
                 "datafiles": [],
                 "pagination": {
                     "pageSize": 1,

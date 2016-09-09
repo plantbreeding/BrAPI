@@ -36,7 +36,7 @@ Use GET when parameter size is less than 2K bytes.
                     "totalCount": 1,
                     "totalPages": 1
                 },
-                "status":{},
+                "status": null,
                 "datafiles": []
             },
             "result" : { 

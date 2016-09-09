@@ -19,7 +19,7 @@ markers ordered by linkageGroup and position
         {
             "metadata" : { 
                 "pagination" : { "pageSize": 30, "currentPage": 2, "totalCount": 40, "totalPages":2 },
-                "status": {},
+                "status": null,
                 "datafiles": []
             },
             "result": { 

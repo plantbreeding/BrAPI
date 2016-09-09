@@ -26,7 +26,7 @@ Implemented By:
 
         {
             "metadata": {
-                "status": {},
+                "status": null,
                 "datafiles": [],
                 "pagination": {}
             },

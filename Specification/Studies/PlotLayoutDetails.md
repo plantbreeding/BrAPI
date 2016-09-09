@@ -21,7 +21,7 @@ Retrieve the plot layout of the study with id {id}.
                     "totalCount": 1,
                     "totalPages": 1
                 },
-                "status": {},
+                "status": null,
                 "datafiles": []
             },
             "result" : {

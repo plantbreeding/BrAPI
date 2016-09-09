@@ -28,7 +28,7 @@ Search studies
                     "totalCount": 100,
                     "totalPages": 50
                 },
-                "status" : {},
+                "status" : null,
                 "datafiles": []
             },
             "result": {

@@ -17,7 +17,7 @@ Call to retrive all seasons (or years) in the database. (Added by Jan-Erik and L
                     "totalCount": 10,
                     "totalPages": 1
                 },
-                "status": {},
+                "status": null,
                 "datafiles": []
             },
             "result" : { 

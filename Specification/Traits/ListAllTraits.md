@@ -17,7 +17,7 @@ Call to retrieve a list of traits available in the system and their associated v
                     "totalCount": 300, 
                     "totalPages": 100 
                 }
-                "status" : {},
+                "status" : null,
                 "datafiles": []
             },
         

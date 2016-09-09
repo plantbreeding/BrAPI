@@ -13,7 +13,7 @@ Get trial by id.
         {
             "metadata": {
                 "pagination" : null,
-                "status" : {},
+                "status" : null,
                 "datafiles": []
             },
             "result": {

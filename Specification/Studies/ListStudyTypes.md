@@ -19,7 +19,7 @@ Implementation target date: PAG2016
                     "totalCount": 10,
                     "totalPages": 1
                 },
-                "status": {},
+                "status": null,
                 "datafiles": []
             },
             "result" : {

@@ -52,7 +52,7 @@ Alphabetically?
                     "totalCount": 10,
                     "totalPages": 1
                 },
-                "status": {},
+                "status": null,
                 "datafiles": []
             },
         

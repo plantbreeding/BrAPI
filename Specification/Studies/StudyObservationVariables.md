@@ -8,7 +8,7 @@ List all the observation variables measured in the study.
 
         {
             "metadata": {
-                "status": {},
+                "status": null,
                 "datafiles": [],
                 "pagination": {
                     "pageSize": 1000,

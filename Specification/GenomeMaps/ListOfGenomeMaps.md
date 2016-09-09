@@ -22,7 +22,7 @@ do we need list of parents and specify mapping population?
                     "totalCount": 40,
                     "totalPages": 2
                 }
-                "status" : {},
+                "status" : null,
                 "datafiles": []
             },
             "result": {

@@ -9,7 +9,7 @@ Call to invoke for saving the measurements (observations) collected from field f
         {
             "metadata": {
                 "pagination" : null,
-                "status" : {},
+                "status" : null,
                 "datafiles": []
             },
             "result" : {

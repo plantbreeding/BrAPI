@@ -10,7 +10,7 @@
 
         {
             "metadata": {
-                "status": {},
+                "status": null,
                 "datafiles": [],
                 "pagination": {
                     "pageSize": 1000,

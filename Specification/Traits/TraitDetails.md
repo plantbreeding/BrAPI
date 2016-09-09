@@ -16,7 +16,7 @@ Retrieve the variables associated to a trait
         {
             "metadata": {
                 "pagination": {},
-                "status": {},
+                "status": null,
                 "datafiles": []
             },
             "result": {

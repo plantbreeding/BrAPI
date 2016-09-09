@@ -29,7 +29,7 @@ Search observation variables.
                     "totalCount": 300,
                     "totalPages": 100
                 },
-                "status": {},
+                "status": null,
                 "datafiles": []
             },
             "result": {

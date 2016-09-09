@@ -7,7 +7,7 @@
         {
             "metadata": {
                 "pagination" : null,
-                "status" : {},
+                "status" : null,
                 "datafiles": []
             },
             "result": {

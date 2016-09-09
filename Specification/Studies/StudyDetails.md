@@ -28,7 +28,7 @@ Retrieve the information of the study required for field data collection
         {             
             "metadata": {
                 "pagination" : null,
-                "status" : {},
+                "status" : null,
                 "datafiles": []
             },
             "result" : {

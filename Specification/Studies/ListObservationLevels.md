@@ -16,7 +16,7 @@ The values are used to supply the `observationLevel` parameter in the observatio
                     "totalCount": 2,
                     "totalPages": 1
                 },
-                "status": {},
+                "status": null,
                 "datafiles": []
             },
             "result" : {

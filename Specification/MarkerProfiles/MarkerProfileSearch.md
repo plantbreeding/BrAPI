@@ -27,7 +27,7 @@ For the requested Germplasm Id and/or Extract Id, returns the Markerprofile Id a
                     "totalCount": 10,
                     "totalPages": 1
                 },
-                "status": {},
+                "status": null,
                 "datafiles": []
             },
             "result" : {

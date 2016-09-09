@@ -28,7 +28,7 @@ Retrieve the details of the study required for field data collection. Includes a
                     "totalCount": 1,
                     "totalPages": 1
                 },
-                "status": {},
+                "status": null,
                 "datafiles": []
             },
             "result" : {

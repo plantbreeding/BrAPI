@@ -28,7 +28,7 @@ Get list of trials.
                     "totalCount": 100,
                     "totalPages": 50
                 },
-            "status" : {},
+            "status" : null,
             "datafiles": []
             },
             "result": {

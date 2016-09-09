@@ -14,7 +14,7 @@ Call to retrieve a list of data types the variable can have.
                     "totalCount": 6,
                     "totalPages": 1
                 },
-                "status": {},
+                "status": null,
                 "datafiles": []
             },
             "result": {

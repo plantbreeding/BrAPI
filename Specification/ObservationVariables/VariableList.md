@@ -20,7 +20,7 @@ Call to retrieve a list of observationVariables available in the system.
                     "totalCount": 300,
                     "totalPages": 100
                 },
-                "status": {},
+                "status": null,
                 "datafiles": []
             },
             "result": {
