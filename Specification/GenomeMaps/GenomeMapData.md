@@ -25,12 +25,12 @@ markers ordered by linkageGroup and position
             "result": { 
                 "data" : [
                     {
-                        "markerDbId": 1,
+                        "markerDbId": "1",
                         "markerName": "marker1",
                         "location": "1000",
                         "linkageGroup": "1A"
                     }, {
-                        "markerDbId": 2,
+                        "markerDbId": "2",
                         "markerName": "marker2",
                         "location": "1001",
                         "linkageGroup": "1A"

@@ -28,7 +28,7 @@ do we need list of parents and specify mapping population?
             "result": {
                 "data" : [
                     {
-                        "mapDbId": 1,
+                        "mapDbId": "1",
                         "name": "Some Map",
                         "species": "Some species",
                         "type": "Genetic",
@@ -39,7 +39,7 @@ do we need list of parents and specify mapping population?
                         "comments": "This map contains ..."
                     },
                     {
-                        "mapDbId": 2,
+                        "mapDbId": "2",
                         "name": "Some Other map",
                         "species": "Some Species",
                         "type": "Genetic",
