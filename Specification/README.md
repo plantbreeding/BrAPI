@@ -27,7 +27,7 @@ contains the pagination information in a "pagination" key and the status informa
 If the response is a single record that doesn't require pagination, then the value for the "pagination" key is an empty hash.  When the results are paginated, 
 the pagination object contains the keys "pageSize", "currentPage", "totalCount", "totalPages". The first page will be page 0 (zero).
 
-The status object contains a list of objects with the keys "code" and "message".
+The status object contains an object with the keys "message" and "exception". The message should be user readable, and the exception should give further details, with recommended keys "type", "href", and "details". 
 
 The payload data is contained in a key called "result". This should usually contain a list; pagination will happen over items in this list.
 
