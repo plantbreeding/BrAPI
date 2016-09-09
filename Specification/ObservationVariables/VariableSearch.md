@@ -15,7 +15,7 @@ Search observation variables.
             "methodDbIds" : ["method-1", "method=2"],
             "scaleDbIds" : ["scale-1", "scale-2"],
             "names" : ["caro_spectro"],
-            "dataTypes" : ["numeric"],
+            "datatypes" : ["numeric"],
             "classes" : []
         }
 
@@ -84,7 +84,7 @@ Search observation variables.
                   "scale": {
                       "scaleDbId": "CO_334:0100526",
                       "name": "ug/g",
-                      "dataType": "Numeric",
+                      "datatype": "Numeric",
                       "decimalPlaces": 2,
                       "xref": null,
                       "validValues": {
