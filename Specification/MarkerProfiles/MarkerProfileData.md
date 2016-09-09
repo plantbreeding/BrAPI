@@ -34,7 +34,7 @@ Alphabetically?
 ### Alleles By Markerprofile Id [GET]
 
 + Parameters
-    + germplasmDbId (required, number, `993`) ... The server's internal id for the germplasm line, as returned by the **Find Germplasm by Name** service.
+    + markerprofileDbId (required, number, `993`) ... The server's internal id for the markerprofile
     + expandHomozygotes (optional, boolean, `false`) ... Should homozygotes NOT be collapsed into a single orrucance?
     + unknownString (optional, string, `-`) ... The string to use as a representation for missing data or the reserved word "empty_string".
     + sepPhased (optional, string, `|`) ... The string to use as a separator for phased allele calls or the reserved word "empty_string".
