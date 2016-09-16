@@ -1,4 +1,4 @@
-##  Germplasm Search [/brapi/v1/germplasm-search?germplasmName=&germplasmGenus=&germplasmSubTaxa=&germplasmDbId&germplasmPUI=http://data.inra.fr/accession/234Col342&germplasmSpecies=Triticum&panel=diversitypanel1&collection=none&pageSize=pageSize&page=page]
+##  Germplasm Search [/brapi/v1/germplasm-search?germplasmName={germplasmName}&germplasmDbId={germplasmDdId}&germplasmPUI={germplasmPUI}&pageSize={pageSize}&page={page}]
 
 Implemented by: GnpIS, Germinate (GET only)
 
@@ -11,14 +11,14 @@ Adresses these needs:
 3. possibility to get MCPD details by PUID rather than dbId
 
 ###### Response data types
-|Variable|Datatype|Description|Required|  
+|Variable|Datatype|Description|Required|
 |------|------|------|:-----:|
 |metadata|object|pagination, status|Y|
 |pagination|object|pageSize, currentPage, totalCount, totalPages|Y|
 |status|list|code, message|Y|
 |result|object|data|Y|
 |data|array of objects|Array (possibly empty) of germplasm records|Y|
-|germplasmDbId|string|Internal db identifier|Y|
+|germplasmDbId|string|Internal database identifier|Y|
 |defaultDisplayName|string|A string that can be displayed to the user|Y|
 |accessionNumber|string|This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection||
 |germplasmName|string|Name of the germplasm. It can be the prefered name and does not have to be unique||
@@ -45,9 +45,9 @@ Adresses these needs:
 Use GET when parameter size is less than 2K bytes.
 
 + Parameters
-    + germplasmPUI (optional, text, `http://data.inra.fr/accession/234Col342`) ... The name or synonym of external genebank accession identifier
-    + germplasmDbId (optional, text, `986`) ... The name or synonym of external genebank accession 
-    + germplasmName (optional, text, `Triticum, Hordeum`) ... The name or synonym of the accession
+    + germplasmPUI (optional, text, `http://data.inra.fr/accession/234Col342`) ... Permanent unique identifier (DOI, URI, etc.)
+    + germplasmDbId (optional, text, `986`) ... Internal database identifier
+    + germplasmName (optional, text, `Pah`, `Pahang`) ... Name of the germplasm
     + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
     + page (optional, integer, `10`) ... Which result page is requested
 
@@ -65,7 +65,7 @@ Use GET when parameter size is less than 2K bytes.
                 }
             },
             "result": {
-                "data":[
+                "data": [
                     {
                         "germplasmDbId": "01BEL084609",
                         "defaultDisplayName": "Pahang",
@@ -86,8 +86,7 @@ Use GET when parameter size is less than 2K bytes.
                         "speciesAuthority": "",
                         "subtaxa": "sp malaccensis var pahang",
                         "subtaxaAuthority": "",
-                        "donors": 
-                        [
+                        "donors": [
                             {
                                 "donorAccessionNumber": "",
                                 "donorInstituteCode": "",
@@ -95,7 +94,7 @@ Use GET when parameter size is less than 2K bytes.
                             }
                         ],
                         "acquisitionDate": "19470131"
-                    ,{
+                    }, {
                         "germplasmDbId": "03REL084609",
                         "defaultDisplayName": "Pah",
                         "accessionNumber": "ITC0685",
@@ -115,8 +114,7 @@ Use GET when parameter size is less than 2K bytes.
                         "speciesAuthority": "",
                         "subtaxa": "sp malaccensis var pah",
                         "subtaxaAuthority": "",
-                        "donors": 
-                        [
+                        "donors": [
                             {
                                 "donorAccessionNumber": "",
                                 "donorInstituteCode": "",
