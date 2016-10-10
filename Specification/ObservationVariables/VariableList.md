@@ -9,7 +9,7 @@ Call to retrieve a list of observationVariables available in the system.
 + Parameters
     + pageSize (optional, integer, `100`)
     + page (optional, integer, `0`)
-    + traitClass (required, string, `Phenological`) ... Variable's trait class (phenological, physiological, morphological, etc.)
+    + traitClass (optional, string, `Phenological`) ... Variable's trait class (phenological, physiological, morphological, etc.)
 
 + Response 200 (application/json)
 
