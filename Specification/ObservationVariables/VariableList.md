@@ -1,14 +1,15 @@
-## Variable list [/brapi/v1/variables?category={categoryName}]
+## Variable list [/brapi/v1/variables?page={page}&pageSize={pageSize}&traitClass={traitClass}]
 Scope: CORE.
 Status: ACCEPTED.
 
 Call to retrieve a list of observationVariables available in the system.
-`required` means the key has to be provided, but the value may be null.
 
 ### Variable list [GET]
 
 + Parameters
-    + categoryName (required, string, `Phenology`) ... string containing the name of the category
+    + pageSize (optional, integer, `100`)
+    + page (optional, integer, `0`)
+    + traitClass (required, string, `Phenological`) ... Variable's trait class (phenological, physiological, morphological, etc.)
 
 + Response 200 (application/json)
 
