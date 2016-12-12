@@ -36,6 +36,10 @@ More linked data:
 | location.longitude      | number          | Study location longitude                                |          |
 | location.altitude       | number          | Study location altitude in meters                       |          |
 | location.additionalInfo | object          | Additional arbitrary info on the study location         |          |
+| dataLinks               | array of object | List of links related to the study's data               |          |
+| dataLinks.type          | string          | Data link description                                   |          |
+| dataLinks.name          | string          | Data link display name (file name or page title)        |          |
+| dataLinks.url           | string          | Data link URL                                           |          |
 | additionalInfo          | object          | Additional arbitrary info on the study                  |          |
 
 ### Retrieve study details [GET]
@@ -80,6 +84,17 @@ More linked data:
                         "property2Name": "property2Value"
                     }
                 },
+                "dataLinks": [
+                  {
+                    "type": "MIAPPE-ISA-Tab",
+                    "name": "B158ST-fulldataset.zip",
+                    "url": "http://data.inra.fr/archive/B158ST-fulldataset.zip"
+                  }, {
+                    "type": "Experimental DB",
+                    "name": "Magiau 2008 B158ST",
+                    "url": "http://phenome-fppn.fr/phis/study-card.php?number=B158ST"
+                  }
+                ],
                 "additionalInfo": {
                     "studyObjective": "Increase yield",
                     "principalInvestigator": "Dr. Breeder",
