@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Be sure to install the apiary gem; https://github.com/apiaryio/apiary-client
-# gem install apiary
+# gem install apiaryio
 ROOT_DIRECTORY=/run/media/k/DUOLINK3/brapi
 BRAPI_DIR=${ROOT_DIRECTORY}/API
 if [ -d "$BRAPI_DIR" ]; then
