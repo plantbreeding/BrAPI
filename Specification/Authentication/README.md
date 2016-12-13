@@ -9,3 +9,4 @@ When authenticated, all the calls, including the authentication call, should be 
 The token life time is fixed. If additional time is required, a new /token call should be made to obtain a new access token.
 
 **HTTPS** should be enforced everywhere.
+
