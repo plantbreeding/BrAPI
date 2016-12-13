@@ -1,5 +1,5 @@
 
-# Authentication Overview
+# Group Authentication
 
 This resource refers to the authentication mechanism for the API. It is still implementation-agnostic but the structure
 should be similar across all implementations. To start off, we propose to use a call similar to OAuth2.0 password grant type. However, this is not fully secure, as we have to trust third party applications not to do anything nefarious with the password information. Upgrade to full OAuth2.0 in the future.
