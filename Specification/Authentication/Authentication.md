@@ -53,7 +53,7 @@ For logout, returns an empty resource. A token to remove could be provided (amdi
         {
             "metadata": {
                     "pagination" : null,
-                    "status" : { "message" : "User has been logged out successfully."},
+                    "status" : [ { "message" : "User has been logged out successfully."} ],
                     "datafiles": []
                 }
             "result" : {}
