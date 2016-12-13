@@ -1,3 +1,4 @@
+FORMAT: 1A
+
 # BrAPI
-Repository for version control of the BrAPI specifications
-jeb test2
+Repository for version control of the BrAPI specification
