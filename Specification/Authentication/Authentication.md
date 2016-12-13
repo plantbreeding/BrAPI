@@ -60,3 +60,4 @@ For logout, returns an empty resource. A token to remove could be provided (amdi
                 }
             "result" : {}
         }
+
