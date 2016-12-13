@@ -37,6 +37,7 @@ Implemented by: Germinate, Tripal Brapi Module, Cassavabase (without notation op
         }
 
 + Response 400 (application/json)
+
     
         { 
             "metadata" : {
