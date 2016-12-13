@@ -1,5 +1,4 @@
-
-#List Trial Summaries 
+## List Trial Summaries 
 
 Scope: CORE.
 Status: ACCEPTED.
