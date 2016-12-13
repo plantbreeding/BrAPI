@@ -1,14 +1,27 @@
 #!/usr/bin/env bash
 # Be sure to install the apiary gem; https://github.com/apiaryio/apiary-client
 # gem install apiary
-
+ROOT_DIRECTORY=/run/media/k/DUOLINK3/brapi
+BRAPI_DIR=${ROOT_DIRECTORY}/API
+if [ -d "$BRAPI_DIR" ]; then
+    cd $BRAPI_DIR
+    git pull
+else
+    cd $ROOT_DIRECTORY
+    git clone https://github.com/plantbreeding/API.git -b master --single-branch
+fi
 # You'll need to get a token here; https://login.apiary.io/tokens
-export <Your key here>
+export APIARY_API_KEY=<your key here>
 
 # Your apiname here; docs.$APINAME.apiary.io
 APINAME=brapi
 
-FILE="./swagger.yaml"
+BRAPI_FILE=${ROOT_DIRECTORY}/swagger.yaml
+
+if [ -f $BRAPI_FILE ]; then
+    rm $BRAPI_FILE
+fi
+touch $BRAPI_FILE
 
 # Build your apib file from your nicely structured markdown directory
 # Here is how mine looks, 
@@ -28,17 +41,19 @@ FILE="./swagger.yaml"
 # └── synthetic.apib
 
 # Tedious to write out the names of all the directories and files but this let's us control the order of assembly
-prefix="./API/Specification/"
-sources=("README.md", 
-	       "Authentication/README.md", 
+BRAPI_PREFIX=${BRAPI_DIR}/Specification/
+echo $BRAPI_PREFIX
+cd $BRAPI_PREFIX
+sources=("README.md" 
+	       "Authentication/README.md" 
 	       "Authentication/Authentication.md"
-	       "Calls/README.md", 
-	       "Calls/Calls.md", 
+	       "Calls/README.md" 
+	       "Calls/Calls.md" 
 	       "Germplasm/Readme.md"
-	       "Germplasm/GermplasmSearchGET.md", 
+	       "Germplasm/GermplasmSearchGET.md" 
 	       "Germplasm/GermplasmSearchPOST.md"
 	       "Germplasm/GermplasmDetailsByGermplasmDbId.md"
-	       "Germplasm/GermplasmDetailsByStudyId.md"
+	       "Germplasm/GermplasmDetailsListByStudyDbId.md"
 	       "Germplasm/GermplasmPedigree.md"
 	       "Germplasm/GermplasmMarkerprofiles.md"
 	       "Germplasm/GermplasmMarkerprofiles.md"
@@ -99,10 +114,11 @@ sources=("README.md",
 	       "Samples/TakeASample.md"
 	       "Samples/RetrieveSampleMetadata.md"
 ) 
-for ((i=0; i<${sources[*]}; i++));
-do
-    echo $Prefix >> $FILE;
-    cat ${sources[i]} >> $FILE
+for i in ${sources[@]}; do
+# for ((i=0; i<${sources[*]}; i++));
+# do
+#    echo $Prefix >> $FILE;
+    cat $i >> $BRAPI_FILE
 done
 # Cleanup the temp files
 #until 
@@ -136,7 +152,7 @@ done
 #fi
 
 # Publish to apiary
-apiary publish --path ./$FILE --api-name $APINAME
+apiary publish --path $BRAPI_FILE --api-name $APINAME
 
 if [ $? -ne 0 ]; then
 	echo "ERROR: Apiary rejected the file"
