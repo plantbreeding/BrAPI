@@ -9,7 +9,7 @@ The Breeding API specifies a standard interface for plant phenotype/genotype dat
 
 Call | Description 
 ------------ | -------------
-Authentication | This resource refers to the authentication mechanism for the API.
+[Authentication](https://github.com/plantbreeding/API/blob/master/Specification/Authentication/Authentication.md) | This resource refers to the authentication mechanism for the API.
 Calls | N.A.
 Crops | For multi crop systems this is a useful call to list all the supported crops.
 GenomeMaps | Retrieving genetic or physical maps
