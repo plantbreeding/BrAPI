@@ -1,3 +1,5 @@
+## Authentication [/brapi/v1/token]
+
 Implemented by: Tripal Brapi module, Cassavabase, Germinate
 
 Used by: Flapjack
