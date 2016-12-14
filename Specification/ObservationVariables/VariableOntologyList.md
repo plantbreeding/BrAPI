@@ -20,7 +20,7 @@ Call to retrieve a list of observation variable ontologies available in the syst
                     "totalCount": 12,
                     "totalPages": 6
                 },
-                "status": null,
+                "status": [],
                 "datafiles": []
             },
             "result": {

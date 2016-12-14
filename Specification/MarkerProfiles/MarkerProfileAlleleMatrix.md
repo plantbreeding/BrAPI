@@ -1,7 +1,7 @@
 ## MarkerProfile Allele Matrix [/brapi/v1/allelematrix-search?unknownString=&sepPhased=&sepUnphased=&expandHomozygotes=&markerprofileDbId=100&markerprofileDbId=101&markerDbId=322&markerDbId=418&format=&pageSize=&page=]
 Status: ACCEPTED.
 
-Implemented by: Germinate (POST only)
+Implemented by: Germinate (POST only), Cassavabase
 
 Used by: Flapjack (POST only)
 
@@ -32,11 +32,11 @@ Use GET when parameter size is less than 2K bytes.
             "metadata": {   
                 "pagination": {
                     "pageSize": 100,
-                    "currentPage": 1,
+                    "currentPage": 0,
                     "totalCount": 1,
                     "totalPages": 1
                 },
-                "status":{},
+                "status": [],
                 "datafiles": []
             },
             "result" : { 

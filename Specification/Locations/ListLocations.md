@@ -24,7 +24,7 @@ Get a list of locations.
                     "totalCount": 100,
                     "totalPages": 50
                 },
-                "status" : {},
+                "status" : [],
                 "datafiles": []
             },
             "result": {

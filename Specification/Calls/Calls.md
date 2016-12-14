@@ -2,7 +2,7 @@
 
 Status: ACCEPTED
 
-Implemented by: Germinate
+Implemented by: Germinate, Cassavabase
 
 Used by: Flapjack
 
@@ -37,7 +37,7 @@ This call returns metadata about the individual BrAPI calls. Initially, this wil
                     "totalCount": 3,
                     "totalPages": 1
                 },
-                "status": null,
+                "status": [],
                 "datafiles": []
             },
             "result" : {
@@ -59,7 +59,7 @@ This call returns metadata about the individual BrAPI calls. Initially, this wil
                     "totalCount": 1,
                     "totalPages": 1
                 },
-                "status": null,
+                "status": [],
                 "datafiles": []
             },
             "result" : {

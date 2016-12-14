@@ -1,7 +1,7 @@
 ## Markerprofile data [/brapi/v1/markerprofiles/{germplasmDbId}?unknownString=&sepPhased=&sepUnphased=&expandHomozygotes=&pageSize=&page= ]
 Scope: GENOTYPING.
 Status: ACCEPTED.
-Implemented by: Germinate
+Implemented by: Germinate, Cassavabase
 
 For the requested markerprofile ID, returns the allele call for each marker. 
 [Example] (http://malt.pw.usda.gov/t3/wheatplus/brapi/v1/markerprofiles/1784_99/count?analysisMethod=GoldenGate)
@@ -29,7 +29,9 @@ Alphabetically?
 |extractDbId|string||Y|
 |analysisMethod|string|||
 |data|object|array of marker-name/score pairs|Y|
+|metadata|object|pagination, status, datafiles|Y|
 |pagination|object|pageSize, currentPage, totalCount, totalPages|Y|
+|status|list||Y|
 
 ### Alleles By Markerprofile Id [GET]
 
@@ -48,11 +50,11 @@ Alphabetically?
             "metadata" : {
                 "pagination": {
                     "pageSize": 10,
-                    "currentPage": 1,
+                    "currentPage": 0,
                     "totalCount": 10,
                     "totalPages": 1
                 },
-                "status": {},
+                "status": [],
                 "datafiles": []
             },
         

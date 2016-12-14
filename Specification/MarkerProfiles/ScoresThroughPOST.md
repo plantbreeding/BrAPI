@@ -26,14 +26,14 @@ The format of the tsv response can be found on GitHub (https://github.com/plantb
 
         {
             "metadata": {   
-                "status": {},
-                "datafiles": [],
                 "pagination": {
                     "pageSize": 100,
                     "currentPage": 1,
                     "totalCount": 1,
                     "totalPages": 1
-                }
+                },
+                "status": [],
+                "datafiles": []
             },
             "result" : {
                 "data": [
@@ -50,12 +50,12 @@ The format of the tsv response can be found on GitHub (https://github.com/plantb
         {
             "metadata": {  
                 "pagination": {
-                    "pageSize": 1,
+                    "pageSize": 0,
                     "currentPage": 0,
-                    "totalCount": 1,
-                    "totalPages": 1
+                    "totalCount": 0,
+                    "totalPages": 0
                 },
-                "status": {},
+                "status": [],
                 "datafiles": [
                     { "url": "https://my-fancy-server/files/allelematrix-1234.tsv" }
                 ]

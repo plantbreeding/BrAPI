@@ -14,15 +14,16 @@ Retrieve all plots where there are measurements for the given observation variab
 + Response 200 (application/json)
     
         {
-            "metadata" : 
-                "status": {},
-                "datafiles": [],
-                "pagination": {
-                    "pageSize": 1,
-                    "currentPage": 1,
-                    "totalCount": 1,
-                    "totalPages": 1
+            "metadata" : {
+                "pagination" : { 
+                    "pageSize":20, 
+                    "currentPage":1, 
+                    "totalCount": 1, 
+                    "totalPages": 1 
                 },
+                "status": [],
+                "datafiles": [],
+            }
             "result" : {
                 "data" : [ 
                     {

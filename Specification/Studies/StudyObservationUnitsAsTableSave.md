@@ -4,8 +4,13 @@
     
         {
             "metadata": {
-                "pagination" : null,
-                "status" : {},
+                "pagination" : { 
+                    "pageSize":20, 
+                    "currentPage":0, 
+                    "totalCount":2, 
+                    "totalPages":1 
+                },
+                "status" : [],
                 "datafiles": []
             },
             "result" : {

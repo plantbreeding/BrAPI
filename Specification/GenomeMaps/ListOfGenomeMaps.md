@@ -2,7 +2,7 @@
 
 Status: ACCEPTED
 
-Implemented by: Germinate
+Implemented by: Germinate, Cassavabase
 
 Used by: Flapjack
 
@@ -22,7 +22,7 @@ do we need list of parents and specify mapping population?
                     "totalCount": 40,
                     "totalPages": 2
                 }
-                "status" : {},
+                "status" : [],
                 "datafiles": []
             },
             "result": {

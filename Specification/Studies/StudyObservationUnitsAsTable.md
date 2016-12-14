@@ -9,6 +9,10 @@ Retrieve the details of the study required for field data collection. Includes a
 |Variable|Datatype|Description|Required|  
 |------|------|------|:-----:|
 |studyDbId|Long|internal DB id ||
+|metadata|object|pagination, status, datafiles|Y|
+|pagination|object|pageSize, currentPage, totalCount, totalPages|Y|
+|status|list of objects||Y|
+|datafiles|list||Y|
 |observationVariableDbId|Long | internal DB id for the traits measured ||
 |observationVariableName|String| name of variable||
 |data| object| List of lists, specifying the plotId, block, rep, germplasmId, and the phenotypic values||
@@ -24,11 +28,11 @@ Retrieve the details of the study required for field data collection. Includes a
             "metadata": {
                 "pagination": {
                     "pageSize": 1,
-                    "currentPage": 1,
+                    "currentPage": 0,
                     "totalCount": 1,
                     "totalPages": 1
                 },
-                "status": {},
+                "status": [],
                 "datafiles": []
             },
             "result" : {

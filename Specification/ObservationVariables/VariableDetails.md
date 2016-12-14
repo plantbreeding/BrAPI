@@ -13,8 +13,13 @@ Retrieve variable details
 
         {
             "metadata": {
-                "pagination": null,
-                "status": {},
+                "pagination" : { 
+                    "pageSize":0, 
+                    "currentPage":0, 
+                    "totalCount":0, 
+                    "totalPages":0 
+                },
+                "status": [],
                 "datafiles": []
             },
             "result": {

@@ -47,22 +47,18 @@ observationValue data type inferred from the ontology
 + Response 200 (application/json)
 
         {
-            "metadata": 
-            {
-                "pagination": 
-                {
+            "metadata": {
+                "pagination": {
                     "pageSize": 10,
-                    "currentPage": 1,
+                    "currentPage": 0,
                     "totalCount": 10,
                     "totalPages": 1
                 },
-
-                "status": {},
+                "status": [],
                 "datafiles": []
             },
 
-            "result": 
-            {
+            "result": {
                 "data": 
                 [   {
                         "observationDbId": 4884848,

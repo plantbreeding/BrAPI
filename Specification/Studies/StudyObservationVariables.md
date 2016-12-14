@@ -8,14 +8,14 @@ List all the observation variables measured in the study.
 
         {
             "metadata": {
-                "status": {},
-                "datafiles": [],
-                "pagination": {
-                    "pageSize": 1000,
-                    "currentPage": 1,
-                    "totalCount": 1,
-                    "totalPages": 1
-                }
+	        "pagination" : { 
+                    "pageSize":2, 
+                    "currentPage":0, 
+                    "totalCount":10, 
+                    "totalPages":5 
+                },
+                "status": [],
+                "datafiles": []
             },
             "result": {
                 "studyDbId": 123,

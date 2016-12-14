@@ -18,11 +18,11 @@ Implemented By:
             "metadata" : {
                 "pagination": {
                     "pageSize": 10,
-                    "currentPage": 1,
+                    "currentPage": 0,
                     "totalCount": 10,
                     "totalPages": 1
                 },
-                "status": {},
+                "status": [],
                 "datafiles": []
             },
             "result" : {

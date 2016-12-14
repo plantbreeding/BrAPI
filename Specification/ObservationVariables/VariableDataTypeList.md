@@ -10,11 +10,11 @@ Call to retrieve a list of data types the variable can have.
             "metadata": {
                 "pagination": {
                     "pageSize": 10,
-                    "currentPage": 1,
+                    "currentPage": 0,
                     "totalCount": 6,
                     "totalPages": 1
                 },
-                "status": {},
+                "status": [],
                 "datafiles": []
             },
             "result": {

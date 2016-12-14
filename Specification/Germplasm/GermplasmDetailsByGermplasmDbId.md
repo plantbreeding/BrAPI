@@ -42,9 +42,14 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
 
         {
             "metadata": {
-                "status": null,
+                "status": [],
                 "datafiles": [],
-                "pagination": null
+                "pagination": { 
+                    "pageSize":0, 
+                    "currentPage":0, 
+                    "totalCount":0, 
+                    "totalPages":0 
+                }
             },
             "result": {
                 "germplasmDbId": "01BEL084609",

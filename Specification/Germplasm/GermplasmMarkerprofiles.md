@@ -10,11 +10,16 @@ Implemented by: Germinate, Cassavabase
         
         {
             "metadata" : {
-                "pagination" : null,
-                "status" : {
-                    "message": "",
-                    "exception" :  { } 
+                "pagination" : {
+		    "pageSize":0, 
+                    "currentPage":0, 
+                    "totalCount":0, 
+                    "totalPages":0 
                 },
+                "status" : [ {
+                    "message": "",
+                    "code" : "" 
+                } ],
                 "datafiles": []
             },
             "result" :  {
