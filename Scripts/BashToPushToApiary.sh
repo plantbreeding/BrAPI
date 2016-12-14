@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Be sure to install the apiary gem; https://github.com/apiaryio/apiary-client
 # gem install apiaryio
-ROOT_DIRECTORY=/run/media/k/DUOLINK3/brapi
+ROOT_DIRECTORY=/home/brapi
 BRAPI_DIR=${ROOT_DIRECTORY}/API
 if [ -d "$BRAPI_DIR" ]; then
     cd $BRAPI_DIR
@@ -10,8 +10,10 @@ else
     cd $ROOT_DIRECTORY
     git clone https://github.com/plantbreeding/API.git -b master --single-branch
 fi
-# You'll need to get a token here; https://login.apiary.io/tokens
-export APIARY_API_KEY=<your key here>
+## You'll need to get a token (https://login.apiary.io/tokens)
+## Storing the key in $ROOT_DIRECTORY/.bash_rc
+source ${ROOT_DIRECTORY}/.bash_rc
+echo $APIARY_API_KEY
 
 # Your apiname here; docs.$APINAME.apiary.io
 APINAME=brapi
@@ -49,7 +51,7 @@ sources=("README.md"
 	       "Authentication/Authentication.md"
 	       "Calls/README.md" 
 	       "Calls/Calls.md" 
-	       "Germplasm/Readme.md"
+	       "Germplasm/README.md"
 	       "Germplasm/GermplasmSearchGET.md" 
 	       "Germplasm/GermplasmSearchPOST.md"
 	       "Germplasm/GermplasmDetailsByGermplasmDbId.md"
@@ -152,6 +154,8 @@ done
 #fi
 
 # Publish to apiary
+echo $BRAPI_FILE
+echo $APINAME
 apiary publish --path $BRAPI_FILE --api-name $APINAME
 
 if [ $? -ne 0 ]; then
