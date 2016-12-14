@@ -1,5 +1,3 @@
-For multi crop systems this is a useful call to list all the supported crops.
-
 ## List supported crops [/brapi/v1/crops]
 Scope: CORE.
 Status: ACCEPTED.
@@ -12,11 +10,11 @@ Status: ACCEPTED.
             "metadata": {
                 "pagination": {
                     "pageSize": 2,
-                    "currentPage": 1,
+                    "currentPage": 0,
                     "totalCount": 100,
                     "totalPages": 50
                 },
-                "status" : {},
+                "status" : [],
                 "datafiles": []
             },
             "result": {

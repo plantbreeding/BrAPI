@@ -17,11 +17,11 @@ Retrieve the plot layout of the study with id {id}.
             "metadata" : {
                 "pagination": {
                     "pageSize": 1,
-                    "currentPage": 1,
+                    "currentPage": 0,
                     "totalCount": 1,
                     "totalPages": 1
                 },
-                "status": {},
+                "status": [],
                 "datafiles": []
             },
             "result" : {

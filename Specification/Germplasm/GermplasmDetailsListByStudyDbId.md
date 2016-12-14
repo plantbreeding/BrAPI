@@ -24,3 +24,4 @@ Implemented by: Cassavabase, Tripal Brapi Module, Germinate
 |pedigree|string|Cross name with optional selection history.||
 |seedSource|string|Seed source||
 |synonyms|array of string|List of other germplasm name||
+

@@ -1,5 +1,4 @@
-
-#List Trial Summaries 
+## List Trial Summaries 
 
 Scope: CORE.
 Status: ACCEPTED.
@@ -24,12 +23,12 @@ Get list of trials.
             "metadata": {
                 "pagination": {
                     "pageSize": 2,
-                    "currentPage": 1,
+                    "currentPage": 0,
                     "totalCount": 100,
                     "totalPages": 50
                 },
-            "status" : {},
-            "datafiles": []
+                "status" : [],
+                "datafiles": []
             },
             "result": {
                 "data": [ 

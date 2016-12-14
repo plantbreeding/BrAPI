@@ -24,8 +24,13 @@ Implemented by: Germinate, Tripal Brapi Module, Cassavabase (without notation op
     
         { 
             "metadata" : {
-                "pagination": null,
-                "status": null,
+                "pagination": {
+                    "pageSize":0, 
+                    "currentPage":0, 
+                    "totalCount":0, 
+                    "totalPages":0 
+                },
+                "status": [],
                 "datafiles": []
             }
             "result" : {
@@ -37,15 +42,17 @@ Implemented by: Germinate, Tripal Brapi Module, Cassavabase (without notation op
         }
 
 + Response 400 (application/json)
+
     
         { 
             "metadata" : {
                 "pagination" : null,
-                "status" : {
+                "status" : [ {
                     "message": "",
-                    "exception" :  { } 
-                },
+                    "code" : "" 
+                } ],
                 "datafiles": []
             },
             "result": {}
         }
+

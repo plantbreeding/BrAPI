@@ -10,14 +10,14 @@
 
         {
             "metadata": {
-                "status": {},
+                "pagination" : { 
+                    "pageSize":0, 
+                    "currentPage":0, 
+                    "totalCount":0, 
+                    "totalPages":0 
+                },
+                "status": [],
                 "datafiles": [],
-                "pagination": {
-                    "pageSize": 1000,
-                    "currentPage": 1,
-                    "totalCount": 1,
-                    "totalPages": 1
-                }
             },
             "result": {
                 "studyDbId": 123,

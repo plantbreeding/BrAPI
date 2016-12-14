@@ -12,14 +12,15 @@ The values are used to supply the `observationLevel` parameter in the observatio
             "metadata" : {
                 "pagination": {
                     "pageSize": 10,
-                    "currentPage": 1,
+                    "currentPage": 0,
                     "totalCount": 2,
                     "totalPages": 1
                 },
-                "status": {},
+                "status": [],
                 "datafiles": []
             },
             "result" : {
                 "data" : ["plant", "plot"]
             }
         }
+

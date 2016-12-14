@@ -1,5 +1,5 @@
 
-# Overview
+# Group Markerprofiles
 
 For the purposes of this API, the definition of markerprofile is *the allele calls for a specified germplasm line, for all markers, for a specified set of genotyping experiments or all experiments.*
 
@@ -12,7 +12,3 @@ Basic concepts in the **Breeding API**:
 - *marker*: a DNA sequence polymorphism, potentially localized to a single genomic location
 - *allele*: one of the two possible states of a marker in each haploid chromosome complement of a specified germplasm, as determined in a specified experiment. A diploid organism has two alleles per marker.
 - *missing*: a germplasm/marker/experiment combination for which no allele result is available, whether it was tested for or not
-
-
-
-

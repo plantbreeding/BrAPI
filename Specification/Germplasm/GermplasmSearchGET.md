@@ -3,7 +3,7 @@
 Implemented by: GnpIS, Germinate (GET only)
 
 Notes:
-The germplasm and gerplasm MCPD calls were merged.  The MCPD fields are optional and indicated as such with the [MCPD] prefix in the response fields. Please use the 'features' hash of the 'calls' call to communicate with clients as to whether MCPD is supported by your implementation.
+The germplasm and gerplasm MCPD calls were merged.  The MCPD fields are optional and indicated as such with the [MCPD] prefix in the description field of the 'Response data types' table. Please use the 'features' hash of the 'calls' call to communicate with clients as to whether MCPD is supported by your implementation.
 
 Adresses these needs:
 1. General germplasm search mechanism that accepts POST for complex queries
@@ -55,7 +55,7 @@ Use GET when parameter size is less than 2K bytes.
 
         {
             "metadata": {
-                "status": null,
+                "status": [],
                 "datafiles": [],
                 "pagination": {
                     "pageSize": 10,

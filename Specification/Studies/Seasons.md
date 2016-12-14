@@ -13,11 +13,11 @@ Call to retrive all seasons (or years) in the database. (Added by Jan-Erik and L
             "metadata" : {
                 "pagination": {
                     "pageSize": 10,
-                    "currentPage": 1,
+                    "currentPage": 0,
                     "totalCount": 10,
                     "totalPages": 1
                 },
-                "status": {},
+                "status": [],
                 "datafiles": []
             },
             "result" : { 

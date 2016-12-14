@@ -22,7 +22,7 @@ Use POST for large queries (>2K bytes).
 
         {
             "metadata": {
-                "status": null,
+                "status": [],
                 "datafiles": [],
                 "pagination": {
                     "pageSize": 10,
@@ -95,3 +95,4 @@ Use POST for large queries (>2K bytes).
                 ]
             }
         }
+

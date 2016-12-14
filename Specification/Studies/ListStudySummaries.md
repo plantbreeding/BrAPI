@@ -30,11 +30,11 @@ Get list of studies
             "metadata": {
                 "pagination": {
                     "pageSize": 2,
-                    "currentPage": 1,
+                    "currentPage": 0,
                     "totalCount": 100,
                     "totalPages": 50
                 },
-                "status" : {},
+                "status" : [],
                 "datafiles": []
             },
             "result": {

@@ -6,7 +6,7 @@ Implemented By:
 ###### Response data types
 |Variable|Datatype|Description|Required|  
 |------|------|------|:-----:|
-|metadata|object|pagination, status|Y|
+|metadata|object|pagination, status, datafiles|Y|
 |pagination|object|pageSize, currentPage, totalCount, totalPages|Y|
 |status|list|code, message|Y|
 |result|object|data|Y|
@@ -25,10 +25,15 @@ Implemented By:
 + Response 200 (application/json)
 
         {
-            "metadata": {
-                "status": {},
+            "metadata": {                
+                "pagination": {
+                    "pageSize": 100,
+                    "currentPage": 1,
+                    "totalCount": 1,
+                    "totalPages": 1
+                },
+                "status": [],
                 "datafiles": [],
-                "pagination": {}
             },
             "result": {
                 "markerDbId": "1185",

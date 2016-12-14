@@ -12,12 +12,16 @@ Get trial by id.
 
         {
             "metadata": {
-                "pagination" : null,
-                "status" : {},
+                "pagination" : { 
+                    "pageSize":0, 
+                    "currentPage":0, 
+                    "totalCount":0, 
+                    "totalPages":0 
+                },
+                "status" : [],
                 "datafiles": []
             },
             "result": {
-
                 "trialDbId" : 1,
                 "trialName" : "InternationalTrialA",
                 "programDbId": 27,

@@ -20,7 +20,7 @@ Values for all attributes by default.
                     "totalCount": 10,
                     "totalPages": 1
                 },
-                "status": null,
+                "status": [],
                 "datafiles": []
             },
             "result" : [

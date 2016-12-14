@@ -47,8 +47,13 @@ More linked data:
 
         {
             "metadata": {
-                "pagination": null,
-                "status": null,
+                "pagination" : { 
+                    "pageSize":0, 
+                    "currentPage":0, 
+                    "totalCount":0, 
+                    "totalPages":0 
+                },
+                "status": [],
                 "datafiles": []
             },
             "result": {

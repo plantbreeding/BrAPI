@@ -2,7 +2,7 @@
 
 Status: ACCEPTED
 
-Implemented by: Germinate
+Implemented by: Germinate, Cassavabase
 
 Used by: Flapjack
 
@@ -18,9 +18,13 @@ Provides the number of markers on each linkageGroup and the max position on the 
             
         {
             "metadata" : {
-                "pagination" : {    
-                }
-                "status" : {},
+                "pagination" : { 
+                    "pageSize":0, 
+                    "currentPage":0, 
+                    "totalCount":0, 
+                    "totalPages":0
+                },
+                "status" : [],
                 "datafiles": []
             },
             "result": {
@@ -42,3 +46,4 @@ Provides the number of markers on each linkageGroup and the max position on the 
                 ]
             }
         }
+

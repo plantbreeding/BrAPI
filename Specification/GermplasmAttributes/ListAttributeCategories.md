@@ -18,7 +18,7 @@ List all available attribute categories.
                     "totalCount": 10,
                     "totalPages": 1
                 },
-                "status": null,
+                "status": [],
                 "datafiles": []
             },
             "result" : { 

@@ -8,8 +8,13 @@ Call to invoke for saving the measurements (observations) collected from field f
 
         {
             "metadata": {
-                "pagination" : null,
-                "status" : {},
+                "pagination" : { 
+                    "pageSize":0, 
+                    "currentPage":0, 
+                    "totalCount":0, 
+                    "totalPages":0 
+                },
+                "status" : [],
                 "datafiles": []
             },
             "result" : {
@@ -68,8 +73,8 @@ Call to invoke for saving the measurements (observations) collected from field f
 
         {
             "metadata": {
-                "status": {
-                    "message": "Could not update observation values. Invalid data."
-                }
+                "status": [ {
+                    "message": "Could not update observation values. Invalid data.", "code":"27"
+                } ]
             }
         }

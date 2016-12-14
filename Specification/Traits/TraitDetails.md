@@ -15,8 +15,13 @@ Retrieve the variables associated to a trait
 
         {
             "metadata": {
-                "pagination": {},
-                "status": {},
+                "pagination" : { 
+                    "pageSize":0, 
+                    "currentPage":0, 
+                    "totalCount":0, 
+                    "totalPages":0 
+                },
+                "status": [],
                 "datafiles": []
             },
             "result": {
