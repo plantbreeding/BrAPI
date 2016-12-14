@@ -74,7 +74,7 @@ Call to invoke for saving the measurements (observations) collected from field f
         {
             "metadata": {
                 "status": [ {
-                    "message": "Could not update observation values. Invalid data.", "code":27
+                    "message": "Could not update observation values. Invalid data.", "code":"27"
                 } ]
             }
         }
