@@ -4,7 +4,8 @@ Repository for version control of the BrAPI specification
 ### INTRODUCTION
 
 
-The Breeding API specifies a standard interface for plant phenotype/genotype databases to serve their data to crop breeding applications. It is a shared, open API, to be used by all data providers and data consumers who wish to participate. Initiated in May 2014, it is currently in an actively developing state, so now is the time for potential participants to help shape the specifications to ensure their needs are addressed. The listserve for discussions and announcements is at http://mail2.sgn.cornell.edu/cgi-bin/mailman/listinfo/plant-breeding-api . Additional documentation is in the Github wiki.
+The Breeding API specifies a standard interface for plant phenotype/genotype databases to serve their data to crop breeding applications. It is a shared, open API, to be used by all data providers and data consumers who wish to participate. Initiated in May 2014, it is currently in an actively developing state, so now is the time for potential participants to help shape the specifications to ensure their needs are addressed. The listserve for discussions and announcements is [here](http://mail2.sgn.cornell.edu/cgi-bin/mailman/listinfo/plant-breeding-api). Additional documentation is in the [Github wiki](https://github.com/plantbreeding/API/wiki).
+For demos and implementations examples checkout [apiary documentation](http://docs.brapi.apiary.io/).
 
 
 Call | Description 
@@ -20,7 +21,7 @@ Call | Description
 [Markers](https://github.com/plantbreeding/API/blob/master/Specification/Markers/Markers.md) |  N.A.
 [ObservationVariables](https://github.com/plantbreeding/API/blob/master/Specification/ObservationVariables/ObservationVariables.md) | Observation variable data response
 [Phenotypes](https://github.com/plantbreeding/API/blob/master/Specification/Phenotypes/Phenotypes.md) | API to retrieve data (phenotype, environment variables) from studies. While the study calls focus on one study, calls in this section are for cross-study phenotypic data retrieval.
-[Programs](https://github.com/plantbreeding/API/blob/master/Specification/Programs/Programs.md) | N.A.
+[Programs](https://github.com/plantbreeding/API/blob/master/Specification/Programs/Programs.md) | Call to retrieve a list of programs.
 [Samples](https://github.com/plantbreeding/API/blob/master/Specification/Samples/Samples.md) | API methods for traking/managing plant samples and realted metatdata. Sample in the context of these BrAPI calls, is defined as the actual bilogical plant material collected from the field.
 [Studies](https://github.com/plantbreeding/API/blob/master/Specification/Studies/Studies.md) | Study is defined as a phenotyping experiment conducted at a single geographic location. One Trial can have multiple studies conducted (e.g. multi location international trials).
 [Traits](https://github.com/plantbreeding/API/blob/master/Specification/Traits/Traits.md) | Services related to trials. Trials comprise of multiple studies.
