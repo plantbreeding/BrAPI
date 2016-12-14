@@ -8,7 +8,7 @@ List all the observation variables measured in the study.
 
         {
             "metadata": {
-	        "pagination" : { 
+                "pagination" : { 
                     "pageSize":2, 
                     "currentPage":0, 
                     "totalCount":10, 

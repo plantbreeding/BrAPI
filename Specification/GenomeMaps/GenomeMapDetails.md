@@ -23,7 +23,7 @@ Provides the number of markers on each linkageGroup and the max position on the 
                     "currentPage":0, 
                     "totalCount":0, 
                     "totalPages":0
-		},
+                },
                 "status" : [],
                 "datafiles": []
             },

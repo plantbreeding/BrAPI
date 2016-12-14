@@ -35,7 +35,7 @@ For logout, returns an empty resource. A token to remove could be provided (amdi
                     "currentPage":0, 
                     "totalCount":0, 
                     "totalPages":0 
-		},
+                },
                 "status" : [],
                 "datafiles": []
                 },

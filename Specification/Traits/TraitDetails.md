@@ -15,7 +15,7 @@ Retrieve the variables associated to a trait
 
         {
             "metadata": {
-	        "pagination" : { 
+                "pagination" : { 
                     "pageSize":0, 
                     "currentPage":0, 
                     "totalCount":0, 
