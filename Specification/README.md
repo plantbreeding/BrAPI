@@ -32,7 +32,7 @@ The status object contains a list of objects with the keys "code" and "message".
 
 The datafiles key contains a list of strings. The empty list should be returned if no datafiles are present.
 
-The payload data is contained in a key called "result". This should usually contain a list; pagination will happen over items in this list.
+The payload data is contained in a key called "result", containing an object with the response. If there is a paginated response, a "data" key will be present, with a list value, which will be paginated over (showing pageSize elements of the currentPage).
 
 Additional documentation is in the [GitHub wiki](https://github.com/plantbreeding/documentation/wiki). 
 See especially the [Best Practices and Conventions]
