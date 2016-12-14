@@ -56,9 +56,7 @@ The format of the tsv response can be found on GitHub (https://github.com/plantb
                     "totalPages": 0
                 },
                 "status": [],
-                "datafiles": [
-                    { "url": "https://my-fancy-server/files/allelematrix-1234.tsv" }
-                ]
+                "datafiles": [ "https://my-fancy-server/files/allelematrix-1234.tsv" ]
             },
             "result" : {
                 "data" : []
