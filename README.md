@@ -10,19 +10,19 @@ For demos and implementations examples checkout [apiary documentation](http://do
 
 Call | Description 
 ------------ | -------------
-[Authentication](https://github.com/plantbreeding/API/blob/master/Specification/Authentication/Authentication.md) | This resource refers to the authentication mechanism for the API.
-[Calls](https://github.com/plantbreeding/API/blob/master/Specification/Calls/Calls.md) | N.A.
-[Crops](https://github.com/plantbreeding/API/blob/master/Specification/Crops/ListCrops.md) | For multi crop systems this is a useful call to list all the supported crops.
-[GenomeMaps](https://github.com/plantbreeding/API/blob/master/Specification/GenomeMaps/README.md) | Retrieving genetic or physical maps
-[Germplasm](https://github.com/plantbreeding/API/blob/master/Specification/Germplasm/GermplasmSearchGET.md) |  N.A.
-[GermplasmAttributes](https://github.com/plantbreeding/API/blob/master/Specification/GermplasmAttributes/ListAttributesByAttributeCategoryDbId.md) | N.A.
-[Locations](https://github.com/plantbreeding/API/blob/master/Specification/Locations/Locations.md) | Location calls.
+[Authentication](https://github.com/plantbreeding/API/blob/master/Specification/Authentication/) | This resource refers to the authentication mechanism for the API.
+[Calls](https://github.com/plantbreeding/API/blob/master/Specification/Calls/) | N.A.
+[Crops](https://github.com/plantbreeding/API/blob/master/Specification/Crops/) | For multi crop systems this is a useful call to list all the supported crops.
+[GenomeMaps](https://github.com/plantbreeding/API/blob/master/Specification/GenomeMaps/) | Retrieving genetic or physical maps
+[Germplasm](https://github.com/plantbreeding/API/blob/master/Specification/Germplasm/) |  N.A.
+[GermplasmAttributes](https://github.com/plantbreeding/API/blob/master/Specification/GermplasmAttributes/) | N.A.
+[Locations](https://github.com/plantbreeding/API/blob/master/Specification/Locations/) | Location calls.
 [MarkerProfiles](https://github.com/plantbreeding/API/blob/master/Specification/MarkerProfiles/) | For the purposes of this API, the definition of markerprofile is *the allele calls for a specified germplasm line, for all markers, for a specified set of genotyping experiments or all experiments.*
-[Markers](https://github.com/plantbreeding/API/blob/master/Specification/Markers/MarkerSearch.md) |  N.A.
+[Markers](https://github.com/plantbreeding/API/blob/master/Specification/Markers/) |  N.A.
 [ObservationVariables](https://github.com/plantbreeding/API/blob/master/Specification/ObservationVariables/) | Observation variable data response
-[Phenotypes](https://github.com/plantbreeding/API/blob/master/Specification/Phenotypes/Phenotypes.md) | API to retrieve data (phenotype, environment variables) from studies. While the study calls focus on one study, calls in this section are for cross-study phenotypic data retrieval.
-[Programs](https://github.com/plantbreeding/API/blob/master/Specification/Programs/ProgramSearch.md) | Call to retrieve a list of programs.
+[Phenotypes](https://github.com/plantbreeding/API/blob/master/Specification/Phenotypes/) | API to retrieve data (phenotype, environment variables) from studies. While the study calls focus on one study, calls in this section are for cross-study phenotypic data retrieval.
+[Programs](https://github.com/plantbreeding/API/blob/master/Specification/Programs/) | Call to retrieve a list of programs.
 [Samples](https://github.com/plantbreeding/API/blob/master/Specification/Samples/) | API methods for traking/managing plant samples and realted metatdata. Sample in the context of these BrAPI calls, is defined as the actual bilogical plant material collected from the field.
-[Studies](https://github.com/plantbreeding/API/blob/master/Specification/Studies/StudyDetails.md) | Study is defined as a phenotyping experiment conducted at a single geographic location. One Trial can have multiple studies conducted (e.g. multi location international trials).
+[Studies](https://github.com/plantbreeding/API/blob/master/Specification/Studies/) | Study is defined as a phenotyping experiment conducted at a single geographic location. One Trial can have multiple studies conducted (e.g. multi location international trials).
 [Traits](https://github.com/plantbreeding/API/blob/master/Specification/Traits/) | Services related to trials. Trials comprise of multiple studies.
 [Trials](https://github.com/plantbreeding/API/blob/master/Specification/Trials/) | Services related to trials. Trials comprise of multiple studies.
