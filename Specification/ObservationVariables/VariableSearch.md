@@ -9,6 +9,8 @@ Search observation variables.
 + Request (application/json)
 
         {
+            "page": 0,
+            "pageSize": 2,
             "observationVariableDbIds" : ["obs-variable-id1", "obs-variable-id1"],
             "ontologyXrefs" : ["CO:123", "CO:456"],
             "ontologyDbIds" : ["CO_334:0100632"],
@@ -16,7 +18,7 @@ Search observation variables.
             "scaleDbIds" : ["scale-1", "scale-2"],
             "names" : ["caro_spectro"],
             "datatypes" : ["numeric"],
-            "classes" : []
+            "traitClasses" : ["Phenological", "Physiological"]
         }
 
 + Response 200 (application/json)
@@ -25,7 +27,7 @@ Search observation variables.
             "metadata": {
                 "pagination": {
                     "pageSize": 2,
-                    "currentPage": 1,
+                    "currentPage": 0,
                     "totalCount": 300,
                     "totalPages": 100
                 },
