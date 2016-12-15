@@ -16,7 +16,7 @@ API requests are structured as "\<server\>/brapi/v1/",
 where "v1" is the version number of the API, followed by the command.  
 Example: /brapi/v1/markerprofiles/2939 
 
-To distinguish between multiple databases or crops available from the same server, include the database or crop name as part of the "\<server\>" identifier.
+To distinguish between multiple databases or crops available from the same server, include the database or crop name as part of the "\<server\>" identifier. An arbitrary number of levels can be inserted between the domain name and the crops or brapi level, if needed.
 
 Example: superBreedingServer.org/maize/brapi/v1/markerprofiles/2939
 
