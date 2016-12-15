@@ -44,7 +44,8 @@ HTTP error codes are used as required, e.g., 200 for ok, 404 for page not found,
 
 All capturable errors should be responded to with the appropriate HTTP error code and a well forumlated JSON structure that includes a message describing the error.  The error code is intedended as a debugging tool for the service provider.  An example:
 
-+ Response 400 (application/json)    
++ Response 400 (application/json) 
+
         { 
             "metadata" : {
                  "pagination": {
