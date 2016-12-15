@@ -76,7 +76,7 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
                     {
                         "donorAccessionNumber": "",
                         "donorInstituteCode": "",
-                        "germplasmPUI": ""
+                        "donorGermplasmPUI": ""
                     }
                 ],
                 "acquisitionDate": "19470131"
