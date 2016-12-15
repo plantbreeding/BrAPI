@@ -21,7 +21,7 @@ Retrieve the details of the study required for field data collection. Includes a
 
 + Parameters
     + studyDbId (required, string, `1`) ... Identifier of the study. Usually a number, could be alphanumeric.
-    
+    + format (optional, string, `tsv`) ... The format parameter will cause the data to be dumped to a file in the specified format. Currently, tsv and csv are supported.    
 + Response 200 (application/json)
 
         {
