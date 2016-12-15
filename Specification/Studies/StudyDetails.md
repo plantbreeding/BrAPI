@@ -1,5 +1,5 @@
 ## Study Details [/brapi/v1/studies/{studyDbId}]
-Scope: CORE.
+Scope: PHENOTYPING.
 Status: ACCEPTED.
 Implemented by: Germinate, GnpIS
 

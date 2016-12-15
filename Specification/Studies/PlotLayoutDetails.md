@@ -1,5 +1,5 @@
 ## Plot Layout Details [/brapi/v1/studies/{studyDbId}/layout]
-Scope: CORE.
+Scope: PHENOTYPING.
 Status: ACCEPTED.
 Implementation target date: PAG2016
 Notes: the plot information.

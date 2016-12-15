@@ -1,5 +1,7 @@
 ## Study Observation Variables [/brapi/v1/studies/{studyDbId}/observationVariables]
 
+Scope: PHENOTYPING
+
 List all the observation variables measured in the study.
 
 Refer to the data type definition of variables in `/Specification/ObservationVariables/README.md`.

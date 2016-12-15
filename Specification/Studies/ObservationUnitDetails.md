@@ -2,6 +2,8 @@
 
 The main API call for field data collection, to retrieve all the observation units within a study.
 
+Scope: PHENOTYPING
+
 ### Get all observation units [GET]
 
 + Parameters

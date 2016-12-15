@@ -1,6 +1,6 @@
 ## Get Trial By Id [/brapi/v1/trials/{trialDbId}]
 
-Scope: CORE.
+Scope: PHENOTYPING.
 Status: ACCEPTED.
 Implementation target date: PAG2016.
 

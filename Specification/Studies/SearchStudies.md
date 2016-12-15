@@ -2,6 +2,8 @@
 
 Search studies
 
+Scope: PHENOTYPING
+
 ### Search studies [POST] 
 
 + Request (application/json)

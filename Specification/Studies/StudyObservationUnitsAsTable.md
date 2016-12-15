@@ -1,5 +1,5 @@
 ## Study Observation Units as a Table [/brapi/v1/studies/{studyDbId}/table] 
-Scope: CORE.
+Scope: PHENOTYPING.
 Status: ACCEPTED. Implemented in Cassavabase, HIDAP and Germinate.
 Notes: 
 Implementation target date: after PAG2016

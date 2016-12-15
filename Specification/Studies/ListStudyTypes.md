@@ -2,6 +2,7 @@
 
 Call to retrieve the list of study types.
 
+Scope: PHENOTYPING.
 Implementation target date: PAG2016
 
 ### List study types [GET]

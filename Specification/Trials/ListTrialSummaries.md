@@ -1,6 +1,6 @@
 ## List Trial Summaries 
 
-Scope: CORE.
+Scope: PHENOTYPING.
 Status: ACCEPTED.
 Implementation target date: PAG2016.
 
