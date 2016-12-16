@@ -67,18 +67,16 @@ All capturable errors should be responded to with the appropriate HTTP error cod
 
 Some calls initiate asynchronous processing, which take an indeterminate amount of time to complete. For example, the allelematrix-search may initiate a background process that extracts the requested data from a data warehouse. In this case, 
 
-* The status array of the call's response will a key called **asynchid**, the value of which is an id that will be used in additional calls; 
-* The resource from which the response was receive will have a child resource called **status** to which the **asynchid** is a uri parameter; a GET on this resource will indicate the current status of the job; 
-* The status array of the response from the status resource will include a key called **asynchstatus** that will indicate the following possible states with the specified meanings: 
-        * STARTED: The job has been initiated and has not yet been touched by the background process; 
+* The status array of the call's response will contain a status object in which the value of the **code** key is **asynchid**, the value of the **message** key is an id that will be used in additional calls; 
+* The resource from which the response was received will have a child resource called **status** to which the message value of the **asynchid** code is a uri parameter; a GET on this resource will indicate the current status of the job; 
+* The status array of the response from the status resource will include a status object in which the key is called **asynchstatus** and the **message** key's value indicatse the following possible states with the specified meanings: 
+        * PENDING: The background process has not started to work on the job; 
         * INPROCESS: The background process is working on the job;
         * FINISHED: The job has completed succesfully, in which case:
-                * The datafiles list of the response with this **asynchstatus** is required to have at least one entry that is a file path or uri to the directory or file of interest; and/or
+                * The datafiles list of the response with this **asynchstatus** message value is required to have at least one entry that is a file path or uri to the directory or file of interest; and/or
                 * The data array in the result contains the matrix data;
         * FAILED: The job has failed;
-* In the case where the **asynchstatus** is FAILED, the status array of the response from the status resource may, but is not requried, to have a key called **asynchfailure**, the value of which indicates the cause of the job failure (some systems may prefer to use email notification either instead of or in addition to this mechanism). 
-        
- 
+* In the case where the message value of the **asynchstatus** code is FAILED, the status array may have, but is not requried to have, a status object in which the **code** key is **asynchfailure** and the **message** key indicates the cause of the job failure (some systems may prefer to use email notification either instead of or in addition to this mechanism). 
 
 For example, a call to allelematrix-search might give the following response: 
 
@@ -91,8 +89,9 @@ For example, a call to allelematrix-search might give the following response:
             "totalCount": 0,
             "totalPages": 0
         },
-        "status": ["asynchid" : "extract_2016-12-15-20-37-015"],
-        "datafiles": [/shared_files/app_test/file_bundle/crops/rice/extract/output/721]
+        "status": [{"code": "asynchid", 
+                     "message" : "extract_2016-12-15-20-37-015"}],
+        "datafiles": []
     },
     "result" : { 
         "data": []
@@ -111,16 +110,15 @@ Given this response, a GET on the resource **/allelematrix-search/status/extract
             "totalCount": 0,
             "totalPages": 0
         },
-        "status": ["asycnstatus" : "INPROCESS"],
-        "datafiles": [/shared_files/app_test/file_bundle/crops/rice/extract/output/721]
+        "status": [{"code" : "asycnstatus" ,
+                     "message" : "FINISHED"}],
+        "datafiles": ["/shared_files/app_test/file_bundle/crops/rice/extract/output/721"]
     },
     "result" : { 
         "data": []
     }
 }
 </code>
-
-The above example shows the folder path to the output in the datafiles array of both the initial request and the subsequent call on the status resource. However, the only case in which it is required to populate either the datafiles array and/or the data array is when the value of **asynchstatus** is FINISHED.  
 
 ### API call categories:  
 Scope: "CORE", "PHENOTYPING", "GENOTYPING", "OTHER".  
