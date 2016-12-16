@@ -11,7 +11,7 @@ For the requested Germplasm Id and/or Extract Id, returns the Markerprofile Id a
 
 ### Retrieve Markerprofile Ids [GET]
 + Parameters
-    + markerprofileDbId (optional, string, `993`) ... The server's internal id for the Germplasm ID, as returned by the **Find markerprofile by Germplasm** service.
+    + germplasmDbId (optional, string, `993`) ... The server's internal id for the Germplasm ID, as returned by the **Find markerprofile by Germplasm** service.
     + studyDbId (optional, string, `111`) ... The server's internal id for the StudyDbId
     + sampleDbId (optional, string, `184`) ... The server's internal id for the SampleDbId
     + extractDbId (optional, string, `84`) ... The server's internal id for the ExtractDbId
