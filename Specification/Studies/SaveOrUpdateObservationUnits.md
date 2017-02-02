@@ -1,5 +1,6 @@
 ### Save Or Update Observation Units [POST]
 Call to invoke for saving the measurements (observations) collected from field for all the observation units.
+Scope: PHENOYTPING.
 
 + Parameters
     + observationLevel (required, string, `plot`) ... The granularity level of observation units.

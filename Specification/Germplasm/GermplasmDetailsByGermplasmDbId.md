@@ -1,7 +1,7 @@
 ## Germplasm Details by germplasmDbId [/brapi/v1/germplasm/{id}]
 Scope: CORE. Status: ACCEPTED.  
 Implementation target date: PAG2016
-Implemented by: Tripal Brapi module, Germinate
+Implemented by: Tripal Brapi module, Germinate, Cassavabase
 
 Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport Data. The MCPD fields are optional and marked with the prefix [MCPD].
 
@@ -18,7 +18,7 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
 |germplasmName|string|Name of the germplasm. It can be the prefered name and does not have to be unique||
 |germplasmPUI|string|Permanent identifier (e.g. URI, DOI, LSID)||
 |pedigree|string|Cross name with optional selection history.||
-|seedSource|string|Seed source||
+|seedSource|string|Seedlot identifier||
 |synonyms|array of string|List of other germplasm name||
 |commonCropName|string|Common name for the crop (e.g. wheat, rice, maize, cassava, banana)||
 |instituteCode|string|[MCPD] Institute that has bred the material. Note: The code may consist of the 3-letter ISO 3166 country code of the country where the institute is located plus a number (e.g. COL001) as recommended by FAO WIEWS |Y|
@@ -58,7 +58,7 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
                 "germplasmName": "Pahang",
                 "germplasmPUI": "http://www.crop-diversity.org/mgis/accession/01BEL084609",
                 "pedigree": "TOBA97/SW90.1057",
-                "germplasmSeedSource": "Female GID:4/Male GID:4",
+                "seedSource": "ITC0609-2016-77",
                 "synonyms": [ ],
                 "commonCropName": "banana",
                 "instituteCode": "01BEL084",
@@ -76,7 +76,7 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
                     {
                         "donorAccessionNumber": "",
                         "donorInstituteCode": "",
-                        "germplasmPUI": ""
+                        "donorGermplasmPUI": ""
                     }
                 ],
                 "acquisitionDate": "19470131"

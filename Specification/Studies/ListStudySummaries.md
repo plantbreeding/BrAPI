@@ -1,5 +1,5 @@
 ## List Study Summaries [/brapi/v1/studies-search?studyType={studyType}&seasonDbId={seasonDbId}&locationDbId={locationDbId}&programDbId={programDbId}&germplasmDbIds={germplasmDbIds}&observationVariableDbIds={observationVariableDbIds}&pageSize={pageSize}&page={page}&active={active}&sortBy={sortBy}&sortOrder={sortOrder}]
-Scope: CORE.
+Scope: PHENOTYPING.
 Status: ACCEPTED.
 Implementation target date: PAG2016.
 

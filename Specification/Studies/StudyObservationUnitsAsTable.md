@@ -1,5 +1,5 @@
 ## Study Observation Units as a Table [/brapi/v1/studies/{studyDbId}/table] 
-Scope: CORE.
+Scope: PHENOTYPING.
 Status: ACCEPTED. Implemented in Cassavabase, HIDAP and Germinate.
 Notes: 
 Implementation target date: after PAG2016
@@ -21,7 +21,7 @@ Retrieve the details of the study required for field data collection. Includes a
 
 + Parameters
     + studyDbId (required, string, `1`) ... Identifier of the study. Usually a number, could be alphanumeric.
-    
+    + format (optional, string, `tsv`) ... The format parameter will cause the data to be dumped to a file in the specified format. Currently, tsv and csv are supported.    
 + Response 200 (application/json)
 
         {

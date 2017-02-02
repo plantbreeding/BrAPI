@@ -58,7 +58,12 @@ For the requested Germplasm Id and/or Extract Id, returns the Markerprofile Id a
 
         {
             "metadata" : {
-                "pagination" : {},
+                "pagination": {
+                    "pageSize": 0,
+                    "currentPage": 0,
+                    "totalCount": 0,
+                    "totalPages": 0
+                },
                 "status" : {
                     "message" : "Unsupported notation code.",
                     "exception" : {}

@@ -16,7 +16,7 @@ API requests are structured as "\<server\>/brapi/v1/",
 where "v1" is the version number of the API, followed by the command.  
 Example: /brapi/v1/markerprofiles/2939 
 
-To distinguish between multiple databases or crops available from the same server, include the database or crop name as part of the "\<server\>" identifier.
+To distinguish between multiple databases or crops available from the same server, include the database or crop name as part of the "\<server\>" identifier. An arbitrary number of levels can be inserted between the domain name and the crops or brapi level, if needed.
 
 Example: superBreedingServer.org/maize/brapi/v1/markerprofiles/2939
 
@@ -41,6 +41,27 @@ See especially the [Best Practices and Conventions]
 ### HTTP error codes
 
 HTTP error codes are used as required, e.g., 200 for ok, 404 for page not found, 401 for not authorized, 501 for not implemented, 201 for created in a PUT, 202 for request received but not yet processed, etc.
+
+All capturable errors should be responded to with the appropriate HTTP error code and a well forumlated JSON structure that includes a message describing the error.  The error code is intedended as a debugging tool for the service provider.  An example:
+
++ Response 400 (application/json) 
+
+        { 
+            "metadata" : {
+                 "pagination": {
+                    "pageSize":0, 
+                    "currentPage":0, 
+                    "totalCount":0, 
+                    "totalPages":0 
+                },
+                "status" : [ {
+                    "message": "Unable to parse POST request",
+                    "code" : "" 
+                } ],
+                "datafiles": []
+            },
+            "result": {}
+        }
 
 ### API call categories:  
 Scope: "CORE", "PHENOTYPING", "GENOTYPING", "OTHER".  

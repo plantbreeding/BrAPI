@@ -1,5 +1,5 @@
 ## Study Details [/brapi/v1/studies/{studyDbId}]
-Scope: CORE.
+Scope: PHENOTYPING.
 Status: ACCEPTED.
 Implemented by: Germinate, GnpIS
 
@@ -36,6 +36,12 @@ More linked data:
 | location.longitude      | number          | Study location longitude                                |          |
 | location.altitude       | number          | Study location altitude in meters                       |          |
 | location.additionalInfo | object          | Additional arbitrary info on the study location         |          |
+| contacts                | array of object | List of study contacts                                  |          |
+| contacts.contactDbId    | string          | Study contact database identifier                       |          |
+| contacts.name           | string          | Study contact name                                      |          |
+| contacts.email          | string          | Study contact email                                     |          |
+| contacts.type           | string          | Study contact type (ex: Coordinator, Scientist, etc.)   |          |
+| contacts.orcid          | string          | Study contact orcid identifier (http://orcid.org)       |          |
 | additionalInfo          | object          | Additional arbitrary info on the study                  |          |
 
 ### Retrieve study details [GET]
@@ -85,6 +91,21 @@ More linked data:
                         "property2Name": "property2Value"
                     }
                 },
+                "contacts": [
+                    {
+                        "contactDbId": "C025",
+                        "name": "John Doe",
+                        "email": "j.doe@mail.com",
+                        "type": "Scientist",
+                        "orcid": "0000-0002-0607-8728"
+                    }, {
+                        "contactDbId": "C026",
+                        "name": "Dave Peters",
+                        "email": null,
+                        "type": null,
+                        "orcid": null
+                    }
+                ],
                 "additionalInfo": {
                     "studyObjective": "Increase yield",
                     "principalInvestigator": "Dr. Breeder",

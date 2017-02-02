@@ -13,7 +13,7 @@ fi
 ## You'll need to get a token (https://login.apiary.io/tokens)
 ## Storing the key in $ROOT_DIRECTORY/.bash_rc
 source ${ROOT_DIRECTORY}/.bash_rc
-echo $APIARY_API_KEY
+# echo $APIARY_API_KEY
 
 # Your apiname here; docs.$APINAME.apiary.io
 APINAME=brapi
@@ -156,6 +156,7 @@ done
 # Publish to apiary
 echo $BRAPI_FILE
 echo $APINAME
+
 apiary publish --path $BRAPI_FILE --api-name $APINAME
 
 if [ $? -ne 0 ]; then

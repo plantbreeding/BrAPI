@@ -1,5 +1,7 @@
 ### Save study Observation Units as table [POST]
 
+Scope: PHENOTYPING
+
 + Request
     
         {

@@ -1,5 +1,7 @@
 ## Study Germplasm Details [/brapi/v1/studies/{studyDbId}/germplasm?pageSize={pageSize}&page={page}]
 
+Scope: PHENOTYPING
+
 ### Study Germplasm Details [GET]
 + Parameters
     + studyDbId (required, string, `1`) ... Identifier of the study. Usually a number, could be alphanumeric.
