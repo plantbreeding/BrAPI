@@ -16,7 +16,7 @@ Scope: PHENOTYPING
                 "datafiles": []
             },
             "result" : {
-                "headerRow": [ "observationUnitDbId", "collector", "observationTimestamp", "variable1Id", "variable2Id", "variable3Id" ],
+                "headerRow": [ "observationUnitDbId", "operator", "observationTimestamp", "variable1Id", "variable2Id", "variable3Id" ],
                 "observationVariableDbIds": [ "variable1Id", "variable2Id", "variable2Id"],
                 "data" :
                 [
