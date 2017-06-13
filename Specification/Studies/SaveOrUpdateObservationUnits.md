@@ -1,6 +1,8 @@
 ### Save Or Update Observation Units [POST]
 Call to invoke for saving the measurements (observations) collected from field for all the observation units.
 
+Observation timestamp should be ISO 8601 https://www.w3.org/TR/NOTE-datetime
+
 In case where JSON data is zipped for faster transfer speed, the zipped JSON file will be listed in datafiles. The zipped file contains a JSON file with the same structure as the BrAPI call.
 
 This call can be used in conjunction with the new /media resource to upload images.
