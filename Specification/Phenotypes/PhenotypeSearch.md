@@ -9,6 +9,7 @@ Example Use cases:
 - Get all data for a specific study : {"studyDbIds" : [ "383" ]}
 - Get simple atomic phenotyping values : {"germplasmDbIds" : [ "Blabla", "34Mtp362" ], "observationVariableDbIds" : [ "37373"]}
 - Study Locations for adaptation to climat change : {"locationDbIds" : [ "383838", "MONTPELLIER" ], "germplasmDbIds" : [ "all ids for a given species"]}
+- Find phenotypes that are from after a certain timestamp
 
 ###### Response data types
 |Variable|Datatype|Description|Required|  
@@ -55,6 +56,7 @@ observationValue data type inferred from the ontology
             "programDbIds" : [ "3838", "Drought resistance CG 2020" ], // list of programs that have phenotyped this trait
             "seasonDbIds" : [ "338", "2010", "1956-2014", "2002-2003-2004", "2007 Spring" ], // (optional, text, `2001`) ... The year or Phenotyping campaign of a multiannual study (trees, grape, ...)
             "observationLevel" : "plot", // (optional, text, `plot`) ... The type of the observationUnit. Returns only the observaton unit of the specified type; the parent levels ID can be accessed through observationUnitStructure.
+            "observationTimeStampRange" : ["2015-06-16T00:53:26Z","2015-06-18T00:53:26Z"]
             "pageSize" : 100, // (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
             "page" : 1, // (optional, integer, `10`) ... Which result page is requested
         }
