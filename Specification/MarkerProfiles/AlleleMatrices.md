@@ -3,7 +3,7 @@ Status: PROPOSED.
 
 Implemented by: GOBII
 
-Used by: Flapjack (POST only)
+Used by: Flapjack
 
 This resource is used for reading and writing genomic matrices:
 + GET provides a list of available matrices, optionally filtered by study;
