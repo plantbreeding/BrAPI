@@ -17,23 +17,26 @@ This resource is used for reading and writing genomic matrices:
 
 + Response 200 (application/json)
 
-        {
-            "metadata": {   
-                "pagination": {
-                    "pageSize": 100,
-                    "currentPage": 0,
-                    "totalCount": 1,
-                    "totalPages": 1
+
+```
+   {
+      "data":[
+                {
+	             "name":"testDs1",
+                     "matrixDbId":27,
+		     "description":"a test dataset",
+                     "lastUpdated":"2017-06-12",
+  	             "studyDbId":13
                 },
-                "status": [],
-                "datafiles": []
-            },
-            "result" : { 
-                "data": [
-                    ["1", "1", "A/B"],
-                    ["1", "2", "B"],
-                    ["2", "1", "A"],
-                    ["2", "2", "A/B"]
-                ]
-            }
-        }
+                {
+                     "name":"testDs2",
+                     "matrixDbId":28,
+                     "description":"a second test dataset",
+    	             "lastUpdated":"2017-06-12",
+		     "studyDbId":13
+                }
+            ]
+   }
+```
+															   
+
