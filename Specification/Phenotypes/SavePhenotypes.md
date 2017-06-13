@@ -5,7 +5,7 @@ Observation timestamp should be ISO 8601 https://www.w3.org/TR/NOTE-datetime
 
 In case where JSON data is zipped for faster transfer speed, the zipped JSON file will be listed in datafiles. The zipped file contains a JSON file with the same structure as the BrAPI call.
 
-This call can be used in conjunction with the new /media resource to upload images.
+Images can be uploaded using this call by providing a zipfile of all images in the datafiles, along with the actual zipfile in multi-part form data.
 
 Scope: PHENOYTPING.
 
@@ -24,7 +24,12 @@ Scope: PHENOYTPING.
                     "totalPages":0 
                 },
                 "status" : [],
-                "datafiles": []
+                "datafiles": [
+                    {
+                        "file_name": "all_images.zip",
+                        "md5checksum": "A2B4C6"
+                    }
+                ]
             },
             "result" : {
                 "transactionDbId": "83748382938",
@@ -35,7 +40,6 @@ Scope: PHENOYTPING.
                         "studyDbId": 2,
                         "observations": [
                             {
-                                "observationDbId": 1,
                                 "observationVariableId": 18020,
                                 "observationVariableName": "Plant_height",
                                 "collector" : "Mr. Technician",
@@ -43,12 +47,18 @@ Scope: PHENOYTPING.
                                 "value": "11"
                             },
                             {   
-                                "observationDbId": 2,
                                 "observationVariableId": 51496,
                                 "observationVariableName": "GW100_g",
                                 "collector" : "Mr. Technician",
                                 "observationTimeStamp" : "2015-06-16T00:53:26Z",
                                 "value": "111"
+                            },
+                            {   
+                                "observationVariableId": 51497,
+                                "observationVariableName": "image",
+                                "collector" : "Mr. Technician",
+                                "observationTimeStamp" : "2015-06-16T00:53:26Z",
+                                "value": "myimage1.jpg"
                             }
                         ]
                     },
@@ -57,7 +67,6 @@ Scope: PHENOYTPING.
                         "studyDbId": 3,
                         "observations": [
                             {
-                                "observationDbId": 3,
                                 "observationVariableId": 18020,
                                 "observationVariableName": "Plant_height",
                                 "collector" : "Mr. Technician",
@@ -65,12 +74,18 @@ Scope: PHENOYTPING.
                                 "value": "22"
                             },
                             {   
-                                "observationDbId": 4,
                                 "observationVariableId": 51496,
                                 "observationVariableName": "GW100_g",
                                 "collector" : "Mr. Technician",
                                 "observationTimeStamp" : "2015-06-16T00:53:26Z",
                                 "value": "222"
+                            },
+                            {   
+                                "observationVariableId": 51497,
+                                "observationVariableName": "image",
+                                "collector" : "Mr. Technician",
+                                "observationTimeStamp" : "2015-06-16T00:53:26Z",
+                                "value": "myimage2.jpg"
                             }
                         ]
                     }
