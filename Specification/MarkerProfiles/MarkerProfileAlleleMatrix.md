@@ -20,7 +20,7 @@ This method may support asynchronous processing.
     + At least one of the following is required:
        - markerprofileDbId (string, `993`) ... Themarkerprofile db ids; for multiple, repeat the parameter.
        - markerDbId (string, `322`) ... ids of the markers; if none are specified, results are returned for all markers in the database.
-       - matrixDbId (string, '457') . . . ids of the matrix; for multiple, repeat the parameter.
+       - matrixDbId (string, `457`) . . . ids of the matrix; for multiple, repeat the parameter.
     + format (optional, string, 'tsv') ... format for the datafile to be downloaded. tsv and csv currently supported; flapjack may be supported.
     + expandHomozygotes (optional, boolean, `false`) ... Should homozygotes NOT be collapsed into a single orrucance?
     + unknownString (optional, string, `-`) ... The string to use as a representation for missing data or the reserved word "empty_string".
