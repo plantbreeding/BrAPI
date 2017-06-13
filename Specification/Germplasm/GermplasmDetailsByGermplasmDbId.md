@@ -18,7 +18,7 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
 |germplasmName|string|Name of the germplasm. It can be the prefered name and does not have to be unique||
 |germplasmPUI|string|Permanent identifier (e.g. URI, DOI, LSID)||
 |pedigree|string|Cross name with optional selection history.||
-|seedSource|string|Seedlot identifier||
+|seedSource|string|Identifier of the original lot.||
 |synonyms|array of string|List of other germplasm name||
 |commonCropName|string|Common name for the crop (e.g. wheat, rice, maize, cassava, banana)||
 |instituteCode|string|[MCPD] Institute that has bred the material. Note: The code may consist of the 3-letter ISO 3166 country code of the country where the institute is located plus a number (e.g. COL001) as recommended by FAO WIEWS |Y|
