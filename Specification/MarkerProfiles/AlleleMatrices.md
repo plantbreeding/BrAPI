@@ -9,7 +9,7 @@ This resource is used for reading and writing genomic matrices:
 + GET provides a list of available matrices, optionally filtered by study;
 + POST will provide a means for adding new matrices (content TBD).
 
-### Scores through GET [GET]
+### Matrices through GET [GET]
 
 
 + Parameters: studyDbId restricts the list of matrices to a specific study. 
