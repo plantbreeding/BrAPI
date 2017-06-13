@@ -1,9 +1,15 @@
 ### Save Or Update Observation Units [POST]
 Call to invoke for saving the measurements (observations) collected from field for all the observation units.
+
+In case where JSON data is zipped for faster transfer speed, the zipped JSON file will be listed in datafiles. The zipped file contains a JSON file with the same structure as the BrAPI call.
+
+This call can be used in conjunction with the new /media resource to upload images.
+
 Scope: PHENOYTPING.
 
 + Parameters
     + observationLevel (required, string, `plot`) ... The granularity level of observation units.
+    + format (default is JSON, but can be gzip)
     
 + Request (application/json)
 
