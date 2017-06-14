@@ -1,13 +1,17 @@
 ## Phenotype Search [/brapi/v1/phenotypes-search]
 Scope: PHENOTYPING.
 Status: ACCEPTED.
-Implementation target: 2016. Implemented for GnpIS data (https://urgi.versailles.inra.fr/ws/webresources/brapi/v1/phenotypes). 
+
+Returns a list of observationUnit with the observed Phenotypes.
+
+
+Implemented for GnpIS and PHIS data (https://urgi.versailles.inra.fr/ws/webresources/brapi/v1/phenotypes). 
 Use case: this section allows to get a dataset from multiple studies. It allows to integrate data from several databases.
 Refactor note : This call allows to get and integrate portions of multiple phenotyping data matrixes. A proposed evolution allowed to get a list of single observations, this functionality is still possible with this call by specifybing the observation variable, see below.
 Example Use cases:
-- Study a panel of germplasm accross multiple studies, search parameters : {"germplasmDbIds" : [ "Blabla", "34Mtp362" ]}
+- Study a panel of germplasm accross multiple studies, search parameters : {"germplasmDbIds" : [ "Syrah", "34Mtp362" ]}
 - Get all data for a specific study : {"studyDbIds" : [ "383" ]}
-- Get simple atomic phenotyping values : {"germplasmDbIds" : [ "Blabla", "34Mtp362" ], "observationVariableDbIds" : [ "37373"]}
+- Get simple atomic phenotyping values : {"germplasmDbIds" : [ "Syrah", "34Mtp362" ], "observationVariableDbIds" : [ "CO_345:0000043"]}
 - Study Locations for adaptation to climat change : {"locationDbIds" : [ "383838", "MONTPELLIER" ], "germplasmDbIds" : [ "all ids for a given species"]}
 
 ###### Response data types
@@ -31,6 +35,9 @@ Example Use cases:
 |treatments|array of objects|list of all the factors applied to the observation unit : fertilizer, inoculation, irrigation, etc...||
 |treatments.factor|string|the type of treatment/factor. EG: fertilizer, inoculation, irrigation, etc...||
 |treatments.modality|string|the treatment/factor descritpion. EG: low fertilizer, yellow rust inoculation, high water, etc...||
+|observationUnitXref                    |array of objects|Xref, IDs of this observation Unit in this database or other database. Handle different IDs of your individuals/plant material/seed Lot| |
+|observationUnitXref.source             |string| the source/name space of the ID, for known databases use : biosampleEBI, biosampleNCBI | Y |
+|observationUnitXref.id                 |string| ID  | Y |
 |observations|array of objects|At least one observation. See below for details on the content.|Y|
 |observations.observationDbId|string| ID or PUI (DOI, URI, LSID)||
 |observations.observationVariableDbId|string| ID or PUI (DOI, URI, LSID)|Y|
@@ -99,6 +106,11 @@ observationValue data type inferred from the ontology
                     "factor": "water regimen",
                     "modality": "water deficit"
                   }
+                ],
+                "observationUnitXref":[
+                    {"source": "biosampleEBI", "id": "SAMEA179865230"},
+                    {"source": "gnpis.lot", "id": "INRA:CoeSt6 _SMH03"}, 
+                    {"source": "kernelDB", "id": "239865"}
                 ],
                 "observations": [
                   {

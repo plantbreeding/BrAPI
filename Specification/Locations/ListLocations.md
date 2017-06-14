@@ -39,6 +39,8 @@ Get a list of locations.
                         "latitude": -21.5,
                         "longitude": 165.5,
                         "altitude": 12,
+                        "instituteName"; "INRA - GDEC",
+                        "instituteAdress"; "route foo, Clermont Ferrand, France",
                         "additionalInfo": 
                         {
                             "annualMeanRain" : "value", 
