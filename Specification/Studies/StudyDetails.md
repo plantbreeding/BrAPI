@@ -19,13 +19,15 @@ More linked data:
 | ----------------------- | --------------- | ------------------------------------------------------- | :------: |
 | studyDbId               | string          | string database identifier                              |    Y     |
 | studyName               | string          | Human readable name                                     |    Y     |
-| studyType               | string          | Human readable name                                     |          |
+| studyType               | string          | Human readable type, must be listed in studyType call   |          |
+| studyDescription        | string          | Free text descritpion, can include some tracability  	  |          |
 | seasons                 | array of string | list of seasons the trials is running                   |          |
 | trialDbId               | string          | Study trial database identifier                         |    Y     |
 | trialName               | string          | Study trial name                                        |    Y     |
 | startDate               | string          | Study start date (format YYYY-MM-DD)                    |          |
 | endDate                 | string          | Study end date (format YYYY-MM-DD)                      |          |
 | active                  | boolean         | Study active status (true/false)                        |          |
+| license                 | string          | License for data use. If using a known license like CC-BY, use the URI (https://creativecommons.org/licenses/by/4.0/) |          |
 | location                | object          | Study location metadata object                          |    Y     |
 | location.locationDbId   | string          | Study location database identifier                      |    Y     |
 | location.name           | string          | Study location name                                     |    Y     |
@@ -39,10 +41,15 @@ More linked data:
 | contacts                | array of object | List of study contacts                                  |          |
 | contacts.contactDbId    | string          | Study contact database identifier                       |          |
 | contacts.name           | string          | Study contact name                                      |          |
+| contacts.instituteName  | string          | Study contact institute name                            |          |
 | contacts.email          | string          | Study contact email                                     |          |
 | contacts.type           | string          | Study contact type (ex: Coordinator, Scientist, etc.)   |          |
 | contacts.orcid          | string          | Study contact orcid identifier (http://orcid.org)       |          |
-| additionalInfo          | object          | Additional arbitrary info on the study                  |          |
+| lastUpdate              | object          | last lastUpdate                                         |          |
+| lastUpdate.version      | string          | last version                                            |          |
+| lastUpdate.timestamp    | string          | timestamp of the last version                           |          |
+| additionalInfo          | object          | Additional arbitrary info on the study, like objectives or publications |          |
+| additionalInfo.publications  | array of string | Additional info for publications                   |          |
 
 ### Retrieve study details [GET]
 
@@ -66,6 +73,7 @@ More linked data:
                 "studyDbId": 35,
                 "studyName": "Earlygenerationtesting",
                 "studyType": "Yield study",
+                "studyDescription": "some free text description that could include scientific goal, some tracability and whatever makes sense"
                 "seasons": [
                     "2005 Winter",
                     "2008 Summer"
@@ -75,12 +83,15 @@ More linked data:
                 "startDate": "2005-06-01",
                 "endDate": "2008-12-31",
                 "active": "true",
+                "license": "https://creativecommons.org/licenses/by/4.0",
                 "location": {
                     "locationDbId": 1,
                     "name": "Ibadan",
                     "abbreviation": "IB",
                     "countryCode": "NGA",
                     "countryName": "Nigeria",
+                    "institutionName"; "INRA - GDEC",
+                    "institutionAdress"; "route foo, Clermont Ferrand, France",
                     "latitude": -21.5,
                     "longitude": 165.5,
                     "altitude": 12,
@@ -95,23 +106,29 @@ More linked data:
                     {
                         "contactDbId": "C025",
                         "name": "John Doe",
+                        "instituteName":"IRRI",
                         "email": "j.doe@mail.com",
                         "type": "Scientist",
                         "orcid": "0000-0002-0607-8728"
                     }, {
                         "contactDbId": "C026",
                         "name": "Dave Peters",
+                        "instituteName":"IRRI",
                         "email": null,
                         "type": null,
                         "orcid": null
                     }
-                ],
+                ],,
+                "lastUpdate": {
+                    "version": "1.1",
+                    "timestamp": "2015-06-16T00:53:26Z"
+                }
                 "additionalInfo": {
                     "studyObjective": "Increase yield",
                     "principalInvestigator": "Dr. Breeder",
                     "property1Name": "property1Value",
                     "property2Name": "property2Value",
-                    "property3Name": "property3Value"
+                    "publications": ["pmid:24039865287545"]
                 }
             }
         }

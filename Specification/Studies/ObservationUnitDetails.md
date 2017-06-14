@@ -39,6 +39,11 @@ Scope: PHENOTYPING
                         "X" : "1",
                         "Y" : "1",
                         "replicate": "1",
+                        "observationUnitXref":[
+                            {"source": "biosampleEBI", "id": "SAMEA179865230"},
+                            {"source": "gnpis.lot", "id": "INRA:CoeSt6 _SMH03"}, 
+                            {"source": "kernelDB", "id": "239865"}
+                        ],
                         "observations": [
                             {
                                 "observationDbId": 153453453,
