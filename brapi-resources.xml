@@ -74,4 +74,16 @@
 		</resource>
 	</category>
 
+	<category>
+		<name>Wageningen Plant Sciences, Plant Breeding BrAPI resources</name>
+		<description>Core BrAPI resources of Wageningen Plant Sciences, deployed by department of Plant Breeding.</description>
+		<logo/>
+		<resource>
+			<name>EU-SOL Tomato collection</name>
+			<base-url>https://www.eu-sol.wur.nl/webapi/tomato/brapi/v1/</base-url>
+			<logo/>
+			<description>Collection of approx. 7000 tomato accessions, mainly phenotypic but also partial genotypic information.</description>
+		</resource>
+	</category>
+
 </brapi-providers>
