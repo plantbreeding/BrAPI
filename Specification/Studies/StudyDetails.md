@@ -20,7 +20,7 @@ More linked data:
 | studyDbId               | string          | string database identifier                              |    Y     |
 | studyName               | string          | Human readable name                                     |    Y     |
 | studyType               | string          | Human readable type, must be listed in studyType call   |          |
-| studyDescription        | string          | Free text descritpion, can include some tracability  	  |          |
+| studyDescription        | string          | Free text descritpion, can include some tracability            |          |
 | seasons                 | array of string | list of seasons the trials is running                   |          |
 | trialDbId               | string          | Study trial database identifier                         |    Y     |
 | trialName               | string          | Study trial name                                        |    Y     |
