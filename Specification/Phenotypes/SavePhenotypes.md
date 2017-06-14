@@ -3,15 +3,14 @@ Call to invoke for saving the measurements (observations) collected from field f
 
 Observation timestamp should be ISO 8601 https://www.w3.org/TR/NOTE-datetime
 
-In case where JSON data is zipped for faster transfer speed, the zipped JSON file will be listed in datafiles. The zipped file contains a JSON file with the same structure as the BrAPI call.
+In case where JSON data is zipped for faster transfer speed (as in the case of the IRRI handheld definition), the zipped JSON file will be listed in datafiles. The zipped file contains a JSON file with the same structure as the BrAPI call. In this case a format parameter should be passed as well.
 
 Images can be uploaded using this call by providing a zipfile of all images in the datafiles, along with the actual zipfile in multi-part form data.
 
 Scope: PHENOYTPING.
 
 + Parameters
-    + observationLevel (required, string, `plot`) ... The granularity level of observation units.
-    + format (default is JSON, but can be zip) ... In case where JSON data is zipped for faster transfer speed, the zipped JSON file will be listed in datafiles. The zipped file contains a JSON file with the same structure as the BrAPI call.
+    + format (default is JSON, but can be zip) ... In case where JSON data is zipped for faster transfer speed (as in the case of the IRRI handheld definition), the zipped JSON file will be listed in datafiles. The zipped file contains a JSON file with the same structure as the BrAPI call.
     
 + Request (application/json)
 
@@ -24,12 +23,7 @@ Scope: PHENOYTPING.
                     "totalPages":0 
                 },
                 "status" : [],
-                "datafiles": [
-                    {
-                        "file_name": "all_images.zip",
-                        "md5checksum": "A2B4C6"
-                    }
-                ]
+                "datafiles": [ "all_images.zip" ]
             },
             "result" : {
                 "transactionDbId": "83748382938",
