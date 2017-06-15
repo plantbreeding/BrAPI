@@ -22,14 +22,36 @@ Example: superBreedingServer.org/maize/brapi/v1/markerprofiles/2939
 
 ### Structure of the response object:
 
-The return objects are encoded in JSON. The response consists of three components:
+The return objects are encoded in JSON. The response consists of:
 + A "metadata" key containing pagination, status, and file information;
 + A "result" key that can contain:
   + Arbitrary properties; and/or
   + A "data" key containing an array of objects of the same type.
 
 
+#### The Metadata Key
 
+The metadata key is tructured as followed:
+
+
+````
+{
+  "metadata" : {
+      "pagination" : {
+            "totalCount" : 0,
+	     "pageSize" : 0,
+	     "totalPages" : 0,
+	     "currentPage" : 0
+	     },
+       "status" : [{
+                      "code" : "asynchstatus",
+	              "message" : "PENDING"
+		   }],
+       "datafiles" : [/mnt/local/matrix_01.csv,
+                      /mnt/local/matrix_02.csv]
+	}, . . . 
+}
+````
 
 
 The response always consists of a "metadata" key that minimally 
