@@ -40,8 +40,45 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
     + id (required, string, `382`) ... germplasmDbId - the internal id of the germplasm
     
 + Response 200 (application/json)
-
-        {
+## context can be external file; this would make reuse easier.
+{
+        "@context": {
+"@id": "http://www.cropontology.org/rdf/CO_010:0000044"
+            "xsd": "http://www.w3.org/2001/XMLSchema#",
+            "germplasmDbId": {
+                "@id"
+                "@type": "xsd:string"
+            },
+            "biologicalStatusOfAccessionCode": {
+                "@id": "http://www.cropontology.org/rdf/CO_020:0000075",
+                "@type": "xsd:string"
+            },
+            "collectingOrAcquisitionSourceCode": {
+                "@id": "http://www.cropontology.org/rdf/CO_020:0000076",
+                "@type": "xsd:string"
+            },
+            "instituteCode": {
+                "@id": "http://www.cropontology.org/rdf/CO_020:0000084",
+                "@type": "xsd:string"
+            },
+#3-letter ISO 3166-1 | xmlns:gn="http://www.geonames.org/ontology#"
+            "countryOfOriginCode": {
+                "@id": "http://http://www.cropontology.org/rdf/CO_020:0000085",
+                "@type": "xsd:string"
+            },
+            "latitude": {
+                "@id": "http://schema.org/latitude",
+                "@type": "xsd:float"
+            },
+            "longitude": {
+                "@id": "http://schema.org/longitude",
+                "@type": "xsd:float"
+            },
+            "acquisitionDate": {
+                "@id": "http://www.w3.org/2002/12/cal/ical#date",
+                "@type": "xsd:dateTime"
+            }
+        },
             "metadata": {
                 "status": [],
                 "datafiles": [],
@@ -64,7 +101,7 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
                 "commonCropName": "banana",
                 "instituteCode": "01BEL084",
                 "instituteName": "ITC",
-                "biologicalStatusOfAccessionCode": 412,
+                "biologicalStatusOfAccessionCode": "412 hybrid",
                 "countryOfOriginCode": "UNK",
                 "typeOfGermplasmStorageCode": 10,
                 "genus": "Musa",
@@ -81,7 +118,9 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
                         "donorGermplasmPUI": ""
                     }
                 ],
-                "acquisitionDate": "19470131"
+                "acquisitionDate": "19470131",
+                "latitude": "40.75",
+                "longitude": "73.98"
             }
         }
-        
+} 
