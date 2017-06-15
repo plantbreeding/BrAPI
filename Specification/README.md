@@ -53,11 +53,11 @@ The metadata key is structured as followed:
 }
 ````
 
-+  *pagination*: If the response is a single record that doesn't require pagination, then the value for the "pagination" key is returned with all the keys set to zero.  When the results are paginated, the keys "pageSize", "currentPage", "totalCount", "totalPages" contain the appropriate values. Pages are zero indexed, so the first page will be page 0 (zero). (For the user interface, this may be adjusted by adding 1).
++  **pagination**: If the response is a single record that doesn't require pagination, then the value for the "pagination" key is returned with all the keys set to zero.  When the results are paginated, the keys "pageSize", "currentPage", "totalCount", "totalPages" contain the appropriate values. Pages are zero indexed, so the first page will be page 0 (zero). (For the user interface, this may be adjusted by adding 1).
 
-+ *status*: The status object contains a list of objects with the keys "code" and "message". If no status is reported, the empty list should be returned.
++ **status**: The status object contains a list of objects with the keys "code" and "message". If no status is reported, the empty list should be returned.
 
-+ *datafiles*: The datafiles key contains a list of strings. The empty list should be returned if no datafiles are present.
++ **datafiles**: The datafiles key contains a list of strings. The empty list should be returned if no datafiles are present.
 
 The payload data is contained in a key called "result", containing an object with the response. If there is a paginated response, a "data" key will be present, with a list value, which will be paginated over (showing pageSize elements of the currentPage).
 
