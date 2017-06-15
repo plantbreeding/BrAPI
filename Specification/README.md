@@ -30,9 +30,52 @@ the keys "pageSize", "currentPage", "totalCount", "totalPages" contain the appro
 
 The status object contains a list of objects with the keys "code" and "message". If no status is reported, the empty list should be returned.
 
-The datafiles key contains a list of strings. The empty list should be returned if no datafiles are present.
+The datafiles key contains a list of objects. The empty list should be returned if no datafiles are present. Each object contains a "file" and "md5checksum" key.
 
 The payload data is contained in a key called "result", containing an object with the response. If there is a paginated response, a "data" key will be present, with a list value, which will be paginated over (showing pageSize elements of the currentPage).
+
+An Example:
++ Response 400 (application/json) 
+
+        { 
+            "metadata" : {
+                 "pagination": {
+                    "pageSize":0, 
+                    "currentPage":0, 
+                    "totalCount":0, 
+                    "totalPages":0 
+                },
+                "status" : [
+                    {
+                        "message": "Success",
+                        "code" : "200"
+                    },
+                    {
+                        "message": "Module Loaded",
+                        "code" : "info"
+                    }
+                ],
+                "datafiles": [
+                    {
+                        "file" : "https://myserver.org/file1.tsv",
+                        "md5checksum" : "A2B3C4
+                    }
+                ]
+            },
+            "result": {
+                "data" : [
+                    {
+                        "key1" : "value1",
+                        "key2" : "value2"
+                    },
+                    {
+                        "key1" : "value3",
+                        "key2" : "value4"
+                    },
+                ]
+            }
+        }
+
 
 Additional documentation is in the [GitHub wiki](https://github.com/plantbreeding/documentation/wiki). 
 See especially the [Best Practices and Conventions]
@@ -54,10 +97,12 @@ All capturable errors should be responded to with the appropriate HTTP error cod
                     "totalCount":0, 
                     "totalPages":0 
                 },
-                "status" : [ {
-                    "message": "Unable to parse POST request",
-                    "code" : "" 
-                } ],
+                "status" : [
+                    {
+                        "message": "Unable to parse POST request",
+                        "code" : "404"
+                    }
+                ],
                 "datafiles": []
             },
             "result": {}
@@ -89,8 +134,16 @@ For example, a call to allelematrix-search might give the following response:
             "totalCount": 0,
             "totalPages": 0
         },
-        "status": [{"code": "asynchid", 
-                     "message" : "extract_2016-12-15-20-37-015"}],
+        "status": [
+            {
+                "code": "asynchid", 
+                "message" : "extract_2016-12-15-20-37-015"
+            },
+            {
+                "message": "Success",
+                "code" : "200"
+            }
+        ],
         "datafiles": []
     },
     "result" : { 
@@ -110,9 +163,22 @@ Given this response, a GET on the resource **/allelematrix-search/status/extract
             "totalCount": 0,
             "totalPages": 0
         },
-        "status": [{"code" : "asycnstatus" ,
-                     "message" : "FINISHED"}],
-        "datafiles": ["/shared_files/app_test/file_bundle/crops/rice/extract/output/721"]
+        "status": [
+            {
+                "code" : "asycnstatus" ,
+                "message" : "FINISHED"
+            },
+            {
+                "message": "Success",
+                "code" : "200"
+            }
+        ],
+        "datafiles": [
+            {
+                "file" : "/shared_files/app_test/file_bundle/crops/rice/extract/output/721",
+                "md5checksum" : "A2B3C4"
+            }
+        ]
     },
     "result" : { 
         "data": []
