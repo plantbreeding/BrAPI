@@ -25,39 +25,41 @@ Scope: Genotyping facilty. Status: Proposed for V2.
 
 ### Plate Details by vendorPlateId [ /brapi/v2/plate/{id} ] GET
 + Parameters
- 	+ id (required, string, `8338`)
+         + id (required, string, `8338`)
 
 + Response 200 (application/json)
 
-	{
-		"metadata":{   
-			"status": [{"code": "",  "message" : "info message"}],
-		"datafiles": []
-	},
-	"result" : {
-		"vendorProjectIdentifier" : "(not null)", 
-		"vendorPlateIdentifier" : "(not null)",
-		"clientPlateIdentifier" : "(not null)",
-		"barcode" : "",
-		"plateFormat" : "Plate_96" | "tubes",
-		"sampleType" : "DNA" | "RNA" | "Tissue",
-		"status" :  "(not null)",
-		"statusTimeStamp" : "2017-06-01 01:57 GMT", #define this standard
-		"samples" :[]
-	}
+        {
+                "metadata":{   
+                        "status": [{"code": "",  "message" : "info message"}],
+                "datafiles": []
+        },
+        "result" : {
+                "vendorProjectIdentifier" : "(not null)", 
+                "vendorPlateIdentifier" : "(not null)",
+                "clientPlateIdentifier" : "(not null)",
+                "vendorBarcode" : "",
+                "vendorBarcodeImageURL" : "",
+                "plateFormat" : "Plate_96" | "tubes",
+                "sampleType" : "DNA" | "RNA" | "Tissue",
+                "status" :  "(not null)",
+                "statusTimeStamp" : "2017-06-01 01:57 GMT", #define this standard
+                "samples" :[]
+        }
  
 ## Delete individual plate  [ /brapi/v2/plate/{id} ] DELETE
 + Parameters
- 	+ id (required, string, `8338`)
-	+ token (required, string, 'skdkd')
+        + id (required, string, `8338`)
+        + token (required, string, 'skdkd')
 
 + Response 200 (application/json)
  
-	{
-		"metadata":{   
-       			"status": [{"code": "",  "message" : "info message"}],
-			"datafiles": []
-	},
-	"result" : { 
-	}
+        {
+                "metadata":{   
+                               "status": [{"code": "",  "message" : "info message"}],
+                        "datafiles": []
+        },
+        "result" : { 
+        }
+
 

@@ -48,17 +48,19 @@ Search for plates in the database.
 						"vendorProjectIdentifier" : "(not null)", 
 						"vendorPlateIdentifier" : "(not null)",
 						"clientPlateIdentifier" : "(not null)",
-	  					"barcode": "",
+	  					"vendorBarcode": "",
+						"vendorBarcodeImageURL" : "",
 						"plateFormat": "Plate_96" | "tubes",
 						"sampleType" : "DNA" | "RNA" | "Tissue",
 	   					"status": "(not null)",
+						"statusTimestamp" : "2017-06-14 04:02:22 PST",
 						"samples" : []
 					}
 				]
 			"files" : [
 					{
 						"filename": "", 
-						"url" : "",
+						"URL" : "",
 						"md5sum" : "",
 						"fileType" : "fastq",
 						"clientSampeIdentifiers" : [],
