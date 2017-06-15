@@ -41,12 +41,12 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
     
 + Response 200 (application/json)
 ## context can be external file; this would make reuse easier.
-{
+    {
         "@context": {
-"@id": "http://www.cropontology.org/rdf/CO_010:0000044"
+  
             "xsd": "http://www.w3.org/2001/XMLSchema#",
             "germplasmDbId": {
-                "@id"
+                "@id": "http://www.cropontology.org/rdf/CO_010:0000044",
                 "@type": "xsd:string"
             },
             "biologicalStatusOfAccessionCode": {
@@ -61,7 +61,6 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
                 "@id": "http://www.cropontology.org/rdf/CO_020:0000084",
                 "@type": "xsd:string"
             },
-#3-letter ISO 3166-1 | xmlns:gn="http://www.geonames.org/ontology#"
             "countryOfOriginCode": {
                 "@id": "http://http://www.cropontology.org/rdf/CO_020:0000085",
                 "@type": "xsd:string"
@@ -78,6 +77,7 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
                 "@id": "http://www.w3.org/2002/12/cal/ical#date",
                 "@type": "xsd:dateTime"
             }
+            
         },
             "metadata": {
                 "status": [],
@@ -90,6 +90,8 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
                 }
             },
             "result": {
+            "@type":"http://www.cropontology.org/rdf/CO_010:0000044",
+            "@id":"http://mybrapiserver.org/brapi/v1/germplasm/01BEL084609",
                 "germplasmDbId": "01BEL084609",
                 "defaultDisplayName": "Pahang",
                 "accessionNumber": "ITC0609",
@@ -123,4 +125,4 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
                 "longitude": "73.98"
             }
         }
-} 
+    }
