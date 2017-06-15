@@ -47,13 +47,13 @@ The metadata key is structured as followed:
                       "code" : "asynchstatus",
 	              "message" : "PENDING"
 		   }],
-       "datafiles" : [/mnt/local/matrix_01.csv,
-                      /mnt/local/matrix_02.csv]
+       "datafiles" : ["/mnt/local/matrix_01.csv",
+                      "/mnt/local/matrix_02.csv"]
 	}, . . . 
 }
 ````
 
-+  **pagination**: The pagination object is applicable only When the "data" key contains multiple objects. In this case, the keys "pageSize", "currentPage", "totalCount", "totalPages" contain the appropriate values. Pages are zero indexed, so the first page will be page 0 (zero). (For the user interface, this may be adjusted by adding 1).
++  **pagination**: The pagination object is applicable only when the "data" key contains multiple objects. In this case, the keys "pageSize", "currentPage", "totalCount", "totalPages" contain the appropriate values. Pages are zero indexed, so the first page will be page 0 (zero). (For the user interface, this may be adjusted by adding 1).
 
 
 + **status**: The status object contains a list of objects with the keys "code" and "message". If no status is reported, the empty list should be returned.
@@ -62,8 +62,8 @@ The metadata key is structured as followed:
 
 #### Payload
 
-The BRAPI response payload allows for three different types of responses:
-+ **master**: In this type of response, the "result" key consists of arbitrary properties without a "data" key; for example, the germplasm/{id} call may contain the following: 
+The BRAPI response payload, which is contained in the "result" key, allows for three different types of responses:
++ **master**: In this type of response, the "result" key consists of arbitrary properties without a "data" key (in this case, pagination does not apply); for example, the germplasm/{id} call may contain the following: 
 ````
 {
   "metadata" : {
@@ -152,7 +152,7 @@ The BRAPI response payload allows for three different types of responses:
 }
 ````
 
-+ **master/detail**: This type of response, the "result" key contains both arbtirary properties and a "data" key, as in studies/{studyDbId}/observationVariables: 
++ **master/detail**: In this type of response, the "result" key contains both arbtirary properties and a "data" key, as in studies/{studyDbId}/observationVariables: 
 ````
 {
   "metadata" : {
