@@ -25,8 +25,8 @@ Example: superBreedingServer.org/maize/brapi/v1/markerprofiles/2939
 The return objects are encoded in JSON. The response consists of three components:
 + A "metadata" key containing pagination, status, and file information;
 + A "result" key that can contain:
-  ++ Arbitrary properties; and/or
-  ++ A "data" key containing an array of objects of the same type.
+  + Arbitrary properties; and/or
+  + A "data" key containing an array of objects of the same type.
 
 
 
