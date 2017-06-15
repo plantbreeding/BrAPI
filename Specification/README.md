@@ -53,13 +53,215 @@ The metadata key is structured as followed:
 }
 ````
 
-+  **pagination**: If the response is a single record that doesn't require pagination, then the value for the "pagination" key is returned with all the keys set to zero.  When the results are paginated, the keys "pageSize", "currentPage", "totalCount", "totalPages" contain the appropriate values. Pages are zero indexed, so the first page will be page 0 (zero). (For the user interface, this may be adjusted by adding 1).
++  **pagination**: The pagination object is applicable only When the "data" key contains multiple objects. In this case, the keys "pageSize", "currentPage", "totalCount", "totalPages" contain the appropriate values. Pages are zero indexed, so the first page will be page 0 (zero). (For the user interface, this may be adjusted by adding 1).
+
 
 + **status**: The status object contains a list of objects with the keys "code" and "message". If no status is reported, the empty list should be returned.
 
 + **datafiles**: The datafiles key contains a list of strings. The empty list should be returned if no datafiles are present.
 
-The payload data is contained in a key called "result", containing an object with the response. If there is a paginated response, a "data" key will be present, with a list value, which will be paginated over (showing pageSize elements of the currentPage).
+#### Payload
+
+The BRAPI response payload allows for three different types of responses:
++ **master**: In this type of response, the "result" key consists of arbitrary properties without a "data" key; for example, the germplasm/{id} call may contain the following: 
+````
+{
+  "metadata" : {
+    "pagination" : {
+      "totalCount" : 0,
+      "pageSize" : 0,
+      "totalPages" : 0,
+      "currentPage" : 0
+    },
+    "status" : [ ],
+    "datafiles" : [ ]
+  },
+  "result" : {
+    "typeOfGermplasmStorageCode" : null,
+    "pedigree" : null,
+    "seedSource" : null,
+    "species" : null,
+    "subtaxa" : null,
+    "biologicalStatusOfAccessionCode" : null,
+    "countryOfOriginCode" : null,
+    "synonyms" : null,
+    "genus" : null,
+    "instituteName" : null,
+    "subtaxaAuthority" : null,
+    "germplasmDbId" : "1",
+    "defaultDisplayName" : null,
+    "acquisitionDate" : null,
+    "donors" : [ {
+      "donorGermplasmPUI" : "testdonorid1",
+      "donorAccessionNumber" : "testdoneraccessionnumber1",
+      "donorInstituteCode" : "testdonorcode1"
+    }, {
+      "donorGermplasmPUI" : "testdonorid2",
+      "donorAccessionNumber" : "testdoneraccessionnumber2",
+      "donorInstituteCode" : "testdonorcode2"
+    } ],
+    "accessionNumber" : null,
+    "commonCropName" : null,
+    "speciesAuthority" : null,
+    "germplasmName" : "test_germplasm_name",
+    "germplasmPUI" : null,
+    "instituteCode" : null
+  }
+}
+```` 
++ **detail**: In this type of response, the "result" key contains only a data key, which is an arbitrarily long array of objects of the same type, as in GET /calls: 
+````
+{
+  "metadata" : {
+    "pagination" : {
+      "totalCount" : 0,
+      "pageSize" : 0,
+      "totalPages" : 0,
+      "currentPage" : 0
+    },
+    "status" : [ ],
+    "datafiles" : [ ]
+  },
+  "result" : {
+    "data" : [ {
+      "call" : "calls",
+      "methods" : [ "GET" ],
+      "datatypes" : [ "JSON" ]
+    }, {
+      "call" : "studies-search",
+      "methods" : [ "POST" ],
+      "datatypes" : [ "JSON" ]
+    }, {
+      "call" : "germplasm/{id}",
+      "methods" : [ "POST" ],
+      "datatypes" : [ "JSON" ]
+    }, {
+      "call" : "studies/{id}/observationVariables",
+      "methods" : [ "POST" ],
+      "datatypes" : [ "JSON" ]
+    }, {
+      "call" : "allelematrices",
+      "methods" : [ "GET" ],
+      "datatypes" : [ "JSON" ]
+    }, {
+      "call" : "allelematrix-search",
+      "methods" : [ "GET", "POST" ],
+      "datatypes" : [ "FLAPJACK" ]
+    } ]
+  }
+}
+````
+
++ **master/detail**: This type of response, the "result" key contains both arbtirary properties and a "data" key, as in studies/{studyDbId}/observationVariables: 
+````
+{
+  "metadata" : {
+    "pagination" : {
+      "totalCount" : 0,
+      "pageSize" : 0,
+      "totalPages" : 0,
+      "currentPage" : 0
+    },
+    "status" : [ ],
+    "datafiles" : [ ]
+  },
+  "result" : {
+    "studyDbId" : 1,
+    "trialName" : "trialname",
+    "data" : [ {
+      "scale" : {
+        "scaleValidValues" : null,
+        "scaleDbId" : "testid1",
+        "name" : "testNameOne",
+        "xref" : null,
+        "datatype" : null,
+        "decimalPlaces" : null
+      },
+      "status" : null,
+      "ontologyName" : null,
+      "ontologyDbId" : null,
+      "contextOfUse" : null,
+      "synonyms" : null,
+      "scientist" : null,
+      "date" : null,
+      "crop" : null,
+      "observationVariableDbId" : "testdbid1",
+      "growthStage" : null,
+      "name" : "testvariable1",
+      "xref" : null,
+      "method" : {
+        "methodDbId" : "testdbid",
+        "description" : null,
+        "name" : "testmethodname",
+        "reference" : null,
+        "formula" : null,
+        "class" : null
+      },
+      "language" : null,
+      "defaultValue" : null,
+      "trait" : {
+        "traitDbId" : "testdbid",
+        "status" : null,
+        "description" : null,
+        "entity" : null,
+        "name" : "testtraitname",
+        "xref" : null,
+        "mainAbbreviation" : null,
+        "attribute" : null,
+        "synonyms" : null,
+        "alternativeAbbreviations" : null,
+        "class" : null
+      },
+      "institution" : null
+    }, {
+      "scale" : {
+        "scaleValidValues" : null,
+        "scaleDbId" : "testid2",
+        "name" : "testNameOTwo",
+        "xref" : null,
+        "datatype" : null,
+        "decimalPlaces" : null
+      },
+      "status" : null,
+      "ontologyName" : null,
+      "ontologyDbId" : null,
+      "contextOfUse" : null,
+      "synonyms" : null,
+      "scientist" : null,
+      "date" : null,
+      "crop" : null,
+      "observationVariableDbId" : "testdbid2",
+      "growthStage" : null,
+      "name" : "testvariable2",
+      "xref" : null,
+      "method" : {
+        "methodDbId" : "testdbid2",
+        "description" : null,
+        "name" : "testmethodname2",
+        "reference" : null,
+        "formula" : null,
+        "class" : null
+      },
+      "language" : null,
+      "defaultValue" : null,
+      "trait" : {
+        "traitDbId" : "testdbid2",
+        "status" : null,
+        "description" : null,
+        "entity" : null,
+        "name" : "testtraitname2",
+        "xref" : null,
+        "mainAbbreviation" : null,
+        "attribute" : null,
+        "synonyms" : null,
+        "alternativeAbbreviations" : null,
+        "class" : null
+      },
+      "institution" : null
+    } ]
+  }
+}
+````
 
 Additional documentation is in the [GitHub wiki](https://github.com/plantbreeding/documentation/wiki). 
 See especially the [Best Practices and Conventions]
