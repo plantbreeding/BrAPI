@@ -40,15 +40,20 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
     + id (required, string, `382`) ... germplasmDbId - the internal id of the germplasm
     
 + Response 200 (application/json)
-## context can be external file; this would make reuse easier.
+### Need to refractor out context to external file; this would make reuse easier.
+    
     {
         "@context": {
-            "result": "http://brapi.org/x",
             "xsd": "http://www.w3.org/2001/XMLSchema#",
-            "taxonIds": "http://some.taxonomy/y",
+            "result": "http://brapi.org/result",
+            "taxonIds": "https://en.wikipedia.org/wiki/Plant_taxonomy",
             "ncbiTaxon": "http://purl.obolibrary.org/obo/NCBITaxon_",
-            "germplasmDbId": {
-                "@id": "http://www.cropontology.org/rdf/CO_020:0000089",
+            "acquisitionDate": {
+                "@id": "http://www.w3.org/2002/12/cal/ical#date",
+                "@type": "xsd:date"
+            },
+            "accessionNumber": {
+                "@id": "http://http://www.cropontology.org/rdf/CO_020:0000024",
                 "@type": "xsd:string"
             },
             "biologicalStatusOfAccessionCode": {
@@ -59,17 +64,58 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
                 "@id": "http://www.cropontology.org/rdf/CO_020:0000076",
                 "@type": "xsd:string"
             },
+	        "countryOfOriginCode": {
+                "@id": "http://http://www.cropontology.org/rdf/CO_020:0000085",
+                "@type": "xsd:string"
+	        },
+	        "donors": "https://en.wikipedia.org/wiki/Donor",
+	        "donorAccessionNumber": {
+                "@id": "http://www.cropontology.org/rdf/CO_020:0000024",
+		        "@type": "xsd:string"
+            },
+	        "donorInstituteCode": {
+                "@id": "http://www.cropontology.org/rdf/CO_020:0000023",
+		        "@type": "xsd:string"
+            },
+	        "donorInstituteName": {
+                "@id": "http://www.cropontology.org/rdf/CO_020:0000104",
+		        "@type": "xsd:string"
+            },
+	        "donorGermplasmPUI": {
+                "@id": "http://www.cropontology.org/rdf/CO_020:0000---",
+		        "@type": "xsd:anyUri"
+            },
+	        "genus": {
+                "@id": "http://www.cropontology.org/rdf/CO_020:0000005",
+		        "@type": "xsd:string"
+            },
+            "germplasmDbId": {
+                "@id": "http://www.cropontology.org/rdf/CO_020:0000089",
+                "@type": "xsd:string"
+            },
             "instituteCode": {
                 "@id": "http://www.cropontology.org/rdf/CO_020:0000084",
                 "@type": "xsd:string"
             },
-            "countryOfOriginCode": {
-                "@id": "http://http://www.cropontology.org/rdf/CO_020:0000085",
-                "@type": "xsd:string"
+	        "species": {
+                "@id": "http://www.cropontology.org/rdf/CO_020:0000006",
+		        "@type": "xsd:string"
             },
-            "accessionNumber": {
-                "@id": "http://http://www.cropontology.org/rdf/CO_020:0000024",
-                "@type": "xsd:string"
+	        "speciesAuthority": {
+                "@id": "http://www.cropontology.org/rdf/CO_020:0000007",
+		        "@type": "xsd:string"
+            },
+	        "subtaxa": {
+                "@id": "http://www.cropontology.org/rdf/CO_020:0000008",
+		        "@type": "xsd:string"
+            },
+	        "subtaxaAuthority": {
+                "@id": "http://www.cropontology.org/rdf/CO_020:0000009",
+		        "@type": "xsd:string"
+            },
+	        "typeOfGermplasmStorageCode": {
+                "@id": "http://www.cropontology.org/rdf/CO_020:0000027",
+		        "@type": "xsd:integer"
             },
             "latitude": {
                 "@id": "http://schema.org/latitude",
@@ -81,12 +127,7 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
             },    "image": {
                 "@id": "http://schema.org/image",
                 "@type": "@id"
-            },
-            "acquisitionDate": {
-                "@id": "http://www.w3.org/2002/12/cal/ical#date",
-                "@type": "xsd:date"
-            }
-            
+            }   
         },
             "metadata": {
                 "status": [],
