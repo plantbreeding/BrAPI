@@ -48,11 +48,11 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
             "taxonIds": "http://some.taxonomy/y",
             "ncbiTaxon": "http://purl.obolibrary.org/obo/NCBITaxon_",
             "germplasmDbId": {
-                "@id": "http://www.cropontology.org/rdf/CO_010:0000044",
+                "@id": "http://www.cropontology.org/rdf/CO_020:0000089",
                 "@type": "xsd:string"
             },
             "biologicalStatusOfAccessionCode": {
-                "@id": "http://www.cropontology.org/rdf/CO_020:0000075",
+                "@id": "http://www.cropontology.org/rdf/CO_020:0000020",
                 "@type": "xsd:string"
             },
             "collectingOrAcquisitionSourceCode": {
@@ -67,6 +67,10 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
                 "@id": "http://http://www.cropontology.org/rdf/CO_020:0000085",
                 "@type": "xsd:string"
             },
+            "accessionNumber": {
+                "@id": "http://http://www.cropontology.org/rdf/CO_020:0000024",
+                "@type": "xsd:string"
+            }"
             "latitude": {
                 "@id": "http://schema.org/latitude",
                 "@type": "xsd:float"
@@ -95,7 +99,7 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
                 }
             },
             "result": {
-            "@type":"http://www.cropontology.org/rdf/CO_010:0000044",
+            "@type":"http://www.cropontology.org/rdf/CO_020:0000089",
             "@id":"http://mybrapiserver.org/brapi/v1/germplasm/01BEL084609",
                 "germplasmDbId": "01BEL084609",
                 "defaultDisplayName": "Pahang",
