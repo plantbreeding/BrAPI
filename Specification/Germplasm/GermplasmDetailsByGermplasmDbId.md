@@ -84,7 +84,7 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
             },
             "acquisitionDate": {
                 "@id": "http://www.w3.org/2002/12/cal/ical#date",
-                "@type": "xsd:dateTime"
+                "@type": "xsd:date"
             }
             
         },
