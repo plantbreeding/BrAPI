@@ -43,7 +43,7 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
 ## context can be external file; this would make reuse easier.
     {
         "@context": {
-  
+            "result": "http://brapi.org/x",
             "xsd": "http://www.w3.org/2001/XMLSchema#",
             "germplasmDbId": {
                 "@id": "http://www.cropontology.org/rdf/CO_010:0000044",
@@ -125,4 +125,4 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
                 "longitude": "73.98"
             }
         }
-    }
+    
