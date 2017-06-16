@@ -45,6 +45,8 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
         "@context": {
             "result": "http://brapi.org/x",
             "xsd": "http://www.w3.org/2001/XMLSchema#",
+            "taxonIds": "http://some.taxonomy/y",
+            "ncbiTaxon": "http://purl.obolibrary.org/obo/NCBITaxon_",
             "germplasmDbId": {
                 "@id": "http://www.cropontology.org/rdf/CO_010:0000044",
                 "@type": "xsd:string"
@@ -106,12 +108,12 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
                 "commonCropName": "banana",
                 "instituteCode": "01BEL084",
                 "instituteName": "ITC",
-                "biologicalStatusOfAccessionCode": "412 hybrid",
+                "biologicalStatusOfAccessionCode": "http://www.cropontology.org/rdf/CO_020:0000037",
                 "countryOfOriginCode": "UNK",
                 "typeOfGermplasmStorageCode": 10,
                 "genus": "Musa",
                 "species": "acuminata",
-                "taxonIds": [{"source":"ncbiTaxon", "id":"4641"}, {"source":"ciradTaxon", "id":"23-E"}],
+                "taxonIds": [{"ncbiTaxon": "http://purl.obolibrary.org/obo/NCBITaxon_4641"}, {"ciradTaxon":"23-E"}],
                 "speciesAuthority": "",
                 "subtaxa": "sp malaccensis var pahang",
                 "subtaxaAuthority": "",
