@@ -70,7 +70,7 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
             "accessionNumber": {
                 "@id": "http://http://www.cropontology.org/rdf/CO_020:0000024",
                 "@type": "xsd:string"
-            }"
+            },
             "latitude": {
                 "@id": "http://schema.org/latitude",
                 "@type": "xsd:float"
