@@ -1,11 +1,14 @@
-## Authentication [/brapi/v1/token]
+## Authentication [/brapi/v2/token]
 
-Implemented by: Tripal Brapi module, Cassavabase, Germinate
+Implemented by: IRRI
 
-Used by: Flapjack
+Used by: IRRI
+
+In order to use the API, a client must have a valid access token. This is retrieved by exchanging the authorization code retrieved from the API and a valid Google ID token for an access token.
 
 ###### Response data types
-Exception: the result is not embeded in a "result" structure in order to be (one day) OAuth2 compliant. It's also why the anwser mixes snake_case and camelCase.
+Exception: the result is not embeded in a "result" structure in order to be OAuth2 compliant.
+
 For login, returns a hash with the user name and the token as the value. A metadata key is also present (but usually set to null, unless an error condition occurs).
 
 For logout, returns an empty resource. A token to remove could be provided (amdin interface) but it is not required. By default, current user token will be removed.
@@ -20,10 +23,12 @@ For logout, returns an empty resource. A token to remove could be provided (amdi
 + Request (application/json)
 
         {
-            "grant_type" : "password", //(optional, text, `password`) ... The grant type, only allowed value is password, but can be ignored
-            "username" : "user38", // (required, text, `thepoweruser`) ... The username
-            "password" : "secretpw", // (optional, text, `mylittlesecret`) ... The password
-            "client_id" : "blabla" // (optional, text, `blabla`) ... The client id, currently ignored.
+            "grant_type" : "authorization_code", //(required, text, `password`) ... The grant type, only allowed value is authorization_code
+            "redirect_uri" : "user38", // (required, text, `http://brapi.org`) ... The username
+            "google_id_token" : "xxxxx", // (required, text, `xxxxx`) ... retrieved by authenticating with Google API
+            "client_id" : "blabla" // (required, text, `blabla`) ... The client id.
+            "client_secret" : "xxx" // (required, text, `xxxx`) ... The client password.
+            "code" : "xxxx" // authorization code
         }
 
 + Response 201 (application/json)
