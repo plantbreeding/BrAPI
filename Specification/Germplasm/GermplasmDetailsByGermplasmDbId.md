@@ -72,6 +72,9 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
             "longitude": {
                 "@id": "http://schema.org/longitude",
                 "@type": "xsd:float"
+            },    "image": {
+                "@id": "http://schema.org/image",
+                "@type": "@id"
             },
             "acquisitionDate": {
                 "@id": "http://www.w3.org/2002/12/cal/ical#date",
@@ -122,7 +125,8 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
                 ],
                 "acquisitionDate": "19470131",
                 "latitude": "40.75",
-                "longitude": "73.98"
+                "longitude": "73.98",
+                "image": "http://www.bananeramuchachitaus.com/images/slider/banana-3.jpg"
             }
         }
     
