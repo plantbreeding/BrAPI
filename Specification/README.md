@@ -63,6 +63,11 @@ All capturable errors should be responded to with the appropriate HTTP error cod
             "result": {}
         }
 
+### Date and timestamp fields
+
+Date and timestamp fields are coded in the ISO 8601 standard, extended format. If the field name ends in "Date", only the date portion is required, for example "2017-06-16". If a field ends in "Timestamp", the date, time and time zone information needs to be provided, as in this example: "2017-06-16T14:47:23-0600". 
+
+
 ### Asynchronous Processing
 
 Some calls initiate asynchronous processing, which take an indeterminate amount of time to complete. For example, the allelematrix-search may initiate a background process that extracts the requested data from a data warehouse. In this case, 
