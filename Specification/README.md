@@ -67,6 +67,10 @@ All capturable errors should be responded to with the appropriate HTTP error cod
 
 Date and timestamp fields are coded in the ISO 8601 standard, extended format. If the field name ends in "Date", only the date portion should be provided, for example "2017-06-16". If a field ends in "Timestamp", the date, time and time zone information needs to be provided, as in this example: "2017-06-16T14:47:23-0600". In version 1, milliseconds are not supported.
 
+### Location coordinate encoding
+
+To encode locations as coordinates, the ISO 6709 standard is used. Importantly, the decimal notation is used. Example
+latitude: +40.20361, longitude: -075.00417. Note that plus and minus signs are always required, and latitude has two digits before the decimal separator (with leading zeroes when necessary), and longitude has three digits.
 
 ### Asynchronous Processing
 
