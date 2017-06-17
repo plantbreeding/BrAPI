@@ -5,9 +5,11 @@ Implementation target date: PAG2016.
 
 Implemented by: Germinate
 
-Used by: Flapjack
+Used by: Flapjack, Cassavabase
 
 Get list of studies
+
+StartDate and endDate should be ISO8601 format for dates: YYYY-MM-DD
 
 ### List of study summaries [GET]
 
