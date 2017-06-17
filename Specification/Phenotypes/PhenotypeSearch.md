@@ -43,7 +43,7 @@ Example Use cases:
 |observations.observationDbId|string| ID or PUI (DOI, URI, LSID)||
 |observations.observationVariableDbId|string| ID or PUI (DOI, URI, LSID)|Y|
 |observations.observationVariableName | string | Display name||
-|observations.season|string| Year or season, Phenotyping campain, can be a period accross multiple years or a list of some years ||
+|observations.season|string| this can be considered as a label to group data within a multiyear study. It can be a year, season, Phenotyping campain, a period accross multiple years or a list of some years ||
 |observations.value|string|||
 |observations.observationTimeStamp|string|ISO format "2006-07-03::10:00"||
 |observations.collector|string| Person or team who has made the observation||

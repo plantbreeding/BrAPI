@@ -20,7 +20,7 @@ More linked data:
 | studyDbId               | string          | string database identifier                              |    Y     |
 | studyName               | string          | Human readable name                                     |    Y     |
 | studyType               | string          | Human readable type, must be listed in studyType call   |          |
-| studyDescription        | string          | Free text descritpion, can include some tracability  	  |          |
+| studyDescription        | string          | Free text descritpion, can include some tracability            |          |
 | seasons                 | array of string | list of seasons the trials is running                   |          |
 | trialDbId               | string          | Study trial database identifier                         |    Y     |
 | trialName               | string          | Study trial name                                        |    Y     |
@@ -47,6 +47,10 @@ More linked data:
 | contacts.email          | string          | Study contact email                                     |          |
 | contacts.type           | string          | Study contact type (ex: Coordinator, Scientist, etc.)   |          |
 | contacts.orcid          | string          | Study contact orcid identifier (http://orcid.org)       |          |
+| dataLinks               | array of object | List of data links the study                            |          |
+| dataLinks.type          | string          | Data link type                                          |          |
+| dataLinks.name          | string          | Data link name                                          |          |
+| dataLinks.url           | string          | Data link url                                          |          |
 | lastUpdate              | object          | last lastUpdate                                         |          |
 | lastUpdate.version      | string          | last version                                            |          |
 | lastUpdate.timestamp    | string          | timestamp of the last version                           |          |
@@ -120,7 +124,14 @@ More linked data:
                         "type": null,
                         "orcid": null
                     }
-                ],,
+                ],
+                "dataLinks": [
+                    {
+                        "type": "Image archive",
+		        "name": "image-archive12.zip",
+			"url": "http://data.inra.fr/archive/multi-spect-flowering.zip"
+		    }
+		],
                 "lastUpdate": {
                     "version": "1.1",
                     "timestamp": "2015-06-16T00:53:26Z"

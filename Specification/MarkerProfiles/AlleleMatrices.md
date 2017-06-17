@@ -22,21 +22,21 @@ This resource is used for reading and writing genomic matrices:
    {
       "data":[
                 {
-	             "name":"testDs1",
+                     "name":"testDs1",
                      "matrixDbId":27,
-		     "description":"a test dataset",
+                     "description":"a test dataset",
                      "lastUpdated":"2017-06-12",
-  	             "studyDbId":13
+                       "studyDbId":13
                 },
                 {
                      "name":"testDs2",
                      "matrixDbId":28,
                      "description":"a second test dataset",
-    	             "lastUpdated":"2017-06-12",
-		     "studyDbId":13
+                         "lastUpdated":"2017-06-12",
+                     "studyDbId":13
                 }
             ]
    }
 ```
-															   
+                                                                                                                           
 
