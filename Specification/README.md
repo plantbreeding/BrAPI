@@ -135,10 +135,7 @@ For example, a call to allelematrix-search might give the following response:
                 "code": "asynchid", 
                 "message" : "extract_2016-12-15-20-37-015"
             },
-            {
-                "message": "Success",
-                "code" : "200"
-            }
+        
         ],
         "datafiles": []
     },
@@ -164,10 +161,7 @@ Given this response, a GET on the resource **/allelematrix-search/status/extract
                 "code" : "asycnstatus" ,
                 "message" : "FINISHED"
             },
-            {
-                "message": "Success",
-                "code" : "200"
-            }
+      
         ],
         "datafiles": [
             {
