@@ -47,10 +47,6 @@ An Example:
                 },
                 "status" : [
                     {
-                        "message": "Success",
-                        "code" : "200"
-                    },
-                    {
                         "message": "Module Loaded",
                         "code" : "info"
                     }
