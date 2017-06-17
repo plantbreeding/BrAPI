@@ -53,7 +53,7 @@ More linked data:
 | dataLinks.url           | string          | Data link url                                          |          |
 | lastUpdate              | object          | last lastUpdate                                         |          |
 | lastUpdate.version      | string          | last version                                            |          |
-| lastUpdate.timestamp    | string          | timestamp of the last version                           |          |
+| lastUpdate.timestamp    | string          | timestamp of the last version ("2017-06-17T11:03:38-0800" (date, time, timezone))                          |          |
 | additionalInfo          | object          | Additional arbitrary info on the study, like objectives or publications |          |
 | additionalInfo.publications  | array of string | Additional info for publications                   |          |
 

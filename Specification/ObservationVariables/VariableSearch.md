@@ -59,7 +59,7 @@ Search observation variables.
                   "xref": "TL_455:0003001",
                   "institution": "",
                   "scientist": "",
-                  "date": "2016-05-13",
+                  "submissionTimestamp": "2016-05-13T23:21:56+0100",
                   "language": "EN",
                   "crop": "Cassava",
                   "trait": {

@@ -45,12 +45,12 @@ Example Use cases:
 |observations.observationVariableName | string | Display name||
 |observations.season|string| this can be considered as a label to group data within a multiyear study. It can be a year, season, Phenotyping campain, a period accross multiple years or a list of some years ||
 |observations.value|string|||
-|observations.observationTimeStamp|string|ISO format "2006-07-03::10:00"||
+|observations.observationTimeStamp|string|ISO format "2006-07-03T10:00:38-0800"||
 |observations.collector|string| Person or team who has made the observation||
 
 ### Phenotype Search [POST]
 
-observationTimeStamp : Iso Standard
+observationTimeStamp : Iso Standard 8601.
 observationValue data type inferred from the ontology 
 
 + Request (application/json)
@@ -63,7 +63,7 @@ observationValue data type inferred from the ontology
             "programDbIds" : [ "3838", "Drought resistance CG 2020" ], // list of programs that have phenotyped this trait
             "seasonDbIds" : [ "338", "2010", "1956-2014", "2002-2003-2004", "2007 Spring" ], // (optional, text, `2001`) ... The year or Phenotyping campaign of a multiannual study (trees, grape, ...)
             "observationLevel" : "plot", // (optional, text, `plot`) ... The type of the observationUnit. Returns only the observaton unit of the specified type; the parent levels ID can be accessed through observationUnitStructure.
-            "observationTimeStampRange" : ["2015-06-16T00:53:26Z","2015-06-18T00:53:26Z"]
+            "observationTimeStampRange" : ["2015-06-16T00:53:26-0800","2015-06-18T00:53:26-0800"]
             "pageSize" : 100, // (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
             "page" : 1, // (optional, integer, `10`) ... Which result page is requested
         }
@@ -119,7 +119,7 @@ observationValue data type inferred from the ontology
                     "observationDbId": "153453453",
                     "observationVariableDbId": "CO_321:0000045",
                     "observationVariableName": "Plant_height",
-                    "observationTimeStamp": "2015-06-16T00:53:26Z",
+                    "observationTimeStamp": "2015-06-16T00:53:26-0800",
                     "season": "2015",
                     "collector": "Mr. Technician",
                     "value": "45"
@@ -128,7 +128,7 @@ observationValue data type inferred from the ontology
                     "observationDbId": "23453454345",
                     "observationVariableDbId": "CO_321:0000996",
                     "observationVariableName": "GW100_g",
-                    "observationTimeStamp": "2015-06-16T00:53:26Z",
+                    "observationTimeStamp": "2015-06-16T00:53:26-0800",
                     "season": "2015",
                     "collector": "Mr. Technician",
                     "value": "3"
@@ -161,7 +161,7 @@ observationValue data type inferred from the ontology
                     "observationDbId": "153453453",
                     "observationVariableDbId": "CO_321:0000045",
                     "observationVariableName": "Plant_height",
-                    "observationTimeStamp": "2010-06-16T00:53:26Z",
+                    "observationTimeStamp": "2010-06-16T00:53:26-0800",
                     "season": "2010",
                     "collector": "Mr. Technician",
                     "value": "45"
@@ -170,7 +170,7 @@ observationValue data type inferred from the ontology
                     "observationDbId": "23453454345",
                     "observationVariableDbId": "CO_321:0000996",
                     "observationVariableName": "GW100_g",
-                    "observationTimeStamp": "2010-06-16T00:53:26Z",
+                    "observationTimeStamp": "2010-06-16T00:53:26-0800",
                     "season": "2010",
                     "collector": "Mr. Technician",
                     "value": "3"

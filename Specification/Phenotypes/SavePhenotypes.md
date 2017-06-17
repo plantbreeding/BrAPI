@@ -55,21 +55,21 @@ Scope: PHENOYTPING.
                                 "observationVariableId": 18020,
                                 "observationVariableName": "Plant_height",
                                 "collector" : "Mr. Technician",
-                                "observationTimeStamp" : "2015-06-16T00:53:26Z",
+                                "observationTimeStamp" : "2015-06-16T00:53:26-0800",
                                 "value": "11"
                             },
                             {   
                                 "observationVariableId": 51496,
                                 "observationVariableName": "GW100_g",
                                 "collector" : "Mr. Technician",
-                                "observationTimeStamp" : "2015-06-16T00:53:26Z",
+                                "observationTimeStamp" : "2015-06-16T00:53:26-0800",
                                 "value": "111"
                             },
                             {   
                                 "observationVariableId": 51497,
                                 "observationVariableName": "image",
                                 "collector" : "Mr. Technician",
-                                "observationTimeStamp" : "2015-06-16T00:53:26Z",
+                                "observationTimeStamp" : "2015-06-16T00:53:26-0800",
                                 "value": "myimage1.jpg"
                             }
                         ]
@@ -82,21 +82,21 @@ Scope: PHENOYTPING.
                                 "observationVariableId": 18020,
                                 "observationVariableName": "Plant_height",
                                 "collector" : "Mr. Technician",
-                                "observationTimeStamp" : "2015-06-16T00:53:26Z",
+                                "observationTimeStamp" : "2015-06-16T00:53:26-0800",
                                 "value": "22"
                             },
                             {   
                                 "observationVariableId": 51496,
                                 "observationVariableName": "GW100_g",
                                 "collector" : "Mr. Technician",
-                                "observationTimeStamp" : "2015-06-16T00:53:26Z",
+                                "observationTimeStamp" : "2015-06-16T00:53:26-0800",
                                 "value": "222"
                             },
                             {   
                                 "observationVariableId": 51497,
                                 "observationVariableName": "image",
                                 "collector" : "Mr. Technician",
-                                "observationTimeStamp" : "2015-06-16T00:53:26Z",
+                                "observationTimeStamp" : "2015-06-16T00:53:26-0800",
                                 "value": "myimage2.jpg"
                             }
                         ]

@@ -14,8 +14,8 @@ Get trial by id.
 | trialName               | string          | Human readable name                                     |    Y     |
 | programDbId             | string          | string database identifier, not necessarily a Primary Key |          |
 | programName             | string          |                                                         |          |
-| startDate               | string          |                                                         |          |
-| endDate                 | string          |                                                         |          |
+| startDate               | Date (ISO 8601)          |                                                         |          |
+| endDate                 | Date (ISO 8601)          |                                                         |          |
 | active                  | boolean         |                                                         |          |
 | datasetAuthorship       | array of object | List of studies                                         |          |
 | datasetAuthorship.license  | string          | License for data use. If using a known license like CC-BY, use the URI (https://creativecommons.org/licenses/by/4.0/) |          |
