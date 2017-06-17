@@ -49,7 +49,7 @@ Call to retrieve a list of observationVariables available in the system.
                   "xref": "TL_455:0003001",
                   "institution": "",
                   "scientist": "",
-                  "date": "2016-05-13",
+                  "submissionTimestamp": "2016-05-13T17:43:11+0100",
                   "language": "EN",
                   "crop": "Cassava",
                   "trait": {

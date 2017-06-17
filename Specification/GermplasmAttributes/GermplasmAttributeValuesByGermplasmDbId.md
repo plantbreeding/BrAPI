@@ -32,7 +32,7 @@ Values for all attributes by default.
                             "attributeName": "Rht-B1b",
                             "attributeCode": "RHT",
                             "value": "Present", 
-                            "dateDetermined": "20070528"
+                            "determinedDate": "2007-05-28"
                         }
                     ]
                 }

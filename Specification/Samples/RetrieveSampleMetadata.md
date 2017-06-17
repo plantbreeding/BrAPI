@@ -22,7 +22,7 @@
               "plantId" : "PlantID-123",
               "sampleId" : "Unique-Plant-SampleID",
               "takenBy": "Mr. Technician",
-              "sampleDate": "2016-07-27",
+              "sampleTimestamp": "2016-07-27T14:43:22+0100",
               "sampleType" : "TypeOfSample",
               "tissueType" : "TypeOfTissue",
               "notes": "Cut from infected leaf",
@@ -32,8 +32,8 @@
               "entryNumber": 11,
               "plotNumber": 1,
               "germplasmDbId": 15,
-              "plantingDate": "20160101",
-              "harvestDate": "20160630"
+              "plantingTimestamp": "2016-01-01T23:22:21+0100",
+              "harvestTimestamp": "2016-06-30T23:33:23+0100"
             }
         }
         

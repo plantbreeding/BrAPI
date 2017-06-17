@@ -36,7 +36,7 @@ observationTimestamp should be ISO8601 format with timezone: YYYY-MM-DDThh:mm:ss
                         "observationLevel" : "plot",
                         "observationVariableDbId" : 393939,
                         "observationVariableName" : "Yield", 
-                        "observationTimestamp" : "2015-11-05T15:12:56+0100",
+			"observationTimestamp" : "2015-11-05T15:12:56+0100",
                         "uploadedBy" : "dbUserId",
                         "operator" : "Jane Doe",
                         "germplasmDbId" : 8383,
