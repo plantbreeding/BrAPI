@@ -20,10 +20,11 @@ More linked data:
 | studyDbId               | string          | string database identifier                              |    Y     |
 | studyName               | string          | Human readable name                                     |    Y     |
 | studyType               | string          | Human readable type, must be listed in studyType call   |          |
-| studyDescription        | string          | Free text descritpion, can include some tracability            |          |
+| studyDescription        | string          | Free text descritpion, can include some tracability     |          |
 | seasons                 | array of string | list of seasons the trials is running                   |          |
-| trialDbId               | string          | Study trial database identifier                         |    Y     |
-| trialName               | string          | Study trial name                                        |    Y     |
+| trialDbId               | string          | Study trial database identifier                         |          |
+| trialName               | string          | Study trial name                                        |          |
+| trialDbIds              | array of string | Study trials database identifier (V1 non breaking change, trialDbId should be empty if this one is used) |          |
 | startDate               | string          | Study start date (format YYYY-MM-DD)                    |          |
 | endDate                 | string          | Study end date (format YYYY-MM-DD)                      |          |
 | active                  | boolean         | Study active status (true/false)                        |          |

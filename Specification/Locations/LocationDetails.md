@@ -1,4 +1,4 @@
-## List [/brapi/v1/locations/locationDbId]
+## List [/brapi/v1/locations/{locationDbId}]
 
 Implemented by:  GnpIS
 
