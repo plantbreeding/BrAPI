@@ -2,7 +2,8 @@
 
 Call to update a study layout (X & Y coordinates).
 
-Scope: PHENOTYPING
+Scope: PHENOTYPING 
+Status: PROPOSED. May need to be discussed in the context of study update functions.
 
 ### Update plot layout coordinates [PUT]
 + Parameters
