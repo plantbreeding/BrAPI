@@ -1,4 +1,4 @@
-# BrAPI
+# BrAPI version 2.
 Repository for version control of the BrAPI specification
 
 ### INTRODUCTION
