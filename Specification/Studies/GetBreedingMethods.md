@@ -3,6 +3,7 @@
 Call to retrive all breeding methods available in the database.
 
 Scope: PHENOTYPING
+Status: PROPOSED
 
 ### List breeding methods [GET]
 + Parameters
