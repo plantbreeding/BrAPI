@@ -1,8 +1,8 @@
-## Vendor specification [ /brapi/v2/vendor-specification ]
+## Vendor specification [ /brapi/v2/vendor-specifications ]
 
 Defines the plate format specification for the vendor.
 
-### Vendor specification [ /brapi/v2/vendor-requirement ] GET
+### Vendor specification [ /brapi/v2/vendor-specifications ] GET
 
 +Request
 
