@@ -57,7 +57,7 @@ Defines the plate format specification for the vendor.
                                                         "numberOfBlanksPerPlate" : "",
                                                 }
                                          },
-                                        "specificRequirement": {
+                                        "specificRequirements": {
 
                                         },
                                         "statuses" : [
