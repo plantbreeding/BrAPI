@@ -1,4 +1,4 @@
-##  Germplasm Search [/brapi/v1/germplasm-search?germplasmName=&germplasmGenus=&germplasmSubTaxa=&germplasmDbId&germplasmPUI=http://data.inra.fr/accession/234Col342&germplasmSpecies=Triticum&panel=diversitypanel1&collection=none&pageSize=pageSize&page=page]
+##  Germplasm Search [/brapi/v1/germplasm-search?germplasmName={germplasmName}&germplasmDbId={germplasmDdId}&germplasmPUI={germplasmPUI}&pageSize={pageSize}&page={page}]
 
 Implemented by: GnpIS, Germinate (GET only)
 
@@ -11,14 +11,14 @@ Adresses these needs:
 3. possibility to get MCPD details by PUID rather than dbId
 
 ###### Response data types
-|Variable|Datatype|Description|Required|  
+|Variable|Datatype|Description|Required|
 |------|------|------|:-----:|
 |metadata|object|pagination, status|Y|
 |pagination|object|pageSize, currentPage, totalCount, totalPages|Y|
 |status|list|code, message|Y|
 |result|object|data|Y|
 |data|array of objects|Array (possibly empty) of germplasm records|Y|
-|germplasmDbId|string|Internal db identifier|Y|
+|germplasmDbId|string|Internal database identifier|Y|
 |defaultDisplayName|string|A string that can be displayed to the user|Y|
 |accessionNumber|string|This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection||
 |germplasmName|string|Name of the germplasm. It can be the prefered name and does not have to be unique||
@@ -34,6 +34,7 @@ Adresses these needs:
 |typeOfGermplasmStorageCode|array of string|[MCPD] If germplasm is maintained under different types of storage, multiple choices are allowed. 10) Seed collection 11) Short term 12) Medium term 13) Long term 20) Field collection 30) In vitro collection 40) Cryopreserved collection 50) DNA collection 99) Other (elaborate in REMARKS field)||
 |genus|string|[MCPD] Genus name for taxon. Initial uppercase letter required.||
 |species|string|[MCPD] Specific epithet portion of the scientific name in lowercase letters.||
+|taxonIds|array of object{"sourceName":"taxonId"}| The list of IDs for this SPECIES in different source. If present, NCBI Taxon should be always listed, as "ncbiTaxon" preferably with a purl ||
 |speciesAuthority|string|[MCDP]||
 |subtaxa|string|[MCPD] Subtaxon can be used to store any additional taxonomic identifier. The following abbreviations are allowed: ‘subsp.’ (for subspecies); ‘convar.’ (for convariety); ‘var.’ (for variety); ‘f.’ (for form); ‘Group’ (for ‘cultivar group’).|
 |subtaxaAuthority|string|[MCDP] ||
@@ -45,9 +46,9 @@ Adresses these needs:
 Use GET when parameter size is less than 2K bytes.
 
 + Parameters
-    + germplasmPUI (optional, text, `http://data.inra.fr/accession/234Col342`) ... The name or synonym of external genebank accession identifier
-    + germplasmDbId (optional, text, `986`) ... The name or synonym of external genebank accession 
-    + germplasmName (optional, text, `Triticum, Hordeum`) ... The name or synonym of the accession
+    + germplasmPUI (optional, text, `http://data.inra.fr/accession/234Col342`) ... Permanent unique identifier (DOI, URI, etc.)
+    + germplasmDbId (optional, text, `986`) ... Internal database identifier
+    + germplasmName (optional, text, `Pah`, `Pahang`) ... Name of the germplasm
     + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
     + page (optional, integer, `10`) ... Which result page is requested
 
@@ -55,7 +56,7 @@ Use GET when parameter size is less than 2K bytes.
 
         {
             "metadata": {
-                "status": null,
+                "status": [],
                 "datafiles": [],
                 "pagination": {
                     "pageSize": 10,
@@ -65,7 +66,7 @@ Use GET when parameter size is less than 2K bytes.
                 }
             },
             "result": {
-                "data":[
+                "data": [
                     {
                         "germplasmDbId": "01BEL084609",
                         "defaultDisplayName": "Pahang",
@@ -83,11 +84,11 @@ Use GET when parameter size is less than 2K bytes.
                         "typeOfGermplasmStorageCode": 10,
                         "genus": "Musa",
                         "species": "acuminata",
+                        "taxonIds": [{"ncbiTaxon":"http://purl.obolibrary.org/obo/NCBITaxon_4641"}, {"ciradTaxon":"23-E"}],
                         "speciesAuthority": "",
                         "subtaxa": "sp malaccensis var pahang",
                         "subtaxaAuthority": "",
-                        "donors": 
-                        [
+                        "donors": [
                             {
                                 "donorAccessionNumber": "",
                                 "donorInstituteCode": "",
@@ -95,7 +96,7 @@ Use GET when parameter size is less than 2K bytes.
                             }
                         ],
                         "acquisitionDate": "19470131"
-                    ,{
+                    }, {
                         "germplasmDbId": "03REL084609",
                         "defaultDisplayName": "Pah",
                         "accessionNumber": "ITC0685",
@@ -112,11 +113,11 @@ Use GET when parameter size is less than 2K bytes.
                         "typeOfGermplasmStorageCode": 10,
                         "genus": "Musa",
                         "species": "acuminata",
+                        "taxonIds": [{"ncbiTaxon":"4641"}, {"ciradTaxon":"23-E"}],
                         "speciesAuthority": "",
                         "subtaxa": "sp malaccensis var pah",
                         "subtaxaAuthority": "",
-                        "donors": 
-                        [
+                        "donors": [
                             {
                                 "donorAccessionNumber": "",
                                 "donorInstituteCode": "",

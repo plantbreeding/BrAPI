@@ -1,6 +1,6 @@
 ## List Trial Summaries 
 
-Scope: CORE.
+Scope: PHENOTYPING.
 Status: ACCEPTED.
 Implementation target date: PAG2016.
 
@@ -23,12 +23,12 @@ Get list of trials.
             "metadata": {
                 "pagination": {
                     "pageSize": 2,
-                    "currentPage": 1,
+                    "currentPage": 0,
                     "totalCount": 100,
                     "totalPages": 50
                 },
-            "status" : {},
-            "datafiles": []
+                "status" : [],
+                "datafiles": []
             },
             "result": {
                 "data": [ 

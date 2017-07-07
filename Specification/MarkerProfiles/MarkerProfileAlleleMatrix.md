@@ -1,7 +1,7 @@
 ## MarkerProfile Allele Matrix [/brapi/v1/allelematrix-search?unknownString=&sepPhased=&sepUnphased=&expandHomozygotes=&markerprofileDbId=100&markerprofileDbId=101&markerDbId=322&markerDbId=418&format=&pageSize=&page=]
 Status: ACCEPTED.
 
-Implemented by: Germinate (POST only)
+Implemented by: Germinate (POST only), Cassavabase
 
 Used by: Flapjack (POST only)
 
@@ -11,14 +11,17 @@ This uses a more efficient data structure and pagination for large number of mar
 |------|------|------|:-----:|
 |markerprofileDbIds| list of strings | | Y |
 |data| array | Is an array of arrays; each inner array has three entries: "markerDbId", "markerProfileDbId", "alleleCall". Scores have to be represented as described further up. e.g. unknown data as "N", etc. Missing data can be skipped. | Y |
-
 ### Scores through GET [GET]
 
 Use GET when parameter size is less than 2K bytes.
+This method may support asynchronous processing.
 
 + Parameters
-    + markerprofileDbId (required, string, `993`) ... The markerprofile db ids; for multiple, repeat the parameter.
-    + markerDbId (optional, string, `322`) ... ids of the markers; if none are specified, results are returned for all markers in the database.
+    + At least one of the following is required:
+       - markerprofileDbId (string, `993`) ... Themarkerprofile db ids; for multiple, repeat the parameter.
+       - markerDbId (string, `322`) ... ids of the markers; if none are specified, results are returned for all markers in the database.
+       - matrixDbId (string, `457`) . . . ids of the matrix; for multiple, repeat the parameter.
+    + format (optional, string, 'tsv') ... format for the datafile to be downloaded. tsv and csv currently supported; flapjack may be supported.
     + expandHomozygotes (optional, boolean, `false`) ... Should homozygotes NOT be collapsed into a single orrucance?
     + unknownString (optional, string, `-`) ... The string to use as a representation for missing data or the reserved word "empty_string".
     + sepPhased (optional, string, `|`) ... The string to use as a separator for phased allele calls or the reserved word "empty_string".
@@ -32,11 +35,11 @@ Use GET when parameter size is less than 2K bytes.
             "metadata": {   
                 "pagination": {
                     "pageSize": 100,
-                    "currentPage": 1,
+                    "currentPage": 0,
                     "totalCount": 1,
                     "totalPages": 1
                 },
-                "status":{},
+                "status": [],
                 "datafiles": []
             },
             "result" : { 

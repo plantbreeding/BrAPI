@@ -3,26 +3,23 @@
 Use POST for large queries (>2K bytes).
 
 + Request (application/json)
-    
+
         {
-            "germplasmPUI" : "http://...", // (optional, text, `http://data.inra.fr/accession/234Col342`) ... The name or synonym of external genebank accession identifier
-            "germplasmDbId" : 986, // (optional, text, `986`) ... The name or synonym of external genebank accession identifier
-            "germplasmSpecies" : "tomato", // (optional, text, `aestivum`) ... The name or synonym of genus or species ( merge with below ?)
-            "germplasmGenus" : "Solanum lycopersicum", //(optional, text, `Triticum, Hordeum`) ... The name or synonym of genus or species
-            "germplasmName" : "XYZ1", // (optional, text, `Triticum, Hordeum`) ... The name or synonym of the accession
-            // the following need review (should be removed?)
-            //"germplasmSubTaxa (optional, text, `cv. Charger, subsp. aestivum`) ... The name or synonym of MCPD subTaxa. Exact Match, abreviations must be MCPD compliant (‘subsp.’ for 'subspecies'; ‘convar.’ for "convariety" ‘var.’ for variety; ‘f.’ for 'form'; ‘Group’ for ‘cultivar group’)
-            //+ panel (optional, text, `breedingProgramPanel2011`) ... The name of a specific panel 
-            //+ collection (optional, text, `BRCCollection_Wheat`) ... The name of a specific Collection    
-            "pageSize" : 100, // (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
-            "page":  1 (optional, integer, `10`) ... Which result page is requested
+            "germplasmPUIs" : [ "http://www.crop-diversity.org/mgis/accession/01BEL084609", "doi:10.15454/328757862534E12" ],
+            "germplasmDbIds" : [ "986", "01BEL084609" ],
+            "germplasmSpecies" : [ "aestivum", "vinifera" ],
+            "germplasmGenus" : [ "Solanum", "Triticum" ],
+            "germplasmNames" : [ "XYZ1", "Pahang" ],
+            "accessionNumbers": [ "ITC0609", "ITC0685" ],
+            "pageSize" : 100,
+            "page": 1
         }
- 
+
 + Response 200 (application/json)
 
         {
             "metadata": {
-                "status": null,
+                "status": [],
                 "datafiles": [],
                 "pagination": {
                     "pageSize": 10,
@@ -32,7 +29,7 @@ Use POST for large queries (>2K bytes).
                 }
             },
             "result": {
-                "data":[
+                "data": [
                     {
                         "germplasmDbId": "01BEL084609",
                         "defaultDisplayName": "Pahang",
@@ -50,11 +47,11 @@ Use POST for large queries (>2K bytes).
                         "typeOfGermplasmStorageCode": 10,
                         "genus": "Musa",
                         "species": "acuminata",
+                        "taxonIds": [{"ncbiTaxon":"http://purl.obolibrary.org/obo/NCBITaxon_4641"}, {"ciradTaxon":"23-E"}],
                         "speciesAuthority": "",
                         "subtaxa": "sp malaccensis var pahang",
                         "subtaxaAuthority": "",
-                        "donors": 
-                        [
+                        "donors": [
                             {
                                 "donorAccessionNumber": "",
                                 "donorInstituteCode": "",
@@ -62,7 +59,7 @@ Use POST for large queries (>2K bytes).
                             }
                         ],
                         "acquisitionDate": "19470131"
-                    ,{
+                    }, {
                         "germplasmDbId": "03REL084609",
                         "defaultDisplayName": "Pah",
                         "accessionNumber": "ITC0685",
@@ -79,11 +76,11 @@ Use POST for large queries (>2K bytes).
                         "typeOfGermplasmStorageCode": 10,
                         "genus": "Musa",
                         "species": "acuminata",
+                        "taxonIds": [{"ncbiTaxon":"4641"}, {"ciradTaxon":"23-E"}],
                         "speciesAuthority": "",
                         "subtaxa": "sp malaccensis var pah",
                         "subtaxaAuthority": "",
-                        "donors": 
-                        [
+                        "donors": [
                             {
                                 "donorAccessionNumber": "",
                                 "donorInstituteCode": "",

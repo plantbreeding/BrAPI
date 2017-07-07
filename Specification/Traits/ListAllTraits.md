@@ -2,7 +2,7 @@
 Scope: CORE.
 Status: ACCEPTED.
 
-Implemented by: Germinate
+Implemented by: Germinate, Cassavabase
 
 Call to retrieve a list of traits available in the system and their associated variables.
 
@@ -13,11 +13,11 @@ Call to retrieve a list of traits available in the system and their associated v
             "metadata" : {
                 "pagination" : {    
                     "pageSize": 3, 
-                    "currentPage": 1, 
+                    "currentPage": 0, 
                     "totalCount": 300, 
                     "totalPages": 100 
                 }
-                "status" : {},
+                "status" : [],
                 "datafiles": []
             },
         

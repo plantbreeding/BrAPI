@@ -28,7 +28,7 @@ List available attributes.
                     "totalCount": 10000,
                     "totalPages": 1000
                 },
-                "status": null,
+                "status": [],
                 "datafiles": []
             },
             "result" : {

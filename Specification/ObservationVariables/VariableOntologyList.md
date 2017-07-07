@@ -20,7 +20,7 @@ Call to retrieve a list of observation variable ontologies available in the syst
                     "totalCount": 12,
                     "totalPages": 6
                 },
-                "status": null,
+                "status": [],
                 "datafiles": []
             },
             "result": {
@@ -30,12 +30,14 @@ Call to retrieve a list of observation variable ontologies available in the syst
                         "ontologyName": "Wheat ontology",
                         "authors": "J. Snow, H. Peterson",
                         "version": "v1.2",
+                        "description": "developped for European genetic studies projects",
                         "copyright": "© 2016, INRA",
                         "licence": "CC BY-SA 4.0"
                     }, {
                         "ontologyDbId": "CO_335",
                         "ontologyName": "Rice ontology",
                         "authors": "J. Doe",
+                        "description": "developped for IRRI and amended with partners needs",
                         "version": "v2",
                         "copyright": null,
                         "licence": null

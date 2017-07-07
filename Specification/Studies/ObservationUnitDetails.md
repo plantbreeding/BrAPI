@@ -2,6 +2,8 @@
 
 The main API call for field data collection, to retrieve all the observation units within a study.
 
+Scope: PHENOTYPING
+
 ### Get all observation units [GET]
 
 + Parameters
@@ -14,11 +16,11 @@ The main API call for field data collection, to retrieve all the observation uni
             "metadata" : {
                 "pagination": {
                     "pageSize": 10,
-                    "currentPage": 1,
+                    "currentPage": 0,
                     "totalCount": 2,
                     "totalPages": 1
                 },
-                "status" : {},
+                "status" : [],
                 "datafiles": []
             },
             "result" : { 
@@ -37,6 +39,11 @@ The main API call for field data collection, to retrieve all the observation uni
                         "X" : "1",
                         "Y" : "1",
                         "replicate": "1",
+                        "observationUnitXref":[
+                            {"source": "biosampleEBI", "id": "SAMEA179865230"},
+                            {"source": "gnpis.lot", "id": "INRA:CoeSt6 _SMH03"}, 
+                            {"source": "kernelDB", "id": "239865"}
+                        ],
                         "observations": [
                             {
                                 "observationDbId": 153453453,

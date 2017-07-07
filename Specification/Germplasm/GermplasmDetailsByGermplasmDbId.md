@@ -1,7 +1,7 @@
 ## Germplasm Details by germplasmDbId [/brapi/v1/germplasm/{id}]
 Scope: CORE. Status: ACCEPTED.  
 Implementation target date: PAG2016
-Implemented by: Tripal Brapi module, Germinate
+Implemented by: Tripal Brapi module, Germinate, Cassavabase
 
 Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport Data. The MCPD fields are optional and marked with the prefix [MCPD].
 
@@ -18,7 +18,7 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
 |germplasmName|string|Name of the germplasm. It can be the prefered name and does not have to be unique||
 |germplasmPUI|string|Permanent identifier (e.g. URI, DOI, LSID)||
 |pedigree|string|Cross name with optional selection history.||
-|seedSource|string|Seed source||
+|seedSource|string|Identifier of the original lot.||
 |synonyms|array of string|List of other germplasm name||
 |commonCropName|string|Common name for the crop (e.g. wheat, rice, maize, cassava, banana)||
 |instituteCode|string|[MCPD] Institute that has bred the material. Note: The code may consist of the 3-letter ISO 3166 country code of the country where the institute is located plus a number (e.g. COL001) as recommended by FAO WIEWS |Y|
@@ -28,6 +28,7 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
 |typeOfGermplasmStorageCode|array of string|[MCPD] If germplasm is maintained under different types of storage, multiple choices are allowed. 10) Seed collection 11) Short term 12) Medium term 13) Long term 20) Field collection 30) In vitro collection 40) Cryopreserved collection 50) DNA collection 99) Other (elaborate in REMARKS field)||
 |genus|string|[MCPD] Genus name for taxon. Initial uppercase letter required.||
 |species|string|[MCPD] Specific epithet portion of the scientific name in lowercase letters.||
+|taxonIds|array of object{"sourceName":"taxonId"}| The list of IDs for this SPECIES in different source. If present, NCBI Taxon should be always listed, as "ncbiTaxon" preferably with a PURL. The rank of this ID should be species.||
 |speciesAuthority|string|[MCPD]||
 |subtaxa|string|[MCPD] Subtaxon can be used to store any additional taxonomic identifier. The following abbreviations are allowed: ‘subsp.’ (for subspecies); ‘convar.’ (for convariety); ‘var.’ (for variety); ‘f.’ (for form); ‘Group’ (for ‘cultivar group’).|
 |subtaxaAuthority|string|[MCPD] ||
@@ -42,9 +43,14 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
 
         {
             "metadata": {
-                "status": null,
+                "status": [],
                 "datafiles": [],
-                "pagination": null
+                "pagination": { 
+                    "pageSize":0, 
+                    "currentPage":0, 
+                    "totalCount":0, 
+                    "totalPages":0 
+                }
             },
             "result": {
                 "germplasmDbId": "01BEL084609",
@@ -53,7 +59,7 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
                 "germplasmName": "Pahang",
                 "germplasmPUI": "http://www.crop-diversity.org/mgis/accession/01BEL084609",
                 "pedigree": "TOBA97/SW90.1057",
-                "germplasmSeedSource": "Female GID:4/Male GID:4",
+                "seedSource": "ITC0609-2016-77",
                 "synonyms": [ ],
                 "commonCropName": "banana",
                 "instituteCode": "01BEL084",
@@ -63,6 +69,7 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
                 "typeOfGermplasmStorageCode": 10,
                 "genus": "Musa",
                 "species": "acuminata",
+                "taxonIds": [{"ncbiTaxon":"http://purl.obolibrary.org/obo/NCBITaxon_4641"}, {"ciradTaxon":"23-E"}],
                 "speciesAuthority": "",
                 "subtaxa": "sp malaccensis var pahang",
                 "subtaxaAuthority": "",
@@ -71,7 +78,7 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
                     {
                         "donorAccessionNumber": "",
                         "donorInstituteCode": "",
-                        "germplasmPUI": ""
+                        "donorGermplasmPUI": ""
                     }
                 ],
                 "acquisitionDate": "19470131"

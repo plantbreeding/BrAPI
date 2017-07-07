@@ -13,8 +13,13 @@ Retrieve variable details
 
         {
             "metadata": {
-                "pagination": null,
-                "status": {},
+                "pagination" : { 
+                    "pageSize":0, 
+                    "currentPage":0, 
+                    "totalCount":0, 
+                    "totalPages":0 
+                },
+                "status": [],
                 "datafiles": []
             },
             "result": {
@@ -29,7 +34,7 @@ Retrieve variable details
                 "xref": "TL_455:0003001",
                 "institution": "",
                 "scientist": "",
-                "date": "2016-05-13",
+                "submissionTimestamp": "2016-05-13T15:43:41+0100",
                 "language": "EN",
                 "crop": "Cassava",
                 "trait": {

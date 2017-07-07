@@ -1,13 +1,15 @@
 ## List Study Summaries [/brapi/v1/studies-search?studyType={studyType}&seasonDbId={seasonDbId}&locationDbId={locationDbId}&programDbId={programDbId}&germplasmDbIds={germplasmDbIds}&observationVariableDbIds={observationVariableDbIds}&pageSize={pageSize}&page={page}&active={active}&sortBy={sortBy}&sortOrder={sortOrder}]
-Scope: CORE.
+Scope: PHENOTYPING.
 Status: ACCEPTED.
 Implementation target date: PAG2016.
 
 Implemented by: Germinate
 
-Used by: Flapjack
+Used by: Flapjack, Cassavabase
 
 Get list of studies
+
+StartDate and endDate should be ISO8601 format for dates: YYYY-MM-DD
 
 ### List of study summaries [GET]
 
@@ -30,11 +32,11 @@ Get list of studies
             "metadata": {
                 "pagination": {
                     "pageSize": 2,
-                    "currentPage": 1,
+                    "currentPage": 0,
                     "totalCount": 100,
                     "totalPages": 50
                 },
-                "status" : {},
+                "status" : [],
                 "datafiles": []
             },
             "result": {

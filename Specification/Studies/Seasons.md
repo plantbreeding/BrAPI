@@ -2,6 +2,8 @@
 
 Call to retrive all seasons (or years) in the database. (Added by Jan-Erik and Lukas 5/26/2016)
 
+Scope: PHENOTYPING
+
 ### List seasons or years [GET]
 + Parameters
     + year (optional, String, `2015`)
@@ -13,11 +15,11 @@ Call to retrive all seasons (or years) in the database. (Added by Jan-Erik and L
             "metadata" : {
                 "pagination": {
                     "pageSize": 10,
-                    "currentPage": 1,
+                    "currentPage": 0,
                     "totalCount": 10,
                     "totalPages": 1
                 },
-                "status": {},
+                "status": [],
                 "datafiles": []
             },
             "result" : { 

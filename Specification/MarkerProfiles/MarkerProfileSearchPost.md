@@ -1,17 +1,13 @@
-## Markerprofile search [/brapi/v1/markerprofiles?germplasm={germplasmDbId}&studyDbId={studyDbId}&sample={sampleDbId}&extract={extractDbId}&method={methodDbId}&pageSize=100&page=4]
+## Markerprofile search [/brapi/v1/markerprofiles-search?germplasm={germplasmDbId}&studyDbId={studyDbId}&sample={sampleDbId}&extract={extractDbId}&method={methodDbId}&pageSize=100&page=4]
 Scope: GENOTYPING.
 Status: ACCEPTED.
 
-Implemented by: Germinate
-
-Used by: Flapjack
-
-For the requested Germplasm Id and/or Extract Id, returns the Markerprofile Id and number of non-missing allele calls 
+For the requested Germplasm Ids and/or Extract Ids, returns the Markerprofile Id and number of non-missing allele calls 
 (marker/allele pairs).
 
-### Retrieve Markerprofile Ids [GET]
+### Retrieve Markerprofile Ids [POST]
 + Parameters
-    + germplasmDbId (optional, string, `993`) ... The server's internal ids for the Germplasm IDs, as returned by the **Find markerprofile by Germplasm** service.
+    + germplasmDbId (optional, string, `993`) ... The server's internal id for the Germplasm ID, as returned by the **Find markerprofile by Germplasm** service. To return multiple markerprofiles, repeat the parameter.
     + studyDbId (optional, string, `111`) ... The server's internal id for the StudyDbId
     + sampleDbId (optional, string, `184`) ... The server's internal id for the SampleDbId
     + extractDbId (optional, string, `84`) ... The server's internal id for the ExtractDbId

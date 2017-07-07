@@ -2,6 +2,7 @@
 
 Call to retrieve the list of study types.
 
+Scope: PHENOTYPING.
 Implementation target date: PAG2016
 
 ### List study types [GET]
@@ -15,11 +16,11 @@ Implementation target date: PAG2016
              "metadata" : {
                 "pagination": {
                     "pageSize": 10,
-                    "currentPage": 1,
+                    "currentPage": 0,
                     "totalCount": 10,
                     "totalPages": 1
                 },
-                "status": {},
+                "status": [],
                 "datafiles": []
             },
             "result" : {

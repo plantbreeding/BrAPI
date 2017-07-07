@@ -1,3 +1,21 @@
+## Save Phenotypes for Many Studies [/brapi/v1/phenotypes] 
+Scope: PHENOTYPING.
+
+Notes: 
+Along with the study specific phenotype saving calls (in the observationUnit and table formats), this call allows phenotypes to be saved and images to optionally be transferred as well.
+
+###### Response data types
+|Variable|Datatype|Description|Required|  
+|------|------|------|:-----:|
+|transactionDbId|Long|internal DB id ||
+|metadata|object|pagination, status, datafiles|Y|
+|pagination|object|pageSize, currentPage, totalCount, totalPages|Y|
+|status|list of objects||Y|
+|datafiles|list||Y|
+|result|object|data|Y|
+|transactionDbId|Long|transactionDbId||
+|data| object| List of objects grouping the observationUnits and their observations||
+
 ### Save Observation Unit Phenotypes [POST]
 Call to invoke for saving the measurements (observations) collected from field for all the observation units.
 
@@ -37,21 +55,21 @@ Scope: PHENOYTPING.
                                 "observationVariableId": 18020,
                                 "observationVariableName": "Plant_height",
                                 "collector" : "Mr. Technician",
-                                "observationTimeStamp" : "2015-06-16T00:53:26Z",
+                                "observationTimeStamp" : "2015-06-16T00:53:26-0800",
                                 "value": "11"
                             },
                             {   
                                 "observationVariableId": 51496,
                                 "observationVariableName": "GW100_g",
                                 "collector" : "Mr. Technician",
-                                "observationTimeStamp" : "2015-06-16T00:53:26Z",
+                                "observationTimeStamp" : "2015-06-16T00:53:26-0800",
                                 "value": "111"
                             },
                             {   
                                 "observationVariableId": 51497,
                                 "observationVariableName": "image",
                                 "collector" : "Mr. Technician",
-                                "observationTimeStamp" : "2015-06-16T00:53:26Z",
+                                "observationTimeStamp" : "2015-06-16T00:53:26-0800",
                                 "value": "myimage1.jpg"
                             }
                         ]
@@ -64,21 +82,21 @@ Scope: PHENOYTPING.
                                 "observationVariableId": 18020,
                                 "observationVariableName": "Plant_height",
                                 "collector" : "Mr. Technician",
-                                "observationTimeStamp" : "2015-06-16T00:53:26Z",
+                                "observationTimeStamp" : "2015-06-16T00:53:26-0800",
                                 "value": "22"
                             },
                             {   
                                 "observationVariableId": 51496,
                                 "observationVariableName": "GW100_g",
                                 "collector" : "Mr. Technician",
-                                "observationTimeStamp" : "2015-06-16T00:53:26Z",
+                                "observationTimeStamp" : "2015-06-16T00:53:26-0800",
                                 "value": "222"
                             },
                             {   
                                 "observationVariableId": 51497,
                                 "observationVariableName": "image",
                                 "collector" : "Mr. Technician",
-                                "observationTimeStamp" : "2015-06-16T00:53:26Z",
+                                "observationTimeStamp" : "2015-06-16T00:53:26-0800",
                                 "value": "myimage2.jpg"
                             }
                         ]

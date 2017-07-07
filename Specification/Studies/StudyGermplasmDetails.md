@@ -1,5 +1,7 @@
 ## Study Germplasm Details [/brapi/v1/studies/{studyDbId}/germplasm?pageSize={pageSize}&page={page}]
 
+Scope: PHENOTYPING
+
 ### Study Germplasm Details [GET]
 + Parameters
     + studyDbId (required, string, `1`) ... Identifier of the study. Usually a number, could be alphanumeric.
@@ -10,14 +12,14 @@
 
         {
             "metadata": {
-                "status": {},
+                "pagination" : { 
+                    "pageSize":0, 
+                    "currentPage":0, 
+                    "totalCount":0, 
+                    "totalPages":0 
+                },
+                "status": [],
                 "datafiles": [],
-                "pagination": {
-                    "pageSize": 1000,
-                    "currentPage": 1,
-                    "totalCount": 1,
-                    "totalPages": 1
-                }
             },
             "result": {
                 "studyDbId": 123,

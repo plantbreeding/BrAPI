@@ -1,5 +1,5 @@
 ## Study Observation Units as a Table [/brapi/v1/studies/{studyDbId}/table] 
-Scope: CORE.
+Scope: PHENOTYPING.
 Status: ACCEPTED. Implemented in Cassavabase, HIDAP and Germinate.
 Notes: 
 Implementation target date: after PAG2016
@@ -9,6 +9,10 @@ Retrieve the details of the study required for field data collection. Includes a
 |Variable|Datatype|Description|Required|  
 |------|------|------|:-----:|
 |studyDbId|Long|internal DB id ||
+|metadata|object|pagination, status, datafiles|Y|
+|pagination|object|pageSize, currentPage, totalCount, totalPages|Y|
+|status|list of objects||Y|
+|datafiles|list||Y|
 |observationVariableDbId|Long | internal DB id for the traits measured ||
 |observationVariableName|String| name of variable||
 |data| object| List of lists, specifying the plotId, block, rep, germplasmId, and the phenotypic values||
@@ -17,18 +21,18 @@ Retrieve the details of the study required for field data collection. Includes a
 
 + Parameters
     + studyDbId (required, string, `1`) ... Identifier of the study. Usually a number, could be alphanumeric.
-    
+    + format (optional, string, `tsv`) ... The format parameter will cause the data to be dumped to a file in the specified format. Currently, tsv and csv are supported.    
 + Response 200 (application/json)
 
         {
             "metadata": {
                 "pagination": {
                     "pageSize": 1,
-                    "currentPage": 1,
+                    "currentPage": 0,
                     "totalCount": 1,
                     "totalPages": 1
                 },
-                "status": {},
+                "status": [],
                 "datafiles": []
             },
             "result" : {
