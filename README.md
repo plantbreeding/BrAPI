@@ -15,7 +15,7 @@ Call | Description
 [Crops](https://github.com/plantbreeding/API/blob/master/Specification/Crops/) | For multi crop systems this is a useful call to list all the supported crops.
 [GenomeMaps](https://github.com/plantbreeding/API/blob/master/Specification/GenomeMaps/) | Retrieving genetic or physical maps
 [Germplasm](https://github.com/plantbreeding/API/blob/master/Specification/Germplasm/) |  N.A.
-[GermplasmAttributes](https://github.com/plantbreeding/API/blob/master/Specification/GermplasmAttributes/) | N.A.
+[GermplasmAttributes](https://github.com/plantbreeding/API/blob/master/Specification/Germplasm/GermplasmAttributes/) | N.A.
 [Locations](https://github.com/plantbreeding/API/blob/master/Specification/Locations/) | Location calls.
 [MarkerProfiles](https://github.com/plantbreeding/API/blob/master/Specification/MarkerProfiles/) | For the purposes of this API, the definition of markerprofile is *the allele calls for a specified germplasm line, for all markers, for a specified set of genotyping experiments or all experiments.*
 [Markers](https://github.com/plantbreeding/API/blob/master/Specification/Markers/) |  N.A.
