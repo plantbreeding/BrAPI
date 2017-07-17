@@ -56,7 +56,7 @@ Use GET when parameter size is less than 2K bytes.
 
         {
             "metadata": {
-                "status": [],
+                "status": ["message":"OK","code":200],
                 "datafiles": [],
                 "pagination": {
                     "pageSize": 10,

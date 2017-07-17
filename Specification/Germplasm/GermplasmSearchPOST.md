@@ -19,7 +19,7 @@ Use POST for large queries (>2K bytes).
 
         {
             "metadata": {
-                "status": [],
+                "status": [{"message":"OK","code":200}],
                 "datafiles": [],
                 "pagination": {
                     "pageSize": 10,
