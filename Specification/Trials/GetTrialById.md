@@ -24,7 +24,7 @@ Get trial by id.
 | studies.studyDbId       | string          | Study database identifier                               |          |
 | studies.studyName       | string          | Study  name                                             |          |
 | studies.locationName    | string          | Study location name                                     |          |
-| studies.locationDbId    | string          | Study location email                                    |          |
+| studies.locationDbId    | string          | Study location db id                                    |          |
 | contacts                | array of object | List of trial identifier                                |          |
 | contacts.contactDbId    | string          | Study contact database identifier                       |          |
 | contacts.name           | string          | Study contact name                                      |          |
