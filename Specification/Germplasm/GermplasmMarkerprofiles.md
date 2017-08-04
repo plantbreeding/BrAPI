@@ -25,7 +25,7 @@ Implemented by: Germinate, Cassavabase
             "result" :  {
                 germplasmDbId : 39393,
                 markerprofileDbIds : [
-                    3939, 4484, 3993
+                    "3939", "4484", "3993"
                 ]
             } 
         }
