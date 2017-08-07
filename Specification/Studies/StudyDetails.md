@@ -136,7 +136,7 @@ More linked data:
                 "lastUpdate": {
                     "version": "1.1",
                     "timestamp": "2015-06-16T00:53:26Z"
-                }
+                },
                 "additionalInfo": {
                     "studyObjective": "Increase yield",
                     "principalInvestigator": "Dr. Breeder",
