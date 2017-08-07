@@ -15,7 +15,7 @@ List available attributes.
 |name|string|for display, and stable identifier unique in the database|Y|
 |description|string|||
 |datatype|string|e.g. Categorical, Numeric, Boolean||
-|values|string|array of all possible values for this attribute|Y|
+|values|array of string|array of all possible values for this attribute|Y|
 + Parameters
     + attributeCategoryDbId (optional, string, `2`) ... filter for kind of attributes
 + Response 200 (application/json)
@@ -33,13 +33,11 @@ List available attributes.
             },
             "result" : {
                 "data" : [
-                    "attributeCategoryDbId": 1,
+                    "attributeCategoryDbId": "1",
                     "code": "RHT",
                     "uri": "http://www.cropontology.org/rdf/CO_321:0000020",
                     "name": "Rht-B1b",
                     "description": "Allele of marker 11_4769, diagnostic for allele b of reduced-height gene Rht-B1",
-                    "attributeCategoryId": 2,
-                    "attributeCategoryName": "Agronomic",
                     "datatype": "Categorical",
                     "values": ["Present", "Absent", "Heterozygous"]
                 ]
