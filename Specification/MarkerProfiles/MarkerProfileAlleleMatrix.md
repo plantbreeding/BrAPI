@@ -22,7 +22,7 @@ This method may support asynchronous processing.
        - markerDbId (string, `322`) ... ids of the markers; if none are specified, results are returned for all markers in the database.
        - matrixDbId (string, `457`) . . . ids of the matrix; for multiple, repeat the parameter.
     + format (optional, string, 'tsv') ... format for the datafile to be downloaded. tsv and csv currently supported; flapjack may be supported.
-    + expandHomozygotes (optional, boolean, `false`) ... Should homozygotes NOT be collapsed into a single orrucance?
+    + expandHomozygotes (optional, boolean, `false`) ... Should homozygotes NOT be collapsed into a single occurence?
     + unknownString (optional, string, `-`) ... The string to use as a representation for missing data or the reserved word "empty_string".
     + sepPhased (optional, string, `|`) ... The string to use as a separator for phased allele calls or the reserved word "empty_string".
     + sepUnphased (optional, string, `/`) ... The string to use as a separator for unphased allele calls or the reserved word "empty_string".
