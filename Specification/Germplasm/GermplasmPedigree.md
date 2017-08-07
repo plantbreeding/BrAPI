@@ -35,6 +35,7 @@ Implemented by: Germinate, Tripal Brapi Module, Cassavabase (without notation op
             }
             "result" : {
                 "germplasmDbId": "382",
+                "defaultDisplayName": "Pahang",
                 "pedigree" : "Cree / Bonanza",
                 "parent1Id" : "166",
                 "parent2Id" : "143"
