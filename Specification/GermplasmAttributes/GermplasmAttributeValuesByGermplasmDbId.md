@@ -28,7 +28,7 @@ Values for all attributes by default.
                     "germplasmDbId": "993",
                     "data": [
                         {
-                            "attributeDbId": 1,
+                            "attributeDbId": "1",
                             "attributeName": "Rht-B1b",
                             "attributeCode": "RHT",
                             "value": "Present", 
