@@ -24,11 +24,11 @@ List all available attribute categories.
             "result" : { 
                 "data" : [
                     {
-                        "attributeCategoryDbId": 1, 
+                        "attributeCategoryDbId": "1", 
                         "name": "Morphological"
                     },
                     {
-                        "attributeCategoryDbId": 2, 
+                        "attributeCategoryDbId": "2", 
                         "name": "Agronomic"
                     }
                 ]
