@@ -1,4 +1,4 @@
-## Observation Unit Details [/brapi/v1/studies/{studyId}/observationunits?observationLevel={observationLevel}]
+## Observation Unit Details [/brapi/v1/studies/{studyDbId}/observationunits?observationLevel={observationLevel}]
 
 The main API call for field data collection, to retrieve all the observation units within a study.
 
@@ -46,7 +46,7 @@ Scope: PHENOTYPING
                         ],
                         "observations": [
                             {
-                                "observationDbId": 153453453,
+                                "observationDbId": "153453453",
                                 "observationVariableId": 18020,
                                 "observationVariableName": "Plant_height",
                                 "collector" : "Mr. Technician",
@@ -54,8 +54,8 @@ Scope: PHENOTYPING
                                 "value": null
                             },
                             { 
-                                "observationDbId": 23453454345,
-                                "observationVariableId": 51496,
+                                "observationDbId": "23453454345",
+                                "observationVariableId": "51496",
                                 "observationVariableName": "GW100_g",
                                 "collector" : "Mr. Technician",
                                 "observationTimeStamp" : "2015-06-16T00:53:26Z",
@@ -78,16 +78,16 @@ Scope: PHENOTYPING
                         "replicate": "1",
                         "observations": [
                             {
-                                "observationDbId": 3,
-                                "observationVariableId": 18020,
+                                "observationDbId": "3",
+                                "observationVariableId": "18020",
                                 "observationVariableName": "Plant_height",
                                 "collector" : "Mr. Technician",
                                 "observationTimeStamp" : "2015-06-16T00:53:26Z",
                                 "value": null
                             },
                             {   
-                                "observationDbId": 4,
-                                "observationVariableId": 51496,
+                                "observationDbId": "4",
+                                "observationVariableId": "51496",
                                 "observationVariableName": "GW100_g",
                                 "collector" : "Mr. Technician",
                                 "observationTimeStamp" : "2015-06-16T00:53:26Z",
