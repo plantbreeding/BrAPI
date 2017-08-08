@@ -29,8 +29,8 @@ observationTimestamp should be ISO8601 format with timezone: YYYY-MM-DDThh:mm:ss
             "result" : {
                 "data" : [ 
                     {
-                        "studyDbId": 1,
-                        "obserationDbId": 3383838,
+                        "studyDbId": "1",
+                        "obserationDbId": "3383838",
                         "observationUnitDbId": 11,
                         "observationUnitName": "ZIPA_68_Ibadan_2014",
                         "observationLevel" : "plot",
@@ -41,7 +41,7 @@ observationTimestamp should be ISO8601 format with timezone: YYYY-MM-DDThh:mm:ss
                         "operator" : "Jane Doe",
                         "germplasmDbId" : 8383,
                         "germplasmName": 143,
-                        "value" : 5,
+                        "value" : 5
                     }
                 ]
             }
