@@ -1,4 +1,4 @@
-## Markerprofile data [/brapi/v1/markerprofiles/{germplasmDbId}?unknownString=&sepPhased=&sepUnphased=&expandHomozygotes=&pageSize=&page= ]
+## Markerprofile data [/brapi/v1/markerprofiles/{markerprofileDbId}?unknownString=&sepPhased=&sepUnphased=&expandHomozygotes=&pageSize=&page= ]
 Scope: GENOTYPING.
 Status: ACCEPTED.
 Implemented by: Germinate, Cassavabase
