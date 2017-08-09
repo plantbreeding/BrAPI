@@ -33,7 +33,7 @@ For the requested Germplasm Id and/or Extract Id, returns the Markerprofile Id a
             "result" : {
                 "data" : [
                     {   
-                        "markerProfileDbId": "993",
+                        "markerprofileDbId": "993",
                         "germplasmDbId" : "2374",
                         "uniqueDisplayName": "MyFancyGermplasm",
                         "sampleDbId" : "3937",
@@ -42,7 +42,7 @@ For the requested Germplasm Id and/or Extract Id, returns the Markerprofile Id a
                         "resultCount": 1470
                     },
                     {
-                        "markerProfileDbId": "994",
+                        "markerprofileDbId": "994",
                         "germplasmDbId" : "2374",
                         "uniqueDisplayName" : "Germplasm2",
                         "sampleDbId" : "1234",
