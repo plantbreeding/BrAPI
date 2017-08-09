@@ -33,6 +33,7 @@ Used by: Flapjack
                 "totalPages" : 1,
                 "pageSize" : "10"
             },
+            "status": [{"message":"OK","code":200}],
             "datafiles" : []
             },
             "result" : {

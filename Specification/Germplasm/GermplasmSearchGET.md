@@ -56,7 +56,7 @@ Use GET when parameter size is less than 2K bytes.
 
         {
             "metadata": {
-                "status": [],
+                "status": [{"message":"OK","code":200}],
                 "datafiles": [],
                 "pagination": {
                     "pageSize": 10,
@@ -81,7 +81,7 @@ Use GET when parameter size is less than 2K bytes.
                         "instituteName": "ITC",
                         "biologicalStatusOfAccessionCode": 412,
                         "countryOfOriginCode": "UNK",
-                        "typeOfGermplasmStorageCode": 10,
+                        "typeOfGermplasmStorageCode": [ "10" ],
                         "genus": "Musa",
                         "species": "acuminata",
                         "taxonIds": [{"ncbiTaxon":"http://purl.obolibrary.org/obo/NCBITaxon_4641"}, {"ciradTaxon":"23-E"}],
@@ -110,7 +110,7 @@ Use GET when parameter size is less than 2K bytes.
                         "instituteName": "ITC",
                         "biologicalStatusOfAccessionCode": 412,
                         "countryOfOriginCode": "UNK",
-                        "typeOfGermplasmStorageCode": 10,
+                        "typeOfGermplasmStorageCode": [ "10" ],
                         "genus": "Musa",
                         "species": "acuminata",
                         "taxonIds": [{"ncbiTaxon":"4641"}, {"ciradTaxon":"23-E"}],
