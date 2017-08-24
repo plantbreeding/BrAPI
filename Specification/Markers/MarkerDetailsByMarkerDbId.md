@@ -9,8 +9,7 @@ Implemented By:
 |metadata|object|pagination, status, datafiles|Y|
 |pagination|object|pageSize, currentPage, totalCount, totalPages|Y|
 |status|list|code, message|Y|
-|result|object|data|Y|
-|data|array of objects|Array (possibly empty) of marker records|Y|
+|result|object|marker data|Y|
 |type|string|The type of marker, e.g. SNP|Y|
 |markerDbId|string|Internal db identifier|Y|
 |defaultDisplayName|string|A string representing the marker that will be meaningful to the user|Y|
