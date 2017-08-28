@@ -1,10 +1,25 @@
-## List Trial Summaries 
+## Get List of Trial Summaries [/brapi/v1/trials?programDbId={programDbId}&locationDbId={locationDbId}&pageSize={pageSize}&page={page}&active={active}&sortBy={sortBy}&sortOrder={sortOrder}]
 
 Scope: PHENOTYPING.
 Status: ACCEPTED.
 Implementation target date: PAG2016.
 
-Get list of trials.
+###### Response data types
+
+| Variable                | Datatype        | Description                                             | Required |
+| ----------------------- | --------------- | ------------------------------------------------------- | :------: |
+| trialDbId               | string          | string database identifier, not necessarily a Primary Key |    Y     |
+| trialName               | string          | Human readable name                                     |    Y     |
+| programDbId             | string          | string database identifier, not necessarily a Primary Key |          |
+| programName             | string          |                                                         |          |
+| startDate               | Date (ISO 8601)          |                                                         |          |
+| endDate                 | Date (ISO 8601)          |                                                         |          |
+| active                  | boolean         |                                                         |          |
+| studies                 | array of object | List of studies                                         |          |
+| studies.studyDbId       | string          | Study database identifier                               |          |
+| studies.studyName       | string          | Study  name                                             |          |
+| studies.locationName    | string          | Study location name                                     |          |
+| additionalInfo          | object          | Additional arbitrary info on the trial 		      |          |
 
 ### List of trial summaries [GET]
 
