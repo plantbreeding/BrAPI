@@ -19,7 +19,7 @@ Implementation target date: PAG2016.
 | studies.studyDbId       | string          | Study database identifier                               |          |
 | studies.studyName       | string          | Study  name                                             |          |
 | studies.locationName    | string          | Study location name                                     |          |
-| additionalInfo          | object          | Additional arbitrary info on the trial 		      |          |
+| additionalInfo          | object          | Additional arbitrary info on the trial                  |          |
 
 ### List of trial summaries [GET]
 

@@ -39,18 +39,19 @@ The metadata key is structured as followed:
   "metadata" : {
       "pagination" : {
             "totalCount" : 0,
-	     "pageSize" : 0,
-	     "totalPages" : 0,
-	     "currentPage" : 0
-	     },
+            "pageSize" : 0,
+            "totalPages" : 0,
+            "currentPage" : 0
+       },
        "status" : [{
                       "code" : "asynchstatus",
-	              "message" : "PENDING"
-		   }],
+                      "message" : "PENDING"
+                  }],
        "datafiles" : ["/mnt/local/matrix_01.csv",
                       "/mnt/local/matrix_02.csv"]
-	}, . . . 
+       }, . . . 
 }
+
 ````
 
 +  **pagination**: The pagination object is applicable only when the "data" key contains multiple objects. In this case, the keys "pageSize", "currentPage", "totalCount", "totalPages" contain the appropriate values. Pages are zero indexed, so the first page will be page 0 (zero). (For the user interface, this may be adjusted by adding 1).
