@@ -54,7 +54,16 @@
           "name": "Musa Germplasm Information System",
           "base-url": "https://www.crop-diversity.org/mgis/brapi/v1/"
         }
-      }
+      },
+      {
+        "name": "Wageningen Plant Sciences, Plant Breeding BrAPI resources",
+        "description": "Core BrAPI resources of Wageningen Plant Sciences, deployed by department of Plant Breeding.",
+        "resource": {
+          "name": "EU-SOL Tomato collection",
+          "base-url": "https://www.eu-sol.wur.nl/webapi/tomato/brapi/v1/",
+          "description": "Collection of approx. 7000 tomato accessions, mainly phenotypic but also partial genotypic information."
+        }
+      },
     ]
   }
 }
