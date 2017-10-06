@@ -2,7 +2,7 @@
 
 Implemented by:  GnpIS
 
-Get a list of locations.
+Get details for a location.
 
 * The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
 * `altitude` is in meters.
