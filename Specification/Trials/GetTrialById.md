@@ -95,7 +95,7 @@ Get trial by id.
                     }
                 ],
                 "additionalInfo" : {
-                    "publications" : ["pmid:239823988","doi:10.2345/GEZG3T23535"]
+                    "publications" : ["pmid:239823988","doi:10.2345/GEZG3T23535"],
                     "property2Name" : "property2Value",
                     "property3Name" : "property3Value"
                 }
