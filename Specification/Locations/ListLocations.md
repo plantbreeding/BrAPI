@@ -1,4 +1,4 @@
-## List [/brapi/v1/locations?locationType={locationType}]
+## List Locations [/brapi/v1/locations?locationType={locationType}]
 
 Implemented by: Germinate
 
