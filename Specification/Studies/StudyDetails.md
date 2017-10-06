@@ -129,10 +129,10 @@ More linked data:
                 "dataLinks": [
                     {
                         "type": "Image archive",
-		        "name": "image-archive12.zip",
-			"url": "http://data.inra.fr/archive/multi-spect-flowering.zip"
-		    }
-		],
+                        "name": "image-archive12.zip",
+                        "url": "http://data.inra.fr/archive/multi-spect-flowering.zip"
+                    }
+                ],
                 "lastUpdate": {
                     "version": "1.1",
                     "timestamp": "2015-06-16T00:53:26Z"

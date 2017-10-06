@@ -10,7 +10,7 @@ This uses a more efficient data structure and pagination for large number of mar
 |Variable|Datatype|Description|Required|  
 |------|------|------|:-----:|
 |markerprofileDbIds| list of strings | | Y |
-|data| array | Is an array of arrays; each inner array has three entries: "markerDbId", "markerProfileDbId", "alleleCall". Scores have to be represented as described further up. e.g. unknown data as "N", etc. Missing data can be skipped. | Y |
+|data| array | Is an array of arrays; each inner array has three entries: "markerDbId", "markerprofileDbId", "alleleCall". Scores have to be represented as described further up. e.g. unknown data as "N", etc. Missing data can be skipped. | Y |
 ### Scores through GET [GET]
 
 Use GET when parameter size is less than 2K bytes.

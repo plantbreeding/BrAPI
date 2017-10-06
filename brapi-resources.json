@@ -8,15 +8,9 @@
         "resource": [
           {
             "name": "Germinate 3 Demo (https://ics)",
-            "base-url": "https://ics.hutton.ac.uk/brapi",
+            "base-url": "https://ics.hutton.ac.uk/germinate-demo/cactuar-devel/brapi/v1/",
             "logo": "https://ics.hutton.ac.uk/resources/brapi/logos/germinate-128.png",
             "description": "Small demo dataset using a Germinate 3 backend."
-          },
-          {
-            "name": "Germinate 3 Maize Subset (https://ics)",
-            "base-url": "https://ics.hutton.ac.uk/brapi-test",
-            "logo": "https://ics.hutton.ac.uk/resources/brapi/logos/germinate-128.png",
-            "description": "Plant Breeding API implementation of Germinate 3 Maize (currently broken)"
           }
         ]
       },
@@ -54,7 +48,16 @@
           "name": "Musa Germplasm Information System",
           "base-url": "https://www.crop-diversity.org/mgis/brapi/v1/"
         }
-      }
+      },
+      {
+        "name": "Wageningen Plant Sciences, Plant Breeding BrAPI resources",
+        "description": "Core BrAPI resources of Wageningen Plant Sciences, deployed by department of Plant Breeding.",
+        "resource": {
+          "name": "EU-SOL Tomato collection",
+          "base-url": "https://www.eu-sol.wur.nl/webapi/tomato/brapi/v1/",
+          "description": "Collection of approx. 7000 tomato accessions, mainly phenotypic but also partial genotypic information."
+        }
+      },
     ]
   }
 }

@@ -35,13 +35,13 @@ Provides the number of markers on each linkageGroup and the max position on the 
                 "linkageGroups": [    
                     {
                         "linkageGroupDbId": "1",
-                        "numberMarkers": 100000,
+                        "markerCount": 100000,
                         "maxPosition": 10000000
                     },
                     {
                         "linkageGroupDbId": "2",
-                        "numberMarkers": 1247,
-                        "maxPostion": 12347889
+                        "markerCount": 1247,
+                        "maxPosition": 12347889
                     }
                 ]
             }

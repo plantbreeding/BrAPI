@@ -24,7 +24,7 @@ Get trial by id.
 | studies.studyDbId       | string          | Study database identifier                               |          |
 | studies.studyName       | string          | Study  name                                             |          |
 | studies.locationName    | string          | Study location name                                     |          |
-| studies.locationDbId    | string          | Study location email                                    |          |
+| studies.locationDbId    | string          | Study location db id                                    |          |
 | contacts                | array of object | List of trial identifier                                |          |
 | contacts.contactDbId    | string          | Study contact database identifier                       |          |
 | contacts.name           | string          | Study contact name                                      |          |
@@ -95,7 +95,7 @@ Get trial by id.
                     }
                 ],
                 "additionalInfo" : {
-                    "publications" : ["pmid:239823988","doi:10.2345/GEZG3T23535"]
+                    "publications" : ["pmid:239823988","doi:10.2345/GEZG3T23535"],
                     "property2Name" : "property2Value",
                     "property3Name" : "property3Value"
                 }
