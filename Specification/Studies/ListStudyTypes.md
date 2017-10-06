@@ -34,7 +34,7 @@ Implementation target date: PAG2016
                         "description": "Description for Trial study type"
                     },
                     {
-                        "name": Genotype",
+                        "name": "Genotype",
                         "description": "Description for Genotyping study type"
                     }
                 ]

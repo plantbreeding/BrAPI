@@ -34,14 +34,14 @@ Provides the number of markers on each linkageGroup and the max position on the 
                 "unit": "cM",
                 "linkageGroups": [    
                     {
-                        "linkageGroupId": 1,
+                        "linkageGroupDbId": "1",
                         "markerCount": 100000,
                         "maxPosition": 10000000
                     },
                     {
-                        "linkageGroupId": 2,
+                        "linkageGroupDbId": "2",
                         "markerCount": 1247,
-                        "maxPostion": 12347889
+                        "maxPosition": 12347889
                     }
                 ]
             }

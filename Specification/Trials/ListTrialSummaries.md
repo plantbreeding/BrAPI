@@ -48,21 +48,21 @@ Implementation target date: PAG2016.
             "result": {
                 "data": [ 
                     {
-                        "trialDbId" : 1,
+                        "trialDbId" : "1",
                         "trialName" : "InternationalTrialA",
-                        "programDbId": 27,
+                        "programDbId": "27",
                         "programName": "International Yield Trial",
                         "startDate": "2007-06-01",
                         "endDate"  : "2008-12-31",
                         "active" : "true", 
                         "studies" : [
                             {
-                                "studyDbId" : 1,
+                                "studyDbId" : "1",
                                 "studyName" : "Zimbabwe Yield Trial",
                                 "locationName" : "Zimbabwe"
                             },
                             {
-                                "studyDbId" : 2,
+                                "studyDbId" : "2",
                                 "studyName" : "Kenya Yield Trial",
                                 "locationName" : "Kenya"
                             }
