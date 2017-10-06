@@ -13,13 +13,15 @@ Get a list of locations.
 
 + Parameters
     + locationType (optional, string, `Breeding Locations`) - Filter by location type specified.
+    + page (optional, int, `2282`) - request a specific response page
+    + pageSize (optional, int, `5000`) - request a non-default page size (1000 is default)
 
 + Response 200 (application/json)
         
         {
             "metadata": {
                 "pagination": { 
-                    "pageNumber": 1,
+                    "currentPage": 1,
                     "pageSize": 2,
                     "totalCount": 100,
                     "totalPages": 50
