@@ -31,10 +31,10 @@ Get a list of locations.
         {
             "metadata": {
                 "pagination": { 
-                    "pageNumber": 1,
-                    "pageSize": 2,
-                    "totalCount": 100,
-                    "totalPages": 50
+                    "totalCount": 0,
+                    "pageSize": 0,
+                    "totalPages": 0,
+                    "currentPage": 0
                 },
                 "status" : [],
                 "datafiles": []
