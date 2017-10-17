@@ -57,7 +57,7 @@
           "base-url": "https://www.eu-sol.wur.nl/webapi/tomato/brapi/v1/",
           "description": "Collection of approx. 7000 tomato accessions, mainly phenotypic but also partial genotypic information."
         }
-      },
+      }
     ]
   }
 }
