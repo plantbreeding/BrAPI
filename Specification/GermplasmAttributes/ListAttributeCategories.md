@@ -1,4 +1,4 @@
-## List attribute categories [/brapi/v1/attributes/categories/?pageSize=10&page=2] 
+## List attribute categories [/brapi/v1/attributes/categories?pageSize=10&page=2] 
 Scope: OTHER. Status: ACCEPTED.
 Implementation target date: PAG2016
 
