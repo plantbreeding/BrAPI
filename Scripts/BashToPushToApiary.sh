@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Be sure to install the apiary gem; https://github.com/apiaryio/apiary-client
 # gem install apiaryio
-ROOT_DIRECTORY=/home/brapi
+ROOT_DIRECTORY=$HOME
 BRAPI_DIR=${ROOT_DIRECTORY}/API
 if [ -d "$BRAPI_DIR" ]; then
     cd $BRAPI_DIR
@@ -18,7 +18,7 @@ source ${ROOT_DIRECTORY}/.bash_rc
 # Your apiname here; docs.$APINAME.apiary.io
 APINAME=brapi
 
-BRAPI_FILE=${ROOT_DIRECTORY}/swagger.yaml
+BRAPI_FILE=${ROOT_DIRECTORY}/brapi_blueprint.apib
 
 if [ -f $BRAPI_FILE ]; then
     rm $BRAPI_FILE
