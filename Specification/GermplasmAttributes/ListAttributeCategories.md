@@ -1,4 +1,4 @@
-## List attribute categories [/brapi/v1/attributes/categories/?pageSize=10&page=2] 
+## List attribute categories [/brapi/v1/attributes/categories/?pageSize={pageSize}&page={page}] 
 Scope: OTHER. Status: ACCEPTED.
 Implementation target date: PAG2016
 
@@ -15,7 +15,7 @@ List all available attribute categories.
                 "pagination": {
                     "pageSize": 10,
                     "currentPage": 1,
-                    "totalCount": 10,
+                    "totalCount": 2,
                     "totalPages": 1
                 },
                 "status": [],

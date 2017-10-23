@@ -31,10 +31,10 @@ StartDate and endDate should be ISO8601 format for dates: YYYY-MM-DD
         {
             "metadata": {
                 "pagination": {
-                    "pageSize": 2,
+                    "pageSize": 1000,
                     "currentPage": 0,
-                    "totalCount": 100,
-                    "totalPages": 50
+                    "totalCount": 2,
+                    "totalPages": 1
                 },
                 "status" : [],
                 "datafiles": []

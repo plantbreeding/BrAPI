@@ -46,11 +46,11 @@ Adresses these needs:
 Use GET when parameter size is less than 2K bytes.
 
 + Parameters
-    + germplasmPUI (optional, text, `http://data.inra.fr/accession/234Col342`) ... Permanent unique identifier (DOI, URI, etc.)
-    + germplasmDbId (optional, text, `986`) ... Internal database identifier
-    + germplasmName (optional, text, `Pah`, `Pahang`) ... Name of the germplasm
-    + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
-    + page (optional, integer, `10`) ... Which result page is requested
+   + germplasmPUI (optional, text, `http://data.inra.fr/accession/234Col342`) ... Permanent unique identifier (DOI, URI, etc.)
+   + germplasmDbId (optional, text, `986`) ... Internal database identifier
+   + germplasmName (optional, text, `Pah`, `Pahang`) ... Name of the germplasm
+   + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
+   + page (optional, integer, `10`) ... Which result page is requested
 
 + Response 200 (application/json)
 
@@ -59,8 +59,8 @@ Use GET when parameter size is less than 2K bytes.
                 "status": [],
                 "datafiles": [],
                 "pagination": {
-                    "pageSize": 10,
-                    "currentPage": 1,
+                    "pageSize": 1000,
+                    "currentPage": 0,
                     "totalCount": 2,
                     "totalPages": 1
                 }

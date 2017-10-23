@@ -1,4 +1,4 @@
-## List Seasons [/brapi/v1/seasons?year=&pageSize=&page=]
+## List Seasons [/brapi/v1/seasons?year={year}&pageSize={pageSize}&page={page}]
 
 Call to retrive all seasons (or years) in the database. (Added by Jan-Erik and Lukas 5/26/2016)
 Scope: PHENOTYPING.
@@ -13,9 +13,9 @@ Scope: PHENOTYPING.
         {
             "metadata" : {
                 "pagination": {
-                    "pageSize": 10,
+                    "pageSize": 1000,
                     "currentPage": 0,
-                    "totalCount": 10,
+                    "totalCount": 2,
                     "totalPages": 1
                 },
                 "status": [],

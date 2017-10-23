@@ -22,10 +22,10 @@ Use POST for large queries (>2K bytes).
                 "status": [],
                 "datafiles": [],
                 "pagination": {
-                    "pageSize": 10,
+                    "pageSize": 100,
                     "currentPage": 1,
-                    "totalCount": 2,
-                    "totalPages": 1
+                    "totalCount": 102,
+                    "totalPages": 2
                 }
             },
             "result": {

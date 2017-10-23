@@ -15,10 +15,10 @@ Call to retrieve a list of observation variable ontologies available in the syst
         {
             "metadata": {
                 "pagination": {
-                    "pageSize": 2,
+                    "pageSize": 1000,
                     "currentPage": 0,
-                    "totalCount": 12,
-                    "totalPages": 6
+                    "totalCount": 2,
+                    "totalPages": 1
                 },
                 "status": [],
                 "datafiles": []

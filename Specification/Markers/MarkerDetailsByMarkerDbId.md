@@ -26,10 +26,10 @@ Implemented By:
         {
             "metadata": {                
                 "pagination": {
-                    "pageSize": 100,
-                    "currentPage": 1,
-                    "totalCount": 1,
-                    "totalPages": 1
+                    "pageSize": 0,
+                    "currentPage": 0,
+                    "totalCount": 0,
+                    "totalPages": 0
                 },
                 "status": [],
                 "datafiles": [],

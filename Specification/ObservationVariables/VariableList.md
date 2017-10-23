@@ -16,10 +16,10 @@ Call to retrieve a list of observationVariables available in the system.
         {
             "metadata": {
                 "pagination": {
-                    "pageSize": 2,
+                    "pageSize": 1000,
                     "currentPage": 0,
-                    "totalCount": 300,
-                    "totalPages": 100
+                    "totalCount": 2,
+                    "totalPages": 1
                 },
                 "status": [],
                 "datafiles": []

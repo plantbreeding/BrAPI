@@ -1,4 +1,4 @@
-## List attributes available [/brapi/v1/attributes?attributeCategoryDbId=2]
+## List attributes available [/brapi/v1/attributes?attributeCategoryDbId={attributeCategoryDbId}&pageSize={pageSize}&page={page}]
 Scope: OTHER. Status: ACCEPTED.
 Implementation target date: PAG2016
 
@@ -17,16 +17,18 @@ List available attributes.
 |datatype|string|e.g. Categorical, Numeric, Boolean||
 |values|array of string|array of all possible values for this attribute|Y|
 + Parameters
-    + attributeCategoryDbId (optional, string, `2`) ... filter for kind of attributes
+   + attributeCategoryDbId (optional, string, `2`) ... filter for kind of attributes
+   + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
+   + page (optional, integer, `10`) ... Which result page is requested
 + Response 200 (application/json)
 
         {
             "metadata" : {
                 "pagination": {
-                    "pageSize": 10,
-                    "currentPage": 1,
-                    "totalCount": 10000,
-                    "totalPages": 1000
+                    "pageSize": 1000,
+                    "currentPage": 0,
+                    "totalCount": 1,
+                    "totalPages": 1
                 },
                 "status": [],
                 "datafiles": []

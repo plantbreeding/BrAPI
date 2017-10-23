@@ -1,4 +1,4 @@
-## List Study Types [/brapi/v1/studyTypes?pageSize=&page=]
+## List Study Types [/brapi/v1/studyTypes?pageSize={pageSize}&page={page}]
 
 Call to retrieve the list of study types.
 
@@ -15,9 +15,9 @@ Implementation target date: PAG2016
         {
              "metadata" : {
                 "pagination": {
-                    "pageSize": 10,
+                    "pageSize": 1000,
                     "currentPage": 0,
-                    "totalCount": 10,
+                    "totalCount": 3,
                     "totalPages": 1
                 },
                 "status": [],

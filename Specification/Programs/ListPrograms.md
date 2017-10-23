@@ -1,4 +1,4 @@
-## Program list [/brapi/v1/programs?programName={programName}&abbreviation={abbreviation}&pageSize=&page=]
+## Program list [/brapi/v1/programs?programName={programName}&abbreviation={abbreviation}&pageSize={pageSize}&page={page}]
 Call to retrieve a list of programs.
 
 Status: ACCEPTED
@@ -17,9 +17,9 @@ Implemented By:
         {
             "metadata" : {
                 "pagination": {
-                    "pageSize": 10,
+                    "pageSize": 1000,
                     "currentPage": 0,
-                    "totalCount": 10,
+                    "totalCount": 2,
                     "totalPages": 1
                 },
                 "status": [],

@@ -115,9 +115,9 @@ The BRAPI response payload, which is contained in the "result" key, allows for t
 {
   "metadata" : {
     "pagination" : {
-      "totalCount" : 0,
-      "pageSize" : 0,
-      "totalPages" : 0,
+      "totalCount" : 6,
+      "pageSize" : 1000,
+      "totalPages" : 1,
       "currentPage" : 0
     },
     "status" : [ ],

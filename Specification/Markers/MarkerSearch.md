@@ -39,9 +39,9 @@ For the requested name or synonym, returns an array (possibly empty) of marker r
             "metadata": {
                 "pagination": {
                     "pageSize": 1000,
-                    "currentPage": 10,
-                    "totalCount": 27338,
-                    "totalPages": 28
+                    "currentPage": 0,
+                    "totalCount": 2,
+                    "totalPages": 1
                 },
                 "status": [],
                 "datafiles": []

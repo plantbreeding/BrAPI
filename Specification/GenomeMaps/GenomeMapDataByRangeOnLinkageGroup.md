@@ -9,16 +9,18 @@ markers ordered by linkageGroup and position
    + linkageGroupId (required, string)
    + min (optional) ... minimum position on linkage group
    + max (optional) ... maximumn position on linkage group
+   + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
+   + page (optional, integer, `10`) ... Which result page is requested
 
 + Response 200 (application/json)
 
         {
             "metadata" : {
                 "pagination" : {             
-                    "pageSize": 30, 
-                    "currentPage": 2, 
-                    "totalCount": 40, 
-                    "totalPages":2 
+                    "pageSize": 1000, 
+                    "currentPage": 0, 
+                    "totalCount": 2, 
+                    "totalPages": 1 
                 },
                 "status" : [],
                 "datafiles": []

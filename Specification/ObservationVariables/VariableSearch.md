@@ -29,7 +29,7 @@ Search observation variables.
                     "pageSize": 2,
                     "currentPage": 0,
                     "totalCount": 300,
-                    "totalPages": 100
+                    "totalPages": 150
                 },
                 "status": [],
                 "datafiles": []

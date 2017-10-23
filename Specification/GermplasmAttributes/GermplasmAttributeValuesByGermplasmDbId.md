@@ -1,4 +1,4 @@
-## Germplasm attribute values by germplasmDbId [/brapi/v1/germplasm/{germplasmDbId}/attributes?attributeList={attributeDbId},{attributeDbId}&pageSize=&page=]
+## Germplasm attribute values by germplasmDbId [/brapi/v1/germplasm/{germplasmDbId}/attributes?attributeList={attributeDbId},{attributeDbId}&pageSize={pageSize}&page={page}]
 
 Status: ACCEPTED.]
 
@@ -15,9 +15,9 @@ Values for all attributes by default.
         {
             "metadata" : {
                 "pagination": {
-                    "pageSize": 10,
-                    "currentPage": 1,
-                    "totalCount": 10,
+                    "pageSize": 1000,
+                    "currentPage": 0,
+                    "totalCount": 1,
                     "totalPages": 1
                 },
                 "status": [],

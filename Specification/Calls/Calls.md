@@ -20,18 +20,18 @@ Used by: Flapjack
 
 ### Call search [GET]
 + Parameters
-    + datatype (optional, string, `tsv`) ... The data type supported by the call
-    + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
-    + page (optional, integer, `10`) ... Which result page is requested
+   + datatype (optional, string, `tsv`) ... The data type supported by the call
+   + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
+   + page (optional, integer, `10`) ... Which result page is requested
 + Response 200 (application/json)
 
         {
             "metadata": {
                 "pagination" : {
-                "totalCount" : 7,
+                "totalCount" : 8,
                 "currentPage" : 0,
                 "totalPages" : 1,
-                "pageSize" : "10"
+                "pageSize" : 1000
             },
             "datafiles" : []
             },

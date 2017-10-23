@@ -17,7 +17,9 @@ Scope: PHENOTYPING
            "observationVariableDbIds": ["CO-PH-123", "Var-123"]
            "active" : "true",
            "sortBy" : "studyDbId",
-           "sortOrder" : "desc"
+           "sortOrder" : "desc",
+           "pageSize": 1000,
+           "page": 0,
         }
 
 + Response 200 (application/json)
@@ -25,10 +27,10 @@ Scope: PHENOTYPING
         {
             "metadata": {
                 "pagination": {
-                    "pageSize": 2,
+                    "pageSize": 1000,
                     "currentPage": 0,
-                    "totalCount": 100,
-                    "totalPages": 50
+                    "totalCount": 2,
+                    "totalPages": 1
                 },
                 "status" : [],
                 "datafiles": []

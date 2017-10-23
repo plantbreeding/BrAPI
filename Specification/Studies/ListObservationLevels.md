@@ -1,17 +1,20 @@
-## List Observation Levels [/brapi/v1/observationLevels]
+## List Observation Levels [/brapi/v1/observationLevels?&pageSize={pageSize}&page={page}]
 
 Call to retrieve the list of supported observation levels. 
 Observation levels indicate the granularity level at which the measurements are taken.
 The values are used to supply the `observationLevel` parameter in the observation unit details call.
 
 ### List observation levels [GET]
++ Parameters
+   + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
+   + page (optional, integer, `10`) ... Which result page is requested
 
 + Response 200 (application/json)
         
         {
             "metadata" : {
                 "pagination": {
-                    "pageSize": 10,
+                    "pageSize": 1000,
                     "currentPage": 0,
                     "totalCount": 2,
                     "totalPages": 1

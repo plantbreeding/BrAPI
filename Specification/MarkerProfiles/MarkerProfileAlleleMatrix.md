@@ -34,7 +34,7 @@ This method may support asynchronous processing.
         {
             "metadata": {   
                 "pagination": {
-                    "pageSize": 100,
+                    "pageSize": 1000,
                     "currentPage": 0,
                     "totalCount": 1,
                     "totalPages": 1

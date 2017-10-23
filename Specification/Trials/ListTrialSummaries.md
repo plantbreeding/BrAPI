@@ -37,10 +37,10 @@ Implementation target date: PAG2016.
         {
             "metadata": {
                 "pagination": {
-                    "pageSize": 2,
+                    "pageSize": 1000,
                     "currentPage": 0,
-                    "totalCount": 100,
-                    "totalPages": 50
+                    "totalCount": 1,
+                    "totalPages": 1
                 },
                 "status" : [],
                 "datafiles": []
