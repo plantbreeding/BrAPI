@@ -1,4 +1,4 @@
-## List Study Summaries [/brapi/v1/studies-search?studyType={studyType}&seasonDbId={seasonDbId}&locationDbId={locationDbId}&programDbId={programDbId}&germplasmDbIds={germplasmDbIds}&observationVariableDbIds={observationVariableDbIds}&pageSize={pageSize}&page={page}&active={active}&sortBy={sortBy}&sortOrder={sortOrder}]
+## Search Studies [/brapi/v1/studies-search]
 Scope: PHENOTYPING.
 Status: ACCEPTED.
 Implementation target date: PAG2016.
@@ -11,7 +11,8 @@ Get list of studies
 
 StartDate and endDate should be ISO8601 format for dates: YYYY-MM-DD
 
-### List of study summaries [GET]
+### Search Studies (GET) [GET /brapi/v1/studies-search?studyType={studyType}&seasonDbId={seasonDbId}&locationDbId={locationDbId}&programDbId={programDbId}&germplasmDbIds={germplasmDbIds}&observationVariableDbIds={observationVariableDbIds}&pageSize={pageSize}&page={page}&active={active}&sortBy={sortBy}&sortOrder={sortOrder}]
+
 
 + Parameters
     + studyType (optional, string, `Nursery`) ... Filter based on study type e.g. Nursery, Trial or Genotype.
