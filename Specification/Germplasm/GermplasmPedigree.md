@@ -1,4 +1,4 @@
-## Germplasm Pedigree [/brapi/v1/germplasm/{id}/pedigree?notation=purdy]
+## Germplasm Pedigree [/brapi/v1/germplasm/{germplasmDbId}/pedigree?notation=purdy]
 Scope: CORE. Status: ACCEPTED.  
 Implementation target date: PAG2016
 Implemented by: Germinate, Tripal Brapi Module, Cassavabase (without notation option)
@@ -18,8 +18,8 @@ Implemented by: Germinate, Tripal Brapi Module, Cassavabase (without notation op
 (http://wheat.pw.usda.gov/ggpages/gopher/administration/Template%20for%20Germplasm%20records.html) or [Lamacraft] (http://link.springer.com/article/10.1007%2FBF00021556).  
 ### Germplasm pedigree by id [GET]
 + Parameters
-    + id (required, number, `382`) ... the internal id of the germplasm
-    + notation (optional, string, `purdy`) ... text representation of the pedigree
+   + germplasmDbId (required, string, `382`) ... the internal id of the germplasm
+   + notation (optional, string, `purdy`) ... text representation of the pedigree
 + Response 200 (application/json)
     
         { 

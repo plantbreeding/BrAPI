@@ -24,8 +24,8 @@ StartDate and endDate should be ISO8601 format for dates: YYYY-MM-DD
     + germplasmDbIds (optional, array, `["CML123", "CML"]`) ... Filter studies where specified germplasm have been used/tested
     + observationVariableDbIds (optional, array, `["CO-PH-123" , "Var-123"]`) ... Filter studies where specified observation variables have been measured
     + active (optional, boolean, `true/false`) ... Filter active status true/false. 
-    + sortBy (optional, boolean, `studyDbId`) ... Sort order. Name of the field to sorty by.
-    + sortOrder (optional, boolean, `asc/desc`) ... Sort order direction. Ascending/Descending.
+    + sortBy (optional, string, `studyDbId`) ... Sort order. Name of the field to sorty by.
+    + sortOrder (optional, string, `asc/desc`) ... Sort order direction. Ascending/Descending.
     
 + Response 200 (application/json)
 

@@ -1,4 +1,4 @@
-## Germplasm Details by germplasmDbId [/brapi/v1/germplasm/{id}]
+## Germplasm Details by germplasmDbId [/brapi/v1/germplasm/{germplasmDbId}]
 Scope: CORE. Status: ACCEPTED.  
 Implementation target date: PAG2016
 Implemented by: Tripal Brapi module, Germinate, Cassavabase
@@ -37,7 +37,7 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
 
 ### Germplasm search by germplasmDbId [GET]
 + Parameters
-    + id (required, string, `382`) ... germplasmDbId - the internal id of the germplasm
+   + germplasmDbId (required, string, `382`) ... The internal id of the germplasm
     
 + Response 200 (application/json)
 

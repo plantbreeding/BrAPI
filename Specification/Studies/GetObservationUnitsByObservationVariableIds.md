@@ -11,7 +11,7 @@ observationTimestamp should be ISO8601 format with timezone: YYYY-MM-DDThh:mm:ss
 
 + Parameters
     + studyDbId (required, string, `1`) ... Identifier of the study. Usually a number, could be alphanumeric.
-    + observationVariableDbId (required, number, `2` ... Numeric `id` of that variable (combination of trait, unit and method)
+    + observationVariableDbId (required, string, `2` ... Numeric `id` of that variable (combination of trait, unit and method)
 
 + Response 200 (application/json)
     

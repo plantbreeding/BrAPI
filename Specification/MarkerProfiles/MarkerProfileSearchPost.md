@@ -11,8 +11,8 @@ For the requested Germplasm Ids and/or Extract Ids, returns the Markerprofile Id
     + studyDbId (optional, string, `111`) ... The server's internal id for the StudyDbId
     + sampleDbId (optional, string, `184`) ... The server's internal id for the SampleDbId
     + extractDbId (optional, string, `84`) ... The server's internal id for the ExtractDbId
-    + pageSize (optional, number, `10000`) ... The number of allele call results (marker/allele pairs) to be returned in the response. If multiple experiments are requested, some responses will contain the last results from one experiment followed by the first results from the next.
-    + page (optional, number, `1`) ... Required if `pageSize` is given; and requires that `pageSize` be given. The first page is 1, not 0.
+    + pageSize (optional, integer, `10000`) ... The number of allele call results (marker/allele pairs) to be returned in the response. If multiple experiments are requested, some responses will contain the last results from one experiment followed by the first results from the next.
+    + page (optional, integer, `1`) ... Required if `pageSize` is given; and requires that `pageSize` be given. The first page is 1, not 0.
 + Response 200 (application/json)
 
         {
