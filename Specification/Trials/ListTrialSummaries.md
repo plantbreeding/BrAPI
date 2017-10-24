@@ -29,8 +29,8 @@ Implementation target date: PAG2016.
    + pageSize (optional, integer, `1000`) 
    + page (optional, integer, `100`)
    + active (optional, boolean, `true/false`) ... Filter active status true/false. 
-   + sortBy (optional, boolean, `studyDbId`) ... Sort order. Name of the field to sorty by.
-   + sortOrder (optional, boolean, `asc/desc`) ... Sort order direction. Ascending/Descending.
+   + sortBy (optional, string, `studyDbId`) ... Sort order. Name of the field to sorty by.
+   + sortOrder (optional, string, `asc/desc`) ... Sort order direction. Ascending/Descending.
     
 + Response 200 (application/json)
 

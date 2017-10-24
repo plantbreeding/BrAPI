@@ -5,8 +5,8 @@ Implementation target date: PAG2016
 ### Germplasm attribute categories [GET]
 List all available attribute categories.
 + Parameters
-    + pageSize (optional, number, `10000`) Number of attributes to return in one response
-    + page (optional, number, `1`) ... Required if `pageSize` is given; and requires that `pageSize` be given. The first page is 1, not 0.
+    + pageSize (optional, integer, `10000`) Number of attributes to return in one response
+    + page (optional, integer, `1`) ... Required if `pageSize` is given; and requires that `pageSize` be given. The first page is 1, not 0.
 
 + Response 200 (application/json)
 

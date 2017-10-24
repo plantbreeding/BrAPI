@@ -25,7 +25,7 @@ For the requested name or synonym, returns an array (possibly empty) of marker r
 
 ### Search names to retrieve marker records [GET]
 + Parameters
-    + name (optional, text, `11_10002 11_1% 11_1* 11_10?02`) ... The name or synonym.
+    + name (optional, string, `11_10002 11_1% 11_1* 11_10?02`) ... The name or synonym.
     + matchMethod (optional, string, `wildcard`) ... Possible values are 'case_insensitive', 'exact'
     (case sensitive), 'wildcard' (which is case insensitive). Wildcard uses both '*' and '%' for any number of characters
     and '?' for one character matching. Default is exact.

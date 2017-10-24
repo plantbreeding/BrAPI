@@ -12,7 +12,8 @@ This resource is used for reading and writing genomic matrices:
 ### Matrices through GET [GET]
 
 
-+ Parameters: studyDbId restricts the list of matrices to a specific study. 
++ Parameters
+   + studyDbId (required, string, `abc123`) ... restricts the list of matrices to a specific study. 
 
 
 + Response 200 (application/json)
