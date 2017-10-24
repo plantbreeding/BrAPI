@@ -10,10 +10,11 @@ observationTimestamp should be ISO8601 format with timezone: YYYY-MM-DDThh:mm:ss
 ### Get Observation Units by observation variable ids [GET]
 
 + Parameters
-   + studyDbId (required, string, `1`) ... Identifier of the study. Usually a number, could be alphanumeric.
-   + observationVariableDbId (required, number, `2` ... Numeric `id` of that variable (combination of trait, unit and method)
-   + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
-   + page (optional, integer, `10`) ... Which result page is requested
+    + studyDbId (required, string, `1`) ... Identifier of the study. Usually a number, could be alphanumeric.
+    + observationVariableDbId (required, string, `2` ... Numeric `id` of that variable (combination of trait, unit and method)
+    + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
+    + page (optional, integer, `10`) ... Which result page is requested
+
 
 + Response 200 (application/json)
     

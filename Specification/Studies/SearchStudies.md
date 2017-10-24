@@ -1,10 +1,4 @@
-## Search Studies [/brapi/v1/studies-search]
-
-Search studies
-
-Scope: PHENOTYPING
-
-### Search studies [POST] 
+### Search Studies (POST) [POST /brapi/v1/studies-search] 
 
 + Request (application/json)
 
