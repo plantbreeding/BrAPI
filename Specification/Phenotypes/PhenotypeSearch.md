@@ -73,10 +73,10 @@ observationValue data type inferred from the ontology
         {
           "metadata": {
             "pagination": {
-              "pageSize": 10,
-              "currentPage": 0,
-              "totalCount": 10,
-              "totalPages": 1
+              "pageSize": 100,
+              "currentPage": 1,
+              "totalCount": 102,
+              "totalPages": 2
             },
             "status": [],
             "datafiles": []

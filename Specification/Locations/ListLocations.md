@@ -1,4 +1,4 @@
-## List Locations [/brapi/v1/locations?locationType={locationType}]
+## List Locations [/brapi/v1/locations?locationType={locationType}&pageSize={pageSize}&page={page}]
 
 Implemented by: Germinate
 
@@ -13,18 +13,18 @@ Get a list of locations.
 
 + Parameters
     + locationType (optional, string, `Breeding Locations`) - Filter by location type specified.
-    + page (optional, integer, `2282`) - request a specific response page
-    + pageSize (optional, integer, `5000`) - request a non-default page size (1000 is default)
+    + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
+    + page (optional, integer, `0`) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
 
 + Response 200 (application/json)
         
         {
             "metadata": {
                 "pagination": { 
-                    "currentPage": 1,
-                    "pageSize": 2,
-                    "totalCount": 100,
-                    "totalPages": 50
+                    "currentPage": 0,
+                    "pageSize": 1000,
+                    "totalCount": 2,
+                    "totalPages": 1
                 },
                 "status" : [],
                 "datafiles": []

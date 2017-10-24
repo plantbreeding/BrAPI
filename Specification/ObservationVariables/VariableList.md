@@ -7,8 +7,8 @@ Call to retrieve a list of observationVariables available in the system.
 ### Variable list [GET]
 
 + Parameters
-    + pageSize (optional, integer, `100`)
-    + page (optional, integer, `0`)
+    + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
+    + page (optional, integer, `0`) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + traitClass (optional, string, `Phenological`) ... Variable's trait class (phenological, physiological, morphological, etc.)
 
 + Response 200 (application/json)
@@ -16,10 +16,10 @@ Call to retrieve a list of observationVariables available in the system.
         {
             "metadata": {
                 "pagination": {
-                    "pageSize": 2,
+                    "pageSize": 1000,
                     "currentPage": 0,
-                    "totalCount": 300,
-                    "totalPages": 100
+                    "totalCount": 2,
+                    "totalPages": 1
                 },
                 "status": [],
                 "datafiles": []

@@ -1,4 +1,4 @@
-## Observation Unit Details [/brapi/v1/studies/{studyDbId}/observationunits?observationLevel={observationLevel}]
+## Observation Unit Details [/brapi/v1/studies/{studyDbId}/observationunits?observationLevel={observationLevel}&pageSize={pageSize}&page={page}]
 
 The main API call for field data collection, to retrieve all the observation units within a study.
 
@@ -7,15 +7,17 @@ Scope: PHENOTYPING
 ### Get all observation units [GET]
 
 + Parameters
-    + observationLevel (required, string, `plot`) ... The granularity level of observation units. 
+   + observationLevel (required, string, `plot`) ... The granularity level of observation units. 
       Either `plotNumber` or `plantNumber` fields will be relavant depending on whether granularity is plot or plant respectively.
+    + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
+    + page (optional, integer, `0`) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
 
 + Response 200 (application/json)
 
         {
             "metadata" : {
                 "pagination": {
-                    "pageSize": 10,
+                    "pageSize": 1000,
                     "currentPage": 0,
                     "totalCount": 2,
                     "totalPages": 1

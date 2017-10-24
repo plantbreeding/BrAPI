@@ -1,4 +1,4 @@
-## Markerprofile search [/brapi/v1/markerprofiles?germplasm={germplasmDbId}&studyDbId={studyDbId}&sample={sampleDbId}&extract={extractDbId}&method={methodDbId}&pageSize=100&page=4]
+## Markerprofile search [/brapi/v1/markerprofiles?germplasm={germplasmDbId}&studyDbId={studyDbId}&sample={sampleDbId}&extract={extractDbId}&method={methodDbId}&pageSize={pageSize}&page={page}]
 Scope: GENOTYPING.
 Status: ACCEPTED.
 
@@ -16,15 +16,15 @@ For the requested Germplasm Id and/or Extract Id, returns the Markerprofile Id a
     + sampleDbId (optional, string, `184`) ... The server's internal id for the SampleDbId
     + extractDbId (optional, string, `84`) ... The server's internal id for the ExtractDbId
     + pageSize (optional, integer, `10000`) ... The number of allele call results (marker/allele pairs) to be returned in the response. If multiple experiments are requested, some responses will contain the last results from one experiment followed by the first results from the next.
-    + page (optional, integer, `1`) ... Required if `pageSize` is given; and requires that `pageSize` be given. The first page is 1, not 0.
+    + page (optional, integer, `1`) ... Required if `pageSize` is given; and requires that `pageSize` be given. The page indexing starts at 0 (the first page is 'page'=0)
 + Response 200 (application/json)
 
         {
             "metadata" : {
                 "pagination": {
-                    "pageSize": 10,
+                    "pageSize": 1000,
                     "currentPage": 0,
-                    "totalCount": 10,
+                    "totalCount": 2,
                     "totalPages": 1
                 },
                 "status": [],

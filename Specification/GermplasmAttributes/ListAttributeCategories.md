@@ -1,12 +1,12 @@
-## List attribute categories [/brapi/v1/attributes/categories?pageSize=10&page=2] 
+## List attribute categories [/brapi/v1/attributes/categories?pageSize={pageSize}&page={page}] 
 Scope: OTHER. Status: ACCEPTED.
 Implementation target date: PAG2016
 
 ### Germplasm attribute categories [GET]
 List all available attribute categories.
 + Parameters
-    + pageSize (optional, integer, `10000`) Number of attributes to return in one response
-    + page (optional, integer, `1`) ... Required if `pageSize` is given; and requires that `pageSize` be given. The first page is 1, not 0.
+   + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
+   + page (optional, integer, `0`) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
 
 + Response 200 (application/json)
 
@@ -15,7 +15,7 @@ List all available attribute categories.
                 "pagination": {
                     "pageSize": 10,
                     "currentPage": 1,
-                    "totalCount": 10,
+                    "totalCount": 2,
                     "totalPages": 1
                 },
                 "status": [],

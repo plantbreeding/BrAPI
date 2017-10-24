@@ -5,18 +5,18 @@ Scope: PHENOTYPING
 ### Study Germplasm Details [GET]
 + Parameters
     + studyDbId (required, string, `1`) ... Identifier of the study. Usually a number, could be alphanumeric.
-    + pageSize (optional, integer, `1000`) ... the number of germplasm entries to be returned in the response
-    + page (optional, integer, `10`) ... the desired response page
+    + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
+    + page (optional, integer, `0`) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
 
 + Response 200 (application/json)
 
         {
             "metadata": {
                 "pagination" : { 
-                    "pageSize":0, 
-                    "currentPage":0, 
-                    "totalCount":0, 
-                    "totalPages":0 
+                    "pageSize": 1000, 
+                    "currentPage": 0, 
+                    "totalCount": 2, 
+                    "totalPages": 1 
                 },
                 "status": [],
                 "datafiles": [],

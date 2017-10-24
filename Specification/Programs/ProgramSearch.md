@@ -18,9 +18,9 @@ Status: ACCEPTED.
             {
             "metadata" : {
                 "pagination": {
-                    "pageSize": 10,
+                    "pageSize": 1000,
                     "currentPage": 0,
-                    "totalCount": 10,
+                    "totalCount": 2,
                     "totalPages": 1
                 },
                 "status": [],

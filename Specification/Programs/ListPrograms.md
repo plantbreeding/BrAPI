@@ -1,4 +1,4 @@
-## Program list [/brapi/v1/programs?programName={programName}&abbreviation={abbreviation}&pageSize=&page=]
+## Program list [/brapi/v1/programs?programName={programName}&abbreviation={abbreviation}&pageSize={pageSize}&page={page}]
 Call to retrieve a list of programs.
 
 Status: ACCEPTED
@@ -9,17 +9,17 @@ Implemented By:
 + Parameters
     + programName (optional, string, `Internation Yield Trial`) ... Filter by program name. Exact match.
     + abbreviation (optional, string, `IYT`) ... Filter by program abbreviation. Exact match.
-    + pageSize (optional, integer, `23`) ... the number of programs to be reported per request
-    + page (optional, integer, `292`) ... the response page requested
+    + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
+    + page (optional, integer, `0`) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
 
 + Response 200 (application/json)
         
         {
             "metadata" : {
                 "pagination": {
-                    "pageSize": 10,
+                    "pageSize": 1000,
                     "currentPage": 0,
-                    "totalCount": 10,
+                    "totalCount": 2,
                     "totalPages": 1
                 },
                 "status": [],
