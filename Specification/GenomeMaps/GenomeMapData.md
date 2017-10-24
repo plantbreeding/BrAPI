@@ -1,4 +1,4 @@
-## Genome Map Data [/brapi/v1/maps/{mapDbId}/positions?linkageGroupId={linkageGroupId}&linkageGroupId={linkageGroupId}&pageSize={pageSize}&page={page}]
+## Genome Map Data [/brapi/v1/maps/{mapDbId}/positions?linkageGroupId={linkageGroupId}&pageSize={pageSize}&page={page}]
 
 Status: ACCEPTED.
 
