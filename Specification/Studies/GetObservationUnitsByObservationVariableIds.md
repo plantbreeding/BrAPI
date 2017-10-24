@@ -13,7 +13,7 @@ observationTimestamp should be ISO8601 format with timezone: YYYY-MM-DDThh:mm:ss
     + studyDbId (required, string, `1`) ... Identifier of the study. Usually a number, could be alphanumeric.
     + observationVariableDbId (required, string, `2` ... Numeric `id` of that variable (combination of trait, unit and method)
     + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
-    + page (optional, integer, `10`) ... Which result page is requested
+    + page (optional, integer, `0`) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
 
 
 + Response 200 (application/json)

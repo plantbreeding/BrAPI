@@ -9,8 +9,8 @@ Scope: PHENOTYPING
 + Parameters
    + observationLevel (required, string, `plot`) ... The granularity level of observation units. 
       Either `plotNumber` or `plantNumber` fields will be relavant depending on whether granularity is plot or plant respectively.
-   + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
-   + page (optional, integer, `10`) ... Which result page is requested
+    + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
+    + page (optional, integer, `0`) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
 
 + Response 200 (application/json)
 

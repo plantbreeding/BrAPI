@@ -25,9 +25,9 @@ This method may support asynchronous processing.
     + expandHomozygotes (optional, boolean, `false`) ... Should homozygotes NOT be collapsed into a single occurence?
     + unknownString (optional, string, `-`) ... The string to use as a representation for missing data or the reserved word "empty_string".
     + sepPhased (optional, string, `|`) ... The string to use as a separator for phased allele calls or the reserved word "empty_string".
-    + sepUnphased (optional, string, `/`) ... The string to use as a separator for unphased allele calls or the reserved word "empty_string".
-    + pageSize (optional, integer, `1000`) ... the number of allele calls reported per response page.
-    + page (optional, integer, `10`) ... the requested response page
+    + sepUnphased (optional, string, `/`) ... The string to use as a separator for unphased allele calls or the reserved word "empty_string".    
+    + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
+    + page (optional, integer, `0`) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
 
 + Response 200 (application/json)
 

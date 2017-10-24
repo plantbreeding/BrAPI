@@ -25,12 +25,12 @@ Implementation target date: PAG2016.
 
 + Parameters
     + programDbId (optional, string, `1`) ... Program filter to only return trials associated with given program id.
-   + locationDbId (optional, string, `212`) ... Filter by location
-   + pageSize (optional, integer, `1000`) 
-   + page (optional, integer, `100`)
-   + active (optional, boolean, `true/false`) ... Filter active status true/false. 
-   + sortBy (optional, string, `studyDbId`) ... Sort order. Name of the field to sorty by.
-   + sortOrder (optional, string, `asc/desc`) ... Sort order direction. Ascending/Descending.
+    + locationDbId (optional, string, `212`) ... Filter by location
+    + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
+    + page (optional, integer, `0`) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + active (optional, boolean, `true/false`) ... Filter active status true/false. 
+    + sortBy (optional, string, `studyDbId`) ... Sort order. Name of the field to sorty by.
+    + sortOrder (optional, string, `asc/desc`) ... Sort order direction. Ascending/Descending.
     
 + Response 200 (application/json)
 

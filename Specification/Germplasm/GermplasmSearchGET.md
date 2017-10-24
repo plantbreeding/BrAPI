@@ -50,7 +50,8 @@ Use GET when parameter size is less than 2K bytes.
    + germplasmDbId (optional, string, `986`) ... Internal database identifier
    + germplasmName (optional, string, `Pah`, `Pahang`) ... Name of the germplasm
    + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
-   + page (optional, integer, `10`) ... Which result page is requested
+   + page (optional, integer, `0`) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+
 
 + Response 200 (application/json)
 

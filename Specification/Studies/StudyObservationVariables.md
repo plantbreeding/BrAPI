@@ -16,10 +16,10 @@ Refer to the data type definition of variables in `/Specification/ObservationVar
         {
             "metadata": {
                 "pagination" : { 
-                    "pageSize":2, 
-                    "currentPage":0, 
-                    "totalCount":10, 
-                    "totalPages":5 
+                    "pageSize": 0, 
+                    "currentPage": 0, 
+                    "totalCount": 0, 
+                    "totalPages": 0 
                 },
                 "status": [],
                 "datafiles": []

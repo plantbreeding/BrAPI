@@ -10,7 +10,8 @@ markers ordered by linkageGroup and position
    + min (optional) ... minimum position on linkage group
    + max (optional) ... maximumn position on linkage group
    + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
-   + page (optional, integer, `10`) ... Which result page is requested
+   + page (optional, integer, `0`) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+
 
 + Response 200 (application/json)
 

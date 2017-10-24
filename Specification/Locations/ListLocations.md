@@ -13,8 +13,8 @@ Get a list of locations.
 
 + Parameters
     + locationType (optional, string, `Breeding Locations`) - Filter by location type specified.
-    + page (optional, int, `2282`) - request a specific response page
-    + pageSize (optional, int, `5000`) - request a non-default page size (1000 is default)
+    + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
+    + page (optional, integer, `0`) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
 
 + Response 200 (application/json)
         

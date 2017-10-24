@@ -7,8 +7,8 @@ Values for all attributes by default.
 + Parameters
     + germplasmDbId (required, string, `993`) ... The germplasm characterized
     + attributeDbId (optional, string, `1`) ... Restrict the response to only the listed attributes.
-    + pageSize (optional, integer, `10000`) ... the number of attributes to return in one request, defaults to 1000.
-    + page (optional, integer, `1`) ... Required if `pageSize` is given; and requires that `pageSize` be given. The first page is 1, not 0.
+    + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
+    + page (optional, integer, `0`) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
 
 + Response 200 (application/json)
 

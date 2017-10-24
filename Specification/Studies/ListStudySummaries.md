@@ -19,8 +19,8 @@ StartDate and endDate should be ISO8601 format for dates: YYYY-MM-DD
     + programDbId (optional, string, `1`) ... Program filter to only return studies associated with given program id.
     + locationDbId (optional, string, `212`) ... Filter by location
     + seasonDbId (optional, string, `2016E`) ... Filter by season or year
-    + pageSize (optional, integer, `1000`) 
-    + page (optional, integer, `100`)
+    + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
+    + page (optional, integer, `0`) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + germplasmDbIds (optional, array, `["CML123", "CML"]`) ... Filter studies where specified germplasm have been used/tested
     + observationVariableDbIds (optional, array, `["CO-PH-123" , "Var-123"]`) ... Filter studies where specified observation variables have been measured
     + active (optional, boolean, `true/false`) ... Filter active status true/false. 

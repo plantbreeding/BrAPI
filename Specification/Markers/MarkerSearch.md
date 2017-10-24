@@ -30,9 +30,10 @@ For the requested name or synonym, returns an array (possibly empty) of marker r
     (case sensitive), 'wildcard' (which is case insensitive). Wildcard uses both '*' and '%' for any number of characters
     and '?' for one character matching. Default is exact.
     + include (optional, string, `synonyms`) ... Whether to include synonyms in the output.
-    + type (optional, string, `SNP`) ... The type of the marker.
+    + type (optional, string, `SNP`) ... The type of the marker.    
     + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
-    + page (optional, integer, `10`) ... Which result page is requested
+    + page (optional, integer, `0`) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+
 + Response 200 (application/json)
 
         {
