@@ -2,19 +2,34 @@
 Scope: CORE.
 Status: ACCEPTED.
 
-Search observation variables.
+Search for observation variables.
+
+All search params are optional
+results should be a list of all variables which match ALL the search params.
+
 
 ### Variable search [POST]
++ Parameters
+   + observationVariableDbIds (optional, array, `["obs-variable-id1", "obs-variable-id2"]`) ... Internal ID used to identify an Observational Variable within an arbitrary data store 
+   + ontologyDbIds (optional, array, `["CO_334:0100632"]`) ... Internal ID used to identify an Observational Variable within the shared ontology data store
+   + ontologyXrefs (optional, array, `["CO:123", "CO:456"]`) ... External reference ID used to identify an Observational Variable within the shared ontology data store
+   + methodDbIds (optional, array, `["method-1", "method-2"]`) ... The ID associated with a particular method
+   + scaleDbIds (optional, array, `["scale-1", "scale-2"]`) ... The ID associated with a particular scale
+   + names (optional, array, `["caro_spectro"]`) ... The human readable name of an Observational Variable
+   + datatypes (optional, array, `["numeric"]`) ... The type of data being observed
+   + traitClasses (optional, array, `["Phenological", "Physiological"]`) ... The class of trait being observed
+   + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
+   + page (optional, integer, `10`) ... Which result page is requested
 
 + Request (application/json)
 
         {
             "page": 0,
             "pageSize": 2,
-            "observationVariableDbIds" : ["obs-variable-id1", "obs-variable-id1"],
+            "observationVariableDbIds" : ["obs-variable-id1", "obs-variable-id2"],
             "ontologyXrefs" : ["CO:123", "CO:456"],
             "ontologyDbIds" : ["CO_334:0100632"],
-            "methodDbIds" : ["method-1", "method=2"],
+            "methodDbIds" : ["method-1", "method-2"],
             "scaleDbIds" : ["scale-1", "scale-2"],
             "names" : ["caro_spectro"],
             "datatypes" : ["numeric"],
