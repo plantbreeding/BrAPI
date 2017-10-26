@@ -36,7 +36,7 @@ More linked data:
 | location.countryCode    | string          | Study location ISO-3166 country code (ex: US, FR, etc.) |          |
 | location.countryName    | string          | Study location country                                  |          |
 | location.instituteName  | string          | Study location institute/laboratory name                |          |
-| location.instituteAdress| string          | Study location institute/laboratory adress              |          |
+| location.instituteAddress| string          | Study location institute/laboratory address              |          |
 | location.latitude       | number          | Study location latitude                                 |          |
 | location.longitude      | number          | Study location longitude                                |          |
 | location.altitude       | number          | Study location altitude in meters                       |          |
@@ -98,7 +98,7 @@ More linked data:
                     "countryCode": "NGA",
                     "countryName": "Nigeria",
                     "instituteName"; "INRA - GDEC",
-                    "instituteAdress"; "route foo, Clermont Ferrand, France",
+                    "instituteAddress"; "route foo, Clermont Ferrand, France",
                     "latitude": -21.5,
                     "longitude": 165.5,
                     "altitude": 12,
