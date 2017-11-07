@@ -2,20 +2,29 @@
 Scope: CORE.
 Status: ACCEPTED.
 
-Search for observation variables.
+Search for a list of Observation Variables. An Observation Variable is defined as the unique combination of a Trait being observed, a Method used for the observation and a Scale to define the observation (ie units). 
 
-All search params are optional
-results should be a list of all variables which match ALL the search params.
+All of the parameters in the search request object are optional. Any missing input parameter in the search request object is ignored with no default value. 
+Each input parameter present in the request object is be used to restrict and filter the data (AND filter). 
+Each element within the array of a single parameter is used to identify additional data (OR filter).
+
+SQL Implementation Example:
+select * from variables where 
+(observationVariableDbId = "obs-variable-id1"   OR   observationVariableDbId = "obs-variable-id2")
+AND 
+(methodDbId = "method-1"   OR   methodDbId = "method-2")
+AND 
+(scaleDbId = "scale-1"   OR   scaleDbId = "scale-2")
 
 
 ### Variable search [POST]
 + Parameters
-   + observationVariableDbIds (optional, array, `["obs-variable-id1", "obs-variable-id2"]`) ... Internal ID used to identify an Observational Variable within an arbitrary data store 
-   + ontologyDbIds (optional, array, `["CO_334:0100632"]`) ... Internal ID used to identify an Observational Variable within the shared ontology data store
-   + ontologyXrefs (optional, array, `["CO:123", "CO:456"]`) ... External reference ID used to identify an Observational Variable within the shared ontology data store
+   + observationVariableDbIds (optional, array, `["obs-variable-id1", "obs-variable-id2"]`) ... Internal ID used to identify an Observation Variable within an arbitrary data store 
+   + ontologyDbIds (optional, array, `["CO_334:0100632"]`) ... Internal ID used to identify an Observation Variable within the shared ontology data store
+   + ontologyXrefs (optional, array, `["CO:123", "CO:456"]`) ... External reference ID used to identify an Observation Variable within the shared ontology data store
    + methodDbIds (optional, array, `["method-1", "method-2"]`) ... The ID associated with a particular method
    + scaleDbIds (optional, array, `["scale-1", "scale-2"]`) ... The ID associated with a particular scale
-   + names (optional, array, `["caro_spectro"]`) ... The human readable name of an Observational Variable
+   + names (optional, array, `["caro_spectro"]`) ... The human readable name of an Observation Variable
    + datatypes (optional, array, `["numeric"]`) ... The type of data being observed
    + traitClasses (optional, array, `["Phenological", "Physiological"]`) ... The class of trait being observed
    + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
