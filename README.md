@@ -1,5 +1,7 @@
 # BrAPI
 Repository for version control of the BrAPI specification
+![Dev Version 1.1](https://github.com/plantbreeding/API/tree/master)
+![Release Version 1.0](https://github.com/plantbreeding/API/tree/V1.0)
 
 ### INTRODUCTION
 
