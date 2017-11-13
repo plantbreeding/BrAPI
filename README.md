@@ -1,7 +1,11 @@
 # BrAPI
 Repository for version control of the BrAPI specification
-![Dev Version 1.1](https://github.com/plantbreeding/API/tree/master)
-![Release Version 1.0](https://github.com/plantbreeding/API/tree/V1.0)
+
+### Versions
+Version | Release Date | Release Notes
+--|--|--
+In Development [V1.1](https://github.com/plantbreeding/API/tree/master) | Planned: Jan 26, 2018 | NA
+Latest Stable Release [V1.0](https://github.com/plantbreeding/API/tree/V1.0) | Nov 13, 2017 | [Notes](https://github.com/plantbreeding/API/releases/tag/V1.0)
 
 ### INTRODUCTION
 
