@@ -7,8 +7,8 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
 + Request (application/json)
 
         {
-          "plotId": "PlotId-123",
-          "plantId" : "PlantID-123",
+          "plotDbId": "PlotId-123",
+          "plantDbId" : "PlantID-123",
           "takenBy": "Mr. Technician",
           "sampleDate": "2016-07-27",
           "sampleType" : "TypeOfSample",
@@ -21,6 +21,6 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
         {
             "metadata": null,
             "result": {
-                "sampleId" : "Unique-Plant-SampleID"
+                "sampleDbId" : "Unique-Plant-SampleID"
             }
         }

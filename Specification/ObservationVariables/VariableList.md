@@ -31,7 +31,7 @@ Call to retrieve a list of observationVariables available in the system.
                     "ontologyDbId": "CO_334",
                     "ontologyName": "Cassava",
                     "trait": {
-                        "traiDbId": "CO_334:0100630",
+                        "traitDbId": "CO_334:0100630",
                         "name": "Canopy temperature"
                     },
                     "method": null,

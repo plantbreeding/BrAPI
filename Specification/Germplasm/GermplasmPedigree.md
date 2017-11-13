@@ -12,8 +12,10 @@ Implemented by: Germinate, Tripal Brapi Module, Cassavabase (without notation op
 |germplasmDbId|string|Internal db identifier|Y|
 |defaultDisplayName|string|A string representing the germplasm that will be meaningful to the user|Y|
 |pedigree|string|Cross name with optional selection history.|Y|
-|parent1Id|string|germplasmDbId of parent1||
-|parent2Id|string|germplasmDbId of parent2||
+|**Depricated** parent1Id|string|**Use parent1DbId**||
+|**Depricated** parent2Id|string|**Use parent2DbId**||
+|parent1DbId|string|germplasmDbId of parent1||
+|parent2DbId|string|germplasmDbId of parent2||
 
 (http://wheat.pw.usda.gov/ggpages/gopher/administration/Template%20for%20Germplasm%20records.html) or [Lamacraft] (http://link.springer.com/article/10.1007%2FBF00021556).  
 ### Germplasm pedigree by id [GET]
@@ -37,8 +39,8 @@ Implemented by: Germinate, Tripal Brapi Module, Cassavabase (without notation op
                 "germplasmDbId": "382",
                 "defaultDisplayName": "Pahang",
                 "pedigree" : "Cree / Bonanza",
-                "parent1Id" : "166",
-                "parent2Id" : "143"
+                "parent1DbId" : "166",
+                "parent2DbId" : "143"
             }
         }
 

@@ -41,7 +41,7 @@ Search observation variables.
                     "ontologyDbId": "CO_334",
                     "ontologyName": "Cassava",
                     "trait": {
-                        "traiDbId": "CO_334:0100630",
+                        "traitDbId": "CO_334:0100630",
                         "name": "Canopy temperature"
                     },
                     "method": null,

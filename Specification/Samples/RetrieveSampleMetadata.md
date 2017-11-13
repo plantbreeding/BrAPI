@@ -1,4 +1,4 @@
-## Retrieve sample metadata [/brapi/v1/samples/{sampleId}]
+## Retrieve sample metadata [/brapi/v1/samples/{sampleDbId}]
 
 ### Retrieve sample metadata [GET]
 
@@ -18,9 +18,9 @@
             "result": {
               "studyDbId": "StudyId-123",
               "locationDbId": "LocationId-123",
-              "plotId": "PlotId-123",
-              "plantId" : "PlantID-123",
-              "sampleId" : "Unique-Plant-SampleID",
+              "plotDbId": "PlotId-123",
+              "plantDbId" : "PlantID-123",
+              "sampleDbId" : "Unique-Plant-SampleID",
               "takenBy": "Mr. Technician",
               "sampleTimestamp": "2016-07-27T14:43:22+0100",
               "sampleType" : "TypeOfSample",

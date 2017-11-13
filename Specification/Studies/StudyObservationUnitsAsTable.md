@@ -15,7 +15,7 @@ Retrieve the details of the study required for field data collection. Includes a
 |datafiles|list||Y|
 |observationVariableDbId|Long | internal DB id for the traits measured ||
 |observationVariableName|String| name of variable||
-|data| object| List of lists, specifying the plotId, block, rep, germplasmId, and the phenotypic values||
+|data| object| List of lists, specifying the plotDbId, block, rep, germplasmDbId, and the phenotypic values||
 
 ### Retrieve study Observation Units as table [GET]
 
@@ -37,7 +37,7 @@ Retrieve the details of the study required for field data collection. Includes a
             },
             "result" : {
                 "headerRow": [ "year","studyDbId","studyName","locationDbId","locationName","germplasmDbId","germplasmName","observationUnitDbId","plotNumber","replicate","blockNumber", "observationTimestamp", "entryType", "X", "Y"],
-                "observationVariableDbIds": [ "variable1Id", "variable2Id", "variable2Id"],  // for linking
+                "observationVariableDbIds": [ "variable1DbId", "variable2DbId", "variable3DbId"],  // for linking
                 "observationVariableNames": [ "plant height", "fruit weight", "root weight" ],  // for display
                 // the observationNames will follow the columns defined in the headerRow
 

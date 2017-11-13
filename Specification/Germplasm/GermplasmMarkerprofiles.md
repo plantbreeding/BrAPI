@@ -1,4 +1,4 @@
-## Germplasm Markerprofiles  [/brapi/v1/germplasm/{id}/markerprofiles]
+## Germplasm Markerprofiles  [/brapi/v1/germplasm/{germplasmDbId}/markerprofiles]
 Retrieve the markerProfileDbIds for a given Germplasm ID  
 Scope: GENOTYPING. 
 Status: ACCEPTED.
@@ -23,7 +23,7 @@ Implemented by: Germinate, Cassavabase
                 "datafiles": []
             },
             "result" :  {
-                germplasmDbId : 39393,
+                germplasmDbId : "39393",
                 markerprofileDbIds : [
                     "3939", "4484", "3993"
                 ]

@@ -10,7 +10,7 @@ Retrieve the information of the study required for field data collection
 More linked data:
 * observation variables: ```/brapi/v1/studies/{studyDbId}/observationVariables```
 * germplasm: ```/brapi/v1/studies/{studyDbId}/germplasm```
-* observation units: ```/brapi/v1/studies/{studyId}/observationUnits```
+* observation units: ```/brapi/v1/studies/{studyDbId}/observationUnits```
 * layout: ```brapi/v1/studies/{studyDbId}/layout```
 
 ###### Response data types

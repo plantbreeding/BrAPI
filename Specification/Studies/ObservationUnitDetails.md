@@ -49,7 +49,7 @@ Scope: PHENOTYPING
                         "observations": [
                             {
                                 "observationDbId": "153453453",
-                                "observationVariableId": 18020,
+                                "observationVariableDbId": "18020",
                                 "observationVariableName": "Plant_height",
                                 "collector" : "Mr. Technician",
                                 "observationTimeStamp" : "2015-06-16T00:53:26Z",
@@ -57,7 +57,7 @@ Scope: PHENOTYPING
                             },
                             { 
                                 "observationDbId": "23453454345",
-                                "observationVariableId": "51496",
+                                "observationVariableDbId": "51496",
                                 "observationVariableName": "GW100_g",
                                 "collector" : "Mr. Technician",
                                 "observationTimeStamp" : "2015-06-16T00:53:26Z",
@@ -81,7 +81,7 @@ Scope: PHENOTYPING
                         "observations": [
                             {
                                 "observationDbId": "3",
-                                "observationVariableId": "18020",
+                                "observationVariableDbId": "18020",
                                 "observationVariableName": "Plant_height",
                                 "collector" : "Mr. Technician",
                                 "observationTimeStamp" : "2015-06-16T00:53:26Z",
@@ -89,7 +89,7 @@ Scope: PHENOTYPING
                             },
                             {   
                                 "observationDbId": "4",
-                                "observationVariableId": "51496",
+                                "observationVariableDbId": "51496",
                                 "observationVariableName": "GW100_g",
                                 "collector" : "Mr. Technician",
                                 "observationTimeStamp" : "2015-06-16T00:53:26Z",
