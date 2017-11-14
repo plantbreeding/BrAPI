@@ -1,4 +1,4 @@
-## Genome Map  [/brapi/v1/maps?species={speciesId}&pageSize={pageSize}&page={page}&type={type}]
+## Genome Map  [/brapi/v1/maps?species={species}&pageSize={pageSize}&page={page}&type={type}]
 
 Status: ACCEPTED
 

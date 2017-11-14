@@ -64,7 +64,7 @@ The metadata key is structured as followed:
 #### Payload
 
 The BRAPI response payload, which is contained in the "result" key, allows for three different types of responses:
-+ **master**: In this type of response, the "result" key consists of arbitrary properties without a "data" key (in this case, pagination does not apply); for example, the germplasm/{id} call may contain the following: 
++ **master**: In this type of response, the "result" key consists of arbitrary properties without a "data" key (in this case, pagination does not apply); for example, the germplasm/{germplasmDbId} call may contain the following: 
 ````
 {
   "metadata" : {
@@ -133,11 +133,11 @@ The BRAPI response payload, which is contained in the "result" key, allows for t
       "methods" : [ "POST" ],
       "datatypes" : [ "JSON" ]
     }, {
-      "call" : "germplasm/{id}",
+      "call" : "germplasm/{germplasmDbId}",
       "methods" : [ "POST" ],
       "datatypes" : [ "JSON" ]
     }, {
-      "call" : "studies/{id}/observationVariables",
+      "call" : "studies/{studyDbId}/observationVariables",
       "methods" : [ "POST" ],
       "datatypes" : [ "JSON" ]
     }, {

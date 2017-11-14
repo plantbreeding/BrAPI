@@ -11,7 +11,7 @@ Used by: Flapjack
 Provides the number of markers on each linkageGroup and the max position on the linkageGroup
 
 + Paramters
-    + mapId (required)
+    + mapDbId (required)
     + Should we provide pagination?
     
 + Response 200 (application/json)
@@ -34,12 +34,12 @@ Provides the number of markers on each linkageGroup and the max position on the 
                 "unit": "cM",
                 "linkageGroups": [    
                     {
-                        "linkageGroupDbId": "1",
+                        "linkageGroupName": "1",
                         "markerCount": 100000,
                         "maxPosition": 10000000
                     },
                     {
-                        "linkageGroupDbId": "2",
+                        "linkageGroupName": "2",
                         "markerCount": 1247,
                         "maxPosition": 12347889
                     }

@@ -19,7 +19,7 @@ Scope: PHENOTYPING
             },
             "result" : {
                 "headerRow": [ "observationUnitDbId", "collector", "observationTimestamp", "variable1Id", "variable2Id", "variable3Id" ],
-                "observationVariableDbIds": [ "variable1Id", "variable2Id", "variable2Id", "imagevariable1Id" ],
+                "observationVariableDbIds": [ "variable1DbId", "variable2DbId", "variable3DbId", "imagevariable1DbId" ],
                 "data" :
                 [
                     [1, "Mr. Technician1", "2015-06-16T10:00:00Z", "variable1Value", "variable2Value", "variable3Value", "image1.jpg" ],
