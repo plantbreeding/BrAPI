@@ -1,4 +1,4 @@
-## Genome Map Data by range on linkageGroup [/brapi/v1/maps/{mapDbId}/positions/{linkageGroupId}?min={min}&max={max}&pageSize={pageSize}&page={page}]
+## Genome Map Data by range on linkageGroup [/brapi/v1/maps/{mapDbId}/positions/{linkageGroupDbId}?min={min}&max={max}&pageSize={pageSize}&page={page}]
 
 ### Get map data by range on linkageGroup [GET]
 
@@ -6,7 +6,7 @@ markers ordered by linkageGroup and position
 
 + Parameters
    + mapDbId (required, string, `6`) ... unique id of the map
-   + linkageGroupId (required, string)
+   + linkageGroupDbId (required, string)
    + min (optional) ... minimum position on linkage group
    + max (optional) ... maximumn position on linkage group
    + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
