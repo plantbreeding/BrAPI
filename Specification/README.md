@@ -2,8 +2,6 @@ FORMAT: 1A
 
 # BrAPI V1.1
 
-## Overview
-
 The Breeding API specifies a standard interface for plant phenotype/genotype databases to serve 
 their data to crop breeding applications. It is a <i>shared</i>, <i>open</i> API, to be
 used by all data providers and data consumers who wish to participate. Initiated in May 2014, it is
