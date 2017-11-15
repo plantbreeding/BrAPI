@@ -6,7 +6,7 @@ markers ordered by linkageGroup and position
 
 + Parameters
    + mapDbId (required, string, `6`) ... unique id of the map
-   + **Deprecated** linkageGroupId (optional, string, `123`) ... Use linkageGroupName instead
+   + linkageGroupId (optional, string, `123`) ... **Deprecated** Use linkageGroupName instead
    + linkageGroupName (optional, string, `1A`) ... The chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.
    + min (optional) ... minimum position on linkage group
    + max (optional) ... maximumn position on linkage group

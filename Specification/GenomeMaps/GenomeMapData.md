@@ -12,7 +12,7 @@ markers ordered by linkageGroup and position
 
 + Parameters
    + mapDbId (required, string, `6`) ... unique id of the map
-   + **Deprecated** linkageGroupId (optional, string, `123`) ... Use linkageGroupName instead
+   + linkageGroupId (optional, string, `123`) ... **Deprecated** Use linkageGroupName instead
    + linkageGroupName (optional, string, `1A`) ... The chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.
    + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
    + page (optional, integer, `0`) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.

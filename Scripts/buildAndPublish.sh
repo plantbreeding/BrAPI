@@ -7,7 +7,7 @@ source ${HOME}/.bash_rc
 #---------------------------------------------------------------------------------------
 # Build and publish dev
 DEV_PACKAGE_DIR=${HOME}/BRAPI/DEV
-DEV_APIARY_NAME=brapi_dev
+DEV_APIARY_NAME=brapidev
 
 if [ -d "$DEV_PACKAGE_DIR/API" ]; then
     cd $DEV_PACKAGE_DIR/API
@@ -27,14 +27,15 @@ ${DEV_PACKAGE_DIR}/API/Scripts/publishToApiary.sh $BLUEPRINT_FILE $DEV_APIARY_NA
 PROD_PACKAGE_DIR=${HOME}/BRAPI/PROD
 PROD_APIARY_NAME=brapi
 
-rm $PROD_PACKAGE_DIR/archive.zip
-if [ -d "$PROD_PACKAGE_DIR/API" ]; then
-    rm -rf $PROD_PACKAGE_DIR/API;
-fi
-
 LATEST_REL_NUM=`curl -s https://github.com/plantbreeding/API/releases/latest | sed -r "s#.*V([0-9]\.[0-9]).*#\1#"`
 LATEST_REL_URL="https://codeload.github.com/plantbreeding/API/zip/V$LATEST_REL_NUM"
 echo $LATEST_REL_URL
+
+rm $PROD_PACKAGE_DIR/archive.zip
+if [ -d "$PROD_PACKAGE_DIR/API-${LATEST_REL_NUM}" ]; then
+    rm -rf $PROD_PACKAGE_DIR/API-${LATEST_REL_NUM};
+fi
+
 curl $LATEST_REL_URL > $PROD_PACKAGE_DIR/archive.zip
 
 unzip $PROD_PACKAGE_DIR/archive.zip -d $PROD_PACKAGE_DIR

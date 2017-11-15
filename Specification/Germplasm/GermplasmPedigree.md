@@ -12,8 +12,8 @@ Implemented by: Germinate, Tripal Brapi Module, Cassavabase (without notation op
 |germplasmDbId|string|Internal db identifier|Y|
 |defaultDisplayName|string|A string representing the germplasm that will be meaningful to the user|Y|
 |pedigree|string|Cross name with optional selection history.|Y|
-|**Depricated** parent1Id|string|**Use parent1DbId**||
-|**Depricated** parent2Id|string|**Use parent2DbId**||
+|**Deprecated** parent1Id|string|**Use parent1DbId**||
+|**Deprecated** parent2Id|string|**Use parent2DbId**||
 |parent1DbId|string|germplasmDbId of parent1||
 |parent2DbId|string|germplasmDbId of parent2||
 
