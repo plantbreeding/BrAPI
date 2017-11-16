@@ -1,6 +1,6 @@
 FORMAT: 1A
 
-# BrAPI Overview
+# BrAPI V1.1
 
 The Breeding API specifies a standard interface for plant phenotype/genotype databases to serve 
 their data to crop breeding applications. It is a <i>shared</i>, <i>open</i> API, to be
@@ -8,12 +8,12 @@ used by all data providers and data consumers who wish to participate. Initiated
 currently in an actively developing state, so now is the time for potential participants to help
 shape the specifications to ensure their needs are addressed. The listserve for discussions and 
 announcements is at http://mail2.sgn.cornell.edu/cgi-bin/mailman/listinfo/plant-breeding-api .
-Additional documentation is in the <a href="https://github.com/plantbreeding/documentation">Github wiki</a>.
+Additional documentation is in the <a href="https://github.com/plantbreeding/API">Github wiki</a>.
 
 ### URL structure
 
 API requests are structured as "\<server\>/brapi/v1/", 
-where "v1" is the version number of the API, followed by the command.  
+where "v1" is the major version number of the API, followed by the command.  
 Example: /brapi/v1/markerprofiles/2939 
 
 To distinguish between multiple databases or crops available from the same server, include the database or crop name as part of the "\<server\>" identifier. An arbitrary number of levels can be inserted between the domain name and the crops or brapi level, if needed.
