@@ -36,7 +36,8 @@ More linked data:
 | location.countryCode    | string          | Study location ISO-3166 country code (ex: US, FR, etc.) |          |
 | location.countryName    | string          | Study location country                                  |          |
 | location.instituteName  | string          | Study location institute/laboratory name                |          |
-| location.instituteAddress| string          | Study location institute/laboratory address              |          |
+| **deprecated** location.instituteAdress| string          | **Use location.instituteAddress** Study location institute/laboratory address            |          |
+| location.instituteAddress| string          | Study location institute/laboratory address            |          |
 | location.latitude       | number          | Study location latitude                                 |          |
 | location.longitude      | number          | Study location longitude                                |          |
 | location.altitude       | number          | Study location altitude in meters                       |          |
