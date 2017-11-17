@@ -22,7 +22,8 @@ Get details for a location.
 | longitude               | string          | string                                        |          |
 | altitude                | string          | string                                        |          |
 | instituteName           | string          | string   each institute/laboratory can have several experimental field    |          |
-| instituteAdress         | string          | string                                        |          |
+| **Deprecated** instituteAdress         | string          | **Use instituteAddress**                           |          |
+| instituteAddress        | string          | string                                        |          |
 | additionalInfo          | object          | Additional arbitrary info on the study, like objectives or publications |          |
 
 
@@ -51,7 +52,7 @@ Get details for a location.
                     "longitude": 165.5,
                     "altitude": 12,
                     "instituteName"; "INRA - GDEC",
-                    "instituteAdress"; "road foo, nigeria",
+                    "instituteAddress"; "road foo, nigeria",
                     "additionalInfo": 
                     {
                         "annualMeanRain" : "value", 
