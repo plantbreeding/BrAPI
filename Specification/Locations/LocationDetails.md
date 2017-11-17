@@ -22,7 +22,7 @@ Get details for a location.
 | longitude               | string          | string                                        |          |
 | altitude                | string          | string                                        |          |
 | instituteName           | string          | string   each institute/laboratory can have several experimental field    |          |
-| **Deprecated** instituteAdress         | string          | **Deprecated**                           |          |
+| **Deprecated** instituteAdress         | string          | **Use instituteAddress**                           |          |
 | instituteAddress        | string          | string                                        |          |
 | additionalInfo          | object          | Additional arbitrary info on the study, like objectives or publications |          |
 
