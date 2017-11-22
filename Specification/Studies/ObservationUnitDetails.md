@@ -1,14 +1,14 @@
-## Observation Unit Details [/brapi/v1/studies/{studyDbId}/observationunits?observationLevel={observationLevel}&pageSize={pageSize}&page={page}]
+## Observation Unit Details [/brapi/v1/studies/{studyDbId}/observationunits]
 
 The main API call for field data collection, to retrieve all the observation units within a study.
 
 Scope: PHENOTYPING
 
-### Get all observation units [GET]
+### Get all observation units [GET /brapi/v1/studies/{studyDbId}/observationunits?observationLevel={observationLevel}&pageSize={pageSize}&page={page}]
 
 + Parameters
-   + observationLevel (required, string, `plot`) ... The granularity level of observation units. 
-      Either `plotNumber` or `plantNumber` fields will be relavant depending on whether granularity is plot or plant respectively.
+    + studyDbId (required, string, `abc123`) ... The study these observation units are related to.
+    + observationLevel (required, string, `plot`) ... The granularity level of observation units. Either `plotNumber` or `plantNumber` fields will be relavant depending on whether granularity is plot or plant respectively.
     + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
     + page (optional, integer, `0`) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
 
@@ -30,6 +30,7 @@ Scope: PHENOTYPING
                     {
                         "observationUnitDbId": "abc-123",
                         "observationUnitName": "Test-2016-location-34-575",
+                        "observationLevel": "plot",
                         "germplasmDbId": "1",
                         "germplasmName": "IR-8",
                         "pedigree": "IR-8-FP/IR-8-MP",
@@ -67,6 +68,8 @@ Scope: PHENOTYPING
                     },
                     {
                         "observatioUnitDbId": "abc-456",
+                        "observationUnitName": "Test-2016-location-34-456",
+                        "observationLevel": "plot",
                         "germplasmDbId": "2",
                         "germplasmName": "IR-9",
                         "pedigree": "IR-9-FP/IR-9-MP",
