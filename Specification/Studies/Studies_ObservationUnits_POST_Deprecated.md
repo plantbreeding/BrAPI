@@ -1,13 +1,6 @@
-### Save Observation Unit Phenotypes [POST]
-Call to invoke for saving the measurements (observations) collected from field for all the observation units.
+### **Deprecated** Save Observation Unit Phenotypes [POST /brapi/v1/studies/{studyDbId}/observationunits?observationLevel={observationLevel}&pageSize={pageSize}&page={page}]
 
-Observation timestamp should be ISO 8601 https://www.w3.org/TR/NOTE-datetime
-
-In case where JSON data is zipped for faster transfer speed (as in the case of the IRRI handheld implementation), the zipped JSON file will be listed in datafiles. The zipped file contains a JSON file with the same structure as the BrAPI call. In this case a format parameter should be passed as well.
-
-Images can be optionally be uploaded using this call by providing a zipfile of all images in the datafiles, along with the actual zipfile in multi-part form data.
-
-Scope: PHENOYTPING.
+This call has been deprecated in V1.1. Use instead: "PUT /studies/{studyDbId}/observationunits" and "PUT /studies/{studyDbId}/observationunits/zip"
 
 + Parameters
     + format (default is JSON, but can be zip) ... In case where JSON data is zipped for faster transfer speed (as in the case of the IRRI handheld implementation), the zipped JSON file will be listed in datafiles. The zipped file contains a JSON file with the same structure as the BrAPI call.
