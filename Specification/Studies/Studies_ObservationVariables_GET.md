@@ -94,7 +94,7 @@ Refer to the data type definition of variables in `/Specification/ObservationVar
             }
         }
 
-### GET /brapi/v1/studies/{studyDbId}/observationvariables [GET /brapi/v1/studies/{studyDbId}/observationvariables]
+### Get Observation Variables By Study [GET /brapi/v1/studies/{studyDbId}/observationvariables]
 
 + Parameters
     + studyDbId (required, string, `ST012`) ... string database unique identifier

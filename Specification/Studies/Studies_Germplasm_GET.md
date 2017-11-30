@@ -1,3 +1,5 @@
+
+
 ## Study Germplasm Details [/brapi/v1/studies/{studyDbId}/germplasm?pageSize={pageSize}&page={page}]
 
 Scope: PHENOTYPING

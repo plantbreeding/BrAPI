@@ -94,6 +94,7 @@ sources=("README.md"
 
 for i in ${sources[@]}; do
     cat $i >> $BRAPI_FILE
+    echo "" >> $BRAPI_FILE
 done
 
 echo $BRAPI_FILE
