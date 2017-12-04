@@ -69,7 +69,8 @@ Code|Message|Description
 asynchid|{arbitrary ID String}|Used for the first part of an asynchornous call, returns an ID string which can be used in a subsequent call to retrieve data or status information.
 asynchstatus|PENDING|Indicates an asynchornous call is still working and will not return data yet.
 asynchstatus|FINISHED|Indicates an asynchornous call is finished and this response object contains the requested data.
-27|"Could not update observation values. Invalid data."| Error to be returned when the server is unable to store some data submited
+27|"Could not update observation values. Invalid data."| Error to be returned when the server is unable to store some data submitted
+40|"No objects found for given parameters"| Error to be returned when there are no objects in the database which match the requested search parameters
 
 #### Payload
 
