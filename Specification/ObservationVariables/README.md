@@ -21,7 +21,7 @@ status                         |          | string          | Variable status. (
 xref                           |          | string          | Cross reference of the variable term to a term from an external ontology or to a database of a major system.
 institution                    |          | string          | Name of institution submitting the variable
 scientist                      |          | string          | Name of scientist submitting the variable.
-date                           |          | string          | Date of submission of the variable.
+date                           |          | string          | Date of submission of the variable (ISO 8601).
 language                       |          | string          | 2 letter ISO code for the language of submission of the variable.
 crop                           |          | string          | Crop name (examples: "Maize", "Wheat")
 trait                          |    Y     | object          | Trait metadata
