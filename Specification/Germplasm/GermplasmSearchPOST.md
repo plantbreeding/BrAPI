@@ -58,7 +58,7 @@ Use POST for large queries (>2K bytes).
                                 "germplasmPUI": ""
                             }
                         ],
-                        "acquisitionDate": "19470131"
+                        "acquisitionDate": "1947-01-31"
                     }, {
                         "germplasmDbId": "03REL084609",
                         "defaultDisplayName": "Pah",
@@ -87,7 +87,7 @@ Use POST for large queries (>2K bytes).
                                 "germplasmPUI": ""
                             }
                         ],
-                        "acquisitionDate": "19770131"
+                        "acquisitionDate": "1977-01-31"
                     }
                 ]
             }

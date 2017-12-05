@@ -33,7 +33,7 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
 |subtaxa|string|[MCPD] Subtaxon can be used to store any additional taxonomic identifier. The following abbreviations are allowed: ‘subsp.’ (for subspecies); ‘convar.’ (for convariety); ‘var.’ (for variety); ‘f.’ (for form); ‘Group’ (for ‘cultivar group’).|
 |subtaxaAuthority|string|[MCPD] ||
 |donors|array of object|[MCPD] code of the donor institute and Identifier assigned to an accession by the donor, and permanent identifier.||
-|acquisitionDate|string|[MCPD] Date on which the accession entered the collection where YYYY is the year, MM is the month and DD is the day. Missing data (MM or DD) should be indicated with hyphens or ‘00’ [double zero].|
+|acquisitionDate|string|[MCPD] Follow ISO 8601 standard|
 
 ### Germplasm search by germplasmDbId [GET]
 + Parameters
@@ -81,7 +81,7 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
                         "donorGermplasmPUI": ""
                     }
                 ],
-                "acquisitionDate": "19470131"
+                "acquisitionDate": "1947-01-31"
             }
         }
         
