@@ -1,5 +1,5 @@
       
-### Markers Search (/brapi/v1/markers-search) [POST /brapi/v1/markers-search]
+### Markers Search (POST) [POST /brapi/v1/markers-search]
 + Request
   + Body
   
