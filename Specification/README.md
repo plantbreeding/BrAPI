@@ -90,9 +90,9 @@ The BRAPI response payload, which is contained in the "result" key, allows for t
     "datafiles" : [ ]
   },
   "result" : {
-	"key0": "master",
-	"key1": 20,
-	"key2": [ "foo", "bar", "baz" ]
+    "key0": "master",
+    "key1": 20,
+    "key2": [ "foo", "bar", "baz" ]
   }
 }
 ```` 
@@ -142,9 +142,9 @@ The BRAPI response payload, which is contained in the "result" key, allows for t
     "datafiles" : [ ]
   },
 "result" : {
-	"key0": "master",
-	"key1": 20,
-	"key2": [ "foo", "bar", "baz" ],
+    "key0": "master",
+    "key1": 20,
+    "key2": [ "foo", "bar", "baz" ],
     "data" : [ 
       {
         "detailKey0" : "detail0",
