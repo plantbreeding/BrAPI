@@ -69,13 +69,14 @@ For the requested name or synonym, returns an array (possibly empty) of marker r
             }
         }
         
-### Markers Search (/brapi/v1/markers-search) [GET /brapi/v1/markers-search?name={name}&type={type}&matchMethod={matchMethod}&include={synonyms}&pageSize={pageSize}&page={page}]
+### Markers Search (/brapi/v1/markers-search) [GET /brapi/v1/markers-search?markerDbIds={markerDbIds}&name={name}&type={type}&matchMethod={matchMethod}&include={synonyms}&pageSize={pageSize}&page={page}]
 + Parameters
-    + name (optional, string, `11_10002 11_1% 11_1* 11_10?02`) ... The name or synonym.
+    + markerDbIds (optional, array, `123abc,456def`) ... The database IDs of the markers to search for
+    + name (optional, string, `11_10002 11_1% 11_1* 11_10?02`) ... The search pattern for a marker name or synonym.
     + matchMethod (optional, string, `wildcard`) ... Possible values are 'case_insensitive', 'exact'
     (case sensitive), 'wildcard' (which is case insensitive). Wildcard uses both '*' and '%' for any number of characters
     and '?' for one character matching. Default is exact.
-    + include (optional, string, `synonyms`) ... Whether to include synonyms in the output.
+    + includeSynonyms (optional, boolean, `true`) ... Whether to include synonyms in the output.
     + type (optional, string, `SNP`) ... The type of the marker.    
     + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
     + page (optional, integer, `0`) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
