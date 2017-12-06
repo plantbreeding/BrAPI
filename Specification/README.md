@@ -61,7 +61,7 @@ The metadata key is structured as followed:
 
 + **datafiles**: The datafiles key contains a list of file paths, which can be relative or complete URLs. These files contain additional information related to the returned object and can be retrieved by a subsequent call. The empty list should be returned if no additional data files are present.
 
-+ **status**: The status object contains a list of objects with the keys "code" and "message". If no status is reported, an empty list should be returned. The following are universally accepted status codes:
++ **status**: The status object contains a list of objects with the keys "code" and "message". If no status is reported, an empty list should be returned. The following are officially accepted status codes:
 
 Code|Message|Description
 --|--|--
