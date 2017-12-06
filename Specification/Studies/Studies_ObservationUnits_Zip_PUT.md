@@ -29,13 +29,13 @@ Note: If 'observationUnitDbId' or 'observationDbId' is populated, they should be
                 ]
             }
         }
-+ Response 500 (application/json)
++ Response 400 (application/json)
 
         {
             "metadata": {
                 "status": [ {
-                    "code":"27",
-                    "message": "Could not update observation values. Invalid data."
+                    "code":"42",
+                    "message": "Could not update values for Observation Units"
                 } ]
             }
         }

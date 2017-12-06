@@ -2,23 +2,17 @@ FORMAT: 1A
 
 # BrAPI V1.1
 
-The Breeding API specifies a standard interface for plant phenotype/genotype databases to serve 
-their data to crop breeding applications. It is a <i>shared</i>, <i>open</i> API, to be
-used by all data providers and data consumers who wish to participate. Initiated in May 2014, it is
-currently in an actively developing state, so now is the time for potential participants to help
-shape the specifications to ensure their needs are addressed. The listserve for discussions and 
-announcements is at http://mail2.sgn.cornell.edu/cgi-bin/mailman/listinfo/plant-breeding-api .
-Additional documentation is in the <a href="https://github.com/plantbreeding/API">Github wiki</a>.
+The Breeding API specifies a standard interface for plant phenotype/genotype databases to serve their data to crop breeding applications. It is a <i>shared</i>, <i>open</i> API, to be used by all data providers and data consumers who wish to participate. Initiated in May 2014, it is currently in an actively developing state, so now is the time for potential participants to help shape the specifications to ensure their needs are addressed. For more information, go to <a href="https://brapi.org/">brapi.org</a>.
 
 ### URL structure
 
-API requests are structured as "\<server\>/brapi/v1/", 
-where "v1" is the major version number of the API, followed by the command.  
-Example: /brapi/v1/markerprofiles/2939 
+API requests are structured as "\<server\>/brapi/v1/", where "v1" is the major version number of the API, followed by the command.
+  
+Example: test.brapi.org/brapi/v1/markerprofiles/2939 
 
 To distinguish between multiple databases or crops available from the same server, include the database or crop name as part of the "\<server\>" identifier. An arbitrary number of levels can be inserted between the domain name and the crops or brapi level, if needed.
 
-Example: superBreedingServer.org/maize/brapi/v1/markerprofiles/2939
+Example: test.brapi.org/maize/brapi/v1/markerprofiles/2939
 
 ### Structure of the response object:
 
@@ -38,15 +32,24 @@ The metadata key is structured as followed:
 {
   "metadata" : {
       "pagination" : {
-            "totalCount" : 0,
-            "pageSize" : 0,
-            "totalPages" : 0,
-            "currentPage" : 0
+            "totalCount" : 1234,
+            // total number of elements available in the super set (unpaged)
+            "pageSize" : 200,
+            // number of elements in the current returned page
+            "totalPages" : 7,
+            // total number of pages available (total count / requested page size)
+            "currentPage" : 2
+            // index number of the current returned page
        },
-       "status" : [{
-                      "code" : "asynchstatus",
-                      "message" : "PENDING"
-                  }],
+       "status" : [
+           {
+               "code" : "200",
+               "message" : "Success"
+           },{
+               "code" : "asynchstatus",
+               "message" : "PENDING"
+           }
+           ],
        "datafiles" : ["/mnt/local/matrix_01.csv",
                       "/mnt/local/matrix_02.csv"]
        }, . . . 
@@ -54,17 +57,26 @@ The metadata key is structured as followed:
 
 ````
 
-+  **pagination**: The pagination object is applicable only when the "data" key contains multiple objects. In this case, the keys "pageSize", "currentPage", "totalCount", "totalPages" contain the appropriate values. Pages are zero indexed, so the first page will be page 0 (zero). (For the user interface, this may be adjusted by adding 1).
++  **pagination**: The pagination object is applicable only when the payload contains a "data" key. It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. Pages are zero indexed, so the first page will be page 0 (zero).
 
++ **datafiles**: The datafiles key contains a list of file paths, which can be relative or complete URLs. These files contain additional information related to the returned object and can be retrieved by a subsequent call. The empty list should be returned if no additional data files are present.
 
-+ **status**: The status object contains a list of objects with the keys "code" and "message". If no status is reported, the empty list should be returned.
++ **status**: The status object contains a list of objects with the keys "code" and "message". If no status is reported, an empty list should be returned. The following are officially accepted status codes:
 
-+ **datafiles**: The datafiles key contains a list of strings. The empty list should be returned if no datafiles are present.
+Code|Message|Description
+--|--|--
+asynchid|<arbitrary ID String>|Used for the first part of an asynchornous call, returns an ID string which can be used in a subsequent call to retrieve data or status information.
+asynchstatus|"PENDING"|Indicates an asynchornous call is still working and will not return data yet.
+asynchstatus|"FINISHED"|Indicates an asynchornous call is finished and this response object contains the requested data.
+200|"Success"|Optional status for representing explicitly that the request was accepted and returned without any issue
+40|"No objects found for given parameters"| Error to be returned when there are no objects in the database which match the requested search parameters
+41|"Missing required parameter <parameter name>"| Error to be returned when a required parameter is missing from request
+42|"Could not update values for <object type>"| Error to be returned when the server is unable to store some data submitted
 
 #### Payload
 
 The BRAPI response payload, which is contained in the "result" key, allows for three different types of responses:
-+ **master**: In this type of response, the "result" key consists of arbitrary properties without a "data" key (in this case, pagination does not apply); for example, the germplasm/{germplasmDbId} call may contain the following: 
++ **master**: In this type of response, the "result" key consists of arbitrary properties without a "data" key (in this case, pagination does not apply). 
 ````
 {
   "metadata" : {
@@ -78,188 +90,75 @@ The BRAPI response payload, which is contained in the "result" key, allows for t
     "datafiles" : [ ]
   },
   "result" : {
-    "typeOfGermplasmStorageCode" : null,
-    "pedigree" : null,
-    "seedSource" : null,
-    "species" : null,
-    "subtaxa" : null,
-    "biologicalStatusOfAccessionCode" : null,
-    "countryOfOriginCode" : null,
-    "synonyms" : null,
-    "genus" : null,
-    "instituteName" : null,
-    "subtaxaAuthority" : null,
-    "germplasmDbId" : "1",
-    "defaultDisplayName" : null,
-    "acquisitionDate" : null,
-    "donors" : [ {
-      "donorGermplasmPUI" : "testdonorid1",
-      "donorAccessionNumber" : "testdoneraccessionnumber1",
-      "donorInstituteCode" : "testdonorcode1"
-    }, {
-      "donorGermplasmPUI" : "testdonorid2",
-      "donorAccessionNumber" : "testdoneraccessionnumber2",
-      "donorInstituteCode" : "testdonorcode2"
-    } ],
-    "accessionNumber" : null,
-    "commonCropName" : null,
-    "speciesAuthority" : null,
-    "germplasmName" : "test_germplasm_name",
-    "germplasmPUI" : null,
-    "instituteCode" : null
+	"key0": "master",
+	"key1": 20,
+	"key2": [ "foo", "bar", "baz" ]
   }
 }
 ```` 
-+ **detail**: In this type of response, the "result" key contains only a data key, which is an arbitrarily long array of objects of the same type, as in GET /calls: 
++ **detail**: In this type of response, the "result" element only contains the "data" key, which is an arbitrarily long array of objects of the same type. 
 ````
 {
   "metadata" : {
     "pagination" : {
-      "totalCount" : 6,
-      "pageSize" : 1000,
-      "totalPages" : 1,
+      "totalCount" : 20,
+      "pageSize" : 3,
+      "totalPages" : 7,
       "currentPage" : 0
     },
     "status" : [ ],
     "datafiles" : [ ]
   },
   "result" : {
-    "data" : [ {
-      "call" : "calls",
-      "methods" : [ "GET" ],
-      "datatypes" : [ "JSON" ]
-    }, {
-      "call" : "studies-search",
-      "methods" : [ "POST" ],
-      "datatypes" : [ "JSON" ]
-    }, {
-      "call" : "germplasm/{germplasmDbId}",
-      "methods" : [ "POST" ],
-      "datatypes" : [ "JSON" ]
-    }, {
-      "call" : "studies/{studyDbId}/observationVariables",
-      "methods" : [ "POST" ],
-      "datatypes" : [ "JSON" ]
-    }, {
-      "call" : "allelematrices",
-      "methods" : [ "GET" ],
-      "datatypes" : [ "JSON" ]
-    }, {
-      "call" : "allelematrix-search",
-      "methods" : [ "GET", "POST" ],
-      "datatypes" : [ "FLAPJACK" ]
-    } ]
+    "data" : [ 
+      {
+        "detailKey0" : "detail0",
+        "detailKey1" : [ "foo", "bar" ]
+      }, 
+      {
+        "detailKey0" : "detail1",
+        "detailKey1" : [ "bar", "baz" ]
+      }, 
+      {
+        "detailKey0" : "detail2",
+        "detailKey1" : [ "baz", "foo" ]
+      },
+    ]
   }
 }
 ````
 
-+ **master/detail**: In this type of response, the "result" key contains both arbtirary properties and a "data" key, as in studies/{studyDbId}/observationVariables: 
++ **master/detail**: In this type of response, the "result" key contains both arbtirary properties and the "data" key. 
 ````
 {
   "metadata" : {
     "pagination" : {
-      "totalCount" : 0,
-      "pageSize" : 0,
-      "totalPages" : 0,
+      "totalCount" : 20,
+      "pageSize" : 3,
+      "totalPages" : 7,
       "currentPage" : 0
     },
     "status" : [ ],
     "datafiles" : [ ]
   },
-  "result" : {
-    "studyDbId" : 1,
-    "trialName" : "trialname",
-    "data" : [ {
-      "scale" : {
-        "scaleValidValues" : null,
-        "scaleDbId" : "testid1",
-        "name" : "testNameOne",
-        "xref" : null,
-        "datatype" : null,
-        "decimalPlaces" : null
+"result" : {
+	"key0": "master",
+	"key1": 20,
+	"key2": [ "foo", "bar", "baz" ],
+    "data" : [ 
+      {
+        "detailKey0" : "detail0",
+        "detailKey1" : [ "foo", "bar" ]
+      }, 
+      {
+        "detailKey0" : "detail1",
+        "detailKey1" : [ "bar", "baz" ]
+      }, 
+      {
+        "detailKey0" : "detail2",
+        "detailKey1" : [ "baz", "foo" ]
       },
-      "status" : null,
-      "ontologyName" : null,
-      "ontologyDbId" : null,
-      "contextOfUse" : null,
-      "synonyms" : null,
-      "scientist" : null,
-      "date" : null,
-      "crop" : null,
-      "observationVariableDbId" : "testdbid1",
-      "growthStage" : null,
-      "name" : "testvariable1",
-      "xref" : null,
-      "method" : {
-        "methodDbId" : "testdbid",
-        "description" : null,
-        "name" : "testmethodname",
-        "reference" : null,
-        "formula" : null,
-        "class" : null
-      },
-      "language" : null,
-      "defaultValue" : null,
-      "trait" : {
-        "traitDbId" : "testdbid",
-        "status" : null,
-        "description" : null,
-        "entity" : null,
-        "name" : "testtraitname",
-        "xref" : null,
-        "mainAbbreviation" : null,
-        "attribute" : null,
-        "synonyms" : null,
-        "alternativeAbbreviations" : null,
-        "class" : null
-      },
-      "institution" : null
-    }, {
-      "scale" : {
-        "scaleValidValues" : null,
-        "scaleDbId" : "testid2",
-        "name" : "testNameOTwo",
-        "xref" : null,
-        "datatype" : null,
-        "decimalPlaces" : null
-      },
-      "status" : null,
-      "ontologyName" : null,
-      "ontologyDbId" : null,
-      "contextOfUse" : null,
-      "synonyms" : null,
-      "scientist" : null,
-      "date" : null,
-      "crop" : null,
-      "observationVariableDbId" : "testdbid2",
-      "growthStage" : null,
-      "name" : "testvariable2",
-      "xref" : null,
-      "method" : {
-        "methodDbId" : "testdbid2",
-        "description" : null,
-        "name" : "testmethodname2",
-        "reference" : null,
-        "formula" : null,
-        "class" : null
-      },
-      "language" : null,
-      "defaultValue" : null,
-      "trait" : {
-        "traitDbId" : "testdbid2",
-        "status" : null,
-        "description" : null,
-        "entity" : null,
-        "name" : "testtraitname2",
-        "xref" : null,
-        "mainAbbreviation" : null,
-        "attribute" : null,
-        "synonyms" : null,
-        "alternativeAbbreviations" : null,
-        "class" : null
-      },
-      "institution" : null
-    } ]
+    ]
   }
 }
 ````
