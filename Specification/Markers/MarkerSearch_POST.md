@@ -4,7 +4,7 @@
   + Body
   
         {
-            "markerDbIds": ["123abc", "456def"], 
+            "markerDbIds": ["1185", "1186"], 
                 // The database IDs of the markers to search for
             "name": "11_1*", 
                 // The search pattern for a marker name or synonym.
