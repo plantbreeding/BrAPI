@@ -65,12 +65,13 @@ The metadata key is structured as followed:
 
 Code|Message|Description
 --|--|--
-200|Success|Optional status for representing explicitly that the request was accepted and returned without any issue
-asynchid|{arbitrary ID String}|Used for the first part of an asynchornous call, returns an ID string which can be used in a subsequent call to retrieve data or status information.
-asynchstatus|PENDING|Indicates an asynchornous call is still working and will not return data yet.
-asynchstatus|FINISHED|Indicates an asynchornous call is finished and this response object contains the requested data.
-27|"Could not update observation values. Invalid data."| Error to be returned when the server is unable to store some data submitted
+asynchid|<arbitrary ID String>|Used for the first part of an asynchornous call, returns an ID string which can be used in a subsequent call to retrieve data or status information.
+asynchstatus|"PENDING"|Indicates an asynchornous call is still working and will not return data yet.
+asynchstatus|"FINISHED"|Indicates an asynchornous call is finished and this response object contains the requested data.
+200|"Success"|Optional status for representing explicitly that the request was accepted and returned without any issue
 40|"No objects found for given parameters"| Error to be returned when there are no objects in the database which match the requested search parameters
+41|"Missing required parameter <parameter name>"| Error to be returned when a required parameter is missing from request
+42|"Could not update values for <object type>"| Error to be returned when the server is unable to store some data submitted
 
 #### Payload
 

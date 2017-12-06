@@ -107,13 +107,13 @@ Note: If 'observationUnitDbId' or 'observationDbId' is populated, they should be
                 ]
             }
         }
-+ Response 500 (application/json)
++ Response 400 (application/json)
 
         {
             "metadata": {
                 "status": [ {
-                    "code":"27",
-                    "message": "Could not update observation values. Invalid data."
+                    "code":"42",
+                    "message": "Could not update values for Observation Units"
                 } ]
             }
         }
@@ -140,13 +140,13 @@ H4sIAAAAAAAA/+1VXW+bMBR976+w/BwaA4WmvKXrxyItUdSwtls1RUBuiVVjI0MyVVX/+wwdrDEEVdM0
                 ]
             }
         }
-+ Response 500 (application/json)
++ Response 400 (application/json)
 
         {
             "metadata": {
                 "status": [ {
-                    "code":"27",
-                    "message": "Could not update observation values. Invalid data."
+                    "code":"42",
+                    "message": "Could not update values for Observation Units"
                 } ]
             }
         }

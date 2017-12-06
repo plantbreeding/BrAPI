@@ -82,13 +82,13 @@ This call has been deprecated in V1.1. Use instead: "PUT /studies/{studyDbId}/ob
 
 + Response 200 (application/json)
 
-+ Response 500 (application/json)
++ Response 400 (application/json)
 
         {
             "metadata": {
                 "status": [ {
-                    "code":"27",
-                    "message": "Could not update observation values. Invalid data."
+                    "code":"42",
+                    "message": "Could not update values for Observation Units"
                 } ]
             }
         }
