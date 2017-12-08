@@ -47,7 +47,13 @@ Use POST for large queries (>2K bytes).
                         "typeOfGermplasmStorageCode": [10],
                         "genus": "Musa",
                         "species": "acuminata",
-                        "taxonIds": [{"ncbiTaxon":"http://purl.obolibrary.org/obo/NCBITaxon_4641"}, {"ciradTaxon":"23-E"}],
+                        "taxonIds": [
+                          {
+                            "sourceName":"ncbiTaxon",
+                            "taxonId":"http://purl.obolibrary.org/obo/NCBITaxon_4641"
+                          }, {
+                            "sourceName":"ciradTaxon",
+                            "taxonId":"23-E"}],
                         "speciesAuthority": "",
                         "subtaxa": "sp malaccensis var pahang",
                         "subtaxaAuthority": "",
@@ -76,7 +82,13 @@ Use POST for large queries (>2K bytes).
                         "typeOfGermplasmStorageCode": [10],
                         "genus": "Musa",
                         "species": "acuminata",
-                        "taxonIds": [{"ncbiTaxon":"4641"}, {"ciradTaxon":"23-E"}],
+                        "taxonIds": [
+                          {
+                            "sourceName":"ncbiTaxon",
+                            "taxonId":"http://purl.obolibrary.org/obo/NCBITaxon_4641"
+                          }, {
+                            "sourceName":"ciradTaxon",
+                            "taxonId":"23-E"}],
                         "speciesAuthority": "",
                         "subtaxa": "sp malaccensis var pah",
                         "subtaxaAuthority": "",
