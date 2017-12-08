@@ -28,7 +28,7 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
 |typeOfGermplasmStorageCode|array of string|[MCPD] If germplasm is maintained under different types of storage, multiple choices are allowed. 10) Seed collection 11) Short term 12) Medium term 13) Long term 20) Field collection 30) In vitro collection 40) Cryopreserved collection 50) DNA collection 99) Other (elaborate in REMARKS field)||
 |genus|string|[MCPD] Genus name for taxon. Initial uppercase letter required.||
 |species|string|[MCPD] Specific epithet portion of the scientific name in lowercase letters.||
-|taxonIds|array of object{"sourceName":"taxonId"}| The list of IDs for this SPECIES in different source. If present, NCBI Taxon should be always listed, as "ncbiTaxon" preferably with a PURL. The rank of this ID should be species.||
+|taxonIds|array| The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.||
 |speciesAuthority|string|[MCPD]||
 |subtaxa|string|[MCPD] Subtaxon can be used to store any additional taxonomic identifier. The following abbreviations are allowed: ‘subsp.’ (for subspecies); ‘convar.’ (for convariety); ‘var.’ (for variety); ‘f.’ (for form); ‘Group’ (for ‘cultivar group’).|
 |subtaxaAuthority|string|[MCPD] ||
@@ -69,7 +69,13 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
                 "typeOfGermplasmStorageCode": [10],
                 "genus": "Musa",
                 "species": "acuminata",
-                "taxonIds": [{"ncbiTaxon":"http://purl.obolibrary.org/obo/NCBITaxon_4641"}, {"ciradTaxon":"23-E"}],
+                "taxonIds": [
+                          {
+                            "sourceName":"ncbiTaxon",
+                            "taxonId":"http://purl.obolibrary.org/obo/NCBITaxon_4641"
+                          }, {
+                            "sourceName":"ciradTaxon",
+                            "taxonId":"23-E"}],
                 "speciesAuthority": "",
                 "subtaxa": "sp malaccensis var pahang",
                 "subtaxaAuthority": "",
