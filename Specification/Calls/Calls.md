@@ -18,6 +18,27 @@ Used by: Flapjack
 |datatypes|list|List of the data formats supported for data export, e.g. "json", "tsv", etc.|Y|
 |methods|list|List of the HTTP methods supported by this call|Y|
 
+**Note on the call response**
+
+Having a consistent structure for the path string of each call is very important for teams to be able to connect and find errors. Read more on [Github](https://github.com/plantbreeding/API/issues/144).
+
+Here are the rules for the path of each call that should be returned:
+ - Every word in the call path should match the documentation exactly, both in spelling and capitalization. Note that path strings are all lower case, but path parameters are camel case.
+ - Each path should start relative to '/brapi/v1/' and therefore should not include '/brapi/v1/'
+ - No leading or trailing slashes ('/')
+ - Path parameters are wrapped in curly braces ('{}'). The name of the path parameter should be spelled exactly as it is specified in the documentation.
+
+|Examples||
+|--|--|
+| **GOOD** |"call": "germplasm/{germplasmDbId}/markerprofiles" |
+| BAD |"call": "germplasm/{**id**}/markerprofiles" |
+| BAD |"call": "germplasm/{germplasmDbId}/marker**P**rofiles" |
+| BAD |"call": "germplasm/{germplasm**dbid**}/markerprofiles" |
+| BAD |"call": "**/brapi/v1**/germplasm/{germplasmDbId}/markerprofiles" |
+| BAD |"call": "**/g**ermplasm/{germplasmDbId}/markerprofiles **/"** |
+| BAD |"call": "germplasm/**\<germplasmDbId\>**/markerprofiles" |
+
+
 ### Call search [GET]
 + Parameters
    + datatype (optional, string, `tsv`) ... The data type supported by the call
