@@ -20,9 +20,9 @@ Used by: Flapjack
 
 **Note on the call response**
 
-Having a consistent structure for the name string of each call is very important for teams to be able to connect and find errors. Read more on [Github](https://github.com/plantbreeding/API/issues/144).
+Having a consistent structure for the path string of each call is very important for teams to be able to connect and find errors. Read more on [Github](https://github.com/plantbreeding/API/issues/144).
 
-Here are the rules for the name of each call that should be returned:
+Here are the rules for the path of each call that should be returned:
  - Every word in the call path should match the documentation exactly, both in spelling and capitalization. Note that path strings are all lower case, but path parameters are camel case.
  - Each path should start relative to '/brapi/v1/' and therefore should not include '/brapi/v1/'
  - No leading or trailing slashes ('/')
