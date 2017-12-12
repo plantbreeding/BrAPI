@@ -9,24 +9,27 @@ Note: If 'observationUnitDbId' or 'observationDbId' is populated, they should be
     
 + Request (application/zip)
     + Body
-        Zip file data with observation unit data
+    
+            Zip file data with observation unit data
 
 
 + Response 200 (application/json)
     + Body
-        {
-            "metadata": {
-                "status": [ {
-                    "code":"1",
-                    "message": "Upload Successful"
-                } ]
-            },
-            "results": {
-                "observationUnitDbIds" : [
-                    "123abc", "456def"
-                ]
+    
+            {
+                "metadata": {
+                    "status": [ {
+                        "code":"1",
+                        "message": "Upload Successful"
+                    } ]
+                },
+                "results": {
+                    "observationUnitDbIds" : [
+                        "123abc", "456def"
+                    ]
+                }
             }
-        }
+            
 + Response 400 (application/json)
 
         {

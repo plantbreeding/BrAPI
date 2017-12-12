@@ -21,7 +21,7 @@ This method may support asynchronous processing.
     + markerprofileDbId (required, array, `993,994,995`) ... The markerprofile db ids. Not Required if 'markerDbId' or 'matrixDbId' is present.
     + markerDbId (required, array, `322,323,324`) ... ids of the markers. if none are specified, results are returned for all markers in the database. Not Required if 'markerprofileDbId' or 'matrixDbId' is present.
     + matrixDbId (required, array, `457,458,459`) . . . ids of the complete matrix. Not Required if 'markerprofileDbId' or 'markerDbId' is present.
-    + format (optional, string, 'tsv') ... format for the datafile to be downloaded. tsv and csv currently supported; flapjack may be supported.
+    + format (optional, string, `tsv`) ... format for the datafile to be downloaded. tsv and csv currently supported; flapjack may be supported.
     + expandHomozygotes (optional, boolean, `false`) ... Should homozygotes NOT be collapsed into a single occurrence?
     + unknownString (optional, string, `-`) ... The string to use as a representation for missing data or the reserved word "empty_string".
     + sepPhased (optional, string, `|`) ... The string to use as a separator for phased allele calls or the reserved word "empty_string".

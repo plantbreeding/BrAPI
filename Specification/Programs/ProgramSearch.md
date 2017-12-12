@@ -6,44 +6,44 @@ Status: ACCEPTED.
 ### Search Programs [POST /brapi/v1/programs-search]
 
 + Request (application/json)
-
-    {
-        "programDbId": "123",
-        "name": "Wheat Resistance Program",
-        "abbreviation" : "DRP1",
-        "objective" : "Disease resistance",
-        "leadPerson" : "Dr. Henry Beachell"
-    } 
+        
+        {
+            "programDbId": "123",
+            "name": "Wheat Resistance Program",
+            "abbreviation" : "DRP1",
+            "objective" : "Disease resistance",
+            "leadPerson" : "Dr. Henry Beachell"
+        }
 
 + Response 200 (application/json)
 
-    {
-        "metadata" : {
-            "pagination": {
-                "pageSize": 1000,
-                "currentPage": 0,
-                "totalCount": 2,
-                "totalPages": 1
-            },
-            "status": [],
-            "datafiles": []
-        },
-        "result" : {
-            "data" : [
-                {
-                    "programDbId": "123",
-                    "name": "Wheat Resistance Program",
-                    "abbreviation" : "DRP1",
-                    "objective" : "Disease resistance",
-                    "leadPerson" : "Dr. Henry Beachell"
+        {
+            "metadata" : {
+                "pagination": {
+                    "pageSize": 1000,
+                    "currentPage": 0,
+                    "totalCount": 2,
+                    "totalPages": 1
                 },
-                {
-                    "programDbId": "456",
-                    "name": "Wheat Improvement Program",
-                    "abbreviation" : "DRP2",
-                    "objective" : "Yield improvement",
-                    "leadPerson" : "Dr. Norman Borlaug"
-                }
-            ]
+                "status": [],
+                "datafiles": []
+            },
+            "result" : {
+                "data" : [
+                    {
+                        "programDbId": "123",
+                        "name": "Wheat Resistance Program",
+                        "abbreviation" : "DRP1",
+                        "objective" : "Disease resistance",
+                        "leadPerson" : "Dr. Henry Beachell"
+                    },
+                    {
+                        "programDbId": "456",
+                        "name": "Wheat Improvement Program",
+                        "abbreviation" : "DRP2",
+                        "objective" : "Yield improvement",
+                        "leadPerson" : "Dr. Norman Borlaug"
+                    }
+                ]
+            }
         }
-    }

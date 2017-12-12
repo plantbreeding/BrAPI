@@ -41,14 +41,14 @@ Adresses these needs:
 |donors|array of object|[MCPD] code of the donor institute and Identifier assigned to an accession by the donor, and permanent identifier.||
 |acquisitionDate|string|[MCPD] Follow ISO 8601 standard|
 
-### Germplasm search through GET [GET /brapi/v1/germplasm-search{?germplasmPUI}{?germplasmDdId}{?germplasmName}{?pageSize}{?page}]
+### Germplasm search through GET [GET /brapi/v1/germplasm-search{?germplasmPUI}{?germplasmDbId}{?germplasmName}{?pageSize}{?page}]
 
 Use GET when parameter size is less than 2K bytes.
 
 + Parameters
    + germplasmPUI (optional, string, `http://data.inra.fr/accession/234Col342`) ... Permanent unique identifier (DOI, URI, etc.)
    + germplasmDbId (optional, string, `986`) ... Internal database identifier
-   + germplasmName (optional, string, `Pah`, `Pahang`) ... Name of the germplasm
+   + germplasmName (optional, string, `Pahang`) ... Name of the germplasm
    + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
    + page (optional, integer, `0`) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
 

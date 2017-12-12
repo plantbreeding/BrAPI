@@ -23,7 +23,7 @@ For the requested name or synonym, returns an array (possibly empty) of marker r
 |refAlt|array of string|List of the reference (as the first item) and alternatives (the remaining items)||
 |analysisMethods|array of string|List of the genotyping platforms used to interrogate the marker||
 
-### **Deprecated** Markers Search (/brapi/v1/markers) [GET /brapi/v1/markers?name={name}&type={type}&matchMethod={matchMethod}&include={synonyms}&pageSize={pageSize}&page={page}]
+### **Deprecated** Markers Search (/brapi/v1/markers) [GET /brapi/v1/markers?name={name}&type={type}&matchMethod={matchMethod}&include={include}&pageSize={pageSize}&page={page}]
 + Parameters
     + name (optional, string, `11_10002 11_1% 11_1* 11_10?02`) ... The name or synonym.
     + matchMethod (optional, string, `wildcard`) ... Possible values are 'case_insensitive', 'exact'
