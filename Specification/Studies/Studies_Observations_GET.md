@@ -1,4 +1,4 @@
-## Get Observation Units by observation variable ids [/brapi/v1/studies/{studyDbId}/observations?observationVariableDbIds={observationVariableDbIds}&pageSize={pageSize}&page={page}]
+## Get Observation Units by observation variable ids [/brapi/v1/studies/{studyDbId}/observations]
 Scope: CORE.
 Status: ACCEPTED.
 Implementation target date: PAG2016
@@ -7,11 +7,11 @@ Retrieve all plots where there are measurements for the given observation variab
 
 observationTimestamp should be ISO8601 format with timezone: YYYY-MM-DDThh:mm:ss+hhmm
 
-### Get Observation Units by observation variable ids [GET]
+### Get Observation Units by observation variable ids [GET /brapi/v1/studies/{studyDbId}/observations{?observationVariableDbIds}{?pageSize}{?page}]
 
 + Parameters
     + studyDbId (required, string, `1`) ... Identifier of the study. Usually a number, could be alphanumeric.
-    + observationVariableDbId (required, string, `2` ... Numeric `id` of that variable (combination of trait, unit and method)
+    + observationVariableDbIds (required, array, `393939,393938`) ... Numeric `id` of that variable (combination of trait, unit and method)
     + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
     + page (optional, integer, `0`) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
 

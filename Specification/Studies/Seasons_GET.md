@@ -1,9 +1,9 @@
-## List Seasons [/brapi/v1/seasons?year={year}&pageSize={pageSize}&page={page}]
+## List Seasons [/brapi/v1/seasons]
 
 Call to retrive all seasons (or years) in the database. (Added by Jan-Erik and Lukas 5/26/2016)
 Scope: PHENOTYPING.
 
-### List seasons or years [GET]
+### List seasons or years [GET /brapi/v1/seasons{?year}{?pageSize}{?page}]
 + Parameters
     + year (optional, String, `2015`)
     + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.

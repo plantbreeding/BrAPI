@@ -1,5 +1,3 @@
-
-
 ### Save Observation Unit Phenotypes [PUT /brapi/v1/studies/{studyDbId}/observationunits]
 
 Use this call for uploading new Observations as JSON to a system. 

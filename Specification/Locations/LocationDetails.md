@@ -8,25 +8,9 @@ Get details for a location.
 * `altitude` is in meters.
 
 
-### Retrieve locations details [GET]
-
-| Variable                | Datatype        | Description                                             | Required |
-| ----------------------- | --------------- | ------------------------------------------------------- | :------: |
-| locationDbId            | string          | string identifier                                       |    Y     |
-| locationType            | string          | string                                                  |    Y     |
-| name                    | string          | string                                                  |    Y     |
-| abreviation             | string          | string                                                  |          |
-| countryCode             | string          | ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec  |          |
-| countryName             | string          | string                                        |          |
-| latitude                | string          | string                                        |          |
-| longitude               | string          | string                                        |          |
-| altitude                | string          | string                                        |          |
-| instituteName           | string          | string   each institute/laboratory can have several experimental field    |          |
-| **Deprecated** instituteAdress         | string          | **Use instituteAddress**                           |          |
-| instituteAddress        | string          | string                                        |          |
-| additionalInfo          | object          | Additional arbitrary info on the study, like objectives or publications |          |
-
-
+### Retrieve locations details [GET /brapi/v1/locations/{locationDbId}]
++ Parameters
+    + locationDbId (required, string, `abc123`) ... the internal DB id for a location
 + Response 200 (application/json)
         
         {
@@ -42,7 +26,7 @@ Get details for a location.
             },
             "result": {
                 {
-                    "locationDbId": 1,
+                    "locationDbId": "abc123",
                     "locationType" : "Breeding Location",
                     "name": "Ibadan",
                     "abreviation": "IB",

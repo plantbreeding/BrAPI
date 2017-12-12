@@ -1,4 +1,4 @@
-## Genome Map  [/brapi/v1/maps?species={species}&pageSize={pageSize}&page={page}&type={type}]
+## Genome Map  [/brapi/v1/maps]
 
 Status: ACCEPTED
 
@@ -10,9 +10,10 @@ Get list of maps
 
 do we need list of parents and specify mapping population?
 
-### Get list of maps [GET]
+### Get list of maps [GET /brapi/v1/maps{?species}{?pageSize}{?page}{?type}]
 + Parameters
-   + species (optional, string, ``) ... Species
+   + species (optional, string, `Some species`) ... Species name
+   + type (optional, string, `Genetic`) ... Type of map
    + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
    + page (optional, integer, `0`) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
 

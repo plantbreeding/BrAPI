@@ -48,7 +48,7 @@ Example Use cases:
 |observations.observationTimeStamp|string|ISO format "2006-07-03T10:00:38-0800"||
 |observations.collector|string| Person or team who has made the observation||
 
-### Phenotype Search [POST]
+### Phenotype Search [POST /brapi/v1/phenotypes-search]
 
 observationTimeStamp : Iso Standard 8601.
 observationValue data type inferred from the ontology 
@@ -56,16 +56,16 @@ observationValue data type inferred from the ontology
 + Request (application/json)
 
         {
-            "germplasmDbIds" : [ "Blabla", "34Mtp362" ], // (optional, text, `986`) ... The name or synonym of external genebank accession identifiers
-            "observationVariableDbIds" : [ "37373", "CO_321:00000234"], // (optional, text, `CO_321:00000234`) ... The IDs of traits, could be ontology ID, database ID or PUI
-            "studyDbIds" : [ "383", "2929", "WHEAT_NETWK_2016_MONTPELLIER" ], // (optional, text, `2356`) ... The database ID / PK of the studies search parameter
-            "locationDbIds" : [ "383838", "MONTPELLIER" ], // locations these traits were collected
-            "programDbIds" : [ "3838", "Drought resistance CG 2020" ], // list of programs that have phenotyped this trait
-            "seasonDbIds" : [ "338", "2010", "1956-2014", "2002-2003-2004", "2007 Spring" ], // (optional, text, `2001`) ... The year or Phenotyping campaign of a multiannual study (trees, grape, ...)
-            "observationLevel" : "plot", // (optional, text, `plot`) ... The type of the observationUnit. Returns only the observaton unit of the specified type; the parent levels ID can be accessed through observationUnitStructure.
-            "observationTimeStampRange" : ["2015-06-16T00:53:26-0800","2015-06-18T00:53:26-0800"]
-            "pageSize" : 100, // (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
-            "page" : 1, // (optional, integer, `10`) ... Which result page is requested
+            "germplasmDbIds" : [ "Blabla", "34Mtp362" ], // (optional) The name or synonym of external genebank accession identifiers
+            "observationVariableDbIds" : [ "37373", "CO_321:00000234"], // (optional) The IDs of traits, could be ontology ID, database ID or PUI
+            "studyDbIds" : [ "383", "2929", "WHEAT_NETWK_2016_MONTPELLIER" ], // (optional) The database ID / PK of the studies search parameter
+            "locationDbIds" : [ "383838", "MONTPELLIER" ], // (optional) locations these traits were collected
+            "programDbIds" : [ "3838", "Drought_resistance_CG_2020" ], // (optional) list of programs that have phenotyped this trait
+            "seasonDbIds" : [ "338", "2010", "1956-2014", "2002-2003-2004", "2007 Spring" ], // (optional) The year or Phenotyping campaign of a multiannual study (trees, grape, ...)
+            "observationLevel" : "plot", // (optional) The type of the observationUnit. Returns only the observaton unit of the specified type; the parent levels ID can be accessed through observationUnitStructure.
+            "observationTimeStampRange" : ["2015-06-16T00:53:26-0800","2015-06-18T00:53:26-0800"] // (optional) Array fixed length of 2. First item is the Start Timestamp, second item is the End Timestamp.
+            "pageSize" : 100, // (optional) The size of the pages to be returned. Default is `1000`.
+            "page" : 1, // (optional) Which result page is requested
         }
  
 + Response 200 (application/json)

@@ -1,4 +1,4 @@
-## Get List of Trial Summaries [/brapi/v1/trials?programDbId={programDbId}&locationDbId={locationDbId}&pageSize={pageSize}&page={page}&active={active}&sortBy={sortBy}&sortOrder={sortOrder}]
+## Get List of Trial Summaries [/brapi/v1/trials]
 
 Scope: PHENOTYPING.
 Status: ACCEPTED.
@@ -21,7 +21,7 @@ Implementation target date: PAG2016.
 | studies.locationName    | string          | Study location name                                     |          |
 | additionalInfo          | object          | Additional arbitrary info on the trial                  |          |
 
-### List of trial summaries [GET]
+### List of trial summaries [GET /brapi/v1/trials{?programDbId}{?locationDbId}{?pageSize}{?page}{?active}{?sortBy}{?sortOrder}]
 
 + Parameters
     + programDbId (optional, string, `1`) ... Program filter to only return trials associated with given program id.

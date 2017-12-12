@@ -35,7 +35,7 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
 |donors|array of object|[MCPD] code of the donor institute and Identifier assigned to an accession by the donor, and permanent identifier.||
 |acquisitionDate|string|[MCPD] Follow ISO 8601 standard|
 
-### Germplasm search by germplasmDbId [GET]
+### Germplasm search by germplasmDbId [GET /brapi/v1/germplasm/{germplasmDbId}]
 + Parameters
    + germplasmDbId (required, string, `382`) ... The internal id of the germplasm
     

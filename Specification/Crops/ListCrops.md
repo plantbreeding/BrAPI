@@ -1,8 +1,8 @@
-## List supported crops [/brapi/v1/crops?pageSize={pageSize}&page={page}]
+## List supported crops [/brapi/v1/crops]
 Scope: CORE.
 Status: ACCEPTED.
 
-### List supported crops [GET]
+### List supported crops [GET /brapi/v1/crops{?pageSize}{?page}]
 + Parameters
    + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
    + page (optional, integer, `0`) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.

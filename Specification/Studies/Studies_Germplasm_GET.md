@@ -1,10 +1,8 @@
-
-
-## Study Germplasm Details [/brapi/v1/studies/{studyDbId}/germplasm?pageSize={pageSize}&page={page}]
+## Study Germplasm Details [/brapi/v1/studies/{studyDbId}/germplasm]
 
 Scope: PHENOTYPING
 
-### Study Germplasm Details [GET]
+### Study Germplasm Details [GET /brapi/v1/studies/{studyDbId}/germplasm{?pageSize}{?page}]
 + Parameters
     + studyDbId (required, string, `1`) ... Identifier of the study. Usually a number, could be alphanumeric.
     + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.

@@ -1,3 +1,3 @@
 # Group Germplasm
-Note: The plural of germplasm is germplasm (no "s").
+Fun Fact: The plural of germplasm is germplasm (no "s").
 

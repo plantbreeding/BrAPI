@@ -1,10 +1,10 @@
-## Variable list [/brapi/v1/variables?page={page}&pageSize={pageSize}&traitClass={traitClass}]
+## Variable list [/brapi/v1/variables]
 Scope: CORE.
 Status: ACCEPTED.
 
 Call to retrieve a list of observationVariables available in the system.
 
-### Variable list [GET]
+### Variable list [GET /brapi/v1/variables{?page}{?pageSize}{?traitClass}]
 
 + Parameters
     + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.

@@ -1,4 +1,4 @@
-## List all Traits [/brapi/v1/traits?pageSize={pageSize}&page={page}]
+## List all Traits [/brapi/v1/traits]
 Scope: CORE.
 Status: ACCEPTED.
 
@@ -6,7 +6,7 @@ Implemented by: Germinate, Cassavabase
 
 Call to retrieve a list of traits available in the system and their associated variables.
 
-### List all traits [GET]
+### List all traits [GET /brapi/v1/traits{?pageSize}{?page}]
 + Parameters
     + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
     + page (optional, integer, `0`) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.

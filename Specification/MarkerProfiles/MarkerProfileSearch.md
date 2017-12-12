@@ -1,4 +1,4 @@
-## Markerprofile search [/brapi/v1/markerprofiles?germplasm={germplasmDbId}&studyDbId={studyDbId}&sample={sampleDbId}&extract={extractDbId}&method={methodDbId}&pageSize={pageSize}&page={page}]
+## Markerprofile search [/brapi/v1/markerprofiles]
 Scope: GENOTYPING.
 Status: ACCEPTED.
 
@@ -9,7 +9,7 @@ Used by: Flapjack
 For the requested Germplasm Id and/or Extract Id, returns the Markerprofile Id and number of non-missing allele calls 
 (marker/allele pairs).
 
-### Retrieve Markerprofile Ids [GET]
+### Retrieve Markerprofile Ids [GET /brapi/v1/markerprofiles{?germplasmDbId}{?studyDbId}{?sampleDbId}{?extractDbId}{?methodDbId}{?pageSize}{?page}]
 + Parameters
     + germplasmDbId (optional, string, `993`) ... The server's internal ids for the Germplasm IDs, as returned by the **Find markerprofile by Germplasm** service.
     + studyDbId (optional, string, `111`) ... The server's internal id for the StudyDbId
@@ -54,21 +54,3 @@ For the requested Germplasm Id and/or Extract Id, returns the Markerprofile Id a
             }
         }
         
-+ Response 400 (application/json)
-
-        {
-            "metadata" : {
-                "pagination": {
-                    "pageSize": 0,
-                    "currentPage": 0,
-                    "totalCount": 0,
-                    "totalPages": 0
-                },
-                "status" : {
-                    "message" : "Unsupported notation code.",
-                    "exception" : {}
-                ],
-                "datafiles": []
-            },
-            "result": []
-        }

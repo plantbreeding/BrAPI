@@ -1,8 +1,8 @@
-## List attributes available [/brapi/v1/attributes?attributeCategoryDbId={attributeCategoryDbId}&pageSize={pageSize}&page={page}]
+## List attributes available [/brapi/v1/attributes]
 Scope: OTHER. Status: ACCEPTED.
 Implementation target date: PAG2016
 
-### Attributes by attributeCategoryDbId [GET] 
+### Attributes by attributeCategoryDbId [GET /brapi/v1/attributes{?attributeCategoryDbId}{?pageSize}{?page}] 
 
 List available attributes.
 

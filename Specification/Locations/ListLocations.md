@@ -1,4 +1,4 @@
-## List Locations [/brapi/v1/locations?locationType={locationType}&pageSize={pageSize}&page={page}]
+## List Locations [/brapi/v1/locations]
 
 Implemented by: Germinate
 
@@ -9,10 +9,26 @@ Get a list of locations.
 
 **Note**: Consider revising to describe polygon lat/lan points and check if adopting http://geojson.org/ is worth doing for v1.
 
-### List locations [GET]
+| Variable                | Datatype        | Description                                             | Required |
+| ----------------------- | --------------- | ------------------------------------------------------- | :------: |
+| locationDbId            | string          | string identifier                                       |    Y     |
+| locationType            | string          | string                                                  |    Y     |
+| name                    | string          | string                                                  |    Y     |
+| abreviation             | string          | string                                                  |          |
+| countryCode             | string          | ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec  |          |
+| countryName             | string          | string                                        |          |
+| latitude                | string          | string                                        |          |
+| longitude               | string          | string                                        |          |
+| altitude                | string          | string                                        |          |
+| instituteName           | string          | string   each institute/laboratory can have several experimental field    |          |
+| **Deprecated** instituteAdress         | string          | **Use instituteAddress**                           |          |
+| instituteAddress        | string          | string                                        |          |
+| additionalInfo          | object          | Additional arbitrary info on the study, like objectives or publications |          |
 
+
+### List locations [GET /brapi/v1/locations{?locationType}{?pageSize}{?page}]
 + Parameters
-    + locationType (optional, string, `Breeding Locations`) - Filter by location type specified.
+    + locationType (optional, string, `Breeding Location`) ... Filter by location type specified.
     + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
     + page (optional, integer, `0`) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
 
@@ -32,7 +48,7 @@ Get a list of locations.
             "result": {
                 "data" : [
                     {
-                        "locationDbId": 1,
+                        "locationDbId": "abc123",
                         "locationType" : "Breeding Location",
                         "name": "Ibadan",
                         "abbreviation": "IB",
@@ -50,7 +66,7 @@ Get a list of locations.
                         }
                     },
                     {
-                        "locationDbId": 2,
+                        "locationDbId": "def456",
                         "locationType" : "Storage Location",
                         "name": "Goa",
                         "abbreviation": "GO",

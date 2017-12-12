@@ -6,11 +6,11 @@ Implemented by: Germinate
 
 Retrieve the variables associated to a trait 
 
+
+### Retrieve trait details by id [GET /brapi/v1/traits/{traitDbId}]
 + Parameters
     + traitDbId (required, string, `464`) ... Id of the trait to retrieve details of.
-
-### Retrieve trait details by id [GET]
-
+    
 + Response 200 (application/json)
 
         {

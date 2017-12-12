@@ -1,9 +1,12 @@
-### Save study Observation Units as table [POST]
+### Save study Observation Units as table [POST /brapi/v1/studies/{studyDbId}/table]
 
 Images can optionally be saved using this call by providing a zipped file of all images in the datafiles. The physical zipped file should be transferred as well in the mulit-part form data.
 
 Scope: PHENOTYPING
 
++ Parameters
+    + studyDbId (required, string, `1`) ... Identifier of the study. Usually a number, could be alphanumeric.
+    
 + Request
     
         {

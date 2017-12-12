@@ -69,7 +69,7 @@ For the requested name or synonym, returns an array (possibly empty) of marker r
             }
         }
         
-### Markers Search (GET) [GET /brapi/v1/markers-search?markerDbIds={markerDbIds}&name={name}&type={type}&matchMethod={matchMethod}&include={synonyms}&pageSize={pageSize}&page={page}]
+### Markers Search (GET) [GET /brapi/v1/markers-search{?markerDbIds}{?name}{?matchMethod}{?includeSynonyms}{?type}{?pageSize}{?page}]
 + Parameters
     + markerDbIds (optional, array, `1185,1186`) ... The database IDs of the markers to search for
     + name (optional, string, `11_10002 11_1% 11_1* 11_10?02`) ... The search pattern for a marker name or synonym.

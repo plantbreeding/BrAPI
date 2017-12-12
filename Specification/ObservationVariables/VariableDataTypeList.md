@@ -1,8 +1,8 @@
-## Variable data type list [/brapi/v1/variables/datatypes&pageSize={pageSize}&page={page}]
+## Variable data type list [/brapi/v1/variables/datatypes]
 
 Call to retrieve a list of data types the variable can have.
 
-### Variable data type list [GET]
+### Variable data type list [GET /brapi/v1/variables/datatypes{?pageSize}{?page}]
 
 + Parameters
     + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.

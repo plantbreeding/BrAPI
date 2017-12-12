@@ -1,4 +1,4 @@
-## MarkerProfile Allele Matrix [/brapi/v1/allelematrix-search?unknownString=&sepPhased=&sepUnphased=&expandHomozygotes=&markerprofileDbId=100&markerprofileDbId=101&markerDbId=322&markerDbId=418&format=&pageSize=&page=]
+## MarkerProfile Allele Matrix [/brapi/v1/allelematrix-search]
 Status: ACCEPTED.
 
 Implemented by: Germinate (POST only), Cassavabase
@@ -11,18 +11,18 @@ This uses a more efficient data structure and pagination for large number of mar
 |------|------|------|:-----:|
 |markerprofileDbIds| list of strings | | Y |
 |data| array | Is an array of arrays; each inner array has three entries: "markerDbId", "markerprofileDbId", "alleleCall". Scores have to be represented as described further up. e.g. unknown data as "N", etc. Missing data can be skipped. | Y |
-### Scores through GET [GET]
+
+### Scores through GET [GET /brapi/v1/allelematrix-search{?markerprofileDbId}{?markerDbId}{?matrixDbId}{?format}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageSize}{?page}]
 
 Use GET when parameter size is less than 2K bytes.
 This method may support asynchronous processing.
 
 + Parameters
-    + At least one of the following is required:
-       - markerprofileDbId (string, `993`) ... Themarkerprofile db ids; for multiple, repeat the parameter.
-       - markerDbId (string, `322`) ... ids of the markers; if none are specified, results are returned for all markers in the database.
-       - matrixDbId (string, `457`) . . . ids of the matrix; for multiple, repeat the parameter.
+    + markerprofileDbId (required, array, `993,994,995`) ... The markerprofile db ids. Not Required if 'markerDbId' or 'matrixDbId' is present.
+    + markerDbId (required, array, `322,323,324`) ... ids of the markers. if none are specified, results are returned for all markers in the database. Not Required if 'markerprofileDbId' or 'matrixDbId' is present.
+    + matrixDbId (required, array, `457,458,459`) . . . ids of the complete matrix. Not Required if 'markerprofileDbId' or 'markerDbId' is present.
     + format (optional, string, 'tsv') ... format for the datafile to be downloaded. tsv and csv currently supported; flapjack may be supported.
-    + expandHomozygotes (optional, boolean, `false`) ... Should homozygotes NOT be collapsed into a single occurence?
+    + expandHomozygotes (optional, boolean, `false`) ... Should homozygotes NOT be collapsed into a single occurrence?
     + unknownString (optional, string, `-`) ... The string to use as a representation for missing data or the reserved word "empty_string".
     + sepPhased (optional, string, `|`) ... The string to use as a separator for phased allele calls or the reserved word "empty_string".
     + sepUnphased (optional, string, `/`) ... The string to use as a separator for unphased allele calls or the reserved word "empty_string".    

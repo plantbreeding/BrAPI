@@ -36,7 +36,9 @@ Get trial by id.
 | additionalInfo.publications  | array of string | Additional info for publications                   |          |
 
 
-### Get trial by Id [GET]
+### Get trial by Id [GET /brapi/v1/trials/{trialDbId}]
++ Parameters
+    + trialDbId (required, string, `123abc`) ... The internal trialDbId 
 
 + Response 200 (application/json)
 

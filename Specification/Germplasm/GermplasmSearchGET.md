@@ -1,4 +1,4 @@
-##  Germplasm Search [/brapi/v1/germplasm-search?germplasmName={germplasmName}&germplasmDbId={germplasmDdId}&germplasmPUI={germplasmPUI}&pageSize={pageSize}&page={page}]
+##  Germplasm Search [/brapi/v1/germplasm-search]
 
 Implemented by: GnpIS, Germinate (GET only)
 
@@ -41,7 +41,7 @@ Adresses these needs:
 |donors|array of object|[MCPD] code of the donor institute and Identifier assigned to an accession by the donor, and permanent identifier.||
 |acquisitionDate|string|[MCPD] Follow ISO 8601 standard|
 
-### Germplasm search through GET [GET]
+### Germplasm search through GET [GET /brapi/v1/germplasm-search{?germplasmPUI}{?germplasmDdId}{?germplasmName}{?pageSize}{?page}]
 
 Use GET when parameter size is less than 2K bytes.
 

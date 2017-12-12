@@ -17,7 +17,7 @@ Retrieve the details of the study required for field data collection. Includes a
 |observationVariableName|String| name of variable||
 |data| object| List of lists, specifying the plotDbId, block, rep, germplasmDbId, and the phenotypic values||
 
-### Retrieve study Observation Units as table [GET]
+### Retrieve study Observation Units as table [GET /brapi/v1/studies/{studyDbId}/table{?format}]
 
 + Parameters
     + studyDbId (required, string, `1`) ... Identifier of the study. Usually a number, could be alphanumeric.

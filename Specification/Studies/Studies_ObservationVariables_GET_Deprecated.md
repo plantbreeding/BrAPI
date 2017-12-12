@@ -1,12 +1,4 @@
-## Study Observation Variables [/brapi/v1/studies/{studyDbId}/observationvariables]
-
-Scope: PHENOTYPING
-
-List all the observation variables measured in the study.
-
-Refer to the data type definition of variables in `/Specification/ObservationVariables/README.md`.
-
-### Get Observation Variables By Study [GET /brapi/v1/studies/{studyDbId}/observationvariables]
+### **Deprecated** Retrieve study observation variables [GET /brapi/v1/studies/{studyDbId}/observationVariables]
 
 + Parameters
     + studyDbId (required, string, `ST012`) ... string database unique identifier
@@ -93,4 +85,3 @@ Refer to the data type definition of variables in `/Specification/ObservationVar
                 ]
             }
         }
-        

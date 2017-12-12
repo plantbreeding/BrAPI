@@ -17,7 +17,7 @@ Implemented By:
 |refAlt|array of string|List of the reference (as the first item) and alternatives (the remaining items)||
 |analysisMethods|array of string|List of the genotyping platforms used to interrogate the marker||
 
-### Marker Details by id [GET]
+### Marker Details by id [GET /brapi/v1/markers/{markerDbId}]
 + Parameters
     + markerDbId (required, string, `1185`) ... the internal id of the marker
     
