@@ -1,12 +1,12 @@
-## Germplasm attribute values by germplasmDbId [/brapi/v1/germplasm/{germplasmDbId}/attributes?attributeList={attributeDbId},{attributeDbId}&pageSize={pageSize}&page={page}]
+## Germplasm attribute values by germplasmDbId [/brapi/v1/germplasm/{germplasmDbId}/attributes]
 
 Status: ACCEPTED.]
 
-### Germplasm attribute values [GET]
+### Germplasm attribute values [GET /brapi/v1/germplasm/{germplasmDbId}/attributes{?attributeList}{?pageSize}{?page}]
 Values for all attributes by default.
 + Parameters
     + germplasmDbId (required, string, `993`) ... The germplasm characterized
-    + attributeDbId (optional, string, `1`) ... Restrict the response to only the listed attributes.
+    + attributeList (optional, array, `123,456,789`) ... Restrict the response to only the listed attributeDbIds.
     + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
     + page (optional, integer, `0`) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
 

@@ -3,19 +3,23 @@ Advanced searching for the programs resource.
 
 Status: ACCEPTED.
 
-### Search Programs [/POST]
+### Search Programs [POST /brapi/v1/programs-search]
 
-        + Request (application/json)
-            {
-                "programDbId": "123",
-                "name": "Wheat Resistance Program",
-                "abbreviation" : "DRP1",
-                "objective" : "Disease resistance",
-                "leadPerson" : "Dr. Henry Beachell"
-            } 
++ Request (application/json)
         
-        + Response 200 (application/json)
-            {
+        {
+            "programDbId": "123",
+            "name": "Wheat Resistance Program",
+            "abbreviation" : "DRP1",
+            "objective" : "Disease resistance",
+            "leadPerson" : "Dr. Henry Beachell",
+            "pageSize": 1000,
+            "page": 0
+        }
+
++ Response 200 (application/json)
+
+        {
             "metadata" : {
                 "pagination": {
                     "pageSize": 1000,

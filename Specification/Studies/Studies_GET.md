@@ -59,7 +59,7 @@ More linked data:
 | additionalInfo          | object          | Additional arbitrary info on the study, like objectives or publications |          |
 | additionalInfo.publications  | array of string | Additional info for publications                   |          |
 
-### Retrieve study details [GET]
+### Retrieve study details [GET /brapi/v1/studies/{studyDbId}]
 
 + Parameters
     + studyDbId (required, string, `1`) ... Identifier of the study. Usually a number, could be alphanumeric.

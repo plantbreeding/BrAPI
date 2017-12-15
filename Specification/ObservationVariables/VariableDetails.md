@@ -4,11 +4,11 @@ Status: ACCEPTED.
 
 Retrieve variable details
 
+
+### Variable details by id [GET /brapi/v1/variables/{observationVariableDbId}]
 + Parameters
-    + observationVariableDbId (required, string, `CO_334:0100622`) ... string containing id's of the variables
-
-### Variable details by id [GET]
-
+    + observationVariableDbId (required, string, `CO_334:0100622`) ... string id of the variable
+    
 + Response 200 (application/json)
 
         {

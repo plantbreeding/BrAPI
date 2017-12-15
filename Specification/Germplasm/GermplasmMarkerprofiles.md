@@ -5,7 +5,9 @@ Status: ACCEPTED.
 Implementation target date: PAG2016
 Implemented by: Germinate, Cassavabase
 
-### Markerprofiles by germplasmDbId [GET]
+### Markerprofiles by germplasmDbId [GET /brapi/v1/germplasm/{germplasmDbId}/markerprofiles]
++ Parameters
+   + germplasmDbId (required, string, `382`) ... the internal id of the germplasm
 + Response 200 (application/json)
         
         {

@@ -1,4 +1,4 @@
-## Call Search [/brapi/v1/calls?datatype={dataFile}&pageSize={pageSize}&page={page}]
+## Call Search [/brapi/v1/calls]
 
 Status: ACCEPTED
 
@@ -39,7 +39,7 @@ Here are the rules for the path of each call that should be returned:
 | BAD |"call": "germplasm/**\<germplasmDbId\>**/markerprofiles" |
 
 
-### Call search [GET]
+### Call search [GET /brapi/v1/calls{?datatype}{?pageSize}{?page}]
 + Parameters
    + datatype (optional, string, `tsv`) ... The data type supported by the call
    + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.

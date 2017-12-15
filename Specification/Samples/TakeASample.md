@@ -1,6 +1,6 @@
 ## Take a Sample [/brapi/v1/samples]
 
-### Take a sample [PUT]
+### Take a sample [PUT /brapi/v1/samples]
 
 Call to register the event of a sample being taken. Sample ID is assigned as a result of the operation and returned in response.
 

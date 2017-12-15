@@ -6,13 +6,12 @@ Implemented by: Germinate, Cassavabase
 
 Used by: Flapjack
 
-### Get map details [GET]
+### Get map details [GET /brapi/v1/maps/{mapDbId}]
 
 Provides the number of markers on each linkageGroup and the max position on the linkageGroup
 
 + Paramters
-    + mapDbId (required)
-    + Should we provide pagination?
+    + mapDbId (required, string, `abc123`) ... the internal db id of a selected map
     
 + Response 200 (application/json)
             
@@ -28,7 +27,7 @@ Provides the number of markers on each linkageGroup and the max position on the 
                 "datafiles": []
             },
             "result": {
-                "mapDbId": "id",
+                "mapDbId": "abc123",
                 "name": "Some map",
                 "type": "Genetic",
                 "unit": "cM",

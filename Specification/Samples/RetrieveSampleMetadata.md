@@ -1,7 +1,8 @@
 ## Retrieve sample metadata [/brapi/v1/samples/{sampleDbId}]
 
-### Retrieve sample metadata [GET]
-
+### Retrieve sample metadata [GET /brapi/v1/samples/{sampleDbId}]
++ Parameters
+    + sampleDbId (required, string, `Unique-Plant-SampleID`) ... the internal DB id for a sample
 + Response 200 (application/json)
 
         {

@@ -1,10 +1,10 @@
-## Variable ontology list [/brapi/v1/ontologies?page={page}&pageSize={pageSize}]
+## Variable ontology list [/brapi/v1/ontologies]
 Scope: CORE.
 Status: ACCEPTED.
 
 Call to retrieve a list of observation variable ontologies available in the system.
 
-### Variable ontology list [GET]
+### Variable ontology list [GET /brapi/v1/ontologies{?page}{?pageSize}]
 
 + Parameters
     + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.

@@ -1,10 +1,10 @@
-## Program list [/brapi/v1/programs?programName={programName}&abbreviation={abbreviation}&pageSize={pageSize}&page={page}]
+## Program list [/brapi/v1/programs]
 Call to retrieve a list of programs.
 
 Status: ACCEPTED
 Implemented By:
 
-### List programs [GET]
+### List programs [GET /brapi/v1/programs{?programName}{?abbreviation}{?pageSize}{?page}]
 
 + Parameters
     + programName (optional, string, `Internation Yield Trial`) ... Filter by program name. Exact match.

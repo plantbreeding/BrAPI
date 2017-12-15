@@ -1,4 +1,4 @@
-### Germplasm search through POST [POST]
+### Germplasm search through POST [POST /brapi/v1/germplasm-search]
 
 Use POST for large queries (>2K bytes).
 

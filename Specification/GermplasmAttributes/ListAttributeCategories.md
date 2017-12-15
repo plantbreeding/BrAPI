@@ -1,8 +1,8 @@
-## List attribute categories [/brapi/v1/attributes/categories?pageSize={pageSize}&page={page}] 
+## List attribute categories [/brapi/v1/attributes/categories] 
 Scope: OTHER. Status: ACCEPTED.
 Implementation target date: PAG2016
 
-### Germplasm attribute categories [GET]
+### Germplasm attribute categories [GET /brapi/v1/attributes/categories{?pageSize}{?page}]
 List all available attribute categories.
 + Parameters
    + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.

@@ -1,9 +1,9 @@
-### **Deprecated** Save Observation Unit Phenotypes [POST /brapi/v1/studies/{studyDbId}/observationunits?observationLevel={observationLevel}&pageSize={pageSize}&page={page}]
+### **Deprecated** Save Observation Unit Phenotypes [POST /brapi/v1/studies/{studyDbId}/observationunits?format={format}]
 
 This call has been deprecated in V1.1. Use instead: "PUT /studies/{studyDbId}/observationunits" and "PUT /studies/{studyDbId}/observationunits/zip"
 
 + Parameters
-    + format (default is JSON, but can be zip) ... In case where JSON data is zipped for faster transfer speed (as in the case of the IRRI handheld implementation), the zipped JSON file will be listed in datafiles. The zipped file contains a JSON file with the same structure as the BrAPI call.
+    + format ... (default is JSON, but can be zip) In case where JSON data is zipped for faster transfer speed (as in the case of the IRRI handheld implementation), the zipped JSON file will be listed in datafiles. The zipped file contains a JSON file with the same structure as the BrAPI call.
     
 + Request (application/json)
 

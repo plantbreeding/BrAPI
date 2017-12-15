@@ -1,4 +1,4 @@
-## Markerprofile data [/brapi/v1/markerprofiles/{markerprofileDbId}?unknownString=&sepPhased=&sepUnphased=&expandHomozygotes=&pageSize=&page= ]
+## Markerprofile data [/brapi/v1/markerprofiles/{markerprofileDbId}]
 Scope: GENOTYPING.
 Status: ACCEPTED.
 Implemented by: Germinate, Cassavabase
@@ -33,10 +33,10 @@ Alphabetically?
 |pagination|object|pageSize, currentPage, totalCount, totalPages|Y|
 |status|list||Y|
 
-### Alleles By Markerprofile Id [GET]
+### Alleles By Markerprofile Id [GET /brapi/v1/markerprofiles/{markerprofileDbId}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageSize}{?page}]
 
 + Parameters
-   + markerprofileDbId (required, String, `993`) ... The server's internal id for the markerprofile
+   + markerprofileDbId (required, string, `993`) ... The server's internal id for the markerprofile
    + expandHomozygotes (optional, boolean, `false`) ... Should homozygotes NOT be collapsed into a single orrucance?
    + unknownString (optional, string, `-`) ... The string to use as a representation for missing data or the reserved word "empty_string".
    + sepPhased (optional, string, `|`) ... The string to use as a separator for phased allele calls or the reserved word "empty_string".

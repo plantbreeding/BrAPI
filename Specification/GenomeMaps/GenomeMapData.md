@@ -1,4 +1,4 @@
-## Genome Map Data [/brapi/v1/maps/{mapDbId}/positions?linkageGroupName={linkageGroupName}&pageSize={pageSize}&page={page}]
+## Genome Map Data [/brapi/v1/maps/{mapDbId}/positions]
 
 Status: ACCEPTED.
 
@@ -6,7 +6,7 @@ Implemented by: Germinate, Cassavabase
 
 Used by: Flapjack
 
-### Get map data [GET]
+### Get map data [GET /brapi/v1/maps/{mapDbId}/positions{?linkageGroupName}{?pageSize}{?page}]
 
 markers ordered by linkageGroup and position
 

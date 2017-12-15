@@ -4,7 +4,7 @@ The main API call for field data collection, to retrieve all the observation uni
 
 Scope: PHENOTYPING
 
-### Get all observation units [GET /brapi/v1/studies/{studyDbId}/observationunits?observationLevel={observationLevel}&pageSize={pageSize}&page={page}]
+### Get all observation units [GET /brapi/v1/studies/{studyDbId}/observationunits{?observationLevel}{?pageSize}{?page}]
 
 + Parameters
     + studyDbId (required, string, `abc123`) ... The study these observation units are related to.

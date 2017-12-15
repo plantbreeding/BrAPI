@@ -1,4 +1,4 @@
-## Plot Layout Details [/brapi/v1/studies/{studyDbId}/layout?pageSize={pageSize}&page={page}]
+## Plot Layout Details [/brapi/v1/studies/{studyDbId}/layout]
 Scope: PHENOTYPING.
 Status: ACCEPTED.
 Implementation target date: PAG2016
@@ -6,7 +6,7 @@ Notes: the plot information.
 
 Retrieve the plot layout of the study with id {id}.
 
-### Retrieve plot layout details [GET]
+### Retrieve plot layout details [GET /brapi/v1/studies/{studyDbId}/layout{?pageSize}{?page}]
 
 + Parameters
    + studyDbId (required, string, `1`) ... Identifier of the study. Usually a number, could be alphanumeric.

@@ -11,7 +11,7 @@ Get list of studies
 
 StartDate and endDate should be ISO8601 format for dates: YYYY-MM-DD
 
-### Search Studies (GET) [GET /brapi/v1/studies-search?studyType={studyType}&programDbId={programDbId}&locationDbId={locationDbId}&seasonDbId={seasonDbId}&trialDbId={trialDbId}&germplasmDbIds={germplasmDbIds}&observationVariableDbIds={observationVariableDbIds}&pageSize={pageSize}&page={page}&active={active}&sortBy={sortBy}&sortOrder={sortOrder}]
+### Search Studies (GET) [GET /brapi/v1/studies-search{?studyType}{?programDbId}{?locationDbId}{?seasonDbId}{?trialDbId}{?germplasmDbIds}{?observationVariableDbIds}{?pageSize}{?page}{?active}{?sortBy}{?sortOrder}]
 
 
 + Parameters
@@ -24,9 +24,9 @@ StartDate and endDate should be ISO8601 format for dates: YYYY-MM-DD
     + observationVariableDbIds (optional, array, `CO-PH-123,Var-123`) ... Filter studies where specified observation variables have been measured
     + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
     + page (optional, integer, `0`) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + active (optional, boolean, `true/false`) ... Filter active status true/false. 
+    + active (optional, boolean, `true`) ... Filter active status true/false. 
     + sortBy (optional, string, `studyDbId`) ... Sort order. Name of the field to sorty by.
-    + sortOrder (optional, string, `asc/desc`) ... Sort order direction. Ascending/Descending.
+    + sortOrder (optional, string, `asc`) ... Sort order direction. Ascending/Descending.
     
 + Response 200 (application/json)
 
