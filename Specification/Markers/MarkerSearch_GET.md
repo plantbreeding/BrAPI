@@ -72,7 +72,7 @@ For the requested name or synonym, returns an array (possibly empty) of marker r
 ### Markers Search (GET) [GET /brapi/v1/markers-search{?markerDbIds}{?name}{?matchMethod}{?includeSynonyms}{?type}{?pageSize}{?page}]
 + Parameters
     + markerDbIds (optional, array, `1185,1186`) ... The database IDs of the markers to search for
-    + name (optional, string, `11_10002 11_1% 11_1* 11_10?02`) ... The search pattern for a marker name or synonym.
+    + name (optional, string, `11_1*`) ... The search pattern for a marker name or synonym. Examples: "11_10002" "11_1%" "11_1*" "11_10?02"
     + matchMethod (optional, string, `wildcard`) ... Possible values are 'case_insensitive', 'exact'
     (case sensitive), 'wildcard' (which is case insensitive). Wildcard uses both '*' and '%' for any number of characters
     and '?' for one character matching. Default is exact.

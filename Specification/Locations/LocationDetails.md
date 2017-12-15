@@ -35,8 +35,8 @@ Get details for a location.
                     "latitude": -21.5,
                     "longitude": 165.5,
                     "altitude": 12,
-                    "instituteName"; "INRA - GDEC",
-                    "instituteAddress"; "road foo, nigeria",
+                    "instituteName": "INRA - GDEC",
+                    "instituteAddress": "road foo, nigeria",
                     "additionalInfo": 
                     {
                         "annualMeanRain" : "value", 

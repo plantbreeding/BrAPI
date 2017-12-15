@@ -8,8 +8,8 @@ markers ordered by linkageGroup and position
    + mapDbId (required, string, `6`) ... unique id of the map
    + linkageGroupId (optional, string, `123`) ... **Deprecated** Use linkageGroupName instead
    + linkageGroupName (required, string, `1A`) ... The chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.
-   + min (optional) ... minimum position on linkage group
-   + max (optional) ... maximum position on linkage group
+   + min (optional, integer, `0`) ... minimum position on linkage group
+   + max (optional, integer, `2000`) ... maximum position on linkage group
    + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
    + page (optional, integer, `0`) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
 
@@ -26,7 +26,7 @@ markers ordered by linkageGroup and position
                 },
                 "status" : [],
                 "datafiles": []
-            }    
+            },   
             "result": { 
                 "data" : [
                     {

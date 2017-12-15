@@ -28,9 +28,9 @@ Implementation target date: PAG2016.
     + locationDbId (optional, string, `212`) ... Filter by location
     + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
     + page (optional, integer, `0`) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + active (optional, boolean, `true/false`) ... Filter active status true/false. 
+    + active (optional, boolean, `true`) ... Filter active status true/false. 
     + sortBy (optional, string, `studyDbId`) ... Sort order. Name of the field to sorty by.
-    + sortOrder (optional, string, `asc/desc`) ... Sort order direction. Ascending/Descending.
+    + sortOrder (optional, string, `asc`) ... Sort order direction: asc/desc
     
 + Response 200 (application/json)
 

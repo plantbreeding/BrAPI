@@ -12,7 +12,9 @@ Status: ACCEPTED.
             "name": "Wheat Resistance Program",
             "abbreviation" : "DRP1",
             "objective" : "Disease resistance",
-            "leadPerson" : "Dr. Henry Beachell"
+            "leadPerson" : "Dr. Henry Beachell",
+            "pageSize": 1000,
+            "page": 0
         }
 
 + Response 200 (application/json)

@@ -20,11 +20,10 @@ Call to retrieve a list of traits available in the system and their associated v
                     "currentPage": 0, 
                     "totalCount": 2, 
                     "totalPages": 1 
-                }
+                },
                 "status" : [],
                 "datafiles": []
             },
-        
             "result" : {
                 "data" : [
                     {
@@ -51,8 +50,7 @@ Call to retrieve a list of traits available in the system and their associated v
                         ],
                         "defaultValue": null
                     }
-                ],
-
-            ]
+                ]
+            }
         }
 
