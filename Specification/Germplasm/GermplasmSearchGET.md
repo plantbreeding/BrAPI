@@ -2,6 +2,8 @@
 
 Implemented by: GnpIS, Germinate (GET only)
 
+See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
+
 Notes:
 The germplasm and gerplasm MCPD calls were merged.  The MCPD fields are optional and indicated as such with the [MCPD] prefix in the description field of the 'Response data types' table. Please use the 'features' hash of the 'calls' call to communicate with clients as to whether MCPD is supported by your implementation.
 

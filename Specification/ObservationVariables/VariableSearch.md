@@ -4,6 +4,8 @@ Status: ACCEPTED.
 
 Search observation variables.
 
+See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
+
 ### Variable search [POST /brapi/v1/variables-search]
 
 + Request (application/json)

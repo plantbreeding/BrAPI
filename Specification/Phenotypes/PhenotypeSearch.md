@@ -4,6 +4,7 @@ Status: ACCEPTED.
 
 Returns a list of observationUnit with the observed Phenotypes.
 
+See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
 
 Implemented for GnpIS and PHIS data (https://urgi.versailles.inra.fr/ws/webresources/brapi/v1/phenotypes). 
 Use case: this section allows to get a dataset from multiple studies. It allows to integrate data from several databases.

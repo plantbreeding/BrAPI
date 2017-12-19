@@ -5,6 +5,8 @@ Implemented by: Germinate (POST only), Cassavabase
 
 Used by: Flapjack (POST only)
 
+See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
+
 This uses a more efficient data structure and pagination for large number of markers.
 
 |Variable|Datatype|Description|Required|  
