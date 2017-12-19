@@ -210,16 +210,16 @@ latitude: +40.20361, longitude: -075.00417. Note that plus and minus signs are a
 
 Some calls initiate asynchronous processing, which take an indeterminate amount of time to complete. For example, the allelematrix-search may initiate a background process that extracts the requested data from a data warehouse. In this case, 
 
-* The status array of the call's response will contain a status object in which the value of the **code** key is **asynchid**, the value of the **message** key is an id that will be used in additional calls; 
-* The resource from which the response was received will have a child resource called **status** to which the message value of the **asynchid** code is a uri parameter; a GET on this resource will indicate the current status of the job; 
-* The status array of the response from the status resource will include a status object in which the key is called **asynchstatus** and the **message** key's value indicatse the following possible states with the specified meanings: 
-        * PENDING: The background process has not started to work on the job; 
-        * INPROCESS: The background process is working on the job;
-        * FINISHED: The job has completed succesfully, in which case:
-                * The datafiles list of the response with this **asynchstatus** message value is required to have at least one entry that is a file path or uri to the directory or file of interest; and/or
-                * The data array in the result contains the matrix data;
-        * FAILED: The job has failed;
-* In the case where the message value of the **asynchstatus** code is FAILED, the status array may have, but is not requried to have, a status object in which the **code** key is **asynchfailure** and the **message** key indicates the cause of the job failure (some systems may prefer to use email notification either instead of or in addition to this mechanism). 
++ The status array of the call's response will contain a status object in which the value of the **code** key is **asynchid**, the value of the **message** key is an id that will be used in additional calls; 
++ The resource from which the response was received will have a child resource called **status** to which the message value of the **asynchid** code is a uri parameter; a GET on this resource will indicate the current status of the job; 
++ The status array of the response from the status resource will include a status object in which the key is called **asynchstatus** and the **message** key's value indicatse the following possible states with the specified meanings:
+    + PENDING: The background process has not started to work on the job; 
+    + INPROCESS: The background process is working on the job;
+    + FINISHED: The job has completed succesfully, in which case:
+        + The datafiles list of the response with this **asynchstatus** message value is required to have at least one entry that is a file path or uri to the directory or file of interest; and/or
+        + The data array in the result contains the matrix data;
+    + FAILED: The job has failed;
++ In the case where the message value of the **asynchstatus** code is FAILED, the status array may have, but is not requried to have, a status object in which the **code** key is **asynchfailure** and the **message** key indicates the cause of the job failure (some systems may prefer to use email notification either instead of or in addition to this mechanism). 
 
 For example, a call to allelematrix-search might give the following response: 
 
@@ -262,6 +262,41 @@ Given this response, a GET on the resource **/allelematrix-search/status/extract
     }
 }
 </code>
+
+### Search Services
+
+There are several "Search" calls specified in BrAPI. These calls have a postfix of "-search" in the name, and are used to search for an unknown set of entities without knowing the primary key (DbId). These calls can be used for user interfaces when presenting search options to a user, or when a system needs to access an entity using a candidate key which is not the DbId. All search calls should have a set of optional parameters, which are specific to that entity and its fields. 
+
+Each optional parameter included in any search service call should act as a filter on the data returned. This means the search parameters should always have an 'AND' type relationship. 
+
+For example: Given this data
+```
+{
+    id: "1",
+    first: "Bob",
+    last: "Jones"
+},{
+    id: "2",
+    first: "Bob",
+    last: "Smith"
+},{
+    id: "3",
+    first: "Alice",
+    last: "Jones"
+},{
+    id: "4",
+    first: "Cathy",
+    last: "Jones"
+}
+```
+The call `/person-search?first=Bob&last=Jones` will only return entity "1". The parameter `first` filters the data to just entities "1" and "2", and the parameter `last` is an additional filter, further limiting the data returned, resulting in just entity "1" satisfying both filters.
+
+When parameters are defined as lists, each item in the list acts as an accepted value for that parameter. This can be thought of as an 'OR' relationship for items within the same list parameter, or it could be considered a 'value IN array' type operation by a database.
+
+For example: Given the data above, the call `/person-search?first=Alice,Bob&last=Jones` will return entities "1" and "3". In this case, the parameter `first` filters the data to the first 3 entities, including all entities where the first name is 'Alice' OR 'Bob'. Again, the parameter `last` is an additional filter, further limiting the data returned, resulting in just  entities "1" and "3" satisfying both filters.
+
+These rules for search parameters apply to both GET call query parameters and POST call body parameters.
+
 
 ### API call categories:  
 Scope: "CORE", "PHENOTYPING", "GENOTYPING", "OTHER".  
