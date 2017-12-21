@@ -3,6 +3,8 @@ Advanced searching for the programs resource.
 
 Status: ACCEPTED.
 
+See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
+
 ### Search Programs [POST /brapi/v1/programs-search]
 
 + Request (application/json)

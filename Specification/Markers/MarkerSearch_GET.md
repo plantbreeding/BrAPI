@@ -3,6 +3,8 @@ Scope: CORE.  Status: ACCEPTED.
 
 Implemented by: Germinate
 
+See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
+
 Other service requests use the server's internal `markerDbId`. This service returns marker records that provide the markerDbId.
 For the requested name or synonym, returns an array (possibly empty) of marker records that match the search criteria.
 - If there is none, an empty array is returned.

@@ -7,6 +7,8 @@ Implemented by: Germinate
 
 Used by: Flapjack, Cassavabase
 
+See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
+
 Get list of studies
 
 StartDate and endDate should be ISO8601 format for dates: YYYY-MM-DD
@@ -25,7 +27,7 @@ StartDate and endDate should be ISO8601 format for dates: YYYY-MM-DD
     + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
     + page (optional, integer, `0`) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + active (optional, boolean, `true`) ... Filter active status true/false. 
-    + sortBy (optional, string, `studyDbId`) ... Sort order. Name of the field to sorty by.
+    + sortBy (optional, string, `studyDbId`) ... Sort order. Name of the field to sort by.
     + sortOrder (optional, string, `asc`) ... Sort order direction. Ascending/Descending.
     
 + Response 200 (application/json)
