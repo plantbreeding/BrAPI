@@ -57,6 +57,15 @@
           "base-url": "https://www.eu-sol.wur.nl/webapi/tomato/brapi/v1/",
           "description": "Collection of approx. 7000 tomato accessions, mainly phenotypic but also partial genotypic information."
         }
+      },
+      {
+        "name": "URGI - INRA Plant Breeding BrAPI resources",
+        "description": "Multi-species plant breeding data from INRA (French National Institute for Agricultural Research)",
+        "resource": {
+          "name": "URGI GnpIS Information System",
+          "base-url": "https://urgi.versailles.inra.fr/GnpISCore-srv/brapi/v1/",
+          "description": "See web service documentation at https://urgi.versailles.inra.fr/GnpISCore-srv/swagger-ui.html."
+        }
       }
     ]
   }
