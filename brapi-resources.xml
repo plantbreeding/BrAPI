@@ -5,12 +5,12 @@
 		<name>James Hutton Institute, The</name>
 		<description>JHI</description>
 		<logo>https://ics.hutton.ac.uk/resources/brapi/logos/jhi-128.png</logo>
-		
+
 		<resource>
 			<name>Germinate 3 Demo (https://ics)</name>
 			<base-url>https://ics.hutton.ac.uk/germinate-demo/cactuar-devel/brapi/v1/</base-url>
 			<logo>https://ics.hutton.ac.uk/resources/brapi/logos/germinate-128.png</logo>
-			<description>Small demo dataset using a Germinate 3 backend.</description>			
+			<description>Small demo dataset using a Germinate 3 backend.</description>
 		</resource>
 	</category>
 
@@ -25,9 +25,9 @@
 			<logo>https://ics.hutton.ac.uk/resources/brapi/logos/t3-128.png</logo>
 			<description/>
 		</resource>
-		
+
 	</category>
-	
+
 	<category>
 		<name>BMS</name>
 		<description/>
@@ -35,13 +35,13 @@
 		<resource>
 			<name>BMS</name>
 			<base-url>http://api.leafnode.io:10081/bmsapi</base-url>
-			
+
 			<logo/>
 			<description/>
 		</resource>
-		
+
 	</category>
-	
+
 	<category>
 		<name>Cassavabase</name>
 		<description/>
@@ -76,6 +76,16 @@
 			<base-url>https://www.eu-sol.wur.nl/webapi/tomato/brapi/v1/</base-url>
 			<logo/>
 			<description>Collection of approx. 7000 tomato accessions, mainly phenotypic but also partial genotypic information.</description>
+		</resource>
+	</category>
+
+	<category>
+		<name>URGI - INRA Plant Breeding BrAPI resources</name>
+		<description>Multi-species plant breeding data from INRA (French National Institute for Agricultural Research)</description>
+		<resource>
+			<name>URGI GnpIS Information System</name>
+			<base-url>https://urgi.versailles.inra.fr/GnpISCore-srv/brapi/v1/</base-url>
+			<description>See web service documentation at https://urgi.versailles.inra.fr/GnpISCore-srv/swagger-ui.html.</description>
 		</resource>
 	</category>
 
