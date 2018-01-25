@@ -33,6 +33,7 @@ Provides the number of markers on each linkageGroup and the max position on the 
                 "name": "Some map",
                 "type": "Genetic",
                 "unit": "cM",
+                "linkageGroups": ["DEPRECATED - Replaced by 'data' in v1.1"],
                 "data": [    
                     {
                         "linkageGroupName": "1",
