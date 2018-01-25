@@ -1,5 +1,5 @@
 
-# Group External Vendor Facility Samples Interface
+# Group Vendor Samples
 
 This interface is specific to facilities that performs an external analysis, such as genotyping facilities. The interface should be implemented by that facility's server. The breeding database is the client of this interface.
 

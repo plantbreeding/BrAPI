@@ -1,7 +1,7 @@
-## Plate Details by vendorPlateId [ /brapi/v1/vendor/plate/{vendorPlateDbId} ] 
+## Plate Details by vendorPlateId [/brapi/v1/vendor/plate/{vendorPlateDbId}] 
 Scope: Genotyping facilty.
 
-##### Response data types
+Response data types
 
 |Variable|Datatype|Description|Required|  
 |------|------|------|:-----:|
@@ -19,47 +19,47 @@ Scope: Genotyping facilty.
 |samples|Array|list of samples in the plate|Y|
  
 
-### Plate Details by vendorPlateId [ GET /brapi/v1/vendor/plate/{vendorPlateDbId} ] 
+### Plate Details by vendorPlateId [GET /brapi/v1/vendor/plate/{vendorPlateDbId}] 
 + Parameters
-         + vendorPlateDbId (required, string, `8338`)
+    + vendorPlateDbId (required, string, `8338`) ... The plate ID defined by the vendor
 
 + Response 200 (application/json)
 
-    {
-        "metadata": {
-            "pagination": {
-                "pageSize": 0,
-                "currentPage": 0,
-                "totalCount": 0,
-                "totalPages": 0
+        {
+            "metadata": {
+                "pagination": {
+                    "pageSize": 0,
+                    "currentPage": 0,
+                    "totalCount": 0,
+                    "totalPages": 0
+                },
+                "status": [],
+                "datafiles": []
             },
-            "status": [],
-            "datafiles": []
-        },
-        "result": {
-            "vendorProjectDbId": "abc123",
-            "vendorPlateDbId": "8338",
-            "clientPlateDbId": "def456",
-            "vendorBarcode": "",
-            "vendorBarcodeImageURL": "",
-            "plateFormat": "Plate_96",
-            "sampleType": "DNA",
-            "status": "(not null)",
-            "statusTimeStamp": "2017-06-01 01:57 GMT",
-            "samples": [
-                {
-                    "sampleDbId": "sample_name",
-                    "well": "(optional)",
-                    "row": "(optional)",
-                    "column": "(optional)",
-                    "concentration": "(ng/ul)",
-                    "volume": "(ul)",
-                    "tissueType": "",
-                    "taxonId": {
-                        "sourceName": "ncbiTaxon",
-                        "taxonId": "http://purl.obolibrary.org/obo/NCBITaxon_4641"
+            "result": {
+                "vendorProjectDbId": "abc123",
+                "vendorPlateDbId": "8338",
+                "clientPlateDbId": "def456",
+                "vendorBarcode": "",
+                "vendorBarcodeImageURL": "",
+                "plateFormat": "Plate_96",
+                "sampleType": "DNA",
+                "status": "(not null)",
+                "statusTimeStamp": "2017-06-01 01:57 GMT",
+                "samples": [
+                    {
+                        "sampleDbId": "sample_name",
+                        "well": "(optional)",
+                        "row": "(optional)",
+                        "column": "(optional)",
+                        "concentration": "(ng/ul)",
+                        "volume": "(ul)",
+                        "tissueType": "",
+                        "taxonId": {
+                            "sourceName": "ncbiTaxon",
+                            "taxonId": "http://purl.obolibrary.org/obo/NCBITaxon_4641"
+                        }
                     }
-                }
-            ]
+                ]
+            }
         }
-    }
