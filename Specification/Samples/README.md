@@ -1,5 +1,4 @@
 
 # Group Samples
 
-API methods for traking/managing plant samples and realted metatdata. Sample in the context of these BrAPI calls, is defined as the actual biological plant material collected from the field. 
-For more context on a possible user story see the [GOBII BMS Usecase diagram](http://www.gliffy.com/go/publish/image/10906911/L.png).
+API methods for tracking/managing plant samples and related meta-data. A 'Sample' in the context of BrAPI, is defined as the actual biological plant material collected from the field.

@@ -88,8 +88,16 @@ sources=("README.md"
 	       "Locations/ListLocations.md"
 	       "Locations/LocationDetails.md"
 	       "Samples/README.md"
-	       "Samples/TakeASample.md"
-	       "Samples/RetrieveSampleMetadata.md"
+	       "Samples/Sample_PUT.md"
+	       "Samples/Samples_GET.md"
+	       "Samples/SampleSearch_GET.md"
+	       "Samples/SampleSearch_POST.md"
+	       "ExternalVendorSamples/README.md"
+	       "ExternalVendorSamples/Vendor_Plate_GET.md"
+	       "ExternalVendorSamples/Vendor_Plates_POST.md"
+	       "ExternalVendorSamples/Vendor_PlateSearch_GET.md"
+	       "ExternalVendorSamples/Vendor_PlateSearch_POST.md"
+	       "ExternalVendorSamples/Vendor_Specifications_GET.md"
 ) 
 
 for i in ${sources[@]}; do
