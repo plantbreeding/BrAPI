@@ -58,7 +58,6 @@ StartDate and endDate should be ISO8601 format for dates: YYYY-MM-DD
                         "programName": "Drought Resistance Program A",
                         "startDate": "2007-06-01",
                         "endDate"  : "2008-12-31",
-                        "studyType": "Trial",
                         "active" : "true", 
                         "additionalInfo" : {
                             "property1Name" : "property1Value",
@@ -72,6 +71,7 @@ StartDate and endDate should be ISO8601 format for dates: YYYY-MM-DD
                         "name": "Earlygenerationtesting",
                         "trialDbId" : "7",
                         "trialName" : "InternationalTrialA",
+                        "studyType": "Trial",
                         "seasons": ["2007 Spring", "2008 Fall"],
                         "locationDbId": "33",
                         "locationName": "Zimbabwe",
@@ -79,7 +79,6 @@ StartDate and endDate should be ISO8601 format for dates: YYYY-MM-DD
                         "programName": "Drought Resistance Program B",
                         "startDate": "2005-06-01",
                         "endDate"  : "2008-12-31",
-                        "studyType": "Trial",
                         "active" : "true",
                         "additionalInfo" : {
                             "property1Name" : "property1Value",
