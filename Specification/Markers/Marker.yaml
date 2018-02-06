@@ -1,0 +1,208 @@
+swagger: '2.0'
+info:
+  title: ''
+  version: ''
+  description: ''
+paths:
+  '/brapi/v1/markers':
+    get:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Marker'
+          examples:
+            application/json:
+              metadata:
+                pagination:
+                  pageSize: 1000
+                  currentPage: 0
+                  totalCount: 2
+                  totalPages: 1
+                status: []
+                datafiles: []
+                data:
+                  - markerDbId: '1185'
+                    defaultDisplayName: '11_10002'
+                    type: SNP
+                    synonyms:
+                      - i_11_10002
+                      - POPA1_0002
+                    refAlt:
+                      - A
+                      - T
+                    analysisMethods:
+                      - illumina
+                      - kasp
+                  - markerDbId: '1186'
+                    defaultDisplayName: '11_11159'
+                    type: SNP
+                    synonyms:
+                      - i_11_11159
+                      - POPA1_1159
+                    refAlt:
+                      - A
+                      - T
+                    analysisMethods:
+                      - illumina
+                      - kasp
+      summary: '**Deprecated** Markers Search (/brapi/v1/markers)'
+      description: ''
+      tags: []
+      parameters:
+        - name: name
+          in: query
+          description: The name or synonym.
+          required: false
+          type: string
+        - name: matchMethod
+          in: query
+          description: |-
+            Possible values are 'case_insensitive', 'exact'
+            (case sensitive), 'wildcard' (which is case insensitive). Wildcard uses both '*' and '%' for any number of characters
+            and '?' for one character matching. Default is exact.
+          required: false
+          type: string
+        - name: include
+          in: query
+          description: Whether to include synonyms in the output.
+          required: false
+          type: string
+        - name: type
+          in: query
+          description: The type of the marker.
+          required: false
+          type: string
+        - name: pageSize
+          in: query
+          description: The size of the pages to be returned. Default is `1000`.
+          required: false
+          type: integer
+        - name: page
+          in: query
+          description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+          required: false
+          type: integer
+      produces:
+        - application/json
+  /brapi/v1/markers-search:
+    get:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Marker'
+          examples:
+            application/json:
+              metadata:
+                pagination:
+                  pageSize: 1000
+                  currentPage: 0
+                  totalCount: 2
+                  totalPages: 1
+                status: []
+                datafiles: []
+              result:
+                content:
+                application/json:
+                    type: Marker
+                data:
+                  - markerDbId: '1185'
+                    defaultDisplayName: '11_10002'
+                    type: SNP
+                    synonyms:
+                      - i_11_10002
+                      - POPA1_0002
+                    refAlt:
+                      - A
+                      - T
+                    analysisMethods:
+                      - illumina
+                      - kasp
+                  - markerDbId: '1186'
+                    defaultDisplayName: '11_11159'
+                    type: SNP
+                    synonyms:
+                      - i_11_11159
+                      - POPA1_1159
+                    refAlt:
+                      - A
+                      - T
+                    analysisMethods:
+                      - illumina
+                      - kasp
+      summary: Markers Search (GET)
+      description: ''
+      tags: []
+      parameters:
+        - name: markerDbIds
+          in: query
+          description: The database IDs of the markers to search for
+          required: false
+          type: array
+          items:
+            type: string
+        - name: name
+          in: query
+          description: 'The search pattern for a marker name or synonym. Examples: "11_10002" "11_1%" "11_1*" "11_10?02"'
+          required: false
+          type: string
+        - name: matchMethod
+          in: query
+          description: |-
+            Possible values are 'case_insensitive', 'exact'
+            (case sensitive), 'wildcard' (which is case insensitive). Wildcard uses both '*' and '%' for any number of characters
+            and '?' for one character matching. Default is exact.
+          required: false
+          type: string
+        - name: includeSynonyms
+          in: query
+          description: Whether to include synonyms in the output.
+          required: false
+          type: boolean
+        - name: type
+          in: query
+          description: The type of the marker.
+          required: false
+          type: string
+        - name: pageSize
+          in: query
+          description: The size of the pages to be returned. Default is `1000`.
+          required: false
+          type: integer
+        - name: page
+          in: query
+          description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+          required: false
+          type: integer
+      produces:
+        - application/json
+definitions:
+  Marker:
+    type: object
+    properties:
+      markerDbId:
+        type: string
+      defaultDisplayName:
+        type: string
+      type:
+        type: string
+      synonyms:
+        type: array
+        items:
+          type: string
+      refAlt:
+        type: array
+        items:
+          type: string
+      analysisMethods:
+        type: array
+        items:
+          type: string
+        
