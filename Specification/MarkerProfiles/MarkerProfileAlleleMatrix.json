@@ -1,0 +1,139 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "",
+        "version": "",
+        "description": ""
+    },
+    "paths": {
+        "/brapi/v1/allelematrix-search": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {
+                            "application/json": {
+                                "metadata": {
+                                    "pagination": {
+                                        "pageSize": 1000,
+                                        "currentPage": 0,
+                                        "totalCount": 1,
+                                        "totalPages": 1
+                                    },
+                                    "status": [],
+                                    "datafiles": []
+                                },
+                                "result": {
+                                    "data": [
+                                        [
+                                            "1",
+                                            "1",
+                                            "A/B"
+                                        ],
+                                        [
+                                            "1",
+                                            "2",
+                                            "B"
+                                        ],
+                                        [
+                                            "2",
+                                            "1",
+                                            "A"
+                                        ],
+                                        [
+                                            "2",
+                                            "2",
+                                            "A/B"
+                                        ]
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Scores through GET",
+                "description": "Use GET when parameter size is less than 2K bytes.\nThis method may support asynchronous processing.",
+                "tags": [],
+                "parameters": [
+                    {
+                        "name": "markerprofileDbId",
+                        "in": "query",
+                        "description": "The markerprofile db ids. Not Required if 'markerDbId' or 'matrixDbId' is present.",
+                        "required": true,
+                        "type": "array"
+                    },
+                    {
+                        "name": "markerDbId",
+                        "in": "query",
+                        "description": "ids of the markers. if none are specified, results are returned for all markers in the database. Not Required if 'markerprofileDbId' or 'matrixDbId' is present.",
+                        "required": true,
+                        "type": "array"
+                    },
+                    {
+                        "name": "matrixDbId",
+                        "in": "query",
+                        "description": "",
+                        "required": true,
+                        "type": "array"
+                    },
+                    {
+                        "name": "format",
+                        "in": "query",
+                        "description": "format for the datafile to be downloaded. tsv and csv currently supported; flapjack may be supported.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "expandHomozygotes",
+                        "in": "query",
+                        "description": "Should homozygotes NOT be collapsed into a single occurrence?",
+                        "required": false,
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "unknownString",
+                        "in": "query",
+                        "description": "The string to use as a representation for missing data or the reserved word \"empty_string\".",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "sepPhased",
+                        "in": "query",
+                        "description": "The string to use as a separator for phased allele calls or the reserved word \"empty_string\".",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "sepUnphased",
+                        "in": "query",
+                        "description": "The string to use as a separator for unphased allele calls or the reserved word \"empty_string\".",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "The size of the pages to be returned. Default is `1000`.",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.",
+                        "required": false,
+                        "type": "integer"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "MarkerProfile Allele Matrix": {}
+    }
+}

@@ -1,0 +1,43 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "",
+        "version": "",
+        "description": ""
+    },
+    "paths": {
+        "/brapi/v1/studies/{studyDbId}/table": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {}
+                    }
+                },
+                "summary": "Retrieve study Observation Units as table",
+                "description": "",
+                "tags": [],
+                "parameters": [
+                    {
+                        "name": "studyDbId",
+                        "in": "path",
+                        "description": "Identifier of the study. Usually a number, could be alphanumeric.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "format",
+                        "in": "query",
+                        "description": "The format parameter will cause the data to be dumped to a file in the specified format. Currently, tsv and csv are supported.",
+                        "required": false,
+                        "type": "string"
+                    }
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "Study Observation Units as a Table": {}
+    }
+}

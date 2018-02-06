@@ -1,0 +1,36 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "",
+        "version": "",
+        "description": ""
+    },
+    "paths": {
+        "/brapi/v1/germplasm/{germplasmDbId}/markerprofiles": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {}
+                    }
+                },
+                "summary": "Markerprofiles by germplasmDbId",
+                "description": "",
+                "tags": [],
+                "parameters": [
+                    {
+                        "name": "germplasmDbId",
+                        "in": "path",
+                        "description": "the internal id of the germplasm",
+                        "required": true,
+                        "type": "string"
+                    }
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "Germplasm Markerprofiles": {}
+    }
+}

@@ -45,7 +45,6 @@
                         "programName": "Drought Resistance Program A",
                         "startDate": "2007-06-01",
                         "endDate"  : "2008-12-31",
-                        "studyType": "Trial",
                         "active" : "true",
                         "additionalInfo" : {
                             "property1Name" : "property1Value",
@@ -59,6 +58,7 @@
                         "name": "Earlygenerationtesting",
                         "trialDbId" : "1",
                         "trialName" : "InternationalTrialA",
+                        "studyType": "Trial",
                         "seasons": ["2005 Winter", "2006 Summer"],
                         "locationDbId": "33",
                         "locationName": "Zimbabwe",
@@ -66,7 +66,6 @@
                         "programName": "Drought Resistance Program B",
                         "startDate": "2005-06-01",
                         "endDate"  : "2008-12-31",
-                        "studyType": "Trial",
                         "active" : "true",
                         "additionalInfo" : {
                             "property1Name" : "property1Value",

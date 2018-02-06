@@ -1,0 +1,36 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "",
+        "version": "",
+        "description": ""
+    },
+    "paths": {
+        "/brapi/v1/markers/{markerDbId}": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {}
+                    }
+                },
+                "summary": "Marker Details by id",
+                "description": "",
+                "tags": [],
+                "parameters": [
+                    {
+                        "name": "markerDbId",
+                        "in": "path",
+                        "description": "the internal id of the marker",
+                        "required": true,
+                        "type": "string"
+                    }
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "Marker Details by markerDbId": {}
+    }
+}

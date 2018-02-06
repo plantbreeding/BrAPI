@@ -1,0 +1,84 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "",
+        "version": "",
+        "description": ""
+    },
+    "paths": {
+        "/brapi/v1/studies/{studyDbId}/layout": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {
+                            "application/json": {
+                                "metadata": {
+                                    "pagination": {
+                                        "pageSize": 1000,
+                                        "currentPage": 0,
+                                        "totalCount": 1,
+                                        "totalPages": 1
+                                    },
+                                    "status": [],
+                                    "datafiles": []
+                                },
+                                "result": {
+                                    "data": [
+                                        {
+                                            "studyDbId": 1,
+                                            "observationUnitDbId": 11,
+                                            "observationUnitName": "ZIPA_68_Ibadan_2014",
+                                            "observationLevel": "plot",
+                                            "replicate": 1,
+                                            "germplasmDbId": 143,
+                                            "germplasmName": "ZIPA_68",
+                                            "blockNumber": 1,
+                                            "X": 20,
+                                            "Y": 22,
+                                            "entryType": "check/test/filler",
+                                            "additionalInfo": {}
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Retrieve plot layout details",
+                "description": "",
+                "tags": [],
+                "parameters": [
+                    {
+                        "name": "studyDbId",
+                        "in": "path",
+                        "description": "Identifier of the study. Usually a number, could be alphanumeric.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "The size of the pages to be returned. Default is `1000`.",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.",
+                        "required": false,
+                        "type": "integer"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "Plot Layout Details": {}
+    }
+}

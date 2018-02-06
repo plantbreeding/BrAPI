@@ -1,0 +1,36 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "",
+        "version": "",
+        "description": ""
+    },
+    "paths": {
+        "/brapi/v1/studies/{studyDbId}/table": {
+            "post": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {}
+                    }
+                },
+                "summary": "Save study Observation Units as table",
+                "description": "Images can optionally be saved using this call by providing a zipped file of all images in the datafiles. The physical zipped file should be transferred as well in the mulit-part form data.\n\nScope: PHENOTYPING",
+                "tags": [],
+                "parameters": [
+                    {
+                        "name": "studyDbId",
+                        "in": "path",
+                        "description": "Identifier of the study. Usually a number, could be alphanumeric.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "Save study Observation Units as table": {}
+    }
+}

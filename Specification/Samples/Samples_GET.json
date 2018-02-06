@@ -1,0 +1,36 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "",
+        "version": "",
+        "description": ""
+    },
+    "paths": {
+        "/brapi/v1/samples/{sampleDbId}": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {}
+                    }
+                },
+                "summary": "Get Sample",
+                "description": "",
+                "tags": [],
+                "parameters": [
+                    {
+                        "name": "sampleDbId",
+                        "in": "path",
+                        "description": "the internal DB id for a sample",
+                        "required": true,
+                        "type": "string"
+                    }
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "Get a Sample": {}
+    }
+}

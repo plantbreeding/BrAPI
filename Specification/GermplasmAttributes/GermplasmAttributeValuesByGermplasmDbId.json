@@ -1,0 +1,87 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "",
+        "version": "",
+        "description": ""
+    },
+    "paths": {
+        "/brapi/v1/germplasm/{germplasmDbId}/attributes": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {
+                            "application/json": {
+                                "metadata": {
+                                    "pagination": {
+                                        "pageSize": 1000,
+                                        "currentPage": 0,
+                                        "totalCount": 1,
+                                        "totalPages": 1
+                                    },
+                                    "status": [],
+                                    "datafiles": []
+                                },
+                                "result": [
+                                    {
+                                        "germplasmDbId": "993",
+                                        "data": [
+                                            {
+                                                "attributeDbId": "1",
+                                                "attributeName": "Rht-B1b",
+                                                "attributeCode": "RHT",
+                                                "value": "Present",
+                                                "determinedDate": "2007-05-28"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "summary": "Germplasm attribute values",
+                "description": "Values for all attributes by default.",
+                "tags": [],
+                "parameters": [
+                    {
+                        "name": "germplasmDbId",
+                        "in": "path",
+                        "description": "The germplasm characterized",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "attributeList",
+                        "in": "query",
+                        "description": "Restrict the response to only the listed attributeDbIds.",
+                        "required": false,
+                        "type": "array"
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "The size of the pages to be returned. Default is `1000`.",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.",
+                        "required": false,
+                        "type": "integer"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "Germplasm attribute values by germplasmDbId": {}
+    }
+}
