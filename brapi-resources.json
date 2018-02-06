@@ -36,8 +36,8 @@
         "name": "Cassavabase",
         "resource": {
           "name": "Cassavabase",
-          "base-url": "https://cassava-test.sgn.cornell.edu/brapi/v1/",
-          "certificate": "https://ics.hutton.ac.uk/resources/brapi/certs/cassava-test.sgn.cornell.edu.crt"
+          "base-url": "https://cassavabase.org/brapi/v1/",
+          "certificate": "https://ics.hutton.ac.uk/resources/brapi/certs/cassavabase.org.crt"
         }
       },
       {
