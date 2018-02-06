@@ -1,9 +1,33 @@
 swagger: '2.0'
 info:
   title: ''
-  version: ''
+  version: "1.0.0"
   description: ''
 paths:
+  '/brapi/v1/markers/{markerDbId}':
+    get:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          schema:
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                $ref: '#/definitions/marker' 
+          examples: {}
+      summary: Marker Details by id
+      description: ''
+      tags: []
+      parameters:
+        - name: markerDbId
+          in: path
+          description: the internal id of the marker
+          required: true
+          type: string
+          
   '/brapi/v1/markers':
     get:
       responses:
@@ -13,7 +37,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/Marker'
+              $ref: '#/definitions/marker'
           examples:
             application/json:
               metadata:
@@ -49,7 +73,8 @@ paths:
                     analysisMethods:
                       - illumina
                       - kasp
-      summary: '**Deprecated** Markers Search (/brapi/v1/markers)'
+      deprecated: true
+      summary: 'Markers Search (/brapi/v1/markers)'
       description: ''
       tags: []
       parameters:
@@ -95,9 +120,17 @@ paths:
           description: OK
           headers: {}
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Marker'
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/definitions/marker'
           examples:
             application/json:
               metadata:
@@ -109,9 +142,6 @@ paths:
                 status: []
                 datafiles: []
               result:
-                content:
-                application/json:
-                    type: Marker
                 data:
                   - markerDbId: '1185'
                     defaultDisplayName: '11_10002'
@@ -184,7 +214,7 @@ paths:
       produces:
         - application/json
 definitions:
-  Marker:
+  marker:
     type: object
     properties:
       markerDbId:
@@ -205,4 +235,34 @@ definitions:
         type: array
         items:
           type: string
-        
+  status: 
+    type: object
+    properties:
+      code:
+        type: string
+      message: 
+        type: string
+  metadata:
+    type: object
+    properties:
+      pagination:
+        type: object
+        properties: 
+          totalCout:
+            type: integer
+          pageSize:
+            type: integer
+          totalPages: 
+            type: integer
+          currentPage:
+            type: integer
+      status:
+        type: array
+        items:
+          $ref: '#/definitions/status'
+      datafiles:
+        type: array
+        items:
+          type: string
+            
+          
