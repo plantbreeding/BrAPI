@@ -1,0 +1,50 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "",
+        "version": "",
+        "description": ""
+    },
+    "paths": {
+        "/brapi/v1/studies/{studyDbId}/germplasm": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {}
+                    }
+                },
+                "summary": "Study Germplasm Details",
+                "description": "",
+                "tags": [],
+                "parameters": [
+                    {
+                        "name": "studyDbId",
+                        "in": "path",
+                        "description": "Identifier of the study. Usually a number, could be alphanumeric.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "The size of the pages to be returned. Default is `1000`.",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.",
+                        "required": false,
+                        "type": "integer"
+                    }
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "Study Germplasm Details": {}
+    }
+}

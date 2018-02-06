@@ -1,0 +1,145 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "",
+        "version": "",
+        "description": ""
+    },
+    "paths": {
+        "/brapi/v1/calls": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {
+                            "application/json": {
+                                "metadata": {
+                                    "pagination": {
+                                        "totalCount": 8,
+                                        "currentPage": 0,
+                                        "totalPages": 1,
+                                        "pageSize": 1000
+                                    },
+                                    "datafiles": []
+                                },
+                                "result": {
+                                    "data": [
+                                        {
+                                            "call": "token",
+                                            "datatypes": [
+                                                "json"
+                                            ],
+                                            "methods": [
+                                                "POST",
+                                                "DELETE"
+                                            ]
+                                        },
+                                        {
+                                            "call": "calls",
+                                            "datatypes": [
+                                                "json"
+                                            ],
+                                            "methods": [
+                                                "GET"
+                                            ]
+                                        },
+                                        {
+                                            "call": "allelematrix",
+                                            "datatypes": [
+                                                "json",
+                                                "tsv"
+                                            ],
+                                            "methods": [
+                                                "GET",
+                                                "POST"
+                                            ]
+                                        },
+                                        {
+                                            "call": "observationLevels",
+                                            "datatypes": [
+                                                "json"
+                                            ],
+                                            "methods": [
+                                                "GET"
+                                            ]
+                                        },
+                                        {
+                                            "call": "germplasm-search",
+                                            "datatypes": [
+                                                "json"
+                                            ],
+                                            "methods": [
+                                                "GET",
+                                                "POST"
+                                            ]
+                                        },
+                                        {
+                                            "call": "germplasm/{germplasmDbId}",
+                                            "datatypes": [
+                                                "json"
+                                            ],
+                                            "methods": [
+                                                "GET"
+                                            ]
+                                        },
+                                        {
+                                            "call": "germplasm/{germplasmDbId}/pedigree",
+                                            "datatypes": [
+                                                "json"
+                                            ],
+                                            "methods": [
+                                                "GET"
+                                            ]
+                                        },
+                                        {
+                                            "call": "germplasm/{germplasmDbId}/markerprofiles",
+                                            "datatypes": [
+                                                "json"
+                                            ],
+                                            "methods": [
+                                                "GET"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Call search",
+                "description": "",
+                "tags": [],
+                "parameters": [
+                    {
+                        "name": "datatype",
+                        "in": "query",
+                        "description": "The data type supported by the call",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "The size of the pages to be returned. Default is `1000`.",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.",
+                        "required": false,
+                        "type": "integer"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "Call Search": {}
+    }
+}

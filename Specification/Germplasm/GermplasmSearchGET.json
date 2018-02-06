@@ -1,0 +1,166 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "",
+        "version": "",
+        "description": ""
+    },
+    "paths": {
+        "/brapi/v1/germplasm-search": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {
+                            "application/json": {
+                                "metadata": {
+                                    "status": [],
+                                    "datafiles": [],
+                                    "pagination": {
+                                        "pageSize": 1000,
+                                        "currentPage": 0,
+                                        "totalCount": 2,
+                                        "totalPages": 1
+                                    }
+                                },
+                                "result": {
+                                    "data": [
+                                        {
+                                            "germplasmDbId": "01BEL084609",
+                                            "defaultDisplayName": "Pahang",
+                                            "accessionNumber": "ITC0609",
+                                            "germplasmName": "Pahang",
+                                            "germplasmPUI": "http://www.crop-diversity.org/mgis/accession/01BEL084609",
+                                            "pedigree": "TOBA97/SW90.1057",
+                                            "germplasmSeedSource": "Female GID:4/Male GID:4",
+                                            "synonyms": [],
+                                            "commonCropName": "banana",
+                                            "instituteCode": "01BEL084",
+                                            "instituteName": "ITC",
+                                            "biologicalStatusOfAccessionCode": 412,
+                                            "countryOfOriginCode": "UNK",
+                                            "typeOfGermplasmStorageCode": [
+                                                10
+                                            ],
+                                            "genus": "Musa",
+                                            "species": "acuminata",
+                                            "taxonIds": [
+                                                {
+                                                    "sourceName": "ncbiTaxon",
+                                                    "taxonId": "http://purl.obolibrary.org/obo/NCBITaxon_4641"
+                                                },
+                                                {
+                                                    "sourceName": "ciradTaxon",
+                                                    "taxonId": "23-E"
+                                                }
+                                            ],
+                                            "speciesAuthority": "",
+                                            "subtaxa": "sp malaccensis var pahang",
+                                            "subtaxaAuthority": "",
+                                            "donors": [
+                                                {
+                                                    "donorAccessionNumber": "",
+                                                    "donorInstituteCode": "",
+                                                    "germplasmPUI": ""
+                                                }
+                                            ],
+                                            "acquisitionDate": "1947-01-31"
+                                        },
+                                        {
+                                            "germplasmDbId": "03REL084609",
+                                            "defaultDisplayName": "Pah",
+                                            "accessionNumber": "ITC0685",
+                                            "germplasmName": "Pah",
+                                            "germplasmPUI": "doi:10.15454/328757862534E12",
+                                            "pedigree": "TOBA97/SW90.1057",
+                                            "germplasmSeedSource": "Female GID:4/Male GID:4",
+                                            "synonyms": [],
+                                            "commonCropName": "banana",
+                                            "instituteCode": "01BEL084",
+                                            "instituteName": "ITC",
+                                            "biologicalStatusOfAccessionCode": 412,
+                                            "countryOfOriginCode": "UNK",
+                                            "typeOfGermplasmStorageCode": [
+                                                10
+                                            ],
+                                            "genus": "Musa",
+                                            "species": "acuminata",
+                                            "taxonIds": [
+                                                {
+                                                    "sourceName": "ncbiTaxon",
+                                                    "taxonId": "http://purl.obolibrary.org/obo/NCBITaxon_4641"
+                                                },
+                                                {
+                                                    "sourceName": "ciradTaxon",
+                                                    "taxonId": "23-E"
+                                                }
+                                            ],
+                                            "speciesAuthority": "",
+                                            "subtaxa": "sp malaccensis var pah",
+                                            "subtaxaAuthority": "",
+                                            "donors": [
+                                                {
+                                                    "donorAccessionNumber": "",
+                                                    "donorInstituteCode": "",
+                                                    "germplasmPUI": ""
+                                                }
+                                            ],
+                                            "acquisitionDate": "1977-01-31"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Germplasm search through GET",
+                "description": "Use GET when parameter size is less than 2K bytes.",
+                "tags": [],
+                "parameters": [
+                    {
+                        "name": "germplasmPUI",
+                        "in": "query",
+                        "description": "Permanent unique identifier (DOI, URI, etc.)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "germplasmDbId",
+                        "in": "query",
+                        "description": "Internal database identifier",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "germplasmName",
+                        "in": "query",
+                        "description": "Name of the germplasm",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "The size of the pages to be returned. Default is `1000`.",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.",
+                        "required": false,
+                        "type": "integer"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "Germplasm Search": {}
+    }
+}

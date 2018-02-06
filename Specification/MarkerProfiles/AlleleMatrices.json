@@ -1,0 +1,58 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "",
+        "version": "",
+        "description": ""
+    },
+    "paths": {
+        "/brapi/v1/allelematrices": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {
+                            "application/json": {
+                                "data": [
+                                    {
+                                        "name": "testDs1",
+                                        "matrixDbId": "27",
+                                        "description": "a test dataset",
+                                        "lastUpdated": "2017-06-12",
+                                        "studyDbId": "abc123"
+                                    },
+                                    {
+                                        "name": "testDs2",
+                                        "matrixDbId": "28",
+                                        "description": "a second test dataset",
+                                        "lastUpdated": "2017-06-12",
+                                        "studyDbId": "abc123"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "summary": "Matrices through GET",
+                "description": "",
+                "tags": [],
+                "parameters": [
+                    {
+                        "name": "studyDbId",
+                        "in": "query",
+                        "description": "restricts the list of matrices to a specific study.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "Allele Matrices": {}
+    }
+}

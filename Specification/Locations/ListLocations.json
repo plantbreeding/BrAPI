@@ -1,0 +1,102 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "",
+        "version": "",
+        "description": ""
+    },
+    "paths": {
+        "/brapi/v1/locations": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {
+                            "application/json": {
+                                "metadata": {
+                                    "pagination": {
+                                        "currentPage": 0,
+                                        "pageSize": 1000,
+                                        "totalCount": 2,
+                                        "totalPages": 1
+                                    },
+                                    "status": [],
+                                    "datafiles": []
+                                },
+                                "result": {
+                                    "data": [
+                                        {
+                                            "locationDbId": "abc123",
+                                            "locationType": "Breeding Location",
+                                            "name": "Ibadan",
+                                            "abbreviation": "IB",
+                                            "countryCode": "NGA",
+                                            "countryName": "Nigeria",
+                                            "latitude": -21.5,
+                                            "longitude": 165.5,
+                                            "altitude": 12,
+                                            "instituteName": "INRA - GDEC",
+                                            "instituteAddress": "route foo, Clermont Ferrand, France",
+                                            "additionalInfo": {
+                                                "annualMeanRain": "value",
+                                                "soilDescription": "23"
+                                            }
+                                        },
+                                        {
+                                            "locationDbId": "def456",
+                                            "locationType": "Storage Location",
+                                            "name": "Goa",
+                                            "abbreviation": "GO",
+                                            "countryCode": "IND",
+                                            "countryName": "India",
+                                            "latitude": 28.36,
+                                            "longitude": 77.12,
+                                            "altitude": 10,
+                                            "additionalInfo": {
+                                                "name1": "value1",
+                                                "name2": "value2"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "List locations",
+                "description": "",
+                "tags": [],
+                "parameters": [
+                    {
+                        "name": "locationType",
+                        "in": "query",
+                        "description": "Filter by location type specified.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "The size of the pages to be returned. Default is `1000`.",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.",
+                        "required": false,
+                        "type": "integer"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "List Locations": {}
+    }
+}

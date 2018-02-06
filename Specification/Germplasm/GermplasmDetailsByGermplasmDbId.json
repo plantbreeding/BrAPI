@@ -1,0 +1,93 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "",
+        "version": "",
+        "description": ""
+    },
+    "paths": {
+        "/brapi/v1/germplasm/{germplasmDbId}": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {
+                            "application/json": {
+                                "metadata": {
+                                    "status": [],
+                                    "datafiles": [],
+                                    "pagination": {
+                                        "pageSize": 0,
+                                        "currentPage": 0,
+                                        "totalCount": 0,
+                                        "totalPages": 0
+                                    }
+                                },
+                                "result": {
+                                    "germplasmDbId": "01BEL084609",
+                                    "defaultDisplayName": "Pahang",
+                                    "accessionNumber": "ITC0609",
+                                    "germplasmName": "Pahang",
+                                    "germplasmPUI": "http://www.crop-diversity.org/mgis/accession/01BEL084609",
+                                    "pedigree": "TOBA97/SW90.1057",
+                                    "seedSource": "ITC0609-2016-77",
+                                    "synonyms": [],
+                                    "commonCropName": "banana",
+                                    "instituteCode": "01BEL084",
+                                    "instituteName": "ITC",
+                                    "biologicalStatusOfAccessionCode": 412,
+                                    "countryOfOriginCode": "UNK",
+                                    "typeOfGermplasmStorageCode": [
+                                        10
+                                    ],
+                                    "genus": "Musa",
+                                    "species": "acuminata",
+                                    "taxonIds": [
+                                        {
+                                            "sourceName": "ncbiTaxon",
+                                            "taxonId": "http://purl.obolibrary.org/obo/NCBITaxon_4641"
+                                        },
+                                        {
+                                            "sourceName": "ciradTaxon",
+                                            "taxonId": "23-E"
+                                        }
+                                    ],
+                                    "speciesAuthority": "",
+                                    "subtaxa": "sp malaccensis var pahang",
+                                    "subtaxaAuthority": "",
+                                    "donors": [
+                                        {
+                                            "donorAccessionNumber": "",
+                                            "donorInstituteCode": "",
+                                            "donorGermplasmPUI": ""
+                                        }
+                                    ],
+                                    "acquisitionDate": "1947-01-31"
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Germplasm search by germplasmDbId",
+                "description": "",
+                "tags": [],
+                "parameters": [
+                    {
+                        "name": "germplasmDbId",
+                        "in": "path",
+                        "description": "The internal id of the germplasm",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "Germplasm Details by germplasmDbId": {}
+    }
+}

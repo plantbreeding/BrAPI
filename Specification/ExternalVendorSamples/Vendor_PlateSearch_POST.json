@@ -1,0 +1,65 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "",
+        "version": "",
+        "description": ""
+    },
+    "paths": {
+        "/brapi/v1/vendor/plate-search": {
+            "post": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {}
+                    }
+                },
+                "summary": "Search for plates",
+                "description": "",
+                "tags": [],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "vendorProjectDbIds": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "vendorPlateDbIds": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "clientPlateDbIds": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "sampleInfo": {
+                                    "type": "string"
+                                },
+                                "page": {
+                                    "type": "number"
+                                },
+                                "pageSize": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "Search for plates": {}
+    }
+}

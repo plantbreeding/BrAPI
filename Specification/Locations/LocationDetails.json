@@ -1,0 +1,36 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "",
+        "version": "",
+        "description": ""
+    },
+    "paths": {
+        "/brapi/v1/locations/{locationDbId}": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {}
+                    }
+                },
+                "summary": "Retrieve locations details",
+                "description": "",
+                "tags": [],
+                "parameters": [
+                    {
+                        "name": "locationDbId",
+                        "in": "path",
+                        "description": "the internal DB id for a location",
+                        "required": true,
+                        "type": "string"
+                    }
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "Location Details": {}
+    }
+}

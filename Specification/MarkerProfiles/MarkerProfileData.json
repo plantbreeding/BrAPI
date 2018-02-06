@@ -1,0 +1,78 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "",
+        "version": "",
+        "description": ""
+    },
+    "paths": {
+        "/brapi/v1/markerprofiles/{markerprofileDbId}": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {}
+                    }
+                },
+                "summary": "Alleles By Markerprofile Id",
+                "description": "",
+                "tags": [],
+                "parameters": [
+                    {
+                        "name": "markerprofileDbId",
+                        "in": "path",
+                        "description": "The server's internal id for the markerprofile",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "expandHomozygotes",
+                        "in": "query",
+                        "description": "Should homozygotes NOT be collapsed into a single orrucance?",
+                        "required": false,
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "unknownString",
+                        "in": "query",
+                        "description": "The string to use as a representation for missing data or the reserved word \"empty_string\".",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "sepPhased",
+                        "in": "query",
+                        "description": "The string to use as a separator for phased allele calls or the reserved word \"empty_string\".",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "sepUnphased",
+                        "in": "query",
+                        "description": "The string to use as a separator for unphased allele calls or the reserved word \"empty_string\".",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "The number of allele call results (marker/allele pairs) to be returned in the response. If multiple experiments are requested, some responses will contain the last results from one experiment followed by the first results from the next.",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Required if `pageSize` is given; and requires that `pageSize` be given. The page indexing starts at 0 (the first page is 'page'=0)",
+                        "required": false,
+                        "type": "integer"
+                    }
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "Markerprofile data": {}
+    }
+}

@@ -1,0 +1,43 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "",
+        "version": "",
+        "description": ""
+    },
+    "paths": {
+        "/brapi/v1/germplasm/{germplasmDbId}/pedigree": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {},
+                        "examples": {}
+                    }
+                },
+                "summary": "Germplasm pedigree by id",
+                "description": "",
+                "tags": [],
+                "parameters": [
+                    {
+                        "name": "germplasmDbId",
+                        "in": "path",
+                        "description": "the internal id of the germplasm",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "notation",
+                        "in": "query",
+                        "description": "text representation of the pedigree",
+                        "required": false,
+                        "type": "string"
+                    }
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "Germplasm Pedigree": {}
+    }
+}
