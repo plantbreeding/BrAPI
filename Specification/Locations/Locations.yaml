@@ -119,6 +119,7 @@ definitions:
     type: object
     properties: 
       locationDbId: 
+        description: string identifier
         type: string
       locationType:
         type: string
@@ -127,6 +128,8 @@ definitions:
       abbreviation:
         type: string
       countryCode:
+        description: |-
+          [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec
         type: string
       countryName: 
         type: string
@@ -137,10 +140,19 @@ definitions:
       altitude: 
         type: number
       instituteName: 
+        description: |-
+          each institute/laboratory can have several experimental field
         type: string
       instituteAddress:
         type: string
+      instituteAdress: 
+        description: |-
+          Depecrarted  **Use instituteAddress** 
+        type: string
+        
       additionalInfo:
+        description: |-
+          Additional arbitrary info on the study, like objectives or publications
         type: array
         items:
           type: object
