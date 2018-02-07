@@ -11,6 +11,25 @@
                 "responses": {
                     "200": {
                         "description": "OK",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"metadata": {
+									"$ref": "#/definitions/metadata"
+								},
+								"result": {
+									"type": "object",
+									"properties": {
+										"data": {
+											"type": "array",
+											"items": {
+												"$ref": "#/definitions/Genome Maps"
+											}
+										}
+									}
+								}
+							}
+						},
                         "headers": {},
                         "examples": {
                             "application/json": {
@@ -93,7 +112,86 @@
             }
         }
     },
-    "definitions": {
-        "Genome Map": {}
-    }
+	"definitions": {
+		"Genome Maps": {
+			"type": "object",
+			"properties": {
+				"mapDbId": {
+					"type": "string"
+				},
+				"name": {
+					"type": "string"
+				},
+				"species": {
+					"type": "string"
+				},
+				"type": {
+					"type": "string"
+				},
+				"unit": {
+					"type": "string"
+				},
+				"publishedDate": {
+					"type": "string",
+					"format": "date"
+				},
+				"markerCount": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"linkageGroupCount": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"comments": {
+					"type": "string"
+				}
+			}
+		},
+		"status": {
+			"type": "object",
+			"properties": {
+				"code": {
+					"type": "string"
+				},
+				"message": {
+					"type": "string"
+				}
+			}
+		},
+		"metadata": {
+			"type": "object",
+			"properties": {
+				"pagination": {
+					"type": "object",
+					"properties": {
+						"totalCout": {
+							"type": "integer"
+						},
+						"pageSize": {
+							"type": "integer"
+						},
+						"totalPages": {
+							"type": "integer"
+						},
+						"currentPage": {
+							"type": "integer"
+						}
+					}
+				},
+				"status": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/status"
+					}
+				},
+				"datafiles": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				}
+			}
+		}
+	}
 }
