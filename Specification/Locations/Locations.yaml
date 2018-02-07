@@ -30,7 +30,7 @@ paths:
             * The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
             * `altitude` is in meters.
       
-      tags: []
+      tags: [Locations]
       parameters:
         - name: locationDbId
           in: path
@@ -93,6 +93,7 @@ paths:
                   additionalInfo:
                     name1: value1
                     name2: value2
+      tags: [Locations]
       parameters:
         - name: locationType
           in: query
