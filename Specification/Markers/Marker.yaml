@@ -23,7 +23,7 @@ paths:
           **Status**: ACCEPTED 
           **Implemented By**:
       
-      tags: []
+      tags: [Markers]
       parameters:
         - name: markerDbId
           in: path
@@ -87,7 +87,7 @@ paths:
       deprecated: true
       summary: 'Markers Search (/brapi/v1/markers)'
       description: ''
-      tags: []
+      tags: [Markers]
       parameters:
         - name: name
           in: query
@@ -180,7 +180,7 @@ paths:
                       - kasp
       summary: Markers Search (GET)
       description: ''
-      tags: []
+      tags: [Markers]
       parameters:
         - name: markerDbIds
           in: query
@@ -279,7 +279,7 @@ paths:
                       - kasp
       summary: Markers Search (GET)
       description: ''
-      tags: []
+      tags: [Markers]
       parameters:
         - name: markerDbIds
           in: query
