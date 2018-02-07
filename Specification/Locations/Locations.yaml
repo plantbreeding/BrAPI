@@ -7,6 +7,36 @@ info:
 host: virtserver.swaggerhub.com
 basePath: /homonecloco/Locations/1.0
 paths:
+  '/brapi/v1/markers/{locationDbId}':
+    get:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          schema:
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                $ref: '#/definitions/location' 
+          examples: {}
+      summary: The internal DB id for a location
+      description: |-
+          **Implemented by:**  GnpIS
+          
+          Get details for a location.
+          
+            * The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
+            * `altitude` is in meters.
+      
+      tags: []
+      parameters:
+        - name: locationDbId
+          in: path
+          description: The internal DB id for a location
+          required: true
+          type: string
   /brapi/v1/locations:
     get:
       responses: 
