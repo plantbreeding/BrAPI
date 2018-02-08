@@ -1,0 +1,100 @@
+swagger: '2.0'
+info:
+  title: ''
+  version: ''
+  description: ''
+paths:
+  /brapi/v1/crops:
+    get:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          schema:
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                type: array
+                items:
+                  description: supported crop
+                  type: string
+          examples:
+            application/json:
+              metadata:
+                pagination:
+                  pageSize: 1000
+                  currentPage: 0
+                  totalCount: 3
+                  totalPages: 1
+                status: []
+                datafiles: []
+              result:
+                data:
+                  - maize
+                  - wheat
+                  - rice
+      summary: List supported crops
+      description: |-
+        **Scope**: CORE.
+        **Status**: ACCEPTED.
+      tags: [Crops]
+      parameters:
+        - name: pageSize
+          in: query
+          description: The size of the pages to be returned. Default is `1000`.
+          required: false
+          type: integer
+        - name: page
+          in: query
+          description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+          required: false
+          type: integer
+      produces:
+        - application/json
+definitions:
+  status: 
+    type: object
+    properties:
+      code:
+        type: string
+      message: 
+        type: string
+  metadata:
+    type: object
+    properties:
+      pagination:
+        description: |-
+          The pagination object is applicable only when the payload contains a "data" key. It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. Pages are zero indexed, so the first page will be page 0 (zero).
+        type: object
+        properties: 
+          totalCount:
+            type: integer
+          pageSize:
+            type: integer
+          totalPages: 
+            type: integer
+          currentPage:
+            type: integer
+      status:
+        description: |-
+          The status object contains a list of objects with the keys "code" and "message". If no status is reported, an empty list should be returned. The following are officially accepted status codes: 
+          Code|Message|Description
+          --|--|--
+          asynchid|<arbitrary ID String>|Used for the first part of an asynchornous call, returns an ID string which can be used in a subsequent call to retrieve data or status information.
+          asynchstatus|"PENDING"|Indicates an asynchornous call is still working and will not return data yet.
+          asynchstatus|"FINISHED"|Indicates an asynchornous call is finished and this response object contains the requested data.
+          200|"Success"|Optional status for representing explicitly that the request was accepted and returned without any issue
+          40|"No objects found for given parameters"| Error to be returned when there are no objects in the database which match the requested search parameters
+          41|"Missing required parameter <parameter name>"| Error to be returned when a required parameter is missing from request
+          42|"Could not update values for <object type>"| Error to be returned when the server is unable to store some data submitted
+        type: array
+        items:
+          $ref: '#/definitions/status'
+      datafiles:
+        description: |-
+          The datafiles key contains a list of file paths, which can be relative or complete URLs. These files contain additional information related to the returned object and can be retrieved by a subsequent call. The empty list should be returned if no additional data files are present.
+        type: array
+        items:
+          type: string
