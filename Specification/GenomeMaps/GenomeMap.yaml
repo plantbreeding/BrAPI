@@ -1,0 +1,434 @@
+swagger: '2.0'
+info:
+  title: 'BrAPI'
+  version: '1.0'
+  description: >-
+      Repository for version control of the BrAPI specification
+tags:
+- name: "Genome Maps"
+  description: "Retrieving genetic or physical maps"
+paths:
+  /brapi/v1/maps:
+    get:
+      tags:
+      - "Genome Maps"
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              metadata:
+               $ref: '#/definitions/metadata'
+              result:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/definitions/genome maps'
+          headers: {}
+          examples:
+            application/json:
+              metadata:
+                pagination:
+                  pageSize: 1000
+                  currentPage: 0
+                  totalCount: 2
+                  totalPages: 1
+                status: []
+                datafiles: []
+              result:
+                data:
+                  - mapDbId: '1'
+                    name: Some Map
+                    species: Some species
+                    type: Genetic
+                    unit: cM
+                    publishedDate: '2008-04-16'
+                    markerCount: 1000
+                    linkageGroupCount: 7
+                    comments: This map contains ...
+                  - mapDbId: '2'
+                    name: Some Other map
+                    species: Some Species
+                    type: Genetic
+                    unit: cM
+                    publishedDate: '2009-01-12'
+                    markerCount: 1501
+                    linkageGroupCount: 7
+                    comments: this is blah blah
+      summary: 'Get list of maps'
+      description: >-
+        Get list of maps
+        <br>
+        
+        **Status:** ACCEPTED
+
+        **Implemented by:** Germinate, Cassavabase
+
+        **Used by:** Flapjack
+
+        do we need list of parents and specify mapping population?
+      parameters:
+        - name: species
+          in: query
+          description: Species name
+          required: false
+          type: string
+        - name: type
+          in: query
+          description: Type of map
+          required: false
+          type: string
+        - name: pageSize
+          in: query
+          description: The size of the pages to be returned. Default is `1000`.
+          required: false
+          type: integer
+        - name: page
+          in: query
+          description: >-
+            Which result page is requested. The page indexing starts at 0 (the
+            first page is 'page'= 0). Default is `0`.
+          required: false
+          type: integer
+      produces:
+        - application/json
+  '/brapi/v1/maps/{mapDbId}':
+    get:
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                $ref: '#/definitions/map details'
+          headers: {}
+          examples:
+            application/json:
+              metadata:
+                pagination:
+                  pageSize: 1000
+                  currentPage: 0
+                  totalCount: 2
+                  totalPages: 1
+                status: []
+                datafiles: []
+              result:
+                mapDbId: abc123
+                name: Some map
+                type: Genetic
+                unit: cM
+                linkageGroups:
+                  - DEPRECATED - Replaced by 'data' in v1.1
+                data:
+                  - linkageGroupName: '1'
+                    markerCount: 100000
+                    maxPosition: 10000000
+                  - linkageGroupName: '2'
+                    markerCount: 1247
+                    maxPosition: 12347889
+      summary: Get map details
+      description: >-
+        Provides the number of markers on each linkageGroup and the max position on the linkageGroup
+        <br>
+        
+        **Status:** ACCEPTED
+
+        **Implemented by:** Germinate, Cassavabase
+
+        **Used by:** Flapjack
+      tags: ['Genome Maps']
+      parameters:
+        - name: mapDbId
+          in: path
+          description: The internal db id of a selected map
+          required: true
+          type: string
+        - name: pageSize
+          in: query
+          description: The size of the pages to be returned. Default is `1000`.
+          required: false
+          type: integer
+        - name: page
+          in: query
+          description: >-
+            Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+          required: false
+          type: integer
+      produces:
+        - application/json
+  '/brapi/v1/maps/{mapDbId}/positions':
+    get:
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              metadata:
+               $ref: '#/definitions/metadata'
+              result:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/definitions/marker'
+          headers: {}
+          examples:
+            application/json:
+              metadata:
+                pagination:
+                  pageSize: 1000
+                  currentPage: 0
+                  totalCount: 2
+                  totalPages: 1
+                status: []
+                datafiles: []
+              result:
+                data:
+                  - markerDbId: '1'
+                    markerName: marker1
+                    location: '1000'
+                    linkageGroupName: 1A
+                  - markerDbId: '2'
+                    markerName: marker2
+                    location: '1001'
+                    linkageGroupName: 1A
+      summary: Get map data
+      description: >-
+        markers ordered by linkageGroup and position
+        <br>
+        
+        **Status:** ACCEPTED.
+
+        **Implemented by:** Germinate, Cassavabase
+
+        **Used by:** Flapjack
+        
+      tags: [Genome Maps]
+      parameters:
+        - name: mapDbId
+          in: path
+          description: unique id of the map
+          required: true
+          type: string
+        - name: linkageGroupId
+          in: body
+          description: '**Deprecated** Use linkageGroupName instead'
+          required: false
+          schema:
+            type: string
+        - name: linkageGroupName
+          in: query
+          description: >-
+            The chromosome identifier or the generic linkage group identifier if
+            the chromosome is not applicable.
+          required: false
+          type: string
+        - name: pageSize
+          in: query
+          description: The size of the pages to be returned. Default is `1000`.
+          required: false
+          type: integer
+        - name: page
+          in: query
+          description: >-
+            Which result page is requested. The page indexing starts at 0 (the
+            first page is 'page'= 0). Default is `0`.
+          required: false
+          type: integer
+      produces:
+        - application/json
+  '/brapi/v1/maps/{mapDbId}/positions/{linkageGroupName}':
+    get:
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              metadata:
+               $ref: '#/definitions/metadata'
+              result:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/definitions/marker'
+          headers: {}
+          examples:
+            application/json:
+              metadata:
+                pagination:
+                  pageSize: 1000
+                  currentPage: 0
+                  totalCount: 2
+                  totalPages: 1
+                status: []
+                datafiles: []
+              result:
+                data:
+                  - markerDbId: '1'
+                    markerName: marker1
+                    location: '1000'
+                  - markerDbId: '2'
+                    markerName: marker2
+                    location: '1001'
+      summary: Get map data by range on linkageGroup
+      description: markers ordered by linkageGroup and position
+      tags: ['Genome Maps']
+      parameters:
+        - name: mapDbId
+          in: path
+          description: unique id of the map
+          required: true
+          type: string
+        - name: linkageGroupId
+          in: body
+          description: '**Deprecated** Use linkageGroupName instead'
+          required: false
+          schema:
+            type: string
+        - name: linkageGroupName
+          in: path
+          description: >-
+            The chromosome identifier or the generic linkage group identifier if
+            the chromosome is not applicable.
+          required: true
+          type: string
+        - name: min
+          in: query
+          description: minimum position on linkage group
+          required: false
+          type: integer
+        - name: max
+          in: query
+          description: maximum position on linkage group
+          required: false
+          type: integer
+        - name: pageSize
+          in: query
+          description: The size of the pages to be returned. Default is `1000`.
+          required: false
+          type: integer
+        - name: page
+          in: query
+          description: >-
+            Which result page is requested. The page indexing starts at 0 (the
+            first page is 'page'= 0). Default is `0`.
+          required: false
+          type: integer
+      produces:
+        - application/json
+definitions:
+  genome maps:
+    type: 'object'
+    properties:
+      mapDbId:
+        type: 'string'
+      name:
+        type: 'string'
+      species:
+        type: 'string'
+      type:
+        type: 'string'
+      unit:
+        type: 'string'
+      publishedDate:
+        type: "string"
+        format: "date"
+      markerCount:
+        type: 'integer'
+        format: 'int32'
+      linkageGroupCount:
+        type: 'integer'
+        format: 'int32'
+      comments:
+        type: 'string'
+  marker:
+    type: 'object'
+    properties:
+      markerDbId:
+        description: 'Internal db identifier'
+        type: 'string'
+      defaultDisplayName:
+        description: 'A string representing the marker that will be meaningful to the user'
+        type: 'string'
+      type:
+        description: The type of marker, e.g. SNP
+        type: string
+      synonyms:
+        description: List of other names for this marker
+        type: array
+        items:
+          type: string
+      refAlt:
+        type: array
+        description: List of the reference (as the first item) and alternatives (the remaining items)
+        items:
+          type: string
+      analysisMethods:
+        description: List of the genotyping platforms used to interrogate the marker
+        type: array
+        items:
+          type: string
+  linkageGroups:
+    type: object
+    properties:
+      linkageGroupName:
+        type: string
+      markerCount:
+        type: integer
+      maxPosition:
+        type: integer
+  map details:
+    type: object
+    properties:
+      mapDbId:
+        type: string
+      name:
+        type: string
+      type:
+        type: string
+      unit:
+        type: string
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/linkageGroups'
+  status: 
+    type: object
+    properties:
+      code:
+        type: string
+      message: 
+        type: string
+  metadata:
+    type: object
+    properties:
+      pagination:
+        type: object
+        properties: 
+          totalCout:
+            type: integer
+          pageSize:
+            type: integer
+          totalPages: 
+            type: integer
+          currentPage:
+            type: integer
+      status:
+        type: array
+        items:
+          $ref: '#/definitions/status'
+      datafiles:
+        type: array
+        items:
+          type: string

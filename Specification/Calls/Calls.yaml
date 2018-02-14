@@ -1,0 +1,173 @@
+swagger: '2.0'
+info:
+  title: ''
+  version: ''
+  description: ''
+paths:
+  /brapi/v1/calls:
+    get:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          schema:
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                $ref: '#/definitions/call'
+          examples:
+            application/json:
+              metadata:
+                pagination:
+                  totalCount: 8
+                  currentPage: 0
+                  totalPages: 1
+                  pageSize: 1000
+                datafiles: []
+              result:
+                data:
+                  - call: token
+                    datatypes:
+                      - json
+                    methods:
+                      - POST
+                      - DELETE
+                  - call: calls
+                    datatypes:
+                      - json
+                    methods:
+                      - GET
+                  - call: allelematrix
+                    datatypes:
+                      - json
+                      - tsv
+                    methods:
+                      - GET
+                      - POST
+                  - call: observationLevels
+                    datatypes:
+                      - json
+                    methods:
+                      - GET
+                  - call: germplasm-search
+                    datatypes:
+                      - json
+                    methods:
+                      - GET
+                      - POST
+                  - call: 'germplasm/{germplasmDbId}'
+                    datatypes:
+                      - json
+                    methods:
+                      - GET
+                  - call: 'germplasm/{germplasmDbId}/pedigree'
+                    datatypes:
+                      - json
+                    methods:
+                      - GET
+                  - call: 'germplasm/{germplasmDbId}/markerprofiles'
+                    datatypes:
+                      - json
+                    methods:
+                      - GET
+      summary: Call search
+      description: |-
+        **Status** : ACCEPTED
+        **Implemented by**: Germinate, Cassavabase
+        **Used by**: Flapjack
+        **Note on the call response**
+        Having a consistent structure for the path string of each call is very important for teams to be able to connect and find errors. Read more on [Github](https://github.com/plantbreeding/API/issues/144).
+        Here are the rules for the path of each call that should be returned 
+        - Every word in the call path should match the documentation exactly, both in spelling and   capitalization. Note that path strings are all lower case, but path parameters are camel case.
+        - Each path should start relative to '/brapi/v1/' and therefore should not include '/brapi/v1/'
+        - No leading or trailing slashes ('/')
+        - Path parameters are wrapped in curly braces ('{}'). The name of the path parameter should be spelled exactly as it is specified in the documentation.
+
+        |Examples||
+        |--|--|
+        | **GOOD** |"call": "germplasm/{germplasmDbId}/markerprofiles" |
+        | BAD |"call": "germplasm/{**id**}/markerprofiles" |
+        | BAD |"call": "germplasm/{germplasmDbId}/marker**P**rofiles" |
+        | BAD |"call": "germplasm/{germplasm**dbid**}/markerprofiles" |
+        | BAD |"call": "**/brapi/v1**/germplasm/{germplasmDbId}/markerprofiles" |
+        | BAD |"call": "**/g**ermplasm/{germplasmDbId}/markerprofiles **/"** |
+        | BAD |"call": "germplasm/**\<germplasmDbId\>**/markerprofiles" |
+      tags: [Calls]
+      parameters:
+        - name: datatype
+          in: query
+          description: The data type supported by the call
+          required: false
+          type: string
+        - name: pageSize
+          in: query
+          description: The size of the pages to be returned. Default is `1000`.
+          required: false
+          type: integer
+        - name: page
+          in: query
+          description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+          required: false
+          type: integer
+      produces:
+        - application/json
+definitions:
+  call:
+    type: object
+    properties:
+      call:
+        type: string
+      datatypes:
+        type: array
+        items:
+          type: string
+      methods:
+        type: array
+        items:
+          type: string
+  status: 
+    type: object
+    properties:
+      code:
+        type: string
+      message: 
+        type: string
+  metadata:
+    type: object
+    properties:
+      pagination:
+        description: |-
+          The pagination object is applicable only when the payload contains a "data" key. It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. Pages are zero indexed, so the first page will be page 0 (zero).
+        type: object
+        properties: 
+          totalCount:
+            type: integer
+          pageSize:
+            type: integer
+          totalPages: 
+            type: integer
+          currentPage:
+            type: integer
+      status:
+        description: |-
+          The status object contains a list of objects with the keys "code" and "message". If no status is reported, an empty list should be returned. The following are officially accepted status codes: 
+          Code|Message|Description
+          --|--|--
+          asynchid|<arbitrary ID String>|Used for the first part of an asynchornous call, returns an ID string which can be used in a subsequent call to retrieve data or status information.
+          asynchstatus|"PENDING"|Indicates an asynchornous call is still working and will not return data yet.
+          asynchstatus|"FINISHED"|Indicates an asynchornous call is finished and this response object contains the requested data.
+          200|"Success"|Optional status for representing explicitly that the request was accepted and returned without any issue
+          40|"No objects found for given parameters"| Error to be returned when there are no objects in the database which match the requested search parameters
+          41|"Missing required parameter <parameter name>"| Error to be returned when a required parameter is missing from request
+          42|"Could not update values for <object type>"| Error to be returned when the server is unable to store some data submitted
+        type: array
+        items:
+          $ref: '#/definitions/status'
+      datafiles:
+        description: |-
+          The datafiles key contains a list of file paths, which can be relative or complete URLs. These files contain additional information related to the returned object and can be retrieved by a subsequent call. The empty list should be returned if no additional data files are present.
+        type: array
+        items:
+          type: string
