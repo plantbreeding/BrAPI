@@ -13,15 +13,16 @@ Get list of studies
 
 StartDate and endDate should be ISO8601 format for dates: YYYY-MM-DD
 
-### Search Studies (GET) [GET /brapi/v1/studies-search{?studyType}{?programDbId}{?locationDbId}{?seasonDbId}{?trialDbId}{?germplasmDbIds}{?observationVariableDbIds}{?pageSize}{?page}{?active}{?sortBy}{?sortOrder}]
+### Search Studies (GET) [GET /brapi/v1/studies-search{?studyDbId}{?trialDbId}{?programDbId}{?locationDbId}{?seasonDbId}{?studyType}{?germplasmDbIds}{?observationVariableDbIds}{?pageSize}{?page}{?active}{?sortBy}{?sortOrder}]
 
 
 + Parameters
-    + studyType (optional, string, `Nursery`) ... Filter based on study type e.g. Nursery, Trial or Genotype.
+    + studyDbId (optional, string, `35`) ... DbId for a study
+    + trialDbId  (optional, string, `7`) ... Filter by trial  
     + programDbId (optional, string, `1`) ... Program filter to only return studies associated with given program id.
     + locationDbId (optional, string, `212`) ... Filter by location
     + seasonDbId (optional, string, `2016E`) ... Filter by season or year
-    + trialDbId  (optional, string, `7`) ... Filter by trial  
+    + studyType (optional, string, `Nursery`) ... Filter based on study type e.g. Nursery, Trial or Genotype.
     + germplasmDbIds (optional, array, `CML123,CML`) ... Filter studies where specified germplasm have been used/tested
     + observationVariableDbIds (optional, array, `CO-PH-123,Var-123`) ... Filter studies where specified observation variables have been measured
     + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
