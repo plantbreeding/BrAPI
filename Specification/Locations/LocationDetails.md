@@ -29,6 +29,7 @@ Get details for a location.
                     "locationDbId": "abc123",
                     "locationType" : "Breeding Location",
                     "name": "Ibadan",
+                    "abreviation": "DEPRECATED -- see abbreviation",
                     "abbreviation": "IB",
                     "countryCode": "NGA",
                     "countryName": "Nigeria",
