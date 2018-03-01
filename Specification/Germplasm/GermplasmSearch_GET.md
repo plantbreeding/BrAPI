@@ -84,7 +84,7 @@ Use GET when parameter size is less than 2K bytes.
                         "instituteName": "ITC",
                         "biologicalStatusOfAccessionCode": 412,
                         "countryOfOriginCode": "UNK",
-                        "typeOfGermplasmStorageCode": [10],
+                        "typeOfGermplasmStorageCode": ["10"],
                         "genus": "Musa",
                         "species": "acuminata",
                         "taxonIds": [
@@ -119,7 +119,7 @@ Use GET when parameter size is less than 2K bytes.
                         "instituteName": "ITC",
                         "biologicalStatusOfAccessionCode": 412,
                         "countryOfOriginCode": "UNK",
-                        "typeOfGermplasmStorageCode": [10],
+                        "typeOfGermplasmStorageCode": ["10"],
                         "genus": "Musa",
                         "species": "acuminata",
                         "taxonIds": [
