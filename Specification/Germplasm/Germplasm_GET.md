@@ -66,7 +66,7 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
                 "instituteName": "ITC",
                 "biologicalStatusOfAccessionCode": 412,
                 "countryOfOriginCode": "UNK",
-                "typeOfGermplasmStorageCode": [10],
+                "typeOfGermplasmStorageCode": ["10"],
                 "genus": "Musa",
                 "species": "acuminata",
                 "taxonIds": [
