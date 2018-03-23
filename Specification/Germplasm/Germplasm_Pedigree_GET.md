@@ -19,10 +19,10 @@ Implemented by: Germinate, Tripal Brapi Module, Cassavabase (without notation op
 |**Deprecated** parent2Id|string|**Use parent2DbId**||
 |parent1DbId|string|germplasmDbId of Parent1||
 |parent1Name|string|The human readable name of Parent1||
-|parent1Type|string|The type of parent for Parent1 (MALE, FEMALE, SELF)||
+|parent1Type|string|The type of parent for Parent1 (MALE, FEMALE, SELF, POPULATION)||
 |parent2DbId|string|germplasmDbId of Parent2||
 |parent2Name|string|The human readable name of Parent2||
-|parent2Type|string|The type of parent for Parent2 (MALE, FEMALE, SELF)||
+|parent2Type|string|The type of parent for Parent2 (MALE, FEMALE, SELF, POPULATION)||
 |siblings|array|List of siblings with the same pedigree||
 |siblings.germplasmDbId|string|germplasmDbId of a sibling germplasm||
 |siblings.defaultDisplayName|string|A string representing a sibling germplasm that will be meaningful to the user||
@@ -49,7 +49,7 @@ Implemented by: Germinate, Tripal Brapi Module, Cassavabase (without notation op
             },
             "result" : {
                 "germplasmDbId": "382",
-                "defaultDisplayName": "Pahang",
+                "defaultDisplayName": "Pahang 1",
                 "pedigree" : "Cree / Bonanza",
                 "crossingPlan": "string",
                 "crossingYear": "2018",
@@ -62,8 +62,12 @@ Implemented by: Germinate, Tripal Brapi Module, Cassavabase (without notation op
                 "parent2Type" : "MALE",
                 "siblings": [
                     {
-                        "germplasmDbId": "string",
-                        "defaultDisplayName": "string"
+                        "germplasmDbId": "383",
+                        "defaultDisplayName": "Pahang 2"
+                    },
+                    {
+                        "germplasmDbId": "384",
+                        "defaultDisplayName": "Pahang 3"
                     }
                 ]
             }
