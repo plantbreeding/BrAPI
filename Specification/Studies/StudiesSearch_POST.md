@@ -3,12 +3,16 @@
 + Request (application/json)
 
         {
-           "studyType" : "Trial",
+           "studyDbIds" : ["35", "345"],
+           "trialDbIds" : [ "7", "8"],
+           "programDbIds" : ["27", "58"],
+           "locationDbIds" : ["23", "33"],
+           "seasonDbId" : ["237", "238"],
+           "studyType" : "Yield Trial",
            "studyNames" : ["Study A", "StydyB"], 
            "studyLocations" : ["Kenya", "Zimbabwe"], 
            "programNames": ["Test Program", "Program2"],
            "germplasmDbIds" : [ "CML123", "CWL123"],
-           "trialDbIds" : [ "7", "8"],
            "observationVariableDbIds": ["CO-PH-123", "Var-123"]
            "active" : "true",
            "sortBy" : "studyDbId",
@@ -16,7 +20,7 @@
            "pageSize": 1000,
            "page": 0,
         }
-
+        
 + Response 200 (application/json)
 
         {
