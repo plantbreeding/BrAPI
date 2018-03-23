@@ -14,23 +14,23 @@ This resource is used for reading and writing genomic matrices:
    + studyDbId (required, string, `abc123`) ... restricts the list of matrices to a specific study. 
 + Response 200 (application/json)
 
-   {
-      "data":[
+        {
+            "data":[
                 {
-                     "name": "testDs1",
-                     "matrixDbId": "27",
-                     "description": "a test dataset",
-                     "lastUpdated": "2017-06-12",
-                     "studyDbId": "abc123"
+                    "name": "testDs1",
+                    "matrixDbId": "27",
+                    "description": "a test dataset",
+                    "lastUpdated": "2017-06-12",
+                    "studyDbId": "abc123"
                 },
                 {
-                     "name": "testDs2",
-                     "matrixDbId": "28",
-                     "description": "a second test dataset",
-                     "lastUpdated": "2017-06-12",
-                     "studyDbId": "abc123"
+                    "name": "testDs2",
+                    "matrixDbId": "28",
+                    "description": "a second test dataset",
+                    "lastUpdated": "2017-06-12",
+                    "studyDbId": "abc123"
                 }
             ]
-   }
+        }
                                                                                                                            
 
