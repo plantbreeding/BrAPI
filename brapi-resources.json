@@ -85,6 +85,19 @@
             "description": "The GWAS panel is a list of diploid accessions (composed of musa acuminata and AA) carefully selected to support Genome-Wide Association Study (GWAS) in banana in order to quickly and accurately link areas of the genome with important traits."
           }
         ]
+      },
+      {
+        "name": "BrAPI",
+        "description": "The BrAPI Community",
+        "logo": "https://brapi.org/assets/images/brapi-logo.svg",
+        "resource": [
+          {
+            "name": "BrAPI Test Server",
+            "base-url": "https://test-server.brapi.org/brapi/v1/",
+            "logo": "https://brapi.org/assets/images/brapi-logo.svg",
+            "description": "BrAPI Official Test Server"
+          }
+        ]
       }
     ]
   }

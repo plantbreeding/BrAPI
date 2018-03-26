@@ -78,7 +78,7 @@ More linked data:
                 "datafiles": []
             },
             "result": {
-                "studyDbId": 35,
+                "studyDbId": "35",
                 "studyName": "Earlygenerationtesting",
                 "studyType": "Yield study",
                 "studyDescription": "some free text description that could include scientific goal, some tracability and whatever makes sense"
@@ -86,14 +86,14 @@ More linked data:
                     "2005 Winter",
                     "2008 Summer"
                 ],
-                "trialDbId": 57,
+                "trialDbId": "57",
                 "trialName": "International Yield Trial",
                 "startDate": "2005-06-01",
                 "endDate": "2008-12-31",
                 "active": "true",
                 "license": "https://creativecommons.org/licenses/by/4.0",
                 "location": {
-                    "locationDbId": 1,
+                    "locationDbId": "1",
                     "name": "Ibadan",
                     "abbreviation": "IB",
                     "countryCode": "NGA",

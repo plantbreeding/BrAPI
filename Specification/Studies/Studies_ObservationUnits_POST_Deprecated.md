@@ -24,7 +24,7 @@ This call has been deprecated in V1.1. Use instead: "PUT /studies/{studyDbId}/ob
                 "data" : [
                     {
                         "observatioUnitDbId": "abc-123",
-                        "studyDbId": 2,
+                        "studyDbId": "2",
                         "observations": [
                             {
                                 "observationVariableDbId": "18020",
@@ -51,7 +51,7 @@ This call has been deprecated in V1.1. Use instead: "PUT /studies/{studyDbId}/ob
                     },
                     {
                         "observatioUnitDbId": "abc-456",
-                        "studyDbId": 3,
+                        "studyDbId": "3",
                         "observations": [
                             {
                                 "observationVariableDbId": "18020",

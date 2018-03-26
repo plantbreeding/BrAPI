@@ -1,28 +1,66 @@
-## Plot Layout Details [/brapi/v1/studies/{studyDbId}/layout]
-Scope: PHENOTYPING.
 
-### Retrieve plot layout details [GET /brapi/v1/studies/{studyDbId}/layout{?pageSize}{?page}]
+### Update plot layout details [PUT /brapi/v1/studies/{studyDbId}/layout]
 
-Retrieve the plot layout of the study with id {id}.
+Update the layout data for a set of observation units within a study. Each layout object is a subset of fields within an observationUnit, so it doesn't make sense to create a new layout object by itself. 
 
-For each observationUnit within a study, return the `block`, `replicate`, and `entryType` values as well as the `X` and `Y` coordinates. `entryType` can be "check", "test", or "filler".
+Implementation Notes:
 
-Also return some human readable meta data about the observationUnit and germplasm.
++ If any of the fields in the request object is missing, that piece of data will not be updated.
++ If an observationUnitDbId can not be found within the given study, an error will be returned.
++ `entryType` can have the values "check", "test", or "filler".
++ The response should match the structure of the response from `GET studies/{studyDbId}/layout`, but it should only contain the layout objects which have been updated by the PUT request. Also, pagination is not available in the response.
 
 + Parameters
     + studyDbId (required, string, `1`) ... Identifier of the study.
-    + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
-    + page (optional, integer, `0`) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+
++ Request
+
+        {
+            "layout" : [ 
+                {
+                    "observationUnitDbId": "11",
+                    "replicate": 1,
+                    "blockNumber": 1,
+                    "X": 1,
+                    "Y": 1,
+                    "entryType": "check/test/filler"
+                },
+                {
+                    "observationUnitDbId": "12",
+                    "replicate": 1,
+                    "blockNumber": 1,
+                    "X": 1,
+                    "Y": 2,
+                    "entryType": "check/test/filler"
+                },
+                {
+                    "observationUnitDbId": "13",
+                    "replicate": 2,
+                    "blockNumber": 2,
+                    "X": 2,
+                    "Y": 1,
+                    "entryType": "check/test/filler"
+                },
+                {
+                    "observationUnitDbId": "11",
+                    "replicate": 1,
+                    "blockNumber": 1,
+                    "X": 1,
+                    "Y": 3,
+                    "entryType": "check/test/filler"
+                }
+            ]
+        }
 
 + Response 200 (application/json)
     
         {
             "metadata" : {
                 "pagination": {
-                    "pageSize": 1000,
+                    "pageSize": 0,
                     "currentPage": 0,
-                    "totalCount": 4,
-                    "totalPages": 1
+                    "totalCount": 0,
+                    "totalPages": 0
                 },
                 "status": [],
                 "datafiles": []
@@ -66,10 +104,10 @@ Also return some human readable meta data about the observationUnit and germplas
                         "observationLevel": "plot",
                         "germplasmDbId": "145",
                         "germplasmName": "ZIPA_70",
-                        "replicate": 1,
-                        "blockNumber": 1,
-                        "X": 1,
-                        "Y": 3,
+                        "replicate": 2,
+                        "blockNumber": 2,
+                        "X": 2,
+                        "Y": 1,
                         "entryType": "check/test/filler",
                         "additionalInfo" : { 
                         }
@@ -81,10 +119,10 @@ Also return some human readable meta data about the observationUnit and germplas
                         "observationLevel": "plot",
                         "germplasmDbId": "143",
                         "germplasmName": "ZIPA_68",
-                        "replicate": 2,
-                        "blockNumber": 2,
-                        "X": 2,
-                        "Y": 1,
+                        "replicate": 1,
+                        "blockNumber": 1,
+                        "X": 1,
+                        "Y": 3,
                         "entryType": "check/test/filler",
                         "additionalInfo" : { 
                         }

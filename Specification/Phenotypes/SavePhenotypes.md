@@ -49,7 +49,7 @@ Scope: PHENOYTPING.
                 "data" : [
                     {
                         "observatioUnitDbId": "abc-123",
-                        "studyDbId": 2,
+                        "studyDbId": "2",
                         "observations": [
                             {
                                 "observationVariableDbId": "18020",
@@ -76,7 +76,7 @@ Scope: PHENOYTPING.
                     },
                     {
                         "observatioUnitDbId": "abc-456",
-                        "studyDbId": 3,
+                        "studyDbId": "3",
                         "observations": [
                             {
                                 "observationVariableDbId": "18020",
