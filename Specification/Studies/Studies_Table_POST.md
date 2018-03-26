@@ -21,6 +21,8 @@ Scope: PHENOTYPING
 + Request
     
         {
+            "metadata": "DEPRECATED",
+            "result": "DEPRECATED",
             "headerRow": [ "observationUnitDbId", "collector", "observationTimestamp"],
             "observationVariableDbIds": ["variable1DbId", "variable2DbId", "variable3DbId", "imagevariable1DbId" ],
             "data" :[

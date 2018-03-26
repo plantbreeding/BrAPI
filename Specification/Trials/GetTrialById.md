@@ -54,9 +54,9 @@ Get trial by id.
                 "datafiles": []
             },
             "result": {
-                "trialDbId" : 1,
+                "trialDbId" : "1",
                 "trialName" : "InternationalTrialA",
-                "programDbId": 27,
+                "programDbId": "27",
                 "programName": "International Yield Trial",
                 "startDate": "2007-06-01",
                 "endDate"  : "2008-12-31",
@@ -84,13 +84,13 @@ Get trial by id.
                 ],
                 "studies" : [
                     {
-                        "studyDbId" : 1,
+                        "studyDbId" : "1",
                         "studyName" : "Zimbabwe Yield Trial",
                         "locationName" : "Zimbabwe",
                         "locationDbId" : "z-2"
                     },
                     {
-                        "studyDbId" : 2,
+                        "studyDbId" : "2",
                         "studyName" : "Kenya Yield Trial",
                         "locationName" : "Kenya",
                         "locationDbId" : "k-1"
