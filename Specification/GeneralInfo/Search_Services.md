@@ -5,7 +5,9 @@ There are several "Search" calls specified in BrAPI. These calls have a postfix 
 
 Each optional parameter included in any search service call should act as a filter on the data being returned. This means the search parameters should always have an 'AND' type relationship with each other. 
 
-For example: Given this data
+If NO parameters are used in the request, the search service should return ALL entities of the given type, since no filters are being applied. (Normal pagination defaults still apply)
+
+Example: Given this data
 ```
 {
     id: "1",
