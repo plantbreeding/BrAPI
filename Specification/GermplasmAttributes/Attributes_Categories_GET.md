@@ -32,5 +32,5 @@ List all available attribute categories.
                         "name": "Agronomic"
                     }
                 ]
-            ]
+            }
         }
