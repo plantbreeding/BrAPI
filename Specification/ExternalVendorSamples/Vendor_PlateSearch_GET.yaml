@@ -10,7 +10,7 @@ paths:
       description: '
 
 
-        <a>example.com/brapi/v1/vendor/plate-search</a>'
+        <a>example.com/vendor/plate-search</a>'
       parameters:
       - description: ''
         in: query
@@ -50,5 +50,6 @@ paths:
           headers: {}
       summary: Search for plates
       tags:
-      - vendor
+      - Vendor Samples
+      - Search Services
 swagger: '2.0'

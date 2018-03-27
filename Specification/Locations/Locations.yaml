@@ -7,7 +7,7 @@ info:
 host: virtserver.swaggerhub.com
 basePath: /homonecloco/Locations/1.0
 paths:
-  '/brapi/v1/locations/{locationDbId}':
+  '/locations/{locationDbId}':
     get:
       responses:
         '200':
@@ -30,14 +30,15 @@ paths:
             * The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
             * `altitude` is in meters.
       
-      tags: [Locations]
+      tags: 
+      - Locations
       parameters:
         - name: locationDbId
           in: path
           description: The internal DB id for a location
           required: true
           type: string
-  /brapi/v1/locations:
+  /locations:
     get:
       responses: 
         '200':
@@ -93,7 +94,8 @@ paths:
                   additionalInfo:
                     name1: value1
                     name2: value2
-      tags: [Locations]
+      tags: 
+      - Locations
       parameters:
         - name: locationType
           in: query

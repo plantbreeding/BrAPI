@@ -10,7 +10,7 @@ paths:
       description: '
 
 
-        <a>example.com/brapi/v1/seasons</a>'
+        <a>example.com/seasons</a>'
       parameters:
       - description: ''
         in: query
@@ -54,5 +54,5 @@ paths:
           headers: {}
       summary: List seasons or years
       tags:
-      - seasons
+      - Studies
 swagger: '2.0'

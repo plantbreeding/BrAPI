@@ -5,8 +5,9 @@ info:
   title: ''
   version: ''
 paths:
-  /brapi/v1/studyTypes:
+  /studyTypes:
     get:
+      deprecated: true
       description: ''
       parameters:
       - description: The size of the pages to be returned. Default is `1000`.
@@ -45,13 +46,14 @@ paths:
                   name: Genotype
           headers: {}
       summary: '**Deprecated** List study types'
-      tags: []
+      tags: 
+      - Studies
   /studytypes:
     get:
       description: '
 
 
-        <a>example.com/brapi/v1/studytypes</a>'
+        <a>example.com/studytypes</a>'
       parameters:
       - description: The size of the pages to be returned. Default is `1000`.
         in: query
@@ -90,5 +92,5 @@ paths:
           headers: {}
       summary: List study types
       tags:
-      - studytypes
+      - Studies
 swagger: '2.0'

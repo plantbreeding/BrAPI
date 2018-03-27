@@ -4,7 +4,7 @@ info:
   title: 'Marker Profiles'
   description: 'BRAPI Marker profiles'
 paths:
-  /brapi/v1/markerprofiles:
+  /markerprofiles:
      get:
        responses:
          '200':
@@ -53,7 +53,8 @@ paths:
         **Used by**: Flapjack
         </br>
         For the requested Germplasm Id and/or Extract Id, returns the Markerprofile Id and number of non-missing allele calls (marker/allele pairs).
-       tags: [Marker profiles]
+       tags:
+         - Marker Profiles
        parameters:
          - name: germplasmDbId
            in: query
@@ -87,7 +88,7 @@ paths:
            type: integer
        produces:
          - application/json
-  '/brapi/v1/markerprofiles/{markerprofileDbId}':
+  '/markerprofiles/{markerprofileDbId}':
     get:
       responses:
         '200':
@@ -110,7 +111,7 @@ paths:
         **Implemented by**: Germinate, Cassavabase
         </br>
         For the requested markerprofile ID, returns the allele call for each marker. 
-        [Example](http://malt.pw.usda.gov/t3/wheatplus/brapi/v1/markerprofiles/1784_99/count?analysisMethod=GoldenGate)
+        [Example](http://malt.pw.usda.gov/t3/wheatplus/markerprofiles/1784_99/count?analysisMethod=GoldenGate)
         </br>
         **Allele encodings**
         
@@ -126,7 +127,8 @@ paths:
         The pages of data will need to be sorted sensibly in order for the
         requested page to be delivered consistently.  By map or genome position?
         Alphabetically?'
-      tags: [Marker profiles]
+      tags: 
+        - Marker Profiles
       parameters:
         - name: markerprofileDbId
           in: path
@@ -163,7 +165,7 @@ paths:
           description: Required if `pageSize` is given; and requires that `pageSize` be given. The page indexing starts at 0 (the first page is 'page'=0)
           required: false
           type: integer
-  /brapi/v1/allelematrix-search:
+  /allelematrix-search:
     post:
       responses:
         '200':
@@ -226,7 +228,8 @@ paths:
         - If more than one format is requested at a time, the server will throw a "501 Not Implemented" error.
 
         The format of the tsv response can be found on GitHub (https://github.com/plantbreeding/Documentation/wiki/BrAPI-TSV-Expected-Formats)
-      tags: []
+      tags: 
+        - Marker Profiles
       parameters: []
       produces:
         - application/json
@@ -270,7 +273,8 @@ paths:
                      - '2'
                      - A/B
        summary: Scores through GET
-       tags: [Marker profiles]
+       tags: 
+       - Marker Profiles
        description: |-
          **Status**: ACCEPTED.
          **Implemented by**: Germinate (POST only), Cassavabase
@@ -340,7 +344,7 @@ paths:
           type: integer
        produces:
          - application/json
-  /brapi/v1/allelematrices:
+  /allelematrices:
     get:
       responses:
         '200':
@@ -357,7 +361,8 @@ paths:
                   $ref: '#/definitions/alleleMatrixDetails' 
       produces:
         - application/json
-      tags: [Marker profiles]
+      tags: 
+      - Marker Profiles
       summary: Matrices through GET
       description: |-
         **Status**: Proposed

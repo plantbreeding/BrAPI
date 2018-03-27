@@ -10,7 +10,7 @@ paths:
       description: '
 
 
-        <a>example.com/brapi/v1/studies-search</a>'
+        <a>example.com/studies-search</a>'
       parameters:
       - description: Filter based on study type e.g. Nursery, Trial or Genotype.
         in: query
@@ -137,6 +137,6 @@ paths:
           headers: {}
       summary: Search Studies (GET)
       tags:
-      - studies
-      - search
+      - Studies
+      - Search Services
 swagger: '2.0'

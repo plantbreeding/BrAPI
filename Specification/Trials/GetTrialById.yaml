@@ -10,7 +10,7 @@ paths:
       description: '
 
 
-        <a>example.com/brapi/v1/trials/{trialDbId}</a>'
+        <a>example.com/trials/{trialDbId}</a>'
       parameters:
       - description: The internal trialDbId
         in: path
@@ -74,5 +74,5 @@ paths:
           headers: {}
       summary: Get trial by Id
       tags:
-      - trials
+      - Trials
 swagger: '2.0'

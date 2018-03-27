@@ -7,10 +7,11 @@ info:
 paths:
   /studies/{studyDbId}/observationVariables:
     get:
+      deprecated: true
       description: '
 
 
-        <a>example.com/brapi/v1/studies/{studyDbId}/observationVariables</a>'
+        <a>example.com/studies/{studyDbId}/observationVariables</a>'
       parameters:
       - description: string database unique identifier
         in: path
@@ -102,5 +103,6 @@ paths:
           headers: {}
       summary: '**Deprecated** Retrieve study observation variables'
       tags:
-      - studies
+      - Studies
+      - Observation Variables
 swagger: '2.0'

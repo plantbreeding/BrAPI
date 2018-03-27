@@ -10,7 +10,7 @@ paths:
       description: '
 
 
-        <a>example.com/brapi/v1/studies/{studyDbId}/observations</a>'
+        <a>example.com/studies/{studyDbId}/observations</a>'
       parameters:
       - description: Identifier of the study. Usually a number, could be alphanumeric.
         in: path
@@ -43,5 +43,6 @@ paths:
           headers: {}
       summary: Get Observation Units by observation variable ids
       tags:
-      - studies
+      - Studies
+      - Observations
 swagger: '2.0'

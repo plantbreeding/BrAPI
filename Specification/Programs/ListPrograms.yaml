@@ -10,7 +10,7 @@ paths:
       description: '
 
 
-        <a>example.com/brapi/v1/programs</a>'
+        <a>example.com/programs</a>'
       parameters:
       - description: Filter by program name. Exact match.
         in: query
@@ -63,5 +63,5 @@ paths:
           headers: {}
       summary: List programs
       tags:
-      - programs
+      - Programs
 swagger: '2.0'

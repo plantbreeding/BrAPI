@@ -5,7 +5,7 @@ info:
   title: ''
   version: ''
 paths:
-  /brapi/v1/vendor/plate-search:
+  /vendor/plate-search:
     post:
       description: ''
       parameters:
@@ -38,5 +38,7 @@ paths:
           examples: {}
           headers: {}
       summary: Search for plates
-      tags: []
+      tags: 
+      - Vendor Samples
+      - Search Services
 swagger: '2.0'

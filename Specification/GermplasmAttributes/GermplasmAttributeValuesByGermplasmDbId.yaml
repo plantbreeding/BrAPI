@@ -10,7 +10,7 @@ paths:
       description: 'Values for all attributes by default.
 
 
-        <a>example.com/brapi/v1/germplasm/{germplasmDbId}/attributes</a>'
+        <a>example.com/germplasm/{germplasmDbId}/attributes</a>'
       parameters:
       - description: The germplasm characterized
         in: path
@@ -61,5 +61,6 @@ paths:
           headers: {}
       summary: Germplasm attribute values
       tags:
-      - germplasm
+      - Germplasm Attributes
+      - Germplasm
 swagger: '2.0'

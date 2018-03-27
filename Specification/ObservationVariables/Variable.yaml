@@ -3,17 +3,8 @@ info:
   title: 'BrAPI'
   version: '1.0'
   description: ""
-tags:
-- name: "Group Observation Variables"
-  description: >-
-    API to retrieve list and details of observation variables. An observation variable is composed by the unique combination of one Trait, one Method and one Scale.
-      
-      **Implemented by:** GnpIS
-  externalDocs:
-    description: "github"
-    url: "https://github.com/plantbreeding/API/tree/master/Specification/ObservationVariables"
 paths:
-  /brapi/v1/variables:
+  /variables:
     get:
       responses:
         '200':
@@ -115,7 +106,8 @@ paths:
         **Scope:** CORE.
         
         **Status:** ACCEPTED.
-      tags: [Group Observation Variables]
+      tags: 
+      - Observation Variables
       parameters:
         - name: pageSize
           in: query
@@ -138,7 +130,7 @@ paths:
           type: string
       produces:
         - application/json
-  /brapi/v1/variables/{observationVariableDbId}:
+  /variables/{observationVariableDbId}:
     get:
       responses:
         '200':
@@ -225,7 +217,8 @@ paths:
         
         **Status:** ACCEPTED
 
-      tags: [Group Observation Variables]
+      tags: 
+      - Observation Variables
       parameters:
         - name: observationVariableDbId
           in: path
@@ -234,7 +227,7 @@ paths:
           type: string
       produces:
         - application/json
-  /brapi/v1/variables/datatypes:
+  /variables/datatypes:
     get:
       responses:
         '200':
@@ -271,7 +264,8 @@ paths:
                   - Boolean
       summary: Variable data type list
       description: 'Call to retrieve a list of data types the variable can have.'
-      tags: [Group Observation Variables]
+      tags: 
+      - Observation Variables
       parameters:
         - name: pageSize
           in: query
@@ -287,7 +281,7 @@ paths:
           type: integer
       produces:
         - application/json
-  /brapi/v1/variables-search:
+  /variables-search:
     post:
       responses:
         '200':
@@ -391,7 +385,8 @@ paths:
         
         **Status:** ACCEPTED.
         
-      tags: [Group Observation Variables]
+      tags: 
+      - Observation Variables
       parameters:
         - name: body
           in: body
@@ -436,7 +431,7 @@ paths:
                   type: string
       produces:
         - application/json
-  /brapi/v1/ontologies:
+  /ontologies:
     get:
       responses:
         '200':
@@ -488,7 +483,8 @@ paths:
         **Scope:** CORE. 
         
         **Status:** ACCEPTED.
-      tags: [Group Observation Variables]
+      tags: 
+      - Observation Variables
       parameters:
         - name: pageSize
           in: query

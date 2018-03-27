@@ -5,7 +5,7 @@ info:
   title: ''
   version: ''
 paths:
-  /brapi/v1/phenotypes-search:
+  /phenotypes-search:
     post:
       description: 'observationTimeStamp : Iso Standard 8601.
 
@@ -109,5 +109,7 @@ paths:
                   treatments: []
           headers: {}
       summary: Phenotype Search
-      tags: []
+      tags:
+      - Phenotypes
+      - Search Services
 swagger: '2.0'

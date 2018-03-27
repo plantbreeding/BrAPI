@@ -10,7 +10,7 @@ paths:
       description: '
 
 
-        <a>example.com/brapi/v1/studies/{studyDbId}/observationunits</a>'
+        <a>example.com/studies/{studyDbId}/observationunits</a>'
       parameters:
       - description: The study these observation units are related to.
         in: path
@@ -116,5 +116,6 @@ paths:
           headers: {}
       summary: Get all observation units
       tags:
-      - studies
+      - Studies
+      - Observations
 swagger: '2.0'

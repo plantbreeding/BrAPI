@@ -10,7 +10,7 @@ paths:
       description: '
 
 
-        <a>example.com/brapi/v1/trials</a>'
+        <a>example.com/trials</a>'
       parameters:
       - description: Program filter to only return trials associated with given program
           id.
@@ -105,5 +105,5 @@ paths:
           headers: {}
       summary: List of trial summaries
       tags:
-      - trials
+      - Trials
 swagger: '2.0'

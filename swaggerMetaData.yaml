@@ -1,0 +1,109 @@
+swagger: '2.0'
+host: test-server.brapi.org
+basePath: /brapi/v1
+info:
+  description: 'The Plant Breeding API'
+  title: 'BrAPI'
+  version: '2.0'
+tags:
+- name: Calls
+  description: Check the available calls on a server
+  externalDocs: 
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Crops
+  description: Information about Crops
+  externalDocs: 
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Programs
+  description: Information about Programs
+  externalDocs: 
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Locations
+  description: Information about Locations
+  externalDocs: 
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Trials
+  description: Information about Trials
+  externalDocs: 
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Studies
+  description: Information about Studies
+  externalDocs: 
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Observations
+  description: Information about Observations
+  externalDocs: 
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Observation Variables
+  description: >-
+    API to retrieve list and details of observation variables. An observation variable is composed by the unique combination of one Trait, one Method and one Scale.
+  externalDocs:
+    description: "github"
+    url: "https://github.com/plantbreeding/API/tree/master/Specification/ObservationVariables"
+- name: Phenotypes
+  description: Information about Phenotypes
+  externalDocs: 
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Germplasm
+  description: Information about Germplasm
+  externalDocs: 
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Germplasm Attributes
+  description: Information about Germplasm Attributes
+  externalDocs: 
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Traits
+  description: Information about Traits
+  externalDocs: 
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Markers
+  description: Information about Markers
+  externalDocs: 
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Marker Profiles
+  description: Information about Marker Profiles
+  externalDocs: 
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Genome Maps
+  description: Information about Genome Maps
+  externalDocs: 
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Samples
+  description: Information about Samples
+  externalDocs: 
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Vendor Samples
+  description: Information about Vendor Samples
+  externalDocs: 
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Search Services
+  description: The available Search Services for finding data
+  externalDocs: 
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Authentication
+  description: Authenticacte your requests
+  externalDocs: 
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Deprecated
+  description: Deprecated Calls
+  externalDocs: 
+    description: Docs
+    url: https://wiki.brapi.org/

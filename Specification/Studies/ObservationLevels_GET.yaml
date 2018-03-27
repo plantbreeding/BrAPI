@@ -5,8 +5,9 @@ info:
   title: ''
   version: ''
 paths:
-  /brapi/v1/observationLevels:
+  /observationLevels:
     get:
+      deprecated: true
       description: ''
       parameters:
       - description: The size of the pages to be returned. Default is `1000`.
@@ -41,13 +42,15 @@ paths:
                 - plot
           headers: {}
       summary: '**Deprecated** List observation levels'
-      tags: []
+      tags: 
+      - Observations
+      - Deprecated
   /observationlevels:
     get:
       description: '
 
 
-        <a>example.com/brapi/v1/observationlevels</a>'
+        <a>example.com/observationlevels</a>'
       parameters:
       - description: The size of the pages to be returned. Default is `1000`.
         in: query
@@ -82,5 +85,5 @@ paths:
           headers: {}
       summary: Get Observation Levels
       tags:
-      - observationlevels
+      - Observations
 swagger: '2.0'

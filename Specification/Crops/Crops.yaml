@@ -53,7 +53,7 @@ paths:
       description: '
 
 
-        <a>example.com/brapi/v1/crops</a>'
+        <a>example.com/crops</a>'
       parameters:
       - description: The size of the pages to be returned. Default is `1000`.
         in: query

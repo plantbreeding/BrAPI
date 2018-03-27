@@ -10,7 +10,7 @@ paths:
       description: '
 
 
-        <a>example.com/brapi/v1/traits</a>'
+        <a>example.com/traits</a>'
       parameters:
       - description: The size of the pages to be returned. Default is `1000`.
         in: query
@@ -61,5 +61,5 @@ paths:
           headers: {}
       summary: List all traits
       tags:
-      - traits
+      - Traits
 swagger: '2.0'

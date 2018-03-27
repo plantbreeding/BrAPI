@@ -10,7 +10,7 @@ paths:
       description: '
 
 
-        <a>example.com/brapi/v1/germplasm/{germplasmDbId}</a>'
+        <a>example.com/germplasm/{germplasmDbId}</a>'
       parameters:
       - description: The internal id of the germplasm
         in: path
@@ -66,5 +66,5 @@ paths:
           headers: {}
       summary: Germplasm search by germplasmDbId
       tags:
-      - germplasm
+      - Germplasm
 swagger: '2.0'

@@ -5,7 +5,7 @@ info:
   title: ''
   version: ''
 paths:
-  /brapi/v1/germplasm-search:
+  /germplasm-search:
     post:
       description: Use POST for large queries (>2K bytes).
       parameters:
@@ -121,5 +121,7 @@ paths:
                   - 10
           headers: {}
       summary: Germplasm search through POST
-      tags: []
+      tags: 
+      - Germplasm
+      - Search Services
 swagger: '2.0'

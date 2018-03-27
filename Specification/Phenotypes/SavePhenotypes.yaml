@@ -5,7 +5,7 @@ info:
   title: ''
   version: ''
 paths:
-  /brapi/v1/phenotypes:
+  /phenotypes:
     post:
       description: 'Call to invoke for saving the measurements (observations) collected
         from field for all the observation units.
@@ -120,5 +120,6 @@ paths:
                   message: Could not update values for phenotypes
           headers: {}
       summary: Save Observation Unit Phenotypes
-      tags: []
+      tags: 
+      - Phenotypes
 swagger: '2.0'

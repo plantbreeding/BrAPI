@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  title: 'Search Studies (POST) [POST /brapi/v1/studies-search]'
+  title: 'Search Studies (POST) [POST /studies-search]'
   version: ''
   description: |-
     + Request (application/json)

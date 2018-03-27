@@ -10,7 +10,7 @@ paths:
       description: '
 
 
-        <a>example.com/brapi/v1/germplasm/{germplasmDbId}/pedigree</a>'
+        <a>example.com/germplasm/{germplasmDbId}/pedigree</a>'
       parameters:
       - description: the internal id of the germplasm
         in: path
@@ -29,5 +29,5 @@ paths:
           headers: {}
       summary: Germplasm pedigree by id
       tags:
-      - germplasm
+      - Germplasm
 swagger: '2.0'

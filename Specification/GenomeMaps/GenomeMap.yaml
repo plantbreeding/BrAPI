@@ -4,11 +4,8 @@ info:
   version: '1.0'
   description: >-
       Repository for version control of the BrAPI specification
-tags:
-- name: "Genome Maps"
-  description: "Retrieving genetic or physical maps"
 paths:
-  /brapi/v1/maps:
+  /maps:
     get:
       tags:
       - Genome Maps
@@ -92,7 +89,7 @@ paths:
           type: integer
       produces:
         - application/json
-  '/brapi/v1/maps/{mapDbId}':
+  '/maps/{mapDbId}':
     get:
       responses:
         '200':
@@ -158,7 +155,7 @@ paths:
           type: integer
       produces:
         - application/json
-  '/brapi/v1/maps/{mapDbId}/positions':
+  '/maps/{mapDbId}/positions':
     get:
       responses:
         '200':
@@ -240,7 +237,7 @@ paths:
           type: integer
       produces:
         - application/json
-  '/brapi/v1/maps/{mapDbId}/positions/{linkageGroupName}':
+  '/maps/{mapDbId}/positions/{linkageGroupName}':
     get:
       responses:
         '200':
@@ -278,7 +275,8 @@ paths:
                     location: '1001'
       summary: Get map data by range on linkageGroup
       description: markers ordered by linkageGroup and position
-      tags: ['Genome Maps']
+      tags:
+      - Genome Maps
       parameters:
         - name: mapDbId
           in: path

@@ -10,7 +10,7 @@ paths:
       description: '
 
 
-        <a>example.com/brapi/v1/samples/{sampleDbId}</a>'
+        <a>example.com/samples/{sampleDbId}</a>'
       parameters:
       - description: the internal DB id for a sample
         in: path
@@ -24,5 +24,5 @@ paths:
           headers: {}
       summary: Get Sample
       tags:
-      - samples
+      - Samples
 swagger: '2.0'

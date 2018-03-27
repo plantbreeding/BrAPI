@@ -10,7 +10,7 @@ paths:
       description: 'List all available attribute categories.
 
 
-        <a>example.com/brapi/v1/attributes/categories</a>'
+        <a>example.com/attributes/categories</a>'
       parameters:
       - description: The size of the pages to be returned. Default is `1000`.
         in: query
@@ -30,5 +30,6 @@ paths:
           headers: {}
       summary: Germplasm attribute categories
       tags:
-      - attributes
+      - Germplasm Attributes
+      - Germplasm
 swagger: '2.0'

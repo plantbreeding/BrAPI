@@ -5,7 +5,7 @@ info:
   title: ''
   version: ''
 paths:
-  /brapi/v1/token:
+  /token:
     delete:
       description: ''
       parameters: []
@@ -15,7 +15,8 @@ paths:
           examples: {}
           headers: {}
       summary: Logout
-      tags: []
+      tags: 
+      - Authentication
     post:
       description: ''
       parameters: []
@@ -39,5 +40,6 @@ paths:
               userDisplayName: John Smith
           headers: {}
       summary: Login
-      tags: []
+      tags: 
+      - Authentication
 swagger: '2.0'

@@ -10,7 +10,7 @@ paths:
       description: 'Use GET when parameter size is less than 2K bytes.
 
 
-        <a>example.com/brapi/v1/germplasm-search</a>'
+        <a>example.com/germplasm-search</a>'
       parameters:
       - description: Permanent unique identifier (DOI, URI, etc.)
         in: query
@@ -118,6 +118,6 @@ paths:
           headers: {}
       summary: Germplasm search through GET
       tags:
-      - germplasm
-      - search
+      - Germplasm
+      - Search Services
 swagger: '2.0'

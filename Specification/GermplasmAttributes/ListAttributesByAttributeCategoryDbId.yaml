@@ -13,7 +13,7 @@ paths:
         \ to external documentation, ontology etc.||\n|name|string|for display, and\
         \ stable identifier unique in the database|Y|\n|description|string|||\n|datatype|string|e.g.\
         \ Categorical, Numeric, Boolean||\n|values|array of string|array of all possible\
-        \ values for this attribute|Y|\n\n<a>example.com/brapi/v1/attributes</a>"
+        \ values for this attribute|Y|\n\n<a>example.com/attributes</a>"
       parameters:
       - description: filter for kind of attributes
         in: query
@@ -62,5 +62,6 @@ paths:
           headers: {}
       summary: Attributes by attributeCategoryDbId
       tags:
-      - attributes
+      - Germplasm Attributes
+      - Germplasm
 swagger: '2.0'

@@ -10,7 +10,7 @@ paths:
       description: '
 
 
-        <a>example.com/brapi/v1/studies/{studyDbId}</a>'
+        <a>example.com/studies/{studyDbId}</a>'
       parameters:
       - description: Identifier of the study. Usually a number, could be alphanumeric.
         in: path
@@ -24,5 +24,5 @@ paths:
           headers: {}
       summary: Retrieve study details
       tags:
-      - studies
+      - Studies
 swagger: '2.0'

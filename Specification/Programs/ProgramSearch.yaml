@@ -5,7 +5,7 @@ info:
   title: ''
   version: ''
 paths:
-  /brapi/v1/programs-search:
+  /programs-search:
     post:
       description: ''
       parameters:
@@ -57,5 +57,7 @@ paths:
                   programDbId: '456'
           headers: {}
       summary: Search Programs
-      tags: []
+      tags: 
+      - Programs
+      - Search Services
 swagger: '2.0'

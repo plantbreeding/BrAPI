@@ -10,7 +10,7 @@ paths:
       description: '
 
 
-        <a>example.com/brapi/v1/vendor/plate/{vendorPlateDbId}</a>'
+        <a>example.com/vendor/plate/{vendorPlateDbId}</a>'
       parameters:
       - description: The plate ID defined by the vendor
         in: path
@@ -56,5 +56,5 @@ paths:
           headers: {}
       summary: Plate Details by vendorPlateId
       tags:
-      - vendor
+      - Vendor Samples
 swagger: '2.0'

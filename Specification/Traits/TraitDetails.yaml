@@ -10,7 +10,7 @@ paths:
       description: '
 
 
-        <a>example.com/brapi/v1/traits/{traitDbId}</a>'
+        <a>example.com/traits/{traitDbId}</a>'
       parameters:
       - description: Id of the trait to retrieve details of.
         in: path
@@ -45,5 +45,5 @@ paths:
           headers: {}
       summary: Retrieve trait details by id
       tags:
-      - traits
+      - Traits
 swagger: '2.0'

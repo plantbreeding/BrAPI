@@ -63,27 +63,41 @@ info:
 paths:
   /calls:
     get:
-      description: |-
-        **Status** : ACCEPTED
-        **Implemented by**: Germinate, Cassavabase
-        **Used by**: Flapjack
+      description: >        
         **Note on the call response**
+        
         Having a consistent structure for the path string of each call is very important for teams to be able to connect and find errors. Read more on [Github](https://github.com/plantbreeding/API/issues/144).
+        
         Here are the rules for the path of each call that should be returned 
-        - Every word in the call path should match the documentation exactly, both in spelling and   capitalization. Note that path strings are all lower case, but path parameters are camel case.
-        - Each path should start relative to '/brapi/v1/' and therefore should not include '/brapi/v1/'
+        
+        - Every word in the call path should match the documentation exactly, both in spelling and capitalization. Note that path strings are all lower case, but path parameters are camel case.
+        
+        - Each path should start relative to '/' and therefore should not include '/'
+        
         - No leading or trailing slashes ('/')
+        
         - Path parameters are wrapped in curly braces ('{}'). The name of the path parameter should be spelled exactly as it is specified in the documentation.
+        
+        
         |Examples||
-        |--|--|
-        | **GOOD** |"call": "germplasm/{germplasmDbId}/markerprofiles" |
-        | BAD |"call": "germplasm/{**id**}/markerprofiles" |
-        | BAD |"call": "germplasm/{germplasmDbId}/marker**P**rofiles" |
-        | BAD |"call": "germplasm/{germplasm**dbid**}/markerprofiles" |
-        | BAD |"call": "**/brapi/v1**/germplasm/{germplasmDbId}/markerprofiles" |
-        | BAD |"call": "**/g**ermplasm/{germplasmDbId}/markerprofiles **/"** |
-        | BAD |"call": "germplasm/**\<germplasmDbId\>**/markerprofiles" |
-        <a>example.com/brapi/v1/calls</a>
+        
+        |-----|------|
+        
+        | **GOOD** |\"call\": \"germplasm/{germplasmDbId}/markerprofiles\"|
+        
+        | BAD |\"call\": \"germplasm/{**id**}/markerprofiles\" |
+        
+        | BAD |\"call\": \"germplasm/{germplasmDbId}/marker**P**rofiles\" |
+        
+        | BAD |\"call\": \"germplasm/{germplasm**dbid**}/markerprofiles\" |
+        
+        | BAD |\"call\": \"**brapi/v1**/germplasm/{germplasmDbId}/markerprofiles\" |
+        
+        | BAD |\"call\": \"**/g**ermplasm/{germplasmDbId}/markerprofiles**/\"** |
+        
+        | BAD |\"call\": \"germplasm/**\<germplasmDbId\>**/markerprofiles\"|
+        
+        <a>example.com/calls</a>
       parameters:
       - description: The data type supported by the call
         in: query
@@ -113,7 +127,12 @@ paths:
               metadata:
                 $ref: '#/definitions/metadata' 
               result:
-                $ref: '#/definitions/call'
+              type: object
+              properties:
+                data:
+                  type: array
+                  items: 
+                    $ref: '#/definitions/call'
           examples:
             application/json:
               metadata:

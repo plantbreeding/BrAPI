@@ -10,7 +10,7 @@ paths:
       description: '
 
 
-        <a>example.com/brapi/v1/vendor/specifications</a>'
+        <a>example.com/vendor/specifications</a>'
       parameters: []
       produces:
       - application/json
@@ -88,5 +88,5 @@ paths:
           headers: {}
       summary: Vendor specification
       tags:
-      - vendor
+      - Vendor Samples
 swagger: '2.0'

@@ -5,8 +5,9 @@ info:
   title: ''
   version: ''
 paths:
-  /brapi/v1/studies/{studyDbId}/observationunits:
+  /studies/{studyDbId}/observationunits:
     post:
+      deprecated: true
       description: 'This call has been deprecated in V1.1. Use instead: "PUT /studies/{studyDbId}/observationunits"
         and "PUT /studies/{studyDbId}/observationunits/zip"'
       parameters:
@@ -102,5 +103,7 @@ paths:
                   message: Could not update values for Observation Units
           headers: {}
       summary: '**Deprecated** Save Observation Unit Phenotypes'
-      tags: []
+      tags: 
+      - Studies
+      - Observations
 swagger: '2.0'

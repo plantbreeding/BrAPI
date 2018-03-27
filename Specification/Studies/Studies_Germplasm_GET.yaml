@@ -10,7 +10,7 @@ paths:
       description: '
 
 
-        <a>example.com/brapi/v1/studies/{studyDbId}/germplasm</a>'
+        <a>example.com/studies/{studyDbId}/germplasm</a>'
       parameters:
       - description: Identifier of the study. Usually a number, could be alphanumeric.
         in: path
@@ -35,5 +35,6 @@ paths:
           headers: {}
       summary: Study Germplasm Details
       tags:
-      - studies
+      - Studies
+      - Germplasm
 swagger: '2.0'

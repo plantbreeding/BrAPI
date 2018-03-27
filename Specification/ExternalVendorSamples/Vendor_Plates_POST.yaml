@@ -5,7 +5,7 @@ info:
   title: ''
   version: ''
 paths:
-  /brapi/v1/vendor/plates:
+  /vendor/plates:
     post:
       description: 'Note: if the samples array is empty, plate ID will be returned.
         Samples can be updated later.'
@@ -60,5 +60,6 @@ paths:
           examples: {}
           headers: {}
       summary: Register plates
-      tags: []
+      tags: 
+      - Vendor Samples
 swagger: '2.0'

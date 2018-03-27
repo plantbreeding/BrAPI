@@ -10,7 +10,7 @@ paths:
       description: '
 
 
-        <a>example.com/brapi/v1/samples-search</a>'
+        <a>example.com/samples-search</a>'
       parameters:
       - description: the internal DB id for a sample
         in: query
@@ -79,6 +79,6 @@ paths:
           headers: {}
       summary: Get Sample Search
       tags:
-      - samples
-      - search
+      - Samples
+      - Search Services
 swagger: '2.0'

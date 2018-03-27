@@ -5,7 +5,7 @@ info:
   title: ''
   version: ''
 paths:
-  /brapi/v1/studies/{studyDbId}/observationunits:
+  /studies/{studyDbId}/observationunits:
     put:
       description: 'Use this call for uploading new Observations as JSON to a system.
 
@@ -48,5 +48,7 @@ paths:
                   message: Could not update values for Observation Units
           headers: {}
       summary: Save Observation Unit Phenotypes
-      tags: []
+      tags: 
+      - Studies
+      - Observations
 swagger: '2.0'

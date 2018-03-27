@@ -5,7 +5,7 @@ info:
   title: ''
   version: ''
 paths:
-  /brapi/v1/samples:
+  /samples:
     put:
       description: Call to register the event of a sample being taken. Sample ID is
         assigned as a result of the operation and returned in response.
@@ -16,5 +16,6 @@ paths:
           examples: {}
           headers: {}
       summary: Add a sample
-      tags: []
+      tags:
+      - Samples
 swagger: '2.0'

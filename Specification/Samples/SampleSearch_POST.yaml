@@ -5,7 +5,7 @@ info:
   title: ''
   version: ''
 paths:
-  /brapi/v1/samples-search:
+  /samples-search:
     post:
       description: ''
       parameters: []
@@ -54,5 +54,7 @@ paths:
                   tissueType: TypeOfTissue
           headers: {}
       summary: Post Sample Search
-      tags: []
+      tags: 
+      - Samples
+      - Search Services
 swagger: '2.0'

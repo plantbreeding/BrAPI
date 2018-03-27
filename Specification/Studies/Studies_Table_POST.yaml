@@ -5,7 +5,7 @@ info:
   title: ''
   version: ''
 paths:
-  /brapi/v1/studies/{studyDbId}/table:
+  /studies/{studyDbId}/table:
     post:
       description: 'Images can optionally be saved using this call by providing a
         zipped file of all images in the datafiles. The physical zipped file should
@@ -25,5 +25,7 @@ paths:
           examples: {}
           headers: {}
       summary: Save study Observation Units as table
-      tags: []
+      tags: 
+      - Studies
+      - Observations
 swagger: '2.0'
