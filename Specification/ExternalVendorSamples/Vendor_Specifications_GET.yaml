@@ -1,5 +1,3 @@
-definitions:
-  Vendor specification: {}
 info:
   description: ''
   title: ''
@@ -17,6 +15,13 @@ paths:
       responses:
         '200':
           description: OK
+          schema:
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                $ref: '#/definitions/vendorSpecification'
           examples:
             application/json:
               metadata:

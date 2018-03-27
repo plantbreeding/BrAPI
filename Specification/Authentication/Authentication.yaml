@@ -1,5 +1,3 @@
-definitions:
-  Authentication: {}
 info:
   description: ''
   title: ''
@@ -7,6 +5,7 @@ info:
 paths:
   /token:
     delete:
+      deprecated: true
       description: ''
       parameters: []
       responses:
@@ -18,6 +17,7 @@ paths:
       tags: 
       - Authentication
     post:
+      deprecated: true
       description: ''
       parameters: []
       produces:

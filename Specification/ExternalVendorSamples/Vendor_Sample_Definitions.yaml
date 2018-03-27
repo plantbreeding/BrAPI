@@ -1,0 +1,237 @@
+definitions: 
+  vendorSpecification:
+    properties:
+      vendorName:
+        type: string
+      vendorDescription:
+        type: string
+      vendorURL:
+        type: string
+      contactName:
+        type: string
+      vendorEmail:
+        type: string
+      vendorPhone:
+        type: string
+      vendorAddress:
+        type: string
+      vendorCity:
+        type: string
+      vendorCountry:
+        type: string
+      additionalInfo:
+        type: string
+      platforms:
+        type: array
+        items:
+          $ref: '#/definitions/vendorSpecificationPlatform'
+  vendorSpecificationPlatform:
+    properties:
+      platformName:
+        type: string
+      platformDescription:
+        type: string
+      platformURL:
+        type: string
+      contactName:
+        type: string
+      contactEmail:
+        type: string
+      contactPhone:
+        type: string
+      shippingAddress:
+        type: string
+      deliverables:
+        type: array
+        items:
+          type: object
+          properties:
+            name:
+              type: string
+            description: 
+              type: string
+            format: 
+              type: string
+      statuses:
+        type: array
+        items: 
+          type: object
+          properties:
+            statusName:
+              type: string
+            statusDescription: 
+              type: string
+      standardRequirements:
+        $ref: '#/definitions/vendorSpecificationStandardRequirement'
+      specificRequirements:
+        type: object
+      taxonomyIdSystem:
+        $ref: '#/definitions/vendorSpecificationReferenceSystem'
+      tissueIdSystem:
+        $ref: '#/definitions/vendorSpecificationReferenceSystem'
+  vendorSpecificationStandardRequirement:
+    properties:
+      minConcentration:
+        type: string
+      maxConcentration:
+        type: string
+      minVolume:
+        type: string
+      maxVolume:
+        type: string
+      minSampleNumber:
+        type: string
+      inputFormatDetails:
+        type: string
+      plateOrientation:
+        type: string
+      sampleTypeDetails:
+        type: string
+      sampleTypes:
+        type: array
+        items:
+          type: string
+      inputFormats:
+        type: array
+        items:
+          type: string
+      blankWellPosition:
+        type: object
+        properties:
+          positions:
+            type: array
+            items:
+              type: string
+          numberOfBlanksPerPlate:
+            type: integer
+  vendorSpecificationReferenceSystem:
+    properties:
+      name:
+        type: string
+      URI:
+        type: string
+  vendorPlate:
+    properties:
+      vendorProjectDbId:
+        type: string
+      vendorPlateDbId:
+        type: string
+      clientPlateDbId:
+        type: string
+      vendorBarcode:
+        type: string
+      vendorBarcodeImageURL:
+        type: string
+      plateFormat:
+        type: string
+      sampleType:
+        type: string
+      status:
+        type: string
+      statusTimeStamp:
+        type: string
+        format: date-time
+      samples:
+        type: array
+        items:
+          $ref: '#/definitions/vendorSample'
+      files:
+        type: array
+        items:
+          $ref: '#/definitions/vendorPlateFile'
+  vendorSample:
+    properties:
+      sampleDbId:
+        type: string
+      well:
+        type: string
+      row:
+        type: string
+      column:
+        type: string
+      concentration:
+        type: string
+      volume:
+        type: string
+      tissueType:
+        type: string
+      taxonId:
+        $ref: '#/definitions/taxonID'
+  vendorPlateFile:
+    properties: 
+      filename:
+        type: string
+      URL:
+        type: string
+      md5sum:
+        type: string
+      fileType:
+        type: string
+      sampleDbIds:
+        type: array
+        items:
+          type: string
+      additionalInfo:
+        type: object
+  taxonID:
+    properties:
+      sourceName:
+        type: string
+      taxonId:
+        type: string
+  vendorPlateRequest:
+    properties:
+      plates:
+        type: array
+        items:
+          type: object
+          properties:
+            clientPlateDbId:
+              type: string
+            plateFormat:
+              type: string
+            sampleType:
+              type: string
+            vendorProjectDbId:
+              type: string
+            samples:
+              type: array
+              items:
+                type: object
+                properties:
+                  column:
+                    type: string
+                  concentration:
+                    type: string
+                  row:
+                    type: string
+                  sampleDbId:
+                    type: string
+                  taxonId:
+                    $ref: '#/definitions/taxonID'
+                  tissueType:
+                    type: string
+                  volume:
+                    type: string
+                  well:
+                    type: string
+  vendorPlateSearchRequest:
+    properties:
+      clientPlateDbIds:
+        type: array
+        items:
+          type: string
+      page:
+        type: number
+      pageSize:
+        type: number
+      sampleInfo:
+        type: string
+      vendorPlateDbIds:
+        type: array
+        items:
+          type: string
+      vendorProjectDbIds:
+        type: array
+        items:
+          type: string

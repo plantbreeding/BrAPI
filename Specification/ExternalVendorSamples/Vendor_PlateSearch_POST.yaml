@@ -1,5 +1,3 @@
-definitions:
-  Search for plates: {}
 info:
   description: ''
   title: ''
@@ -12,29 +10,22 @@ paths:
       - in: body
         name: body
         schema:
-          properties:
-            clientPlateDbIds:
-              items:
-                type: string
-              type: array
-            page:
-              type: number
-            pageSize:
-              type: number
-            sampleInfo:
-              type: string
-            vendorPlateDbIds:
-              items:
-                type: string
-              type: array
-            vendorProjectDbIds:
-              items:
-                type: string
-              type: array
-          type: object
+          $ref: '#/definitions/vendorPlateSearchRequest' 
       responses:
         '200':
           description: OK
+          schema: 
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                type: object
+                properties:
+                  plates:
+                    type: array
+                    items: 
+                      $ref: '#/definitions/vendorPlate'
           examples: {}
           headers: {}
       summary: Search for plates

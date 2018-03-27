@@ -396,32 +396,3 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/linkageGroups'
-  status: 
-    type: object
-    properties:
-      code:
-        type: string
-      message: 
-        type: string
-  metadata:
-    type: object
-    properties:
-      pagination:
-        type: object
-        properties: 
-          totalCout:
-            type: integer
-          pageSize:
-            type: integer
-          totalPages: 
-            type: integer
-          currentPage:
-            type: integer
-      status:
-        type: array
-        items:
-          $ref: '#/definitions/status'
-      datafiles:
-        type: array
-        items:
-          type: string

@@ -5,6 +5,43 @@ info:
   description: 'The Plant Breeding API'
   title: 'BrAPI'
   version: '2.0'
+definitions: 
+  status: 
+    type: object
+    properties:
+      code:
+        type: string
+      message: 
+        type: string
+  metadata:
+    type: object
+    properties:
+      pagination:
+        description: |-
+          The pagination object is applicable only when the payload contains a "data" key. It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. Pages are zero indexed, so the first page will be page 0 (zero).
+        type: object
+        properties: 
+          totalCount:
+            type: integer
+          pageSize:
+            type: integer
+          totalPages: 
+            type: integer
+          currentPage:
+            type: integer
+      status:
+        description: |-
+          The status field contains a list of informational status messages from the server. If no status is reported, an empty list should be returned. See Error Reporting for more information.
+        type: array
+        items:
+          $ref: '#/definitions/status'
+      datafiles:
+        description: |-
+          The datafiles key contains a list of file paths, which can be relative or complete URLs. These files contain additional information related to the returned object and can be retrieved by a subsequent call. The empty list should be returned if no additional data files are present.
+        type: array
+        items:
+          type: string
+paths: {}
 tags:
 - name: Calls
   description: Check the available calls on a server

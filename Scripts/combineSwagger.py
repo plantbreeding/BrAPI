@@ -19,8 +19,10 @@ for filename in glob.iglob(rootPath + '/**/*.yaml', recursive=True):
 	with open(filename, "r") as stream:
 		try:
 			fileObj = yaml.load(stream)
-			paths.update(fileObj['paths'])
-			defin.update(fileObj['definitions'])
+			if 'paths' in fileObj:
+				paths.update(fileObj['paths'])
+			if 'definitions' in fileObj:
+				defin.update(fileObj['definitions'])
 		except yaml.YAMLError as exc:
 			print(exc)
 
@@ -31,7 +33,8 @@ with open(metaFilePath, "r") as metaFile:
 	except yaml.YAMLError as exc:
 		print(exc)
 		
-out.update({'paths': paths, 'definitions' : defin})
+out['paths'].update(paths)
+out['definitions'].update(defin)
 
 with open('out.yaml', 'w') as outfile:
 	yaml.dump(out, outfile, default_flow_style=False)
