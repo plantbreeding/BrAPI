@@ -1,0 +1,61 @@
+definitions:
+  Program Search: {}
+info:
+  description: ''
+  title: ''
+  version: ''
+paths:
+  /brapi/v1/programs-search:
+    post:
+      description: ''
+      parameters:
+      - in: body
+        name: body
+        schema:
+          properties:
+            abbreviation:
+              type: string
+            leadPerson:
+              type: string
+            name:
+              type: string
+            objective:
+              type: string
+            page:
+              type: number
+            pageSize:
+              type: number
+            programDbId:
+              type: string
+          type: object
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          examples:
+            application/json:
+              metadata:
+                datafiles: []
+                pagination:
+                  currentPage: 0
+                  pageSize: 1000
+                  totalCount: 2
+                  totalPages: 1
+                status: []
+              result:
+                data:
+                - abbreviation: DRP1
+                  leadPerson: Dr. Henry Beachell
+                  name: Wheat Resistance Program
+                  objective: Disease resistance
+                  programDbId: '123'
+                - abbreviation: DRP2
+                  leadPerson: Dr. Norman Borlaug
+                  name: Wheat Improvement Program
+                  objective: Yield improvement
+                  programDbId: '456'
+          headers: {}
+      summary: Search Programs
+      tags: []
+swagger: '2.0'

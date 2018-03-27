@@ -1,0 +1,58 @@
+definitions:
+  Post Sample Search: {}
+info:
+  description: ''
+  title: ''
+  version: ''
+paths:
+  /brapi/v1/samples-search:
+    post:
+      description: ''
+      parameters: []
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          examples:
+            application/json:
+              metadata:
+                datafiles: []
+                pagination:
+                  currentPage: 0
+                  pageSize: 1000
+                  totalCount: 2
+                  totalPages: 1
+                status: []
+              result:
+                data:
+                - germplasmDbId: def456
+                  notes: Cut from infected leaf
+                  observationUnitDbId: abc123
+                  plantDbId: PlantID-123
+                  plateDbId: PlateID-123
+                  plateIndex: 0
+                  plotDbId: PlotId-123
+                  sampleDbId: Unique-Plant-SampleID-1
+                  sampleTimestamp: 2016-07-27T14:43:22+0100
+                  sampleType: TypeOfSample
+                  studyDbId: StudyId-123
+                  takenBy: Mr. Technician
+                  tissueType: TypeOfTissue
+                - germplasmDbId: def456
+                  notes: Cut from infected leaf
+                  observationUnitDbId: a1b2c3
+                  plantDbId: PlantID-123
+                  plateDbId: PlateID-123
+                  plateIndex: 0
+                  plotDbId: PlotId-123
+                  sampleDbId: Unique-Plant-SampleID-2
+                  sampleTimestamp: 2016-07-27T14:43:22+0100
+                  sampleType: TypeOfSample
+                  studyDbId: StudyId-123
+                  takenBy: Mr. Technician
+                  tissueType: TypeOfTissue
+          headers: {}
+      summary: Post Sample Search
+      tags: []
+swagger: '2.0'

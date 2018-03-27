@@ -1,0 +1,34 @@
+definitions:
+  List attribute categories: {}
+info:
+  description: ''
+  title: ''
+  version: ''
+paths:
+  /attributes/categories:
+    get:
+      description: 'List all available attribute categories.
+
+
+        <a>example.com/brapi/v1/attributes/categories</a>'
+      parameters:
+      - description: The size of the pages to be returned. Default is `1000`.
+        in: query
+        name: pageSize
+        required: false
+        type: integer
+      - description: Which result page is requested. The page indexing starts at 0
+          (the first page is 'page'= 0). Default is `0`.
+        in: query
+        name: page
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: OK
+          examples: {}
+          headers: {}
+      summary: Germplasm attribute categories
+      tags:
+      - attributes
+swagger: '2.0'

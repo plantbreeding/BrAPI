@@ -1,0 +1,66 @@
+definitions:
+  List attributes available: {}
+info:
+  description: ''
+  title: ''
+  version: ''
+paths:
+  /attributes:
+    get:
+      description: "List available attributes.\n\n###### Response data types\n\n|Variable|Datatype|Description|Required|\
+        \  \n|------|------|------|:-----:|\n|attributeCategoryDbId|string|internal\
+        \ database identifier, not stable |Y|\n|code|string|abbreviation||\n|uri|string|reference\
+        \ to external documentation, ontology etc.||\n|name|string|for display, and\
+        \ stable identifier unique in the database|Y|\n|description|string|||\n|datatype|string|e.g.\
+        \ Categorical, Numeric, Boolean||\n|values|array of string|array of all possible\
+        \ values for this attribute|Y|\n\n<a>example.com/brapi/v1/attributes</a>"
+      parameters:
+      - description: filter for kind of attributes
+        in: query
+        name: attributeCategoryDbId
+        required: false
+        type: string
+      - description: The size of the pages to be returned. Default is `1000`.
+        in: query
+        name: pageSize
+        required: false
+        type: integer
+      - description: Which result page is requested. The page indexing starts at 0
+          (the first page is 'page'= 0). Default is `0`.
+        in: query
+        name: page
+        required: false
+        type: integer
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          examples:
+            application/json:
+              metadata:
+                datafiles: []
+                pagination:
+                  currentPage: 0
+                  pageSize: 1000
+                  totalCount: 1
+                  totalPages: 1
+                status: []
+              result:
+                data:
+                - attributeCategoryDbId: '1'
+                  code: RHT
+                  datatype: Categorical
+                  description: Allele of marker 11_4769, diagnostic for allele b of
+                    reduced-height gene Rht-B1
+                  name: Rht-B1b
+                  uri: http://www.cropontology.org/rdf/CO_321:0000020
+                  values:
+                  - Present
+                  - Absent
+                  - Heterozygous
+          headers: {}
+      summary: Attributes by attributeCategoryDbId
+      tags:
+      - attributes
+swagger: '2.0'

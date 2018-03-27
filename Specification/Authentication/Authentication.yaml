@@ -1,0 +1,43 @@
+definitions:
+  Authentication: {}
+info:
+  description: ''
+  title: ''
+  version: ''
+paths:
+  /brapi/v1/token:
+    delete:
+      description: ''
+      parameters: []
+      responses:
+        '201':
+          description: Created
+          examples: {}
+          headers: {}
+      summary: Logout
+      tags: []
+    post:
+      description: ''
+      parameters: []
+      produces:
+      - application/json
+      responses:
+        '201':
+          description: Created
+          examples:
+            application/json:
+              access_token: R6gKDBRxM4HLj6eGi4u5HkQjYoIBTPfvtZzUD8TUzg4
+              expires_in: The lifetime in seconds of the access token
+              metadata:
+                datafiles: []
+                pagination:
+                  currentPage: 0
+                  pageSize: 0
+                  totalCount: 0
+                  totalPages: 0
+                status: []
+              userDisplayName: John Smith
+          headers: {}
+      summary: Login
+      tags: []
+swagger: '2.0'

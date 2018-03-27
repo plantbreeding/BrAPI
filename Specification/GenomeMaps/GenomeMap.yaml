@@ -11,7 +11,7 @@ paths:
   /brapi/v1/maps:
     get:
       tags:
-      - "Genome Maps"
+      - Genome Maps
       responses:
         '200':
           description: OK
@@ -64,11 +64,8 @@ paths:
         <br>
         
         **Status:** ACCEPTED
-
         **Implemented by:** Germinate, Cassavabase
-
         **Used by:** Flapjack
-
         do we need list of parents and specify mapping population?
       parameters:
         - name: species
@@ -138,11 +135,10 @@ paths:
         <br>
         
         **Status:** ACCEPTED
-
         **Implemented by:** Germinate, Cassavabase
-
         **Used by:** Flapjack
-      tags: ['Genome Maps']
+      tags: 
+      - Genome Maps
       parameters:
         - name: mapDbId
           in: path
@@ -206,12 +202,11 @@ paths:
         <br>
         
         **Status:** ACCEPTED.
-
         **Implemented by:** Germinate, Cassavabase
-
         **Used by:** Flapjack
         
-      tags: [Genome Maps]
+      tags: 
+      - Genome Maps
       parameters:
         - name: mapDbId
           in: path

@@ -1,0 +1,64 @@
+definitions:
+  Register plates: {}
+info:
+  description: ''
+  title: ''
+  version: ''
+paths:
+  /brapi/v1/vendor/plates:
+    post:
+      description: 'Note: if the samples array is empty, plate ID will be returned.
+        Samples can be updated later.'
+      parameters:
+      - in: body
+        name: body
+        schema:
+          properties:
+            plates:
+              items:
+                properties:
+                  clientPlateDbId:
+                    type: string
+                  plateFormat:
+                    type: string
+                  sampleType:
+                    type: string
+                  samples:
+                    items:
+                      properties:
+                        column:
+                          type: string
+                        concentration:
+                          type: string
+                        row:
+                          type: string
+                        sampleDbId:
+                          type: string
+                        taxonId:
+                          properties:
+                            sourceName:
+                              type: string
+                            taxonId:
+                              type: string
+                          type: object
+                        tissueType:
+                          type: string
+                        volume:
+                          type: string
+                        well:
+                          type: string
+                      type: object
+                    type: array
+                  vendorProjectDbId:
+                    type: string
+                type: object
+              type: array
+          type: object
+      responses:
+        '200':
+          description: OK
+          examples: {}
+          headers: {}
+      summary: Register plates
+      tags: []
+swagger: '2.0'

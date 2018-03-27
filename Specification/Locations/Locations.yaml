@@ -7,7 +7,7 @@ info:
 host: virtserver.swaggerhub.com
 basePath: /homonecloco/Locations/1.0
 paths:
-  '/brapi/v1/markers/{locationDbId}':
+  '/brapi/v1/locations/{locationDbId}':
     get:
       responses:
         '200':

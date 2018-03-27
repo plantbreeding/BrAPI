@@ -1,0 +1,142 @@
+definitions:
+  Search Studies: {}
+info:
+  description: ''
+  title: ''
+  version: ''
+paths:
+  /studies-search:
+    get:
+      description: '
+
+
+        <a>example.com/brapi/v1/studies-search</a>'
+      parameters:
+      - description: Filter based on study type e.g. Nursery, Trial or Genotype.
+        in: query
+        name: studyType
+        required: false
+        type: string
+      - description: Program filter to only return studies associated with given program
+          id.
+        in: query
+        name: programDbId
+        required: false
+        type: string
+      - description: Filter by location
+        in: query
+        name: locationDbId
+        required: false
+        type: string
+      - description: Filter by season or year
+        in: query
+        name: seasonDbId
+        required: false
+        type: string
+      - description: Filter by trial
+        in: query
+        name: trialDbId
+        required: false
+        type: string
+      - description: Filter studies where specified germplasm have been used/tested
+        in: query
+        name: germplasmDbIds
+        required: false
+        type: array
+        items:
+          type: string
+      - description: Filter studies where specified observation variables have been
+          measured
+        in: query
+        name: observationVariableDbIds
+        required: false
+        type: array
+        items:
+          type: string
+      - description: The size of the pages to be returned. Default is `1000`.
+        in: query
+        name: pageSize
+        required: false
+        type: integer
+      - description: Which result page is requested. The page indexing starts at 0
+          (the first page is 'page'= 0). Default is `0`.
+        in: query
+        name: page
+        required: false
+        type: integer
+      - description: Filter active status true/false.
+        in: query
+        name: active
+        required: false
+        type: boolean
+      - description: Sort order. Name of the field to sort by.
+        in: query
+        name: sortBy
+        required: false
+        type: string
+      - description: Sort order direction. Ascending/Descending.
+        in: query
+        name: sortOrder
+        required: false
+        type: string
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          examples:
+            application/json:
+              metadata:
+                datafiles: []
+                pagination:
+                  currentPage: 0
+                  pageSize: 1000
+                  totalCount: 2
+                  totalPages: 1
+                status: []
+              result:
+                data:
+                - active: 'true'
+                  additionalInfo:
+                    property1Name: property1Value
+                    property2Name: property2Value
+                    property3Name: property3Value
+                  endDate: '2008-12-31'
+                  locationDbId: '23'
+                  locationName: Kenya
+                  name: Earlygenerationtesting
+                  programDbId: '27'
+                  programName: Drought Resistance Program A
+                  seasons:
+                  - 2007 Spring
+                  - 2008 Fall
+                  startDate: '2007-06-01'
+                  studyDbId: '35'
+                  studyType: Trial
+                  trialDbId: '7'
+                  trialName: InternationalTrialA
+                - active: 'true'
+                  additionalInfo:
+                    property1Name: property1Value
+                    property2Name: property2Value
+                    property3Name: property3Value
+                  endDate: '2008-12-31'
+                  locationDbId: '33'
+                  locationName: Zimbabwe
+                  name: Earlygenerationtesting
+                  programDbId: '58'
+                  programName: Drought Resistance Program B
+                  seasons:
+                  - 2007 Spring
+                  - 2008 Fall
+                  startDate: '2005-06-01'
+                  studyDbId: '345'
+                  studyType: Trial
+                  trialDbId: '7'
+                  trialName: InternationalTrialA
+          headers: {}
+      summary: Search Studies (GET)
+      tags:
+      - studies
+      - search
+swagger: '2.0'

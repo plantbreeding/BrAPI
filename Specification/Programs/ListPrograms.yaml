@@ -1,0 +1,67 @@
+definitions:
+  Program list: {}
+info:
+  description: ''
+  title: ''
+  version: ''
+paths:
+  /programs:
+    get:
+      description: '
+
+
+        <a>example.com/brapi/v1/programs</a>'
+      parameters:
+      - description: Filter by program name. Exact match.
+        in: query
+        name: programName
+        required: false
+        type: string
+      - description: Filter by program abbreviation. Exact match.
+        in: query
+        name: abbreviation
+        required: false
+        type: string
+      - description: The size of the pages to be returned. Default is `1000`.
+        in: query
+        name: pageSize
+        required: false
+        type: integer
+      - description: Which result page is requested. The page indexing starts at 0
+          (the first page is 'page'= 0). Default is `0`.
+        in: query
+        name: page
+        required: false
+        type: integer
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          examples:
+            application/json:
+              metadata:
+                datafiles: []
+                pagination:
+                  currentPage: 0
+                  pageSize: 1000
+                  totalCount: 2
+                  totalPages: 1
+                status: []
+              result:
+                data:
+                - abbreviation: DRP1
+                  leadPerson: Dr. Henry Beachell
+                  name: Wheat Resistance Program
+                  objective: Disease resistance
+                  programDbId: '123'
+                - abbreviation: DRP2
+                  leadPerson: Dr. Norman Borlaug
+                  name: Wheat Improvement Program
+                  objective: Yield improvement
+                  programDbId: '456'
+          headers: {}
+      summary: List programs
+      tags:
+      - programs
+swagger: '2.0'

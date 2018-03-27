@@ -1,0 +1,20 @@
+definitions:
+  Add a sample: {}
+info:
+  description: ''
+  title: ''
+  version: ''
+paths:
+  /brapi/v1/samples:
+    put:
+      description: Call to register the event of a sample being taken. Sample ID is
+        assigned as a result of the operation and returned in response.
+      parameters: []
+      responses:
+        '200':
+          description: OK
+          examples: {}
+          headers: {}
+      summary: Add a sample
+      tags: []
+swagger: '2.0'

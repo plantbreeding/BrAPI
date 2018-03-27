@@ -1,0 +1,60 @@
+definitions:
+  Plate Details by vendorPlateId: {}
+info:
+  description: ''
+  title: ''
+  version: ''
+paths:
+  /vendor/plate/{vendorPlateDbId}:
+    get:
+      description: '
+
+
+        <a>example.com/brapi/v1/vendor/plate/{vendorPlateDbId}</a>'
+      parameters:
+      - description: The plate ID defined by the vendor
+        in: path
+        name: vendorPlateDbId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          examples:
+            application/json:
+              metadata:
+                datafiles: []
+                pagination:
+                  currentPage: 0
+                  pageSize: 0
+                  totalCount: 0
+                  totalPages: 0
+                status: []
+              result:
+                clientPlateDbId: def456
+                plateFormat: Plate_96
+                sampleType: DNA
+                samples:
+                - column: (optional)
+                  concentration: (ng/ul)
+                  row: (optional)
+                  sampleDbId: sample_name
+                  taxonId:
+                    sourceName: ncbiTaxon
+                    taxonId: http://purl.obolibrary.org/obo/NCBITaxon_4641
+                  tissueType: ''
+                  volume: (ul)
+                  well: (optional)
+                status: (not null)
+                statusTimeStamp: 2017-06-01 01:57 GMT
+                vendorBarcode: ''
+                vendorBarcodeImageURL: ''
+                vendorPlateDbId: '8338'
+                vendorProjectDbId: abc123
+          headers: {}
+      summary: Plate Details by vendorPlateId
+      tags:
+      - vendor
+swagger: '2.0'

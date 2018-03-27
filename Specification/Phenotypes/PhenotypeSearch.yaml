@@ -1,0 +1,113 @@
+definitions:
+  Phenotype Search: {}
+info:
+  description: ''
+  title: ''
+  version: ''
+paths:
+  /brapi/v1/phenotypes-search:
+    post:
+      description: 'observationTimeStamp : Iso Standard 8601.
+
+        observationValue data type inferred from the ontology'
+      parameters: []
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          examples:
+            application/json:
+              metadata:
+                datafiles: []
+                pagination:
+                  currentPage: 1
+                  pageSize: 100
+                  totalCount: 102
+                  totalPages: 2
+                status: []
+              result:
+                data:
+                - X: '5'
+                  Y: '15'
+                  blockNumber: '2'
+                  entryNumber: null
+                  entryType: null
+                  germplasmDbId: doi:10.155454/12349537E12
+                  germplasmName: IR-8
+                  observationLevel: plot
+                  observationLevels: bloc:2,subBloc:1,plot:2016-Maugio-34-575-abc-123
+                  observationUnitDbId: 2016-Maugio-34-575-abc-123
+                  observationUnitName: 2016-Maugio-34-575
+                  observationUnitXref:
+                  - id: SAMEA179865230
+                    source: biosampleEBI
+                  - id: INRA:CoeSt6 _SMH03
+                    source: gnpis.lot
+                  - id: '239865'
+                    source: kernelDB
+                  observations:
+                  - collector: Mr. Technician
+                    observationDbId: '153453453'
+                    observationTimeStamp: 2015-06-16T00:53:26-0800
+                    observationVariableDbId: CO_321:0000045
+                    observationVariableName: Plant_height
+                    season: '2015'
+                    value: '45'
+                  - collector: Mr. Technician
+                    observationDbId: '23453454345'
+                    observationTimeStamp: 2015-06-16T00:53:26-0800
+                    observationVariableDbId: CO_321:0000996
+                    observationVariableName: GW100_g
+                    season: '2015'
+                    value: '3'
+                  plantNumber: null
+                  plotNumber: 2016-Maugio-34-575-abc-123
+                  programName: Whealbi
+                  replicate: null
+                  studyDbId: YieldStudy2015-5
+                  studyLocation: Montpellier
+                  studyLocationDbId: mtp-north-32
+                  studyName: Yield wheat 2015
+                  treatments:
+                  - factor: water regimen
+                    modality: water deficit
+                - X: null
+                  Y: null
+                  blockNumber: null
+                  entryNumber: null
+                  entryType: null
+                  germplasmDbId: doi:10.155499/12349537E00
+                  germplasmName: ZE-45
+                  observationLevel: plant
+                  observationLevels: null
+                  observationUnitDbId: '45204'
+                  observationUnitName: 2010-Cornell-37-99
+                  observations:
+                  - collector: Mr. Technician
+                    observationDbId: '153453453'
+                    observationTimeStamp: 2010-06-16T00:53:26-0800
+                    observationVariableDbId: CO_321:0000045
+                    observationVariableName: Plant_height
+                    season: '2010'
+                    value: '45'
+                  - collector: Mr. Technician
+                    observationDbId: '23453454345'
+                    observationTimeStamp: 2010-06-16T00:53:26-0800
+                    observationVariableDbId: CO_321:0000996
+                    observationVariableName: GW100_g
+                    season: '2010'
+                    value: '3'
+                  plantNumber: '45204'
+                  plotNumber: null
+                  programName: Wheat for futur
+                  replicate: '2'
+                  studyDbId: YieldStudy2010-5
+                  studyLocation: Cornell
+                  studyLocationDbId: '88484'
+                  studyName: Yield wheat 2010
+                  treatments: []
+          headers: {}
+      summary: Phenotype Search
+      tags: []
+swagger: '2.0'

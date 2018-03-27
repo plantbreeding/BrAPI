@@ -1,0 +1,65 @@
+definitions:
+  Germplasm attribute values by germplasmDbId: {}
+info:
+  description: ''
+  title: ''
+  version: ''
+paths:
+  /germplasm/{germplasmDbId}/attributes:
+    get:
+      description: 'Values for all attributes by default.
+
+
+        <a>example.com/brapi/v1/germplasm/{germplasmDbId}/attributes</a>'
+      parameters:
+      - description: The germplasm characterized
+        in: path
+        name: germplasmDbId
+        required: true
+        type: string
+      - description: Restrict the response to only the listed attributeDbIds.
+        in: query
+        name: attributeList
+        required: false
+        type: array
+        items:
+          type: string
+      - description: The size of the pages to be returned. Default is `1000`.
+        in: query
+        name: pageSize
+        required: false
+        type: integer
+      - description: Which result page is requested. The page indexing starts at 0
+          (the first page is 'page'= 0). Default is `0`.
+        in: query
+        name: page
+        required: false
+        type: integer
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          examples:
+            application/json:
+              metadata:
+                datafiles: []
+                pagination:
+                  currentPage: 0
+                  pageSize: 1000
+                  totalCount: 1
+                  totalPages: 1
+                status: []
+              result:
+              - data:
+                - attributeCode: RHT
+                  attributeDbId: '1'
+                  attributeName: Rht-B1b
+                  determinedDate: '2007-05-28'
+                  value: Present
+                germplasmDbId: '993'
+          headers: {}
+      summary: Germplasm attribute values
+      tags:
+      - germplasm
+swagger: '2.0'

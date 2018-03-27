@@ -1,0 +1,86 @@
+definitions:
+  List Observation Levels: {}
+info:
+  description: ''
+  title: ''
+  version: ''
+paths:
+  /brapi/v1/observationLevels:
+    get:
+      description: ''
+      parameters:
+      - description: The size of the pages to be returned. Default is `1000`.
+        in: query
+        name: pageSize
+        required: false
+        type: integer
+      - description: Which result page is requested. The page indexing starts at 0
+          (the first page is 'page'= 0). Default is `0`.
+        in: query
+        name: page
+        required: false
+        type: integer
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          examples:
+            application/json:
+              metadata:
+                datafiles: []
+                pagination:
+                  currentPage: 0
+                  pageSize: 1000
+                  totalCount: 2
+                  totalPages: 1
+                status: []
+              result:
+                data:
+                - plant
+                - plot
+          headers: {}
+      summary: '**Deprecated** List observation levels'
+      tags: []
+  /observationlevels:
+    get:
+      description: '
+
+
+        <a>example.com/brapi/v1/observationlevels</a>'
+      parameters:
+      - description: The size of the pages to be returned. Default is `1000`.
+        in: query
+        name: pageSize
+        required: false
+        type: integer
+      - description: Which result page is requested. The page indexing starts at 0
+          (the first page is 'page'= 0). Default is `0`.
+        in: query
+        name: page
+        required: false
+        type: integer
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          examples:
+            application/json:
+              metadata:
+                datafiles: []
+                pagination:
+                  currentPage: 0
+                  pageSize: 1000
+                  totalCount: 2
+                  totalPages: 1
+                status: []
+              result:
+                data:
+                - plant
+                - plot
+          headers: {}
+      summary: Get Observation Levels
+      tags:
+      - observationlevels
+swagger: '2.0'

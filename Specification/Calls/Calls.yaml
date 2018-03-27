@@ -1,120 +1,5 @@
-swagger: '2.0'
-info:
-  title: ''
-  version: ''
-  description: ''
-paths:
-  /brapi/v1/calls:
-    get:
-      responses:
-        '200':
-          description: OK
-          headers: {}
-          schema:
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                $ref: '#/definitions/call'
-          examples:
-            application/json:
-              metadata:
-                pagination:
-                  totalCount: 8
-                  currentPage: 0
-                  totalPages: 1
-                  pageSize: 1000
-                datafiles: []
-              result:
-                data:
-                  - call: token
-                    datatypes:
-                      - json
-                    methods:
-                      - POST
-                      - DELETE
-                  - call: calls
-                    datatypes:
-                      - json
-                    methods:
-                      - GET
-                  - call: allelematrix
-                    datatypes:
-                      - json
-                      - tsv
-                    methods:
-                      - GET
-                      - POST
-                  - call: observationLevels
-                    datatypes:
-                      - json
-                    methods:
-                      - GET
-                  - call: germplasm-search
-                    datatypes:
-                      - json
-                    methods:
-                      - GET
-                      - POST
-                  - call: 'germplasm/{germplasmDbId}'
-                    datatypes:
-                      - json
-                    methods:
-                      - GET
-                  - call: 'germplasm/{germplasmDbId}/pedigree'
-                    datatypes:
-                      - json
-                    methods:
-                      - GET
-                  - call: 'germplasm/{germplasmDbId}/markerprofiles'
-                    datatypes:
-                      - json
-                    methods:
-                      - GET
-      summary: Call search
-      description: |-
-        **Status** : ACCEPTED
-        **Implemented by**: Germinate, Cassavabase
-        **Used by**: Flapjack
-        **Note on the call response**
-        Having a consistent structure for the path string of each call is very important for teams to be able to connect and find errors. Read more on [Github](https://github.com/plantbreeding/API/issues/144).
-        Here are the rules for the path of each call that should be returned 
-        - Every word in the call path should match the documentation exactly, both in spelling and   capitalization. Note that path strings are all lower case, but path parameters are camel case.
-        - Each path should start relative to '/brapi/v1/' and therefore should not include '/brapi/v1/'
-        - No leading or trailing slashes ('/')
-        - Path parameters are wrapped in curly braces ('{}'). The name of the path parameter should be spelled exactly as it is specified in the documentation.
-
-        |Examples||
-        |--|--|
-        | **GOOD** |"call": "germplasm/{germplasmDbId}/markerprofiles" |
-        | BAD |"call": "germplasm/{**id**}/markerprofiles" |
-        | BAD |"call": "germplasm/{germplasmDbId}/marker**P**rofiles" |
-        | BAD |"call": "germplasm/{germplasm**dbid**}/markerprofiles" |
-        | BAD |"call": "**/brapi/v1**/germplasm/{germplasmDbId}/markerprofiles" |
-        | BAD |"call": "**/g**ermplasm/{germplasmDbId}/markerprofiles **/"** |
-        | BAD |"call": "germplasm/**\<germplasmDbId\>**/markerprofiles" |
-      tags: [Calls]
-      parameters:
-        - name: datatype
-          in: query
-          description: The data type supported by the call
-          required: false
-          type: string
-        - name: pageSize
-          in: query
-          description: The size of the pages to be returned. Default is `1000`.
-          required: false
-          type: integer
-        - name: page
-          in: query
-          description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-          required: false
-          type: integer
-      produces:
-        - application/json
 definitions:
-  call:
+  call: 
     type: object
     properties:
       call:
@@ -171,3 +56,120 @@ definitions:
         type: array
         items:
           type: string
+info:
+  description: ''
+  title: ''
+  version: ''
+paths:
+  /calls:
+    get:
+      description: |-
+        **Status** : ACCEPTED
+        **Implemented by**: Germinate, Cassavabase
+        **Used by**: Flapjack
+        **Note on the call response**
+        Having a consistent structure for the path string of each call is very important for teams to be able to connect and find errors. Read more on [Github](https://github.com/plantbreeding/API/issues/144).
+        Here are the rules for the path of each call that should be returned 
+        - Every word in the call path should match the documentation exactly, both in spelling and   capitalization. Note that path strings are all lower case, but path parameters are camel case.
+        - Each path should start relative to '/brapi/v1/' and therefore should not include '/brapi/v1/'
+        - No leading or trailing slashes ('/')
+        - Path parameters are wrapped in curly braces ('{}'). The name of the path parameter should be spelled exactly as it is specified in the documentation.
+        |Examples||
+        |--|--|
+        | **GOOD** |"call": "germplasm/{germplasmDbId}/markerprofiles" |
+        | BAD |"call": "germplasm/{**id**}/markerprofiles" |
+        | BAD |"call": "germplasm/{germplasmDbId}/marker**P**rofiles" |
+        | BAD |"call": "germplasm/{germplasm**dbid**}/markerprofiles" |
+        | BAD |"call": "**/brapi/v1**/germplasm/{germplasmDbId}/markerprofiles" |
+        | BAD |"call": "**/g**ermplasm/{germplasmDbId}/markerprofiles **/"** |
+        | BAD |"call": "germplasm/**\<germplasmDbId\>**/markerprofiles" |
+        <a>example.com/brapi/v1/calls</a>
+      parameters:
+      - description: The data type supported by the call
+        in: query
+        name: datatype
+        required: false
+        type: string
+      - description: The size of the pages to be returned. Default is `1000`.
+        in: query
+        name: pageSize
+        required: false
+        type: integer
+      - description: Which result page is requested. The page indexing starts at 0
+          (the first page is 'page'= 0). Default is `0`.
+        in: query
+        name: page
+        required: false
+        type: integer
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          schema:
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                $ref: '#/definitions/call'
+          examples:
+            application/json:
+              metadata:
+                datafiles: []
+                pagination:
+                  currentPage: 0
+                  pageSize: 1000
+                  totalCount: 8
+                  totalPages: 1
+              result:
+                data:
+                - call: token
+                  datatypes:
+                  - json
+                  methods:
+                  - POST
+                  - DELETE
+                - call: calls
+                  datatypes:
+                  - json
+                  methods:
+                  - GET
+                - call: allelematrix
+                  datatypes:
+                  - json
+                  - tsv
+                  methods:
+                  - GET
+                  - POST
+                - call: observationLevels
+                  datatypes:
+                  - json
+                  methods:
+                  - GET
+                - call: germplasm-search
+                  datatypes:
+                  - json
+                  methods:
+                  - GET
+                  - POST
+                - call: germplasm/{germplasmDbId}
+                  datatypes:
+                  - json
+                  methods:
+                  - GET
+                - call: germplasm/{germplasmDbId}/pedigree
+                  datatypes:
+                  - json
+                  methods:
+                  - GET
+                - call: germplasm/{germplasmDbId}/markerprofiles
+                  datatypes:
+                  - json
+                  methods:
+                  - GET
+      summary: Call search
+      tags:
+      - Calls
+swagger: '2.0'

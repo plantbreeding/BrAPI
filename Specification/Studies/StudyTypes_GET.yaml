@@ -1,0 +1,94 @@
+definitions:
+  List Study Types: {}
+info:
+  description: ''
+  title: ''
+  version: ''
+paths:
+  /brapi/v1/studyTypes:
+    get:
+      description: ''
+      parameters:
+      - description: The size of the pages to be returned. Default is `1000`.
+        in: query
+        name: pageSize
+        required: false
+        type: integer
+      - description: Which result page is requested. The page indexing starts at 0
+          (the first page is 'page'= 0). Default is `0`.
+        in: query
+        name: page
+        required: false
+        type: integer
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          examples:
+            application/json:
+              metadata:
+                datafiles: []
+                pagination:
+                  currentPage: 0
+                  pageSize: 1000
+                  totalCount: 3
+                  totalPages: 1
+                status: []
+              result:
+                data:
+                - description: Description for Nursery study type
+                  name: Crossing Nursery
+                - description: Description for Trial study type
+                  name: Yield Trial
+                - description: Description for Genotyping study type
+                  name: Genotype
+          headers: {}
+      summary: '**Deprecated** List study types'
+      tags: []
+  /studytypes:
+    get:
+      description: '
+
+
+        <a>example.com/brapi/v1/studytypes</a>'
+      parameters:
+      - description: The size of the pages to be returned. Default is `1000`.
+        in: query
+        name: pageSize
+        required: false
+        type: integer
+      - description: Which result page is requested. The page indexing starts at 0
+          (the first page is 'page'= 0). Default is `0`.
+        in: query
+        name: page
+        required: false
+        type: integer
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          examples:
+            application/json:
+              metadata:
+                datafiles: []
+                pagination:
+                  currentPage: 0
+                  pageSize: 1000
+                  totalCount: 3
+                  totalPages: 1
+                status: []
+              result:
+                data:
+                - description: Description for Nursery study type
+                  name: Crossing Nursery
+                - description: Description for Trial study type
+                  name: Yield Trial
+                - description: Description for Genotyping study type
+                  name: Genotype
+          headers: {}
+      summary: List study types
+      tags:
+      - studytypes
+swagger: '2.0'

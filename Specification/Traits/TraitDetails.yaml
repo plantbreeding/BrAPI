@@ -1,0 +1,49 @@
+definitions:
+  Trait Details: {}
+info:
+  description: ''
+  title: ''
+  version: ''
+paths:
+  /traits/{traitDbId}:
+    get:
+      description: '
+
+
+        <a>example.com/brapi/v1/traits/{traitDbId}</a>'
+      parameters:
+      - description: Id of the trait to retrieve details of.
+        in: path
+        name: traitDbId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          examples:
+            application/json:
+              metadata:
+                datafiles: []
+                pagination:
+                  currentPage: 0
+                  pageSize: 0
+                  totalCount: 0
+                  totalPages: 0
+                status: []
+              result:
+                defaultValue: null
+                description: Description of Plant Height
+                name: Plant Height
+                observationVariables:
+                - CO_334:0100121
+                - CO_334:0100122
+                - CO_334:0100123
+                traitDbId: '123'
+                traitId: CO:123000007
+          headers: {}
+      summary: Retrieve trait details by id
+      tags:
+      - traits
+swagger: '2.0'

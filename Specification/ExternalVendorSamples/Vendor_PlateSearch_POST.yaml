@@ -1,0 +1,42 @@
+definitions:
+  Search for plates: {}
+info:
+  description: ''
+  title: ''
+  version: ''
+paths:
+  /brapi/v1/vendor/plate-search:
+    post:
+      description: ''
+      parameters:
+      - in: body
+        name: body
+        schema:
+          properties:
+            clientPlateDbIds:
+              items:
+                type: string
+              type: array
+            page:
+              type: number
+            pageSize:
+              type: number
+            sampleInfo:
+              type: string
+            vendorPlateDbIds:
+              items:
+                type: string
+              type: array
+            vendorProjectDbIds:
+              items:
+                type: string
+              type: array
+          type: object
+      responses:
+        '200':
+          description: OK
+          examples: {}
+          headers: {}
+      summary: Search for plates
+      tags: []
+swagger: '2.0'

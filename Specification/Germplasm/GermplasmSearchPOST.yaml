@@ -1,0 +1,125 @@
+definitions:
+  Germplasm search through POST: {}
+info:
+  description: ''
+  title: ''
+  version: ''
+paths:
+  /brapi/v1/germplasm-search:
+    post:
+      description: Use POST for large queries (>2K bytes).
+      parameters:
+      - in: body
+        name: body
+        schema:
+          properties:
+            accessionNumbers:
+              items:
+                type: string
+              type: array
+            germplasmDbIds:
+              items:
+                type: string
+              type: array
+            germplasmGenus:
+              items:
+                type: string
+              type: array
+            germplasmNames:
+              items:
+                type: string
+              type: array
+            germplasmPUIs:
+              items:
+                type: string
+              type: array
+            germplasmSpecies:
+              items:
+                type: string
+              type: array
+            page:
+              type: number
+            pageSize:
+              type: number
+          type: object
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          examples:
+            application/json:
+              metadata:
+                datafiles: []
+                pagination:
+                  currentPage: 1
+                  pageSize: 100
+                  totalCount: 102
+                  totalPages: 2
+                status: []
+              result:
+                data:
+                - accessionNumber: ITC0609
+                  acquisitionDate: '1947-01-31'
+                  biologicalStatusOfAccessionCode: 412
+                  commonCropName: banana
+                  countryOfOriginCode: UNK
+                  defaultDisplayName: Pahang
+                  donors:
+                  - donorAccessionNumber: ''
+                    donorInstituteCode: ''
+                    germplasmPUI: ''
+                  genus: Musa
+                  germplasmDbId: 01BEL084609
+                  germplasmName: Pahang
+                  germplasmPUI: http://www.crop-diversity.org/mgis/accession/01BEL084609
+                  germplasmSeedSource: Female GID:4/Male GID:4
+                  instituteCode: 01BEL084
+                  instituteName: ITC
+                  pedigree: TOBA97/SW90.1057
+                  species: acuminata
+                  speciesAuthority: ''
+                  subtaxa: sp malaccensis var pahang
+                  subtaxaAuthority: ''
+                  synonyms: []
+                  taxonIds:
+                  - sourceName: ncbiTaxon
+                    taxonId: http://purl.obolibrary.org/obo/NCBITaxon_4641
+                  - sourceName: ciradTaxon
+                    taxonId: 23-E
+                  typeOfGermplasmStorageCode:
+                  - 10
+                - accessionNumber: ITC0685
+                  acquisitionDate: '1977-01-31'
+                  biologicalStatusOfAccessionCode: 412
+                  commonCropName: banana
+                  countryOfOriginCode: UNK
+                  defaultDisplayName: Pah
+                  donors:
+                  - donorAccessionNumber: ''
+                    donorInstituteCode: ''
+                    germplasmPUI: ''
+                  genus: Musa
+                  germplasmDbId: 03REL084609
+                  germplasmName: Pah
+                  germplasmPUI: doi:10.15454/328757862534E12
+                  germplasmSeedSource: Female GID:4/Male GID:4
+                  instituteCode: 01BEL084
+                  instituteName: ITC
+                  pedigree: TOBA97/SW90.1057
+                  species: acuminata
+                  speciesAuthority: ''
+                  subtaxa: sp malaccensis var pah
+                  subtaxaAuthority: ''
+                  synonyms: []
+                  taxonIds:
+                  - sourceName: ncbiTaxon
+                    taxonId: http://purl.obolibrary.org/obo/NCBITaxon_4641
+                  - sourceName: ciradTaxon
+                    taxonId: 23-E
+                  typeOfGermplasmStorageCode:
+                  - 10
+          headers: {}
+      summary: Germplasm search through POST
+      tags: []
+swagger: '2.0'

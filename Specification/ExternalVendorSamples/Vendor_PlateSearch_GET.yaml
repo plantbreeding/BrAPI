@@ -1,0 +1,54 @@
+definitions:
+  Search for plates: {}
+info:
+  description: ''
+  title: ''
+  version: ''
+paths:
+  /vendor/plate-search:
+    get:
+      description: '
+
+
+        <a>example.com/brapi/v1/vendor/plate-search</a>'
+      parameters:
+      - description: ''
+        in: query
+        name: vendorProjectDbId
+        required: false
+        type: string
+      - description: ''
+        in: query
+        name: vendorPlateDbId
+        required: false
+        type: string
+      - description: ''
+        in: query
+        name: clientPlateDbId
+        required: false
+        type: string
+      - description: ''
+        in: query
+        name: sampleInfo
+        required: false
+        type: boolean
+      - description: The size of the pages to be returned. Default is `1000`.
+        in: query
+        name: pageSize
+        required: false
+        type: integer
+      - description: Which result page is requested. The page indexing starts at 0
+          (the first page is 'page'= 0). Default is `0`.
+        in: query
+        name: page
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: OK
+          examples: {}
+          headers: {}
+      summary: Search for plates
+      tags:
+      - vendor
+swagger: '2.0'

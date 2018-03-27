@@ -1,0 +1,28 @@
+definitions:
+  Study Details: {}
+info:
+  description: ''
+  title: ''
+  version: ''
+paths:
+  /studies/{studyDbId}:
+    get:
+      description: '
+
+
+        <a>example.com/brapi/v1/studies/{studyDbId}</a>'
+      parameters:
+      - description: Identifier of the study. Usually a number, could be alphanumeric.
+        in: path
+        name: studyDbId
+        required: true
+        type: string
+      responses:
+        '200':
+          description: OK
+          examples: {}
+          headers: {}
+      summary: Retrieve study details
+      tags:
+      - studies
+swagger: '2.0'

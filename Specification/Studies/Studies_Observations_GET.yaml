@@ -1,0 +1,47 @@
+definitions:
+  Get Observation Units by observation variable ids: {}
+info:
+  description: ''
+  title: ''
+  version: ''
+paths:
+  /studies/{studyDbId}/observations:
+    get:
+      description: '
+
+
+        <a>example.com/brapi/v1/studies/{studyDbId}/observations</a>'
+      parameters:
+      - description: Identifier of the study. Usually a number, could be alphanumeric.
+        in: path
+        name: studyDbId
+        required: true
+        type: string
+      - description: Numeric `id` of that variable (combination of trait, unit and
+          method)
+        in: query
+        name: observationVariableDbIds
+        required: true
+        type: array
+        items:
+          type: string
+      - description: The size of the pages to be returned. Default is `1000`.
+        in: query
+        name: pageSize
+        required: false
+        type: integer
+      - description: Which result page is requested. The page indexing starts at 0
+          (the first page is 'page'= 0). Default is `0`.
+        in: query
+        name: page
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: OK
+          examples: {}
+          headers: {}
+      summary: Get Observation Units by observation variable ids
+      tags:
+      - studies
+swagger: '2.0'

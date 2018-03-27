@@ -1,0 +1,123 @@
+definitions:
+  Germplasm Search: {}
+info:
+  description: ''
+  title: ''
+  version: ''
+paths:
+  /germplasm-search:
+    get:
+      description: 'Use GET when parameter size is less than 2K bytes.
+
+
+        <a>example.com/brapi/v1/germplasm-search</a>'
+      parameters:
+      - description: Permanent unique identifier (DOI, URI, etc.)
+        in: query
+        name: germplasmPUI
+        required: false
+        type: string
+      - description: Internal database identifier
+        in: query
+        name: germplasmDbId
+        required: false
+        type: string
+      - description: Name of the germplasm
+        in: query
+        name: germplasmName
+        required: false
+        type: string
+      - description: The size of the pages to be returned. Default is `1000`.
+        in: query
+        name: pageSize
+        required: false
+        type: integer
+      - description: Which result page is requested. The page indexing starts at 0
+          (the first page is 'page'= 0). Default is `0`.
+        in: query
+        name: page
+        required: false
+        type: integer
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          examples:
+            application/json:
+              metadata:
+                datafiles: []
+                pagination:
+                  currentPage: 0
+                  pageSize: 1000
+                  totalCount: 2
+                  totalPages: 1
+                status: []
+              result:
+                data:
+                - accessionNumber: ITC0609
+                  acquisitionDate: '1947-01-31'
+                  biologicalStatusOfAccessionCode: 412
+                  commonCropName: banana
+                  countryOfOriginCode: UNK
+                  defaultDisplayName: Pahang
+                  donors:
+                  - donorAccessionNumber: ''
+                    donorInstituteCode: ''
+                    germplasmPUI: ''
+                  genus: Musa
+                  germplasmDbId: 01BEL084609
+                  germplasmName: Pahang
+                  germplasmPUI: http://www.crop-diversity.org/mgis/accession/01BEL084609
+                  germplasmSeedSource: Female GID:4/Male GID:4
+                  instituteCode: 01BEL084
+                  instituteName: ITC
+                  pedigree: TOBA97/SW90.1057
+                  species: acuminata
+                  speciesAuthority: ''
+                  subtaxa: sp malaccensis var pahang
+                  subtaxaAuthority: ''
+                  synonyms: []
+                  taxonIds:
+                  - sourceName: ncbiTaxon
+                    taxonId: http://purl.obolibrary.org/obo/NCBITaxon_4641
+                  - sourceName: ciradTaxon
+                    taxonId: 23-E
+                  typeOfGermplasmStorageCode:
+                  - 10
+                - accessionNumber: ITC0685
+                  acquisitionDate: '1977-01-31'
+                  biologicalStatusOfAccessionCode: 412
+                  commonCropName: banana
+                  countryOfOriginCode: UNK
+                  defaultDisplayName: Pah
+                  donors:
+                  - donorAccessionNumber: ''
+                    donorInstituteCode: ''
+                    germplasmPUI: ''
+                  genus: Musa
+                  germplasmDbId: 03REL084609
+                  germplasmName: Pah
+                  germplasmPUI: doi:10.15454/328757862534E12
+                  germplasmSeedSource: Female GID:4/Male GID:4
+                  instituteCode: 01BEL084
+                  instituteName: ITC
+                  pedigree: TOBA97/SW90.1057
+                  species: acuminata
+                  speciesAuthority: ''
+                  subtaxa: sp malaccensis var pah
+                  subtaxaAuthority: ''
+                  synonyms: []
+                  taxonIds:
+                  - sourceName: ncbiTaxon
+                    taxonId: http://purl.obolibrary.org/obo/NCBITaxon_4641
+                  - sourceName: ciradTaxon
+                    taxonId: 23-E
+                  typeOfGermplasmStorageCode:
+                  - 10
+          headers: {}
+      summary: Germplasm search through GET
+      tags:
+      - germplasm
+      - search
+swagger: '2.0'

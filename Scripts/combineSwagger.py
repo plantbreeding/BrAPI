@@ -2,11 +2,15 @@
 
 import yaml
 import glob
+import sys
 
+rootPath = '.'
+if len(sys.argv) > 1 :
+	rootPath = sys.argv[1];
 info = {}
 paths = {}
 defin = {}
-for filename in glob.iglob('./**/*.yaml', recursive=True):
+for filename in glob.iglob(rootPath + '/**/*.yaml', recursive=True):
 	print(filename)
 	with open(filename, "r") as stream:
 		try:

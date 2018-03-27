@@ -1,0 +1,92 @@
+definitions:
+  Vendor specification: {}
+info:
+  description: ''
+  title: ''
+  version: ''
+paths:
+  /vendor/specifications:
+    get:
+      description: '
+
+
+        <a>example.com/brapi/v1/vendor/specifications</a>'
+      parameters: []
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          examples:
+            application/json:
+              metadata:
+                datafiles: []
+                pagination:
+                  currentPage: 0
+                  pageSize: 0
+                  totalCount: 0
+                  totalPages: 0
+                status: []
+              result:
+                additionalInfo: {}
+                contactName: John Doe
+                platforms:
+                - contactEmail: ''
+                  contactName: ''
+                  contactPhone: ''
+                  deliverables:
+                  - description: ''
+                    format: ''
+                    name: ''
+                  platformDescription: ''
+                  platformName: GBS
+                  platformURL: ''
+                  shippingAddress: ''
+                  specificRequirements: {}
+                  standardRequirements:
+                    blankWellPosition:
+                      numberOfBlanksPerPlate: ''
+                      positions:
+                      - random
+                      - A01
+                      - H12
+                    inputFormatDetails: https://...
+                    inputFormats:
+                    - Plate_96
+                    - Tubes
+                    maxConcentration: ''
+                    maxVolume: ''
+                    minConcentration: ''
+                    minSampleNumber: ''
+                    minVolume: ''
+                    plateOrientation: rowFirst|columnFirst
+                    sampleTypeDetails: https://...
+                    sampleTypes:
+                    - ''
+                    - ''
+                  statuses:
+                  - statusDescription: Platesarereceivedbyvendor.
+                    statusName: received
+                  - statusDescription: Resultfilesareready.
+                    statusName: completed
+                  - statusDescription: Platesarerejectedbyvendor
+                    statusName: rejected
+                  taxonomyIdSystem:
+                    URI: https://...
+                    name: NCBITaxonomyId
+                  tissueIdSystem:
+                    URI: https://...
+                    name: DArT
+                vendorAddress: 123 Lane St
+                vendorCity: Metropolis
+                vendorCountry: USA
+                vendorDescription: Gene Sequencing Vendor
+                vendorEmail: jdoe@example.org
+                vendorName: Gene Sequencing Vendor
+                vendorPhone: 1-234-567-8910
+                vendorURL: www.example.org
+          headers: {}
+      summary: Vendor specification
+      tags:
+      - vendor
+swagger: '2.0'

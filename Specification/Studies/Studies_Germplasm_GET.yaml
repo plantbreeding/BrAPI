@@ -1,0 +1,39 @@
+definitions:
+  Study Germplasm Details: {}
+info:
+  description: ''
+  title: ''
+  version: ''
+paths:
+  /studies/{studyDbId}/germplasm:
+    get:
+      description: '
+
+
+        <a>example.com/brapi/v1/studies/{studyDbId}/germplasm</a>'
+      parameters:
+      - description: Identifier of the study. Usually a number, could be alphanumeric.
+        in: path
+        name: studyDbId
+        required: true
+        type: string
+      - description: The size of the pages to be returned. Default is `1000`.
+        in: query
+        name: pageSize
+        required: false
+        type: integer
+      - description: Which result page is requested. The page indexing starts at 0
+          (the first page is 'page'= 0). Default is `0`.
+        in: query
+        name: page
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: OK
+          examples: {}
+          headers: {}
+      summary: Study Germplasm Details
+      tags:
+      - studies
+swagger: '2.0'
