@@ -31,7 +31,7 @@ Call to retrieve a list of observation variable ontologies available in the syst
                         "authors": "J. Snow, H. Peterson",
                         "version": "v1.2",
                         "description": "developped for European genetic studies projects",
-                        "copyright": "© 2016, INRA",
+                        "copyright": "Copyright 2016, INRA",
                         "licence": "CC BY-SA 4.0"
                     }, {
                         "ontologyDbId": "CO_335",

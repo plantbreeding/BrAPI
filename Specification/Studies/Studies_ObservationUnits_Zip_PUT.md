@@ -23,7 +23,7 @@ Note: If 'observationUnitDbId' or 'observationDbId' is populated, they should be
                         "message": "Upload Successful"
                     } ]
                 },
-                "results": {
+                "result": {
                     "observationUnitDbIds" : [
                         "123abc", "456def"
                     ]

@@ -14,14 +14,15 @@ Get a list of locations.
 | locationDbId            | string          | string identifier                                       |    Y     |
 | locationType            | string          | string                                                  |    Y     |
 | name                    | string          | string                                                  |    Y     |
-| abreviation             | string          | string                                                  |          |
+| **Deprecated** abreviation| string        | **Use abbreviation**                                    |          |
+| abbreviation            | string          | string                                                  |          |
 | countryCode             | string          | ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec  |          |
 | countryName             | string          | string                                        |          |
 | latitude                | string          | string                                        |          |
 | longitude               | string          | string                                        |          |
 | altitude                | string          | string                                        |          |
 | instituteName           | string          | string   each institute/laboratory can have several experimental field    |          |
-| **Deprecated** instituteAdress         | string          | **Use instituteAddress**                           |          |
+| **Deprecated** instituteAdress| string    | **Use instituteAddress**                           |          |
 | instituteAddress        | string          | string                                        |          |
 | additionalInfo          | object          | Additional arbitrary info on the study, like objectives or publications |          |
 

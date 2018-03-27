@@ -22,7 +22,7 @@ Scope: PHENOTYPING
                 "datafiles": [],
             },
             "result": {
-                "studyDbId": 123,
+                "studyDbId": "123",
                 "trialName": "myBestTrial",
                 "data": [
                    { 

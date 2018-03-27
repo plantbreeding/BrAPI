@@ -23,7 +23,7 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
 |commonCropName|string|Common name for the crop (e.g. wheat, rice, maize, cassava, banana)||
 |instituteCode|string|[MCPD] Institute that has bred the material. Note: The code may consist of the 3-letter ISO 3166 country code of the country where the institute is located plus a number (e.g. COL001) as recommended by FAO WIEWS |Y|
 |instituteName|string|[MCPD] Name of the institute (or person) that bred the material.||
-|biologicalStatusOfAccessionCode|string|[MCPD] 400) Breeding/research material 410) Breeder's line 411) Synthetic population 412) Hybrid 413) Founder stock/base population 414) Inbred line (parent of hybrid cultivar) 415) Segregating population 416) Clonal selection 420) Genetic stock 421) Mutant (e.g. induced/insertion mutants, tilling populations) 422) Cytogenetic stocks  423) Other genetic stocks (e.g. mapping populations)500) Advanced or improved cultivar (conventional breeding methods) 600) GMO (by genetic engineering) 999) Other||
+|biologicalStatusOfAccessionCode|integer|[MCPD] 400) Breeding/research material 410) Breeder's line 411) Synthetic population 412) Hybrid 413) Founder stock/base population 414) Inbred line (parent of hybrid cultivar) 415) Segregating population 416) Clonal selection 420) Genetic stock 421) Mutant (e.g. induced/insertion mutants, tilling populations) 422) Cytogenetic stocks  423) Other genetic stocks (e.g. mapping populations)500) Advanced or improved cultivar (conventional breeding methods) 600) GMO (by genetic engineering) 999) Other||
 |countryOfOriginCode|string|[MCPD] 3-letter ISO 3166-1 code of the country in which the sample was bred or selected (breeding lines, GMOs, segregating populations, hybrids, modern cultivars, etc.).||
 |typeOfGermplasmStorageCode|array of string|[MCPD] If germplasm is maintained under different types of storage, multiple choices are allowed. 10) Seed collection 11) Short term 12) Medium term 13) Long term 20) Field collection 30) In vitro collection 40) Cryopreserved collection 50) DNA collection 99) Other (elaborate in REMARKS field)||
 |genus|string|[MCPD] Genus name for taxon. Initial uppercase letter required.||
@@ -66,7 +66,7 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
                 "instituteName": "ITC",
                 "biologicalStatusOfAccessionCode": 412,
                 "countryOfOriginCode": "UNK",
-                "typeOfGermplasmStorageCode": [10],
+                "typeOfGermplasmStorageCode": ["10"],
                 "genus": "Musa",
                 "species": "acuminata",
                 "taxonIds": [

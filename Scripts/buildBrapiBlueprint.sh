@@ -17,22 +17,30 @@ touch $BRAPI_FILE
 
 # Tedious to write out the names of all the directories and files but this let's us control the order of assembly
 BRAPI_PREFIX=${BRAPI_DIR}/Specification/
-cd $BRAPI_PREFIX
+
 sources=("README.md" 
+	       "GeneralInfo/URL_Structure.md"
+	       "GeneralInfo/Response_Structure.md"
+	       "GeneralInfo/Error_Handling.md"
+	       "GeneralInfo/Date_Time_Encoding.md"
+	       "GeneralInfo/Location_Encoding.md"
+	       "GeneralInfo/Asychronous_Processing.md"
+	       "GeneralInfo/Search_Services.md"
 	       "Authentication/README.md" 
 	       "Authentication/Authentication.md"
 	       "Calls/README.md" 
 	       "Calls/Calls.md" 
 	       "Germplasm/README.md"
-	       "Germplasm/GermplasmSearchGET.md" 
-	       "Germplasm/GermplasmSearchPOST.md"
-	       "Germplasm/GermplasmDetailsByGermplasmDbId.md"
-	       "Germplasm/GermplasmPedigree.md"
-	       "Germplasm/GermplasmMarkerprofiles.md"
+	       "Germplasm/GermplasmSearch_GET.md" 
+	       "Germplasm/GermplasmSearch_POST.md"
+	       "Germplasm/Germplasm_GET.md"
+	       "Germplasm/Germplasm_Pedigree_GET.md"
+	       "Germplasm/Germplasm_Progeny_GET.md"
+	       "Germplasm/Germplasm_Markerprofiles_GET.md"
 	       "GermplasmAttributes/README.md"
-	       "GermplasmAttributes/ListAttributesByAttributeCategoryDbId.md"
-	       "GermplasmAttributes/ListAttributeCategories.md"
-	       "GermplasmAttributes/GermplasmAttributeValuesByGermplasmDbId.md"
+	       "GermplasmAttributes/Attributes_GET.md"
+	       "GermplasmAttributes/Attributes_Categories_GET.md"
+	       "GermplasmAttributes/Germplasm_Attributes_GET.md"
 	       "Markers/README.md"
 	       "Markers/MarkerSearch_GET.md"
 	       "Markers/MarkerSearch_POST.md"
@@ -40,6 +48,7 @@ sources=("README.md"
 	       "MarkerProfiles/README.md"
 	       "MarkerProfiles/MarkerProfileSearch.md"
 	       "MarkerProfiles/MarkerProfileData.md"
+	       "MarkerProfiles/AlleleMatrices.md"
 	       "MarkerProfiles/MarkerProfileAlleleMatrix.md"
 	       "MarkerProfiles/ScoresThroughPOST.md"
 	       "Programs/README.md"
@@ -67,7 +76,9 @@ sources=("README.md"
 	       "Studies/Studies_Table_GET.md"
 	       "Studies/Studies_Table_POST.md"
 	       "Studies/Studies_Layout_GET.md"
+	       "Studies/Studies_Layout_PUT.md"
 	       "Studies/Studies_Observations_GET.md"
+	       "Studies/Studies_Observations_PUT.md"
 	       "Phenotypes/README.md"
 	       "Phenotypes/PhenotypeSearch.md"
 	       "Traits/README.md"
@@ -101,8 +112,9 @@ sources=("README.md"
 ) 
 
 for i in ${sources[@]}; do
-    cat $i >> $BRAPI_FILE
-    echo "" >> $BRAPI_FILE
+    echo $BRAPI_PREFIX$i;
+    cat $BRAPI_PREFIX$i >> $BRAPI_FILE;
+    echo "" >> $BRAPI_FILE;
 done
 
 echo $BRAPI_FILE

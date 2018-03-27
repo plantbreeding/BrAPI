@@ -36,8 +36,8 @@
         "name": "Cassavabase",
         "resource": {
           "name": "Cassavabase",
-          "base-url": "https://cassava-test.sgn.cornell.edu/brapi/v1/",
-          "certificate": "https://ics.hutton.ac.uk/resources/brapi/certs/cassava-test.sgn.cornell.edu.crt"
+          "base-url": "https://cassavabase.org/brapi/v1/",
+          "certificate": "https://ics.hutton.ac.uk/resources/brapi/certs/cassavabase.org.crt"
         }
       },
       {
@@ -66,6 +66,38 @@
           "base-url": "https://urgi.versailles.inra.fr/GnpISCore-srv/brapi/v1/",
           "description": "See web service documentation at https://urgi.versailles.inra.fr/GnpISCore-srv/swagger-ui.html."
         }
+      },
+      {
+        "name": "Bioversity International",
+        "description": "Bioversity International is a global research-for-development organization.",
+        "logo": "https://www.bioversityinternational.org/fileadmin/templates/IMG/bioversity-logo.png",
+        "resource": [
+          {
+            "name": "Musa Acuminata GWAS Panel - GBS - genome V1",
+            "base-url": "https://www.crop-diversity.org/gigwa/rest/Musa_acuminata-v1/brapi/v1/",
+            "logo": "https://www.bioversityinternational.org/fileadmin/templates/IMG/bioversity-logo.png",
+            "description": "The GWAS panel is a list of diploid accessions (composed of musa acuminata and AA) carefully selected to support Genome-Wide Association Study (GWAS) in banana in order to quickly and accurately link areas of the genome with important traits."
+          },
+          {
+            "name": "Musa Acuminata GWAS Panel - GBS - genome V2",
+            "base-url": "https://www.crop-diversity.org/gigwa/rest/Musa_acuminata-v2/brapi/v1/",
+            "logo": "https://www.bioversityinternational.org/fileadmin/templates/IMG/bioversity-logo.png",
+            "description": "The GWAS panel is a list of diploid accessions (composed of musa acuminata and AA) carefully selected to support Genome-Wide Association Study (GWAS) in banana in order to quickly and accurately link areas of the genome with important traits."
+          }
+        ]
+      },
+      {
+        "name": "BrAPI",
+        "description": "The BrAPI Community",
+        "logo": "https://brapi.org/assets/images/brapi-logo.svg",
+        "resource": [
+          {
+            "name": "BrAPI Test Server",
+            "base-url": "https://test-server.brapi.org/brapi/v1/",
+            "logo": "https://brapi.org/assets/images/brapi-logo.svg",
+            "description": "BrAPI Official Test Server"
+          }
+        ]
       }
     ]
   }
