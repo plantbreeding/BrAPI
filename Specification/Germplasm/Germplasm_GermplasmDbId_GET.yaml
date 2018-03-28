@@ -1,5 +1,4 @@
-definitions:
-  Germplasm Details by germplasmDbId: {}
+swagger: '2.0'
 info:
   description: ''
   title: ''
@@ -7,10 +6,8 @@ info:
 paths:
   /germplasm/{germplasmDbId}:
     get:
-      description: '
-
-
-        <a>example.com/germplasm/{germplasmDbId}</a>'
+      description: >
+        <a>example.com/germplasm/{germplasmDbId}</a>
       parameters:
       - description: The internal id of the germplasm
         in: path
@@ -22,6 +19,13 @@ paths:
       responses:
         '200':
           description: OK
+          schema:
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                $ref: '#/definitions/germplasm'
           examples:
             application/json:
               metadata:
@@ -67,4 +71,3 @@ paths:
       summary: Germplasm search by germplasmDbId
       tags:
       - Germplasm
-swagger: '2.0'

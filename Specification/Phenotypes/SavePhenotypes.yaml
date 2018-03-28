@@ -7,71 +7,47 @@ info:
 paths:
   /phenotypes:
     post:
-      description: 'Call to invoke for saving the measurements (observations) collected
+      description: >
+        Call to invoke for saving the measurements (observations) collected
         from field for all the observation units.
-
-
         Observation timestamp should be ISO 8601 https://www.w3.org/TR/NOTE-datetime
-
-
         In case where JSON data is zipped for faster transfer speed (as in the case
         of the IRRI handheld implementation), the zipped JSON file will be listed
         in datafiles. The zipped file contains a JSON file with the same structure
         as the BrAPI call. In this case a format parameter should be passed as well.
-
-
         Images can be optionally be uploaded using this call by providing a zipfile
         of all images in the datafiles, along with the actual zipfile in multi-part
         form data.
-
-
-        Scope: PHENOYTPING.'
       parameters:
-      - description: In case where JSON data is zipped for faster transfer speed (as
-          in the case of the IRRI handheld implementation), the zipped JSON file will
-          be listed in datafiles. The zipped file contains a JSON file with the same
-          structure as the BrAPI call.
+      - description: In case where JSON data is zipped for faster transfer speed (as in the case of the IRRI handheld implementation), the zipped JSON file will be listed in datafiles. The zipped file contains a JSON file with the same structure as the BrAPI call.
         in: query
         name: format
-        required: true
-        schema:
-          type: string
+        type: string
+        enum: [json, zip]
       - in: body
         name: body
         schema:
+          type: object
           properties:
             metadata:
-              properties:
-                datafiles:
-                  items:
-                    type: string
-                  type: array
-                pagination:
-                  properties:
-                    currentPage:
-                      type: number
-                    pageSize:
-                      type: number
-                    totalCount:
-                      type: number
-                    totalPages:
-                      type: number
-                  type: object
-                status:
-                  items: {}
-                  type: array
-              type: object
+              $ref: '#/definitions/metadata' 
             result:
+              type: object
               properties:
-                commit:
+                transactionDbId:
                   type: string
                 data:
-                  items:
+                  type: array
+                  items: 
+                    description: new phenotypes
+                    type: object
                     properties:
                       observatioUnitDbId:
                         type: string
                       observations:
+                        type: array
                         items:
+                          type: object
                           properties:
                             collector:
                               type: string
@@ -89,20 +65,12 @@ paths:
                           - collector
                           - observationTimeStamp
                           - value
-                          type: object
-                        type: array
                       studyDbId:
                         type: number
                     required:
                     - observatioUnitDbId
                     - studyDbId
                     - observations
-                    type: object
-                  type: array
-                transactionDbId:
-                  type: string
-              type: object
-          type: object
       produces:
       - application/json
       responses:

@@ -62,4 +62,32 @@ paths:
       tags:
       - Vendor Samples
       - Search Services
+    post:
+      description: ''
+      parameters:
+      - in: body
+        name: body
+        schema:
+          $ref: '#/definitions/vendorPlateSearchRequest' 
+      responses:
+        '200':
+          description: OK
+          schema: 
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                type: object
+                properties:
+                  plates:
+                    type: array
+                    items: 
+                      $ref: '#/definitions/vendorPlate'
+          examples: {}
+          headers: {}
+      summary: Search for plates
+      tags: 
+      - Vendor Samples
+      - Search Services
 swagger: '2.0'

@@ -3,7 +3,7 @@ info:
   title: ''
   version: ''
 paths:
-  /vendor/plate/{vendorPlateDbId}:
+  /vendor/plates/{vendorPlateDbId}:
     get:
       description: '
 

@@ -1,0 +1,63 @@
+swagger: '2.0'
+info:
+  description: ''
+  title: ''
+  version: ''
+paths:
+  /germplasm/{germplasmDbId}/pedigree:
+    get:
+      description: >
+        <a>example.com/germplasm/{germplasmDbId}/pedigree</a>
+      parameters:
+      - description: the internal id of the germplasm
+        in: path
+        name: germplasmDbId
+        required: true
+        type: string
+      - description: text representation of the pedigree
+        in: query
+        name: notation
+        required: false
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                $ref: '#/definitions/pedigree'
+          examples: 
+            application/json:
+              metadata:
+                pagination:
+                  pageSize: 0
+                  currentPage: 0
+                  totalCount: 0
+                  totalPages: 0
+                status: []
+                datafiles: []
+              result:
+                germplasmDbId: '382'
+                defaultDisplayName: Pahang 1
+                pedigree: Cree / Bonanza
+                crossingPlan: string
+                crossingYear: '2018'
+                familyCode: string
+                parent1DbId: '166'
+                parent1Name: Cree
+                parent1Type: FEMALE
+                parent2DbId: '143'
+                parent2Name: Bonanza
+                parent2Type: MALE
+                siblings:
+                - germplasmDbId: '383'
+                  defaultDisplayName: Pahang 2
+                - germplasmDbId: '384'
+                  defaultDisplayName: Pahang 3
+          headers: {}
+      summary: Germplasm pedigree by id
+      tags:
+      - Germplasm
