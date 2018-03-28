@@ -1,5 +1,4 @@
-definitions:
-  Get List of Trial Summaries: {}
+swagger: '2.0'
 info:
   description: ''
   title: ''
@@ -54,6 +53,18 @@ paths:
       responses:
         '200':
           description: OK
+          schema:
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: 
+                      $ref: '#/definitions/trial' 
           examples:
             application/json:
               metadata:
@@ -106,4 +117,3 @@ paths:
       summary: List of trial summaries
       tags:
       - Trials
-swagger: '2.0'

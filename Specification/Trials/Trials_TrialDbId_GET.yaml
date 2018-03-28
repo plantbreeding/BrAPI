@@ -1,5 +1,4 @@
-definitions:
-  Get Trial By Id: {}
+swagger: '2.0'
 info:
   description: ''
   title: ''
@@ -22,6 +21,13 @@ paths:
       responses:
         '200':
           description: OK
+          schema:
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                $ref: '#/definitions/trial' 
           examples:
             application/json:
               metadata:
@@ -75,4 +81,3 @@ paths:
       summary: Get trial by Id
       tags:
       - Trials
-swagger: '2.0'

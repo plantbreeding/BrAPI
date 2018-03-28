@@ -1,0 +1,55 @@
+swagger: '2.0'
+info:
+  description: ''
+  title: ''
+  version: ''
+paths:
+  /samples/{sampleDbId}:
+    get:
+      description: '
+
+
+        <a>example.com/samples/{sampleDbId}</a>'
+      parameters:
+      - description: the internal DB id for a sample
+        in: path
+        name: sampleDbId
+        required: true
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                $ref: '#/definitions/sample' 
+          examples: 
+            metadata:
+              pagination:
+                pageSize: 0
+                currentPage: 0
+                totalCount: 0
+                totalPages: 0
+              status: []
+              datafiles: []
+            result:
+              sampleDbId: Unique-Plant-SampleID
+              observationUnitDbId: abc123
+              germplasmDbId: def456
+              studyDbId: StudyId-123
+              plotDbId: PlotId-123
+              plantDbId: PlantID-123
+              plateDbId: PlateID-123
+              plateIndex: 0
+              takenBy: Mr. Technician
+              sampleTimestamp: '2016-07-27T14:43:22+0100'
+              sampleType: TypeOfSample
+              tissueType: TypeOfTissue
+              notes: Cut from infected leaf
+          headers: {}
+      summary: Get Sample
+      tags:
+      - Samples

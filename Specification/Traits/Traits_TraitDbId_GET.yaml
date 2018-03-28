@@ -1,5 +1,4 @@
-definitions:
-  Trait Details: {}
+swagger: '2.0'
 info:
   description: ''
   title: ''
@@ -22,6 +21,13 @@ paths:
       responses:
         '200':
           description: OK
+          schema:
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                $ref: '#/definitions/trait' 
           examples:
             application/json:
               metadata:
@@ -45,5 +51,4 @@ paths:
           headers: {}
       summary: Retrieve trait details by id
       tags:
-      - Traits
-swagger: '2.0'
+      - Observation Variables

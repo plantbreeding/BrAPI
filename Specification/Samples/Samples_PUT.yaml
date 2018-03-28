@@ -1,0 +1,30 @@
+swagger: '2.0'
+info:
+  description: ''
+  title: ''
+  version: ''
+paths:
+  /samples:
+    put:
+      description: >
+        Call to register the event of a sample being taken. Sample ID is
+        assigned as a result of the operation and returned in response.
+      parameters: 
+      - in: body
+        name: sample
+        schema: 
+          $ref: '#/definitions/sample'
+      responses:
+        '200':
+          description: OK
+          schema: 
+            $ref: '#/definitions/newSampleDbId'
+          examples: 
+            application/json:
+              metadata: 
+              result:
+                sampleDbId: Unique-Plant-SampleID
+          headers: {}
+      summary: Add a sample
+      tags:
+      - Samples

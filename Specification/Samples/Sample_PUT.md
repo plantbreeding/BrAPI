@@ -17,7 +17,7 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
             "sampleTimestamp": "2016-07-27T14:43:22+0100",
             "sampleType" : "TypeOfSample",
             "tissueType" : "TypeOfTissue",
-            "notes": "Cut from infected leaf",
+            "notes": "Cut from infected leaf"
         }
 
 + Response 200

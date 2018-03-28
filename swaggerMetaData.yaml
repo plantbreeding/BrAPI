@@ -99,11 +99,6 @@ tags:
   externalDocs: 
     description: Docs
     url: https://wiki.brapi.org/
-- name: Traits
-  description: Information about Traits
-  externalDocs: 
-    description: Docs
-    url: https://wiki.brapi.org/
 - name: Markers
   description: Information about Markers
   externalDocs: 
