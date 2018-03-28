@@ -1,28 +1,4 @@
 definitions:
-  genomeMap:
-    type: 'object'
-    properties:
-      mapDbId:
-        type: 'string'
-      name:
-        type: 'string'
-      species:
-        type: 'string'
-      type:
-        type: 'string'
-      unit:
-        type: 'string'
-      publishedDate:
-        type: "string"
-        format: "date"
-      markerCount:
-        type: 'integer'
-        format: 'int32'
-      linkageGroupCount:
-        type: 'integer'
-        format: 'int32'
-      comments:
-        type: 'string'
   marker:
     type: object
     properties:
@@ -50,27 +26,21 @@ definitions:
         type: array
         items:
           type: string
-  linkageGroup:
-    type: object
+  markersSearchRequest:
     properties:
-      linkageGroupName:
-        type: string
-      markerCount:
-        type: integer
-      maxPosition:
-        type: integer
-  mapDetails:
-    type: object
-    properties:
-      mapDbId:
-        type: string
-      name:
-        type: string
-      type:
-        type: string
-      unit:
-        type: string
-      data:
+      markerDbIds:
         type: array
         items:
-          $ref: '#/definitions/linkageGroup'
+          type: string
+      name: 
+        type: string
+      matchMethod: 
+        type: string
+      includeSynonyms: 
+        type: boolean
+      type: 
+        type: string
+      pageSize: 
+        type: integer
+      page: 
+        type: integer

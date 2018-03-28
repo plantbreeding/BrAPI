@@ -1,0 +1,75 @@
+swagger: '2.0'
+info:
+  title: 'BrAPI'
+  version: '1.0'
+  description: ""
+paths:
+  /ontologies:
+    get:
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/definitions/ontology'
+          headers: {}
+          examples:
+            application/json:
+              metadata:
+                pagination:
+                  pageSize: 1000
+                  currentPage: 0
+                  totalCount: 2
+                  totalPages: 1
+                status: []
+                datafiles: []
+              result:
+                data:
+                  - ontologyDbId: CO_334
+                    ontologyName: Wheat ontology
+                    authors: 'J. Snow, H. Peterson'
+                    version: v1.2
+                    description: developped for European genetic studies projects
+                    copyright: '© 2016, INRA'
+                    licence: CC BY-SA 4.0
+                  - ontologyDbId: CO_335
+                    ontologyName: Rice ontology
+                    authors: J. Doe
+                    description: developped for IRRI and amended with partners needs
+                    version: v2
+                    copyright: null
+                    licence: null
+      summary: Variable ontology list
+      description: >-
+        Call to retrieve a list of observation variable ontologies available in the system.
+        <br>
+        
+        **Scope:** CORE. 
+        
+        **Status:** ACCEPTED.
+      tags: 
+      - Observation Variables
+      parameters:
+        - name: pageSize
+          in: query
+          description: The size of the pages to be returned. Default is `1000`.
+          required: false
+          type: integer
+        - name: page
+          in: query
+          description: >-
+            Which result page is requested. The page indexing starts at 0 (the
+            first page is 'page'= 0). Default is `0`.
+          required: false
+          type: integer
+      produces:
+        - application/json

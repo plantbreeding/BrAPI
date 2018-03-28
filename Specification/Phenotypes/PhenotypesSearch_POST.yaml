@@ -1,5 +1,4 @@
-definitions:
-  Phenotype Search: {}
+swagger: '2.0'
 info:
   description: ''
   title: ''
@@ -16,6 +15,18 @@ paths:
       responses:
         '200':
           description: OK
+          schema:
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: 
+                      $ref: '#/definitions/observationUnit' 
           examples:
             application/json:
               metadata:
@@ -112,4 +123,3 @@ paths:
       tags:
       - Phenotypes
       - Search Services
-swagger: '2.0'

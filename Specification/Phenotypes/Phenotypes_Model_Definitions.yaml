@@ -1,0 +1,121 @@
+definitions:
+  phenotypesRequest:
+    properties:
+      data:
+        type: array
+        items: 
+          description: new phenotypes
+          type: object
+          properties:
+            observatioUnitDbId:
+              type: string
+            studyDbId:
+              type: string
+            observations:
+              type: array
+              items:
+                $ref: '#/definitions/observation'
+          required:
+          - observatioUnitDbId
+          - studyDbId
+          - observations
+  observation:
+    properties:
+      collector:
+        type: string
+      observationTimeStamp:
+        type: string
+        format: date-time
+      observationVariableDbId:
+        type: string
+      observationVariableName:
+        type: string
+      value:
+        type: string
+      observationDbId:
+        type: string
+      season: 
+        type: string
+    required:
+    - observationVariableDbId
+    - observationVariableName
+    - collector
+    - observationTimeStamp
+    - value
+  newObservationDbIds:
+    properties:
+      observations:
+        type: array
+        items:
+          type: object
+          properties:
+            observationDbId: 
+              type: string
+            observationVariableDbId:  
+              type: string
+            observationUnitDbId:  
+              type: string
+  observationUnit:
+    properties:
+      X: 
+        type: string
+      Y: 
+        type: string
+      blockNumber: 
+        type: string
+      entryNumber: 
+        type: string
+      entryType: 
+        type: string
+      germplasmDbId: 
+        type: string
+      germplasmName: 
+        type: string
+      observationLevel: 
+        type: string
+      observationLevels: 
+        type: string
+      observationUnitDbId: 
+        type: string
+      observationUnitName:
+        type: string
+      observationUnitXref:
+        type: array
+        items:
+          $ref: '#/definitions/observationUnitXref'
+      observations:
+        type: array
+        items:
+          $ref: '#/definitions/observation'
+      plantNumber: 
+        type: string
+      plotNumber:
+        type: string
+      programName: 
+        type: string
+      replicate: 
+        type: string
+      studyDbId: 
+        type: string
+      studyLocation: 
+        type: string
+      studyLocationDbId:
+        type: string
+      studyName: 
+        type: string
+      treatments:
+        type: array
+        items:
+          $ref: '#/definitions/observationTreatment'
+  observationUnitXref:
+    properties:
+      id: 
+        type: string
+      source: 
+        type: string
+  observationTreatment:
+    properties:
+      factor:
+        type: string
+      modality: 
+        type: string

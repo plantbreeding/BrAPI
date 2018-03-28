@@ -1,5 +1,4 @@
-definitions:
-  Program list: {}
+swagger: '2.0'
 info:
   description: ''
   title: ''
@@ -38,6 +37,18 @@ paths:
       responses:
         '200':
           description: OK
+          schema:
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: 
+                      $ref: '#/definitions/program'
           examples:
             application/json:
               metadata:
@@ -64,4 +75,3 @@ paths:
       summary: List programs
       tags:
       - Programs
-swagger: '2.0'

@@ -33,76 +33,62 @@ Scope: PHENOYTPING.
 + Request (application/json)
 
         {
-            "metadata": {
-                "pagination" : { 
-                    "pageSize":0, 
-                    "currentPage":0, 
-                    "totalCount":0, 
-                    "totalPages":0 
+            "data" : [
+                {
+                    "observatioUnitDbId": "abc-123",
+                    "studyDbId": "2",
+                    "observations": [
+                        {
+                            "observationVariableDbId": "18020",
+                            "observationVariableName": "Plant_height",
+                            "collector" : "Mr. Technician",
+                            "observationTimeStamp" : "2015-06-16T00:53:26-0800",
+                            "value": "11"
+                        },
+                        {   
+                            "observationVariableDbId": "51496",
+                            "observationVariableName": "GW100_g",
+                            "collector" : "Mr. Technician",
+                            "observationTimeStamp" : "2015-06-16T00:53:26-0800",
+                            "value": "111"
+                        },
+                        {   
+                            "observationVariableDbId": "51497",
+                            "observationVariableName": "image",
+                            "collector" : "Mr. Technician",
+                            "observationTimeStamp" : "2015-06-16T00:53:26-0800",
+                            "value": "myimage1.jpg"
+                        }
+                    ]
                 },
-                "status" : [],
-                "datafiles": [ "all_images.zip" ]
-            },
-            "result" : {
-                "transactionDbId": "83748382938",
-                "commit" : "true/false",
-                "data" : [
-                    {
-                        "observatioUnitDbId": "abc-123",
-                        "studyDbId": "2",
-                        "observations": [
-                            {
-                                "observationVariableDbId": "18020",
-                                "observationVariableName": "Plant_height",
-                                "collector" : "Mr. Technician",
-                                "observationTimeStamp" : "2015-06-16T00:53:26-0800",
-                                "value": "11"
-                            },
-                            {   
-                                "observationVariableDbId": "51496",
-                                "observationVariableName": "GW100_g",
-                                "collector" : "Mr. Technician",
-                                "observationTimeStamp" : "2015-06-16T00:53:26-0800",
-                                "value": "111"
-                            },
-                            {   
-                                "observationVariableDbId": "51497",
-                                "observationVariableName": "image",
-                                "collector" : "Mr. Technician",
-                                "observationTimeStamp" : "2015-06-16T00:53:26-0800",
-                                "value": "myimage1.jpg"
-                            }
-                        ]
-                    },
-                    {
-                        "observatioUnitDbId": "abc-456",
-                        "studyDbId": "3",
-                        "observations": [
-                            {
-                                "observationVariableDbId": "18020",
-                                "observationVariableName": "Plant_height",
-                                "collector" : "Mr. Technician",
-                                "observationTimeStamp" : "2015-06-16T00:53:26-0800",
-                                "value": "22"
-                            },
-                            {   
-                                "observationVariableDbId": "51496",
-                                "observationVariableName": "GW100_g",
-                                "collector" : "Mr. Technician",
-                                "observationTimeStamp" : "2015-06-16T00:53:26-0800",
-                                "value": "222"
-                            },
-                            {   
-                                "observationVariableDbId": "51497",
-                                "observationVariableName": "image",
-                                "collector" : "Mr. Technician",
-                                "observationTimeStamp" : "2015-06-16T00:53:26-0800",
-                                "value": "myimage2.jpg"
-                            }
-                        ]
-                    }
-                ]
-            }
+                {
+                    "observatioUnitDbId": "abc-456",
+                    "studyDbId": "3",
+                    "observations": [
+                        {
+                            "observationVariableDbId": "18020",
+                            "observationVariableName": "Plant_height",
+                            "collector" : "Mr. Technician",
+                            "observationTimeStamp" : "2015-06-16T00:53:26-0800",
+                            "value": "22"
+                        },
+                        {   
+                            "observationVariableDbId": "51496",
+                            "observationVariableName": "GW100_g",
+                            "collector" : "Mr. Technician",
+                            "observationTimeStamp" : "2015-06-16T00:53:26-0800",
+                            "value": "222"
+                        },
+                        {   
+                            "observationVariableDbId": "51497",
+                            "observationVariableName": "image",
+                            "collector" : "Mr. Technician",
+                            "observationTimeStamp" : "2015-06-16T00:53:26-0800",
+                            "value": "myimage2.jpg"
+                        }
+                    ]
+                }
+            ]
         }
 
 + Response 200 (application/json)
