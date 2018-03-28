@@ -1,0 +1,41 @@
+swagger: '2.0'
+info:
+  version: '1.0'
+  title: 'Marker Profiles'
+  description: 'BRAPI Marker profiles'
+paths:
+  /allelematrices:
+    get:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          schema:
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                type: array
+                items:
+                  $ref: '#/definitions/alleleMatrixDetails' 
+      produces:
+        - application/json
+      tags: 
+      - Marker Profiles
+      summary: Matrices through GET
+      description: |-
+        **Status**: Proposed
+        **Implemented by**: GOBII
+        **Used by**: Flapjack
+        </br>
+        This resource is used for reading and writing genomic matrices:
+        </br>
+        GET provides a list of available matrices, optionally filtered by study;
+        POST will provide a means for adding new matrices (content TBD).
+      parameters:
+        - name: studyDbId
+          in: query
+          description: restricts the list of matrices to a specific study.
+          required: true
+          type: string

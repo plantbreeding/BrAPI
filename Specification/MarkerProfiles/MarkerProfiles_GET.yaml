@@ -1,0 +1,90 @@
+swagger: '2.0'
+info:
+  version: '1.0'
+  title: 'Marker Profiles'
+  description: 'BRAPI Marker profiles'
+paths:
+  /markerprofiles:
+     get:
+       responses:
+         '200':
+           description: OK
+           headers: {}
+           schema:
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                type: array
+                items:
+                  $ref: '#/definitions/markerprofileDescription' 
+           examples:
+             application/json:
+               metadata:
+                 pagination:
+                   pageSize: 1000
+                   currentPage: 0
+                   totalCount: 2
+                   totalPages: 1
+                 status: []
+                 datafiles: []
+               result:
+                 data:
+                   - markerprofileDbId: '993'
+                     germplasmDbId: '2374'
+                     uniqueDisplayName: MyFancyGermplasm
+                     sampleDbId: '3937'
+                     extractDbId: '3939'
+                     analysisMethod: GoldenGate
+                     resultCount: 1470
+                   - markerprofileDbId: '994'
+                     germplasmDbId: '2374'
+                     uniqueDisplayName: Germplasm2
+                     sampleDbId: '1234'
+                     extractDbId: '3939'
+                     analysisMethod: GBS
+                     resultCount: 1470
+       summary: Retrieve Markerprofile Ids
+       description: |-
+        **Scope**: GENOTYPING.
+        **Status**: ACCEPTED.
+        **Implemented by**: Germinate
+        **Used by**: Flapjack
+        </br>
+        For the requested Germplasm Id and/or Extract Id, returns the Markerprofile Id and number of non-missing allele calls (marker/allele pairs).
+       tags:
+         - Marker Profiles
+       parameters:
+         - name: germplasmDbId
+           in: query
+           description: 'The server''s internal ids for the Germplasm IDs, as returned by the **Find markerprofile by Germplasm** service.'
+           required: false
+           type: string
+         - name: studyDbId
+           in: query
+           description: The server's internal id for the StudyDbId
+           required: false
+           type: string
+         - name: sampleDbId
+           in: query
+           description: The server's internal id for the SampleDbId
+           required: false
+           type: string
+         - name: extractDbId
+           in: query
+           description: The server's internal id for the ExtractDbId
+           required: false
+           type: string
+         - name: pageSize
+           in: query
+           description: 'The number of allele call results (marker/allele pairs) to be returned in the response. If multiple experiments are requested, some responses will contain the last results from one experiment followed by the first results from the next.'
+           required: false
+           type: integer
+         - name: page
+           in: query
+           description: Required if `pageSize` is given; and requires that `pageSize` be given. The page indexing starts at 0 (the first page is 'page'=0)
+           required: false
+           type: integer
+       produces:
+         - application/json

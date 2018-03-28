@@ -1,5 +1,4 @@
-definitions:
-  List attributes available: {}
+swagger: '2.0'
 info:
   description: ''
   title: ''
@@ -36,6 +35,18 @@ paths:
       responses:
         '200':
           description: OK
+          schema:
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: 
+                      $ref: '#/definitions/germplasmAttributeDef' 
           examples:
             application/json:
               metadata:
@@ -63,5 +74,3 @@ paths:
       summary: Attributes by attributeCategoryDbId
       tags:
       - Germplasm Attributes
-      - Germplasm
-swagger: '2.0'

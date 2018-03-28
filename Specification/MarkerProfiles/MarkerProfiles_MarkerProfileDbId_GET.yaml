@@ -1,0 +1,83 @@
+swagger: '2.0'
+info:
+  version: '1.0'
+  title: 'Marker Profiles'
+  description: 'BRAPI Marker profiles'
+paths:
+  '/markerprofiles/{markerprofileDbId}':
+    get:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          examples: {}
+          schema:
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                type: array
+                items:
+                  $ref: '#/definitions/markerProfile' 
+      summary: Alleles By Markerprofile Id
+      description: |-
+        **Scope**:GENOTYPING.
+        **Status**: ACCEPTED.
+        **Implemented by**: Germinate, Cassavabase
+        </br>
+        For the requested markerprofile ID, returns the allele call for each marker. 
+        [Example](http://malt.pw.usda.gov/t3/wheatplus/markerprofiles/1784_99/count?analysisMethod=GoldenGate)
+        </br>
+        **Allele encodings**
+        
+        - Unknown data will by default be encoded by "N"
+        - Homozygotes are returned as a single occurance, e.g. AA -> A, GG -> G
+        - Phased heterozygotes are by default separated by a pipe ("|") and unphased heterozygotes are by default separated by a forward slash ("/")
+        - Dominant markers such as DArTs: 1 for present, 0 for absent
+        
+        **Parameters**
+        - If the user would like to use an empty string ("") for any of the parameters, the value should be set to the reserved word "empty_string", e.g. sepUnphased=empty_string.
+        
+        **Open issue:**
+        The pages of data will need to be sorted sensibly in order for the
+        requested page to be delivered consistently.  By map or genome position?
+        Alphabetically?'
+      tags: 
+        - Marker Profiles
+      parameters:
+        - name: markerprofileDbId
+          in: path
+          description: The server's internal id for the markerprofile
+          required: true
+          type: string
+        - name: expandHomozygotes
+          in: query
+          description: Should homozygotes NOT be collapsed into a single orrucance?
+          required: false
+          type: boolean
+        - name: unknownString
+          in: query
+          description: The string to use as a representation for missing data or the reserved word "empty_string".
+          required: false
+          type: string
+        - name: sepPhased
+          in: query
+          description: The string to use as a separator for phased allele calls or the reserved word "empty_string".
+          required: false
+          type: string
+        - name: sepUnphased
+          in: query
+          description: The string to use as a separator for unphased allele calls or the reserved word "empty_string".
+          required: false
+          type: string
+        - name: pageSize
+          in: query
+          description: 'The number of allele call results (marker/allele pairs) to be returned in the response. If multiple experiments are requested, some responses will contain the last results from one experiment followed by the first results from the next.'
+          required: false
+          type: integer
+        - name: page
+          in: query
+          description: Required if `pageSize` is given; and requires that `pageSize` be given. The page indexing starts at 0 (the first page is 'page'=0)
+          required: false
+          type: integer

@@ -1,0 +1,48 @@
+definitions: 
+  germplasmAttributeDef:
+    properties:
+      attributeDbId:
+        type: string
+      attributeCategoryDbId:
+        type: string
+      code: 
+        type: string
+      datatype: 
+        type: string
+      description: 
+        type: string
+      name: 
+        type: string
+      uri: 
+        type: string
+      values:
+        type: array
+        items:
+          type: string
+  germplasmAttributeCategory:
+    properties:
+      attributeCategoryDbId:
+        type: string
+      name: 
+        type: string
+  germplasmAttribute:
+    properties:
+      attributeDbId:
+        type: string
+      attributeCode: 
+        type: string
+      attributeName: 
+        type: string
+      value:
+        type: string
+      determinedDate:
+        type: string
+        format: date
+  germplasmAttributeList:
+    properties:
+      germplasmDbId:
+        type: string
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/germplasmAttribute' 

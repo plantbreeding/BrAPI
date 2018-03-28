@@ -1,0 +1,59 @@
+swagger: '2.0'
+info:
+  description: ''
+  title: ''
+  version: ''
+paths:
+  /attributes/categories:
+    get:
+      description: 'List all available attribute categories.
+
+
+        <a>example.com/attributes/categories</a>'
+      parameters:
+      - description: The size of the pages to be returned. Default is `1000`.
+        in: query
+        name: pageSize
+        required: false
+        type: integer
+      - description: Which result page is requested. The page indexing starts at 0
+          (the first page is 'page'= 0). Default is `0`.
+        in: query
+        name: page
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: 
+                      $ref: '#/definitions/germplasmAttributeCategory' 
+          examples: 
+            application/json:
+              metadata:
+                pagination:
+                  pageSize: 10
+                  currentPage: 1
+                  totalCount: 2
+                  totalPages: 1
+                status: []
+                datafiles: []
+              result:
+                data:
+                - attributeCategoryDbId: '1'
+                  name: Morphological
+                - attributeCategoryDbId: '2'
+                  name: Agronomic
+          headers: {}
+      summary: Germplasm attribute categories
+      tags:
+      - Germplasm Attributes

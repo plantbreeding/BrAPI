@@ -3,41 +3,7 @@ info:
   version: '1.0'
   title: 'Locations (BRAPI)'
   description: 'API for all the locations functions'
-# Added by API Auto Mocking Plugin
-host: virtserver.swaggerhub.com
-basePath: /homonecloco/Locations/1.0
 paths:
-  '/locations/{locationDbId}':
-    get:
-      responses:
-        '200':
-          description: OK
-          headers: {}
-          schema:
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                $ref: '#/definitions/location' 
-          examples: {}
-      summary: The internal DB id for a location
-      description: |-
-          **Implemented by:**  GnpIS
-          
-          Get details for a location.
-          
-            * The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
-            * `altitude` is in meters.
-      
-      tags: 
-      - Locations
-      parameters:
-        - name: locationDbId
-          in: path
-          description: The internal DB id for a location
-          required: true
-          type: string
   /locations:
     get:
       responses: 
@@ -114,52 +80,3 @@ paths:
           type: integer
       produces:
         - application/json
-      
-       
-definitions:
-  location:
-    type: object
-    properties: 
-      locationDbId: 
-        description: string identifier
-        type: string
-      locationType:
-        type: string
-      name:
-        type: string
-      abbreviation:
-        type: string
-      countryCode:
-        description: |-
-          [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec
-        type: string
-      countryName: 
-        type: string
-      latitude: 
-        type: number
-      longitude: 
-        type: number
-      altitude: 
-        type: number
-      instituteName: 
-        description: |-
-          each institute/laboratory can have several experimental field
-        type: string
-      instituteAddress:
-        type: string
-      instituteAdress: 
-        description: |-
-          Depecrarted  **Use instituteAddress** 
-        type: string
-        
-      additionalInfo:
-        description: |-
-          Additional arbitrary info on the study, like objectives or publications
-        type: array
-        items:
-          type: object
-          additionalProperties:
-            type: string
-# Added by API Auto Mocking Plugin
-schemes:
- - https

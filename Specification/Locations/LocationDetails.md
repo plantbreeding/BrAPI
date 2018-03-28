@@ -25,24 +25,22 @@ Get details for a location.
                 "datafiles": []
             },
             "result": {
+                "locationDbId": "abc123",
+                "locationType" : "Breeding Location",
+                "name": "Ibadan",
+                "abreviation": "DEPRECATED -- see abbreviation",
+                "abbreviation": "IB",
+                "countryCode": "NGA",
+                "countryName": "Nigeria",
+                "latitude": -21.5,
+                "longitude": 165.5,
+                "altitude": 12,
+                "instituteName": "INRA - GDEC",
+                "instituteAddress": "road foo, nigeria",
+                "additionalInfo": 
                 {
-                    "locationDbId": "abc123",
-                    "locationType" : "Breeding Location",
-                    "name": "Ibadan",
-                    "abreviation": "DEPRECATED -- see abbreviation",
-                    "abbreviation": "IB",
-                    "countryCode": "NGA",
-                    "countryName": "Nigeria",
-                    "latitude": -21.5,
-                    "longitude": 165.5,
-                    "altitude": 12,
-                    "instituteName": "INRA - GDEC",
-                    "instituteAddress": "road foo, nigeria",
-                    "additionalInfo": 
-                    {
-                        "annualMeanRain" : "value", 
-                        "soilDescription" :"23"
-                    }
+                    "annualMeanRain" : "value", 
+                    "soilDescription" :"23"
                 }
             }
         }

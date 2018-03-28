@@ -1,0 +1,185 @@
+swagger: '2.0'
+info:
+  version: '1.0'
+  title: 'Marker Profiles'
+  description: 'BRAPI Marker profiles'
+paths:
+  /allelematrix-search:
+    post:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          schema:
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                type: array
+                items:
+                  $ref: '#/definitions/alleMatrixValues' 
+          examples:
+            Format TSV:
+              metadata:
+                pagination:
+                  pageSize: 0
+                  currentPage: 0
+                  totalCount: 0
+                  totalPages: 0
+                status: []
+                datafiles:
+                  - 'https://my-fancy-server/files/allelematrix-1234.tsv'
+              result:
+                data: []
+            Format JSON:
+              metadata:
+                pagination:
+                  pageSize: 0
+                  currentPage: 0
+                  totalCount: 0
+                  totalPages: 0
+                status: []
+                datafiles:
+              result:
+                data:  
+                  - - '1'
+                    - '1'
+                    - A/B
+                  - - '1'
+                    - '2'
+                    - B
+                  - - '2'
+                    - '1'
+                    - A
+                  - - '2'
+                    - '2'
+                    - A/B 
+                
+      summary: Scores through POST
+      description: |-
+        Use POST when parameter size is greater than 2K bytes.
+
+        - If no format is specified, this call returns the data in JSON form.
+
+        - If a format (other than JSON) is specified and the server supports this format, it will return the link to the exported data file in the "datafiles" field of the "metadata".
+
+        - If more than one format is requested at a time, the server will throw a "501 Not Implemented" error.
+
+        The format of the tsv response can be found on GitHub (https://github.com/plantbreeding/Documentation/wiki/BrAPI-TSV-Expected-Formats)
+      tags: 
+        - Marker Profiles
+      parameters: []
+      produces:
+        - application/json
+    get:
+       responses:
+         '200':
+           description: OK
+           headers: {}
+           
+           schema:
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                type: array
+                items:
+                  $ref: '#/definitions/alleMatrixValues' 
+           examples:
+             application/json:
+               metadata:
+                 pagination:
+                   pageSize: 1000
+                   currentPage: 0
+                   totalCount: 1
+                   totalPages: 1
+                 status: []
+                 datafiles: []
+               result:
+                 data:
+                   - - '1'
+                     - '1'
+                     - A/B
+                   - - '1'
+                     - '2'
+                     - B
+                   - - '2'
+                     - '1'
+                     - A
+                   - - '2'
+                     - '2'
+                     - A/B
+       summary: Scores through GET
+       tags: 
+       - Marker Profiles
+       description: |-
+         **Status**: ACCEPTED.
+         **Implemented by**: Germinate (POST only), Cassavabase
+         **Used by**: Flapjack (POST only)
+         See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
+         </br>
+          This uses a more efficient data structure and pagination for large number of markers. 
+         </br>
+         Use GET when parameter size is less than 2K bytes.
+         This method may support asynchronous processing.
+       parameters:
+        - name: markerprofileDbId
+          in: query
+          description: The markerprofile db ids. Not Required if 'markerDbId' or 'matrixDbId' is present.
+          required: true
+          type: array
+          items:
+            type: string
+        - name: markerDbId
+          in: query
+          description: 'ids of the markers. if none are specified, results are returned for all markers in the database. Not Required if ''markerprofileDbId'' or ''matrixDbId'' is present.'
+          required: true
+          type: array
+          items:
+            type: string
+        - name: matrixDbId
+          in: query
+          description: ''
+          required: true
+          type: array
+          items:
+            type: string
+        - name: format
+          in: query
+          description: format for the datafile to be downloaded. tsv and csv currently supported; flapjack may be supported.
+          required: false
+          type: string
+        - name: expandHomozygotes
+          in: query
+          description: Should homozygotes NOT be collapsed into a single occurrence?
+          required: false
+          type: boolean
+        - name: unknownString
+          in: query
+          description: The string to use as a representation for missing data or the reserved word "empty_string".
+          required: false
+          type: string
+        - name: sepPhased
+          in: query
+          description: The string to use as a separator for phased allele calls or the reserved word "empty_string".
+          required: false
+          type: string
+        - name: sepUnphased
+          in: query
+          description: The string to use as a separator for unphased allele calls or the reserved word "empty_string".
+          required: false
+          type: string
+        - name: pageSize
+          in: query
+          description: The size of the pages to be returned. Default is `1000`.
+          required: false
+          type: integer
+        - name: page
+          in: query
+          description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+          required: false
+          type: integer
+       produces:
+         - application/json

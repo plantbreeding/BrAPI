@@ -1,0 +1,81 @@
+definitions:
+  markerprofileDescription:
+    type: object
+    properties:
+      markerprofileDbId: 
+        type: string
+      germplasmDbId:
+        type: string
+      uniqueDisplayName:
+        type: string
+      sampleDbId:
+        type: string
+      extractDbId:
+        type: string
+      analysisMethod:
+        type: string
+      resultCount:
+        type: integer
+  markerProfile:
+    type: object
+    properties:
+      markerprofileDbId:
+        type: string
+        description: |-
+          Unique in the database. Can be a catenation of unique IDs for germplasm and extract. **Required**
+      germplasmDbId:
+        description: |-
+          **Required**
+        type: string
+      analysisMethod:
+        type: string
+      extractDbId: 
+        description: |-
+          **Required**
+        type: string
+      data:
+        description: |-
+          **Required**
+          array of marker-name/score pairs
+        type: array
+        items:
+          type: object
+          additionalProperties:
+            type: string
+      
+  alleMatrixValues:
+    type: object
+    properties:
+      data:
+        type: array
+        description: |-
+          Is an array of arrays; each inner array has three entries: ```markerDbId```, ```markerprofileDbId```, ```alleleCall```. Scores have to be represented as described further up. e.g. unknown data as "N", etc. Missing data can be skipped.
+        items:
+          type: array
+          items:
+            type: string
+  alleleMatrixDetails:
+    type: object
+    properties:
+      name: 
+        description: Name of the matrix
+        type: string
+      mtrixDbId: 
+        description: ID of the matrix
+        type: string
+      description:
+        description: How the matrix was generated 
+        type: string
+      lastUpdated: 
+        description: A date format
+        type: string
+      studyDbId: 
+        description: Link to the study where the matrix was produced
+        type: string
+# Added by API Auto Mocking Plugin
+host: virtserver.swaggerhub.com
+basePath: /homonecloco/MarkerProfiles/1.0
+schemes:
+ - https
+
+  
