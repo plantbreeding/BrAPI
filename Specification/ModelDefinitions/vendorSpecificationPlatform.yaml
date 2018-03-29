@@ -1,0 +1,45 @@
+definitions:
+  vendorSpecificationPlatform:
+    properties:
+      contactEmail:
+        type: string
+      contactName:
+        type: string
+      contactPhone:
+        type: string
+      deliverables:
+        items:
+          properties:
+            description:
+              type: string
+            format:
+              type: string
+            name:
+              type: string
+          type: object
+        type: array
+      platformDescription:
+        type: string
+      platformName:
+        type: string
+      platformURL:
+        type: string
+      shippingAddress:
+        type: string
+      specificRequirements:
+        type: object
+      standardRequirements:
+        $ref: '#/definitions/vendorSpecificationStandardRequirement'
+      statuses:
+        items:
+          properties:
+            statusDescription:
+              type: string
+            statusName:
+              type: string
+          type: object
+        type: array
+      taxonomyIdSystem:
+        $ref: '#/definitions/vendorSpecificationReferenceSystem'
+      tissueIdSystem:
+        $ref: '#/definitions/vendorSpecificationReferenceSystem'

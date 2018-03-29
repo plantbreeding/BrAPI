@@ -1,0 +1,30 @@
+definitions:
+  vendorPlate:
+    properties:
+      clientPlateDbId:
+        type: string
+      files:
+        items:
+          $ref: '#/definitions/vendorPlateFile'
+        type: array
+      plateFormat:
+        type: string
+      sampleType:
+        type: string
+      samples:
+        items:
+          $ref: '#/definitions/vendorSample'
+        type: array
+      status:
+        type: string
+      statusTimeStamp:
+        format: date-time
+        type: string
+      vendorBarcode:
+        type: string
+      vendorBarcodeImageURL:
+        type: string
+      vendorPlateDbId:
+        type: string
+      vendorProjectDbId:
+        type: string

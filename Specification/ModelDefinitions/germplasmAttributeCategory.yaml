@@ -1,0 +1,7 @@
+definitions:
+  germplasmAttributeCategory:
+    properties:
+      attributeCategoryDbId:
+        type: string
+      name:
+        type: string

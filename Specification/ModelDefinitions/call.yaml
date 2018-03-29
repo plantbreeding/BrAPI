@@ -1,0 +1,14 @@
+definitions:
+  call:
+    properties:
+      call:
+        type: string
+      datatypes:
+        items:
+          type: string
+        type: array
+      methods:
+        items:
+          type: string
+        type: array
+    type: object

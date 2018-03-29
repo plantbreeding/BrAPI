@@ -1,0 +1,40 @@
+definitions:
+  location:
+    properties:
+      abbreviation:
+        type: string
+      additionalInfo:
+        description: Additional arbitrary info on the study, like objectives or publications
+        items:
+          additionalProperties:
+            type: string
+          type: object
+        type: array
+      altitude:
+        type: number
+      countryCode:
+        description: '[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)
+          spec'
+        type: string
+      countryName:
+        type: string
+      instituteAddress:
+        type: string
+      instituteAdress:
+        description: 'Depecrarted  **Use instituteAddress** '
+        type: string
+      instituteName:
+        description: each institute/laboratory can have several experimental field
+        type: string
+      latitude:
+        type: number
+      locationDbId:
+        description: string identifier
+        type: string
+      locationType:
+        type: string
+      longitude:
+        type: number
+      name:
+        type: string
+    type: object

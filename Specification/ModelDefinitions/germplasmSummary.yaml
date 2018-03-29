@@ -1,0 +1,21 @@
+definitions:
+  germplasmSummary:
+    properties:
+      accessionNumber:
+        type: string
+      entryNumber:
+        type: string
+      germplasmDbId:
+        type: string
+      germplasmName:
+        type: string
+      germplasmPUI:
+        type: string
+      pedigree:
+        type: string
+      seedSource:
+        type: string
+      synonyms:
+        items:
+          type: string
+        type: array

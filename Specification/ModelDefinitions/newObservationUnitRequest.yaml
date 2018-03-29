@@ -1,0 +1,41 @@
+definitions:
+  newObservationUnitRequest:
+    properties:
+      X:
+        type: string
+      Y:
+        type: string
+      blockNumber:
+        type: string
+      entryNumber:
+        type: string
+      entryType:
+        type: string
+      germplasmDbId:
+        type: string
+      observationLevel:
+        type: string
+      observationUnitDbId:
+        type: string
+      observationUnitName:
+        type: string
+      observationUnitXref:
+        items:
+          $ref: '#/definitions/observationUnitXref'
+        type: array
+      observations:
+        items:
+          $ref: '#/definitions/observation'
+        type: array
+      plantNumber:
+        type: string
+      plotNumber:
+        type: string
+      replicate:
+        type: string
+      studyDbId:
+        type: string
+      treatments:
+        items:
+          $ref: '#/definitions/observationTreatment'
+        type: array

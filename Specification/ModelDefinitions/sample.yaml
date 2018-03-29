@@ -1,0 +1,30 @@
+definitions:
+  sample:
+    properties:
+      germplasmDbId:
+        type: string
+      notes:
+        type: string
+      observationUnitDbId:
+        type: string
+      plantDbId:
+        type: string
+      plateDbId:
+        type: string
+      plateIndex:
+        type: integer
+      plotDbId:
+        type: string
+      sampleDbId:
+        type: string
+      sampleTimestamp:
+        format: date-time
+        type: string
+      sampleType:
+        type: string
+      studyDbId:
+        type: string
+      takenBy:
+        type: string
+      tissueType:
+        type: string

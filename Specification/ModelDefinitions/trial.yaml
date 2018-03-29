@@ -1,0 +1,45 @@
+definitions:
+  trial:
+    properties:
+      active:
+        type: boolean
+      additionalInfo:
+        type: object
+      contacts:
+        items:
+          $ref: '#/definitions/contact'
+        type: array
+      datasetAuthorship:
+        properties:
+          datasetPUI:
+            type: string
+          license:
+            type: string
+        type: object
+      endDate:
+        format: date
+        type: string
+      programDbId:
+        type: string
+      programName:
+        type: string
+      startDate:
+        format: date
+        type: string
+      studies:
+        items:
+          properties:
+            locationDbId:
+              type: string
+            locationName:
+              type: string
+            studyDbId:
+              type: string
+            studyName:
+              type: string
+          type: object
+        type: array
+      trialDbId:
+        type: string
+      trialName:
+        type: string

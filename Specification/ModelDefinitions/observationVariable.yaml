@@ -1,0 +1,71 @@
+definitions:
+  observationVariable:
+    properties:
+      contextOfUse:
+        description: 'Indication of how trait is routinely used. (examples: ["Trial
+          evaluation", "Nursery evaluation"])'
+        items:
+          type: string
+        type: array
+      crop:
+        description: 'Crop name (examples: "Maize", "Wheat")'
+        type: string
+      date:
+        description: Date of submission of the variable (ISO 8601).
+        type: string
+      defaultValue:
+        description: 'Variable default value. (examples: "red", "2.3", etc.)'
+        type: string
+      growthStage:
+        description: 'Growth stage at which measurement is made (examples: "flowering")'
+        type: string
+      institution:
+        description: Name of institution submitting the variable
+        type: string
+      language:
+        description: 2 letter ISO code for the language of submission of the variable.
+        type: string
+      method:
+        $ref: '#/definitions/method'
+      name:
+        description: Variable name (usually a short name)
+        type: string
+      observationVariableDbId:
+        description: Variable unique identifier
+        type: string
+      ontologyDbId:
+        description: Variable ontology unique identifier
+        type: string
+      ontologyName:
+        description: Variable ontology name (usually a short name)
+        type: string
+      scale:
+        $ref: '#/definitions/scale'
+      scientist:
+        description: Name of scientist submitting the variable.
+        type: string
+      status:
+        description: 'Variable status. (examples: "recommended", "obsolete", "legacy",
+          etc.)'
+        type: string
+      synonyms:
+        description: Other variable names
+        items:
+          type: string
+        type: array
+      trait:
+        $ref: '#/definitions/trait'
+      xref:
+        description: Cross reference of the variable term to a term from an external
+          ontology or to a database of a major system.
+        type: string
+    required:
+    - observationVariableDbId
+    - name
+    - ontologyDbId
+    - ontologyName
+    - trait
+    - method
+    - scale
+    - defaultValue
+    type: object

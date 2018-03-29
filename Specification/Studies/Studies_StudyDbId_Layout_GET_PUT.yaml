@@ -1,0 +1,207 @@
+swagger: '2.0'
+info:
+  description: ''
+  title: ''
+  version: ''
+paths:
+  /studies/{studyDbId}/layout:
+    get:
+      description: >
+        Retrive the layout details for a study.
+        Returns an array of observation unit position data which describes where each unit and germplasm is located within the study layout
+        <a>example.com/studies/{studyDbId}/layout</a>
+      parameters:
+      - description: Identifier of the study. Usually a number, could be alphanumeric.
+        in: path
+        name: studyDbId
+        required: true
+        type: string
+      - description: The size of the pages to be returned. Default is `1000`.
+        in: query
+        name: pageSize
+        required: false
+        type: integer
+      - description: Which result page is requested. The page indexing starts at 0
+          (the first page is 'page'= 0). Default is `0`.
+        in: query
+        name: page
+        required: false
+        type: integer
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: 
+                      $ref: '#/definitions/observationUnitPosition'
+          examples:
+            application/json:
+              metadata:
+                pagination:
+                  pageSize: 1000
+                  currentPage: 0
+                  totalCount: 4
+                  totalPages: 1
+                status: []
+                datafiles: []
+              result:
+                data:
+                - studyDbId: '1'
+                  observationUnitDbId: '11'
+                  observationUnitName: ZIPA_68_Ibadan_2014
+                  observationLevel: plot
+                  germplasmDbId: '143'
+                  germplasmName: ZIPA_68
+                  replicate: 1
+                  blockNumber: 1
+                  X: 1
+                  Y: 1
+                  entryType: check/test/filler
+                  additionalInfo: {}
+                - studyDbId: '1'
+                  observationUnitDbId: '12'
+                  observationUnitName: ZIPA_69_Ibadan_2014
+                  observationLevel: plot
+                  germplasmDbId: '144'
+                  germplasmName: ZIPA_69
+                  replicate: 1
+                  blockNumber: 1
+                  X: 1
+                  Y: 2
+                  entryType: check/test/filler
+                  additionalInfo: {}
+                - studyDbId: '1'
+                  observationUnitDbId: '13'
+                  observationUnitName: ZIPA_70_Ibadan_2014
+                  observationLevel: plot
+                  germplasmDbId: '145'
+                  germplasmName: ZIPA_70
+                  replicate: 1
+                  blockNumber: 1
+                  X: 1
+                  Y: 3
+                  entryType: check/test/filler
+                  additionalInfo: {}
+                - studyDbId: '1'
+                  observationUnitDbId: '11'
+                  observationUnitName: ZIPA_68_Ibadan_2014
+                  observationLevel: plot
+                  germplasmDbId: '143'
+                  germplasmName: ZIPA_68
+                  replicate: 2
+                  blockNumber: 2
+                  X: 2
+                  Y: 1
+                  entryType: check/test/filler
+                  additionalInfo: {}
+          headers: {}
+      summary: Retrieve plot layout details
+      tags:
+      - Studies
+    put:
+      description: >
+        Modify a study layout
+
+        <a>example.com/studies/{studyDbId}/layout</a>'
+      parameters:
+      - description: Identifier of the study. Usually a number, could be alphanumeric.
+        in: path
+        name: studyDbId
+        required: true
+        type: string
+      - description: The request body for updateing a study layout
+        in: body
+        name: studyLayoutRequest
+        schema:
+          $ref: '#/definitions/studyLayoutRequest'
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: 
+                      $ref: '#/definitions/observationUnitPosition'
+          examples:
+            application/json:
+              metadata:
+                pagination:
+                  pageSize: 1000
+                  currentPage: 0
+                  totalCount: 4
+                  totalPages: 1
+                status: []
+                datafiles: []
+              result:
+                data:
+                - studyDbId: '1'
+                  observationUnitDbId: '11'
+                  observationUnitName: ZIPA_68_Ibadan_2014
+                  observationLevel: plot
+                  germplasmDbId: '143'
+                  germplasmName: ZIPA_68
+                  replicate: 1
+                  blockNumber: 1
+                  X: 1
+                  Y: 1
+                  entryType: check/test/filler
+                  additionalInfo: {}
+                - studyDbId: '1'
+                  observationUnitDbId: '12'
+                  observationUnitName: ZIPA_69_Ibadan_2014
+                  observationLevel: plot
+                  germplasmDbId: '144'
+                  germplasmName: ZIPA_69
+                  replicate: 1
+                  blockNumber: 1
+                  X: 1
+                  Y: 2
+                  entryType: check/test/filler
+                  additionalInfo: {}
+                - studyDbId: '1'
+                  observationUnitDbId: '13'
+                  observationUnitName: ZIPA_70_Ibadan_2014
+                  observationLevel: plot
+                  germplasmDbId: '145'
+                  germplasmName: ZIPA_70
+                  replicate: 1
+                  blockNumber: 1
+                  X: 1
+                  Y: 3
+                  entryType: check/test/filler
+                  additionalInfo: {}
+                - studyDbId: '1'
+                  observationUnitDbId: '11'
+                  observationUnitName: ZIPA_68_Ibadan_2014
+                  observationLevel: plot
+                  germplasmDbId: '143'
+                  germplasmName: ZIPA_68
+                  replicate: 2
+                  blockNumber: 2
+                  X: 2
+                  Y: 1
+                  entryType: check/test/filler
+                  additionalInfo: {}
+          headers: {}
+      summary: Retrieve plot layout details
+      tags:
+      - Studies

@@ -1,0 +1,19 @@
+definitions:
+  sampleSearchRequest:
+    properties:
+      germplasmDbId:
+        items:
+          type: string
+        type: array
+      observationUnitDbId:
+        items:
+          type: string
+        type: array
+      plateDbId:
+        items:
+          type: string
+        type: array
+      sampleDbId:
+        items:
+          type: string
+        type: array

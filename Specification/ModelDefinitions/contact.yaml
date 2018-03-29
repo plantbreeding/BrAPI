@@ -1,0 +1,15 @@
+definitions:
+  contact:
+    properties:
+      contactDbId:
+        type: string
+      email:
+        type: string
+      instituteName:
+        type: string
+      name:
+        type: string
+      orcid:
+        type: string
+      type:
+        type: string

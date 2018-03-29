@@ -1,0 +1,30 @@
+definitions:
+  observation:
+    properties:
+      germplasmDbId:
+        type: string
+      germplasmName:
+        type: string
+      obserationDbId:
+        type: string
+      observationLevel:
+        type: string
+      observationTimestamp:
+        format: date-time
+        type: string
+      observationUnitDbId:
+        type: string
+      observationUnitName:
+        type: string
+      observationVariableDbId:
+        type: string
+      observationVariableName:
+        type: string
+      operator:
+        type: string
+      studyDbId:
+        type: string
+      uploadedBy:
+        type: string
+      value:
+        type: string

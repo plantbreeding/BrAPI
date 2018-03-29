@@ -1,0 +1,17 @@
+definitions:
+  vendorPlateFile:
+    properties:
+      URL:
+        type: string
+      additionalInfo:
+        type: object
+      fileType:
+        type: string
+      filename:
+        type: string
+      md5sum:
+        type: string
+      sampleDbIds:
+        items:
+          type: string
+        type: array

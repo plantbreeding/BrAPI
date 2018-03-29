@@ -1,0 +1,19 @@
+definitions:
+  vendorSample:
+    properties:
+      column:
+        type: string
+      concentration:
+        type: string
+      row:
+        type: string
+      sampleDbId:
+        type: string
+      taxonId:
+        $ref: '#/definitions/taxonID'
+      tissueType:
+        type: string
+      volume:
+        type: string
+      well:
+        type: string

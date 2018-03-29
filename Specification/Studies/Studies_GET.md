@@ -81,7 +81,7 @@ More linked data:
                 "studyDbId": "35",
                 "studyName": "Earlygenerationtesting",
                 "studyType": "Yield study",
-                "studyDescription": "some free text description that could include scientific goal, some tracability and whatever makes sense"
+                "studyDescription": "some free text description that could include scientific goal, some tracability and whatever makes sense",
                 "seasons": [
                     "2005 Winter",
                     "2008 Summer"
@@ -98,8 +98,8 @@ More linked data:
                     "abbreviation": "IB",
                     "countryCode": "NGA",
                     "countryName": "Nigeria",
-                    "instituteName"; "INRA - GDEC",
-                    "instituteAddress"; "route foo, Clermont Ferrand, France",
+                    "instituteName": "INRA - GDEC",
+                    "instituteAddress": "route foo, Clermont Ferrand, France",
                     "latitude": -21.5,
                     "longitude": 165.5,
                     "altitude": 12,

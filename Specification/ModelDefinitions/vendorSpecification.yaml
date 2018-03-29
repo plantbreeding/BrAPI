@@ -1,0 +1,27 @@
+definitions:
+  vendorSpecification:
+    properties:
+      additionalInfo:
+        type: string
+      contactName:
+        type: string
+      platforms:
+        items:
+          $ref: '#/definitions/vendorSpecificationPlatform'
+        type: array
+      vendorAddress:
+        type: string
+      vendorCity:
+        type: string
+      vendorCountry:
+        type: string
+      vendorDescription:
+        type: string
+      vendorEmail:
+        type: string
+      vendorName:
+        type: string
+      vendorPhone:
+        type: string
+      vendorURL:
+        type: string

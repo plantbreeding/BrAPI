@@ -1,0 +1,54 @@
+definitions:
+  study:
+    properties:
+      active:
+        type: boolean
+      additionalInfo:
+        description: Additional arbitrary info on the study, like objectives or publications
+        items:
+          additionalProperties:
+            type: string
+          type: object
+        type: array
+      contacts:
+        items:
+          $ref: '#/definitions/contact'
+        type: array
+      dataLinks:
+        items:
+          $ref: '#/definitions/dataLink'
+        type: array
+      endDate:
+        format: date
+        type: string
+      lastUpdate:
+        properties:
+          timestamp:
+            format: date-time
+            type: string
+          version:
+            type: string
+        type: object
+      license:
+        type: string
+      location:
+        $ref: '#/definitions/location'
+      seasons:
+        items:
+          type: string
+        type: array
+      startDate:
+        format: date
+        type: string
+      studyDbId:
+        type: string
+      studyDescription:
+        type: string
+      studyName:
+        type: string
+      studyType:
+        type: string
+      trialDbId:
+        type: string
+      trialName:
+        type: string

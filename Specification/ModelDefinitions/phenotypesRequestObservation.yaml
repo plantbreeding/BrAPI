@@ -1,0 +1,24 @@
+definitions:
+  phenotypesRequestObservation:
+    properties:
+      collector:
+        type: string
+      observationDbId:
+        type: string
+      observationTimeStamp:
+        format: date-time
+        type: string
+      observationVariableDbId:
+        type: string
+      observationVariableName:
+        type: string
+      season:
+        type: string
+      value:
+        type: string
+    required:
+    - observationVariableDbId
+    - observationVariableName
+    - collector
+    - observationTimeStamp
+    - value

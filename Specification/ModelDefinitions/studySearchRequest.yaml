@@ -1,0 +1,57 @@
+definitions:
+  studySearchRequest:
+    properties:
+      studyDbIds:
+        type: array
+        items:
+          type: string
+      trialDbIds:
+        type: array
+        items:
+          type: string
+      programDbIds:
+        type: array
+        items:
+          type: string
+      locationDbIds:
+        type: array
+        items:
+          type: string
+      seasonDbId:
+        type: array
+        items:
+          type: string
+      studyType: 
+        type: string
+      studyNames:
+        type: array
+        items:
+          type: string
+      studyLocations:
+        type: array
+        items:
+          type: string
+      programNames:
+        type: array
+        items:
+          type: string
+      germplasmDbIds:
+        type: array
+        items:
+          type: string
+      observationVariableDbIds:
+        type: array
+        items:
+          type: string
+      active: 
+        type: boolean
+      sortBy: 
+        type: string
+        enum: [studyDbId, trialDbId, programDbId, locationDbId, seasonDbId, studyType, studyName, studyLocation, programName, germplasmDbId, observationVariableDbId]
+      sortOrder: 
+        type: string
+        enum: [asc, desc]
+      pageSize: 
+        type: integer
+      page: 
+        type: integer

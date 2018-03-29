@@ -1,0 +1,16 @@
+definitions:
+  mapDetails:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/linkageGroup'
+        type: array
+      mapDbId:
+        type: string
+      name:
+        type: string
+      type:
+        type: string
+      unit:
+        type: string
+    type: object

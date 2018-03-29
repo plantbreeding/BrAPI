@@ -1,0 +1,9 @@
+definitions:
+  germplasmAttributeList:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/germplasmAttribute'
+        type: array
+      germplasmDbId:
+        type: string

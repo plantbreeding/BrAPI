@@ -1,0 +1,25 @@
+definitions:
+  genomeMap:
+    properties:
+      comments:
+        type: string
+      linkageGroupCount:
+        format: int32
+        type: integer
+      mapDbId:
+        type: string
+      markerCount:
+        format: int32
+        type: integer
+      name:
+        type: string
+      publishedDate:
+        format: date
+        type: string
+      species:
+        type: string
+      type:
+        type: string
+      unit:
+        type: string
+    type: object

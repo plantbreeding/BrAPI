@@ -1,5 +1,4 @@
-definitions:
-  List Study Types: {}
+swagger: '2.0'
 info:
   description: ''
   title: ''
@@ -26,6 +25,18 @@ paths:
       responses:
         '200':
           description: OK
+          schema:
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: 
+                      $ref: '#/definitions/studyType' 
           examples:
             application/json:
               metadata:
@@ -48,6 +59,7 @@ paths:
       summary: '**Deprecated** List study types'
       tags: 
       - Studies
+      - Deprecated
   /studytypes:
     get:
       description: '
@@ -60,8 +72,7 @@ paths:
         name: pageSize
         required: false
         type: integer
-      - description: Which result page is requested. The page indexing starts at 0
-          (the first page is 'page'= 0). Default is `0`.
+      - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
         in: query
         name: page
         required: false
@@ -71,6 +82,18 @@ paths:
       responses:
         '200':
           description: OK
+          schema:
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: 
+                      $ref: '#/definitions/studyType' 
           examples:
             application/json:
               metadata:
@@ -93,4 +116,3 @@ paths:
       summary: List study types
       tags:
       - Studies
-swagger: '2.0'

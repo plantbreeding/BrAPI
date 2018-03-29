@@ -1,0 +1,9 @@
+definitions:
+  dataLink:
+    properties:
+      name:
+        type: string
+      type:
+        type: string
+      url:
+        type: string

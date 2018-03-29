@@ -1,0 +1,24 @@
+definitions:
+  studyLayoutRequest:
+    properties:
+      layout:
+        items:
+          properties:
+            X:
+              type: integer
+            Y:
+              type: integer
+            blockNumber:
+              type: integer
+            entryType:
+              enum:
+              - CHECK
+              - TEST
+              - FILLER
+              type: string
+            observationUnitDbId:
+              type: string
+            replicate:
+              type: integer
+          type: object
+        type: array

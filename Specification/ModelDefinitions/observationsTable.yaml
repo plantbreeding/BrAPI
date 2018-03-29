@@ -1,0 +1,21 @@
+definitions:
+  observationsTable:
+    properties:
+      headerRow:
+        type: array
+        items:
+          type: string
+      observationVariableDbIds:
+        type: array
+        items:
+          type: string
+      observationVariableNames:
+        type: array
+        items:
+          type: string
+      data:
+        type: array
+        items:
+          type: array
+          items:
+            type: string

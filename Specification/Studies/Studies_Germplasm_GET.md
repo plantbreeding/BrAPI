@@ -19,7 +19,7 @@ Scope: PHENOTYPING
                     "totalPages": 1 
                 },
                 "status": [],
-                "datafiles": [],
+                "datafiles": []
             },
             "result": {
                 "studyDbId": "123",

@@ -16,6 +16,7 @@ paths:
       summary: Logout
       tags: 
       - Authentication
+      - Deprecated
     post:
       deprecated: true
       description: ''
@@ -42,4 +43,5 @@ paths:
       summary: Login
       tags: 
       - Authentication
+      - Deprecated
 swagger: '2.0'

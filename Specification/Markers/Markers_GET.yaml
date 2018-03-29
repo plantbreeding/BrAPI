@@ -62,6 +62,7 @@ paths:
       description: ''
       tags:
       - Markers
+      - Deprecated
       parameters:
         - name: name
           in: query

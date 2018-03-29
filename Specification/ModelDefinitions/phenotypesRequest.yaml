@@ -1,0 +1,21 @@
+definitions:
+  phenotypesRequest:
+    properties:
+      data:
+        items:
+          description: new phenotypes
+          properties:
+            observatioUnitDbId:
+              type: string
+            observations:
+              items:
+                $ref: '#/definitions/phenotypesRequestObservation'
+              type: array
+            studyDbId:
+              type: string
+          required:
+          - observatioUnitDbId
+          - studyDbId
+          - observations
+          type: object
+        type: array

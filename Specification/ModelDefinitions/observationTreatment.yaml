@@ -1,0 +1,7 @@
+definitions:
+  observationTreatment:
+    properties:
+      factor:
+        type: string
+      modality:
+        type: string

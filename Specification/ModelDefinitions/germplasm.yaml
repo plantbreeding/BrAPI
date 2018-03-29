@@ -1,0 +1,61 @@
+definitions:
+  germplasm:
+    properties:
+      accessionNumber:
+        type: string
+      acquisitionDate:
+        format: date
+        type: string
+      biologicalStatusOfAccessionCode:
+        type: integer
+      commonCropName:
+        type: string
+      countryOfOriginCode:
+        type: string
+      defaultDisplayName:
+        type: string
+      donors:
+        items:
+          properties:
+            donorAccessionNumber:
+              type: string
+            donorGermplasmPUI:
+              type: string
+            donorInstituteCode:
+              type: string
+          type: object
+        type: array
+      genus:
+        type: string
+      germplasmDbId:
+        type: string
+      germplasmName:
+        type: string
+      germplasmPUI:
+        type: string
+      instituteCode:
+        type: string
+      instituteName:
+        type: string
+      pedigree:
+        type: string
+      seedSource:
+        type: string
+      species:
+        type: string
+      speciesAuthority:
+        type: string
+      subtaxa:
+        type: string
+      subtaxaAuthority:
+        type: string
+      synonyms:
+        items:
+          type: string
+        type: array
+      taxonIds:
+        $ref: '#/definitions/taxonID'
+      typeOfGermplasmStorageCode:
+        items:
+          type: string
+        type: array

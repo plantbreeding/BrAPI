@@ -1,0 +1,7 @@
+definitions:
+  vendorSpecificationReferenceSystem:
+    properties:
+      URI:
+        type: string
+      name:
+        type: string

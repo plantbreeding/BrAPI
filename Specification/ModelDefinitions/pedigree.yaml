@@ -1,0 +1,46 @@
+definitions:
+  pedigree:
+    properties:
+      crossingPlan:
+        type: string
+      crossingYear:
+        type: string
+      defaultDisplayName:
+        type: string
+      familyCode:
+        type: string
+      germplasmDbId:
+        type: string
+      parent1DbId:
+        type: string
+      parent1Name:
+        type: string
+      parent1Type:
+        enum:
+        - MALE
+        - FEMALE
+        - SELF
+        - POPULATION
+        type: string
+      parent2DbId:
+        type: string
+      parent2Name:
+        type: string
+      parent2Type:
+        enum:
+        - MALE
+        - FEMALE
+        - SELF
+        - POPULATION
+        type: string
+      pedigree:
+        type: string
+      siblings:
+        items:
+          properties:
+            defaultDisplayName:
+              type: string
+            germplasmDbId:
+              type: string
+          type: object
+        type: array

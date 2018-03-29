@@ -1,0 +1,10 @@
+definitions:
+  linkageGroup:
+    properties:
+      linkageGroupName:
+        type: string
+      markerCount:
+        type: integer
+      maxPosition:
+        type: integer
+    type: object

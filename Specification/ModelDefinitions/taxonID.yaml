@@ -1,0 +1,7 @@
+definitions:
+  taxonID:
+    properties:
+      sourceName:
+        type: string
+      taxonId:
+        type: string

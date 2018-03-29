@@ -1,0 +1,13 @@
+definitions:
+  program:
+    properties:
+      abbreviation:
+        type: string
+      leadPerson:
+        type: string
+      name:
+        type: string
+      objective:
+        type: string
+      programDbId:
+        type: string

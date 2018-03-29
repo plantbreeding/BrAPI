@@ -1,0 +1,36 @@
+definitions:
+  observationUnitPosition:
+    properties:
+      X:
+        type: string
+      Y:
+        type: string
+      additionalInfo:
+        description: Additional arbitrary info on the study, like objectives or publications
+        items:
+          additionalProperties:
+            type: string
+          type: object
+        type: array
+      blockNumber:
+        type: integer
+      entryType:
+        enum:
+        - CHECK
+        - TEST
+        - FILLER
+        type: string
+      germplasmDbId:
+        type: string
+      germplasmName:
+        type: string
+      observationLevel:
+        type: string
+      observationUnitDbId:
+        type: string
+      observationUnitName:
+        type: string
+      replicate:
+        type: integer
+      studyDbId:
+        type: string

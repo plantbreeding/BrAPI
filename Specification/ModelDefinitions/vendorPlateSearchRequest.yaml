@@ -1,0 +1,21 @@
+definitions:
+  vendorPlateSearchRequest:
+    properties:
+      clientPlateDbIds:
+        items:
+          type: string
+        type: array
+      page:
+        type: number
+      pageSize:
+        type: number
+      sampleInfo:
+        type: string
+      vendorPlateDbIds:
+        items:
+          type: string
+        type: array
+      vendorProjectDbIds:
+        items:
+          type: string
+        type: array

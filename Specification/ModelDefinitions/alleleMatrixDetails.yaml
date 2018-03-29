@@ -1,0 +1,19 @@
+definitions:
+  alleleMatrixDetails:
+    properties:
+      description:
+        description: How the matrix was generated
+        type: string
+      lastUpdated:
+        description: A date format
+        type: string
+      mtrixDbId:
+        description: ID of the matrix
+        type: string
+      name:
+        description: Name of the matrix
+        type: string
+      studyDbId:
+        description: Link to the study where the matrix was produced
+        type: string
+    type: object

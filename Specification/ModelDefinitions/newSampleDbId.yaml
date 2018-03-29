@@ -1,0 +1,10 @@
+definitions:
+  newSampleDbId:
+    properties:
+      metadata:
+        $ref: '#/definitions/metadata'
+      result:
+        properties:
+          sampleDbId:
+            type: string
+        type: object

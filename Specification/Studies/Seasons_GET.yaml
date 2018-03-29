@@ -1,5 +1,4 @@
-definitions:
-  List Seasons: {}
+swagger: '2.0'
 info:
   description: ''
   title: ''
@@ -33,6 +32,18 @@ paths:
       responses:
         '200':
           description: OK
+          schema:
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: 
+                      $ref: '#/definitions/season'
           examples:
             application/json:
               metadata:
@@ -55,4 +66,3 @@ paths:
       summary: List seasons or years
       tags:
       - Studies
-swagger: '2.0'

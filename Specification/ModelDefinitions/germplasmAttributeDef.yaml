@@ -1,0 +1,21 @@
+definitions:
+  germplasmAttributeDef:
+    properties:
+      attributeCategoryDbId:
+        type: string
+      attributeDbId:
+        type: string
+      code:
+        type: string
+      datatype:
+        type: string
+      description:
+        type: string
+      name:
+        type: string
+      uri:
+        type: string
+      values:
+        items:
+          type: string
+        type: array

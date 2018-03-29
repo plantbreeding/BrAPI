@@ -1,0 +1,7 @@
+definitions:
+  newObservationUnitDbIds:
+    properties:
+      observationUnitDbIds:
+        type: array
+        items:
+          type: string

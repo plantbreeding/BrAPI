@@ -1,0 +1,18 @@
+definitions:
+  markerprofileDescription:
+    properties:
+      analysisMethod:
+        type: string
+      extractDbId:
+        type: string
+      germplasmDbId:
+        type: string
+      markerprofileDbId:
+        type: string
+      resultCount:
+        type: integer
+      sampleDbId:
+        type: string
+      uniqueDisplayName:
+        type: string
+    type: object

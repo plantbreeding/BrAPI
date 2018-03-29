@@ -1,0 +1,31 @@
+definitions:
+  germplasmSearchRequest:
+    properties:
+      accessionNumbers:
+        items:
+          type: string
+        type: array
+      germplasmDbIds:
+        items:
+          type: string
+        type: array
+      germplasmGenus:
+        items:
+          type: string
+        type: array
+      germplasmNames:
+        items:
+          type: string
+        type: array
+      germplasmPUIs:
+        items:
+          type: string
+        type: array
+      germplasmSpecies:
+        items:
+          type: string
+        type: array
+      page:
+        type: number
+      pageSize:
+        type: number

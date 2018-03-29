@@ -1,0 +1,9 @@
+definitions:
+  season:
+    properties:
+      season:
+        type: string
+      seasonDbId:
+        type: string
+      year:
+        type: string

@@ -1,0 +1,14 @@
+definitions:
+  newObservationDbIds:
+    properties:
+      observations:
+        items:
+          properties:
+            observationDbId:
+              type: string
+            observationUnitDbId:
+              type: string
+            observationVariableDbId:
+              type: string
+          type: object
+        type: array

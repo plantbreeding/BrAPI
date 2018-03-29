@@ -1,0 +1,23 @@
+definitions:
+  newObservationsTableRequest:
+    properties:
+      metadata: 
+        type: string
+        description: DEPRECATED
+      result: 
+        type: string
+        description: DEPRECATED
+      headerRow:
+        type: array
+        items:
+          type: string
+      observationVariableDbIds:
+        type: array
+        items:
+          type: string
+      data:
+        type: array
+        items:
+          type: array
+          items:
+            type: string

@@ -1,0 +1,11 @@
+definitions:
+  germplasmSummaryList:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/germplasmSummary'
+        type: array
+      studyDbId:
+        type: string
+      trialName:
+        type: string

@@ -1,0 +1,23 @@
+definitions:
+  progeny:
+    properties:
+      defaultDisplayName:
+        type: string
+      germplasmDbId:
+        type: string
+      progeny:
+        items:
+          properties:
+            defaultDisplayName:
+              type: string
+            germplasmDbId:
+              type: string
+            parentType:
+              enum:
+              - MALE
+              - FEMALE
+              - SELF
+              - POPULATION
+              type: string
+          type: object
+        type: array

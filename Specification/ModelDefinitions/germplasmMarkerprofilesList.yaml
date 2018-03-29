@@ -1,0 +1,9 @@
+definitions:
+  germplasmMarkerprofilesList:
+    properties:
+      germplasmDbId:
+        type: string
+      markerprofileDbIds:
+        items:
+          type: string
+        type: array

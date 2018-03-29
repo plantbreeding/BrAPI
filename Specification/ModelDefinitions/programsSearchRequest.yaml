@@ -1,0 +1,17 @@
+definitions:
+  programsSearchRequest:
+    properties:
+      abbreviation:
+        type: string
+      leadPerson:
+        type: string
+      name:
+        type: string
+      objective:
+        type: string
+      page:
+        type: number
+      pageSize:
+        type: number
+      programDbId:
+        type: string

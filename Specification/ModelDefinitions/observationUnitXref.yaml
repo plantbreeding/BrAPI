@@ -1,0 +1,7 @@
+definitions:
+  observationUnitXref:
+    properties:
+      id:
+        type: string
+      source:
+        type: string

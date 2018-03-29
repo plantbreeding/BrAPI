@@ -1,0 +1,163 @@
+swagger: '2.0'
+info:
+  description: ''
+  title: ''
+  version: ''
+paths:
+  /studies/{studyDbId}/observations:
+    get:
+      description: '
+
+
+        <a>example.com/studies/{studyDbId}/observations</a>'
+      parameters:
+      - description: Identifier of the study. Usually a number, could be alphanumeric.
+        in: path
+        name: studyDbId
+        required: true
+        type: string
+      - description: Numeric `id` of that variable (combination of trait, unit and
+          method)
+        in: query
+        name: observationVariableDbIds
+        required: false
+        type: array
+        items:
+          type: string
+      - description: The size of the pages to be returned. Default is `1000`.
+        in: query
+        name: pageSize
+        required: false
+        type: integer
+      - description: Which result page is requested. The page indexing starts at 0
+          (the first page is 'page'= 0). Default is `0`.
+        in: query
+        name: page
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: 
+                      $ref: '#/definitions/observation' 
+          examples: 
+            application/json:
+              metadata:
+                pagination:
+                  pageSize: 1000
+                  currentPage: 0
+                  totalCount: 2
+                  totalPages: 1
+                status: []
+                datafiles: []
+              result:
+                data:
+                - studyDbId: '1'
+                  obserationDbId: '12345'
+                  observationUnitDbId: '11'
+                  observationUnitName: ZIPA_68_Ibadan_2014
+                  observationLevel: plot
+                  observationVariableDbId: '393938'
+                  observationVariableName: Yield
+                  observationTimestamp: '2015-11-05T15:12:56+0100'
+                  uploadedBy: dbUserId
+                  operator: Jane Doe
+                  germplasmDbId: '8383'
+                  germplasmName: Pahang
+                  value: '5'
+                - studyDbId: '1'
+                  obserationDbId: '23456'
+                  observationUnitDbId: '11'
+                  observationUnitName: ZIPA_68_Ibadan_2014
+                  observationLevel: plot
+                  observationVariableDbId: '393939'
+                  observationVariableName: Dry Weight
+                  observationTimestamp: '2015-11-05T15:13:56+0100'
+                  uploadedBy: dbUserId
+                  operator: Jane Doe
+                  germplasmDbId: '8383'
+                  germplasmName: Pahang
+                  value: '22.3'
+          headers: {}
+      summary: Get Observation Units by observation variable ids
+      tags:
+      - Studies
+      - Observations
+    put:
+      description: '
+
+
+        <a>example.com/studies/{studyDbId}/observations</a>'
+      parameters:
+      - description: Identifier of the study. Usually a number, could be alphanumeric.
+        in: path
+        name: studyDbId
+        required: true
+        type: string
+      - in: body
+        name: newObservations
+        schema:
+          $ref: '#/definitions/newObservationsRequest' 
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                $ref: '#/definitions/newObservationDbIds' 
+          examples: 
+            application/json:
+              metadata:
+                pagination:
+                  pageSize: 1000
+                  currentPage: 0
+                  totalCount: 2
+                  totalPages: 1
+                status: []
+                datafiles: []
+              result:
+                data:
+                - studyDbId: '1'
+                  obserationDbId: '12345'
+                  observationUnitDbId: '11'
+                  observationUnitName: ZIPA_68_Ibadan_2014
+                  observationLevel: plot
+                  observationVariableDbId: '393938'
+                  observationVariableName: Yield
+                  observationTimestamp: '2015-11-05T15:12:56+0100'
+                  uploadedBy: dbUserId
+                  operator: Jane Doe
+                  germplasmDbId: '8383'
+                  germplasmName: Pahang
+                  value: '5'
+                - studyDbId: '1'
+                  obserationDbId: '23456'
+                  observationUnitDbId: '11'
+                  observationUnitName: ZIPA_68_Ibadan_2014
+                  observationLevel: plot
+                  observationVariableDbId: '393939'
+                  observationVariableName: Dry Weight
+                  observationTimestamp: '2015-11-05T15:13:56+0100'
+                  uploadedBy: dbUserId
+                  operator: Jane Doe
+                  germplasmDbId: '8383'
+                  germplasmName: Pahang
+                  value: '22.3'
+          headers: {}
+      summary: Get Observation Units by observation variable ids
+      tags:
+      - Studies
+      - Observations

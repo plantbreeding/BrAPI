@@ -1,0 +1,14 @@
+definitions:
+  germplasmAttribute:
+    properties:
+      attributeCode:
+        type: string
+      attributeDbId:
+        type: string
+      attributeName:
+        type: string
+      determinedDate:
+        format: date
+        type: string
+      value:
+        type: string

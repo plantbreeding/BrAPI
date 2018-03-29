@@ -13,12 +13,12 @@
            "studyLocations" : ["Kenya", "Zimbabwe"], 
            "programNames": ["Test Program", "Program2"],
            "germplasmDbIds" : [ "CML123", "CWL123"],
-           "observationVariableDbIds": ["CO-PH-123", "Var-123"]
+           "observationVariableDbIds": ["CO-PH-123", "Var-123"],
            "active" : "true",
            "sortBy" : "studyDbId",
            "sortOrder" : "desc",
            "pageSize": 1000,
-           "page": 0,
+           "page": 0
         }
         
 + Response 200 (application/json)

@@ -1,0 +1,21 @@
+definitions:
+  newObservationsRequest:
+    properties:
+      observations:
+        items:
+          properties:
+            collector:
+              type: string
+            observationDbId:
+              type: string
+            observationTimeStamp:
+              format: date-time
+              type: string
+            observationUnitDbId:
+              type: string
+            observationVariableDbId:
+              type: string
+            value:
+              type: string
+          type: object
+        type: array

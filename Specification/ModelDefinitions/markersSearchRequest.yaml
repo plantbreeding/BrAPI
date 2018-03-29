@@ -1,0 +1,19 @@
+definitions:
+  markersSearchRequest:
+    properties:
+      includeSynonyms:
+        type: boolean
+      markerDbIds:
+        items:
+          type: string
+        type: array
+      matchMethod:
+        type: string
+      name:
+        type: string
+      page:
+        type: integer
+      pageSize:
+        type: integer
+      type:
+        type: string

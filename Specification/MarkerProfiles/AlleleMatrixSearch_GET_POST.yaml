@@ -18,7 +18,7 @@ paths:
               result:
                 type: array
                 items:
-                  $ref: '#/definitions/alleMatrixValues' 
+                  $ref: '#/definitions/alleleMatrixValues' 
           examples:
             Format TSV:
               metadata:
@@ -86,7 +86,7 @@ paths:
               result:
                 type: array
                 items:
-                  $ref: '#/definitions/alleMatrixValues' 
+                  $ref: '#/definitions/alleleMatrixValues' 
            examples:
              application/json:
                metadata:

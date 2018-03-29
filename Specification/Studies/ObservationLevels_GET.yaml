@@ -1,5 +1,4 @@
-definitions:
-  List Observation Levels: {}
+swagger: '2.0'
 info:
   description: ''
   title: ''
@@ -26,6 +25,19 @@ paths:
       responses:
         '200':
           description: OK
+          schema:
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: 
+                      description: observation levels available in this database
+                      type: string
           examples:
             application/json:
               metadata:
@@ -68,6 +80,19 @@ paths:
       responses:
         '200':
           description: OK
+          schema:
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: 
+                      description: observation levels available in this database
+                      type: string
           examples:
             application/json:
               metadata:
@@ -86,4 +111,3 @@ paths:
       summary: Get Observation Levels
       tags:
       - Observations
-swagger: '2.0'

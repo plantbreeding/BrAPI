@@ -1,0 +1,36 @@
+definitions:
+  vendorSpecificationStandardRequirement:
+    properties:
+      blankWellPosition:
+        properties:
+          numberOfBlanksPerPlate:
+            type: integer
+          positions:
+            items:
+              type: string
+            type: array
+        type: object
+      inputFormatDetails:
+        type: string
+      inputFormats:
+        items:
+          type: string
+        type: array
+      maxConcentration:
+        type: string
+      maxVolume:
+        type: string
+      minConcentration:
+        type: string
+      minSampleNumber:
+        type: string
+      minVolume:
+        type: string
+      plateOrientation:
+        type: string
+      sampleTypeDetails:
+        type: string
+      sampleTypes:
+        items:
+          type: string
+        type: array
