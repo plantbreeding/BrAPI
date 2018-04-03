@@ -11,6 +11,7 @@ paths:
           description: OK
           headers: {}
           schema:
+            title: alleleMatrixDetailsResponse
             type: object
             properties:
               metadata:

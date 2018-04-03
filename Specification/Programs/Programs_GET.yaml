@@ -38,6 +38,7 @@ paths:
         '200':
           description: OK
           schema:
+            title: programsResponse
             type: object
             properties:
               metadata:

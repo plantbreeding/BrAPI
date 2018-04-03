@@ -63,6 +63,7 @@ paths:
           description: OK
           headers: {}
           schema:
+            title: callsResponse
             type: object
             properties:
               metadata:

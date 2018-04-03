@@ -38,6 +38,7 @@ paths:
         '200':
           description: OK
           schema:
+            title: newObservationUnitDbIdsResponse
             type: object
             properties:
               metadata:

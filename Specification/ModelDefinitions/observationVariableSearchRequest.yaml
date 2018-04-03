@@ -1,0 +1,39 @@
+definitions:
+  observationVariableSearchRequest:
+    properties:
+      page:
+        type: number
+      pageSize:
+        type: number
+      observationVariableDbIds:
+        type: array
+        items:
+          type: string
+      ontologyXrefs:
+        type: array
+        items:
+          type: string
+      ontologyDbIds:
+        type: array
+        items:
+          type: string
+      methodDbIds:
+        type: array
+        items:
+          type: string
+      scaleDbIds:
+        type: array
+        items:
+          type: string
+      names:
+        type: array
+        items:
+          type: string
+      datatypes:
+        type: array
+        items:
+          type: string
+      traitClasses:
+        type: array
+        items:
+          type: string

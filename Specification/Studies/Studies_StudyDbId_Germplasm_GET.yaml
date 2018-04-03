@@ -31,6 +31,7 @@ paths:
         '200':
           description: OK
           schema:
+            title: germplasmSummaryListResponse
             type: object
             properties:
               metadata:

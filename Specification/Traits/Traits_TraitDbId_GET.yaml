@@ -22,6 +22,7 @@ paths:
         '200':
           description: OK
           schema:
+            title: traitResponse
             type: object
             properties:
               metadata:

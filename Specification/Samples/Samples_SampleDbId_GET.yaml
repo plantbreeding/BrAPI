@@ -20,6 +20,7 @@ paths:
         '200':
           description: OK
           schema:
+            title: sampleResponse
             type: object
             properties:
               metadata:

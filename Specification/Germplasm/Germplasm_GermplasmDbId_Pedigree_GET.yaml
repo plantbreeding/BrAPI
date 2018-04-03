@@ -23,6 +23,7 @@ paths:
         '200':
           description: OK
           schema:
+            title: pedigreeResponse
             type: object
             properties:
               metadata:

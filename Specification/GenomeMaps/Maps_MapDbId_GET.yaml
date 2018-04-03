@@ -11,6 +11,7 @@ paths:
         '200':
           description: OK
           schema:
+            title: mapDetailsResponse
             type: object
             properties:
               metadata:

@@ -27,6 +27,7 @@ paths:
         '200':
           description: OK
           schema:
+            title: cropsResponse
             type: object
             properties:
               metadata:

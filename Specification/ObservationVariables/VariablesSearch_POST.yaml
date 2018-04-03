@@ -10,6 +10,7 @@ paths:
         '200':
           description: OK
           schema:
+            title: observationVariablesResponse
             properties:
               metadata:
                $ref: '#/definitions/metadata'
@@ -114,43 +115,6 @@ paths:
         - name: body
           in: body
           schema:
-            type: object
-            properties:
-              page:
-                type: number
-              pageSize:
-                type: number
-              observationVariableDbIds:
-                type: array
-                items:
-                  type: string
-              ontologyXrefs:
-                type: array
-                items:
-                  type: string
-              ontologyDbIds:
-                type: array
-                items:
-                  type: string
-              methodDbIds:
-                type: array
-                items:
-                  type: string
-              scaleDbIds:
-                type: array
-                items:
-                  type: string
-              names:
-                type: array
-                items:
-                  type: string
-              datatypes:
-                type: array
-                items:
-                  type: string
-              traitClasses:
-                type: array
-                items:
-                  type: string
-      produces:
+            $ref: '#/definitions/observationVariableSearchRequest'
+      produces: 
         - application/json

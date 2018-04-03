@@ -16,6 +16,7 @@ paths:
         '200':
           description: OK
           schema:
+            title: observationUnitsResponse
             type: object
             properties:
               metadata:

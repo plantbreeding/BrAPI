@@ -33,6 +33,7 @@ paths:
         '200':
           description: OK
           schema:
+            title: observationUnitPositionsResponse
             type: object
             properties:
               metadata:
@@ -130,6 +131,7 @@ paths:
         '200':
           description: OK
           schema:
+            title: observationUnitPositionsResponse
             type: object
             properties:
               metadata:

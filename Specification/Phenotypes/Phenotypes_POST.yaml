@@ -33,6 +33,7 @@ paths:
         '200':
           description: OK
           schema:
+            title: newObservationDbIdsResponse
             type: object
             properties:
               metadata:

@@ -5,6 +5,9 @@ definitions:
         type: string
       additionalInfo:
         type: object
+        description: Additional arbitrary info
+        additionalProperties:
+          type: string
       fileType:
         type: string
       filename:

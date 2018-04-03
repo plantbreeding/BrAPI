@@ -40,6 +40,7 @@ paths:
         '200':
           description: OK
           schema:
+            title: germplasmAttributeListResponse
             type: object
             properties:
               metadata:
@@ -57,7 +58,7 @@ paths:
                   totalPages: 1
                 status: []
               result:
-              - data:
+                data: 
                 - attributeCode: RHT
                   attributeDbId: '1'
                   attributeName: Rht-B1b

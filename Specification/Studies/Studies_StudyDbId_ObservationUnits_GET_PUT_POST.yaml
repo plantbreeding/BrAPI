@@ -40,6 +40,7 @@ paths:
         '200':
           description: OK
           schema:
+            title: observationUnitsResponse
             type: object
             properties:
               metadata:
@@ -155,6 +156,7 @@ paths:
         '200':
           description: OK
           schema:
+            title: newObservationUnitDbIdsResponse
             type: object
             properties:
               metadata:
@@ -206,6 +208,7 @@ paths:
       - in: body
         name: body
         schema:
+          title: newObservationsRequestWrapperDeprecated
           properties:
             metadata:
                 $ref: '#/definitions/metadata' 

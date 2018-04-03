@@ -11,14 +11,18 @@ paths:
            description: OK
            headers: {}
            schema:
+            title: markerProfileDescriptionsResponse
             type: object
             properties:
               metadata:
                 $ref: '#/definitions/metadata' 
               result:
-                type: array
-                items:
-                  $ref: '#/definitions/markerprofileDescription' 
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/definitions/markerProfileDescription' 
            examples:
              application/json:
                metadata:

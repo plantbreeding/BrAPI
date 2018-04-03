@@ -38,6 +38,7 @@ paths:
         '200':
           description: OK
           schema:
+            title: samplesResponse
             type: object
             properties:
               metadata:
@@ -105,6 +106,7 @@ paths:
         '200':
           description: OK
           schema:
+            title: samplesResponse
             type: object
             properties:
               metadata:

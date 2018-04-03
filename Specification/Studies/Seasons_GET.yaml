@@ -33,6 +33,7 @@ paths:
         '200':
           description: OK
           schema:
+            title: seasonsResponse
             type: object
             properties:
               metadata:

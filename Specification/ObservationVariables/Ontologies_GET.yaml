@@ -10,6 +10,7 @@ paths:
         '200':
           description: OK
           schema:
+            title: ontologiesResponse
             type: object
             properties:
               metadata:

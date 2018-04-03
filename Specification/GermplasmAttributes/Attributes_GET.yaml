@@ -36,6 +36,7 @@ paths:
         '200':
           description: OK
           schema:
+            title: germplasmAttributeDefsResponse
             type: object
             properties:
               metadata:

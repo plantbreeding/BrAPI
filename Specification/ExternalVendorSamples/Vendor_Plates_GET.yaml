@@ -21,6 +21,7 @@ paths:
         '200':
           description: OK
           schema:
+            title: vendorPlateResponse
             type: object
             properties:
               metadata:

@@ -39,6 +39,7 @@ paths:
         '200':
           description: OK
           schema:
+            title: observationsResponse
             type: object
             properties:
               metadata:
@@ -112,6 +113,7 @@ paths:
         '200':
           description: OK
           schema:
+            title: newObservationDbIdsResponse
             type: object
             properties:
               metadata:

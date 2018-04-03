@@ -11,6 +11,7 @@ paths:
           description: OK
           headers: {}
           schema:
+            title: locationsResponse
             type: object
             properties:
               metadata:

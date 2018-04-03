@@ -18,6 +18,7 @@ paths:
         '200':
           description: OK
           schema:
+            title: progenyResponse
             type: object
             properties:
               metadata:

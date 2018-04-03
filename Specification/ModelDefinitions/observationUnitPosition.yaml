@@ -6,12 +6,10 @@ definitions:
       Y:
         type: string
       additionalInfo:
-        description: Additional arbitrary info on the study, like objectives or publications
-        items:
-          additionalProperties:
-            type: string
-          type: object
-        type: array
+        type: object
+        description: Additional arbitrary info
+        additionalProperties:
+          type: string
       blockNumber:
         type: integer
       entryType:

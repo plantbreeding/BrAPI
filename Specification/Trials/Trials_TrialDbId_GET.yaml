@@ -22,6 +22,7 @@ paths:
         '200':
           description: OK
           schema:
+            title: trialResponse
             type: object
             properties:
               metadata:
@@ -43,9 +44,7 @@ paths:
                 additionalInfo:
                   property2Name: property2Value
                   property3Name: property3Value
-                  publications:
-                  - pmid:239823988
-                  - doi:10.2345/GEZG3T23535
+                  publications: pmid:239823988, doi:10.2345/GEZG3T23535
                 contacts:
                 - contactDbId: C025
                   email: j.doe@mail.com

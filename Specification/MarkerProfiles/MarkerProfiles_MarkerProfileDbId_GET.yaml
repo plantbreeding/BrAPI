@@ -12,6 +12,7 @@ paths:
           headers: {}
           examples: {}
           schema:
+            title: markerProfilesResponse
             type: object
             properties:
               metadata:

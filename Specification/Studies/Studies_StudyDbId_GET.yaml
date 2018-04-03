@@ -20,6 +20,7 @@ paths:
         '200':
           description: OK
           schema:
+            title: studyResponse
             type: object
             properties:
               metadata:
@@ -92,8 +93,7 @@ paths:
                   principalInvestigator: Dr. Breeder
                   property1Name: property1Value
                   property2Name: property2Value
-                  publications:
-                  - pmid:24039865287545
+                  publications: pmid:24039865287545
           headers: {}
       summary: Retrieve study details
       tags:

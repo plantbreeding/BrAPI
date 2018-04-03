@@ -1,5 +1,5 @@
 definitions:
-  markerprofileDescription:
+  markerProfileDescription:
     properties:
       analysisMethod:
         type: string

@@ -26,6 +26,7 @@ paths:
         '200':
           description: OK
           schema:
+            title: germplasmAttributeCategoriesResponse
             type: object
             properties:
               metadata:

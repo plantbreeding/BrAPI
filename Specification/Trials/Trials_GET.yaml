@@ -54,6 +54,7 @@ paths:
         '200':
           description: OK
           schema:
+            title: trialsResponse
             type: object
             properties:
               metadata:

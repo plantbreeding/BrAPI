@@ -11,6 +11,7 @@ paths:
           description: OK
           headers: {}
           schema:
+            title: markerResponse
             type: object
             properties:
               metadata:

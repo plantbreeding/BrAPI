@@ -19,7 +19,7 @@ definitions:
           properties:
             donorAccessionNumber:
               type: string
-            donorGermplasmPUI:
+            germplasmPUI:
               type: string
             donorInstituteCode:
               type: string
@@ -54,7 +54,9 @@ definitions:
           type: string
         type: array
       taxonIds:
-        $ref: '#/definitions/taxonID'
+        type: array
+        items:
+          $ref: '#/definitions/taxonID'
       typeOfGermplasmStorageCode:
         items:
           type: string

@@ -4,12 +4,10 @@ definitions:
       abbreviation:
         type: string
       additionalInfo:
-        description: Additional arbitrary info on the study, like objectives or publications
-        items:
-          additionalProperties:
-            type: string
-          type: object
-        type: array
+        type: object
+        description: Additional arbitrary info
+        additionalProperties:
+          type: string
       altitude:
         type: number
       countryCode:

@@ -18,6 +18,7 @@ paths:
         '200':
           description: OK
           schema:
+            title: germplasmMarkerprofilesListResponse
             type: object
             properties:
               metadata:

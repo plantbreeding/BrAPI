@@ -16,6 +16,7 @@ paths:
         '200':
           description: OK
           schema:
+            title: vendorSpecificationResponse
             type: object
             properties:
               metadata:

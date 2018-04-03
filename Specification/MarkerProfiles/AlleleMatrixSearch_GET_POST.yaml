@@ -11,6 +11,7 @@ paths:
           description: OK
           headers: {}
           schema:
+            title: alleleMatrixValuesResponse
             type: object
             properties:
               metadata:
@@ -79,6 +80,7 @@ paths:
            headers: {}
            
            schema:
+            title: alleleMatrixValuesResponse
             type: object
             properties:
               metadata:
