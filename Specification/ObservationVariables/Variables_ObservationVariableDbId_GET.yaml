@@ -43,7 +43,7 @@ paths:
                 xref: 'TL_455:0003001'
                 institution: ''
                 scientist: ''
-                submissionTimestamp: '2016-05-13T15:43:41+0100'
+                submissionTimestamp: '2016-05-13T15:43:41+01:00'
                 language: EN
                 crop: Cassava
                 trait:
@@ -101,4 +101,4 @@ paths:
           required: true
           type: string
       produces:
-        - application/jsonVariable.yaml
+        - application/json

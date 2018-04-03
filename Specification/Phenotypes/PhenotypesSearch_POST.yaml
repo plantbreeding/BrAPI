@@ -61,14 +61,14 @@ paths:
                   observations:
                   - collector: Mr. Technician
                     observationDbId: '153453453'
-                    observationTimeStamp: 2015-06-16T00:53:26-0800
+                    observationTimeStamp: 2015-06-16T00:53:26-08:00
                     observationVariableDbId: CO_321:0000045
                     observationVariableName: Plant_height
                     season: '2015'
                     value: '45'
                   - collector: Mr. Technician
                     observationDbId: '23453454345'
-                    observationTimeStamp: 2015-06-16T00:53:26-0800
+                    observationTimeStamp: 2015-06-16T00:53:26-08:00
                     observationVariableDbId: CO_321:0000996
                     observationVariableName: GW100_g
                     season: '2015'
@@ -98,14 +98,14 @@ paths:
                   observations:
                   - collector: Mr. Technician
                     observationDbId: '153453453'
-                    observationTimeStamp: 2010-06-16T00:53:26-0800
+                    observationTimeStamp: 2010-06-16T00:53:26-08:00
                     observationVariableDbId: CO_321:0000045
                     observationVariableName: Plant_height
                     season: '2010'
                     value: '45'
                   - collector: Mr. Technician
                     observationDbId: '23453454345'
-                    observationTimeStamp: 2010-06-16T00:53:26-0800
+                    observationTimeStamp: 2010-06-16T00:53:26-08:00
                     observationVariableDbId: CO_321:0000996
                     observationVariableName: GW100_g
                     season: '2010'

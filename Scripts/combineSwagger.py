@@ -37,4 +37,4 @@ out['paths'].update(paths)
 out['definitions'].update(defin)
 
 with open('out.yaml', 'w') as outfile:
-	yaml.dump(out, outfile, default_flow_style=False)
+	yaml.dump(out, outfile, default_flow_style=False, width=float("inf"))

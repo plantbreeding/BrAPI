@@ -70,7 +70,7 @@ paths:
                   observationLevel: plot
                   observationVariableDbId: '393938'
                   observationVariableName: Yield
-                  observationTimestamp: '2015-11-05T15:12:56+0100'
+                  observationTimestamp: '2015-11-05T15:12:56+01:00'
                   uploadedBy: dbUserId
                   operator: Jane Doe
                   germplasmDbId: '8383'
@@ -83,7 +83,7 @@ paths:
                   observationLevel: plot
                   observationVariableDbId: '393939'
                   observationVariableName: Dry Weight
-                  observationTimestamp: '2015-11-05T15:13:56+0100'
+                  observationTimestamp: '2015-11-05T15:13:56+01:00'
                   uploadedBy: dbUserId
                   operator: Jane Doe
                   germplasmDbId: '8383'
@@ -139,7 +139,7 @@ paths:
                   observationLevel: plot
                   observationVariableDbId: '393938'
                   observationVariableName: Yield
-                  observationTimestamp: '2015-11-05T15:12:56+0100'
+                  observationTimestamp: '2015-11-05T15:12:56+01:00'
                   uploadedBy: dbUserId
                   operator: Jane Doe
                   germplasmDbId: '8383'
@@ -152,7 +152,7 @@ paths:
                   observationLevel: plot
                   observationVariableDbId: '393939'
                   observationVariableName: Dry Weight
-                  observationTimestamp: '2015-11-05T15:13:56+0100'
+                  observationTimestamp: '2015-11-05T15:13:56+01:00'
                   uploadedBy: dbUserId
                   operator: Jane Doe
                   germplasmDbId: '8383'

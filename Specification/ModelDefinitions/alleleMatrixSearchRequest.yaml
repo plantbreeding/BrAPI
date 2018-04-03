@@ -1,0 +1,29 @@
+definitions:
+  alleleMatrixSearchRequest:
+    properties:
+      markerprofileDbId:
+        type: array
+        items:
+          type: string
+      markerDbId:
+        type: array
+        items:
+          type: string
+      matrixDbId:
+        type: array
+        items:
+          type: string
+      expandHomozygotes: 
+        type: boolean
+      unknownString: 
+        type: string
+      sepPhased:  
+        type: string
+      sepUnphased: 
+        type: string 
+      format:  
+        type: string
+      pageSize:  
+        type: integer
+      page: 
+        type: integer

@@ -10,17 +10,53 @@ paths:
         '200':
           description: OK
           headers: {}
-          examples: {}
+          examples: 
+            application/json: 
+              metadata:
+                pagination:
+                  totalCount: 22
+                  currentPage: 0
+                  totalPages: 1
+                  pageSize: 22
+                status: []
+                datafiles: []
+              result:
+                markerprofileDbId: mp1
+                germplasmDbId: '1'
+                uniqueDisplayName: My Fancy Germplasm
+                extractDbId: extract1
+                analysisMethod: GBS
+                data:
+                - marker1-1: '1'
+                - marker1-2: '0'
+                - marker1-3: '0'
+                - marker1-4: '0'
+                - marker1-5: '0'
+                - marker1-6: '1'
+                - marker1-7: '0'
+                - marker1-8: '0'
+                - marker1-9: '0'
+                - marker1-10: '1'
+                - marker1-11: '0'
+                - marker2-1: '0'
+                - marker2-2: '1'
+                - marker2-3: '1'
+                - marker2-4: '1'
+                - marker2-5: '0'
+                - marker3-1: '1'
+                - marker3-2: '1'
+                - marker3-3: '0'
+                - marker3-4: '0'
+                - marker3-5: '0'
+                - marker3-6: '0'
           schema:
             title: markerProfilesResponse
             type: object
             properties:
               metadata:
                 $ref: '#/definitions/metadata' 
-              result:
-                type: array
-                items:
-                  $ref: '#/definitions/markerProfile' 
+              result: 
+                $ref: '#/definitions/markerProfile' 
       summary: Alleles By Markerprofile Id
       description: |-
         **Scope**:GENOTYPING.

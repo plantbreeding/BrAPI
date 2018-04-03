@@ -27,10 +27,10 @@ paths:
             application/json:
               metadata:
                 pagination:
-                currentPage: 0
-                pageSize: 1000
-                totalCount: 2
-                totalPages: 1
+                  currentPage: 0
+                  pageSize: 1000
+                  totalCount: 2
+                  totalPages: 1
                 status: []
                 datafiles: []
               result:

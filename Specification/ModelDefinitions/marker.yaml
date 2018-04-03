@@ -27,4 +27,9 @@ definitions:
       type:
         description: The type of marker, e.g. SNP
         type: string
-    type: object
+      markerName: 
+        type: string
+      location: 
+        type: string
+      linkageGroupName: 
+        type: string

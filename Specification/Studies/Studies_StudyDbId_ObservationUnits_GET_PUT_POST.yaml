@@ -21,7 +21,7 @@ paths:
           is plot or plant respectively.
         in: query
         name: observationLevel
-        required: true
+        required: false
         type: string
       - description: The size of the pages to be returned. Default is `1000`.
         in: query

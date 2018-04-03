@@ -38,7 +38,7 @@ paths:
                 datafiles: []
               result:
                 data:
-                  - mapDbId: '1'
+                  - mapDbId: 'abc123'
                     name: Some Map
                     species: Some species
                     type: Genetic
@@ -47,7 +47,7 @@ paths:
                     markerCount: 1000
                     linkageGroupCount: 7
                     comments: This map contains ...
-                  - mapDbId: '2'
+                  - mapDbId: 'def234'
                     name: Some Other map
                     species: Some Species
                     type: Genetic
