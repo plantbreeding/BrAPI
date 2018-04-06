@@ -28,7 +28,7 @@ paths:
               metadata:
                 $ref: '#/definitions/metadata' 
               result:
-                $ref: '#/definitions/trait' 
+                $ref: '#/definitions/traitSummary' 
           examples:
             application/json:
               metadata:

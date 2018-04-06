@@ -38,7 +38,7 @@ paths:
                 status: []
                 datafiles: []
               result:
-                sampleDbId: Unique-Plant-SampleID
+                sampleDbId: Unique-Plant-SampleID-1
                 observationUnitDbId: abc123
                 germplasmDbId: def456
                 studyDbId: StudyId-123

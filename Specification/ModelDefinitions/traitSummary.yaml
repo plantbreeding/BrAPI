@@ -1,0 +1,17 @@
+definitions:
+  traitSummary: 
+    properties:
+      defaultValue:
+        type: string
+      description:
+        type: string
+      name:
+        type: string
+      observationVariables:
+        items:
+          type: string
+        type: array
+      traitDbId:
+        type: string
+      traitId:
+        type: string

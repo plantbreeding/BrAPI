@@ -42,9 +42,25 @@ paths:
                     trait:
                       traitDbId: 'CO_334:0100630'
                       name: Canopy temperature
-                    method: null
-                    scale: null
+                      class: physiological trait
                     defaultValue: null
+                    method:
+                      methodDbId: 'CO_334:0010320'
+                      name: 'Visual Rating:total carotenoid by chart_method'
+                      class: Estimation
+                    scale:
+                      scaleDbId: 'CO_334:0100526'
+                      name: ug/g
+                      dataType: Numeric
+                      decimalPlaces: 2
+                      xref: null
+                      validValues:
+                        min: 1
+                        max: 3
+                        categories:
+                          - 1=low
+                          - 2=medium
+                          - 3=high
                   - observationVariableDbId: 'CO_334:0100622'
                     name: caro_spectro
                     ontologyDbId: CO_334
@@ -88,7 +104,7 @@ paths:
                     scale:
                       scaleDbId: 'CO_334:0100526'
                       name: ug/g
-                      datatype: Numeric
+                      dataType: Numeric
                       decimalPlaces: 2
                       xref: null
                       validValues:

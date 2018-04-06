@@ -4,14 +4,14 @@ definitions:
       analysisMethod:
         type: string
       data:
+        type: array
         description: '**Required**
 
           array of marker-name/score pairs'
         items:
+          type: object
           additionalProperties:
             type: string
-          type: object
-        type: array
       extractDbId:
         description: '**Required**'
         type: string
@@ -19,7 +19,8 @@ definitions:
         description: '**Required**'
         type: string
       markerprofileDbId:
-        description: Unique in the database. Can be a catenation of unique IDs for
-          germplasm and extract. **Required**
+        description: Unique in the database. Can be a catenation of unique IDs for germplasm and extract. **Required**
         type: string
-    type: object
+      uniqueDisplayName:
+        description: Human readable display name for this marker profile
+        type: string

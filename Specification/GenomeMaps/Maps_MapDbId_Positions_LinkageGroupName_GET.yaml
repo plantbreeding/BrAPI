@@ -63,7 +63,7 @@ paths:
                   data:
                     type: array
                     items:
-                      $ref: '#/definitions/marker'
+                      $ref: '#/definitions/markerSummaryLinkageGroup'
           headers: {}
           examples:
             application/json:

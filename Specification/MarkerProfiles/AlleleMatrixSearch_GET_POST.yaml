@@ -49,13 +49,11 @@ paths:
                   currentPage: 0
                   totalCount: 0
                   totalPages: 0
-                status: [
-                  ]
+                status: []
                 datafiles:
                 - https://my-fancy-server/files/allelematrix-1234.tsv
               result:
-                data: [
-                  ]
+                data: []
             application/json:
               metadata:
                 pagination:
@@ -63,9 +61,8 @@ paths:
                   currentPage: 0
                   totalCount: 0
                   totalPages: 0
-                status: [
-                  ]
-                datafiles: null
+                status: []
+                datafiles: []
               result:
                 data:
                 - - '1'

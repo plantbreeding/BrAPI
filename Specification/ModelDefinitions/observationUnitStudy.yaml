@@ -1,5 +1,5 @@
 definitions:
-  observationUnit:
+  observationUnitStudy:
     properties:
       X:
         title: xCoordinate
@@ -17,10 +17,6 @@ definitions:
         type: string
       germplasmName:
         type: string
-      observationLevel:
-        type: string
-      observationLevels:
-        type: string
       observationUnitDbId:
         type: string
       observationUnitName:
@@ -31,25 +27,11 @@ definitions:
         type: array
       observations:
         items:
-          $ref: '#/definitions/observation'
+          $ref: '#/definitions/observationSummary'
         type: array
       plantNumber:
         type: string
       plotNumber:
         type: string
-      programName:
-        type: string
       replicate:
         type: string
-      studyDbId:
-        type: string
-      studyLocation:
-        type: string
-      studyLocationDbId:
-        type: string
-      studyName:
-        type: string
-      treatments:
-        items:
-          $ref: '#/definitions/observationTreatment'
-        type: array

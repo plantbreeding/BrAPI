@@ -65,7 +65,7 @@ paths:
                   data:
                     type: array
                     items: 
-                      $ref: '#/definitions/trial' 
+                      $ref: '#/definitions/trialSummary' 
           examples:
             application/json:
               metadata:

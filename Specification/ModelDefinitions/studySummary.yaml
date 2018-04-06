@@ -1,34 +1,34 @@
 definitions:
-  observationUnitPosition:
+  studySummary:
     properties:
-      X:
-        type: string
-      Y:
-        type: string
+      active:
+        type: boolean
       additionalInfo:
         type: object
         description: Additional arbitrary info
         additionalProperties:
           type: string
-      blockNumber:
+      endDate:
+        format: date
         type: string
-      entryType:
-        enum:
-        - CHECK
-        - TEST
-        - FILLER
+      locationDbId:
         type: string
-      germplasmDbId:
+      locationName:
         type: string
-      germplasmName:
-        type: string
-      observationLevel:
-        type: string
-      observationUnitDbId:
-        type: string
-      observationUnitName:
-        type: string
-      replicate:
+      seasons:
+        items:
+          type: string
+        type: array
+      startDate:
+        format: date
         type: string
       studyDbId:
+        type: string
+      name:
+        type: string
+      studyType:
+        type: string
+      trialDbId:
+        type: string
+      trialName:
         type: string

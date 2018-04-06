@@ -2,7 +2,7 @@ definitions:
   scale:
     description: Scale metadata
     properties:
-      class:
+      dataType:
         description: Class of the scale, entries can be "Numerical", "Nominal", "Ordinal",
           "Text", "Code", "Time", "Duration"
         type: string

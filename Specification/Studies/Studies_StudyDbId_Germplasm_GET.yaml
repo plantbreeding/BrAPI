@@ -49,7 +49,7 @@ paths:
                 status: []
                 datafiles: []
               result:
-                studyDbId: '123'
+                studyDbId: '35'
                 trialName: myBestTrial
                 data:
                 - germplasmDbId: '382'

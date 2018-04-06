@@ -51,7 +51,7 @@ paths:
                   data:
                     type: array
                     items: 
-                      $ref: '#/definitions/observationUnit' 
+                      $ref: '#/definitions/observationUnitStudy' 
           examples:
             application/json:
               metadata:
@@ -87,13 +87,13 @@ paths:
                     observationTimeStamp: '2015-06-16T00:53:26Z'
                     observationVariableDbId: '18020'
                     observationVariableName: Plant_height
-                    value: null
+                    value: '25.63'
                   - collector: Mr. Technician
                     observationDbId: '23453454345'
                     observationTimeStamp: '2015-06-16T00:53:26Z'
                     observationVariableDbId: '51496'
                     observationVariableName: GW100_g
-                    value: null
+                    value: 'Light Green'
                   pedigree: IR-8-FP/IR-8-MP
                   plantNumber: '0'
                   plotNumber: '1'
@@ -114,13 +114,13 @@ paths:
                     observationTimeStamp: '2015-06-16T00:53:26Z'
                     observationVariableDbId: '18020'
                     observationVariableName: Plant_height
-                    value: null
+                    value: '34.95'
                   - collector: Mr. Technician
                     observationDbId: '4'
                     observationTimeStamp: '2015-06-16T00:53:26Z'
                     observationVariableDbId: '51496'
                     observationVariableName: GW100_g
-                    value: null
+                    value: 'Blue'
                   pedigree: IR-9-FP/IR-9-MP
                   plantNumber: '0'
                   plotNumber: '2'

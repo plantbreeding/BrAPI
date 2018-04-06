@@ -57,7 +57,7 @@ paths:
                 datafiles: []
               result:
                 data:
-                - studyDbId: '1'
+                - studyDbId: '35'
                   observationUnitDbId: '11'
                   observationUnitName: ZIPA_68_Ibadan_2014
                   observationLevel: plot
@@ -69,7 +69,7 @@ paths:
                   Y: 1
                   entryType: check/test/filler
                   additionalInfo: {}
-                - studyDbId: '1'
+                - studyDbId: '35'
                   observationUnitDbId: '12'
                   observationUnitName: ZIPA_69_Ibadan_2014
                   observationLevel: plot
@@ -81,7 +81,7 @@ paths:
                   Y: 2
                   entryType: check/test/filler
                   additionalInfo: {}
-                - studyDbId: '1'
+                - studyDbId: '35'
                   observationUnitDbId: '13'
                   observationUnitName: ZIPA_70_Ibadan_2014
                   observationLevel: plot
@@ -93,7 +93,7 @@ paths:
                   Y: 3
                   entryType: check/test/filler
                   additionalInfo: {}
-                - studyDbId: '1'
+                - studyDbId: '35'
                   observationUnitDbId: '11'
                   observationUnitName: ZIPA_68_Ibadan_2014
                   observationLevel: plot

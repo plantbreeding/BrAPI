@@ -1,17 +1,29 @@
 definitions:
   trait:
     properties:
-      defaultValue:
-        type: string
       description:
         type: string
       name:
         type: string
-      observationVariables:
-        items:
-          type: string
-        type: array
       traitDbId:
         type: string
-      traitId:
+      class: 
+        type: string
+      synonyms:
+        type: array
+        items:
+          type: string
+      mainAbbreviation: 
+        type: string
+      alternativeAbbreviations:
+        type: array
+        items:
+          type: string
+      entity: 
+        type: string
+      attribute: 
+        type: string
+      status: 
+        type: string
+      xref: 
         type: string

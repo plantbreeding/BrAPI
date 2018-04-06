@@ -39,7 +39,7 @@ paths:
                   data:
                     type: array
                     items: 
-                      $ref: '#/definitions/trait' 
+                      $ref: '#/definitions/traitSummary' 
           examples:
             application/json:
               metadata:

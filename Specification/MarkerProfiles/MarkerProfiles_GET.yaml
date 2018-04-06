@@ -36,7 +36,7 @@ paths:
                result:
                  data:
                    - markerprofileDbId: '993'
-                     germplasmDbId: '2374'
+                     germplasmDbId: '01BEL084609S'
                      uniqueDisplayName: MyFancyGermplasm
                      sampleDbId: '3937'
                      extractDbId: '3939'

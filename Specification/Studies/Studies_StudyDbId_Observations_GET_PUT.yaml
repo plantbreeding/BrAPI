@@ -63,27 +63,27 @@ paths:
                 datafiles: []
               result:
                 data:
-                - studyDbId: '1'
-                  obserationDbId: '12345'
+                - studyDbId: '35'
+                  observationDbId: '12345'
                   observationUnitDbId: '11'
                   observationUnitName: ZIPA_68_Ibadan_2014
                   observationLevel: plot
-                  observationVariableDbId: '393938'
+                  observationVariableDbId: 'CO_334:0100632'
                   observationVariableName: Yield
-                  observationTimestamp: '2015-11-05T15:12:56+01:00'
+                  observationTimeStamp: '2015-11-05T15:12:56+01:00'
                   uploadedBy: dbUserId
                   operator: Jane Doe
                   germplasmDbId: '8383'
                   germplasmName: Pahang
                   value: '5'
-                - studyDbId: '1'
-                  obserationDbId: '23456'
+                - studyDbId: '35'
+                  observationDbId: '23456'
                   observationUnitDbId: '11'
                   observationUnitName: ZIPA_68_Ibadan_2014
                   observationLevel: plot
-                  observationVariableDbId: '393939'
+                  observationVariableDbId: 'CO_334:0100632'
                   observationVariableName: Dry Weight
-                  observationTimestamp: '2015-11-05T15:13:56+01:00'
+                  observationTimeStamp: '2015-11-05T15:13:56+01:00'
                   uploadedBy: dbUserId
                   operator: Jane Doe
                   germplasmDbId: '8383'
@@ -132,12 +132,12 @@ paths:
                 datafiles: []
               result:
                 data:
-                - studyDbId: '1'
-                  obserationDbId: '12345'
+                - studyDbId: '35'
+                  observationDbId: '12345'
                   observationUnitDbId: '11'
                   observationUnitName: ZIPA_68_Ibadan_2014
                   observationLevel: plot
-                  observationVariableDbId: '393938'
+                  observationVariableDbId: 'CO_334:0100632'
                   observationVariableName: Yield
                   observationTimestamp: '2015-11-05T15:12:56+01:00'
                   uploadedBy: dbUserId
@@ -145,12 +145,12 @@ paths:
                   germplasmDbId: '8383'
                   germplasmName: Pahang
                   value: '5'
-                - studyDbId: '1'
-                  obserationDbId: '23456'
+                - studyDbId: '35'
+                  observationDbId: '23456'
                   observationUnitDbId: '11'
                   observationUnitName: ZIPA_68_Ibadan_2014
                   observationLevel: plot
-                  observationVariableDbId: '393939'
+                  observationVariableDbId: 'CO_334:0100632'
                   observationVariableName: Dry Weight
                   observationTimestamp: '2015-11-05T15:13:56+01:00'
                   uploadedBy: dbUserId

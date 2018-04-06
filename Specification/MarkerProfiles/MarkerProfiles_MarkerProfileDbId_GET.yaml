@@ -21,7 +21,7 @@ paths:
                 status: []
                 datafiles: []
               result:
-                markerprofileDbId: mp1
+                markerprofileDbId: '993'
                 germplasmDbId: '1'
                 uniqueDisplayName: My Fancy Germplasm
                 extractDbId: extract1

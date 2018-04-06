@@ -1,5 +1,5 @@
 definitions:
-  observationUnit:
+  observationUnitPhenotype:
     properties:
       X:
         title: xCoordinate
@@ -31,7 +31,7 @@ definitions:
         type: array
       observations:
         items:
-          $ref: '#/definitions/observation'
+          $ref: '#/definitions/observationSummaryPhenotype'
         type: array
       plantNumber:
         type: string

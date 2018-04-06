@@ -29,7 +29,7 @@ paths:
                 status: []
                 datafiles: []
               result:
-                observationVariableDbId: 'CO_334:0100622'
+                observationVariableDbId: 'CO_334:0100632'
                 name: caro_spectro
                 ontologyDbId: CO_334
                 ontologyName: Cassava

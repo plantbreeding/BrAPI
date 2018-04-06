@@ -95,7 +95,7 @@ paths:
                   data:
                     type: array
                     items: 
-                      $ref: '#/definitions/study' 
+                      $ref: '#/definitions/studySummary' 
           examples:
             application/json:
               metadata:
@@ -180,7 +180,7 @@ paths:
                   data:
                     type: array
                     items: 
-                      $ref: '#/definitions/study' 
+                      $ref: '#/definitions/studySummary' 
           examples:
             application/json:
               metadata:

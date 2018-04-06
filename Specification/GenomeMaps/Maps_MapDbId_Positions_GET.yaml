@@ -22,7 +22,7 @@ paths:
                   data:
                     type: array
                     items:
-                      $ref: '#/definitions/marker'
+                      $ref: '#/definitions/markerSummaryMap'
           headers: {}
           examples:
             application/json:

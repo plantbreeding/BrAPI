@@ -1,0 +1,10 @@
+definitions:
+  markerSummaryLinkageGroup:
+    properties:
+      markerDbId:
+        description: Internal db identifier
+        type: string
+      markerName: 
+        type: string
+      location: 
+        type: string

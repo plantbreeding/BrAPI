@@ -27,24 +27,24 @@ paths:
                   data:
                     type: array
                     items: 
-                      $ref: '#/definitions/observationUnit' 
+                      $ref: '#/definitions/observationUnitPhenotype' 
           examples:
             application/json:
               metadata:
                 datafiles: []
                 pagination:
-                  currentPage: 1
+                  currentPage: 0
                   pageSize: 100
-                  totalCount: 102
-                  totalPages: 2
+                  totalCount: 2
+                  totalPages: 1
                 status: []
               result:
                 data:
                 - X: '5'
                   Y: '15'
                   blockNumber: '2'
-                  entryNumber: null
-                  entryType: null
+                  entryNumber: '4'
+                  entryType: check
                   germplasmDbId: doi:10.155454/12349537E12
                   germplasmName: IR-8
                   observationLevel: plot
@@ -73,10 +73,10 @@ paths:
                     observationVariableName: GW100_g
                     season: '2015'
                     value: '3'
-                  plantNumber: null
+                  plantNumber: '0'
                   plotNumber: 2016-Maugio-34-575-abc-123
                   programName: Whealbi
-                  replicate: null
+                  replicate: '0'
                   studyDbId: YieldStudy2015-5
                   studyLocation: Montpellier
                   studyLocationDbId: mtp-north-32
@@ -84,15 +84,15 @@ paths:
                   treatments:
                   - factor: water regimen
                     modality: water deficit
-                - X: null
-                  Y: null
-                  blockNumber: null
-                  entryNumber: null
-                  entryType: null
+                - X: '6'
+                  Y: '15'
+                  blockNumber: '3'
+                  entryNumber: '7'
+                  entryType: test
                   germplasmDbId: doi:10.155499/12349537E00
                   germplasmName: ZE-45
                   observationLevel: plant
-                  observationLevels: null
+                  observationLevels: bloc:2,subBloc:1,plot:2016-Maugio-34-575-abc-123
                   observationUnitDbId: '45204'
                   observationUnitName: 2010-Cornell-37-99
                   observations:
@@ -111,7 +111,7 @@ paths:
                     season: '2010'
                     value: '3'
                   plantNumber: '45204'
-                  plotNumber: null
+                  plotNumber: 2016-Maugio-34-575-abc-123
                   programName: Wheat for futur
                   replicate: '2'
                   studyDbId: YieldStudy2010-5

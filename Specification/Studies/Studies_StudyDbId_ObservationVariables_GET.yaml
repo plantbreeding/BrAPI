@@ -50,13 +50,32 @@ paths:
                 status: []
               result:
                 data:
-                - defaultValue: null
-                  method: null
+                - defaultValue: '0'
+                  method:
+                    class: Estimation
+                    description: Assessment of the level of yellowness in cassava
+                      storage root pulp using the tc chart
+                    formula: null
+                    methodDbId: CO_334:0010320
+                    name: Visual Rating:total carotenoid by chart_method
+                    reference: null
                   name: CT_M_C
                   observationVariableDbId: CO_334:0100632
                   ontologyDbId: CO_334
                   ontologyName: Cassava
-                  scale: null
+                  scale:
+                    datatype: Numeric
+                    decimalPlaces: 2
+                    name: ug/g
+                    scaleDbId: CO_334:0100526
+                    validValues:
+                      categories:
+                      - 1=low
+                      - 2=medium
+                      - 3=high
+                      max: 3
+                      min: 1
+                    xref: null
                   trait:
                     name: Canopy temperature
                     traitDbId: CO_334:0100630
@@ -65,7 +84,7 @@ paths:
                   - Nursery evaluation
                   crop: Cassava
                   date: '2016-05-13'
-                  defaultValue: null
+                  defaultValue: '0'
                   growthStage: mature
                   institution: ''
                   language: EN
@@ -113,7 +132,7 @@ paths:
                     traitDbId: CO_334:0100620
                     xref: TL_455:0003023
                   xref: TL_455:0003001
-                studyDbId: '123'
+                studyDbId: '35'
                 trialName: myBestTrial
           headers: {}
       summary: Get Observation Variables By Study
