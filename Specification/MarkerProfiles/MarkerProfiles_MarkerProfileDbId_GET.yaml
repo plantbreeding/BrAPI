@@ -59,24 +59,24 @@ paths:
                 $ref: '#/definitions/markerProfile' 
       summary: Alleles By Markerprofile Id
       description: |-
-        **Scope**:GENOTYPING.
-        **Status**: ACCEPTED.
-        **Implemented by**: Germinate, Cassavabase
+        <strong>Scope</strong>:GENOTYPING.
+        <strong>Status</strong>: ACCEPTED.
+        <strong>Implemented by</strong>: Germinate, Cassavabase
         </br>
         For the requested markerprofile ID, returns the allele call for each marker. 
         [Example](http://malt.pw.usda.gov/t3/wheatplus/markerprofiles/1784_99/count?analysisMethod=GoldenGate)
         </br>
-        **Allele encodings**
+        <strong>Allele encodings</strong>
         
         - Unknown data will by default be encoded by "N"
         - Homozygotes are returned as a single occurance, e.g. AA -> A, GG -> G
         - Phased heterozygotes are by default separated by a pipe ("|") and unphased heterozygotes are by default separated by a forward slash ("/")
         - Dominant markers such as DArTs: 1 for present, 0 for absent
         
-        **Parameters**
+        <strong>Parameters</strong>
         - If the user would like to use an empty string ("") for any of the parameters, the value should be set to the reserved word "empty_string", e.g. sepUnphased=empty_string.
         
-        **Open issue:**
+        <strong>Open issue:</strong>
         The pages of data will need to be sorted sensibly in order for the
         requested page to be delivered consistently.  By map or genome position?
         Alphabetically?'

@@ -1,12 +1,8 @@
-info:
-  description: ''
-  title: ''
-  version: ''
 paths:
   /crops:
     get:
-      description: '
-
+      description: |-
+        For multi crop systems this is a useful call to list all the supported crops.
 
         <a>example.com/crops</a>'
       parameters:
@@ -36,9 +32,10 @@ paths:
                 type: object
                 properties:
                   data:
+                    description: array of crop names availible on the server
                     type: array
                     items: 
-                      description: supported crop
+                      description: supported crop name
                       type: string
           examples:
             application/json:
@@ -59,4 +56,3 @@ paths:
       summary: List supported crops
       tags:
       - Crops
-swagger: '2.0'

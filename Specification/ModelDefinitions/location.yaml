@@ -19,7 +19,7 @@ definitions:
       instituteAddress:
         type: string
       instituteAdress:
-        description: 'Depecrarted  **Use instituteAddress** '
+        description: 'Depecrarted  <strong>Use instituteAddress</strong> '
         type: string
       instituteName:
         description: each institute/laboratory can have several experimental field

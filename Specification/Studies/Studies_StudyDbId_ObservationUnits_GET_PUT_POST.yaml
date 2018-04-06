@@ -230,7 +230,7 @@ paths:
                 - code: '42'
                   message: Could not update values for Observation Units
           headers: {}
-      summary: '**Deprecated** Save Observation Unit Phenotypes'
+      summary: '<strong>Deprecated</strong> Save Observation Unit Phenotypes'
       tags: 
       - Studies
       - Observations

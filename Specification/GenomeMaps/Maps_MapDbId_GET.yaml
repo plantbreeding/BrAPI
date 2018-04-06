@@ -48,9 +48,9 @@ paths:
         Provides the number of markers on each linkageGroup and the max position on the linkageGroup
         <br>
         
-        **Status:** ACCEPTED
-        **Implemented by:** Germinate, Cassavabase
-        **Used by:** Flapjack
+        <strong>Status:</strong> ACCEPTED
+        <strong>Implemented by:</strong> Germinate, Cassavabase
+        <strong>Used by:</strong> Flapjack
       tags: 
       - Genome Maps
       parameters:

@@ -100,7 +100,7 @@ paths:
                 studyDbId: '123'
                 trialName: myBestTrial
           headers: {}
-      summary: '**Deprecated** Retrieve study observation variables'
+      summary: '<strong>Deprecated</strong> Retrieve study observation variables'
       tags:
       - Studies
       - Observation Variables

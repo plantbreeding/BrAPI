@@ -49,9 +49,9 @@ paths:
         markers ordered by linkageGroup and position
         <br>
         
-        **Status:** ACCEPTED.
-        **Implemented by:** Germinate, Cassavabase
-        **Used by:** Flapjack
+        <strong>Status:</strong> ACCEPTED.
+        <strong>Implemented by:</strong> Germinate, Cassavabase
+        <strong>Used by:</strong> Flapjack
         
       tags: 
       - Genome Maps
@@ -63,7 +63,7 @@ paths:
           type: string
         - name: linkageGroupId
           in: query
-          description: '**Deprecated** Use linkageGroupName instead'
+          description: '<strong>Deprecated</strong> Use linkageGroupName instead'
           required: false
           type: array
           items:

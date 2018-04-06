@@ -1,14 +1,21 @@
 definitions:
-  call:
+  call: 
+    required:
+    - call
+    - datatypes
+    - methods
+    type: object
     properties:
       call:
         type: string
+        description: The name of the available call as recorded in the documentation
       datatypes:
+        type: array
         items:
           type: string
-        type: array
+        description: The possible data formats returned by the available call 
       methods:
+        type: array
         items:
           type: string
-        type: array
-    type: object
+        description: The possible HTTP Methods to be used with the available call 

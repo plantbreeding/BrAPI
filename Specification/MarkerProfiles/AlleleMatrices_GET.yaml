@@ -26,9 +26,9 @@ paths:
       - Marker Profiles
       summary: Matrices through GET
       description: |-
-        **Status**: Proposed
-        **Implemented by**: GOBII
-        **Used by**: Flapjack
+        <strong>Status</strong>: Proposed
+        <strong>Implemented by</strong>: GOBII
+        <strong>Used by</strong>: Flapjack
         </br>
         This resource is used for reading and writing genomic matrices:
         </br>

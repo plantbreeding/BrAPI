@@ -61,9 +61,9 @@ paths:
         Get list of maps
         <br>
         
-        **Status:** ACCEPTED
-        **Implemented by:** Germinate, Cassavabase
-        **Used by:** Flapjack
+        <strong>Status:</strong> ACCEPTED
+        <strong>Implemented by:</strong> Germinate, Cassavabase
+        <strong>Used by:</strong> Flapjack
         do we need list of parents and specify mapping population?
       parameters:
         - name: species

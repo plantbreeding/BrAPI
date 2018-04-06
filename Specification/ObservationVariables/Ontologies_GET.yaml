@@ -54,9 +54,9 @@ paths:
         Call to retrieve a list of observation variable ontologies available in the system.
         <br>
         
-        **Scope:** CORE. 
+        <strong>Scope:</strong> CORE. 
         
-        **Status:** ACCEPTED.
+        <strong>Status:</strong> ACCEPTED.
       tags: 
       - Observation Variables
       parameters:

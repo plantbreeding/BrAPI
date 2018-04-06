@@ -57,7 +57,7 @@ paths:
                 - description: Description for Genotyping study type
                   name: Genotype
           headers: {}
-      summary: '**Deprecated** List study types'
+      summary: '<strong>Deprecated</strong> List study types'
       tags: 
       - Studies
       - Deprecated

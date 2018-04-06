@@ -54,7 +54,7 @@ paths:
                 - plant
                 - plot
           headers: {}
-      summary: '**Deprecated** List observation levels'
+      summary: '<strong>Deprecated</strong> List observation levels'
       tags: 
       - Observations
       - Deprecated

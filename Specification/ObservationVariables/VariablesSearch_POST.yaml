@@ -105,9 +105,9 @@ paths:
         See <a href="https://brapi.docs.apiary.io/#introduction/search-services">Search Services</a> for additional implementation details.
         <br>
         
-        **Scope:** CORE.
+        <strong>Scope:</strong> CORE.
         
-        **Status:** ACCEPTED.
+        <strong>Status:</strong> ACCEPTED.
         
       tags: 
       - Observation Variables

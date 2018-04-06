@@ -51,10 +51,10 @@ paths:
                      resultCount: 1470
        summary: Retrieve Markerprofile Ids
        description: |-
-        **Scope**: GENOTYPING.
-        **Status**: ACCEPTED.
-        **Implemented by**: Germinate
-        **Used by**: Flapjack
+        <strong>Scope</strong>: GENOTYPING.
+        <strong>Status</strong>: ACCEPTED.
+        <strong>Implemented by</strong>: Germinate
+        <strong>Used by</strong>: Flapjack
         </br>
         For the requested Germplasm Id and/or Extract Id, returns the Markerprofile Id and number of non-missing allele calls (marker/allele pairs).
        tags:
@@ -62,7 +62,7 @@ paths:
        parameters:
          - name: germplasmDbId
            in: query
-           description: 'The server''s internal ids for the Germplasm IDs, as returned by the **Find markerprofile by Germplasm** service.'
+           description: 'The server''s internal ids for the Germplasm IDs, as returned by the <strong>Find markerprofile by Germplasm</strong> service.'
            required: false
            type: string
          - name: studyDbId

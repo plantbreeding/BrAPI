@@ -2,15 +2,25 @@ definitions:
   vendorPlateRequest:
     properties:
       plates:
+        description: |-
+          Array of new plates to be submitted to a vendor
+        type: array
         items:
           properties:
             clientPlateDbId:
+              description: |-
+                The ID which uniquely identifies this plate in the clients database
               type: string
             plateFormat:
+              description: |-
+                Defines the plate layout format, usually "Plate_96" for a 96 well plate or "Tubes" for plateless format
               type: string
             sampleType:
               type: string
+            vendorProjectDbId:
+              type: string
             samples:
+              type: array
               items:
                 properties:
                   column:
@@ -29,9 +39,3 @@ definitions:
                     type: string
                   well:
                     type: string
-                type: object
-              type: array
-            vendorProjectDbId:
-              type: string
-          type: object
-        type: array

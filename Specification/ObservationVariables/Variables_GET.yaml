@@ -120,9 +120,9 @@ paths:
         Call to retrieve a list of observationVariables available in the system.
         <br>
         
-        **Scope:** CORE.
+        <strong>Scope:</strong> CORE.
         
-        **Status:** ACCEPTED.
+        <strong>Status:</strong> ACCEPTED.
       tags: 
       - Observation Variables
       parameters:

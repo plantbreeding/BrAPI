@@ -88,9 +88,9 @@ paths:
         Retrieve variable details
         <br>
         
-        **Scope:** CORE
+        <strong>Scope:</strong> CORE
         
-        **Status:** ACCEPTED
+        <strong>Status:</strong> ACCEPTED
 
       tags: 
       - Observation Variables

@@ -46,7 +46,7 @@ paths:
                   soilDescription: '23'
       summary: The internal DB id for a location
       description: |-
-          **Implemented by:**  GnpIS
+          <strong>Implemented by:</strong>  GnpIS
           
           Get details for a location.
           

@@ -43,8 +43,8 @@ paths:
                 - kasp
       summary: Marker Details by id
       description: |-
-          **Status**: ACCEPTED 
-          **Implemented By**:
+          <strong>Status</strong>: ACCEPTED 
+          <strong>Implemented By</strong>:
       
       tags: 
       - Markers
