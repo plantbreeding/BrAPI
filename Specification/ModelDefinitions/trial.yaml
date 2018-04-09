@@ -2,17 +2,20 @@ definitions:
   trial:
     properties:
       active:
+        description: Is this trail currently active
         type: boolean
       additionalInfo:
-        type: object
-        description: Additional arbitrary info
         additionalProperties:
           type: string
+        description: Additional arbitrary info
+        type: object
       contacts:
+        description: List of contact entities associated with this trial
         items:
           $ref: '#/definitions/contact'
         type: array
       datasetAuthorship:
+        description: License and citation information for the data in this trial
         properties:
           datasetPUI:
             type: string
@@ -20,16 +23,21 @@ definitions:
             type: string
         type: object
       endDate:
+        description: The date this trial ends
         format: date
         type: string
       programDbId:
+        description: A program identifier to search for
         type: string
       programName:
+        description: The human readable name of a program
         type: string
       startDate:
+        description: The date this trial started
         format: date
         type: string
       studies:
+        description: List of studies inside this trial
         items:
           properties:
             locationDbId:
@@ -43,6 +51,8 @@ definitions:
           type: object
         type: array
       trialDbId:
+        description: The ID which uniquely identifies a trial
         type: string
       trialName:
+        description: The human readable name of a trial
         type: string

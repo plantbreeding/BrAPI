@@ -2,6 +2,8 @@ definitions:
   observationTreatment:
     properties:
       factor:
+        description: The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc
         type: string
       modality:
+        description: The treatment/factor descritpion. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc
         type: string

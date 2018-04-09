@@ -1,7 +1,9 @@
 definitions:
   studyType:
     properties:
-      name:
-        type: string
       description:
+        description: The description of this study type
+        type: string
+      name:
+        description: The human readable name of a study type
         type: string

@@ -2,17 +2,24 @@ definitions:
   markerProfileDescription:
     properties:
       analysisMethod:
+        description: The type of analysis performed to determine a set of marker data
         type: string
       extractDbId:
+        description: ' The ID which uniquely identifies this data extract'
         type: string
       germplasmDbId:
+        description: ' The ID which uniquely identifies a germplasm'
         type: string
       markerprofileDbId:
+        description: Unique in the database. Can be a catenation of unique IDs for germplasm and extract. <strong>Required</strong>
         type: string
       resultCount:
+        description: Number of markers present in the marker profile
         type: integer
       sampleDbId:
+        description: The ID which uniquely identifies a sample
         type: string
       uniqueDisplayName:
+        description: Human readable display name for this marker profile
         type: string
     type: object

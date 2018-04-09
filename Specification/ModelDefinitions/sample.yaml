@@ -2,29 +2,42 @@ definitions:
   sample:
     properties:
       germplasmDbId:
+        description: ' The ID which uniquely identifies a germplasm'
         type: string
       notes:
+        description: Additional notes about a samle
         type: string
       observationUnitDbId:
+        description: The ID which uniquely identifies an observation unit
         type: string
       plantDbId:
+        description: The ID which uniquely identifies a plant. Usually 'plantNumber'
         type: string
       plateDbId:
+        description: The ID which uniquely identifies a plate of samples
         type: string
       plateIndex:
+        description: The index number of this sample on a plate
         type: integer
       plotDbId:
+        description: ' The ID which uniquely identifies a plot. Usually ''plotNumber'''
         type: string
       sampleDbId:
+        description: The ID which uniquely identifies a sample
         type: string
       sampleTimestamp:
+        description: The date and time a sample was collected from the field
         format: date-time
         type: string
       sampleType:
+        description: 'The type of sample taken. ex. ''DNA'', ''RNA'', ''Tissue'', etc '
         type: string
       studyDbId:
+        description: The ID which uniquely identifies a study within the given database server
         type: string
       takenBy:
+        description: The name or identifier of the entity which took the sample from the field
         type: string
       tissueType:
+        description: The type of tissue sampled. ex. 'Leaf', 'Root', etc.
         type: string

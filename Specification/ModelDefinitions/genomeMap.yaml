@@ -2,24 +2,33 @@ definitions:
   genomeMap:
     properties:
       comments:
+        description: Additional comments
         type: string
       linkageGroupCount:
+        description: The number of linkage groups present in this genome map
         format: int32
         type: integer
       mapDbId:
+        description: The ID which uniquely identifies this genome map
         type: string
       markerCount:
+        description: The number of markers present in this genome map
         format: int32
         type: integer
       name:
+        description: A human readable name for this genome map
         type: string
       publishedDate:
+        description: The date this genome was published
         format: date
         type: string
       species:
+        description: 'The name of the species '
         type: string
       type:
+        description: The type of map this represents, ussually "Genetic"
         type: string
       unit:
+        description: The units used to describe the data in this map
         type: string
     type: object

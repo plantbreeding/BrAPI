@@ -1,29 +1,39 @@
 definitions:
   alleleMatrixSearchRequest:
     properties:
-      markerprofileDbId:
-        type: array
-        items:
-          type: string
-      markerDbId:
-        type: array
-        items:
-          type: string
-      matrixDbId:
-        type: array
-        items:
-          type: string
-      expandHomozygotes: 
+      expandHomozygotes:
+        description: Should homozygotes be expanded (true) or collapsed into a single occurence (false)
         type: boolean
-      unknownString: 
+      format:
+        description: The data format of the response data. ie "json", "tsv", etc
         type: string
-      sepPhased:  
-        type: string
-      sepUnphased: 
-        type: string 
-      format:  
-        type: string
-      pageSize:  
+      markerDbId:
+        description: An ID which uniquely identifies a Marker
+        items:
+          type: string
+        type: array
+      markerprofileDbId:
+        description: An ID which uniquely identifies a Marker Profile
+        items:
+          type: string
+        type: array
+      matrixDbId:
+        description: An ID which uniquely identifies an Allele Matrix
+        items:
+          type: string
+        type: array
+      page:
+        description: Which page of the "data" array to return. The page indexing starts at 0 (page=0 will return the first page). Default is 0.
         type: integer
-      page: 
+      pageSize:
+        description: The maximum number of items to return per page of the "data" array. Default is 1000.
         type: integer
+      sepPhased:
+        description: The string to use as a separator for phased allele calls.
+        type: string
+      sepUnphased:
+        description: The string to use as a separator for unphased allele calls.
+        type: string
+      unknownString:
+        description: The string to use as a representation for missing data.
+        type: string

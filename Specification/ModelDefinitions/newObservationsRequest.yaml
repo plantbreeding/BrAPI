@@ -2,6 +2,7 @@ definitions:
   newObservationsRequest:
     properties:
       observations:
+        description: List of observation references to be created or updated
         items:
           properties:
             collector:

@@ -2,21 +2,22 @@ definitions:
   markerProfile:
     properties:
       analysisMethod:
+        description: The type of analysis performed to determine a set of marker data
         type: string
       data:
-        type: array
         description: '<strong>Required</strong>
 
           array of marker-name/score pairs'
         items:
-          type: object
           additionalProperties:
             type: string
+          type: object
+        type: array
       extractDbId:
-        description: '<strong>Required</strong>'
+        description: <strong>Required</strong>
         type: string
       germplasmDbId:
-        description: '<strong>Required</strong>'
+        description: <strong>Required</strong>
         type: string
       markerprofileDbId:
         description: Unique in the database. Can be a catenation of unique IDs for germplasm and extract. <strong>Required</strong>

@@ -2,12 +2,17 @@ definitions:
   program:
     properties:
       abbreviation:
+        description: An abbreviation which represnts this program
         type: string
       leadPerson:
+        description: The name or identifier of the program leader
         type: string
       name:
+        description: Human readable name of the program
         type: string
       objective:
+        description: The primary objective of the program
         type: string
       programDbId:
+        description: The ID which uniquely identifies the program
         type: string

@@ -2,15 +2,20 @@ definitions:
   mapDetails:
     properties:
       data:
+        description: List of linkage group details associated with a given map
         items:
           $ref: '#/definitions/linkageGroup'
         type: array
       mapDbId:
+        description: The ID which uniquely identifies this genome map
         type: string
       name:
+        description: A human readable name for this map
         type: string
       type:
+        description: The type of map this represents, ussually "Genetic"
         type: string
       unit:
+        description: The units used to describe the data in this map
         type: string
     type: object

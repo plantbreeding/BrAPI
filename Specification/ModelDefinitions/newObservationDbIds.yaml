@@ -2,6 +2,7 @@ definitions:
   newObservationDbIds:
     properties:
       observations:
+        description: List of observation references which have been created or updated
         items:
           properties:
             observationDbId:

@@ -2,6 +2,7 @@ definitions:
   phenotypesRequest:
     properties:
       data:
+        description: Matrix of observation data recorded for different observation variables across different observation units
         items:
           description: new phenotypes
           properties:

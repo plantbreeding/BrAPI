@@ -2,6 +2,7 @@ definitions:
   studyLayoutRequest:
     properties:
       layout:
+        description: List of observation unit position data entities which need to be updated
         items:
           properties:
             X:

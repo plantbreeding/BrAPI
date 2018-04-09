@@ -2,6 +2,7 @@ definitions:
   newObservationUnitDbIds:
     properties:
       observationUnitDbIds:
-        type: array
+        description: List of observation unit references which have been created or updated
         items:
           type: string
+        type: array

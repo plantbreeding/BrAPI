@@ -1,57 +1,86 @@
 definitions:
   studySearchRequest:
     properties:
-      studyDbIds:
-        type: array
-        items:
-          type: string
-      trialDbIds:
-        type: array
-        items:
-          type: string
-      programDbIds:
-        type: array
-        items:
-          type: string
-      locationDbIds:
-        type: array
-        items:
-          type: string
-      seasonDbId:
-        type: array
-        items:
-          type: string
-      studyType: 
-        type: string
-      studyNames:
-        type: array
-        items:
-          type: string
-      studyLocations:
-        type: array
-        items:
-          type: string
-      programNames:
-        type: array
-        items:
-          type: string
-      germplasmDbIds:
-        type: array
-        items:
-          type: string
-      observationVariableDbIds:
-        type: array
-        items:
-          type: string
-      active: 
+      active:
+        description: Is this study currently active
         type: boolean
-      sortBy: 
-        type: string
-        enum: [studyDbId, trialDbId, programDbId, locationDbId, seasonDbId, studyType, studyName, studyLocation, programName, germplasmDbId, observationVariableDbId]
-      sortOrder: 
-        type: string
-        enum: [asc, desc]
-      pageSize: 
+      germplasmDbIds:
+        description: List of IDs which uniquely identify germplasm
+        items:
+          type: string
+        type: array
+      locationDbIds:
+        description: List of location identifiers to filter search results
+        items:
+          type: string
+        type: array
+      observationVariableDbIds:
+        description: List of observation variable IDs to search for
+        items:
+          type: string
+        type: array
+      page:
+        description: Which page of the "data" array to return. The page indexing starts at 0 (page=0 will return the first page). Default is 0.
         type: integer
-      page: 
+      pageSize:
+        description: The maximum number of items to return per page of the "data" array. Default is 1000.
         type: integer
+      programDbIds:
+        description: List of program identifiers to filter search results
+        items:
+          type: string
+        type: array
+      programNames:
+        description: List of program names to filter search results
+        items:
+          type: string
+        type: array
+      seasonDbId:
+        description: The ID which uniquely identifies a season
+        items:
+          type: string
+        type: array
+      sortBy:
+        description: Name of one of the fields within the study object on which results can be sorted
+        enum:
+        - studyDbId
+        - trialDbId
+        - programDbId
+        - locationDbId
+        - seasonDbId
+        - studyType
+        - studyName
+        - studyLocation
+        - programName
+        - germplasmDbId
+        - observationVariableDbId
+        type: string
+      sortOrder:
+        description: Order results should be sorted. ex. "ASC" or "DESC"
+        enum:
+        - asc
+        - desc
+        type: string
+      studyDbIds:
+        description: List of study identifiers to search for
+        items:
+          type: string
+        type: array
+      studyLocations:
+        description: List of location names to filter search results
+        items:
+          type: string
+        type: array
+      studyNames:
+        description: List of study names to filter search results
+        items:
+          type: string
+        type: array
+      studyType:
+        description: The type of study being performed. ex. "Yeald Trial", etc
+        type: string
+      trialDbIds:
+        description: List of trial identifiers to filter search results
+        items:
+          type: string
+        type: array

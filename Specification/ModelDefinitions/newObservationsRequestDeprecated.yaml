@@ -2,19 +2,17 @@ definitions:
   newObservationsRequestDeprecated:
     properties:
       commit:
-        type: string
-      transactionDbId:
+        description: Should these changes be commited
         type: string
       data:
-        type: array
+        description: '<strong>Required</strong>
+
+          array of marker-name/score pairs'
         items:
           properties:
             observatioUnitDbId:
               type: string
-            studyDbId:
-              type: number
             observations:
-              type: array
               items:
                 properties:
                   collector:
@@ -30,3 +28,10 @@ definitions:
                     type: string
                   value:
                     type: string
+              type: array
+            studyDbId:
+              type: number
+        type: array
+      transactionDbId:
+        description: The ID representing this transaction
+        type: string

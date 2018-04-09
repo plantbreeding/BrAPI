@@ -2,6 +2,8 @@ definitions:
   taxonID:
     properties:
       sourceName:
+        description: The human readable name of the taxonomy provider
         type: string
       taxonId:
+        description: The identifier (name, ID, URI) of a particular taxonomy within the source provider
         type: string

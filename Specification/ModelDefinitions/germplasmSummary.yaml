@@ -2,20 +2,28 @@ definitions:
   germplasmSummary:
     properties:
       accessionNumber:
+        description: This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection
         type: string
       entryNumber:
+        description: The entry number for this germplasm
         type: string
       germplasmDbId:
+        description: The ID which uniquely identifies a germplasm within the given database server
         type: string
       germplasmName:
+        description: Name of the germplasm. It can be the prefered name and does not have to be unique.
         type: string
       germplasmPUI:
+        description: The Permanent Unique Identifier which represents a germplasm
         type: string
       pedigree:
+        description: The cross name and optional selection history.
         type: string
       seedSource:
+        description: 'The source of the seed '
         type: string
       synonyms:
+        description: List of alternative names or IDs used to reference this germplasm
         items:
           type: string
         type: array

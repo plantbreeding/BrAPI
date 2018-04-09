@@ -2,10 +2,13 @@ definitions:
   germplasmSummaryList:
     properties:
       data:
+        description: List of germplasm associated with a given trial and study
         items:
           $ref: '#/definitions/germplasmSummary'
         type: array
       studyDbId:
+        description: The ID which uniquely identifies a study within the given database server
         type: string
       trialName:
+        description: The human readable name of a trial
         type: string

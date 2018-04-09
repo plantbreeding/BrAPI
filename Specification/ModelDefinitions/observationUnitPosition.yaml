@@ -2,33 +2,44 @@ definitions:
   observationUnitPosition:
     properties:
       X:
+        description: The X position coordinate for an observation unit. Different systems may use different coordinate systems.
         type: string
       Y:
+        description: The Y position coordinate for an observation unit. Different systems may use different coordinate systems.
         type: string
       additionalInfo:
-        type: object
-        description: Additional arbitrary info
         additionalProperties:
           type: string
+        description: Additional arbitrary info
+        type: object
       blockNumber:
+        description: The block number for an observation unit. Different systems may use different block designs.
         type: string
       entryType:
+        description: The type of entry for this observation unit. ex. "check", "test", "filler"
         enum:
         - CHECK
         - TEST
         - FILLER
         type: string
       germplasmDbId:
+        description: ' The ID which uniquely identifies a germplasm'
         type: string
       germplasmName:
+        description: Name of the germplasm. It can be the prefered name and does not have to be unique.
         type: string
       observationLevel:
+        description: The level of an observation unit. ex. "plot", "plant"
         type: string
       observationUnitDbId:
+        description: The ID which uniquely identifies an observation unit
         type: string
       observationUnitName:
+        description: A human readable name for an observation unit
         type: string
       replicate:
+        description: The replicate number of an observation unit. May be the same as blockNumber.
         type: string
       studyDbId:
+        description: The ID which uniquely identifies a study within the given database server
         type: string

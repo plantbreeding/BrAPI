@@ -2,8 +2,10 @@ definitions:
   germplasmAttributeList:
     properties:
       data:
+        description: List of attributes associated with the given germplasm
         items:
           $ref: '#/definitions/germplasmAttribute'
         type: array
       germplasmDbId:
+        description: The ID which uniquely identifies a germplasm within the given database server
         type: string

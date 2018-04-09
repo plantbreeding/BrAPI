@@ -2,29 +2,42 @@ definitions:
   observation:
     properties:
       germplasmDbId:
+        description: ' The ID which uniquely identifies a germplasm'
         type: string
       germplasmName:
+        description: Name of the germplasm. It can be the prefered name and does not have to be unique.
         type: string
       observationDbId:
+        description: The ID which uniquely identifies an observation
         type: string
       observationLevel:
+        description: The level of an observation unit. ex. "plot", "plant"
         type: string
       observationTimeStamp:
+        description: 'The date and time  when this observation was made '
         format: date-time
         type: string
       observationUnitDbId:
+        description: The ID which uniquely identifies an observation unit
         type: string
       observationUnitName:
+        description: A human readable name for an observation unit
         type: string
       observationVariableDbId:
+        description: The ID which uniquely identifies an observation variable
         type: string
       observationVariableName:
+        description: A human readable name for an observation variable
         type: string
       operator:
+        description: The name or identifier of the entity which collected the observation
         type: string
       studyDbId:
+        description: The ID which uniquely identifies a study within the given database server
         type: string
       uploadedBy:
+        description: The name or id of the user who uploaded the observation to the database system
         type: string
       value:
+        description: The value of the data collected as an observation
         type: string

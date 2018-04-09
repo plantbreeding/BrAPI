@@ -2,6 +2,7 @@ definitions:
   vendorSpecificationStandardRequirement:
     properties:
       blankWellPosition:
+        description: Position data for reference blank well
         properties:
           numberOfBlanksPerPlate:
             type: integer
@@ -11,26 +12,36 @@ definitions:
             type: array
         type: object
       inputFormatDetails:
+        description: Human readable details about the accepted input formats
         type: string
       inputFormats:
+        description: List of accepted data formats
         items:
           type: string
         type: array
       maxConcentration:
+        description: The maximum allowed concentration
         type: string
       maxVolume:
+        description: The minimum allowed volume of a sample
         type: string
       minConcentration:
+        description: the minimum allowed concentration of a sample
         type: string
       minSampleNumber:
+        description: 'The first sample number '
         type: string
       minVolume:
+        description: The minimum allowed volume of a sample
         type: string
       plateOrientation:
+        description: The orientation of a plate
         type: string
       sampleTypeDetails:
+        description: Human readable details about the allowed sample types
         type: string
       sampleTypes:
+        description: List of allowed sample types
         items:
           type: string
         type: array

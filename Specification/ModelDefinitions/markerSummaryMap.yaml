@@ -1,12 +1,15 @@
 definitions:
   markerSummaryMap:
     properties:
+      linkageGroupName:
+        description: The Uniquely Identifiable name of this linkage group
+        type: string
+      location:
+        description: The position of a marker within a linkage group
+        type: string
       markerDbId:
         description: Internal db identifier
         type: string
-      markerName: 
-        type: string
-      linkageGroupName: 
-        type: string
-      location: 
+      markerName:
+        description: The human readable name for a marker
         type: string
