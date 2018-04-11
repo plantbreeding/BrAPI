@@ -8,8 +8,8 @@ Calls which could have asynchronous implementations:
 + GET /allelematrix-search
 + POST /allelematrix-search
 
-If a search call has an asynchronous implementation, then the `asynchstatus` object in `metadata` must be populated. 
-+ The `asynchid` (required) key will contain an id that will be used in additional polling status calls.  
+If a search call has an asynchronous implementation, then the `asynchStatus` object in `metadata` must be populated. 
++ The `asynchId` (required) key will contain an id that will be used in additional polling status calls.  
 + The `status` (required) key will contain one of the following possible states with the specified meanings:
     + PENDING: The background process has not started to work on the job; 
     + INPROCESS: The background process is working on the job;
