@@ -31,7 +31,8 @@ The metadata key is structured as followed:
                "message" : "Success"
            }
        ],
-       "asynchstatus": {
+       "asynchStatus": {
+           "asynchId": "abc123"
            "status": "PENDING",
            "startTime": "2017-06-16T14:47:23-0600",
            "endTime": null,
@@ -43,11 +44,11 @@ The metadata key is structured as followed:
 
 ````
 
-+  **pagination**: The pagination object is applicable only when the payload contains a "data" key. It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. Pages are zero indexed, so the first page will be page 0 (zero).
++  **pagination**: The `pagination` object is applicable only when the payload contains a "data" key. It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. Pages are zero indexed, so the first page will be page 0 (zero).
 
-+ **datafiles**: The datafiles key contains a list of file paths, which can be relative or complete URLs. These files contain additional information related to the returned object and can be retrieved by a subsequent call. The empty list should be returned if no additional data files are present.
++ **datafiles**: The `datafiles` key contains a list of file paths, which can be relative or complete URLs. These files contain additional information related to the returned object and can be retrieved by a subsequent call. The empty list should be returned if no additional data files are present.
 
-+ **status**: The status object contains a list of objects with the keys "code" and "message". If no status is reported, an empty list should be returned. 
++ **status**: The `status` object contains a list of objects with the keys "code" and "message". If no status is reported, an empty list should be returned. 
 
 **NOTE:** The Status object should be used _in addition_ to the standard [HTTP status codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes). The purpose is to provide additional, BrAPI specific information back to the client.   
 
@@ -65,7 +66,7 @@ Code|Message|Description
 4004|"No objects found for given parameters"| Error to be returned when there are no objects in the database which match the requested search parameters
 
 
-+ **asynchstatus**: (Optional) The asynchstatus object is used to provide additional information around certain calls being performed asynchronously. See the section on Asynchronous Calls for more details.
++ **asynchStatus**: (Optional) The `asynchStatus` object is used to provide additional information around certain calls being performed asynchronously. See the section on Asynchronous Calls for more details.
 
 
 

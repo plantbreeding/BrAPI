@@ -16,8 +16,9 @@ This uses a more efficient data structure and pagination for large number of mar
 
 ### Scores through GET [GET /brapi/v1/allelematrix-search{?markerprofileDbId}{?markerDbId}{?matrixDbId}{?format}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageSize}{?page}]
 
+**This call may support asynchronous processing. See the "Asynchronous Processing" section for more information**
+
 Use GET when parameter size is less than 2K bytes.
-This method may support asynchronous processing.
 
 + Parameters
     + markerprofileDbId (required, array, `993,994,995`) ... The markerprofile db ids. Not Required if 'markerDbId' or 'matrixDbId' is present.
