@@ -2,22 +2,28 @@
 
 ### Asynchronous Processing
 
-Some calls initiate asynchronous processing, which take an indeterminate amount of time to complete. For example, the allelematrix-search may initiate a background process that extracts the requested data from a data warehouse. In this case, 
+Some search calls initiate asynchronous processing, which take an indeterminate amount of time to complete.
 
-+ The status array of the call's response will contain a status object in which the value of the **code** key is **asynchid**, the value of the **message** key is an id that will be used in additional calls; 
-+ The resource from which the response was received will have a child resource called **status** to which the message value of the **asynchid** code is a uri parameter; a GET on this resource will indicate the current status of the job; 
-+ The status array of the response from the status resource will include a status object in which the key is called **asynchstatus** and the **message** key's value indicatse the following possible states with the specified meanings:
+Calls which could have asynchronous implementations:
++ GET /allelematrix-search
++ POST /allelematrix-search
+
+If a search call has an asynchronous implementation, then the `asynchstatus` object in `metadata` must be populated. 
++ The `asynchid` (required) key will contain an id that will be used in additional polling status calls.  
++ The `status` (required) key will contain one of the following possible states with the specified meanings:
     + PENDING: The background process has not started to work on the job; 
     + INPROCESS: The background process is working on the job;
-    + FINISHED: The job has completed succesfully, in which case:
-        + The datafiles list of the response with this **asynchstatus** message value is required to have at least one entry that is a file path or uri to the directory or file of interest; and/or
-        + The data array in the result contains the matrix data;
+    + FINISHED: The job has completed successfully, in which case the `result` object will be populated with the requested data OR the `datafiles` array will have at least one data file URI which contains the requested data.
     + FAILED: The job has failed;
-+ In the case where the message value of the **asynchstatus** code is FAILED, the status array may have, but is not requried to have, a status object in which the **code** key is **asynchfailure** and the **message** key indicates the cause of the job failure (some systems may prefer to use email notification either instead of or in addition to this mechanism). 
++ The `startTime` indicates the date and time when the call was first made.
++ The `endTime` indicates the date and time when the processing for the call is complete.
++ The `percentComplete` is an integer [range 0-100] which indicates how much of the process has completed. If a system has no way of detecting intermediate status, `percentComplete` may jump directly from 0 to 100 when processing is finished.
 
-For example, a call to allelematrix-search might give the following response: 
+After making the initial asynch call and receiving an `asynchId`, all subsequent polling calls should go to `/asynch_call/{asynchId}` 
 
-<code>
+For example, a call to **`/allelematrix-search`** might give the following response: 
+
+````
 {
     "metadata": {   
         "pagination": {
@@ -26,19 +32,24 @@ For example, a call to allelematrix-search might give the following response:
             "totalCount": 0,
             "totalPages": 0
         },
-        "status": [{"code": "asynchid", 
-                     "message" : "extract_2016-12-15-20-37-015"}],
-        "datafiles": []
+        "status": [{"code": "2002", 
+                     "message" : "Asynchronous call in progress"}],
+        "datafiles": [],
+        "asynchStatus": {
+           "asynchId": "abc123",
+           "status": "PENDING",
+           "startTime": "2017-06-16T14:47:23-0600",
+           "endTime": null,
+           "percentComplete": 0
+        }
     },
-    "result" : { 
-        "data": []
-    }
+    "result" : {}
 }
-</code>
+````
 
-Given this response, a GET on the resource **/allelematrix-search/status/extract_2016-12-15-20-37-015** will give a response as follows:
+Given this response, a GET on the resource **`/allelematrix-search/abc123`** will give a response as follows:
 
-<code>
+````
 {
     "metadata": {   
         "pagination": {
@@ -47,12 +58,17 @@ Given this response, a GET on the resource **/allelematrix-search/status/extract
             "totalCount": 0,
             "totalPages": 0
         },
-        "status": [{"code" : "asycnstatus" ,
+        "status": [{"code" : "200" ,
                      "message" : "FINISHED"}],
-        "datafiles": ["/shared_files/app_test/file_bundle/crops/rice/extract/output/721"]
+        "datafiles": ["https://example.org/shared_files/crops/rice/extract/output/721"],
+        "asynchStatus": {
+           "asynchId": "abc123",
+           "status": "FINISHED",
+           "startTime": "2017-06-16T14:47:23-0600",
+           "endTime": "2017-06-16T14:49:65-0600",
+           "percentComplete": 100
+        }
     },
-    "result" : { 
-        "data": []
-    }
+    "result" : {}
 }
-</code>
+````

@@ -1,5 +1,8 @@
 ### Scores through POST [POST /brapi/v1/allelematrix-search]
 
+
+**This call may support asynchronous processing. See the "Asynchronous Processing" section for more information**
+
 Use POST when parameter size is greater than 2K bytes.
 
 - If no format is specified, this call returns the data in JSON form.
