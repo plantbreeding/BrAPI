@@ -17,6 +17,7 @@ Used by: Flapjack
 |call|string|The relative URL/path of the call as specified in the Apiary (e.g. "germplasm/{germplasmDbId}")|Y|
 |datatypes|list|List of the data formats supported for data export, e.g. "json", "tsv", etc.|Y|
 |methods|list|List of the HTTP methods supported by this call|Y|
+|versions|list|List of BrAPI version numbers which this server supports for this particular call|Y|
 
 **Note on the call response**
 
@@ -58,14 +59,14 @@ Here are the rules for the path of each call that should be returned:
             },
             "result" : {
                 "data" : [
-                    { "call": "token", "datatypes" : ["json"], "methods" : ["POST", "DELETE"] },
-                    { "call": "calls" , "datatypes" : ["json"], "methods" : ["GET"] },
-                    { "call": "allelematrix", "datatypes": ["json", "tsv"], "methods": ["GET", "POST"] },
-                    { "call": "observationLevels", "datatypes" : ["json"], "methods" : ["GET"] },
-                    { "call": "germplasm-search", "datatypes" : ["json"], "methods" : ["GET", "POST"] },
-                    { "call": "germplasm/{germplasmDbId}", "datatypes" : [ "json" ], "methods" : ["GET"] },      
-                    { "call": "germplasm/{germplasmDbId}/pedigree", "datatypes" : ["json"], "methods" : ["GET"] },
-                    { "call": "germplasm/{germplasmDbId}/markerprofiles", "datatypes" : [ "json" ], "methods" : ["GET"]}
+                    { "call": "token", "datatypes" : ["json"], "methods" : ["POST", "DELETE"], "versions":["1.0", "1.1"] },
+                    { "call": "calls" , "datatypes" : ["json"], "methods" : ["GET"], "versions":["1.0", "1.1", "1.2"] },
+                    { "call": "allelematrix", "datatypes": ["json", "tsv"], "methods": ["GET", "POST"], "versions":["1.0"] },
+                    { "call": "observationLevels", "datatypes" : ["json"], "methods" : ["GET"], "versions":["1.0", "1.1", "1.2"] },
+                    { "call": "germplasm-search", "datatypes" : ["json"], "methods" : ["GET", "POST"], "versions":["1.0", "1.1", "1.2"] },
+                    { "call": "germplasm/{germplasmDbId}", "datatypes" : [ "json" ], "methods" : ["GET"], "versions":["1.0", "1.1", "1.2"] },      
+                    { "call": "germplasm/{germplasmDbId}/pedigree", "datatypes" : ["json"], "methods" : ["GET"], "versions":["1.1", "1.2"] },
+                    { "call": "germplasm/{germplasmDbId}/markerprofiles", "datatypes" : [ "json" ], "methods" : ["GET"], "versions":["1.1", "1.2"]}
                 ]
             }
         }
