@@ -14,11 +14,7 @@ This uses a more efficient data structure and pagination for large number of mar
 |markerprofileDbIds| list of strings | | Y |
 |data| array | Is an array of arrays; each inner array has three entries: "markerDbId", "markerprofileDbId", "alleleCall". Scores have to be represented as described further up. e.g. unknown data as "N", etc. Missing data can be skipped. | Y |
 
-### Scores through GET [GET /brapi/v1/allelematrix-search{?markerprofileDbId}{?markerDbId}{?matrixDbId}{?format}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageSize}{?page}]
-
-**This call may support asynchronous processing. See the "Asynchronous Processing" section for more information**
-
-Use GET when parameter size is less than 2K bytes.
+### **Deprecated** Scores through GET [GET /brapi/v1/allelematrix-search{?markerprofileDbId}{?markerDbId}{?matrixDbId}{?format}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageSize}{?page}]
 
 + Parameters
     + markerprofileDbId (required, array, `993,994,995`) ... The markerprofile db ids. Not Required if 'markerDbId' or 'matrixDbId' is present.

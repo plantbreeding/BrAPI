@@ -1,15 +1,4 @@
-### Scores through POST [POST /brapi/v1/allelematrix-search]
-
-
-**This call may support asynchronous processing. See the "Asynchronous Processing" section for more information**
-
-Use POST when parameter size is greater than 2K bytes.
-
-- If no format is specified, this call returns the data in JSON form.
-- If a format (other than JSON) is specified and the server supports this format, it will return the link to the exported data file in the "datafiles" field of the "metadata".
-- If more than one format is requested at a time, the server will throw a "501 Not Implemented" error.
-
-The format of the tsv response can be found on GitHub (https://github.com/plantbreeding/Documentation/wiki/BrAPI-TSV-Expected-Formats)
+###  **Deprecated** Scores through POST [POST /brapi/v1/allelematrix-search]
 
 + Request (application/json)
     
