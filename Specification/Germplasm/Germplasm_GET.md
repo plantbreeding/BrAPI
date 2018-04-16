@@ -60,6 +60,7 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
                 "germplasmPUI": "http://www.crop-diversity.org/mgis/accession/01BEL084609",
                 "pedigree": "TOBA97/SW90.1057",
                 "seedSource": "ITC0609-2016-77",
+                "breedingMethodDbId": "BM987",
                 "synonyms": [ ],
                 "commonCropName": "banana",
                 "instituteCode": "01BEL084",
