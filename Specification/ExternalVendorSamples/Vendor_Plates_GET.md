@@ -1,25 +1,5 @@
-## Plate Details by vendorPlateId [/brapi/v1/vendor/plate/{vendorPlateDbId}] 
-Scope: Genotyping facilty.
 
-Response data types
-
-|Variable|Datatype|Description|Required|  
-|------|------|------|:-----:|
-|metadata|object|pagination, status|Y|
-|pagination|object|pageSize, currentPage, totalCount, totalPages|Y|
-|status|list|code, message|Y|
-|result|Object|Object containing MCPD data|Y|
-|vendorProjectDbId|string|the name or identifier given to a project by the vendor|Y|
-|vendorPlateDbId|string|the name or identifier of the plate, given by the vendor|Y|
-|clientPlateDbId|string|the name of the plate, given by the client|Y|
-|barcode|string|a string that can be represented as a barcode, identifying this plate|N|
-|plateFormat|string|defines that plate format, usually Plate_96 or tubes for plateless format|Y|
-|sampleType|string|DNA or RNA or Tissue, etc.|Y|
-|status|string|The status of the plate in the processing pipeline. Typically,  "Received", "Processing", "QC_passed", QC_failed", "Completed" (as per vendor-requirements call)|Y|
-|samples|Array|list of samples in the plate|Y|
- 
-
-### Plate Details by vendorPlateId [GET /brapi/v1/vendor/plate/{vendorPlateDbId}] 
+### Plate Details by vendorPlateId [GET /brapi/v1/vendor/plates/{vendorPlateDbId}] 
 + Parameters
     + vendorPlateDbId (required, string, `8338`) ... The plate ID defined by the vendor
 

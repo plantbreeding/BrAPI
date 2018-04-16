@@ -1,38 +1,15 @@
 
-## Search for plates [/brapi/v1/vendor/plate-search]
+### Complex Search for plates [POST /brapi/v1/vendor/plates-search] 
++ Request (application/json)
 
-Search for plates in the database.
-
-|Variable|Datatype|Description|Required|  
-|------|------|------|:-----:|
-|metadata|object|pagination, status|Y|
-|pagination|object|pageSize, currentPage, totalCount, totalPages|Y|
-|status|list|code, message|Y|
-|result|object|Object containing MCPD data|Y|
-|plates|list|list of plates|
-|vendorProjectDbIdg||Y|
-|vendorPlateIdentifier|string||Y|
-|clientPlateIdentifier|string||Y|
-|barcode|string||Y|
-|plateFormat|string||Y|
-|sampleType|string||Y|
-|status|string||Y|
-|samples|Object||Y|
-|files|Object||Y|
-|filename|string||Y|
-|url|string||Y|
-|md5sum|string||Y|
-|filetype|string||Y|
-|clientSampleIdentifiers|list||Y|
-
-###  Search for plates [GET /brapi/v1/vendor/plate-search{?vendorProjectDbId}{?vendorPlateDbId}{?clientPlateDbId}{?sampleInfo}{?pageSize}{?page}] 
-+ Parameters
-     + vendorProjectDbId (optional, string, `8338`) 
-     + vendorPlateDbId (optional, string, `8338`)
-     + clientPlateDbId (optional, string, `8338`)
-     + sampleInfo (optional, boolean, `false`)
-     + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
-     + page (optional, integer, `0`) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+        {
+            "vendorProjectDbIds" : ["abc123"],
+            "vendorPlateDbIds" : ["def456"],
+            "clientPlateDbIds" : ["ghi789"],
+            "sampleInfo": "false",
+            "page": 0,
+            "pageSize": 1000
+        }
  
 + Response 200 (application/json)
 
