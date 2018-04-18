@@ -55,9 +55,9 @@ Get a list of locations.
                         "abbreviation": "IB",
                         "countryCode": "NGA",
                         "countryName": "Nigeria",
-                        "latitude": -21.5,
-                        "longitude": 165.5,
-                        "altitude": 12,
+                        "latitude": "+9.0820",
+                        "longitude": "+8.6753",
+                        "altitude": "+12",
                         "instituteName": "INRA - GDEC",
                         "instituteAddress": "route foo, Clermont Ferrand, France",
                         "additionalInfo": 
@@ -73,9 +73,9 @@ Get a list of locations.
                         "abbreviation": "GO",
                         "countryCode": "IND",
                         "countryName": "India",
-                        "latitude": 28.36,
-                        "longitude": 77.12,
-                        "altitude": 10,
+                        "latitude": "+17.3850",
+                        "longitude": "+78.4867",
+                        "altitude": "+515",
                         "additionalInfo": {
                             "name1" : "value1",
                             "name2" : "value2"
