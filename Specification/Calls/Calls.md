@@ -1,10 +1,6 @@
 ## Call Search [/brapi/v1/calls]
 
-Status: ACCEPTED
-
-Implemented by: Germinate, Cassavabase
-
-Used by: Flapjack
+This call is **required** for every unique BrAPI implementation server. 
 
 ##### Response data types
 |Variable|Datatype|Description|Required|

@@ -11,6 +11,7 @@ Use POST for large queries (>2K bytes).
             "germplasmGenus" : [ "Solanum", "Triticum" ],
             "germplasmNames" : [ "XYZ1", "Pahang" ],
             "accessionNumbers": [ "ITC0609", "ITC0685" ],
+            "commonCropName": "wheat",
             "pageSize" : 100,
             "page": 1
         }

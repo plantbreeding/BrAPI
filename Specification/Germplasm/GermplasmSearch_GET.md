@@ -38,12 +38,12 @@ Adresses these needs:
 |species|string|[MCPD](https://www.bioversityinternational.org/fileadmin/user_upload/online_library/publications/pdfs/FAOBIOVERSITY_MULTI-CROP_PASSPORT_DESCRIPTORS_V.2.1_2015_2020.pdf) Specific epithet portion of the scientific name in lowercase letters.||
 |taxonIds|array| The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.||
 |speciesAuthority|string|[MCDP](https://www.bioversityinternational.org/fileadmin/user_upload/online_library/publications/pdfs/FAOBIOVERSITY_MULTI-CROP_PASSPORT_DESCRIPTORS_V.2.1_2015_2020.pdf)||
-|subtaxa|string|[MCPD](https://www.bioversityinternational.org/fileadmin/user_upload/online_library/publications/pdfs/FAOBIOVERSITY_MULTI-CROP_PASSPORT_DESCRIPTORS_V.2.1_2015_2020.pdf) Subtaxon can be used to store any additional taxonomic identifier. The following abbreviations are allowed: ‘subsp.’ (for subspecies); ‘convar.’ (for convariety); ‘var.’ (for variety); ‘f.’ (for form); ‘Group’ (for ‘cultivar group’).|
+|subtaxa|string|[MCPD](https://www.bioversityinternational.org/fileadmin/user_upload/online_library/publications/pdfs/FAOBIOVERSITY_MULTI-CROP_PASSPORT_DESCRIPTORS_V.2.1_2015_2020.pdf) Subtaxon can be used to store any additional taxonomic identifier. The following abbreviations are allowed: "subsp." (for subspecies); "convar." (for convariety); "var." (for variety); "f." (for form); "Group" (for "cultivar group").|
 |subtaxaAuthority|string|[MCDP](https://www.bioversityinternational.org/fileadmin/user_upload/online_library/publications/pdfs/FAOBIOVERSITY_MULTI-CROP_PASSPORT_DESCRIPTORS_V.2.1_2015_2020.pdf) ||
 |donors|array of object|[MCPD](https://www.bioversityinternational.org/fileadmin/user_upload/online_library/publications/pdfs/FAOBIOVERSITY_MULTI-CROP_PASSPORT_DESCRIPTORS_V.2.1_2015_2020.pdf) code of the donor institute and Identifier assigned to an accession by the donor, and permanent identifier.||
 |acquisitionDate|string|[MCPD](https://www.bioversityinternational.org/fileadmin/user_upload/online_library/publications/pdfs/FAOBIOVERSITY_MULTI-CROP_PASSPORT_DESCRIPTORS_V.2.1_2015_2020.pdf) Follow ISO 8601 standard|
 
-### Germplasm search through GET [GET /brapi/v1/germplasm-search{?germplasmPUI}{?germplasmDbId}{?germplasmName}{?pageSize}{?page}]
+### Germplasm search through GET [GET /brapi/v1/germplasm-search{?germplasmPUI}{?germplasmDbId}{?germplasmName}{?commonCropName}{?pageSize}{?page}]
 
 Use GET when parameter size is less than 2K bytes.
 
@@ -51,6 +51,7 @@ Use GET when parameter size is less than 2K bytes.
    + germplasmPUI (optional, string, `http://data.inra.fr/accession/234Col342`) ... Permanent unique identifier (DOI, URI, etc.)
    + germplasmDbId (optional, string, `986`) ... Internal database identifier
    + germplasmName (optional, string, `Pahang`) ... Name of the germplasm
+   + commonCropName (optional, string, `banana`) ... The common crop name. Important for multi-crop systems.
    + pageSize (optional, integer, `1000`) ... The size of the pages to be returned. Default is `1000`.
    + page (optional, integer, `0`) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
 

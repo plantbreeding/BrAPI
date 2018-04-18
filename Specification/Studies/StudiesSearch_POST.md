@@ -12,6 +12,7 @@
            "studyNames" : ["Study A", "StydyB"], 
            "studyLocations" : ["Kenya", "Zimbabwe"], 
            "programNames": ["Test Program", "Program2"],
+           "commonCropName": "wheat",
            "germplasmDbIds" : [ "CML123", "CWL123"],
            "observationVariableDbIds": ["CO-PH-123", "Var-123"]
            "active" : "true",

@@ -15,6 +15,7 @@ See <a href="#introduction/search-services">Search Services</a> for additional i
             "abbreviation" : "DRP1",
             "objective" : "Disease resistance",
             "leadPerson" : "Dr. Henry Beachell",
+            "commonCropName": "wheat",
             "pageSize": 1000,
             "page": 0
         }
@@ -39,14 +40,16 @@ See <a href="#introduction/search-services">Search Services</a> for additional i
                         "name": "Wheat Resistance Program",
                         "abbreviation" : "DRP1",
                         "objective" : "Disease resistance",
-                        "leadPerson" : "Dr. Henry Beachell"
+                        "leadPerson" : "Dr. Henry Beachell",
+                        "commonCropName": "wheat"
                     },
                     {
                         "programDbId": "456",
                         "name": "Wheat Improvement Program",
                         "abbreviation" : "DRP2",
                         "objective" : "Yield improvement",
-                        "leadPerson" : "Dr. Norman Borlaug"
+                        "leadPerson" : "Dr. Norman Borlaug",
+                        "commonCropName": "wheat"
                     }
                 ]
             }
