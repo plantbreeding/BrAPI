@@ -33,9 +33,9 @@ Get details for a location.
                     "abbreviation": "IB",
                     "countryCode": "NGA",
                     "countryName": "Nigeria",
-                    "latitude": -21.5,
-                    "longitude": 165.5,
-                    "altitude": 12,
+                    "latitude": "+9.0820",
+                    "longitude": "+8.6753",
+                    "altitude": "+12",
                     "instituteName": "INRA - GDEC",
                     "instituteAddress": "road foo, nigeria",
                     "additionalInfo": 

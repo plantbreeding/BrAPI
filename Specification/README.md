@@ -204,8 +204,17 @@ Timestamp UTC|yyyy-MM-ddThh:mm:ssZ|2017-06-16T20:47:23Z
 
 ### Location coordinate encoding
 
-To encode locations as coordinates, the ISO 6709 standard is used. Importantly, the decimal notation is used. Example
-latitude: +40.20361, longitude: -075.00417. Note that plus and minus signs are always required, and latitude has two digits before the decimal separator (with leading zeroes when necessary), and longitude has three digits.
+To encode locations as coordinates, the ISO 6709 standard is used, degree notation only.
+
+||Format|Example|
+|---|---|---|
+|latitude|±DD.D|"+40.20361"|
+|longitude|±DDD.D|"-075.00417"|
+
+Note:
+ + Plus and minus signs are always required
+ + Latitude has two digits before the decimal separator (with leading zeroes when necessary)
+ + Longitude has three digits before the decimal separator (with leading zeroes when necessary)
 
 
 ### Search Services

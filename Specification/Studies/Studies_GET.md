@@ -38,9 +38,9 @@ More linked data:
 | location.instituteName  | string          | Study location institute/laboratory name                |          |
 | **deprecated** location.instituteAdress| string          | **Use location.instituteAddress**        |          |
 | location.instituteAddress| string          | Study location institute/laboratory address            |          |
-| location.latitude       | number          | Study location latitude                                 |          |
-| location.longitude      | number          | Study location longitude                                |          |
-| location.altitude       | number          | Study location altitude in meters                       |          |
+| location.latitude       | string          | Study location latitude                                 |          |
+| location.longitude      | string          | Study location longitude                                |          |
+| location.altitude       | string          | Study location altitude in meters                       |          |
 | location.additionalInfo | object          | Additional arbitrary info on the study location         |          |
 | contacts                | array of object | List of study contacts                                  |          |
 | contacts.contactDbId    | string          | Study contact database identifier                       |          |
@@ -100,9 +100,9 @@ More linked data:
                     "countryName": "Nigeria",
                     "instituteName"; "INRA - GDEC",
                     "instituteAddress"; "route foo, Clermont Ferrand, France",
-                    "latitude": -21.5,
-                    "longitude": 165.5,
-                    "altitude": 12,
+                    "latitude": "+9.0820",
+                    "longitude": "+8.6753",
+                    "altitude": "+12",
                     "additionalInfo": {
                         "AnnualMeanRain": "value",
                         "SoilDescription": "23",
