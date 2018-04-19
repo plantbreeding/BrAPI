@@ -1,19 +1,19 @@
-## Observation Unit Search [/brapi/v1/observationunits-search]
+## Phenotype Search [/brapi/v1/phenotypes-search]
 Scope: PHENOTYPING.
 Status: ACCEPTED.
 
-Returns a list of Observation Unit across all programs, trials, and studies
+Returns a list of observationUnit with the observed Phenotypes.
 
 See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
 
 Implemented for GnpIS and PHIS data (https://urgi.versailles.inra.fr/ws/webresources/brapi/v1/phenotypes). 
 Use case: this section allows to get a dataset from multiple studies. It allows to integrate data from several databases.
-Refactor note : This call allows to get and integrate portions of multiple phenotyping data matrixes. A proposed evolution allowed to get a list of single observations, this functionality is still possible with this call by specifybing the observation variable, see below.
+Refactor note : This call allows to get and integrate portions of multiple phenotyping data matrixes. A proposed evolution allowed to get a list of single observations, this functionality is still possible with this call by specifying the observation variable, see below.
 Example Use cases:
 - Study a panel of germplasm accross multiple studies, search parameters : {"germplasmDbIds" : [ "Syrah", "34Mtp362" ]}
 - Get all data for a specific study : {"studyDbIds" : [ "383" ]}
 - Get simple atomic phenotyping values : {"germplasmDbIds" : [ "Syrah", "34Mtp362" ], "observationVariableDbIds" : [ "CO_345:0000043"]}
-- Study Locations for adaptation to climat change : {"locationDbIds" : [ "383838", "MONTPELLIER" ], "germplasmDbIds" : [ "all ids for a given species"]}
+- Study Locations for adaptation to climate change : {"locationDbIds" : [ "383838", "MONTPELLIER" ], "germplasmDbIds" : [ "all ids for a given species"]}
 - Find phenotypes that are from after a certain timestamp
 
 ###### Response data types
@@ -49,10 +49,12 @@ Example Use cases:
 |observations.observationTimeStamp|string|ISO format "2006-07-03T10:00:38-0800"||
 |observations.collector|string| Person or team who has made the observation||
 
-### Observation Unit Search [POST /brapi/v1/observationunits-search]
 
 observationTimeStamp : Iso Standard 8601.
+
 observationValue data type inferred from the ontology 
+
+### Phenotype Search [POST /brapi/v1/phenotypes-search]
 
 + Request (application/json)
 
@@ -62,7 +64,7 @@ observationValue data type inferred from the ontology
             "studyDbIds" : [ "383", "2929", "WHEAT_NETWK_2016_MONTPELLIER" ], // (optional) The database ID / PK of the studies search parameter
             "locationDbIds" : [ "383838", "MONTPELLIER" ], // (optional) locations these traits were collected
             "trialDbIds" : [ "3838", "Drought_resistance_CG_2020" ], // (optional) list of trials to search across
-            "programDbIds" : [ "3838", "Drought_resistance_CG_2020" ], // (optional) list of programs to search across
+            "programDbIds" : [ "3838", "Drought_resistance_CG_2020" ], // (optional) list of programs that have phenotyped this trait
             "seasonDbIds" : [ "338", "2010", "1956-2014", "2002-2003-2004", "2007 Spring" ], // (optional) The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)
             "observationLevel" : "plot", // (optional) The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnitStructure.
             "observationTimeStampRange" : ["2015-06-16T00:53:26-0800","2015-06-18T00:53:26-0800"] // (optional) Array fixed length of 2. First item is the Start Timestamp, second item is the End Timestamp.

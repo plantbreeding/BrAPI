@@ -1,8 +1,5 @@
 
-### Observation Unit Search (TSV) [POST /brapi/v1/observationunits-search/tsv]
-
-observationTimeStamp : Iso Standard 8601.
-observationValue data type inferred from the ontology 
+### Phenotypes Search (CSV) [POST /brapi/v1/phenotypes-search/csv]
 
 + Request (application/json)
 
@@ -14,16 +11,16 @@ observationValue data type inferred from the ontology
             "trialDbIds" : [ "3838", "Drought_resistance_CG_2020" ], // (optional) list of trials to search across
             "programDbIds" : [ "3838", "Drought_resistance_CG_2020" ], // (optional) list of programs to search across
             "seasonDbIds" : [ "338", "2010", "1956-2014", "2002-2003-2004", "2007 Spring" ], // (optional) The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)
-            "observationLevel" : "plot", // (optional) The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnit Structure.
+            "observationLevel" : "plot", // (optional) The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnitStructure.
             "observationTimeStampRangeStart" : "2015-06-16T00:53:26-0800" // (optional) Timestamp range start
             "observationTimeStampRangeEnd" : "2015-06-18T00:53:26-0800" // (optional) Timestamp range end
             "pageSize" : 100, // (optional) The size of the pages to be returned. Default is `1000`.
-            "page" : 1, // (optional) Which result page is requested
+            "page" : 0, // (optional) Which result page is requested
         }
  
-+ Response 200 (text/tsv)
++ Response 200 (application/csv)
 
-    "year"    "studyDbId"    "studyName"    "locationDbId"    "locationName"    "germplasmDbId"    "germplasmName"    "observationUnitDbId"    "plotNumber"    "replicate"    "blockNumber"    "entryType"    "X"    "Y"     (Observation Variable Names)"plant height"    "fruit weight"    "root weight"     ...
-    "2015"    "YieldStudy2015-5"    "Yield wheat 2015"    "mtp-north-32"    "Montpellier"    "doi:10.155454/12349537E12"    "IR-8"    "2016-Maugio-34-575-abc-123"    "120"    ""    "2"    ""    "5"    "15"    "45"    "3"    "10"     ...
-    "2016"    "YieldStudy2016-5"    "Yield wheat 2016"    "mtp-north-32"    "Montpellier"    "doi:10.155454/12349537E13"    "IR-8"    "2016-Maugio-34-575-abc-124"    "120"    ""    "2"    ""    "5"    "15"    "47"    "4"    "11"     ...
+        "year","studyDbId","studyName","locationDbId","locationName","germplasmDbId","germplasmName","observationUnitDbId","plotNumber","replicate","blockNumber", "entryType", "X", "Y", "variableDbId1", "variableDbId2", "variableDbId3"
+        "2015", "YieldStudy2015-5", "Yield wheat 2015", "mtp-north-32", "Montpellier", "doi:10.155454/12349537E12", "IR-8", "2016-Maugio-34-575-abc-123", "120", "", "2", "", "5", "15", "45", "3", "10"
+        "2016", "YieldStudy2016-5", "Yield wheat 2016", "mtp-north-32", "Montpellier", "doi:10.155454/12349537E13", "IR-8", "2016-Maugio-34-575-abc-124", "120", "", "2", "", "5", "15", "47", "4", "11"
     
