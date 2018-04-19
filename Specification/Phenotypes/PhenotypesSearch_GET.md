@@ -56,13 +56,13 @@ observationValue data type inferred from the ontology
 
 ### Phenotype Search (GET) [GET /brapi/v1/phenotypes-search{?germplasmDbIds}{?observationVariableDbIds}{?studyDbIds}{?locationDbIds}{?trialDbIds}{?programDbIds}{?seasonDbIds}{?observationLevel}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}{?pageSize}{?page}]
 + Parameters
-    + germplasmDbIds (optional, string, `Blabla`) ... The name or synonym of external genebank accession identifiers
-    + observationVariableDbIds (optional, string, `37373`) ... The IDs of traits, could be ontology ID, database ID or PUI
-    + studyDbIds (optional, string, `2929`) ... The database ID / PK of the studies search parameter
-    + locationDbIds (optional, string, `383838`) ... locations these traits were collected
-    + trialDbIds (optional, string, `3838`) ... list of trials to search across
-    + programDbIds (optional, string, `3838`) ... list of programs that have phenotyped this trait
-    + seasonDbIds (optional, string, `2010`) ... The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)
+    + germplasmDbId (optional, string, `Blabla`) ... The name or synonym of external genebank accession identifiers
+    + observationVariableDbId (optional, string, `37373`) ... The ID of traits, could be ontology ID, database ID or PUI
+    + studyDbId (optional, string, `2929`) ... The database ID / PK of the studies search parameter
+    + locationDbId (optional, string, `383838`) ... locations these traits were collected
+    + trialDbId (optional, string, `3838`) ... trial to search across
+    + programDbId (optional, string, `3838`) ... program that have phenotyped this trait
+    + seasonDbId (optional, string, `2010`) ... The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)
     + observationLevel (optional, string, `plot`) ... The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnitStructure.
     + observationTimeStampRangeStart (optional, string, `2015-06-16T00:53:26-0800`) ... Timestamp range start
     + observationTimeStampRangeEnd (optional, string, `2015-06-18T00:53:26-0800`) ... Timestamp range end
