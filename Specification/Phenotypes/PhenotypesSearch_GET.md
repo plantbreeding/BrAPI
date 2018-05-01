@@ -54,7 +54,7 @@ observationTimeStamp : Iso Standard 8601.
 
 observationValue data type inferred from the ontology 
 
-### Phenotype Search (GET) [GET /brapi/v1/phenotypes-search{?germplasmDbIds}{?observationVariableDbIds}{?studyDbIds}{?locationDbIds}{?trialDbIds}{?programDbIds}{?seasonDbIds}{?observationLevel}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}{?pageSize}{?page}]
+### Phenotype Search (GET) [GET /brapi/v1/phenotypes-search{?germplasmDbId}{?observationVariableDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}{?pageSize}{?page}]
 + Parameters
     + germplasmDbId (optional, string, `Blabla`) ... The name or synonym of external genebank accession identifiers
     + observationVariableDbId (optional, string, `37373`) ... The ID of traits, could be ontology ID, database ID or PUI
