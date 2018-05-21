@@ -33,12 +33,41 @@
         }
       },
       {
-        "name": "Cassavabase",
-        "resource": {
-          "name": "Cassavabase",
-          "base-url": "https://cassavabase.org/brapi/v1/",
-          "certificate": "https://ics.hutton.ac.uk/resources/brapi/certs/cassavabase.org.crt"
-        }
+        "name": "Boyce Thompson Institute",
+        "description": "Discovery and inovation in the life sciences",
+        "logo": "https://cassavabase.org/static/img/bti_logo_2016.png",
+        "resource": [
+          {
+            "name": "Cassavabase",
+            "base-url": "https://cassavabase.org/brapi/v1/",
+            "logo": "https://cassavabase.org/documents/img/cassava/nextgen_cassava_icon.png",
+            "description": "The central database for the NextGen Cassava Project."
+          },
+          {
+            "name": "Yambase",
+            "base-url": "https://yambase.org/brapi/v1/",
+            "logo": "https://yambase.org/documents/img/AfricaYamLogo.jpg",
+            "description": "The central database for the Africa Yam Project."
+          },
+          {
+            "name": "Sweetpotatobase",
+            "base-url": "https://sweetpotatobase.org/brapi/v1/",
+            "logo": "https://sweetpotatobase.org/documents/img/sweetpotatobase/sweetpotatobase_logo.png",
+            "description": "The central database for the Genomic Tools for Sweetpotato Improvement Project."
+          },
+          {
+            "name": "Musabase",
+            "base-url": "https://musabase.org/brapi/v1/",
+            "logo": "https://musabase.org/static/img/musabase/breeding_better_bananas_logo2.png",
+            "description": "The central database for the Breeding Better Bananas Project."
+          },
+          {
+            "name": "Solgenomics",
+            "base-url": "https://solgenomics.net/brapi/v1/",
+            "logo": "https://musabase.org/static/img/musabase/breeding_better_bananas_logo2.png",
+            "description": "Solanaceae database (tomato, tobacco, eggplant, pepper, potato, petunia)."
+          }
+        ]
       },
       {
         "name": "MGIS",
