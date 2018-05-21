@@ -105,7 +105,7 @@
         "logo": "http://www.cropontology.org/images/Crop_Ontology_logo.png",
         "resource": {
           "name": "Crop Ontology BrAPI implementation",
-          "base-url": "	http://www.cropontology.org/brapi/v1/"
+          "base-url": "http://www.cropontology.org/brapi/v1/"
         }
       }
     ]
