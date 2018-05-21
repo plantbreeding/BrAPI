@@ -64,7 +64,7 @@
           {
             "name": "Solgenomics",
             "base-url": "https://solgenomics.net/brapi/v1/",
-            "logo": "https://musabase.org/static/img/musabase/breeding_better_bananas_logo2.png",
+            "logo": "https://solgenomics.net/documents/img/sgn_transparent_logo.png",
             "description": "Solanaceae database (tomato, tobacco, eggplant, pepper, potato, petunia)."
           }
         ]
