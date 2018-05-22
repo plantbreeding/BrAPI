@@ -11,9 +11,14 @@ Version | Status | Release Date | Apiary | Notes
 
 ## Resources
 [Brapi.org](https://brapi.org) - The home of all things BrAPI
+
 [BrAPI On Apiary](https://brapi.docs.apiary.io/#) - Apiary documentation of BrAPI
+
 [BrAPI On SwaggerHub](https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI) - SwaggerHub documentation of BrAPI
+
 [BrAPI Community Forum](https://forum.brapi.org) - Consult with BrAPI experts from all over the world
+
 [BRAVA](https://brava) - Test your BrAPI Server with this robust test client
+
 [BrAPI Test Server](https://test-server.brapi.org) - Test your BrAPI Client against sample data
 
