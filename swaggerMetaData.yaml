@@ -2,9 +2,20 @@ swagger: '2.0'
 host: test-server.brapi.org
 basePath: /brapi/v1
 info:
-  description: 'The Plant Breeding API'
+  description: |-
+    The Breeding API (BrAPI) is a Standardized RESTful Web Service API Specification for communicating Plant Breeding Data. BrAPI allows for easy data sharing between databases and tools involved in plant breeding.
+    
+    <strong>General Reference Documentation</strong>
+    <a href="https://github.com/plantbreeding/API/blob/master/Specification/GeneralInfo/URL_Structure.md">URL Structure</a>
+    <a href="https://github.com/plantbreeding/API/blob/master/Specification/GeneralInfo/Response_Structure.md">Response Structure</a>
+    <a href="https://github.com/plantbreeding/API/blob/master/Specification/GeneralInfo/Date_Time_Encoding.md">Date/Time Encoding</a>
+    <a href="https://github.com/plantbreeding/API/blob/master/Specification/GeneralInfo/Location_Encoding.md">Location Encoding</a>
+    <a href="https://github.com/plantbreeding/API/blob/master/Specification/GeneralInfo/Error_Handling.md">Error Handling</a>
+    <a href="https://github.com/plantbreeding/API/blob/master/Specification/GeneralInfo/Search_Services.md">Search Services</a>
+    <a href="https://github.com/plantbreeding/API/blob/master/Specification/GeneralInfo/Asychronous_Processing.md">Asynchronous Processing</a>
+    
   title: 'BrAPI'
-  version: '2.0'
+  version: '1.2'
 definitions: 
   status: 
     type: object

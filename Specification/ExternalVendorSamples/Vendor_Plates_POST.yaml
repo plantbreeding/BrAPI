@@ -1,7 +1,3 @@
-info:
-  description: ''
-  title: ''
-  version: ''
 paths:
   /vendor/plates:
     post:

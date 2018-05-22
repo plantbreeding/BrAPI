@@ -4,7 +4,7 @@ paths:
       description: |-
         For multi crop systems this is a useful call to list all the supported crops.
 
-        <a>example.com/crops</a>'
+        <a>example.com/crops</a>
       parameters:
       - description: The size of the pages to be returned. Default is `1000`.
         in: query
