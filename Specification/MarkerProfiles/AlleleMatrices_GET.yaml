@@ -20,6 +20,28 @@ paths:
                 type: array
                 items:
                   $ref: '#/definitions/alleleMatrixDetails' 
+          examples:
+            application/json:
+              metadata:
+                pagination:
+                  pageSize: 1000
+                  currentPage: 0
+                  totalCount: 2
+                  totalPages: 1
+                status: []
+                datafiles: []
+              result:
+                data:
+                - name: testDs1
+                  matrixDbId: '27'
+                  description: a test dataset
+                  lastUpdated: '2017-06-12'
+                  studyDbId: abc123
+                - name: testDs2
+                  matrixDbId: '28'
+                  description: a second test dataset
+                  lastUpdated: '2017-06-12'
+                  studyDbId: abc123
       produces:
         - application/json
       tags: 
