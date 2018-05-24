@@ -10,7 +10,8 @@ Note that to use these calls, you likely have to use the authentication call pri
 
 ## Vendor/plate-search [Get /brapi/v1/vendor/plate-search{?vendorProjectDbId}{?vendorPlateDbId}{?clientPlateDbId}{?sampleInfo}{?pageSize}{?page}]
 
- Search for plates in the database.
+Search for plates in the database.
+
 <a href="https://test-server.brapi.org/brapi/v1/vendor"> test-server.brapi.org/brapi/v1/vendor/plate-search</a> 
 
 + Parameters
@@ -26,8 +27,9 @@ Note that to use these calls, you likely have to use the authentication call pri
 
 ## Vendor/plate-search [Post /brapi/v1/vendor/plate-search]
 
- Search for plates in the database.
-<a href="https://test-server.brapi.org/brapi/v1/vendor"> test-server.brapi.org/brapi/v1/vendor/plate-search</a>  
+Search for plates in the database.
+
+<a href="https://test-server.brapi.org/brapi/v1/vendor"> test-server.brapi.org/brapi/v1/vendor/plate-search</a> 
 
 + Parameters
  
@@ -90,7 +92,8 @@ Note that to use these calls, you likely have to use the authentication call pri
 
 ## Vendor/plates [Post /brapi/v1/vendor/plates]
 
-Note: if the samples array is empty, plate ID will be returned. Samples can be updated later. 
+Note: if the samples array is empty, plate ID will be returned.
+Samples can be updated later. 
 
 + Parameters
  
