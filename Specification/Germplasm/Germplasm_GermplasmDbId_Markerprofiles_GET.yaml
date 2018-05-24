@@ -1,0 +1,56 @@
+swagger: '2.0'
+paths:
+  /germplasm/{germplasmDbId}/markerprofiles:
+    get:
+      description: '
+        Retrieve the markerProfileDbIds for a given Germplasm ID  
+        
+        Scope: GENOTYPING. 
+        
+        Status: ACCEPTED.
+        
+        Implementation target date: PAG2016
+        
+        Implemented by: Germinate, Cassavabase
+
+        <a href="https://test-server.brapi.org/brapi/v1/germplasm"> test-server.brapi.org/brapi/v1/germplasm/{germplasmDbId}/markerprofiles</a>
+        '
+      parameters:
+      - description: the internal id of the germplasm
+        in: path
+        name: germplasmDbId
+        required: true
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            title: germplasmMarkerprofilesListResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                $ref: '#/definitions/germplasmMarkerprofilesList'
+          examples:
+            application/json:
+              metadata:
+                pagination:
+                  pageSize: 0
+                  currentPage: 0
+                  totalCount: 0
+                  totalPages: 0
+                status:
+                - message: ''
+                  code: ''
+                datafiles: []
+              result:
+                germplasmDbId: '01BEL084609'
+                markerprofileDbIds:
+                - '3939'
+                - '4484'
+                - '3993'
+          headers: {}
+      summary: Markerprofiles by germplasmDbId
+      tags:
+      - Germplasm

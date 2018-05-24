@@ -1,0 +1,73 @@
+swagger: '2.0'
+paths:
+  /studies/{studyDbId}/germplasm:
+    get:
+      description: '
+        Scope: PHENOTYPING
+
+        <a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies/{studyDbId}/germplasm</a>'
+      parameters:
+      - description: Identifier of the study. Usually a number, could be alphanumeric.
+        in: path
+        name: studyDbId
+        required: true
+        type: string
+      - description: The size of the pages to be returned. Default is `1000`.
+        in: query
+        name: pageSize
+        required: false
+        type: integer
+      - description: Which result page is requested. The page indexing starts at 0
+          (the first page is 'page'= 0). Default is `0`.
+        in: query
+        name: page
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: OK
+          schema:
+            title: germplasmSummaryListResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                $ref: '#/definitions/germplasmSummaryList' 
+          examples: 
+            application/json:
+              metadata:
+                pagination:
+                  pageSize: 1000
+                  currentPage: 0
+                  totalCount: 2
+                  totalPages: 1
+                status: []
+                datafiles: []
+              result:
+                studyDbId: '35'
+                trialName: myBestTrial
+                data:
+                - germplasmDbId: '382'
+                  entryNumber: '1'
+                  germplasmName: Pahang
+                  pedigree: TOBA97/SW90.1057
+                  seedSource: SS1
+                  accessionNumber: ITC0609
+                  germplasmPUI: http://www.crop-diversity.org/mgis/accession/01BEL084609
+                  synonyms:
+                  - 01BEL084609
+                - germplasmDbId: '394'
+                  entryNumber: '2'
+                  germplasmName: Pahang
+                  pedigree: TOBA97/SW90.1057
+                  seedSource: SS2
+                  accessionNumber: ITC0727
+                  germplasmPUI: http://www.crop-diversity.org/mgis/accession/01BEL084727
+                  synonyms:
+                  - 01BEL084727
+          headers: {}
+      summary: Study Germplasm Details
+      tags:
+      - Studies
+      - Germplasm

@@ -1,0 +1,95 @@
+
+paths:
+  /vendor/plate-search:
+    get:
+      description: |-
+        Search for plates in the database.
+
+        <a href="https://test-server.brapi.org/brapi/v1/vendor"> test-server.brapi.org/brapi/v1/vendor/plate-search</a>
+      parameters:
+      - description: ''
+        in: query
+        name: vendorProjectDbId
+        required: false
+        type: string
+      - description: ''
+        in: query
+        name: vendorPlateDbId
+        required: false
+        type: string
+      - description: ''
+        in: query
+        name: clientPlateDbId
+        required: false
+        type: string
+      - description: ''
+        in: query
+        name: sampleInfo
+        required: false
+        type: boolean
+      - description: The size of the pages to be returned. Default is `1000`.
+        in: query
+        name: pageSize
+        required: false
+        type: integer
+      - description: Which result page is requested. The page indexing starts at 0
+          (the first page is 'page'= 0). Default is `0`.
+        in: query
+        name: page
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: OK
+          schema: 
+            title: vendorPlatesResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                type: object
+                properties:
+                  plates:
+                    type: array
+                    items: 
+                      $ref: '#/definitions/vendorPlate'
+          examples: {}
+          headers: {}
+      summary: Search for plates
+      tags:
+      - Vendor Samples
+      - Search Services
+    post:
+      description: |-
+        Search for plates in the database.
+
+        <a href="https://test-server.brapi.org/brapi/v1/vendor"> test-server.brapi.org/brapi/v1/vendor/plate-search</a>
+      parameters:
+      - in: body
+        name: body
+        schema:
+          $ref: '#/definitions/vendorPlateSearchRequest' 
+      responses:
+        '200':
+          description: OK
+          schema: 
+            title: vendorPlatesResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                type: object
+                properties:
+                  plates:
+                    type: array
+                    items: 
+                      $ref: '#/definitions/vendorPlate'
+          examples: {}
+          headers: {}
+      summary: Search for plates
+      tags: 
+      - Vendor Samples
+      - Search Services
+swagger: '2.0'

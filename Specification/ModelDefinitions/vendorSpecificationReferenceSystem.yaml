@@ -1,0 +1,9 @@
+definitions:
+  vendorSpecificationReferenceSystem:
+    properties:
+      URI:
+        description: The primary URI for this reference system
+        type: string
+      name:
+        description: The human readable name for this reference system
+        type: string

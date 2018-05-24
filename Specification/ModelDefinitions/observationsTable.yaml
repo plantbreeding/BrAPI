@@ -1,0 +1,25 @@
+definitions:
+  observationsTable:
+    properties:
+      data:
+        description: Matrix of observation data recorded for different observation variables across different observation units
+        items:
+          items:
+            type: string
+          type: array
+        type: array
+      headerRow:
+        description: The header row describing the data matrix. Append 'observationVariableDbIds' for complete header row.
+        items:
+          type: string
+        type: array
+      observationVariableDbIds:
+        description: The list of observation variables which have values recorded for them in the data matrix. Append to the 'headerRow' for comlete header row.
+        items:
+          type: string
+        type: array
+      observationVariableNames:
+        description: The list of observation variable names which have values recorded for them in the data matrix. Order should match 'observationVariableDbIds'.
+        items:
+          type: string
+        type: array

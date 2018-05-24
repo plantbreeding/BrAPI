@@ -1,0 +1,108 @@
+swagger: '2.0'
+paths:
+  /studies/{studyDbId}:
+    get:
+      description: '
+        Scope: PHENOTYPING.
+        Status: ACCEPTED.
+        Implemented by: Germinate, GnpIS
+        
+        Notes: an additionalInfo field was added to provide a controlled vocabulary for less common data fields.
+        
+        Retrieve the information of the study required for field data collection
+        
+        More linked data:
+        * observation variables: ```/brapi/v1/studies/{studyDbId}/observationVariables```
+        * germplasm: ```/brapi/v1/studies/{studyDbId}/germplasm```
+        * observation units: ```/brapi/v1/studies/{studyDbId}/observationUnits```
+        * layout: ```brapi/v1/studies/{studyDbId}/layout```
+
+        <a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies/{studyDbId}</a>'
+      parameters:
+      - description: Identifier of the study. Usually a number, could be alphanumeric.
+        in: path
+        name: studyDbId
+        required: true
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            title: studyResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                $ref: '#/definitions/study' 
+          examples: 
+            application/json:
+              metadata:
+                pagination:
+                  pageSize: 0
+                  currentPage: 0
+                  totalCount: 0
+                  totalPages: 0
+                status: []
+                datafiles: []
+              result:
+                studyDbId: '35'
+                studyName: Earlygenerationtesting
+                studyType: Yield study
+                studyDescription: some free text description that could include scientific goal,
+                  some tracability and whatever makes sense
+                seasons:
+                - 2005 Winter
+                - 2008 Summer
+                trialDbId: '57'
+                trialName: International Yield Trial
+                startDate: '2005-06-01'
+                endDate: '2008-12-31'
+                active: 'true'
+                license: https://creativecommons.org/licenses/by/4.0
+                location:
+                  locationDbId: '1'
+                  name: Ibadan
+                  abbreviation: IB
+                  countryCode: NGA
+                  countryName: Nigeria
+                  instituteName: INRA - GDEC
+                  instituteAddress: route foo, Clermont Ferrand, France
+                  latitude: -21.5
+                  longitude: 165.5
+                  altitude: 12
+                  additionalInfo:
+                    AnnualMeanRain: value
+                    SoilDescription: '23'
+                    property1Name: property1Value
+                    property2Name: property2Value
+                contacts:
+                - contactDbId: C025
+                  name: John Doe
+                  instituteName: IRRI
+                  email: j.doe@mail.com
+                  type: Scientist
+                  orcid: 0000-0002-0607-8728
+                - contactDbId: C026
+                  name: Dave Peters
+                  instituteName: IRRI
+                  email: 
+                  type: 
+                  orcid: 
+                dataLinks:
+                - type: Image archive
+                  name: image-archive12.zip
+                  url: http://data.inra.fr/archive/multi-spect-flowering.zip
+                lastUpdate:
+                  version: '1.1'
+                  timestamp: '2015-06-16T00:53:26Z'
+                additionalInfo:
+                  studyObjective: Increase yield
+                  principalInvestigator: Dr. Breeder
+                  property1Name: property1Value
+                  property2Name: property2Value
+                  publications: pmid:24039865287545
+          headers: {}
+      summary: Retrieve study details
+      tags:
+      - Studies

@@ -1,0 +1,258 @@
+paths:
+  /germplasm-search:
+    get:
+      description: '
+        Implemented by: GnpIS, Germinate (GET only)
+
+        See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
+        
+        Notes:
+        The germplasm and germplasm MCPD calls were merged.  The MCPD fields are optional and indicated as such with the [MCPD] prefix in the description field of the "Response data types" table. Please use the "features" hash of the "calls" call to communicate with clients as to whether MCPD is supported by your implementation.
+        
+        Addresses these needs:
+        1. General germplasm search mechanism that accepts POST for complex queries
+        2. possibility to search germplasm by more parameters than those allowed by the existing germplasm search
+        3. possibility to get MCPD details by PUID rather than dbId
+
+        Use GET when parameter size is less than 2K bytes.
+        <a href="https://test-server.brapi.org/brapi/v1/germplasm"> test-server.brapi.org/brapi/v1/germplasm-search</a>
+        '
+      parameters:
+      - description: Permanent unique identifier (DOI, URI, etc.)
+        in: query
+        name: germplasmPUI
+        required: false
+        type: string
+      - description: Internal database identifier
+        in: query
+        name: germplasmDbId
+        required: false
+        type: string
+      - description: Name of the germplasm
+        in: query
+        name: germplasmName
+        required: false
+        type: string
+      - description: The size of the pages to be returned. Default is `1000`.
+        in: query
+        name: pageSize
+        required: false
+        type: integer
+      - description: Which result page is requested. The page indexing starts at 0
+          (the first page is 'page'= 0). Default is `0`.
+        in: query
+        name: page
+        required: false
+        type: integer
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            title: germplasmResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: 
+                      $ref: '#/definitions/germplasm'
+          examples:
+            application/json:
+              metadata:
+                datafiles: []
+                pagination:
+                  currentPage: 0
+                  pageSize: 1000
+                  totalCount: 2
+                  totalPages: 1
+                status: []
+              result:
+                data:
+                - accessionNumber: ITC0609
+                  acquisitionDate: '1947-01-31'
+                  biologicalStatusOfAccessionCode: 412
+                  commonCropName: banana
+                  countryOfOriginCode: UNK
+                  defaultDisplayName: Pahang
+                  donors:
+                  - donorAccessionNumber: ''
+                    donorInstituteCode: ''
+                    germplasmPUI: ''
+                  genus: Musa
+                  germplasmDbId: 01BEL084609
+                  germplasmName: Pahang
+                  germplasmPUI: http://www.crop-diversity.org/mgis/accession/01BEL084609
+                  germplasmSeedSource: Female GID:4/Male GID:4
+                  instituteCode: 01BEL084
+                  instituteName: ITC
+                  pedigree: TOBA97/SW90.1057
+                  species: acuminata
+                  speciesAuthority: ''
+                  subtaxa: sp malaccensis var pahang
+                  subtaxaAuthority: ''
+                  synonyms: []
+                  taxonIds:
+                  - sourceName: ncbiTaxon
+                    taxonId: http://purl.obolibrary.org/obo/NCBITaxon_4641
+                  - sourceName: ciradTaxon
+                    taxonId: 23-E
+                  typeOfGermplasmStorageCode:
+                  - 10
+                - accessionNumber: ITC0685
+                  acquisitionDate: '1977-01-31'
+                  biologicalStatusOfAccessionCode: 412
+                  commonCropName: banana
+                  countryOfOriginCode: UNK
+                  defaultDisplayName: Pah
+                  donors:
+                  - donorAccessionNumber: ''
+                    donorInstituteCode: ''
+                    germplasmPUI: ''
+                  genus: Musa
+                  germplasmDbId: 03REL084609
+                  germplasmName: Pah
+                  germplasmPUI: doi:10.15454/328757862534E12
+                  germplasmSeedSource: Female GID:4/Male GID:4
+                  instituteCode: 01BEL084
+                  instituteName: ITC
+                  pedigree: TOBA97/SW90.1057
+                  species: acuminata
+                  speciesAuthority: ''
+                  subtaxa: sp malaccensis var pah
+                  subtaxaAuthority: ''
+                  synonyms: []
+                  taxonIds:
+                  - sourceName: ncbiTaxon
+                    taxonId: http://purl.obolibrary.org/obo/NCBITaxon_4641
+                  - sourceName: ciradTaxon
+                    taxonId: 23-E
+                  typeOfGermplasmStorageCode:
+                  - 10
+          headers: {}
+      summary: Germplasm search through GET
+      tags:
+      - Germplasm
+      - Search Services
+    post:
+      description: '
+        Implemented by: GnpIS, Germinate (GET only)
+
+        See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
+        
+        Notes:
+        The germplasm and germplasm MCPD calls were merged.  The MCPD fields are optional and indicated as such with the [MCPD] prefix in the description field of the "Response data types" table. Please use the "features" hash of the "calls" call to communicate with clients as to whether MCPD is supported by your implementation.
+        
+        Addresses these needs:
+        1. General germplasm search mechanism that accepts POST for complex queries
+        2. possibility to search germplasm by more parameters than those allowed by the existing germplasm search
+        3. possibility to get MCPD details by PUID rather than dbId
+      
+        Use POST for large queries (>2K bytes).
+        '
+      parameters:
+      - in: body
+        name: body
+        schema:
+          $ref: '#/definitions/germplasmSearchRequest'
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            title: germplasmResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: 
+                      $ref: '#/definitions/germplasm'
+          examples:
+            application/json:
+              metadata:
+                datafiles: []
+                pagination:
+                  currentPage: 1
+                  pageSize: 100
+                  totalCount: 102
+                  totalPages: 2
+                status: []
+              result:
+                data:
+                - accessionNumber: ITC0609
+                  acquisitionDate: '1947-01-31'
+                  biologicalStatusOfAccessionCode: 412
+                  commonCropName: banana
+                  countryOfOriginCode: UNK
+                  defaultDisplayName: Pahang
+                  donors:
+                  - donorAccessionNumber: ''
+                    donorInstituteCode: ''
+                    germplasmPUI: ''
+                  genus: Musa
+                  germplasmDbId: 01BEL084609
+                  germplasmName: Pahang
+                  germplasmPUI: http://www.crop-diversity.org/mgis/accession/01BEL084609
+                  germplasmSeedSource: Female GID:4/Male GID:4
+                  instituteCode: 01BEL084
+                  instituteName: ITC
+                  pedigree: TOBA97/SW90.1057
+                  species: acuminata
+                  speciesAuthority: ''
+                  subtaxa: sp malaccensis var pahang
+                  subtaxaAuthority: ''
+                  synonyms: []
+                  taxonIds:
+                  - sourceName: ncbiTaxon
+                    taxonId: http://purl.obolibrary.org/obo/NCBITaxon_4641
+                  - sourceName: ciradTaxon
+                    taxonId: 23-E
+                  typeOfGermplasmStorageCode:
+                  - 10
+                - accessionNumber: ITC0685
+                  acquisitionDate: '1977-01-31'
+                  biologicalStatusOfAccessionCode: 412
+                  commonCropName: banana
+                  countryOfOriginCode: UNK
+                  defaultDisplayName: Pah
+                  donors:
+                  - donorAccessionNumber: ''
+                    donorInstituteCode: ''
+                    germplasmPUI: ''
+                  genus: Musa
+                  germplasmDbId: 03REL084609
+                  germplasmName: Pah
+                  germplasmPUI: doi:10.15454/328757862534E12
+                  germplasmSeedSource: Female GID:4/Male GID:4
+                  instituteCode: 01BEL084
+                  instituteName: ITC
+                  pedigree: TOBA97/SW90.1057
+                  species: acuminata
+                  speciesAuthority: ''
+                  subtaxa: sp malaccensis var pah
+                  subtaxaAuthority: ''
+                  synonyms: []
+                  taxonIds:
+                  - sourceName: ncbiTaxon
+                    taxonId: http://purl.obolibrary.org/obo/NCBITaxon_4641
+                  - sourceName: ciradTaxon
+                    taxonId: 23-E
+                  typeOfGermplasmStorageCode:
+                  - 10
+          headers: {}
+      summary: Germplasm search through POST
+      tags: 
+      - Germplasm
+      - Search Services
+swagger: '2.0'

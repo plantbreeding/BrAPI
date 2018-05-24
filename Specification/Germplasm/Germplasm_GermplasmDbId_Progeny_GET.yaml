@@ -1,0 +1,55 @@
+swagger: '2.0'
+paths:
+  /germplasm/{germplasmDbId}/progeny:
+    get:
+      description: '
+        Scope: Germplasm
+        
+        Get the germplasmDbIds for all the Progeny of a particular germplasm.
+        
+        <a href="https://test-server.brapi.org/brapi/v1/germplasm"> test-server.brapi.org/brapi/v1/germplasm/{germplasmDbId}/progeny</a>
+        '
+      parameters:
+      - description: the internal id of the germplasm
+        in: path
+        name: germplasmDbId
+        required: true
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            title: progenyResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                $ref: '#/definitions/progeny'
+          examples: 
+            application/json:
+              metadata:
+                pagination:
+                  pageSize: 0
+                  currentPage: 0
+                  totalCount: 0
+                  totalPages: 0
+                status: []
+                datafiles: []
+              result:
+                germplasmDbId: '382'
+                defaultDisplayName: Pahang
+                progeny:
+                - germplasmDbId: '402'
+                  defaultDisplayName: Child 1
+                  parentType: FEMALE
+                - germplasmDbId: '403'
+                  defaultDisplayName: Child 2
+                  parentType: MALE
+                - germplasmDbId: '405'
+                  defaultDisplayName: Pahang Selfed
+                  parentType: SELF
+          headers: {}
+      summary: Germplasm pedigree by id
+      tags:
+      - Germplasm

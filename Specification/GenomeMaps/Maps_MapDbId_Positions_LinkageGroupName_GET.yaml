@@ -1,0 +1,80 @@
+swagger: '2.0'
+paths:
+  '/maps/{mapDbId}/positions/{linkageGroupName}':
+    get:
+      summary: Get map data by range on linkageGroup
+      description: markers ordered by linkageGroup and position
+      tags:
+      - Genome Maps
+      parameters:
+        - name: mapDbId
+          in: path
+          description: unique id of the map
+          required: true
+          type: string
+        - name: linkageGroupName
+          in: path
+          description: >-
+            The chromosome identifier or the generic linkage group identifier if
+            the chromosome is not applicable.
+          required: true
+          type: string
+        - name: min
+          in: query
+          description: minimum position on linkage group
+          required: false
+          type: integer
+        - name: max
+          in: query
+          description: maximum position on linkage group
+          required: false
+          type: integer
+        - name: pageSize
+          in: query
+          description: The size of the pages to be returned. Default is `1000`.
+          required: false
+          type: integer
+        - name: page
+          in: query
+          description: >-
+            Which result page is requested. The page indexing starts at 0 (the
+            first page is 'page'= 0). Default is `0`.
+          required: false
+          type: integer
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            title: markersResponse
+            type: object
+            properties:
+              metadata:
+               $ref: '#/definitions/metadata'
+              result:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/definitions/markerSummaryLinkageGroup'
+          headers: {}
+          examples:
+            application/json:
+              metadata:
+                pagination:
+                  pageSize: 1000
+                  currentPage: 0
+                  totalCount: 2
+                  totalPages: 1
+                status: []
+                datafiles: []
+              result:
+                data:
+                  - markerDbId: '1'
+                    markerName: marker1
+                    location: '1000'
+                  - markerDbId: '2'
+                    markerName: marker2
+                    location: '1001'

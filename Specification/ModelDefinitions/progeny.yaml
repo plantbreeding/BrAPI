@@ -1,0 +1,26 @@
+definitions:
+  progeny:
+    properties:
+      defaultDisplayName:
+        description: A human readable name for a germplasm
+        type: string
+      germplasmDbId:
+        description: ' The ID which uniquely identifies a germplasm'
+        type: string
+      progeny:
+        description: List of germplasm entities which are direct children of this germplasm
+        items:
+          properties:
+            defaultDisplayName:
+              type: string
+            germplasmDbId:
+              type: string
+            parentType:
+              enum:
+              - MALE
+              - FEMALE
+              - SELF
+              - POPULATION
+              type: string
+          type: object
+        type: array

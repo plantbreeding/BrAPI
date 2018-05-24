@@ -1,0 +1,35 @@
+definitions:
+  vendorPlateFile:
+    required:
+    - URL
+    - fileType
+    - filename
+    - sampleDbIds
+    properties:
+      URL:
+        description: |-
+          The URL to a file with the results of a vendor analysis
+        type: string
+      additionalInfo:
+        type: object
+        description: Additional arbitrary info
+        additionalProperties:
+          type: string
+      fileType:
+        description: |-
+          Format of the file
+        type: string
+      filename:
+        description: |-
+          Name of the file
+        type: string
+      md5sum:
+        description: |-
+          MD5 Hash Check Sum for the file to confirm download without error
+        type: string
+      sampleDbIds:
+        description: |-
+          The list of sampleDbIds included in the file
+        items:
+          type: string
+        type: array

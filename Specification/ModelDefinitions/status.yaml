@@ -1,0 +1,10 @@
+definitions:
+  status:
+    properties:
+      code:
+        description: Short numeric code to represent the status message
+        type: string
+      message:
+        description: A short message concerning the status of this request/response
+        type: string
+    type: object

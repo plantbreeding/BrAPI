@@ -1,3 +1,5 @@
 .project
 .pydevproject
-/brapi_blueprint.apib
+.DS_Store
+brapi_blueprint.apib
+out.yaml

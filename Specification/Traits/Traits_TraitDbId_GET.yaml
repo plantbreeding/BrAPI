@@ -1,0 +1,56 @@
+swagger: '2.0'
+paths:
+  /traits/{traitDbId}:
+    get:
+      description: '
+        Scope: CORE.
+        Status: ACCEPTED.
+        
+        Implemented by: Germinate
+        
+        Retrieve the variables associated to a trait 
+
+        <a href="https://test-server.brapi.org/brapi/v1/traits"> test-server.brapi.org/brapi/v1/traits/{traitDbId}</a>'
+      parameters:
+      - description: Id of the trait to retrieve details of.
+        in: path
+        name: traitDbId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            title: traitResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                $ref: '#/definitions/traitSummary' 
+          examples:
+            application/json:
+              metadata:
+                datafiles: []
+                pagination:
+                  currentPage: 0
+                  pageSize: 0
+                  totalCount: 0
+                  totalPages: 0
+                status: []
+              result:
+                defaultValue: null
+                description: Description of Plant Height
+                name: Plant Height
+                observationVariables:
+                - CO_334:0100121
+                - CO_334:0100122
+                - CO_334:0100123
+                traitDbId: '123'
+                traitId: CO:123000007
+          headers: {}
+      summary: Retrieve trait details by id
+      tags:
+      - Observation Variables

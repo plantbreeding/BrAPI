@@ -1,0 +1,12 @@
+definitions:
+  dataLink:
+    properties:
+      name:
+        description: The name of the external data link
+        type: string
+      type:
+        description: The type of external data link
+        type: string
+      url:
+        description: The URL which links to external data
+        type: string

@@ -1,0 +1,113 @@
+swagger: '2.0'
+info:
+  title: 'BRAPI Marker methods'
+  version: "1.0.0"
+  description: 'Methods related to the markers'
+paths:
+  /markers:
+    get:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          schema:
+            title: markersResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/definitions/marker'
+          examples:
+            application/json:
+              metadata:
+                pagination:
+                  pageSize: 1000
+                  currentPage: 0
+                  totalCount: 2
+                  totalPages: 1
+                status: []
+                datafiles: []
+                data:
+                  - markerDbId: '1185'
+                    defaultDisplayName: '11_10002'
+                    type: SNP
+                    synonyms:
+                      - i_11_10002
+                      - POPA1_0002
+                    refAlt:
+                      - A
+                      - T
+                    analysisMethods:
+                      - illumina
+                      - kasp
+                  - markerDbId: '1186'
+                    defaultDisplayName: '11_11159'
+                    type: SNP
+                    synonyms:
+                      - i_11_11159
+                      - POPA1_1159
+                    refAlt:
+                      - A
+                      - T
+                    analysisMethods:
+                      - illumina
+                      - kasp
+      deprecated: true
+      summary: 'Markers Search (/markers)'
+      description: '
+        Scope: CORE.  Status: ACCEPTED.
+  
+        Implemented by: Germinate
+        
+        See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
+        
+        Other service requests use the servers internal `markerDbId`. This service returns marker records that provide the markerDbId.
+        For the requested name or synonym, returns an array (possibly empty) of marker records that match the search criteria.
+        - If there is none, an empty array is returned.
+        - If there is one or more than one match, returns an array of all marker records that match the search criteria.
+      '
+      tags:
+      - Markers
+      - Deprecated
+      parameters:
+        - name: name
+          in: query
+          description: The name or synonym.
+          required: false
+          type: string
+        - name: matchMethod
+          in: query
+          description: |-
+            Possible values are 'case_insensitive', 'exact'
+            (case sensitive), 'wildcard' (which is case insensitive). Wildcard uses both '*' and '%' for any number of characters
+            and '?' for one character matching. Default is exact.
+          required: false
+          type: string
+        - name: include
+          in: query
+          description: Whether to include synonyms in the output.
+          required: false
+          type: string
+        - name: type
+          in: query
+          description: The type of the marker.
+          required: false
+          type: string
+        - name: pageSize
+          in: query
+          description: The size of the pages to be returned. Default is `1000`.
+          required: false
+          type: integer
+        - name: page
+          in: query
+          description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+          required: false
+          type: integer
+      produces:
+        - application/json

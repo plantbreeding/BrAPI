@@ -1,0 +1,60 @@
+swagger: '2.0'
+paths:
+  /allelematrices:
+    get:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          schema:
+            title: alleleMatrixDetailsResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                type: array
+                items:
+                  $ref: '#/definitions/alleleMatrixDetails' 
+          examples:
+            application/json:
+              metadata:
+                pagination:
+                  pageSize: 1000
+                  currentPage: 0
+                  totalCount: 2
+                  totalPages: 1
+                status: []
+                datafiles: []
+              result:
+                data:
+                - name: testDs1
+                  matrixDbId: '27'
+                  description: a test dataset
+                  lastUpdated: '2017-06-12'
+                  studyDbId: abc123
+                - name: testDs2
+                  matrixDbId: '28'
+                  description: a second test dataset
+                  lastUpdated: '2017-06-12'
+                  studyDbId: abc123
+      produces:
+        - application/json
+      tags: 
+      - Marker Profiles
+      summary: Matrices through GET
+      description: |-
+        <strong>Status</strong>: Proposed
+        <strong>Implemented by</strong>: GOBII
+        <strong>Used by</strong>: Flapjack
+        </br>
+        This resource is used for reading and writing genomic matrices:
+        </br>
+        GET provides a list of available matrices, optionally filtered by study;
+        POST will provide a means for adding new matrices (content TBD).
+      parameters:
+        - name: studyDbId
+          in: query
+          description: restricts the list of matrices to a specific study.
+          required: true
+          type: string

@@ -1,0 +1,82 @@
+swagger: '2.0'
+paths:
+  /trials/{trialDbId}:
+    get:
+      description: '
+        Scope: PHENOTYPING.
+        Status: ACCEPTED.
+        Implementation target date: PAG2016.
+        
+        Get trial by id.
+
+        <a href="https://test-server.brapi.org/brapi/v1/trials"> test-server.brapi.org/brapi/v1/trials/{trialDbId}</a>'
+      parameters:
+      - description: The internal trialDbId
+        in: path
+        name: trialDbId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            title: trialResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                $ref: '#/definitions/trial' 
+          examples:
+            application/json:
+              metadata:
+                datafiles: []
+                pagination:
+                  currentPage: 0
+                  pageSize: 0
+                  totalCount: 0
+                  totalPages: 0
+                status: []
+              result:
+                active: 'true'
+                additionalInfo:
+                  property2Name: property2Value
+                  property3Name: property3Value
+                  publications: pmid:239823988, doi:10.2345/GEZG3T23535
+                contacts:
+                - contactDbId: C025
+                  email: j.doe@mail.com
+                  instituteName: IRRI
+                  name: John Doe
+                  orcid: 0000-0002-0607-8728
+                  type: Scientist
+                - contactDbId: C026
+                  email: null
+                  instituteName: IRRI
+                  name: Dave Peters
+                  orcid: null
+                  type: null
+                datasetAuthorship:
+                  datasetPUI: doi:10.15454/312953986E3
+                  license: https://creativecommons.org/licenses/by/4.0
+                endDate: '2008-12-31'
+                programDbId: 27
+                programName: International Yield Trial
+                startDate: '2007-06-01'
+                studies:
+                - locationDbId: z-2
+                  locationName: Zimbabwe
+                  studyDbId: 1
+                  studyName: Zimbabwe Yield Trial
+                - locationDbId: k-1
+                  locationName: Kenya
+                  studyDbId: 2
+                  studyName: Kenya Yield Trial
+                trialDbId: 1
+                trialName: InternationalTrialA
+          headers: {}
+      summary: Get trial by Id
+      tags:
+      - Trials

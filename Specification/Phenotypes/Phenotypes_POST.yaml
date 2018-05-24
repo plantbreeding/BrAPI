@@ -1,0 +1,72 @@
+swagger: '2.0'
+paths:
+  /phenotypes:
+    post:
+      description: |-
+        Scope: PHENOTYPING. 
+
+        Notes: 
+        Along with the study specific phenotype saving calls (in the observationUnit and table formats), this call allows phenotypes to be saved and images to optionally be transferred as well.
+              
+        Call to invoke for saving the measurements (observations) collected
+        from field for all the observation units.
+        Observation timestamp should be ISO 8601 https://www.w3.org/TR/NOTE-datetime
+        In case where JSON data is zipped for faster transfer speed (as in the case
+        of the IRRI handheld implementation), the zipped JSON file will be listed
+        in datafiles. The zipped file contains a JSON file with the same structure
+        as the BrAPI call. In this case a format parameter should be passed as well.
+        Images can be optionally be uploaded using this call by providing a zipfile
+        of all images in the datafiles, along with the actual zipfile in multi-part
+        form data.
+      parameters:
+      - description: In case where JSON data is zipped for faster transfer speed (as in the case of the IRRI handheld implementation), the zipped JSON file will be listed in datafiles. The zipped file contains a JSON file with the same structure as the BrAPI call.
+        in: query
+        name: format
+        type: string
+        enum: [json, zip]
+      - in: body
+        name: body
+        schema:
+          $ref: '#/definitions/phenotypesRequest' 
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            title: newObservationDbIdsResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                $ref: '#/definitions/newObservationDbIds' 
+          examples: 
+            metadata:
+              pagination:
+                pageSize: 0
+                currentPage: 0
+                totalCount: 0
+                totalPages: 0
+              status: []
+              datafiles: []
+            result:
+              observations:
+              - observationDbId: '153453453'
+                observationVariableDbId: '18020'
+                observationUnitDbId: '333888'
+              - observationDbId: '23456'
+                observationVariableDbId: '18021'
+                observationUnitDbId: '333888'
+              - observationDbId: '34567'
+                observationVariableDbId: '18022'
+                observationUnitDbId: '333888'
+          headers: {}
+        '400':
+          description: Bad Request
+          examples: {}
+          headers: {}
+      summary: Save Observation Unit Phenotypes
+      tags: 
+      - Phenotypes
+      - Observations

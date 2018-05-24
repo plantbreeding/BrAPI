@@ -1,0 +1,9 @@
+definitions:
+  germplasmAttributeCategory:
+    properties:
+      attributeCategoryDbId:
+        description: The ID which uniquely identifies this attribute category within the given database server
+        type: string
+      name:
+        description: A human readable name for this attribute category
+        type: string

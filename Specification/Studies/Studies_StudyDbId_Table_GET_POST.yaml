@@ -1,0 +1,202 @@
+swagger: '2.0'
+paths:
+  /studies/{studyDbId}/table:
+    get:
+      description: '
+        Scope: PHENOTYPING.
+        Status: ACCEPTED. Implemented in Cassavabase, HIDAP and Germinate.
+        Notes: 
+        Implementation target date: after PAG2016
+        Retrieve the details of the study required for field data collection. Includes actual trait data.
+
+        <a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies/{studyDbId}/table</a>'
+      parameters:
+      - description: Identifier of the study. Usually a number, could be alphanumeric.
+        in: path
+        name: studyDbId
+        required: true
+        type: string
+      - description: The format parameter will cause the data to be dumped to a file
+          in the specified format. Currently, tsv and csv are supported.
+        in: query
+        name: format
+        required: false
+        type: string
+      produces:
+      - application/json
+      - application/csv
+      - application/tsv
+      responses:
+        '200':
+          description: OK
+          schema:
+            title: studyobservationsTableResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                $ref: '#/definitions/observationsTable' 
+          examples: 
+            application/csv: |             
+              year,studyDbId,studyName,locationDbId,locationName,germplasmDbId,germplasmName,observationUnitDbId,plotNumber,replicate,blockNumber,observationTimestamp,entryType,X,Y,variable1DbId,variable2DbId,variable3DbId
+              2017,stu1,Study Name,loc1,Location Name,CIP1,CIP Name,abc123,1,1,1,2017-06-16T00:53:26Z,Test Entry,1,2,25.3,103.4,50.75 
+              2017,stu1,Study Name,loc1,Location Name,CIP1,CIP Name,abc124,1,1,1,2017-06-16T00:54:57Z,Test Entry,2,2,27.9,98.65,45.345
+            application/tsv: "year\tstudyDbId\tstudyName\tlocationDbId\tlocationName\tgermplasmDbId\tgermplasmName\tobservationUnitDbId\tplotNumber\treplicate\tblockNumber\tobservationTimestamp\tentryType\tX\tY\tvariable1DbId\tvariable2DbId\tvariable3DbId\n
+              2017\tstu1\tStudy Name\tloc1\tLocation Name\tCIP1\tCIP Name\tabc123\t1\t1\t1\t2017-06-16T00:53:26Z\tTest Entry\t1\t2\t25.3\t103.4\t50.75\n
+              2017\tstu1\tStudy Name\tloc1\tLocation Name\tCIP1\tCIP Name\tabc124\t1\t1\t1\t2017-06-16T00:54:57Z\tTest Entry\t2\t2\t27.9\t98.65\t45.345\n"
+            application/json:
+              metadata:
+                pagination:
+                  pageSize: 0
+                  currentPage: 0
+                  totalCount: 0
+                  totalPages: 0
+                status: []
+                datafiles: []
+              result:
+                headerRow:
+                - year
+                - studyDbId
+                - studyName
+                - locationDbId
+                - locationName
+                - germplasmDbId
+                - germplasmName
+                - observationUnitDbId
+                - plotNumber
+                - replicate
+                - blockNumber
+                - observationTimestamp
+                - entryType
+                - X
+                - Y
+                observationVariableDbIds:
+                - variable1DbId
+                - variable2DbId
+                - variable3DbId
+                observationVariableNames:
+                - plant height
+                - fruit weight
+                - root weight
+                data:
+                - - '2017'
+                  - stu1
+                  - Study Name
+                  - loc1
+                  - Location Name
+                  - CIP1
+                  - CIP Name
+                  - abc123
+                  - 1
+                  - 1
+                  - 1
+                  - '2017-06-16T00:53:26Z'
+                  - Test Entry
+                  - '1'
+                  - '2'
+                  - '25.3'
+                  - '103.4'
+                  - '50.75'
+                - - '2017'
+                  - stu1
+                  - Study Name
+                  - loc1
+                  - Location Name
+                  - CIP1
+                  - CIP Name
+                  - abc124
+                  - 1
+                  - 1
+                  - 1
+                  - '2017-06-16T00:54:57Z'
+                  - Test Entry
+                  - '2'
+                  - '2'
+                  - '27.9'
+                  - '98.65'
+                  - '45.345'
+          
+          headers: {}
+      summary: Retrieve study Observation Units as table
+      tags:
+      - Studies
+      - Observations
+    post:
+      description: '
+        This call can be used to create new observations in bulk. 
+  
+        Note: If you need to update any existing observation, please use `PUT /studies/{studyDbId}/observations`. This call should only be used to create NEW observations.
+        
+        Implementation Guidelines: 
+        
+        + All observations submitted through this call should create NEW observation records in the database under the given observation unit. 
+        + Each "observationUnitDbId" listed should already exist in the database. If the server can not find a given "observationUnitDbId", it should report an error. (see Error Handling)
+        + The response of this call should be the set of "observationDbIds" created from this call, along with the associated "observationUnitDbId" and "observationVariableDbId" that each observation is associated with.
+        
+        Images can optionally be saved using this call by providing a zipped file of all images in the datafiles. The physical zipped file should be transferred as well in the mulit-part form data.
+        
+        Scope: PHENOTYPING
+        '
+      parameters:
+      - description: Identifier of the study. Usually a number, could be alphanumeric.
+        in: path
+        name: studyDbId
+        required: true
+        type: string
+      - in: body
+        name: newObservationsTableRequest
+        schema:
+          $ref: '#/definitions/newObservationsTableRequest' 
+      responses:
+        '200':
+          description: OK
+          schema:
+            title: newObservationDbIdsResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                $ref: '#/definitions/newObservationDbIds' 
+          examples: 
+            application/json:
+              metadata:
+                pagination:
+                  pageSize: 0
+                  currentPage: 0
+                  totalCount: 0
+                  totalPages: 0
+                status: []
+                datafiles: []
+              result:
+                observations:
+                - observationDbId: '12345'
+                  observationVariableDbId: variable1DbId
+                  observationUnitDbId: '1'
+                - observationDbId: '23456'
+                  observationVariableDbId: variable2DbId
+                  observationUnitDbId: '1'
+                - observationDbId: '34567'
+                  observationVariableDbId: variable3DbId
+                  observationUnitDbId: '1'
+                - observationDbId: '45678'
+                  observationVariableDbId: imagevariable1DbId
+                  observationUnitDbId: '1'
+                - observationDbId: '56789'
+                  observationVariableDbId: variable1DbId
+                  observationUnitDbId: '2'
+                - observationDbId: '67890'
+                  observationVariableDbId: variable2DbId
+                  observationUnitDbId: '2'
+                - observationDbId: '78901'
+                  observationVariableDbId: variable3DbId
+                  observationUnitDbId: '2'
+                - observationDbId: '89012'
+                  observationVariableDbId: imagevariable1DbId
+                  observationUnitDbId: '2'
+          headers: {}
+      summary: Save study Observation Units as table
+      tags: 
+      - Studies
+      - Observations

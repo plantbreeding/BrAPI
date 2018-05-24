@@ -1,0 +1,66 @@
+swagger: '2.0'
+paths:
+  /seasons:
+    get:
+      description: '
+        Call to retrive all seasons (or years) in the database. (Added by Jan-Erik and Lukas 5/26/2016)
+        Scope: PHENOTYPING.
+
+        <a href="https://test-server.brapi.org/brapi/v1/seasons"> test-server.brapi.org/brapi/v1/seasons</a>'
+      parameters:
+      - description: ''
+        in: query
+        name: year
+        required: false
+        type: string
+      - description: The size of the pages to be returned. Default is `1000`.
+        in: query
+        name: pageSize
+        required: false
+        type: integer
+      - description: Which result page is requested. The page indexing starts at 0
+          (the first page is 'page'= 0). Default is `0`.
+        in: query
+        name: page
+        required: false
+        type: integer
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            title: seasonsResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: 
+                      $ref: '#/definitions/season'
+          examples:
+            application/json:
+              metadata:
+                datafiles: []
+                pagination:
+                  currentPage: 0
+                  pageSize: 1000
+                  totalCount: 2
+                  totalPages: 1
+                status: []
+              result:
+                data:
+                - season: Fall
+                  seasonDbId: '237'
+                  year: '2015'
+                - season: Spring
+                  seasonDbId: '238'
+                  year: '2016'
+          headers: {}
+      summary: List seasons or years
+      tags:
+      - Studies

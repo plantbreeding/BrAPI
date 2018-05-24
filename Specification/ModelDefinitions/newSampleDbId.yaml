@@ -1,0 +1,12 @@
+definitions:
+  newSampleDbId:
+    properties:
+      metadata:
+        $ref: '#/definitions/metadata'
+        description: Metadata of this response
+      result:
+        description: List of sample references which have been created or updated
+        properties:
+          sampleDbId:
+            type: string
+        type: object

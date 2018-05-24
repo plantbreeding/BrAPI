@@ -1,0 +1,103 @@
+swagger: '2.0'
+paths:
+  /studies/{studyDbId}/observationVariables:
+    get:
+      deprecated: true
+      description: '
+
+
+        <a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationVariables</a>'
+      parameters:
+      - description: string database unique identifier
+        in: path
+        name: studyDbId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          examples:
+            application/json:
+              metadata:
+                datafiles: []
+                pagination:
+                  currentPage: 0
+                  pageSize: 0
+                  totalCount: 0
+                  totalPages: 0
+                status: []
+              result:
+                data:
+                - defaultValue: null
+                  method: null
+                  name: CT_M_C
+                  observationVariableDbId: CO_334:0100632
+                  ontologyDbId: CO_334
+                  ontologyName: Cassava
+                  scale: null
+                  trait:
+                    name: Canopy temperature
+                    traitDbId: CO_334:0100630
+                - contextOfUse:
+                  - Trial evaluation
+                  - Nursery evaluation
+                  crop: Cassava
+                  date: '2016-05-13'
+                  defaultValue: null
+                  growthStage: mature
+                  institution: ''
+                  language: EN
+                  method:
+                    class: Estimation
+                    description: Assessment of the level of yellowness in cassava
+                      storage root pulp using the tc chart
+                    formula: null
+                    methodDbId: CO_334:0010320
+                    name: Visual Rating:total carotenoid by chart_method
+                    reference: null
+                  name: caro_spectro
+                  observationVariableDbId: CO_334:0100622
+                  ontologyDbId: CO_334
+                  ontologyName: Cassava
+                  scale:
+                    datatype: Numeric
+                    decimalPlaces: 2
+                    name: ug/g
+                    scaleDbId: CO_334:0100526
+                    validValues:
+                      categories:
+                      - 1=low
+                      - 2=medium
+                      - 3=high
+                      max: 3
+                      min: 1
+                    xref: null
+                  scientist: ''
+                  status: recommended
+                  synonyms:
+                  - Carotenoid content by spectro
+                  trait:
+                    alternativeAbbreviations:
+                    - CCS
+                    attribute: carotenoid
+                    class: physiological trait
+                    description: Cassava storage root pulp carotenoid content
+                    entity: root
+                    mainAbbreviation: CC
+                    name: Carotenoid content
+                    status: recommended
+                    synonyms:
+                    - carotenoid content measure
+                    traitDbId: CO_334:0100620
+                    xref: TL_455:0003023
+                  xref: TL_455:0003001
+                studyDbId: '123'
+                trialName: myBestTrial
+          headers: {}
+      summary: '<strong>Deprecated</strong> Retrieve study observation variables'
+      tags:
+      - Studies
+      - Observation Variables
+      - Deprecated

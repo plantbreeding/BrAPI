@@ -1,0 +1,62 @@
+swagger: '2.0'
+paths:
+  /programs-search:
+    post:
+      description: '      
+        Advanced searching for the programs resource.
+        
+        Status: ACCEPTED.
+        
+        See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
+      
+      '
+      parameters:
+      - in: body
+        name: body
+        schema:
+          $ref: '#/definitions/programsSearchRequest' 
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            title: programsResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: 
+                      $ref: '#/definitions/program'
+          examples:
+            application/json:
+              metadata:
+                datafiles: []
+                pagination:
+                  currentPage: 0
+                  pageSize: 1000
+                  totalCount: 2
+                  totalPages: 1
+                status: []
+              result:
+                data:
+                - abbreviation: DRP1
+                  leadPerson: Dr. Henry Beachell
+                  name: Wheat Resistance Program
+                  objective: Disease resistance
+                  programDbId: '123'
+                - abbreviation: DRP2
+                  leadPerson: Dr. Norman Borlaug
+                  name: Wheat Improvement Program
+                  objective: Yield improvement
+                  programDbId: '456'
+          headers: {}
+      summary: Search Programs
+      tags: 
+      - Programs
+      - Search Services

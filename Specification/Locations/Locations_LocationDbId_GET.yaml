@@ -1,0 +1,60 @@
+swagger: '2.0'
+paths:
+  '/locations/{locationDbId}':
+    get:
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          schema:
+            title: locationResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                $ref: '#/definitions/location' 
+          examples:
+            application/json: 
+              metadata:
+                pagination:
+                  totalCount: 0
+                  pageSize: 0
+                  totalPages: 0
+                  currentPage: 0
+                status: []
+                datafiles: []
+              result:
+                locationDbId: abc123
+                locationType: Breeding Location
+                name: Ibadan
+                abreviation: IB -- DEPRECATED -- see abbreviation
+                abbreviation: IB
+                countryCode: NGA
+                countryName: Nigeria
+                latitude: -21.5
+                longitude: 165.5
+                altitude: 12
+                instituteName: INRA - GDEC
+                instituteAddress: road foo, nigeria
+                additionalInfo:
+                  annualMeanRain: value
+                  soilDescription: '23'
+      summary: The internal DB id for a location
+      description: '
+          <strong>Implemented by:</strong>  GnpIS
+          
+          Get details for a location.
+          
+            * The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
+            
+            * `altitude` is in meters.
+      '
+      tags: 
+      - Locations
+      parameters:
+        - name: locationDbId
+          in: path
+          description: The internal DB id for a location
+          required: true
+          type: string

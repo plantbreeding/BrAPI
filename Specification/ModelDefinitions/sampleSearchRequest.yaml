@@ -1,0 +1,23 @@
+definitions:
+  sampleSearchRequest:
+    properties:
+      germplasmDbId:
+        description: ' The ID which uniquely identifies a germplasm'
+        items:
+          type: string
+        type: array
+      observationUnitDbId:
+        description: The ID which uniquely identifies an observation unit
+        items:
+          type: string
+        type: array
+      plateDbId:
+        description: The ID which uniquely identifies a plate of samples
+        items:
+          type: string
+        type: array
+      sampleDbId:
+        description: The ID which uniquely identifies a sample
+        items:
+          type: string
+        type: array

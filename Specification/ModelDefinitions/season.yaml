@@ -1,0 +1,12 @@
+definitions:
+  season:
+    properties:
+      season:
+        description: Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.
+        type: string
+      seasonDbId:
+        description: The ID which uniquely identifies a season
+        type: string
+      year:
+        description: The 4 digit year of the season.
+        type: string

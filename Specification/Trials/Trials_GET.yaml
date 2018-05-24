@@ -1,0 +1,118 @@
+swagger: '2.0'
+paths:
+  /trials:
+    get:
+      description: '
+        Scope: PHENOTYPING.
+        Status: ACCEPTED.
+        Implementation target date: PAG2016.
+
+        <a href="https://test-server.brapi.org/brapi/v1/trials"> test-server.brapi.org/brapi/v1/trials</a>'
+      parameters:
+      - description: Program filter to only return trials associated with given program
+          id.
+        in: query
+        name: programDbId
+        required: false
+        type: string
+      - description: Filter by location
+        in: query
+        name: locationDbId
+        required: false
+        type: string
+      - description: The size of the pages to be returned. Default is `1000`.
+        in: query
+        name: pageSize
+        required: false
+        type: integer
+      - description: Which result page is requested. The page indexing starts at 0
+          (the first page is 'page'= 0). Default is `0`.
+        in: query
+        name: page
+        required: false
+        type: integer
+      - description: Filter active status true/false.
+        in: query
+        name: active
+        required: false
+        type: boolean
+      - description: Sort order. Name of the field to sorty by.
+        in: query
+        name: sortBy
+        required: false
+        type: string
+      - description: 'Sort order direction: asc/desc'
+        in: query
+        name: sortOrder
+        required: false
+        type: string
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            title: trialsResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: 
+                      $ref: '#/definitions/trialSummary' 
+          examples:
+            application/json:
+              metadata:
+                datafiles: []
+                pagination:
+                  currentPage: 0
+                  pageSize: 1000
+                  totalCount: 2
+                  totalPages: 1
+                status: []
+              result:
+                data:
+                - active: 'false'
+                  additionalInfo:
+                    property1Name: property1Value
+                    property2Name: property2Value
+                    property3Name: property3Value
+                  endDate: '2008-12-31'
+                  programDbId: '27'
+                  programName: International Yield Trial
+                  startDate: '2007-06-01'
+                  studies:
+                  - locationName: Zimbabwe
+                    studyDbId: '1'
+                    studyName: Zimbabwe Yield Trial
+                  - locationName: Kenya
+                    studyDbId: '2'
+                    studyName: Kenya Yield Trial
+                  trialDbId: '1'
+                  trialName: InternationalTrialA
+                - active: 'true'
+                  additionalInfo:
+                    property1Name: property1Value
+                    property2Name: property2Value
+                    property3Name: property3Value
+                  endDate: '2009-12-31'
+                  programDbId: '35'
+                  programName: 'International Yield Trial 2: Return of the Trial'
+                  startDate: '2008-06-01'
+                  studies:
+                  - locationName: Zimbabwe
+                    studyDbId: '3'
+                    studyName: Zimbabwe Yield Trial
+                  - locationName: Kenya
+                    studyDbId: '4'
+                    studyName: Kenya Yield Trial
+                  trialDbId: '2'
+                  trialName: InternationalTrialB
+          headers: {}
+      summary: List of trial summaries
+      tags:
+      - Trials

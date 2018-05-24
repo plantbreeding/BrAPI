@@ -1,0 +1,72 @@
+swagger: '2.0'
+
+paths:
+  /attributes:
+    get:
+      description: '
+        List available attributes.
+        
+        <a href="https://test-server.brapi.org/brapi/v1/attributes"> test-server.brapi.org/brapi/v1/attributes</a>
+        '
+      parameters:
+      - description: filter for kind of attributes
+        in: query
+        name: attributeCategoryDbId
+        required: false
+        type: string
+      - description: The size of the pages to be returned. Default is `1000`.
+        in: query
+        name: pageSize
+        required: false
+        type: integer
+      - description: Which result page is requested. The page indexing starts at 0
+          (the first page is 'page'= 0). Default is `0`.
+        in: query
+        name: page
+        required: false
+        type: integer
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            title: germplasmAttributeDefsResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: 
+                      $ref: '#/definitions/germplasmAttributeDef' 
+          examples:
+            application/json:
+              metadata:
+                datafiles: []
+                pagination:
+                  currentPage: 0
+                  pageSize: 1000
+                  totalCount: 1
+                  totalPages: 1
+                status: []
+              result:
+                data:
+                - attributeCategoryDbId: '1'
+                  code: RHT
+                  datatype: Categorical
+                  description: Allele of marker 11_4769, diagnostic for allele b of
+                    reduced-height gene Rht-B1
+                  name: Rht-B1b
+                  uri: http://www.cropontology.org/rdf/CO_321:0000020
+                  values:
+                  - Present
+                  - Absent
+                  - Heterozygous
+          headers: {}
+      summary: Attributes by attributeCategoryDbId
+      tags:
+      - Germplasm Attributes

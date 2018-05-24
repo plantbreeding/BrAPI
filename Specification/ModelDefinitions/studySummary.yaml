@@ -1,0 +1,45 @@
+definitions:
+  studySummary:
+    properties:
+      active:
+        description: Is this study currently active
+        type: boolean
+      additionalInfo:
+        additionalProperties:
+          type: string
+        description: Additional arbitrary info
+        type: object
+      endDate:
+        description: The date the study ends
+        format: date
+        type: string
+      locationDbId:
+        description: The ID which uniquely identifies a location
+        type: string
+      locationName:
+        description: The human readable name for a location
+        type: string
+      name:
+        description: The humane readable name of a study
+        type: string
+      seasons:
+        description: List of seasons over which this study was performed.
+        items:
+          type: string
+        type: array
+      startDate:
+        description: The date this study started
+        format: date
+        type: string
+      studyDbId:
+        description: The ID which uniquely identifies a study within the given database server
+        type: string
+      studyType:
+        description: The type of study being performed. ex. "Yeald Trial", etc
+        type: string
+      trialDbId:
+        description: The ID which uniquely identifies a trial
+        type: string
+      trialName:
+        description: The human readable name of a trial
+        type: string

@@ -1,0 +1,66 @@
+
+paths:
+  /vendor/plates/{vendorPlateDbId}:
+    get:
+      description: |2-
+         Response data types 
+         <table> <thead> <tr> <th>Variable</th> <th>Datatype</th> <th>Description</th> <th>Required</th> </tr> </thead> <tbody> <tr> <td>metadata</td> <td>object</td> <td>pagination, status</td> <td>Y</td> </tr> <tr> <td>pagination</td> <td>object</td> <td>pageSize, currentPage, totalCount, totalPages</td> <td>Y</td> </tr> <tr> <td>status</td> <td>list</td> <td>code, message</td> <td>Y</td> </tr> <tr> <td>result</td> <td>Object</td> <td>Object containing MCPD data</td> <td>Y</td> </tr> <tr> <td>vendorProjectDbId</td> <td>string</td> <td>the name or identifier given to a project by the vendor</td> <td>Y</td> </tr> <tr> <td>vendorPlateDbId</td> <td>string</td> <td>the name or identifier of the plate, given by the vendor</td> <td>Y</td> </tr> <tr> <td>clientPlateDbId</td> <td>string</td> <td>the name of the plate, given by the client</td> <td>Y</td> </tr> <tr> <td>barcode</td> <td>string</td> <td>a string that can be represented as a barcode, identifying this plate</td> <td>N</td> </tr> <tr> <td>plateFormat</td> <td>string</td> <td>defines that plate format, usually Plate_96 or tubes for plateless format</td> <td>Y</td> </tr> <tr> <td>sampleType</td> <td>string</td> <td>DNA or RNA or Tissue, etc.</td> <td>Y</td> </tr> <tr> <td>status</td> <td>string</td> <td>The status of the plate in the processing pipeline. Typically,  &quot;Received&quot;, &quot;Processing&quot;, &quot;QC_passed&quot;, QC_failed&quot;, &quot;Completed&quot; (as per vendor-requirements call)</td> <td>Y</td> </tr> <tr> <td>samples</td> <td>Array</td> <td>list of samples in the plate</td> <td>Y</td> </tr> </tbody> </table>
+         <a href="https://test-server.brapi.org/brapi/v1/vendor"> test-server.brapi.org/brapi/v1/vendor/plate/{vendorPlateDbId}</a>
+      parameters:
+      - description: The plate ID defined by the vendor
+        in: path
+        name: vendorPlateDbId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            title: vendorPlateResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                $ref: '#/definitions/vendorPlate'
+          examples:
+            application/json:
+              metadata:
+                datafiles: [
+                  ]
+                pagination:
+                  currentPage: 0
+                  pageSize: 0
+                  totalCount: 0
+                  totalPages: 0
+                status: [
+                  ]
+              result:
+                clientPlateDbId: def456
+                plateFormat: Plate_96
+                sampleType: DNA
+                samples:
+                - column: (optional)
+                  concentration: (ng/ul)
+                  row: (optional)
+                  sampleDbId: sample_name
+                  taxonId:
+                    sourceName: ncbiTaxon
+                    taxonId: http://purl.obolibrary.org/obo/NCBITaxon_4641
+                  tissueType: ''
+                  volume: (ul)
+                  well: (optional)
+                status: (not null)
+                statusTimeStamp: 2017-06-01 01:57 GMT
+                vendorBarcode: ''
+                vendorBarcodeImageURL: ''
+                vendorPlateDbId: '8338'
+                vendorProjectDbId: abc123
+          headers: {
+            }
+      summary: Plate Details by vendorPlateId
+      tags:
+      - Vendor Samples
+swagger: '2.0'

@@ -1,0 +1,33 @@
+paths:
+  /vendor/plates:
+    post:
+      description: |-
+        Note: if the samples array is empty, plate ID will be returned.
+        Samples can be updated later.
+      parameters:
+      - in: body
+        name: body
+        schema:
+          $ref: '#/definitions/vendorPlateRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            title: vendorPlatesResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                type: object
+                properties:
+                  plates:
+                    type: array
+                    items: 
+                      $ref: '#/definitions/vendorPlate'
+          examples: {}
+          headers: {}
+      summary: Register plates
+      tags: 
+      - Vendor Samples
+swagger: '2.0'

@@ -1,0 +1,79 @@
+swagger: '2.0'
+paths:
+  /germplasm/{germplasmDbId}:
+    get:
+      description: '
+        Scope: CORE. Status: ACCEPTED.  
+        
+        Implementation target date: PAG2016
+        
+        Implemented by: Tripal Brapi module, Germinate, Cassavabase
+        
+        Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport Data. The MCPD fields are optional and marked with the prefix [MCPD].
+        
+        <a href="https://test-server.brapi.org/brapi/v1/germplasm"> test-server.brapi.org/brapi/v1/germplasm/{germplasmDbId}</a>
+        '
+      parameters:
+      - description: The internal id of the germplasm
+        in: path
+        name: germplasmDbId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            title: germplasmResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                $ref: '#/definitions/germplasm'
+          examples:
+            application/json:
+              metadata:
+                datafiles: []
+                pagination:
+                  currentPage: 0
+                  pageSize: 0
+                  totalCount: 0
+                  totalPages: 0
+                status: []
+              result:
+                accessionNumber: ITC0609
+                acquisitionDate: '1947-01-31'
+                biologicalStatusOfAccessionCode: 412
+                commonCropName: banana
+                countryOfOriginCode: UNK
+                defaultDisplayName: Pahang
+                donors:
+                - donorAccessionNumber: ''
+                  donorGermplasmPUI: ''
+                  donorInstituteCode: ''
+                genus: Musa
+                germplasmDbId: 01BEL084609
+                germplasmName: Pahang
+                germplasmPUI: http://www.crop-diversity.org/mgis/accession/01BEL084609
+                instituteCode: 01BEL084
+                instituteName: ITC
+                pedigree: TOBA97/SW90.1057
+                seedSource: ITC0609-2016-77
+                species: acuminata
+                speciesAuthority: ''
+                subtaxa: sp malaccensis var pahang
+                subtaxaAuthority: ''
+                synonyms: []
+                taxonIds:
+                - sourceName: ncbiTaxon
+                  taxonId: http://purl.obolibrary.org/obo/NCBITaxon_4641
+                - sourceName: ciradTaxon
+                  taxonId: 23-E
+                typeOfGermplasmStorageCode:
+                - 10
+          headers: {}
+      summary: Germplasm search by germplasmDbId
+      tags:
+      - Germplasm

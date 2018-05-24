@@ -1,0 +1,154 @@
+swagger: '2.0'
+host: test-server.brapi.org
+basePath: /brapi/v1
+info:
+  description: |-
+    The Breeding API (BrAPI) is a Standardized RESTful Web Service API Specification for communicating Plant Breeding Data. BrAPI allows for easy data sharing between databases and tools involved in plant breeding.
+    
+    <strong>General Reference Documentation</strong>
+    <a href="https://github.com/plantbreeding/API/blob/master/Specification/GeneralInfo/URL_Structure.md">URL Structure</a>
+    <a href="https://github.com/plantbreeding/API/blob/master/Specification/GeneralInfo/Response_Structure.md">Response Structure</a>
+    <a href="https://github.com/plantbreeding/API/blob/master/Specification/GeneralInfo/Date_Time_Encoding.md">Date/Time Encoding</a>
+    <a href="https://github.com/plantbreeding/API/blob/master/Specification/GeneralInfo/Location_Encoding.md">Location Encoding</a>
+    <a href="https://github.com/plantbreeding/API/blob/master/Specification/GeneralInfo/Error_Handling.md">Error Handling</a>
+    <a href="https://github.com/plantbreeding/API/blob/master/Specification/GeneralInfo/Search_Services.md">Search Services</a>
+    <a href="https://github.com/plantbreeding/API/blob/master/Specification/GeneralInfo/Asychronous_Processing.md">Asynchronous Processing</a>
+    
+  title: 'BrAPI'
+  version: '1.2'
+definitions: 
+  status: 
+    type: object
+    properties:
+      code:
+        type: string
+      message: 
+        type: string
+  metadata:
+    type: object
+    properties:
+      pagination:
+        description: |-
+          The pagination object is applicable only when the payload contains a "data" key. It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. Pages are zero indexed, so the first page will be page 0 (zero).
+        type: object
+        properties: 
+          totalCount:
+            type: integer
+          pageSize:
+            type: integer
+          totalPages: 
+            type: integer
+          currentPage:
+            type: integer
+      status:
+        description: |-
+          The status field contains a list of informational status messages from the server. If no status is reported, an empty list should be returned. See Error Reporting for more information.
+        type: array
+        items:
+          $ref: '#/definitions/status'
+      datafiles:
+        description: |-
+          The datafiles key contains a list of file paths, which can be relative or complete URLs. These files contain additional information related to the returned object and can be retrieved by a subsequent call. The empty list should be returned if no additional data files are present.
+        type: array
+        items:
+          type: string
+paths: {}
+tags:
+- name: Calls
+  description: Check the available calls on a server
+  externalDocs: 
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Crops
+  description: Information about Crops
+  externalDocs: 
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Programs
+  description: Information about Programs
+  externalDocs: 
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Locations
+  description: Information about Locations
+  externalDocs: 
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Trials
+  description: Information about Trials
+  externalDocs: 
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Studies
+  description: Information about Studies
+  externalDocs: 
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Observations
+  description: Information about Observations
+  externalDocs: 
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Observation Variables
+  description: >-
+    API to retrieve list and details of observation variables. An observation variable is composed by the unique combination of one Trait, one Method and one Scale.
+  externalDocs:
+    description: "github"
+    url: "https://github.com/plantbreeding/API/tree/master/Specification/ObservationVariables"
+- name: Phenotypes
+  description: Information about Phenotypes
+  externalDocs: 
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Germplasm
+  description: Information about Germplasm
+  externalDocs: 
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Germplasm Attributes
+  description: Information about Germplasm Attributes
+  externalDocs: 
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Markers
+  description: Information about Markers
+  externalDocs: 
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Marker Profiles
+  description: Information about Marker Profiles
+  externalDocs: 
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Genome Maps
+  description: Information about Genome Maps
+  externalDocs: 
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Samples
+  description: Information about Samples
+  externalDocs: 
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Vendor Samples
+  description: |-
+    This interface is specific to facilities that performs an external analysis, such as genotyping facilities. The interface should be implemented by that facility's server. The breeding database is the client of this interface.
+    Note that to use these calls, you likely have to use the authentication call prior to connecting (see Authentication best practices).
+  externalDocs: 
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Search Services
+  description: The available Search Services for finding data
+  externalDocs: 
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Authentication
+  description: Authenticacte your requests
+  externalDocs: 
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Deprecated
+  description: Deprecated Calls
+  externalDocs: 
+    description: Docs
+    url: https://wiki.brapi.org/
