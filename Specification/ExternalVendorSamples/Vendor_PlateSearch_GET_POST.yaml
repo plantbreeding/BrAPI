@@ -2,10 +2,10 @@
 paths:
   /vendor/plate-search:
     get:
-      description: '
+      description: |-
         Search for plates in the database.
 
-        <a href="https://test-server.brapi.org/brapi/v1/vendor"> test-server.brapi.org/brapi/v1/vendor/plate-search</a>'
+        <a href="https://test-server.brapi.org/brapi/v1/vendor"> test-server.brapi.org/brapi/v1/vendor/plate-search</a>
       parameters:
       - description: ''
         in: query
@@ -61,11 +61,10 @@ paths:
       - Vendor Samples
       - Search Services
     post:
-      description: '
+      description: |-
         Search for plates in the database.
 
         <a href="https://test-server.brapi.org/brapi/v1/vendor"> test-server.brapi.org/brapi/v1/vendor/plate-search</a>
-        '
       parameters:
       - in: body
         name: body

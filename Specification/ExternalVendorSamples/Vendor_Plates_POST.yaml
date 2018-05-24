@@ -1,8 +1,9 @@
 paths:
   /vendor/plates:
     post:
-      description: 'Note: if the samples array is empty, plate ID will be returned.
-        Samples can be updated later.'
+      description: |-
+        Note: if the samples array is empty, plate ID will be returned.
+        Samples can be updated later.
       parameters:
       - in: body
         name: body
