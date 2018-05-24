@@ -1,8 +1,4 @@
 swagger: '2.0'
-info:
-  version: '1.0'
-  title: 'Locations (BRAPI)'
-  description: 'API for all the locations functions'
 paths:
   /locations:
     get:
@@ -61,6 +57,18 @@ paths:
                   additionalInfo:
                     name1: value1
                     name2: value2
+      description: '
+      
+        Implemented by: Germinate
+        
+        Get a list of locations.
+        
+        * The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
+        
+        * `altitude` is in meters.
+        
+        **Note**: Consider revising to describe polygon lat/lan points and check if adopting http://geojson.org/ is worth doing for v1.
+      '
       tags: 
       - Locations
       parameters:

@@ -1,13 +1,14 @@
 swagger: '2.0'
-info:
-  description: ''
-  title: ''
-  version: ''
+
 paths:
   /observationLevels:
     get:
       deprecated: true
-      description: ''
+      description: '
+        Call to retrieve the list of supported observation levels. 
+        Observation levels indicate the granularity level at which the measurements are taken.
+        The values are used to supply the `observationLevel` parameter in the observation unit details call.
+      '
       parameters:
       - description: The size of the pages to be returned. Default is `1000`.
         in: query
@@ -61,9 +62,11 @@ paths:
   /observationlevels:
     get:
       description: '
+        Call to retrieve the list of supported observation levels. 
+        Observation levels indicate the granularity level at which the measurements are taken.
+        The values are used to supply the `observationLevel` parameter in the observation unit details call.
 
-
-        <a>example.com/observationlevels</a>'
+        <a href="https://test-server.brapi.org/brapi/v1/observationlevels"> test-server.brapi.org/brapi/v1/observationlevels</a>'
       parameters:
       - description: The size of the pages to be returned. Default is `1000`.
         in: query

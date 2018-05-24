@@ -1,15 +1,15 @@
 swagger: '2.0'
-info:
-  description: ''
-  title: ''
-  version: ''
 paths:
   /studies/{studyDbId}/observationvariables:
     get:
       description: '
+        Scope: PHENOTYPING
+        
+        List all the observation variables measured in the study.
+        
+        Refer to the data type definition of variables in `/Specification/ObservationVariables/README.md`.
 
-
-        <a>example.com/studies/{studyDbId}/observationvariables</a>'
+        <a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationvariables</a>'
       parameters:
       - description: string database unique identifier
         in: path

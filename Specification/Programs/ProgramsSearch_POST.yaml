@@ -1,12 +1,15 @@
 swagger: '2.0'
-info:
-  description: ''
-  title: ''
-  version: ''
 paths:
   /programs-search:
     post:
-      description: ''
+      description: '      
+        Advanced searching for the programs resource.
+        
+        Status: ACCEPTED.
+        
+        See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
+      
+      '
       parameters:
       - in: body
         name: body

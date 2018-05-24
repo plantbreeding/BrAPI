@@ -5,6 +5,10 @@ definitions:
         description: List of linkage group details associated with a given map
         items:
           $ref: '#/definitions/linkageGroup'
+      linkageGroups:
+        description: '**Deprecated** Use "data"'
+        items:
+          $ref: '#/definitions/linkageGroup'
         type: array
       mapDbId:
         description: The ID which uniquely identifies this genome map

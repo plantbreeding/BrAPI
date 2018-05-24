@@ -1,13 +1,14 @@
 swagger: '2.0'
-info:
-  description: ''
-  title: ''
-  version: ''
 paths:
   /studyTypes:
     get:
       deprecated: true
-      description: ''
+      description: '
+        Call to retrieve the list of study types.
+        
+        Scope: PHENOTYPING.
+        Implementation target date: PAG2016
+        '
       parameters:
       - description: The size of the pages to be returned. Default is `1000`.
         in: query
@@ -64,9 +65,12 @@ paths:
   /studytypes:
     get:
       description: '
+        Call to retrieve the list of study types.
+        
+        Scope: PHENOTYPING.
+        Implementation target date: PAG2016
 
-
-        <a>example.com/studytypes</a>'
+        <a href="https://test-server.brapi.org/brapi/v1/studytypes"> test-server.brapi.org/brapi/v1/studytypes</a>'
       parameters:
       - description: The size of the pages to be returned. Default is `1000`.
         in: query

@@ -1,14 +1,10 @@
-info:
-  description: ''
-  title: ''
-  version: ''
 paths:
   /vendor/specifications:
     get:
       description: '
-
-
-        <a>example.com/vendor/specifications</a>'
+        Defines the plate format specification for the vendor.
+        
+        <a href="https://test-server.brapi.org/brapi/v1/vendor"> test-server.brapi.org/brapi/v1/vendor/specifications</a>'
       parameters: []
       produces:
       - application/json

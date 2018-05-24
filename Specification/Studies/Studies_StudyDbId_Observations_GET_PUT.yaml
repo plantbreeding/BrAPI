@@ -1,15 +1,14 @@
 swagger: '2.0'
-info:
-  description: ''
-  title: ''
-  version: ''
 paths:
   /studies/{studyDbId}/observations:
     get:
       description: '
 
+        Retrieve all observations where there are measurements for the given observation variables.
+        
+        observationTimestamp should be ISO8601 format with timezone: YYYY-MM-DDThh:mm:ss+hhmm
 
-        <a>example.com/studies/{studyDbId}/observations</a>'
+        <a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies/{studyDbId}/observations</a>'
       parameters:
       - description: Identifier of the study. Usually a number, could be alphanumeric.
         in: path
@@ -96,9 +95,13 @@ paths:
       - Observations
     put:
       description: '
+        Implementation Guidelines:
+        + If an `observationDbId` is "null" or an empty string in the request, a NEW observation should be created for the given study and observationUnit
+        + If an `observationDbId` is populated but not found in the database, a NEW observation should be created for the given study and observationUnit AND an NEW `observationDbId` should be assigned to it. A warning should be returned to the client.
+        + If an `observationDbId` is populated and found in the database, but the existing entry is not associated with the given study or observationUnit, a NEW observation should be created for the given study and observationUnit AND an NEW `observationDbId` should be assigned to it. A warning should be returned to the client.
+        + If an `observationDbId` is populated and found in the database and is associated with the given study and observationUnit, then it should be updated with the new data given.
 
-
-        <a>example.com/studies/{studyDbId}/observations</a>'
+        <a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies/{studyDbId}/observations</a>'
       parameters:
       - description: Identifier of the study. Usually a number, could be alphanumeric.
         in: path

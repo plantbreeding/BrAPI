@@ -1,7 +1,4 @@
-info:
-  description: ''
-  title: ''
-  version: ''
+
 paths:
   /token:
     delete:

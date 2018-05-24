@@ -1,15 +1,16 @@
 swagger: '2.0'
-info:
-  description: ''
-  title: ''
-  version: ''
 paths:
   /traits/{traitDbId}:
     get:
       description: '
+        Scope: CORE.
+        Status: ACCEPTED.
+        
+        Implemented by: Germinate
+        
+        Retrieve the variables associated to a trait 
 
-
-        <a>example.com/traits/{traitDbId}</a>'
+        <a href="https://test-server.brapi.org/brapi/v1/traits"> test-server.brapi.org/brapi/v1/traits/{traitDbId}</a>'
       parameters:
       - description: Id of the trait to retrieve details of.
         in: path

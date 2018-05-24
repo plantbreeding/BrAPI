@@ -1,9 +1,4 @@
 swagger: '2.0'
-info:
-  title: 'BrAPI'
-  version: '1.0'
-  description: >-
-      Repository for version control of the BrAPI specification
 paths:
   '/maps/{mapDbId}':
     get:

@@ -1,15 +1,11 @@
 swagger: '2.0'
-info:
-  description: ''
-  title: ''
-  version: ''
 paths:
   /studies/{studyDbId}/germplasm:
     get:
       description: '
+        Scope: PHENOTYPING
 
-
-        <a>example.com/studies/{studyDbId}/germplasm</a>'
+        <a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies/{studyDbId}/germplasm</a>'
       parameters:
       - description: Identifier of the study. Usually a number, could be alphanumeric.
         in: path

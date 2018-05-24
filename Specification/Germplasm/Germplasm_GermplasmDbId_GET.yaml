@@ -1,13 +1,18 @@
 swagger: '2.0'
-info:
-  description: ''
-  title: ''
-  version: ''
 paths:
   /germplasm/{germplasmDbId}:
     get:
-      description: >
-        <a>example.com/germplasm/{germplasmDbId}</a>
+      description: '
+        Scope: CORE. Status: ACCEPTED.  
+        
+        Implementation target date: PAG2016
+        
+        Implemented by: Tripal Brapi module, Germinate, Cassavabase
+        
+        Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport Data. The MCPD fields are optional and marked with the prefix [MCPD].
+        
+        <a href="https://test-server.brapi.org/brapi/v1/germplasm"> test-server.brapi.org/brapi/v1/germplasm/{germplasmDbId}</a>
+        '
       parameters:
       - description: The internal id of the germplasm
         in: path

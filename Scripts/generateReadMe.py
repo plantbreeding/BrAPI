@@ -8,6 +8,9 @@ import json
 
 def buildReadMe(dir):
 	readMeStr = ''
+	with open(dir + 'GroupDescription.md', "r") as groupDescFile:
+		readMeStr += groupDescFile.read() + '\n\n'
+		
 	for filename in glob.iglob(dir + '/*.yaml', recursive=True):
 		print(filename)
 		fileObj = {}	
@@ -84,16 +87,16 @@ if specificPath == '' :
 	for dir in glob.iglob(rootPath + '/**/', recursive=False):
 		print(dir)
 		readMeStr = buildReadMe(dir)
-		#with open(dir + '/README.md.gen', 'w') as outfile:
-		#	outfile.write(readMeStr)
+		with open(dir + '/README.md', 'w') as outfile:
+			outfile.write(readMeStr)
 else:
 	dir = rootPath + specificPath
 	print(dir)
 	readMeStr = buildReadMe(dir)
-	#with open(dir + '/README.md.gen', 'w') as outfile:
-	#	outfile.write(readMeStr)
+	print(readMeStr)
+	with open(dir + '/README.md', 'w') as outfile:
+		outfile.write(readMeStr)
 	
 		
 
-#print(readMeStr)
 	

@@ -1,15 +1,24 @@
 swagger: '2.0'
-info:
-  description: ''
-  title: ''
-  version: ''
+
 paths:
   /studies-search:
     get:
       description: '
+        Scope: PHENOTYPING.
+        Status: ACCEPTED.
+        Implementation target date: PAG2016.
+        
+        Implemented by: Germinate
+        
+        Used by: Flapjack, Cassavabase
+        
+        See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
+        
+        Get list of studies
+        
+        StartDate and endDate should be ISO8601 format for dates: YYYY-MM-DD
 
-
-        <a>example.com/studies-search</a>'
+        <a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies-search</a>'
       parameters:
       - description: Filter based on study type e.g. Nursery, Trial or Genotype.
         in: query
@@ -154,9 +163,21 @@ paths:
 
     post:
       description: '
+        Scope: PHENOTYPING.
+        Status: ACCEPTED.
+        Implementation target date: PAG2016.
+        
+        Implemented by: Germinate
+        
+        Used by: Flapjack, Cassavabase
+        
+        See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
+        
+        Get list of studies
+        
+        StartDate and endDate should be ISO8601 format for dates: YYYY-MM-DD
 
-
-        <a>example.com/studies-search</a>'
+        <a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies-search</a>'
       parameters:
       - description: Study Search request 
         in: body

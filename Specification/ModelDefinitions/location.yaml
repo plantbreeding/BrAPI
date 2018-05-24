@@ -4,6 +4,9 @@ definitions:
       abbreviation:
         description: An abbreviation which represents this location
         type: string
+      abreviation:
+        description: 'Deprecated  <strong>Use abbreviation</strong> '
+        type: string
       additionalInfo:
         additionalProperties:
           type: string
@@ -22,7 +25,7 @@ definitions:
         description: The street address of the institute representing this location
         type: string
       instituteAdress:
-        description: 'Depecrarted  <strong>Use instituteAddress</strong> '
+        description: 'Deprecated  <strong>Use instituteAddress</strong> '
         type: string
       instituteName:
         description: each institute/laboratory can have several experimental field

@@ -1,15 +1,13 @@
 swagger: '2.0'
-info:
-  description: ''
-  title: ''
-  version: ''
 paths:
   /trials:
     get:
       description: '
+        Scope: PHENOTYPING.
+        Status: ACCEPTED.
+        Implementation target date: PAG2016.
 
-
-        <a>example.com/trials</a>'
+        <a href="https://test-server.brapi.org/brapi/v1/trials"> test-server.brapi.org/brapi/v1/trials</a>'
       parameters:
       - description: Program filter to only return trials associated with given program
           id.

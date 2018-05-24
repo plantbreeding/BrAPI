@@ -1,8 +1,4 @@
 swagger: '2.0'
-info:
-  version: '1.0'
-  title: 'Locations (BRAPI)'
-  description: 'API for all the locations functions'
 paths:
   '/locations/{locationDbId}':
     get:
@@ -32,7 +28,7 @@ paths:
                 locationDbId: abc123
                 locationType: Breeding Location
                 name: Ibadan
-                abreviation: DEPRECATED -- see abbreviation
+                abreviation: IB -- DEPRECATED -- see abbreviation
                 abbreviation: IB
                 countryCode: NGA
                 countryName: Nigeria
@@ -45,14 +41,15 @@ paths:
                   annualMeanRain: value
                   soilDescription: '23'
       summary: The internal DB id for a location
-      description: |-
+      description: '
           <strong>Implemented by:</strong>  GnpIS
           
           Get details for a location.
           
             * The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
+            
             * `altitude` is in meters.
-      
+      '
       tags: 
       - Locations
       parameters:

@@ -1,13 +1,14 @@
 swagger: '2.0'
-info:
-  description: ''
-  title: ''
-  version: ''
 paths:
   /germplasm/{germplasmDbId}/progeny:
     get:
-      description: >
-        <a>example.com/germplasm/{germplasmDbId}/progeny</a>
+      description: '
+        Scope: Germplasm
+        
+        Get the germplasmDbIds for all the Progeny of a particular germplasm.
+        
+        <a href="https://test-server.brapi.org/brapi/v1/germplasm"> test-server.brapi.org/brapi/v1/germplasm/{germplasmDbId}/progeny</a>
+        '
       parameters:
       - description: the internal id of the germplasm
         in: path

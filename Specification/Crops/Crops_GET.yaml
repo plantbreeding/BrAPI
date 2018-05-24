@@ -4,7 +4,7 @@ paths:
       description: |-
         For multi crop systems this is a useful call to list all the supported crops.
 
-        <a>example.com/crops</a>
+        <a href="https://test-server.brapi.org/brapi/v1/crops"> test-server.brapi.org/brapi/v1/crops</a>
       parameters:
       - description: The size of the pages to be returned. Default is `1000`.
         in: query

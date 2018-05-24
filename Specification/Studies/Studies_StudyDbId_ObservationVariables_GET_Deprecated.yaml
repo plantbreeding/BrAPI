@@ -1,8 +1,4 @@
 swagger: '2.0'
-info:
-  description: ''
-  title: ''
-  version: ''
 paths:
   /studies/{studyDbId}/observationVariables:
     get:
@@ -10,7 +6,7 @@ paths:
       description: '
 
 
-        <a>example.com/studies/{studyDbId}/observationVariables</a>'
+        <a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationVariables</a>'
       parameters:
       - description: string database unique identifier
         in: path

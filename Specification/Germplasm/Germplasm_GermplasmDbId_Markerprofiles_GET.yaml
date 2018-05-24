@@ -1,13 +1,20 @@
 swagger: '2.0'
-info:
-  description: ''
-  title: ''
-  version: ''
 paths:
   /germplasm/{germplasmDbId}/markerprofiles:
     get:
-      description: >
-        <a>example.com/germplasm/{germplasmDbId}/markerprofiles</a>
+      description: '
+        Retrieve the markerProfileDbIds for a given Germplasm ID  
+        
+        Scope: GENOTYPING. 
+        
+        Status: ACCEPTED.
+        
+        Implementation target date: PAG2016
+        
+        Implemented by: Germinate, Cassavabase
+
+        <a href="https://test-server.brapi.org/brapi/v1/germplasm"> test-server.brapi.org/brapi/v1/germplasm/{germplasmDbId}/markerprofiles</a>
+        '
       parameters:
       - description: the internal id of the germplasm
         in: path

@@ -1,13 +1,19 @@
 swagger: '2.0'
-info:
-  version: '1.0'
-  title: Marker Profiles
-  description: BRAPI Marker profiles
 paths:
   /allelematrix-search:
     post:
       summary: Scores through POST
       description: |-
+        Status: ACCEPTED.
+
+        Implemented by: Germinate (POST only), Cassavabase
+        
+        Used by: Flapjack (POST only)
+        
+        See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
+        
+        This uses a more efficient data structure and pagination for large number of markers.
+
         Use POST when parameter size is greater than 2K bytes.
 
         - If no format is specified, this call returns the data in JSON form.
@@ -82,6 +88,16 @@ paths:
       tags:
       - Marker Profiles
       description: |-
+        Status: ACCEPTED.
+
+        Implemented by: Germinate (POST only), Cassavabase
+        
+        Used by: Flapjack (POST only)
+        
+        See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
+        
+        This uses a more efficient data structure and pagination for large number of markers.
+        
         See Search Services for additional implementation details.
         </br>
         This uses a more efficient data structure and pagination for large number of markers. 

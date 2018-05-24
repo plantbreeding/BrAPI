@@ -1,15 +1,13 @@
 swagger: '2.0'
-info:
-  description: ''
-  title: ''
-  version: ''
 paths:
   /studies/{studyDbId}/observationunits:
     get:
       description: '
+        The main API call for field data collection, to retrieve all the observation units within a study.
+        
+        Scope: PHENOTYPING
 
-
-        <a>example.com/studies/{studyDbId}/observationunits</a>'
+        <a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationunits</a>'
       parameters:
       - description: The study these observation units are related to.
         in: path

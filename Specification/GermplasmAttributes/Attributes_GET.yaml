@@ -1,18 +1,13 @@
 swagger: '2.0'
-info:
-  description: ''
-  title: ''
-  version: ''
+
 paths:
   /attributes:
     get:
-      description: "List available attributes.\n\n###### Response data types\n\n|Variable|Datatype|Description|Required|\
-        \  \n|------|------|------|:-----:|\n|attributeCategoryDbId|string|internal\
-        \ database identifier, not stable |Y|\n|code|string|abbreviation||\n|uri|string|reference\
-        \ to external documentation, ontology etc.||\n|name|string|for display, and\
-        \ stable identifier unique in the database|Y|\n|description|string|||\n|datatype|string|e.g.\
-        \ Categorical, Numeric, Boolean||\n|values|array of string|array of all possible\
-        \ values for this attribute|Y|\n\n<a>example.com/attributes</a>"
+      description: '
+        List available attributes.
+        
+        <a href="https://test-server.brapi.org/brapi/v1/attributes"> test-server.brapi.org/brapi/v1/attributes</a>
+        '
       parameters:
       - description: filter for kind of attributes
         in: query

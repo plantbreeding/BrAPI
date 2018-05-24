@@ -1,15 +1,15 @@
 swagger: '2.0'
-info:
-  description: ''
-  title: ''
-  version: ''
 paths:
   /trials/{trialDbId}:
     get:
       description: '
+        Scope: PHENOTYPING.
+        Status: ACCEPTED.
+        Implementation target date: PAG2016.
+        
+        Get trial by id.
 
-
-        <a>example.com/trials/{trialDbId}</a>'
+        <a href="https://test-server.brapi.org/brapi/v1/trials"> test-server.brapi.org/brapi/v1/trials/{trialDbId}</a>'
       parameters:
       - description: The internal trialDbId
         in: path

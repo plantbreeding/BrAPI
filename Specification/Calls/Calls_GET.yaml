@@ -45,7 +45,7 @@ paths:
           </tr> 
         </table>
         
-        <a>example.com/calls</a>
+        <a href="https://test-server.brapi.org/brapi/v1/calls"> test-server.brapi.org/brapi/v1/calls</a>
       parameters:
       - description: 'The data format supported by the call. Example: `json`'
         in: query

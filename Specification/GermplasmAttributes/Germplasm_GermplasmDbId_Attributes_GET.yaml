@@ -1,15 +1,12 @@
 swagger: '2.0'
-info:
-  description: ''
-  title: ''
-  version: ''
+
 paths:
   /germplasm/{germplasmDbId}/attributes:
     get:
       description: 'Values for all attributes by default.
 
 
-        <a>example.com/germplasm/{germplasmDbId}/attributes</a>'
+        <a href="https://test-server.brapi.org/brapi/v1/germplasm"> test-server.brapi.org/brapi/v1/germplasm/{germplasmDbId}/attributes</a>'
       parameters:
       - description: The germplasm characterized
         in: path
@@ -17,6 +14,13 @@ paths:
         required: true
         type: string
       - description: Restrict the response to only the listed attributeDbIds.
+        in: query
+        name: attributeDbIds
+        required: false
+        type: array
+        items:
+          type: string
+      - description: '**Deprecated** Use "attributeDbIds" instead' 
         in: query
         name: attributeList
         required: false

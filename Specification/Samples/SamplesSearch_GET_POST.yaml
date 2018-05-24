@@ -1,15 +1,12 @@
 swagger: '2.0'
-info:
-  description: ''
-  title: ''
-  version: ''
+
 paths:
   /samples-search:
     get:
       description: '
+        Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
 
-
-        <a>example.com/samples-search</a>'
+        <a href="https://test-server.brapi.org/brapi/v1/samples"> test-server.brapi.org/brapi/v1/samples-search</a>'
       parameters:
       - description: the internal DB id for a sample
         in: query
@@ -94,7 +91,10 @@ paths:
       - Samples
       - Search Services
     post:
-      description: ''
+      description: '
+        Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
+
+        <a href="https://test-server.brapi.org/brapi/v1/samples"> test-server.brapi.org/brapi/v1/samples-search</a>'
       parameters: 
       - in: body
         name: sampleSearch

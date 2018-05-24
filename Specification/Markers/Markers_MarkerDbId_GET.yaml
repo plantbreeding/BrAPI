@@ -1,8 +1,4 @@
 swagger: '2.0'
-info:
-  title: 'BRAPI Marker methods'
-  version: "1.0.0"
-  description: 'Methods related to the markers'
 paths:
   '/markers/{markerDbId}':
     get:

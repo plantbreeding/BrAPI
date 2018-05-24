@@ -1,13 +1,22 @@
-info:
-  description: ''
-  title: ''
-  version: ''
 paths:
   /germplasm-search:
     get:
-      description: >
+      description: '
+        Implemented by: GnpIS, Germinate (GET only)
+
+        See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
+        
+        Notes:
+        The germplasm and germplasm MCPD calls were merged.  The MCPD fields are optional and indicated as such with the [MCPD] prefix in the description field of the "Response data types" table. Please use the "features" hash of the "calls" call to communicate with clients as to whether MCPD is supported by your implementation.
+        
+        Addresses these needs:
+        1. General germplasm search mechanism that accepts POST for complex queries
+        2. possibility to search germplasm by more parameters than those allowed by the existing germplasm search
+        3. possibility to get MCPD details by PUID rather than dbId
+
         Use GET when parameter size is less than 2K bytes.
-        <a>example.com/germplasm-search</a>
+        <a href="https://test-server.brapi.org/brapi/v1/germplasm"> test-server.brapi.org/brapi/v1/germplasm-search</a>
+        '
       parameters:
       - description: Permanent unique identifier (DOI, URI, etc.)
         in: query
@@ -131,7 +140,21 @@ paths:
       - Germplasm
       - Search Services
     post:
-      description: Use POST for large queries (>2K bytes).
+      description: '
+        Implemented by: GnpIS, Germinate (GET only)
+
+        See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
+        
+        Notes:
+        The germplasm and germplasm MCPD calls were merged.  The MCPD fields are optional and indicated as such with the [MCPD] prefix in the description field of the "Response data types" table. Please use the "features" hash of the "calls" call to communicate with clients as to whether MCPD is supported by your implementation.
+        
+        Addresses these needs:
+        1. General germplasm search mechanism that accepts POST for complex queries
+        2. possibility to search germplasm by more parameters than those allowed by the existing germplasm search
+        3. possibility to get MCPD details by PUID rather than dbId
+      
+        Use POST for large queries (>2K bytes).
+        '
       parameters:
       - in: body
         name: body

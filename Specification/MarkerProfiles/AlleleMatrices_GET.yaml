@@ -1,8 +1,4 @@
 swagger: '2.0'
-info:
-  version: '1.0'
-  title: 'Marker Profiles'
-  description: 'BRAPI Marker profiles'
 paths:
   /allelematrices:
     get:

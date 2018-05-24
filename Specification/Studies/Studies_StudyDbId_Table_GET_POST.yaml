@@ -1,15 +1,15 @@
 swagger: '2.0'
-info:
-  description: ''
-  title: ''
-  version: ''
 paths:
   /studies/{studyDbId}/table:
     get:
       description: '
+        Scope: PHENOTYPING.
+        Status: ACCEPTED. Implemented in Cassavabase, HIDAP and Germinate.
+        Notes: 
+        Implementation target date: after PAG2016
+        Retrieve the details of the study required for field data collection. Includes actual trait data.
 
-
-        <a>example.com/studies/{studyDbId}/table</a>'
+        <a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies/{studyDbId}/table</a>'
       parameters:
       - description: Identifier of the study. Usually a number, could be alphanumeric.
         in: path
@@ -123,12 +123,21 @@ paths:
       - Studies
       - Observations
     post:
-      description: 'Images can optionally be saved using this call by providing a
-        zipped file of all images in the datafiles. The physical zipped file should
-        be transferred as well in the mulit-part form data.
-
-
-        Scope: PHENOTYPING'
+      description: '
+        This call can be used to create new observations in bulk. 
+  
+        Note: If you need to update any existing observation, please use `PUT /studies/{studyDbId}/observations`. This call should only be used to create NEW observations.
+        
+        Implementation Guidelines: 
+        
+        + All observations submitted through this call should create NEW observation records in the database under the given observation unit. 
+        + Each "observationUnitDbId" listed should already exist in the database. If the server can not find a given "observationUnitDbId", it should report an error. (see Error Handling)
+        + The response of this call should be the set of "observationDbIds" created from this call, along with the associated "observationUnitDbId" and "observationVariableDbId" that each observation is associated with.
+        
+        Images can optionally be saved using this call by providing a zipped file of all images in the datafiles. The physical zipped file should be transferred as well in the mulit-part form data.
+        
+        Scope: PHENOTYPING
+        '
       parameters:
       - description: Identifier of the study. Usually a number, could be alphanumeric.
         in: path

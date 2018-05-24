@@ -1,13 +1,19 @@
 swagger: '2.0'
-info:
-  description: ''
-  title: ''
-  version: ''
 paths:
   /germplasm/{germplasmDbId}/pedigree:
     get:
-      description: >
-        <a>example.com/germplasm/{germplasmDbId}/pedigree</a>
+      description: '
+      
+        Scope: CORE. Status: ACCEPTED.  
+
+        Implementation target date: PAG2016
+
+        Implemented by: Germinate, Tripal Brapi Module, Cassavabase (without notation option)
+        
+        (http://wheat.pw.usda.gov/ggpages/gopher/administration/Template%20for%20Germplasm%20records.html) or [Lamacraft] (http://link.springer.com/article/10.1007%2FBF00021556).  
+
+        <a href="https://test-server.brapi.org/brapi/v1/germplasm"> test-server.brapi.org/brapi/v1/germplasm/{germplasmDbId}/pedigree</a>
+        '
       parameters:
       - description: the internal id of the germplasm
         in: path

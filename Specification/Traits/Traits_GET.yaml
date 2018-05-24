@@ -1,15 +1,16 @@
 swagger: '2.0'
-info:
-  description: ''
-  title: ''
-  version: ''
 paths:
   /traits:
     get:
       description: '
+        Scope: CORE.
+        Status: ACCEPTED.
+        
+        Implemented by: Germinate, Cassavabase
+        
+        Call to retrieve a list of traits available in the system and their associated variables.
 
-
-        <a>example.com/traits</a>'
+        <a href="https://test-server.brapi.org/brapi/v1/traits"> test-server.brapi.org/brapi/v1/traits</a>'
       parameters:
       - description: The size of the pages to be returned. Default is `1000`.
         in: query

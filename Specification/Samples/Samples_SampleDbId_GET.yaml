@@ -1,15 +1,11 @@
 swagger: '2.0'
-info:
-  description: ''
-  title: ''
-  version: ''
 paths:
   /samples/{sampleDbId}:
     get:
       description: '
+        Used to retrieve the details of a single Sample from a Sample Tracking system.
 
-
-        <a>example.com/samples/{sampleDbId}</a>'
+        <a href="https://test-server.brapi.org/brapi/v1/samples"> test-server.brapi.org/brapi/v1/samples/{sampleDbId}</a>'
       parameters:
       - description: the internal DB id for a sample
         in: path

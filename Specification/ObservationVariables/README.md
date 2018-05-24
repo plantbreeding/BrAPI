@@ -4,65 +4,414 @@ Implemented by: GnpIS
 
 API to retrieve list and details of observation variables. An observation variable is composed by the unique combination of one Trait, one Method and one Scale.
 
-## Observation variable data response
 
-`required` means the key has to be provided, but the value may be null.
 
-Variable                       | Required | Type            | Description
------------------------------- | :------: | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-observationVariableDbId        |    Y     | string          | Variable unique identifier
-name                           |    Y     | string          | Variable name (usually a short name)
-ontologyDbId                   |    Y     | string          | Variable ontology unique identifier
-ontologyName                   |    Y     | string          | Variable ontology name (usually a short name)
-synonyms                       |          | array of string | Other variable names
-contextOfUse                   |          | array of string | Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])
-growthStage                    |          | string          | Growth stage at which measurement is made (examples: "flowering")
-status                         |          | string          | Variable status. (examples: "recommended", "obsolete", "legacy", etc.)
-xref                           |          | string          | Cross reference of the variable term to a term from an external ontology or to a database of a major system.
-institution                    |          | string          | Name of institution submitting the variable
-scientist                      |          | string          | Name of scientist submitting the variable.
-date                           |          | string          | Date of submission of the variable (ISO 8601).
-language                       |          | string          | 2 letter ISO code for the language of submission of the variable.
-crop                           |          | string          | Crop name (examples: "Maize", "Wheat")
-trait                          |    Y     | object          | Trait metadata
-trait.traitDbId                |    Y     | string          | Trait unique identifier
-trait.name                     |    Y     | string          | Trait name (usually a short name)
-trait.class                    |          | string          | Trait class. (examples: "morphological trait", "phenological trait", "agronomical trait", "physiological trait", "abiotic stress trait", "biotic stress trait", "biochemical trait", "quality traits trait", "fertility trait", etc.)
-trait.description              |          | string          | Trait description.
-trait.synonyms                 |          | array of string | Other trait names
-trait.mainAbbreviation         |          | string          | Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")
-trait.alternativeAbbreviations |          | array of string | Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention. If several aternative abbreviations, separate with commas.
-trait.entity                   |          | string          | A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"
-trait.attribute                |          | string          | A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"
-trait.status                   |          | string          | Trait status (examples: "recommended", "obsolete", "legacy", etc.)
-trait.xref                     |          | string          | Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term
-method                         |    Y     | object          | Method metadata
-method.methodDbId              |          | string          | Method unique identifier
-method.name                    |          | string          | Method name (usually a short name)
-method.class                   |          | string          | Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.
-method.description             |          | string          | Method description.
-method.formula                 |          | string          | For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation
-method.reference               |          | string          | Bibliographical reference describing the method.
-scale                          |    Y     | object          | Scale metadata
-scale.scaleDbId                |          | string          | Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.
-scale.name                     |          | string          | Name of the scale
-scale.class                    |          | string          | Class of the scale, entries can be "Numerical", "Nominal", "Ordinal", "Text", "Code", "Time", "Duration"
-scale.decimalPlaces            |          | numeric         | For numerical, number of decimal places to be reported
-scale.xref                     |          | string          | Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database
-scale.validValues.min          |          | numeric         | Minimum value (used for data capture control) for numerical and date scales
-scale.validValues.max          |          | numeric         | Maximum value (used for field data capture control).
-scale.validValues.categories   |          | array of string | List of possible values and their meaning (examples: ["0=low", "1=medium", "2=high"]
-defaultValue                   |    Y     | string          | Variable default value. (examples: "red", "2.3", etc.)
 
-## Ontology data response
+## Ontologies [Get /brapi/v1/ontologies{?pageSize}{?page}]
 
-`required` means the key has to be provided, but the value may be null.
+Call to retrieve a list of observation variable ontologies available in the system. <br>
+<strong>Scope:</strong> CORE. 
+<strong>Status:</strong> ACCEPTED. 
 
-Variable     | Required | Type   | Description
------------- | :------: | ------ | -----------------------------------------------
-ontologyDbId |    Y     | string | Ontology database unique identifier
-ontologyName |    Y     | string | Ontology name
-authors      |          | string | Ontology's list of authors (no specific format)
-version      |          | string | Ontology version (no specific format)
-copyright    |          | string | Ontology copyright
-licence      |          | string | Ontology licence
++ Parameters
+    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
+    + page (Optional, integer) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "pagination": {
+            "pageSize": 1000,
+            "currentPage": 0,
+            "totalCount": 2,
+            "totalPages": 1
+        },
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "data": [
+            {
+                "ontologyDbId": "CO_334",
+                "ontologyName": "Wheat ontology",
+                "authors": "J. Snow, H. Peterson",
+                "version": "v1.2",
+                "description": "developped for European genetic studies projects",
+                "copyright": "2016, INRA",
+                "licence": "CC BY-SA 4.0"
+            },
+            {
+                "ontologyDbId": "CO_335",
+                "ontologyName": "Rice ontology",
+                "authors": "J. Doe",
+                "description": "developped for IRRI and amended with partners needs",
+                "version": "v2",
+                "copyright": "2017, IRRI",
+                "licence": "CC BY-SA 4.0"
+            }
+        ]
+    }
+}
+```
+
+## Variables-search [Post /brapi/v1/variables-search]
+
+Search observation variables.
+See <a href="https://brapi.docs.apiary.io/#introduction/search-services">Search Services</a> for additional implementation details. <br>
+<strong>Scope:</strong> CORE.
+<strong>Status:</strong> ACCEPTED. 
+
++ Parameters
+ 
++ Request (application/json)
+/definitions/observationVariableSearchRequest
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "pagination": {
+            "pageSize": 2,
+            "currentPage": 0,
+            "totalCount": 300,
+            "totalPages": 150
+        },
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "data": [
+            {
+                "observationVariableDbId": "CO_334:0100632",
+                "name": "CT_M_C",
+                "ontologyDbId": "CO_334",
+                "ontologyName": "Cassava",
+                "trait": {
+                    "traitDbId": "CO_334:0100630",
+                    "name": "Canopy temperature"
+                },
+                "method": null,
+                "scale": null,
+                "defaultValue": null
+            },
+            {
+                "observationVariableDbId": "CO_334:0100622",
+                "name": "caro_spectro",
+                "ontologyDbId": "CO_334",
+                "ontologyName": "Cassava",
+                "synonyms": [
+                    "Carotenoid content by spectro"
+                ],
+                "contextOfUse": [
+                    "Trial evaluation",
+                    "Nursery evaluation"
+                ],
+                "growthStage": "mature",
+                "status": "recommended",
+                "xref": "TL_455:0003001",
+                "institution": "",
+                "scientist": "",
+                "submissionTimestamp": "2016-05-13T23:21:56+01:00",
+                "language": "EN",
+                "crop": "Cassava",
+                "trait": {
+                    "traitDbId": "CO_334:0100620",
+                    "name": "Carotenoid content",
+                    "class": "physiological trait",
+                    "description": "Cassava storage root pulp carotenoid content",
+                    "synonyms": [
+                        "carotenoid content measure"
+                    ],
+                    "mainAbbreviation": "CC",
+                    "alternativeAbbreviations": [
+                        "CCS"
+                    ],
+                    "entity": "root",
+                    "attribute": "carotenoid",
+                    "status": "recommended",
+                    "xref": "TL_455:0003023"
+                },
+                "method": {
+                    "methodDbId": "CO_334:0010320",
+                    "name": "Visual Rating:total carotenoid by chart_method",
+                    "class": "Estimation",
+                    "description": "Assessment of the level of yellowness in cassava storage root pulp using the tc chart",
+                    "formula": null,
+                    "reference": null
+                },
+                "scale": {
+                    "scaleDbId": "CO_334:0100526",
+                    "name": "ug/g",
+                    "dataType": "Numeric",
+                    "decimalPlaces": 2,
+                    "xref": null,
+                    "validValues": {
+                        "min": 1,
+                        "max": 3,
+                        "categories": [
+                            "1=low",
+                            "2=medium",
+                            "3=high"
+                        ]
+                    }
+                },
+                "defaultValue": null
+            }
+        ]
+    }
+}
+```
+
+## Variables/datatypes [Get /brapi/v1/variables/datatypes{?pageSize}{?page}]
+
+Call to retrieve a list of data types the variable can have. 
+
++ Parameters
+    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
+    + page (Optional, integer) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "pagination": {
+            "pageSize": 1000,
+            "currentPage": 0,
+            "totalCount": 6,
+            "totalPages": 1
+        },
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "data": [
+            "Numeric",
+            "Categorical",
+            "Date",
+            "Text",
+            "Picture",
+            "Boolean"
+        ]
+    }
+}
+```
+
+## Variables [Get /brapi/v1/variables{?pageSize}{?page}{?traitClass}]
+
+Call to retrieve a list of observationVariables available in the system. <br>
+<strong>Scope:</strong> CORE.
+<strong>Status:</strong> ACCEPTED. 
+
++ Parameters
+    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
+    + page (Optional, integer) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + traitClass (Optional, string) ... Variable's trait class (phenological, physiological, morphological, etc.)
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "pagination": {
+            "pageSize": 1000,
+            "currentPage": 0,
+            "totalCount": 2,
+            "totalPages": 1
+        },
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "data": [
+            {
+                "observationVariableDbId": "CO_334:0100632",
+                "name": "CT_M_C",
+                "ontologyDbId": "CO_334",
+                "ontologyName": "Cassava",
+                "trait": {
+                    "traitDbId": "CO_334:0100630",
+                    "name": "Canopy temperature",
+                    "class": "physiological trait"
+                },
+                "defaultValue": null,
+                "method": {
+                    "methodDbId": "CO_334:0010320",
+                    "name": "Visual Rating:total carotenoid by chart_method",
+                    "class": "Estimation"
+                },
+                "scale": {
+                    "scaleDbId": "CO_334:0100526",
+                    "name": "ug/g",
+                    "dataType": "Numeric",
+                    "decimalPlaces": 2,
+                    "xref": null,
+                    "validValues": {
+                        "min": 1,
+                        "max": 3,
+                        "categories": [
+                            "1=low",
+                            "2=medium",
+                            "3=high"
+                        ]
+                    }
+                }
+            },
+            {
+                "observationVariableDbId": "CO_334:0100622",
+                "name": "caro_spectro",
+                "ontologyDbId": "CO_334",
+                "ontologyName": "Cassava",
+                "synonyms": [
+                    "Carotenoid content by spectro"
+                ],
+                "contextOfUse": [
+                    "Trial evaluation",
+                    "Nursery evaluation"
+                ],
+                "growthStage": "mature",
+                "status": "recommended",
+                "xref": "TL_455:0003001",
+                "institution": "",
+                "scientist": "",
+                "submissionTimestamp": "2016-05-13T17:43:11+01:00",
+                "language": "EN",
+                "crop": "Cassava",
+                "trait": {
+                    "traitDbId": "CO_334:0100620",
+                    "name": "Carotenoid content",
+                    "class": "physiological trait",
+                    "description": "Cassava storage root pulp carotenoid content",
+                    "synonyms": [
+                        "carotenoid content measure"
+                    ],
+                    "mainAbbreviation": "CC",
+                    "alternativeAbbreviations": [
+                        "CCS"
+                    ],
+                    "entity": "root",
+                    "attribute": "carotenoid",
+                    "status": "recommended",
+                    "xref": "TL_455:0003023"
+                },
+                "method": {
+                    "methodDbId": "CO_334:0010320",
+                    "name": "Visual Rating:total carotenoid by chart_method",
+                    "class": "Estimation",
+                    "description": "Assessment of the level of yellowness in cassava storage root pulp using the tc chart",
+                    "formula": null,
+                    "reference": null
+                },
+                "scale": {
+                    "scaleDbId": "CO_334:0100526",
+                    "name": "ug/g",
+                    "dataType": "Numeric",
+                    "decimalPlaces": 2,
+                    "xref": null,
+                    "validValues": {
+                        "min": 1,
+                        "max": 3,
+                        "categories": [
+                            "1=low",
+                            "2=medium",
+                            "3=high"
+                        ]
+                    }
+                },
+                "defaultValue": null
+            }
+        ]
+    }
+}
+```
+
+## Variables/{observationvariabledbid} [Get /brapi/v1/variables/{observationVariableDbId}]
+
+Retrieve variable details <br>
+<strong>Scope:</strong> CORE
+<strong>Status:</strong> ACCEPTED 
+
++ Parameters
+    + observationVariableDbId (Required, string) ... string id of the variable
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "pagination": {
+            "pageSize": 0,
+            "currentPage": 0,
+            "totalCount": 0,
+            "totalPages": 0
+        },
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "observationVariableDbId": "CO_334:0100632",
+        "name": "caro_spectro",
+        "ontologyDbId": "CO_334",
+        "ontologyName": "Cassava",
+        "synonyms": [
+            "Carotenoid content by spectro"
+        ],
+        "contextOfUse": [
+            "Trial evaluation",
+            "Nursery evaluation"
+        ],
+        "growthStage": "mature",
+        "status": "recommended",
+        "xref": "TL_455:0003001",
+        "institution": "",
+        "scientist": "",
+        "submissionTimestamp": "2016-05-13T15:43:41+01:00",
+        "language": "EN",
+        "crop": "Cassava",
+        "trait": {
+            "traitDbId": "CO_334:0100620",
+            "name": "Carotenoid content",
+            "class": "physiological trait",
+            "description": "Cassava storage root pulp carotenoid content",
+            "synonyms": [
+                "carotenoid content measure"
+            ],
+            "mainAbbreviation": "CC",
+            "alternativeAbbreviations": [
+                "CCS"
+            ],
+            "entity": "root",
+            "attribute": "carotenoid",
+            "status": "recommended",
+            "xref": "TL_455:0003023"
+        },
+        "method": {
+            "methodDbId": "CO_334:0010320",
+            "name": "Visual Rating:total carotenoid by chart_method",
+            "class": "Estimation",
+            "description": "Assessment of the level of yellowness in cassava storage root pulp using the tc chart",
+            "formula": null,
+            "reference": null
+        },
+        "scale": {
+            "scaleDbId": "CO_334:0100526",
+            "name": "ug/g",
+            "dataType": "Numeric",
+            "decimalPlaces": 2,
+            "xref": null,
+            "validValues": {
+                "min": 1,
+                "max": 3,
+                "categories": [
+                    "1=low",
+                    "2=medium",
+                    "3=high"
+                ]
+            }
+        },
+        "defaultValue": null
+    }
+}
+```

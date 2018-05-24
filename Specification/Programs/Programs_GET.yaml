@@ -1,15 +1,14 @@
 swagger: '2.0'
-info:
-  description: ''
-  title: ''
-  version: ''
 paths:
   /programs:
     get:
       description: '
+        Call to retrieve a list of programs.
+        
+        Status: ACCEPTED
+        Implemented By:
 
-
-        <a>example.com/programs</a>'
+        <a href="https://test-server.brapi.org/brapi/v1/programs"> test-server.brapi.org/brapi/v1/programs</a>'
       parameters:
       - description: Filter by program name. Exact match.
         in: query
