@@ -8,11 +8,25 @@ API to retrieve and submit data (phenotypes, environment variables) from studies
 
 ## Phenotypes-search [Post /brapi/v1/phenotypes-search]
 
- Scope: PHENOTYPING. Status: ACCEPTED.
+Scope: PHENOTYPING.
+Status: ACCEPTED.
+
 Returns a list of observationUnit with the observed Phenotypes.
+
 See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
-Implemented for GnpIS and PHIS data (https://urgi.versailles.inra.fr/ws/webresources/brapi/v1/phenotypes). Use case: this section allows to get a dataset from multiple studies. It allows to integrate data from several databases. Refactor note : This call allows to get and integrate portions of multiple phenotyping data matrixes. A proposed evolution allowed to get a list of single observations, this functionality is still possible with this call by specifybing the observation variable, see below. Example Use cases: - Study a panel of germplasm accross multiple studies, search parameters : {"germplasmDbIds" : [ "Syrah", "34Mtp362" ]} - Get all data for a specific study : {"studyDbIds" : [ "383" ]} - Get simple atomic phenotyping values : {"germplasmDbIds" : [ "Syrah", "34Mtp362" ], "observationVariableDbIds" : [ "CO_345:0000043"]} - Study Locations for adaptation to climat change : {"locationDbIds" : [ "383838", "MONTPELLIER" ], "germplasmDbIds" : [ "all ids for a given species"]} - Find phenotypes that are from after a certain timestamp
+
+Implemented for GnpIS and PHIS data (https://urgi.versailles.inra.fr/ws/webresources/brapi/v1/phenotypes). 
+Use case: this section allows to get a dataset from multiple studies. It allows to integrate data from several databases.
+Refactor note : This call allows to get and integrate portions of multiple phenotyping data matrixes. A proposed evolution allowed to get a list of single observations, this functionality is still possible with this call by specifybing the observation variable, see below.
+Example Use cases:
+- Study a panel of germplasm accross multiple studies, search parameters : {"germplasmDbIds" : [ "Syrah", "34Mtp362" ]}
+- Get all data for a specific study : {"studyDbIds" : [ "383" ]}
+- Get simple atomic phenotyping values : {"germplasmDbIds" : [ "Syrah", "34Mtp362" ], "observationVariableDbIds" : [ "CO_345:0000043"]}
+- Study Locations for adaptation to climat change : {"locationDbIds" : [ "383838", "MONTPELLIER" ], "germplasmDbIds" : [ "all ids for a given species"]}
+- Find phenotypes that are from after a certain timestamp
+
 observationTimeStamp : Iso Standard 8601.
+
 observationValue data type inferred from the ontology 
 
 + Parameters

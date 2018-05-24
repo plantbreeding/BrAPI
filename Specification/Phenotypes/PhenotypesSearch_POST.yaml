@@ -2,7 +2,7 @@ swagger: '2.0'
 paths:
   /phenotypes-search:
     post:
-      description: '
+      description: |-
         Scope: PHENOTYPING.
         Status: ACCEPTED.
         
@@ -22,7 +22,7 @@ paths:
       
         observationTimeStamp : Iso Standard 8601.
 
-        observationValue data type inferred from the ontology'
+        observationValue data type inferred from the ontology
       parameters: []
       produces:
       - application/json
