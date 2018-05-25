@@ -1,11 +1,16 @@
 paths:
-  /crops:
+  /commonCropNames:
     get:
-      deprecated: true
       description: |-
-        For multi crop systems this is a useful call to list all the supported crops.
+        List the common crop names for the crops available in a database server. 
 
-        <a href="https://test-server.brapi.org/brapi/v1/crops"> test-server.brapi.org/brapi/v1/crops</a>
+        This call is **required** for multi-crop systems where data from multiple crops may be stored in the same database server. A distinct database server is defined by everything in the URL before "/brapi/v1", including host name and base path.  
+        
+        This call is recommended for single crop systems to be compatible with multi-crop clients. For a single crop system the response should contain an array with exactly 1 element. 
+        
+        The common crop name can be used as a search parameter for Programs, Studies, and Germplasm.
+
+        <a href="https://test-server.brapi.org/brapi/v1/commonCropNames"> test-server.brapi.org/brapi/v1/commonCropNames</a>
       parameters:
       - description: The size of the pages to be returned. Default is `1000`.
         in: query
@@ -24,7 +29,7 @@ paths:
         '200':
           description: OK
           schema:
-            title: cropsResponse
+            title: commonCropNamesResponse
             type: object
             properties:
               metadata:
@@ -53,6 +58,7 @@ paths:
                 - maize
                 - wheat
                 - rice
+                - potato
           headers: {}
       summary: List supported crops
       tags:

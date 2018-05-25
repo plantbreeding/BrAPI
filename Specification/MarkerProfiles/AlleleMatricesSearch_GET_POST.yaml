@@ -1,8 +1,7 @@
 swagger: '2.0'
 paths:
-  /allelematrix-search:
+  /allelematrices-search:
     post:
-      deprecated: true
       summary: Scores through POST
       description: |-
         Status: ACCEPTED.
@@ -85,7 +84,6 @@ paths:
                   - '2'
                   - A/B
     get:
-      deprecated: true
       summary: Scores through GET
       tags:
       - Marker Profiles

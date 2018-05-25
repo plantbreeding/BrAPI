@@ -1,0 +1,54 @@
+paths:
+  /breedingmethods:
+    get:
+      description: '
+        Scope: Germplasm
+        
+        Get the list of germplasm breeding methods available in a system.
+
+        <a>example.com/brapi/v1/breedingmethods</a>'
+      parameters:
+      - description: The size of the pages to be returned. Default is `1000`.
+        in: query
+        name: pageSize
+        required: false
+        type: integer
+      - description: Which result page is requested. The page indexing starts at 0
+          (the first page is 'page'= 0). Default is `0`.
+        in: query
+        name: page
+        required: false
+        type: integer
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          examples:
+            application/json:
+              metadata:
+                datafiles: []
+                pagination:
+                  currentPage: 0
+                  pageSize: 1000
+                  totalCount: 2
+                  totalPages: 1
+                status: []
+              result:
+                data:
+                - abbreviation: MBCR
+                  breedingMethodDbId: BM987
+                  description: Backcross to recover a specific gene. The coding in
+                    the genealogical table records which parent was used as the male
+                    in each cycle. Each entity kept separate.
+                  name: Male Backcross
+                - abbreviation: DSP
+                  breedingMethodDbId: BM324
+                  description: Derivation through selection of a single plant, inflorescence,
+                    fruit or seed from a population
+                  name: Single plant selection
+          headers: {}
+      summary: GET List of Breeding Methods
+      tags:
+      - Germplasm
+swagger: '2.0'

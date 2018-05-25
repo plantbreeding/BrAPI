@@ -1,0 +1,25 @@
+definitions:
+  observationUnitsTableResponse:
+    properties:
+      headerRow:
+        description: Names of the columns included in the data matrix. Any or All of [ "year","studyDbId","studyName","locationDbId","locationName","germplasmDbId","germplasmName","observationUnitDbId","plotNumber","replicate","blockNumber", "observationTimestamp", "entryType", "X", "Y"]
+        type: array
+        items:
+          type: string
+      observationVariableDbIds:
+        description: Array of observation variable DbIds for the collected data. This array is appended to the "headerRow" to get the complete header of the data matrix
+        type: array
+        items:
+          type: string
+      observationVariableNames:
+        description: Human readable names of the observation variables for the collected data. This array should match 1 to 1 with the "observationVariableDbIds" array.
+        type: array
+        items:
+          type: string
+      data:
+        description: Matrix of observation meta-data and recorded values. Each inner array represents 1 row of data.
+        type: array
+        items:
+          type: array
+          items:
+            type: string

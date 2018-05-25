@@ -23,7 +23,11 @@ paths:
         observationTimeStamp : Iso Standard 8601.
 
         observationValue data type inferred from the ontology
-      parameters: []
+      parameters: 
+      - in: body
+        name: body
+        schema:
+          $ref: '#/definitions/phenotypesSearchRequest' 
       produces:
       - application/json
       responses:
