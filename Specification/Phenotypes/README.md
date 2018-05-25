@@ -6,7 +6,7 @@ API to retrieve and submit data (phenotypes, environment variables) from studies
 
 
 
-## Phenotypes-search/table [Post /brapi/v1/phenotypes-search/table]
+## Phenotypes-search/csv [Post /brapi/v1/phenotypes-search/csv]
 
 Scope: PHENOTYPING.
 Status: ACCEPTED.
@@ -281,7 +281,7 @@ observationValue data type inferred from the ontology
 }
 ```
 
-## Phenotypes-search/table [Post /brapi/v1/phenotypes-search/table]
+## Phenotypes-search/tsv [Post /brapi/v1/phenotypes-search/tsv]
 
 Scope: PHENOTYPING.
 Status: ACCEPTED.

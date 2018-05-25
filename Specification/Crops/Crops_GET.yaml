@@ -57,3 +57,4 @@ paths:
       summary: List supported crops
       tags:
       - Crops
+      - Deprecated

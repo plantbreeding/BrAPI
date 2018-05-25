@@ -26,6 +26,7 @@ paths:
         The format of the tsv response can be found on GitHub (https://github.com/plantbreeding/Documentation/wiki/BrAPI-TSV-Expected-Formats)
       tags:
       - Marker Profiles
+      - Deprecated
       parameters:
       - name: markerprofileDbId
         in: body
@@ -89,6 +90,7 @@ paths:
       summary: Scores through GET
       tags:
       - Marker Profiles
+      - Deprecated
       description: |-
         Status: ACCEPTED.
 

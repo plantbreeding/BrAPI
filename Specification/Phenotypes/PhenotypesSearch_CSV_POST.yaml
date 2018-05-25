@@ -1,6 +1,6 @@
 swagger: '2.0'
 paths:
-  /phenotypes-search/table:
+  /phenotypes-search/csv:
     post:
       description: |-
         Scope: PHENOTYPING.
