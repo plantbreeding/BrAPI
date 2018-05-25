@@ -50,9 +50,9 @@ paths:
                 germplasmDbId: '01BEL084609'
                 defaultDisplayName: Pahang 1
                 pedigree: Cree / Bonanza
-                crossingPlan: string
+                crossingPlan: OPEN_POLLINATION
                 crossingYear: '2018'
-                familyCode: string
+                familyCode: Cree_x_Bonanza_2018
                 parent1DbId: '166'
                 parent1Name: Cree
                 parent1Type: FEMALE

@@ -61,16 +61,30 @@ Here are the rules for the path of each call that should be returned
 ```
 {
     "metadata": {
-        "datafiles": [],
         "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
             "totalCount": 8,
-            "totalPages": 1
-        }
+            "currentPage": 0,
+            "totalPages": 1,
+            "pageSize": 1000
+        },
+        "datafiles": []
     },
     "result": {
         "data": [
+            {
+                "call": "token",
+                "datatypes": [
+                    "json"
+                ],
+                "methods": [
+                    "POST",
+                    "DELETE"
+                ],
+                "versions": [
+                    "1.0",
+                    "1.1"
+                ]
+            },
             {
                 "call": "calls",
                 "datatypes": [
@@ -78,6 +92,11 @@ Here are the rules for the path of each call that should be returned
                 ],
                 "methods": [
                     "GET"
+                ],
+                "versions": [
+                    "1.0",
+                    "1.1",
+                    "1.2"
                 ]
             },
             {
@@ -89,6 +108,9 @@ Here are the rules for the path of each call that should be returned
                 "methods": [
                     "GET",
                     "POST"
+                ],
+                "versions": [
+                    "1.0"
                 ]
             },
             {
@@ -98,6 +120,11 @@ Here are the rules for the path of each call that should be returned
                 ],
                 "methods": [
                     "GET"
+                ],
+                "versions": [
+                    "1.0",
+                    "1.1",
+                    "1.2"
                 ]
             },
             {
@@ -108,6 +135,11 @@ Here are the rules for the path of each call that should be returned
                 "methods": [
                     "GET",
                     "POST"
+                ],
+                "versions": [
+                    "1.0",
+                    "1.1",
+                    "1.2"
                 ]
             },
             {
@@ -117,6 +149,11 @@ Here are the rules for the path of each call that should be returned
                 ],
                 "methods": [
                     "GET"
+                ],
+                "versions": [
+                    "1.0",
+                    "1.1",
+                    "1.2"
                 ]
             },
             {
@@ -126,6 +163,10 @@ Here are the rules for the path of each call that should be returned
                 ],
                 "methods": [
                     "GET"
+                ],
+                "versions": [
+                    "1.1",
+                    "1.2"
                 ]
             },
             {
@@ -135,6 +176,10 @@ Here are the rules for the path of each call that should be returned
                 ],
                 "methods": [
                     "GET"
+                ],
+                "versions": [
+                    "1.1",
+                    "1.2"
                 ]
             }
         ]

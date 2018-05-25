@@ -19,3 +19,13 @@ definitions:
         items:
           type: string
         description: The possible HTTP Methods to be used with the available call 
+      versions:
+        type: array
+        description: The supported versions of a particular call
+        items:
+          type: string
+          enum:
+            - '1.0'
+            - '1.1'
+            - '1.2'
+            - '1.3'

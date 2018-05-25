@@ -86,19 +86,32 @@ paths:
           examples:
             application/json:
               metadata:
-                datafiles: []
                 pagination:
-                  currentPage: 0
-                  pageSize: 1000
                   totalCount: 8
+                  currentPage: 0
                   totalPages: 1
+                  pageSize: 1000
+                datafiles: []
               result:
                 data:
+                - call: token
+                  datatypes:
+                  - json
+                  methods:
+                  - POST
+                  - DELETE
+                  versions:
+                  - '1.0'
+                  - '1.1'
                 - call: calls
                   datatypes:
                   - json
                   methods:
                   - GET
+                  versions:
+                  - '1.0'
+                  - '1.1'
+                  - '1.2'
                 - call: allelematrix
                   datatypes:
                   - json
@@ -106,32 +119,52 @@ paths:
                   methods:
                   - GET
                   - POST
+                  versions:
+                  - '1.0'
                 - call: observationLevels
                   datatypes:
                   - json
                   methods:
                   - GET
+                  versions:
+                  - '1.0'
+                  - '1.1'
+                  - '1.2'
                 - call: germplasm-search
                   datatypes:
                   - json
                   methods:
                   - GET
                   - POST
+                  versions:
+                  - '1.0'
+                  - '1.1'
+                  - '1.2'
                 - call: germplasm/{germplasmDbId}
                   datatypes:
                   - json
                   methods:
                   - GET
+                  versions:
+                  - '1.0'
+                  - '1.1'
+                  - '1.2'
                 - call: germplasm/{germplasmDbId}/pedigree
                   datatypes:
                   - json
                   methods:
                   - GET
+                  versions:
+                  - '1.1'
+                  - '1.2'
                 - call: germplasm/{germplasmDbId}/markerprofiles
                   datatypes:
                   - json
                   methods:
                   - GET
+                  versions:
+                  - '1.1'
+                  - '1.2'
       summary: Call search
       tags:
       - Calls
