@@ -16,6 +16,164 @@ Basic concepts in the **Breeding API**:
 
 
 
+## Allelematrices-search [Post /brapi/v1/allelematrices-search]
+
+Status: ACCEPTED.
+
+Implemented by: Germinate (POST only), Cassavabase
+
+Used by: Flapjack (POST only)
+
+See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
+
+This uses a more efficient data structure and pagination for large number of markers.
+
+Use POST when parameter size is greater than 2K bytes.
+
+- If no format is specified, this call returns the data in JSON form.
+
+- If a format (other than JSON) is specified and the server supports this format, it will return the link to the exported data file in the "datafiles" field of the "metadata".
+
+- If more than one format is requested at a time, the server will throw a "501 Not Implemented" error.
+
+The format of the tsv response can be found on GitHub (https://github.com/plantbreeding/Documentation/wiki/BrAPI-TSV-Expected-Formats) 
+
++ Parameters
+ 
++ Request (application/json)
+/definitions/alleleMatrixSearchRequest
+
++ Response 200 (application/tsv)
+```
+{
+    "metadata": {
+        "pagination": {
+            "pageSize": 0,
+            "currentPage": 0,
+            "totalCount": 0,
+            "totalPages": 0
+        },
+        "status": [],
+        "datafiles": [
+            "https://my-fancy-server/files/allelematrix-1234.tsv"
+        ]
+    },
+    "result": {
+        "data": []
+    }
+}
+```+ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "pagination": {
+            "pageSize": 0,
+            "currentPage": 0,
+            "totalCount": 0,
+            "totalPages": 0
+        },
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "data": [
+            [
+                "1",
+                "1",
+                "A/B"
+            ],
+            [
+                "1",
+                "2",
+                "B"
+            ],
+            [
+                "2",
+                "1",
+                "A"
+            ],
+            [
+                "2",
+                "2",
+                "A/B"
+            ]
+        ]
+    }
+}
+```
+
+## Allelematrices-search [Get /brapi/v1/allelematrices-search{?markerprofileDbId}{?markerDbId}{?matrixDbId}{?format}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageSize}{?page}]
+
+Status: ACCEPTED.
+
+Implemented by: Germinate (POST only), Cassavabase
+
+Used by: Flapjack (POST only)
+
+See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
+
+This uses a more efficient data structure and pagination for large number of markers.
+
+See Search Services for additional implementation details.
+</br>
+This uses a more efficient data structure and pagination for large number of markers. 
+</br>
+Use GET when parameter size is less than 2K bytes.
+This method may support asynchronous processing. 
+
++ Parameters
+    + markerprofileDbId (Optional, array) ... The markerprofile db ids. Not Required if 'markerDbId' or 'matrixDbId' is present.
+    + markerDbId (Optional, array) ... ids of the markers. if none are specified, results are returned for all markers in the database. Not Required if 'markerprofileDbId' or 'matrixDbId' is present.
+    + matrixDbId (Optional, array) ... 
+    + format (Optional, string) ... format for the datafile to be downloaded. tsv and csv currently supported; flapjack may be supported.
+    + expandHomozygotes (Optional, boolean) ... Should homozygotes NOT be collapsed into a single occurrence?
+    + unknownString (Optional, string) ... The string to use as a representation for missing data or the reserved word "empty_string".
+    + sepPhased (Optional, string) ... The string to use as a separator for phased allele calls or the reserved word "empty_string".
+    + sepUnphased (Optional, string) ... The string to use as a separator for unphased allele calls or the reserved word "empty_string".
+    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
+    + page (Optional, integer) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "pagination": {
+            "pageSize": 1000,
+            "currentPage": 0,
+            "totalCount": 4,
+            "totalPages": 1
+        },
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "data": [
+            [
+                "1",
+                "1",
+                "A/B"
+            ],
+            [
+                "1",
+                "2",
+                "B"
+            ],
+            [
+                "2",
+                "1",
+                "A"
+            ],
+            [
+                "2",
+                "2",
+                "A/B"
+            ]
+        ]
+    }
+}
+```
+
 ## Allelematrices [Get /brapi/v1/allelematrices{?studyDbId}]
 
 <strong>Status</strong>: Proposed

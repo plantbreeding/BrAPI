@@ -6,6 +6,27 @@ API to retrieve and submit data (phenotypes, environment variables) from studies
 
 
 
+## Phenotypes-search/table [Post /brapi/v1/phenotypes-search/table]
+
+Scope: PHENOTYPING.
+Status: ACCEPTED.
+
+Returns a list of observationUnit with the observed Phenotypes.
+      
+observationTimeStamp : Iso Standard 8601.
+
+observationValue data type inferred from the ontology 
+
++ Parameters
+ 
++ Request (application/json)
+/definitions/phenotypesSearchRequest
+
++ Response 200 (text/csv)
+```
+"\"year\",\"studyDbId\",\"studyName\",\"locationDbId\",\"locationName\",\"germplasmDbId\",\"germplasmName\",\"observationUnitDbId\",\"plotNumber\",\"replicate\",\"blockNumber\", \"entryType\", \"X\", \"Y\", \"variableDbId1\", \"variableDbId2\", \"variableDbId3\"\n\"2015\", \"YieldStudy2015-5\", \"Yield wheat 2015\", \"mtp-north-32\", \"Montpellier\", \"doi:10.155454/12349537E12\", \"IR-8\", \"2016-Maugio-34-575-abc-123\", \"120\", \"\", \"2\", \"\", \"5\", \"15\", \"45\", \"3\", \"10\"\n\"2016\", \"YieldStudy2016-5\", \"Yield wheat 2016\", \"mtp-north-32\", \"Montpellier\", \"doi:10.155454/12349537E13\", \"IR-8\", \"2016-Maugio-34-575-abc-124\", \"120\", \"\", \"2\", \"\", \"5\", \"15\", \"47\", \"4\", \"11\""
+```
+
 ## Phenotypes-search [Post /brapi/v1/phenotypes-search]
 
 Scope: PHENOTYPING.
@@ -30,7 +51,9 @@ observationTimeStamp : Iso Standard 8601.
 observationValue data type inferred from the ontology 
 
 + Parameters
-
+ 
++ Request (application/json)
+/definitions/phenotypesSearchRequest
 
 + Response 200 (application/json)
 ```
@@ -153,6 +176,130 @@ observationValue data type inferred from the ontology
         ]
     }
 }
+```
+
+## Phenotypes-search/table [Post /brapi/v1/phenotypes-search/table]
+
+Scope: PHENOTYPING.
+Status: ACCEPTED.
+
+Returns a list of observationUnit with the observed Phenotypes.
+      
+observationTimeStamp : Iso Standard 8601.
+
+observationValue data type inferred from the ontology 
+
++ Parameters
+ 
++ Request (application/json)
+/definitions/phenotypesSearchRequest
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "pagination": {
+            "pageSize": 1000,
+            "currentPage": 0,
+            "totalCount": 2,
+            "totalPages": 1
+        },
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "headerRow": [
+            "year",
+            "studyDbId",
+            "studyName",
+            "locationDbId",
+            "locationName",
+            "germplasmDbId",
+            "germplasmName",
+            "observationUnitDbId",
+            "plotNumber",
+            "replicate",
+            "blockNumber",
+            "observationTimestamp",
+            "entryType",
+            "X",
+            "Y"
+        ],
+        "observationVariableDbIds": [
+            "variable1DbId",
+            "variable2DbId",
+            "variable3DbId"
+        ],
+        "observationVariableNames": [
+            "plant height",
+            "fruit weight",
+            "root weight"
+        ],
+        "data": [
+            [
+                "2017",
+                "stu1",
+                "Study Name",
+                "loc1",
+                "Location Name",
+                "CIP1",
+                "CIP Name",
+                "abc123",
+                1,
+                1,
+                1,
+                "2017-06-16T00:53:26Z",
+                "Test Entry",
+                "1",
+                "2",
+                "25.3",
+                "103.4",
+                "50.75"
+            ],
+            [
+                "2017",
+                "stu1",
+                "Study Name",
+                "loc1",
+                "Location Name",
+                "CIP1",
+                "CIP Name",
+                "abc124",
+                1,
+                1,
+                1,
+                "2017-06-16T00:54:57Z",
+                "Test Entry",
+                "2",
+                "2",
+                "27.9",
+                "98.65",
+                "45.345"
+            ]
+        ]
+    }
+}
+```
+
+## Phenotypes-search/table [Post /brapi/v1/phenotypes-search/table]
+
+Scope: PHENOTYPING.
+Status: ACCEPTED.
+
+Returns a list of observationUnit with the observed Phenotypes.
+      
+observationTimeStamp : Iso Standard 8601.
+
+observationValue data type inferred from the ontology 
+
++ Parameters
+ 
++ Request (application/json)
+/definitions/phenotypesSearchRequest
+
++ Response 200 (text/csv)
+```
+"\"year\"    \"studyDbId\"    \"studyName\"    \"locationDbId\"    \"locationName\"    \"germplasmDbId\"    \"germplasmName\"    \"observationUnitDbId\"    \"plotNumber\"    \"replicate\"    \"blockNumber\"    \"entryType\"    \"X\"    \"Y\"     \"variableDbId1\"    \"variableDbId2\"    \"variableDbId3\"\n\"2015\"    \"YieldStudy2015-5\"    \"Yield wheat 2015\"    \"mtp-north-32\"    \"Montpellier\"    \"doi:10.155454/12349537E12\"    \"IR-8\"    \"2016-Maugio-34-575-abc-123\"    \"120\"    \"\"    \"2\"    \"\"    \"5\"    \"15\"    \"45\"    \"3\"    \"10\"\n\"2016\"    \"YieldStudy2016-5\"    \"Yield wheat 2016\"    \"mtp-north-32\"    \"Montpellier\"    \"doi:10.155454/12349537E13\"    \"IR-8\"    \"2016-Maugio-34-575-abc-124\"    \"120\"    \"\"    \"2\"    \"\"    \"5\"    \"15\"    \"47\"    \"4\"    \"11\""
 ```
 
 ## Phenotypes [Post /brapi/v1/phenotypes{?format}]

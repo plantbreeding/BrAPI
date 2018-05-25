@@ -8,11 +8,11 @@ Note that to use these calls, you likely have to use the authentication call pri
 
 
 
-## Vendor/plate-search [Get /brapi/v1/vendor/plate-search{?vendorProjectDbId}{?vendorPlateDbId}{?clientPlateDbId}{?sampleInfo}{?pageSize}{?page}]
+## Vendor/plates-search [Get /brapi/v1/vendor/plates-search{?vendorProjectDbId}{?vendorPlateDbId}{?clientPlateDbId}{?sampleInfo}{?pageSize}{?page}]
 
 Search for plates in the database.
 
-<a href="https://test-server.brapi.org/brapi/v1/vendor"> test-server.brapi.org/brapi/v1/vendor/plate-search</a> 
+<a href="https://test-server.brapi.org/brapi/v1/vendor/plates-search"> test-server.brapi.org/brapi/v1/vendor/plates-search</a> 
 
 + Parameters
     + vendorProjectDbId (Optional, string) ... 
@@ -25,7 +25,7 @@ Search for plates in the database.
 
 
 
-## Vendor/plate-search [Post /brapi/v1/vendor/plate-search]
+## Vendor/plates-search [Post /brapi/v1/vendor/plates-search]
 
 Search for plates in the database.
 

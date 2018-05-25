@@ -5,6 +5,81 @@ Fun Fact: The plural of germplasm is germplasm (no "s").
 
 
 
+## Breedingmethods/{breedingmethoddbid} [Get /brapi/v1/breedingmethods/{breedingMethodDbId}]
+
+
+
+<a>example.com/brapi/v1/breedingmethods/{breedingMethodDbId}</a> 
+
++ Parameters
+    + breedingMethodDbId (Required, string) ... Internal database identifier for a breeding method
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 0,
+            "totalCount": 0,
+            "totalPages": 0
+        },
+        "status": []
+    },
+    "result": {
+        "abbreviation": "MBCR",
+        "breedingMethodDbId": "BM987",
+        "description": "Backcross to recover a specific gene. The coding in the genealogical table records which parent was used as the male in each cycle. Each entity kept separate.",
+        "name": "Male Backcross"
+    }
+}
+```
+
+## Breedingmethods [Get /brapi/v1/breedingmethods{?pageSize}{?page}]
+
+ Scope: Germplasm
+Get the list of germplasm breeding methods available in a system.
+<a>example.com/brapi/v1/breedingmethods</a> 
+
++ Parameters
+    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
+    + page (Optional, integer) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 2,
+            "totalPages": 1
+        },
+        "status": []
+    },
+    "result": {
+        "data": [
+            {
+                "abbreviation": "MBCR",
+                "breedingMethodDbId": "BM987",
+                "description": "Backcross to recover a specific gene. The coding in the genealogical table records which parent was used as the male in each cycle. Each entity kept separate.",
+                "name": "Male Backcross"
+            },
+            {
+                "abbreviation": "DSP",
+                "breedingMethodDbId": "BM324",
+                "description": "Derivation through selection of a single plant, inflorescence, fruit or seed from a population",
+                "name": "Single plant selection"
+            }
+        ]
+    }
+}
+```
+
 ## Germplasm-search [Get /brapi/v1/germplasm-search{?germplasmPUI}{?germplasmDbId}{?germplasmName}{?pageSize}{?page}]
 
  Implemented by: GnpIS, Germinate (GET only)
