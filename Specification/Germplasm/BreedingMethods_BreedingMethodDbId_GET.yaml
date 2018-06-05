@@ -16,6 +16,14 @@ paths:
       responses:
         '200':
           description: OK
+          schema:
+            title: breedingMethodResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                $ref: '#/definitions/breedingMethod'
           examples:
             application/json:
               metadata:

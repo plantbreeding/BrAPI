@@ -33,6 +33,11 @@ paths:
         name: germplasmName
         required: false
         type: string
+      - description: The common crop name related to this germplasm
+        in: query
+        name: commonCropName
+        required: false
+        type: string
       - description: The size of the pages to be returned. Default is `1000`.
         in: query
         name: pageSize

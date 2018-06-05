@@ -69,11 +69,13 @@ paths:
         description: Timestamp range start
         required: false
         type: string
+        format: date-time
       - name: observationTimeStampRangeEnd
         in: query
         description: Timestamp range end
         required: false
         type: string
+        format: date-time
       - name: pageSize
         in: query
         description: The size of the pages to be returned. Default is 1000.

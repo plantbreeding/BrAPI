@@ -8,6 +8,9 @@ definitions:
         description: The date this germplasm was aquired by the genebank (MCPD)
         format: date
         type: string
+      breedingMethodDbId:
+        description: The unique identifier for the breeding method used to create this germplasm
+        type: string
       biologicalStatusOfAccessionCode:
         description: The 3 digit code representing the biological status of the accession (MCPD)
         type: integer

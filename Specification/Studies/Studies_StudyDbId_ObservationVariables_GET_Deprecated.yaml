@@ -18,6 +18,23 @@ paths:
       responses:
         '200':
           description: OK
+          schema:
+            title: studyObservationVariablesResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata' 
+              result:
+                type: object
+                properties:
+                  studyDbId:
+                    type: string
+                  trialName:
+                    type: string
+                  data:
+                    type: array
+                    items: 
+                      $ref: '#/definitions/observationVariable' 
           examples:
             application/json:
               metadata:

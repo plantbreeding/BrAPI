@@ -7,6 +7,7 @@ definitions:
       lastUpdated:
         description: A date format
         type: string
+        format: date-time
       matrixDbId:
         description: ID of the matrix
         type: string

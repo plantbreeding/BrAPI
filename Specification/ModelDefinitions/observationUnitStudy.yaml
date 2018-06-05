@@ -43,6 +43,9 @@ definitions:
       plantNumber:
         description: 'The plant number in a field. Applicable for observationLevel: "plant"'
         type: string
+      pedigree:
+        description: The string representation of the pedigree of this observation unit
+        type: string
       plotNumber:
         description: 'The plot number in a field. Applicable for observationLevel: "plot"'
         type: string

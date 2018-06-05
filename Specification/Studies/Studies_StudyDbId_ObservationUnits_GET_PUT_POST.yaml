@@ -147,7 +147,10 @@ paths:
       - in: body
         name: newObservationUnitRequest
         schema:
-          $ref: '#/definitions/newObservationUnitRequest'
+          title: newObservationUnitRequestList
+          type: array
+          items:
+            $ref: '#/definitions/newObservationUnitRequest'
       produces:
       - application/json
       responses:

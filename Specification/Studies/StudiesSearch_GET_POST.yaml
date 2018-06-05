@@ -46,6 +46,11 @@ paths:
         name: trialDbId
         required: false
         type: string
+      - description: Filter by study DbId
+        in: query
+        name: studyDbId
+        required: false
+        type: string
       - description: Filter studies where specified germplasm have been used/tested
         in: query
         name: germplasmDbIds

@@ -19,6 +19,9 @@ definitions:
       parent1DbId:
         description: The germplasm DbId of the first parent of this germplasm
         type: string
+      parent1Id:
+        description: '**Deprecated** use parent1DbId' 
+        type: string
       parent1Name:
         description: the human readable name of the first parent of this germplasm
         type: string
@@ -32,6 +35,9 @@ definitions:
         type: string
       parent2DbId:
         description: The germplasm DbId of the second parent of this germplasm
+        type: string
+      parent2Id:
+        description: '**Deprecated** use parent2DbId' 
         type: string
       parent2Name:
         description: The human readable name of the second parent of this germplasm

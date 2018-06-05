@@ -5,6 +5,7 @@ definitions:
         description: List of linkage group details associated with a given map
         items:
           $ref: '#/definitions/linkageGroup'
+        type: array
       linkageGroups:
         description: '**Deprecated** Use "data"'
         items:

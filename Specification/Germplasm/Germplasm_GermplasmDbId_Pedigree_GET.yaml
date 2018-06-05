@@ -25,6 +25,11 @@ paths:
         name: notation
         required: false
         type: string
+      - description: include array of siblings in response
+        in: query
+        name: includeSiblings
+        required: false
+        type: boolean
       responses:
         '200':
           description: OK

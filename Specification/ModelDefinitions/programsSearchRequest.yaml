@@ -15,10 +15,10 @@ definitions:
         type: string
       page:
         description: Which page of the "data" array to return. The page indexing starts at 0 (page=0 will return the first page). Default is 0.
-        type: number
+        type: integer
       pageSize:
         description: The maximum number of items to return per page of the "data" array. Default is 1000.
-        type: number
+        type: integer
       programDbId:
         description: A program identifier to search for
         type: string

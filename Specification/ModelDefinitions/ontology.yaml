@@ -7,6 +7,9 @@ definitions:
       copyright:
         description: Ontology copyright
         type: string
+      description:
+        description: Human readable description of Ontology
+        type: string
       licence:
         description: Ontology licence
         type: string

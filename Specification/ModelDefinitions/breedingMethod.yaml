@@ -1,0 +1,18 @@
+definitions:
+  breedingMethod: 
+    required:
+    - breedingMethodDbId
+    type: object
+    properties:
+      breedingMethodDbId:
+        type: string
+        description: the unique identifier for this breeding method
+      abbreviation:
+        type: string
+        description: an abbreviation for the name of this breeding method
+      name:
+        type: string
+        description: human readable name of the breeding method
+      description:
+        type: string
+        description: human readable description of the breeding method
