@@ -48,7 +48,7 @@ definitions:
       status:
         description: 'Variable status. (examples: "recommended", "obsolete", "legacy", etc.)'
         type: string
-      submissionTimeStamp:
+      submissionTimestamp:
         description: Timestamp when the Variable was added
         type: string
         format: date-time

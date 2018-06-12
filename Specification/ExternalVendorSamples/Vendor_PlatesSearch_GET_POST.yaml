@@ -50,7 +50,7 @@ paths:
               result:
                 type: object
                 properties:
-                  plates:
+                  data:
                     type: array
                     items: 
                       $ref: '#/definitions/vendorPlate'

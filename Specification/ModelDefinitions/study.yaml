@@ -3,7 +3,7 @@ definitions:
     properties:
       active:
         description: Is this study currently active
-        type: boolean
+        type: string
       additionalInfo:
         additionalProperties:
           type: string
