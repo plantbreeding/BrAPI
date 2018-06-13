@@ -6,7 +6,110 @@ API to retrieve and submit data (phenotypes, environment variables) from studies
 
 
 
-## Phenotypes-search/csv [Post /brapi/v1/phenotypes-search/csv]
+## Phenotypes-search/table [Post /brapi/v1/phenotypes-search/table]
+
+Scope: PHENOTYPING.
+Status: ACCEPTED.
+
+Returns a list of observationUnit with the observed Phenotypes.
+      
+observationTimeStamp : Iso Standard 8601.
+
+observationValue data type inferred from the ontology 
+
++ Parameters
+ 
++ Request (application/json)
+/definitions/phenotypesSearchRequest
+
++ Response 200 (application/json)
+```
+{
+    "result": {
+        "data": [
+            [
+                "2017",
+                "stu1",
+                "Study Name",
+                "loc1",
+                "Location Name",
+                "CIP1",
+                "CIP Name",
+                "abc123",
+                1,
+                1,
+                1,
+                "2017-06-16T00:53:26Z",
+                "Test Entry",
+                "1",
+                "2",
+                "25.3",
+                "103.4",
+                "50.75"
+            ],
+            [
+                "2017",
+                "stu1",
+                "Study Name",
+                "loc1",
+                "Location Name",
+                "CIP1",
+                "CIP Name",
+                "abc124",
+                1,
+                1,
+                1,
+                "2017-06-16T00:54:57Z",
+                "Test Entry",
+                "2",
+                "2",
+                "27.9",
+                "98.65",
+                "45.345"
+            ]
+        ],
+        "headerRow": [
+            "year",
+            "studyDbId",
+            "studyName",
+            "locationDbId",
+            "locationName",
+            "germplasmDbId",
+            "germplasmName",
+            "observationUnitDbId",
+            "plotNumber",
+            "replicate",
+            "blockNumber",
+            "observationTimestamp",
+            "entryType",
+            "X",
+            "Y"
+        ],
+        "observationVariableNames": [
+            "plant height",
+            "fruit weight",
+            "root weight"
+        ],
+        "observationVariableDbIds": [
+            "variable1DbId",
+            "variable2DbId",
+            "variable3DbId"
+        ]
+    },
+    "metadata": {
+        "datafiles": [],
+        "status": [],
+        "pagination": {
+            "currentPage": 0,
+            "totalCount": 2,
+            "pageSize": 1000,
+            "totalPages": 1
+        }
+    }
+}
+```
+
+## Phenotypes-search/tsv [Post /brapi/v1/phenotypes-search/tsv]
 
 Scope: PHENOTYPING.
 Status: ACCEPTED.
@@ -24,7 +127,158 @@ observationValue data type inferred from the ontology
 
 + Response 200 (text/csv)
 ```
-"\"year\",\"studyDbId\",\"studyName\",\"locationDbId\",\"locationName\",\"germplasmDbId\",\"germplasmName\",\"observationUnitDbId\",\"plotNumber\",\"replicate\",\"blockNumber\", \"entryType\", \"X\", \"Y\", \"variableDbId1\", \"variableDbId2\", \"variableDbId3\"\n\"2015\", \"YieldStudy2015-5\", \"Yield wheat 2015\", \"mtp-north-32\", \"Montpellier\", \"doi:10.155454/12349537E12\", \"IR-8\", \"2016-Maugio-34-575-abc-123\", \"120\", \"\", \"2\", \"\", \"5\", \"15\", \"45\", \"3\", \"10\"\n\"2016\", \"YieldStudy2016-5\", \"Yield wheat 2016\", \"mtp-north-32\", \"Montpellier\", \"doi:10.155454/12349537E13\", \"IR-8\", \"2016-Maugio-34-575-abc-124\", \"120\", \"\", \"2\", \"\", \"5\", \"15\", \"47\", \"4\", \"11\""
+"\"year\"    \"studyDbId\"    \"studyName\"    \"locationDbId\"    \"locationName\"    \"germplasmDbId\"    \"germplasmName\"    \"observationUnitDbId\"    \"plotNumber\"    \"replicate\"    \"blockNumber\"    \"entryType\"    \"X\"    \"Y\"     \"variableDbId1\"    \"variableDbId2\"    \"variableDbId3\"\n\"2015\"    \"YieldStudy2015-5\"    \"Yield wheat 2015\"    \"mtp-north-32\"    \"Montpellier\"    \"doi:10.155454/12349537E12\"    \"IR-8\"    \"2016-Maugio-34-575-abc-123\"    \"120\"    \"\"    \"2\"    \"\"    \"5\"    \"15\"    \"45\"    \"3\"    \"10\"\n\"2016\"    \"YieldStudy2016-5\"    \"Yield wheat 2016\"    \"mtp-north-32\"    \"Montpellier\"    \"doi:10.155454/12349537E13\"    \"IR-8\"    \"2016-Maugio-34-575-abc-124\"    \"120\"    \"\"    \"2\"    \"\"    \"5\"    \"15\"    \"47\"    \"4\"    \"11\""
+```
+
+## Phenotypes-search [Post /brapi/v1/phenotypes-search]
+
+Scope: PHENOTYPING.
+Status: ACCEPTED.
+
+Returns a list of observationUnit with the observed Phenotypes.
+
+See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
+
+Implemented for GnpIS and PHIS data (https://urgi.versailles.inra.fr/ws/webresources/brapi/v1/phenotypes). 
+Use case: this section allows to get a dataset from multiple studies. It allows to integrate data from several databases.
+Refactor note : This call allows to get and integrate portions of multiple phenotyping data matrixes. A proposed evolution allowed to get a list of single observations, this functionality is still possible with this call by specifybing the observation variable, see below.
+Example Use cases:
+- Study a panel of germplasm accross multiple studies, search parameters : {"germplasmDbIds" : [ "Syrah", "34Mtp362" ]}
+- Get all data for a specific study : {"studyDbIds" : [ "383" ]}
+- Get simple atomic phenotyping values : {"germplasmDbIds" : [ "Syrah", "34Mtp362" ], "observationVariableDbIds" : [ "CO_345:0000043"]}
+- Study Locations for adaptation to climat change : {"locationDbIds" : [ "383838", "MONTPELLIER" ], "germplasmDbIds" : [ "all ids for a given species"]}
+- Find phenotypes that are from after a certain timestamp
+
+observationTimeStamp : Iso Standard 8601.
+
+observationValue data type inferred from the ontology 
+
++ Parameters
+ 
++ Request (application/json)
+/definitions/phenotypesSearchRequest
+
++ Response 200 (application/json)
+```
+{
+    "result": {
+        "data": [
+            {
+                "entryType": "check",
+                "observationUnitName": "2016-Maugio-34-575",
+                "plantNumber": "0",
+                "replicate": "0",
+                "observationLevels": "bloc:2,subBloc:1,plot:2016-Maugio-34-575-abc-123",
+                "observationUnitXref": [
+                    {
+                        "id": "SAMEA179865230",
+                        "source": "biosampleEBI"
+                    },
+                    {
+                        "id": "INRA:CoeSt6 _SMH03",
+                        "source": "gnpis.lot"
+                    },
+                    {
+                        "id": "239865",
+                        "source": "kernelDB"
+                    }
+                ],
+                "programName": "Whealbi",
+                "studyName": "Yield wheat 2015",
+                "X": "5",
+                "plotNumber": "2016-Maugio-34-575-abc-123",
+                "entryNumber": "4",
+                "studyDbId": "YieldStudy2015-5",
+                "observations": [
+                    {
+                        "collector": "Mr. Technician",
+                        "observationDbId": "153453453",
+                        "season": "2015",
+                        "observationTimeStamp": "2015-06-16 08:53:26",
+                        "observationVariableName": "Plant_height",
+                        "observationVariableDbId": "CO_321:0000045",
+                        "value": "45"
+                    },
+                    {
+                        "collector": "Mr. Technician",
+                        "observationDbId": "23453454345",
+                        "season": "2015",
+                        "observationTimeStamp": "2015-06-16 08:53:26",
+                        "observationVariableName": "GW100_g",
+                        "observationVariableDbId": "CO_321:0000996",
+                        "value": "3"
+                    }
+                ],
+                "blockNumber": "2",
+                "treatments": [
+                    {
+                        "factor": "water regimen",
+                        "modality": "water deficit"
+                    }
+                ],
+                "studyLocation": "Montpellier",
+                "germplasmDbId": "doi:10.155454/12349537E12",
+                "observationUnitDbId": "2016-Maugio-34-575-abc-123",
+                "studyLocationDbId": "mtp-north-32",
+                "germplasmName": "IR-8",
+                "Y": "15",
+                "observationLevel": "plot"
+            },
+            {
+                "entryType": "test",
+                "observationUnitName": "2010-Cornell-37-99",
+                "plantNumber": "45204",
+                "replicate": "2",
+                "observationLevels": "bloc:2,subBloc:1,plot:2016-Maugio-34-575-abc-123",
+                "programName": "Wheat for futur",
+                "studyName": "Yield wheat 2010",
+                "X": "6",
+                "plotNumber": "2016-Maugio-34-575-abc-123",
+                "entryNumber": "7",
+                "observations": [
+                    {
+                        "collector": "Mr. Technician",
+                        "observationDbId": "153453453",
+                        "season": "2010",
+                        "observationTimeStamp": "2010-06-16 08:53:26",
+                        "observationVariableName": "Plant_height",
+                        "observationVariableDbId": "CO_321:0000045",
+                        "value": "45"
+                    },
+                    {
+                        "collector": "Mr. Technician",
+                        "observationDbId": "23453454345",
+                        "season": "2010",
+                        "observationTimeStamp": "2010-06-16 08:53:26",
+                        "observationVariableName": "GW100_g",
+                        "observationVariableDbId": "CO_321:0000996",
+                        "value": "3"
+                    }
+                ],
+                "studyDbId": "YieldStudy2010-5",
+                "blockNumber": "3",
+                "treatments": [],
+                "studyLocation": "Cornell",
+                "germplasmDbId": "doi:10.155499/12349537E00",
+                "observationUnitDbId": "45204",
+                "studyLocationDbId": "88484",
+                "germplasmName": "ZE-45",
+                "Y": "15",
+                "observationLevel": "plant"
+            }
+        ]
+    },
+    "metadata": {
+        "datafiles": [],
+        "status": [],
+        "pagination": {
+            "currentPage": 0,
+            "totalCount": 2,
+            "pageSize": 100,
+            "totalPages": 1
+        }
+    }
+}
 ```
 
 ## Phenotypes-search [Get /brapi/v1/phenotypes-search{?germplasmDbId}{?observationVariableDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}{?pageSize}{?page}]
@@ -68,30 +322,14 @@ observationValue data type inferred from the ontology
 + Response 200 (application/json)
 ```
 {
-    "metadata": {
-        "datafiles": [],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 100,
-            "totalCount": 2,
-            "totalPages": 1
-        },
-        "status": []
-    },
     "result": {
         "data": [
             {
-                "X": "5",
-                "Y": "15",
-                "blockNumber": "2",
-                "entryNumber": "4",
                 "entryType": "check",
-                "germplasmDbId": "doi:10.155454/12349537E12",
-                "germplasmName": "IR-8",
-                "observationLevel": "plot",
-                "observationLevels": "bloc:2,subBloc:1,plot:2016-Maugio-34-575-abc-123",
-                "observationUnitDbId": "2016-Maugio-34-575-abc-123",
                 "observationUnitName": "2016-Maugio-34-575",
+                "plantNumber": "0",
+                "replicate": "0",
+                "observationLevels": "bloc:2,subBloc:1,plot:2016-Maugio-34-575-abc-123",
                 "observationUnitXref": [
                     {
                         "id": "SAMEA179865230",
@@ -106,361 +344,102 @@ observationValue data type inferred from the ontology
                         "source": "kernelDB"
                     }
                 ],
+                "programName": "Whealbi",
+                "studyName": "Yield wheat 2015",
+                "X": "5",
+                "plotNumber": "2016-Maugio-34-575-abc-123",
+                "entryNumber": "4",
+                "studyDbId": "YieldStudy2015-5",
                 "observations": [
                     {
                         "collector": "Mr. Technician",
                         "observationDbId": "153453453",
-                        "observationTimeStamp": "2015-06-16 08:53:26",
-                        "observationVariableDbId": "CO_321:0000045",
-                        "observationVariableName": "Plant_height",
                         "season": "2015",
+                        "observationTimeStamp": "2015-06-16 08:53:26",
+                        "observationVariableName": "Plant_height",
+                        "observationVariableDbId": "CO_321:0000045",
                         "value": "45"
                     },
                     {
                         "collector": "Mr. Technician",
                         "observationDbId": "23453454345",
-                        "observationTimeStamp": "2015-06-16 08:53:26",
-                        "observationVariableDbId": "CO_321:0000996",
-                        "observationVariableName": "GW100_g",
                         "season": "2015",
+                        "observationTimeStamp": "2015-06-16 08:53:26",
+                        "observationVariableName": "GW100_g",
+                        "observationVariableDbId": "CO_321:0000996",
                         "value": "3"
                     }
                 ],
-                "plantNumber": "0",
-                "plotNumber": "2016-Maugio-34-575-abc-123",
-                "programName": "Whealbi",
-                "replicate": "0",
-                "studyDbId": "YieldStudy2015-5",
-                "studyLocation": "Montpellier",
-                "studyLocationDbId": "mtp-north-32",
-                "studyName": "Yield wheat 2015",
+                "blockNumber": "2",
                 "treatments": [
                     {
                         "factor": "water regimen",
                         "modality": "water deficit"
                     }
-                ]
+                ],
+                "studyLocation": "Montpellier",
+                "germplasmDbId": "doi:10.155454/12349537E12",
+                "observationUnitDbId": "2016-Maugio-34-575-abc-123",
+                "studyLocationDbId": "mtp-north-32",
+                "germplasmName": "IR-8",
+                "Y": "15",
+                "observationLevel": "plot"
             },
             {
-                "X": "6",
-                "Y": "15",
-                "blockNumber": "3",
-                "entryNumber": "7",
                 "entryType": "test",
-                "germplasmDbId": "doi:10.155499/12349537E00",
-                "germplasmName": "ZE-45",
-                "observationLevel": "plant",
-                "observationLevels": "bloc:2,subBloc:1,plot:2016-Maugio-34-575-abc-123",
-                "observationUnitDbId": "45204",
                 "observationUnitName": "2010-Cornell-37-99",
+                "plantNumber": "45204",
+                "replicate": "2",
+                "observationLevels": "bloc:2,subBloc:1,plot:2016-Maugio-34-575-abc-123",
+                "programName": "Wheat for futur",
+                "studyName": "Yield wheat 2010",
+                "X": "6",
+                "plotNumber": "2016-Maugio-34-575-abc-123",
+                "entryNumber": "7",
                 "observations": [
                     {
                         "collector": "Mr. Technician",
                         "observationDbId": "153453453",
-                        "observationTimeStamp": "2010-06-16 08:53:26",
-                        "observationVariableDbId": "CO_321:0000045",
-                        "observationVariableName": "Plant_height",
                         "season": "2010",
+                        "observationTimeStamp": "2010-06-16 08:53:26",
+                        "observationVariableName": "Plant_height",
+                        "observationVariableDbId": "CO_321:0000045",
                         "value": "45"
                     },
                     {
                         "collector": "Mr. Technician",
                         "observationDbId": "23453454345",
-                        "observationTimeStamp": "2010-06-16 08:53:26",
-                        "observationVariableDbId": "CO_321:0000996",
-                        "observationVariableName": "GW100_g",
                         "season": "2010",
+                        "observationTimeStamp": "2010-06-16 08:53:26",
+                        "observationVariableName": "GW100_g",
+                        "observationVariableDbId": "CO_321:0000996",
                         "value": "3"
                     }
                 ],
-                "plantNumber": "45204",
-                "plotNumber": "2016-Maugio-34-575-abc-123",
-                "programName": "Wheat for futur",
-                "replicate": "2",
                 "studyDbId": "YieldStudy2010-5",
+                "blockNumber": "3",
+                "treatments": [],
                 "studyLocation": "Cornell",
+                "germplasmDbId": "doi:10.155499/12349537E00",
+                "observationUnitDbId": "45204",
                 "studyLocationDbId": "88484",
-                "studyName": "Yield wheat 2010",
-                "treatments": []
+                "germplasmName": "ZE-45",
+                "Y": "15",
+                "observationLevel": "plant"
             }
         ]
-    }
-}
-```
-
-## Phenotypes-search [Post /brapi/v1/phenotypes-search]
-
-Scope: PHENOTYPING.
-Status: ACCEPTED.
-
-Returns a list of observationUnit with the observed Phenotypes.
-
-See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
-
-Implemented for GnpIS and PHIS data (https://urgi.versailles.inra.fr/ws/webresources/brapi/v1/phenotypes). 
-Use case: this section allows to get a dataset from multiple studies. It allows to integrate data from several databases.
-Refactor note : This call allows to get and integrate portions of multiple phenotyping data matrixes. A proposed evolution allowed to get a list of single observations, this functionality is still possible with this call by specifybing the observation variable, see below.
-Example Use cases:
-- Study a panel of germplasm accross multiple studies, search parameters : {"germplasmDbIds" : [ "Syrah", "34Mtp362" ]}
-- Get all data for a specific study : {"studyDbIds" : [ "383" ]}
-- Get simple atomic phenotyping values : {"germplasmDbIds" : [ "Syrah", "34Mtp362" ], "observationVariableDbIds" : [ "CO_345:0000043"]}
-- Study Locations for adaptation to climat change : {"locationDbIds" : [ "383838", "MONTPELLIER" ], "germplasmDbIds" : [ "all ids for a given species"]}
-- Find phenotypes that are from after a certain timestamp
-
-observationTimeStamp : Iso Standard 8601.
-
-observationValue data type inferred from the ontology 
-
-+ Parameters
- 
-+ Request (application/json)
-/definitions/phenotypesSearchRequest
-
-+ Response 200 (application/json)
-```
-{
+    },
     "metadata": {
         "datafiles": [],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 100,
-            "totalCount": 2,
-            "totalPages": 1
-        },
-        "status": []
-    },
-    "result": {
-        "data": [
-            {
-                "X": "5",
-                "Y": "15",
-                "blockNumber": "2",
-                "entryNumber": "4",
-                "entryType": "check",
-                "germplasmDbId": "doi:10.155454/12349537E12",
-                "germplasmName": "IR-8",
-                "observationLevel": "plot",
-                "observationLevels": "bloc:2,subBloc:1,plot:2016-Maugio-34-575-abc-123",
-                "observationUnitDbId": "2016-Maugio-34-575-abc-123",
-                "observationUnitName": "2016-Maugio-34-575",
-                "observationUnitXref": [
-                    {
-                        "id": "SAMEA179865230",
-                        "source": "biosampleEBI"
-                    },
-                    {
-                        "id": "INRA:CoeSt6 _SMH03",
-                        "source": "gnpis.lot"
-                    },
-                    {
-                        "id": "239865",
-                        "source": "kernelDB"
-                    }
-                ],
-                "observations": [
-                    {
-                        "collector": "Mr. Technician",
-                        "observationDbId": "153453453",
-                        "observationTimeStamp": "2015-06-16 08:53:26",
-                        "observationVariableDbId": "CO_321:0000045",
-                        "observationVariableName": "Plant_height",
-                        "season": "2015",
-                        "value": "45"
-                    },
-                    {
-                        "collector": "Mr. Technician",
-                        "observationDbId": "23453454345",
-                        "observationTimeStamp": "2015-06-16 08:53:26",
-                        "observationVariableDbId": "CO_321:0000996",
-                        "observationVariableName": "GW100_g",
-                        "season": "2015",
-                        "value": "3"
-                    }
-                ],
-                "plantNumber": "0",
-                "plotNumber": "2016-Maugio-34-575-abc-123",
-                "programName": "Whealbi",
-                "replicate": "0",
-                "studyDbId": "YieldStudy2015-5",
-                "studyLocation": "Montpellier",
-                "studyLocationDbId": "mtp-north-32",
-                "studyName": "Yield wheat 2015",
-                "treatments": [
-                    {
-                        "factor": "water regimen",
-                        "modality": "water deficit"
-                    }
-                ]
-            },
-            {
-                "X": "6",
-                "Y": "15",
-                "blockNumber": "3",
-                "entryNumber": "7",
-                "entryType": "test",
-                "germplasmDbId": "doi:10.155499/12349537E00",
-                "germplasmName": "ZE-45",
-                "observationLevel": "plant",
-                "observationLevels": "bloc:2,subBloc:1,plot:2016-Maugio-34-575-abc-123",
-                "observationUnitDbId": "45204",
-                "observationUnitName": "2010-Cornell-37-99",
-                "observations": [
-                    {
-                        "collector": "Mr. Technician",
-                        "observationDbId": "153453453",
-                        "observationTimeStamp": "2010-06-16 08:53:26",
-                        "observationVariableDbId": "CO_321:0000045",
-                        "observationVariableName": "Plant_height",
-                        "season": "2010",
-                        "value": "45"
-                    },
-                    {
-                        "collector": "Mr. Technician",
-                        "observationDbId": "23453454345",
-                        "observationTimeStamp": "2010-06-16 08:53:26",
-                        "observationVariableDbId": "CO_321:0000996",
-                        "observationVariableName": "GW100_g",
-                        "season": "2010",
-                        "value": "3"
-                    }
-                ],
-                "plantNumber": "45204",
-                "plotNumber": "2016-Maugio-34-575-abc-123",
-                "programName": "Wheat for futur",
-                "replicate": "2",
-                "studyDbId": "YieldStudy2010-5",
-                "studyLocation": "Cornell",
-                "studyLocationDbId": "88484",
-                "studyName": "Yield wheat 2010",
-                "treatments": []
-            }
-        ]
-    }
-}
-```
-
-## Phenotypes-search/table [Post /brapi/v1/phenotypes-search/table]
-
-Scope: PHENOTYPING.
-Status: ACCEPTED.
-
-Returns a list of observationUnit with the observed Phenotypes.
-      
-observationTimeStamp : Iso Standard 8601.
-
-observationValue data type inferred from the ontology 
-
-+ Parameters
- 
-+ Request (application/json)
-/definitions/phenotypesSearchRequest
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "pagination": {
-            "pageSize": 1000,
-            "currentPage": 0,
-            "totalCount": 2,
-            "totalPages": 1
-        },
         "status": [],
-        "datafiles": []
-    },
-    "result": {
-        "headerRow": [
-            "year",
-            "studyDbId",
-            "studyName",
-            "locationDbId",
-            "locationName",
-            "germplasmDbId",
-            "germplasmName",
-            "observationUnitDbId",
-            "plotNumber",
-            "replicate",
-            "blockNumber",
-            "observationTimestamp",
-            "entryType",
-            "X",
-            "Y"
-        ],
-        "observationVariableDbIds": [
-            "variable1DbId",
-            "variable2DbId",
-            "variable3DbId"
-        ],
-        "observationVariableNames": [
-            "plant height",
-            "fruit weight",
-            "root weight"
-        ],
-        "data": [
-            [
-                "2017",
-                "stu1",
-                "Study Name",
-                "loc1",
-                "Location Name",
-                "CIP1",
-                "CIP Name",
-                "abc123",
-                1,
-                1,
-                1,
-                "2017-06-16T00:53:26Z",
-                "Test Entry",
-                "1",
-                "2",
-                "25.3",
-                "103.4",
-                "50.75"
-            ],
-            [
-                "2017",
-                "stu1",
-                "Study Name",
-                "loc1",
-                "Location Name",
-                "CIP1",
-                "CIP Name",
-                "abc124",
-                1,
-                1,
-                1,
-                "2017-06-16T00:54:57Z",
-                "Test Entry",
-                "2",
-                "2",
-                "27.9",
-                "98.65",
-                "45.345"
-            ]
-        ]
+        "pagination": {
+            "currentPage": 0,
+            "totalCount": 2,
+            "pageSize": 100,
+            "totalPages": 1
+        }
     }
 }
-```
-
-## Phenotypes-search/tsv [Post /brapi/v1/phenotypes-search/tsv]
-
-Scope: PHENOTYPING.
-Status: ACCEPTED.
-
-Returns a list of observationUnit with the observed Phenotypes.
-      
-observationTimeStamp : Iso Standard 8601.
-
-observationValue data type inferred from the ontology 
-
-+ Parameters
- 
-+ Request (application/json)
-/definitions/phenotypesSearchRequest
-
-+ Response 200 (text/csv)
-```
-"\"year\"    \"studyDbId\"    \"studyName\"    \"locationDbId\"    \"locationName\"    \"germplasmDbId\"    \"germplasmName\"    \"observationUnitDbId\"    \"plotNumber\"    \"replicate\"    \"blockNumber\"    \"entryType\"    \"X\"    \"Y\"     \"variableDbId1\"    \"variableDbId2\"    \"variableDbId3\"\n\"2015\"    \"YieldStudy2015-5\"    \"Yield wheat 2015\"    \"mtp-north-32\"    \"Montpellier\"    \"doi:10.155454/12349537E12\"    \"IR-8\"    \"2016-Maugio-34-575-abc-123\"    \"120\"    \"\"    \"2\"    \"\"    \"5\"    \"15\"    \"45\"    \"3\"    \"10\"\n\"2016\"    \"YieldStudy2016-5\"    \"Yield wheat 2016\"    \"mtp-north-32\"    \"Montpellier\"    \"doi:10.155454/12349537E13\"    \"IR-8\"    \"2016-Maugio-34-575-abc-124\"    \"120\"    \"\"    \"2\"    \"\"    \"5\"    \"15\"    \"47\"    \"4\"    \"11\""
 ```
 
 ## Phenotypes [Post /brapi/v1/phenotypes{?format}]
@@ -487,37 +466,58 @@ form data.
 + Request (application/json)
 /definitions/phenotypesRequest
 
-+ Response 200 (metadata)
-```
-{
-    "pagination": {
-        "pageSize": 0,
-        "currentPage": 0,
-        "totalCount": 0,
-        "totalPages": 0
-    },
-    "status": [],
-    "datafiles": []
-}
-```+ Response 200 (result)
++ Response 200 (result)
 ```
 {
     "observations": [
         {
+            "observationUnitDbId": "333888",
             "observationDbId": "153453453",
-            "observationVariableDbId": "18020",
-            "observationUnitDbId": "333888"
+            "observationVariableDbId": "18020"
         },
         {
+            "observationUnitDbId": "333888",
             "observationDbId": "23456",
-            "observationVariableDbId": "18021",
-            "observationUnitDbId": "333888"
+            "observationVariableDbId": "18021"
         },
         {
+            "observationUnitDbId": "333888",
             "observationDbId": "34567",
-            "observationVariableDbId": "18022",
-            "observationUnitDbId": "333888"
+            "observationVariableDbId": "18022"
         }
     ]
 }
+```+ Response 200 (metadata)
+```
+{
+    "datafiles": [],
+    "status": [],
+    "pagination": {
+        "currentPage": 0,
+        "totalCount": 0,
+        "pageSize": 0,
+        "totalPages": 0
+    }
+}
+```
+
+## Phenotypes-search/csv [Post /brapi/v1/phenotypes-search/csv]
+
+Scope: PHENOTYPING.
+Status: ACCEPTED.
+
+Returns a list of observationUnit with the observed Phenotypes.
+      
+observationTimeStamp : Iso Standard 8601.
+
+observationValue data type inferred from the ontology 
+
++ Parameters
+ 
++ Request (application/json)
+/definitions/phenotypesSearchRequest
+
++ Response 200 (text/csv)
+```
+"\"year\",\"studyDbId\",\"studyName\",\"locationDbId\",\"locationName\",\"germplasmDbId\",\"germplasmName\",\"observationUnitDbId\",\"plotNumber\",\"replicate\",\"blockNumber\", \"entryType\", \"X\", \"Y\", \"variableDbId1\", \"variableDbId2\", \"variableDbId3\"\n\"2015\", \"YieldStudy2015-5\", \"Yield wheat 2015\", \"mtp-north-32\", \"Montpellier\", \"doi:10.155454/12349537E12\", \"IR-8\", \"2016-Maugio-34-575-abc-123\", \"120\", \"\", \"2\", \"\", \"5\", \"15\", \"45\", \"3\", \"10\"\n\"2016\", \"YieldStudy2016-5\", \"Yield wheat 2016\", \"mtp-north-32\", \"Montpellier\", \"doi:10.155454/12349537E13\", \"IR-8\", \"2016-Maugio-34-575-abc-124\", \"120\", \"\", \"2\", \"\", \"5\", \"15\", \"47\", \"4\", \"11\""
 ```

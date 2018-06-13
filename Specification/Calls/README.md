@@ -60,25 +60,16 @@ Here are the rules for the path of each call that should be returned
 + Response 200 (application/json)
 ```
 {
-    "metadata": {
-        "pagination": {
-            "totalCount": 8,
-            "currentPage": 0,
-            "totalPages": 1,
-            "pageSize": 1000
-        },
-        "datafiles": []
-    },
     "result": {
         "data": [
             {
                 "call": "token",
-                "datatypes": [
-                    "json"
-                ],
                 "methods": [
                     "POST",
                     "DELETE"
+                ],
+                "datatypes": [
+                    "json"
                 ],
                 "versions": [
                     "1.0",
@@ -87,11 +78,11 @@ Here are the rules for the path of each call that should be returned
             },
             {
                 "call": "calls",
-                "datatypes": [
-                    "json"
-                ],
                 "methods": [
                     "GET"
+                ],
+                "datatypes": [
+                    "json"
                 ],
                 "versions": [
                     "1.0",
@@ -101,13 +92,13 @@ Here are the rules for the path of each call that should be returned
             },
             {
                 "call": "allelematrix",
-                "datatypes": [
-                    "json",
-                    "tsv"
-                ],
                 "methods": [
                     "GET",
                     "POST"
+                ],
+                "datatypes": [
+                    "json",
+                    "tsv"
                 ],
                 "versions": [
                     "1.0"
@@ -115,11 +106,11 @@ Here are the rules for the path of each call that should be returned
             },
             {
                 "call": "observationLevels",
-                "datatypes": [
-                    "json"
-                ],
                 "methods": [
                     "GET"
+                ],
+                "datatypes": [
+                    "json"
                 ],
                 "versions": [
                     "1.0",
@@ -129,12 +120,12 @@ Here are the rules for the path of each call that should be returned
             },
             {
                 "call": "germplasm-search",
-                "datatypes": [
-                    "json"
-                ],
                 "methods": [
                     "GET",
                     "POST"
+                ],
+                "datatypes": [
+                    "json"
                 ],
                 "versions": [
                     "1.0",
@@ -144,11 +135,11 @@ Here are the rules for the path of each call that should be returned
             },
             {
                 "call": "germplasm/{germplasmDbId}",
-                "datatypes": [
-                    "json"
-                ],
                 "methods": [
                     "GET"
+                ],
+                "datatypes": [
+                    "json"
                 ],
                 "versions": [
                     "1.0",
@@ -158,11 +149,11 @@ Here are the rules for the path of each call that should be returned
             },
             {
                 "call": "germplasm/{germplasmDbId}/pedigree",
-                "datatypes": [
-                    "json"
-                ],
                 "methods": [
                     "GET"
+                ],
+                "datatypes": [
+                    "json"
                 ],
                 "versions": [
                     "1.1",
@@ -171,11 +162,11 @@ Here are the rules for the path of each call that should be returned
             },
             {
                 "call": "germplasm/{germplasmDbId}/markerprofiles",
-                "datatypes": [
-                    "json"
-                ],
                 "methods": [
                     "GET"
+                ],
+                "datatypes": [
+                    "json"
                 ],
                 "versions": [
                     "1.1",
@@ -183,6 +174,15 @@ Here are the rules for the path of each call that should be returned
                 ]
             }
         ]
+    },
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "totalCount": 8,
+            "pageSize": 1000,
+            "totalPages": 1
+        }
     }
 }
 ```
