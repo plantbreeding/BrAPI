@@ -24,29 +24,29 @@ hardness.  They are often evaluated by genotyping for diagnostic markers.
     "result": {
         "data": [
             {
+                "attributeCategoryDbId": "1",
                 "values": [
                     "Present",
                     "Absent",
                     "Heterozygous"
                 ],
-                "name": "Rht-B1b",
-                "code": "RHT",
                 "uri": "http://www.cropontology.org/rdf/CO_321:0000020",
+                "name": "Rht-B1b",
                 "datatype": "Categorical",
-                "attributeCategoryDbId": "1",
-                "description": "Allele of marker 11_4769, diagnostic for allele b of reduced-height gene Rht-B1"
+                "description": "Allele of marker 11_4769, diagnostic for allele b of reduced-height gene Rht-B1",
+                "code": "RHT"
             }
         ]
     },
     "metadata": {
         "datafiles": [],
-        "status": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 1,
             "pageSize": 1000,
             "totalPages": 1
-        }
+        },
+        "status": []
     }
 }
 ```
@@ -71,24 +71,24 @@ Values for all attributes by default.
     "result": {
         "data": [
             {
+                "value": "Present",
                 "attributeDbId": "1",
                 "attributeCode": "RHT",
                 "determinedDate": "2007-05-28",
-                "attributeName": "Rht-B1b",
-                "value": "Present"
+                "attributeName": "Rht-B1b"
             }
         ],
         "germplasmDbId": "01BEL084609"
     },
     "metadata": {
         "datafiles": [],
-        "status": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 1,
             "pageSize": 1000,
             "totalPages": 1
-        }
+        },
+        "status": []
     }
 }
 ```
@@ -111,24 +111,24 @@ List all available attribute categories.
     "result": {
         "data": [
             {
-                "name": "Morphological",
-                "attributeCategoryDbId": "1"
+                "attributeCategoryDbId": "1",
+                "name": "Morphological"
             },
             {
-                "name": "Agronomic",
-                "attributeCategoryDbId": "2"
+                "attributeCategoryDbId": "2",
+                "name": "Agronomic"
             }
         ]
     },
     "metadata": {
         "datafiles": [],
-        "status": [],
         "pagination": {
             "currentPage": 1,
             "totalCount": 2,
             "pageSize": 10,
             "totalPages": 1
-        }
+        },
+        "status": []
     }
 }
 ```

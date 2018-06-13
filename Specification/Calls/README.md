@@ -63,115 +63,115 @@ Here are the rules for the path of each call that should be returned
     "result": {
         "data": [
             {
-                "call": "token",
                 "methods": [
                     "POST",
                     "DELETE"
                 ],
-                "datatypes": [
-                    "json"
-                ],
                 "versions": [
                     "1.0",
                     "1.1"
-                ]
-            },
-            {
-                "call": "calls",
-                "methods": [
-                    "GET"
                 ],
                 "datatypes": [
                     "json"
+                ],
+                "call": "token"
+            },
+            {
+                "methods": [
+                    "GET"
                 ],
                 "versions": [
                     "1.0",
                     "1.1",
                     "1.2"
-                ]
+                ],
+                "datatypes": [
+                    "json"
+                ],
+                "call": "calls"
             },
             {
-                "call": "allelematrix",
                 "methods": [
                     "GET",
                     "POST"
+                ],
+                "versions": [
+                    "1.0"
                 ],
                 "datatypes": [
                     "json",
                     "tsv"
                 ],
-                "versions": [
-                    "1.0"
-                ]
+                "call": "allelematrix"
             },
             {
-                "call": "observationLevels",
                 "methods": [
                     "GET"
-                ],
-                "datatypes": [
-                    "json"
                 ],
                 "versions": [
                     "1.0",
                     "1.1",
                     "1.2"
-                ]
+                ],
+                "datatypes": [
+                    "json"
+                ],
+                "call": "observationLevels"
             },
             {
-                "call": "germplasm-search",
                 "methods": [
                     "GET",
                     "POST"
                 ],
+                "versions": [
+                    "1.0",
+                    "1.1",
+                    "1.2"
+                ],
                 "datatypes": [
                     "json"
+                ],
+                "call": "germplasm-search"
+            },
+            {
+                "methods": [
+                    "GET"
                 ],
                 "versions": [
                     "1.0",
                     "1.1",
                     "1.2"
-                ]
-            },
-            {
-                "call": "germplasm/{germplasmDbId}",
-                "methods": [
-                    "GET"
                 ],
                 "datatypes": [
                     "json"
                 ],
-                "versions": [
-                    "1.0",
-                    "1.1",
-                    "1.2"
-                ]
+                "call": "germplasm/{germplasmDbId}"
             },
             {
-                "call": "germplasm/{germplasmDbId}/pedigree",
                 "methods": [
                     "GET"
+                ],
+                "versions": [
+                    "1.1",
+                    "1.2"
                 ],
                 "datatypes": [
                     "json"
                 ],
+                "call": "germplasm/{germplasmDbId}/pedigree"
+            },
+            {
+                "methods": [
+                    "GET"
+                ],
                 "versions": [
                     "1.1",
                     "1.2"
-                ]
-            },
-            {
-                "call": "germplasm/{germplasmDbId}/markerprofiles",
-                "methods": [
-                    "GET"
                 ],
                 "datatypes": [
                     "json"
                 ],
-                "versions": [
-                    "1.1",
-                    "1.2"
-                ]
+                "call": "germplasm/{germplasmDbId}/markerprofiles"
             }
         ]
     },

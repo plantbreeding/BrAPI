@@ -28,67 +28,67 @@ Services related to trials. Trials comprise of multiple studies. The trial conce
         "data": [
             {
                 "startDate": "2007-06-01",
-                "active": "false",
                 "additionalInfo": {
+                    "property3Name": "property3Value",
                     "property1Name": "property1Value",
-                    "property2Name": "property2Value",
-                    "property3Name": "property3Value"
+                    "property2Name": "property2Value"
                 },
-                "programDbId": "27",
-                "trialDbId": "1",
-                "trialName": "InternationalTrialA",
+                "active": "false",
                 "programName": "International Yield Trial",
+                "programDbId": "27",
                 "studies": [
                     {
-                        "studyName": "Zimbabwe Yield Trial",
+                        "studyDbId": "1",
                         "locationName": "Zimbabwe",
-                        "studyDbId": "1"
+                        "studyName": "Zimbabwe Yield Trial"
                     },
                     {
-                        "studyName": "Kenya Yield Trial",
+                        "studyDbId": "2",
                         "locationName": "Kenya",
-                        "studyDbId": "2"
+                        "studyName": "Kenya Yield Trial"
                     }
                 ],
-                "endDate": "2008-12-31"
+                "endDate": "2008-12-31",
+                "trialName": "InternationalTrialA",
+                "trialDbId": "1"
             },
             {
                 "startDate": "2008-06-01",
-                "active": "true",
                 "additionalInfo": {
+                    "property3Name": "property3Value",
                     "property1Name": "property1Value",
-                    "property2Name": "property2Value",
-                    "property3Name": "property3Value"
+                    "property2Name": "property2Value"
                 },
-                "programDbId": "35",
-                "trialDbId": "2",
-                "trialName": "InternationalTrialB",
+                "active": "true",
                 "programName": "International Yield Trial 2: Return of the Trial",
+                "programDbId": "35",
                 "studies": [
                     {
-                        "studyName": "Zimbabwe Yield Trial",
+                        "studyDbId": "3",
                         "locationName": "Zimbabwe",
-                        "studyDbId": "3"
+                        "studyName": "Zimbabwe Yield Trial"
                     },
                     {
-                        "studyName": "Kenya Yield Trial",
+                        "studyDbId": "4",
                         "locationName": "Kenya",
-                        "studyDbId": "4"
+                        "studyName": "Kenya Yield Trial"
                     }
                 ],
-                "endDate": "2009-12-31"
+                "endDate": "2009-12-31",
+                "trialName": "InternationalTrialB",
+                "trialDbId": "2"
             }
         ]
     },
     "metadata": {
         "datafiles": [],
-        "status": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 2,
             "pageSize": 1000,
             "totalPages": 1
-        }
+        },
+        "status": []
     }
 }
 ```
@@ -108,63 +108,63 @@ Get trial by id.
 {
     "result": {
         "startDate": "2007-06-01",
-        "active": "true",
-        "contacts": [
-            {
-                "name": "John Doe",
-                "instituteName": "IRRI",
-                "contactDbId": "C025",
-                "orcid": "0000-0002-0607-8728",
-                "email": "j.doe@mail.com",
-                "type": "Scientist"
-            },
-            {
-                "name": "Dave Peters",
-                "instituteName": "IRRI",
-                "contactDbId": "C026",
-                "orcid": null,
-                "email": null,
-                "type": null
-            }
-        ],
         "additionalInfo": {
-            "publications": "pmid:239823988, doi:10.2345/GEZG3T23535",
+            "property3Name": "property3Value",
             "property2Name": "property2Value",
-            "property3Name": "property3Value"
+            "publications": "pmid:239823988, doi:10.2345/GEZG3T23535"
         },
-        "programDbId": 27,
-        "trialDbId": 1,
-        "trialName": "InternationalTrialA",
-        "programName": "International Yield Trial",
         "datasetAuthorship": {
             "license": "https://creativecommons.org/licenses/by/4.0",
             "datasetPUI": "doi:10.15454/312953986E3"
         },
+        "active": "true",
+        "programName": "International Yield Trial",
+        "programDbId": 27,
         "studies": [
             {
-                "studyName": "Zimbabwe Yield Trial",
                 "locationDbId": "z-2",
                 "locationName": "Zimbabwe",
+                "studyName": "Zimbabwe Yield Trial",
                 "studyDbId": 1
             },
             {
-                "studyName": "Kenya Yield Trial",
                 "locationDbId": "k-1",
                 "locationName": "Kenya",
+                "studyName": "Kenya Yield Trial",
                 "studyDbId": 2
             }
         ],
-        "endDate": "2008-12-31"
+        "endDate": "2008-12-31",
+        "contacts": [
+            {
+                "email": "j.doe@mail.com",
+                "instituteName": "IRRI",
+                "orcid": "0000-0002-0607-8728",
+                "type": "Scientist",
+                "name": "John Doe",
+                "contactDbId": "C025"
+            },
+            {
+                "email": null,
+                "instituteName": "IRRI",
+                "orcid": null,
+                "type": null,
+                "name": "Dave Peters",
+                "contactDbId": "C026"
+            }
+        ],
+        "trialName": "InternationalTrialA",
+        "trialDbId": 1
     },
     "metadata": {
         "datafiles": [],
-        "status": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 0,
             "pageSize": 0,
             "totalPages": 0
-        }
+        },
+        "status": []
     }
 }
 ```

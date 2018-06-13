@@ -24,40 +24,40 @@ Call to retrieve a list of traits available in the system and their associated v
     "result": {
         "data": [
             {
-                "defaultValue": null,
-                "name": "Plant Height",
+                "traitId": "CO:123000007",
                 "observationVariables": [
                     "CO_334:0100121",
                     "CO_334:0100122",
                     "CO_334:0100123"
                 ],
-                "traitId": "CO:123000007",
+                "name": "Plant Height",
                 "traitDbId": "123",
-                "description": "Description of Plant Height"
+                "description": "Description of Plant Height",
+                "defaultValue": null
             },
             {
-                "defaultValue": null,
-                "name": "Carotenoid content",
+                "traitId": "CO_334:0100620",
                 "observationVariables": [
                     "CO_334:0100621",
                     "CO_334:0100622",
                     "CO_334:0100623"
                 ],
-                "traitId": "CO_334:0100620",
+                "name": "Carotenoid content",
                 "traitDbId": "123",
-                "description": "Cassava storage root pulp carotenoid content"
+                "description": "Cassava storage root pulp carotenoid content",
+                "defaultValue": null
             }
         ]
     },
     "metadata": {
         "datafiles": [],
-        "status": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 2,
             "pageSize": 1000,
             "totalPages": 1
-        }
+        },
+        "status": []
     }
 }
 ```
@@ -77,26 +77,26 @@ Retrieve the variables associated to a trait
 ```
 {
     "result": {
-        "defaultValue": null,
-        "name": "Plant Height",
+        "traitId": "CO:123000007",
         "observationVariables": [
             "CO_334:0100121",
             "CO_334:0100122",
             "CO_334:0100123"
         ],
-        "traitId": "CO:123000007",
+        "name": "Plant Height",
         "traitDbId": "123",
-        "description": "Description of Plant Height"
+        "description": "Description of Plant Height",
+        "defaultValue": null
     },
     "metadata": {
         "datafiles": [],
-        "status": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 0,
             "pageSize": 0,
             "totalPages": 0
-        }
+        },
+        "status": []
     }
 }
 ```

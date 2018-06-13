@@ -19,29 +19,29 @@ API methods for tracking/managing plant samples and related meta-data. A 'Sample
 ```
 {
     "result": {
+        "plateDbId": "PlateID-123",
         "sampleDbId": "Unique-Plant-SampleID-1",
         "studyDbId": "StudyId-123",
         "plotDbId": "PlotId-123",
-        "sampleType": "TypeOfSample",
         "plateIndex": 0,
-        "tissueType": "TypeOfTissue",
-        "takenBy": "Mr. Technician",
-        "germplasmDbId": "def456",
-        "plantDbId": "PlantID-123",
-        "observationUnitDbId": "abc123",
-        "sampleTimestamp": "2016-07-27T14:43:22+01:00",
         "notes": "Cut from infected leaf",
-        "plateDbId": "PlateID-123"
+        "tissueType": "TypeOfTissue",
+        "sampleType": "TypeOfSample",
+        "takenBy": "Mr. Technician",
+        "plantDbId": "PlantID-123",
+        "sampleTimestamp": "2016-07-27T14:43:22+01:00",
+        "germplasmDbId": "def456",
+        "observationUnitDbId": "abc123"
     },
     "metadata": {
         "datafiles": [],
-        "status": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 0,
             "pageSize": 0,
             "totalPages": 0
-        }
+        },
+        "status": []
     }
 }
 ```
@@ -66,66 +66,6 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
 }
 ```
 
-## Samples-search [Post /brapi/v1/samples-search]
-
- Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
-<a href="https://test-server.brapi.org/brapi/v1/samples"> test-server.brapi.org/brapi/v1/samples-search</a> 
-
-+ Parameters
- 
-+ Request (application/json)
-/definitions/sampleSearchRequest
-
-+ Response 200 (application/json)
-```
-{
-    "result": {
-        "data": [
-            {
-                "sampleDbId": "Unique-Plant-SampleID-1",
-                "studyDbId": "StudyId-123",
-                "plotDbId": "PlotId-123",
-                "sampleType": "TypeOfSample",
-                "plateIndex": 0,
-                "tissueType": "TypeOfTissue",
-                "takenBy": "Mr. Technician",
-                "germplasmDbId": "def456",
-                "plantDbId": "PlantID-123",
-                "observationUnitDbId": "abc123",
-                "sampleTimestamp": "2016-07-27 13:43:22",
-                "notes": "Cut from infected leaf",
-                "plateDbId": "PlateID-123"
-            },
-            {
-                "sampleDbId": "Unique-Plant-SampleID-2",
-                "studyDbId": "StudyId-123",
-                "plotDbId": "PlotId-123",
-                "sampleType": "TypeOfSample",
-                "plateIndex": 0,
-                "tissueType": "TypeOfTissue",
-                "takenBy": "Mr. Technician",
-                "germplasmDbId": "def456",
-                "plantDbId": "PlantID-123",
-                "observationUnitDbId": "a1b2c3",
-                "sampleTimestamp": "2016-07-27 13:43:22",
-                "notes": "Cut from infected leaf",
-                "plateDbId": "PlateID-123"
-            }
-        ]
-    },
-    "metadata": {
-        "datafiles": [],
-        "status": [],
-        "pagination": {
-            "currentPage": 0,
-            "totalCount": 2,
-            "pageSize": 1000,
-            "totalPages": 1
-        }
-    }
-}
-```
-
 ## Samples-search [Get /brapi/v1/samples-search{?sampleDbId}{?observationUnitDbId}{?plateDbId}{?germplasmDbId}{?pageSize}{?page}]
 
  Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
@@ -146,46 +86,106 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
     "result": {
         "data": [
             {
+                "plateDbId": "PlateID-123",
                 "sampleDbId": "Unique-Plant-SampleID-1",
                 "studyDbId": "StudyId-123",
                 "plotDbId": "PlotId-123",
-                "sampleType": "TypeOfSample",
                 "plateIndex": 0,
-                "tissueType": "TypeOfTissue",
-                "takenBy": "Mr. Technician",
-                "germplasmDbId": "def456",
-                "plantDbId": "PlantID-123",
-                "observationUnitDbId": "abc123",
-                "sampleTimestamp": "2016-07-27 13:43:22",
                 "notes": "Cut from infected leaf",
-                "plateDbId": "PlateID-123"
+                "tissueType": "TypeOfTissue",
+                "sampleType": "TypeOfSample",
+                "takenBy": "Mr. Technician",
+                "plantDbId": "PlantID-123",
+                "sampleTimestamp": "2016-07-27 13:43:22",
+                "germplasmDbId": "def456",
+                "observationUnitDbId": "abc123"
             },
             {
+                "plateDbId": "PlateID-123",
                 "sampleDbId": "Unique-Plant-SampleID-2",
                 "studyDbId": "StudyId-123",
                 "plotDbId": "PlotId-123",
-                "sampleType": "TypeOfSample",
                 "plateIndex": 0,
-                "tissueType": "TypeOfTissue",
-                "takenBy": "Mr. Technician",
-                "germplasmDbId": "def456",
-                "plantDbId": "PlantID-123",
-                "observationUnitDbId": "a1b2c3",
-                "sampleTimestamp": "2016-07-27 13:43:22",
                 "notes": "Cut from infected leaf",
-                "plateDbId": "PlateID-123"
+                "tissueType": "TypeOfTissue",
+                "sampleType": "TypeOfSample",
+                "takenBy": "Mr. Technician",
+                "plantDbId": "PlantID-123",
+                "sampleTimestamp": "2016-07-27 13:43:22",
+                "germplasmDbId": "def456",
+                "observationUnitDbId": "a1b2c3"
             }
         ]
     },
     "metadata": {
         "datafiles": [],
-        "status": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 2,
             "pageSize": 1000,
             "totalPages": 1
-        }
+        },
+        "status": []
+    }
+}
+```
+
+## Samples-search [Post /brapi/v1/samples-search]
+
+ Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
+<a href="https://test-server.brapi.org/brapi/v1/samples"> test-server.brapi.org/brapi/v1/samples-search</a> 
+
++ Parameters
+ 
++ Request (application/json)
+/definitions/sampleSearchRequest
+
++ Response 200 (application/json)
+```
+{
+    "result": {
+        "data": [
+            {
+                "plateDbId": "PlateID-123",
+                "sampleDbId": "Unique-Plant-SampleID-1",
+                "studyDbId": "StudyId-123",
+                "plotDbId": "PlotId-123",
+                "plateIndex": 0,
+                "notes": "Cut from infected leaf",
+                "tissueType": "TypeOfTissue",
+                "sampleType": "TypeOfSample",
+                "takenBy": "Mr. Technician",
+                "plantDbId": "PlantID-123",
+                "sampleTimestamp": "2016-07-27 13:43:22",
+                "germplasmDbId": "def456",
+                "observationUnitDbId": "abc123"
+            },
+            {
+                "plateDbId": "PlateID-123",
+                "sampleDbId": "Unique-Plant-SampleID-2",
+                "studyDbId": "StudyId-123",
+                "plotDbId": "PlotId-123",
+                "plateIndex": 0,
+                "notes": "Cut from infected leaf",
+                "tissueType": "TypeOfTissue",
+                "sampleType": "TypeOfSample",
+                "takenBy": "Mr. Technician",
+                "plantDbId": "PlantID-123",
+                "sampleTimestamp": "2016-07-27 13:43:22",
+                "germplasmDbId": "def456",
+                "observationUnitDbId": "a1b2c3"
+            }
+        ]
+    },
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "totalCount": 2,
+            "pageSize": 1000,
+            "totalPages": 1
+        },
+        "status": []
     }
 }
 ```

@@ -25,29 +25,29 @@ Status: ACCEPTED Implemented By:
         "data": [
             {
                 "name": "Wheat Resistance Program",
-                "objective": "Disease resistance",
-                "abbreviation": "DRP1",
                 "leadPerson": "Dr. Henry Beachell",
+                "abbreviation": "DRP1",
+                "objective": "Disease resistance",
                 "programDbId": "123"
             },
             {
                 "name": "Wheat Improvement Program",
-                "objective": "Yield improvement",
-                "abbreviation": "DRP2",
                 "leadPerson": "Dr. Norman Borlaug",
+                "abbreviation": "DRP2",
+                "objective": "Yield improvement",
                 "programDbId": "456"
             }
         ]
     },
     "metadata": {
         "datafiles": [],
-        "status": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 2,
             "pageSize": 1000,
             "totalPages": 1
-        }
+        },
+        "status": []
     }
 }
 ```
@@ -71,29 +71,29 @@ See <a href="#introduction/search-services">Search Services</a> for additional i
         "data": [
             {
                 "name": "Wheat Resistance Program",
-                "objective": "Disease resistance",
-                "abbreviation": "DRP1",
                 "leadPerson": "Dr. Henry Beachell",
+                "abbreviation": "DRP1",
+                "objective": "Disease resistance",
                 "programDbId": "123"
             },
             {
                 "name": "Wheat Improvement Program",
-                "objective": "Yield improvement",
-                "abbreviation": "DRP2",
                 "leadPerson": "Dr. Norman Borlaug",
+                "abbreviation": "DRP2",
+                "objective": "Yield improvement",
                 "programDbId": "456"
             }
         ]
     },
     "metadata": {
         "datafiles": [],
-        "status": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 2,
             "pageSize": 1000,
             "totalPages": 1
-        }
+        },
+        "status": []
     }
 }
 ```

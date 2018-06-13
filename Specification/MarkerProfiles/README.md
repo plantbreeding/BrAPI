@@ -16,92 +16,6 @@ Basic concepts in the **Breeding API**:
 
 
 
-## Allelematrix-search [Post /brapi/v1/allelematrix-search]
-
-Status: ACCEPTED.
-
-Implemented by: Germinate (POST only), Cassavabase
-
-Used by: Flapjack (POST only)
-
-See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
-
-This uses a more efficient data structure and pagination for large number of markers.
-
-Use POST when parameter size is greater than 2K bytes.
-
-- If no format is specified, this call returns the data in JSON form.
-
-- If a format (other than JSON) is specified and the server supports this format, it will return the link to the exported data file in the "datafiles" field of the "metadata".
-
-- If more than one format is requested at a time, the server will throw a "501 Not Implemented" error.
-
-The format of the tsv response can be found on GitHub (https://github.com/plantbreeding/Documentation/wiki/BrAPI-TSV-Expected-Formats) 
-
-+ Parameters
- 
-+ Request (application/json)
-/definitions/alleleMatrixSearchRequest
-
-+ Response 200 (application/json)
-```
-{
-    "result": {
-        "data": [
-            [
-                "1",
-                "1",
-                "A/B"
-            ],
-            [
-                "1",
-                "2",
-                "B"
-            ],
-            [
-                "2",
-                "1",
-                "A"
-            ],
-            [
-                "2",
-                "2",
-                "A/B"
-            ]
-        ]
-    },
-    "metadata": {
-        "datafiles": [],
-        "status": [],
-        "pagination": {
-            "currentPage": 0,
-            "totalCount": 0,
-            "pageSize": 0,
-            "totalPages": 0
-        }
-    }
-}
-```+ Response 200 (application/tsv)
-```
-{
-    "result": {
-        "data": []
-    },
-    "metadata": {
-        "datafiles": [
-            "https://my-fancy-server/files/allelematrix-1234.tsv"
-        ],
-        "status": [],
-        "pagination": {
-            "currentPage": 0,
-            "totalCount": 0,
-            "pageSize": 0,
-            "totalPages": 0
-        }
-    }
-}
-```
-
 ## Allelematrix-search [Get /brapi/v1/allelematrix-search{?markerprofileDbId}{?markerDbId}{?matrixDbId}{?format}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageSize}{?page}]
 
 Status: ACCEPTED.
@@ -163,13 +77,99 @@ This method may support asynchronous processing.
     },
     "metadata": {
         "datafiles": [],
-        "status": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 4,
             "pageSize": 1000,
             "totalPages": 1
-        }
+        },
+        "status": []
+    }
+}
+```
+
+## Allelematrix-search [Post /brapi/v1/allelematrix-search]
+
+Status: ACCEPTED.
+
+Implemented by: Germinate (POST only), Cassavabase
+
+Used by: Flapjack (POST only)
+
+See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
+
+This uses a more efficient data structure and pagination for large number of markers.
+
+Use POST when parameter size is greater than 2K bytes.
+
+- If no format is specified, this call returns the data in JSON form.
+
+- If a format (other than JSON) is specified and the server supports this format, it will return the link to the exported data file in the "datafiles" field of the "metadata".
+
+- If more than one format is requested at a time, the server will throw a "501 Not Implemented" error.
+
+The format of the tsv response can be found on GitHub (https://github.com/plantbreeding/Documentation/wiki/BrAPI-TSV-Expected-Formats) 
+
++ Parameters
+ 
++ Request (application/json)
+/definitions/alleleMatrixSearchRequest
+
++ Response 200 (application/json)
+```
+{
+    "result": {
+        "data": [
+            [
+                "1",
+                "1",
+                "A/B"
+            ],
+            [
+                "1",
+                "2",
+                "B"
+            ],
+            [
+                "2",
+                "1",
+                "A"
+            ],
+            [
+                "2",
+                "2",
+                "A/B"
+            ]
+        ]
+    },
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "totalCount": 0,
+            "pageSize": 0,
+            "totalPages": 0
+        },
+        "status": []
+    }
+}
+```+ Response 200 (application/tsv)
+```
+{
+    "result": {
+        "data": []
+    },
+    "metadata": {
+        "datafiles": [
+            "https://my-fancy-server/files/allelematrix-1234.tsv"
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "totalCount": 0,
+            "pageSize": 0,
+            "totalPages": 0
+        },
+        "status": []
     }
 }
 ```
@@ -212,11 +212,7 @@ Alphabetically?'
 ```
 {
     "result": {
-        "markerprofileDbId": "993",
         "uniqueDisplayName": "My Fancy Germplasm",
-        "germplasmDbId": "1",
-        "extractDbId": "extract1",
-        "analysisMethod": "GBS",
         "data": [
             {
                 "marker1-1": "1"
@@ -284,103 +280,21 @@ Alphabetically?'
             {
                 "marker3-6": "0"
             }
-        ]
+        ],
+        "markerprofileDbId": "993",
+        "extractDbId": "extract1",
+        "germplasmDbId": "1",
+        "analysisMethod": "GBS"
     },
     "metadata": {
         "datafiles": [],
-        "status": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 22,
             "pageSize": 22,
             "totalPages": 1
-        }
-    }
-}
-```
-
-## Allelematrices-search [Post /brapi/v1/allelematrices-search]
-
-Status: ACCEPTED.
-
-Implemented by: Germinate (POST only), Cassavabase
-
-Used by: Flapjack (POST only)
-
-See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
-
-This uses a more efficient data structure and pagination for large number of markers.
-
-Use POST when parameter size is greater than 2K bytes.
-
-- If no format is specified, this call returns the data in JSON form.
-
-- If a format (other than JSON) is specified and the server supports this format, it will return the link to the exported data file in the "datafiles" field of the "metadata".
-
-- If more than one format is requested at a time, the server will throw a "501 Not Implemented" error.
-
-The format of the tsv response can be found on GitHub (https://github.com/plantbreeding/Documentation/wiki/BrAPI-TSV-Expected-Formats) 
-
-+ Parameters
- 
-+ Request (application/json)
-/definitions/alleleMatrixSearchRequest
-
-+ Response 200 (application/json)
-```
-{
-    "result": {
-        "data": [
-            [
-                "1",
-                "1",
-                "A/B"
-            ],
-            [
-                "1",
-                "2",
-                "B"
-            ],
-            [
-                "2",
-                "1",
-                "A"
-            ],
-            [
-                "2",
-                "2",
-                "A/B"
-            ]
-        ]
-    },
-    "metadata": {
-        "datafiles": [],
-        "status": [],
-        "pagination": {
-            "currentPage": 0,
-            "totalCount": 0,
-            "pageSize": 0,
-            "totalPages": 0
-        }
-    }
-}
-```+ Response 200 (application/tsv)
-```
-{
-    "result": {
-        "data": []
-    },
-    "metadata": {
-        "datafiles": [
-            "https://my-fancy-server/files/allelematrix-1234.tsv"
-        ],
-        "status": [],
-        "pagination": {
-            "currentPage": 0,
-            "totalCount": 0,
-            "pageSize": 0,
-            "totalPages": 0
-        }
+        },
+        "status": []
     }
 }
 ```
@@ -446,13 +360,99 @@ This method may support asynchronous processing.
     },
     "metadata": {
         "datafiles": [],
-        "status": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 4,
             "pageSize": 1000,
             "totalPages": 1
-        }
+        },
+        "status": []
+    }
+}
+```
+
+## Allelematrices-search [Post /brapi/v1/allelematrices-search]
+
+Status: ACCEPTED.
+
+Implemented by: Germinate (POST only), Cassavabase
+
+Used by: Flapjack (POST only)
+
+See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
+
+This uses a more efficient data structure and pagination for large number of markers.
+
+Use POST when parameter size is greater than 2K bytes.
+
+- If no format is specified, this call returns the data in JSON form.
+
+- If a format (other than JSON) is specified and the server supports this format, it will return the link to the exported data file in the "datafiles" field of the "metadata".
+
+- If more than one format is requested at a time, the server will throw a "501 Not Implemented" error.
+
+The format of the tsv response can be found on GitHub (https://github.com/plantbreeding/Documentation/wiki/BrAPI-TSV-Expected-Formats) 
+
++ Parameters
+ 
++ Request (application/json)
+/definitions/alleleMatrixSearchRequest
+
++ Response 200 (application/json)
+```
+{
+    "result": {
+        "data": [
+            [
+                "1",
+                "1",
+                "A/B"
+            ],
+            [
+                "1",
+                "2",
+                "B"
+            ],
+            [
+                "2",
+                "1",
+                "A"
+            ],
+            [
+                "2",
+                "2",
+                "A/B"
+            ]
+        ]
+    },
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "totalCount": 0,
+            "pageSize": 0,
+            "totalPages": 0
+        },
+        "status": []
+    }
+}
+```+ Response 200 (application/tsv)
+```
+{
+    "result": {
+        "data": []
+    },
+    "metadata": {
+        "datafiles": [
+            "https://my-fancy-server/files/allelematrix-1234.tsv"
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "totalCount": 0,
+            "pageSize": 0,
+            "totalPages": 0
+        },
+        "status": []
     }
 }
 ```
@@ -481,34 +481,34 @@ For the requested Germplasm Id and/or Extract Id, returns the Markerprofile Id a
     "result": {
         "data": [
             {
-                "sampleDbId": "3937",
-                "resultCount": 1470,
-                "markerprofileDbId": "993",
                 "uniqueDisplayName": "MyFancyGermplasm",
-                "germplasmDbId": "01BEL084609S",
+                "sampleDbId": "3937",
+                "markerprofileDbId": "993",
                 "extractDbId": "3939",
+                "resultCount": 1470,
+                "germplasmDbId": "01BEL084609S",
                 "analysisMethod": "GoldenGate"
             },
             {
-                "sampleDbId": "1234",
-                "resultCount": 1470,
-                "markerprofileDbId": "994",
                 "uniqueDisplayName": "Germplasm2",
-                "germplasmDbId": "2374",
+                "sampleDbId": "1234",
+                "markerprofileDbId": "994",
                 "extractDbId": "3939",
+                "resultCount": 1470,
+                "germplasmDbId": "2374",
                 "analysisMethod": "GBS"
             }
         ]
     },
     "metadata": {
         "datafiles": [],
-        "status": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 2,
             "pageSize": 1000,
             "totalPages": 1
-        }
+        },
+        "status": []
     }
 }
 ```
@@ -536,30 +536,30 @@ POST will provide a means for adding new matrices (content TBD).
     "result": {
         "data": [
             {
-                "matrixDbId": "27",
                 "name": "testDs1",
-                "description": "a test dataset",
                 "studyDbId": "abc123",
+                "matrixDbId": "27",
+                "description": "a test dataset",
                 "lastUpdated": "2017-06-12"
             },
             {
-                "matrixDbId": "28",
                 "name": "testDs2",
-                "description": "a second test dataset",
                 "studyDbId": "abc123",
+                "matrixDbId": "28",
+                "description": "a second test dataset",
                 "lastUpdated": "2017-06-12"
             }
         ]
     },
     "metadata": {
         "datafiles": [],
-        "status": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 2,
             "pageSize": 1000,
             "totalPages": 1
-        }
+        },
+        "status": []
     }
 }
 ```

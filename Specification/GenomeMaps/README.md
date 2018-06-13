@@ -26,35 +26,35 @@ Provides the number of markers on each linkageGroup and the max position on the 
 ```
 {
     "result": {
-        "name": "Some map",
-        "unit": "cM",
         "data": [
             {
-                "markerCount": 100000,
+                "maxPosition": 10000000,
                 "linkageGroupName": "1",
-                "maxPosition": 10000000
+                "markerCount": 100000
             },
             {
-                "markerCount": 1247,
+                "maxPosition": 12347889,
                 "linkageGroupName": "2",
-                "maxPosition": 12347889
+                "markerCount": 1247
             }
         ],
+        "type": "Genetic",
+        "name": "Some map",
+        "unit": "cM",
+        "mapDbId": "abc123",
         "linkageGroups": [
             "DEPRECATED - Replaced by 'data' in v1.1"
-        ],
-        "mapDbId": "abc123",
-        "type": "Genetic"
+        ]
     },
     "metadata": {
         "datafiles": [],
-        "status": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 2,
             "pageSize": 1000,
             "totalPages": 1
-        }
+        },
+        "status": []
     }
 }
 ```
@@ -78,26 +78,26 @@ markers ordered by linkageGroup and position
     "result": {
         "data": [
             {
-                "markerName": "marker1",
                 "location": "1000",
-                "markerDbId": "1"
+                "markerDbId": "1",
+                "markerName": "marker1"
             },
             {
-                "markerName": "marker2",
                 "location": "1001",
-                "markerDbId": "2"
+                "markerDbId": "2",
+                "markerName": "marker2"
             }
         ]
     },
     "metadata": {
         "datafiles": [],
-        "status": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 2,
             "pageSize": 1000,
             "totalPages": 1
-        }
+        },
+        "status": []
     }
 }
 ```
@@ -121,28 +121,28 @@ markers ordered by linkageGroup and position <br>
     "result": {
         "data": [
             {
-                "markerName": "marker1",
-                "linkageGroupName": "1A",
                 "location": "1000",
-                "markerDbId": "1"
+                "markerDbId": "1",
+                "linkageGroupName": "1A",
+                "markerName": "marker1"
             },
             {
-                "markerName": "marker2",
-                "linkageGroupName": "1A",
                 "location": "1001",
-                "markerDbId": "2"
+                "markerDbId": "2",
+                "linkageGroupName": "1A",
+                "markerName": "marker2"
             }
         ]
     },
     "metadata": {
         "datafiles": [],
-        "status": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 2,
             "pageSize": 1000,
             "totalPages": 1
-        }
+        },
+        "status": []
     }
 }
 ```
@@ -165,38 +165,38 @@ Get list of maps <br>
     "result": {
         "data": [
             {
-                "unit": "cM",
-                "publishedDate": "2008-04-16",
-                "species": "Some species",
-                "name": "Some Map",
                 "linkageGroupCount": 7,
-                "markerCount": 1000,
-                "mapDbId": "abc123",
+                "publishedDate": "2008-04-16",
                 "comments": "This map contains ...",
-                "type": "Genetic"
+                "species": "Some species",
+                "markerCount": 1000,
+                "type": "Genetic",
+                "name": "Some Map",
+                "unit": "cM",
+                "mapDbId": "abc123"
             },
             {
-                "unit": "cM",
-                "publishedDate": "2009-01-12",
-                "species": "Some Species",
-                "name": "Some Other map",
                 "linkageGroupCount": 7,
-                "markerCount": 1501,
-                "mapDbId": "def234",
+                "publishedDate": "2009-01-12",
                 "comments": "this is blah blah",
-                "type": "Genetic"
+                "species": "Some Species",
+                "markerCount": 1501,
+                "type": "Genetic",
+                "name": "Some Other map",
+                "unit": "cM",
+                "mapDbId": "def234"
             }
         ]
     },
     "metadata": {
         "datafiles": [],
-        "status": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 2,
             "pageSize": 1000,
             "totalPages": 1
-        }
+        },
+        "status": []
     }
 }
 ```

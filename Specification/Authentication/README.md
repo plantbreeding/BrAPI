@@ -28,13 +28,13 @@ The token life time is fixed. If additional time is required, a new /token call 
     "userDisplayName": "John Smith",
     "metadata": {
         "datafiles": [],
-        "status": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 0,
             "pageSize": 0,
             "totalPages": 0
-        }
+        },
+        "status": []
     },
     "expires_in": "The lifetime in seconds of the access token"
 }

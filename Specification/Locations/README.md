@@ -21,32 +21,32 @@ Get details for a location.
 ```
 {
     "result": {
+        "countryCode": "NGA",
+        "altitude": 12,
+        "abreviation": "IB -- DEPRECATED -- see abbreviation",
         "locationType": "Breeding Location",
-        "latitude": -21.5,
+        "instituteName": "INRA - GDEC",
+        "abbreviation": "IB",
         "instituteAddress": "road foo, nigeria",
+        "locationDbId": "abc123",
+        "longitude": 165.5,
+        "name": "Ibadan",
+        "latitude": -21.5,
+        "countryName": "Nigeria",
         "additionalInfo": {
             "annualMeanRain": "value",
             "soilDescription": "23"
-        },
-        "abbreviation": "IB",
-        "countryCode": "NGA",
-        "locationDbId": "abc123",
-        "altitude": 12,
-        "name": "Ibadan",
-        "countryName": "Nigeria",
-        "abreviation": "IB -- DEPRECATED -- see abbreviation",
-        "longitude": 165.5,
-        "instituteName": "INRA - GDEC"
+        }
     },
     "metadata": {
         "datafiles": [],
-        "status": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 0,
             "pageSize": 0,
             "totalPages": 0
-        }
+        },
+        "status": []
     }
 }
 ```
@@ -72,48 +72,48 @@ Get a list of locations.
     "result": {
         "data": [
             {
+                "countryCode": "NGA",
+                "altitude": 12,
                 "locationType": "Breeding Location",
-                "latitude": -21.5,
+                "instituteName": "INRA - GDEC",
+                "abbreviation": "IB",
                 "instituteAddress": "route foo, Clermont Ferrand, France",
+                "locationDbId": "abc123",
+                "longitude": 165.5,
+                "name": "Ibadan",
+                "latitude": -21.5,
+                "countryName": "Nigeria",
                 "additionalInfo": {
                     "annualMeanRain": "value",
                     "soilDescription": "23"
-                },
-                "abbreviation": "IB",
-                "countryCode": "NGA",
-                "locationDbId": "abc123",
-                "altitude": 12,
-                "name": "Ibadan",
-                "countryName": "Nigeria",
-                "longitude": 165.5,
-                "instituteName": "INRA - GDEC"
+                }
             },
             {
-                "locationType": "Storage Location",
-                "latitude": 28.36,
-                "additionalInfo": {
-                    "name2": "value2",
-                    "name1": "value1"
-                },
-                "abbreviation": "GO",
-                "altitude": 10,
-                "locationDbId": "def456",
                 "countryCode": "IND",
+                "altitude": 10,
+                "locationType": "Storage Location",
+                "abbreviation": "GO",
+                "locationDbId": "def456",
+                "longitude": 77.12,
                 "name": "Goa",
+                "latitude": 28.36,
                 "countryName": "India",
-                "longitude": 77.12
+                "additionalInfo": {
+                    "name1": "value1",
+                    "name2": "value2"
+                }
             }
         ]
     },
     "metadata": {
         "datafiles": [],
-        "status": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 2,
             "pageSize": 1000,
             "totalPages": 1
-        }
+        },
+        "status": []
     }
 }
 ```
