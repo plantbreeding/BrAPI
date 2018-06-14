@@ -40,7 +40,7 @@ def buildReadMe(dir):
 				if 'responses' in methodObj:
 					responses = methodObj['responses']
 				
-				readMeStr += '\n\n## ' + callPath[1:].capitalize() + ' [' + methodKey.capitalize() + ' /brapi/v1' + callPath
+				readMeStr += '\n\n## ' + callPath[1:2].upper() + callPath[2:] + ' [' + methodKey.capitalize() + ' /brapi/v1' + callPath
 				for param in params:
 					if param['in'] == 'query' :
 					    readMeStr += '{?' + param['name'] + '}'

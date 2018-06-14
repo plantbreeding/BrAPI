@@ -1,13 +1,16 @@
 swagger: '2.0'
 paths:
-  /observationlevels:
+  /studyTypes:
     get:
+      deprecated: true
       description: '
-        Call to retrieve the list of supported observation levels. 
-        Observation levels indicate the granularity level at which the measurements are taken.
-        The values are used to supply the `observationLevel` parameter in the observation unit details call.
-
-        <a href="https://test-server.brapi.org/brapi/v1/observationlevels"> test-server.brapi.org/brapi/v1/observationlevels</a>'
+        ** DEPRECTED ** Use /studytypes
+        
+        Call to retrieve the list of study types.
+        
+        Scope: PHENOTYPING.
+        Implementation target date: PAG2016
+        '
       parameters:
       - description: The size of the pages to be returned. Default is `1000`.
         in: query
@@ -26,7 +29,7 @@ paths:
         '200':
           description: OK
           schema:
-            title: observationLevelsResponse
+            title: studyTypesResponse
             type: object
             properties:
               metadata:
@@ -37,8 +40,7 @@ paths:
                   data:
                     type: array
                     items: 
-                      description: observation levels available in this database
-                      type: string
+                      $ref: '#/definitions/studyType' 
           examples:
             application/json:
               metadata:
@@ -46,14 +48,19 @@ paths:
                 pagination:
                   currentPage: 0
                   pageSize: 1000
-                  totalCount: 2
+                  totalCount: 3
                   totalPages: 1
                 status: []
               result:
                 data:
-                - plant
-                - plot
+                - description: Description for Nursery study type
+                  name: Crossing Nursery
+                - description: Description for Trial study type
+                  name: Yield Trial
+                - description: Description for Genotyping study type
+                  name: Genotype
           headers: {}
-      summary: Get Observation Levels
-      tags:
-      - Observations
+      summary: '<strong>Deprecated</strong> List study types'
+      tags: 
+      - Studies
+      - Deprecated

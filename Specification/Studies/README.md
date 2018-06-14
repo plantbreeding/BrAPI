@@ -8,9 +8,42 @@ Note that dates should be provided in extended ISO 8601 format (for example, "YY
 
 
 
-## Observationlevels [Get /brapi/v1/observationLevels{?pageSize}{?page}]
+## Observationlevels [Get /brapi/v1/observationlevels{?pageSize}{?page}]
 
- Call to retrieve the list of supported observation levels. Observation levels indicate the granularity level at which the measurements are taken. The values are used to supply the `observationLevel` parameter in the observation unit details call.  
+ Call to retrieve the list of supported observation levels. Observation levels indicate the granularity level at which the measurements are taken. The values are used to supply the `observationLevel` parameter in the observation unit details call.
+<a href="https://test-server.brapi.org/brapi/v1/observationlevels"> test-server.brapi.org/brapi/v1/observationlevels</a> 
+
++ Parameters
+    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
+    + page (Optional, integer) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 2,
+            "totalPages": 1
+        },
+        "status": []
+    },
+    "result": {
+        "data": [
+            "plant",
+            "plot"
+        ]
+    }
+}
+```
+
+## ObservationLevels [Get /brapi/v1/observationLevels{?pageSize}{?page}]
+
+ ** DEPRECTED ** Use /observationlevels
+Call to retrieve the list of supported observation levels. Observation levels indicate the granularity level at which the measurements are taken. The values are used to supply the `observationLevel` parameter in the observation unit details call.  
 
 + Parameters
     + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
@@ -253,7 +286,7 @@ StartDate and endDate should be ISO8601 format for dates: YYYY-MM-DD
 }
 ```
 
-## Studies/{studydbid} [Get /brapi/v1/studies/{studyDbId}]
+## Studies/{studyDbId} [Get /brapi/v1/studies/{studyDbId}]
 
  Scope: PHENOTYPING. Status: ACCEPTED. Implemented by: Germinate, GnpIS
 Notes: an additionalInfo field was added to provide a controlled vocabulary for less common data fields.
@@ -351,7 +384,7 @@ More linked data: * observation variables: ```/brapi/v1/studies/{studyDbId}/obse
 }
 ```
 
-## Studies/{studydbid}/germplasm [Get /brapi/v1/studies/{studyDbId}/germplasm{?pageSize}{?page}]
+## Studies/{studyDbId}/germplasm [Get /brapi/v1/studies/{studyDbId}/germplasm{?pageSize}{?page}]
 
  Scope: PHENOTYPING
 <a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies/{studyDbId}/germplasm</a> 
@@ -408,7 +441,7 @@ More linked data: * observation variables: ```/brapi/v1/studies/{studyDbId}/obse
 }
 ```
 
-## Studies/{studydbid}/layout [Get /brapi/v1/studies/{studyDbId}/layout{?pageSize}{?page}]
+## Studies/{studyDbId}/layout [Get /brapi/v1/studies/{studyDbId}/layout{?pageSize}{?page}]
 
  Retrive the layout details for a study. Returns an array of observation unit position data which describes where each unit and germplasm is located within the study layout
 Retrieve the plot layout of the study with id {id}.
@@ -498,7 +531,7 @@ Also return some human readable meta data about the observationUnit and germplas
 }
 ```
 
-## Studies/{studydbid}/layout [Put /brapi/v1/studies/{studyDbId}/layout]
+## Studies/{studyDbId}/layout [Put /brapi/v1/studies/{studyDbId}/layout]
 
  Modify a study layout
 Update the layout data for a set of observation units within a study. Each layout object is a subset of fields within an observationUnit, so it doesnt make sense to create a new layout object by itself.
@@ -588,7 +621,7 @@ Implementation Notes:
 }
 ```
 
-## Studies/{studydbid}/observationunits [Get /brapi/v1/studies/{studyDbId}/observationunits{?observationLevel}{?pageSize}{?page}]
+## Studies/{studyDbId}/observationunits [Get /brapi/v1/studies/{studyDbId}/observationunits{?observationLevel}{?pageSize}{?page}]
 
  The main API call for field data collection, to retrieve all the observation units within a study.
 Scope: PHENOTYPING
@@ -703,7 +736,7 @@ Scope: PHENOTYPING
 }
 ```
 
-## Studies/{studydbid}/observationunits [Post /brapi/v1/studies/{studyDbId}/observationunits{?format}]
+## Studies/{studyDbId}/observationunits [Post /brapi/v1/studies/{studyDbId}/observationunits{?format}]
 
 This call has been deprecated in V1.1. Use instead: "PUT /studies/{studyDbId}/observationunits" and "PUT /studies/{studyDbId}/observationunits/zip" 
 
@@ -738,7 +771,7 @@ This call has been deprecated in V1.1. Use instead: "PUT /studies/{studyDbId}/ob
 }
 ```
 
-## Studies/{studydbid}/observationunits [Put /brapi/v1/studies/{studyDbId}/observationunits]
+## Studies/{studyDbId}/observationunits [Put /brapi/v1/studies/{studyDbId}/observationunits]
 
 Use this call for uploading new Observations as JSON to a system.
 
@@ -788,7 +821,7 @@ Note: If 'observationUnitDbId' or 'observationDbId' is populated, they should be
 }
 ```
 
-## Studies/{studydbid}/observationunits/zip [Post /brapi/v1/studies/{studyDbId}/observationunits/zip]
+## Studies/{studyDbId}/observationunits/zip [Post /brapi/v1/studies/{studyDbId}/observationunits/zip]
 
 Note: If 'observationUnitDbId' or 'observationDbId' is populated, they should be considered updates to existing records. If an existing record of that DbId is not found, the document should be treated as new records and assigned new DbIds. If 'observationUnitDbId' or 'observationDbId' is un-populated (empty string or null) the document should be treated as new records and assigned new DbIds. 
 
@@ -833,7 +866,7 @@ Note: If 'observationUnitDbId' or 'observationDbId' is populated, they should be
 }
 ```
 
-## Studies/{studydbid}/observationvariables [Get /brapi/v1/studies/{studyDbId}/observationvariables{?pageSize}{?page}]
+## Studies/{studyDbId}/observationvariables [Get /brapi/v1/studies/{studyDbId}/observationvariables{?pageSize}{?page}]
 
  Scope: PHENOTYPING
 List all the observation variables measured in the study.
@@ -966,7 +999,7 @@ Refer to the data type definition of variables in `/Specification/ObservationVar
 }
 ```
 
-## Studies/{studydbid}/observationvariables [Get /brapi/v1/studies/{studyDbId}/observationVariables]
+## Studies/{studyDbId}/observationVariables [Get /brapi/v1/studies/{studyDbId}/observationVariables]
 
 
 
@@ -1074,7 +1107,7 @@ Refer to the data type definition of variables in `/Specification/ObservationVar
 }
 ```
 
-## Studies/{studydbid}/observations [Get /brapi/v1/studies/{studyDbId}/observations{?observationVariableDbIds}{?pageSize}{?page}]
+## Studies/{studyDbId}/observations [Get /brapi/v1/studies/{studyDbId}/observations{?observationVariableDbIds}{?pageSize}{?page}]
 
 
 Retrieve all observations where there are measurements for the given observation variables.
@@ -1138,7 +1171,7 @@ observationTimestamp should be ISO8601 format with timezone: YYYY-MM-DDThh:mm:ss
 }
 ```
 
-## Studies/{studydbid}/observations [Put /brapi/v1/studies/{studyDbId}/observations]
+## Studies/{studyDbId}/observations [Put /brapi/v1/studies/{studyDbId}/observations]
 
  Implementation Guidelines: + If an `observationDbId` is "null" or an empty string in the request, a NEW observation should be created for the given study and observationUnit + If an `observationDbId` is populated but not found in the database, a NEW observation should be created for the given study and observationUnit AND an NEW `observationDbId` should be assigned to it. A warning should be returned to the client. + If an `observationDbId` is populated and found in the database, but the existing entry is not associated with the given study or observationUnit, a NEW observation should be created for the given study and observationUnit AND an NEW `observationDbId` should be assigned to it. A warning should be returned to the client. + If an `observationDbId` is populated and found in the database and is associated with the given study and observationUnit, then it should be updated with the new data given.
 <a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies/{studyDbId}/observations</a> 
@@ -1199,7 +1232,7 @@ observationTimestamp should be ISO8601 format with timezone: YYYY-MM-DDThh:mm:ss
 }
 ```
 
-## Studies/{studydbid}/table [Get /brapi/v1/studies/{studyDbId}/table{?format}]
+## Studies/{studyDbId}/table [Get /brapi/v1/studies/{studyDbId}/table{?format}]
 
  Scope: PHENOTYPING. Status: ACCEPTED. Implemented in Cassavabase, HIDAP and Germinate. Notes: Implementation target date: after PAG2016 Retrieve the details of the study required for field data collection. Includes actual trait data.
 <a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies/{studyDbId}/table</a> 
@@ -1302,7 +1335,7 @@ observationTimestamp should be ISO8601 format with timezone: YYYY-MM-DDThh:mm:ss
 "year\tstudyDbId\tstudyName\tlocationDbId\tlocationName\tgermplasmDbId\tgermplasmName\tobservationUnitDbId\tplotNumber\treplicate\tblockNumber\tobservationTimestamp\tentryType\tX\tY\tvariable1DbId\tvariable2DbId\tvariable3DbId\n 2017\tstu1\tStudy Name\tloc1\tLocation Name\tCIP1\tCIP Name\tabc123\t1\t1\t1\t2017-06-16T00:53:26Z\tTest Entry\t1\t2\t25.3\t103.4\t50.75\n 2017\tstu1\tStudy Name\tloc1\tLocation Name\tCIP1\tCIP Name\tabc124\t1\t1\t1\t2017-06-16T00:54:57Z\tTest Entry\t2\t2\t27.9\t98.65\t45.345\n"
 ```
 
-## Studies/{studydbid}/table [Post /brapi/v1/studies/{studyDbId}/table]
+## Studies/{studyDbId}/table [Post /brapi/v1/studies/{studyDbId}/table]
 
  This call can be used to create new observations in bulk.
 Note: If you need to update any existing observation, please use `PUT /studies/{studyDbId}/observations`. This call should only be used to create NEW observations.
@@ -1377,9 +1410,53 @@ Scope: PHENOTYPING
 }
 ```
 
-## Studytypes [Get /brapi/v1/studyTypes{?pageSize}{?page}]
+## Studytypes [Get /brapi/v1/studytypes{?pageSize}{?page}]
 
  Call to retrieve the list of study types.
+Scope: PHENOTYPING. Implementation target date: PAG2016
+<a href="https://test-server.brapi.org/brapi/v1/studytypes"> test-server.brapi.org/brapi/v1/studytypes</a> 
+
++ Parameters
+    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
+    + page (Optional, integer) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 3,
+            "totalPages": 1
+        },
+        "status": []
+    },
+    "result": {
+        "data": [
+            {
+                "description": "Description for Nursery study type",
+                "name": "Crossing Nursery"
+            },
+            {
+                "description": "Description for Trial study type",
+                "name": "Yield Trial"
+            },
+            {
+                "description": "Description for Genotyping study type",
+                "name": "Genotype"
+            }
+        ]
+    }
+}
+```
+
+## StudyTypes [Get /brapi/v1/studyTypes{?pageSize}{?page}]
+
+ ** DEPRECTED ** Use /studytypes
+Call to retrieve the list of study types.
 Scope: PHENOTYPING. Implementation target date: PAG2016  
 
 + Parameters
