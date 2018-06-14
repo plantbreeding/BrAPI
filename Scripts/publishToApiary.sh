@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Be sure to install the apiary gem; https://github.com/apiaryio/apiary-client
 # gem install apiaryio
@@ -13,7 +13,7 @@ else
 fi
 
 if [ -z "$2" ]; then
-	APINAME=brapi
+	APINAME=brapidev
 else
 	APINAME=${2}
 fi
@@ -23,7 +23,16 @@ fi
 echo $BRAPI_FILE
 echo $APINAME
 
-apiary publish --path $BRAPI_FILE --api-name $APINAME
+#apiary publish --path $BRAPI_FILE --api-name $APINAME
+
+BRAPI_FILE_CONTENTS=`cat $BRAPI_FILE`
+
+curl -i \
+  --request POST \
+  --header "Authentication:Token 36a46efb13b07ba8e98299668fdfb134" \
+  --header "content-type:application/json; charset=utf-8" \
+  --data-binary @$BRAPI_FILE \
+  https://api.apiary.io/blueprint/publish/$APINAME 
 
 if [ $? -ne 0 ]; then
 	echo "ERROR: Apiary rejected the file"
