@@ -18,21 +18,21 @@ Fun Fact: The plural of germplasm is germplasm (no "s").
 + Response 200 (application/json)
 ```
 {
-    "result": {
-        "description": "Backcross to recover a specific gene. The coding in the genealogical table records which parent was used as the male in each cycle. Each entity kept separate.",
-        "abbreviation": "MBCR",
-        "name": "Male Backcross",
-        "breedingMethodDbId": "BM987"
-    },
     "metadata": {
+        "datafiles": [],
         "pagination": {
-            "pageSize": 0,
             "currentPage": 0,
-            "totalPages": 0,
-            "totalCount": 0
+            "pageSize": 0,
+            "totalCount": 0,
+            "totalPages": 0
         },
-        "status": [],
-        "datafiles": []
+        "status": []
+    },
+    "result": {
+        "abbreviation": "MBCR",
+        "breedingMethodDbId": "BM987",
+        "description": "Backcross to recover a specific gene. The coding in the genealogical table records which parent was used as the male in each cycle. Each entity kept separate.",
+        "name": "Male Backcross"
     }
 }
 ```
@@ -51,31 +51,31 @@ Get the list of germplasm breeding methods available in a system.
 + Response 200 (application/json)
 ```
 {
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 2,
+            "totalPages": 1
+        },
+        "status": []
+    },
     "result": {
         "data": [
             {
-                "description": "Backcross to recover a specific gene. The coding in the genealogical table records which parent was used as the male in each cycle. Each entity kept separate.",
                 "abbreviation": "MBCR",
-                "name": "Male Backcross",
-                "breedingMethodDbId": "BM987"
+                "breedingMethodDbId": "BM987",
+                "description": "Backcross to recover a specific gene. The coding in the genealogical table records which parent was used as the male in each cycle. Each entity kept separate.",
+                "name": "Male Backcross"
             },
             {
-                "description": "Derivation through selection of a single plant, inflorescence, fruit or seed from a population",
                 "abbreviation": "DSP",
-                "name": "Single plant selection",
-                "breedingMethodDbId": "BM324"
+                "breedingMethodDbId": "BM324",
+                "description": "Derivation through selection of a single plant, inflorescence, fruit or seed from a population",
+                "name": "Single plant selection"
             }
         ]
-    },
-    "metadata": {
-        "pagination": {
-            "pageSize": 1000,
-            "currentPage": 0,
-            "totalPages": 1,
-            "totalCount": 2
-        },
-        "status": [],
-        "datafiles": []
     }
 }
 ```
@@ -100,29 +100,45 @@ Use GET when parameter size is less than 2K bytes. <a href="https://test-server.
 + Response 200 (application/json)
 ```
 {
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 2,
+            "totalPages": 1
+        },
+        "status": []
+    },
     "result": {
         "data": [
             {
-                "countryOfOriginCode": "UNK",
+                "accessionNumber": "ITC0609",
+                "acquisitionDate": "1947-01-31",
+                "biologicalStatusOfAccessionCode": 412,
                 "commonCropName": "banana",
+                "countryOfOriginCode": "UNK",
                 "defaultDisplayName": "Pahang",
-                "species": "acuminata",
-                "typeOfGermplasmStorageCode": [
-                    10
+                "donors": [
+                    {
+                        "donorAccessionNumber": "",
+                        "donorInstituteCode": "",
+                        "germplasmPUI": ""
+                    }
                 ],
-                "instituteCode": "01BEL084",
                 "genus": "Musa",
                 "germplasmDbId": "01BEL084609",
-                "synonyms": [],
-                "pedigree": "TOBA97/SW90.1057",
+                "germplasmName": "Pahang",
                 "germplasmPUI": "http://www.crop-diversity.org/mgis/accession/01BEL084609",
-                "donors": [
-                    {
-                        "germplasmPUI": "",
-                        "donorAccessionNumber": "",
-                        "donorInstituteCode": ""
-                    }
-                ],
+                "germplasmSeedSource": "Female GID:4/Male GID:4",
+                "instituteCode": "01BEL084",
+                "instituteName": "ITC",
+                "pedigree": "TOBA97/SW90.1057",
+                "species": "acuminata",
+                "speciesAuthority": "",
+                "subtaxa": "sp malaccensis var pahang",
+                "subtaxaAuthority": "",
+                "synonyms": [],
                 "taxonIds": [
                     {
                         "sourceName": "ncbiTaxon",
@@ -133,37 +149,37 @@ Use GET when parameter size is less than 2K bytes. <a href="https://test-server.
                         "taxonId": "23-E"
                     }
                 ],
-                "acquisitionDate": "1947-01-31",
-                "germplasmName": "Pahang",
-                "subtaxa": "sp malaccensis var pahang",
-                "instituteName": "ITC",
-                "subtaxaAuthority": "",
-                "biologicalStatusOfAccessionCode": 412,
-                "germplasmSeedSource": "Female GID:4/Male GID:4",
-                "speciesAuthority": "",
-                "accessionNumber": "ITC0609"
-            },
-            {
-                "countryOfOriginCode": "UNK",
-                "commonCropName": "banana",
-                "defaultDisplayName": "Pah",
-                "species": "acuminata",
                 "typeOfGermplasmStorageCode": [
                     10
-                ],
-                "instituteCode": "01BEL084",
-                "genus": "Musa",
-                "germplasmDbId": "03REL084609",
-                "synonyms": [],
-                "pedigree": "TOBA97/SW90.1057",
-                "germplasmPUI": "doi:10.15454/328757862534E12",
+                ]
+            },
+            {
+                "accessionNumber": "ITC0685",
+                "acquisitionDate": "1977-01-31",
+                "biologicalStatusOfAccessionCode": 412,
+                "commonCropName": "banana",
+                "countryOfOriginCode": "UNK",
+                "defaultDisplayName": "Pah",
                 "donors": [
                     {
-                        "germplasmPUI": "",
                         "donorAccessionNumber": "",
-                        "donorInstituteCode": ""
+                        "donorInstituteCode": "",
+                        "germplasmPUI": ""
                     }
                 ],
+                "genus": "Musa",
+                "germplasmDbId": "03REL084609",
+                "germplasmName": "Pah",
+                "germplasmPUI": "doi:10.15454/328757862534E12",
+                "germplasmSeedSource": "Female GID:4/Male GID:4",
+                "instituteCode": "01BEL084",
+                "instituteName": "ITC",
+                "pedigree": "TOBA97/SW90.1057",
+                "species": "acuminata",
+                "speciesAuthority": "",
+                "subtaxa": "sp malaccensis var pah",
+                "subtaxaAuthority": "",
+                "synonyms": [],
                 "taxonIds": [
                     {
                         "sourceName": "ncbiTaxon",
@@ -174,27 +190,11 @@ Use GET when parameter size is less than 2K bytes. <a href="https://test-server.
                         "taxonId": "23-E"
                     }
                 ],
-                "acquisitionDate": "1977-01-31",
-                "germplasmName": "Pah",
-                "subtaxa": "sp malaccensis var pah",
-                "instituteName": "ITC",
-                "subtaxaAuthority": "",
-                "biologicalStatusOfAccessionCode": 412,
-                "germplasmSeedSource": "Female GID:4/Male GID:4",
-                "speciesAuthority": "",
-                "accessionNumber": "ITC0685"
+                "typeOfGermplasmStorageCode": [
+                    10
+                ]
             }
         ]
-    },
-    "metadata": {
-        "pagination": {
-            "pageSize": 1000,
-            "currentPage": 0,
-            "totalPages": 1,
-            "totalCount": 2
-        },
-        "status": [],
-        "datafiles": []
     }
 }
 ```
@@ -215,29 +215,45 @@ Use POST for large queries (>2K bytes).
 + Response 200 (application/json)
 ```
 {
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 1,
+            "pageSize": 100,
+            "totalCount": 102,
+            "totalPages": 2
+        },
+        "status": []
+    },
     "result": {
         "data": [
             {
-                "countryOfOriginCode": "UNK",
+                "accessionNumber": "ITC0609",
+                "acquisitionDate": "1947-01-31",
+                "biologicalStatusOfAccessionCode": 412,
                 "commonCropName": "banana",
+                "countryOfOriginCode": "UNK",
                 "defaultDisplayName": "Pahang",
-                "species": "acuminata",
-                "typeOfGermplasmStorageCode": [
-                    10
+                "donors": [
+                    {
+                        "donorAccessionNumber": "",
+                        "donorInstituteCode": "",
+                        "germplasmPUI": ""
+                    }
                 ],
-                "instituteCode": "01BEL084",
                 "genus": "Musa",
                 "germplasmDbId": "01BEL084609",
-                "synonyms": [],
-                "pedigree": "TOBA97/SW90.1057",
+                "germplasmName": "Pahang",
                 "germplasmPUI": "http://www.crop-diversity.org/mgis/accession/01BEL084609",
-                "donors": [
-                    {
-                        "germplasmPUI": "",
-                        "donorAccessionNumber": "",
-                        "donorInstituteCode": ""
-                    }
-                ],
+                "germplasmSeedSource": "Female GID:4/Male GID:4",
+                "instituteCode": "01BEL084",
+                "instituteName": "ITC",
+                "pedigree": "TOBA97/SW90.1057",
+                "species": "acuminata",
+                "speciesAuthority": "",
+                "subtaxa": "sp malaccensis var pahang",
+                "subtaxaAuthority": "",
+                "synonyms": [],
                 "taxonIds": [
                     {
                         "sourceName": "ncbiTaxon",
@@ -248,37 +264,37 @@ Use POST for large queries (>2K bytes).
                         "taxonId": "23-E"
                     }
                 ],
-                "acquisitionDate": "1947-01-31",
-                "germplasmName": "Pahang",
-                "subtaxa": "sp malaccensis var pahang",
-                "instituteName": "ITC",
-                "subtaxaAuthority": "",
-                "biologicalStatusOfAccessionCode": 412,
-                "germplasmSeedSource": "Female GID:4/Male GID:4",
-                "speciesAuthority": "",
-                "accessionNumber": "ITC0609"
-            },
-            {
-                "countryOfOriginCode": "UNK",
-                "commonCropName": "banana",
-                "defaultDisplayName": "Pah",
-                "species": "acuminata",
                 "typeOfGermplasmStorageCode": [
                     10
-                ],
-                "instituteCode": "01BEL084",
-                "genus": "Musa",
-                "germplasmDbId": "03REL084609",
-                "synonyms": [],
-                "pedigree": "TOBA97/SW90.1057",
-                "germplasmPUI": "doi:10.15454/328757862534E12",
+                ]
+            },
+            {
+                "accessionNumber": "ITC0685",
+                "acquisitionDate": "1977-01-31",
+                "biologicalStatusOfAccessionCode": 412,
+                "commonCropName": "banana",
+                "countryOfOriginCode": "UNK",
+                "defaultDisplayName": "Pah",
                 "donors": [
                     {
-                        "germplasmPUI": "",
                         "donorAccessionNumber": "",
-                        "donorInstituteCode": ""
+                        "donorInstituteCode": "",
+                        "germplasmPUI": ""
                     }
                 ],
+                "genus": "Musa",
+                "germplasmDbId": "03REL084609",
+                "germplasmName": "Pah",
+                "germplasmPUI": "doi:10.15454/328757862534E12",
+                "germplasmSeedSource": "Female GID:4/Male GID:4",
+                "instituteCode": "01BEL084",
+                "instituteName": "ITC",
+                "pedigree": "TOBA97/SW90.1057",
+                "species": "acuminata",
+                "speciesAuthority": "",
+                "subtaxa": "sp malaccensis var pah",
+                "subtaxaAuthority": "",
+                "synonyms": [],
                 "taxonIds": [
                     {
                         "sourceName": "ncbiTaxon",
@@ -289,27 +305,11 @@ Use POST for large queries (>2K bytes).
                         "taxonId": "23-E"
                     }
                 ],
-                "acquisitionDate": "1977-01-31",
-                "germplasmName": "Pah",
-                "subtaxa": "sp malaccensis var pah",
-                "instituteName": "ITC",
-                "subtaxaAuthority": "",
-                "biologicalStatusOfAccessionCode": 412,
-                "germplasmSeedSource": "Female GID:4/Male GID:4",
-                "speciesAuthority": "",
-                "accessionNumber": "ITC0685"
+                "typeOfGermplasmStorageCode": [
+                    10
+                ]
             }
         ]
-    },
-    "metadata": {
-        "pagination": {
-            "pageSize": 100,
-            "currentPage": 1,
-            "totalPages": 2,
-            "totalCount": 102
-        },
-        "status": [],
-        "datafiles": []
     }
 }
 ```
@@ -329,17 +329,42 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
 + Response 200 (application/json)
 ```
 {
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 0,
+            "totalCount": 0,
+            "totalPages": 0
+        },
+        "status": []
+    },
     "result": {
-        "countryOfOriginCode": "UNK",
+        "accessionNumber": "ITC0609",
+        "acquisitionDate": "1947-01-31",
+        "biologicalStatusOfAccessionCode": 412,
         "commonCropName": "banana",
+        "countryOfOriginCode": "UNK",
         "defaultDisplayName": "Pahang",
-        "species": "acuminata",
-        "typeOfGermplasmStorageCode": [
-            10
+        "donors": [
+            {
+                "donorAccessionNumber": "",
+                "donorGermplasmPUI": "",
+                "donorInstituteCode": ""
+            }
         ],
-        "instituteCode": "01BEL084",
         "genus": "Musa",
         "germplasmDbId": "01BEL084609",
+        "germplasmName": "Pahang",
+        "germplasmPUI": "http://www.crop-diversity.org/mgis/accession/01BEL084609",
+        "instituteCode": "01BEL084",
+        "instituteName": "ITC",
+        "pedigree": "TOBA97/SW90.1057",
+        "seedSource": "ITC0609-2016-77",
+        "species": "acuminata",
+        "speciesAuthority": "",
+        "subtaxa": "sp malaccensis var pahang",
+        "subtaxaAuthority": "",
         "synonyms": [],
         "taxonIds": [
             {
@@ -351,34 +376,9 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
                 "taxonId": "23-E"
             }
         ],
-        "germplasmPUI": "http://www.crop-diversity.org/mgis/accession/01BEL084609",
-        "donors": [
-            {
-                "donorGermplasmPUI": "",
-                "donorAccessionNumber": "",
-                "donorInstituteCode": ""
-            }
-        ],
-        "pedigree": "TOBA97/SW90.1057",
-        "acquisitionDate": "1947-01-31",
-        "germplasmName": "Pahang",
-        "subtaxa": "sp malaccensis var pahang",
-        "seedSource": "ITC0609-2016-77",
-        "instituteName": "ITC",
-        "subtaxaAuthority": "",
-        "biologicalStatusOfAccessionCode": 412,
-        "speciesAuthority": "",
-        "accessionNumber": "ITC0609"
-    },
-    "metadata": {
-        "pagination": {
-            "pageSize": 0,
-            "currentPage": 0,
-            "totalPages": 0,
-            "totalCount": 0
-        },
-        "status": [],
-        "datafiles": []
+        "typeOfGermplasmStorageCode": [
+            10
+        ]
     }
 }
 ```
@@ -399,28 +399,28 @@ Implemented by: Germinate, Cassavabase
 + Response 200 (application/json)
 ```
 {
-    "result": {
-        "markerprofileDbIds": [
-            "3939",
-            "4484",
-            "3993"
-        ],
-        "germplasmDbId": "01BEL084609"
-    },
     "metadata": {
+        "datafiles": [],
         "pagination": {
-            "pageSize": 0,
             "currentPage": 0,
-            "totalPages": 0,
-            "totalCount": 0
+            "pageSize": 0,
+            "totalCount": 0,
+            "totalPages": 0
         },
         "status": [
             {
                 "code": "",
                 "message": ""
             }
-        ],
-        "datafiles": []
+        ]
+    },
+    "result": {
+        "germplasmDbId": "01BEL084609",
+        "markerprofileDbIds": [
+            "3939",
+            "4484",
+            "3993"
+        ]
     }
 }
 ```
@@ -443,39 +443,39 @@ Implemented by: Germinate, Tripal Brapi Module, Cassavabase (without notation op
 + Response 200 (application/json)
 ```
 {
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 0,
+            "totalCount": 0,
+            "totalPages": 0
+        },
+        "status": []
+    },
     "result": {
         "crossingPlan": "OPEN_POLLINATION",
         "crossingYear": "2018",
-        "pedigree": "Cree / Bonanza",
         "defaultDisplayName": "Pahang 1",
-        "siblings": [
-            {
-                "germplasmDbId": "383",
-                "defaultDisplayName": "Pahang 2"
-            },
-            {
-                "germplasmDbId": "384",
-                "defaultDisplayName": "Pahang 3"
-            }
-        ],
+        "familyCode": "Cree_x_Bonanza_2018",
+        "germplasmDbId": "01BEL084609",
+        "parent1DbId": "166",
+        "parent1Name": "Cree",
+        "parent1Type": "FEMALE",
+        "parent2DbId": "143",
         "parent2Name": "Bonanza",
         "parent2Type": "MALE",
-        "familyCode": "Cree_x_Bonanza_2018",
-        "parent2DbId": "143",
-        "parent1Name": "Cree",
-        "parent1DbId": "166",
-        "germplasmDbId": "01BEL084609",
-        "parent1Type": "FEMALE"
-    },
-    "metadata": {
-        "pagination": {
-            "pageSize": 0,
-            "currentPage": 0,
-            "totalPages": 0,
-            "totalCount": 0
-        },
-        "status": [],
-        "datafiles": []
+        "pedigree": "Cree / Bonanza",
+        "siblings": [
+            {
+                "defaultDisplayName": "Pahang 2",
+                "germplasmDbId": "383"
+            },
+            {
+                "defaultDisplayName": "Pahang 3",
+                "germplasmDbId": "384"
+            }
+        ]
     }
 }
 ```
@@ -493,36 +493,36 @@ Get the germplasmDbIds for all the Progeny of a particular germplasm.
 + Response 200 (application/json)
 ```
 {
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 0,
+            "totalCount": 0,
+            "totalPages": 0
+        },
+        "status": []
+    },
     "result": {
         "defaultDisplayName": "Pahang",
         "germplasmDbId": "382",
         "progeny": [
             {
-                "parentType": "FEMALE",
+                "defaultDisplayName": "Child 1",
                 "germplasmDbId": "402",
-                "defaultDisplayName": "Child 1"
+                "parentType": "FEMALE"
             },
             {
-                "parentType": "MALE",
+                "defaultDisplayName": "Child 2",
                 "germplasmDbId": "403",
-                "defaultDisplayName": "Child 2"
+                "parentType": "MALE"
             },
             {
-                "parentType": "SELF",
+                "defaultDisplayName": "Pahang Selfed",
                 "germplasmDbId": "405",
-                "defaultDisplayName": "Pahang Selfed"
+                "parentType": "SELF"
             }
         ]
-    },
-    "metadata": {
-        "pagination": {
-            "pageSize": 0,
-            "currentPage": 0,
-            "totalPages": 0,
-            "totalCount": 0
-        },
-        "status": [],
-        "datafiles": []
     }
 }
 ```

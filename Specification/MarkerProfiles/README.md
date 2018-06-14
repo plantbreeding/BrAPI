@@ -51,6 +51,16 @@ This method may support asynchronous processing.
 + Response 200 (application/json)
 ```
 {
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 4,
+            "totalPages": 1
+        },
+        "status": []
+    },
     "result": {
         "data": [
             [
@@ -74,16 +84,6 @@ This method may support asynchronous processing.
                 "A/B"
             ]
         ]
-    },
-    "metadata": {
-        "pagination": {
-            "pageSize": 1000,
-            "currentPage": 0,
-            "totalPages": 1,
-            "totalCount": 4
-        },
-        "status": [],
-        "datafiles": []
     }
 }
 ```
@@ -118,6 +118,16 @@ The format of the tsv response can be found on GitHub (https://github.com/plantb
 + Response 200 (application/json)
 ```
 {
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 0,
+            "totalCount": 0,
+            "totalPages": 0
+        },
+        "status": []
+    },
     "result": {
         "data": [
             [
@@ -141,35 +151,25 @@ The format of the tsv response can be found on GitHub (https://github.com/plantb
                 "A/B"
             ]
         ]
-    },
-    "metadata": {
-        "pagination": {
-            "pageSize": 0,
-            "currentPage": 0,
-            "totalPages": 0,
-            "totalCount": 0
-        },
-        "status": [],
-        "datafiles": []
     }
 }
 ```+ Response 200 (application/tsv)
 ```
 {
-    "result": {
-        "data": []
-    },
     "metadata": {
-        "pagination": {
-            "pageSize": 0,
-            "currentPage": 0,
-            "totalPages": 0,
-            "totalCount": 0
-        },
-        "status": [],
         "datafiles": [
             "https://my-fancy-server/files/allelematrix-1234.tsv"
-        ]
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 0,
+            "totalCount": 0,
+            "totalPages": 0
+        },
+        "status": []
+    },
+    "result": {
+        "data": []
     }
 }
 ```
@@ -194,33 +194,33 @@ POST will provide a means for adding new matrices (content TBD).
 + Response 200 (application/json)
 ```
 {
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 2,
+            "totalPages": 1
+        },
+        "status": []
+    },
     "result": {
         "data": [
             {
-                "matrixDbId": "27",
+                "description": "a test dataset",
                 "lastUpdated": "2017-06-12",
-                "studyDbId": "abc123",
+                "matrixDbId": "27",
                 "name": "testDs1",
-                "description": "a test dataset"
+                "studyDbId": "abc123"
             },
             {
-                "matrixDbId": "28",
+                "description": "a second test dataset",
                 "lastUpdated": "2017-06-12",
-                "studyDbId": "abc123",
+                "matrixDbId": "28",
                 "name": "testDs2",
-                "description": "a second test dataset"
+                "studyDbId": "abc123"
             }
         ]
-    },
-    "metadata": {
-        "pagination": {
-            "pageSize": 1000,
-            "currentPage": 0,
-            "totalPages": 1,
-            "totalCount": 2
-        },
-        "status": [],
-        "datafiles": []
     }
 }
 ```
@@ -260,6 +260,16 @@ This method may support asynchronous processing.
 + Response 200 (application/json)
 ```
 {
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 4,
+            "totalPages": 1
+        },
+        "status": []
+    },
     "result": {
         "data": [
             [
@@ -283,16 +293,6 @@ This method may support asynchronous processing.
                 "A/B"
             ]
         ]
-    },
-    "metadata": {
-        "pagination": {
-            "pageSize": 1000,
-            "currentPage": 0,
-            "totalPages": 1,
-            "totalCount": 4
-        },
-        "status": [],
-        "datafiles": []
     }
 }
 ```
@@ -327,6 +327,16 @@ The format of the tsv response can be found on GitHub (https://github.com/plantb
 + Response 200 (application/json)
 ```
 {
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 0,
+            "totalCount": 0,
+            "totalPages": 0
+        },
+        "status": []
+    },
     "result": {
         "data": [
             [
@@ -350,35 +360,25 @@ The format of the tsv response can be found on GitHub (https://github.com/plantb
                 "A/B"
             ]
         ]
-    },
-    "metadata": {
-        "pagination": {
-            "pageSize": 0,
-            "currentPage": 0,
-            "totalPages": 0,
-            "totalCount": 0
-        },
-        "status": [],
-        "datafiles": []
     }
 }
 ```+ Response 200 (application/tsv)
 ```
 {
-    "result": {
-        "data": []
-    },
     "metadata": {
-        "pagination": {
-            "pageSize": 0,
-            "currentPage": 0,
-            "totalPages": 0,
-            "totalCount": 0
-        },
-        "status": [],
         "datafiles": [
             "https://my-fancy-server/files/allelematrix-1234.tsv"
-        ]
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 0,
+            "totalCount": 0,
+            "totalPages": 0
+        },
+        "status": []
+    },
+    "result": {
+        "data": []
     }
 }
 ```
@@ -404,37 +404,37 @@ For the requested Germplasm Id and/or Extract Id, returns the Markerprofile Id a
 + Response 200 (application/json)
 ```
 {
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 2,
+            "totalPages": 1
+        },
+        "status": []
+    },
     "result": {
         "data": [
             {
-                "resultCount": 1470,
-                "markerprofileDbId": "993",
-                "germplasmDbId": "01BEL084609S",
-                "uniqueDisplayName": "MyFancyGermplasm",
-                "sampleDbId": "3937",
                 "analysisMethod": "GoldenGate",
-                "extractDbId": "3939"
+                "extractDbId": "3939",
+                "germplasmDbId": "01BEL084609S",
+                "markerprofileDbId": "993",
+                "resultCount": 1470,
+                "sampleDbId": "3937",
+                "uniqueDisplayName": "MyFancyGermplasm"
             },
             {
-                "resultCount": 1470,
-                "markerprofileDbId": "994",
-                "germplasmDbId": "2374",
-                "uniqueDisplayName": "Germplasm2",
-                "sampleDbId": "1234",
                 "analysisMethod": "GBS",
-                "extractDbId": "3939"
+                "extractDbId": "3939",
+                "germplasmDbId": "2374",
+                "markerprofileDbId": "994",
+                "resultCount": 1470,
+                "sampleDbId": "1234",
+                "uniqueDisplayName": "Germplasm2"
             }
         ]
-    },
-    "metadata": {
-        "pagination": {
-            "pageSize": 1000,
-            "currentPage": 0,
-            "totalPages": 1,
-            "totalCount": 2
-        },
-        "status": [],
-        "datafiles": []
     }
 }
 ```
@@ -476,8 +476,18 @@ Alphabetically?'
 + Response 200 (application/json)
 ```
 {
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 22,
+            "totalCount": 22,
+            "totalPages": 1
+        },
+        "status": []
+    },
     "result": {
-        "markerprofileDbId": "993",
+        "analysisMethod": "GBS",
         "data": [
             {
                 "marker1-1": "1"
@@ -546,20 +556,10 @@ Alphabetically?'
                 "marker3-6": "0"
             }
         ],
-        "uniqueDisplayName": "My Fancy Germplasm",
+        "extractDbId": "extract1",
         "germplasmDbId": "1",
-        "analysisMethod": "GBS",
-        "extractDbId": "extract1"
-    },
-    "metadata": {
-        "pagination": {
-            "pageSize": 22,
-            "totalCount": 22,
-            "totalPages": 1,
-            "currentPage": 0
-        },
-        "status": [],
-        "datafiles": []
+        "markerprofileDbId": "993",
+        "uniqueDisplayName": "My Fancy Germplasm"
     }
 }
 ```

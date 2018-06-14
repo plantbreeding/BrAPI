@@ -24,71 +24,71 @@ Services related to trials. Trials comprise of multiple studies. The trial conce
 + Response 200 (application/json)
 ```
 {
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 2,
+            "totalPages": 1
+        },
+        "status": []
+    },
     "result": {
         "data": [
             {
-                "startDate": "2007-06-01",
-                "trialName": "InternationalTrialA",
-                "endDate": "2008-12-31",
+                "active": "false",
                 "additionalInfo": {
-                    "property2Name": "property2Value",
                     "property1Name": "property1Value",
+                    "property2Name": "property2Value",
                     "property3Name": "property3Value"
                 },
+                "endDate": "2008-12-31",
+                "programDbId": "27",
+                "programName": "International Yield Trial",
+                "startDate": "2007-06-01",
                 "studies": [
                     {
+                        "locationName": "Zimbabwe",
                         "studyDbId": "1",
-                        "studyName": "Zimbabwe Yield Trial",
-                        "locationName": "Zimbabwe"
+                        "studyName": "Zimbabwe Yield Trial"
                     },
                     {
+                        "locationName": "Kenya",
                         "studyDbId": "2",
-                        "studyName": "Kenya Yield Trial",
-                        "locationName": "Kenya"
+                        "studyName": "Kenya Yield Trial"
                     }
                 ],
-                "active": "false",
-                "programName": "International Yield Trial",
                 "trialDbId": "1",
-                "programDbId": "27"
+                "trialName": "InternationalTrialA"
             },
             {
-                "startDate": "2008-06-01",
-                "trialName": "InternationalTrialB",
-                "endDate": "2009-12-31",
+                "active": "true",
                 "additionalInfo": {
-                    "property2Name": "property2Value",
                     "property1Name": "property1Value",
+                    "property2Name": "property2Value",
                     "property3Name": "property3Value"
                 },
+                "endDate": "2009-12-31",
+                "programDbId": "35",
+                "programName": "International Yield Trial 2: Return of the Trial",
+                "startDate": "2008-06-01",
                 "studies": [
                     {
+                        "locationName": "Zimbabwe",
                         "studyDbId": "3",
-                        "studyName": "Zimbabwe Yield Trial",
-                        "locationName": "Zimbabwe"
+                        "studyName": "Zimbabwe Yield Trial"
                     },
                     {
+                        "locationName": "Kenya",
                         "studyDbId": "4",
-                        "studyName": "Kenya Yield Trial",
-                        "locationName": "Kenya"
+                        "studyName": "Kenya Yield Trial"
                     }
                 ],
-                "active": "true",
-                "programName": "International Yield Trial 2: Return of the Trial",
                 "trialDbId": "2",
-                "programDbId": "35"
+                "trialName": "InternationalTrialB"
             }
         ]
-    },
-    "metadata": {
-        "pagination": {
-            "pageSize": 1000,
-            "currentPage": 0,
-            "totalPages": 1,
-            "totalCount": 2
-        },
-        "status": [],
-        "datafiles": []
     }
 }
 ```
@@ -106,65 +106,65 @@ Get trial by id.
 + Response 200 (application/json)
 ```
 {
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 0,
+            "totalCount": 0,
+            "totalPages": 0
+        },
+        "status": []
+    },
     "result": {
-        "startDate": "2007-06-01",
-        "datasetAuthorship": {
-            "license": "https://creativecommons.org/licenses/by/4.0",
-            "datasetPUI": "doi:10.15454/312953986E3"
+        "active": "true",
+        "additionalInfo": {
+            "property2Name": "property2Value",
+            "property3Name": "property3Value",
+            "publications": "pmid:239823988, doi:10.2345/GEZG3T23535"
         },
         "contacts": [
             {
-                "instituteName": "IRRI",
-                "name": "John Doe",
                 "contactDbId": "C025",
                 "email": "j.doe@mail.com",
+                "instituteName": "IRRI",
+                "name": "John Doe",
                 "orcid": "0000-0002-0607-8728",
                 "type": "Scientist"
             },
             {
-                "instituteName": "IRRI",
-                "name": "Dave Peters",
                 "contactDbId": "C026",
                 "email": null,
+                "instituteName": "IRRI",
+                "name": "Dave Peters",
                 "orcid": null,
                 "type": null
             }
         ],
-        "endDate": "2008-12-31",
-        "additionalInfo": {
-            "property2Name": "property2Value",
-            "publications": "pmid:239823988, doi:10.2345/GEZG3T23535",
-            "property3Name": "property3Value"
+        "datasetAuthorship": {
+            "datasetPUI": "doi:10.15454/312953986E3",
+            "license": "https://creativecommons.org/licenses/by/4.0"
         },
+        "endDate": "2008-12-31",
+        "programDbId": 27,
+        "programName": "International Yield Trial",
+        "startDate": "2007-06-01",
         "studies": [
             {
-                "studyDbId": 1,
                 "locationDbId": "z-2",
                 "locationName": "Zimbabwe",
+                "studyDbId": 1,
                 "studyName": "Zimbabwe Yield Trial"
             },
             {
-                "studyDbId": 2,
                 "locationDbId": "k-1",
                 "locationName": "Kenya",
+                "studyDbId": 2,
                 "studyName": "Kenya Yield Trial"
             }
         ],
-        "active": "true",
-        "programName": "International Yield Trial",
         "trialDbId": 1,
-        "programDbId": 27,
         "trialName": "InternationalTrialA"
-    },
-    "metadata": {
-        "pagination": {
-            "pageSize": 0,
-            "currentPage": 0,
-            "totalPages": 0,
-            "totalCount": 0
-        },
-        "status": [],
-        "datafiles": []
     }
 }
 ```

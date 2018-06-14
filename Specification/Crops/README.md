@@ -25,6 +25,16 @@ The common crop name can be used as a search parameter for Programs, Studies, an
 + Response 200 (application/json)
 ```
 {
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 3,
+            "totalPages": 1
+        },
+        "status": []
+    },
     "result": {
         "data": [
             "maize",
@@ -32,16 +42,6 @@ The common crop name can be used as a search parameter for Programs, Studies, an
             "rice",
             "potato"
         ]
-    },
-    "metadata": {
-        "pagination": {
-            "pageSize": 1000,
-            "currentPage": 0,
-            "totalPages": 1,
-            "totalCount": 3
-        },
-        "status": [],
-        "datafiles": []
     }
 }
 ```
@@ -60,22 +60,22 @@ For multi crop systems this is a useful call to list all the supported crops.
 + Response 200 (application/json)
 ```
 {
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 3,
+            "totalPages": 1
+        },
+        "status": []
+    },
     "result": {
         "data": [
             "maize",
             "wheat",
             "rice"
         ]
-    },
-    "metadata": {
-        "pagination": {
-            "pageSize": 1000,
-            "currentPage": 0,
-            "totalPages": 1,
-            "totalCount": 3
-        },
-        "status": [],
-        "datafiles": []
     }
 }
 ```
