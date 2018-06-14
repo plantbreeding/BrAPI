@@ -8,7 +8,7 @@ fi
 
 BRAPI_DIR=${ROOT_DIRECTORY}
 
-BRAPI_FILE=${ROOT_DIRECTORY}/brapi_blueprint.json
+BRAPI_FILE=${ROOT_DIRECTORY}/brapi_blueprint.apib
 
 if [ -f $BRAPI_FILE ]; then
     rm $BRAPI_FILE

@@ -29,7 +29,7 @@ BRAPI_FILE_CONTENTS=`cat $BRAPI_FILE`
 
 curl -i \
   --request POST \
-  --header "Authentication:Token 36a46efb13b07ba8e98299668fdfb134" \
+  --header "Authentication:Token $APIARY_TOKEN" \
   --header "content-type:application/json; charset=utf-8" \
   --data-binary @$BRAPI_FILE \
   https://api.apiary.io/blueprint/publish/$APINAME 
