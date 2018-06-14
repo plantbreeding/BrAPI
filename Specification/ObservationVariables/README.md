@@ -327,7 +327,7 @@ Call to retrieve a list of observationVariables available in the system. <br>
 }
 ```
 
-## Variables/{observationvariabledbid} [Get /brapi/v1/variables/{observationVariableDbId}]
+## Variables/{observationVariableDbId} [Get /brapi/v1/variables/{observationVariableDbId}]
 
 Retrieve variable details <br>
 <strong>Scope:</strong> CORE

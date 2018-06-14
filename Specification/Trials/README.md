@@ -93,7 +93,7 @@ Services related to trials. Trials comprise of multiple studies. The trial conce
 }
 ```
 
-## Trials/{trialdbid} [Get /brapi/v1/trials/{trialDbId}]
+## Trials/{trialDbId} [Get /brapi/v1/trials/{trialDbId}]
 
  Scope: PHENOTYPING. Status: ACCEPTED. Implementation target date: PAG2016.
 Get trial by id.

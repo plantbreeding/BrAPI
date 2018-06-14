@@ -73,7 +73,7 @@ Get a list of locations.
 }
 ```
 
-## Locations/{locationdbid} [Get /brapi/v1/locations/{locationDbId}]
+## Locations/{locationDbId} [Get /brapi/v1/locations/{locationDbId}]
 
  <strong>Implemented by:</strong>  GnpIS
 Get details for a location.

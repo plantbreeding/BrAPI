@@ -214,7 +214,7 @@ and '?' for one character matching. Default is exact.
 }
 ```
 
-## Markers/{markerdbid} [Get /brapi/v1/markers/{markerDbId}]
+## Markers/{markerDbId} [Get /brapi/v1/markers/{markerDbId}]
 
 <strong>Status</strong>: ACCEPTED 
 <strong>Implemented By</strong>: 

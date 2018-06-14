@@ -65,7 +65,7 @@ Get list of maps <br>
 }
 ```
 
-## Maps/{mapdbid} [Get /brapi/v1/maps/{mapDbId}{?pageSize}{?page}]
+## Maps/{mapDbId} [Get /brapi/v1/maps/{mapDbId}{?pageSize}{?page}]
 
 Provides the number of markers on each linkageGroup and the max position on the linkageGroup <br>
 <strong>Status:</strong> ACCEPTED <strong>Implemented by:</strong> Germinate, Cassavabase <strong>Used by:</strong> Flapjack 
@@ -113,7 +113,7 @@ Provides the number of markers on each linkageGroup and the max position on the 
 }
 ```
 
-## Maps/{mapdbid}/positions [Get /brapi/v1/maps/{mapDbId}/positions{?linkageGroupId}{?linkageGroupName}{?pageSize}{?page}]
+## Maps/{mapDbId}/positions [Get /brapi/v1/maps/{mapDbId}/positions{?linkageGroupId}{?linkageGroupName}{?pageSize}{?page}]
 
 markers ordered by linkageGroup and position <br>
 <strong>Status:</strong> ACCEPTED. <strong>Implemented by:</strong> Germinate, Cassavabase <strong>Used by:</strong> Flapjack 
@@ -158,7 +158,7 @@ markers ordered by linkageGroup and position <br>
 }
 ```
 
-## Maps/{mapdbid}/positions/{linkagegroupname} [Get /brapi/v1/maps/{mapDbId}/positions/{linkageGroupName}{?min}{?max}{?pageSize}{?page}]
+## Maps/{mapDbId}/positions/{linkageGroupName} [Get /brapi/v1/maps/{mapDbId}/positions/{linkageGroupName}{?min}{?max}{?pageSize}{?page}]
 
 markers ordered by linkageGroup and position 
 

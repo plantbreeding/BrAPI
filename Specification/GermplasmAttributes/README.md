@@ -91,7 +91,7 @@ List all available attribute categories.
 }
 ```
 
-## Germplasm/{germplasmdbid}/attributes [Get /brapi/v1/germplasm/{germplasmDbId}/attributes{?attributeDbIds}{?attributeList}{?pageSize}{?page}]
+## Germplasm/{germplasmDbId}/attributes [Get /brapi/v1/germplasm/{germplasmDbId}/attributes{?attributeDbIds}{?attributeList}{?pageSize}{?page}]
 
 Values for all attributes by default.
 

@@ -62,7 +62,7 @@ Call to retrieve a list of traits available in the system and their associated v
 }
 ```
 
-## Traits/{traitdbid} [Get /brapi/v1/traits/{traitDbId}]
+## Traits/{traitDbId} [Get /brapi/v1/traits/{traitDbId}]
 
  Scope: CORE. Status: ACCEPTED.
 Implemented by: Germinate

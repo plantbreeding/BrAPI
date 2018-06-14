@@ -5,7 +5,7 @@ Fun Fact: The plural of germplasm is germplasm (no "s").
 
 
 
-## Breedingmethods/{breedingmethoddbid} [Get /brapi/v1/breedingmethods/{breedingMethodDbId}]
+## Breedingmethods/{breedingMethodDbId} [Get /brapi/v1/breedingmethods/{breedingMethodDbId}]
 
 
 
@@ -314,7 +314,7 @@ Use POST for large queries (>2K bytes).
 }
 ```
 
-## Germplasm/{germplasmdbid} [Get /brapi/v1/germplasm/{germplasmDbId}]
+## Germplasm/{germplasmDbId} [Get /brapi/v1/germplasm/{germplasmDbId}]
 
  Scope: CORE. Status: ACCEPTED.
 Implementation target date: PAG2016
@@ -383,7 +383,7 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
 }
 ```
 
-## Germplasm/{germplasmdbid}/markerprofiles [Get /brapi/v1/germplasm/{germplasmDbId}/markerprofiles]
+## Germplasm/{germplasmDbId}/markerprofiles [Get /brapi/v1/germplasm/{germplasmDbId}/markerprofiles]
 
  Retrieve the markerProfileDbIds for a given Germplasm ID
 Scope: GENOTYPING.
@@ -425,7 +425,7 @@ Implemented by: Germinate, Cassavabase
 }
 ```
 
-## Germplasm/{germplasmdbid}/pedigree [Get /brapi/v1/germplasm/{germplasmDbId}/pedigree{?notation}{?includeSiblings}]
+## Germplasm/{germplasmDbId}/pedigree [Get /brapi/v1/germplasm/{germplasmDbId}/pedigree{?notation}{?includeSiblings}]
 
 
 Scope: CORE. Status: ACCEPTED.
@@ -480,7 +480,7 @@ Implemented by: Germinate, Tripal Brapi Module, Cassavabase (without notation op
 }
 ```
 
-## Germplasm/{germplasmdbid}/progeny [Get /brapi/v1/germplasm/{germplasmDbId}/progeny]
+## Germplasm/{germplasmDbId}/progeny [Get /brapi/v1/germplasm/{germplasmDbId}/progeny]
 
  Scope: Germplasm
 Get the germplasmDbIds for all the Progeny of a particular germplasm.

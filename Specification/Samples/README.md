@@ -150,7 +150,7 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
 }
 ```
 
-## Samples/{sampledbid} [Get /brapi/v1/samples/{sampleDbId}]
+## Samples/{sampleDbId} [Get /brapi/v1/samples/{sampleDbId}]
 
  Used to retrieve the details of a single Sample from a Sample Tracking system.
 <a href="https://test-server.brapi.org/brapi/v1/samples"> test-server.brapi.org/brapi/v1/samples/{sampleDbId}</a> 

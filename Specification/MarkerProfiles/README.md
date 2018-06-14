@@ -439,7 +439,7 @@ For the requested Germplasm Id and/or Extract Id, returns the Markerprofile Id a
 }
 ```
 
-## Markerprofiles/{markerprofiledbid} [Get /brapi/v1/markerprofiles/{markerprofileDbId}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageSize}{?page}]
+## Markerprofiles/{markerprofileDbId} [Get /brapi/v1/markerprofiles/{markerprofileDbId}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageSize}{?page}]
 
 <strong>Scope</strong>:GENOTYPING.
 <strong>Status</strong>: ACCEPTED.
