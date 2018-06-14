@@ -6,6 +6,51 @@ Location calls.
 
 
 
+## Locations/{locationdbid} [Get /brapi/v1/locations/{locationDbId}]
+
+ <strong>Implemented by:</strong>  GnpIS
+Get details for a location.
+* The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
+* `altitude` is in meters.  
+
++ Parameters
+    + locationDbId (Required, string) ... The internal DB id for a location
+
+
++ Response 200 (application/json)
+```
+{
+    "result": {
+        "countryCode": "NGA",
+        "altitude": 12,
+        "abreviation": "IB -- DEPRECATED -- see abbreviation",
+        "locationType": "Breeding Location",
+        "instituteName": "INRA - GDEC",
+        "abbreviation": "IB",
+        "instituteAddress": "road foo, nigeria",
+        "locationDbId": "abc123",
+        "longitude": 165.5,
+        "name": "Ibadan",
+        "latitude": -21.5,
+        "countryName": "Nigeria",
+        "additionalInfo": {
+            "annualMeanRain": "value",
+            "soilDescription": "23"
+        }
+    },
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "totalCount": 0,
+            "pageSize": 0,
+            "totalPages": 0
+        },
+        "status": []
+    }
+}
+```
+
 ## Locations [Get /brapi/v1/locations{?locationType}{?pageSize}{?page}]
 
 
@@ -24,96 +69,51 @@ Get a list of locations.
 + Response 200 (application/json)
 ```
 {
-    "metadata": {
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 2,
-            "totalPages": 1
-        },
-        "status": [],
-        "datafiles": []
-    },
     "result": {
         "data": [
             {
-                "locationDbId": "abc123",
-                "locationType": "Breeding Location",
-                "name": "Ibadan",
-                "abbreviation": "IB",
                 "countryCode": "NGA",
-                "countryName": "Nigeria",
-                "latitude": -21.5,
-                "longitude": 165.5,
                 "altitude": 12,
+                "locationType": "Breeding Location",
                 "instituteName": "INRA - GDEC",
+                "abbreviation": "IB",
                 "instituteAddress": "route foo, Clermont Ferrand, France",
+                "locationDbId": "abc123",
+                "longitude": 165.5,
+                "name": "Ibadan",
+                "latitude": -21.5,
+                "countryName": "Nigeria",
                 "additionalInfo": {
                     "annualMeanRain": "value",
                     "soilDescription": "23"
                 }
             },
             {
-                "locationDbId": "def456",
-                "locationType": "Storage Location",
-                "name": "Goa",
-                "abbreviation": "GO",
                 "countryCode": "IND",
-                "countryName": "India",
-                "latitude": 28.36,
-                "longitude": 77.12,
                 "altitude": 10,
+                "locationType": "Storage Location",
+                "abbreviation": "GO",
+                "locationDbId": "def456",
+                "longitude": 77.12,
+                "name": "Goa",
+                "latitude": 28.36,
+                "countryName": "India",
                 "additionalInfo": {
                     "name1": "value1",
                     "name2": "value2"
                 }
             }
         ]
-    }
-}
-```
-
-## Locations/{locationdbid} [Get /brapi/v1/locations/{locationDbId}]
-
- <strong>Implemented by:</strong>  GnpIS
-Get details for a location.
-* The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
-* `altitude` is in meters.  
-
-+ Parameters
-    + locationDbId (Required, string) ... The internal DB id for a location
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "pagination": {
-            "totalCount": 0,
-            "pageSize": 0,
-            "totalPages": 0,
-            "currentPage": 0
-        },
-        "status": [],
-        "datafiles": []
     },
-    "result": {
-        "locationDbId": "abc123",
-        "locationType": "Breeding Location",
-        "name": "Ibadan",
-        "abreviation": "IB -- DEPRECATED -- see abbreviation",
-        "abbreviation": "IB",
-        "countryCode": "NGA",
-        "countryName": "Nigeria",
-        "latitude": -21.5,
-        "longitude": 165.5,
-        "altitude": 12,
-        "instituteName": "INRA - GDEC",
-        "instituteAddress": "road foo, nigeria",
-        "additionalInfo": {
-            "annualMeanRain": "value",
-            "soilDescription": "23"
-        }
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "totalCount": 2,
+            "pageSize": 1000,
+            "totalPages": 1
+        },
+        "status": []
     }
 }
 ```

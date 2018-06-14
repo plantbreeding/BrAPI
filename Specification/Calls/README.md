@@ -60,22 +60,9 @@ Here are the rules for the path of each call that should be returned
 + Response 200 (application/json)
 ```
 {
-    "metadata": {
-        "pagination": {
-            "totalCount": 8,
-            "currentPage": 0,
-            "totalPages": 1,
-            "pageSize": 1000
-        },
-        "datafiles": []
-    },
     "result": {
         "data": [
             {
-                "call": "token",
-                "datatypes": [
-                    "json"
-                ],
                 "methods": [
                     "POST",
                     "DELETE"
@@ -83,13 +70,13 @@ Here are the rules for the path of each call that should be returned
                 "versions": [
                     "1.0",
                     "1.1"
-                ]
-            },
-            {
-                "call": "calls",
+                ],
                 "datatypes": [
                     "json"
                 ],
+                "call": "token"
+            },
+            {
                 "methods": [
                     "GET"
                 ],
@@ -97,27 +84,27 @@ Here are the rules for the path of each call that should be returned
                     "1.0",
                     "1.1",
                     "1.2"
-                ]
+                ],
+                "datatypes": [
+                    "json"
+                ],
+                "call": "calls"
             },
             {
-                "call": "allelematrix",
-                "datatypes": [
-                    "json",
-                    "tsv"
-                ],
                 "methods": [
                     "GET",
                     "POST"
                 ],
                 "versions": [
                     "1.0"
-                ]
+                ],
+                "datatypes": [
+                    "json",
+                    "tsv"
+                ],
+                "call": "allelematrix"
             },
             {
-                "call": "observationLevels",
-                "datatypes": [
-                    "json"
-                ],
                 "methods": [
                     "GET"
                 ],
@@ -125,13 +112,13 @@ Here are the rules for the path of each call that should be returned
                     "1.0",
                     "1.1",
                     "1.2"
-                ]
-            },
-            {
-                "call": "germplasm-search",
+                ],
                 "datatypes": [
                     "json"
                 ],
+                "call": "observationLevels"
+            },
+            {
                 "methods": [
                     "GET",
                     "POST"
@@ -140,13 +127,13 @@ Here are the rules for the path of each call that should be returned
                     "1.0",
                     "1.1",
                     "1.2"
-                ]
-            },
-            {
-                "call": "germplasm/{germplasmDbId}",
+                ],
                 "datatypes": [
                     "json"
                 ],
+                "call": "germplasm-search"
+            },
+            {
                 "methods": [
                     "GET"
                 ],
@@ -154,35 +141,48 @@ Here are the rules for the path of each call that should be returned
                     "1.0",
                     "1.1",
                     "1.2"
-                ]
-            },
-            {
-                "call": "germplasm/{germplasmDbId}/pedigree",
+                ],
                 "datatypes": [
                     "json"
                 ],
+                "call": "germplasm/{germplasmDbId}"
+            },
+            {
                 "methods": [
                     "GET"
                 ],
                 "versions": [
                     "1.1",
                     "1.2"
-                ]
-            },
-            {
-                "call": "germplasm/{germplasmDbId}/markerprofiles",
+                ],
                 "datatypes": [
                     "json"
                 ],
+                "call": "germplasm/{germplasmDbId}/pedigree"
+            },
+            {
                 "methods": [
                     "GET"
                 ],
                 "versions": [
                     "1.1",
                     "1.2"
-                ]
+                ],
+                "datatypes": [
+                    "json"
+                ],
+                "call": "germplasm/{germplasmDbId}/markerprofiles"
             }
         ]
+    },
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "totalCount": 8,
+            "pageSize": 1000,
+            "totalPages": 1
+        }
     }
 }
 ```
