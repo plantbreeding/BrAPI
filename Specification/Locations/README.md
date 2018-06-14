@@ -24,51 +24,51 @@ Get a list of locations.
 + Response 200 (application/json)
 ```
 {
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 2,
+            "totalPages": 1
+        },
+        "status": []
+    },
     "result": {
         "data": [
             {
-                "name": "Ibadan",
+                "abbreviation": "IB",
                 "additionalInfo": {
-                    "soilDescription": "23",
-                    "annualMeanRain": "value"
+                    "annualMeanRain": "value",
+                    "soilDescription": "23"
                 },
-                "longitude": 165.5,
+                "altitude": 12,
+                "countryCode": "NGA",
+                "countryName": "Nigeria",
                 "instituteAddress": "route foo, Clermont Ferrand, France",
                 "instituteName": "INRA - GDEC",
-                "altitude": 12,
-                "locationDbId": "abc123",
                 "latitude": -21.5,
+                "locationDbId": "abc123",
                 "locationType": "Breeding Location",
-                "countryCode": "NGA",
-                "abbreviation": "IB",
-                "countryName": "Nigeria"
+                "longitude": 165.5,
+                "name": "Ibadan"
             },
             {
-                "name": "Goa",
-                "additionalInfo": {
-                    "name2": "value2",
-                    "name1": "value1"
-                },
                 "abbreviation": "GO",
-                "locationDbId": "def456",
-                "locationType": "Storage Location",
-                "latitude": 28.36,
+                "additionalInfo": {
+                    "name1": "value1",
+                    "name2": "value2"
+                },
                 "altitude": 10,
                 "countryCode": "IND",
+                "countryName": "India",
+                "latitude": 28.36,
+                "locationDbId": "def456",
+                "locationType": "Storage Location",
                 "longitude": 77.12,
-                "countryName": "India"
+                "name": "Goa"
             }
         ]
-    },
-    "metadata": {
-        "pagination": {
-            "pageSize": 1000,
-            "currentPage": 0,
-            "totalPages": 1,
-            "totalCount": 2
-        },
-        "status": [],
-        "datafiles": []
     }
 }
 ```
@@ -87,33 +87,33 @@ Get details for a location.
 + Response 200 (application/json)
 ```
 {
-    "result": {
-        "name": "Ibadan",
-        "additionalInfo": {
-            "soilDescription": "23",
-            "annualMeanRain": "value"
-        },
-        "abreviation": "IB -- DEPRECATED -- see abbreviation",
-        "locationDbId": "abc123",
-        "instituteName": "INRA - GDEC",
-        "altitude": 12,
-        "longitude": 165.5,
-        "instituteAddress": "road foo, nigeria",
-        "latitude": -21.5,
-        "locationType": "Breeding Location",
-        "countryCode": "NGA",
-        "abbreviation": "IB",
-        "countryName": "Nigeria"
-    },
     "metadata": {
+        "datafiles": [],
         "pagination": {
+            "currentPage": 0,
             "pageSize": 0,
             "totalCount": 0,
-            "totalPages": 0,
-            "currentPage": 0
+            "totalPages": 0
         },
-        "status": [],
-        "datafiles": []
+        "status": []
+    },
+    "result": {
+        "abbreviation": "IB",
+        "abreviation": "IB -- DEPRECATED -- see abbreviation",
+        "additionalInfo": {
+            "annualMeanRain": "value",
+            "soilDescription": "23"
+        },
+        "altitude": 12,
+        "countryCode": "NGA",
+        "countryName": "Nigeria",
+        "instituteAddress": "road foo, nigeria",
+        "instituteName": "INRA - GDEC",
+        "latitude": -21.5,
+        "locationDbId": "abc123",
+        "locationType": "Breeding Location",
+        "longitude": 165.5,
+        "name": "Ibadan"
     }
 }
 ```

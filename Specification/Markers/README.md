@@ -27,19 +27,29 @@ and '?' for one character matching. Default is exact.
 + Response 200 (application/json)
 ```
 {
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 2,
+            "totalPages": 1
+        },
+        "status": []
+    },
     "result": {
         "data": [
             {
-                "markerDbId": "1185",
                 "analysisMethods": [
                     "illumina",
                     "kasp"
                 ],
+                "defaultDisplayName": "11_10002",
+                "markerDbId": "1185",
                 "refAlt": [
                     "A",
                     "T"
                 ],
-                "defaultDisplayName": "11_10002",
                 "synonyms": [
                     "i_11_10002",
                     "POPA1_0002"
@@ -47,16 +57,16 @@ and '?' for one character matching. Default is exact.
                 "type": "SNP"
             },
             {
-                "markerDbId": "1186",
                 "analysisMethods": [
                     "illumina",
                     "kasp"
                 ],
+                "defaultDisplayName": "11_11159",
+                "markerDbId": "1186",
                 "refAlt": [
                     "A",
                     "T"
                 ],
-                "defaultDisplayName": "11_11159",
                 "synonyms": [
                     "i_11_11159",
                     "POPA1_1159"
@@ -64,16 +74,6 @@ and '?' for one character matching. Default is exact.
                 "type": "SNP"
             }
         ]
-    },
-    "metadata": {
-        "pagination": {
-            "pageSize": 1000,
-            "currentPage": 0,
-            "totalPages": 1,
-            "totalCount": 2
-        },
-        "status": [],
-        "datafiles": []
     }
 }
 ```
@@ -93,19 +93,29 @@ Other service requests use the servers internal `markerDbId`. This service retur
 + Response 200 (application/json)
 ```
 {
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 2,
+            "totalPages": 1
+        },
+        "status": []
+    },
     "result": {
         "data": [
             {
-                "markerDbId": "1185",
                 "analysisMethods": [
                     "illumina",
                     "kasp"
                 ],
+                "defaultDisplayName": "11_10002",
+                "markerDbId": "1185",
                 "refAlt": [
                     "A",
                     "T"
                 ],
-                "defaultDisplayName": "11_10002",
                 "synonyms": [
                     "i_11_10002",
                     "POPA1_0002"
@@ -113,16 +123,16 @@ Other service requests use the servers internal `markerDbId`. This service retur
                 "type": "SNP"
             },
             {
-                "markerDbId": "1186",
                 "analysisMethods": [
                     "illumina",
                     "kasp"
                 ],
+                "defaultDisplayName": "11_11159",
+                "markerDbId": "1186",
                 "refAlt": [
                     "A",
                     "T"
                 ],
-                "defaultDisplayName": "11_11159",
                 "synonyms": [
                     "i_11_11159",
                     "POPA1_1159"
@@ -130,16 +140,6 @@ Other service requests use the servers internal `markerDbId`. This service retur
                 "type": "SNP"
             }
         ]
-    },
-    "metadata": {
-        "pagination": {
-            "pageSize": 1000,
-            "currentPage": 0,
-            "totalPages": 1,
-            "totalCount": 2
-        },
-        "status": [],
-        "datafiles": []
     }
 }
 ```
@@ -168,16 +168,16 @@ and '?' for one character matching. Default is exact.
     "metadata": {
         "data": [
             {
-                "markerDbId": "1185",
                 "analysisMethods": [
                     "illumina",
                     "kasp"
                 ],
+                "defaultDisplayName": "11_10002",
+                "markerDbId": "1185",
                 "refAlt": [
                     "A",
                     "T"
                 ],
-                "defaultDisplayName": "11_10002",
                 "synonyms": [
                     "i_11_10002",
                     "POPA1_0002"
@@ -185,16 +185,16 @@ and '?' for one character matching. Default is exact.
                 "type": "SNP"
             },
             {
-                "markerDbId": "1186",
                 "analysisMethods": [
                     "illumina",
                     "kasp"
                 ],
+                "defaultDisplayName": "11_11159",
+                "markerDbId": "1186",
                 "refAlt": [
                     "A",
                     "T"
                 ],
-                "defaultDisplayName": "11_11159",
                 "synonyms": [
                     "i_11_11159",
                     "POPA1_1159"
@@ -202,14 +202,14 @@ and '?' for one character matching. Default is exact.
                 "type": "SNP"
             }
         ],
+        "datafiles": [],
         "pagination": {
-            "pageSize": 1000,
             "currentPage": 0,
-            "totalPages": 1,
-            "totalCount": 2
+            "pageSize": 1000,
+            "totalCount": 2,
+            "totalPages": 1
         },
-        "status": [],
-        "datafiles": []
+        "status": []
     }
 }
 ```
@@ -226,32 +226,32 @@ and '?' for one character matching. Default is exact.
 + Response 200 (application/json)
 ```
 {
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 0,
+            "totalCount": 0,
+            "totalPages": 0
+        },
+        "status": []
+    },
     "result": {
-        "markerDbId": "1185",
         "analysisMethods": [
             "illumina",
             "kasp"
         ],
+        "defaultDisplayName": "11_10002",
+        "markerDbId": "1185",
         "refAlt": [
             "A",
             "T"
         ],
-        "defaultDisplayName": "11_10002",
         "synonyms": [
             "i_11_10002",
             "POPA1_0002"
         ],
         "type": "SNP"
-    },
-    "metadata": {
-        "pagination": {
-            "pageSize": 0,
-            "currentPage": 0,
-            "totalPages": 0,
-            "totalCount": 0
-        },
-        "status": [],
-        "datafiles": []
     }
 }
 ```

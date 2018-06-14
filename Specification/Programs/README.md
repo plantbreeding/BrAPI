@@ -20,33 +20,33 @@ See <a href="#introduction/search-services">Search Services</a> for additional i
 + Response 200 (application/json)
 ```
 {
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 2,
+            "totalPages": 1
+        },
+        "status": []
+    },
     "result": {
         "data": [
             {
-                "leadPerson": "Dr. Henry Beachell",
-                "objective": "Disease resistance",
                 "abbreviation": "DRP1",
+                "leadPerson": "Dr. Henry Beachell",
                 "name": "Wheat Resistance Program",
+                "objective": "Disease resistance",
                 "programDbId": "123"
             },
             {
-                "leadPerson": "Dr. Norman Borlaug",
-                "objective": "Yield improvement",
                 "abbreviation": "DRP2",
+                "leadPerson": "Dr. Norman Borlaug",
                 "name": "Wheat Improvement Program",
+                "objective": "Yield improvement",
                 "programDbId": "456"
             }
         ]
-    },
-    "metadata": {
-        "pagination": {
-            "pageSize": 1000,
-            "currentPage": 0,
-            "totalPages": 1,
-            "totalCount": 2
-        },
-        "status": [],
-        "datafiles": []
     }
 }
 ```
@@ -67,33 +67,33 @@ Status: ACCEPTED Implemented By:
 + Response 200 (application/json)
 ```
 {
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 2,
+            "totalPages": 1
+        },
+        "status": []
+    },
     "result": {
         "data": [
             {
-                "leadPerson": "Dr. Henry Beachell",
-                "objective": "Disease resistance",
                 "abbreviation": "DRP1",
+                "leadPerson": "Dr. Henry Beachell",
                 "name": "Wheat Resistance Program",
+                "objective": "Disease resistance",
                 "programDbId": "123"
             },
             {
-                "leadPerson": "Dr. Norman Borlaug",
-                "objective": "Yield improvement",
                 "abbreviation": "DRP2",
+                "leadPerson": "Dr. Norman Borlaug",
                 "name": "Wheat Improvement Program",
+                "objective": "Yield improvement",
                 "programDbId": "456"
             }
         ]
-    },
-    "metadata": {
-        "pagination": {
-            "pageSize": 1000,
-            "currentPage": 0,
-            "totalPages": 1,
-            "totalCount": 2
-        },
-        "status": [],
-        "datafiles": []
     }
 }
 ```

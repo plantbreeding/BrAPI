@@ -22,6 +22,16 @@ List all available attribute categories.
 + Response 200 (application/json)
 ```
 {
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 1,
+            "pageSize": 10,
+            "totalCount": 2,
+            "totalPages": 1
+        },
+        "status": []
+    },
     "result": {
         "data": [
             {
@@ -33,16 +43,6 @@ List all available attribute categories.
                 "name": "Agronomic"
             }
         ]
-    },
-    "metadata": {
-        "pagination": {
-            "pageSize": 10,
-            "currentPage": 1,
-            "totalPages": 1,
-            "totalCount": 2
-        },
-        "status": [],
-        "datafiles": []
     }
 }
 ```
@@ -61,32 +61,32 @@ List all available attribute categories.
 + Response 200 (application/json)
 ```
 {
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": []
+    },
     "result": {
         "data": [
             {
-                "description": "Allele of marker 11_4769, diagnostic for allele b of reduced-height gene Rht-B1",
                 "attributeCategoryDbId": "1",
                 "code": "RHT",
+                "datatype": "Categorical",
+                "description": "Allele of marker 11_4769, diagnostic for allele b of reduced-height gene Rht-B1",
+                "name": "Rht-B1b",
+                "uri": "http://www.cropontology.org/rdf/CO_321:0000020",
                 "values": [
                     "Present",
                     "Absent",
                     "Heterozygous"
-                ],
-                "datatype": "Categorical",
-                "name": "Rht-B1b",
-                "uri": "http://www.cropontology.org/rdf/CO_321:0000020"
+                ]
             }
         ]
-    },
-    "metadata": {
-        "pagination": {
-            "pageSize": 1000,
-            "currentPage": 0,
-            "totalPages": 1,
-            "totalCount": 1
-        },
-        "status": [],
-        "datafiles": []
     }
 }
 ```
@@ -108,27 +108,27 @@ Values for all attributes by default.
 + Response 200 (application/json)
 ```
 {
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": []
+    },
     "result": {
         "data": [
             {
                 "attributeCode": "RHT",
                 "attributeDbId": "1",
                 "attributeName": "Rht-B1b",
-                "value": "Present",
-                "determinedDate": "2007-05-28"
+                "determinedDate": "2007-05-28",
+                "value": "Present"
             }
         ],
         "germplasmDbId": "01BEL084609"
-    },
-    "metadata": {
-        "pagination": {
-            "pageSize": 1000,
-            "currentPage": 0,
-            "totalPages": 1,
-            "totalCount": 1
-        },
-        "status": [],
-        "datafiles": []
     }
 }
 ```
