@@ -8,96 +8,6 @@ Note that dates should be provided in extended ISO 8601 format (for example, "YY
 
 
 
-## Studies/{studydbid}/layout [Get /brapi/v1/studies/{studyDbId}/layout{?pageSize}{?page}]
-
- Retrive the layout details for a study. Returns an array of observation unit position data which describes where each unit and germplasm is located within the study layout
-Retrieve the plot layout of the study with id {id}.
-For each observationUnit within a study, return the `block`, `replicate`, and `entryType` values as well as the `X` and `Y` coordinates. `entryType` can be "check", "test", or "filler".
-Also return some human readable meta data about the observationUnit and germplasm.
-<a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies/{studyDbId}/layout</a>  
-
-+ Parameters
-    + studyDbId (Required, string) ... Identifier of the study. Usually a number, could be alphanumeric.
-    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
-    + page (Optional, integer) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-
-
-+ Response 200 (application/json)
-```
-{
-    "result": {
-        "data": [
-            {
-                "studyDbId": "35",
-                "Y": 1,
-                "germplasmName": "ZIPA_68",
-                "germplasmDbId": "143",
-                "observationUnitDbId": "11",
-                "observationUnitName": "ZIPA_68_Ibadan_2014",
-                "entryType": "check/test/filler",
-                "blockNumber": 1,
-                "observationLevel": "plot",
-                "replicate": 1,
-                "X": 1,
-                "additionalInfo": {}
-            },
-            {
-                "studyDbId": "35",
-                "Y": 2,
-                "germplasmName": "ZIPA_69",
-                "germplasmDbId": "144",
-                "observationUnitDbId": "12",
-                "observationUnitName": "ZIPA_69_Ibadan_2014",
-                "entryType": "check/test/filler",
-                "blockNumber": 1,
-                "observationLevel": "plot",
-                "replicate": 1,
-                "X": 1,
-                "additionalInfo": {}
-            },
-            {
-                "studyDbId": "35",
-                "Y": 3,
-                "germplasmName": "ZIPA_70",
-                "germplasmDbId": "145",
-                "observationUnitDbId": "13",
-                "observationUnitName": "ZIPA_70_Ibadan_2014",
-                "entryType": "check/test/filler",
-                "blockNumber": 1,
-                "observationLevel": "plot",
-                "replicate": 1,
-                "X": 1,
-                "additionalInfo": {}
-            },
-            {
-                "studyDbId": "35",
-                "Y": 1,
-                "germplasmName": "ZIPA_68",
-                "germplasmDbId": "143",
-                "observationUnitDbId": "11",
-                "observationUnitName": "ZIPA_68_Ibadan_2014",
-                "entryType": "check/test/filler",
-                "blockNumber": 2,
-                "observationLevel": "plot",
-                "replicate": 2,
-                "X": 2,
-                "additionalInfo": {}
-            }
-        ]
-    },
-    "metadata": {
-        "pagination": {
-            "currentPage": 0,
-            "totalCount": 4,
-            "pageSize": 1000,
-            "totalPages": 1
-        },
-        "status": [],
-        "datafiles": []
-    }
-}
-```
-
 ## Studies/{studydbid}/layout [Put /brapi/v1/studies/{studyDbId}/layout]
 
  Modify a study layout
@@ -118,72 +28,162 @@ Implementation Notes:
     "result": {
         "data": [
             {
-                "studyDbId": "1",
-                "Y": 1,
-                "germplasmName": "ZIPA_68",
-                "germplasmDbId": "143",
-                "observationUnitDbId": "11",
-                "observationUnitName": "ZIPA_68_Ibadan_2014",
-                "entryType": "check/test/filler",
-                "blockNumber": 1,
                 "observationLevel": "plot",
+                "entryType": "check/test/filler",
+                "germplasmDbId": "143",
+                "Y": 1,
                 "replicate": 1,
+                "additionalInfo": {},
                 "X": 1,
-                "additionalInfo": {}
+                "germplasmName": "ZIPA_68",
+                "observationUnitName": "ZIPA_68_Ibadan_2014",
+                "blockNumber": 1,
+                "studyDbId": "1",
+                "observationUnitDbId": "11"
             },
             {
-                "studyDbId": "1",
-                "Y": 2,
-                "germplasmName": "ZIPA_69",
+                "observationLevel": "plot",
+                "entryType": "check/test/filler",
                 "germplasmDbId": "144",
-                "observationUnitDbId": "12",
+                "Y": 2,
+                "replicate": 1,
+                "additionalInfo": {},
+                "X": 1,
+                "germplasmName": "ZIPA_69",
                 "observationUnitName": "ZIPA_69_Ibadan_2014",
-                "entryType": "check/test/filler",
                 "blockNumber": 1,
-                "observationLevel": "plot",
-                "replicate": 1,
-                "X": 1,
-                "additionalInfo": {}
+                "studyDbId": "1",
+                "observationUnitDbId": "12"
             },
             {
-                "studyDbId": "1",
-                "Y": 3,
-                "germplasmName": "ZIPA_70",
+                "observationLevel": "plot",
+                "entryType": "check/test/filler",
                 "germplasmDbId": "145",
-                "observationUnitDbId": "13",
-                "observationUnitName": "ZIPA_70_Ibadan_2014",
-                "entryType": "check/test/filler",
-                "blockNumber": 1,
-                "observationLevel": "plot",
+                "Y": 3,
                 "replicate": 1,
+                "additionalInfo": {},
                 "X": 1,
-                "additionalInfo": {}
+                "germplasmName": "ZIPA_70",
+                "observationUnitName": "ZIPA_70_Ibadan_2014",
+                "blockNumber": 1,
+                "studyDbId": "1",
+                "observationUnitDbId": "13"
             },
             {
-                "studyDbId": "1",
-                "Y": 1,
-                "germplasmName": "ZIPA_68",
-                "germplasmDbId": "143",
-                "observationUnitDbId": "11",
-                "observationUnitName": "ZIPA_68_Ibadan_2014",
-                "entryType": "check/test/filler",
-                "blockNumber": 2,
                 "observationLevel": "plot",
+                "entryType": "check/test/filler",
+                "germplasmDbId": "143",
+                "Y": 1,
                 "replicate": 2,
+                "additionalInfo": {},
                 "X": 2,
-                "additionalInfo": {}
+                "germplasmName": "ZIPA_68",
+                "observationUnitName": "ZIPA_68_Ibadan_2014",
+                "blockNumber": 2,
+                "studyDbId": "1",
+                "observationUnitDbId": "11"
             }
         ]
     },
     "metadata": {
         "pagination": {
-            "currentPage": 0,
-            "totalCount": 4,
             "pageSize": 1000,
-            "totalPages": 1
+            "currentPage": 0,
+            "totalPages": 1,
+            "totalCount": 4
         },
-        "status": [],
-        "datafiles": []
+        "datafiles": [],
+        "status": []
+    }
+}
+```
+
+## Studies/{studydbid}/layout [Get /brapi/v1/studies/{studyDbId}/layout{?pageSize}{?page}]
+
+ Retrive the layout details for a study. Returns an array of observation unit position data which describes where each unit and germplasm is located within the study layout
+Retrieve the plot layout of the study with id {id}.
+For each observationUnit within a study, return the `block`, `replicate`, and `entryType` values as well as the `X` and `Y` coordinates. `entryType` can be "check", "test", or "filler".
+Also return some human readable meta data about the observationUnit and germplasm.
+<a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies/{studyDbId}/layout</a>  
+
++ Parameters
+    + studyDbId (Required, string) ... Identifier of the study. Usually a number, could be alphanumeric.
+    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
+    + page (Optional, integer) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+
+
++ Response 200 (application/json)
+```
+{
+    "result": {
+        "data": [
+            {
+                "observationLevel": "plot",
+                "entryType": "check/test/filler",
+                "germplasmDbId": "143",
+                "Y": 1,
+                "replicate": 1,
+                "additionalInfo": {},
+                "X": 1,
+                "germplasmName": "ZIPA_68",
+                "observationUnitName": "ZIPA_68_Ibadan_2014",
+                "blockNumber": 1,
+                "studyDbId": "35",
+                "observationUnitDbId": "11"
+            },
+            {
+                "observationLevel": "plot",
+                "entryType": "check/test/filler",
+                "germplasmDbId": "144",
+                "Y": 2,
+                "replicate": 1,
+                "additionalInfo": {},
+                "X": 1,
+                "germplasmName": "ZIPA_69",
+                "observationUnitName": "ZIPA_69_Ibadan_2014",
+                "blockNumber": 1,
+                "studyDbId": "35",
+                "observationUnitDbId": "12"
+            },
+            {
+                "observationLevel": "plot",
+                "entryType": "check/test/filler",
+                "germplasmDbId": "145",
+                "Y": 3,
+                "replicate": 1,
+                "additionalInfo": {},
+                "X": 1,
+                "germplasmName": "ZIPA_70",
+                "observationUnitName": "ZIPA_70_Ibadan_2014",
+                "blockNumber": 1,
+                "studyDbId": "35",
+                "observationUnitDbId": "13"
+            },
+            {
+                "observationLevel": "plot",
+                "entryType": "check/test/filler",
+                "germplasmDbId": "143",
+                "Y": 1,
+                "replicate": 2,
+                "additionalInfo": {},
+                "X": 2,
+                "germplasmName": "ZIPA_68",
+                "observationUnitName": "ZIPA_68_Ibadan_2014",
+                "blockNumber": 2,
+                "studyDbId": "35",
+                "observationUnitDbId": "11"
+            }
+        ]
+    },
+    "metadata": {
+        "pagination": {
+            "pageSize": 1000,
+            "currentPage": 0,
+            "totalPages": 1,
+            "totalCount": 4
+        },
+        "datafiles": [],
+        "status": []
     }
 }
 ```
@@ -201,7 +201,19 @@ Note: If 'observationUnitDbId' or 'observationDbId' is populated, they should be
     "type": "string"
 }
 
-+ Response 200 (application/json)
++ Response 400 (application/json)
+```
+{
+    "metadata": {
+        "status": [
+            {
+                "message": "Could not update values for Observation Units",
+                "code": "Error"
+            }
+        ]
+    }
+}
+```+ Response 200 (application/json)
 ```
 {
     "results": {
@@ -213,22 +225,71 @@ Note: If 'observationUnitDbId' or 'observationDbId' is populated, they should be
     "metadata": {
         "status": [
             {
-                "code": "1",
-                "message": "Upload Successful"
+                "message": "Upload Successful",
+                "code": "1"
             }
         ]
     }
 }
-```+ Response 400 (application/json)
+```
+
+## Studies/{studydbid}/observations [Put /brapi/v1/studies/{studyDbId}/observations]
+
+ Implementation Guidelines: + If an `observationDbId` is "null" or an empty string in the request, a NEW observation should be created for the given study and observationUnit + If an `observationDbId` is populated but not found in the database, a NEW observation should be created for the given study and observationUnit AND an NEW `observationDbId` should be assigned to it. A warning should be returned to the client. + If an `observationDbId` is populated and found in the database, but the existing entry is not associated with the given study or observationUnit, a NEW observation should be created for the given study and observationUnit AND an NEW `observationDbId` should be assigned to it. A warning should be returned to the client. + If an `observationDbId` is populated and found in the database and is associated with the given study and observationUnit, then it should be updated with the new data given.
+<a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies/{studyDbId}/observations</a> 
+
++ Parameters
+    + studyDbId (Required, string) ... Identifier of the study. Usually a number, could be alphanumeric.
+ 
++ Request (application/json)
+/definitions/newObservationsRequest
+
++ Response 200 (application/json)
 ```
 {
-    "metadata": {
-        "status": [
+    "result": {
+        "data": [
             {
-                "code": "Error",
-                "message": "Could not update values for Observation Units"
+                "observationLevel": "plot",
+                "observationTimestamp": "2015-11-05T15:12:56+01:00",
+                "observationVariableDbId": "CO_334:0100632",
+                "uploadedBy": "dbUserId",
+                "germplasmDbId": "8383",
+                "value": "5",
+                "observationVariableName": "Yield",
+                "germplasmName": "Pahang",
+                "observationUnitName": "ZIPA_68_Ibadan_2014",
+                "studyDbId": "35",
+                "observationUnitDbId": "11",
+                "operator": "Jane Doe",
+                "observationDbId": "12345"
+            },
+            {
+                "observationLevel": "plot",
+                "observationTimestamp": "2015-11-05T15:13:56+01:00",
+                "observationVariableDbId": "CO_334:0100632",
+                "uploadedBy": "dbUserId",
+                "germplasmDbId": "8383",
+                "value": "22.3",
+                "observationVariableName": "Dry Weight",
+                "germplasmName": "Pahang",
+                "observationUnitName": "ZIPA_68_Ibadan_2014",
+                "studyDbId": "35",
+                "observationUnitDbId": "11",
+                "operator": "Jane Doe",
+                "observationDbId": "23456"
             }
         ]
+    },
+    "metadata": {
+        "pagination": {
+            "pageSize": 1000,
+            "currentPage": 0,
+            "totalPages": 1,
+            "totalCount": 2
+        },
+        "datafiles": [],
+        "status": []
     }
 }
 ```
@@ -253,107 +314,46 @@ observationTimestamp should be ISO8601 format with timezone: YYYY-MM-DDThh:mm:ss
     "result": {
         "data": [
             {
-                "studyDbId": "35",
+                "observationLevel": "plot",
+                "observationVariableDbId": "CO_334:0100632",
+                "uploadedBy": "dbUserId",
                 "observationTimeStamp": "2015-11-05T15:12:56+01:00",
-                "germplasmName": "Pahang",
                 "germplasmDbId": "8383",
                 "value": "5",
-                "observationUnitDbId": "11",
-                "observationUnitName": "ZIPA_68_Ibadan_2014",
                 "observationVariableName": "Yield",
-                "observationLevel": "plot",
+                "germplasmName": "Pahang",
+                "observationUnitName": "ZIPA_68_Ibadan_2014",
+                "studyDbId": "35",
+                "observationUnitDbId": "11",
                 "operator": "Jane Doe",
-                "observationVariableDbId": "CO_334:0100632",
-                "uploadedBy": "dbUserId",
                 "observationDbId": "12345"
             },
             {
-                "studyDbId": "35",
+                "observationLevel": "plot",
+                "observationVariableDbId": "CO_334:0100632",
+                "uploadedBy": "dbUserId",
                 "observationTimeStamp": "2015-11-05T15:13:56+01:00",
-                "germplasmName": "Pahang",
                 "germplasmDbId": "8383",
                 "value": "22.3",
-                "observationUnitDbId": "11",
-                "observationUnitName": "ZIPA_68_Ibadan_2014",
                 "observationVariableName": "Dry Weight",
-                "observationLevel": "plot",
+                "germplasmName": "Pahang",
+                "observationUnitName": "ZIPA_68_Ibadan_2014",
+                "studyDbId": "35",
+                "observationUnitDbId": "11",
                 "operator": "Jane Doe",
-                "observationVariableDbId": "CO_334:0100632",
-                "uploadedBy": "dbUserId",
                 "observationDbId": "23456"
             }
         ]
     },
     "metadata": {
         "pagination": {
-            "currentPage": 0,
-            "totalCount": 2,
             "pageSize": 1000,
-            "totalPages": 1
-        },
-        "status": [],
-        "datafiles": []
-    }
-}
-```
-
-## Studies/{studydbid}/observations [Put /brapi/v1/studies/{studyDbId}/observations]
-
- Implementation Guidelines: + If an `observationDbId` is "null" or an empty string in the request, a NEW observation should be created for the given study and observationUnit + If an `observationDbId` is populated but not found in the database, a NEW observation should be created for the given study and observationUnit AND an NEW `observationDbId` should be assigned to it. A warning should be returned to the client. + If an `observationDbId` is populated and found in the database, but the existing entry is not associated with the given study or observationUnit, a NEW observation should be created for the given study and observationUnit AND an NEW `observationDbId` should be assigned to it. A warning should be returned to the client. + If an `observationDbId` is populated and found in the database and is associated with the given study and observationUnit, then it should be updated with the new data given.
-<a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies/{studyDbId}/observations</a> 
-
-+ Parameters
-    + studyDbId (Required, string) ... Identifier of the study. Usually a number, could be alphanumeric.
- 
-+ Request (application/json)
-/definitions/newObservationsRequest
-
-+ Response 200 (application/json)
-```
-{
-    "result": {
-        "data": [
-            {
-                "studyDbId": "35",
-                "germplasmName": "Pahang",
-                "germplasmDbId": "8383",
-                "observationTimestamp": "2015-11-05T15:12:56+01:00",
-                "value": "5",
-                "observationUnitDbId": "11",
-                "observationUnitName": "ZIPA_68_Ibadan_2014",
-                "observationVariableName": "Yield",
-                "observationLevel": "plot",
-                "operator": "Jane Doe",
-                "observationVariableDbId": "CO_334:0100632",
-                "uploadedBy": "dbUserId",
-                "observationDbId": "12345"
-            },
-            {
-                "studyDbId": "35",
-                "germplasmName": "Pahang",
-                "germplasmDbId": "8383",
-                "observationTimestamp": "2015-11-05T15:13:56+01:00",
-                "value": "22.3",
-                "observationUnitDbId": "11",
-                "observationUnitName": "ZIPA_68_Ibadan_2014",
-                "observationVariableName": "Dry Weight",
-                "observationLevel": "plot",
-                "operator": "Jane Doe",
-                "observationVariableDbId": "CO_334:0100632",
-                "uploadedBy": "dbUserId",
-                "observationDbId": "23456"
-            }
-        ]
-    },
-    "metadata": {
-        "pagination": {
             "currentPage": 0,
-            "totalCount": 2,
-            "pageSize": 1000,
-            "totalPages": 1
+            "totalPages": 1,
+            "totalCount": 2
         },
-        "status": [],
-        "datafiles": []
+        "datafiles": [],
+        "status": []
     }
 }
 ```
@@ -378,13 +378,13 @@ observationTimestamp should be ISO8601 format with timezone: YYYY-MM-DDThh:mm:ss
     },
     "metadata": {
         "pagination": {
-            "currentPage": 0,
-            "totalCount": 2,
             "pageSize": 1000,
-            "totalPages": 1
+            "currentPage": 0,
+            "totalPages": 1,
+            "totalCount": 2
         },
-        "status": [],
-        "datafiles": []
+        "datafiles": [],
+        "status": []
     }
 }
 ```
@@ -407,25 +407,100 @@ observationTimestamp should be ISO8601 format with timezone: YYYY-MM-DDThh:mm:ss
         "data": [
             {
                 "season": "Fall",
-                "year": "2015",
-                "seasonDbId": "237"
+                "seasonDbId": "237",
+                "year": "2015"
             },
             {
                 "season": "Spring",
-                "year": "2016",
-                "seasonDbId": "238"
+                "seasonDbId": "238",
+                "year": "2016"
             }
         ]
     },
     "metadata": {
         "pagination": {
-            "currentPage": 0,
-            "totalCount": 2,
             "pageSize": 1000,
-            "totalPages": 1
+            "currentPage": 0,
+            "totalPages": 1,
+            "totalCount": 2
         },
-        "status": [],
-        "datafiles": []
+        "datafiles": [],
+        "status": []
+    }
+}
+```
+
+## Studies/{studydbid}/table [Post /brapi/v1/studies/{studyDbId}/table]
+
+ This call can be used to create new observations in bulk.
+Note: If you need to update any existing observation, please use `PUT /studies/{studyDbId}/observations`. This call should only be used to create NEW observations.
+Implementation Guidelines:
++ All observations submitted through this call should create NEW observation records in the database under the given observation unit. + Each "observationUnitDbId" listed should already exist in the database. If the server can not find a given "observationUnitDbId", it should report an error. (see Error Handling) + The response of this call should be the set of "observationDbIds" created from this call, along with the associated "observationUnitDbId" and "observationVariableDbId" that each observation is associated with.
+Images can optionally be saved using this call by providing a zipped file of all images in the datafiles. The physical zipped file should be transferred as well in the mulit-part form data.
+Scope: PHENOTYPING  
+
++ Parameters
+    + studyDbId (Required, string) ... Identifier of the study. Usually a number, could be alphanumeric.
+ 
++ Request (application/json)
+/definitions/newObservationsTableRequest
+
++ Response 200 (application/json)
+```
+{
+    "result": {
+        "observations": [
+            {
+                "observationDbId": "12345",
+                "observationVariableDbId": "variable1DbId",
+                "observationUnitDbId": "1"
+            },
+            {
+                "observationDbId": "23456",
+                "observationVariableDbId": "variable2DbId",
+                "observationUnitDbId": "1"
+            },
+            {
+                "observationDbId": "34567",
+                "observationVariableDbId": "variable3DbId",
+                "observationUnitDbId": "1"
+            },
+            {
+                "observationDbId": "45678",
+                "observationVariableDbId": "imagevariable1DbId",
+                "observationUnitDbId": "1"
+            },
+            {
+                "observationDbId": "56789",
+                "observationVariableDbId": "variable1DbId",
+                "observationUnitDbId": "2"
+            },
+            {
+                "observationDbId": "67890",
+                "observationVariableDbId": "variable2DbId",
+                "observationUnitDbId": "2"
+            },
+            {
+                "observationDbId": "78901",
+                "observationVariableDbId": "variable3DbId",
+                "observationUnitDbId": "2"
+            },
+            {
+                "observationDbId": "89012",
+                "observationVariableDbId": "imagevariable1DbId",
+                "observationUnitDbId": "2"
+            }
+        ]
+    },
+    "metadata": {
+        "pagination": {
+            "pageSize": 0,
+            "currentPage": 0,
+            "totalPages": 0,
+            "totalCount": 0
+        },
+        "datafiles": [],
+        "status": []
     }
 }
 ```
@@ -443,29 +518,14 @@ observationTimestamp should be ISO8601 format with timezone: YYYY-MM-DDThh:mm:ss
 + Response 200 (application/csv)
 ```
 "year,studyDbId,studyName,locationDbId,locationName,germplasmDbId,germplasmName,observationUnitDbId,plotNumber,replicate,blockNumber,observationTimestamp,entryType,X,Y,variable1DbId,variable2DbId,variable3DbId\n2017,stu1,Study Name,loc1,Location Name,CIP1,CIP Name,abc123,1,1,1,2017-06-16T00:53:26Z,Test Entry,1,2,25.3,103.4,50.75 \n2017,stu1,Study Name,loc1,Location Name,CIP1,CIP Name,abc124,1,1,1,2017-06-16T00:54:57Z,Test Entry,2,2,27.9,98.65,45.345\n"
-```+ Response 200 (application/tsv)
-```
-"year\tstudyDbId\tstudyName\tlocationDbId\tlocationName\tgermplasmDbId\tgermplasmName\tobservationUnitDbId\tplotNumber\treplicate\tblockNumber\tobservationTimestamp\tentryType\tX\tY\tvariable1DbId\tvariable2DbId\tvariable3DbId\n 2017\tstu1\tStudy Name\tloc1\tLocation Name\tCIP1\tCIP Name\tabc123\t1\t1\t1\t2017-06-16T00:53:26Z\tTest Entry\t1\t2\t25.3\t103.4\t50.75\n 2017\tstu1\tStudy Name\tloc1\tLocation Name\tCIP1\tCIP Name\tabc124\t1\t1\t1\t2017-06-16T00:54:57Z\tTest Entry\t2\t2\t27.9\t98.65\t45.345\n"
 ```+ Response 200 (application/json)
 ```
 {
     "result": {
-        "headerRow": [
-            "year",
-            "studyDbId",
-            "studyName",
-            "locationDbId",
-            "locationName",
-            "germplasmDbId",
-            "germplasmName",
-            "observationUnitDbId",
-            "plotNumber",
-            "replicate",
-            "blockNumber",
-            "observationTimestamp",
-            "entryType",
-            "X",
-            "Y"
+        "observationVariableDbIds": [
+            "variable1DbId",
+            "variable2DbId",
+            "variable3DbId"
         ],
         "observationVariableNames": [
             "plant height",
@@ -514,96 +574,121 @@ observationTimestamp should be ISO8601 format with timezone: YYYY-MM-DDThh:mm:ss
                 "45.345"
             ]
         ],
-        "observationVariableDbIds": [
-            "variable1DbId",
-            "variable2DbId",
-            "variable3DbId"
+        "headerRow": [
+            "year",
+            "studyDbId",
+            "studyName",
+            "locationDbId",
+            "locationName",
+            "germplasmDbId",
+            "germplasmName",
+            "observationUnitDbId",
+            "plotNumber",
+            "replicate",
+            "blockNumber",
+            "observationTimestamp",
+            "entryType",
+            "X",
+            "Y"
         ]
     },
     "metadata": {
         "pagination": {
-            "currentPage": 0,
-            "totalCount": 0,
             "pageSize": 0,
-            "totalPages": 0
+            "currentPage": 0,
+            "totalPages": 0,
+            "totalCount": 0
         },
-        "status": [],
-        "datafiles": []
+        "datafiles": [],
+        "status": []
+    }
+}
+```+ Response 200 (application/tsv)
+```
+"year\tstudyDbId\tstudyName\tlocationDbId\tlocationName\tgermplasmDbId\tgermplasmName\tobservationUnitDbId\tplotNumber\treplicate\tblockNumber\tobservationTimestamp\tentryType\tX\tY\tvariable1DbId\tvariable2DbId\tvariable3DbId\n 2017\tstu1\tStudy Name\tloc1\tLocation Name\tCIP1\tCIP Name\tabc123\t1\t1\t1\t2017-06-16T00:53:26Z\tTest Entry\t1\t2\t25.3\t103.4\t50.75\n 2017\tstu1\tStudy Name\tloc1\tLocation Name\tCIP1\tCIP Name\tabc124\t1\t1\t1\t2017-06-16T00:54:57Z\tTest Entry\t2\t2\t27.9\t98.65\t45.345\n"
+```
+
+## Studies/{studydbid}/observationunits [Put /brapi/v1/studies/{studyDbId}/observationunits]
+
+Use this call for uploading new Observations as JSON to a system.
+
+Note: If 'observationUnitDbId' or 'observationDbId' is populated, they should be considered updates to existing records. If an existing record of that DbId is not found, the document should be treated as new records and assigned new DbIds. If 'observationUnitDbId' or 'observationDbId' is un-populated (empty string or null) the document should be treated as new records and assigned new DbIds. 
+
++ Parameters
+    + studyDbId (Required, string) ... The study these observation units are related to.
+ 
++ Request (application/json)
+{
+    "items": {
+        "$ref": "#/definitions/newObservationUnitRequest"
+    },
+    "title": "newObservationUnitRequestList",
+    "type": "array"
+}
+
++ Response 400 (application/json)
+```
+{
+    "metadata": {
+        "status": [
+            {
+                "message": "Could not update values for Observation Units",
+                "code": "Error"
+            }
+        ]
+    }
+}
+```+ Response 200 (application/json)
+```
+{
+    "results": {
+        "observationUnitDbIds": [
+            "123abc",
+            "456def"
+        ]
+    },
+    "metadata": {
+        "status": [
+            {
+                "message": "Upload Successful",
+                "code": "1"
+            }
+        ]
     }
 }
 ```
 
-## Studies/{studydbid}/table [Post /brapi/v1/studies/{studyDbId}/table]
+## Studies/{studydbid}/observationunits [Post /brapi/v1/studies/{studyDbId}/observationunits{?format}]
 
- This call can be used to create new observations in bulk.
-Note: If you need to update any existing observation, please use `PUT /studies/{studyDbId}/observations`. This call should only be used to create NEW observations.
-Implementation Guidelines:
-+ All observations submitted through this call should create NEW observation records in the database under the given observation unit. + Each "observationUnitDbId" listed should already exist in the database. If the server can not find a given "observationUnitDbId", it should report an error. (see Error Handling) + The response of this call should be the set of "observationDbIds" created from this call, along with the associated "observationUnitDbId" and "observationVariableDbId" that each observation is associated with.
-Images can optionally be saved using this call by providing a zipped file of all images in the datafiles. The physical zipped file should be transferred as well in the mulit-part form data.
-Scope: PHENOTYPING  
+This call has been deprecated in V1.1. Use instead: "PUT /studies/{studyDbId}/observationunits" and "PUT /studies/{studyDbId}/observationunits/zip" 
 
 + Parameters
-    + studyDbId (Required, string) ... Identifier of the study. Usually a number, could be alphanumeric.
+    + studyDbId (Required, string) ... The study these observation units are related to.
+    + format (Required, string) ... (default is JSON, but can be zip) In case where JSON data is zipped for faster transfer speed (as in the case of the IRRI handheld implementation), the zipped JSON file will be listed in datafiles. The zipped file contains a JSON file with the same structure as the BrAPI call.
  
 + Request (application/json)
-/definitions/newObservationsTableRequest
+{
+    "properties": {
+        "result": {
+            "$ref": "#/definitions/newObservationsRequestDeprecated"
+        },
+        "metadata": {
+            "$ref": "#/definitions/metadata"
+        }
+    },
+    "title": "newObservationsRequestWrapperDeprecated"
+}
 
-+ Response 200 (application/json)
++ Response 400 (application/json)
 ```
 {
-    "result": {
-        "observations": [
+    "metadata": {
+        "status": [
             {
-                "observationUnitDbId": "1",
-                "observationVariableDbId": "variable1DbId",
-                "observationDbId": "12345"
-            },
-            {
-                "observationUnitDbId": "1",
-                "observationVariableDbId": "variable2DbId",
-                "observationDbId": "23456"
-            },
-            {
-                "observationUnitDbId": "1",
-                "observationVariableDbId": "variable3DbId",
-                "observationDbId": "34567"
-            },
-            {
-                "observationUnitDbId": "1",
-                "observationVariableDbId": "imagevariable1DbId",
-                "observationDbId": "45678"
-            },
-            {
-                "observationUnitDbId": "2",
-                "observationVariableDbId": "variable1DbId",
-                "observationDbId": "56789"
-            },
-            {
-                "observationUnitDbId": "2",
-                "observationVariableDbId": "variable2DbId",
-                "observationDbId": "67890"
-            },
-            {
-                "observationUnitDbId": "2",
-                "observationVariableDbId": "variable3DbId",
-                "observationDbId": "78901"
-            },
-            {
-                "observationUnitDbId": "2",
-                "observationVariableDbId": "imagevariable1DbId",
-                "observationDbId": "89012"
+                "message": "Could not update values for Observation Units",
+                "code": "42"
             }
         ]
-    },
-    "metadata": {
-        "pagination": {
-            "currentPage": 0,
-            "totalCount": 0,
-            "pageSize": 0,
-            "totalPages": 0
-        },
-        "status": [],
-        "datafiles": []
     }
 }
 ```
@@ -627,183 +712,98 @@ Scope: PHENOTYPING
     "result": {
         "data": [
             {
-                "plotNumber": "1",
                 "entryNumber": "1",
+                "Y": "1",
                 "plantNumber": "0",
-                "pedigree": "IR-8-FP/IR-8-MP",
+                "replicate": "1",
+                "plotNumber": "1",
                 "observationUnitXref": [
                     {
-                        "id": "SAMEA179865230",
-                        "source": "biosampleEBI"
+                        "source": "biosampleEBI",
+                        "id": "SAMEA179865230"
                     },
                     {
-                        "id": "INRA:CoeSt6 _SMH03",
-                        "source": "gnpis.lot"
+                        "source": "gnpis.lot",
+                        "id": "INRA:CoeSt6 _SMH03"
                     },
                     {
-                        "id": "239865",
-                        "source": "kernelDB"
+                        "source": "kernelDB",
+                        "id": "239865"
                     }
                 ],
+                "X": "1",
                 "observationUnitName": "Test-2016-location-34-575",
-                "blockNumber": "1",
-                "replicate": "1",
-                "observationUnitDbId": "abc-123",
-                "Y": "1",
-                "germplasmName": "IR-8",
-                "germplasmDbId": "1",
                 "observationLevel": "plot",
+                "pedigree": "IR-8-FP/IR-8-MP",
                 "entryType": "Test entry",
+                "germplasmName": "IR-8",
+                "observationUnitDbId": "abc-123",
                 "observations": [
                     {
-                        "observationDbId": "153453453",
-                        "observationTimeStamp": "2015-06-16T00:53:26Z",
-                        "observationVariableName": "Plant_height",
                         "observationVariableDbId": "18020",
+                        "observationTimeStamp": "2015-06-16T00:53:26Z",
+                        "value": "25.63",
                         "collector": "Mr. Technician",
-                        "value": "25.63"
+                        "observationVariableName": "Plant_height",
+                        "observationDbId": "153453453"
                     },
                     {
-                        "observationDbId": "23453454345",
-                        "observationTimeStamp": "2015-06-16T00:53:26Z",
-                        "observationVariableName": "GW100_g",
                         "observationVariableDbId": "51496",
+                        "observationTimeStamp": "2015-06-16T00:53:26Z",
+                        "value": "Light Green",
                         "collector": "Mr. Technician",
-                        "value": "Light Green"
+                        "observationVariableName": "GW100_g",
+                        "observationDbId": "23453454345"
                     }
                 ],
-                "X": "1"
+                "germplasmDbId": "1",
+                "blockNumber": "1"
             },
             {
-                "plotNumber": "2",
-                "Y": "2",
-                "enrtyNumber": "2",
-                "plantNumber": "0",
-                "germplasmName": "IR-9",
-                "germplasmDbId": "2",
-                "pedigree": "IR-9-FP/IR-9-MP",
-                "observationUnitName": "Test-2016-location-34-456",
-                "observatioUnitDbId": "abc-456",
-                "entryType": "Check entry",
-                "blockNumber": "2",
                 "observationLevel": "plot",
+                "pedigree": "IR-9-FP/IR-9-MP",
+                "entryType": "Check entry",
+                "enrtyNumber": "2",
+                "germplasmDbId": "2",
+                "Y": "2",
                 "replicate": "1",
+                "plantNumber": "0",
+                "plotNumber": "2",
                 "observations": [
                     {
-                        "observationDbId": "3",
-                        "observationTimeStamp": "2015-06-16T00:53:26Z",
-                        "observationVariableName": "Plant_height",
                         "observationVariableDbId": "18020",
+                        "observationTimeStamp": "2015-06-16T00:53:26Z",
+                        "value": "34.95",
                         "collector": "Mr. Technician",
-                        "value": "34.95"
+                        "observationVariableName": "Plant_height",
+                        "observationDbId": "3"
                     },
                     {
-                        "observationDbId": "4",
-                        "observationTimeStamp": "2015-06-16T00:53:26Z",
-                        "observationVariableName": "GW100_g",
                         "observationVariableDbId": "51496",
+                        "observationTimeStamp": "2015-06-16T00:53:26Z",
+                        "value": "Blue",
                         "collector": "Mr. Technician",
-                        "value": "Blue"
+                        "observationVariableName": "GW100_g",
+                        "observationDbId": "4"
                     }
                 ],
-                "X": "1"
+                "X": "1",
+                "germplasmName": "IR-9",
+                "observationUnitName": "Test-2016-location-34-456",
+                "blockNumber": "2",
+                "observatioUnitDbId": "abc-456"
             }
         ]
     },
     "metadata": {
         "pagination": {
-            "currentPage": 0,
-            "totalCount": 2,
             "pageSize": 1000,
-            "totalPages": 1
+            "currentPage": 0,
+            "totalPages": 1,
+            "totalCount": 2
         },
-        "status": [],
-        "datafiles": []
-    }
-}
-```
-
-## Studies/{studydbid}/observationunits [Post /brapi/v1/studies/{studyDbId}/observationunits{?format}]
-
-This call has been deprecated in V1.1. Use instead: "PUT /studies/{studyDbId}/observationunits" and "PUT /studies/{studyDbId}/observationunits/zip" 
-
-+ Parameters
-    + studyDbId (Required, string) ... The study these observation units are related to.
-    + format (Required, string) ... (default is JSON, but can be zip) In case where JSON data is zipped for faster transfer speed (as in the case of the IRRI handheld implementation), the zipped JSON file will be listed in datafiles. The zipped file contains a JSON file with the same structure as the BrAPI call.
- 
-+ Request (application/json)
-{
-    "title": "newObservationsRequestWrapperDeprecated",
-    "properties": {
-        "result": {
-            "$ref": "#/definitions/newObservationsRequestDeprecated"
-        },
-        "metadata": {
-            "$ref": "#/definitions/metadata"
-        }
-    }
-}
-
-+ Response 400 (application/json)
-```
-{
-    "metadata": {
-        "status": [
-            {
-                "code": "42",
-                "message": "Could not update values for Observation Units"
-            }
-        ]
-    }
-}
-```
-
-## Studies/{studydbid}/observationunits [Put /brapi/v1/studies/{studyDbId}/observationunits]
-
-Use this call for uploading new Observations as JSON to a system.
-
-Note: If 'observationUnitDbId' or 'observationDbId' is populated, they should be considered updates to existing records. If an existing record of that DbId is not found, the document should be treated as new records and assigned new DbIds. If 'observationUnitDbId' or 'observationDbId' is un-populated (empty string or null) the document should be treated as new records and assigned new DbIds. 
-
-+ Parameters
-    + studyDbId (Required, string) ... The study these observation units are related to.
- 
-+ Request (application/json)
-{
-    "type": "array",
-    "title": "newObservationUnitRequestList",
-    "items": {
-        "$ref": "#/definitions/newObservationUnitRequest"
-    }
-}
-
-+ Response 200 (application/json)
-```
-{
-    "results": {
-        "observationUnitDbIds": [
-            "123abc",
-            "456def"
-        ]
-    },
-    "metadata": {
-        "status": [
-            {
-                "code": "1",
-                "message": "Upload Successful"
-            }
-        ]
-    }
-}
-```+ Response 400 (application/json)
-```
-{
-    "metadata": {
-        "status": [
-            {
-                "code": "Error",
-                "message": "Could not update values for Observation Units"
-            }
-        ]
+        "datafiles": [],
+        "status": []
     }
 }
 ```
@@ -824,84 +824,84 @@ More linked data: * observation variables: ```/brapi/v1/studies/{studyDbId}/obse
 ```
 {
     "result": {
-        "active": "true",
         "dataLinks": [
             {
+                "url": "http://data.inra.fr/archive/multi-spect-flowering.zip",
                 "type": "Image archive",
-                "name": "image-archive12.zip",
-                "url": "http://data.inra.fr/archive/multi-spect-flowering.zip"
+                "name": "image-archive12.zip"
             }
         ],
-        "trialName": "International Yield Trial",
         "studyType": "Yield study",
-        "studyName": "Earlygenerationtesting",
+        "endDate": "2008-12-31",
         "studyDescription": "some free text description that could include scientific goal, some tracability and whatever makes sense",
         "additionalInfo": {
-            "publications": "pmid:24039865287545",
             "principalInvestigator": "Dr. Breeder",
-            "property2Name": "property2Value",
+            "publications": "pmid:24039865287545",
             "property1Name": "property1Value",
-            "studyObjective": "Increase yield"
+            "studyObjective": "Increase yield",
+            "property2Name": "property2Value"
         },
-        "license": "https://creativecommons.org/licenses/by/4.0",
-        "trialDbId": "57",
         "startDate": "2005-06-01",
-        "endDate": "2008-12-31",
-        "lastUpdate": {
-            "timestamp": "2015-06-16T00:53:26Z",
-            "version": "1.1"
-        },
+        "studyName": "Earlygenerationtesting",
+        "trialDbId": "57",
         "studyDbId": "35",
-        "location": {
-            "abbreviation": "IB",
-            "latitude": -21.5,
-            "longitude": 165.5,
-            "name": "Ibadan",
-            "countryCode": "NGA",
-            "locationDbId": "1",
-            "altitude": 12,
-            "instituteName": "INRA - GDEC",
-            "countryName": "Nigeria",
-            "instituteAddress": "route foo, Clermont Ferrand, France",
-            "additionalInfo": {
-                "AnnualMeanRain": "value",
-                "property2Name": "property2Value",
-                "property1Name": "property1Value",
-                "SoilDescription": "23"
-            }
-        },
         "contacts": [
             {
-                "email": "j.doe@mail.com",
                 "instituteName": "IRRI",
                 "type": "Scientist",
                 "name": "John Doe",
                 "contactDbId": "C025",
+                "email": "j.doe@mail.com",
                 "orcid": "0000-0002-0607-8728"
             },
             {
-                "email": null,
                 "instituteName": "IRRI",
                 "type": null,
                 "name": "Dave Peters",
                 "contactDbId": "C026",
+                "email": null,
                 "orcid": null
             }
         ],
+        "trialName": "International Yield Trial",
+        "license": "https://creativecommons.org/licenses/by/4.0",
+        "lastUpdate": {
+            "version": "1.1",
+            "timestamp": "2015-06-16T00:53:26Z"
+        },
         "seasons": [
             "2005 Winter",
             "2008 Summer"
-        ]
+        ],
+        "location": {
+            "abbreviation": "IB",
+            "name": "Ibadan",
+            "instituteName": "INRA - GDEC",
+            "altitude": 12,
+            "countryName": "Nigeria",
+            "countryCode": "NGA",
+            "additionalInfo": {
+                "AnnualMeanRain": "value",
+                "property1Name": "property1Value",
+                "SoilDescription": "23",
+                "property2Name": "property2Value"
+            },
+            "latitude": -21.5,
+            "longitude": 165.5,
+            "instituteAddress": "route foo, Clermont Ferrand, France",
+            "locationDbId": "1"
+        },
+        "active": "true"
     },
     "metadata": {
         "pagination": {
-            "currentPage": 0,
-            "totalCount": 0,
             "pageSize": 0,
-            "totalPages": 0
+            "currentPage": 0,
+            "totalPages": 0,
+            "totalCount": 0
         },
-        "status": [],
-        "datafiles": []
+        "datafiles": [],
+        "status": []
     }
 }
 ```
@@ -924,50 +924,49 @@ More linked data: * observation variables: ```/brapi/v1/studies/{studyDbId}/obse
         "studyDbId": "35",
         "data": [
             {
-                "entryNumber": "1",
-                "germplasmName": "Pahang",
-                "germplasmPUI": "http://www.crop-diversity.org/mgis/accession/01BEL084609",
-                "germplasmDbId": "382",
                 "accessionNumber": "ITC0609",
+                "entryNumber": "1",
                 "pedigree": "TOBA97/SW90.1057",
+                "germplasmName": "Pahang",
                 "synonyms": [
                     "01BEL084609"
                 ],
-                "seedSource": "SS1"
+                "seedSource": "SS1",
+                "germplasmDbId": "382",
+                "germplasmPUI": "http://www.crop-diversity.org/mgis/accession/01BEL084609"
             },
             {
-                "entryNumber": "2",
-                "germplasmName": "Pahang",
-                "germplasmPUI": "http://www.crop-diversity.org/mgis/accession/01BEL084727",
-                "germplasmDbId": "394",
                 "accessionNumber": "ITC0727",
+                "entryNumber": "2",
                 "pedigree": "TOBA97/SW90.1057",
+                "germplasmName": "Pahang",
                 "synonyms": [
                     "01BEL084727"
                 ],
-                "seedSource": "SS2"
+                "seedSource": "SS2",
+                "germplasmDbId": "394",
+                "germplasmPUI": "http://www.crop-diversity.org/mgis/accession/01BEL084727"
             }
         ],
         "trialName": "myBestTrial"
     },
     "metadata": {
         "pagination": {
-            "currentPage": 0,
-            "totalCount": 2,
             "pageSize": 1000,
-            "totalPages": 1
+            "currentPage": 0,
+            "totalPages": 1,
+            "totalCount": 2
         },
-        "status": [],
-        "datafiles": []
+        "datafiles": [],
+        "status": []
     }
 }
 ```
 
-## Studytypes [Get /brapi/v1/studytypes{?pageSize}{?page}]
+## Studytypes [Get /brapi/v1/studyTypes{?pageSize}{?page}]
 
  Call to retrieve the list of study types.
-Scope: PHENOTYPING. Implementation target date: PAG2016
-<a href="https://test-server.brapi.org/brapi/v1/studytypes"> test-server.brapi.org/brapi/v1/studytypes</a> 
+Scope: PHENOTYPING. Implementation target date: PAG2016  
 
 + Parameters
     + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
@@ -995,13 +994,94 @@ Scope: PHENOTYPING. Implementation target date: PAG2016
     },
     "metadata": {
         "pagination": {
-            "currentPage": 0,
-            "totalCount": 3,
             "pageSize": 1000,
-            "totalPages": 1
+            "currentPage": 0,
+            "totalPages": 1,
+            "totalCount": 3
         },
-        "status": [],
-        "datafiles": []
+        "datafiles": [],
+        "status": []
+    }
+}
+```
+
+## Studies-search [Post /brapi/v1/studies-search]
+
+ Scope: PHENOTYPING. Status: ACCEPTED. Implementation target date: PAG2016.
+Implemented by: Germinate
+Used by: Flapjack, Cassavabase
+See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
+Get list of studies
+StartDate and endDate should be ISO8601 format for dates: YYYY-MM-DD
+<a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies-search</a> 
+
++ Parameters
+ 
++ Request (application/json)
+/definitions/studySearchRequest
+
++ Response 200 (application/json)
+```
+{
+    "result": {
+        "data": [
+            {
+                "locationName": "Kenya",
+                "studyType": "Trial",
+                "name": "Earlygenerationtesting",
+                "endDate": "2008-12-31",
+                "seasons": [
+                    "2007 Spring",
+                    "2008 Fall"
+                ],
+                "additionalInfo": {
+                    "property3Name": "property3Value",
+                    "property1Name": "property1Value",
+                    "property2Name": "property2Value"
+                },
+                "startDate": "2007-06-01",
+                "trialDbId": "7",
+                "programDbId": "27",
+                "studyDbId": "35",
+                "active": "true",
+                "locationDbId": "23",
+                "programName": "Drought Resistance Program A",
+                "trialName": "InternationalTrialA"
+            },
+            {
+                "locationName": "Zimbabwe",
+                "studyType": "Trial",
+                "name": "Earlygenerationtesting",
+                "endDate": "2008-12-31",
+                "seasons": [
+                    "2007 Spring",
+                    "2008 Fall"
+                ],
+                "additionalInfo": {
+                    "property3Name": "property3Value",
+                    "property1Name": "property1Value",
+                    "property2Name": "property2Value"
+                },
+                "startDate": "2005-06-01",
+                "trialDbId": "7",
+                "programDbId": "58",
+                "studyDbId": "345",
+                "active": "true",
+                "locationDbId": "33",
+                "programName": "Drought Resistance Program B",
+                "trialName": "InternationalTrialA"
+            }
+        ]
+    },
+    "metadata": {
+        "pagination": {
+            "pageSize": 1000,
+            "currentPage": 0,
+            "totalPages": 1,
+            "totalCount": 2
+        },
+        "datafiles": [],
+        "status": []
     }
 }
 ```
@@ -1038,143 +1118,62 @@ StartDate and endDate should be ISO8601 format for dates: YYYY-MM-DD
     "result": {
         "data": [
             {
-                "studyDbId": "35",
                 "locationName": "Kenya",
-                "active": "true",
-                "programDbId": "27",
-                "locationDbId": "23",
-                "trialName": "InternationalTrialA",
-                "name": "Earlygenerationtesting",
                 "studyType": "Trial",
-                "additionalInfo": {
-                    "property3Name": "property3Value",
-                    "property2Name": "property2Value",
-                    "property1Name": "property1Value"
-                },
-                "programName": "Drought Resistance Program A",
+                "name": "Earlygenerationtesting",
+                "endDate": "2008-12-31",
                 "seasons": [
                     "2007 Spring",
                     "2008 Fall"
                 ],
-                "trialDbId": "7",
+                "additionalInfo": {
+                    "property3Name": "property3Value",
+                    "property1Name": "property1Value",
+                    "property2Name": "property2Value"
+                },
                 "startDate": "2007-06-01",
-                "endDate": "2008-12-31"
+                "trialDbId": "7",
+                "programDbId": "27",
+                "studyDbId": "35",
+                "active": "true",
+                "locationDbId": "23",
+                "programName": "Drought Resistance Program A",
+                "trialName": "InternationalTrialA"
             },
             {
-                "studyDbId": "345",
                 "locationName": "Zimbabwe",
-                "active": "true",
-                "programDbId": "58",
-                "locationDbId": "33",
-                "trialName": "InternationalTrialA",
-                "name": "Earlygenerationtesting",
                 "studyType": "Trial",
-                "additionalInfo": {
-                    "property3Name": "property3Value",
-                    "property2Name": "property2Value",
-                    "property1Name": "property1Value"
-                },
-                "programName": "Drought Resistance Program B",
+                "name": "Earlygenerationtesting",
+                "endDate": "2008-12-31",
                 "seasons": [
                     "2007 Spring",
                     "2008 Fall"
                 ],
-                "trialDbId": "7",
+                "additionalInfo": {
+                    "property3Name": "property3Value",
+                    "property1Name": "property1Value",
+                    "property2Name": "property2Value"
+                },
                 "startDate": "2005-06-01",
-                "endDate": "2008-12-31"
+                "trialDbId": "7",
+                "programDbId": "58",
+                "studyDbId": "345",
+                "active": "true",
+                "locationDbId": "33",
+                "programName": "Drought Resistance Program B",
+                "trialName": "InternationalTrialA"
             }
         ]
     },
     "metadata": {
         "pagination": {
-            "currentPage": 0,
-            "totalCount": 2,
             "pageSize": 1000,
-            "totalPages": 1
-        },
-        "status": [],
-        "datafiles": []
-    }
-}
-```
-
-## Studies-search [Post /brapi/v1/studies-search]
-
- Scope: PHENOTYPING. Status: ACCEPTED. Implementation target date: PAG2016.
-Implemented by: Germinate
-Used by: Flapjack, Cassavabase
-See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
-Get list of studies
-StartDate and endDate should be ISO8601 format for dates: YYYY-MM-DD
-<a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies-search</a> 
-
-+ Parameters
- 
-+ Request (application/json)
-/definitions/studySearchRequest
-
-+ Response 200 (application/json)
-```
-{
-    "result": {
-        "data": [
-            {
-                "studyDbId": "35",
-                "locationName": "Kenya",
-                "active": "true",
-                "programDbId": "27",
-                "locationDbId": "23",
-                "trialName": "InternationalTrialA",
-                "name": "Earlygenerationtesting",
-                "studyType": "Trial",
-                "additionalInfo": {
-                    "property3Name": "property3Value",
-                    "property2Name": "property2Value",
-                    "property1Name": "property1Value"
-                },
-                "programName": "Drought Resistance Program A",
-                "seasons": [
-                    "2007 Spring",
-                    "2008 Fall"
-                ],
-                "trialDbId": "7",
-                "startDate": "2007-06-01",
-                "endDate": "2008-12-31"
-            },
-            {
-                "studyDbId": "345",
-                "locationName": "Zimbabwe",
-                "active": "true",
-                "programDbId": "58",
-                "locationDbId": "33",
-                "trialName": "InternationalTrialA",
-                "name": "Earlygenerationtesting",
-                "studyType": "Trial",
-                "additionalInfo": {
-                    "property3Name": "property3Value",
-                    "property2Name": "property2Value",
-                    "property1Name": "property1Value"
-                },
-                "programName": "Drought Resistance Program B",
-                "seasons": [
-                    "2007 Spring",
-                    "2008 Fall"
-                ],
-                "trialDbId": "7",
-                "startDate": "2005-06-01",
-                "endDate": "2008-12-31"
-            }
-        ]
-    },
-    "metadata": {
-        "pagination": {
             "currentPage": 0,
-            "totalCount": 2,
-            "pageSize": 1000,
-            "totalPages": 1
+            "totalPages": 1,
+            "totalCount": 2
         },
-        "status": [],
-        "datafiles": []
+        "datafiles": [],
+        "status": []
     }
 }
 ```
@@ -1199,115 +1198,115 @@ Refer to the data type definition of variables in `/Specification/ObservationVar
         "studyDbId": "35",
         "data": [
             {
-                "ontologyName": "Cassava",
-                "defaultValue": "0",
-                "name": "CT_M_C",
-                "method": {
-                    "description": "Assessment of the level of yellowness in cassava storage root pulp using the tc chart",
-                    "reference": null,
-                    "formula": null,
-                    "methodDbId": "CO_334:0010320",
-                    "name": "Visual Rating:total carotenoid by chart_method",
-                    "class": "Estimation"
-                },
-                "observationVariableDbId": "CO_334:0100632",
                 "ontologyDbId": "CO_334",
+                "ontologyName": "Cassava",
                 "scale": {
-                    "xref": null,
                     "validValues": {
-                        "max": 3,
                         "categories": [
                             "1=low",
                             "2=medium",
                             "3=high"
                         ],
+                        "max": 3,
                         "min": 1
                     },
                     "decimalPlaces": 2,
-                    "scaleDbId": "CO_334:0100526",
                     "datatype": "Numeric",
-                    "name": "ug/g"
+                    "name": "ug/g",
+                    "xref": null,
+                    "scaleDbId": "CO_334:0100526"
                 },
+                "observationVariableDbId": "CO_334:0100632",
+                "name": "CT_M_C",
+                "method": {
+                    "class": "Estimation",
+                    "reference": null,
+                    "description": "Assessment of the level of yellowness in cassava storage root pulp using the tc chart",
+                    "formula": null,
+                    "name": "Visual Rating:total carotenoid by chart_method",
+                    "methodDbId": "CO_334:0010320"
+                },
+                "defaultValue": "0",
                 "trait": {
                     "traitDbId": "CO_334:0100630",
                     "name": "Canopy temperature"
                 }
             },
             {
-                "scientist": "",
-                "contextOfUse": [
-                    "Trial evaluation",
-                    "Nursery evaluation"
-                ],
-                "date": "2016-05-13",
-                "xref": "TL_455:0003001",
+                "ontologyName": "Cassava",
+                "observationVariableDbId": "CO_334:0100622",
                 "defaultValue": "0",
-                "crop": "Cassava",
-                "name": "caro_spectro",
+                "institution": "",
+                "language": "EN",
+                "trait": {
+                    "class": "physiological trait",
+                    "entity": "root",
+                    "name": "Carotenoid content",
+                    "mainAbbreviation": "CC",
+                    "status": "recommended",
+                    "xref": "TL_455:0003023",
+                    "synonyms": [
+                        "carotenoid content measure"
+                    ],
+                    "description": "Cassava storage root pulp carotenoid content",
+                    "alternativeAbbreviations": [
+                        "CCS"
+                    ],
+                    "attribute": "carotenoid",
+                    "traitDbId": "CO_334:0100620"
+                },
+                "date": "2016-05-13",
+                "scientist": "",
+                "ontologyDbId": "CO_334",
                 "scale": {
-                    "xref": null,
                     "validValues": {
-                        "max": 3,
                         "categories": [
                             "1=low",
                             "2=medium",
                             "3=high"
                         ],
+                        "max": 3,
                         "min": 1
                     },
                     "decimalPlaces": 2,
-                    "scaleDbId": "CO_334:0100526",
                     "datatype": "Numeric",
-                    "name": "ug/g"
+                    "name": "ug/g",
+                    "xref": null,
+                    "scaleDbId": "CO_334:0100526"
                 },
-                "ontologyName": "Cassava",
-                "institution": "",
-                "language": "EN",
-                "status": "recommended",
+                "name": "caro_spectro",
                 "method": {
-                    "description": "Assessment of the level of yellowness in cassava storage root pulp using the tc chart",
+                    "class": "Estimation",
                     "reference": null,
+                    "description": "Assessment of the level of yellowness in cassava storage root pulp using the tc chart",
                     "formula": null,
-                    "methodDbId": "CO_334:0010320",
                     "name": "Visual Rating:total carotenoid by chart_method",
-                    "class": "Estimation"
+                    "methodDbId": "CO_334:0010320"
                 },
+                "status": "recommended",
+                "xref": "TL_455:0003001",
+                "crop": "Cassava",
                 "synonyms": [
                     "Carotenoid content by spectro"
                 ],
-                "observationVariableDbId": "CO_334:0100622",
-                "ontologyDbId": "CO_334",
-                "growthStage": "mature",
-                "trait": {
-                    "xref": "TL_455:0003023",
-                    "description": "Cassava storage root pulp carotenoid content",
-                    "traitDbId": "CO_334:0100620",
-                    "attribute": "carotenoid",
-                    "synonyms": [
-                        "carotenoid content measure"
-                    ],
-                    "alternativeAbbreviations": [
-                        "CCS"
-                    ],
-                    "name": "Carotenoid content",
-                    "status": "recommended",
-                    "mainAbbreviation": "CC",
-                    "class": "physiological trait",
-                    "entity": "root"
-                }
+                "contextOfUse": [
+                    "Trial evaluation",
+                    "Nursery evaluation"
+                ],
+                "growthStage": "mature"
             }
         ],
         "trialName": "myBestTrial"
     },
     "metadata": {
         "pagination": {
-            "currentPage": 0,
-            "totalCount": 0,
             "pageSize": 0,
-            "totalPages": 0
+            "currentPage": 0,
+            "totalPages": 0,
+            "totalCount": 0
         },
-        "status": [],
-        "datafiles": []
+        "datafiles": [],
+        "status": []
     }
 }
 ```
@@ -1329,93 +1328,93 @@ Refer to the data type definition of variables in `/Specification/ObservationVar
         "studyDbId": "123",
         "data": [
             {
+                "ontologyDbId": "CO_334",
                 "ontologyName": "Cassava",
-                "defaultValue": null,
+                "scale": null,
+                "observationVariableDbId": "CO_334:0100632",
                 "name": "CT_M_C",
                 "method": null,
-                "observationVariableDbId": "CO_334:0100632",
-                "ontologyDbId": "CO_334",
-                "scale": null,
+                "defaultValue": null,
                 "trait": {
                     "traitDbId": "CO_334:0100630",
                     "name": "Canopy temperature"
                 }
             },
             {
-                "scientist": "",
-                "contextOfUse": [
-                    "Trial evaluation",
-                    "Nursery evaluation"
-                ],
-                "date": "2016-05-13",
-                "xref": "TL_455:0003001",
+                "ontologyName": "Cassava",
+                "observationVariableDbId": "CO_334:0100622",
                 "defaultValue": null,
-                "crop": "Cassava",
-                "name": "caro_spectro",
+                "institution": "",
+                "language": "EN",
+                "trait": {
+                    "class": "physiological trait",
+                    "entity": "root",
+                    "name": "Carotenoid content",
+                    "mainAbbreviation": "CC",
+                    "status": "recommended",
+                    "xref": "TL_455:0003023",
+                    "synonyms": [
+                        "carotenoid content measure"
+                    ],
+                    "description": "Cassava storage root pulp carotenoid content",
+                    "alternativeAbbreviations": [
+                        "CCS"
+                    ],
+                    "attribute": "carotenoid",
+                    "traitDbId": "CO_334:0100620"
+                },
+                "date": "2016-05-13",
+                "scientist": "",
+                "ontologyDbId": "CO_334",
                 "scale": {
-                    "xref": null,
                     "validValues": {
-                        "max": 3,
                         "categories": [
                             "1=low",
                             "2=medium",
                             "3=high"
                         ],
+                        "max": 3,
                         "min": 1
                     },
                     "decimalPlaces": 2,
-                    "scaleDbId": "CO_334:0100526",
                     "datatype": "Numeric",
-                    "name": "ug/g"
+                    "name": "ug/g",
+                    "xref": null,
+                    "scaleDbId": "CO_334:0100526"
                 },
-                "ontologyName": "Cassava",
-                "institution": "",
-                "language": "EN",
-                "status": "recommended",
+                "name": "caro_spectro",
                 "method": {
-                    "description": "Assessment of the level of yellowness in cassava storage root pulp using the tc chart",
+                    "class": "Estimation",
                     "reference": null,
+                    "description": "Assessment of the level of yellowness in cassava storage root pulp using the tc chart",
                     "formula": null,
-                    "methodDbId": "CO_334:0010320",
                     "name": "Visual Rating:total carotenoid by chart_method",
-                    "class": "Estimation"
+                    "methodDbId": "CO_334:0010320"
                 },
+                "status": "recommended",
+                "xref": "TL_455:0003001",
+                "crop": "Cassava",
                 "synonyms": [
                     "Carotenoid content by spectro"
                 ],
-                "observationVariableDbId": "CO_334:0100622",
-                "ontologyDbId": "CO_334",
-                "growthStage": "mature",
-                "trait": {
-                    "xref": "TL_455:0003023",
-                    "description": "Cassava storage root pulp carotenoid content",
-                    "traitDbId": "CO_334:0100620",
-                    "attribute": "carotenoid",
-                    "synonyms": [
-                        "carotenoid content measure"
-                    ],
-                    "alternativeAbbreviations": [
-                        "CCS"
-                    ],
-                    "name": "Carotenoid content",
-                    "status": "recommended",
-                    "mainAbbreviation": "CC",
-                    "class": "physiological trait",
-                    "entity": "root"
-                }
+                "contextOfUse": [
+                    "Trial evaluation",
+                    "Nursery evaluation"
+                ],
+                "growthStage": "mature"
             }
         ],
         "trialName": "myBestTrial"
     },
     "metadata": {
         "pagination": {
-            "currentPage": 0,
-            "totalCount": 0,
             "pageSize": 0,
-            "totalPages": 0
+            "currentPage": 0,
+            "totalPages": 0,
+            "totalCount": 0
         },
-        "status": [],
-        "datafiles": []
+        "datafiles": [],
+        "status": []
     }
 }
 ```

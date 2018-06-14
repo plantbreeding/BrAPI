@@ -70,11 +70,11 @@ Here are the rules for the path of each call that should be returned
                 "datatypes": [
                     "json"
                 ],
+                "call": "token",
                 "methods": [
                     "POST",
                     "DELETE"
-                ],
-                "call": "token"
+                ]
             },
             {
                 "versions": [
@@ -85,10 +85,10 @@ Here are the rules for the path of each call that should be returned
                 "datatypes": [
                     "json"
                 ],
+                "call": "calls",
                 "methods": [
                     "GET"
-                ],
-                "call": "calls"
+                ]
             },
             {
                 "versions": [
@@ -98,11 +98,11 @@ Here are the rules for the path of each call that should be returned
                     "json",
                     "tsv"
                 ],
+                "call": "allelematrix",
                 "methods": [
                     "GET",
                     "POST"
-                ],
-                "call": "allelematrix"
+                ]
             },
             {
                 "versions": [
@@ -113,10 +113,10 @@ Here are the rules for the path of each call that should be returned
                 "datatypes": [
                     "json"
                 ],
+                "call": "observationLevels",
                 "methods": [
                     "GET"
-                ],
-                "call": "observationLevels"
+                ]
             },
             {
                 "versions": [
@@ -127,11 +127,11 @@ Here are the rules for the path of each call that should be returned
                 "datatypes": [
                     "json"
                 ],
+                "call": "germplasm-search",
                 "methods": [
                     "GET",
                     "POST"
-                ],
-                "call": "germplasm-search"
+                ]
             },
             {
                 "versions": [
@@ -142,10 +142,10 @@ Here are the rules for the path of each call that should be returned
                 "datatypes": [
                     "json"
                 ],
+                "call": "germplasm/{germplasmDbId}",
                 "methods": [
                     "GET"
-                ],
-                "call": "germplasm/{germplasmDbId}"
+                ]
             },
             {
                 "versions": [
@@ -155,10 +155,10 @@ Here are the rules for the path of each call that should be returned
                 "datatypes": [
                     "json"
                 ],
+                "call": "germplasm/{germplasmDbId}/pedigree",
                 "methods": [
                     "GET"
-                ],
-                "call": "germplasm/{germplasmDbId}/pedigree"
+                ]
             },
             {
                 "versions": [
@@ -168,19 +168,19 @@ Here are the rules for the path of each call that should be returned
                 "datatypes": [
                     "json"
                 ],
+                "call": "germplasm/{germplasmDbId}/markerprofiles",
                 "methods": [
                     "GET"
-                ],
-                "call": "germplasm/{germplasmDbId}/markerprofiles"
+                ]
             }
         ]
     },
     "metadata": {
         "pagination": {
-            "currentPage": 0,
             "totalCount": 8,
-            "pageSize": 1000,
-            "totalPages": 1
+            "currentPage": 0,
+            "totalPages": 1,
+            "pageSize": 1000
         },
         "datafiles": []
     }

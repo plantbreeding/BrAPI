@@ -8,6 +8,19 @@ Note that to use these calls, you likely have to use the authentication call pri
 
 
 
+## Vendor/plates-search [Post /brapi/v1/vendor/plates-search]
+
+Search for plates in the database.
+
+<a href="https://test-server.brapi.org/brapi/v1/vendor"> test-server.brapi.org/brapi/v1/vendor/plate-search</a> 
+
++ Parameters
+ 
++ Request (application/json)
+/definitions/vendorPlateSearchRequest
+
+
+
 ## Vendor/plates-search [Get /brapi/v1/vendor/plates-search{?vendorProjectDbId}{?vendorPlateDbId}{?clientPlateDbId}{?sampleInfo}{?pageSize}{?page}]
 
 Search for plates in the database.
@@ -25,19 +38,6 @@ Search for plates in the database.
 
 
 
-## Vendor/plates-search [Post /brapi/v1/vendor/plates-search]
-
-Search for plates in the database.
-
-<a href="https://test-server.brapi.org/brapi/v1/vendor"> test-server.brapi.org/brapi/v1/vendor/plate-search</a> 
-
-+ Parameters
- 
-+ Request (application/json)
-/definitions/vendorPlateSearchRequest
-
-
-
 ## Vendor/plates/{vendorplatedbid} [Get /brapi/v1/vendor/plates/{vendorPlateDbId}]
 
  Response data types 
@@ -52,40 +52,40 @@ Search for plates in the database.
 ```
 {
     "result": {
-        "clientPlateDbId": "def456",
+        "sampleType": "DNA",
         "samples": [
             {
-                "volume": "(ul)",
-                "tissueType": "",
                 "column": "(optional)",
-                "well": "(optional)",
                 "concentration": "(ng/ul)",
+                "well": "(optional)",
+                "tissueType": "",
+                "sampleDbId": "sample_name",
+                "volume": "(ul)",
                 "taxonId": {
                     "sourceName": "ncbiTaxon",
                     "taxonId": "http://purl.obolibrary.org/obo/NCBITaxon_4641"
                 },
-                "sampleDbId": "sample_name",
                 "row": "(optional)"
             }
         ],
-        "statusTimeStamp": "2017-06-01 01:57 GMT",
-        "vendorBarcode": "",
-        "status": "(not null)",
         "vendorProjectDbId": "abc123",
+        "clientPlateDbId": "def456",
         "vendorPlateDbId": "8338",
-        "sampleType": "DNA",
+        "status": "(not null)",
+        "vendorBarcodeImageURL": "",
         "plateFormat": "Plate_96",
-        "vendorBarcodeImageURL": ""
+        "vendorBarcode": "",
+        "statusTimeStamp": "2017-06-01 01:57 GMT"
     },
     "metadata": {
         "pagination": {
-            "currentPage": 0,
-            "totalCount": 0,
             "pageSize": 0,
-            "totalPages": 0
+            "currentPage": 0,
+            "totalPages": 0,
+            "totalCount": 0
         },
-        "status": [],
-        "datafiles": []
+        "datafiles": [],
+        "status": []
     }
 }
 ```
@@ -114,54 +114,45 @@ Samples can be updated later.
 ```
 {
     "result": {
+        "vendorDescription": "Gene Sequencing Vendor",
+        "vendorEmail": "jdoe@example.org",
+        "vendorCity": "Metropolis",
         "platforms": [
             {
-                "platformName": "GBS",
-                "specificRequirements": {},
-                "taxonomyIdSystem": {
-                    "URI": "https://...",
-                    "name": "NCBITaxonomyId"
-                },
-                "platformDescription": "",
-                "contactName": "",
-                "deliverables": [
-                    {
-                        "format": "",
-                        "description": "",
-                        "name": ""
-                    }
-                ],
-                "platformURL": "",
-                "contactEmail": "",
-                "statuses": [
-                    {
-                        "statusName": "received",
-                        "statusDescription": "Platesarereceivedbyvendor."
-                    },
-                    {
-                        "statusName": "completed",
-                        "statusDescription": "Resultfilesareready."
-                    },
-                    {
-                        "statusName": "rejected",
-                        "statusDescription": "Platesarerejectedbyvendor"
-                    }
-                ],
                 "tissueIdSystem": {
                     "URI": "https://...",
                     "name": "DArT"
                 },
+                "deliverables": [
+                    {
+                        "description": "",
+                        "format": "",
+                        "name": ""
+                    }
+                ],
+                "taxonomyIdSystem": {
+                    "URI": "https://...",
+                    "name": "NCBITaxonomyId"
+                },
+                "contactEmail": "",
+                "platformURL": "",
                 "shippingAddress": "",
+                "specificRequirements": {},
+                "platformName": "GBS",
+                "contactName": "",
                 "standardRequirements": {
-                    "plateOrientation": "rowFirst|columnFirst",
-                    "minConcentration": "",
                     "maxConcentration": "",
-                    "inputFormatDetails": "https://...",
+                    "minSampleNumber": "",
+                    "sampleTypeDetails": "https://...",
+                    "sampleTypes": [
+                        "",
+                        ""
+                    ],
                     "inputFormats": [
                         "Plate_96",
                         "Tubes"
                     ],
-                    "minVolume": "",
+                    "inputFormatDetails": "https://...",
                     "blankWellPosition": {
                         "numberOfBlanksPerPlate": "",
                         "positions": [
@@ -170,37 +161,46 @@ Samples can be updated later.
                             "H12"
                         ]
                     },
+                    "minConcentration": "",
+                    "plateOrientation": "rowFirst|columnFirst",
                     "maxVolume": "",
-                    "sampleTypeDetails": "https://...",
-                    "minSampleNumber": "",
-                    "sampleTypes": [
-                        "",
-                        ""
-                    ]
+                    "minVolume": ""
                 },
+                "platformDescription": "",
+                "statuses": [
+                    {
+                        "statusDescription": "Platesarereceivedbyvendor.",
+                        "statusName": "received"
+                    },
+                    {
+                        "statusDescription": "Resultfilesareready.",
+                        "statusName": "completed"
+                    },
+                    {
+                        "statusDescription": "Platesarerejectedbyvendor",
+                        "statusName": "rejected"
+                    }
+                ],
                 "contactPhone": ""
             }
         ],
+        "vendorAddress": "123 Lane St",
         "vendorCountry": "USA",
         "vendorURL": "www.example.org",
-        "vendorDescription": "Gene Sequencing Vendor",
-        "vendorAddress": "123 Lane St",
         "contactName": "John Doe",
-        "vendorCity": "Metropolis",
-        "vendorPhone": "1-234-567-8910",
         "additionalInfo": {},
         "vendorName": "Gene Sequencing Vendor",
-        "vendorEmail": "jdoe@example.org"
+        "vendorPhone": "1-234-567-8910"
     },
     "metadata": {
         "pagination": {
-            "currentPage": 0,
-            "totalCount": 0,
             "pageSize": 0,
-            "totalPages": 0
+            "currentPage": 0,
+            "totalPages": 0,
+            "totalCount": 0
         },
-        "status": [],
-        "datafiles": []
+        "datafiles": [],
+        "status": []
     }
 }
 ```

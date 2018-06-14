@@ -31,13 +31,13 @@ Call to retrieve a list of data types the variable can have.
     },
     "metadata": {
         "pagination": {
-            "currentPage": 0,
-            "totalCount": 6,
             "pageSize": 1000,
-            "totalPages": 1
+            "currentPage": 0,
+            "totalPages": 1,
+            "totalCount": 6
         },
-        "status": [],
-        "datafiles": []
+        "datafiles": [],
+        "status": []
     }
 }
 ```
@@ -59,34 +59,34 @@ Call to retrieve a list of observation variable ontologies available in the syst
     "result": {
         "data": [
             {
+                "ontologyDbId": "CO_334",
                 "ontologyName": "Wheat ontology",
-                "authors": "J. Snow, H. Peterson",
                 "description": "developped for European genetic studies projects",
                 "licence": "CC BY-SA 4.0",
                 "version": "v1.2",
-                "ontologyDbId": "CO_334",
+                "authors": "J. Snow, H. Peterson",
                 "copyright": "2016, INRA"
             },
             {
+                "ontologyDbId": "CO_335",
                 "ontologyName": "Rice ontology",
-                "authors": "J. Doe",
                 "description": "developped for IRRI and amended with partners needs",
                 "licence": "CC BY-SA 4.0",
                 "version": "v2",
-                "ontologyDbId": "CO_335",
+                "authors": "J. Doe",
                 "copyright": "2017, IRRI"
             }
         ]
     },
     "metadata": {
         "pagination": {
-            "currentPage": 0,
-            "totalCount": 2,
             "pageSize": 1000,
-            "totalPages": 1
+            "currentPage": 0,
+            "totalPages": 1,
+            "totalCount": 2
         },
-        "status": [],
-        "datafiles": []
+        "datafiles": [],
+        "status": []
     }
 }
 ```
@@ -109,21 +109,12 @@ Call to retrieve a list of observationVariables available in the system. <br>
     "result": {
         "data": [
             {
-                "ontologyName": "Cassava",
-                "defaultValue": null,
-                "name": "CT_M_C",
-                "trait": {
-                    "traitDbId": "CO_334:0100630",
-                    "name": "Canopy temperature",
-                    "class": "physiological trait"
-                },
-                "observationVariableDbId": "CO_334:0100632",
                 "ontologyDbId": "CO_334",
+                "ontologyName": "Cassava",
                 "scale": {
-                    "xref": null,
                     "validValues": {
-                        "max": 3,
                         "min": 1,
+                        "max": 3,
                         "categories": [
                             "1=low",
                             "2=medium",
@@ -131,90 +122,99 @@ Call to retrieve a list of observationVariables available in the system. <br>
                         ]
                     },
                     "decimalPlaces": 2,
-                    "scaleDbId": "CO_334:0100526",
                     "dataType": "Numeric",
-                    "name": "ug/g"
+                    "name": "ug/g",
+                    "xref": null,
+                    "scaleDbId": "CO_334:0100526"
                 },
+                "observationVariableDbId": "CO_334:0100632",
+                "name": "CT_M_C",
                 "method": {
+                    "class": "Estimation",
                     "methodDbId": "CO_334:0010320",
-                    "name": "Visual Rating:total carotenoid by chart_method",
-                    "class": "Estimation"
+                    "name": "Visual Rating:total carotenoid by chart_method"
+                },
+                "defaultValue": null,
+                "trait": {
+                    "class": "physiological trait",
+                    "traitDbId": "CO_334:0100630",
+                    "name": "Canopy temperature"
                 }
             },
             {
+                "submissionTimestamp": "2016-05-13T17:43:11+01:00",
+                "ontologyName": "Cassava",
+                "observationVariableDbId": "CO_334:0100622",
+                "defaultValue": null,
+                "status": "recommended",
+                "language": "EN",
+                "trait": {
+                    "class": "physiological trait",
+                    "entity": "root",
+                    "name": "Carotenoid content",
+                    "mainAbbreviation": "CC",
+                    "status": "recommended",
+                    "xref": "TL_455:0003023",
+                    "synonyms": [
+                        "carotenoid content measure"
+                    ],
+                    "description": "Cassava storage root pulp carotenoid content",
+                    "alternativeAbbreviations": [
+                        "CCS"
+                    ],
+                    "attribute": "carotenoid",
+                    "traitDbId": "CO_334:0100620"
+                },
                 "scientist": "",
+                "ontologyDbId": "CO_334",
+                "scale": {
+                    "validValues": {
+                        "min": 1,
+                        "max": 3,
+                        "categories": [
+                            "1=low",
+                            "2=medium",
+                            "3=high"
+                        ]
+                    },
+                    "decimalPlaces": 2,
+                    "dataType": "Numeric",
+                    "name": "ug/g",
+                    "xref": null,
+                    "scaleDbId": "CO_334:0100526"
+                },
+                "name": "caro_spectro",
+                "method": {
+                    "class": "Estimation",
+                    "reference": null,
+                    "description": "Assessment of the level of yellowness in cassava storage root pulp using the tc chart",
+                    "formula": null,
+                    "name": "Visual Rating:total carotenoid by chart_method",
+                    "methodDbId": "CO_334:0010320"
+                },
+                "institution": "",
+                "xref": "TL_455:0003001",
+                "crop": "Cassava",
+                "synonyms": [
+                    "Carotenoid content by spectro"
+                ],
                 "contextOfUse": [
                     "Trial evaluation",
                     "Nursery evaluation"
                 ],
-                "xref": "TL_455:0003001",
-                "synonyms": [
-                    "Carotenoid content by spectro"
-                ],
-                "crop": "Cassava",
-                "name": "caro_spectro",
-                "scale": {
-                    "xref": null,
-                    "validValues": {
-                        "max": 3,
-                        "min": 1,
-                        "categories": [
-                            "1=low",
-                            "2=medium",
-                            "3=high"
-                        ]
-                    },
-                    "decimalPlaces": 2,
-                    "scaleDbId": "CO_334:0100526",
-                    "dataType": "Numeric",
-                    "name": "ug/g"
-                },
-                "ontologyName": "Cassava",
-                "institution": "",
-                "language": "EN",
-                "submissionTimestamp": "2016-05-13T17:43:11+01:00",
-                "status": "recommended",
-                "trait": {
-                    "xref": "TL_455:0003023",
-                    "description": "Cassava storage root pulp carotenoid content",
-                    "traitDbId": "CO_334:0100620",
-                    "attribute": "carotenoid",
-                    "synonyms": [
-                        "carotenoid content measure"
-                    ],
-                    "alternativeAbbreviations": [
-                        "CCS"
-                    ],
-                    "name": "Carotenoid content",
-                    "status": "recommended",
-                    "mainAbbreviation": "CC",
-                    "class": "physiological trait",
-                    "entity": "root"
-                },
-                "defaultValue": null,
-                "observationVariableDbId": "CO_334:0100622",
-                "ontologyDbId": "CO_334",
-                "growthStage": "mature",
-                "method": {
-                    "description": "Assessment of the level of yellowness in cassava storage root pulp using the tc chart",
-                    "reference": null,
-                    "formula": null,
-                    "methodDbId": "CO_334:0010320",
-                    "class": "Estimation",
-                    "name": "Visual Rating:total carotenoid by chart_method"
-                }
+                "growthStage": "mature"
             }
         ]
     },
     "metadata": {
         "pagination": {
-            "currentPage": 0,
-            "totalCount": 2,
             "pageSize": 1000,
-            "totalPages": 1
+            "currentPage": 0,
+            "totalPages": 1,
+            "totalCount": 2
         },
-        "status": [],
-        "datafiles": []
+        "datafiles": [],
+        "status": []
     }
 }
 ```
@@ -233,22 +233,35 @@ Retrieve variable details <br>
 ```
 {
     "result": {
+        "submissionTimestamp": "2016-05-13T15:43:41+01:00",
+        "ontologyName": "Cassava",
+        "observationVariableDbId": "CO_334:0100632",
+        "defaultValue": null,
+        "status": "recommended",
+        "language": "EN",
+        "trait": {
+            "class": "physiological trait",
+            "entity": "root",
+            "name": "Carotenoid content",
+            "mainAbbreviation": "CC",
+            "status": "recommended",
+            "xref": "TL_455:0003023",
+            "synonyms": [
+                "carotenoid content measure"
+            ],
+            "description": "Cassava storage root pulp carotenoid content",
+            "alternativeAbbreviations": [
+                "CCS"
+            ],
+            "attribute": "carotenoid",
+            "traitDbId": "CO_334:0100620"
+        },
         "scientist": "",
-        "contextOfUse": [
-            "Trial evaluation",
-            "Nursery evaluation"
-        ],
-        "xref": "TL_455:0003001",
-        "synonyms": [
-            "Carotenoid content by spectro"
-        ],
-        "crop": "Cassava",
-        "name": "caro_spectro",
+        "ontologyDbId": "CO_334",
         "scale": {
-            "xref": null,
             "validValues": {
-                "max": 3,
                 "min": 1,
+                "max": 3,
                 "categories": [
                     "1=low",
                     "2=medium",
@@ -256,54 +269,41 @@ Retrieve variable details <br>
                 ]
             },
             "decimalPlaces": 2,
-            "scaleDbId": "CO_334:0100526",
             "dataType": "Numeric",
-            "name": "ug/g"
+            "name": "ug/g",
+            "xref": null,
+            "scaleDbId": "CO_334:0100526"
         },
-        "ontologyName": "Cassava",
-        "institution": "",
-        "language": "EN",
-        "submissionTimestamp": "2016-05-13T15:43:41+01:00",
-        "status": "recommended",
-        "trait": {
-            "xref": "TL_455:0003023",
-            "description": "Cassava storage root pulp carotenoid content",
-            "traitDbId": "CO_334:0100620",
-            "attribute": "carotenoid",
-            "synonyms": [
-                "carotenoid content measure"
-            ],
-            "alternativeAbbreviations": [
-                "CCS"
-            ],
-            "name": "Carotenoid content",
-            "status": "recommended",
-            "mainAbbreviation": "CC",
-            "class": "physiological trait",
-            "entity": "root"
-        },
-        "defaultValue": null,
-        "observationVariableDbId": "CO_334:0100632",
-        "ontologyDbId": "CO_334",
-        "growthStage": "mature",
+        "name": "caro_spectro",
         "method": {
-            "description": "Assessment of the level of yellowness in cassava storage root pulp using the tc chart",
-            "reference": null,
-            "formula": null,
-            "methodDbId": "CO_334:0010320",
             "class": "Estimation",
-            "name": "Visual Rating:total carotenoid by chart_method"
-        }
+            "reference": null,
+            "description": "Assessment of the level of yellowness in cassava storage root pulp using the tc chart",
+            "formula": null,
+            "name": "Visual Rating:total carotenoid by chart_method",
+            "methodDbId": "CO_334:0010320"
+        },
+        "institution": "",
+        "xref": "TL_455:0003001",
+        "crop": "Cassava",
+        "synonyms": [
+            "Carotenoid content by spectro"
+        ],
+        "contextOfUse": [
+            "Trial evaluation",
+            "Nursery evaluation"
+        ],
+        "growthStage": "mature"
     },
     "metadata": {
         "pagination": {
-            "currentPage": 0,
-            "totalCount": 0,
             "pageSize": 0,
-            "totalPages": 0
+            "currentPage": 0,
+            "totalPages": 0,
+            "totalCount": 0
         },
-        "status": [],
-        "datafiles": []
+        "datafiles": [],
+        "status": []
     }
 }
 ```
@@ -326,35 +326,48 @@ See <a href="https://brapi.docs.apiary.io/#introduction/search-services">Search 
     "result": {
         "data": [
             {
+                "ontologyDbId": "CO_334",
                 "ontologyName": "Cassava",
-                "defaultValue": null,
+                "scale": null,
+                "observationVariableDbId": "CO_334:0100632",
                 "name": "CT_M_C",
+                "method": null,
+                "defaultValue": null,
                 "trait": {
                     "traitDbId": "CO_334:0100630",
                     "name": "Canopy temperature"
-                },
-                "observationVariableDbId": "CO_334:0100632",
-                "ontologyDbId": "CO_334",
-                "scale": null,
-                "method": null
+                }
             },
             {
+                "submissionTimestamp": "2016-05-13T23:21:56+01:00",
+                "ontologyName": "Cassava",
+                "observationVariableDbId": "CO_334:0100622",
+                "defaultValue": null,
+                "status": "recommended",
+                "language": "EN",
+                "trait": {
+                    "class": "physiological trait",
+                    "entity": "root",
+                    "name": "Carotenoid content",
+                    "mainAbbreviation": "CC",
+                    "status": "recommended",
+                    "xref": "TL_455:0003023",
+                    "synonyms": [
+                        "carotenoid content measure"
+                    ],
+                    "description": "Cassava storage root pulp carotenoid content",
+                    "alternativeAbbreviations": [
+                        "CCS"
+                    ],
+                    "attribute": "carotenoid",
+                    "traitDbId": "CO_334:0100620"
+                },
                 "scientist": "",
-                "contextOfUse": [
-                    "Trial evaluation",
-                    "Nursery evaluation"
-                ],
-                "xref": "TL_455:0003001",
-                "synonyms": [
-                    "Carotenoid content by spectro"
-                ],
-                "crop": "Cassava",
-                "name": "caro_spectro",
+                "ontologyDbId": "CO_334",
                 "scale": {
-                    "xref": null,
                     "validValues": {
-                        "max": 3,
                         "min": 1,
+                        "max": 3,
                         "categories": [
                             "1=low",
                             "2=medium",
@@ -362,56 +375,43 @@ See <a href="https://brapi.docs.apiary.io/#introduction/search-services">Search 
                         ]
                     },
                     "decimalPlaces": 2,
-                    "scaleDbId": "CO_334:0100526",
                     "dataType": "Numeric",
-                    "name": "ug/g"
+                    "name": "ug/g",
+                    "xref": null,
+                    "scaleDbId": "CO_334:0100526"
                 },
-                "ontologyName": "Cassava",
-                "institution": "",
-                "language": "EN",
-                "submissionTimestamp": "2016-05-13T23:21:56+01:00",
-                "status": "recommended",
-                "trait": {
-                    "xref": "TL_455:0003023",
-                    "description": "Cassava storage root pulp carotenoid content",
-                    "traitDbId": "CO_334:0100620",
-                    "attribute": "carotenoid",
-                    "synonyms": [
-                        "carotenoid content measure"
-                    ],
-                    "alternativeAbbreviations": [
-                        "CCS"
-                    ],
-                    "name": "Carotenoid content",
-                    "status": "recommended",
-                    "mainAbbreviation": "CC",
-                    "class": "physiological trait",
-                    "entity": "root"
-                },
-                "defaultValue": null,
-                "observationVariableDbId": "CO_334:0100622",
-                "ontologyDbId": "CO_334",
-                "growthStage": "mature",
+                "name": "caro_spectro",
                 "method": {
-                    "description": "Assessment of the level of yellowness in cassava storage root pulp using the tc chart",
-                    "reference": null,
-                    "formula": null,
-                    "methodDbId": "CO_334:0010320",
                     "class": "Estimation",
-                    "name": "Visual Rating:total carotenoid by chart_method"
-                }
+                    "reference": null,
+                    "description": "Assessment of the level of yellowness in cassava storage root pulp using the tc chart",
+                    "formula": null,
+                    "name": "Visual Rating:total carotenoid by chart_method",
+                    "methodDbId": "CO_334:0010320"
+                },
+                "institution": "",
+                "xref": "TL_455:0003001",
+                "crop": "Cassava",
+                "synonyms": [
+                    "Carotenoid content by spectro"
+                ],
+                "contextOfUse": [
+                    "Trial evaluation",
+                    "Nursery evaluation"
+                ],
+                "growthStage": "mature"
             }
         ]
     },
     "metadata": {
         "pagination": {
-            "currentPage": 0,
-            "totalCount": 300,
             "pageSize": 2,
-            "totalPages": 150
+            "currentPage": 0,
+            "totalPages": 150,
+            "totalCount": 300
         },
-        "status": [],
-        "datafiles": []
+        "datafiles": [],
+        "status": []
     }
 }
 ```

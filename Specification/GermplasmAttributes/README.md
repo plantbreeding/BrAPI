@@ -24,29 +24,29 @@ hardness.  They are often evaluated by genotyping for diagnostic markers.
     "result": {
         "data": [
             {
+                "description": "Allele of marker 11_4769, diagnostic for allele b of reduced-height gene Rht-B1",
+                "uri": "http://www.cropontology.org/rdf/CO_321:0000020",
                 "values": [
                     "Present",
                     "Absent",
                     "Heterozygous"
                 ],
-                "description": "Allele of marker 11_4769, diagnostic for allele b of reduced-height gene Rht-B1",
-                "code": "RHT",
                 "datatype": "Categorical",
-                "uri": "http://www.cropontology.org/rdf/CO_321:0000020",
+                "name": "Rht-B1b",
                 "attributeCategoryDbId": "1",
-                "name": "Rht-B1b"
+                "code": "RHT"
             }
         ]
     },
     "metadata": {
         "pagination": {
-            "currentPage": 0,
-            "totalCount": 1,
             "pageSize": 1000,
-            "totalPages": 1
+            "currentPage": 0,
+            "totalPages": 1,
+            "totalCount": 1
         },
-        "status": [],
-        "datafiles": []
+        "datafiles": [],
+        "status": []
     }
 }
 ```
@@ -72,23 +72,23 @@ Values for all attributes by default.
         "germplasmDbId": "01BEL084609",
         "data": [
             {
-                "attributeName": "Rht-B1b",
                 "determinedDate": "2007-05-28",
-                "attributeDbId": "1",
                 "attributeCode": "RHT",
-                "value": "Present"
+                "value": "Present",
+                "attributeDbId": "1",
+                "attributeName": "Rht-B1b"
             }
         ]
     },
     "metadata": {
         "pagination": {
-            "currentPage": 0,
-            "totalCount": 1,
             "pageSize": 1000,
-            "totalPages": 1
+            "currentPage": 0,
+            "totalPages": 1,
+            "totalCount": 1
         },
-        "status": [],
-        "datafiles": []
+        "datafiles": [],
+        "status": []
     }
 }
 ```
@@ -122,13 +122,13 @@ List all available attribute categories.
     },
     "metadata": {
         "pagination": {
-            "currentPage": 1,
-            "totalCount": 2,
             "pageSize": 10,
-            "totalPages": 1
+            "currentPage": 1,
+            "totalPages": 1,
+            "totalCount": 2
         },
-        "status": [],
-        "datafiles": []
+        "datafiles": [],
+        "status": []
     }
 }
 ```

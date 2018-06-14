@@ -5,6 +5,72 @@ Search for and get details of specific markers stored in a database
 
 
 
+## Markers-search [Post /brapi/v1/markers-search]
+
+ Scope: CORE.  Status: ACCEPTED.
+Implemented by: Germinate
+See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
+Other service requests use the servers internal `markerDbId`. This service returns marker records that provide the markerDbId. For the requested name or synonym, returns an array (possibly empty) of marker records that match the search criteria. - If there is none, an empty array is returned. - If there is one or more than one match, returns an array of all marker records that match the search criteria.  
+
++ Parameters
+ 
++ Request (application/json)
+/definitions/markersSearchRequest
+
++ Response 200 (application/json)
+```
+{
+    "result": {
+        "data": [
+            {
+                "synonyms": [
+                    "i_11_10002",
+                    "POPA1_0002"
+                ],
+                "analysisMethods": [
+                    "illumina",
+                    "kasp"
+                ],
+                "type": "SNP",
+                "markerDbId": "1185",
+                "refAlt": [
+                    "A",
+                    "T"
+                ],
+                "defaultDisplayName": "11_10002"
+            },
+            {
+                "synonyms": [
+                    "i_11_11159",
+                    "POPA1_1159"
+                ],
+                "analysisMethods": [
+                    "illumina",
+                    "kasp"
+                ],
+                "type": "SNP",
+                "markerDbId": "1186",
+                "refAlt": [
+                    "A",
+                    "T"
+                ],
+                "defaultDisplayName": "11_11159"
+            }
+        ]
+    },
+    "metadata": {
+        "pagination": {
+            "pageSize": 1000,
+            "currentPage": 0,
+            "totalPages": 1,
+            "totalCount": 2
+        },
+        "datafiles": [],
+        "status": []
+    }
+}
+```
+
 ## Markers-search [Get /brapi/v1/markers-search{?markerDbIds}{?name}{?matchMethod}{?includeSynonyms}{?type}{?pageSize}{?page}]
 
  Scope: CORE.  Status: ACCEPTED.
@@ -30,10 +96,6 @@ and '?' for one character matching. Default is exact.
     "result": {
         "data": [
             {
-                "refAlt": [
-                    "A",
-                    "T"
-                ],
                 "synonyms": [
                     "i_11_10002",
                     "POPA1_0002"
@@ -42,15 +104,15 @@ and '?' for one character matching. Default is exact.
                     "illumina",
                     "kasp"
                 ],
-                "markerDbId": "1185",
                 "type": "SNP",
-                "defaultDisplayName": "11_10002"
-            },
-            {
+                "markerDbId": "1185",
                 "refAlt": [
                     "A",
                     "T"
                 ],
+                "defaultDisplayName": "11_10002"
+            },
+            {
                 "synonyms": [
                     "i_11_11159",
                     "POPA1_1159"
@@ -59,87 +121,25 @@ and '?' for one character matching. Default is exact.
                     "illumina",
                     "kasp"
                 ],
-                "markerDbId": "1186",
                 "type": "SNP",
+                "markerDbId": "1186",
+                "refAlt": [
+                    "A",
+                    "T"
+                ],
                 "defaultDisplayName": "11_11159"
             }
         ]
     },
     "metadata": {
         "pagination": {
-            "currentPage": 0,
-            "totalCount": 2,
             "pageSize": 1000,
-            "totalPages": 1
-        },
-        "status": [],
-        "datafiles": []
-    }
-}
-```
-
-## Markers-search [Post /brapi/v1/markers-search]
-
- Scope: CORE.  Status: ACCEPTED.
-Implemented by: Germinate
-See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
-Other service requests use the servers internal `markerDbId`. This service returns marker records that provide the markerDbId. For the requested name or synonym, returns an array (possibly empty) of marker records that match the search criteria. - If there is none, an empty array is returned. - If there is one or more than one match, returns an array of all marker records that match the search criteria.  
-
-+ Parameters
- 
-+ Request (application/json)
-/definitions/markersSearchRequest
-
-+ Response 200 (application/json)
-```
-{
-    "result": {
-        "data": [
-            {
-                "refAlt": [
-                    "A",
-                    "T"
-                ],
-                "synonyms": [
-                    "i_11_10002",
-                    "POPA1_0002"
-                ],
-                "analysisMethods": [
-                    "illumina",
-                    "kasp"
-                ],
-                "markerDbId": "1185",
-                "type": "SNP",
-                "defaultDisplayName": "11_10002"
-            },
-            {
-                "refAlt": [
-                    "A",
-                    "T"
-                ],
-                "synonyms": [
-                    "i_11_11159",
-                    "POPA1_1159"
-                ],
-                "analysisMethods": [
-                    "illumina",
-                    "kasp"
-                ],
-                "markerDbId": "1186",
-                "type": "SNP",
-                "defaultDisplayName": "11_11159"
-            }
-        ]
-    },
-    "metadata": {
-        "pagination": {
             "currentPage": 0,
-            "totalCount": 2,
-            "pageSize": 1000,
-            "totalPages": 1
+            "totalPages": 1,
+            "totalCount": 2
         },
-        "status": [],
-        "datafiles": []
+        "datafiles": [],
+        "status": []
     }
 }
 ```
@@ -167,18 +167,14 @@ and '?' for one character matching. Default is exact.
 {
     "metadata": {
         "pagination": {
-            "currentPage": 0,
-            "totalCount": 2,
             "pageSize": 1000,
-            "totalPages": 1
+            "currentPage": 0,
+            "totalPages": 1,
+            "totalCount": 2
         },
-        "status": [],
+        "datafiles": [],
         "data": [
             {
-                "refAlt": [
-                    "A",
-                    "T"
-                ],
                 "synonyms": [
                     "i_11_10002",
                     "POPA1_0002"
@@ -187,15 +183,15 @@ and '?' for one character matching. Default is exact.
                     "illumina",
                     "kasp"
                 ],
-                "markerDbId": "1185",
                 "type": "SNP",
-                "defaultDisplayName": "11_10002"
-            },
-            {
+                "markerDbId": "1185",
                 "refAlt": [
                     "A",
                     "T"
                 ],
+                "defaultDisplayName": "11_10002"
+            },
+            {
                 "synonyms": [
                     "i_11_11159",
                     "POPA1_1159"
@@ -204,12 +200,16 @@ and '?' for one character matching. Default is exact.
                     "illumina",
                     "kasp"
                 ],
-                "markerDbId": "1186",
                 "type": "SNP",
+                "markerDbId": "1186",
+                "refAlt": [
+                    "A",
+                    "T"
+                ],
                 "defaultDisplayName": "11_11159"
             }
         ],
-        "datafiles": []
+        "status": []
     }
 }
 ```
@@ -227,10 +227,6 @@ and '?' for one character matching. Default is exact.
 ```
 {
     "result": {
-        "refAlt": [
-            "A",
-            "T"
-        ],
         "synonyms": [
             "i_11_10002",
             "POPA1_0002"
@@ -239,19 +235,23 @@ and '?' for one character matching. Default is exact.
             "illumina",
             "kasp"
         ],
-        "markerDbId": "1185",
         "type": "SNP",
+        "markerDbId": "1185",
+        "refAlt": [
+            "A",
+            "T"
+        ],
         "defaultDisplayName": "11_10002"
     },
     "metadata": {
         "pagination": {
-            "currentPage": 0,
-            "totalCount": 0,
             "pageSize": 0,
-            "totalPages": 0
+            "currentPage": 0,
+            "totalPages": 0,
+            "totalCount": 0
         },
-        "status": [],
-        "datafiles": []
+        "datafiles": [],
+        "status": []
     }
 }
 ```

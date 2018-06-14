@@ -21,32 +21,32 @@ Get details for a location.
 ```
 {
     "result": {
-        "abreviation": "IB -- DEPRECATED -- see abbreviation",
         "abbreviation": "IB",
-        "latitude": -21.5,
-        "countryName": "Nigeria",
-        "name": "Ibadan",
-        "countryCode": "NGA",
-        "locationDbId": "abc123",
-        "altitude": 12,
-        "instituteName": "INRA - GDEC",
-        "longitude": 165.5,
-        "instituteAddress": "road foo, nigeria",
         "locationType": "Breeding Location",
+        "name": "Ibadan",
+        "instituteName": "INRA - GDEC",
+        "altitude": 12,
+        "countryName": "Nigeria",
+        "countryCode": "NGA",
         "additionalInfo": {
-            "annualMeanRain": "value",
-            "soilDescription": "23"
-        }
+            "soilDescription": "23",
+            "annualMeanRain": "value"
+        },
+        "latitude": -21.5,
+        "abreviation": "IB -- DEPRECATED -- see abbreviation",
+        "instituteAddress": "road foo, nigeria",
+        "locationDbId": "abc123",
+        "longitude": 165.5
     },
     "metadata": {
         "pagination": {
-            "currentPage": 0,
             "totalCount": 0,
-            "pageSize": 0,
-            "totalPages": 0
+            "currentPage": 0,
+            "totalPages": 0,
+            "pageSize": 0
         },
-        "status": [],
-        "datafiles": []
+        "datafiles": [],
+        "status": []
     }
 }
 ```
@@ -73,47 +73,47 @@ Get a list of locations.
         "data": [
             {
                 "abbreviation": "IB",
-                "latitude": -21.5,
-                "countryName": "Nigeria",
+                "locationType": "Breeding Location",
                 "name": "Ibadan",
-                "countryCode": "NGA",
-                "locationDbId": "abc123",
-                "altitude": 12,
                 "instituteName": "INRA - GDEC",
+                "altitude": 12,
+                "countryName": "Nigeria",
+                "countryCode": "NGA",
+                "additionalInfo": {
+                    "soilDescription": "23",
+                    "annualMeanRain": "value"
+                },
+                "latitude": -21.5,
                 "longitude": 165.5,
                 "instituteAddress": "route foo, Clermont Ferrand, France",
-                "locationType": "Breeding Location",
-                "additionalInfo": {
-                    "annualMeanRain": "value",
-                    "soilDescription": "23"
-                }
+                "locationDbId": "abc123"
             },
             {
                 "abbreviation": "GO",
-                "latitude": 28.36,
-                "longitude": 77.12,
                 "name": "Goa",
-                "countryCode": "IND",
-                "locationDbId": "def456",
+                "locationType": "Storage Location",
                 "altitude": 10,
+                "countryName": "India",
+                "countryCode": "IND",
                 "additionalInfo": {
                     "name1": "value1",
                     "name2": "value2"
                 },
-                "countryName": "India",
-                "locationType": "Storage Location"
+                "latitude": 28.36,
+                "longitude": 77.12,
+                "locationDbId": "def456"
             }
         ]
     },
     "metadata": {
         "pagination": {
-            "currentPage": 0,
-            "totalCount": 2,
             "pageSize": 1000,
-            "totalPages": 1
+            "currentPage": 0,
+            "totalPages": 1,
+            "totalCount": 2
         },
-        "status": [],
-        "datafiles": []
+        "datafiles": [],
+        "status": []
     }
 }
 ```

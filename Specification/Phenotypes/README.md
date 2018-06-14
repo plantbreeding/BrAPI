@@ -26,22 +26,10 @@ observationValue data type inferred from the ontology
 ```
 {
     "result": {
-        "headerRow": [
-            "year",
-            "studyDbId",
-            "studyName",
-            "locationDbId",
-            "locationName",
-            "germplasmDbId",
-            "germplasmName",
-            "observationUnitDbId",
-            "plotNumber",
-            "replicate",
-            "blockNumber",
-            "observationTimestamp",
-            "entryType",
-            "X",
-            "Y"
+        "observationVariableDbIds": [
+            "variable1DbId",
+            "variable2DbId",
+            "variable3DbId"
         ],
         "observationVariableNames": [
             "plant height",
@@ -90,21 +78,33 @@ observationValue data type inferred from the ontology
                 "45.345"
             ]
         ],
-        "observationVariableDbIds": [
-            "variable1DbId",
-            "variable2DbId",
-            "variable3DbId"
+        "headerRow": [
+            "year",
+            "studyDbId",
+            "studyName",
+            "locationDbId",
+            "locationName",
+            "germplasmDbId",
+            "germplasmName",
+            "observationUnitDbId",
+            "plotNumber",
+            "replicate",
+            "blockNumber",
+            "observationTimestamp",
+            "entryType",
+            "X",
+            "Y"
         ]
     },
     "metadata": {
         "pagination": {
-            "currentPage": 0,
-            "totalCount": 2,
             "pageSize": 1000,
-            "totalPages": 1
+            "currentPage": 0,
+            "totalPages": 1,
+            "totalCount": 2
         },
-        "status": [],
-        "datafiles": []
+        "datafiles": [],
+        "status": []
     }
 }
 ```
@@ -128,6 +128,157 @@ observationValue data type inferred from the ontology
 + Response 200 (text/csv)
 ```
 "\"year\"    \"studyDbId\"    \"studyName\"    \"locationDbId\"    \"locationName\"    \"germplasmDbId\"    \"germplasmName\"    \"observationUnitDbId\"    \"plotNumber\"    \"replicate\"    \"blockNumber\"    \"entryType\"    \"X\"    \"Y\"     \"variableDbId1\"    \"variableDbId2\"    \"variableDbId3\"\n\"2015\"    \"YieldStudy2015-5\"    \"Yield wheat 2015\"    \"mtp-north-32\"    \"Montpellier\"    \"doi:10.155454/12349537E12\"    \"IR-8\"    \"2016-Maugio-34-575-abc-123\"    \"120\"    \"\"    \"2\"    \"\"    \"5\"    \"15\"    \"45\"    \"3\"    \"10\"\n\"2016\"    \"YieldStudy2016-5\"    \"Yield wheat 2016\"    \"mtp-north-32\"    \"Montpellier\"    \"doi:10.155454/12349537E13\"    \"IR-8\"    \"2016-Maugio-34-575-abc-124\"    \"120\"    \"\"    \"2\"    \"\"    \"5\"    \"15\"    \"47\"    \"4\"    \"11\""
+```
+
+## Phenotypes-search [Post /brapi/v1/phenotypes-search]
+
+Scope: PHENOTYPING.
+Status: ACCEPTED.
+
+Returns a list of observationUnit with the observed Phenotypes.
+
+See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
+
+Implemented for GnpIS and PHIS data (https://urgi.versailles.inra.fr/ws/webresources/brapi/v1/phenotypes). 
+Use case: this section allows to get a dataset from multiple studies. It allows to integrate data from several databases.
+Refactor note : This call allows to get and integrate portions of multiple phenotyping data matrixes. A proposed evolution allowed to get a list of single observations, this functionality is still possible with this call by specifybing the observation variable, see below.
+Example Use cases:
+- Study a panel of germplasm accross multiple studies, search parameters : {"germplasmDbIds" : [ "Syrah", "34Mtp362" ]}
+- Get all data for a specific study : {"studyDbIds" : [ "383" ]}
+- Get simple atomic phenotyping values : {"germplasmDbIds" : [ "Syrah", "34Mtp362" ], "observationVariableDbIds" : [ "CO_345:0000043"]}
+- Study Locations for adaptation to climat change : {"locationDbIds" : [ "383838", "MONTPELLIER" ], "germplasmDbIds" : [ "all ids for a given species"]}
+- Find phenotypes that are from after a certain timestamp
+
+observationTimeStamp : Iso Standard 8601.
+
+observationValue data type inferred from the ontology 
+
++ Parameters
+ 
++ Request (application/json)
+/definitions/phenotypesSearchRequest
+
++ Response 200 (application/json)
+```
+{
+    "result": {
+        "data": [
+            {
+                "entryNumber": "4",
+                "studyLocation": "Montpellier",
+                "Y": "15",
+                "replicate": "0",
+                "treatments": [
+                    {
+                        "modality": "water deficit",
+                        "factor": "water regimen"
+                    }
+                ],
+                "plantNumber": "0",
+                "plotNumber": "2016-Maugio-34-575-abc-123",
+                "observationUnitXref": [
+                    {
+                        "source": "biosampleEBI",
+                        "id": "SAMEA179865230"
+                    },
+                    {
+                        "source": "gnpis.lot",
+                        "id": "INRA:CoeSt6 _SMH03"
+                    },
+                    {
+                        "source": "kernelDB",
+                        "id": "239865"
+                    }
+                ],
+                "observationLevels": "bloc:2,subBloc:1,plot:2016-Maugio-34-575-abc-123",
+                "studyName": "Yield wheat 2015",
+                "X": "5",
+                "observationUnitName": "2016-Maugio-34-575",
+                "studyDbId": "YieldStudy2015-5",
+                "programName": "Whealbi",
+                "observationLevel": "plot",
+                "entryType": "check",
+                "studyLocationDbId": "mtp-north-32",
+                "germplasmName": "IR-8",
+                "observationUnitDbId": "2016-Maugio-34-575-abc-123",
+                "observations": [
+                    {
+                        "season": "2015",
+                        "observationVariableDbId": "CO_321:0000045",
+                        "observationTimeStamp": "2015-06-16 08:53:26",
+                        "value": "45",
+                        "collector": "Mr. Technician",
+                        "observationVariableName": "Plant_height",
+                        "observationDbId": "153453453"
+                    },
+                    {
+                        "season": "2015",
+                        "observationVariableDbId": "CO_321:0000996",
+                        "observationTimeStamp": "2015-06-16 08:53:26",
+                        "value": "3",
+                        "collector": "Mr. Technician",
+                        "observationVariableName": "GW100_g",
+                        "observationDbId": "23453454345"
+                    }
+                ],
+                "germplasmDbId": "doi:10.155454/12349537E12",
+                "blockNumber": "2"
+            },
+            {
+                "entryNumber": "7",
+                "X": "6",
+                "Y": "15",
+                "plantNumber": "45204",
+                "treatments": [],
+                "replicate": "2",
+                "plotNumber": "2016-Maugio-34-575-abc-123",
+                "observationLevels": "bloc:2,subBloc:1,plot:2016-Maugio-34-575-abc-123",
+                "studyName": "Yield wheat 2010",
+                "studyLocation": "Cornell",
+                "observationUnitName": "2010-Cornell-37-99",
+                "studyDbId": "YieldStudy2010-5",
+                "programName": "Wheat for futur",
+                "observationLevel": "plant",
+                "entryType": "test",
+                "studyLocationDbId": "88484",
+                "germplasmName": "ZE-45",
+                "observationUnitDbId": "45204",
+                "observations": [
+                    {
+                        "season": "2010",
+                        "observationVariableDbId": "CO_321:0000045",
+                        "observationTimeStamp": "2010-06-16 08:53:26",
+                        "value": "45",
+                        "collector": "Mr. Technician",
+                        "observationVariableName": "Plant_height",
+                        "observationDbId": "153453453"
+                    },
+                    {
+                        "season": "2010",
+                        "observationVariableDbId": "CO_321:0000996",
+                        "observationTimeStamp": "2010-06-16 08:53:26",
+                        "value": "3",
+                        "collector": "Mr. Technician",
+                        "observationVariableName": "GW100_g",
+                        "observationDbId": "23453454345"
+                    }
+                ],
+                "germplasmDbId": "doi:10.155499/12349537E00",
+                "blockNumber": "3"
+            }
+        ]
+    },
+    "metadata": {
+        "pagination": {
+            "pageSize": 100,
+            "currentPage": 0,
+            "totalPages": 1,
+            "totalCount": 2
+        },
+        "datafiles": [],
+        "status": []
+    }
+}
 ```
 
 ## Phenotypes-search [Get /brapi/v1/phenotypes-search{?germplasmDbId}{?observationVariableDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}{?pageSize}{?page}]
@@ -174,270 +325,119 @@ observationValue data type inferred from the ontology
     "result": {
         "data": [
             {
-                "plotNumber": "2016-Maugio-34-575-abc-123",
                 "entryNumber": "4",
-                "plantNumber": "0",
+                "studyLocation": "Montpellier",
+                "Y": "15",
+                "replicate": "0",
                 "treatments": [
                     {
-                        "factor": "water regimen",
-                        "modality": "water deficit"
+                        "modality": "water deficit",
+                        "factor": "water regimen"
                     }
                 ],
+                "plantNumber": "0",
+                "plotNumber": "2016-Maugio-34-575-abc-123",
                 "observationUnitXref": [
                     {
-                        "id": "SAMEA179865230",
-                        "source": "biosampleEBI"
+                        "source": "biosampleEBI",
+                        "id": "SAMEA179865230"
                     },
                     {
-                        "id": "INRA:CoeSt6 _SMH03",
-                        "source": "gnpis.lot"
+                        "source": "gnpis.lot",
+                        "id": "INRA:CoeSt6 _SMH03"
                     },
                     {
-                        "id": "239865",
-                        "source": "kernelDB"
+                        "source": "kernelDB",
+                        "id": "239865"
                     }
                 ],
-                "studyName": "Yield wheat 2015",
-                "Y": "15",
-                "blockNumber": "2",
-                "replicate": "0",
-                "observationUnitDbId": "2016-Maugio-34-575-abc-123",
                 "observationLevels": "bloc:2,subBloc:1,plot:2016-Maugio-34-575-abc-123",
-                "studyDbId": "YieldStudy2015-5",
-                "germplasmName": "IR-8",
-                "germplasmDbId": "doi:10.155454/12349537E12",
-                "studyLocationDbId": "mtp-north-32",
-                "studyLocation": "Montpellier",
+                "studyName": "Yield wheat 2015",
+                "X": "5",
                 "observationUnitName": "2016-Maugio-34-575",
-                "entryType": "check",
+                "studyDbId": "YieldStudy2015-5",
+                "programName": "Whealbi",
                 "observationLevel": "plot",
+                "entryType": "check",
+                "studyLocationDbId": "mtp-north-32",
+                "germplasmName": "IR-8",
+                "observationUnitDbId": "2016-Maugio-34-575-abc-123",
                 "observations": [
                     {
-                        "observationDbId": "153453453",
-                        "observationTimeStamp": "2015-06-16 08:53:26",
-                        "observationVariableName": "Plant_height",
                         "season": "2015",
                         "observationVariableDbId": "CO_321:0000045",
+                        "observationTimeStamp": "2015-06-16 08:53:26",
+                        "value": "45",
                         "collector": "Mr. Technician",
-                        "value": "45"
+                        "observationVariableName": "Plant_height",
+                        "observationDbId": "153453453"
                     },
                     {
-                        "observationDbId": "23453454345",
-                        "observationTimeStamp": "2015-06-16 08:53:26",
-                        "observationVariableName": "GW100_g",
                         "season": "2015",
                         "observationVariableDbId": "CO_321:0000996",
+                        "observationTimeStamp": "2015-06-16 08:53:26",
+                        "value": "3",
                         "collector": "Mr. Technician",
-                        "value": "3"
+                        "observationVariableName": "GW100_g",
+                        "observationDbId": "23453454345"
                     }
                 ],
-                "X": "5",
-                "programName": "Whealbi"
+                "germplasmDbId": "doi:10.155454/12349537E12",
+                "blockNumber": "2"
             },
             {
-                "plotNumber": "2016-Maugio-34-575-abc-123",
                 "entryNumber": "7",
+                "X": "6",
+                "Y": "15",
                 "plantNumber": "45204",
                 "treatments": [],
-                "observationUnitDbId": "45204",
-                "studyName": "Yield wheat 2010",
-                "observationLevels": "bloc:2,subBloc:1,plot:2016-Maugio-34-575-abc-123",
-                "blockNumber": "3",
                 "replicate": "2",
-                "studyDbId": "YieldStudy2010-5",
-                "Y": "15",
-                "germplasmName": "ZE-45",
-                "germplasmDbId": "doi:10.155499/12349537E00",
-                "studyLocationDbId": "88484",
+                "plotNumber": "2016-Maugio-34-575-abc-123",
+                "observationLevels": "bloc:2,subBloc:1,plot:2016-Maugio-34-575-abc-123",
+                "studyName": "Yield wheat 2010",
                 "studyLocation": "Cornell",
                 "observationUnitName": "2010-Cornell-37-99",
-                "entryType": "test",
+                "studyDbId": "YieldStudy2010-5",
+                "programName": "Wheat for futur",
                 "observationLevel": "plant",
+                "entryType": "test",
+                "studyLocationDbId": "88484",
+                "germplasmName": "ZE-45",
+                "observationUnitDbId": "45204",
                 "observations": [
                     {
-                        "observationDbId": "153453453",
-                        "observationTimeStamp": "2010-06-16 08:53:26",
-                        "observationVariableName": "Plant_height",
                         "season": "2010",
                         "observationVariableDbId": "CO_321:0000045",
+                        "observationTimeStamp": "2010-06-16 08:53:26",
+                        "value": "45",
                         "collector": "Mr. Technician",
-                        "value": "45"
+                        "observationVariableName": "Plant_height",
+                        "observationDbId": "153453453"
                     },
                     {
-                        "observationDbId": "23453454345",
-                        "observationTimeStamp": "2010-06-16 08:53:26",
-                        "observationVariableName": "GW100_g",
                         "season": "2010",
                         "observationVariableDbId": "CO_321:0000996",
+                        "observationTimeStamp": "2010-06-16 08:53:26",
+                        "value": "3",
                         "collector": "Mr. Technician",
-                        "value": "3"
+                        "observationVariableName": "GW100_g",
+                        "observationDbId": "23453454345"
                     }
                 ],
-                "X": "6",
-                "programName": "Wheat for futur"
+                "germplasmDbId": "doi:10.155499/12349537E00",
+                "blockNumber": "3"
             }
         ]
     },
     "metadata": {
         "pagination": {
-            "currentPage": 0,
-            "totalCount": 2,
             "pageSize": 100,
-            "totalPages": 1
-        },
-        "status": [],
-        "datafiles": []
-    }
-}
-```
-
-## Phenotypes-search [Post /brapi/v1/phenotypes-search]
-
-Scope: PHENOTYPING.
-Status: ACCEPTED.
-
-Returns a list of observationUnit with the observed Phenotypes.
-
-See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
-
-Implemented for GnpIS and PHIS data (https://urgi.versailles.inra.fr/ws/webresources/brapi/v1/phenotypes). 
-Use case: this section allows to get a dataset from multiple studies. It allows to integrate data from several databases.
-Refactor note : This call allows to get and integrate portions of multiple phenotyping data matrixes. A proposed evolution allowed to get a list of single observations, this functionality is still possible with this call by specifybing the observation variable, see below.
-Example Use cases:
-- Study a panel of germplasm accross multiple studies, search parameters : {"germplasmDbIds" : [ "Syrah", "34Mtp362" ]}
-- Get all data for a specific study : {"studyDbIds" : [ "383" ]}
-- Get simple atomic phenotyping values : {"germplasmDbIds" : [ "Syrah", "34Mtp362" ], "observationVariableDbIds" : [ "CO_345:0000043"]}
-- Study Locations for adaptation to climat change : {"locationDbIds" : [ "383838", "MONTPELLIER" ], "germplasmDbIds" : [ "all ids for a given species"]}
-- Find phenotypes that are from after a certain timestamp
-
-observationTimeStamp : Iso Standard 8601.
-
-observationValue data type inferred from the ontology 
-
-+ Parameters
- 
-+ Request (application/json)
-/definitions/phenotypesSearchRequest
-
-+ Response 200 (application/json)
-```
-{
-    "result": {
-        "data": [
-            {
-                "plotNumber": "2016-Maugio-34-575-abc-123",
-                "entryNumber": "4",
-                "plantNumber": "0",
-                "treatments": [
-                    {
-                        "factor": "water regimen",
-                        "modality": "water deficit"
-                    }
-                ],
-                "observationUnitXref": [
-                    {
-                        "id": "SAMEA179865230",
-                        "source": "biosampleEBI"
-                    },
-                    {
-                        "id": "INRA:CoeSt6 _SMH03",
-                        "source": "gnpis.lot"
-                    },
-                    {
-                        "id": "239865",
-                        "source": "kernelDB"
-                    }
-                ],
-                "studyName": "Yield wheat 2015",
-                "Y": "15",
-                "blockNumber": "2",
-                "replicate": "0",
-                "observationUnitDbId": "2016-Maugio-34-575-abc-123",
-                "observationLevels": "bloc:2,subBloc:1,plot:2016-Maugio-34-575-abc-123",
-                "studyDbId": "YieldStudy2015-5",
-                "germplasmName": "IR-8",
-                "germplasmDbId": "doi:10.155454/12349537E12",
-                "studyLocationDbId": "mtp-north-32",
-                "studyLocation": "Montpellier",
-                "observationUnitName": "2016-Maugio-34-575",
-                "entryType": "check",
-                "observationLevel": "plot",
-                "observations": [
-                    {
-                        "observationDbId": "153453453",
-                        "observationTimeStamp": "2015-06-16 08:53:26",
-                        "observationVariableName": "Plant_height",
-                        "season": "2015",
-                        "observationVariableDbId": "CO_321:0000045",
-                        "collector": "Mr. Technician",
-                        "value": "45"
-                    },
-                    {
-                        "observationDbId": "23453454345",
-                        "observationTimeStamp": "2015-06-16 08:53:26",
-                        "observationVariableName": "GW100_g",
-                        "season": "2015",
-                        "observationVariableDbId": "CO_321:0000996",
-                        "collector": "Mr. Technician",
-                        "value": "3"
-                    }
-                ],
-                "X": "5",
-                "programName": "Whealbi"
-            },
-            {
-                "plotNumber": "2016-Maugio-34-575-abc-123",
-                "entryNumber": "7",
-                "plantNumber": "45204",
-                "treatments": [],
-                "observationUnitDbId": "45204",
-                "studyName": "Yield wheat 2010",
-                "observationLevels": "bloc:2,subBloc:1,plot:2016-Maugio-34-575-abc-123",
-                "blockNumber": "3",
-                "replicate": "2",
-                "studyDbId": "YieldStudy2010-5",
-                "Y": "15",
-                "germplasmName": "ZE-45",
-                "germplasmDbId": "doi:10.155499/12349537E00",
-                "studyLocationDbId": "88484",
-                "studyLocation": "Cornell",
-                "observationUnitName": "2010-Cornell-37-99",
-                "entryType": "test",
-                "observationLevel": "plant",
-                "observations": [
-                    {
-                        "observationDbId": "153453453",
-                        "observationTimeStamp": "2010-06-16 08:53:26",
-                        "observationVariableName": "Plant_height",
-                        "season": "2010",
-                        "observationVariableDbId": "CO_321:0000045",
-                        "collector": "Mr. Technician",
-                        "value": "45"
-                    },
-                    {
-                        "observationDbId": "23453454345",
-                        "observationTimeStamp": "2010-06-16 08:53:26",
-                        "observationVariableName": "GW100_g",
-                        "season": "2010",
-                        "observationVariableDbId": "CO_321:0000996",
-                        "collector": "Mr. Technician",
-                        "value": "3"
-                    }
-                ],
-                "X": "6",
-                "programName": "Wheat for futur"
-            }
-        ]
-    },
-    "metadata": {
-        "pagination": {
             "currentPage": 0,
-            "totalCount": 2,
-            "pageSize": 100,
-            "totalPages": 1
+            "totalPages": 1,
+            "totalCount": 2
         },
-        "status": [],
-        "datafiles": []
+        "datafiles": [],
+        "status": []
     }
 }
 ```
@@ -471,19 +471,19 @@ form data.
 {
     "observations": [
         {
-            "observationUnitDbId": "333888",
+            "observationDbId": "153453453",
             "observationVariableDbId": "18020",
-            "observationDbId": "153453453"
+            "observationUnitDbId": "333888"
         },
         {
-            "observationUnitDbId": "333888",
+            "observationDbId": "23456",
             "observationVariableDbId": "18021",
-            "observationDbId": "23456"
+            "observationUnitDbId": "333888"
         },
         {
-            "observationUnitDbId": "333888",
+            "observationDbId": "34567",
             "observationVariableDbId": "18022",
-            "observationDbId": "34567"
+            "observationUnitDbId": "333888"
         }
     ]
 }
@@ -491,13 +491,13 @@ form data.
 ```
 {
     "pagination": {
-        "currentPage": 0,
-        "totalCount": 0,
         "pageSize": 0,
-        "totalPages": 0
+        "currentPage": 0,
+        "totalPages": 0,
+        "totalCount": 0
     },
-    "status": [],
-    "datafiles": []
+    "datafiles": [],
+    "status": []
 }
 ```
 
