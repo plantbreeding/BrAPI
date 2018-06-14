@@ -27,53 +27,53 @@ and '?' for one character matching. Default is exact.
 + Response 200 (application/json)
 ```
 {
-    "metadata": {
-        "pagination": {
-            "pageSize": 1000,
-            "currentPage": 0,
-            "totalCount": 2,
-            "totalPages": 1
-        },
-        "status": [],
-        "datafiles": []
-    },
     "result": {
         "data": [
             {
                 "markerDbId": "1185",
+                "analysisMethods": [
+                    "illumina",
+                    "kasp"
+                ],
+                "refAlt": [
+                    "A",
+                    "T"
+                ],
                 "defaultDisplayName": "11_10002",
-                "type": "SNP",
                 "synonyms": [
                     "i_11_10002",
                     "POPA1_0002"
                 ],
+                "type": "SNP"
+            },
+            {
+                "markerDbId": "1186",
+                "analysisMethods": [
+                    "illumina",
+                    "kasp"
+                ],
                 "refAlt": [
                     "A",
                     "T"
                 ],
-                "analysisMethods": [
-                    "illumina",
-                    "kasp"
-                ]
-            },
-            {
-                "markerDbId": "1186",
                 "defaultDisplayName": "11_11159",
-                "type": "SNP",
                 "synonyms": [
                     "i_11_11159",
                     "POPA1_1159"
                 ],
-                "refAlt": [
-                    "A",
-                    "T"
-                ],
-                "analysisMethods": [
-                    "illumina",
-                    "kasp"
-                ]
+                "type": "SNP"
             }
         ]
+    },
+    "metadata": {
+        "pagination": {
+            "pageSize": 1000,
+            "currentPage": 0,
+            "totalPages": 1,
+            "totalCount": 2
+        },
+        "status": [],
+        "datafiles": []
     }
 }
 ```
@@ -93,53 +93,53 @@ Other service requests use the servers internal `markerDbId`. This service retur
 + Response 200 (application/json)
 ```
 {
-    "metadata": {
-        "pagination": {
-            "pageSize": 1000,
-            "currentPage": 0,
-            "totalCount": 2,
-            "totalPages": 1
-        },
-        "status": [],
-        "datafiles": []
-    },
     "result": {
         "data": [
             {
                 "markerDbId": "1185",
+                "analysisMethods": [
+                    "illumina",
+                    "kasp"
+                ],
+                "refAlt": [
+                    "A",
+                    "T"
+                ],
                 "defaultDisplayName": "11_10002",
-                "type": "SNP",
                 "synonyms": [
                     "i_11_10002",
                     "POPA1_0002"
                 ],
+                "type": "SNP"
+            },
+            {
+                "markerDbId": "1186",
+                "analysisMethods": [
+                    "illumina",
+                    "kasp"
+                ],
                 "refAlt": [
                     "A",
                     "T"
                 ],
-                "analysisMethods": [
-                    "illumina",
-                    "kasp"
-                ]
-            },
-            {
-                "markerDbId": "1186",
                 "defaultDisplayName": "11_11159",
-                "type": "SNP",
                 "synonyms": [
                     "i_11_11159",
                     "POPA1_1159"
                 ],
-                "refAlt": [
-                    "A",
-                    "T"
-                ],
-                "analysisMethods": [
-                    "illumina",
-                    "kasp"
-                ]
+                "type": "SNP"
             }
         ]
+    },
+    "metadata": {
+        "pagination": {
+            "pageSize": 1000,
+            "currentPage": 0,
+            "totalPages": 1,
+            "totalCount": 2
+        },
+        "status": [],
+        "datafiles": []
     }
 }
 ```
@@ -166,50 +166,50 @@ and '?' for one character matching. Default is exact.
 ```
 {
     "metadata": {
-        "pagination": {
-            "pageSize": 1000,
-            "currentPage": 0,
-            "totalCount": 2,
-            "totalPages": 1
-        },
-        "status": [],
-        "datafiles": [],
         "data": [
             {
                 "markerDbId": "1185",
+                "analysisMethods": [
+                    "illumina",
+                    "kasp"
+                ],
+                "refAlt": [
+                    "A",
+                    "T"
+                ],
                 "defaultDisplayName": "11_10002",
-                "type": "SNP",
                 "synonyms": [
                     "i_11_10002",
                     "POPA1_0002"
                 ],
+                "type": "SNP"
+            },
+            {
+                "markerDbId": "1186",
+                "analysisMethods": [
+                    "illumina",
+                    "kasp"
+                ],
                 "refAlt": [
                     "A",
                     "T"
                 ],
-                "analysisMethods": [
-                    "illumina",
-                    "kasp"
-                ]
-            },
-            {
-                "markerDbId": "1186",
                 "defaultDisplayName": "11_11159",
-                "type": "SNP",
                 "synonyms": [
                     "i_11_11159",
                     "POPA1_1159"
                 ],
-                "refAlt": [
-                    "A",
-                    "T"
-                ],
-                "analysisMethods": [
-                    "illumina",
-                    "kasp"
-                ]
+                "type": "SNP"
             }
-        ]
+        ],
+        "pagination": {
+            "pageSize": 1000,
+            "currentPage": 0,
+            "totalPages": 1,
+            "totalCount": 2
+        },
+        "status": [],
+        "datafiles": []
     }
 }
 ```
@@ -226,32 +226,32 @@ and '?' for one character matching. Default is exact.
 + Response 200 (application/json)
 ```
 {
-    "metadata": {
-        "pagination": {
-            "pageSize": 0,
-            "currentPage": 0,
-            "totalCount": 0,
-            "totalPages": 0
-        },
-        "status": [],
-        "datafiles": []
-    },
     "result": {
         "markerDbId": "1185",
-        "defaultDisplayName": "11_10002",
-        "type": "SNP",
-        "synonyms": [
-            "i_11_10002",
-            "POPA1_0002"
+        "analysisMethods": [
+            "illumina",
+            "kasp"
         ],
         "refAlt": [
             "A",
             "T"
         ],
-        "analysisMethods": [
-            "illumina",
-            "kasp"
-        ]
+        "defaultDisplayName": "11_10002",
+        "synonyms": [
+            "i_11_10002",
+            "POPA1_0002"
+        ],
+        "type": "SNP"
+    },
+    "metadata": {
+        "pagination": {
+            "pageSize": 0,
+            "currentPage": 0,
+            "totalPages": 0,
+            "totalCount": 0
+        },
+        "status": [],
+        "datafiles": []
     }
 }
 ```

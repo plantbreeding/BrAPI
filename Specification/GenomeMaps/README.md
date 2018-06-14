@@ -26,41 +26,41 @@ Get list of maps <br>
 + Response 200 (application/json)
 ```
 {
+    "result": {
+        "data": [
+            {
+                "name": "Some Map",
+                "publishedDate": "2008-04-16",
+                "markerCount": 1000,
+                "species": "Some species",
+                "comments": "This map contains ...",
+                "type": "Genetic",
+                "unit": "cM",
+                "mapDbId": "abc123",
+                "linkageGroupCount": 7
+            },
+            {
+                "name": "Some Other map",
+                "publishedDate": "2009-01-12",
+                "markerCount": 1501,
+                "species": "Some Species",
+                "comments": "this is blah blah",
+                "type": "Genetic",
+                "unit": "cM",
+                "mapDbId": "def234",
+                "linkageGroupCount": 7
+            }
+        ]
+    },
     "metadata": {
         "pagination": {
             "pageSize": 1000,
             "currentPage": 0,
-            "totalCount": 2,
-            "totalPages": 1
+            "totalPages": 1,
+            "totalCount": 2
         },
         "status": [],
         "datafiles": []
-    },
-    "result": {
-        "data": [
-            {
-                "mapDbId": "abc123",
-                "name": "Some Map",
-                "species": "Some species",
-                "type": "Genetic",
-                "unit": "cM",
-                "publishedDate": "2008-04-16",
-                "markerCount": 1000,
-                "linkageGroupCount": 7,
-                "comments": "This map contains ..."
-            },
-            {
-                "mapDbId": "def234",
-                "name": "Some Other map",
-                "species": "Some Species",
-                "type": "Genetic",
-                "unit": "cM",
-                "publishedDate": "2009-01-12",
-                "markerCount": 1501,
-                "linkageGroupCount": 7,
-                "comments": "this is blah blah"
-            }
-        ]
     }
 }
 ```
@@ -79,36 +79,36 @@ Provides the number of markers on each linkageGroup and the max position on the 
 + Response 200 (application/json)
 ```
 {
+    "result": {
+        "name": "Some map",
+        "unit": "cM",
+        "mapDbId": "abc123",
+        "data": [
+            {
+                "maxPosition": 10000000,
+                "linkageGroupName": "1",
+                "markerCount": 100000
+            },
+            {
+                "maxPosition": 12347889,
+                "linkageGroupName": "2",
+                "markerCount": 1247
+            }
+        ],
+        "linkageGroups": [
+            "DEPRECATED - Replaced by 'data' in v1.1"
+        ],
+        "type": "Genetic"
+    },
     "metadata": {
         "pagination": {
             "pageSize": 1000,
             "currentPage": 0,
-            "totalCount": 2,
-            "totalPages": 1
+            "totalPages": 1,
+            "totalCount": 2
         },
         "status": [],
         "datafiles": []
-    },
-    "result": {
-        "mapDbId": "abc123",
-        "name": "Some map",
-        "type": "Genetic",
-        "unit": "cM",
-        "linkageGroups": [
-            "DEPRECATED - Replaced by 'data' in v1.1"
-        ],
-        "data": [
-            {
-                "linkageGroupName": "1",
-                "markerCount": 100000,
-                "maxPosition": 10000000
-            },
-            {
-                "linkageGroupName": "2",
-                "markerCount": 1247,
-                "maxPosition": 12347889
-            }
-        ]
     }
 }
 ```
@@ -129,31 +129,31 @@ markers ordered by linkageGroup and position <br>
 + Response 200 (application/json)
 ```
 {
-    "metadata": {
-        "pagination": {
-            "pageSize": 1000,
-            "currentPage": 0,
-            "totalCount": 2,
-            "totalPages": 1
-        },
-        "status": [],
-        "datafiles": []
-    },
     "result": {
         "data": [
             {
                 "markerDbId": "1",
+                "linkageGroupName": "1A",
                 "markerName": "marker1",
-                "location": "1000",
-                "linkageGroupName": "1A"
+                "location": "1000"
             },
             {
                 "markerDbId": "2",
+                "linkageGroupName": "1A",
                 "markerName": "marker2",
-                "location": "1001",
-                "linkageGroupName": "1A"
+                "location": "1001"
             }
         ]
+    },
+    "metadata": {
+        "pagination": {
+            "pageSize": 1000,
+            "currentPage": 0,
+            "totalPages": 1,
+            "totalCount": 2
+        },
+        "status": [],
+        "datafiles": []
     }
 }
 ```
@@ -174,16 +174,6 @@ markers ordered by linkageGroup and position
 + Response 200 (application/json)
 ```
 {
-    "metadata": {
-        "pagination": {
-            "pageSize": 1000,
-            "currentPage": 0,
-            "totalCount": 2,
-            "totalPages": 1
-        },
-        "status": [],
-        "datafiles": []
-    },
     "result": {
         "data": [
             {
@@ -197,6 +187,16 @@ markers ordered by linkageGroup and position
                 "location": "1001"
             }
         ]
+    },
+    "metadata": {
+        "pagination": {
+            "pageSize": 1000,
+            "currentPage": 0,
+            "totalPages": 1,
+            "totalCount": 2
+        },
+        "status": [],
+        "datafiles": []
     }
 }
 ```
