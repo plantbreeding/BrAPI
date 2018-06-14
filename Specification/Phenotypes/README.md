@@ -487,7 +487,19 @@ form data.
 + Request (application/json)
 /definitions/phenotypesRequest
 
-+ Response 200 (result)
++ Response 200 (metadata)
+```
+{
+    "datafiles": [],
+    "pagination": {
+        "currentPage": 0,
+        "pageSize": 0,
+        "totalCount": 0,
+        "totalPages": 0
+    },
+    "status": []
+}
+```+ Response 200 (result)
 ```
 {
     "observations": [
@@ -507,17 +519,5 @@ form data.
             "observationVariableDbId": "18022"
         }
     ]
-}
-```+ Response 200 (metadata)
-```
-{
-    "datafiles": [],
-    "pagination": {
-        "currentPage": 0,
-        "pageSize": 0,
-        "totalCount": 0,
-        "totalPages": 0
-    },
-    "status": []
 }
 ```

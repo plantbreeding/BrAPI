@@ -8,9 +8,10 @@ Note that dates should be provided in extended ISO 8601 format (for example, "YY
 
 
 
-## Observationlevels [Get /brapi/v1/observationLevels{?pageSize}{?page}]
+## Observationlevels [Get /brapi/v1/observationlevels{?pageSize}{?page}]
 
- Call to retrieve the list of supported observation levels. Observation levels indicate the granularity level at which the measurements are taken. The values are used to supply the `observationLevel` parameter in the observation unit details call.  
+ Call to retrieve the list of supported observation levels. Observation levels indicate the granularity level at which the measurements are taken. The values are used to supply the `observationLevel` parameter in the observation unit details call.
+<a href="https://test-server.brapi.org/brapi/v1/observationlevels"> test-server.brapi.org/brapi/v1/observationlevels</a> 
 
 + Parameters
     + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
