@@ -756,19 +756,7 @@ Note: If 'observationUnitDbId' or 'observationDbId' is populated, they should be
     }
 }
 
-+ Response 400 (application/json)
-```
-{
-    "metadata": {
-        "status": [
-            {
-                "code": "Error",
-                "message": "Could not update values for Observation Units"
-            }
-        ]
-    }
-}
-```+ Response 200 (application/json)
++ Response 200 (application/json)
 ```
 {
     "metadata": {
@@ -783,6 +771,18 @@ Note: If 'observationUnitDbId' or 'observationDbId' is populated, they should be
         "observationUnitDbIds": [
             "123abc",
             "456def"
+        ]
+    }
+}
+```+ Response 400 (application/json)
+```
+{
+    "metadata": {
+        "status": [
+            {
+                "code": "Error",
+                "message": "Could not update values for Observation Units"
+            }
         ]
     }
 }
@@ -797,23 +797,11 @@ Note: If 'observationUnitDbId' or 'observationDbId' is populated, they should be
  
 + Request (application/json)
 {
-    "format": "binary",
-    "type": "string"
+    "type": "string",
+    "format": "binary"
 }
 
-+ Response 400 (application/json)
-```
-{
-    "metadata": {
-        "status": [
-            {
-                "code": "Error",
-                "message": "Could not update values for Observation Units"
-            }
-        ]
-    }
-}
-```+ Response 200 (application/json)
++ Response 200 (application/json)
 ```
 {
     "metadata": {
@@ -828,6 +816,18 @@ Note: If 'observationUnitDbId' or 'observationDbId' is populated, they should be
         "observationUnitDbIds": [
             "123abc",
             "456def"
+        ]
+    }
+}
+```+ Response 400 (application/json)
+```
+{
+    "metadata": {
+        "status": [
+            {
+                "code": "Error",
+                "message": "Could not update values for Observation Units"
+            }
         ]
     }
 }
@@ -1212,6 +1212,9 @@ observationTimestamp should be ISO8601 format with timezone: YYYY-MM-DDThh:mm:ss
 + Response 200 (application/csv)
 ```
 "year,studyDbId,studyName,locationDbId,locationName,germplasmDbId,germplasmName,observationUnitDbId,plotNumber,replicate,blockNumber,observationTimestamp,entryType,X,Y,variable1DbId,variable2DbId,variable3DbId\n2017,stu1,Study Name,loc1,Location Name,CIP1,CIP Name,abc123,1,1,1,2017-06-16T00:53:26Z,Test Entry,1,2,25.3,103.4,50.75 \n2017,stu1,Study Name,loc1,Location Name,CIP1,CIP Name,abc124,1,1,1,2017-06-16T00:54:57Z,Test Entry,2,2,27.9,98.65,45.345\n"
+```+ Response 200 (application/tsv)
+```
+"year\tstudyDbId\tstudyName\tlocationDbId\tlocationName\tgermplasmDbId\tgermplasmName\tobservationUnitDbId\tplotNumber\treplicate\tblockNumber\tobservationTimestamp\tentryType\tX\tY\tvariable1DbId\tvariable2DbId\tvariable3DbId\n 2017\tstu1\tStudy Name\tloc1\tLocation Name\tCIP1\tCIP Name\tabc123\t1\t1\t1\t2017-06-16T00:53:26Z\tTest Entry\t1\t2\t25.3\t103.4\t50.75\n 2017\tstu1\tStudy Name\tloc1\tLocation Name\tCIP1\tCIP Name\tabc124\t1\t1\t1\t2017-06-16T00:54:57Z\tTest Entry\t2\t2\t27.9\t98.65\t45.345\n"
 ```+ Response 200 (application/json)
 ```
 {
@@ -1297,9 +1300,6 @@ observationTimestamp should be ISO8601 format with timezone: YYYY-MM-DDThh:mm:ss
         ]
     }
 }
-```+ Response 200 (application/tsv)
-```
-"year\tstudyDbId\tstudyName\tlocationDbId\tlocationName\tgermplasmDbId\tgermplasmName\tobservationUnitDbId\tplotNumber\treplicate\tblockNumber\tobservationTimestamp\tentryType\tX\tY\tvariable1DbId\tvariable2DbId\tvariable3DbId\n 2017\tstu1\tStudy Name\tloc1\tLocation Name\tCIP1\tCIP Name\tabc123\t1\t1\t1\t2017-06-16T00:53:26Z\tTest Entry\t1\t2\t25.3\t103.4\t50.75\n 2017\tstu1\tStudy Name\tloc1\tLocation Name\tCIP1\tCIP Name\tabc124\t1\t1\t1\t2017-06-16T00:54:57Z\tTest Entry\t2\t2\t27.9\t98.65\t45.345\n"
 ```
 
 ## Studies/{studydbid}/table [Post /brapi/v1/studies/{studyDbId}/table]
@@ -1377,10 +1377,11 @@ Scope: PHENOTYPING
 }
 ```
 
-## Studytypes [Get /brapi/v1/studyTypes{?pageSize}{?page}]
+## Studytypes [Get /brapi/v1/studytypes{?pageSize}{?page}]
 
  Call to retrieve the list of study types.
-Scope: PHENOTYPING. Implementation target date: PAG2016  
+Scope: PHENOTYPING. Implementation target date: PAG2016
+<a href="https://test-server.brapi.org/brapi/v1/studytypes"> test-server.brapi.org/brapi/v1/studytypes</a> 
 
 + Parameters
     + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.

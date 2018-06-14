@@ -115,7 +115,26 @@ The format of the tsv response can be found on GitHub (https://github.com/plantb
 + Request (application/json)
 /definitions/alleleMatrixSearchRequest
 
-+ Response 200 (application/json)
++ Response 200 (application/tsv)
+```
+{
+    "metadata": {
+        "datafiles": [
+            "https://my-fancy-server/files/allelematrix-1234.tsv"
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 0,
+            "totalCount": 0,
+            "totalPages": 0
+        },
+        "status": []
+    },
+    "result": {
+        "data": []
+    }
+}
+```+ Response 200 (application/json)
 ```
 {
     "metadata": {
@@ -151,25 +170,6 @@ The format of the tsv response can be found on GitHub (https://github.com/plantb
                 "A/B"
             ]
         ]
-    }
-}
-```+ Response 200 (application/tsv)
-```
-{
-    "metadata": {
-        "datafiles": [
-            "https://my-fancy-server/files/allelematrix-1234.tsv"
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 0,
-            "totalCount": 0,
-            "totalPages": 0
-        },
-        "status": []
-    },
-    "result": {
-        "data": []
     }
 }
 ```
@@ -324,7 +324,26 @@ The format of the tsv response can be found on GitHub (https://github.com/plantb
 + Request (application/json)
 /definitions/alleleMatrixSearchRequest
 
-+ Response 200 (application/json)
++ Response 200 (application/tsv)
+```
+{
+    "metadata": {
+        "datafiles": [
+            "https://my-fancy-server/files/allelematrix-1234.tsv"
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 0,
+            "totalCount": 0,
+            "totalPages": 0
+        },
+        "status": []
+    },
+    "result": {
+        "data": []
+    }
+}
+```+ Response 200 (application/json)
 ```
 {
     "metadata": {
@@ -360,25 +379,6 @@ The format of the tsv response can be found on GitHub (https://github.com/plantb
                 "A/B"
             ]
         ]
-    }
-}
-```+ Response 200 (application/tsv)
-```
-{
-    "metadata": {
-        "datafiles": [
-            "https://my-fancy-server/files/allelematrix-1234.tsv"
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 0,
-            "totalCount": 0,
-            "totalPages": 0
-        },
-        "status": []
-    },
-    "result": {
-        "data": []
     }
 }
 ```
