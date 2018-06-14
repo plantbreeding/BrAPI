@@ -72,7 +72,7 @@ def buildReadMe(dir):
 					for type in responses[code]['examples']:
 						example = responses[code]['examples'][type]
 						readMeStr += '+ Response ' + code + ' (' + type + ')\n```\n'
-						readMeStr += json.dumps(example, indent=4, separators=(',', ': '), default=str)
+						readMeStr += json.dumps(example, indent=4, separators=(',', ': '), default=str, sort_keys=True)
 						readMeStr += '\n```'
 	return readMeStr
 	
