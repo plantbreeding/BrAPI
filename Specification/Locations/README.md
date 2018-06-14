@@ -6,7 +6,7 @@ Location calls.
 
 
 
-## Locations [Get /brapi/v1/locations{?locationType}{?pageSize}{?page}]
+## Get Locations  [GET /brapi/v1/locations{?locationType}{?pageSize}{?page}]
 
 
 Implemented by: Germinate
@@ -73,7 +73,7 @@ Get a list of locations.
 }
 ```
 
-## Locations/{locationdbid} [Get /brapi/v1/locations/{locationDbId}]
+## Get Locations by locationDbId  [GET /brapi/v1/locations/{locationDbId}]
 
  <strong>Implemented by:</strong>  GnpIS
 Get details for a location.

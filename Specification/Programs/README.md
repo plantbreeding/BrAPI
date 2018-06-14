@@ -5,7 +5,7 @@ A Program can contain multiple Trials. A Trial can contain multiple Studies.
 
 
 
-## Programs-search [Post /brapi/v1/programs-search]
+## Post Programs-search  [POST /brapi/v1/programs-search]
 
  Advanced searching for the programs resource.
 Status: ACCEPTED.
@@ -51,7 +51,7 @@ See <a href="#introduction/search-services">Search Services</a> for additional i
 }
 ```
 
-## Programs [Get /brapi/v1/programs{?programName}{?abbreviation}{?pageSize}{?page}]
+## Get Programs  [GET /brapi/v1/programs{?programName}{?abbreviation}{?pageSize}{?page}]
 
  Call to retrieve a list of programs.
 Status: ACCEPTED Implemented By:

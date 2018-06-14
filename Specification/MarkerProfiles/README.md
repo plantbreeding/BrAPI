@@ -16,7 +16,7 @@ Basic concepts in the **Breeding API**:
 
 
 
-## Allelematrices-search [Get /brapi/v1/allelematrices-search{?markerprofileDbId}{?markerDbId}{?matrixDbId}{?format}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageSize}{?page}]
+## Get Allelematrices-search  [GET /brapi/v1/allelematrices-search{?markerprofileDbId}{?markerDbId}{?matrixDbId}{?format}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageSize}{?page}]
 
 Status: ACCEPTED.
 
@@ -88,7 +88,7 @@ This method may support asynchronous processing.
 }
 ```
 
-## Allelematrices-search [Post /brapi/v1/allelematrices-search]
+## Post Allelematrices-search  [POST /brapi/v1/allelematrices-search]
 
 Status: ACCEPTED.
 
@@ -174,7 +174,7 @@ The format of the tsv response can be found on GitHub (https://github.com/plantb
 }
 ```
 
-## Allelematrices [Get /brapi/v1/allelematrices{?studyDbId}{?pageSize}{?page}]
+## Get Allelematrices  [GET /brapi/v1/allelematrices{?studyDbId}{?pageSize}{?page}]
 
 <strong>Status</strong>: Proposed
 <strong>Implemented by</strong>: GOBII
@@ -225,7 +225,7 @@ POST will provide a means for adding new matrices (content TBD).
 }
 ```
 
-## Allelematrix-search [Get /brapi/v1/allelematrix-search{?markerprofileDbId}{?markerDbId}{?matrixDbId}{?format}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageSize}{?page}]
+## Get Allelematrix-search  [GET /brapi/v1/allelematrix-search{?markerprofileDbId}{?markerDbId}{?matrixDbId}{?format}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageSize}{?page}]
 
 Status: ACCEPTED.
 
@@ -297,7 +297,7 @@ This method may support asynchronous processing.
 }
 ```
 
-## Allelematrix-search [Post /brapi/v1/allelematrix-search]
+## Post Allelematrix-search  [POST /brapi/v1/allelematrix-search]
 
 Status: ACCEPTED.
 
@@ -383,7 +383,7 @@ The format of the tsv response can be found on GitHub (https://github.com/plantb
 }
 ```
 
-## Markerprofiles [Get /brapi/v1/markerprofiles{?germplasmDbId}{?studyDbId}{?sampleDbId}{?extractDbId}{?pageSize}{?page}]
+## Get Markerprofiles  [GET /brapi/v1/markerprofiles{?germplasmDbId}{?studyDbId}{?sampleDbId}{?extractDbId}{?pageSize}{?page}]
 
 <strong>Scope</strong>: GENOTYPING.
 <strong>Status</strong>: ACCEPTED.
@@ -439,7 +439,7 @@ For the requested Germplasm Id and/or Extract Id, returns the Markerprofile Id a
 }
 ```
 
-## Markerprofiles/{markerprofiledbid} [Get /brapi/v1/markerprofiles/{markerprofileDbId}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageSize}{?page}]
+## Get Markerprofiles by markerprofileDbId  [GET /brapi/v1/markerprofiles/{markerprofileDbId}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageSize}{?page}]
 
 <strong>Scope</strong>:GENOTYPING.
 <strong>Status</strong>: ACCEPTED.

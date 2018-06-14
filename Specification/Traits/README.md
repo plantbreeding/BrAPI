@@ -6,7 +6,7 @@ Trait Ontology Calls. API to retrieve list of traits and their associated variab
 
 
 
-## Traits [Get /brapi/v1/traits{?pageSize}{?page}]
+## Get Traits  [GET /brapi/v1/traits{?pageSize}{?page}]
 
  Scope: CORE. Status: ACCEPTED.
 Implemented by: Germinate, Cassavabase
@@ -62,7 +62,7 @@ Call to retrieve a list of traits available in the system and their associated v
 }
 ```
 
-## Traits/{traitdbid} [Get /brapi/v1/traits/{traitDbId}]
+## Get Traits by traitDbId  [GET /brapi/v1/traits/{traitDbId}]
 
  Scope: CORE. Status: ACCEPTED.
 Implemented by: Germinate

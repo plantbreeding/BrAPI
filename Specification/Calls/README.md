@@ -4,7 +4,7 @@ The '/calls' call is used to find the available BrAPI calls on a particular serv
 
 
 
-## Calls [Get /brapi/v1/calls{?datatype}{?pageSize}{?page}]
+## Get Calls  [GET /brapi/v1/calls{?datatype}{?pageSize}{?page}]
 
 <strong>Implementation Notes</strong>
 Having a consistent structure for the path string of each call is very important for teams to be able to connect and find errors. Read more on <a href="https://github.com/plantbreeding/API/issues/144">Github</a>.

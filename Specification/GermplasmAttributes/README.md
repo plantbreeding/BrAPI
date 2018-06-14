@@ -7,7 +7,7 @@ hardness.  They are often evaluated by genotyping for diagnostic markers.
 
 
 
-## Attributes/categories [Get /brapi/v1/attributes/categories{?pageSize}{?page}]
+## Get Attributes Categories  [GET /brapi/v1/attributes/categories{?pageSize}{?page}]
 
  Scope: OTHER. Status: ACCEPTED.
 Implementation target date: PAG2016
@@ -47,7 +47,7 @@ List all available attribute categories.
 }
 ```
 
-## Attributes [Get /brapi/v1/attributes{?attributeCategoryDbId}{?pageSize}{?page}]
+## Get Attributes  [GET /brapi/v1/attributes{?attributeCategoryDbId}{?pageSize}{?page}]
 
  List available attributes.
 <a href="https://test-server.brapi.org/brapi/v1/attributes"> test-server.brapi.org/brapi/v1/attributes</a>  
@@ -91,7 +91,7 @@ List all available attribute categories.
 }
 ```
 
-## Germplasm/{germplasmdbid}/attributes [Get /brapi/v1/germplasm/{germplasmDbId}/attributes{?attributeDbIds}{?attributeList}{?pageSize}{?page}]
+## Get Germplasm Attributes by germplasmDbId  [GET /brapi/v1/germplasm/{germplasmDbId}/attributes{?attributeDbIds}{?attributeList}{?pageSize}{?page}]
 
 Values for all attributes by default.
 

@@ -6,7 +6,7 @@ API to retrieve and submit data (phenotypes, environment variables) from studies
 
 
 
-## Phenotypes-search/csv [Post /brapi/v1/phenotypes-search/csv]
+## Post Phenotypes-search Csv  [POST /brapi/v1/phenotypes-search/csv]
 
 Scope: PHENOTYPING.
 Status: ACCEPTED.
@@ -27,7 +27,7 @@ observationValue data type inferred from the ontology
 "\"year\",\"studyDbId\",\"studyName\",\"locationDbId\",\"locationName\",\"germplasmDbId\",\"germplasmName\",\"observationUnitDbId\",\"plotNumber\",\"replicate\",\"blockNumber\", \"entryType\", \"X\", \"Y\", \"variableDbId1\", \"variableDbId2\", \"variableDbId3\"\n\"2015\", \"YieldStudy2015-5\", \"Yield wheat 2015\", \"mtp-north-32\", \"Montpellier\", \"doi:10.155454/12349537E12\", \"IR-8\", \"2016-Maugio-34-575-abc-123\", \"120\", \"\", \"2\", \"\", \"5\", \"15\", \"45\", \"3\", \"10\"\n\"2016\", \"YieldStudy2016-5\", \"Yield wheat 2016\", \"mtp-north-32\", \"Montpellier\", \"doi:10.155454/12349537E13\", \"IR-8\", \"2016-Maugio-34-575-abc-124\", \"120\", \"\", \"2\", \"\", \"5\", \"15\", \"47\", \"4\", \"11\""
 ```
 
-## Phenotypes-search [Get /brapi/v1/phenotypes-search{?germplasmDbId}{?observationVariableDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}{?pageSize}{?page}]
+## Get Phenotypes-search  [GET /brapi/v1/phenotypes-search{?germplasmDbId}{?observationVariableDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}{?pageSize}{?page}]
 
 Scope: PHENOTYPING.
 Status: ACCEPTED.
@@ -188,7 +188,7 @@ observationValue data type inferred from the ontology
 }
 ```
 
-## Phenotypes-search [Post /brapi/v1/phenotypes-search]
+## Post Phenotypes-search  [POST /brapi/v1/phenotypes-search]
 
 Scope: PHENOTYPING.
 Status: ACCEPTED.
@@ -339,7 +339,7 @@ observationValue data type inferred from the ontology
 }
 ```
 
-## Phenotypes-search/tsv [Post /brapi/v1/phenotypes-search/tsv]
+## Post Phenotypes-search Tsv  [POST /brapi/v1/phenotypes-search/tsv]
 
 Scope: PHENOTYPING.
 Status: ACCEPTED.
@@ -360,7 +360,7 @@ observationValue data type inferred from the ontology
 "\"year\"    \"studyDbId\"    \"studyName\"    \"locationDbId\"    \"locationName\"    \"germplasmDbId\"    \"germplasmName\"    \"observationUnitDbId\"    \"plotNumber\"    \"replicate\"    \"blockNumber\"    \"entryType\"    \"X\"    \"Y\"     \"variableDbId1\"    \"variableDbId2\"    \"variableDbId3\"\n\"2015\"    \"YieldStudy2015-5\"    \"Yield wheat 2015\"    \"mtp-north-32\"    \"Montpellier\"    \"doi:10.155454/12349537E12\"    \"IR-8\"    \"2016-Maugio-34-575-abc-123\"    \"120\"    \"\"    \"2\"    \"\"    \"5\"    \"15\"    \"45\"    \"3\"    \"10\"\n\"2016\"    \"YieldStudy2016-5\"    \"Yield wheat 2016\"    \"mtp-north-32\"    \"Montpellier\"    \"doi:10.155454/12349537E13\"    \"IR-8\"    \"2016-Maugio-34-575-abc-124\"    \"120\"    \"\"    \"2\"    \"\"    \"5\"    \"15\"    \"47\"    \"4\"    \"11\""
 ```
 
-## Phenotypes-search/table [Post /brapi/v1/phenotypes-search/table]
+## Post Phenotypes-search Table  [POST /brapi/v1/phenotypes-search/table]
 
 Scope: PHENOTYPING.
 Status: ACCEPTED.
@@ -463,7 +463,7 @@ observationValue data type inferred from the ontology
 }
 ```
 
-## Phenotypes [Post /brapi/v1/phenotypes{?format}]
+## Post Phenotypes  [POST /brapi/v1/phenotypes{?format}]
 
 Scope: PHENOTYPING. 
 

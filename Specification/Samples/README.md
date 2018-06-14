@@ -6,7 +6,7 @@ API methods for tracking/managing plant samples and related meta-data. A 'Sample
 
 
 
-## Samples-search [Get /brapi/v1/samples-search{?sampleDbId}{?observationUnitDbId}{?plateDbId}{?germplasmDbId}{?pageSize}{?page}]
+## Get Samples-search  [GET /brapi/v1/samples-search{?sampleDbId}{?observationUnitDbId}{?plateDbId}{?germplasmDbId}{?pageSize}{?page}]
 
  Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
 <a href="https://test-server.brapi.org/brapi/v1/samples"> test-server.brapi.org/brapi/v1/samples-search</a> 
@@ -70,7 +70,7 @@ API methods for tracking/managing plant samples and related meta-data. A 'Sample
 }
 ```
 
-## Samples-search [Post /brapi/v1/samples-search]
+## Post Samples-search  [POST /brapi/v1/samples-search]
 
  Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
 <a href="https://test-server.brapi.org/brapi/v1/samples"> test-server.brapi.org/brapi/v1/samples-search</a> 
@@ -130,7 +130,7 @@ API methods for tracking/managing plant samples and related meta-data. A 'Sample
 }
 ```
 
-## Samples [Put /brapi/v1/samples]
+## Put Samples  [PUT /brapi/v1/samples]
 
 Call to register the event of a sample being taken. Sample ID is assigned as a result of the operation and returned in response.
  
@@ -150,7 +150,7 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
 }
 ```
 
-## Samples/{sampledbid} [Get /brapi/v1/samples/{sampleDbId}]
+## Get Samples by sampleDbId  [GET /brapi/v1/samples/{sampleDbId}]
 
  Used to retrieve the details of a single Sample from a Sample Tracking system.
 <a href="https://test-server.brapi.org/brapi/v1/samples"> test-server.brapi.org/brapi/v1/samples/{sampleDbId}</a> 

@@ -8,7 +8,7 @@ Note that to use these calls, you likely have to use the authentication call pri
 
 
 
-## Vendor/plates-search [Get /brapi/v1/vendor/plates-search{?vendorProjectDbId}{?vendorPlateDbId}{?clientPlateDbId}{?sampleInfo}{?pageSize}{?page}]
+## Get Vendor Plates-search  [GET /brapi/v1/vendor/plates-search{?vendorProjectDbId}{?vendorPlateDbId}{?clientPlateDbId}{?sampleInfo}{?pageSize}{?page}]
 
 Search for plates in the database.
 
@@ -25,7 +25,7 @@ Search for plates in the database.
 
 
 
-## Vendor/plates-search [Post /brapi/v1/vendor/plates-search]
+## Post Vendor Plates-search  [POST /brapi/v1/vendor/plates-search]
 
 Search for plates in the database.
 
@@ -38,7 +38,7 @@ Search for plates in the database.
 
 
 
-## Vendor/plates/{vendorplatedbid} [Get /brapi/v1/vendor/plates/{vendorPlateDbId}]
+## Get Vendor Plates by vendorPlateDbId  [GET /brapi/v1/vendor/plates/{vendorPlateDbId}]
 
  Response data types 
  <table> <thead> <tr> <th>Variable</th> <th>Datatype</th> <th>Description</th> <th>Required</th> </tr> </thead> <tbody> <tr> <td>metadata</td> <td>object</td> <td>pagination, status</td> <td>Y</td> </tr> <tr> <td>pagination</td> <td>object</td> <td>pageSize, currentPage, totalCount, totalPages</td> <td>Y</td> </tr> <tr> <td>status</td> <td>list</td> <td>code, message</td> <td>Y</td> </tr> <tr> <td>result</td> <td>Object</td> <td>Object containing MCPD data</td> <td>Y</td> </tr> <tr> <td>vendorProjectDbId</td> <td>string</td> <td>the name or identifier given to a project by the vendor</td> <td>Y</td> </tr> <tr> <td>vendorPlateDbId</td> <td>string</td> <td>the name or identifier of the plate, given by the vendor</td> <td>Y</td> </tr> <tr> <td>clientPlateDbId</td> <td>string</td> <td>the name of the plate, given by the client</td> <td>Y</td> </tr> <tr> <td>barcode</td> <td>string</td> <td>a string that can be represented as a barcode, identifying this plate</td> <td>N</td> </tr> <tr> <td>plateFormat</td> <td>string</td> <td>defines that plate format, usually Plate_96 or tubes for plateless format</td> <td>Y</td> </tr> <tr> <td>sampleType</td> <td>string</td> <td>DNA or RNA or Tissue, etc.</td> <td>Y</td> </tr> <tr> <td>status</td> <td>string</td> <td>The status of the plate in the processing pipeline. Typically,  &quot;Received&quot;, &quot;Processing&quot;, &quot;QC_passed&quot;, QC_failed&quot;, &quot;Completed&quot; (as per vendor-requirements call)</td> <td>Y</td> </tr> <tr> <td>samples</td> <td>Array</td> <td>list of samples in the plate</td> <td>Y</td> </tr> </tbody> </table>
@@ -90,7 +90,7 @@ Search for plates in the database.
 }
 ```
 
-## Vendor/plates [Post /brapi/v1/vendor/plates]
+## Post Vendor Plates  [POST /brapi/v1/vendor/plates]
 
 Note: if the samples array is empty, plate ID will be returned.
 Samples can be updated later. 
@@ -102,7 +102,7 @@ Samples can be updated later.
 
 
 
-## Vendor/specifications [Get /brapi/v1/vendor/specifications]
+## Get Vendor Specifications  [GET /brapi/v1/vendor/specifications]
 
  Defines the plate format specification for the vendor.
 <a href="https://test-server.brapi.org/brapi/v1/vendor"> test-server.brapi.org/brapi/v1/vendor/specifications</a> 

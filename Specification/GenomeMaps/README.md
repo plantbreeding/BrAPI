@@ -11,7 +11,7 @@ Retrieving genetic or physical maps
 
 
 
-## Maps [Get /brapi/v1/maps{?species}{?type}{?pageSize}{?page}]
+## Get Maps  [GET /brapi/v1/maps{?species}{?type}{?pageSize}{?page}]
 
 Get list of maps <br>
 <strong>Status:</strong> ACCEPTED <strong>Implemented by:</strong> Germinate, Cassavabase <strong>Used by:</strong> Flapjack do we need list of parents and specify mapping population? 
@@ -65,7 +65,7 @@ Get list of maps <br>
 }
 ```
 
-## Maps/{mapdbid} [Get /brapi/v1/maps/{mapDbId}{?pageSize}{?page}]
+## Get Maps by mapDbId  [GET /brapi/v1/maps/{mapDbId}{?pageSize}{?page}]
 
 Provides the number of markers on each linkageGroup and the max position on the linkageGroup <br>
 <strong>Status:</strong> ACCEPTED <strong>Implemented by:</strong> Germinate, Cassavabase <strong>Used by:</strong> Flapjack 
@@ -113,7 +113,7 @@ Provides the number of markers on each linkageGroup and the max position on the 
 }
 ```
 
-## Maps/{mapdbid}/positions [Get /brapi/v1/maps/{mapDbId}/positions{?linkageGroupId}{?linkageGroupName}{?pageSize}{?page}]
+## Get Maps Positions by mapDbId  [GET /brapi/v1/maps/{mapDbId}/positions{?linkageGroupId}{?linkageGroupName}{?pageSize}{?page}]
 
 markers ordered by linkageGroup and position <br>
 <strong>Status:</strong> ACCEPTED. <strong>Implemented by:</strong> Germinate, Cassavabase <strong>Used by:</strong> Flapjack 
@@ -158,7 +158,7 @@ markers ordered by linkageGroup and position <br>
 }
 ```
 
-## Maps/{mapdbid}/positions/{linkagegroupname} [Get /brapi/v1/maps/{mapDbId}/positions/{linkageGroupName}{?min}{?max}{?pageSize}{?page}]
+## Get Maps Positions by mapDbId and linkageGroupName  [GET /brapi/v1/maps/{mapDbId}/positions/{linkageGroupName}{?min}{?max}{?pageSize}{?page}]
 
 markers ordered by linkageGroup and position 
 

@@ -5,7 +5,7 @@ Search for and get details of specific markers stored in a database
 
 
 
-## Markers-search [Get /brapi/v1/markers-search{?markerDbIds}{?name}{?matchMethod}{?includeSynonyms}{?type}{?pageSize}{?page}]
+## Get Markers-search  [GET /brapi/v1/markers-search{?markerDbIds}{?name}{?matchMethod}{?includeSynonyms}{?type}{?pageSize}{?page}]
 
  Scope: CORE.  Status: ACCEPTED.
 Implemented by: Germinate
@@ -78,7 +78,7 @@ and '?' for one character matching. Default is exact.
 }
 ```
 
-## Markers-search [Post /brapi/v1/markers-search]
+## Post Markers-search  [POST /brapi/v1/markers-search]
 
  Scope: CORE.  Status: ACCEPTED.
 Implemented by: Germinate
@@ -144,7 +144,7 @@ Other service requests use the servers internal `markerDbId`. This service retur
 }
 ```
 
-## Markers [Get /brapi/v1/markers{?name}{?matchMethod}{?include}{?type}{?pageSize}{?page}]
+## Get Markers  [GET /brapi/v1/markers{?name}{?matchMethod}{?include}{?type}{?pageSize}{?page}]
 
  Scope: CORE.  Status: ACCEPTED.
 Implemented by: Germinate
@@ -214,7 +214,7 @@ and '?' for one character matching. Default is exact.
 }
 ```
 
-## Markers/{markerdbid} [Get /brapi/v1/markers/{markerDbId}]
+## Get Markers by markerDbId  [GET /brapi/v1/markers/{markerDbId}]
 
 <strong>Status</strong>: ACCEPTED 
 <strong>Implemented By</strong>: 

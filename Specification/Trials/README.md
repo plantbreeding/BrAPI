@@ -6,7 +6,7 @@ Services related to trials. Trials comprise of multiple studies. The trial conce
 
 
 
-## Trials [Get /brapi/v1/trials{?programDbId}{?locationDbId}{?pageSize}{?page}{?active}{?sortBy}{?sortOrder}]
+## Get Trials  [GET /brapi/v1/trials{?programDbId}{?locationDbId}{?pageSize}{?page}{?active}{?sortBy}{?sortOrder}]
 
  Scope: PHENOTYPING. Status: ACCEPTED. Implementation target date: PAG2016.
 <a href="https://test-server.brapi.org/brapi/v1/trials"> test-server.brapi.org/brapi/v1/trials</a> 
@@ -93,7 +93,7 @@ Services related to trials. Trials comprise of multiple studies. The trial conce
 }
 ```
 
-## Trials/{trialdbid} [Get /brapi/v1/trials/{trialDbId}]
+## Get Trials by trialDbId  [GET /brapi/v1/trials/{trialDbId}]
 
  Scope: PHENOTYPING. Status: ACCEPTED. Implementation target date: PAG2016.
 Get trial by id.

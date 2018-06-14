@@ -7,7 +7,7 @@ API to retrieve list and details of observation variables. An observation variab
 
 
 
-## Ontologies [Get /brapi/v1/ontologies{?pageSize}{?page}]
+## Get Ontologies  [GET /brapi/v1/ontologies{?pageSize}{?page}]
 
 Call to retrieve a list of observation variable ontologies available in the system. <br>
 <strong>Scope:</strong> CORE. 
@@ -56,7 +56,7 @@ Call to retrieve a list of observation variable ontologies available in the syst
 }
 ```
 
-## Variables-search [Post /brapi/v1/variables-search]
+## Post Variables-search  [POST /brapi/v1/variables-search]
 
 Search observation variables.
 See <a href="https://brapi.docs.apiary.io/#introduction/search-services">Search Services</a> for additional implementation details. <br>
@@ -164,7 +164,7 @@ See <a href="https://brapi.docs.apiary.io/#introduction/search-services">Search 
 }
 ```
 
-## Variables/datatypes [Get /brapi/v1/variables/datatypes{?pageSize}{?page}]
+## Get Variables Datatypes  [GET /brapi/v1/variables/datatypes{?pageSize}{?page}]
 
 Call to retrieve a list of data types the variable can have. 
 
@@ -199,7 +199,7 @@ Call to retrieve a list of data types the variable can have.
 }
 ```
 
-## Variables [Get /brapi/v1/variables{?pageSize}{?page}{?traitClass}]
+## Get Variables  [GET /brapi/v1/variables{?pageSize}{?page}{?traitClass}]
 
 Call to retrieve a list of observationVariables available in the system. <br>
 <strong>Scope:</strong> CORE.
@@ -327,7 +327,7 @@ Call to retrieve a list of observationVariables available in the system. <br>
 }
 ```
 
-## Variables/{observationvariabledbid} [Get /brapi/v1/variables/{observationVariableDbId}]
+## Get Variables by observationVariableDbId  [GET /brapi/v1/variables/{observationVariableDbId}]
 
 Retrieve variable details <br>
 <strong>Scope:</strong> CORE

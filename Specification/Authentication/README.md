@@ -14,7 +14,7 @@ The token life time is fixed. If additional time is required, a new /token call 
 
 
 
-## Token [Delete /brapi/v1/token]
+## Delete Token  [DELETE /brapi/v1/token]
 
  
 
@@ -23,7 +23,7 @@ The token life time is fixed. If additional time is required, a new /token call 
 
 
 
-## Token [Post /brapi/v1/token]
+## Post Token  [POST /brapi/v1/token]
 
  
 

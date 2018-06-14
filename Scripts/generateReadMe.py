@@ -4,7 +4,39 @@ import yaml
 import glob
 import sys
 import json
+from ctypes.test.test_internals import ObjectsTestCase
 
+
+def buildTitleStr(path, method, params):
+	#+ path[1:2].upper() + path[2:] + ' [' + method.capitalize() + ' /brapi/v1' + path
+	titleStr = '\n\n## ' 
+	titleStr += method.capitalize() + ' '
+	pathPieces = path.split('/')
+
+	objects = ''
+	keys = ''
+	for piece in pathPieces[1:]:
+		if piece[0] == '{' :
+			word = ''
+			if keys == '':
+				word += 'by '
+			else:
+				word += 'and '
+			word += piece[1:-1] + ' '
+			keys += word
+		else:
+			objects += piece[0].upper() + piece[1:] + ' '
+	titleStr += objects
+	titleStr += keys
+	
+	titleStr += ' [' + method.upper() + ' /brapi/v1' + path
+	for param in params:
+		if param['in'] == 'query' :
+		    titleStr += '{?' + param['name'] + '}'
+		    
+	titleStr += ']\n\n'
+	
+	return titleStr
 
 def buildReadMe(dir):
 	readMeStr = ''
@@ -40,12 +72,9 @@ def buildReadMe(dir):
 				if 'responses' in methodObj:
 					responses = methodObj['responses']
 				
-				readMeStr += '\n\n## ' + callPath[1:2].upper() + callPath[2:] + ' [' + methodKey.capitalize() + ' /brapi/v1' + callPath
-				for param in params:
-					if param['in'] == 'query' :
-					    readMeStr += '{?' + param['name'] + '}'
-					    
-				readMeStr += ']\n\n' + desc
+				readMeStr += buildTitleStr(callPath, methodKey, params)
+				readMeStr += desc
+				
 				readMeStr += ' \n\n+ Parameters\n'
 				body = ''
 				for param in params:
@@ -94,7 +123,7 @@ else:
 	dir = rootPath + specificPath
 	print(dir)
 	readMeStr = buildReadMe(dir)
-	print(readMeStr)
+	#print(readMeStr)
 	with open(dir + '/README.md', 'w') as outfile:
 		outfile.write(readMeStr)
 	
