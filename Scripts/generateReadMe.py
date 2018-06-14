@@ -50,7 +50,7 @@ def buildReadMe(dir):
 				body = ''
 				for param in params:
 					if param['in'] == 'body':
-						body = param['schema']['$ref'][1:] if '$ref' in param['schema'] else json.dumps(param['schema'], indent=4, separators=(',', ': '), default=str)
+						body = param['schema']['$ref'][1:] if '$ref' in param['schema'] else json.dumps(param['schema'], indent=4, separators=(',', ': '), default=str, sort_keys=True)
 					else:
 						readMeStr += '    + ' + param['name'] 
 						
@@ -68,8 +68,8 @@ def buildReadMe(dir):
 					
 				
 				readMeStr += '\n\n'
-				for code in responses:
-					for type in responses[code]['examples']:
+				for code in sorted(responses.keys()):
+					for type in sorted(responses[code]['examples']):
 						example = responses[code]['examples'][type]
 						readMeStr += '+ Response ' + code + ' (' + type + ')\n```\n'
 						readMeStr += json.dumps(example, indent=4, separators=(',', ': '), default=str, sort_keys=True)
