@@ -11,7 +11,7 @@ def buildReadMe(dir):
 	with open(dir + 'GroupDescription.md', "r") as groupDescFile:
 		readMeStr += groupDescFile.read() + '\n\n'
 		
-	for filename in glob.iglob(dir + '/*.yaml', recursive=True):
+	for filename in sorted(glob.iglob(dir + '/*.yaml', recursive=True)):
 		print(filename)
 		fileObj = {}	
 		with open(filename, "r") as stream:
@@ -24,7 +24,8 @@ def buildReadMe(dir):
 		if 'paths' in fileObj:
 			callPath = list(fileObj['paths'].keys())[0]
 			methods = fileObj['paths'][callPath]
-			for methodKey in methods.keys():
+			methodKeys = sorted(fileObj['paths'][callPath].keys())
+			for methodKey in methodKeys:
 				methodObj = methods[methodKey]
 				
 				desc = ''

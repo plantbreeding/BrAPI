@@ -5,6 +5,52 @@ A Program can contain multiple Trials. A Trial can contain multiple Studies.
 
 
 
+## Programs-search [Post /brapi/v1/programs-search]
+
+ Advanced searching for the programs resource.
+Status: ACCEPTED.
+See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
+ 
+
++ Parameters
+ 
++ Request (application/json)
+/definitions/programsSearchRequest
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 2,
+            "totalPages": 1
+        },
+        "status": []
+    },
+    "result": {
+        "data": [
+            {
+                "abbreviation": "DRP1",
+                "leadPerson": "Dr. Henry Beachell",
+                "name": "Wheat Resistance Program",
+                "objective": "Disease resistance",
+                "programDbId": "123"
+            },
+            {
+                "abbreviation": "DRP2",
+                "leadPerson": "Dr. Norman Borlaug",
+                "name": "Wheat Improvement Program",
+                "objective": "Yield improvement",
+                "programDbId": "456"
+            }
+        ]
+    }
+}
+```
+
 ## Programs [Get /brapi/v1/programs{?programName}{?abbreviation}{?pageSize}{?page}]
 
  Call to retrieve a list of programs.
@@ -21,79 +67,33 @@ Status: ACCEPTED Implemented By:
 + Response 200 (application/json)
 ```
 {
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 2,
+            "totalPages": 1
+        },
+        "status": []
+    },
     "result": {
         "data": [
             {
                 "abbreviation": "DRP1",
-                "objective": "Disease resistance",
                 "leadPerson": "Dr. Henry Beachell",
-                "programDbId": "123",
-                "name": "Wheat Resistance Program"
+                "name": "Wheat Resistance Program",
+                "objective": "Disease resistance",
+                "programDbId": "123"
             },
             {
                 "abbreviation": "DRP2",
-                "objective": "Yield improvement",
                 "leadPerson": "Dr. Norman Borlaug",
-                "programDbId": "456",
-                "name": "Wheat Improvement Program"
+                "name": "Wheat Improvement Program",
+                "objective": "Yield improvement",
+                "programDbId": "456"
             }
         ]
-    },
-    "metadata": {
-        "pagination": {
-            "pageSize": 1000,
-            "currentPage": 0,
-            "totalPages": 1,
-            "totalCount": 2
-        },
-        "datafiles": [],
-        "status": []
-    }
-}
-```
-
-## Programs-search [Post /brapi/v1/programs-search]
-
- Advanced searching for the programs resource.
-Status: ACCEPTED.
-See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
- 
-
-+ Parameters
- 
-+ Request (application/json)
-/definitions/programsSearchRequest
-
-+ Response 200 (application/json)
-```
-{
-    "result": {
-        "data": [
-            {
-                "abbreviation": "DRP1",
-                "objective": "Disease resistance",
-                "leadPerson": "Dr. Henry Beachell",
-                "programDbId": "123",
-                "name": "Wheat Resistance Program"
-            },
-            {
-                "abbreviation": "DRP2",
-                "objective": "Yield improvement",
-                "leadPerson": "Dr. Norman Borlaug",
-                "programDbId": "456",
-                "name": "Wheat Improvement Program"
-            }
-        ]
-    },
-    "metadata": {
-        "pagination": {
-            "pageSize": 1000,
-            "currentPage": 0,
-            "totalPages": 1,
-            "totalCount": 2
-        },
-        "datafiles": [],
-        "status": []
     }
 }
 ```

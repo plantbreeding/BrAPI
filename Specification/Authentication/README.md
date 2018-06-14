@@ -14,6 +14,15 @@ The token life time is fixed. If additional time is required, a new /token call 
 
 
 
+## Token [Delete /brapi/v1/token]
+
+ 
+
++ Parameters
+
+
+
+
 ## Token [Post /brapi/v1/token]
 
  
@@ -24,26 +33,18 @@ The token life time is fixed. If additional time is required, a new /token call 
 + Response 201 (application/json)
 ```
 {
-    "expires_in": "The lifetime in seconds of the access token",
     "access_token": "R6gKDBRxM4HLj6eGi4u5HkQjYoIBTPfvtZzUD8TUzg4",
-    "userDisplayName": "John Smith",
+    "expires_in": "The lifetime in seconds of the access token",
     "metadata": {
-        "pagination": {
-            "pageSize": 0,
-            "currentPage": 0,
-            "totalPages": 0,
-            "totalCount": 0
-        },
         "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 0,
+            "totalCount": 0,
+            "totalPages": 0
+        },
         "status": []
-    }
+    },
+    "userDisplayName": "John Smith"
 }
 ```
-
-## Token [Delete /brapi/v1/token]
-
- 
-
-+ Parameters
-
-

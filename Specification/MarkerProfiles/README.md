@@ -16,7 +16,79 @@ Basic concepts in the **Breeding API**:
 
 
 
-## Allelematrix-search [Post /brapi/v1/allelematrix-search]
+## Allelematrices-search [Get /brapi/v1/allelematrices-search{?markerprofileDbId}{?markerDbId}{?matrixDbId}{?format}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageSize}{?page}]
+
+Status: ACCEPTED.
+
+Implemented by: Germinate (POST only), Cassavabase
+
+Used by: Flapjack (POST only)
+
+See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
+
+This uses a more efficient data structure and pagination for large number of markers.
+
+See Search Services for additional implementation details.
+</br>
+This uses a more efficient data structure and pagination for large number of markers. 
+</br>
+Use GET when parameter size is less than 2K bytes.
+This method may support asynchronous processing. 
+
++ Parameters
+    + markerprofileDbId (Optional, array) ... The markerprofile db ids. Not Required if 'markerDbId' or 'matrixDbId' is present.
+    + markerDbId (Optional, array) ... ids of the markers. if none are specified, results are returned for all markers in the database. Not Required if 'markerprofileDbId' or 'matrixDbId' is present.
+    + matrixDbId (Optional, array) ... 
+    + format (Optional, string) ... format for the datafile to be downloaded. tsv and csv currently supported; flapjack may be supported.
+    + expandHomozygotes (Optional, boolean) ... Should homozygotes NOT be collapsed into a single occurrence?
+    + unknownString (Optional, string) ... The string to use as a representation for missing data or the reserved word "empty_string".
+    + sepPhased (Optional, string) ... The string to use as a separator for phased allele calls or the reserved word "empty_string".
+    + sepUnphased (Optional, string) ... The string to use as a separator for unphased allele calls or the reserved word "empty_string".
+    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
+    + page (Optional, integer) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "pagination": {
+            "pageSize": 1000,
+            "currentPage": 0,
+            "totalCount": 4,
+            "totalPages": 1
+        },
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "data": [
+            [
+                "1",
+                "1",
+                "A/B"
+            ],
+            [
+                "1",
+                "2",
+                "B"
+            ],
+            [
+                "2",
+                "1",
+                "A"
+            ],
+            [
+                "2",
+                "2",
+                "A/B"
+            ]
+        ]
+    }
+}
+```
+
+## Allelematrices-search [Post /brapi/v1/allelematrices-search]
 
 Status: ACCEPTED.
 
@@ -46,25 +118,35 @@ The format of the tsv response can be found on GitHub (https://github.com/plantb
 + Response 200 (application/tsv)
 ```
 {
-    "result": {
-        "data": []
-    },
     "metadata": {
         "pagination": {
             "pageSize": 0,
             "currentPage": 0,
-            "totalPages": 0,
-            "totalCount": 0
+            "totalCount": 0,
+            "totalPages": 0
         },
+        "status": [],
         "datafiles": [
             "https://my-fancy-server/files/allelematrix-1234.tsv"
-        ],
-        "status": []
+        ]
+    },
+    "result": {
+        "data": []
     }
 }
 ```+ Response 200 (application/json)
 ```
 {
+    "metadata": {
+        "pagination": {
+            "pageSize": 0,
+            "currentPage": 0,
+            "totalCount": 0,
+            "totalPages": 0
+        },
+        "status": [],
+        "datafiles": []
+    },
     "result": {
         "data": [
             [
@@ -88,16 +170,57 @@ The format of the tsv response can be found on GitHub (https://github.com/plantb
                 "A/B"
             ]
         ]
-    },
+    }
+}
+```
+
+## Allelematrices [Get /brapi/v1/allelematrices{?studyDbId}{?pageSize}{?page}]
+
+<strong>Status</strong>: Proposed
+<strong>Implemented by</strong>: GOBII
+<strong>Used by</strong>: Flapjack
+</br>
+This resource is used for reading and writing genomic matrices:
+</br>
+GET provides a list of available matrices, optionally filtered by study;
+POST will provide a means for adding new matrices (content TBD). 
+
++ Parameters
+    + studyDbId (Required, string) ... restricts the list of matrices to a specific study.
+    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
+    + page (Optional, integer) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+
+
++ Response 200 (application/json)
+```
+{
     "metadata": {
         "pagination": {
-            "pageSize": 0,
+            "pageSize": 1000,
             "currentPage": 0,
-            "totalPages": 0,
-            "totalCount": 0
+            "totalCount": 2,
+            "totalPages": 1
         },
-        "datafiles": [],
-        "status": []
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "data": [
+            {
+                "name": "testDs1",
+                "matrixDbId": "27",
+                "description": "a test dataset",
+                "lastUpdated": "2017-06-12",
+                "studyDbId": "abc123"
+            },
+            {
+                "name": "testDs2",
+                "matrixDbId": "28",
+                "description": "a second test dataset",
+                "lastUpdated": "2017-06-12",
+                "studyDbId": "abc123"
+            }
+        ]
     }
 }
 ```
@@ -137,6 +260,16 @@ This method may support asynchronous processing.
 + Response 200 (application/json)
 ```
 {
+    "metadata": {
+        "pagination": {
+            "pageSize": 1000,
+            "currentPage": 0,
+            "totalCount": 4,
+            "totalPages": 1
+        },
+        "status": [],
+        "datafiles": []
+    },
     "result": {
         "data": [
             [
@@ -160,16 +293,148 @@ This method may support asynchronous processing.
                 "A/B"
             ]
         ]
+    }
+}
+```
+
+## Allelematrix-search [Post /brapi/v1/allelematrix-search]
+
+Status: ACCEPTED.
+
+Implemented by: Germinate (POST only), Cassavabase
+
+Used by: Flapjack (POST only)
+
+See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
+
+This uses a more efficient data structure and pagination for large number of markers.
+
+Use POST when parameter size is greater than 2K bytes.
+
+- If no format is specified, this call returns the data in JSON form.
+
+- If a format (other than JSON) is specified and the server supports this format, it will return the link to the exported data file in the "datafiles" field of the "metadata".
+
+- If more than one format is requested at a time, the server will throw a "501 Not Implemented" error.
+
+The format of the tsv response can be found on GitHub (https://github.com/plantbreeding/Documentation/wiki/BrAPI-TSV-Expected-Formats) 
+
++ Parameters
+ 
++ Request (application/json)
+/definitions/alleleMatrixSearchRequest
+
++ Response 200 (application/tsv)
+```
+{
+    "metadata": {
+        "pagination": {
+            "pageSize": 0,
+            "currentPage": 0,
+            "totalCount": 0,
+            "totalPages": 0
+        },
+        "status": [],
+        "datafiles": [
+            "https://my-fancy-server/files/allelematrix-1234.tsv"
+        ]
     },
+    "result": {
+        "data": []
+    }
+}
+```+ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "pagination": {
+            "pageSize": 0,
+            "currentPage": 0,
+            "totalCount": 0,
+            "totalPages": 0
+        },
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "data": [
+            [
+                "1",
+                "1",
+                "A/B"
+            ],
+            [
+                "1",
+                "2",
+                "B"
+            ],
+            [
+                "2",
+                "1",
+                "A"
+            ],
+            [
+                "2",
+                "2",
+                "A/B"
+            ]
+        ]
+    }
+}
+```
+
+## Markerprofiles [Get /brapi/v1/markerprofiles{?germplasmDbId}{?studyDbId}{?sampleDbId}{?extractDbId}{?pageSize}{?page}]
+
+<strong>Scope</strong>: GENOTYPING.
+<strong>Status</strong>: ACCEPTED.
+<strong>Implemented by</strong>: Germinate
+<strong>Used by</strong>: Flapjack
+</br>
+For the requested Germplasm Id and/or Extract Id, returns the Markerprofile Id and number of non-missing allele calls (marker/allele pairs). 
+
++ Parameters
+    + germplasmDbId (Optional, string) ... The server's internal ids for the Germplasm IDs, as returned by the <strong>Find markerprofile by Germplasm</strong> service.
+    + studyDbId (Optional, string) ... The server's internal id for the StudyDbId
+    + sampleDbId (Optional, string) ... The server's internal id for the SampleDbId
+    + extractDbId (Optional, string) ... The server's internal id for the ExtractDbId
+    + pageSize (Optional, integer) ... The number of allele call results (marker/allele pairs) to be returned in the response. If multiple experiments are requested, some responses will contain the last results from one experiment followed by the first results from the next.
+    + page (Optional, integer) ... Required if `pageSize` is given; and requires that `pageSize` be given. The page indexing starts at 0 (the first page is 'page'=0)
+
+
++ Response 200 (application/json)
+```
+{
     "metadata": {
         "pagination": {
             "pageSize": 1000,
             "currentPage": 0,
-            "totalPages": 1,
-            "totalCount": 4
+            "totalCount": 2,
+            "totalPages": 1
         },
-        "datafiles": [],
-        "status": []
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "data": [
+            {
+                "markerprofileDbId": "993",
+                "germplasmDbId": "01BEL084609S",
+                "uniqueDisplayName": "MyFancyGermplasm",
+                "sampleDbId": "3937",
+                "extractDbId": "3939",
+                "analysisMethod": "GoldenGate",
+                "resultCount": 1470
+            },
+            {
+                "markerprofileDbId": "994",
+                "germplasmDbId": "2374",
+                "uniqueDisplayName": "Germplasm2",
+                "sampleDbId": "1234",
+                "extractDbId": "3939",
+                "analysisMethod": "GBS",
+                "resultCount": 1470
+            }
+        ]
     }
 }
 ```
@@ -211,10 +476,21 @@ Alphabetically?'
 + Response 200 (application/json)
 ```
 {
+    "metadata": {
+        "pagination": {
+            "totalCount": 22,
+            "currentPage": 0,
+            "totalPages": 1,
+            "pageSize": 22
+        },
+        "status": [],
+        "datafiles": []
+    },
     "result": {
-        "extractDbId": "extract1",
         "markerprofileDbId": "993",
         "germplasmDbId": "1",
+        "uniqueDisplayName": "My Fancy Germplasm",
+        "extractDbId": "extract1",
         "analysisMethod": "GBS",
         "data": [
             {
@@ -283,283 +559,7 @@ Alphabetically?'
             {
                 "marker3-6": "0"
             }
-        ],
-        "uniqueDisplayName": "My Fancy Germplasm"
-    },
-    "metadata": {
-        "pagination": {
-            "totalCount": 22,
-            "currentPage": 0,
-            "totalPages": 1,
-            "pageSize": 22
-        },
-        "datafiles": [],
-        "status": []
-    }
-}
-```
-
-## Allelematrices-search [Post /brapi/v1/allelematrices-search]
-
-Status: ACCEPTED.
-
-Implemented by: Germinate (POST only), Cassavabase
-
-Used by: Flapjack (POST only)
-
-See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
-
-This uses a more efficient data structure and pagination for large number of markers.
-
-Use POST when parameter size is greater than 2K bytes.
-
-- If no format is specified, this call returns the data in JSON form.
-
-- If a format (other than JSON) is specified and the server supports this format, it will return the link to the exported data file in the "datafiles" field of the "metadata".
-
-- If more than one format is requested at a time, the server will throw a "501 Not Implemented" error.
-
-The format of the tsv response can be found on GitHub (https://github.com/plantbreeding/Documentation/wiki/BrAPI-TSV-Expected-Formats) 
-
-+ Parameters
- 
-+ Request (application/json)
-/definitions/alleleMatrixSearchRequest
-
-+ Response 200 (application/tsv)
-```
-{
-    "result": {
-        "data": []
-    },
-    "metadata": {
-        "pagination": {
-            "pageSize": 0,
-            "currentPage": 0,
-            "totalPages": 0,
-            "totalCount": 0
-        },
-        "datafiles": [
-            "https://my-fancy-server/files/allelematrix-1234.tsv"
-        ],
-        "status": []
-    }
-}
-```+ Response 200 (application/json)
-```
-{
-    "result": {
-        "data": [
-            [
-                "1",
-                "1",
-                "A/B"
-            ],
-            [
-                "1",
-                "2",
-                "B"
-            ],
-            [
-                "2",
-                "1",
-                "A"
-            ],
-            [
-                "2",
-                "2",
-                "A/B"
-            ]
         ]
-    },
-    "metadata": {
-        "pagination": {
-            "pageSize": 0,
-            "currentPage": 0,
-            "totalPages": 0,
-            "totalCount": 0
-        },
-        "datafiles": [],
-        "status": []
-    }
-}
-```
-
-## Allelematrices-search [Get /brapi/v1/allelematrices-search{?markerprofileDbId}{?markerDbId}{?matrixDbId}{?format}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageSize}{?page}]
-
-Status: ACCEPTED.
-
-Implemented by: Germinate (POST only), Cassavabase
-
-Used by: Flapjack (POST only)
-
-See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
-
-This uses a more efficient data structure and pagination for large number of markers.
-
-See Search Services for additional implementation details.
-</br>
-This uses a more efficient data structure and pagination for large number of markers. 
-</br>
-Use GET when parameter size is less than 2K bytes.
-This method may support asynchronous processing. 
-
-+ Parameters
-    + markerprofileDbId (Optional, array) ... The markerprofile db ids. Not Required if 'markerDbId' or 'matrixDbId' is present.
-    + markerDbId (Optional, array) ... ids of the markers. if none are specified, results are returned for all markers in the database. Not Required if 'markerprofileDbId' or 'matrixDbId' is present.
-    + matrixDbId (Optional, array) ... 
-    + format (Optional, string) ... format for the datafile to be downloaded. tsv and csv currently supported; flapjack may be supported.
-    + expandHomozygotes (Optional, boolean) ... Should homozygotes NOT be collapsed into a single occurrence?
-    + unknownString (Optional, string) ... The string to use as a representation for missing data or the reserved word "empty_string".
-    + sepPhased (Optional, string) ... The string to use as a separator for phased allele calls or the reserved word "empty_string".
-    + sepUnphased (Optional, string) ... The string to use as a separator for unphased allele calls or the reserved word "empty_string".
-    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
-    + page (Optional, integer) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-
-
-+ Response 200 (application/json)
-```
-{
-    "result": {
-        "data": [
-            [
-                "1",
-                "1",
-                "A/B"
-            ],
-            [
-                "1",
-                "2",
-                "B"
-            ],
-            [
-                "2",
-                "1",
-                "A"
-            ],
-            [
-                "2",
-                "2",
-                "A/B"
-            ]
-        ]
-    },
-    "metadata": {
-        "pagination": {
-            "pageSize": 1000,
-            "currentPage": 0,
-            "totalPages": 1,
-            "totalCount": 4
-        },
-        "datafiles": [],
-        "status": []
-    }
-}
-```
-
-## Markerprofiles [Get /brapi/v1/markerprofiles{?germplasmDbId}{?studyDbId}{?sampleDbId}{?extractDbId}{?pageSize}{?page}]
-
-<strong>Scope</strong>: GENOTYPING.
-<strong>Status</strong>: ACCEPTED.
-<strong>Implemented by</strong>: Germinate
-<strong>Used by</strong>: Flapjack
-</br>
-For the requested Germplasm Id and/or Extract Id, returns the Markerprofile Id and number of non-missing allele calls (marker/allele pairs). 
-
-+ Parameters
-    + germplasmDbId (Optional, string) ... The server's internal ids for the Germplasm IDs, as returned by the <strong>Find markerprofile by Germplasm</strong> service.
-    + studyDbId (Optional, string) ... The server's internal id for the StudyDbId
-    + sampleDbId (Optional, string) ... The server's internal id for the SampleDbId
-    + extractDbId (Optional, string) ... The server's internal id for the ExtractDbId
-    + pageSize (Optional, integer) ... The number of allele call results (marker/allele pairs) to be returned in the response. If multiple experiments are requested, some responses will contain the last results from one experiment followed by the first results from the next.
-    + page (Optional, integer) ... Required if `pageSize` is given; and requires that `pageSize` be given. The page indexing starts at 0 (the first page is 'page'=0)
-
-
-+ Response 200 (application/json)
-```
-{
-    "result": {
-        "data": [
-            {
-                "extractDbId": "3939",
-                "sampleDbId": "3937",
-                "markerprofileDbId": "993",
-                "germplasmDbId": "01BEL084609S",
-                "analysisMethod": "GoldenGate",
-                "resultCount": 1470,
-                "uniqueDisplayName": "MyFancyGermplasm"
-            },
-            {
-                "extractDbId": "3939",
-                "sampleDbId": "1234",
-                "markerprofileDbId": "994",
-                "germplasmDbId": "2374",
-                "analysisMethod": "GBS",
-                "resultCount": 1470,
-                "uniqueDisplayName": "Germplasm2"
-            }
-        ]
-    },
-    "metadata": {
-        "pagination": {
-            "pageSize": 1000,
-            "currentPage": 0,
-            "totalPages": 1,
-            "totalCount": 2
-        },
-        "datafiles": [],
-        "status": []
-    }
-}
-```
-
-## Allelematrices [Get /brapi/v1/allelematrices{?studyDbId}{?pageSize}{?page}]
-
-<strong>Status</strong>: Proposed
-<strong>Implemented by</strong>: GOBII
-<strong>Used by</strong>: Flapjack
-</br>
-This resource is used for reading and writing genomic matrices:
-</br>
-GET provides a list of available matrices, optionally filtered by study;
-POST will provide a means for adding new matrices (content TBD). 
-
-+ Parameters
-    + studyDbId (Required, string) ... restricts the list of matrices to a specific study.
-    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
-    + page (Optional, integer) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-
-
-+ Response 200 (application/json)
-```
-{
-    "result": {
-        "data": [
-            {
-                "matrixDbId": "27",
-                "lastUpdated": "2017-06-12",
-                "studyDbId": "abc123",
-                "description": "a test dataset",
-                "name": "testDs1"
-            },
-            {
-                "matrixDbId": "28",
-                "lastUpdated": "2017-06-12",
-                "studyDbId": "abc123",
-                "description": "a second test dataset",
-                "name": "testDs2"
-            }
-        ]
-    },
-    "metadata": {
-        "pagination": {
-            "pageSize": 1000,
-            "currentPage": 0,
-            "totalPages": 1,
-            "totalCount": 2
-        },
-        "datafiles": [],
-        "status": []
     }
 }
 ```

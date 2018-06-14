@@ -21,10 +21,20 @@ Call to retrieve a list of traits available in the system and their associated v
 + Response 200 (application/json)
 ```
 {
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 2,
+            "totalPages": 1
+        },
+        "status": []
+    },
     "result": {
         "data": [
             {
-                "traitId": "CO:123000007",
+                "defaultValue": null,
                 "description": "Description of Plant Height",
                 "name": "Plant Height",
                 "observationVariables": [
@@ -33,10 +43,10 @@ Call to retrieve a list of traits available in the system and their associated v
                     "CO_334:0100123"
                 ],
                 "traitDbId": "123",
-                "defaultValue": null
+                "traitId": "CO:123000007"
             },
             {
-                "traitId": "CO_334:0100620",
+                "defaultValue": null,
                 "description": "Cassava storage root pulp carotenoid content",
                 "name": "Carotenoid content",
                 "observationVariables": [
@@ -45,19 +55,9 @@ Call to retrieve a list of traits available in the system and their associated v
                     "CO_334:0100623"
                 ],
                 "traitDbId": "123",
-                "defaultValue": null
+                "traitId": "CO_334:0100620"
             }
         ]
-    },
-    "metadata": {
-        "pagination": {
-            "pageSize": 1000,
-            "currentPage": 0,
-            "totalPages": 1,
-            "totalCount": 2
-        },
-        "datafiles": [],
-        "status": []
     }
 }
 ```
@@ -76,8 +76,18 @@ Retrieve the variables associated to a trait
 + Response 200 (application/json)
 ```
 {
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 0,
+            "totalCount": 0,
+            "totalPages": 0
+        },
+        "status": []
+    },
     "result": {
-        "traitId": "CO:123000007",
+        "defaultValue": null,
         "description": "Description of Plant Height",
         "name": "Plant Height",
         "observationVariables": [
@@ -86,17 +96,7 @@ Retrieve the variables associated to a trait
             "CO_334:0100123"
         ],
         "traitDbId": "123",
-        "defaultValue": null
-    },
-    "metadata": {
-        "pagination": {
-            "pageSize": 0,
-            "currentPage": 0,
-            "totalPages": 0,
-            "totalCount": 0
-        },
-        "datafiles": [],
-        "status": []
+        "traitId": "CO:123000007"
     }
 }
 ```

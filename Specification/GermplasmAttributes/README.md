@@ -7,6 +7,46 @@ hardness.  They are often evaluated by genotyping for diagnostic markers.
 
 
 
+## Attributes/categories [Get /brapi/v1/attributes/categories{?pageSize}{?page}]
+
+ Scope: OTHER. Status: ACCEPTED.
+Implementation target date: PAG2016
+List all available attribute categories.
+<a href="https://test-server.brapi.org/brapi/v1/attributes"> test-server.brapi.org/brapi/v1/attributes/categories</a> 
+
++ Parameters
+    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
+    + page (Optional, integer) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "pagination": {
+            "pageSize": 10,
+            "currentPage": 1,
+            "totalCount": 2,
+            "totalPages": 1
+        },
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "data": [
+            {
+                "attributeCategoryDbId": "1",
+                "name": "Morphological"
+            },
+            {
+                "attributeCategoryDbId": "2",
+                "name": "Agronomic"
+            }
+        ]
+    }
+}
+```
+
 ## Attributes [Get /brapi/v1/attributes{?attributeCategoryDbId}{?pageSize}{?page}]
 
  List available attributes.
@@ -21,32 +61,32 @@ hardness.  They are often evaluated by genotyping for diagnostic markers.
 + Response 200 (application/json)
 ```
 {
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": []
+    },
     "result": {
         "data": [
             {
+                "attributeCategoryDbId": "1",
+                "code": "RHT",
+                "datatype": "Categorical",
                 "description": "Allele of marker 11_4769, diagnostic for allele b of reduced-height gene Rht-B1",
+                "name": "Rht-B1b",
                 "uri": "http://www.cropontology.org/rdf/CO_321:0000020",
                 "values": [
                     "Present",
                     "Absent",
                     "Heterozygous"
-                ],
-                "datatype": "Categorical",
-                "name": "Rht-B1b",
-                "attributeCategoryDbId": "1",
-                "code": "RHT"
+                ]
             }
         ]
-    },
-    "metadata": {
-        "pagination": {
-            "pageSize": 1000,
-            "currentPage": 0,
-            "totalPages": 1,
-            "totalCount": 1
-        },
-        "datafiles": [],
-        "status": []
     }
 }
 ```
@@ -68,67 +108,27 @@ Values for all attributes by default.
 + Response 200 (application/json)
 ```
 {
-    "result": {
-        "germplasmDbId": "01BEL084609",
-        "data": [
-            {
-                "determinedDate": "2007-05-28",
-                "attributeCode": "RHT",
-                "value": "Present",
-                "attributeDbId": "1",
-                "attributeName": "Rht-B1b"
-            }
-        ]
-    },
     "metadata": {
+        "datafiles": [],
         "pagination": {
-            "pageSize": 1000,
             "currentPage": 0,
-            "totalPages": 1,
-            "totalCount": 1
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
         },
-        "datafiles": [],
         "status": []
-    }
-}
-```
-
-## Attributes/categories [Get /brapi/v1/attributes/categories{?pageSize}{?page}]
-
- Scope: OTHER. Status: ACCEPTED.
-Implementation target date: PAG2016
-List all available attribute categories.
-<a href="https://test-server.brapi.org/brapi/v1/attributes"> test-server.brapi.org/brapi/v1/attributes/categories</a> 
-
-+ Parameters
-    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
-    + page (Optional, integer) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-
-
-+ Response 200 (application/json)
-```
-{
+    },
     "result": {
         "data": [
             {
-                "attributeCategoryDbId": "1",
-                "name": "Morphological"
-            },
-            {
-                "attributeCategoryDbId": "2",
-                "name": "Agronomic"
+                "attributeCode": "RHT",
+                "attributeDbId": "1",
+                "attributeName": "Rht-B1b",
+                "determinedDate": "2007-05-28",
+                "value": "Present"
             }
-        ]
-    },
-    "metadata": {
-        "pagination": {
-            "pageSize": 10,
-            "currentPage": 1,
-            "totalPages": 1,
-            "totalCount": 2
-        },
-        "datafiles": [],
-        "status": []
+        ],
+        "germplasmDbId": "01BEL084609"
     }
 }
 ```
