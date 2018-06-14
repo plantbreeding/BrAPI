@@ -36,5 +36,5 @@ with open(metaFilePath, "r") as metaFile:
 out['paths'].update(paths)
 out['definitions'].update(defin)
 
-with open('out.yaml', 'w') as outfile:
+with open('brapi_openapi.yaml', 'w') as outfile:
 	yaml.dump(out, outfile, default_flow_style=False, width=float("inf"))

@@ -1,8 +1,4 @@
 #!/bin/bash
-
-# Be sure to install the apiary gem; https://github.com/apiaryio/apiary-client
-# gem install apiaryio
-
 # Param 1: compiled blueprint file (default "$HOME/brapi_blueprint.apib")
 # Param 2: name of the apiary api (default "brapi")
 
@@ -22,10 +18,6 @@ fi
 # Publish to apiary
 echo $BRAPI_FILE
 echo $APINAME
-
-#apiary publish --path $BRAPI_FILE --api-name $APINAME
-
-BRAPI_FILE_CONTENTS=`cat $BRAPI_FILE`
 
 curl -i \
   --request POST \
