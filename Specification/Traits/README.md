@@ -25,38 +25,38 @@ Call to retrieve a list of traits available in the system and their associated v
         "data": [
             {
                 "traitId": "CO:123000007",
+                "description": "Description of Plant Height",
+                "name": "Plant Height",
                 "observationVariables": [
                     "CO_334:0100121",
                     "CO_334:0100122",
                     "CO_334:0100123"
                 ],
-                "name": "Plant Height",
                 "traitDbId": "123",
-                "description": "Description of Plant Height",
                 "defaultValue": null
             },
             {
                 "traitId": "CO_334:0100620",
+                "description": "Cassava storage root pulp carotenoid content",
+                "name": "Carotenoid content",
                 "observationVariables": [
                     "CO_334:0100621",
                     "CO_334:0100622",
                     "CO_334:0100623"
                 ],
-                "name": "Carotenoid content",
                 "traitDbId": "123",
-                "description": "Cassava storage root pulp carotenoid content",
                 "defaultValue": null
             }
         ]
     },
     "metadata": {
-        "datafiles": [],
         "pagination": {
-            "currentPage": 0,
-            "totalCount": 2,
             "pageSize": 1000,
-            "totalPages": 1
+            "currentPage": 0,
+            "totalPages": 1,
+            "totalCount": 2
         },
+        "datafiles": [],
         "status": []
     }
 }
@@ -78,24 +78,24 @@ Retrieve the variables associated to a trait
 {
     "result": {
         "traitId": "CO:123000007",
+        "description": "Description of Plant Height",
+        "name": "Plant Height",
         "observationVariables": [
             "CO_334:0100121",
             "CO_334:0100122",
             "CO_334:0100123"
         ],
-        "name": "Plant Height",
         "traitDbId": "123",
-        "description": "Description of Plant Height",
         "defaultValue": null
     },
     "metadata": {
-        "datafiles": [],
         "pagination": {
-            "currentPage": 0,
-            "totalCount": 0,
             "pageSize": 0,
-            "totalPages": 0
+            "currentPage": 0,
+            "totalPages": 0,
+            "totalCount": 0
         },
+        "datafiles": [],
         "status": []
     }
 }

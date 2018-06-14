@@ -21,31 +21,31 @@ Get details for a location.
 ```
 {
     "result": {
-        "countryCode": "NGA",
-        "altitude": 12,
-        "abreviation": "IB -- DEPRECATED -- see abbreviation",
-        "locationType": "Breeding Location",
-        "instituteName": "INRA - GDEC",
         "abbreviation": "IB",
+        "locationType": "Breeding Location",
+        "name": "Ibadan",
+        "instituteName": "INRA - GDEC",
+        "altitude": 12,
+        "countryName": "Nigeria",
+        "countryCode": "NGA",
+        "additionalInfo": {
+            "soilDescription": "23",
+            "annualMeanRain": "value"
+        },
+        "latitude": -21.5,
+        "abreviation": "IB -- DEPRECATED -- see abbreviation",
         "instituteAddress": "road foo, nigeria",
         "locationDbId": "abc123",
-        "longitude": 165.5,
-        "name": "Ibadan",
-        "latitude": -21.5,
-        "countryName": "Nigeria",
-        "additionalInfo": {
-            "annualMeanRain": "value",
-            "soilDescription": "23"
-        }
+        "longitude": 165.5
     },
     "metadata": {
-        "datafiles": [],
         "pagination": {
-            "currentPage": 0,
             "totalCount": 0,
-            "pageSize": 0,
-            "totalPages": 0
+            "currentPage": 0,
+            "totalPages": 0,
+            "pageSize": 0
         },
+        "datafiles": [],
         "status": []
     }
 }
@@ -72,47 +72,47 @@ Get a list of locations.
     "result": {
         "data": [
             {
-                "countryCode": "NGA",
-                "altitude": 12,
-                "locationType": "Breeding Location",
-                "instituteName": "INRA - GDEC",
                 "abbreviation": "IB",
-                "instituteAddress": "route foo, Clermont Ferrand, France",
-                "locationDbId": "abc123",
-                "longitude": 165.5,
+                "locationType": "Breeding Location",
                 "name": "Ibadan",
-                "latitude": -21.5,
+                "instituteName": "INRA - GDEC",
+                "altitude": 12,
                 "countryName": "Nigeria",
+                "countryCode": "NGA",
                 "additionalInfo": {
-                    "annualMeanRain": "value",
-                    "soilDescription": "23"
-                }
+                    "soilDescription": "23",
+                    "annualMeanRain": "value"
+                },
+                "latitude": -21.5,
+                "longitude": 165.5,
+                "instituteAddress": "route foo, Clermont Ferrand, France",
+                "locationDbId": "abc123"
             },
             {
-                "countryCode": "IND",
-                "altitude": 10,
-                "locationType": "Storage Location",
                 "abbreviation": "GO",
-                "locationDbId": "def456",
-                "longitude": 77.12,
                 "name": "Goa",
-                "latitude": 28.36,
+                "locationType": "Storage Location",
+                "altitude": 10,
                 "countryName": "India",
+                "countryCode": "IND",
                 "additionalInfo": {
                     "name1": "value1",
                     "name2": "value2"
-                }
+                },
+                "latitude": 28.36,
+                "longitude": 77.12,
+                "locationDbId": "def456"
             }
         ]
     },
     "metadata": {
-        "datafiles": [],
         "pagination": {
-            "currentPage": 0,
-            "totalCount": 2,
             "pageSize": 1000,
-            "totalPages": 1
+            "currentPage": 0,
+            "totalPages": 1,
+            "totalCount": 2
         },
+        "datafiles": [],
         "status": []
     }
 }
