@@ -34,14 +34,14 @@ The common crop name can be used as a search parameter for Programs, Studies, an
         ]
     },
     "metadata": {
-        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 3,
             "pageSize": 1000,
             "totalPages": 1
         },
-        "status": []
+        "status": [],
+        "datafiles": []
     }
 }
 ```
@@ -68,14 +68,14 @@ For multi crop systems this is a useful call to list all the supported crops.
         ]
     },
     "metadata": {
-        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 3,
             "pageSize": 1000,
             "totalPages": 1
         },
-        "status": []
+        "status": [],
+        "datafiles": []
     }
 }
 ```

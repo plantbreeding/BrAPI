@@ -19,29 +19,29 @@ API methods for tracking/managing plant samples and related meta-data. A 'Sample
 ```
 {
     "result": {
-        "plateDbId": "PlateID-123",
-        "sampleDbId": "Unique-Plant-SampleID-1",
         "studyDbId": "StudyId-123",
-        "plotDbId": "PlotId-123",
         "plateIndex": 0,
-        "notes": "Cut from infected leaf",
-        "tissueType": "TypeOfTissue",
-        "sampleType": "TypeOfSample",
-        "takenBy": "Mr. Technician",
-        "plantDbId": "PlantID-123",
-        "sampleTimestamp": "2016-07-27T14:43:22+01:00",
         "germplasmDbId": "def456",
-        "observationUnitDbId": "abc123"
+        "plateDbId": "PlateID-123",
+        "tissueType": "TypeOfTissue",
+        "observationUnitDbId": "abc123",
+        "sampleType": "TypeOfSample",
+        "notes": "Cut from infected leaf",
+        "sampleTimestamp": "2016-07-27T14:43:22+01:00",
+        "sampleDbId": "Unique-Plant-SampleID-1",
+        "plantDbId": "PlantID-123",
+        "plotDbId": "PlotId-123",
+        "takenBy": "Mr. Technician"
     },
     "metadata": {
-        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 0,
             "pageSize": 0,
             "totalPages": 0
         },
-        "status": []
+        "status": [],
+        "datafiles": []
     }
 }
 ```
@@ -86,46 +86,46 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
     "result": {
         "data": [
             {
-                "plateDbId": "PlateID-123",
-                "sampleDbId": "Unique-Plant-SampleID-1",
-                "studyDbId": "StudyId-123",
-                "plotDbId": "PlotId-123",
-                "plateIndex": 0,
                 "notes": "Cut from infected leaf",
-                "tissueType": "TypeOfTissue",
-                "sampleType": "TypeOfSample",
-                "takenBy": "Mr. Technician",
-                "plantDbId": "PlantID-123",
-                "sampleTimestamp": "2016-07-27 13:43:22",
+                "studyDbId": "StudyId-123",
                 "germplasmDbId": "def456",
-                "observationUnitDbId": "abc123"
+                "plateIndex": 0,
+                "plateDbId": "PlateID-123",
+                "tissueType": "TypeOfTissue",
+                "observationUnitDbId": "abc123",
+                "sampleType": "TypeOfSample",
+                "sampleTimestamp": "2016-07-27 13:43:22",
+                "sampleDbId": "Unique-Plant-SampleID-1",
+                "plantDbId": "PlantID-123",
+                "plotDbId": "PlotId-123",
+                "takenBy": "Mr. Technician"
             },
             {
-                "plateDbId": "PlateID-123",
-                "sampleDbId": "Unique-Plant-SampleID-2",
-                "studyDbId": "StudyId-123",
-                "plotDbId": "PlotId-123",
-                "plateIndex": 0,
                 "notes": "Cut from infected leaf",
-                "tissueType": "TypeOfTissue",
-                "sampleType": "TypeOfSample",
-                "takenBy": "Mr. Technician",
-                "plantDbId": "PlantID-123",
-                "sampleTimestamp": "2016-07-27 13:43:22",
+                "studyDbId": "StudyId-123",
                 "germplasmDbId": "def456",
-                "observationUnitDbId": "a1b2c3"
+                "plateIndex": 0,
+                "plateDbId": "PlateID-123",
+                "tissueType": "TypeOfTissue",
+                "observationUnitDbId": "a1b2c3",
+                "sampleType": "TypeOfSample",
+                "sampleTimestamp": "2016-07-27 13:43:22",
+                "sampleDbId": "Unique-Plant-SampleID-2",
+                "plantDbId": "PlantID-123",
+                "plotDbId": "PlotId-123",
+                "takenBy": "Mr. Technician"
             }
         ]
     },
     "metadata": {
-        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 2,
             "pageSize": 1000,
             "totalPages": 1
         },
-        "status": []
+        "status": [],
+        "datafiles": []
     }
 }
 ```
@@ -146,46 +146,46 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
     "result": {
         "data": [
             {
-                "plateDbId": "PlateID-123",
-                "sampleDbId": "Unique-Plant-SampleID-1",
-                "studyDbId": "StudyId-123",
-                "plotDbId": "PlotId-123",
-                "plateIndex": 0,
                 "notes": "Cut from infected leaf",
-                "tissueType": "TypeOfTissue",
-                "sampleType": "TypeOfSample",
-                "takenBy": "Mr. Technician",
-                "plantDbId": "PlantID-123",
-                "sampleTimestamp": "2016-07-27 13:43:22",
+                "studyDbId": "StudyId-123",
                 "germplasmDbId": "def456",
-                "observationUnitDbId": "abc123"
+                "plateIndex": 0,
+                "plateDbId": "PlateID-123",
+                "tissueType": "TypeOfTissue",
+                "observationUnitDbId": "abc123",
+                "sampleType": "TypeOfSample",
+                "sampleTimestamp": "2016-07-27 13:43:22",
+                "sampleDbId": "Unique-Plant-SampleID-1",
+                "plantDbId": "PlantID-123",
+                "plotDbId": "PlotId-123",
+                "takenBy": "Mr. Technician"
             },
             {
-                "plateDbId": "PlateID-123",
-                "sampleDbId": "Unique-Plant-SampleID-2",
-                "studyDbId": "StudyId-123",
-                "plotDbId": "PlotId-123",
-                "plateIndex": 0,
                 "notes": "Cut from infected leaf",
-                "tissueType": "TypeOfTissue",
-                "sampleType": "TypeOfSample",
-                "takenBy": "Mr. Technician",
-                "plantDbId": "PlantID-123",
-                "sampleTimestamp": "2016-07-27 13:43:22",
+                "studyDbId": "StudyId-123",
                 "germplasmDbId": "def456",
-                "observationUnitDbId": "a1b2c3"
+                "plateIndex": 0,
+                "plateDbId": "PlateID-123",
+                "tissueType": "TypeOfTissue",
+                "observationUnitDbId": "a1b2c3",
+                "sampleType": "TypeOfSample",
+                "sampleTimestamp": "2016-07-27 13:43:22",
+                "sampleDbId": "Unique-Plant-SampleID-2",
+                "plantDbId": "PlantID-123",
+                "plotDbId": "PlotId-123",
+                "takenBy": "Mr. Technician"
             }
         ]
     },
     "metadata": {
-        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 2,
             "pageSize": 1000,
             "totalPages": 1
         },
-        "status": []
+        "status": [],
+        "datafiles": []
     }
 }
 ```

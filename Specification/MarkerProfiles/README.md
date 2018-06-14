@@ -76,14 +76,14 @@ This method may support asynchronous processing.
         ]
     },
     "metadata": {
-        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 4,
             "pageSize": 1000,
             "totalPages": 1
         },
-        "status": []
+        "status": [],
+        "datafiles": []
     }
 }
 ```
@@ -115,7 +115,26 @@ The format of the tsv response can be found on GitHub (https://github.com/plantb
 + Request (application/json)
 /definitions/alleleMatrixSearchRequest
 
-+ Response 200 (application/json)
++ Response 200 (application/tsv)
+```
+{
+    "result": {
+        "data": []
+    },
+    "metadata": {
+        "pagination": {
+            "currentPage": 0,
+            "totalCount": 0,
+            "pageSize": 0,
+            "totalPages": 0
+        },
+        "status": [],
+        "datafiles": [
+            "https://my-fancy-server/files/allelematrix-1234.tsv"
+        ]
+    }
+}
+```+ Response 200 (application/json)
 ```
 {
     "result": {
@@ -143,33 +162,14 @@ The format of the tsv response can be found on GitHub (https://github.com/plantb
         ]
     },
     "metadata": {
-        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 0,
             "pageSize": 0,
             "totalPages": 0
         },
-        "status": []
-    }
-}
-```+ Response 200 (application/tsv)
-```
-{
-    "result": {
-        "data": []
-    },
-    "metadata": {
-        "datafiles": [
-            "https://my-fancy-server/files/allelematrix-1234.tsv"
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "totalCount": 0,
-            "pageSize": 0,
-            "totalPages": 0
-        },
-        "status": []
+        "status": [],
+        "datafiles": []
     }
 }
 ```
@@ -213,6 +213,9 @@ Alphabetically?'
 {
     "result": {
         "uniqueDisplayName": "My Fancy Germplasm",
+        "markerprofileDbId": "993",
+        "germplasmDbId": "1",
+        "analysisMethod": "GBS",
         "data": [
             {
                 "marker1-1": "1"
@@ -281,20 +284,17 @@ Alphabetically?'
                 "marker3-6": "0"
             }
         ],
-        "markerprofileDbId": "993",
-        "extractDbId": "extract1",
-        "germplasmDbId": "1",
-        "analysisMethod": "GBS"
+        "extractDbId": "extract1"
     },
     "metadata": {
-        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 22,
             "pageSize": 22,
             "totalPages": 1
         },
-        "status": []
+        "status": [],
+        "datafiles": []
     }
 }
 ```
@@ -359,14 +359,14 @@ This method may support asynchronous processing.
         ]
     },
     "metadata": {
-        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 4,
             "pageSize": 1000,
             "totalPages": 1
         },
-        "status": []
+        "status": [],
+        "datafiles": []
     }
 }
 ```
@@ -398,7 +398,26 @@ The format of the tsv response can be found on GitHub (https://github.com/plantb
 + Request (application/json)
 /definitions/alleleMatrixSearchRequest
 
-+ Response 200 (application/json)
++ Response 200 (application/tsv)
+```
+{
+    "result": {
+        "data": []
+    },
+    "metadata": {
+        "pagination": {
+            "currentPage": 0,
+            "totalCount": 0,
+            "pageSize": 0,
+            "totalPages": 0
+        },
+        "status": [],
+        "datafiles": [
+            "https://my-fancy-server/files/allelematrix-1234.tsv"
+        ]
+    }
+}
+```+ Response 200 (application/json)
 ```
 {
     "result": {
@@ -426,33 +445,14 @@ The format of the tsv response can be found on GitHub (https://github.com/plantb
         ]
     },
     "metadata": {
-        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 0,
             "pageSize": 0,
             "totalPages": 0
         },
-        "status": []
-    }
-}
-```+ Response 200 (application/tsv)
-```
-{
-    "result": {
-        "data": []
-    },
-    "metadata": {
-        "datafiles": [
-            "https://my-fancy-server/files/allelematrix-1234.tsv"
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "totalCount": 0,
-            "pageSize": 0,
-            "totalPages": 0
-        },
-        "status": []
+        "status": [],
+        "datafiles": []
     }
 }
 ```
@@ -482,33 +482,33 @@ For the requested Germplasm Id and/or Extract Id, returns the Markerprofile Id a
         "data": [
             {
                 "uniqueDisplayName": "MyFancyGermplasm",
-                "sampleDbId": "3937",
                 "markerprofileDbId": "993",
-                "extractDbId": "3939",
                 "resultCount": 1470,
+                "sampleDbId": "3937",
                 "germplasmDbId": "01BEL084609S",
-                "analysisMethod": "GoldenGate"
+                "analysisMethod": "GoldenGate",
+                "extractDbId": "3939"
             },
             {
                 "uniqueDisplayName": "Germplasm2",
-                "sampleDbId": "1234",
                 "markerprofileDbId": "994",
-                "extractDbId": "3939",
                 "resultCount": 1470,
+                "sampleDbId": "1234",
                 "germplasmDbId": "2374",
-                "analysisMethod": "GBS"
+                "analysisMethod": "GBS",
+                "extractDbId": "3939"
             }
         ]
     },
     "metadata": {
-        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 2,
             "pageSize": 1000,
             "totalPages": 1
         },
-        "status": []
+        "status": [],
+        "datafiles": []
     }
 }
 ```
@@ -536,30 +536,30 @@ POST will provide a means for adding new matrices (content TBD).
     "result": {
         "data": [
             {
-                "name": "testDs1",
                 "studyDbId": "abc123",
-                "matrixDbId": "27",
                 "description": "a test dataset",
-                "lastUpdated": "2017-06-12"
+                "name": "testDs1",
+                "lastUpdated": "2017-06-12",
+                "matrixDbId": "27"
             },
             {
-                "name": "testDs2",
                 "studyDbId": "abc123",
-                "matrixDbId": "28",
                 "description": "a second test dataset",
-                "lastUpdated": "2017-06-12"
+                "name": "testDs2",
+                "lastUpdated": "2017-06-12",
+                "matrixDbId": "28"
             }
         ]
     },
     "metadata": {
-        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 2,
             "pageSize": 1000,
             "totalPages": 1
         },
-        "status": []
+        "status": [],
+        "datafiles": []
     }
 }
 ```

@@ -24,30 +24,30 @@ Status: ACCEPTED Implemented By:
     "result": {
         "data": [
             {
-                "name": "Wheat Resistance Program",
-                "leadPerson": "Dr. Henry Beachell",
                 "abbreviation": "DRP1",
                 "objective": "Disease resistance",
-                "programDbId": "123"
+                "leadPerson": "Dr. Henry Beachell",
+                "programDbId": "123",
+                "name": "Wheat Resistance Program"
             },
             {
-                "name": "Wheat Improvement Program",
-                "leadPerson": "Dr. Norman Borlaug",
                 "abbreviation": "DRP2",
                 "objective": "Yield improvement",
-                "programDbId": "456"
+                "leadPerson": "Dr. Norman Borlaug",
+                "programDbId": "456",
+                "name": "Wheat Improvement Program"
             }
         ]
     },
     "metadata": {
-        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 2,
             "pageSize": 1000,
             "totalPages": 1
         },
-        "status": []
+        "status": [],
+        "datafiles": []
     }
 }
 ```
@@ -70,30 +70,30 @@ See <a href="#introduction/search-services">Search Services</a> for additional i
     "result": {
         "data": [
             {
-                "name": "Wheat Resistance Program",
-                "leadPerson": "Dr. Henry Beachell",
                 "abbreviation": "DRP1",
                 "objective": "Disease resistance",
-                "programDbId": "123"
+                "leadPerson": "Dr. Henry Beachell",
+                "programDbId": "123",
+                "name": "Wheat Resistance Program"
             },
             {
-                "name": "Wheat Improvement Program",
-                "leadPerson": "Dr. Norman Borlaug",
                 "abbreviation": "DRP2",
                 "objective": "Yield improvement",
-                "programDbId": "456"
+                "leadPerson": "Dr. Norman Borlaug",
+                "programDbId": "456",
+                "name": "Wheat Improvement Program"
             }
         ]
     },
     "metadata": {
-        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 2,
             "pageSize": 1000,
             "totalPages": 1
         },
-        "status": []
+        "status": [],
+        "datafiles": []
     }
 }
 ```

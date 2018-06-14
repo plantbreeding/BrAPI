@@ -26,11 +26,6 @@ observationValue data type inferred from the ontology
 ```
 {
     "result": {
-        "observationVariableDbIds": [
-            "variable1DbId",
-            "variable2DbId",
-            "variable3DbId"
-        ],
         "headerRow": [
             "year",
             "studyDbId",
@@ -94,17 +89,22 @@ observationValue data type inferred from the ontology
                 "98.65",
                 "45.345"
             ]
+        ],
+        "observationVariableDbIds": [
+            "variable1DbId",
+            "variable2DbId",
+            "variable3DbId"
         ]
     },
     "metadata": {
-        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 2,
             "pageSize": 1000,
             "totalPages": 1
         },
-        "status": []
+        "status": [],
+        "datafiles": []
     }
 }
 ```
@@ -174,34 +174,15 @@ observationValue data type inferred from the ontology
     "result": {
         "data": [
             {
-                "entryType": "check",
+                "plotNumber": "2016-Maugio-34-575-abc-123",
+                "entryNumber": "4",
                 "plantNumber": "0",
-                "studyLocationDbId": "mtp-north-32",
-                "blockNumber": "2",
-                "observationLevel": "plot",
-                "programName": "Whealbi",
-                "observations": [
+                "treatments": [
                     {
-                        "observationDbId": "153453453",
-                        "collector": "Mr. Technician",
-                        "observationVariableDbId": "CO_321:0000045",
-                        "value": "45",
-                        "observationVariableName": "Plant_height",
-                        "season": "2015",
-                        "observationTimeStamp": "2015-06-16 08:53:26"
-                    },
-                    {
-                        "observationDbId": "23453454345",
-                        "collector": "Mr. Technician",
-                        "observationVariableDbId": "CO_321:0000996",
-                        "value": "3",
-                        "observationVariableName": "GW100_g",
-                        "season": "2015",
-                        "observationTimeStamp": "2015-06-16 08:53:26"
+                        "factor": "water regimen",
+                        "modality": "water deficit"
                     }
                 ],
-                "germplasmDbId": "doi:10.155454/12349537E12",
-                "X": "5",
                 "observationUnitXref": [
                     {
                         "id": "SAMEA179865230",
@@ -216,77 +197,96 @@ observationValue data type inferred from the ontology
                         "source": "kernelDB"
                     }
                 ],
-                "observationLevels": "bloc:2,subBloc:1,plot:2016-Maugio-34-575-abc-123",
-                "entryNumber": "4",
-                "treatments": [
-                    {
-                        "factor": "water regimen",
-                        "modality": "water deficit"
-                    }
-                ],
-                "observationUnitDbId": "2016-Maugio-34-575-abc-123",
-                "replicate": "0",
-                "plotNumber": "2016-Maugio-34-575-abc-123",
-                "germplasmName": "IR-8",
-                "observationUnitName": "2016-Maugio-34-575",
-                "studyDbId": "YieldStudy2015-5",
-                "studyLocation": "Montpellier",
                 "studyName": "Yield wheat 2015",
-                "Y": "15"
-            },
-            {
-                "entryType": "test",
-                "plantNumber": "45204",
-                "studyLocationDbId": "88484",
-                "treatments": [],
-                "observationLevel": "plant",
-                "programName": "Wheat for futur",
+                "Y": "15",
+                "blockNumber": "2",
+                "replicate": "0",
+                "observationUnitDbId": "2016-Maugio-34-575-abc-123",
+                "observationLevels": "bloc:2,subBloc:1,plot:2016-Maugio-34-575-abc-123",
+                "studyDbId": "YieldStudy2015-5",
+                "germplasmName": "IR-8",
+                "germplasmDbId": "doi:10.155454/12349537E12",
+                "studyLocationDbId": "mtp-north-32",
+                "studyLocation": "Montpellier",
+                "observationUnitName": "2016-Maugio-34-575",
+                "entryType": "check",
+                "observationLevel": "plot",
                 "observations": [
                     {
                         "observationDbId": "153453453",
-                        "collector": "Mr. Technician",
-                        "observationVariableDbId": "CO_321:0000045",
-                        "value": "45",
+                        "observationTimeStamp": "2015-06-16 08:53:26",
                         "observationVariableName": "Plant_height",
-                        "season": "2010",
-                        "observationTimeStamp": "2010-06-16 08:53:26"
+                        "season": "2015",
+                        "observationVariableDbId": "CO_321:0000045",
+                        "collector": "Mr. Technician",
+                        "value": "45"
                     },
                     {
                         "observationDbId": "23453454345",
-                        "collector": "Mr. Technician",
-                        "observationVariableDbId": "CO_321:0000996",
-                        "value": "3",
+                        "observationTimeStamp": "2015-06-16 08:53:26",
                         "observationVariableName": "GW100_g",
-                        "season": "2010",
-                        "observationTimeStamp": "2010-06-16 08:53:26"
+                        "season": "2015",
+                        "observationVariableDbId": "CO_321:0000996",
+                        "collector": "Mr. Technician",
+                        "value": "3"
                     }
                 ],
-                "germplasmDbId": "doi:10.155499/12349537E00",
-                "X": "6",
-                "observationUnitDbId": "45204",
-                "observationLevels": "bloc:2,subBloc:1,plot:2016-Maugio-34-575-abc-123",
-                "entryNumber": "7",
-                "replicate": "2",
+                "X": "5",
+                "programName": "Whealbi"
+            },
+            {
                 "plotNumber": "2016-Maugio-34-575-abc-123",
-                "blockNumber": "3",
-                "germplasmName": "ZE-45",
-                "observationUnitName": "2010-Cornell-37-99",
-                "studyDbId": "YieldStudy2010-5",
-                "studyLocation": "Cornell",
+                "entryNumber": "7",
+                "plantNumber": "45204",
+                "treatments": [],
+                "observationUnitDbId": "45204",
                 "studyName": "Yield wheat 2010",
-                "Y": "15"
+                "observationLevels": "bloc:2,subBloc:1,plot:2016-Maugio-34-575-abc-123",
+                "blockNumber": "3",
+                "replicate": "2",
+                "studyDbId": "YieldStudy2010-5",
+                "Y": "15",
+                "germplasmName": "ZE-45",
+                "germplasmDbId": "doi:10.155499/12349537E00",
+                "studyLocationDbId": "88484",
+                "studyLocation": "Cornell",
+                "observationUnitName": "2010-Cornell-37-99",
+                "entryType": "test",
+                "observationLevel": "plant",
+                "observations": [
+                    {
+                        "observationDbId": "153453453",
+                        "observationTimeStamp": "2010-06-16 08:53:26",
+                        "observationVariableName": "Plant_height",
+                        "season": "2010",
+                        "observationVariableDbId": "CO_321:0000045",
+                        "collector": "Mr. Technician",
+                        "value": "45"
+                    },
+                    {
+                        "observationDbId": "23453454345",
+                        "observationTimeStamp": "2010-06-16 08:53:26",
+                        "observationVariableName": "GW100_g",
+                        "season": "2010",
+                        "observationVariableDbId": "CO_321:0000996",
+                        "collector": "Mr. Technician",
+                        "value": "3"
+                    }
+                ],
+                "X": "6",
+                "programName": "Wheat for futur"
             }
         ]
     },
     "metadata": {
-        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 2,
             "pageSize": 100,
             "totalPages": 1
         },
-        "status": []
+        "status": [],
+        "datafiles": []
     }
 }
 ```
@@ -325,34 +325,15 @@ observationValue data type inferred from the ontology
     "result": {
         "data": [
             {
-                "entryType": "check",
+                "plotNumber": "2016-Maugio-34-575-abc-123",
+                "entryNumber": "4",
                 "plantNumber": "0",
-                "studyLocationDbId": "mtp-north-32",
-                "blockNumber": "2",
-                "observationLevel": "plot",
-                "programName": "Whealbi",
-                "observations": [
+                "treatments": [
                     {
-                        "observationDbId": "153453453",
-                        "collector": "Mr. Technician",
-                        "observationVariableDbId": "CO_321:0000045",
-                        "value": "45",
-                        "observationVariableName": "Plant_height",
-                        "season": "2015",
-                        "observationTimeStamp": "2015-06-16 08:53:26"
-                    },
-                    {
-                        "observationDbId": "23453454345",
-                        "collector": "Mr. Technician",
-                        "observationVariableDbId": "CO_321:0000996",
-                        "value": "3",
-                        "observationVariableName": "GW100_g",
-                        "season": "2015",
-                        "observationTimeStamp": "2015-06-16 08:53:26"
+                        "factor": "water regimen",
+                        "modality": "water deficit"
                     }
                 ],
-                "germplasmDbId": "doi:10.155454/12349537E12",
-                "X": "5",
                 "observationUnitXref": [
                     {
                         "id": "SAMEA179865230",
@@ -367,77 +348,96 @@ observationValue data type inferred from the ontology
                         "source": "kernelDB"
                     }
                 ],
-                "observationLevels": "bloc:2,subBloc:1,plot:2016-Maugio-34-575-abc-123",
-                "entryNumber": "4",
-                "treatments": [
-                    {
-                        "factor": "water regimen",
-                        "modality": "water deficit"
-                    }
-                ],
-                "observationUnitDbId": "2016-Maugio-34-575-abc-123",
-                "replicate": "0",
-                "plotNumber": "2016-Maugio-34-575-abc-123",
-                "germplasmName": "IR-8",
-                "observationUnitName": "2016-Maugio-34-575",
-                "studyDbId": "YieldStudy2015-5",
-                "studyLocation": "Montpellier",
                 "studyName": "Yield wheat 2015",
-                "Y": "15"
-            },
-            {
-                "entryType": "test",
-                "plantNumber": "45204",
-                "studyLocationDbId": "88484",
-                "treatments": [],
-                "observationLevel": "plant",
-                "programName": "Wheat for futur",
+                "Y": "15",
+                "blockNumber": "2",
+                "replicate": "0",
+                "observationUnitDbId": "2016-Maugio-34-575-abc-123",
+                "observationLevels": "bloc:2,subBloc:1,plot:2016-Maugio-34-575-abc-123",
+                "studyDbId": "YieldStudy2015-5",
+                "germplasmName": "IR-8",
+                "germplasmDbId": "doi:10.155454/12349537E12",
+                "studyLocationDbId": "mtp-north-32",
+                "studyLocation": "Montpellier",
+                "observationUnitName": "2016-Maugio-34-575",
+                "entryType": "check",
+                "observationLevel": "plot",
                 "observations": [
                     {
                         "observationDbId": "153453453",
-                        "collector": "Mr. Technician",
-                        "observationVariableDbId": "CO_321:0000045",
-                        "value": "45",
+                        "observationTimeStamp": "2015-06-16 08:53:26",
                         "observationVariableName": "Plant_height",
-                        "season": "2010",
-                        "observationTimeStamp": "2010-06-16 08:53:26"
+                        "season": "2015",
+                        "observationVariableDbId": "CO_321:0000045",
+                        "collector": "Mr. Technician",
+                        "value": "45"
                     },
                     {
                         "observationDbId": "23453454345",
-                        "collector": "Mr. Technician",
-                        "observationVariableDbId": "CO_321:0000996",
-                        "value": "3",
+                        "observationTimeStamp": "2015-06-16 08:53:26",
                         "observationVariableName": "GW100_g",
-                        "season": "2010",
-                        "observationTimeStamp": "2010-06-16 08:53:26"
+                        "season": "2015",
+                        "observationVariableDbId": "CO_321:0000996",
+                        "collector": "Mr. Technician",
+                        "value": "3"
                     }
                 ],
-                "germplasmDbId": "doi:10.155499/12349537E00",
-                "X": "6",
-                "observationUnitDbId": "45204",
-                "observationLevels": "bloc:2,subBloc:1,plot:2016-Maugio-34-575-abc-123",
-                "entryNumber": "7",
-                "replicate": "2",
+                "X": "5",
+                "programName": "Whealbi"
+            },
+            {
                 "plotNumber": "2016-Maugio-34-575-abc-123",
-                "blockNumber": "3",
-                "germplasmName": "ZE-45",
-                "observationUnitName": "2010-Cornell-37-99",
-                "studyDbId": "YieldStudy2010-5",
-                "studyLocation": "Cornell",
+                "entryNumber": "7",
+                "plantNumber": "45204",
+                "treatments": [],
+                "observationUnitDbId": "45204",
                 "studyName": "Yield wheat 2010",
-                "Y": "15"
+                "observationLevels": "bloc:2,subBloc:1,plot:2016-Maugio-34-575-abc-123",
+                "blockNumber": "3",
+                "replicate": "2",
+                "studyDbId": "YieldStudy2010-5",
+                "Y": "15",
+                "germplasmName": "ZE-45",
+                "germplasmDbId": "doi:10.155499/12349537E00",
+                "studyLocationDbId": "88484",
+                "studyLocation": "Cornell",
+                "observationUnitName": "2010-Cornell-37-99",
+                "entryType": "test",
+                "observationLevel": "plant",
+                "observations": [
+                    {
+                        "observationDbId": "153453453",
+                        "observationTimeStamp": "2010-06-16 08:53:26",
+                        "observationVariableName": "Plant_height",
+                        "season": "2010",
+                        "observationVariableDbId": "CO_321:0000045",
+                        "collector": "Mr. Technician",
+                        "value": "45"
+                    },
+                    {
+                        "observationDbId": "23453454345",
+                        "observationTimeStamp": "2010-06-16 08:53:26",
+                        "observationVariableName": "GW100_g",
+                        "season": "2010",
+                        "observationVariableDbId": "CO_321:0000996",
+                        "collector": "Mr. Technician",
+                        "value": "3"
+                    }
+                ],
+                "X": "6",
+                "programName": "Wheat for futur"
             }
         ]
     },
     "metadata": {
-        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 2,
             "pageSize": 100,
             "totalPages": 1
         },
-        "status": []
+        "status": [],
+        "datafiles": []
     }
 }
 ```
@@ -471,33 +471,33 @@ form data.
 {
     "observations": [
         {
-            "observationDbId": "153453453",
             "observationUnitDbId": "333888",
-            "observationVariableDbId": "18020"
+            "observationVariableDbId": "18020",
+            "observationDbId": "153453453"
         },
         {
-            "observationDbId": "23456",
             "observationUnitDbId": "333888",
-            "observationVariableDbId": "18021"
+            "observationVariableDbId": "18021",
+            "observationDbId": "23456"
         },
         {
-            "observationDbId": "34567",
             "observationUnitDbId": "333888",
-            "observationVariableDbId": "18022"
+            "observationVariableDbId": "18022",
+            "observationDbId": "34567"
         }
     ]
 }
 ```+ Response 200 (metadata)
 ```
 {
-    "datafiles": [],
     "pagination": {
         "currentPage": 0,
         "totalCount": 0,
         "pageSize": 0,
         "totalPages": 0
     },
-    "status": []
+    "status": [],
+    "datafiles": []
 }
 ```
 

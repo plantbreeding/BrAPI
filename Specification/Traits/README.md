@@ -30,10 +30,10 @@ Call to retrieve a list of traits available in the system and their associated v
                     "CO_334:0100122",
                     "CO_334:0100123"
                 ],
-                "name": "Plant Height",
-                "traitDbId": "123",
                 "description": "Description of Plant Height",
-                "defaultValue": null
+                "traitDbId": "123",
+                "defaultValue": null,
+                "name": "Plant Height"
             },
             {
                 "traitId": "CO_334:0100620",
@@ -42,22 +42,22 @@ Call to retrieve a list of traits available in the system and their associated v
                     "CO_334:0100622",
                     "CO_334:0100623"
                 ],
-                "name": "Carotenoid content",
-                "traitDbId": "123",
                 "description": "Cassava storage root pulp carotenoid content",
-                "defaultValue": null
+                "traitDbId": "123",
+                "defaultValue": null,
+                "name": "Carotenoid content"
             }
         ]
     },
     "metadata": {
-        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 2,
             "pageSize": 1000,
             "totalPages": 1
         },
-        "status": []
+        "status": [],
+        "datafiles": []
     }
 }
 ```
@@ -83,20 +83,20 @@ Retrieve the variables associated to a trait
             "CO_334:0100122",
             "CO_334:0100123"
         ],
-        "name": "Plant Height",
-        "traitDbId": "123",
         "description": "Description of Plant Height",
-        "defaultValue": null
+        "traitDbId": "123",
+        "defaultValue": null,
+        "name": "Plant Height"
     },
     "metadata": {
-        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "totalCount": 0,
             "pageSize": 0,
             "totalPages": 0
         },
-        "status": []
+        "status": [],
+        "datafiles": []
     }
 }
 ```
