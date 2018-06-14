@@ -34,17 +34,17 @@ The token life time is fixed. If additional time is required, a new /token call 
 ```
 {
     "access_token": "R6gKDBRxM4HLj6eGi4u5HkQjYoIBTPfvtZzUD8TUzg4",
-    "expires_in": "The lifetime in seconds of the access token",
     "metadata": {
-        "datafiles": [],
         "pagination": {
-            "currentPage": 0,
             "pageSize": 0,
-            "totalCount": 0,
-            "totalPages": 0
+            "currentPage": 0,
+            "totalPages": 0,
+            "totalCount": 0
         },
-        "status": []
+        "status": [],
+        "datafiles": []
     },
+    "expires_in": "The lifetime in seconds of the access token",
     "userDisplayName": "John Smith"
 }
 ```

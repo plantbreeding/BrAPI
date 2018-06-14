@@ -24,51 +24,51 @@ Get a list of locations.
 + Response 200 (application/json)
 ```
 {
-    "metadata": {
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 2,
-            "totalPages": 1
-        },
-        "status": [],
-        "datafiles": []
-    },
     "result": {
         "data": [
             {
-                "locationDbId": "abc123",
-                "locationType": "Breeding Location",
                 "name": "Ibadan",
-                "abbreviation": "IB",
-                "countryCode": "NGA",
-                "countryName": "Nigeria",
-                "latitude": -21.5,
-                "longitude": 165.5,
-                "altitude": 12,
-                "instituteName": "INRA - GDEC",
-                "instituteAddress": "route foo, Clermont Ferrand, France",
                 "additionalInfo": {
-                    "annualMeanRain": "value",
-                    "soilDescription": "23"
-                }
+                    "soilDescription": "23",
+                    "annualMeanRain": "value"
+                },
+                "longitude": 165.5,
+                "instituteAddress": "route foo, Clermont Ferrand, France",
+                "instituteName": "INRA - GDEC",
+                "altitude": 12,
+                "locationDbId": "abc123",
+                "latitude": -21.5,
+                "locationType": "Breeding Location",
+                "countryCode": "NGA",
+                "abbreviation": "IB",
+                "countryName": "Nigeria"
             },
             {
+                "name": "Goa",
+                "additionalInfo": {
+                    "name2": "value2",
+                    "name1": "value1"
+                },
+                "abbreviation": "GO",
                 "locationDbId": "def456",
                 "locationType": "Storage Location",
-                "name": "Goa",
-                "abbreviation": "GO",
-                "countryCode": "IND",
-                "countryName": "India",
                 "latitude": 28.36,
-                "longitude": 77.12,
                 "altitude": 10,
-                "additionalInfo": {
-                    "name1": "value1",
-                    "name2": "value2"
-                }
+                "countryCode": "IND",
+                "longitude": 77.12,
+                "countryName": "India"
             }
         ]
+    },
+    "metadata": {
+        "pagination": {
+            "pageSize": 1000,
+            "currentPage": 0,
+            "totalPages": 1,
+            "totalCount": 2
+        },
+        "status": [],
+        "datafiles": []
     }
 }
 ```
@@ -87,33 +87,33 @@ Get details for a location.
 + Response 200 (application/json)
 ```
 {
+    "result": {
+        "name": "Ibadan",
+        "additionalInfo": {
+            "soilDescription": "23",
+            "annualMeanRain": "value"
+        },
+        "abreviation": "IB -- DEPRECATED -- see abbreviation",
+        "locationDbId": "abc123",
+        "instituteName": "INRA - GDEC",
+        "altitude": 12,
+        "longitude": 165.5,
+        "instituteAddress": "road foo, nigeria",
+        "latitude": -21.5,
+        "locationType": "Breeding Location",
+        "countryCode": "NGA",
+        "abbreviation": "IB",
+        "countryName": "Nigeria"
+    },
     "metadata": {
         "pagination": {
-            "totalCount": 0,
             "pageSize": 0,
+            "totalCount": 0,
             "totalPages": 0,
             "currentPage": 0
         },
         "status": [],
         "datafiles": []
-    },
-    "result": {
-        "locationDbId": "abc123",
-        "locationType": "Breeding Location",
-        "name": "Ibadan",
-        "abreviation": "IB -- DEPRECATED -- see abbreviation",
-        "abbreviation": "IB",
-        "countryCode": "NGA",
-        "countryName": "Nigeria",
-        "latitude": -21.5,
-        "longitude": 165.5,
-        "altitude": 12,
-        "instituteName": "INRA - GDEC",
-        "instituteAddress": "road foo, nigeria",
-        "additionalInfo": {
-            "annualMeanRain": "value",
-            "soilDescription": "23"
-        }
     }
 }
 ```

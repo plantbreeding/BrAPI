@@ -51,41 +51,41 @@ Search for plates in the database.
 + Response 200 (application/json)
 ```
 {
-    "metadata": {
-        "datafiles": [],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 0,
-            "totalCount": 0,
-            "totalPages": 0
-        },
-        "status": []
-    },
     "result": {
         "clientPlateDbId": "def456",
-        "plateFormat": "Plate_96",
         "sampleType": "DNA",
+        "vendorBarcode": "",
+        "status": "(not null)",
+        "vendorBarcodeImageURL": "",
         "samples": [
             {
                 "column": "(optional)",
                 "concentration": "(ng/ul)",
-                "row": "(optional)",
-                "sampleDbId": "sample_name",
+                "well": "(optional)",
+                "tissueType": "",
                 "taxonId": {
                     "sourceName": "ncbiTaxon",
                     "taxonId": "http://purl.obolibrary.org/obo/NCBITaxon_4641"
                 },
-                "tissueType": "",
-                "volume": "(ul)",
-                "well": "(optional)"
+                "sampleDbId": "sample_name",
+                "row": "(optional)",
+                "volume": "(ul)"
             }
         ],
-        "status": "(not null)",
         "statusTimeStamp": "2017-06-01 01:57 GMT",
-        "vendorBarcode": "",
-        "vendorBarcodeImageURL": "",
+        "plateFormat": "Plate_96",
         "vendorPlateDbId": "8338",
         "vendorProjectDbId": "abc123"
+    },
+    "metadata": {
+        "pagination": {
+            "pageSize": 0,
+            "currentPage": 0,
+            "totalPages": 0,
+            "totalCount": 0
+        },
+        "status": [],
+        "datafiles": []
     }
 }
 ```
@@ -113,94 +113,94 @@ Samples can be updated later.
 + Response 200 (application/json)
 ```
 {
-    "metadata": {
-        "datafiles": [],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 0,
-            "totalCount": 0,
-            "totalPages": 0
-        },
-        "status": []
-    },
     "result": {
+        "vendorCity": "Metropolis",
+        "vendorAddress": "123 Lane St",
         "additionalInfo": {},
-        "contactName": "John Doe",
         "platforms": [
             {
-                "contactEmail": "",
-                "contactName": "",
-                "contactPhone": "",
-                "deliverables": [
-                    {
-                        "description": "",
-                        "format": "",
-                        "name": ""
-                    }
-                ],
-                "platformDescription": "",
-                "platformName": "GBS",
-                "platformURL": "",
-                "shippingAddress": "",
-                "specificRequirements": {},
+                "taxonomyIdSystem": {
+                    "URI": "https://...",
+                    "name": "NCBITaxonomyId"
+                },
                 "standardRequirements": {
+                    "maxConcentration": "",
+                    "minConcentration": "",
+                    "minVolume": "",
+                    "sampleTypeDetails": "https://...",
                     "blankWellPosition": {
-                        "numberOfBlanksPerPlate": "",
                         "positions": [
                             "random",
                             "A01",
                             "H12"
-                        ]
+                        ],
+                        "numberOfBlanksPerPlate": ""
                     },
+                    "minSampleNumber": "",
                     "inputFormatDetails": "https://...",
                     "inputFormats": [
                         "Plate_96",
                         "Tubes"
                     ],
-                    "maxConcentration": "",
                     "maxVolume": "",
-                    "minConcentration": "",
-                    "minSampleNumber": "",
-                    "minVolume": "",
                     "plateOrientation": "rowFirst|columnFirst",
-                    "sampleTypeDetails": "https://...",
                     "sampleTypes": [
                         "",
                         ""
                     ]
                 },
-                "statuses": [
+                "platformURL": "",
+                "contactName": "",
+                "specificRequirements": {},
+                "platformDescription": "",
+                "shippingAddress": "",
+                "platformName": "GBS",
+                "deliverables": [
                     {
-                        "statusDescription": "Platesarereceivedbyvendor.",
-                        "statusName": "received"
-                    },
-                    {
-                        "statusDescription": "Resultfilesareready.",
-                        "statusName": "completed"
-                    },
-                    {
-                        "statusDescription": "Platesarerejectedbyvendor",
-                        "statusName": "rejected"
+                        "format": "",
+                        "name": "",
+                        "description": ""
                     }
                 ],
-                "taxonomyIdSystem": {
-                    "URI": "https://...",
-                    "name": "NCBITaxonomyId"
-                },
+                "statuses": [
+                    {
+                        "statusName": "received",
+                        "statusDescription": "Platesarereceivedbyvendor."
+                    },
+                    {
+                        "statusName": "completed",
+                        "statusDescription": "Resultfilesareready."
+                    },
+                    {
+                        "statusName": "rejected",
+                        "statusDescription": "Platesarerejectedbyvendor"
+                    }
+                ],
+                "contactPhone": "",
                 "tissueIdSystem": {
                     "URI": "https://...",
                     "name": "DArT"
-                }
+                },
+                "contactEmail": ""
             }
         ],
-        "vendorAddress": "123 Lane St",
-        "vendorCity": "Metropolis",
-        "vendorCountry": "USA",
+        "contactName": "John Doe",
+        "vendorPhone": "1-234-567-8910",
+        "vendorName": "Gene Sequencing Vendor",
+        "vendorURL": "www.example.org",
         "vendorDescription": "Gene Sequencing Vendor",
         "vendorEmail": "jdoe@example.org",
-        "vendorName": "Gene Sequencing Vendor",
-        "vendorPhone": "1-234-567-8910",
-        "vendorURL": "www.example.org"
+        "vendorCountry": "USA"
+    },
+    "metadata": {
+        "pagination": {
+            "pageSize": 0,
+            "currentPage": 0,
+            "totalPages": 0,
+            "totalCount": 0
+        },
+        "status": [],
+        "datafiles": []
     }
 }
 ```
