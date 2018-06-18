@@ -18,7 +18,7 @@ Version | Status | Release Date | SwaggerHub | Apiary | Notes
 
 [BrAPI Community Forum](https://forum.brapi.org) - Consult with BrAPI experts from all over the world
 
-[BRAVA](https://brava) - Test your BrAPI Server with this robust test client
+[BRAVA](http://webapps.ipk-gatersleben.de/brapivalidator/) - Test your BrAPI Server with this robust test client
 
 [BrAPI Test Server](https://test-server.brapi.org) - Test your BrAPI Client against sample data
 
