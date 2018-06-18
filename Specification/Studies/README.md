@@ -40,6 +40,8 @@ Note that dates should be provided in extended ISO 8601 format (for example, "YY
 }
 ```
 
+
+
 ## Get ObservationLevels  [GET /brapi/v1/observationLevels{?pageSize}{?page}]
 
  ** DEPRECTED ** Use /observationlevels
@@ -71,6 +73,8 @@ Call to retrieve the list of supported observation levels. Observation levels in
     }
 }
 ```
+
+
 
 ## Get Seasons  [GET /brapi/v1/seasons{?year}{?pageSize}{?page}]
 
@@ -112,6 +116,8 @@ Call to retrieve the list of supported observation levels. Observation levels in
     }
 }
 ```
+
+
 
 ## Get Studies-search  [GET /brapi/v1/studies-search{?studyType}{?programDbId}{?locationDbId}{?seasonDbId}{?trialDbId}{?studyDbId}{?germplasmDbIds}{?observationVariableDbIds}{?pageSize}{?page}{?active}{?sortBy}{?sortOrder}]
 
@@ -205,6 +211,8 @@ StartDate and endDate should be ISO8601 format for dates: YYYY-MM-DD
 }
 ```
 
+
+
 ## Post Studies-search  [POST /brapi/v1/studies-search]
 
  Scope: PHENOTYPING. Status: ACCEPTED. Implementation target date: PAG2016.
@@ -218,7 +226,11 @@ StartDate and endDate should be ISO8601 format for dates: YYYY-MM-DD
 + Parameters
  
 + Request (application/json)
+```
 /definitions/studySearchRequest
+```
+
+
 
 + Response 200 (application/json)
 ```
@@ -285,6 +297,8 @@ StartDate and endDate should be ISO8601 format for dates: YYYY-MM-DD
     }
 }
 ```
+
+
 
 ## Get Studies by studyDbId  [GET /brapi/v1/studies/{studyDbId}]
 
@@ -384,6 +398,8 @@ More linked data: * observation variables: ```/brapi/v1/studies/{studyDbId}/obse
 }
 ```
 
+
+
 ## Get Studies Germplasm by studyDbId  [GET /brapi/v1/studies/{studyDbId}/germplasm{?pageSize}{?page}]
 
  Scope: PHENOTYPING
@@ -440,6 +456,8 @@ More linked data: * observation variables: ```/brapi/v1/studies/{studyDbId}/obse
     }
 }
 ```
+
+
 
 ## Get Studies Layout by studyDbId  [GET /brapi/v1/studies/{studyDbId}/layout{?pageSize}{?page}]
 
@@ -531,6 +549,8 @@ Also return some human readable meta data about the observationUnit and germplas
 }
 ```
 
+
+
 ## Put Studies Layout by studyDbId  [PUT /brapi/v1/studies/{studyDbId}/layout]
 
  Modify a study layout
@@ -543,7 +563,11 @@ Implementation Notes:
     + studyDbId (Required, string) ... Identifier of the study. Usually a number, could be alphanumeric.
  
 + Request (application/json)
+```
 /definitions/studyLayoutRequest
+```
+
+
 
 + Response 200 (application/json)
 ```
@@ -620,6 +644,8 @@ Implementation Notes:
     }
 }
 ```
+
+
 
 ## Get Studies Observationunits by studyDbId  [GET /brapi/v1/studies/{studyDbId}/observationunits{?observationLevel}{?pageSize}{?page}]
 
@@ -736,6 +762,8 @@ Scope: PHENOTYPING
 }
 ```
 
+
+
 ## Post Studies Observationunits by studyDbId  [POST /brapi/v1/studies/{studyDbId}/observationunits{?format}]
 
 This call has been deprecated in V1.1. Use instead: "PUT /studies/{studyDbId}/observationunits" and "PUT /studies/{studyDbId}/observationunits/zip" 
@@ -745,6 +773,7 @@ This call has been deprecated in V1.1. Use instead: "PUT /studies/{studyDbId}/ob
     + format (Required, string) ... (default is JSON, but can be zip) In case where JSON data is zipped for faster transfer speed (as in the case of the IRRI handheld implementation), the zipped JSON file will be listed in datafiles. The zipped file contains a JSON file with the same structure as the BrAPI call.
  
 + Request (application/json)
+```
 {
     "properties": {
         "metadata": {
@@ -756,6 +785,9 @@ This call has been deprecated in V1.1. Use instead: "PUT /studies/{studyDbId}/ob
     },
     "title": "newObservationsRequestWrapperDeprecated"
 }
+```
+
+
 
 + Response 400 (application/json)
 ```
@@ -771,6 +803,8 @@ This call has been deprecated in V1.1. Use instead: "PUT /studies/{studyDbId}/ob
 }
 ```
 
+
+
 ## Put Studies Observationunits by studyDbId  [PUT /brapi/v1/studies/{studyDbId}/observationunits]
 
 Use this call for uploading new Observations as JSON to a system.
@@ -781,6 +815,7 @@ Note: If 'observationUnitDbId' or 'observationDbId' is populated, they should be
     + studyDbId (Required, string) ... The study these observation units are related to.
  
 + Request (application/json)
+```
 {
     "items": {
         "$ref": "#/definitions/newObservationUnitRequest"
@@ -788,6 +823,9 @@ Note: If 'observationUnitDbId' or 'observationDbId' is populated, they should be
     "title": "newObservationUnitRequestList",
     "type": "array"
 }
+```
+
+
 
 + Response 200 (application/json)
 ```
@@ -807,7 +845,9 @@ Note: If 'observationUnitDbId' or 'observationDbId' is populated, they should be
         ]
     }
 }
-```+ Response 400 (application/json)
+```
+
++ Response 400 (application/json)
 ```
 {
     "metadata": {
@@ -820,6 +860,8 @@ Note: If 'observationUnitDbId' or 'observationDbId' is populated, they should be
     }
 }
 ```
+
+
 
 ## Post Studies Observationunits Zip by studyDbId  [POST /brapi/v1/studies/{studyDbId}/observationunits/zip]
 
@@ -829,10 +871,14 @@ Note: If 'observationUnitDbId' or 'observationDbId' is populated, they should be
     + studyDbId (Required, string) ... The study these observation units are related to.
  
 + Request (application/json)
+```
 {
     "format": "binary",
     "type": "string"
 }
+```
+
+
 
 + Response 200 (application/json)
 ```
@@ -852,7 +898,9 @@ Note: If 'observationUnitDbId' or 'observationDbId' is populated, they should be
         ]
     }
 }
-```+ Response 400 (application/json)
+```
+
++ Response 400 (application/json)
 ```
 {
     "metadata": {
@@ -865,6 +913,8 @@ Note: If 'observationUnitDbId' or 'observationDbId' is populated, they should be
     }
 }
 ```
+
+
 
 ## Get Studies Observationvariables by studyDbId  [GET /brapi/v1/studies/{studyDbId}/observationvariables{?pageSize}{?page}]
 
@@ -999,6 +1049,8 @@ Refer to the data type definition of variables in `/Specification/ObservationVar
 }
 ```
 
+
+
 ## Get Studies ObservationVariables by studyDbId  [GET /brapi/v1/studies/{studyDbId}/observationVariables]
 
 
@@ -1107,6 +1159,8 @@ Refer to the data type definition of variables in `/Specification/ObservationVar
 }
 ```
 
+
+
 ## Get Studies Observations by studyDbId  [GET /brapi/v1/studies/{studyDbId}/observations{?observationVariableDbIds}{?pageSize}{?page}]
 
 
@@ -1171,6 +1225,8 @@ observationTimestamp should be ISO8601 format with timezone: YYYY-MM-DDThh:mm:ss
 }
 ```
 
+
+
 ## Put Studies Observations by studyDbId  [PUT /brapi/v1/studies/{studyDbId}/observations]
 
  Implementation Guidelines: + If an `observationDbId` is "null" or an empty string in the request, a NEW observation should be created for the given study and observationUnit + If an `observationDbId` is populated but not found in the database, a NEW observation should be created for the given study and observationUnit AND an NEW `observationDbId` should be assigned to it. A warning should be returned to the client. + If an `observationDbId` is populated and found in the database, but the existing entry is not associated with the given study or observationUnit, a NEW observation should be created for the given study and observationUnit AND an NEW `observationDbId` should be assigned to it. A warning should be returned to the client. + If an `observationDbId` is populated and found in the database and is associated with the given study and observationUnit, then it should be updated with the new data given.
@@ -1180,7 +1236,11 @@ observationTimestamp should be ISO8601 format with timezone: YYYY-MM-DDThh:mm:ss
     + studyDbId (Required, string) ... Identifier of the study. Usually a number, could be alphanumeric.
  
 + Request (application/json)
+```
 /definitions/newObservationsRequest
+```
+
+
 
 + Response 200 (application/json)
 ```
@@ -1232,6 +1292,8 @@ observationTimestamp should be ISO8601 format with timezone: YYYY-MM-DDThh:mm:ss
 }
 ```
 
+
+
 ## Get Studies Table by studyDbId  [GET /brapi/v1/studies/{studyDbId}/table{?format}]
 
  Scope: PHENOTYPING. Status: ACCEPTED. Implemented in Cassavabase, HIDAP and Germinate. Notes: Implementation target date: after PAG2016 Retrieve the details of the study required for field data collection. Includes actual trait data.
@@ -1245,7 +1307,9 @@ observationTimestamp should be ISO8601 format with timezone: YYYY-MM-DDThh:mm:ss
 + Response 200 (application/csv)
 ```
 "year,studyDbId,studyName,locationDbId,locationName,germplasmDbId,germplasmName,observationUnitDbId,plotNumber,replicate,blockNumber,observationTimestamp,entryType,X,Y,variable1DbId,variable2DbId,variable3DbId\n2017,stu1,Study Name,loc1,Location Name,CIP1,CIP Name,abc123,1,1,1,2017-06-16T00:53:26Z,Test Entry,1,2,25.3,103.4,50.75 \n2017,stu1,Study Name,loc1,Location Name,CIP1,CIP Name,abc124,1,1,1,2017-06-16T00:54:57Z,Test Entry,2,2,27.9,98.65,45.345\n"
-```+ Response 200 (application/json)
+```
+
++ Response 200 (application/json)
 ```
 {
     "metadata": {
@@ -1330,10 +1394,14 @@ observationTimestamp should be ISO8601 format with timezone: YYYY-MM-DDThh:mm:ss
         ]
     }
 }
-```+ Response 200 (application/tsv)
+```
+
++ Response 200 (application/tsv)
 ```
 "year\tstudyDbId\tstudyName\tlocationDbId\tlocationName\tgermplasmDbId\tgermplasmName\tobservationUnitDbId\tplotNumber\treplicate\tblockNumber\tobservationTimestamp\tentryType\tX\tY\tvariable1DbId\tvariable2DbId\tvariable3DbId\n 2017\tstu1\tStudy Name\tloc1\tLocation Name\tCIP1\tCIP Name\tabc123\t1\t1\t1\t2017-06-16T00:53:26Z\tTest Entry\t1\t2\t25.3\t103.4\t50.75\n 2017\tstu1\tStudy Name\tloc1\tLocation Name\tCIP1\tCIP Name\tabc124\t1\t1\t1\t2017-06-16T00:54:57Z\tTest Entry\t2\t2\t27.9\t98.65\t45.345\n"
 ```
+
+
 
 ## Post Studies Table by studyDbId  [POST /brapi/v1/studies/{studyDbId}/table]
 
@@ -1348,7 +1416,11 @@ Scope: PHENOTYPING
     + studyDbId (Required, string) ... Identifier of the study. Usually a number, could be alphanumeric.
  
 + Request (application/json)
+```
 /definitions/newObservationsTableRequest
+```
+
+
 
 + Response 200 (application/json)
 ```
@@ -1410,6 +1482,8 @@ Scope: PHENOTYPING
 }
 ```
 
+
+
 ## Get Studytypes  [GET /brapi/v1/studytypes{?pageSize}{?page}]
 
  Call to retrieve the list of study types.
@@ -1453,6 +1527,8 @@ Scope: PHENOTYPING. Implementation target date: PAG2016
 }
 ```
 
+
+
 ## Get StudyTypes  [GET /brapi/v1/studyTypes{?pageSize}{?page}]
 
  ** DEPRECTED ** Use /studytypes
@@ -1495,3 +1571,4 @@ Scope: PHENOTYPING. Implementation target date: PAG2016
     }
 }
 ```
+

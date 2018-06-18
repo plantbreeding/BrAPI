@@ -93,7 +93,7 @@ def buildReadMe(dir):
 						readMeStr += '\n'
 				
 				if body != '' :
-					readMeStr += ' \n+ Request (application/json)\n' + body
+					readMeStr += ' \n+ Request (application/json)\n```\n' + body + '\n```\n\n'
 					
 				
 				readMeStr += '\n\n'
@@ -102,7 +102,7 @@ def buildReadMe(dir):
 						example = responses[code]['examples'][type]
 						readMeStr += '+ Response ' + code + ' (' + type + ')\n```\n'
 						readMeStr += json.dumps(example, indent=4, separators=(',', ': '), default=str, sort_keys=True)
-						readMeStr += '\n```'
+						readMeStr += '\n```\n\n'
 	return readMeStr
 	
 
