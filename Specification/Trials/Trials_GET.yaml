@@ -87,9 +87,11 @@ paths:
                   startDate: '2007-06-01'
                   studies:
                   - locationName: Zimbabwe
+                    locationDbId: abc123
                     studyDbId: '1'
                     studyName: Zimbabwe Yield Trial
                   - locationName: Kenya
+                    locationDbId: def456
                     studyDbId: '2'
                     studyName: Kenya Yield Trial
                   trialDbId: '1'
@@ -105,9 +107,11 @@ paths:
                   startDate: '2008-06-01'
                   studies:
                   - locationName: Zimbabwe
+                    locationDbId: abc123
                     studyDbId: '3'
                     studyName: Zimbabwe Yield Trial
                   - locationName: Kenya
+                    locationDbId: def456
                     studyDbId: '4'
                     studyName: Kenya Yield Trial
                   trialDbId: '2'

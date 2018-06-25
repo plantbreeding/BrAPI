@@ -67,7 +67,7 @@ paths:
                 - plotNumber
                 - replicate
                 - blockNumber
-                - observationTimestamp
+                - observationTimestamp //DEPRECATED
                 - entryType
                 - X
                 - Y
@@ -91,7 +91,7 @@ paths:
                   - 1
                   - 1
                   - 1
-                  - '2017-06-16T00:53:26Z'
+                  - '2017-06-16T00:53:26Z //DEPRECATED'
                   - Test Entry
                   - '1'
                   - '2'
@@ -109,7 +109,7 @@ paths:
                   - 1
                   - 1
                   - 1
-                  - '2017-06-16T00:54:57Z'
+                  - '2017-06-16T00:54:57Z //DEPRECATED'
                   - Test Entry
                   - '2'
                   - '2'
