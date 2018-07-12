@@ -1,0 +1,28 @@
+swagger: '2.0'
+paths:
+  /logout:
+    delete:
+      deprecated: true
+      description: |-
+        Implemented by: Tripal Brapi module, Cassavabase, Germinate, BMS
+        
+        Used by: Flapjack, BMS
+        
+        For logout, returns an empty resource. A token to remove could be provided (amdin interface) but it is not required. By default, current user token will be removed.
+      parameters: 
+      - in: body
+        name: body
+        schema:
+          type: object
+          properties:
+            access_token:
+              type: string
+      responses:
+        '201':
+          description: Created
+          examples: {}
+          headers: {}
+      summary: Logout
+      tags: 
+      - Authentication
+      - Deprecated
