@@ -49,11 +49,13 @@ Services related to trials. Trials comprise of multiple studies. The trial conce
                 "startDate": "2007-06-01",
                 "studies": [
                     {
+                        "locationDbId": "abc123",
                         "locationName": "Zimbabwe",
                         "studyDbId": "1",
                         "studyName": "Zimbabwe Yield Trial"
                     },
                     {
+                        "locationDbId": "def456",
                         "locationName": "Kenya",
                         "studyDbId": "2",
                         "studyName": "Kenya Yield Trial"
@@ -75,11 +77,13 @@ Services related to trials. Trials comprise of multiple studies. The trial conce
                 "startDate": "2008-06-01",
                 "studies": [
                     {
+                        "locationDbId": "abc123",
                         "locationName": "Zimbabwe",
                         "studyDbId": "3",
                         "studyName": "Zimbabwe Yield Trial"
                     },
                     {
+                        "locationDbId": "def456",
                         "locationName": "Kenya",
                         "studyDbId": "4",
                         "studyName": "Kenya Yield Trial"
@@ -92,6 +96,8 @@ Services related to trials. Trials comprise of multiple studies. The trial conce
     }
 }
 ```
+
+
 
 ## Get Trials by trialDbId  [GET /brapi/v1/trials/{trialDbId}]
 
@@ -168,3 +174,4 @@ Get trial by id.
     }
 }
 ```
+

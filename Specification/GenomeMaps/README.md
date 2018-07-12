@@ -65,6 +65,8 @@ Get list of maps <br>
 }
 ```
 
+
+
 ## Get Maps by mapDbId  [GET /brapi/v1/maps/{mapDbId}{?pageSize}{?page}]
 
 Provides the number of markers on each linkageGroup and the max position on the linkageGroup <br>
@@ -113,6 +115,8 @@ Provides the number of markers on each linkageGroup and the max position on the 
 }
 ```
 
+
+
 ## Get Maps Positions by mapDbId  [GET /brapi/v1/maps/{mapDbId}/positions{?linkageGroupId}{?linkageGroupName}{?pageSize}{?page}]
 
 markers ordered by linkageGroup and position <br>
@@ -158,6 +162,8 @@ markers ordered by linkageGroup and position <br>
 }
 ```
 
+
+
 ## Get Maps Positions by mapDbId and linkageGroupName  [GET /brapi/v1/maps/{mapDbId}/positions/{linkageGroupName}{?min}{?max}{?pageSize}{?page}]
 
 markers ordered by linkageGroup and position 
@@ -200,3 +206,4 @@ markers ordered by linkageGroup and position
     }
 }
 ```
+

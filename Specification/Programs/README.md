@@ -15,7 +15,11 @@ See <a href="#introduction/search-services">Search Services</a> for additional i
 + Parameters
  
 + Request (application/json)
+```
 /definitions/programsSearchRequest
+```
+
+
 
 + Response 200 (application/json)
 ```
@@ -50,6 +54,8 @@ See <a href="#introduction/search-services">Search Services</a> for additional i
     }
 }
 ```
+
+
 
 ## Get Programs  [GET /brapi/v1/programs{?programName}{?abbreviation}{?pageSize}{?page}]
 
@@ -97,3 +103,4 @@ Status: ACCEPTED Implemented By:
     }
 }
 ```
+

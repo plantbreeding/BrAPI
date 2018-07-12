@@ -78,6 +78,8 @@ and '?' for one character matching. Default is exact.
 }
 ```
 
+
+
 ## Post Markers-search  [POST /brapi/v1/markers-search]
 
  Scope: CORE.  Status: ACCEPTED.
@@ -88,7 +90,11 @@ Other service requests use the servers internal `markerDbId`. This service retur
 + Parameters
  
 + Request (application/json)
+```
 /definitions/markersSearchRequest
+```
+
+
 
 + Response 200 (application/json)
 ```
@@ -143,6 +149,8 @@ Other service requests use the servers internal `markerDbId`. This service retur
     }
 }
 ```
+
+
 
 ## Get Markers  [GET /brapi/v1/markers{?name}{?matchMethod}{?include}{?type}{?pageSize}{?page}]
 
@@ -214,6 +222,8 @@ and '?' for one character matching. Default is exact.
 }
 ```
 
+
+
 ## Get Markers by markerDbId  [GET /brapi/v1/markers/{markerDbId}]
 
 <strong>Status</strong>: ACCEPTED 
@@ -255,3 +265,4 @@ and '?' for one character matching. Default is exact.
     }
 }
 ```
+

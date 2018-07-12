@@ -88,6 +88,8 @@ This method may support asynchronous processing.
 }
 ```
 
+
+
 ## Post Allelematrices-search  [POST /brapi/v1/allelematrices-search]
 
 Status: ACCEPTED.
@@ -113,7 +115,11 @@ The format of the tsv response can be found on GitHub (https://github.com/plantb
 + Parameters
  
 + Request (application/json)
+```
 /definitions/alleleMatrixSearchRequest
+```
+
+
 
 + Response 200 (application/json)
 ```
@@ -153,7 +159,9 @@ The format of the tsv response can be found on GitHub (https://github.com/plantb
         ]
     }
 }
-```+ Response 200 (application/tsv)
+```
+
++ Response 200 (application/tsv)
 ```
 {
     "metadata": {
@@ -173,6 +181,8 @@ The format of the tsv response can be found on GitHub (https://github.com/plantb
     }
 }
 ```
+
+
 
 ## Get Allelematrices  [GET /brapi/v1/allelematrices{?studyDbId}{?pageSize}{?page}]
 
@@ -224,6 +234,8 @@ POST will provide a means for adding new matrices (content TBD).
     }
 }
 ```
+
+
 
 ## Get Allelematrix-search  [GET /brapi/v1/allelematrix-search{?markerprofileDbId}{?markerDbId}{?matrixDbId}{?format}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageSize}{?page}]
 
@@ -297,6 +309,8 @@ This method may support asynchronous processing.
 }
 ```
 
+
+
 ## Post Allelematrix-search  [POST /brapi/v1/allelematrix-search]
 
 Status: ACCEPTED.
@@ -322,7 +336,11 @@ The format of the tsv response can be found on GitHub (https://github.com/plantb
 + Parameters
  
 + Request (application/json)
+```
 /definitions/alleleMatrixSearchRequest
+```
+
+
 
 + Response 200 (application/json)
 ```
@@ -362,7 +380,9 @@ The format of the tsv response can be found on GitHub (https://github.com/plantb
         ]
     }
 }
-```+ Response 200 (application/tsv)
+```
+
++ Response 200 (application/tsv)
 ```
 {
     "metadata": {
@@ -382,6 +402,8 @@ The format of the tsv response can be found on GitHub (https://github.com/plantb
     }
 }
 ```
+
+
 
 ## Get Markerprofiles  [GET /brapi/v1/markerprofiles{?germplasmDbId}{?studyDbId}{?sampleDbId}{?extractDbId}{?pageSize}{?page}]
 
@@ -438,6 +460,8 @@ For the requested Germplasm Id and/or Extract Id, returns the Markerprofile Id a
     }
 }
 ```
+
+
 
 ## Get Markerprofiles by markerprofileDbId  [GET /brapi/v1/markerprofiles/{markerprofileDbId}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageSize}{?page}]
 
@@ -563,3 +587,4 @@ Alphabetically?'
     }
 }
 ```
+

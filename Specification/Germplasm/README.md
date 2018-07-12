@@ -37,6 +37,8 @@ Fun Fact: The plural of germplasm is germplasm (no "s").
 }
 ```
 
+
+
 ## Get Breedingmethods  [GET /brapi/v1/breedingmethods{?pageSize}{?page}]
 
  Scope: Germplasm
@@ -79,6 +81,8 @@ Get the list of germplasm breeding methods available in a system.
     }
 }
 ```
+
+
 
 ## Get Germplasm-search  [GET /brapi/v1/germplasm-search{?germplasmPUI}{?germplasmDbId}{?germplasmName}{?commonCropName}{?pageSize}{?page}]
 
@@ -199,6 +203,8 @@ Use GET when parameter size is less than 2K bytes. <a href="https://test-server.
 }
 ```
 
+
+
 ## Post Germplasm-search  [POST /brapi/v1/germplasm-search]
 
  Implemented by: GnpIS, Germinate (GET only)
@@ -210,7 +216,11 @@ Use POST for large queries (>2K bytes).
 + Parameters
  
 + Request (application/json)
+```
 /definitions/germplasmSearchRequest
+```
+
+
 
 + Response 200 (application/json)
 ```
@@ -314,6 +324,8 @@ Use POST for large queries (>2K bytes).
 }
 ```
 
+
+
 ## Get Germplasm by germplasmDbId  [GET /brapi/v1/germplasm/{germplasmDbId}]
 
  Scope: CORE. Status: ACCEPTED.
@@ -383,6 +395,8 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
 }
 ```
 
+
+
 ## Get Germplasm Markerprofiles by germplasmDbId  [GET /brapi/v1/germplasm/{germplasmDbId}/markerprofiles]
 
  Retrieve the markerProfileDbIds for a given Germplasm ID
@@ -424,6 +438,8 @@ Implemented by: Germinate, Cassavabase
     }
 }
 ```
+
+
 
 ## Get Germplasm Pedigree by germplasmDbId  [GET /brapi/v1/germplasm/{germplasmDbId}/pedigree{?notation}{?includeSiblings}]
 
@@ -480,6 +496,8 @@ Implemented by: Germinate, Tripal Brapi Module, Cassavabase (without notation op
 }
 ```
 
+
+
 ## Get Germplasm Progeny by germplasmDbId  [GET /brapi/v1/germplasm/{germplasmDbId}/progeny]
 
  Scope: Germplasm
@@ -526,3 +544,4 @@ Get the germplasmDbIds for all the Progeny of a particular germplasm.
     }
 }
 ```
+

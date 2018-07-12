@@ -14,37 +14,27 @@ The token life time is fixed. If additional time is required, a new /token call 
 
 
 
-## Delete Token  [DELETE /brapi/v1/token]
+## Delete Logout  [DELETE /brapi/v1/logout]
 
- 
+Implemented by: Tripal Brapi module, Cassavabase, Germinate, BMS
 
-+ Parameters
+Used by: Flapjack, BMS
 
-
-
-
-## Post Token  [POST /brapi/v1/token]
-
- 
+For logout, returns an empty resource. A token to remove could be provided (amdin interface) but it is not required. By default, current user token will be removed. 
 
 + Parameters
-
-
-+ Response 201 (application/json)
+ 
++ Request (application/json)
 ```
 {
-    "access_token": "R6gKDBRxM4HLj6eGi4u5HkQjYoIBTPfvtZzUD8TUzg4",
-    "expires_in": "The lifetime in seconds of the access token",
-    "metadata": {
-        "datafiles": [],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 0,
-            "totalCount": 0,
-            "totalPages": 0
-        },
-        "status": []
+    "properties": {
+        "access_token": {
+            "type": "string"
+        }
     },
-    "userDisplayName": "John Smith"
+    "type": "object"
 }
 ```
+
+
+

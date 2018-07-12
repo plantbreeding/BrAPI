@@ -428,31 +428,91 @@ More linked data: * observation variables: ```/brapi/v1/studies/{studyDbId}/obse
         "data": [
             {
                 "accessionNumber": "ITC0609",
-                "entryNumber": "1",
-                "germplasmDbId": "382",
+                "acquisitionDate": "1947-01-31",
+                "biologicalStatusOfAccessionCode": 412,
+                "commonCropName": "banana",
+                "countryOfOriginCode": "UNK",
+                "defaultDisplayName": "Pahang",
+                "donors": [
+                    {
+                        "donorAccessionNumber": "",
+                        "donorInstituteCode": "",
+                        "germplasmPUI": ""
+                    }
+                ],
+                "entryNumber": "DEPRECATED",
+                "genus": "Musa",
+                "germplasmDbId": "01BEL084609",
                 "germplasmName": "Pahang",
                 "germplasmPUI": "http://www.crop-diversity.org/mgis/accession/01BEL084609",
+                "germplasmSeedSource": "Female GID:4/Male GID:4",
+                "instituteCode": "01BEL084",
+                "instituteName": "ITC",
                 "pedigree": "TOBA97/SW90.1057",
-                "seedSource": "SS1",
-                "synonyms": [
-                    "01BEL084609"
+                "species": "acuminata",
+                "speciesAuthority": "",
+                "subtaxa": "sp malaccensis var pahang",
+                "subtaxaAuthority": "",
+                "synonyms": [],
+                "taxonIds": [
+                    {
+                        "sourceName": "ncbiTaxon",
+                        "taxonId": "http://purl.obolibrary.org/obo/NCBITaxon_4641"
+                    },
+                    {
+                        "sourceName": "ciradTaxon",
+                        "taxonId": "23-E"
+                    }
+                ],
+                "typeOfGermplasmStorageCode": [
+                    10
                 ]
             },
             {
-                "accessionNumber": "ITC0727",
-                "entryNumber": "2",
-                "germplasmDbId": "394",
-                "germplasmName": "Pahang",
-                "germplasmPUI": "http://www.crop-diversity.org/mgis/accession/01BEL084727",
+                "accessionNumber": "ITC0685",
+                "acquisitionDate": "1977-01-31",
+                "biologicalStatusOfAccessionCode": 412,
+                "commonCropName": "banana",
+                "countryOfOriginCode": "UNK",
+                "defaultDisplayName": "Pah",
+                "donors": [
+                    {
+                        "donorAccessionNumber": "",
+                        "donorInstituteCode": "",
+                        "germplasmPUI": ""
+                    }
+                ],
+                "entryNumber": "DEPRECATED",
+                "genus": "Musa",
+                "germplasmDbId": "03REL084609",
+                "germplasmName": "Pah",
+                "germplasmPUI": "doi:10.15454/328757862534E12",
+                "germplasmSeedSource": "Female GID:4/Male GID:4",
+                "instituteCode": "01BEL084",
+                "instituteName": "ITC",
                 "pedigree": "TOBA97/SW90.1057",
-                "seedSource": "SS2",
-                "synonyms": [
-                    "01BEL084727"
+                "species": "acuminata",
+                "speciesAuthority": "",
+                "subtaxa": "sp malaccensis var pah",
+                "subtaxaAuthority": "",
+                "synonyms": [],
+                "taxonIds": [
+                    {
+                        "sourceName": "ncbiTaxon",
+                        "taxonId": "http://purl.obolibrary.org/obo/NCBITaxon_4641"
+                    },
+                    {
+                        "sourceName": "ciradTaxon",
+                        "taxonId": "23-E"
+                    }
+                ],
+                "typeOfGermplasmStorageCode": [
+                    10
                 ]
             }
         ],
-        "studyDbId": "35",
-        "trialName": "myBestTrial"
+        "studyDbId": "DEPRECATED",
+        "trialName": "DEPRECATED"
     }
 }
 ```
@@ -1336,7 +1396,7 @@ observationTimestamp should be ISO8601 format with timezone: YYYY-MM-DDThh:mm:ss
                 1,
                 1,
                 1,
-                "2017-06-16T00:53:26Z",
+                "2017-06-16T00:53:26Z //DEPRECATED",
                 "Test Entry",
                 "1",
                 "2",
@@ -1356,7 +1416,7 @@ observationTimestamp should be ISO8601 format with timezone: YYYY-MM-DDThh:mm:ss
                 1,
                 1,
                 1,
-                "2017-06-16T00:54:57Z",
+                "2017-06-16T00:54:57Z //DEPRECATED",
                 "Test Entry",
                 "2",
                 "2",
@@ -1377,7 +1437,7 @@ observationTimestamp should be ISO8601 format with timezone: YYYY-MM-DDThh:mm:ss
             "plotNumber",
             "replicate",
             "blockNumber",
-            "observationTimestamp",
+            "observationTimestamp //DEPRECATED",
             "entryType",
             "X",
             "Y"

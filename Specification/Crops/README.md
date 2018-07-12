@@ -46,6 +46,8 @@ The common crop name can be used as a search parameter for Programs, Studies, an
 }
 ```
 
+
+
 ## Get Crops  [GET /brapi/v1/crops{?pageSize}{?page}]
 
 For multi crop systems this is a useful call to list all the supported crops.
@@ -79,3 +81,4 @@ For multi crop systems this is a useful call to list all the supported crops.
     }
 }
 ```
+

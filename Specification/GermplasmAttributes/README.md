@@ -47,6 +47,8 @@ List all available attribute categories.
 }
 ```
 
+
+
 ## Get Attributes  [GET /brapi/v1/attributes{?attributeCategoryDbId}{?pageSize}{?page}]
 
  List available attributes.
@@ -91,6 +93,8 @@ List all available attribute categories.
 }
 ```
 
+
+
 ## Get Germplasm Attributes by germplasmDbId  [GET /brapi/v1/germplasm/{germplasmDbId}/attributes{?attributeDbIds}{?attributeList}{?pageSize}{?page}]
 
 Values for all attributes by default.
@@ -132,3 +136,4 @@ Values for all attributes by default.
     }
 }
 ```
+

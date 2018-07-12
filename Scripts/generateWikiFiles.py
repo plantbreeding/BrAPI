@@ -144,10 +144,10 @@ def login(username, password):
 	return r3.json()['query']['tokens']['csrftoken']
 	   
 def pushPage(page, wikiToken, dir):
-	#if not os.path.exists(dir):
-	#	os.makedirs(dir)
-	#with open(dir + page['name'], 'w') as outfile:
-	#	outfile.write(page['content'])
+	if not os.path.exists(dir):
+		os.makedirs(dir)
+	with open(dir + page['name'], 'w') as outfile:
+		outfile.write(page['content'])
 	
 	r4 = session.post(api_url, data={
 		'format': 'json',

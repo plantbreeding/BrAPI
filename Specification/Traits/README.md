@@ -62,6 +62,8 @@ Call to retrieve a list of traits available in the system and their associated v
 }
 ```
 
+
+
 ## Get Traits by traitDbId  [GET /brapi/v1/traits/{traitDbId}]
 
  Scope: CORE. Status: ACCEPTED.
@@ -100,3 +102,4 @@ Retrieve the variables associated to a trait
     }
 }
 ```
+

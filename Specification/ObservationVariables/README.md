@@ -56,6 +56,8 @@ Call to retrieve a list of observation variable ontologies available in the syst
 }
 ```
 
+
+
 ## Post Variables-search  [POST /brapi/v1/variables-search]
 
 Search observation variables.
@@ -66,7 +68,11 @@ See <a href="https://brapi.docs.apiary.io/#introduction/search-services">Search 
 + Parameters
  
 + Request (application/json)
+```
 /definitions/observationVariableSearchRequest
+```
+
+
 
 + Response 200 (application/json)
 ```
@@ -164,6 +170,8 @@ See <a href="https://brapi.docs.apiary.io/#introduction/search-services">Search 
 }
 ```
 
+
+
 ## Get Variables Datatypes  [GET /brapi/v1/variables/datatypes{?pageSize}{?page}]
 
 Call to retrieve a list of data types the variable can have. 
@@ -198,6 +206,8 @@ Call to retrieve a list of data types the variable can have.
     }
 }
 ```
+
+
 
 ## Get Variables  [GET /brapi/v1/variables{?pageSize}{?page}{?traitClass}]
 
@@ -327,6 +337,8 @@ Call to retrieve a list of observationVariables available in the system. <br>
 }
 ```
 
+
+
 ## Get Variables by observationVariableDbId  [GET /brapi/v1/variables/{observationVariableDbId}]
 
 Retrieve variable details <br>
@@ -415,3 +427,4 @@ Retrieve variable details <br>
     }
 }
 ```
+

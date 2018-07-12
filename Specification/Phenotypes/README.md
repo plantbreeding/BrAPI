@@ -20,12 +20,18 @@ observationValue data type inferred from the ontology
 + Parameters
  
 + Request (application/json)
+```
 /definitions/phenotypesSearchRequest
+```
+
+
 
 + Response 200 (text/csv)
 ```
 "\"year\",\"studyDbId\",\"studyName\",\"locationDbId\",\"locationName\",\"germplasmDbId\",\"germplasmName\",\"observationUnitDbId\",\"plotNumber\",\"replicate\",\"blockNumber\", \"entryType\", \"X\", \"Y\", \"variableDbId1\", \"variableDbId2\", \"variableDbId3\"\n\"2015\", \"YieldStudy2015-5\", \"Yield wheat 2015\", \"mtp-north-32\", \"Montpellier\", \"doi:10.155454/12349537E12\", \"IR-8\", \"2016-Maugio-34-575-abc-123\", \"120\", \"\", \"2\", \"\", \"5\", \"15\", \"45\", \"3\", \"10\"\n\"2016\", \"YieldStudy2016-5\", \"Yield wheat 2016\", \"mtp-north-32\", \"Montpellier\", \"doi:10.155454/12349537E13\", \"IR-8\", \"2016-Maugio-34-575-abc-124\", \"120\", \"\", \"2\", \"\", \"5\", \"15\", \"47\", \"4\", \"11\""
 ```
+
+
 
 ## Get Phenotypes-search  [GET /brapi/v1/phenotypes-search{?germplasmDbId}{?observationVariableDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}{?pageSize}{?page}]
 
@@ -188,6 +194,8 @@ observationValue data type inferred from the ontology
 }
 ```
 
+
+
 ## Post Phenotypes-search  [POST /brapi/v1/phenotypes-search]
 
 Scope: PHENOTYPING.
@@ -214,7 +222,11 @@ observationValue data type inferred from the ontology
 + Parameters
  
 + Request (application/json)
+```
 /definitions/phenotypesSearchRequest
+```
+
+
 
 + Response 200 (application/json)
 ```
@@ -339,6 +351,8 @@ observationValue data type inferred from the ontology
 }
 ```
 
+
+
 ## Post Phenotypes-search Tsv  [POST /brapi/v1/phenotypes-search/tsv]
 
 Scope: PHENOTYPING.
@@ -353,12 +367,18 @@ observationValue data type inferred from the ontology
 + Parameters
  
 + Request (application/json)
+```
 /definitions/phenotypesSearchRequest
+```
+
+
 
 + Response 200 (text/csv)
 ```
 "\"year\"    \"studyDbId\"    \"studyName\"    \"locationDbId\"    \"locationName\"    \"germplasmDbId\"    \"germplasmName\"    \"observationUnitDbId\"    \"plotNumber\"    \"replicate\"    \"blockNumber\"    \"entryType\"    \"X\"    \"Y\"     \"variableDbId1\"    \"variableDbId2\"    \"variableDbId3\"\n\"2015\"    \"YieldStudy2015-5\"    \"Yield wheat 2015\"    \"mtp-north-32\"    \"Montpellier\"    \"doi:10.155454/12349537E12\"    \"IR-8\"    \"2016-Maugio-34-575-abc-123\"    \"120\"    \"\"    \"2\"    \"\"    \"5\"    \"15\"    \"45\"    \"3\"    \"10\"\n\"2016\"    \"YieldStudy2016-5\"    \"Yield wheat 2016\"    \"mtp-north-32\"    \"Montpellier\"    \"doi:10.155454/12349537E13\"    \"IR-8\"    \"2016-Maugio-34-575-abc-124\"    \"120\"    \"\"    \"2\"    \"\"    \"5\"    \"15\"    \"47\"    \"4\"    \"11\""
 ```
+
+
 
 ## Post Phenotypes-search Table  [POST /brapi/v1/phenotypes-search/table]
 
@@ -374,7 +394,11 @@ observationValue data type inferred from the ontology
 + Parameters
  
 + Request (application/json)
+```
 /definitions/phenotypesSearchRequest
+```
+
+
 
 + Response 200 (application/json)
 ```
@@ -463,6 +487,8 @@ observationValue data type inferred from the ontology
 }
 ```
 
+
+
 ## Post Phenotypes  [POST /brapi/v1/phenotypes{?format}]
 
 Scope: PHENOTYPING. 
@@ -485,7 +511,11 @@ form data.
     + format (Optional, string) ... In case where JSON data is zipped for faster transfer speed (as in the case of the IRRI handheld implementation), the zipped JSON file will be listed in datafiles. The zipped file contains a JSON file with the same structure as the BrAPI call.
  
 + Request (application/json)
+```
 /definitions/phenotypesRequest
+```
+
+
 
 + Response 200 (metadata)
 ```
@@ -499,7 +529,9 @@ form data.
     },
     "status": []
 }
-```+ Response 200 (result)
+```
+
++ Response 200 (result)
 ```
 {
     "observations": [
@@ -521,3 +553,4 @@ form data.
     ]
 }
 ```
+

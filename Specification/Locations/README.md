@@ -73,6 +73,8 @@ Get a list of locations.
 }
 ```
 
+
+
 ## Get Locations by locationDbId  [GET /brapi/v1/locations/{locationDbId}]
 
  <strong>Implemented by:</strong>  GnpIS
@@ -117,3 +119,4 @@ Get details for a location.
     }
 }
 ```
+

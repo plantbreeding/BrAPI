@@ -70,6 +70,8 @@ API methods for tracking/managing plant samples and related meta-data. A 'Sample
 }
 ```
 
+
+
 ## Post Samples-search  [POST /brapi/v1/samples-search]
 
  Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
@@ -78,7 +80,11 @@ API methods for tracking/managing plant samples and related meta-data. A 'Sample
 + Parameters
  
 + Request (application/json)
+```
 /definitions/sampleSearchRequest
+```
+
+
 
 + Response 200 (application/json)
 ```
@@ -130,6 +136,8 @@ API methods for tracking/managing plant samples and related meta-data. A 'Sample
 }
 ```
 
+
+
 ## Put Samples  [PUT /brapi/v1/samples]
 
 Call to register the event of a sample being taken. Sample ID is assigned as a result of the operation and returned in response.
@@ -138,7 +146,11 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
 + Parameters
  
 + Request (application/json)
+```
 /definitions/sample
+```
+
+
 
 + Response 200 (application/json)
 ```
@@ -149,6 +161,8 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
     }
 }
 ```
+
+
 
 ## Get Samples by sampleDbId  [GET /brapi/v1/samples/{sampleDbId}]
 
@@ -189,3 +203,4 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
     }
 }
 ```
+

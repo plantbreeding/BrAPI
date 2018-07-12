@@ -34,7 +34,11 @@ Search for plates in the database.
 + Parameters
  
 + Request (application/json)
+```
 /definitions/vendorPlateSearchRequest
+```
+
+
 
 
 
@@ -90,6 +94,8 @@ Search for plates in the database.
 }
 ```
 
+
+
 ## Post Vendor Plates  [POST /brapi/v1/vendor/plates]
 
 Note: if the samples array is empty, plate ID will be returned.
@@ -98,7 +104,11 @@ Samples can be updated later.
 + Parameters
  
 + Request (application/json)
+```
 /definitions/vendorPlateRequest
+```
+
+
 
 
 
@@ -204,3 +214,4 @@ Samples can be updated later.
     }
 }
 ```
+
