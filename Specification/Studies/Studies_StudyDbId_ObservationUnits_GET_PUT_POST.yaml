@@ -63,7 +63,11 @@ paths:
               result:
                 data:
                 - X: '1'
+                  positionCoordinateX: '1'
+                  positionCoordinateXType: PLANTED_INDIVIDUAl
                   Y: '1'
+                  positionCoordinateY: '1'
+                  positionCoordinateYType: PLANTED_ROW
                   blockNumber: '1'
                   entryNumber: '1'
                   entryType: Test entry
@@ -96,8 +100,12 @@ paths:
                   plantNumber: '0'
                   plotNumber: '1'
                   replicate: '1'
-                - X: '1'
-                  Y: '2'
+                - X: '2'
+                  positionCoordinateX: '2'
+                  positionCoordinateXType: PLANTED_INDIVIDUAl
+                  Y: '1'
+                  positionCoordinateY: '1'
+                  positionCoordinateYType: PLANTED_ROW
                   blockNumber: '2'
                   enrtyNumber: '2'
                   entryType: Check entry
