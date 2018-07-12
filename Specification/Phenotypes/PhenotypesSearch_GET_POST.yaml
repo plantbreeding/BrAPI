@@ -117,7 +117,11 @@ paths:
               result:
                 data:
                 - X: '5'
+                  positionCoordinateX: '5'
+                  positionCoordinateXType: GRID_COL
                   Y: '15'
+                  positionCoordinateY: '15'
+                  positionCoordinateYType: GRID_ROW
                   blockNumber: '2'
                   entryNumber: '4'
                   entryType: check
@@ -161,7 +165,11 @@ paths:
                   - factor: water regimen
                     modality: water deficit
                 - X: '6'
+                  positionCoordinateX: '6'
+                  positionCoordinateXType: GRID_COL
                   Y: '15'
+                  positionCoordinateY: '15'
+                  positionCoordinateYType: GRID_ROW
                   blockNumber: '3'
                   entryNumber: '7'
                   entryType: test
@@ -258,7 +266,11 @@ paths:
               result:
                 data:
                 - X: '5'
+                  positionCoordinateX: '5'
+                  positionCoordinateXType: GRID_COL
                   Y: '15'
+                  positionCoordinateY: '15'
+                  positionCoordinateYType: GRID_ROW
                   blockNumber: '2'
                   entryNumber: '4'
                   entryType: check
@@ -302,7 +314,11 @@ paths:
                   - factor: water regimen
                     modality: water deficit
                 - X: '6'
+                  positionCoordinateX: '6'
+                  positionCoordinateXType: GRID_COL
                   Y: '15'
+                  positionCoordinateY: '15'
+                  positionCoordinateYType: GRID_ROW
                   blockNumber: '3'
                   entryNumber: '7'
                   entryType: test

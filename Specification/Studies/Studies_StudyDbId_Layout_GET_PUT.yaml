@@ -67,10 +67,14 @@ paths:
                   observationLevel: plot
                   germplasmDbId: '143'
                   germplasmName: ZIPA_68
-                  replicate: 1
-                  blockNumber: 1
-                  X: 1
-                  Y: 1
+                  replicate: '1'
+                  blockNumber: '1'
+                  X: '1'
+                  positionCoordinateX: '1'
+                  positionCoordinateXType: PLANTED_INDIVIDUAl
+                  Y: '1'
+                  positionCoordinateY: '1'
+                  positionCoordinateYType: PLANTED_ROW
                   entryType: check/test/filler
                   additionalInfo: {}
                 - studyDbId: '35'
@@ -79,10 +83,14 @@ paths:
                   observationLevel: plot
                   germplasmDbId: '144'
                   germplasmName: ZIPA_69
-                  replicate: 1
-                  blockNumber: 1
-                  X: 1
-                  Y: 2
+                  replicate: '1'
+                  blockNumber: '1'
+                  X: '2'
+                  positionCoordinateX: '2'
+                  positionCoordinateXType: PLANTED_INDIVIDUAl
+                  Y: '1'
+                  positionCoordinateY: '1'
+                  positionCoordinateYType: PLANTED_ROW
                   entryType: check/test/filler
                   additionalInfo: {}
                 - studyDbId: '35'
@@ -91,10 +99,14 @@ paths:
                   observationLevel: plot
                   germplasmDbId: '145'
                   germplasmName: ZIPA_70
-                  replicate: 1
-                  blockNumber: 1
-                  X: 1
-                  Y: 3
+                  replicate: '1'
+                  blockNumber: '1'
+                  X: '3'
+                  positionCoordinateX: '3'
+                  positionCoordinateXType: PLANTED_INDIVIDUAl
+                  Y: '1'
+                  positionCoordinateY: '1'
+                  positionCoordinateYType: PLANTED_ROW
                   entryType: check/test/filler
                   additionalInfo: {}
                 - studyDbId: '35'
@@ -103,10 +115,14 @@ paths:
                   observationLevel: plot
                   germplasmDbId: '143'
                   germplasmName: ZIPA_68
-                  replicate: 2
-                  blockNumber: 2
-                  X: 2
-                  Y: 1
+                  replicate: '2'
+                  blockNumber: '2'
+                  X: '1'
+                  positionCoordinateX: '1'
+                  positionCoordinateXType: PLANTED_INDIVIDUAl
+                  Y: '2'
+                  positionCoordinateY: '2'
+                  positionCoordinateYType: PLANTED_ROW
                   entryType: check/test/filler
                   additionalInfo: {}
           headers: {}
@@ -175,10 +191,14 @@ paths:
                   observationLevel: plot
                   germplasmDbId: '143'
                   germplasmName: ZIPA_68
-                  replicate: 1
-                  blockNumber: 1
-                  X: 1
-                  Y: 1
+                  replicate: '1'
+                  blockNumber: '1'
+                  X: '1'
+                  positionCoordinateX: '1'
+                  positionCoordinateXType: PLANTED_INDIVIDUAl
+                  Y: '1'
+                  positionCoordinateY: '1'
+                  positionCoordinateYType: PLANTED_ROW
                   entryType: check/test/filler
                   additionalInfo: {}
                 - studyDbId: '1'
@@ -187,10 +207,14 @@ paths:
                   observationLevel: plot
                   germplasmDbId: '144'
                   germplasmName: ZIPA_69
-                  replicate: 1
-                  blockNumber: 1
-                  X: 1
-                  Y: 2
+                  replicate: '1'
+                  blockNumber: '1'
+                  X: '2'
+                  positionCoordinateX: '2'
+                  positionCoordinateXType: PLANTED_INDIVIDUAl
+                  Y: '1'
+                  positionCoordinateY: '1'
+                  positionCoordinateYType: PLANTED_ROW
                   entryType: check/test/filler
                   additionalInfo: {}
                 - studyDbId: '1'
@@ -199,10 +223,14 @@ paths:
                   observationLevel: plot
                   germplasmDbId: '145'
                   germplasmName: ZIPA_70
-                  replicate: 1
-                  blockNumber: 1
-                  X: 1
-                  Y: 3
+                  replicate: '1'
+                  blockNumber: '1'
+                  X: '3'
+                  positionCoordinateX: '3'
+                  positionCoordinateXType: PLANTED_INDIVIDUAl
+                  Y: '1'
+                  positionCoordinateY: '1'
+                  positionCoordinateYType: PLANTED_ROW
                   entryType: check/test/filler
                   additionalInfo: {}
                 - studyDbId: '1'
@@ -211,10 +239,14 @@ paths:
                   observationLevel: plot
                   germplasmDbId: '143'
                   germplasmName: ZIPA_68
-                  replicate: 2
-                  blockNumber: 2
-                  X: 2
-                  Y: 1
+                  replicate: '2'
+                  blockNumber: '2'
+                  X: '1'
+                  positionCoordinateX: '1'
+                  positionCoordinateXType: PLANTED_INDIVIDUAl
+                  Y: '2'
+                  positionCoordinateY: '2'
+                  positionCoordinateYType: PLANTED_ROW
                   entryType: check/test/filler
                   additionalInfo: {}
           headers: {}
