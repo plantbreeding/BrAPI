@@ -20,6 +20,9 @@ definitions:
         description: The human readable name for a location
         type: string
       name:
+        description: DEPRECATED in v1.3 - Use "studyName"
+        type: string
+      studyName:
         description: The humane readable name of a study
         type: string
       programDbId:

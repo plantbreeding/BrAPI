@@ -1,5 +1,6 @@
 definitions:
   location:
+    type: object
     properties:
       abbreviation:
         description: An abbreviation which represents this location
@@ -43,6 +44,8 @@ definitions:
         description: the longitude of this location
         type: number
       name:
+        description: DEPRECATED in v1.3 - Use "locationName"
+        type: string
+      locationName:
         description: A human readable name for this location
         type: string
-    type: object

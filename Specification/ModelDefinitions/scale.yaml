@@ -1,14 +1,26 @@
 definitions:
   scale:
+    type: object
     description: Scale metadata
     properties:
       dataType:
         description: Class of the scale, entries can be "Numerical", "Nominal", "Ordinal", "Text", "Code", "Time", "Duration"
         type: string
+        enum:
+        - Numerical
+        - Nominal
+        - Ordinal
+        - Text
+        - Code
+        - Time
+        - Duration
       decimalPlaces:
         description: For numerical, number of decimal places to be reported
         type: integer
       name:
+        description: DEPRECATED in v1.3 - Use "scaleName"
+        type: string
+      scaleName:
         description: Name of the scale
         type: string
       scaleDbId:
@@ -20,4 +32,3 @@ definitions:
       xref:
         description: Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database
         type: string
-    type: object

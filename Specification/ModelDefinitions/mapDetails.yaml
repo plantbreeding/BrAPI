@@ -1,5 +1,6 @@
 definitions:
   mapDetails:
+    type: object
     properties:
       data:
         description: List of linkage group details associated with a given map
@@ -15,6 +16,9 @@ definitions:
         description: The ID which uniquely identifies this genome map
         type: string
       name:
+        description: DEPRECATED in v1.3 - Use "mapName"
+        type: string
+      mapName: 
         description: A human readable name for this map
         type: string
       type:
@@ -23,4 +27,3 @@ definitions:
       unit:
         description: The units used to describe the data in this map
         type: string
-    type: object

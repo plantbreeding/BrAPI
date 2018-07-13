@@ -1,5 +1,6 @@
 definitions:
-  germplasmAttributeDef:
+  germplasmAttributeDef: 
+    type: object
     properties:
       attributeCategoryDbId:
         description: The ID which uniquely identifies this attribute category within the given database server
@@ -17,6 +18,9 @@ definitions:
         description: A human readable description of this attribute
         type: string
       name:
+        description: DEPRECATED in v1.3 - Use "attributeName"
+        type: string
+      attributeName: 
         description: A human readable name for this attribute
         type: string
       uri:

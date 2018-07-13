@@ -1,5 +1,6 @@
 definitions:
   genomeMap:
+    type: object
     properties:
       comments:
         description: Additional comments
@@ -16,6 +17,9 @@ definitions:
         format: int32
         type: integer
       name:
+        description: DEPRECATED in v1.3 - Use "mapName"
+        type: string
+      mapName:
         description: A human readable name for this genome map
         type: string
       publishedDate:
@@ -31,4 +35,3 @@ definitions:
       unit:
         description: The units used to describe the data in this map
         type: string
-    type: object

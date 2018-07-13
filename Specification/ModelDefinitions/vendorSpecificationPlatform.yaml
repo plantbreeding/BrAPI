@@ -1,5 +1,6 @@
 definitions:
   vendorSpecificationPlatform:
+    type: object
     properties:
       contactEmail:
         description: The primary email address to contact a particular vendor platform
@@ -12,16 +13,20 @@ definitions:
         type: string
       deliverables:
         description: List of specific deliverables provided by the vendor platform
+        type: array
         items:
+          type: object
           properties:
             description:
               type: string
             format:
               type: string
             name:
+              description: DEPRECATED in v1.3 - Use "deliverableName"
               type: string
-          type: object
-        type: array
+            deliverableName:
+              description: Human readable name of a vendor deliverable
+              type: string
       platformDescription:
         description: Description of the vendor platform
         type: string
