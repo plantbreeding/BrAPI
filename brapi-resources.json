@@ -88,12 +88,14 @@
         }
       },
       {
-        "name": "URGI - INRA Plant Breeding BrAPI resources",
+        "name": "INRA URGI",
         "description": "Multi-species plant breeding data from INRA (French National Institute for Agricultural Research)",
+        "logo": "https://urgi.versailles.inra.fr/var/storage/images/media/images/logos/urgi/3450-2-eng-GB/URGI_small.png",
         "resource": {
           "name": "URGI GnpIS Information System",
-          "base-url": "https://urgi.versailles.inra.fr/GnpISCore-srv/brapi/v1/",
-          "description": "See web service documentation at https://urgi.versailles.inra.fr/GnpISCore-srv/swagger-ui.html."
+          "base-url": "https://urgi.versailles.inra.fr/gnpis-core-srv/brapi/v1/",
+          "logo": "https://urgi.versailles.inra.fr/var/storage/images/media/images/logos/urgi/3450-2-eng-GB/URGI_small.png",
+          "description": "See web service documentation at https://urgi.versailles.inra.fr/gnpis-core-srv/swagger-ui.html."
         }
       },
       {
