@@ -8,6 +8,9 @@ definitions:
         description: The name or identifier of the program leader to search for
         type: string
       name:
+        description: DEPRECATED in v1.3 - Use "programName"
+        type: string
+      programName: 
         description: A name of a program to search for
         type: string
       objective:

@@ -5,5 +5,8 @@ definitions:
         description: The description of this study type
         type: string
       name:
+        description: DEPRECATED in v1.3 - Use "studyTypeName"
+        type: string
+      studyTypeName: 
         description: The human readable name of a study type
         type: string

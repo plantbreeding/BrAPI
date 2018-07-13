@@ -1,5 +1,6 @@
 definitions:
-  method:
+  method: 
+    type: object
     description: Method metadata
     properties:
       class:
@@ -18,9 +19,11 @@ definitions:
         description: Method unique identifier
         type: string
       name:
-        description: Method name (usually a short name)
+        description: DEPRECATED in v1.3 - Use "methodName"
+        type: string
+      methodName: 
+        description: Human readable name for the method
         type: string
       reference:
         description: Bibliographical reference describing the method.
         type: string
-    type: object

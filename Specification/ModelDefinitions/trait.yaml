@@ -1,5 +1,6 @@
 definitions:
   trait:
+    type: object
     properties:
       alternativeAbbreviations:
         description: Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention
@@ -22,6 +23,9 @@ definitions:
         description: 'Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")'
         type: string
       name:
+        description: DEPRECATED in v1.3 - Use "traitName"
+        type: string
+      traitName: 
         description: The human readable name of a trait
         type: string
       status:

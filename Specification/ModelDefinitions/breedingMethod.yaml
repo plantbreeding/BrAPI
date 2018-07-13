@@ -12,6 +12,9 @@ definitions:
         description: an abbreviation for the name of this breeding method
       name:
         type: string
+        description: DEPRECATED in v1.3 - Use "breedingMethodName"
+      breedingMethodName:
+        type: string
         description: human readable name of the breeding method
       description:
         type: string

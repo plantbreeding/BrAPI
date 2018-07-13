@@ -1,5 +1,6 @@
 definitions:
   traitSummary:
+    type: object
     properties:
       defaultValue:
         description: The default value of a trait (if applicable) ex. "0", "", "null"
@@ -8,6 +9,9 @@ definitions:
         description: The description of a trait
         type: string
       name:
+        description: DEPRECATED in v1.3 - Use "traitName"
+        type: string
+      traitName: 
         description: The human readable name of a trait
         type: string
       observationVariables:

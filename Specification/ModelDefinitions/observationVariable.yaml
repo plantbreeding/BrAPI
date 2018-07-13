@@ -28,6 +28,9 @@ definitions:
         $ref: '#/definitions/method'
         description: The description of the method used to collect data for this variable
       name:
+        description: DEPRECATED in v1.3 - Use "observationVariableName"
+        type: string
+      observationVariableName:
         description: Variable name (usually a short name)
         type: string
       observationVariableDbId:
@@ -65,7 +68,7 @@ definitions:
         type: string
     required:
     - observationVariableDbId
-    - name
+    - observationVariableName
     - ontologyDbId
     - ontologyName
     - trait
