@@ -11,12 +11,7 @@ paths:
               metadata:
                $ref: '#/definitions/metadata'
               result:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items:
-                      type: string
+               $ref: '#/definitions/dataTypesResponseResult'
           headers: {}
           examples:
             application/json:

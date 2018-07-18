@@ -4,6 +4,7 @@ definitions:
     description: Method metadata
     properties:
       class:
+        title: className
         description: 'Method class (examples: "Measurement", "Counting", "Estimation",
           "Computation", etc.'
         type: string
