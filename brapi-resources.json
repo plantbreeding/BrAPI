@@ -26,13 +26,6 @@
         }
       },
       {
-        "name": "BMS",
-        "resource": {
-          "name": "BMS",
-          "base-url": "http://api.leafnode.io:10081/bmsapi"
-        }
-      },
-      {
         "name": "Boyce Thompson Institute",
         "description": "Discovery and inovation in the life sciences",
         "logo": "https://cassavabase.org/static/img/bti_logo_2016.png",
