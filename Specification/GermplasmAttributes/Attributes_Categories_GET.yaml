@@ -1,12 +1,10 @@
-swagger: '2.0'
 paths:
   /attributes/categories:
     get:
-      description: '
-        Scope: OTHER. Status: ACCEPTED.
-        
+      description: ' Scope: OTHER. Status: ACCEPTED.
+
         Implementation target date: PAG2016
-        
+
         List all available attribute categories.
 
         <a href="https://test-server.brapi.org/brapi/v1/attributes"> test-server.brapi.org/brapi/v1/attributes/categories</a>'
@@ -16,8 +14,7 @@ paths:
         name: pageSize
         required: false
         type: integer
-      - description: Which result page is requested. The page indexing starts at 0
-          (the first page is 'page'= 0). Default is `0`.
+      - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
         in: query
         name: page
         required: false
@@ -25,29 +22,16 @@ paths:
       responses:
         '200':
           description: OK
-          schema:
-            title: germplasmAttributeCategoriesResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items: 
-                      $ref: '#/definitions/germplasmAttributeCategory' 
-          examples: 
+          examples:
             application/json:
               metadata:
+                datafiles: []
                 pagination:
-                  pageSize: 10
                   currentPage: 1
+                  pageSize: 10
                   totalCount: 2
                   totalPages: 1
                 status: []
-                datafiles: []
               result:
                 data:
                 - attributeCategoryDbId: '1'
@@ -55,6 +39,20 @@ paths:
                 - attributeCategoryDbId: '2'
                   name: Agronomic
           headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/definitions/germplasmAttributeCategory'
+                    type: array
+                type: object
+            title: germplasmAttributeCategoriesResponse
+            type: object
       summary: Germplasm attribute categories
       tags:
       - Germplasm Attributes
+swagger: '2.0'

@@ -1,9 +1,9 @@
 paths:
   /vendor/plates:
     post:
-      description: |-
-        Note: if the samples array is empty, plate ID will be returned.
-        Samples can be updated later.
+      description: 'Note: if the samples array is empty, plate ID will be returned.
+
+        Samples can be updated later.'
       parameters:
       - in: body
         name: body
@@ -12,22 +12,22 @@ paths:
       responses:
         '200':
           description: OK
-          schema:
-            title: vendorPlatesResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                type: object
-                properties:
-                  plates:
-                    type: array
-                    items: 
-                      $ref: '#/definitions/vendorPlate'
           examples: {}
           headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                properties:
+                  plates:
+                    items:
+                      $ref: '#/definitions/vendorPlate'
+                    type: array
+                type: object
+            title: vendorPlatesResponse
+            type: object
       summary: Register plates
-      tags: 
+      tags:
       - Vendor Samples
 swagger: '2.0'

@@ -1,11 +1,10 @@
-swagger: '2.0'
 paths:
   /studies/{studyDbId}/observations:
     get:
       description: '
 
         Retrieve all observations where there are measurements for the given observation variables.
-        
+
         observationTimestamp should be ISO8601 format with timezone: YYYY-MM-DDThh:mm:ss+hhmm
 
         <a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies/{studyDbId}/observations</a>'
@@ -15,21 +14,19 @@ paths:
         name: studyDbId
         required: true
         type: string
-      - description: Numeric `id` of that variable (combination of trait, unit and
-          method)
+      - description: Numeric `id` of that variable (combination of trait, unit and method)
         in: query
+        items:
+          type: string
         name: observationVariableDbIds
         required: false
         type: array
-        items:
-          type: string
       - description: The size of the pages to be returned. Default is `1000`.
         in: query
         name: pageSize
         required: false
         type: integer
-      - description: Which result page is requested. The page indexing starts at 0
-          (the first page is 'page'= 0). Default is `0`.
+      - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
         in: query
         name: page
         required: false
@@ -37,69 +34,64 @@ paths:
       responses:
         '200':
           description: OK
-          schema:
-            title: observationsResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items: 
-                      $ref: '#/definitions/observation' 
-          examples: 
+          examples:
             application/json:
               metadata:
+                datafiles: []
                 pagination:
-                  pageSize: 1000
                   currentPage: 0
+                  pageSize: 1000
                   totalCount: 2
                   totalPages: 1
                 status: []
-                datafiles: []
               result:
                 data:
-                - studyDbId: '35'
+                - germplasmDbId: '8383'
+                  germplasmName: Pahang
                   observationDbId: '12345'
-                  observationUnitDbId: '11'
-                  observationUnitName: ZIPA_68_Ibadan_2014
                   observationLevel: plot
-                  observationVariableDbId: 'CO_334:0100632'
-                  observationVariableName: Yield
                   observationTimeStamp: '2015-11-05T15:12:56+01:00'
-                  uploadedBy: dbUserId
-                  operator: Jane Doe
-                  germplasmDbId: '8383'
-                  germplasmName: Pahang
-                  value: '5'
-                - studyDbId: '35'
-                  observationDbId: '23456'
                   observationUnitDbId: '11'
                   observationUnitName: ZIPA_68_Ibadan_2014
-                  observationLevel: plot
-                  observationVariableDbId: 'CO_334:0100632'
-                  observationVariableName: Dry Weight
-                  observationTimeStamp: '2015-11-05T15:13:56+01:00'
-                  uploadedBy: dbUserId
+                  observationVariableDbId: CO_334:0100632
+                  observationVariableName: Yield
                   operator: Jane Doe
-                  germplasmDbId: '8383'
+                  studyDbId: '35'
+                  uploadedBy: dbUserId
+                  value: '5'
+                - germplasmDbId: '8383'
                   germplasmName: Pahang
+                  observationDbId: '23456'
+                  observationLevel: plot
+                  observationTimeStamp: '2015-11-05T15:13:56+01:00'
+                  observationUnitDbId: '11'
+                  observationUnitName: ZIPA_68_Ibadan_2014
+                  observationVariableDbId: CO_334:0100632
+                  observationVariableName: Dry Weight
+                  operator: Jane Doe
+                  studyDbId: '35'
+                  uploadedBy: dbUserId
                   value: '22.3'
           headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/definitions/observation'
+                    type: array
+                type: object
+            title: observationsResponse
+            type: object
       summary: Get Observation Units by observation variable ids
       tags:
       - Studies
       - Observations
     put:
-      description: '
-        Implementation Guidelines:
-        + If an `observationDbId` is "null" or an empty string in the request, a NEW observation should be created for the given study and observationUnit
-        + If an `observationDbId` is populated but not found in the database, a NEW observation should be created for the given study and observationUnit AND an NEW `observationDbId` should be assigned to it. A warning should be returned to the client.
-        + If an `observationDbId` is populated and found in the database, but the existing entry is not associated with the given study or observationUnit, a NEW observation should be created for the given study and observationUnit AND an NEW `observationDbId` should be assigned to it. A warning should be returned to the client.
-        + If an `observationDbId` is populated and found in the database and is associated with the given study and observationUnit, then it should be updated with the new data given.
+      description: ' Implementation Guidelines: + If an `observationDbId` is "null" or an empty string in the request, a NEW observation should be created for the given study and observationUnit + If an `observationDbId` is populated but not found in the database, a NEW observation should be created for the given study and observationUnit AND an NEW `observationDbId` should be assigned to it. A warning should be returned to the client. + If an `observationDbId` is populated and found in the database, but the existing entry is not associated with the given study or observationUnit, a NEW observation should be created for the given study and observationUnit AND an NEW `observationDbId` should be assigned to it. A warning should be returned to the client. + If an `observationDbId` is populated and found in the database and is associated with the given study and observationUnit, then it should be updated with the new data given.
 
         <a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies/{studyDbId}/observations</a>'
       parameters:
@@ -111,58 +103,59 @@ paths:
       - in: body
         name: newObservations
         schema:
-          $ref: '#/definitions/newObservationsRequest' 
+          $ref: '#/definitions/newObservationsRequest'
       responses:
         '200':
           description: OK
-          schema:
-            title: newObservationDbIdsResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                $ref: '#/definitions/newObservationDbIds' 
-          examples: 
+          examples:
             application/json:
               metadata:
+                datafiles: []
                 pagination:
-                  pageSize: 1000
                   currentPage: 0
+                  pageSize: 1000
                   totalCount: 2
                   totalPages: 1
                 status: []
-                datafiles: []
               result:
                 data:
-                - studyDbId: '35'
+                - germplasmDbId: '8383'
+                  germplasmName: Pahang
                   observationDbId: '12345'
-                  observationUnitDbId: '11'
-                  observationUnitName: ZIPA_68_Ibadan_2014
                   observationLevel: plot
-                  observationVariableDbId: 'CO_334:0100632'
-                  observationVariableName: Yield
                   observationTimestamp: '2015-11-05T15:12:56+01:00'
-                  uploadedBy: dbUserId
-                  operator: Jane Doe
-                  germplasmDbId: '8383'
-                  germplasmName: Pahang
-                  value: '5'
-                - studyDbId: '35'
-                  observationDbId: '23456'
                   observationUnitDbId: '11'
                   observationUnitName: ZIPA_68_Ibadan_2014
-                  observationLevel: plot
-                  observationVariableDbId: 'CO_334:0100632'
-                  observationVariableName: Dry Weight
-                  observationTimestamp: '2015-11-05T15:13:56+01:00'
-                  uploadedBy: dbUserId
+                  observationVariableDbId: CO_334:0100632
+                  observationVariableName: Yield
                   operator: Jane Doe
-                  germplasmDbId: '8383'
+                  studyDbId: '35'
+                  uploadedBy: dbUserId
+                  value: '5'
+                - germplasmDbId: '8383'
                   germplasmName: Pahang
+                  observationDbId: '23456'
+                  observationLevel: plot
+                  observationTimestamp: '2015-11-05T15:13:56+01:00'
+                  observationUnitDbId: '11'
+                  observationUnitName: ZIPA_68_Ibadan_2014
+                  observationVariableDbId: CO_334:0100632
+                  observationVariableName: Dry Weight
+                  operator: Jane Doe
+                  studyDbId: '35'
+                  uploadedBy: dbUserId
                   value: '22.3'
           headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                $ref: '#/definitions/newObservationDbIds'
+            title: newObservationDbIdsResponse
+            type: object
       summary: Get Observation Units by observation variable ids
       tags:
       - Studies
       - Observations
+swagger: '2.0'

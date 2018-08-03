@@ -7,12 +7,10 @@ definitions:
           $ref: '#/definitions/germplasmSummary'
         type: array
       studyDbId:
-        description: |-
-          ** Deprecated ** The request contains the studyDbId
-          The ID which uniquely identifies a study within the given database server
+        description: '** Deprecated ** The request contains the studyDbId
+
+          The ID which uniquely identifies a study within the given database server'
         type: string
       trialName:
-        description: |-
-          ** Deprecated ** trialName not relevent 
-          The human readable name of a trial
+        description: "** Deprecated ** trialName not relevent \nThe human readable name of a trial"
         type: string

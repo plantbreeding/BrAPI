@@ -1,10 +1,7 @@
-swagger: '2.0'
-
 paths:
   /samples-search:
     get:
-      description: '
-        Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
+      description: ' Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
 
         <a href="https://test-server.brapi.org/brapi/v1/samples"> test-server.brapi.org/brapi/v1/samples-search</a>'
       parameters:
@@ -13,8 +10,7 @@ paths:
         name: sampleDbId
         required: false
         type: string
-      - description: the internal DB id for an observation unit where a sample was
-          taken from
+      - description: the internal DB id for an observation unit where a sample was taken from
         in: query
         name: observationUnitDbId
         required: false
@@ -29,14 +25,14 @@ paths:
         name: germplasmDbId
         required: false
         type: string
-      - name: pageSize
+      - description: The size of the pages to be returned. Default is 1000.
         in: query
-        description: The size of the pages to be returned. Default is 1000.
+        name: pageSize
         required: false
         type: integer
-      - name: page
+      - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is 0.
         in: query
-        description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is 0.
+        name: page
         required: false
         type: integer
       produces:
@@ -44,19 +40,6 @@ paths:
       responses:
         '200':
           description: OK
-          schema:
-            title: samplesResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items: 
-                      $ref: '#/definitions/sample' 
           examples:
             application/json:
               metadata:
@@ -77,7 +60,7 @@ paths:
                   plateIndex: 0
                   plotDbId: PlotId-123
                   sampleDbId: Unique-Plant-SampleID-1
-                  sampleTimestamp: 2016-07-27T14:43:22+01:00
+                  sampleTimestamp: 2016-07-27 13:43:22
                   sampleType: TypeOfSample
                   studyDbId: StudyId-123
                   takenBy: Mr. Technician
@@ -90,22 +73,34 @@ paths:
                   plateIndex: 0
                   plotDbId: PlotId-123
                   sampleDbId: Unique-Plant-SampleID-2
-                  sampleTimestamp: 2016-07-27T14:43:22+01:00
+                  sampleTimestamp: 2016-07-27 13:43:22
                   sampleType: TypeOfSample
                   studyDbId: StudyId-123
                   takenBy: Mr. Technician
                   tissueType: TypeOfTissue
           headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/definitions/sample'
+                    type: array
+                type: object
+            title: samplesResponse
+            type: object
       summary: Get Sample Search
       tags:
       - Samples
       - Search Services
     post:
-      description: '
-        Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
+      description: ' Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
 
         <a href="https://test-server.brapi.org/brapi/v1/samples"> test-server.brapi.org/brapi/v1/samples-search</a>'
-      parameters: 
+      parameters:
       - in: body
         name: sampleSearch
         schema:
@@ -115,19 +110,6 @@ paths:
       responses:
         '200':
           description: OK
-          schema:
-            title: samplesResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items: 
-                      $ref: '#/definitions/sample' 
           examples:
             application/json:
               metadata:
@@ -148,7 +130,7 @@ paths:
                   plateIndex: 0
                   plotDbId: PlotId-123
                   sampleDbId: Unique-Plant-SampleID-1
-                  sampleTimestamp: 2016-07-27T14:43:22+01:00
+                  sampleTimestamp: 2016-07-27 13:43:22
                   sampleType: TypeOfSample
                   studyDbId: StudyId-123
                   takenBy: Mr. Technician
@@ -161,13 +143,27 @@ paths:
                   plateIndex: 0
                   plotDbId: PlotId-123
                   sampleDbId: Unique-Plant-SampleID-2
-                  sampleTimestamp: 2016-07-27T14:43:22+01:00
+                  sampleTimestamp: 2016-07-27 13:43:22
                   sampleType: TypeOfSample
                   studyDbId: StudyId-123
                   takenBy: Mr. Technician
                   tissueType: TypeOfTissue
           headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/definitions/sample'
+                    type: array
+                type: object
+            title: samplesResponse
+            type: object
       summary: Post Sample Search
-      tags: 
+      tags:
       - Samples
       - Search Services
+swagger: '2.0'

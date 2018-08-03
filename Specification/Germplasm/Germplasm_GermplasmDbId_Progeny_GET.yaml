@@ -1,14 +1,11 @@
-swagger: '2.0'
 paths:
   /germplasm/{germplasmDbId}/progeny:
     get:
-      description: '
-        Scope: Germplasm
-        
+      description: ' Scope: Germplasm
+
         Get the germplasmDbIds for all the Progeny of a particular germplasm.
-        
-        <a href="https://test-server.brapi.org/brapi/v1/germplasm"> test-server.brapi.org/brapi/v1/germplasm/{germplasmDbId}/progeny</a>
-        '
+
+        <a href="https://test-server.brapi.org/brapi/v1/germplasm"> test-server.brapi.org/brapi/v1/germplasm/{germplasmDbId}/progeny</a> '
       parameters:
       - description: the internal id of the germplasm
         in: path
@@ -18,38 +15,39 @@ paths:
       responses:
         '200':
           description: OK
-          schema:
-            title: progenyResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                $ref: '#/definitions/progeny'
-          examples: 
+          examples:
             application/json:
               metadata:
+                datafiles: []
                 pagination:
-                  pageSize: 0
                   currentPage: 0
+                  pageSize: 0
                   totalCount: 0
                   totalPages: 0
                 status: []
-                datafiles: []
               result:
-                germplasmDbId: '382'
                 defaultDisplayName: Pahang
+                germplasmDbId: '382'
                 progeny:
-                - germplasmDbId: '402'
-                  defaultDisplayName: Child 1
+                - defaultDisplayName: Child 1
+                  germplasmDbId: '402'
                   parentType: FEMALE
-                - germplasmDbId: '403'
-                  defaultDisplayName: Child 2
+                - defaultDisplayName: Child 2
+                  germplasmDbId: '403'
                   parentType: MALE
-                - germplasmDbId: '405'
-                  defaultDisplayName: Pahang Selfed
+                - defaultDisplayName: Pahang Selfed
+                  germplasmDbId: '405'
                   parentType: SELF
           headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                $ref: '#/definitions/progeny'
+            title: progenyResponse
+            type: object
       summary: Germplasm pedigree by id
       tags:
       - Germplasm
+swagger: '2.0'

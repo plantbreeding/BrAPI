@@ -1,10 +1,8 @@
-swagger: '2.0'
 paths:
   /studies/{studyDbId}/observationunits:
     get:
-      description: '
-        The main API call for field data collection, to retrieve all the observation units within a study.
-        
+      description: ' The main API call for field data collection, to retrieve all the observation units within a study.
+
         Scope: PHENOTYPING
 
         <a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationunits</a>'
@@ -14,9 +12,7 @@ paths:
         name: studyDbId
         required: true
         type: string
-      - description: The granularity level of observation units. Either `plotNumber`
-          or `plantNumber` fields will be relavant depending on whether granularity
-          is plot or plant respectively.
+      - description: The granularity level of observation units. Either `plotNumber` or `plantNumber` fields will be relavant depending on whether granularity is plot or plant respectively.
         in: query
         name: observationLevel
         required: false
@@ -26,8 +22,7 @@ paths:
         name: pageSize
         required: false
         type: integer
-      - description: Which result page is requested. The page indexing starts at 0
-          (the first page is 'page'= 0). Default is `0`.
+      - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
         in: query
         name: page
         required: false
@@ -37,19 +32,6 @@ paths:
       responses:
         '200':
           description: OK
-          schema:
-            title: observationUnitsResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items: 
-                      $ref: '#/definitions/observationUnitStudy' 
           examples:
             application/json:
               metadata:
@@ -63,11 +45,7 @@ paths:
               result:
                 data:
                 - X: '1'
-                  positionCoordinateX: '1'
-                  positionCoordinateXType: PLANTED_INDIVIDUAl
                   Y: '1'
-                  positionCoordinateY: '1'
-                  positionCoordinateYType: PLANTED_ROW
                   blockNumber: '1'
                   entryNumber: '1'
                   entryType: Test entry
@@ -95,17 +73,17 @@ paths:
                     observationTimeStamp: '2015-06-16T00:53:26Z'
                     observationVariableDbId: '51496'
                     observationVariableName: GW100_g
-                    value: 'Light Green'
+                    value: Light Green
                   pedigree: IR-8-FP/IR-8-MP
                   plantNumber: '0'
                   plotNumber: '1'
-                  replicate: '1'
-                - X: '2'
-                  positionCoordinateX: '2'
+                  positionCoordinateX: '1'
                   positionCoordinateXType: PLANTED_INDIVIDUAl
-                  Y: '1'
                   positionCoordinateY: '1'
                   positionCoordinateYType: PLANTED_ROW
+                  replicate: '1'
+                - X: '2'
+                  Y: '1'
                   blockNumber: '2'
                   enrtyNumber: '2'
                   entryType: Check entry
@@ -126,90 +104,43 @@ paths:
                     observationTimeStamp: '2015-06-16T00:53:26Z'
                     observationVariableDbId: '51496'
                     observationVariableName: GW100_g
-                    value: 'Blue'
+                    value: Blue
                   pedigree: IR-9-FP/IR-9-MP
                   plantNumber: '0'
                   plotNumber: '2'
+                  positionCoordinateX: '2'
+                  positionCoordinateXType: PLANTED_INDIVIDUAl
+                  positionCoordinateY: '1'
+                  positionCoordinateYType: PLANTED_ROW
                   replicate: '1'
           headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/definitions/observationUnitStudy'
+                    type: array
+                type: object
+            title: observationUnitsResponse
+            type: object
       summary: Get all observation units
       tags:
       - Studies
       - Observations
-    put:
-      description: 'Use this call for uploading new Observations as JSON to a system.
-
-
-        Note: If ''observationUnitDbId'' or ''observationDbId'' is populated, they
-        should be considered updates to existing records. If an existing record of
-        that DbId is not found, the document should be treated as new records and
-        assigned new DbIds. If ''observationUnitDbId'' or ''observationDbId'' is un-populated
-        (empty string or null) the document should be treated as new records and assigned
-        new DbIds.'
-      parameters:
-      - description: The study these observation units are related to.
-        in: path
-        name: studyDbId
-        required: true
-        type: string
-      - in: body
-        name: newObservationUnitRequest
-        schema:
-          title: newObservationUnitRequestList
-          type: array
-          items:
-            $ref: '#/definitions/newObservationUnitRequest'
-      produces:
-      - application/json
-      responses:
-        '200':
-          description: OK
-          schema:
-            title: newObservationUnitDbIdsResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                $ref: '#/definitions/newObservationUnitDbIds' 
-          examples:
-            application/json:
-              metadata:
-                status:
-                - code: '1'
-                  message: Upload Successful
-              results:
-                observationUnitDbIds:
-                - 123abc
-                - 456def
-          headers: {}
-        '400':
-          description: Bad Request
-          examples:
-            application/json:
-              metadata:
-                status:
-                - code: 'Error'
-                  message: Could not update values for Observation Units
-          headers: {}
-      summary: Save Observation Unit Phenotypes
-      tags: 
-      - Studies
-      - Observations
     post:
       deprecated: true
-      description: 'This call has been deprecated in V1.1. Use instead: "PUT /studies/{studyDbId}/observationunits"
-        and "PUT /studies/{studyDbId}/observationunits/zip"'
+      description: 'This call has been deprecated in V1.1. Use instead: "PUT /studies/{studyDbId}/observationunits" and "PUT /studies/{studyDbId}/observationunits/zip"'
       parameters:
       - description: The study these observation units are related to.
         in: path
         name: studyDbId
         required: true
         type: string
-      - description: (default is JSON, but can be zip) In case where JSON data is
-          zipped for faster transfer speed (as in the case of the IRRI handheld implementation),
-          the zipped JSON file will be listed in datafiles. The zipped file contains
-          a JSON file with the same structure as the BrAPI call.
+      - description: (default is JSON, but can be zip) In case where JSON data is zipped for faster transfer speed (as in the case of the IRRI handheld implementation), the zipped JSON file will be listed in datafiles. The zipped file contains a JSON file with the same structure as the BrAPI call.
         in: query
         name: format
         required: true
@@ -217,12 +148,12 @@ paths:
       - in: body
         name: body
         schema:
-          title: newObservationsRequestWrapperDeprecated
           properties:
             metadata:
-                $ref: '#/definitions/metadata' 
+              $ref: '#/definitions/metadata'
             result:
-                $ref: '#/definitions/newObservationsRequestDeprecated'
+              $ref: '#/definitions/newObservationsRequestDeprecated'
+          title: newObservationsRequestWrapperDeprecated
       produces:
       - application/json
       responses:
@@ -239,8 +170,64 @@ paths:
                 - code: '42'
                   message: Could not update values for Observation Units
           headers: {}
-      summary: '<strong>Deprecated</strong> Save Observation Unit Phenotypes'
-      tags: 
+      summary: <strong>Deprecated</strong> Save Observation Unit Phenotypes
+      tags:
       - Studies
       - Observations
       - Deprecated
+    put:
+      description: 'Use this call for uploading new Observations as JSON to a system.
+
+
+        Note: If ''observationUnitDbId'' or ''observationDbId'' is populated, they should be considered updates to existing records. If an existing record of that DbId is not found, the document should be treated as new records and assigned new DbIds. If ''observationUnitDbId'' or ''observationDbId'' is un-populated (empty string or null) the document should be treated as new records and assigned new DbIds.'
+      parameters:
+      - description: The study these observation units are related to.
+        in: path
+        name: studyDbId
+        required: true
+        type: string
+      - in: body
+        name: newObservationUnitRequest
+        schema:
+          items:
+            $ref: '#/definitions/newObservationUnitRequest'
+          title: newObservationUnitRequestList
+          type: array
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          examples:
+            application/json:
+              metadata:
+                status:
+                - code: '1'
+                  message: Upload Successful
+              results:
+                observationUnitDbIds:
+                - 123abc
+                - 456def
+          headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                $ref: '#/definitions/newObservationUnitDbIds'
+            title: newObservationUnitDbIdsResponse
+            type: object
+        '400':
+          description: Bad Request
+          examples:
+            application/json:
+              metadata:
+                status:
+                - code: Error
+                  message: Could not update values for Observation Units
+          headers: {}
+      summary: Save Observation Unit Phenotypes
+      tags:
+      - Studies
+      - Observations
+swagger: '2.0'

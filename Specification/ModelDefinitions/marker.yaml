@@ -7,15 +7,13 @@ definitions:
           type: string
         type: array
       defaultDisplayName:
-        description: A string representing the marker that will be meaningful to the
-          user
+        description: A string representing the marker that will be meaningful to the user
         type: string
       markerDbId:
         description: Internal db identifier
         type: string
       refAlt:
-        description: List of the reference (as the first item) and alternatives (the
-          remaining items)
+        description: List of the reference (as the first item) and alternatives (the remaining items)
         items:
           type: string
         type: array

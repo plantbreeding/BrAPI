@@ -1,52 +1,49 @@
-swagger: '2.0'
 paths:
-  '/markers/{markerDbId}':
+  /markers/{markerDbId}:
     get:
+      description: "<strong>Status</strong>: ACCEPTED \n<strong>Implemented By</strong>:"
+      parameters:
+      - description: the internal id of the marker
+        in: path
+        name: markerDbId
+        required: true
+        type: string
       responses:
         '200':
           description: OK
-          headers: {}
-          schema:
-            title: markerResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                $ref: '#/definitions/marker' 
           examples:
             application/json:
               metadata:
+                datafiles: []
                 pagination:
-                  pageSize: 0
                   currentPage: 0
+                  pageSize: 0
                   totalCount: 0
                   totalPages: 0
                 status: []
-                datafiles: []
               result:
-                markerDbId: '1185'
-                defaultDisplayName: '11_10002'
-                type: SNP
-                synonyms:
-                - i_11_10002
-                - POPA1_0002
-                refAlt:
-                - A
-                - T
                 analysisMethods:
                 - illumina
                 - kasp
+                defaultDisplayName: '11_10002'
+                markerDbId: '1185'
+                refAlt:
+                - A
+                - T
+                synonyms:
+                - i_11_10002
+                - POPA1_0002
+                type: SNP
+          headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                $ref: '#/definitions/marker'
+            title: markerResponse
+            type: object
       summary: Marker Details by id
-      description: |-
-          <strong>Status</strong>: ACCEPTED 
-          <strong>Implemented By</strong>:
-      
-      tags: 
+      tags:
       - Markers
-      parameters:
-        - name: markerDbId
-          in: path
-          description: the internal id of the marker
-          required: true
-          type: string
+swagger: '2.0'

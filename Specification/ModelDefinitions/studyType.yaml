@@ -7,6 +7,6 @@ definitions:
       name:
         description: DEPRECATED in v1.3 - Use "studyTypeName"
         type: string
-      studyTypeName: 
+      studyTypeName:
         description: The human readable name of a study type
         type: string

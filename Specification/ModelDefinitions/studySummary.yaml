@@ -22,9 +22,6 @@ definitions:
       name:
         description: DEPRECATED in v1.3 - Use "studyName"
         type: string
-      studyName:
-        description: The humane readable name of a study
-        type: string
       programDbId:
         description: The ID which uniquely identifies a program within the given database server
         type: string
@@ -42,6 +39,9 @@ definitions:
         type: string
       studyDbId:
         description: The ID which uniquely identifies a study within the given database server
+        type: string
+      studyName:
+        description: The humane readable name of a study
         type: string
       studyType:
         description: The type of study being performed. ex. "Yeald Trial", etc

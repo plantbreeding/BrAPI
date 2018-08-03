@@ -1,87 +1,80 @@
-swagger: '2.0'
 paths:
   /maps:
     get:
-      tags:
-      - Genome Maps
+      description: 'Get list of maps <br>
+
+        <strong>Status:</strong> ACCEPTED <strong>Implemented by:</strong> Germinate, Cassavabase <strong>Used by:</strong> Flapjack do we need list of parents and specify mapping population?'
+      parameters:
+      - description: Species name
+        in: query
+        name: species
+        required: false
+        type: string
+      - description: Type of map
+        in: query
+        name: type
+        required: false
+        type: string
+      - description: The size of the pages to be returned. Default is `1000`.
+        in: query
+        name: pageSize
+        required: false
+        type: integer
+      - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+        in: query
+        name: page
+        required: false
+        type: integer
+      produces:
+      - application/json
       responses:
         '200':
           description: OK
-          schema:
-            title: genomeMapsResponse
-            type: object
-            properties:
-              metadata:
-               $ref: '#/definitions/metadata'
-              result:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items:
-                      $ref: '#/definitions/genomeMap'
-          headers: {}
           examples:
             application/json:
               metadata:
+                datafiles: []
                 pagination:
-                  pageSize: 1000
                   currentPage: 0
+                  pageSize: 1000
                   totalCount: 2
                   totalPages: 1
                 status: []
-                datafiles: []
               result:
                 data:
-                  - mapDbId: 'abc123'
-                    name: Some Map
-                    species: Some species
-                    type: Genetic
-                    unit: cM
-                    publishedDate: '2008-04-16'
-                    markerCount: 1000
-                    linkageGroupCount: 7
-                    comments: This map contains ...
-                  - mapDbId: 'def234'
-                    name: Some Other map
-                    species: Some Species
-                    type: Genetic
-                    unit: cM
-                    publishedDate: '2009-01-12'
-                    markerCount: 1501
-                    linkageGroupCount: 7
-                    comments: this is blah blah
-      summary: 'Get list of maps'
-      description: >-
-        Get list of maps
-        <br>
-        
-        <strong>Status:</strong> ACCEPTED
-        <strong>Implemented by:</strong> Germinate, Cassavabase
-        <strong>Used by:</strong> Flapjack
-        do we need list of parents and specify mapping population?
-      parameters:
-        - name: species
-          in: query
-          description: Species name
-          required: false
-          type: string
-        - name: type
-          in: query
-          description: Type of map
-          required: false
-          type: string
-        - name: pageSize
-          in: query
-          description: The size of the pages to be returned. Default is `1000`.
-          required: false
-          type: integer
-        - name: page
-          in: query
-          description: >-
-            Which result page is requested. The page indexing starts at 0 (the
-            first page is 'page'= 0). Default is `0`.
-          required: false
-          type: integer
-      produces:
-        - application/json
+                - comments: This map contains ...
+                  linkageGroupCount: 7
+                  mapDbId: abc123
+                  markerCount: 1000
+                  name: Some Map
+                  publishedDate: '2008-04-16'
+                  species: Some species
+                  type: Genetic
+                  unit: cM
+                - comments: this is blah blah
+                  linkageGroupCount: 7
+                  mapDbId: def234
+                  markerCount: 1501
+                  name: Some Other map
+                  publishedDate: '2009-01-12'
+                  species: Some Species
+                  type: Genetic
+                  unit: cM
+          headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/definitions/genomeMap'
+                    type: array
+                type: object
+            title: genomeMapsResponse
+            type: object
+      summary: Get list of maps
+      tags:
+      - Genome Maps
+swagger: '2.0'

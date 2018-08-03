@@ -1,12 +1,8 @@
-swagger: '2.0'
 paths:
   /trials/{trialDbId}:
     get:
-      description: '
-        Scope: PHENOTYPING.
-        Status: ACCEPTED.
-        Implementation target date: PAG2016.
-        
+      description: ' Scope: PHENOTYPING. Status: ACCEPTED. Implementation target date: PAG2016.
+
         Get trial by id.
 
         <a href="https://test-server.brapi.org/brapi/v1/trials"> test-server.brapi.org/brapi/v1/trials/{trialDbId}</a>'
@@ -21,14 +17,6 @@ paths:
       responses:
         '200':
           description: OK
-          schema:
-            title: trialResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                $ref: '#/definitions/trial' 
           examples:
             application/json:
               metadata:
@@ -77,6 +65,15 @@ paths:
                 trialDbId: 1
                 trialName: InternationalTrialA
           headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                $ref: '#/definitions/trial'
+            title: trialResponse
+            type: object
       summary: Get trial by Id
       tags:
       - Trials
+swagger: '2.0'

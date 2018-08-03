@@ -1,12 +1,10 @@
-swagger: '2.0'
 paths:
   /studies/{studyDbId}/observationvariables:
     get:
-      description: '
-        Scope: PHENOTYPING
-        
+      description: ' Scope: PHENOTYPING
+
         List all the observation variables measured in the study.
-        
+
         Refer to the data type definition of variables in `/Specification/ObservationVariables/README.md`.
 
         <a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationvariables</a>'
@@ -21,8 +19,7 @@ paths:
         name: pageSize
         required: false
         type: integer
-      - description: Which result page is requested. The page indexing starts at 0
-          (the first page is 'page'= 0). Default is `0`.
+      - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
         in: query
         name: page
         required: false
@@ -32,23 +29,6 @@ paths:
       responses:
         '200':
           description: OK
-          schema:
-            title: studyObservationVariablesResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                type: object
-                properties:
-                  studyDbId:
-                    type: string
-                  trialName:
-                    type: string
-                  data:
-                    type: array
-                    items: 
-                      $ref: '#/definitions/observationVariable' 
           examples:
             application/json:
               metadata:
@@ -64,8 +44,7 @@ paths:
                 - defaultValue: '0'
                   method:
                     class: Estimation
-                    description: Assessment of the level of yellowness in cassava
-                      storage root pulp using the tc chart
+                    description: Assessment of the level of yellowness in cassava storage root pulp using the tc chart
                     formula: null
                     methodDbId: CO_334:0010320
                     name: Visual Rating:total carotenoid by chart_method
@@ -101,8 +80,7 @@ paths:
                   language: EN
                   method:
                     class: Estimation
-                    description: Assessment of the level of yellowness in cassava
-                      storage root pulp using the tc chart
+                    description: Assessment of the level of yellowness in cassava storage root pulp using the tc chart
                     formula: null
                     methodDbId: CO_334:0010320
                     name: Visual Rating:total carotenoid by chart_method
@@ -146,7 +124,25 @@ paths:
                 studyDbId: '35'
                 trialName: myBestTrial
           headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/definitions/observationVariable'
+                    type: array
+                  studyDbId:
+                    type: string
+                  trialName:
+                    type: string
+                type: object
+            title: studyObservationVariablesResponse
+            type: object
       summary: Get Observation Variables By Study
       tags:
       - Studies
       - Observation Variables
+swagger: '2.0'

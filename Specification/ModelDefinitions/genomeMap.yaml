@@ -1,6 +1,5 @@
 definitions:
   genomeMap:
-    type: object
     properties:
       comments:
         description: Additional comments
@@ -12,15 +11,15 @@ definitions:
       mapDbId:
         description: The ID which uniquely identifies this genome map
         type: string
+      mapName:
+        description: A human readable name for this genome map
+        type: string
       markerCount:
         description: The number of markers present in this genome map
         format: int32
         type: integer
       name:
         description: DEPRECATED in v1.3 - Use "mapName"
-        type: string
-      mapName:
-        description: A human readable name for this genome map
         type: string
       publishedDate:
         description: The date this genome was published
@@ -35,3 +34,4 @@ definitions:
       unit:
         description: The units used to describe the data in this map
         type: string
+    type: object

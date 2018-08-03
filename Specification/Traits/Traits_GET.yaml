@@ -1,13 +1,10 @@
-swagger: '2.0'
 paths:
   /traits:
     get:
-      description: '
-        Scope: CORE.
-        Status: ACCEPTED.
-        
+      description: ' Scope: CORE. Status: ACCEPTED.
+
         Implemented by: Germinate, Cassavabase
-        
+
         Call to retrieve a list of traits available in the system and their associated variables.
 
         <a href="https://test-server.brapi.org/brapi/v1/traits"> test-server.brapi.org/brapi/v1/traits</a>'
@@ -17,8 +14,7 @@ paths:
         name: pageSize
         required: false
         type: integer
-      - description: Which result page is requested. The page indexing starts at 0
-          (the first page is 'page'= 0). Default is `0`.
+      - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
         in: query
         name: page
         required: false
@@ -28,19 +24,6 @@ paths:
       responses:
         '200':
           description: OK
-          schema:
-            title: traitsResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items: 
-                      $ref: '#/definitions/traitSummary' 
           examples:
             application/json:
               metadata:
@@ -72,6 +55,20 @@ paths:
                   traitDbId: '123'
                   traitId: CO_334:0100620
           headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/definitions/traitSummary'
+                    type: array
+                type: object
+            title: traitsResponse
+            type: object
       summary: List all traits
       tags:
       - Observation Variables
+swagger: '2.0'

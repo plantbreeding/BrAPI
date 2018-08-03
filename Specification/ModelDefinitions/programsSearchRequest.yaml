@@ -10,9 +10,6 @@ definitions:
       name:
         description: DEPRECATED in v1.3 - Use "programName"
         type: string
-      programName: 
-        description: A name of a program to search for
-        type: string
       objective:
         description: A program objective to search for
         type: string
@@ -24,4 +21,7 @@ definitions:
         type: integer
       programDbId:
         description: A program identifier to search for
+        type: string
+      programName:
+        description: A name of a program to search for
         type: string

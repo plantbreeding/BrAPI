@@ -1,34 +1,138 @@
-swagger: '2.0'
 paths:
   /allelematrices-search:
+    get:
+      description: "Status: ACCEPTED.\n\nImplemented by: Germinate (POST only), Cassavabase\n\nUsed by: Flapjack (POST only)\n\nSee <a href=\"#introduction/search-services\">Search Services</a> for additional implementation details.\n\nThis uses a more efficient data structure and pagination for large number of markers.\n\nSee Search Services for additional implementation details.\n</br>\nThis uses a more efficient data structure and pagination for large number of markers. \n</br>\nUse GET when parameter size is less than 2K bytes.\nThis method may support asynchronous processing."
+      parameters:
+      - description: The markerprofile db ids. Not Required if 'markerDbId' or 'matrixDbId' is present.
+        in: query
+        items:
+          type: string
+        name: markerprofileDbId
+        required: false
+        type: array
+      - description: ids of the markers. if none are specified, results are returned for all markers in the database. Not Required if 'markerprofileDbId' or 'matrixDbId' is present.
+        in: query
+        items:
+          type: string
+        name: markerDbId
+        required: false
+        type: array
+      - description: ''
+        in: query
+        items:
+          type: string
+        name: matrixDbId
+        required: false
+        type: array
+      - description: format for the datafile to be downloaded. tsv and csv currently supported; flapjack may be supported.
+        in: query
+        name: format
+        required: false
+        type: string
+      - description: Should homozygotes NOT be collapsed into a single occurrence?
+        in: query
+        name: expandHomozygotes
+        required: false
+        type: boolean
+      - description: The string to use as a representation for missing data or the reserved word "empty_string".
+        in: query
+        name: unknownString
+        required: false
+        type: string
+      - description: The string to use as a separator for phased allele calls or the reserved word "empty_string".
+        in: query
+        name: sepPhased
+        required: false
+        type: string
+      - description: The string to use as a separator for unphased allele calls or the reserved word "empty_string".
+        in: query
+        name: sepUnphased
+        required: false
+        type: string
+      - description: The size of the pages to be returned. Default is `1000`.
+        in: query
+        name: pageSize
+        required: false
+        type: integer
+      - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+        in: query
+        name: page
+        required: false
+        type: integer
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: OK
+          examples:
+            application/json:
+              metadata:
+                datafiles: []
+                pagination:
+                  currentPage: 0
+                  pageSize: 1000
+                  totalCount: 4
+                  totalPages: 1
+                status: []
+              result:
+                data:
+                - - '1'
+                  - '1'
+                  - A/B
+                - - '1'
+                  - '2'
+                  - B
+                - - '2'
+                  - '1'
+                  - A
+                - - '2'
+                  - '2'
+                  - A/B
+          headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                $ref: '#/definitions/alleleMatrixValues'
+            title: alleleMatrixValuesResponse
+            type: object
+      summary: Scores through GET
+      tags:
+      - Marker Profiles
     post:
-      summary: Scores through POST
-      description: |-
-        Status: ACCEPTED.
+      description: 'Status: ACCEPTED.
+
 
         Implemented by: Germinate (POST only), Cassavabase
-        
+
+
         Used by: Flapjack (POST only)
-        
+
+
         See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
-        
+
+
         This uses a more efficient data structure and pagination for large number of markers.
+
 
         Use POST when parameter size is greater than 2K bytes.
 
+
         - If no format is specified, this call returns the data in JSON form.
+
 
         - If a format (other than JSON) is specified and the server supports this format, it will return the link to the exported data file in the "datafiles" field of the "metadata".
 
+
         - If more than one format is requested at a time, the server will throw a "501 Not Implemented" error.
 
-        The format of the tsv response can be found on GitHub (https://github.com/plantbreeding/Documentation/wiki/BrAPI-TSV-Expected-Formats)
-      tags:
-      - Marker Profiles
+
+        The format of the tsv response can be found on GitHub (https://github.com/plantbreeding/Documentation/wiki/BrAPI-TSV-Expected-Formats)'
       parameters:
-      - name: markerprofileDbId
+      - description: The markerprofile db ids. Not Required if 'markerDbId' or 'matrixDbId' is present.
         in: body
-        description: The markerprofile db ids. Not Required if 'markerDbId' or 'matrixDbId' is present.
+        name: markerprofileDbId
         required: true
         schema:
           $ref: '#/definitions/alleleMatrixSearchRequest'
@@ -37,168 +141,52 @@ paths:
       responses:
         '200':
           description: OK
-          headers: {
-            }
-          schema:
-            title: alleleMatrixValuesResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata'
-              result:
-                $ref: '#/definitions/alleleMatrixValues'
           examples:
+            application/json:
+              metadata:
+                datafiles: []
+                pagination:
+                  currentPage: 0
+                  pageSize: 0
+                  totalCount: 0
+                  totalPages: 0
+                status: []
+              result:
+                data:
+                - - '1'
+                  - '1'
+                  - A/B
+                - - '1'
+                  - '2'
+                  - B
+                - - '2'
+                  - '1'
+                  - A
+                - - '2'
+                  - '2'
+                  - A/B
             application/tsv:
               metadata:
-                pagination:
-                  pageSize: 0
-                  currentPage: 0
-                  totalCount: 0
-                  totalPages: 0
-                status: []
                 datafiles:
                 - https://my-fancy-server/files/allelematrix-1234.tsv
-              result:
-                data: []
-            application/json:
-              metadata:
                 pagination:
-                  pageSize: 0
                   currentPage: 0
+                  pageSize: 0
                   totalCount: 0
                   totalPages: 0
                 status: []
-                datafiles: []
               result:
-                data:
-                - - '1'
-                  - '1'
-                  - A/B
-                - - '1'
-                  - '2'
-                  - B
-                - - '2'
-                  - '1'
-                  - A
-                - - '2'
-                  - '2'
-                  - A/B
-    get:
-      summary: Scores through GET
-      tags:
-      - Marker Profiles
-      description: |-
-        Status: ACCEPTED.
-
-        Implemented by: Germinate (POST only), Cassavabase
-        
-        Used by: Flapjack (POST only)
-        
-        See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
-        
-        This uses a more efficient data structure and pagination for large number of markers.
-        
-        See Search Services for additional implementation details.
-        </br>
-        This uses a more efficient data structure and pagination for large number of markers. 
-        </br>
-        Use GET when parameter size is less than 2K bytes.
-        This method may support asynchronous processing.
-      parameters:
-      - name: markerprofileDbId
-        in: query
-        description: The markerprofile db ids. Not Required if 'markerDbId' or 'matrixDbId' is present.
-        required: false
-        type: array
-        items:
-          type: string
-      - name: markerDbId
-        in: query
-        description: ids of the markers. if none are specified, results are returned for all markers in the database. Not Required if 'markerprofileDbId' or 'matrixDbId' is present.
-        required: false
-        type: array
-        items:
-          type: string
-      - name: matrixDbId
-        in: query
-        description: ''
-        required: false
-        type: array
-        items:
-          type: string
-      - name: format
-        in: query
-        description: format for the datafile to be downloaded. tsv and csv currently supported; flapjack may be supported.
-        required: false
-        type: string
-      - name: expandHomozygotes
-        in: query
-        description: Should homozygotes NOT be collapsed into a single occurrence?
-        required: false
-        type: boolean
-      - name: unknownString
-        in: query
-        description: The string to use as a representation for missing data or the reserved word "empty_string".
-        required: false
-        type: string
-      - name: sepPhased
-        in: query
-        description: The string to use as a separator for phased allele calls or the reserved word "empty_string".
-        required: false
-        type: string
-      - name: sepUnphased
-        in: query
-        description: The string to use as a separator for unphased allele calls or the reserved word "empty_string".
-        required: false
-        type: string
-      - name: pageSize
-        in: query
-        description: The size of the pages to be returned. Default is `1000`.
-        required: false
-        type: integer
-      - name: page
-        in: query
-        description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-        required: false
-        type: integer
-      produces:
-      - application/json
-      responses:
-        '200':
-          description: OK
-          headers: {
-            }
+                data: []
+          headers: {}
           schema:
-            title: alleleMatrixValuesResponse
-            type: object
             properties:
               metadata:
                 $ref: '#/definitions/metadata'
               result:
                 $ref: '#/definitions/alleleMatrixValues'
-          examples:
-            application/json:
-              metadata:
-                pagination:
-                  pageSize: 1000
-                  currentPage: 0
-                  totalCount: 4
-                  totalPages: 1
-                status: [
-                  ]
-                datafiles: [
-                  ]
-              result:
-                data:
-                - - '1'
-                  - '1'
-                  - A/B
-                - - '1'
-                  - '2'
-                  - B
-                - - '2'
-                  - '1'
-                  - A
-                - - '2'
-                  - '2'
-                  - A/B
+            title: alleleMatrixValuesResponse
+            type: object
+      summary: Scores through POST
+      tags:
+      - Marker Profiles
+swagger: '2.0'

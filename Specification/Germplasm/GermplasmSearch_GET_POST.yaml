@@ -1,22 +1,15 @@
 paths:
   /germplasm-search:
     get:
-      description: '
-        Implemented by: GnpIS, Germinate (GET only)
+      description: ' Implemented by: GnpIS, Germinate (GET only)
 
         See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
-        
-        Notes:
-        The germplasm and germplasm MCPD calls were merged.  The MCPD fields are optional and indicated as such with the [MCPD] prefix in the description field of the "Response data types" table. Please use the "features" hash of the "calls" call to communicate with clients as to whether MCPD is supported by your implementation.
-        
-        Addresses these needs:
-        1. General germplasm search mechanism that accepts POST for complex queries
-        2. possibility to search germplasm by more parameters than those allowed by the existing germplasm search
-        3. possibility to get MCPD details by PUID rather than dbId
 
-        Use GET when parameter size is less than 2K bytes.
-        <a href="https://test-server.brapi.org/brapi/v1/germplasm"> test-server.brapi.org/brapi/v1/germplasm-search</a>
-        '
+        Notes: The germplasm and germplasm MCPD calls were merged.  The MCPD fields are optional and indicated as such with the [MCPD] prefix in the description field of the "Response data types" table. Please use the "features" hash of the "calls" call to communicate with clients as to whether MCPD is supported by your implementation.
+
+        Addresses these needs: 1. General germplasm search mechanism that accepts POST for complex queries 2. possibility to search germplasm by more parameters than those allowed by the existing germplasm search 3. possibility to get MCPD details by PUID rather than dbId
+
+        Use GET when parameter size is less than 2K bytes. <a href="https://test-server.brapi.org/brapi/v1/germplasm"> test-server.brapi.org/brapi/v1/germplasm-search</a> '
       parameters:
       - description: Permanent unique identifier (DOI, URI, etc.)
         in: query
@@ -43,8 +36,7 @@ paths:
         name: pageSize
         required: false
         type: integer
-      - description: Which result page is requested. The page indexing starts at 0
-          (the first page is 'page'= 0). Default is `0`.
+      - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
         in: query
         name: page
         required: false
@@ -54,19 +46,6 @@ paths:
       responses:
         '200':
           description: OK
-          schema:
-            title: germplasmResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items: 
-                      $ref: '#/definitions/germplasm'
           examples:
             application/json:
               metadata:
@@ -140,26 +119,33 @@ paths:
                   typeOfGermplasmStorageCode:
                   - 10
           headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/definitions/germplasm'
+                    type: array
+                type: object
+            title: germplasmResponse
+            type: object
       summary: Germplasm search through GET
       tags:
       - Germplasm
       - Search Services
     post:
-      description: '
-        Implemented by: GnpIS, Germinate (GET only)
+      description: ' Implemented by: GnpIS, Germinate (GET only)
 
         See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
-        
-        Notes:
-        The germplasm and germplasm MCPD calls were merged.  The MCPD fields are optional and indicated as such with the [MCPD] prefix in the description field of the "Response data types" table. Please use the "features" hash of the "calls" call to communicate with clients as to whether MCPD is supported by your implementation.
-        
-        Addresses these needs:
-        1. General germplasm search mechanism that accepts POST for complex queries
-        2. possibility to search germplasm by more parameters than those allowed by the existing germplasm search
-        3. possibility to get MCPD details by PUID rather than dbId
-      
-        Use POST for large queries (>2K bytes).
-        '
+
+        Notes: The germplasm and germplasm MCPD calls were merged.  The MCPD fields are optional and indicated as such with the [MCPD] prefix in the description field of the "Response data types" table. Please use the "features" hash of the "calls" call to communicate with clients as to whether MCPD is supported by your implementation.
+
+        Addresses these needs: 1. General germplasm search mechanism that accepts POST for complex queries 2. possibility to search germplasm by more parameters than those allowed by the existing germplasm search 3. possibility to get MCPD details by PUID rather than dbId
+
+        Use POST for large queries (>2K bytes). '
       parameters:
       - in: body
         name: body
@@ -170,19 +156,6 @@ paths:
       responses:
         '200':
           description: OK
-          schema:
-            title: germplasmResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items: 
-                      $ref: '#/definitions/germplasm'
           examples:
             application/json:
               metadata:
@@ -256,8 +229,21 @@ paths:
                   typeOfGermplasmStorageCode:
                   - 10
           headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/definitions/germplasm'
+                    type: array
+                type: object
+            title: germplasmResponse
+            type: object
       summary: Germplasm search through POST
-      tags: 
+      tags:
       - Germplasm
       - Search Services
 swagger: '2.0'

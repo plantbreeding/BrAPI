@@ -1,10 +1,7 @@
-swagger: '2.0'
 paths:
   /seasons:
     get:
-      description: '
-        Call to retrive all seasons (or years) in the database. (Added by Jan-Erik and Lukas 5/26/2016)
-        Scope: PHENOTYPING.
+      description: ' Call to retrive all seasons (or years) in the database. (Added by Jan-Erik and Lukas 5/26/2016) Scope: PHENOTYPING.
 
         <a href="https://test-server.brapi.org/brapi/v1/seasons"> test-server.brapi.org/brapi/v1/seasons</a>'
       parameters:
@@ -18,8 +15,7 @@ paths:
         name: pageSize
         required: false
         type: integer
-      - description: Which result page is requested. The page indexing starts at 0
-          (the first page is 'page'= 0). Default is `0`.
+      - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
         in: query
         name: page
         required: false
@@ -29,19 +25,6 @@ paths:
       responses:
         '200':
           description: OK
-          schema:
-            title: seasonsResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items: 
-                      $ref: '#/definitions/season'
           examples:
             application/json:
               metadata:
@@ -61,6 +44,20 @@ paths:
                   seasonDbId: '238'
                   year: '2016'
           headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/definitions/season'
+                    type: array
+                type: object
+            title: seasonsResponse
+            type: object
       summary: List seasons or years
       tags:
       - Studies
+swagger: '2.0'

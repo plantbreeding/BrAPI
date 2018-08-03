@@ -1,5 +1,3 @@
-swagger: '2.0'
-
 paths:
   /germplasm/{germplasmDbId}/attributes:
     get:
@@ -15,25 +13,24 @@ paths:
         type: string
       - description: Restrict the response to only the listed attributeDbIds.
         in: query
+        items:
+          type: string
         name: attributeDbIds
         required: false
         type: array
+      - description: '**Deprecated** Use "attributeDbIds" instead'
+        in: query
         items:
           type: string
-      - description: '**Deprecated** Use "attributeDbIds" instead' 
-        in: query
         name: attributeList
         required: false
         type: array
-        items:
-          type: string
       - description: The size of the pages to be returned. Default is `1000`.
         in: query
         name: pageSize
         required: false
         type: integer
-      - description: Which result page is requested. The page indexing starts at 0
-          (the first page is 'page'= 0). Default is `0`.
+      - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
         in: query
         name: page
         required: false
@@ -43,14 +40,6 @@ paths:
       responses:
         '200':
           description: OK
-          schema:
-            title: germplasmAttributeListResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                $ref: '#/definitions/germplasmAttributeList' 
           examples:
             application/json:
               metadata:
@@ -62,15 +51,24 @@ paths:
                   totalPages: 1
                 status: []
               result:
-                data: 
+                data:
                 - attributeCode: RHT
                   attributeDbId: '1'
                   attributeName: Rht-B1b
                   determinedDate: '2007-05-28'
                   value: Present
-                germplasmDbId: '01BEL084609'
+                germplasmDbId: 01BEL084609
           headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                $ref: '#/definitions/germplasmAttributeList'
+            title: germplasmAttributeListResponse
+            type: object
       summary: Germplasm attribute values
       tags:
       - Germplasm Attributes
       - Germplasm
+swagger: '2.0'

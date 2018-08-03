@@ -1,9 +1,9 @@
 definitions:
   dataTypesResponseResult:
-    title: dataTypesResponseResult
-    type: object
     properties:
       data:
-        type: array
         items:
           type: string
+        type: array
+    title: dataTypesResponseResult
+    type: object

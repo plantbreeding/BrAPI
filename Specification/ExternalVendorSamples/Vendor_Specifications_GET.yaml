@@ -1,9 +1,8 @@
 paths:
   /vendor/specifications:
     get:
-      description: '
-        Defines the plate format specification for the vendor.
-        
+      description: ' Defines the plate format specification for the vendor.
+
         <a href="https://test-server.brapi.org/brapi/v1/vendor"> test-server.brapi.org/brapi/v1/vendor/specifications</a>'
       parameters: []
       produces:
@@ -11,14 +10,6 @@ paths:
       responses:
         '200':
           description: OK
-          schema:
-            title: vendorSpecificationResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                $ref: '#/definitions/vendorSpecification'
           examples:
             application/json:
               metadata:
@@ -88,6 +79,14 @@ paths:
                 vendorPhone: 1-234-567-8910
                 vendorURL: www.example.org
           headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                $ref: '#/definitions/vendorSpecification'
+            title: vendorSpecificationResponse
+            type: object
       summary: Vendor specification
       tags:
       - Vendor Samples

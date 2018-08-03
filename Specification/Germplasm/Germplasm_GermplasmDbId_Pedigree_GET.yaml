@@ -1,19 +1,17 @@
-swagger: '2.0'
 paths:
   /germplasm/{germplasmDbId}/pedigree:
     get:
       description: '
-      
-        Scope: CORE. Status: ACCEPTED.  
+
+        Scope: CORE. Status: ACCEPTED.
 
         Implementation target date: PAG2016
 
         Implemented by: Germinate, Tripal Brapi Module, Cassavabase (without notation option)
-        
-        (http://wheat.pw.usda.gov/ggpages/gopher/administration/Template%20for%20Germplasm%20records.html) or [Lamacraft] (http://link.springer.com/article/10.1007%2FBF00021556).  
 
-        <a href="https://test-server.brapi.org/brapi/v1/germplasm"> test-server.brapi.org/brapi/v1/germplasm/{germplasmDbId}/pedigree</a>
-        '
+        (http://wheat.pw.usda.gov/ggpages/gopher/administration/Template%20for%20Germplasm%20records.html) or [Lamacraft] (http://link.springer.com/article/10.1007%2FBF00021556).
+
+        <a href="https://test-server.brapi.org/brapi/v1/germplasm"> test-server.brapi.org/brapi/v1/germplasm/{germplasmDbId}/pedigree</a> '
       parameters:
       - description: the internal id of the germplasm
         in: path
@@ -33,43 +31,44 @@ paths:
       responses:
         '200':
           description: OK
-          schema:
-            title: pedigreeResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                $ref: '#/definitions/pedigree'
-          examples: 
+          examples:
             application/json:
               metadata:
+                datafiles: []
                 pagination:
-                  pageSize: 0
                   currentPage: 0
+                  pageSize: 0
                   totalCount: 0
                   totalPages: 0
                 status: []
-                datafiles: []
               result:
-                germplasmDbId: '01BEL084609'
-                defaultDisplayName: Pahang 1
-                pedigree: Cree / Bonanza
                 crossingPlan: OPEN_POLLINATION
                 crossingYear: '2018'
+                defaultDisplayName: Pahang 1
                 familyCode: Cree_x_Bonanza_2018
+                germplasmDbId: 01BEL084609
                 parent1DbId: '166'
                 parent1Name: Cree
                 parent1Type: FEMALE
                 parent2DbId: '143'
                 parent2Name: Bonanza
                 parent2Type: MALE
+                pedigree: Cree / Bonanza
                 siblings:
-                - germplasmDbId: '383'
-                  defaultDisplayName: Pahang 2
-                - germplasmDbId: '384'
-                  defaultDisplayName: Pahang 3
+                - defaultDisplayName: Pahang 2
+                  germplasmDbId: '383'
+                - defaultDisplayName: Pahang 3
+                  germplasmDbId: '384'
           headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                $ref: '#/definitions/pedigree'
+            title: pedigreeResponse
+            type: object
       summary: Germplasm pedigree by id
       tags:
       - Germplasm
+swagger: '2.0'

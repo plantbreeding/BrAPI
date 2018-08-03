@@ -1,6 +1,5 @@
 definitions:
   program:
-    type: object
     properties:
       abbreviation:
         description: An abbreviation which represnts this program
@@ -11,12 +10,13 @@ definitions:
       name:
         description: DEPRECATED in v1.3 - Use "programName"
         type: string
-      programName: 
-        description: Human readable name of the program
-        type: string
       objective:
         description: The primary objective of the program
         type: string
       programDbId:
         description: The ID which uniquely identifies the program
         type: string
+      programName:
+        description: Human readable name of the program
+        type: string
+    type: object

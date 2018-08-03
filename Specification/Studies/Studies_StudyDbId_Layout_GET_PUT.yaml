@@ -1,19 +1,15 @@
-swagger: '2.0'
 paths:
   /studies/{studyDbId}/layout:
     get:
-      description: '
-        Retrive the layout details for a study.
-        Returns an array of observation unit position data which describes where each unit and germplasm is located within the study layout
-        
+      description: ' Retrive the layout details for a study. Returns an array of observation unit position data which describes where each unit and germplasm is located within the study layout
+
         Retrieve the plot layout of the study with id {id}.
-        
+
         For each observationUnit within a study, return the `block`, `replicate`, and `entryType` values as well as the `X` and `Y` coordinates. `entryType` can be "check", "test", or "filler".
-        
+
         Also return some human readable meta data about the observationUnit and germplasm.
-        
-        <a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies/{studyDbId}/layout</a>
-        '
+
+        <a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies/{studyDbId}/layout</a> '
       parameters:
       - description: Identifier of the study. Usually a number, could be alphanumeric.
         in: path
@@ -25,8 +21,7 @@ paths:
         name: pageSize
         required: false
         type: integer
-      - description: Which result page is requested. The page indexing starts at 0
-          (the first page is 'page'= 0). Default is `0`.
+      - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
         in: query
         name: page
         required: false
@@ -36,114 +31,109 @@ paths:
       responses:
         '200':
           description: OK
-          schema:
-            title: observationUnitPositionsResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items: 
-                      $ref: '#/definitions/observationUnitPosition'
           examples:
             application/json:
               metadata:
+                datafiles: []
                 pagination:
-                  pageSize: 1000
                   currentPage: 0
+                  pageSize: 1000
                   totalCount: 4
                   totalPages: 1
                 status: []
-                datafiles: []
               result:
                 data:
-                - studyDbId: '35'
-                  observationUnitDbId: '11'
-                  observationUnitName: ZIPA_68_Ibadan_2014
-                  observationLevel: plot
+                - X: '1'
+                  Y: '1'
+                  additionalInfo: {}
+                  blockNumber: '1'
+                  entryType: check/test/filler
                   germplasmDbId: '143'
                   germplasmName: ZIPA_68
-                  replicate: '1'
-                  blockNumber: '1'
-                  X: '1'
+                  observationLevel: plot
+                  observationUnitDbId: '11'
+                  observationUnitName: ZIPA_68_Ibadan_2014
                   positionCoordinateX: '1'
                   positionCoordinateXType: PLANTED_INDIVIDUAl
-                  Y: '1'
                   positionCoordinateY: '1'
                   positionCoordinateYType: PLANTED_ROW
-                  entryType: check/test/filler
+                  replicate: '1'
+                  studyDbId: '35'
+                - X: '2'
+                  Y: '1'
                   additionalInfo: {}
-                - studyDbId: '35'
-                  observationUnitDbId: '12'
-                  observationUnitName: ZIPA_69_Ibadan_2014
-                  observationLevel: plot
+                  blockNumber: '1'
+                  entryType: check/test/filler
                   germplasmDbId: '144'
                   germplasmName: ZIPA_69
-                  replicate: '1'
-                  blockNumber: '1'
-                  X: '2'
+                  observationLevel: plot
+                  observationUnitDbId: '12'
+                  observationUnitName: ZIPA_69_Ibadan_2014
                   positionCoordinateX: '2'
                   positionCoordinateXType: PLANTED_INDIVIDUAl
-                  Y: '1'
                   positionCoordinateY: '1'
                   positionCoordinateYType: PLANTED_ROW
-                  entryType: check/test/filler
+                  replicate: '1'
+                  studyDbId: '35'
+                - X: '3'
+                  Y: '1'
                   additionalInfo: {}
-                - studyDbId: '35'
-                  observationUnitDbId: '13'
-                  observationUnitName: ZIPA_70_Ibadan_2014
-                  observationLevel: plot
+                  blockNumber: '1'
+                  entryType: check/test/filler
                   germplasmDbId: '145'
                   germplasmName: ZIPA_70
-                  replicate: '1'
-                  blockNumber: '1'
-                  X: '3'
+                  observationLevel: plot
+                  observationUnitDbId: '13'
+                  observationUnitName: ZIPA_70_Ibadan_2014
                   positionCoordinateX: '3'
                   positionCoordinateXType: PLANTED_INDIVIDUAl
-                  Y: '1'
                   positionCoordinateY: '1'
                   positionCoordinateYType: PLANTED_ROW
-                  entryType: check/test/filler
+                  replicate: '1'
+                  studyDbId: '35'
+                - X: '1'
+                  Y: '2'
                   additionalInfo: {}
-                - studyDbId: '35'
-                  observationUnitDbId: '11'
-                  observationUnitName: ZIPA_68_Ibadan_2014
-                  observationLevel: plot
+                  blockNumber: '2'
+                  entryType: check/test/filler
                   germplasmDbId: '143'
                   germplasmName: ZIPA_68
-                  replicate: '2'
-                  blockNumber: '2'
-                  X: '1'
+                  observationLevel: plot
+                  observationUnitDbId: '11'
+                  observationUnitName: ZIPA_68_Ibadan_2014
                   positionCoordinateX: '1'
                   positionCoordinateXType: PLANTED_INDIVIDUAl
-                  Y: '2'
                   positionCoordinateY: '2'
                   positionCoordinateYType: PLANTED_ROW
-                  entryType: check/test/filler
-                  additionalInfo: {}
+                  replicate: '2'
+                  studyDbId: '35'
           headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/definitions/observationUnitPosition'
+                    type: array
+                type: object
+            title: observationUnitPositionsResponse
+            type: object
       summary: Retrieve plot layout details
       tags:
       - Studies
     put:
-      description: '
-        Modify a study layout
+      description: ' Modify a study layout
 
-        Update the layout data for a set of observation units within a study. Each layout object is a subset of fields within an observationUnit, so it doesnt make sense to create a new layout object by itself. 
-        
+        Update the layout data for a set of observation units within a study. Each layout object is a subset of fields within an observationUnit, so it doesnt make sense to create a new layout object by itself.
+
         Implementation Notes:
-        
-        + If any of the fields in the request object is missing, that piece of data will not be updated.
-        + If an observationUnitDbId can not be found within the given study, an error will be returned.
-        + `entryType` can have the values "check", "test", or "filler".
-        + The response should match the structure of the response from `GET studies/{studyDbId}/layout`, but it should only contain the layout objects which have been updated by the PUT request. Also, pagination is not available in the response.
 
-        <a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies/{studyDbId}/layout</a>
-        '
+        + If any of the fields in the request object is missing, that piece of data will not be updated. + If an observationUnitDbId can not be found within the given study, an error will be returned. + `entryType` can have the values "check", "test", or "filler". + The response should match the structure of the response from `GET studies/{studyDbId}/layout`, but it should only contain the layout objects which have been updated by the PUT request. Also, pagination is not available in the response.
+
+        <a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies/{studyDbId}/layout</a> '
       parameters:
       - description: Identifier of the study. Usually a number, could be alphanumeric.
         in: path
@@ -160,96 +150,97 @@ paths:
       responses:
         '200':
           description: OK
-          schema:
-            title: observationUnitPositionsResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items: 
-                      $ref: '#/definitions/observationUnitPosition'
           examples:
             application/json:
               metadata:
+                datafiles: []
                 pagination:
-                  pageSize: 1000
                   currentPage: 0
+                  pageSize: 1000
                   totalCount: 4
                   totalPages: 1
                 status: []
-                datafiles: []
               result:
                 data:
-                - studyDbId: '1'
-                  observationUnitDbId: '11'
-                  observationUnitName: ZIPA_68_Ibadan_2014
-                  observationLevel: plot
+                - X: '1'
+                  Y: '1'
+                  additionalInfo: {}
+                  blockNumber: '1'
+                  entryType: check/test/filler
                   germplasmDbId: '143'
                   germplasmName: ZIPA_68
-                  replicate: '1'
-                  blockNumber: '1'
-                  X: '1'
+                  observationLevel: plot
+                  observationUnitDbId: '11'
+                  observationUnitName: ZIPA_68_Ibadan_2014
                   positionCoordinateX: '1'
                   positionCoordinateXType: PLANTED_INDIVIDUAl
-                  Y: '1'
                   positionCoordinateY: '1'
                   positionCoordinateYType: PLANTED_ROW
-                  entryType: check/test/filler
+                  replicate: '1'
+                  studyDbId: '1'
+                - X: '2'
+                  Y: '1'
                   additionalInfo: {}
-                - studyDbId: '1'
-                  observationUnitDbId: '12'
-                  observationUnitName: ZIPA_69_Ibadan_2014
-                  observationLevel: plot
+                  blockNumber: '1'
+                  entryType: check/test/filler
                   germplasmDbId: '144'
                   germplasmName: ZIPA_69
-                  replicate: '1'
-                  blockNumber: '1'
-                  X: '2'
+                  observationLevel: plot
+                  observationUnitDbId: '12'
+                  observationUnitName: ZIPA_69_Ibadan_2014
                   positionCoordinateX: '2'
                   positionCoordinateXType: PLANTED_INDIVIDUAl
-                  Y: '1'
                   positionCoordinateY: '1'
                   positionCoordinateYType: PLANTED_ROW
-                  entryType: check/test/filler
+                  replicate: '1'
+                  studyDbId: '1'
+                - X: '3'
+                  Y: '1'
                   additionalInfo: {}
-                - studyDbId: '1'
-                  observationUnitDbId: '13'
-                  observationUnitName: ZIPA_70_Ibadan_2014
-                  observationLevel: plot
+                  blockNumber: '1'
+                  entryType: check/test/filler
                   germplasmDbId: '145'
                   germplasmName: ZIPA_70
-                  replicate: '1'
-                  blockNumber: '1'
-                  X: '3'
+                  observationLevel: plot
+                  observationUnitDbId: '13'
+                  observationUnitName: ZIPA_70_Ibadan_2014
                   positionCoordinateX: '3'
                   positionCoordinateXType: PLANTED_INDIVIDUAl
-                  Y: '1'
                   positionCoordinateY: '1'
                   positionCoordinateYType: PLANTED_ROW
-                  entryType: check/test/filler
+                  replicate: '1'
+                  studyDbId: '1'
+                - X: '1'
+                  Y: '2'
                   additionalInfo: {}
-                - studyDbId: '1'
-                  observationUnitDbId: '11'
-                  observationUnitName: ZIPA_68_Ibadan_2014
-                  observationLevel: plot
+                  blockNumber: '2'
+                  entryType: check/test/filler
                   germplasmDbId: '143'
                   germplasmName: ZIPA_68
-                  replicate: '2'
-                  blockNumber: '2'
-                  X: '1'
+                  observationLevel: plot
+                  observationUnitDbId: '11'
+                  observationUnitName: ZIPA_68_Ibadan_2014
                   positionCoordinateX: '1'
                   positionCoordinateXType: PLANTED_INDIVIDUAl
-                  Y: '2'
                   positionCoordinateY: '2'
                   positionCoordinateYType: PLANTED_ROW
-                  entryType: check/test/filler
-                  additionalInfo: {}
+                  replicate: '2'
+                  studyDbId: '1'
           headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/definitions/observationUnitPosition'
+                    type: array
+                type: object
+            title: observationUnitPositionsResponse
+            type: object
       summary: Retrieve plot layout details
       tags:
       - Studies
+swagger: '2.0'

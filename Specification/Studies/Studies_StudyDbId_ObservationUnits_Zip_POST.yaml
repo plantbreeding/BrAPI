@@ -1,20 +1,9 @@
-swagger: '2.0'
-paths: 
-  '/studies/{studyDbId}/observationunits/zip': 
+paths:
+  /studies/{studyDbId}/observationunits/zip:
     post:
-      summary: >-
-        Use this call for uploading new Observations as a Batched Zip File to a
-        system.
-      description: >-
-        Note: If 'observationUnitDbId' or 'observationDbId' is populated, they
-        should be considered updates to existing records. If an existing record of
-        that DbId is not found, the document should be treated as new records and
-        assigned new DbIds. If 'observationUnitDbId' or 'observationDbId' is
-        un-populated (empty string or null) the document should be treated as new
-        records and assigned new DbIds.
-      tags:
-      - Observations
-      - Studies
+      consumes:
+      - application/zip
+      description: 'Note: If ''observationUnitDbId'' or ''observationDbId'' is populated, they should be considered updates to existing records. If an existing record of that DbId is not found, the document should be treated as new records and assigned new DbIds. If ''observationUnitDbId'' or ''observationDbId'' is un-populated (empty string or null) the document should be treated as new records and assigned new DbIds.'
       parameters:
       - description: The study these observation units are related to.
         in: path
@@ -26,21 +15,11 @@ paths:
         schema:
           format: binary
           type: string
-      consumes:
-      - application/zip
       produces:
       - application/json
       responses:
         '200':
           description: OK
-          schema:
-            title: newObservationUnitDbIdsResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                $ref: '#/definitions/newObservationUnitDbIds' 
           examples:
             application/json:
               metadata:
@@ -52,11 +31,24 @@ paths:
                 - 123abc
                 - 456def
           headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                $ref: '#/definitions/newObservationUnitDbIds'
+            title: newObservationUnitDbIdsResponse
+            type: object
         '400':
           description: Bad Request
           examples:
             application/json:
               metadata:
                 status:
-                - code: 'Error'
+                - code: Error
                   message: Could not update values for Observation Units
+      summary: Use this call for uploading new Observations as a Batched Zip File to a system.
+      tags:
+      - Observations
+      - Studies
+swagger: '2.0'

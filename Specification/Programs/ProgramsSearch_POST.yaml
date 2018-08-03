@@ -1,38 +1,23 @@
-swagger: '2.0'
 paths:
   /programs-search:
     post:
-      description: '      
-        Advanced searching for the programs resource.
-        
+      description: ' Advanced searching for the programs resource.
+
         Status: ACCEPTED.
-        
+
         See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
-      
-      '
+
+        '
       parameters:
       - in: body
         name: body
         schema:
-          $ref: '#/definitions/programsSearchRequest' 
+          $ref: '#/definitions/programsSearchRequest'
       produces:
       - application/json
       responses:
         '200':
           description: OK
-          schema:
-            title: programsResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items: 
-                      $ref: '#/definitions/program'
           examples:
             application/json:
               metadata:
@@ -56,7 +41,21 @@ paths:
                   objective: Yield improvement
                   programDbId: '456'
           headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/definitions/program'
+                    type: array
+                type: object
+            title: programsResponse
+            type: object
       summary: Search Programs
-      tags: 
+      tags:
       - Programs
       - Search Services
+swagger: '2.0'

@@ -11,11 +11,11 @@ definitions:
         type: array
       matchMethod:
         description: How to perform string matching during search. 'exact' will search for exact, case sensitive matches only. 'case_insensitive' will search for exact matches, but case insensitive. 'wildcard' will allow the special characters '*' (star) and '%' (percent) to represent variable length arbitrary strings, and the special character '?' (question) to represent one arbitrary character.
-        type: string
         enum:
         - exact
         - case_insensitive
         - wildcard
+        type: string
       name:
         description: The search pattern for the marker name or synonym.
         type: string

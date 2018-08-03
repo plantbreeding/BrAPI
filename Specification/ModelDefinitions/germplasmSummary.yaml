@@ -1,9 +1,6 @@
 definitions:
   germplasmSummary:
     properties:
-      entryNumber:
-        description: '** Deprecated ** use /studies/{studyDbId/layout for positional germplasm relationships'
-        type: string
       accessionNumber:
         description: This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection
         type: string
@@ -11,12 +8,12 @@ definitions:
         description: The date this germplasm was aquired by the genebank (MCPD)
         format: date
         type: string
-      breedingMethodDbId:
-        description: The unique identifier for the breeding method used to create this germplasm
-        type: string
       biologicalStatusOfAccessionCode:
         description: The 3 digit code representing the biological status of the accession (MCPD)
         type: integer
+      breedingMethodDbId:
+        description: The unique identifier for the breeding method used to create this germplasm
+        type: string
       commonCropName:
         description: Common name for the crop (MCPD)
         type: string
@@ -38,6 +35,9 @@ definitions:
               type: string
           type: object
         type: array
+      entryNumber:
+        description: '** Deprecated ** use /studies/{studyDbId/layout for positional germplasm relationships'
+        type: string
       genus:
         description: Genus name for taxon. Initial uppercase letter required. (MCPD)
         type: string
@@ -89,4 +89,3 @@ definitions:
         items:
           type: string
         type: array
-        

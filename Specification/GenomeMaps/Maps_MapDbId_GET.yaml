@@ -1,69 +1,64 @@
-swagger: '2.0'
 paths:
-  '/maps/{mapDbId}':
+  /maps/{mapDbId}:
     get:
+      description: 'Provides the number of markers on each linkageGroup and the max position on the linkageGroup <br>
+
+        <strong>Status:</strong> ACCEPTED <strong>Implemented by:</strong> Germinate, Cassavabase <strong>Used by:</strong> Flapjack'
+      parameters:
+      - description: The internal db id of a selected map
+        in: path
+        name: mapDbId
+        required: true
+        type: string
+      - description: The size of the pages to be returned. Default is `1000`.
+        in: query
+        name: pageSize
+        required: false
+        type: integer
+      - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+        in: query
+        name: page
+        required: false
+        type: integer
+      produces:
+      - application/json
       responses:
         '200':
           description: OK
+          examples:
+            application/json:
+              metadata:
+                datafiles: []
+                pagination:
+                  currentPage: 0
+                  pageSize: 1000
+                  totalCount: 2
+                  totalPages: 1
+                status: []
+              result:
+                data:
+                - linkageGroupName: '1'
+                  markerCount: 100000
+                  maxPosition: 10000000
+                - linkageGroupName: '2'
+                  markerCount: 1247
+                  maxPosition: 12347889
+                linkageGroups:
+                - DEPRECATED - Replaced by 'data' in v1.1
+                mapDbId: abc123
+                name: Some map
+                type: Genetic
+                unit: cM
+          headers: {}
           schema:
-            title: mapDetailsResponse
-            type: object
             properties:
               metadata:
                 $ref: '#/definitions/metadata'
               result:
                 $ref: '#/definitions/mapDetails'
-          headers: {}
-          examples:
-            application/json:
-              metadata:
-                pagination:
-                  pageSize: 1000
-                  currentPage: 0
-                  totalCount: 2
-                  totalPages: 1
-                status: []
-                datafiles: []
-              result:
-                mapDbId: abc123
-                name: Some map
-                type: Genetic
-                unit: cM
-                linkageGroups:
-                  - DEPRECATED - Replaced by 'data' in v1.1
-                data:
-                  - linkageGroupName: '1'
-                    markerCount: 100000
-                    maxPosition: 10000000
-                  - linkageGroupName: '2'
-                    markerCount: 1247
-                    maxPosition: 12347889
+            title: mapDetailsResponse
+            type: object
       summary: Get map details
-      description: >-
-        Provides the number of markers on each linkageGroup and the max position on the linkageGroup
-        <br>
-        
-        <strong>Status:</strong> ACCEPTED
-        <strong>Implemented by:</strong> Germinate, Cassavabase
-        <strong>Used by:</strong> Flapjack
-      tags: 
+      tags:
       - Genome Maps
-      parameters:
-        - name: mapDbId
-          in: path
-          description: The internal db id of a selected map
-          required: true
-          type: string
-        - name: pageSize
-          in: query
-          description: The size of the pages to be returned. Default is `1000`.
-          required: false
-          type: integer
-        - name: page
-          in: query
-          description: >-
-            Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-          required: false
-          type: integer
-      produces:
-        - application/json
+swagger: '2.0'

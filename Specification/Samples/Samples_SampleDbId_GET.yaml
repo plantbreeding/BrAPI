@@ -1,9 +1,7 @@
-swagger: '2.0'
 paths:
   /samples/{sampleDbId}:
     get:
-      description: '
-        Used to retrieve the details of a single Sample from a Sample Tracking system.
+      description: ' Used to retrieve the details of a single Sample from a Sample Tracking system.
 
         <a href="https://test-server.brapi.org/brapi/v1/samples"> test-server.brapi.org/brapi/v1/samples/{sampleDbId}</a>'
       parameters:
@@ -15,39 +13,40 @@ paths:
       responses:
         '200':
           description: OK
-          schema:
-            title: sampleResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                $ref: '#/definitions/sample' 
-          examples: 
+          examples:
             application/json:
               metadata:
+                datafiles: []
                 pagination:
-                  pageSize: 0
                   currentPage: 0
+                  pageSize: 0
                   totalCount: 0
                   totalPages: 0
                 status: []
-                datafiles: []
               result:
-                sampleDbId: Unique-Plant-SampleID-1
-                observationUnitDbId: abc123
                 germplasmDbId: def456
-                studyDbId: StudyId-123
-                plotDbId: PlotId-123
+                notes: Cut from infected leaf
+                observationUnitDbId: abc123
                 plantDbId: PlantID-123
                 plateDbId: PlateID-123
                 plateIndex: 0
-                takenBy: Mr. Technician
+                plotDbId: PlotId-123
+                sampleDbId: Unique-Plant-SampleID-1
                 sampleTimestamp: '2016-07-27T14:43:22+01:00'
                 sampleType: TypeOfSample
+                studyDbId: StudyId-123
+                takenBy: Mr. Technician
                 tissueType: TypeOfTissue
-                notes: Cut from infected leaf
           headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                $ref: '#/definitions/sample'
+            title: sampleResponse
+            type: object
       summary: Get Sample
       tags:
       - Samples
+swagger: '2.0'

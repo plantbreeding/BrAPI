@@ -1,12 +1,9 @@
-swagger: '2.0'
 paths:
   /studytypes:
     get:
-      description: '
-        Call to retrieve the list of study types.
-        
-        Scope: PHENOTYPING.
-        Implementation target date: PAG2016
+      description: ' Call to retrieve the list of study types.
+
+        Scope: PHENOTYPING. Implementation target date: PAG2016
 
         <a href="https://test-server.brapi.org/brapi/v1/studytypes"> test-server.brapi.org/brapi/v1/studytypes</a>'
       parameters:
@@ -25,19 +22,6 @@ paths:
       responses:
         '200':
           description: OK
-          schema:
-            title: studyTypesResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items: 
-                      $ref: '#/definitions/studyType' 
           examples:
             application/json:
               metadata:
@@ -57,6 +41,20 @@ paths:
                 - description: Description for Genotyping study type
                   name: Genotype
           headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/definitions/studyType'
+                    type: array
+                type: object
+            title: studyTypesResponse
+            type: object
       summary: List study types
       tags:
       - Studies
+swagger: '2.0'

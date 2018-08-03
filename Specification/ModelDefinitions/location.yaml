@@ -1,6 +1,5 @@
 definitions:
   location:
-    type: object
     properties:
       abbreviation:
         description: An abbreviation which represents this location
@@ -37,6 +36,9 @@ definitions:
       locationDbId:
         description: string identifier
         type: string
+      locationName:
+        description: A human readable name for this location
+        type: string
       locationType:
         description: The type of location this represents (ex. Breeding Location, Storage Location, etc)
         type: string
@@ -46,6 +48,4 @@ definitions:
       name:
         description: DEPRECATED in v1.3 - Use "locationName"
         type: string
-      locationName:
-        description: A human readable name for this location
-        type: string
+    type: object

@@ -1,18 +1,15 @@
-swagger: '2.0'
 paths:
   /germplasm/{germplasmDbId}:
     get:
-      description: '
-        Scope: CORE. Status: ACCEPTED.  
-        
+      description: ' Scope: CORE. Status: ACCEPTED.
+
         Implementation target date: PAG2016
-        
+
         Implemented by: Tripal Brapi module, Germinate, Cassavabase
-        
+
         Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport Data. The MCPD fields are optional and marked with the prefix [MCPD].
-        
-        <a href="https://test-server.brapi.org/brapi/v1/germplasm"> test-server.brapi.org/brapi/v1/germplasm/{germplasmDbId}</a>
-        '
+
+        <a href="https://test-server.brapi.org/brapi/v1/germplasm"> test-server.brapi.org/brapi/v1/germplasm/{germplasmDbId}</a> '
       parameters:
       - description: The internal id of the germplasm
         in: path
@@ -24,14 +21,6 @@ paths:
       responses:
         '200':
           description: OK
-          schema:
-            title: germplasmResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                $ref: '#/definitions/germplasm'
           examples:
             application/json:
               metadata:
@@ -74,6 +63,15 @@ paths:
                 typeOfGermplasmStorageCode:
                 - 10
           headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                $ref: '#/definitions/germplasm'
+            title: germplasmResponse
+            type: object
       summary: Germplasm search by germplasmDbId
       tags:
       - Germplasm
+swagger: '2.0'

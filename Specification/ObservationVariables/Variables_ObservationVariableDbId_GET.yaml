@@ -1,100 +1,95 @@
-swagger: '2.0'
 paths:
   /variables/{observationVariableDbId}:
     get:
+      description: 'Retrieve variable details <br>
+
+        <strong>Scope:</strong> CORE
+
+        <strong>Status:</strong> ACCEPTED'
+      parameters:
+      - description: string id of the variable
+        in: path
+        name: observationVariableDbId
+        required: true
+        type: string
+      produces:
+      - application/json
       responses:
         '200':
           description: OK
-          schema:
-            title: observationVariableResponse
-            type: object
-            properties:
-              metadata:
-               $ref: '#/definitions/metadata'
-              result:
-                $ref: '#/definitions/observationVariable'
-          headers: {}
           examples:
             application/json:
               metadata:
+                datafiles: []
                 pagination:
-                  pageSize: 0
                   currentPage: 0
+                  pageSize: 0
                   totalCount: 0
                   totalPages: 0
                 status: []
-                datafiles: []
               result:
-                observationVariableDbId: 'CO_334:0100632'
+                contextOfUse:
+                - Trial evaluation
+                - Nursery evaluation
+                crop: Cassava
+                defaultValue: null
+                growthStage: mature
+                institution: ''
+                language: EN
+                method:
+                  class: Estimation
+                  description: Assessment of the level of yellowness in cassava storage root pulp using the tc chart
+                  formula: null
+                  methodDbId: CO_334:0010320
+                  name: Visual Rating:total carotenoid by chart_method
+                  reference: null
                 name: caro_spectro
+                observationVariableDbId: CO_334:0100632
                 ontologyDbId: CO_334
                 ontologyName: Cassava
-                synonyms:
-                  - Carotenoid content by spectro
-                contextOfUse:
-                  - Trial evaluation
-                  - Nursery evaluation
-                growthStage: mature
-                status: recommended
-                xref: 'TL_455:0003001'
-                institution: ''
-                scientist: ''
-                submissionTimestamp: '2016-05-13T15:43:41+01:00'
-                language: EN
-                crop: Cassava
-                trait:
-                  traitDbId: 'CO_334:0100620'
-                  name: Carotenoid content
-                  class: physiological trait
-                  description: Cassava storage root pulp carotenoid content
-                  synonyms:
-                    - carotenoid content measure
-                  mainAbbreviation: CC
-                  alternativeAbbreviations:
-                    - CCS
-                  entity: root
-                  attribute: carotenoid
-                  status: recommended
-                  xref: 'TL_455:0003023'
-                method:
-                  methodDbId: 'CO_334:0010320'
-                  name: 'Visual Rating:total carotenoid by chart_method'
-                  class: Estimation
-                  description: >-
-                    Assessment of the level of yellowness in cassava storage
-                    root pulp using the tc chart
-                  formula: null
-                  reference: null
                 scale:
-                  scaleDbId: 'CO_334:0100526'
-                  name: ug/g
                   dataType: Numeric
                   decimalPlaces: 2
-                  xref: null
+                  name: ug/g
+                  scaleDbId: CO_334:0100526
                   validValues:
-                    min: 1
-                    max: 3
                     categories:
-                      - 1=low
-                      - 2=medium
-                      - 3=high
-                defaultValue: null
+                    - 1=low
+                    - 2=medium
+                    - 3=high
+                    max: 3
+                    min: 1
+                  xref: null
+                scientist: ''
+                status: recommended
+                submissionTimestamp: '2016-05-13T15:43:41+01:00'
+                synonyms:
+                - Carotenoid content by spectro
+                trait:
+                  alternativeAbbreviations:
+                  - CCS
+                  attribute: carotenoid
+                  class: physiological trait
+                  description: Cassava storage root pulp carotenoid content
+                  entity: root
+                  mainAbbreviation: CC
+                  name: Carotenoid content
+                  status: recommended
+                  synonyms:
+                  - carotenoid content measure
+                  traitDbId: CO_334:0100620
+                  xref: TL_455:0003023
+                xref: TL_455:0003001
+          headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                $ref: '#/definitions/observationVariable'
+            title: observationVariableResponse
+            type: object
       summary: Variable details by id
-      description: >-
-        Retrieve variable details
-        <br>
-        
-        <strong>Scope:</strong> CORE
-        
-        <strong>Status:</strong> ACCEPTED
-
-      tags: 
+      tags:
       - Observation Variables
-      parameters:
-        - name: observationVariableDbId
-          in: path
-          description: string id of the variable
-          required: true
-          type: string
-      produces:
-        - application/json
+swagger: '2.0'

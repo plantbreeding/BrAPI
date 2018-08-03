@@ -1,4 +1,3 @@
-swagger: '2.0'
 paths:
   /studies/{studyDbId}/observationVariables:
     get:
@@ -18,23 +17,6 @@ paths:
       responses:
         '200':
           description: OK
-          schema:
-            title: studyObservationVariablesResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                type: object
-                properties:
-                  studyDbId:
-                    type: string
-                  trialName:
-                    type: string
-                  data:
-                    type: array
-                    items: 
-                      $ref: '#/definitions/observationVariable' 
           examples:
             application/json:
               metadata:
@@ -68,8 +50,7 @@ paths:
                   language: EN
                   method:
                     class: Estimation
-                    description: Assessment of the level of yellowness in cassava
-                      storage root pulp using the tc chart
+                    description: Assessment of the level of yellowness in cassava storage root pulp using the tc chart
                     formula: null
                     methodDbId: CO_334:0010320
                     name: Visual Rating:total carotenoid by chart_method
@@ -113,8 +94,26 @@ paths:
                 studyDbId: '123'
                 trialName: myBestTrial
           headers: {}
-      summary: '<strong>Deprecated</strong> Retrieve study observation variables'
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/definitions/observationVariable'
+                    type: array
+                  studyDbId:
+                    type: string
+                  trialName:
+                    type: string
+                type: object
+            title: studyObservationVariablesResponse
+            type: object
+      summary: <strong>Deprecated</strong> Retrieve study observation variables
       tags:
       - Studies
       - Observation Variables
       - Deprecated
+swagger: '2.0'

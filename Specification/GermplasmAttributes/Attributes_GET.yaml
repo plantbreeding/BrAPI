@@ -1,13 +1,9 @@
-swagger: '2.0'
-
 paths:
   /attributes:
     get:
-      description: '
-        List available attributes.
-        
-        <a href="https://test-server.brapi.org/brapi/v1/attributes"> test-server.brapi.org/brapi/v1/attributes</a>
-        '
+      description: ' List available attributes.
+
+        <a href="https://test-server.brapi.org/brapi/v1/attributes"> test-server.brapi.org/brapi/v1/attributes</a> '
       parameters:
       - description: filter for kind of attributes
         in: query
@@ -19,8 +15,7 @@ paths:
         name: pageSize
         required: false
         type: integer
-      - description: Which result page is requested. The page indexing starts at 0
-          (the first page is 'page'= 0). Default is `0`.
+      - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
         in: query
         name: page
         required: false
@@ -30,19 +25,6 @@ paths:
       responses:
         '200':
           description: OK
-          schema:
-            title: germplasmAttributeDefsResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items: 
-                      $ref: '#/definitions/germplasmAttributeDef' 
           examples:
             application/json:
               metadata:
@@ -58,8 +40,7 @@ paths:
                 - attributeCategoryDbId: '1'
                   code: RHT
                   datatype: Categorical
-                  description: Allele of marker 11_4769, diagnostic for allele b of
-                    reduced-height gene Rht-B1
+                  description: Allele of marker 11_4769, diagnostic for allele b of reduced-height gene Rht-B1
                   name: Rht-B1b
                   uri: http://www.cropontology.org/rdf/CO_321:0000020
                   values:
@@ -67,6 +48,20 @@ paths:
                   - Absent
                   - Heterozygous
           headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/definitions/germplasmAttributeDef'
+                    type: array
+                type: object
+            title: germplasmAttributeDefsResponse
+            type: object
       summary: Attributes by attributeCategoryDbId
       tags:
       - Germplasm Attributes
+swagger: '2.0'

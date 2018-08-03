@@ -1,12 +1,9 @@
-swagger: '2.0'
 paths:
   /programs:
     get:
-      description: '
-        Call to retrieve a list of programs.
-        
-        Status: ACCEPTED
-        Implemented By:
+      description: ' Call to retrieve a list of programs.
+
+        Status: ACCEPTED Implemented By:
 
         <a href="https://test-server.brapi.org/brapi/v1/programs"> test-server.brapi.org/brapi/v1/programs</a>'
       parameters:
@@ -25,8 +22,7 @@ paths:
         name: pageSize
         required: false
         type: integer
-      - description: Which result page is requested. The page indexing starts at 0
-          (the first page is 'page'= 0). Default is `0`.
+      - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
         in: query
         name: page
         required: false
@@ -36,19 +32,6 @@ paths:
       responses:
         '200':
           description: OK
-          schema:
-            title: programsResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items: 
-                      $ref: '#/definitions/program'
           examples:
             application/json:
               metadata:
@@ -72,6 +55,20 @@ paths:
                   objective: Yield improvement
                   programDbId: '456'
           headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/definitions/program'
+                    type: array
+                type: object
+            title: programsResponse
+            type: object
       summary: List programs
       tags:
       - Programs
+swagger: '2.0'

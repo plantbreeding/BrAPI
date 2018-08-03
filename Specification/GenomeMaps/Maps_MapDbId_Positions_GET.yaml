@@ -1,84 +1,75 @@
-swagger: '2.0'
 paths:
-  '/maps/{mapDbId}/positions':
+  /maps/{mapDbId}/positions:
     get:
+      description: 'markers ordered by linkageGroup and position <br>
+
+        <strong>Status:</strong> ACCEPTED. <strong>Implemented by:</strong> Germinate, Cassavabase <strong>Used by:</strong> Flapjack'
+      parameters:
+      - description: unique id of the map
+        in: path
+        name: mapDbId
+        required: true
+        type: string
+      - description: <strong>Deprecated</strong> Use linkageGroupName instead
+        in: query
+        name: linkageGroupId
+        required: false
+        type: string
+      - description: The chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.
+        in: query
+        name: linkageGroupName
+        required: false
+        type: string
+      - description: The size of the pages to be returned. Default is `1000`.
+        in: query
+        name: pageSize
+        required: false
+        type: integer
+      - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+        in: query
+        name: page
+        required: false
+        type: integer
+      produces:
+      - application/json
       responses:
         '200':
           description: OK
-          schema:
-            title: markersResponse
-            type: object
-            properties:
-              metadata:
-               $ref: '#/definitions/metadata'
-              result:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items:
-                      $ref: '#/definitions/markerSummaryMap'
-          headers: {}
           examples:
             application/json:
               metadata:
+                datafiles: []
                 pagination:
-                  pageSize: 1000
                   currentPage: 0
+                  pageSize: 1000
                   totalCount: 2
                   totalPages: 1
                 status: []
-                datafiles: []
               result:
                 data:
-                  - markerDbId: '1'
-                    markerName: marker1
-                    location: '1000'
-                    linkageGroupName: 1A
-                  - markerDbId: '2'
-                    markerName: marker2
-                    location: '1001'
-                    linkageGroupName: 1A
+                - linkageGroupName: 1A
+                  location: '1000'
+                  markerDbId: '1'
+                  markerName: marker1
+                - linkageGroupName: 1A
+                  location: '1001'
+                  markerDbId: '2'
+                  markerName: marker2
+          headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/definitions/markerSummaryMap'
+                    type: array
+                type: object
+            title: markersResponse
+            type: object
       summary: Get map data
-      description: >-
-        markers ordered by linkageGroup and position
-        <br>
-        
-        <strong>Status:</strong> ACCEPTED.
-        <strong>Implemented by:</strong> Germinate, Cassavabase
-        <strong>Used by:</strong> Flapjack
-        
-      tags: 
+      tags:
       - Genome Maps
-      parameters:
-        - name: mapDbId
-          in: path
-          description: unique id of the map
-          required: true
-          type: string
-        - name: linkageGroupId
-          in: query
-          description: '<strong>Deprecated</strong> Use linkageGroupName instead'
-          required: false
-          type: string
-        - name: linkageGroupName
-          in: query
-          description: >-
-            The chromosome identifier or the generic linkage group identifier if
-            the chromosome is not applicable.
-          required: false
-          type: string
-        - name: pageSize
-          in: query
-          description: The size of the pages to be returned. Default is `1000`.
-          required: false
-          type: integer
-        - name: page
-          in: query
-          description: >-
-            Which result page is requested. The page indexing starts at 0 (the
-            first page is 'page'= 0). Default is `0`.
-          required: false
-          type: integer
-      produces:
-        - application/json
+swagger: '2.0'

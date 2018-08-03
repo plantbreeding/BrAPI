@@ -6,16 +6,16 @@ definitions:
         type: string
       lastUpdated:
         description: A date format
-        type: string
         format: date-time
+        type: string
       matrixDbId:
         description: ID of the matrix
         type: string
-      name:
-        description: DEPRECATED in v1.3 - Use "matrixName"
-        type: string
       matrixName:
         description: Name of the matrix
+        type: string
+      name:
+        description: DEPRECATED in v1.3 - Use "matrixName"
         type: string
       studyDbId:
         description: Link to the study where the matrix was produced

@@ -1,21 +1,16 @@
-swagger: '2.0'
-
 paths:
   /studies-search:
     get:
-      description: '
-        Scope: PHENOTYPING.
-        Status: ACCEPTED.
-        Implementation target date: PAG2016.
-        
+      description: ' Scope: PHENOTYPING. Status: ACCEPTED. Implementation target date: PAG2016.
+
         Implemented by: Germinate
-        
+
         Used by: Flapjack, Cassavabase
-        
+
         See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
-        
+
         Get list of studies
-        
+
         StartDate and endDate should be ISO8601 format for dates: YYYY-MM-DD
 
         <a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies-search</a>'
@@ -25,8 +20,7 @@ paths:
         name: studyType
         required: false
         type: string
-      - description: Program filter to only return studies associated with given program
-          id.
+      - description: Program filter to only return studies associated with given program id.
         in: query
         name: programDbId
         required: false
@@ -53,26 +47,24 @@ paths:
         type: string
       - description: Filter studies where specified germplasm have been used/tested
         in: query
+        items:
+          type: string
         name: germplasmDbIds
         required: false
         type: array
+      - description: Filter studies where specified observation variables have been measured
+        in: query
         items:
           type: string
-      - description: Filter studies where specified observation variables have been
-          measured
-        in: query
         name: observationVariableDbIds
         required: false
         type: array
-        items:
-          type: string
       - description: The size of the pages to be returned. Default is `1000`.
         in: query
         name: pageSize
         required: false
         type: integer
-      - description: Which result page is requested. The page indexing starts at 0
-          (the first page is 'page'= 0). Default is `0`.
+      - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
         in: query
         name: page
         required: false
@@ -97,19 +89,6 @@ paths:
       responses:
         '200':
           description: OK
-          schema:
-            title: studiesResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items: 
-                      $ref: '#/definitions/studySummary' 
           examples:
             application/json:
               metadata:
@@ -161,52 +140,48 @@ paths:
                   trialDbId: '7'
                   trialName: InternationalTrialA
           headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/definitions/studySummary'
+                    type: array
+                type: object
+            title: studiesResponse
+            type: object
       summary: Search Studies (GET)
       tags:
       - Studies
       - Search Services
-
     post:
-      description: '
-        Scope: PHENOTYPING.
-        Status: ACCEPTED.
-        Implementation target date: PAG2016.
-        
+      description: ' Scope: PHENOTYPING. Status: ACCEPTED. Implementation target date: PAG2016.
+
         Implemented by: Germinate
-        
+
         Used by: Flapjack, Cassavabase
-        
+
         See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
-        
+
         Get list of studies
-        
+
         StartDate and endDate should be ISO8601 format for dates: YYYY-MM-DD
 
         <a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies-search</a>'
       parameters:
-      - description: Study Search request 
+      - description: Study Search request
         in: body
         name: studySearchRequest
         schema:
-          $ref: '#/definitions/studySearchRequest' 
+          $ref: '#/definitions/studySearchRequest'
       produces:
       - application/json
       responses:
         '200':
           description: OK
-          schema:
-            title: studiesResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items: 
-                      $ref: '#/definitions/studySummary' 
           examples:
             application/json:
               metadata:
@@ -258,8 +233,21 @@ paths:
                   trialDbId: '7'
                   trialName: InternationalTrialA
           headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/definitions/studySummary'
+                    type: array
+                type: object
+            title: studiesResponse
+            type: object
       summary: Search Studies (GET)
       tags:
       - Studies
       - Search Services
-      
+swagger: '2.0'

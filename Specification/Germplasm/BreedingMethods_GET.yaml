@@ -1,9 +1,8 @@
 paths:
   /breedingmethods:
     get:
-      description: '
-        Scope: Germplasm
-        
+      description: ' Scope: Germplasm
+
         Get the list of germplasm breeding methods available in a system.
 
         <a>example.com/brapi/v1/breedingmethods</a>'
@@ -13,8 +12,7 @@ paths:
         name: pageSize
         required: false
         type: integer
-      - description: Which result page is requested. The page indexing starts at 0
-          (the first page is 'page'= 0). Default is `0`.
+      - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
         in: query
         name: page
         required: false
@@ -24,19 +22,6 @@ paths:
       responses:
         '200':
           description: OK
-          schema:
-            title: breedingMethodsResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items: 
-                      $ref: '#/definitions/breedingMethod'
           examples:
             application/json:
               metadata:
@@ -51,16 +36,26 @@ paths:
                 data:
                 - abbreviation: MBCR
                   breedingMethodDbId: BM987
-                  description: Backcross to recover a specific gene. The coding in
-                    the genealogical table records which parent was used as the male
-                    in each cycle. Each entity kept separate.
+                  description: Backcross to recover a specific gene. The coding in the genealogical table records which parent was used as the male in each cycle. Each entity kept separate.
                   name: Male Backcross
                 - abbreviation: DSP
                   breedingMethodDbId: BM324
-                  description: Derivation through selection of a single plant, inflorescence,
-                    fruit or seed from a population
+                  description: Derivation through selection of a single plant, inflorescence, fruit or seed from a population
                   name: Single plant selection
           headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/definitions/breedingMethod'
+                    type: array
+                type: object
+            title: breedingMethodsResponse
+            type: object
       summary: GET List of Breeding Methods
       tags:
       - Germplasm

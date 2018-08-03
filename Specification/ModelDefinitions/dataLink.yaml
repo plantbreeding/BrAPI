@@ -1,12 +1,11 @@
 definitions:
   dataLink:
-    type: object
     properties:
-      name:
-        description: DEPRECATED in v1.3 - Use "dataLinkName"
-        type: string
       dataLinkName:
         description: The name of the external data link
+        type: string
+      name:
+        description: DEPRECATED in v1.3 - Use "dataLinkName"
         type: string
       type:
         description: The type of external data link
@@ -14,3 +13,4 @@ definitions:
       url:
         description: The URL which links to external data
         type: string
+    type: object

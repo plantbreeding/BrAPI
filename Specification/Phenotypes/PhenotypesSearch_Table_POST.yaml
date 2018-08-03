@@ -1,69 +1,28 @@
-swagger: '2.0'
 paths:
   /phenotypes-search/table:
     post:
-      description: |-
-        Scope: PHENOTYPING.
-        Status: ACCEPTED.
-        
-        Returns a list of observationUnit with the observed Phenotypes.
-              
-        observationTimeStamp : Iso Standard 8601.
-
-        observationValue data type inferred from the ontology
-      parameters: 
+      description: "Scope: PHENOTYPING.\nStatus: ACCEPTED.\n\nReturns a list of observationUnit with the observed Phenotypes.\n      \nobservationTimeStamp : Iso Standard 8601.\n\nobservationValue data type inferred from the ontology"
+      parameters:
       - in: body
         name: body
         schema:
-          $ref: '#/definitions/phenotypesSearchRequest' 
+          $ref: '#/definitions/phenotypesSearchRequest'
       produces:
       - application/json
       responses:
         '200':
           description: OK
-          schema:
-            title: observationUnitsTableResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                $ref: '#/definitions/observationUnitsTableResponse' 
           examples:
             application/json:
               metadata:
+                datafiles: []
                 pagination:
-                  pageSize: 1000
                   currentPage: 0
+                  pageSize: 1000
                   totalCount: 2
                   totalPages: 1
                 status: []
-                datafiles: []
               result:
-                headerRow:
-                - year
-                - studyDbId
-                - studyName
-                - locationDbId
-                - locationName
-                - germplasmDbId
-                - germplasmName
-                - observationUnitDbId
-                - plotNumber
-                - replicate
-                - blockNumber
-                - observationTimestamp
-                - entryType
-                - X
-                - Y
-                observationVariableDbIds:
-                - variable1DbId
-                - variable2DbId
-                - variable3DbId
-                observationVariableNames:
-                - plant height
-                - fruit weight
-                - root weight
                 data:
                 - - '2017'
                   - stu1
@@ -101,8 +60,41 @@ paths:
                   - '27.9'
                   - '98.65'
                   - '45.345'
+                headerRow:
+                - year
+                - studyDbId
+                - studyName
+                - locationDbId
+                - locationName
+                - germplasmDbId
+                - germplasmName
+                - observationUnitDbId
+                - plotNumber
+                - replicate
+                - blockNumber
+                - observationTimestamp
+                - entryType
+                - X
+                - Y
+                observationVariableDbIds:
+                - variable1DbId
+                - variable2DbId
+                - variable3DbId
+                observationVariableNames:
+                - plant height
+                - fruit weight
+                - root weight
           headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                $ref: '#/definitions/observationUnitsTableResponse'
+            title: observationUnitsTableResponse
+            type: object
       summary: Phenotype Search Table
       tags:
       - Phenotypes
       - Search Services
+swagger: '2.0'

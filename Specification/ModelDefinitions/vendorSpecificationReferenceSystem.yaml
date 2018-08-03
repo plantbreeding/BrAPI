@@ -1,6 +1,5 @@
 definitions:
   vendorSpecificationReferenceSystem:
-    type: object
     properties:
       URI:
         description: The primary URI for this reference system
@@ -8,6 +7,7 @@ definitions:
       name:
         description: DEPRECATED in v1.3 - Use "referenceSystemName"
         type: string
-      referenceSystemName: 
+      referenceSystemName:
         description: The human readable name for this reference system
         type: string
+    type: object

@@ -1,14 +1,11 @@
-swagger: '2.0'
 paths:
   /traits/{traitDbId}:
     get:
-      description: '
-        Scope: CORE.
-        Status: ACCEPTED.
-        
+      description: ' Scope: CORE. Status: ACCEPTED.
+
         Implemented by: Germinate
-        
-        Retrieve the variables associated to a trait 
+
+        Retrieve the variables associated to a trait
 
         <a href="https://test-server.brapi.org/brapi/v1/traits"> test-server.brapi.org/brapi/v1/traits/{traitDbId}</a>'
       parameters:
@@ -22,14 +19,6 @@ paths:
       responses:
         '200':
           description: OK
-          schema:
-            title: traitResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                $ref: '#/definitions/traitSummary' 
           examples:
             application/json:
               metadata:
@@ -51,6 +40,15 @@ paths:
                 traitDbId: '123'
                 traitId: CO:123000007
           headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                $ref: '#/definitions/traitSummary'
+            title: traitResponse
+            type: object
       summary: Retrieve trait details by id
       tags:
       - Observation Variables
+swagger: '2.0'

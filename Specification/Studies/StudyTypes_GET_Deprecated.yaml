@@ -1,24 +1,19 @@
-swagger: '2.0'
 paths:
   /studyTypes:
     get:
       deprecated: true
-      description: '
-        ** DEPRECTED ** Use /studytypes
-        
+      description: ' ** DEPRECTED ** Use /studytypes
+
         Call to retrieve the list of study types.
-        
-        Scope: PHENOTYPING.
-        Implementation target date: PAG2016
-        '
+
+        Scope: PHENOTYPING. Implementation target date: PAG2016 '
       parameters:
       - description: The size of the pages to be returned. Default is `1000`.
         in: query
         name: pageSize
         required: false
         type: integer
-      - description: Which result page is requested. The page indexing starts at 0
-          (the first page is 'page'= 0). Default is `0`.
+      - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
         in: query
         name: page
         required: false
@@ -28,19 +23,6 @@ paths:
       responses:
         '200':
           description: OK
-          schema:
-            title: studyTypesResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items: 
-                      $ref: '#/definitions/studyType' 
           examples:
             application/json:
               metadata:
@@ -60,7 +42,21 @@ paths:
                 - description: Description for Genotyping study type
                   name: Genotype
           headers: {}
-      summary: '<strong>Deprecated</strong> List study types'
-      tags: 
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/definitions/studyType'
+                    type: array
+                type: object
+            title: studyTypesResponse
+            type: object
+      summary: <strong>Deprecated</strong> List study types
+      tags:
       - Studies
       - Deprecated
+swagger: '2.0'

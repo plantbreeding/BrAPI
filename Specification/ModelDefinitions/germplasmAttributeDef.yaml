@@ -1,12 +1,14 @@
 definitions:
-  germplasmAttributeDef: 
-    type: object
+  germplasmAttributeDef:
     properties:
       attributeCategoryDbId:
         description: The ID which uniquely identifies this attribute category within the given database server
         type: string
       attributeDbId:
         description: The ID which uniquely identifies this attribute within the given database server
+        type: string
+      attributeName:
+        description: A human readable name for this attribute
         type: string
       code:
         description: Short abbreviation which represents this attribute
@@ -20,9 +22,6 @@ definitions:
       name:
         description: DEPRECATED in v1.3 - Use "attributeName"
         type: string
-      attributeName: 
-        description: A human readable name for this attribute
-        type: string
       uri:
         description: The URI reference some external documentation or ontology for this attribute
         type: string
@@ -31,3 +30,4 @@ definitions:
         items:
           type: string
         type: array
+    type: object

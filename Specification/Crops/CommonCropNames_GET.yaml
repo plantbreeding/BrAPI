@@ -1,24 +1,14 @@
 paths:
   /commonCropNames:
     get:
-      description: |-
-        List the common crop names for the crops available in a database server. 
-
-        This call is **required** for multi-crop systems where data from multiple crops may be stored in the same database server. A distinct database server is defined by everything in the URL before "/brapi/v1", including host name and base path.  
-        
-        This call is recommended for single crop systems to be compatible with multi-crop clients. For a single crop system the response should contain an array with exactly 1 element. 
-        
-        The common crop name can be used as a search parameter for Programs, Studies, and Germplasm.
-
-        <a href="https://test-server.brapi.org/brapi/v1/commonCropNames"> test-server.brapi.org/brapi/v1/commonCropNames</a>
+      description: "List the common crop names for the crops available in a database server. \n\nThis call is **required** for multi-crop systems where data from multiple crops may be stored in the same database server. A distinct database server is defined by everything in the URL before \"/brapi/v1\", including host name and base path.  \n\nThis call is recommended for single crop systems to be compatible with multi-crop clients. For a single crop system the response should contain an array with exactly 1 element. \n\nThe common crop name can be used as a search parameter for Programs, Studies, and Germplasm.\n\n<a href=\"https://test-server.brapi.org/brapi/v1/commonCropNames\"> test-server.brapi.org/brapi/v1/commonCropNames</a>"
       parameters:
       - description: The size of the pages to be returned. Default is `1000`.
         in: query
         name: pageSize
         required: false
         type: integer
-      - description: Which result page is requested. The page indexing starts at 0
-          (the first page is 'page'= 0). Default is `0`.
+      - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
         in: query
         name: page
         required: false
@@ -28,21 +18,6 @@ paths:
       responses:
         '200':
           description: OK
-          schema:
-            title: commonCropNamesResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                type: object
-                properties:
-                  data:
-                    description: array of crop names availible on the server
-                    type: array
-                    items: 
-                      description: supported crop name
-                      type: string
           examples:
             application/json:
               metadata:
@@ -60,6 +35,21 @@ paths:
                 - rice
                 - potato
           headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                properties:
+                  data:
+                    description: array of crop names availible on the server
+                    items:
+                      description: supported crop name
+                      type: string
+                    type: array
+                type: object
+            title: commonCropNamesResponse
+            type: object
       summary: List supported crops
       tags:
       - Crops

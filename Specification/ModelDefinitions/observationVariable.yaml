@@ -30,11 +30,11 @@ definitions:
       name:
         description: DEPRECATED in v1.3 - Use "observationVariableName"
         type: string
-      observationVariableName:
-        description: Variable name (usually a short name)
-        type: string
       observationVariableDbId:
         description: Variable unique identifier
+        type: string
+      observationVariableName:
+        description: Variable name (usually a short name)
         type: string
       ontologyDbId:
         description: Variable ontology unique identifier
@@ -53,8 +53,8 @@ definitions:
         type: string
       submissionTimestamp:
         description: Timestamp when the Variable was added
-        type: string
         format: date-time
+        type: string
       synonyms:
         description: Other variable names
         items:

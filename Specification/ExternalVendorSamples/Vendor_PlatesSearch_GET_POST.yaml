@@ -1,11 +1,10 @@
-
 paths:
   /vendor/plates-search:
     get:
-      description: |-
-        Search for plates in the database.
+      description: 'Search for plates in the database.
 
-        <a href="https://test-server.brapi.org/brapi/v1/vendor/plates-search"> test-server.brapi.org/brapi/v1/vendor/plates-search</a>
+
+        <a href="https://test-server.brapi.org/brapi/v1/vendor/plates-search"> test-server.brapi.org/brapi/v1/vendor/plates-search</a>'
       parameters:
       - description: ''
         in: query
@@ -32,8 +31,7 @@ paths:
         name: pageSize
         required: false
         type: integer
-      - description: Which result page is requested. The page indexing starts at 0
-          (the first page is 'page'= 0). Default is `0`.
+      - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
         in: query
         name: page
         required: false
@@ -41,55 +39,55 @@ paths:
       responses:
         '200':
           description: OK
-          schema: 
-            title: vendorPlatesResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items: 
-                      $ref: '#/definitions/vendorPlate'
           examples: {}
           headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/definitions/vendorPlate'
+                    type: array
+                type: object
+            title: vendorPlatesResponse
+            type: object
       summary: Search for plates
       tags:
       - Vendor Samples
       - Search Services
     post:
-      description: |-
-        Search for plates in the database.
+      description: 'Search for plates in the database.
 
-        <a href="https://test-server.brapi.org/brapi/v1/vendor"> test-server.brapi.org/brapi/v1/vendor/plate-search</a>
+
+        <a href="https://test-server.brapi.org/brapi/v1/vendor"> test-server.brapi.org/brapi/v1/vendor/plate-search</a>'
       parameters:
       - in: body
         name: body
         schema:
-          $ref: '#/definitions/vendorPlateSearchRequest' 
+          $ref: '#/definitions/vendorPlateSearchRequest'
       responses:
         '200':
           description: OK
-          schema: 
-            title: vendorPlatesResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                type: object
-                properties:
-                  plates:
-                    type: array
-                    items: 
-                      $ref: '#/definitions/vendorPlate'
           examples: {}
           headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                properties:
+                  plates:
+                    items:
+                      $ref: '#/definitions/vendorPlate'
+                    type: array
+                type: object
+            title: vendorPlatesResponse
+            type: object
       summary: Search for plates
-      tags: 
+      tags:
       - Vendor Samples
       - Search Services
 swagger: '2.0'

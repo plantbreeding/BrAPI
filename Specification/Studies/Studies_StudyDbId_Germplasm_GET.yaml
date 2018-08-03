@@ -1,9 +1,7 @@
-swagger: '2.0'
 paths:
   /studies/{studyDbId}/germplasm:
     get:
-      description: '
-        Scope: PHENOTYPING
+      description: ' Scope: PHENOTYPING
 
         <a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies/{studyDbId}/germplasm</a>'
       parameters:
@@ -17,8 +15,7 @@ paths:
         name: pageSize
         required: false
         type: integer
-      - description: Which result page is requested. The page indexing starts at 0
-          (the first page is 'page'= 0). Default is `0`.
+      - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
         in: query
         name: page
         required: false
@@ -26,30 +23,19 @@ paths:
       responses:
         '200':
           description: OK
-          schema:
-            title: germplasmSummaryListResponse
-            type: object
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata' 
-              result:
-                $ref: '#/definitions/germplasmSummaryList' 
-          examples: 
+          examples:
             application/json:
               metadata:
+                datafiles: []
                 pagination:
-                  pageSize: 1000
                   currentPage: 0
+                  pageSize: 1000
                   totalCount: 2
                   totalPages: 1
                 status: []
-                datafiles: []
               result:
-                studyDbId: DEPRECATED
-                trialName: DEPRECATED
                 data:
                 - accessionNumber: ITC0609
-                  entryNumber: DEPRECATED
                   acquisitionDate: '1947-01-31'
                   biologicalStatusOfAccessionCode: 412
                   commonCropName: banana
@@ -59,6 +45,7 @@ paths:
                   - donorAccessionNumber: ''
                     donorInstituteCode: ''
                     germplasmPUI: ''
+                  entryNumber: DEPRECATED
                   genus: Musa
                   germplasmDbId: 01BEL084609
                   germplasmName: Pahang
@@ -80,7 +67,6 @@ paths:
                   typeOfGermplasmStorageCode:
                   - 10
                 - accessionNumber: ITC0685
-                  entryNumber: DEPRECATED
                   acquisitionDate: '1977-01-31'
                   biologicalStatusOfAccessionCode: 412
                   commonCropName: banana
@@ -90,6 +76,7 @@ paths:
                   - donorAccessionNumber: ''
                     donorInstituteCode: ''
                     germplasmPUI: ''
+                  entryNumber: DEPRECATED
                   genus: Musa
                   germplasmDbId: 03REL084609
                   germplasmName: Pah
@@ -110,8 +97,19 @@ paths:
                     taxonId: 23-E
                   typeOfGermplasmStorageCode:
                   - 10
+                studyDbId: DEPRECATED
+                trialName: DEPRECATED
           headers: {}
+          schema:
+            properties:
+              metadata:
+                $ref: '#/definitions/metadata'
+              result:
+                $ref: '#/definitions/germplasmSummaryList'
+            title: germplasmSummaryListResponse
+            type: object
       summary: Study Germplasm Details
       tags:
       - Studies
       - Germplasm
+swagger: '2.0'
