@@ -50,6 +50,6 @@ paths:
                   defaultDisplayName: Pahang Selfed
                   parentType: SELF
           headers: {}
-      summary: Germplasm pedigree by id
+      summary: Germplasm progeny by id
       tags:
       - Germplasm
