@@ -78,13 +78,13 @@ The following are officially accepted status codes, though others maybe used for
 Code|Message|Description
 --|--|--
 200|"Success"|Optional status for representing explicitly that the request was accepted and returned without any issue
-2001|"Upload Successful"|New data was submitted to and accepted by the server
-2002|"Async call in progress"|An Async call has been successfully started, See the section on Asynchronous Calls for more details.
+201|"Upload Successful"|New data was submitted to and accepted by the server
+202|"Async call in progress"|An Async call has been successfully started, See the section on Asynchronous Calls for more details.
 400|"Failure"|Optional status for representing explicitly that the request was bad in some way
-4001|"Could not update values for <object type>"| Error to be returned when the server is unable to store some data submitted
-4002|"Missing required parameter <parameter name>"| Error to be returned when a required parameter is missing from request
-4003|"Permission Denied"| Error to be returned when the user does not have permission to access the requested resource
-4004|"No objects found for given parameters"| Error to be returned when there are no objects in the database which match the requested search parameters
+401|"Could not update values for <object type>"| Error to be returned when the server is unable to store some data submitted
+402|"Missing required parameter <parameter name>"| Error to be returned when a required parameter is missing from request
+403|"Permission Denied"| Error to be returned when the user does not have permission to access the requested resource
+404|"No objects found for given parameters"| Error to be returned when there are no objects in the database which match the requested search parameters
 
 
 + **asynchStatus**: (Optional) The `asynchStatus` object is used to provide additional information around certain calls being performed asynchronously. See the section on Asynchronous Calls for more details.
@@ -208,9 +208,9 @@ To encode locations as coordinates, the ISO 6709 standard is used, degree notati
 
 ||Unit|Format|Example|
 |---|---|---|---|
-|latitude|degrees|±DD.D|"+40.20361"|
-|longitude|degrees|±DDD.D|"-075.00417"|
-|altitude|meters|±M|"+127"|
+|latitude|degrees|Â±DD.D|"+40.20361"|
+|longitude|degrees|Â±DDD.D|"-075.00417"|
+|altitude|meters|Â±M|"+127"|
 
 Note:
  + Plus and minus signs are always required
