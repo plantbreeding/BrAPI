@@ -1,5 +1,6 @@
 definitions:
   marker:
+    type: object
     properties:
       analysisMethods:
         description: List of the genotyping platforms used to interrogate the marker
@@ -7,8 +8,7 @@ definitions:
           type: string
         type: array
       defaultDisplayName:
-        description: A string representing the marker that will be meaningful to the
-          user
+        description: DEPRECATED in v1.3 - Use "markerName"
         type: string
       markerDbId:
         description: Internal db identifier
@@ -26,4 +26,13 @@ definitions:
         type: array
       type:
         description: The type of marker, e.g. SNP
+        type: string
+      linkageGroupName:
+        description: The Uniquely Identifiable name of this linkage group
+        type: string
+      position:
+        description: The position of a marker within a linkage group
+        type: string
+      markerName:
+        description: The human readable name for a marker
         type: string

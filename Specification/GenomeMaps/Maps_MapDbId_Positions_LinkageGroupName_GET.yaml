@@ -29,6 +29,11 @@ paths:
           description: maximum position on linkage group
           required: false
           type: integer
+        - name: type
+          in: query
+          description: The type of the marker.
+          required: false
+          type: string
         - name: pageSize
           in: query
           description: The size of the pages to be returned. Default is `1000`.
@@ -58,7 +63,7 @@ paths:
                   data:
                     type: array
                     items:
-                      $ref: '#/definitions/markerSummaryLinkageGroup'
+                      $ref: '#/definitions/markerSummaryMap'
           headers: {}
           examples:
             application/json:
@@ -72,9 +77,31 @@ paths:
                 datafiles: []
               result:
                 data:
-                  - markerDbId: '1'
-                    markerName: marker1
-                    location: '1000'
-                  - markerDbId: '2'
-                    markerName: marker2
-                    location: '1001'
+                  - markerDbId: '1185'
+                    markerName: '11_10002'
+                    position: '1000'
+                    linkageGroupName: 1A
+                    type: SNP
+                    synonyms:
+                      - i_11_10002
+                      - POPA1_0002
+                    refAlt:
+                      - A
+                      - T
+                    analysisMethods:
+                      - illumina
+                      - kasp
+                  - markerDbId: '1186'
+                    markerName: '11_11159'
+                    position: '1100'
+                    linkageGroupName: 1A
+                    type: SNP
+                    synonyms:
+                      - i_11_11159
+                      - POPA1_1159
+                    refAlt:
+                      - A
+                      - T
+                    analysisMethods:
+                      - illumina
+                      - kasp

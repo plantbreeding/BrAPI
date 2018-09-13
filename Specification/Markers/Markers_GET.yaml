@@ -35,7 +35,9 @@ paths:
                 datafiles: []
                 data:
                   - markerDbId: '1185'
-                    defaultDisplayName: '11_10002'
+                    markerName: '11_10002'
+                    position: '1000'
+                    linkageGroupName: 1A
                     type: SNP
                     synonyms:
                       - i_11_10002
@@ -47,7 +49,9 @@ paths:
                       - illumina
                       - kasp
                   - markerDbId: '1186'
-                    defaultDisplayName: '11_11159'
+                    markerName: '11_11159'
+                    position: '1100'
+                    linkageGroupName: 1A
                     type: SNP
                     synonyms:
                       - i_11_11159
@@ -98,6 +102,13 @@ paths:
           in: query
           description: The type of the marker.
           required: false
+          type: string
+        - name: linkageGroupName
+          in: path
+          description: >-
+            The chromosome identifier or the generic linkage group identifier if
+            the chromosome is not applicable.
+          required: true
           type: string
         - name: pageSize
           in: query
