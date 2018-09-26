@@ -43,31 +43,29 @@ paths:
                 datafiles: []
                 pagination:
                   currentPage: 0
-                  pageSize: 1000
-                  totalCount: 2
+                  pageSize: 2
+                  totalCount: 1
                   totalPages: 1
                 status: []
               result:
                 data:
-                - description: a test dataset
-                  lastUpdated: '2017-06-12'
-                  matrixDbId: '27'
-                  name: testDs1
-                  studyDbId: abc123
-                - description: a second test dataset
-                  lastUpdated: '2017-06-12'
-                  matrixDbId: '28'
-                  name: testDs2
-                  studyDbId: abc123
+                - description: example matrix
+                  lastUpdated: '2018-05-03T11:03:56-04:00'
+                  matrixDbId: mat1
+                  name: Example Matrix
+                  studyDbId: '1001'
           headers: {}
           schema:
             properties:
               metadata:
                 $ref: '#/definitions/metadata'
               result:
-                items:
-                  $ref: '#/definitions/alleleMatrixDetails'
-                type: array
+                properties:
+                  data:
+                    items:
+                      $ref: '#/definitions/alleleMatrixDetails'
+                    type: array
+                type: object
             title: alleleMatrixDetailsResponse
             type: object
       summary: Matrices through GET

@@ -12,6 +12,7 @@ definitions:
         - Code
         - Time
         - Duration
+        - Categorical
         type: string
       decimalPlaces:
         description: For numerical, number of decimal places to be reported

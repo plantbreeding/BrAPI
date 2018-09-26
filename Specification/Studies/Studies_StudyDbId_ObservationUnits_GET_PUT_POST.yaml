@@ -38,81 +38,78 @@ paths:
                 datafiles: []
                 pagination:
                   currentPage: 0
-                  pageSize: 1000
-                  totalCount: 2
-                  totalPages: 1
+                  pageSize: 2
+                  totalCount: 4
+                  totalPages: 2
                 status: []
               result:
                 data:
                 - X: '1'
                   Y: '1'
                   blockNumber: '1'
-                  entryNumber: '1'
-                  entryType: Test entry
+                  entryNumber: '2'
+                  entryType: TEST
                   germplasmDbId: '1'
-                  germplasmName: IR-8
-                  observationLevel: plot
-                  observationUnitDbId: abc-123
-                  observationUnitName: Test-2016-location-34-575
+                  germplasmName: Name001
+                  observationUnitDbId: '2'
+                  observationUnitName: Plant 1
                   observationUnitXref:
-                  - id: SAMEA179865230
-                    source: biosampleEBI
-                  - id: INRA:CoeSt6 _SMH03
+                  - id: SAMEA179865815
+                    source: ebi.biosample
+                  - id: INRA:CoeSt6 _SMH13
                     source: gnpis.lot
-                  - id: '239865'
+                  - id: '239167'
                     source: kernelDB
                   observations:
-                  - collector: Mr. Technician
-                    observationDbId: '153453453'
-                    observationTimeStamp: '2015-06-16T00:53:26Z'
-                    observationVariableDbId: '18020'
-                    observationVariableName: Plant_height
-                    value: '25.63'
-                  - collector: Mr. Technician
-                    observationDbId: '23453454345'
-                    observationTimeStamp: '2015-06-16T00:53:26Z'
-                    observationVariableDbId: '51496'
-                    observationVariableName: GW100_g
-                    value: Light Green
-                  pedigree: IR-8-FP/IR-8-MP
-                  plantNumber: '0'
-                  plotNumber: '1'
-                  positionCoordinateX: '1'
-                  positionCoordinateXType: PLANTED_INDIVIDUAl
-                  positionCoordinateY: '1'
-                  positionCoordinateYType: PLANTED_ROW
-                  replicate: '1'
-                - X: '2'
-                  Y: '1'
-                  blockNumber: '2'
-                  enrtyNumber: '2'
-                  entryType: Check entry
-                  germplasmDbId: '2'
-                  germplasmName: IR-9
-                  observatioUnitDbId: abc-456
-                  observationLevel: plot
-                  observationUnitName: Test-2016-location-34-456
-                  observations:
-                  - collector: Mr. Technician
+                  - collector: A. Technician
                     observationDbId: '3'
-                    observationTimeStamp: '2015-06-16T00:53:26Z'
-                    observationVariableDbId: '18020'
-                    observationVariableName: Plant_height
-                    value: '34.95'
-                  - collector: Mr. Technician
+                    observationTimeStamp: '2013-06-14T22:05:51-04:00'
+                    observationVariableDbId: MO_123:100002
+                    observationVariableName: Plant height
+                    value: '1.1'
+                  - collector: A. Technician
                     observationDbId: '4'
-                    observationTimeStamp: '2015-06-16T00:53:26Z'
-                    observationVariableDbId: '51496'
-                    observationVariableName: GW100_g
-                    value: Blue
-                  pedigree: IR-9-FP/IR-9-MP
+                    observationTimeStamp: '2013-06-14T22:06:51-04:00'
+                    observationVariableDbId: MO_123:100006
+                    observationVariableName: Virus susceptibility
+                    value: '5.1'
+                  pedigree: A000001/A000002
+                  plantNumber: '1'
+                  plotNumber: '1'
+                  replicate: '0'
+                - X: '1'
+                  Y: '2'
+                  blockNumber: '1'
+                  entryNumber: '3'
+                  entryType: TEST
+                  germplasmDbId: '2'
+                  germplasmName: Name002
+                  observationUnitDbId: '3'
+                  observationUnitName: Plot 2
+                  observationUnitXref:
+                  - id: SAMEA179865682
+                    source: ebi.biosample
+                  - id: INRA:CoeSt6 _SMH51
+                    source: gnpis.lot
+                  - id: '239146'
+                    source: kernelDB
+                  observations:
+                  - collector: A. Technician
+                    observationDbId: '5'
+                    observationTimeStamp: '2013-06-14T22:07:51-04:00'
+                    observationVariableDbId: MO_123:100003
+                    observationVariableName: Carotenoid
+                    value: '2.1'
+                  - collector: A. Technician
+                    observationDbId: '6'
+                    observationTimeStamp: '2013-06-14T22:08:51-04:00'
+                    observationVariableDbId: MO_123:100005
+                    observationVariableName: Root color
+                    value: dark blue
+                  pedigree: A000001/A000002
                   plantNumber: '0'
                   plotNumber: '2'
-                  positionCoordinateX: '2'
-                  positionCoordinateXType: PLANTED_INDIVIDUAl
-                  positionCoordinateY: '1'
-                  positionCoordinateYType: PLANTED_ROW
-                  replicate: '1'
+                  replicate: '0'
           headers: {}
           schema:
             properties:
@@ -201,13 +198,18 @@ paths:
           examples:
             application/json:
               metadata:
+                datafiles: []
+                pagination:
+                  currentPage: 0
+                  pageSize: 0
+                  totalCount: 0
+                  totalPages: 0
                 status:
-                - code: '1'
+                - code: '200'
                   message: Upload Successful
-              results:
+              result:
                 observationUnitDbIds:
-                - 123abc
-                - 456def
+                - e4dd0ba0-c491-4e84-bfb3-be65e5ad25a8
           headers: {}
           schema:
             properties:

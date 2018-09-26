@@ -24,18 +24,14 @@ paths:
                 datafiles: []
                 pagination:
                   currentPage: 0
-                  pageSize: 1000
-                  totalCount: 6
+                  pageSize: 2
+                  totalCount: 2
                   totalPages: 1
                 status: []
               result:
                 data:
-                - Numeric
                 - Categorical
-                - Date
-                - Text
-                - Picture
-                - Boolean
+                - Numerical
           headers: {}
           schema:
             properties:

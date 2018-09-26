@@ -39,7 +39,40 @@ paths:
       responses:
         '200':
           description: OK
-          examples: {}
+          examples:
+            application/json:
+              metadata:
+                datafiles: []
+                pagination:
+                  currentPage: 0
+                  pageSize: 2
+                  totalCount: 4
+                  totalPages: 2
+                status: []
+              result:
+                data:
+                - clientPlateDbId: cl1
+                  files: []
+                  plateFormat: Plate_96
+                  sampleType: DNA
+                  samples: []
+                  status: Submitted
+                  statusTimeStamp: '2018-01-01T00:00:00-05:00'
+                  vendorBarcode: '12345'
+                  vendorBarcodeImageURL: https://brapi.org/assets/images/code.jpg
+                  vendorPlateDbId: pl1
+                  vendorProjectDbId: vp1
+                - clientPlateDbId: cl1
+                  files: []
+                  plateFormat: Plate_96
+                  sampleType: DNA
+                  samples: []
+                  status: Submitted
+                  statusTimeStamp: '2018-01-01T00:00:00-05:00'
+                  vendorBarcode: '12345'
+                  vendorBarcodeImageURL: https://brapi.org/assets/images/code.jpg
+                  vendorPlateDbId: pl1
+                  vendorProjectDbId: vp1
           headers: {}
           schema:
             properties:
@@ -71,7 +104,100 @@ paths:
       responses:
         '200':
           description: OK
-          examples: {}
+          examples:
+            application/json:
+              metadata:
+                datafiles: []
+                pagination:
+                  currentPage: 0
+                  pageSize: 0
+                  totalCount: 0
+                  totalPages: 0
+                status: []
+              result:
+                data:
+                - clientPlateDbId: cl1
+                  files: []
+                  plateFormat: Plate_96
+                  sampleType: DNA
+                  samples:
+                  - column: '0'
+                    concentration: '20'
+                    row: '0'
+                    sampleDbId: sam1
+                    taxonId:
+                      sourceName: ncbiTaxon
+                      taxonId: '2340'
+                    tissueType: Leaf
+                    volume: '100'
+                    well: '0'
+                  - column: '1'
+                    concentration: '19'
+                    row: '0'
+                    sampleDbId: sam2
+                    taxonId:
+                      sourceName: ncbiTaxon
+                      taxonId: '2340'
+                    tissueType: Leaf
+                    volume: '100'
+                    well: '1'
+                  - column: '2'
+                    concentration: '23'
+                    row: '0'
+                    sampleDbId: sam3
+                    taxonId:
+                      sourceName: ncbiTaxon
+                      taxonId: '2340'
+                    tissueType: Leaf
+                    volume: '100'
+                    well: '2'
+                  status: Submitted
+                  statusTimeStamp: '2018-01-01T00:00:00-05:00'
+                  vendorBarcode: '12345'
+                  vendorBarcodeImageURL: https://brapi.org/assets/images/code.jpg
+                  vendorPlateDbId: pl1
+                  vendorProjectDbId: vp1
+                - clientPlateDbId: cl1
+                  files: []
+                  plateFormat: Plate_96
+                  sampleType: DNA
+                  samples:
+                  - column: '0'
+                    concentration: '20'
+                    row: '0'
+                    sampleDbId: sam1
+                    taxonId:
+                      sourceName: ncbiTaxon
+                      taxonId: '2340'
+                    tissueType: Leaf
+                    volume: '100'
+                    well: '0'
+                  - column: '1'
+                    concentration: '19'
+                    row: '0'
+                    sampleDbId: sam2
+                    taxonId:
+                      sourceName: ncbiTaxon
+                      taxonId: '2340'
+                    tissueType: Leaf
+                    volume: '100'
+                    well: '1'
+                  - column: '2'
+                    concentration: '23'
+                    row: '0'
+                    sampleDbId: sam3
+                    taxonId:
+                      sourceName: ncbiTaxon
+                      taxonId: '2340'
+                    tissueType: Leaf
+                    volume: '100'
+                    well: '2'
+                  status: Submitted
+                  statusTimeStamp: '2018-01-01T00:00:00-05:00'
+                  vendorBarcode: '12345'
+                  vendorBarcodeImageURL: https://brapi.org/assets/images/code.jpg
+                  vendorPlateDbId: pl1
+                  vendorProjectDbId: vp1
           headers: {}
           schema:
             properties:

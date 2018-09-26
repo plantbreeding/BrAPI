@@ -30,30 +30,29 @@ paths:
                 datafiles: []
                 pagination:
                   currentPage: 0
-                  pageSize: 1000
+                  pageSize: 2
                   totalCount: 2
                   totalPages: 1
                 status: []
               result:
                 data:
-                - defaultValue: null
-                  description: Description of Plant Height
-                  name: Plant Height
+                - defaultValue: '0'
+                  description: height
+                  name: Height
                   observationVariables:
-                  - CO_334:0100121
-                  - CO_334:0100122
-                  - CO_334:0100123
-                  traitDbId: '123'
-                  traitId: CO:123000007
-                - defaultValue: null
-                  description: Cassava storage root pulp carotenoid content
-                  name: Carotenoid content
+                  - MO_123:100002
+                  - MO_123:100003
+                  - MO_123:100004
+                  traitDbId: '1'
+                  traitId: xref
+                - defaultValue: '0'
+                  description: weight
+                  name: Weight
                   observationVariables:
-                  - CO_334:0100621
-                  - CO_334:0100622
-                  - CO_334:0100623
-                  traitDbId: '123'
-                  traitId: CO_334:0100620
+                  - MO_123:100005
+                  - MO_123:100006
+                  traitDbId: '2'
+                  traitId: xref
           headers: {}
           schema:
             properties:

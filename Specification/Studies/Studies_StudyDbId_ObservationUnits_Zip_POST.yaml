@@ -23,13 +23,13 @@ paths:
           examples:
             application/json:
               metadata:
-                status:
-                - code: '1'
-                  message: Upload Successful
-              results:
+                datafiles: []
+                pagination: {}
+                status: []
+              result:
                 observationUnitDbIds:
-                - 123abc
-                - 456def
+                - observationUnitDbIds0
+                - observationUnitDbIds1
           headers: {}
           schema:
             properties:

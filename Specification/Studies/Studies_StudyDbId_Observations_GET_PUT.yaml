@@ -40,38 +40,38 @@ paths:
                 datafiles: []
                 pagination:
                   currentPage: 0
-                  pageSize: 1000
-                  totalCount: 2
-                  totalPages: 1
+                  pageSize: 2
+                  totalCount: 10
+                  totalPages: 5
                 status: []
               result:
                 data:
-                - germplasmDbId: '8383'
-                  germplasmName: Pahang
-                  observationDbId: '12345'
-                  observationLevel: plot
-                  observationTimeStamp: '2015-11-05T15:12:56+01:00'
-                  observationUnitDbId: '11'
-                  observationUnitName: ZIPA_68_Ibadan_2014
-                  observationVariableDbId: CO_334:0100632
-                  observationVariableName: Yield
-                  operator: Jane Doe
-                  studyDbId: '35'
-                  uploadedBy: dbUserId
-                  value: '5'
-                - germplasmDbId: '8383'
-                  germplasmName: Pahang
-                  observationDbId: '23456'
-                  observationLevel: plot
-                  observationTimeStamp: '2015-11-05T15:13:56+01:00'
-                  observationUnitDbId: '11'
-                  observationUnitName: ZIPA_68_Ibadan_2014
-                  observationVariableDbId: CO_334:0100632
-                  observationVariableName: Dry Weight
-                  operator: Jane Doe
-                  studyDbId: '35'
-                  uploadedBy: dbUserId
-                  value: '22.3'
+                - germplasmDbId: '1'
+                  germplasmName: Name001
+                  observationDbId: '3'
+                  observationLevel: plant
+                  observationTimestamp: '2013-06-14T22:05:51-04:00'
+                  observationUnitDbId: '2'
+                  observationUnitName: Plant 1
+                  observationVariableDbId: MO_123:100002
+                  observationVariableName: Plant height
+                  operator: Bob
+                  studyDbId: '1001'
+                  uploadedBy: Bob
+                  value: '1.1'
+                - germplasmDbId: '1'
+                  germplasmName: Name001
+                  observationDbId: '4'
+                  observationLevel: plant
+                  observationTimestamp: '2013-06-14T22:06:51-04:00'
+                  observationUnitDbId: '2'
+                  observationUnitName: Plant 1
+                  observationVariableDbId: MO_123:100006
+                  observationVariableName: Virus susceptibility
+                  operator: Bob
+                  studyDbId: '1001'
+                  uploadedBy: Bob
+                  value: '5.1'
           headers: {}
           schema:
             properties:
@@ -113,38 +113,11 @@ paths:
                 datafiles: []
                 pagination:
                   currentPage: 0
-                  pageSize: 1000
-                  totalCount: 2
-                  totalPages: 1
+                  pageSize: 0
+                  totalCount: 0
+                  totalPages: 0
                 status: []
-              result:
-                data:
-                - germplasmDbId: '8383'
-                  germplasmName: Pahang
-                  observationDbId: '12345'
-                  observationLevel: plot
-                  observationTimestamp: '2015-11-05T15:12:56+01:00'
-                  observationUnitDbId: '11'
-                  observationUnitName: ZIPA_68_Ibadan_2014
-                  observationVariableDbId: CO_334:0100632
-                  observationVariableName: Yield
-                  operator: Jane Doe
-                  studyDbId: '35'
-                  uploadedBy: dbUserId
-                  value: '5'
-                - germplasmDbId: '8383'
-                  germplasmName: Pahang
-                  observationDbId: '23456'
-                  observationLevel: plot
-                  observationTimestamp: '2015-11-05T15:13:56+01:00'
-                  observationUnitDbId: '11'
-                  observationUnitName: ZIPA_68_Ibadan_2014
-                  observationVariableDbId: CO_334:0100632
-                  observationVariableName: Dry Weight
-                  operator: Jane Doe
-                  studyDbId: '35'
-                  uploadedBy: dbUserId
-                  value: '22.3'
+              result: null
           headers: {}
           schema:
             properties:

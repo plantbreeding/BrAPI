@@ -65,36 +65,32 @@ paths:
                 datafiles: []
                 pagination:
                   currentPage: 0
-                  pageSize: 1000
-                  totalCount: 2
-                  totalPages: 1
+                  pageSize: 2
+                  totalCount: 22
+                  totalPages: 11
                 status: []
               result:
                 data:
                 - analysisMethods:
                   - illumina
-                  - kasp
-                  defaultDisplayName: '11_10002'
-                  markerDbId: '1185'
+                  defaultDisplayName: marker1-1
+                  markerDbId: mr1
                   refAlt:
                   - A
                   - T
                   synonyms:
-                  - i_11_10002
-                  - POPA1_0002
-                  type: SNP
+                  - i_11_10010
+                  type: marker
                 - analysisMethods:
-                  - illumina
                   - kasp
-                  defaultDisplayName: '11_11159'
-                  markerDbId: '1186'
+                  defaultDisplayName: marker1-2
+                  markerDbId: mr2
                   refAlt:
                   - A
                   - T
                   synonyms:
-                  - i_11_11159
-                  - POPA1_1159
-                  type: SNP
+                  - i_11_10020
+                  type: marker
           headers: {}
           schema:
             properties:
@@ -137,36 +133,32 @@ paths:
                 datafiles: []
                 pagination:
                   currentPage: 0
-                  pageSize: 1000
-                  totalCount: 2
-                  totalPages: 1
+                  pageSize: 2
+                  totalCount: 22
+                  totalPages: 11
                 status: []
               result:
                 data:
                 - analysisMethods:
                   - illumina
-                  - kasp
-                  defaultDisplayName: '11_10002'
-                  markerDbId: '1185'
+                  defaultDisplayName: marker1-1
+                  markerDbId: mr1
                   refAlt:
                   - A
                   - T
                   synonyms:
-                  - i_11_10002
-                  - POPA1_0002
-                  type: SNP
+                  - i_11_10010
+                  type: marker
                 - analysisMethods:
-                  - illumina
                   - kasp
-                  defaultDisplayName: '11_11159'
-                  markerDbId: '1186'
+                  defaultDisplayName: marker1-2
+                  markerDbId: mr2
                   refAlt:
                   - A
                   - T
                   synonyms:
-                  - i_11_11159
-                  - POPA1_1159
-                  type: SNP
+                  - i_11_10020
+                  type: marker
           headers: {}
           schema:
             properties:

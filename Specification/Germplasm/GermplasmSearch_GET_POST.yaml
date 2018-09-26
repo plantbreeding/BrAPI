@@ -52,72 +52,80 @@ paths:
                 datafiles: []
                 pagination:
                   currentPage: 0
-                  pageSize: 1000
-                  totalCount: 2
-                  totalPages: 1
+                  pageSize: 2
+                  totalCount: 9
+                  totalPages: 5
                 status: []
               result:
                 data:
-                - accessionNumber: ITC0609
-                  acquisitionDate: '1947-01-31'
-                  biologicalStatusOfAccessionCode: 412
-                  commonCropName: banana
-                  countryOfOriginCode: UNK
-                  defaultDisplayName: Pahang
+                - accessionNumber: A000001
+                  acquisitionDate: '1984-01-01'
+                  biologicalStatusOfAccessionCode: 300
+                  breedingMethodDbId: bm1
+                  commonCropName: G000001
+                  countryOfOriginCode: COUNTRY1
+                  defaultDisplayName: G000001
                   donors:
-                  - donorAccessionNumber: ''
-                    donorInstituteCode: ''
-                    germplasmPUI: ''
-                  genus: Musa
-                  germplasmDbId: 01BEL084609
-                  germplasmName: Pahang
-                  germplasmPUI: http://www.crop-diversity.org/mgis/accession/01BEL084609
-                  germplasmSeedSource: Female GID:4/Male GID:4
-                  instituteCode: 01BEL084
-                  instituteName: ITC
-                  pedigree: TOBA97/SW90.1057
-                  species: acuminata
-                  speciesAuthority: ''
-                  subtaxa: sp malaccensis var pahang
-                  subtaxaAuthority: ''
-                  synonyms: []
+                  - donorAccessionNumber: A001230
+                    donorInstituteCode: INRA
+                    germplasmPUI: https://doi.org/10.1109/5.771073
+                  - donorAccessionNumber: A004560
+                    donorInstituteCode: INRA
+                    germplasmPUI: https://doi.org/10.1109/5.231123
+                  genus: Fructus
+                  germplasmDbId: '1'
+                  germplasmName: Name001
+                  germplasmPUI: http://pui.per/accession/A000001
+                  instituteCode: PER001
+                  instituteName: INST1
+                  pedigree: A000001
+                  seedSource: open pollination
+                  species: novus
+                  speciesAuthority: L
+                  subtaxa: subtaxa
+                  subtaxaAuthority: N
+                  synonyms:
+                  - landrace 1
                   taxonIds:
                   - sourceName: ncbiTaxon
-                    taxonId: http://purl.obolibrary.org/obo/NCBITaxon_4641
+                    taxonId: '2340'
                   - sourceName: ciradTaxon
-                    taxonId: 23-E
-                  typeOfGermplasmStorageCode:
-                  - 10
-                - accessionNumber: ITC0685
-                  acquisitionDate: '1977-01-31'
-                  biologicalStatusOfAccessionCode: 412
-                  commonCropName: banana
-                  countryOfOriginCode: UNK
-                  defaultDisplayName: Pah
+                    taxonId: E312
+                  typeOfGermplasmStorageCode: []
+                - accessionNumber: A000002
+                  acquisitionDate: '1984-01-01'
+                  biologicalStatusOfAccessionCode: 300
+                  breedingMethodDbId: bm1
+                  commonCropName: G000002
+                  countryOfOriginCode: COUNTRY1
+                  defaultDisplayName: G000002
                   donors:
-                  - donorAccessionNumber: ''
-                    donorInstituteCode: ''
-                    germplasmPUI: ''
-                  genus: Musa
-                  germplasmDbId: 03REL084609
-                  germplasmName: Pah
-                  germplasmPUI: doi:10.15454/328757862534E12
-                  germplasmSeedSource: Female GID:4/Male GID:4
-                  instituteCode: 01BEL084
-                  instituteName: ITC
-                  pedigree: TOBA97/SW90.1057
-                  species: acuminata
-                  speciesAuthority: ''
-                  subtaxa: sp malaccensis var pah
-                  subtaxaAuthority: ''
-                  synonyms: []
+                  - donorAccessionNumber: A007890
+                    donorInstituteCode: INRA
+                    germplasmPUI: https://doi.org/10.1109/5.771073
+                  - donorAccessionNumber: A001010
+                    donorInstituteCode: INRA
+                    germplasmPUI: https://doi.org/10.1109/5.231123
+                  genus: Fructus
+                  germplasmDbId: '2'
+                  germplasmName: Name002
+                  germplasmPUI: http://pui.per/accession/A000002
+                  instituteCode: PER001
+                  instituteName: INST1
+                  pedigree: A000002
+                  seedSource: open pollination
+                  species: novus
+                  speciesAuthority: L
+                  subtaxa: subtaxa
+                  subtaxaAuthority: N
+                  synonyms:
+                  - landrace 2
                   taxonIds:
                   - sourceName: ncbiTaxon
-                    taxonId: http://purl.obolibrary.org/obo/NCBITaxon_4641
+                    taxonId: '2340'
                   - sourceName: ciradTaxon
-                    taxonId: 23-E
-                  typeOfGermplasmStorageCode:
-                  - 10
+                    taxonId: E312
+                  typeOfGermplasmStorageCode: []
           headers: {}
           schema:
             properties:
@@ -161,73 +169,81 @@ paths:
               metadata:
                 datafiles: []
                 pagination:
-                  currentPage: 1
-                  pageSize: 100
-                  totalCount: 102
-                  totalPages: 2
+                  currentPage: 0
+                  pageSize: 2
+                  totalCount: 9
+                  totalPages: 5
                 status: []
               result:
                 data:
-                - accessionNumber: ITC0609
-                  acquisitionDate: '1947-01-31'
-                  biologicalStatusOfAccessionCode: 412
-                  commonCropName: banana
-                  countryOfOriginCode: UNK
-                  defaultDisplayName: Pahang
+                - accessionNumber: A000001
+                  acquisitionDate: '1984-01-01'
+                  biologicalStatusOfAccessionCode: 300
+                  breedingMethodDbId: bm1
+                  commonCropName: G000001
+                  countryOfOriginCode: COUNTRY1
+                  defaultDisplayName: G000001
                   donors:
-                  - donorAccessionNumber: ''
-                    donorInstituteCode: ''
-                    germplasmPUI: ''
-                  genus: Musa
-                  germplasmDbId: 01BEL084609
-                  germplasmName: Pahang
-                  germplasmPUI: http://www.crop-diversity.org/mgis/accession/01BEL084609
-                  germplasmSeedSource: Female GID:4/Male GID:4
-                  instituteCode: 01BEL084
-                  instituteName: ITC
-                  pedigree: TOBA97/SW90.1057
-                  species: acuminata
-                  speciesAuthority: ''
-                  subtaxa: sp malaccensis var pahang
-                  subtaxaAuthority: ''
-                  synonyms: []
+                  - donorAccessionNumber: A001230
+                    donorInstituteCode: INRA
+                    germplasmPUI: https://doi.org/10.1109/5.771073
+                  - donorAccessionNumber: A004560
+                    donorInstituteCode: INRA
+                    germplasmPUI: https://doi.org/10.1109/5.231123
+                  genus: Fructus
+                  germplasmDbId: '1'
+                  germplasmName: Name001
+                  germplasmPUI: http://pui.per/accession/A000001
+                  instituteCode: PER001
+                  instituteName: INST1
+                  pedigree: A000001
+                  seedSource: open pollination
+                  species: novus
+                  speciesAuthority: L
+                  subtaxa: subtaxa
+                  subtaxaAuthority: N
+                  synonyms:
+                  - landrace 1
                   taxonIds:
                   - sourceName: ncbiTaxon
-                    taxonId: http://purl.obolibrary.org/obo/NCBITaxon_4641
+                    taxonId: '2340'
                   - sourceName: ciradTaxon
-                    taxonId: 23-E
-                  typeOfGermplasmStorageCode:
-                  - 10
-                - accessionNumber: ITC0685
-                  acquisitionDate: '1977-01-31'
-                  biologicalStatusOfAccessionCode: 412
-                  commonCropName: banana
-                  countryOfOriginCode: UNK
-                  defaultDisplayName: Pah
+                    taxonId: E312
+                  typeOfGermplasmStorageCode: []
+                - accessionNumber: A000002
+                  acquisitionDate: '1984-01-01'
+                  biologicalStatusOfAccessionCode: 300
+                  breedingMethodDbId: bm1
+                  commonCropName: G000002
+                  countryOfOriginCode: COUNTRY1
+                  defaultDisplayName: G000002
                   donors:
-                  - donorAccessionNumber: ''
-                    donorInstituteCode: ''
-                    germplasmPUI: ''
-                  genus: Musa
-                  germplasmDbId: 03REL084609
-                  germplasmName: Pah
-                  germplasmPUI: doi:10.15454/328757862534E12
-                  germplasmSeedSource: Female GID:4/Male GID:4
-                  instituteCode: 01BEL084
-                  instituteName: ITC
-                  pedigree: TOBA97/SW90.1057
-                  species: acuminata
-                  speciesAuthority: ''
-                  subtaxa: sp malaccensis var pah
-                  subtaxaAuthority: ''
-                  synonyms: []
+                  - donorAccessionNumber: A007890
+                    donorInstituteCode: INRA
+                    germplasmPUI: https://doi.org/10.1109/5.771073
+                  - donorAccessionNumber: A001010
+                    donorInstituteCode: INRA
+                    germplasmPUI: https://doi.org/10.1109/5.231123
+                  genus: Fructus
+                  germplasmDbId: '2'
+                  germplasmName: Name002
+                  germplasmPUI: http://pui.per/accession/A000002
+                  instituteCode: PER001
+                  instituteName: INST1
+                  pedigree: A000002
+                  seedSource: open pollination
+                  species: novus
+                  speciesAuthority: L
+                  subtaxa: subtaxa
+                  subtaxaAuthority: N
+                  synonyms:
+                  - landrace 2
                   taxonIds:
                   - sourceName: ncbiTaxon
-                    taxonId: http://purl.obolibrary.org/obo/NCBITaxon_4641
+                    taxonId: '2340'
                   - sourceName: ciradTaxon
-                    taxonId: 23-E
-                  typeOfGermplasmStorageCode:
-                  - 10
+                    taxonId: E312
+                  typeOfGermplasmStorageCode: []
           headers: {}
           schema:
             properties:

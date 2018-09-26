@@ -26,18 +26,18 @@ paths:
                   totalPages: 0
                 status: []
               result:
-                defaultDisplayName: Pahang
-                germplasmDbId: '382'
+                defaultDisplayName: G000002
+                germplasmDbId: '3'
                 progeny:
-                - defaultDisplayName: Child 1
-                  germplasmDbId: '402'
-                  parentType: FEMALE
-                - defaultDisplayName: Child 2
-                  germplasmDbId: '403'
+                - defaultDisplayName: G000004
+                  germplasmDbId: '4'
                   parentType: MALE
-                - defaultDisplayName: Pahang Selfed
-                  germplasmDbId: '405'
-                  parentType: SELF
+                - defaultDisplayName: G000005
+                  germplasmDbId: '5'
+                  parentType: MALE
+                - defaultDisplayName: G000006
+                  germplasmDbId: '6'
+                  parentType: MALE
           headers: {}
           schema:
             properties:

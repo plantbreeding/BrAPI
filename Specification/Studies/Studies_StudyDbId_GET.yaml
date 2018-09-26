@@ -32,59 +32,65 @@ paths:
               result:
                 active: 'true'
                 additionalInfo:
-                  principalInvestigator: Dr. Breeder
-                  property1Name: property1Value
-                  property2Name: property2Value
-                  publications: pmid:24039865287545
                   studyObjective: Increase yield
                 contacts:
-                - contactDbId: C025
-                  email: j.doe@mail.com
-                  instituteName: IRRI
-                  name: John Doe
+                - contactDbId: '1'
+                  email: a.breeder@brapi.org
+                  instituteName: Plant Science Institute
+                  name: A. Breeder
                   orcid: 0000-0002-0607-8728
-                  type: Scientist
-                - contactDbId: C026
-                  email: null
-                  instituteName: IRRI
-                  name: Dave Peters
-                  orcid: null
-                  type: null
+                  type: Breeder
+                - contactDbId: '2'
+                  email: b.breeder@brapi.org
+                  instituteName: Plant Science Institute
+                  name: B. Breeder
+                  orcid: 0000-0002-0607-8729
+                  type: Breeder
                 dataLinks:
                 - name: image-archive12.zip
                   type: Image archive
                   url: http://data.inra.fr/archive/multi-spect-flowering.zip
-                endDate: '2008-12-31'
+                - name: image-archive13.zip
+                  type: Image archive
+                  url: http://data.inra.fr/archive/biomass-img.zip
+                endDate: '2014-01-01'
                 lastUpdate:
-                  timestamp: '2015-06-16T00:53:26Z'
+                  timestamp: '2015-01-01T00:00:00-05:00'
                   version: '1.1'
                 license: https://creativecommons.org/licenses/by/4.0
                 location:
-                  abbreviation: IB
+                  abbreviation: L1
+                  abreviation: L1
                   additionalInfo:
-                    AnnualMeanRain: value
-                    SoilDescription: '23'
-                    property1Name: property1Value
-                    property2Name: property2Value
-                  altitude: 12
-                  countryCode: NGA
-                  countryName: Nigeria
-                  instituteAddress: route foo, Clermont Ferrand, France
-                  instituteName: INRA - GDEC
-                  latitude: -21.5
+                    adm1: Junin
+                    adm2: Chanchamayo
+                    adm3: San Ramon
+                    annualMeanTemperature: '23'
+                    annualTotalPrecipitation: '360'
+                    cont: South America
+                    creg: LAC
+                    local: San Ramon
+                  altitude: 828
+                  countryCode: PER
+                  countryName: Peru
+                  instituteAddress: 71 Pilgrim Avenue Chevy Chase MD 20815
+                  instituteAdress: 71 Pilgrim Avenue Chevy Chase MD 20815
+                  instituteName: Plant Science Institute
+                  latitude: -11.1274995803833
                   locationDbId: '1'
-                  longitude: 165.5
-                  name: Ibadan
+                  locationType: Storage location
+                  longitude: -75.35639190673828
+                  name: Location 1
                 seasons:
-                - 2005 Winter
-                - 2008 Summer
-                startDate: '2005-06-01'
-                studyDbId: '35'
-                studyDescription: some free text description that could include scientific goal, some tracability and whatever makes sense
-                studyName: Earlygenerationtesting
+                - fall 2011
+                - winter 2012
+                startDate: '2013-01-01'
+                studyDbId: '1001'
+                studyDescription: Field yield phenotyping study
+                studyName: Study 1
                 studyType: Yield study
-                trialDbId: '57'
-                trialName: International Yield Trial
+                trialDbId: '101'
+                trialName: Peru Yield Trial 1
           headers: {}
           schema:
             properties:

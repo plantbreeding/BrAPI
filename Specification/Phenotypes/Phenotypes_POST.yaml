@@ -20,25 +20,20 @@ paths:
         '200':
           description: OK
           examples:
-            metadata:
-              datafiles: []
-              pagination:
-                currentPage: 0
-                pageSize: 0
-                totalCount: 0
-                totalPages: 0
-              status: []
-            result:
-              observations:
-              - observationDbId: '153453453'
-                observationUnitDbId: '333888'
-                observationVariableDbId: '18020'
-              - observationDbId: '23456'
-                observationUnitDbId: '333888'
-                observationVariableDbId: '18021'
-              - observationDbId: '34567'
-                observationUnitDbId: '333888'
-                observationVariableDbId: '18022'
+            application/json:
+              metadata:
+                datafiles: []
+                pagination:
+                  currentPage: 0
+                  pageSize: 0
+                  totalCount: 0
+                  totalPages: 0
+                status: []
+              result:
+                observations:
+                - observationDbId: 920028c0-a6c2-47e3-a4c2-4eccea6ce066
+                  observationUnitDbId: '1'
+                  observationVariableDbId: MO_123:100002
           headers: {}
           schema:
             properties:

@@ -12,6 +12,11 @@ definitions:
       methods:
         description: The possible HTTP Methods to be used with the available call
         items:
+          enum:
+          - GET
+          - POST
+          - PUT
+          - DELETE
           type: string
         type: array
       versions:

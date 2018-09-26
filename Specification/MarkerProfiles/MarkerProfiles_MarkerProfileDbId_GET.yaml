@@ -51,38 +51,18 @@ paths:
                 datafiles: []
                 pagination:
                   currentPage: 0
-                  pageSize: 22
+                  pageSize: 2
                   totalCount: 22
-                  totalPages: 1
+                  totalPages: 11
                 status: []
               result:
                 analysisMethod: GBS
                 data:
                 - marker1-1: '1'
                 - marker1-2: '0'
-                - marker1-3: '0'
-                - marker1-4: '0'
-                - marker1-5: '0'
-                - marker1-6: '1'
-                - marker1-7: '0'
-                - marker1-8: '0'
-                - marker1-9: '0'
-                - marker1-10: '1'
-                - marker1-11: '0'
-                - marker2-1: '0'
-                - marker2-2: '1'
-                - marker2-3: '1'
-                - marker2-4: '1'
-                - marker2-5: '0'
-                - marker3-1: '1'
-                - marker3-2: '1'
-                - marker3-3: '0'
-                - marker3-4: '0'
-                - marker3-5: '0'
-                - marker3-6: '0'
                 extractDbId: extract1
                 germplasmDbId: '1'
-                markerprofileDbId: '993'
+                markerprofileDbId: mp1
                 uniqueDisplayName: My Fancy Germplasm
           headers: {}
           schema:

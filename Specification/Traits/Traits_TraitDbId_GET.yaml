@@ -30,15 +30,15 @@ paths:
                   totalPages: 0
                 status: []
               result:
-                defaultValue: null
-                description: Description of Plant Height
-                name: Plant Height
+                defaultValue: '0'
+                description: height
+                name: Height
                 observationVariables:
-                - CO_334:0100121
-                - CO_334:0100122
-                - CO_334:0100123
-                traitDbId: '123'
-                traitId: CO:123000007
+                - MO_123:100002
+                - MO_123:100003
+                - MO_123:100004
+                traitDbId: '1'
+                traitId: xref
           headers: {}
           schema:
             properties:

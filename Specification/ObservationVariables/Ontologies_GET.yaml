@@ -24,26 +24,19 @@ paths:
                 datafiles: []
                 pagination:
                   currentPage: 0
-                  pageSize: 1000
-                  totalCount: 2
-                  totalPages: 1
+                  pageSize: 2
+                  totalCount: 1
+                  totalPages: 0
                 status: []
               result:
                 data:
-                - authors: J. Snow, H. Peterson
-                  copyright: 2016, INRA
-                  description: developped for European genetic studies projects
-                  licence: CC BY-SA 4.0
-                  ontologyDbId: CO_334
-                  ontologyName: Wheat ontology
-                  version: v1.2
-                - authors: J. Doe
-                  copyright: 2017, IRRI
-                  description: developped for IRRI and amended with partners needs
-                  licence: CC BY-SA 4.0
-                  ontologyDbId: CO_335
-                  ontologyName: Rice ontology
-                  version: v2
+                - authors: Bob
+                  copyright: 2017 Ontology.org
+                  description: Ontology.org
+                  licence: Apache
+                  ontologyDbId: MO_123
+                  ontologyName: Ontology.org
+                  version: '17'
           headers: {}
           schema:
             properties:

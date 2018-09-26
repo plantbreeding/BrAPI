@@ -24,26 +24,47 @@ paths:
                   totalPages: 0
                 status: []
               result:
-                clientPlateDbId: def456
+                clientPlateDbId: cl1
+                files: []
                 plateFormat: Plate_96
                 sampleType: DNA
                 samples:
-                - column: (optional)
-                  concentration: (ng/ul)
-                  row: (optional)
-                  sampleDbId: sample_name
+                - column: '0'
+                  concentration: '20'
+                  row: '0'
+                  sampleDbId: sam1
                   taxonId:
                     sourceName: ncbiTaxon
-                    taxonId: http://purl.obolibrary.org/obo/NCBITaxon_4641
-                  tissueType: ''
-                  volume: (ul)
-                  well: (optional)
-                status: (not null)
-                statusTimeStamp: 2017-06-01 01:57 GMT
-                vendorBarcode: ''
-                vendorBarcodeImageURL: ''
-                vendorPlateDbId: '8338'
-                vendorProjectDbId: abc123
+                    taxonId: '2340'
+                  tissueType: Leaf
+                  volume: '100'
+                  well: '0'
+                - column: '1'
+                  concentration: '19'
+                  row: '0'
+                  sampleDbId: sam2
+                  taxonId:
+                    sourceName: ncbiTaxon
+                    taxonId: '2340'
+                  tissueType: Leaf
+                  volume: '100'
+                  well: '1'
+                - column: '2'
+                  concentration: '23'
+                  row: '0'
+                  sampleDbId: sam3
+                  taxonId:
+                    sourceName: ncbiTaxon
+                    taxonId: '2340'
+                  tissueType: Leaf
+                  volume: '100'
+                  well: '2'
+                status: Submitted
+                statusTimeStamp: '2018-01-01T00:00:00-05:00'
+                vendorBarcode: '12345'
+                vendorBarcodeImageURL: https://brapi.org/assets/images/code.jpg
+                vendorPlateDbId: pl1
+                vendorProjectDbId: vp1
           headers: {}
           schema:
             properties:

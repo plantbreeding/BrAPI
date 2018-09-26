@@ -28,42 +28,42 @@ paths:
                   totalPages: 0
                 status: []
               result:
-                active: 'true'
+                active: false
                 additionalInfo:
-                  property2Name: property2Value
-                  property3Name: property3Value
-                  publications: pmid:239823988, doi:10.2345/GEZG3T23535
+                  donorName: Donor1
+                  publications: doi:10.2345/GEZG3T23535
+                  specialProject: Project1
                 contacts:
-                - contactDbId: C025
-                  email: j.doe@mail.com
-                  instituteName: IRRI
-                  name: John Doe
-                  orcid: 0000-0002-0607-8728
-                  type: Scientist
-                - contactDbId: C026
-                  email: null
-                  instituteName: IRRI
-                  name: Dave Peters
-                  orcid: null
-                  type: null
+                - contactDbId: '4'
+                  email: b.technician@brapi.org
+                  instituteName: Plant Science Institute
+                  name: B. Technician
+                  orcid: 0000-0002-0607-8732
+                  type: Technician
+                - contactDbId: '3'
+                  email: a.technician@brapi.org
+                  instituteName: Plant Science Institute
+                  name: A. Technician
+                  orcid: 0000-0002-0607-8731
+                  type: Technician
                 datasetAuthorship:
                   datasetPUI: doi:10.15454/312953986E3
                   license: https://creativecommons.org/licenses/by/4.0
-                endDate: '2008-12-31'
-                programDbId: 27
-                programName: International Yield Trial
-                startDate: '2007-06-01'
+                endDate: '2013-07-05'
+                programDbId: '1'
+                programName: Program 1
+                startDate: '2013-01-01'
                 studies:
-                - locationDbId: z-2
-                  locationName: Zimbabwe
-                  studyDbId: 1
-                  studyName: Zimbabwe Yield Trial
-                - locationDbId: k-1
-                  locationName: Kenya
-                  studyDbId: 2
-                  studyName: Kenya Yield Trial
-                trialDbId: 1
-                trialName: InternationalTrialA
+                - locationDbId: '1'
+                  locationName: Location 1
+                  studyDbId: '1001'
+                  studyName: Study 1
+                - locationDbId: '1'
+                  locationName: Location 1
+                  studyDbId: '1002'
+                  studyName: Study 2
+                trialDbId: '101'
+                trialName: Peru Yield Trial 1
           headers: {}
           schema:
             properties:

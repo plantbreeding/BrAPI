@@ -36,28 +36,19 @@ paths:
                 datafiles: []
                 pagination:
                   currentPage: 0
-                  pageSize: 1000
-                  totalCount: 2
+                  pageSize: 2
+                  totalCount: 1
                   totalPages: 1
                 status: []
               result:
                 data:
-                - comments: This map contains ...
-                  linkageGroupCount: 7
-                  mapDbId: abc123
-                  markerCount: 1000
-                  name: Some Map
-                  publishedDate: '2008-04-16'
-                  species: Some species
-                  type: Genetic
-                  unit: cM
-                - comments: this is blah blah
-                  linkageGroupCount: 7
-                  mapDbId: def234
-                  markerCount: 1501
-                  name: Some Other map
-                  publishedDate: '2009-01-12'
-                  species: Some Species
+                - comments: comments
+                  linkageGroupCount: 3
+                  mapDbId: gm1
+                  markerCount: 22
+                  name: Genome Map 1
+                  publishedDate: '2018-01-01'
+                  species: novus
                   type: Genetic
                   unit: cM
           headers: {}

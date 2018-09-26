@@ -32,36 +32,34 @@ paths:
                   totalPages: 0
                 status: []
               result:
-                accessionNumber: ITC0609
-                acquisitionDate: '1947-01-31'
-                biologicalStatusOfAccessionCode: 412
-                commonCropName: banana
-                countryOfOriginCode: UNK
-                defaultDisplayName: Pahang
-                donors:
-                - donorAccessionNumber: ''
-                  donorGermplasmPUI: ''
-                  donorInstituteCode: ''
-                genus: Musa
-                germplasmDbId: 01BEL084609
-                germplasmName: Pahang
-                germplasmPUI: http://www.crop-diversity.org/mgis/accession/01BEL084609
-                instituteCode: 01BEL084
-                instituteName: ITC
-                pedigree: TOBA97/SW90.1057
-                seedSource: ITC0609-2016-77
-                species: acuminata
-                speciesAuthority: ''
-                subtaxa: sp malaccensis var pahang
-                subtaxaAuthority: ''
-                synonyms: []
+                accessionNumber: A000003
+                acquisitionDate: '2001-01-01'
+                biologicalStatusOfAccessionCode: 500
+                breedingMethodDbId: bm1
+                commonCropName: G000003
+                countryOfOriginCode: COUNTRY1
+                defaultDisplayName: G000003
+                donors: []
+                genus: Fructus
+                germplasmDbId: '3'
+                germplasmName: Name003
+                germplasmPUI: http://pui.per/accession/A000003
+                instituteCode: PER001
+                instituteName: INST1
+                pedigree: A000001/A000002
+                seedSource: A000001/A000002
+                species: novus
+                speciesAuthority: L
+                subtaxa: subtaxa
+                subtaxaAuthority: N
+                synonyms:
+                - variety 1
                 taxonIds:
                 - sourceName: ncbiTaxon
-                  taxonId: http://purl.obolibrary.org/obo/NCBITaxon_4641
+                  taxonId: '2340'
                 - sourceName: ciradTaxon
-                  taxonId: 23-E
-                typeOfGermplasmStorageCode:
-                - 10
+                  taxonId: E312
+                typeOfGermplasmStorageCode: []
           headers: {}
           schema:
             properties:

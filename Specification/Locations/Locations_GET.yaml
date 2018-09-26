@@ -39,38 +39,48 @@ paths:
                 datafiles: []
                 pagination:
                   currentPage: 0
-                  pageSize: 1000
-                  totalCount: 2
-                  totalPages: 1
+                  pageSize: 2
+                  totalCount: 17
+                  totalPages: 9
                 status: []
               result:
                 data:
-                - abbreviation: IB
+                - abbreviation: L1
+                  abreviation: L1
                   additionalInfo:
-                    annualMeanRain: value
-                    soilDescription: '23'
-                  altitude: 12
-                  countryCode: NGA
-                  countryName: Nigeria
-                  instituteAddress: route foo, Clermont Ferrand, France
-                  instituteName: INRA - GDEC
-                  latitude: -21.5
-                  locationDbId: abc123
-                  locationType: Breeding Location
-                  longitude: 165.5
-                  name: Ibadan
-                - abbreviation: GO
-                  additionalInfo:
-                    name1: value1
-                    name2: value2
-                  altitude: 10
-                  countryCode: IND
-                  countryName: India
-                  latitude: 28.36
-                  locationDbId: def456
-                  locationType: Storage Location
-                  longitude: 77.12
-                  name: Goa
+                    adm1: Junin
+                    adm2: Chanchamayo
+                    adm3: San Ramon
+                    annualMeanTemperature: '23'
+                    annualTotalPrecipitation: '360'
+                    cont: South America
+                    creg: LAC
+                    local: San Ramon
+                  altitude: 828
+                  countryCode: PER
+                  countryName: Peru
+                  instituteAddress: 71 Pilgrim Avenue Chevy Chase MD 20815
+                  instituteAdress: 71 Pilgrim Avenue Chevy Chase MD 20815
+                  instituteName: Plant Science Institute
+                  latitude: -11.1274995803833
+                  locationDbId: '1'
+                  locationType: Storage location
+                  longitude: -75.35639190673828
+                  name: Location 1
+                - abbreviation: L2
+                  abreviation: L2
+                  additionalInfo: {}
+                  altitude: 964
+                  countryCode: PER
+                  countryName: Peru
+                  instituteAddress: 71 Pilgrim Avenue Chevy Chase MD 20815
+                  instituteAdress: 71 Pilgrim Avenue Chevy Chase MD 20815
+                  instituteName: Plant Science Institute
+                  latitude: -11.161160469055176
+                  locationDbId: '2'
+                  locationType: Breeding location
+                  longitude: -75.34171295166016
+                  name: Location 2
           headers: {}
           schema:
             properties:

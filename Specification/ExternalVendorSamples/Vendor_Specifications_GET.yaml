@@ -22,62 +22,69 @@ paths:
                 status: []
               result:
                 additionalInfo: {}
-                contactName: John Doe
+                contactName: Bob Smith
                 platforms:
-                - contactEmail: ''
-                  contactName: ''
-                  contactPhone: ''
+                - contactEmail: plat1@brapi.org
+                  contactName: Bob Smith
+                  contactPhone: '+12345678910'
                   deliverables:
-                  - description: ''
-                    format: ''
-                    name: ''
-                  platformDescription: ''
-                  platformName: GBS
-                  platformURL: ''
-                  shippingAddress: ''
+                  - description: An Example Deliverable
+                    format: CSV
+                    name: Example Deliverable
+                  platformDescription: This is an example platform
+                  platformName: Example Platform
+                  platformURL: https://brapi.org
+                  shippingAddress: 123 Street Ave, Townsville, USA
                   specificRequirements: {}
                   standardRequirements:
                     blankWellPosition:
-                      numberOfBlanksPerPlate: ''
+                      numberOfBlanksPerPlate: 3
                       positions:
                       - random
                       - A01
                       - H12
-                    inputFormatDetails: https://...
+                    inputFormatDetails: https://brapi.org
                     inputFormats:
                     - Plate_96
                     - Tubes
-                    maxConcentration: ''
-                    maxVolume: ''
-                    minConcentration: ''
-                    minSampleNumber: ''
-                    minVolume: ''
-                    plateOrientation: rowFirst|columnFirst
-                    sampleTypeDetails: https://...
+                    maxConcentration: 1000ppm
+                    maxVolume: 50ml
+                    minConcentration: 20ppm
+                    minSampleNumber: '1'
+                    minVolume: 2ml
+                    plateOrientation: rowFirst
+                    sampleTypeDetails: https://brapi.org
                     sampleTypes:
-                    - ''
-                    - ''
+                    - LEAF
+                    - STEM
+                    - ROOT
                   statuses:
-                  - statusDescription: Platesarereceivedbyvendor.
-                    statusName: received
-                  - statusDescription: Resultfilesareready.
-                    statusName: completed
-                  - statusDescription: Platesarerejectedbyvendor
-                    statusName: rejected
+                  - statusDescription: Samples have been recored, but not recieved
+                    statusName: Created
+                  - statusDescription: Physical samples have been received
+                    statusName: Received
+                  - statusDescription: Sample submission has been rejected by the vendor
+                    statusName: Rejected
+                  - statusDescription: Vendor has begun to process the samples
+                    statusName: Processing
+                  - statusDescription: Processing is complete, data is ready to download
+                    statusName: Completed
                   taxonomyIdSystem:
-                    URI: https://...
+                    URI: https://ncbi.org
                     name: NCBITaxonomyId
+                    uri: https://ncbi.org
                   tissueIdSystem:
-                    URI: https://...
-                    name: DArT
-                vendorAddress: 123 Lane St
-                vendorCity: Metropolis
+                    URI: https://tis.org
+                    name: TIS
+                    uri: https://tis.org
+                vendorAddress: 123 Street Ave
+                vendorCity: Townsville
                 vendorCountry: USA
-                vendorDescription: Gene Sequencing Vendor
-                vendorEmail: jdoe@example.org
-                vendorName: Gene Sequencing Vendor
-                vendorPhone: 1-234-567-8910
-                vendorURL: www.example.org
+                vendorDescription: Example vendor used for testing
+                vendorEmail: bsmith@brapi.org
+                vendorName: Bobs Vendor
+                vendorPhone: '+12345678910'
+                vendorURL: https://brapi.org
           headers: {}
           schema:
             properties:

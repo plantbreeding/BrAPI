@@ -46,18 +46,23 @@ paths:
                 datafiles: []
                 pagination:
                   currentPage: 0
-                  pageSize: 1000
-                  totalCount: 1
-                  totalPages: 1
+                  pageSize: 2
+                  totalCount: 10
+                  totalPages: 5
                 status: []
               result:
                 data:
                 - attributeCode: RHT
                   attributeDbId: '1'
                   attributeName: Rht-B1b
-                  determinedDate: '2007-05-28'
+                  determinedDate: '2017-03-17'
+                  value: Heterozygous
+                - attributeCode: WEV
+                  attributeDbId: '2'
+                  attributeName: Weevil Resistance
+                  determinedDate: '2017-03-17'
                   value: Present
-                germplasmDbId: 01BEL084609
+                germplasmDbId: '3'
           headers: {}
           schema:
             properties:

@@ -28,58 +28,52 @@ paths:
                   totalPages: 0
                 status: []
               result:
-                contextOfUse:
-                - Trial evaluation
-                - Nursery evaluation
-                crop: Cassava
-                defaultValue: null
-                growthStage: mature
-                institution: ''
-                language: EN
+                contextOfUse: []
+                crop: maize
+                date: '2018-09-26'
+                defaultValue: '10'
+                growthStage: '1'
+                institution: '1'
+                language: English
                 method:
-                  class: Estimation
-                  description: Assessment of the level of yellowness in cassava storage root pulp using the tc chart
-                  formula: null
-                  methodDbId: CO_334:0010320
-                  name: Visual Rating:total carotenoid by chart_method
-                  reference: null
-                name: caro_spectro
-                observationVariableDbId: CO_334:0100632
-                ontologyDbId: CO_334
-                ontologyName: Cassava
+                  class: classy
+                  description: Used for finding the lengths of the sides of a right triangle
+                  formula: a^2 + b^2 = c^2
+                  methodDbId: '1'
+                  name: pythagorean theorem
+                  reference: google.com
+                name: Plant height
+                observationVariableDbId: MO_123:100002
+                observationVariableName: Plant height
+                ontologyDbId: MO_123
+                ontologyName: Ontology.org
                 scale:
-                  dataType: Numeric
-                  decimalPlaces: 2
-                  name: ug/g
-                  scaleDbId: CO_334:0100526
+                  dataType: Numerical
+                  decimalPlaces: 1
+                  name: Centimeter
+                  scaleDbId: '1'
                   validValues:
-                    categories:
-                    - 1=low
-                    - 2=medium
-                    - 3=high
-                    max: 3
-                    min: 1
-                  xref: null
-                scientist: ''
-                status: recommended
-                submissionTimestamp: '2016-05-13T15:43:41+01:00'
-                synonyms:
-                - Carotenoid content by spectro
+                    categories: []
+                    max: 0
+                    min: 99999
+                  xref: xref
+                scientist: Bob
+                status: active
+                submissionTimestamp: '2011-06-14T22:12:51-04:00'
+                synonyms: []
                 trait:
-                  alternativeAbbreviations:
-                  - CCS
-                  attribute: carotenoid
-                  class: physiological trait
-                  description: Cassava storage root pulp carotenoid content
-                  entity: root
-                  mainAbbreviation: CC
-                  name: Carotenoid content
-                  status: recommended
-                  synonyms:
-                  - carotenoid content measure
-                  traitDbId: CO_334:0100620
-                  xref: TL_455:0003023
-                xref: TL_455:0003001
+                  alternativeAbbreviations: []
+                  attribute: height
+                  class: Int
+                  description: height
+                  entity: entity
+                  mainAbbreviation: H
+                  name: Height
+                  status: active
+                  synonyms: []
+                  traitDbId: '1'
+                  xref: xref
+                xref: MO_123:100002
           headers: {}
           schema:
             properties:

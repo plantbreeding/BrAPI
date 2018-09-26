@@ -95,50 +95,45 @@ paths:
                 datafiles: []
                 pagination:
                   currentPage: 0
-                  pageSize: 1000
-                  totalCount: 2
-                  totalPages: 1
+                  pageSize: 2
+                  totalCount: 3
+                  totalPages: 2
                 status: []
               result:
                 data:
                 - active: 'true'
                   additionalInfo:
-                    property1Name: property1Value
-                    property2Name: property2Value
-                    property3Name: property3Value
-                  endDate: '2008-12-31'
-                  locationDbId: '23'
-                  locationName: Kenya
-                  name: Earlygenerationtesting
-                  programDbId: '27'
-                  programName: Drought Resistance Program A
+                    studyObjective: Increase yield
+                  endDate: '2014-01-01'
+                  locationDbId: '1'
+                  locationName: Location 1
+                  name: Study 1
+                  programDbId: '1'
+                  programName: Program 1
                   seasons:
-                  - 2007 Spring
-                  - 2008 Fall
-                  startDate: '2007-06-01'
-                  studyDbId: '35'
-                  studyType: Trial
-                  trialDbId: '7'
-                  trialName: InternationalTrialA
+                  - fall 2011
+                  - winter 2012
+                  startDate: '2013-01-01'
+                  studyDbId: '1001'
+                  studyType: Yield study
+                  trialDbId: '101'
+                  trialName: Peru Yield Trial 1
                 - active: 'true'
                   additionalInfo:
-                    property1Name: property1Value
-                    property2Name: property2Value
-                    property3Name: property3Value
-                  endDate: '2008-12-31'
-                  locationDbId: '33'
-                  locationName: Zimbabwe
-                  name: Earlygenerationtesting
-                  programDbId: '58'
-                  programName: Drought Resistance Program B
+                    publications: pmid:23643517318968
+                  endDate: '2015-01-01'
+                  locationDbId: '1'
+                  locationName: Location 1
+                  name: Study 2
+                  programDbId: '1'
+                  programName: Program 1
                   seasons:
-                  - 2007 Spring
-                  - 2008 Fall
-                  startDate: '2005-06-01'
-                  studyDbId: '345'
-                  studyType: Trial
-                  trialDbId: '7'
-                  trialName: InternationalTrialA
+                  - winter 2012
+                  startDate: '2014-01-01'
+                  studyDbId: '1002'
+                  studyType: Yield study
+                  trialDbId: '101'
+                  trialName: Peru Yield Trial 1
           headers: {}
           schema:
             properties:
@@ -188,50 +183,45 @@ paths:
                 datafiles: []
                 pagination:
                   currentPage: 0
-                  pageSize: 1000
-                  totalCount: 2
-                  totalPages: 1
+                  pageSize: 2
+                  totalCount: 3
+                  totalPages: 2
                 status: []
               result:
                 data:
                 - active: 'true'
                   additionalInfo:
-                    property1Name: property1Value
-                    property2Name: property2Value
-                    property3Name: property3Value
-                  endDate: '2008-12-31'
-                  locationDbId: '23'
-                  locationName: Kenya
-                  name: Earlygenerationtesting
-                  programDbId: '27'
-                  programName: Drought Resistance Program A
+                    studyObjective: Increase yield
+                  endDate: '2014-01-01'
+                  locationDbId: '1'
+                  locationName: Location 1
+                  name: Study 1
+                  programDbId: '1'
+                  programName: Program 1
                   seasons:
-                  - 2007 Spring
-                  - 2008 Fall
-                  startDate: '2007-06-01'
-                  studyDbId: '35'
-                  studyType: Trial
-                  trialDbId: '7'
-                  trialName: InternationalTrialA
+                  - fall 2011
+                  - winter 2012
+                  startDate: '2013-01-01'
+                  studyDbId: '1001'
+                  studyType: Yield study
+                  trialDbId: '101'
+                  trialName: Peru Yield Trial 1
                 - active: 'true'
                   additionalInfo:
-                    property1Name: property1Value
-                    property2Name: property2Value
-                    property3Name: property3Value
-                  endDate: '2008-12-31'
-                  locationDbId: '33'
-                  locationName: Zimbabwe
-                  name: Earlygenerationtesting
-                  programDbId: '58'
-                  programName: Drought Resistance Program B
+                    publications: pmid:23643517318968
+                  endDate: '2015-01-01'
+                  locationDbId: '1'
+                  locationName: Location 1
+                  name: Study 2
+                  programDbId: '1'
+                  programName: Program 1
                   seasons:
-                  - 2007 Spring
-                  - 2008 Fall
-                  startDate: '2005-06-01'
-                  studyDbId: '345'
-                  studyType: Trial
-                  trialDbId: '7'
-                  trialName: InternationalTrialA
+                  - winter 2012
+                  startDate: '2014-01-01'
+                  studyDbId: '1002'
+                  studyType: Yield study
+                  trialDbId: '101'
+                  trialName: Peru Yield Trial 1
           headers: {}
           schema:
             properties:

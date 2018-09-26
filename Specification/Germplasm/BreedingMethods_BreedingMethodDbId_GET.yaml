@@ -28,8 +28,8 @@ paths:
                 status: []
               result:
                 abbreviation: MBCR
-                breedingMethodDbId: BM987
-                description: Backcross to recover a specific gene. The coding in the genealogical table records which parent was used as the male in each cycle. Each entity kept separate.
+                breedingMethodDbId: bm1
+                description: Backcross to recover a specific gene.
                 name: Male Backcross
           headers: {}
           schema:

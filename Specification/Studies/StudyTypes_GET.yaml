@@ -28,7 +28,7 @@ paths:
                 datafiles: []
                 pagination:
                   currentPage: 0
-                  pageSize: 1000
+                  pageSize: 2
                   totalCount: 3
                   totalPages: 1
                 status: []
@@ -36,10 +36,8 @@ paths:
                 data:
                 - description: Description for Nursery study type
                   name: Crossing Nursery
-                - description: Description for Trial study type
-                  name: Yield Trial
-                - description: Description for Genotyping study type
-                  name: Genotype
+                - description: Description for yield study type
+                  name: Yield study
           headers: {}
           schema:
             properties:

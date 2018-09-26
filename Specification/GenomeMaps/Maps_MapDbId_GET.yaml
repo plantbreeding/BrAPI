@@ -31,22 +31,27 @@ paths:
                 datafiles: []
                 pagination:
                   currentPage: 0
-                  pageSize: 1000
-                  totalCount: 2
-                  totalPages: 1
+                  pageSize: 2
+                  totalCount: 3
+                  totalPages: 2
                 status: []
               result:
                 data:
                 - linkageGroupName: '1'
-                  markerCount: 100000
-                  maxPosition: 10000000
+                  markerCount: 11
+                  maxPosition: 1110
                 - linkageGroupName: '2'
-                  markerCount: 1247
-                  maxPosition: 12347889
+                  markerCount: 5
+                  maxPosition: 5050
                 linkageGroups:
-                - DEPRECATED - Replaced by 'data' in v1.1
-                mapDbId: abc123
-                name: Some map
+                - linkageGroupName: '1'
+                  markerCount: 11
+                  maxPosition: 1110
+                - linkageGroupName: '2'
+                  markerCount: 5
+                  maxPosition: 5050
+                mapDbId: gm1
+                name: Genome Map 1
                 type: Genetic
                 unit: cM
           headers: {}

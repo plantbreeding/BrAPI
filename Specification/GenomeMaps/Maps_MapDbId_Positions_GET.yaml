@@ -41,20 +41,20 @@ paths:
                 datafiles: []
                 pagination:
                   currentPage: 0
-                  pageSize: 1000
-                  totalCount: 2
-                  totalPages: 1
+                  pageSize: 2
+                  totalCount: 22
+                  totalPages: 11
                 status: []
               result:
                 data:
-                - linkageGroupName: 1A
+                - linkageGroupName: '1'
                   location: '1000'
-                  markerDbId: '1'
-                  markerName: marker1
-                - linkageGroupName: 1A
-                  location: '1001'
-                  markerDbId: '2'
-                  markerName: marker2
+                  markerDbId: mr1
+                  markerName: marker1-1
+                - linkageGroupName: '1'
+                  location: '1020'
+                  markerDbId: mr2
+                  markerName: marker1-2
           headers: {}
           schema:
             properties:

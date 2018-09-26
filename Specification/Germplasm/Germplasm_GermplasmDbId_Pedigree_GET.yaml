@@ -44,21 +44,19 @@ paths:
               result:
                 crossingPlan: OPEN_POLLINATION
                 crossingYear: '2018'
-                defaultDisplayName: Pahang 1
+                defaultDisplayName: G000003
                 familyCode: Cree_x_Bonanza_2018
-                germplasmDbId: 01BEL084609
-                parent1DbId: '166'
-                parent1Name: Cree
+                germplasmDbId: '3'
+                parent1DbId: '1'
+                parent1Id: '1'
+                parent1Name: G000001
                 parent1Type: FEMALE
-                parent2DbId: '143'
-                parent2Name: Bonanza
+                parent2DbId: '2'
+                parent2Id: '2'
+                parent2Name: G000002
                 parent2Type: MALE
-                pedigree: Cree / Bonanza
-                siblings:
-                - defaultDisplayName: Pahang 2
-                  germplasmDbId: '383'
-                - defaultDisplayName: Pahang 3
-                  germplasmDbId: '384'
+                pedigree: A000001/A000002
+                siblings: []
           headers: {}
           schema:
             properties:

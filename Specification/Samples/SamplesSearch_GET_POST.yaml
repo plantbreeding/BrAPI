@@ -46,38 +46,38 @@ paths:
                 datafiles: []
                 pagination:
                   currentPage: 0
-                  pageSize: 1000
-                  totalCount: 2
-                  totalPages: 1
+                  pageSize: 2
+                  totalCount: 4
+                  totalPages: 2
                 status: []
               result:
                 data:
-                - germplasmDbId: def456
-                  notes: Cut from infected leaf
-                  observationUnitDbId: abc123
-                  plantDbId: PlantID-123
-                  plateDbId: PlateID-123
+                - germplasmDbId: '1'
+                  notes: Example Sample
+                  observationUnitDbId: '1'
+                  plantDbId: 'null'
+                  plateDbId: pl1
                   plateIndex: 0
-                  plotDbId: PlotId-123
-                  sampleDbId: Unique-Plant-SampleID-1
-                  sampleTimestamp: 2016-07-27 13:43:22
-                  sampleType: TypeOfSample
-                  studyDbId: StudyId-123
-                  takenBy: Mr. Technician
-                  tissueType: TypeOfTissue
-                - germplasmDbId: def456
-                  notes: Cut from infected leaf
-                  observationUnitDbId: a1b2c3
-                  plantDbId: PlantID-123
-                  plateDbId: PlateID-123
-                  plateIndex: 0
-                  plotDbId: PlotId-123
-                  sampleDbId: Unique-Plant-SampleID-2
-                  sampleTimestamp: 2016-07-27 13:43:22
-                  sampleType: TypeOfSample
-                  studyDbId: StudyId-123
-                  takenBy: Mr. Technician
-                  tissueType: TypeOfTissue
+                  plotDbId: '1'
+                  sampleDbId: sam1
+                  sampleTimestamp: '2018-01-01T00:00:00-05:00'
+                  sampleType: DNA
+                  studyDbId: '1001'
+                  takenBy: Bob
+                  tissueType: Leaf
+                - germplasmDbId: '1'
+                  notes: Example Sample
+                  observationUnitDbId: '2'
+                  plantDbId: '1'
+                  plateDbId: pl1
+                  plateIndex: 1
+                  plotDbId: '1'
+                  sampleDbId: sam2
+                  sampleTimestamp: '2018-01-01T00:00:00-05:00'
+                  sampleType: DNA
+                  studyDbId: '1001'
+                  takenBy: Bob
+                  tissueType: Leaf
           headers: {}
           schema:
             properties:
@@ -117,37 +117,63 @@ paths:
                 pagination:
                   currentPage: 0
                   pageSize: 1000
-                  totalCount: 2
+                  totalCount: 4
                   totalPages: 1
                 status: []
               result:
                 data:
-                - germplasmDbId: def456
-                  notes: Cut from infected leaf
-                  observationUnitDbId: abc123
-                  plantDbId: PlantID-123
-                  plateDbId: PlateID-123
+                - germplasmDbId: '1'
+                  notes: Example Sample
+                  observationUnitDbId: '1'
+                  plantDbId: 'null'
+                  plateDbId: pl1
                   plateIndex: 0
-                  plotDbId: PlotId-123
-                  sampleDbId: Unique-Plant-SampleID-1
-                  sampleTimestamp: 2016-07-27 13:43:22
-                  sampleType: TypeOfSample
-                  studyDbId: StudyId-123
-                  takenBy: Mr. Technician
-                  tissueType: TypeOfTissue
-                - germplasmDbId: def456
-                  notes: Cut from infected leaf
-                  observationUnitDbId: a1b2c3
-                  plantDbId: PlantID-123
-                  plateDbId: PlateID-123
+                  plotDbId: '1'
+                  sampleDbId: sam1
+                  sampleTimestamp: '2018-01-01T00:00:00-05:00'
+                  sampleType: DNA
+                  studyDbId: '1001'
+                  takenBy: Bob
+                  tissueType: Leaf
+                - germplasmDbId: '1'
+                  notes: Example Sample
+                  observationUnitDbId: '2'
+                  plantDbId: '1'
+                  plateDbId: pl1
+                  plateIndex: 1
+                  plotDbId: '1'
+                  sampleDbId: sam2
+                  sampleTimestamp: '2018-01-01T00:00:00-05:00'
+                  sampleType: DNA
+                  studyDbId: '1001'
+                  takenBy: Bob
+                  tissueType: Leaf
+                - germplasmDbId: '2'
+                  notes: Example Sample
+                  observationUnitDbId: '3'
+                  plantDbId: 'null'
+                  plateDbId: pl1
+                  plateIndex: 2
+                  plotDbId: '2'
+                  sampleDbId: sam3
+                  sampleTimestamp: '2018-01-01T00:00:00-05:00'
+                  sampleType: DNA
+                  studyDbId: '1001'
+                  takenBy: Bob
+                  tissueType: Leaf
+                - germplasmDbId: '1'
+                  notes: string
+                  observationUnitDbId: '1'
+                  plantDbId: 'null'
+                  plateDbId: ''
                   plateIndex: 0
-                  plotDbId: PlotId-123
-                  sampleDbId: Unique-Plant-SampleID-2
-                  sampleTimestamp: 2016-07-27 13:43:22
-                  sampleType: TypeOfSample
-                  studyDbId: StudyId-123
-                  takenBy: Mr. Technician
-                  tissueType: TypeOfTissue
+                  plotDbId: '1'
+                  sampleDbId: 3f179189-1119-4c5f-9085-baabbd4d5986
+                  sampleTimestamp: '1970-01-18T14:11:49-05:00'
+                  sampleType: string
+                  studyDbId: '1001'
+                  takenBy: string
+                  tissueType: string
           headers: {}
           schema:
             properties:

@@ -29,21 +29,13 @@ paths:
                 datafiles: []
                 pagination:
                   currentPage: 0
-                  pageSize: 1000
-                  totalCount: 8
-                  totalPages: 1
+                  pageSize: 2
+                  totalCount: 65
+                  totalPages: 33
+                status: []
               result:
                 data:
-                - call: token
-                  datatypes:
-                  - json
-                  methods:
-                  - POST
-                  - DELETE
-                  versions:
-                  - '1.0'
-                  - '1.1'
-                - call: calls
+                - call: allelematrices
                   datatypes:
                   - json
                   methods:
@@ -52,25 +44,7 @@ paths:
                   - '1.0'
                   - '1.1'
                   - '1.2'
-                - call: allelematrix
-                  datatypes:
-                  - json
-                  - tsv
-                  methods:
-                  - GET
-                  - POST
-                  versions:
-                  - '1.0'
-                - call: observationLevels
-                  datatypes:
-                  - json
-                  methods:
-                  - GET
-                  versions:
-                  - '1.0'
-                  - '1.1'
-                  - '1.2'
-                - call: germplasm-search
+                - call: allelematrices-search
                   datatypes:
                   - json
                   methods:
@@ -78,31 +52,6 @@ paths:
                   - POST
                   versions:
                   - '1.0'
-                  - '1.1'
-                  - '1.2'
-                - call: germplasm/{germplasmDbId}
-                  datatypes:
-                  - json
-                  methods:
-                  - GET
-                  versions:
-                  - '1.0'
-                  - '1.1'
-                  - '1.2'
-                - call: germplasm/{germplasmDbId}/pedigree
-                  datatypes:
-                  - json
-                  methods:
-                  - GET
-                  versions:
-                  - '1.1'
-                  - '1.2'
-                - call: germplasm/{germplasmDbId}/markerprofiles
-                  datatypes:
-                  - json
-                  methods:
-                  - GET
-                  versions:
                   - '1.1'
                   - '1.2'
           headers: {}

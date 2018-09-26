@@ -28,20 +28,20 @@ paths:
                 datafiles: []
                 pagination:
                   currentPage: 0
-                  pageSize: 1000
+                  pageSize: 2
                   totalCount: 2
                   totalPages: 1
                 status: []
               result:
                 data:
                 - abbreviation: MBCR
-                  breedingMethodDbId: BM987
-                  description: Backcross to recover a specific gene. The coding in the genealogical table records which parent was used as the male in each cycle. Each entity kept separate.
+                  breedingMethodDbId: bm1
+                  description: Backcross to recover a specific gene.
                   name: Male Backcross
-                - abbreviation: DSP
-                  breedingMethodDbId: BM324
-                  description: Derivation through selection of a single plant, inflorescence, fruit or seed from a population
-                  name: Single plant selection
+                - abbreviation: FBCR
+                  breedingMethodDbId: bm2
+                  description: Backcross to recover a specific gene.
+                  name: Female Backcross
           headers: {}
           schema:
             properties:

@@ -35,42 +35,82 @@ paths:
                 status: []
               result:
                 data:
-                - - '2017'
-                  - stu1
-                  - Study Name
-                  - loc1
-                  - Location Name
-                  - CIP1
-                  - CIP Name
-                  - abc123
-                  - 1
-                  - 1
-                  - 1
-                  - 2017-06-16T00:53:26Z //DEPRECATED
-                  - Test Entry
+                - - '2011'
+                  - '1001'
+                  - Study 1
+                  - '1'
+                  - Peru
+                  - '1'
+                  - Name001
+                  - '2'
+                  - '1'
+                  - '0'
+                  - '1'
+                  - '2013-06-14T22:05:51-04:00'
+                  - TEST
+                  - '1'
+                  - '1'
+                  - '1.1'
+                  - ''
+                  - ''
+                  - '5.1'
+                - - '2012'
+                  - '1001'
+                  - Study 1
+                  - '1'
+                  - Peru
+                  - '2'
+                  - Name002
+                  - '3'
+                  - '2'
+                  - '0'
+                  - '1'
+                  - '2013-06-14T22:07:51-04:00'
+                  - TEST
                   - '1'
                   - '2'
-                  - '25.3'
-                  - '103.4'
-                  - '50.75'
-                - - '2017'
-                  - stu1
-                  - Study Name
-                  - loc1
-                  - Location Name
-                  - CIP1
-                  - CIP Name
-                  - abc124
-                  - 1
-                  - 1
-                  - 1
-                  - 2017-06-16T00:54:57Z //DEPRECATED
-                  - Test Entry
+                  - ''
+                  - '2.1'
+                  - dark blue
+                  - ''
+                - - '2012'
+                  - '1001'
+                  - Study 1
+                  - '1'
+                  - Peru
                   - '2'
+                  - Name002
+                  - '4'
                   - '2'
-                  - '27.9'
-                  - '98.65'
-                  - '45.345'
+                  - '0'
+                  - '1'
+                  - '2013-06-14T22:09:51-04:00'
+                  - TEST
+                  - '1'
+                  - '2'
+                  - ''
+                  - '1.8'
+                  - blue
+                  - ''
+                - - '2011'
+                  - '1001'
+                  - Study 1
+                  - '1'
+                  - Peru
+                  - '1'
+                  - Name001
+                  - '1'
+                  - '1'
+                  - '0'
+                  - '0'
+                  - '2013-06-14T22:03:51-04:00'
+                  - CHECK
+                  - '10'
+                  - '12'
+                  - '1.2'
+                  - ''
+                  - ''
+                  - '4.5'
                 headerRow:
                 - year
                 - studyDbId
@@ -83,18 +123,20 @@ paths:
                 - plotNumber
                 - replicate
                 - blockNumber
-                - observationTimestamp //DEPRECATED
+                - observationTimestamp
                 - entryType
                 - X
                 - Y
                 observationVariableDbIds:
-                - variable1DbId
-                - variable2DbId
-                - variable3DbId
+                - MO_123:100002
+                - MO_123:100003
+                - MO_123:100005
+                - MO_123:100006
                 observationVariableNames:
-                - plant height
-                - fruit weight
-                - root weight
+                - Plant height
+                - Carotenoid
+                - Root color
+                - Virus susceptibility
             application/tsv: "year\tstudyDbId\tstudyName\tlocationDbId\tlocationName\tgermplasmDbId\tgermplasmName\tobservationUnitDbId\tplotNumber\treplicate\tblockNumber\tobservationTimestamp\tentryType\tX\tY\tvariable1DbId\tvariable2DbId\tvariable3DbId\n 2017\tstu1\tStudy Name\tloc1\tLocation Name\tCIP1\tCIP Name\tabc123\t1\t1\t1\t2017-06-16T00:53:26Z\tTest Entry\t1\t2\t25.3\t103.4\t50.75\n 2017\tstu1\tStudy Name\tloc1\tLocation Name\tCIP1\tCIP Name\tabc124\t1\t1\t1\t2017-06-16T00:54:57Z\tTest Entry\t2\t2\t27.9\t98.65\t45.345\n"
           headers: {}
           schema:
@@ -144,32 +186,7 @@ paths:
                   totalCount: 0
                   totalPages: 0
                 status: []
-              result:
-                observations:
-                - observationDbId: '12345'
-                  observationUnitDbId: '1'
-                  observationVariableDbId: variable1DbId
-                - observationDbId: '23456'
-                  observationUnitDbId: '1'
-                  observationVariableDbId: variable2DbId
-                - observationDbId: '34567'
-                  observationUnitDbId: '1'
-                  observationVariableDbId: variable3DbId
-                - observationDbId: '45678'
-                  observationUnitDbId: '1'
-                  observationVariableDbId: imagevariable1DbId
-                - observationDbId: '56789'
-                  observationUnitDbId: '2'
-                  observationVariableDbId: variable1DbId
-                - observationDbId: '67890'
-                  observationUnitDbId: '2'
-                  observationVariableDbId: variable2DbId
-                - observationDbId: '78901'
-                  observationUnitDbId: '2'
-                  observationVariableDbId: variable3DbId
-                - observationDbId: '89012'
-                  observationUnitDbId: '2'
-                  observationVariableDbId: imagevariable1DbId
+              result: null
           headers: {}
           schema:
             properties:

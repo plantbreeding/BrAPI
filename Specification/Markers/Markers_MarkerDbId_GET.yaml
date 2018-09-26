@@ -23,17 +23,15 @@ paths:
                 status: []
               result:
                 analysisMethods:
-                - illumina
                 - kasp
-                defaultDisplayName: '11_10002'
-                markerDbId: '1185'
+                defaultDisplayName: marker1-2
+                markerDbId: mr2
                 refAlt:
                 - A
                 - T
                 synonyms:
-                - i_11_10002
-                - POPA1_0002
-                type: SNP
+                - i_11_10020
+                type: marker
           headers: {}
           schema:
             properties:

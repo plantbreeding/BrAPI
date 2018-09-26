@@ -76,99 +76,100 @@ paths:
                 datafiles: []
                 pagination:
                   currentPage: 0
-                  pageSize: 100
-                  totalCount: 2
-                  totalPages: 1
+                  pageSize: 2
+                  totalCount: 23
+                  totalPages: 12
                 status: []
               result:
                 data:
-                - X: '5'
-                  Y: '15'
-                  blockNumber: '2'
-                  entryNumber: '4'
-                  entryType: check
-                  germplasmDbId: doi:10.155454/12349537E12
-                  germplasmName: IR-8
-                  observationLevel: plot
-                  observationLevels: bloc:2,subBloc:1,plot:2016-Maugio-34-575-abc-123
-                  observationUnitDbId: 2016-Maugio-34-575-abc-123
-                  observationUnitName: 2016-Maugio-34-575
+                - X: '1'
+                  Y: '1'
+                  blockNumber: '1'
+                  entryNumber: '2'
+                  entryType: TEST
+                  germplasmDbId: '1'
+                  germplasmName: Name001
+                  observationLevel: plant
+                  observationLevels: block:1;plot:1;plant:1
+                  observationUnitDbId: '2'
+                  observationUnitName: Plant 1
                   observationUnitXref:
-                  - id: SAMEA179865230
-                    source: biosampleEBI
-                  - id: INRA:CoeSt6 _SMH03
+                  - id: SAMEA179865815
+                    source: ebi.biosample
+                  - id: INRA:CoeSt6 _SMH13
                     source: gnpis.lot
-                  - id: '239865'
+                  - id: '239167'
                     source: kernelDB
                   observations:
-                  - collector: Mr. Technician
-                    observationDbId: '153453453'
-                    observationTimeStamp: 2015-06-16 08:53:26
-                    observationVariableDbId: CO_321:0000045
-                    observationVariableName: Plant_height
-                    season: '2015'
-                    value: '45'
-                  - collector: Mr. Technician
-                    observationDbId: '23453454345'
-                    observationTimeStamp: 2015-06-16 08:53:26
-                    observationVariableDbId: CO_321:0000996
-                    observationVariableName: GW100_g
-                    season: '2015'
-                    value: '3'
-                  plantNumber: '0'
-                  plotNumber: 2016-Maugio-34-575-abc-123
-                  positionCoordinateX: '5'
-                  positionCoordinateXType: GRID_COL
-                  positionCoordinateY: '15'
-                  positionCoordinateYType: GRID_ROW
-                  programName: Whealbi
+                  - collector: A. Technician
+                    observationDbId: '3'
+                    observationTimeStamp: '2013-06-14T22:05:51-04:00'
+                    observationVariableDbId: MO_123:100002
+                    observationVariableName: Plant height
+                    season: fall 2011
+                    value: '1.1'
+                  - collector: A. Technician
+                    observationDbId: '4'
+                    observationTimeStamp: '2013-06-14T22:06:51-04:00'
+                    observationVariableDbId: MO_123:100006
+                    observationVariableName: Virus susceptibility
+                    season: fall 2011
+                    value: '5.1'
+                  plantNumber: '1'
+                  plotNumber: '1'
+                  programName: Program 1
                   replicate: '0'
-                  studyDbId: YieldStudy2015-5
-                  studyLocation: Montpellier
-                  studyLocationDbId: mtp-north-32
-                  studyName: Yield wheat 2015
+                  studyDbId: '1001'
+                  studyLocation: Peru
+                  studyLocationDbId: '1'
+                  studyName: Study 1
                   treatments:
                   - factor: water regimen
-                    modality: water deficit
-                - X: '6'
-                  Y: '15'
-                  blockNumber: '3'
-                  entryNumber: '7'
-                  entryType: test
-                  germplasmDbId: doi:10.155499/12349537E00
-                  germplasmName: ZE-45
+                    modality: deficit
+                - X: '1'
+                  Y: '1'
+                  blockNumber: '1'
+                  entryNumber: '2'
+                  entryType: TEST
+                  germplasmDbId: '1'
+                  germplasmName: Name001
                   observationLevel: plant
-                  observationLevels: bloc:2,subBloc:1,plot:2016-Maugio-34-575-abc-123
-                  observationUnitDbId: '45204'
-                  observationUnitName: 2010-Cornell-37-99
+                  observationLevels: block:1;plot:1;plant:1
+                  observationUnitDbId: '2'
+                  observationUnitName: Plant 1
+                  observationUnitXref:
+                  - id: SAMEA179865815
+                    source: ebi.biosample
+                  - id: INRA:CoeSt6 _SMH13
+                    source: gnpis.lot
+                  - id: '239167'
+                    source: kernelDB
                   observations:
-                  - collector: Mr. Technician
-                    observationDbId: '153453453'
-                    observationTimeStamp: 2010-06-16 08:53:26
-                    observationVariableDbId: CO_321:0000045
-                    observationVariableName: Plant_height
-                    season: '2010'
-                    value: '45'
-                  - collector: Mr. Technician
-                    observationDbId: '23453454345'
-                    observationTimeStamp: 2010-06-16 08:53:26
-                    observationVariableDbId: CO_321:0000996
-                    observationVariableName: GW100_g
-                    season: '2010'
-                    value: '3'
-                  plantNumber: '45204'
-                  plotNumber: 2016-Maugio-34-575-abc-123
-                  positionCoordinateX: '6'
-                  positionCoordinateXType: GRID_COL
-                  positionCoordinateY: '15'
-                  positionCoordinateYType: GRID_ROW
-                  programName: Wheat for futur
-                  replicate: '2'
-                  studyDbId: YieldStudy2010-5
-                  studyLocation: Cornell
-                  studyLocationDbId: '88484'
-                  studyName: Yield wheat 2010
-                  treatments: []
+                  - collector: A. Technician
+                    observationDbId: '3'
+                    observationTimeStamp: '2013-06-14T22:05:51-04:00'
+                    observationVariableDbId: MO_123:100002
+                    observationVariableName: Plant height
+                    season: fall 2011
+                    value: '1.1'
+                  - collector: A. Technician
+                    observationDbId: '4'
+                    observationTimeStamp: '2013-06-14T22:06:51-04:00'
+                    observationVariableDbId: MO_123:100006
+                    observationVariableName: Virus susceptibility
+                    season: fall 2011
+                    value: '5.1'
+                  plantNumber: '1'
+                  plotNumber: '1'
+                  programName: Program 1
+                  replicate: '0'
+                  studyDbId: '1001'
+                  studyLocation: Peru
+                  studyLocationDbId: '1'
+                  studyName: Study 1
+                  treatments:
+                  - factor: water regimen
+                    modality: deficit
           headers: {}
           schema:
             properties:
@@ -205,98 +206,1010 @@ paths:
                 datafiles: []
                 pagination:
                   currentPage: 0
-                  pageSize: 100
-                  totalCount: 2
+                  pageSize: 1000
+                  totalCount: 23
                   totalPages: 1
                 status: []
               result:
                 data:
-                - X: '5'
-                  Y: '15'
-                  blockNumber: '2'
-                  entryNumber: '4'
-                  entryType: check
-                  germplasmDbId: doi:10.155454/12349537E12
-                  germplasmName: IR-8
+                - X: '10'
+                  Y: '12'
+                  blockNumber: '0'
+                  entryNumber: '1'
+                  entryType: CHECK
+                  germplasmDbId: '1'
+                  germplasmName: Name001
                   observationLevel: plot
-                  observationLevels: bloc:2,subBloc:1,plot:2016-Maugio-34-575-abc-123
-                  observationUnitDbId: 2016-Maugio-34-575-abc-123
-                  observationUnitName: 2016-Maugio-34-575
+                  observationLevels: block:1;plot:1
+                  observationUnitDbId: '1'
+                  observationUnitName: Plot 1
                   observationUnitXref:
                   - id: SAMEA179865230
-                    source: biosampleEBI
+                    source: ebi.biosample
                   - id: INRA:CoeSt6 _SMH03
                     source: gnpis.lot
                   - id: '239865'
                     source: kernelDB
                   observations:
-                  - collector: Mr. Technician
-                    observationDbId: '153453453'
-                    observationTimeStamp: 2015-06-16 08:53:26
-                    observationVariableDbId: CO_321:0000045
-                    observationVariableName: Plant_height
-                    season: '2015'
-                    value: '45'
-                  - collector: Mr. Technician
-                    observationDbId: '23453454345'
-                    observationTimeStamp: 2015-06-16 08:53:26
-                    observationVariableDbId: CO_321:0000996
-                    observationVariableName: GW100_g
-                    season: '2015'
-                    value: '3'
-                  plantNumber: '0'
-                  plotNumber: 2016-Maugio-34-575-abc-123
-                  positionCoordinateX: '5'
-                  positionCoordinateXType: GRID_COL
-                  positionCoordinateY: '15'
-                  positionCoordinateYType: GRID_ROW
-                  programName: Whealbi
+                  - collector: A. Technician
+                    observationDbId: '1'
+                    observationTimeStamp: '2013-06-14T22:03:51-04:00'
+                    observationVariableDbId: MO_123:100002
+                    observationVariableName: Plant height
+                    season: fall 2011
+                    value: '1.2'
+                  - collector: A. Technician
+                    observationDbId: '2'
+                    observationTimeStamp: '2013-06-14T22:04:51-04:00'
+                    observationVariableDbId: MO_123:100006
+                    observationVariableName: Virus susceptibility
+                    season: fall 2011
+                    value: '4.5'
+                  - collector: string
+                    observationDbId: 22d2f98e-9309-46e4-9986-9c0d60bf3443
+                    observationTimeStamp: '1970-01-18T14:02:52-05:00'
+                    observationVariableDbId: MO_123:100002
+                    observationVariableName: Plant height
+                    season: fall 2011
+                    value: string
+                  plantNumber: 'null'
+                  plotNumber: '1'
+                  programName: Program 1
                   replicate: '0'
-                  studyDbId: YieldStudy2015-5
-                  studyLocation: Montpellier
-                  studyLocationDbId: mtp-north-32
-                  studyName: Yield wheat 2015
+                  studyDbId: '1001'
+                  studyLocation: Peru
+                  studyLocationDbId: '1'
+                  studyName: Study 1
                   treatments:
                   - factor: water regimen
-                    modality: water deficit
-                - X: '6'
-                  Y: '15'
-                  blockNumber: '3'
-                  entryNumber: '7'
-                  entryType: test
-                  germplasmDbId: doi:10.155499/12349537E00
-                  germplasmName: ZE-45
-                  observationLevel: plant
-                  observationLevels: bloc:2,subBloc:1,plot:2016-Maugio-34-575-abc-123
-                  observationUnitDbId: '45204'
-                  observationUnitName: 2010-Cornell-37-99
+                    modality: deficit
+                - X: '10'
+                  Y: '12'
+                  blockNumber: '0'
+                  entryNumber: '1'
+                  entryType: CHECK
+                  germplasmDbId: '1'
+                  germplasmName: Name001
+                  observationLevel: plot
+                  observationLevels: block:1;plot:1
+                  observationUnitDbId: '1'
+                  observationUnitName: Plot 1
+                  observationUnitXref:
+                  - id: SAMEA179865230
+                    source: ebi.biosample
+                  - id: INRA:CoeSt6 _SMH03
+                    source: gnpis.lot
+                  - id: '239865'
+                    source: kernelDB
                   observations:
-                  - collector: Mr. Technician
-                    observationDbId: '153453453'
-                    observationTimeStamp: 2010-06-16 08:53:26
-                    observationVariableDbId: CO_321:0000045
-                    observationVariableName: Plant_height
-                    season: '2010'
-                    value: '45'
-                  - collector: Mr. Technician
-                    observationDbId: '23453454345'
-                    observationTimeStamp: 2010-06-16 08:53:26
-                    observationVariableDbId: CO_321:0000996
-                    observationVariableName: GW100_g
-                    season: '2010'
-                    value: '3'
-                  plantNumber: '45204'
-                  plotNumber: 2016-Maugio-34-575-abc-123
-                  positionCoordinateX: '6'
-                  positionCoordinateXType: GRID_COL
-                  positionCoordinateY: '15'
-                  positionCoordinateYType: GRID_ROW
-                  programName: Wheat for futur
-                  replicate: '2'
-                  studyDbId: YieldStudy2010-5
-                  studyLocation: Cornell
-                  studyLocationDbId: '88484'
-                  studyName: Yield wheat 2010
+                  - collector: A. Technician
+                    observationDbId: '1'
+                    observationTimeStamp: '2013-06-14T22:03:51-04:00'
+                    observationVariableDbId: MO_123:100002
+                    observationVariableName: Plant height
+                    season: fall 2011
+                    value: '1.2'
+                  - collector: A. Technician
+                    observationDbId: '2'
+                    observationTimeStamp: '2013-06-14T22:04:51-04:00'
+                    observationVariableDbId: MO_123:100006
+                    observationVariableName: Virus susceptibility
+                    season: fall 2011
+                    value: '4.5'
+                  - collector: string
+                    observationDbId: 22d2f98e-9309-46e4-9986-9c0d60bf3443
+                    observationTimeStamp: '1970-01-18T14:02:52-05:00'
+                    observationVariableDbId: MO_123:100002
+                    observationVariableName: Plant height
+                    season: fall 2011
+                    value: string
+                  plantNumber: 'null'
+                  plotNumber: '1'
+                  programName: Program 1
+                  replicate: '0'
+                  studyDbId: '1001'
+                  studyLocation: Peru
+                  studyLocationDbId: '1'
+                  studyName: Study 1
+                  treatments:
+                  - factor: water regimen
+                    modality: deficit
+                - X: '10'
+                  Y: '12'
+                  blockNumber: '0'
+                  entryNumber: '1'
+                  entryType: CHECK
+                  germplasmDbId: '1'
+                  germplasmName: Name001
+                  observationLevel: plot
+                  observationLevels: block:1;plot:1
+                  observationUnitDbId: '1'
+                  observationUnitName: Plot 1
+                  observationUnitXref:
+                  - id: SAMEA179865230
+                    source: ebi.biosample
+                  - id: INRA:CoeSt6 _SMH03
+                    source: gnpis.lot
+                  - id: '239865'
+                    source: kernelDB
+                  observations:
+                  - collector: A. Technician
+                    observationDbId: '1'
+                    observationTimeStamp: '2013-06-14T22:03:51-04:00'
+                    observationVariableDbId: MO_123:100002
+                    observationVariableName: Plant height
+                    season: fall 2011
+                    value: '1.2'
+                  - collector: A. Technician
+                    observationDbId: '2'
+                    observationTimeStamp: '2013-06-14T22:04:51-04:00'
+                    observationVariableDbId: MO_123:100006
+                    observationVariableName: Virus susceptibility
+                    season: fall 2011
+                    value: '4.5'
+                  - collector: string
+                    observationDbId: 22d2f98e-9309-46e4-9986-9c0d60bf3443
+                    observationTimeStamp: '1970-01-18T14:02:52-05:00'
+                    observationVariableDbId: MO_123:100002
+                    observationVariableName: Plant height
+                    season: fall 2011
+                    value: string
+                  plantNumber: 'null'
+                  plotNumber: '1'
+                  programName: Program 1
+                  replicate: '0'
+                  studyDbId: '1001'
+                  studyLocation: Peru
+                  studyLocationDbId: '1'
+                  studyName: Study 1
+                  treatments:
+                  - factor: water regimen
+                    modality: deficit
+                - X: '1'
+                  Y: '2'
+                  blockNumber: '1'
+                  entryNumber: '8'
+                  entryType: CHECK
+                  germplasmDbId: '3'
+                  germplasmName: Name003
+                  observationLevel: plant
+                  observationLevels: block:1;plot:4;plant:4
+                  observationUnitDbId: '8'
+                  observationUnitName: Plant 4
+                  observationUnitXref: []
+                  observations:
+                  - collector: A. Technician
+                    observationDbId: '12'
+                    observationTimeStamp: '2013-06-14T22:14:51-04:00'
+                    observationVariableDbId: MO_123:100005
+                    observationVariableName: Root color
+                    season: spring 2012
+                    value: red
+                  plantNumber: '4'
+                  plotNumber: '4'
+                  programName: Program 1
+                  replicate: '0'
+                  studyDbId: '1002'
+                  studyLocation: Peru
+                  studyLocationDbId: '1'
+                  studyName: Study 2
+                  treatments:
+                  - factor: water regimen
+                    modality: normal
+                - X: '1'
+                  Y: '2'
+                  blockNumber: '1'
+                  entryNumber: '7'
+                  entryType: TEST
+                  germplasmDbId: '3'
+                  germplasmName: Name003
+                  observationLevel: plot
+                  observationLevels: block:1;plot:4
+                  observationUnitDbId: '7'
+                  observationUnitName: Plot 4
+                  observationUnitXref: []
+                  observations:
+                  - collector: A. Technician
+                    observationDbId: '11'
+                    observationTimeStamp: '2013-06-14T22:13:51-04:00'
+                    observationVariableDbId: MO_123:100003
+                    observationVariableName: Carotenoid
+                    season: spring 2012
+                    value: '1.4'
+                  plantNumber: 'null'
+                  plotNumber: '4'
+                  programName: Program 1
+                  replicate: '0'
+                  studyDbId: '1002'
+                  studyLocation: Peru
+                  studyLocationDbId: '1'
+                  studyName: Study 2
+                  treatments:
+                  - factor: water regimen
+                    modality: normal
+                - X: '1'
+                  Y: '1'
+                  blockNumber: '1'
+                  entryNumber: '6'
+                  entryType: TEST
+                  germplasmDbId: '1'
+                  germplasmName: Name001
+                  observationLevel: plant
+                  observationLevels: block:1;plot:3;plant:3
+                  observationUnitDbId: '6'
+                  observationUnitName: Plant 3
+                  observationUnitXref: []
+                  observations:
+                  - collector: A. Technician
+                    observationDbId: '10'
+                    observationTimeStamp: '2013-06-14T22:12:51-04:00'
+                    observationVariableDbId: MO_123:100006
+                    observationVariableName: Virus susceptibility
+                    season: spring 2012
+                    value: '4.5'
+                  plantNumber: '3'
+                  plotNumber: '3'
+                  programName: Program 1
+                  replicate: '0'
+                  studyDbId: '1002'
+                  studyLocation: Peru
+                  studyLocationDbId: '1'
+                  studyName: Study 2
+                  treatments:
+                  - factor: water regimen
+                    modality: deficit
+                - X: '1'
+                  Y: '1'
+                  blockNumber: '1'
+                  entryNumber: '5'
+                  entryType: TEST
+                  germplasmDbId: '1'
+                  germplasmName: Name001
+                  observationLevel: plot
+                  observationLevels: block:1;plot:3
+                  observationUnitDbId: '5'
+                  observationUnitName: Plot 3
+                  observationUnitXref: []
+                  observations:
+                  - collector: A. Technician
+                    observationDbId: '9'
+                    observationTimeStamp: '2013-06-14T22:11:51-04:00'
+                    observationVariableDbId: MO_123:100002
+                    observationVariableName: Plant height
+                    season: spring 2012
+                    value: '2.1'
+                  plantNumber: 'null'
+                  plotNumber: '3'
+                  programName: Program 1
+                  replicate: '0'
+                  studyDbId: '1002'
+                  studyLocation: Peru
+                  studyLocationDbId: '1'
+                  studyName: Study 2
+                  treatments:
+                  - factor: water regimen
+                    modality: deficit
+                - X: '1'
+                  Y: '2'
+                  blockNumber: '1'
+                  entryNumber: '4'
+                  entryType: TEST
+                  germplasmDbId: '2'
+                  germplasmName: Name002
+                  observationLevel: plant
+                  observationLevels: block:1;plot:2;plant:2
+                  observationUnitDbId: '4'
+                  observationUnitName: Plant 2
+                  observationUnitXref:
+                  - id: SAMEA179865891
+                    source: ebi.biosample
+                  - id: INRA:CoeSt6 _SMH89
+                    source: gnpis.lot
+                  - id: '239612'
+                    source: kernelDB
+                  observations:
+                  - collector: A. Technician
+                    observationDbId: '7'
+                    observationTimeStamp: '2013-06-14T22:09:51-04:00'
+                    observationVariableDbId: MO_123:100003
+                    observationVariableName: Carotenoid
+                    season: fall 2012
+                    value: '1.8'
+                  - collector: A. Technician
+                    observationDbId: '8'
+                    observationTimeStamp: '2013-06-14T22:10:51-04:00'
+                    observationVariableDbId: MO_123:100005
+                    observationVariableName: Root color
+                    season: fall 2012
+                    value: blue
+                  plantNumber: '2'
+                  plotNumber: '2'
+                  programName: Program 1
+                  replicate: '0'
+                  studyDbId: '1001'
+                  studyLocation: Peru
+                  studyLocationDbId: '1'
+                  studyName: Study 1
+                  treatments:
+                  - factor: water regimen
+                    modality: normal
+                - X: '1'
+                  Y: '2'
+                  blockNumber: '1'
+                  entryNumber: '4'
+                  entryType: TEST
+                  germplasmDbId: '2'
+                  germplasmName: Name002
+                  observationLevel: plant
+                  observationLevels: block:1;plot:2;plant:2
+                  observationUnitDbId: '4'
+                  observationUnitName: Plant 2
+                  observationUnitXref:
+                  - id: SAMEA179865891
+                    source: ebi.biosample
+                  - id: INRA:CoeSt6 _SMH89
+                    source: gnpis.lot
+                  - id: '239612'
+                    source: kernelDB
+                  observations:
+                  - collector: A. Technician
+                    observationDbId: '7'
+                    observationTimeStamp: '2013-06-14T22:09:51-04:00'
+                    observationVariableDbId: MO_123:100003
+                    observationVariableName: Carotenoid
+                    season: fall 2012
+                    value: '1.8'
+                  - collector: A. Technician
+                    observationDbId: '8'
+                    observationTimeStamp: '2013-06-14T22:10:51-04:00'
+                    observationVariableDbId: MO_123:100005
+                    observationVariableName: Root color
+                    season: fall 2012
+                    value: blue
+                  plantNumber: '2'
+                  plotNumber: '2'
+                  programName: Program 1
+                  replicate: '0'
+                  studyDbId: '1001'
+                  studyLocation: Peru
+                  studyLocationDbId: '1'
+                  studyName: Study 1
+                  treatments:
+                  - factor: water regimen
+                    modality: normal
+                - X: '1'
+                  Y: '2'
+                  blockNumber: '1'
+                  entryNumber: '3'
+                  entryType: TEST
+                  germplasmDbId: '2'
+                  germplasmName: Name002
+                  observationLevel: plot
+                  observationLevels: block:1;plot:2
+                  observationUnitDbId: '3'
+                  observationUnitName: Plot 2
+                  observationUnitXref:
+                  - id: SAMEA179865682
+                    source: ebi.biosample
+                  - id: INRA:CoeSt6 _SMH51
+                    source: gnpis.lot
+                  - id: '239146'
+                    source: kernelDB
+                  observations:
+                  - collector: A. Technician
+                    observationDbId: '5'
+                    observationTimeStamp: '2013-06-14T22:07:51-04:00'
+                    observationVariableDbId: MO_123:100003
+                    observationVariableName: Carotenoid
+                    season: summer 2012
+                    value: '2.1'
+                  - collector: A. Technician
+                    observationDbId: '6'
+                    observationTimeStamp: '2013-06-14T22:08:51-04:00'
+                    observationVariableDbId: MO_123:100005
+                    observationVariableName: Root color
+                    season: summer 2012
+                    value: dark blue
+                  plantNumber: 'null'
+                  plotNumber: '2'
+                  programName: Program 1
+                  replicate: '0'
+                  studyDbId: '1001'
+                  studyLocation: Peru
+                  studyLocationDbId: '1'
+                  studyName: Study 1
+                  treatments:
+                  - factor: water regimen
+                    modality: normal
+                - X: '1'
+                  Y: '2'
+                  blockNumber: '1'
+                  entryNumber: '3'
+                  entryType: TEST
+                  germplasmDbId: '2'
+                  germplasmName: Name002
+                  observationLevel: plot
+                  observationLevels: block:1;plot:2
+                  observationUnitDbId: '3'
+                  observationUnitName: Plot 2
+                  observationUnitXref:
+                  - id: SAMEA179865682
+                    source: ebi.biosample
+                  - id: INRA:CoeSt6 _SMH51
+                    source: gnpis.lot
+                  - id: '239146'
+                    source: kernelDB
+                  observations:
+                  - collector: A. Technician
+                    observationDbId: '5'
+                    observationTimeStamp: '2013-06-14T22:07:51-04:00'
+                    observationVariableDbId: MO_123:100003
+                    observationVariableName: Carotenoid
+                    season: summer 2012
+                    value: '2.1'
+                  - collector: A. Technician
+                    observationDbId: '6'
+                    observationTimeStamp: '2013-06-14T22:08:51-04:00'
+                    observationVariableDbId: MO_123:100005
+                    observationVariableName: Root color
+                    season: summer 2012
+                    value: dark blue
+                  plantNumber: 'null'
+                  plotNumber: '2'
+                  programName: Program 1
+                  replicate: '0'
+                  studyDbId: '1001'
+                  studyLocation: Peru
+                  studyLocationDbId: '1'
+                  studyName: Study 1
+                  treatments:
+                  - factor: water regimen
+                    modality: normal
+                - X: '1'
+                  Y: '1'
+                  blockNumber: '1'
+                  entryNumber: '2'
+                  entryType: TEST
+                  germplasmDbId: '1'
+                  germplasmName: Name001
+                  observationLevel: plant
+                  observationLevels: block:1;plot:1;plant:1
+                  observationUnitDbId: '2'
+                  observationUnitName: Plant 1
+                  observationUnitXref:
+                  - id: SAMEA179865815
+                    source: ebi.biosample
+                  - id: INRA:CoeSt6 _SMH13
+                    source: gnpis.lot
+                  - id: '239167'
+                    source: kernelDB
+                  observations:
+                  - collector: A. Technician
+                    observationDbId: '3'
+                    observationTimeStamp: '2013-06-14T22:05:51-04:00'
+                    observationVariableDbId: MO_123:100002
+                    observationVariableName: Plant height
+                    season: fall 2011
+                    value: '1.1'
+                  - collector: A. Technician
+                    observationDbId: '4'
+                    observationTimeStamp: '2013-06-14T22:06:51-04:00'
+                    observationVariableDbId: MO_123:100006
+                    observationVariableName: Virus susceptibility
+                    season: fall 2011
+                    value: '5.1'
+                  plantNumber: '1'
+                  plotNumber: '1'
+                  programName: Program 1
+                  replicate: '0'
+                  studyDbId: '1001'
+                  studyLocation: Peru
+                  studyLocationDbId: '1'
+                  studyName: Study 1
+                  treatments:
+                  - factor: water regimen
+                    modality: deficit
+                - X: '1'
+                  Y: '1'
+                  blockNumber: '1'
+                  entryNumber: '2'
+                  entryType: TEST
+                  germplasmDbId: '1'
+                  germplasmName: Name001
+                  observationLevel: plant
+                  observationLevels: block:1;plot:1;plant:1
+                  observationUnitDbId: '2'
+                  observationUnitName: Plant 1
+                  observationUnitXref:
+                  - id: SAMEA179865815
+                    source: ebi.biosample
+                  - id: INRA:CoeSt6 _SMH13
+                    source: gnpis.lot
+                  - id: '239167'
+                    source: kernelDB
+                  observations:
+                  - collector: A. Technician
+                    observationDbId: '3'
+                    observationTimeStamp: '2013-06-14T22:05:51-04:00'
+                    observationVariableDbId: MO_123:100002
+                    observationVariableName: Plant height
+                    season: fall 2011
+                    value: '1.1'
+                  - collector: A. Technician
+                    observationDbId: '4'
+                    observationTimeStamp: '2013-06-14T22:06:51-04:00'
+                    observationVariableDbId: MO_123:100006
+                    observationVariableName: Virus susceptibility
+                    season: fall 2011
+                    value: '5.1'
+                  plantNumber: '1'
+                  plotNumber: '1'
+                  programName: Program 1
+                  replicate: '0'
+                  studyDbId: '1001'
+                  studyLocation: Peru
+                  studyLocationDbId: '1'
+                  studyName: Study 1
+                  treatments:
+                  - factor: water regimen
+                    modality: deficit
+                - X: '1'
+                  Y: '1'
+                  blockNumber: '101'
+                  entryNumber: '1'
+                  entryType: FILLER
+                  germplasmDbId: '2'
+                  germplasmName: Name002
+                  observationLevel: plot
+                  observationLevels: block:101;plot:6
+                  observationUnitDbId: '11'
+                  observationUnitName: Plot 6
+                  observationUnitXref: []
+                  observations:
+                  - collector: B. Tech
+                    observationDbId: '19'
+                    observationTimeStamp: '2011-06-14T22:09:51-04:00'
+                    observationVariableDbId: MO_123:100002
+                    observationVariableName: Plant height
+                    season: winter 2012
+                    value: '11'
+                  - collector: B. Tech
+                    observationDbId: '20'
+                    observationTimeStamp: '2011-06-14T22:10:51-04:00'
+                    observationVariableDbId: MO_123:100003
+                    observationVariableName: Carotenoid
+                    season: winter 2012
+                    value: '12'
+                  - collector: B. Tech
+                    observationDbId: '21'
+                    observationTimeStamp: '2011-06-14T22:11:51-04:00'
+                    observationVariableDbId: MO_123:100005
+                    observationVariableName: Root color
+                    season: winter 2012
+                    value: black
+                  - collector: B. Tech
+                    observationDbId: '22'
+                    observationTimeStamp: '2011-06-14T22:12:51-04:00'
+                    observationVariableDbId: MO_123:100004
+                    observationVariableName: Root weight
+                    season: winter 2012
+                    value: '5'
+                  plantNumber: 'null'
+                  plotNumber: '6'
+                  programName: Program 1
+                  replicate: '1'
+                  studyDbId: '1003'
+                  studyLocation: Peru
+                  studyLocationDbId: '2'
+                  studyName: Study 3
+                  treatments: []
+                - X: '1'
+                  Y: '1'
+                  blockNumber: '101'
+                  entryNumber: '1'
+                  entryType: FILLER
+                  germplasmDbId: '2'
+                  germplasmName: Name002
+                  observationLevel: plot
+                  observationLevels: block:101;plot:6
+                  observationUnitDbId: '11'
+                  observationUnitName: Plot 6
+                  observationUnitXref: []
+                  observations:
+                  - collector: B. Tech
+                    observationDbId: '19'
+                    observationTimeStamp: '2011-06-14T22:09:51-04:00'
+                    observationVariableDbId: MO_123:100002
+                    observationVariableName: Plant height
+                    season: winter 2012
+                    value: '11'
+                  - collector: B. Tech
+                    observationDbId: '20'
+                    observationTimeStamp: '2011-06-14T22:10:51-04:00'
+                    observationVariableDbId: MO_123:100003
+                    observationVariableName: Carotenoid
+                    season: winter 2012
+                    value: '12'
+                  - collector: B. Tech
+                    observationDbId: '21'
+                    observationTimeStamp: '2011-06-14T22:11:51-04:00'
+                    observationVariableDbId: MO_123:100005
+                    observationVariableName: Root color
+                    season: winter 2012
+                    value: black
+                  - collector: B. Tech
+                    observationDbId: '22'
+                    observationTimeStamp: '2011-06-14T22:12:51-04:00'
+                    observationVariableDbId: MO_123:100004
+                    observationVariableName: Root weight
+                    season: winter 2012
+                    value: '5'
+                  plantNumber: 'null'
+                  plotNumber: '6'
+                  programName: Program 1
+                  replicate: '1'
+                  studyDbId: '1003'
+                  studyLocation: Peru
+                  studyLocationDbId: '2'
+                  studyName: Study 3
+                  treatments: []
+                - X: '1'
+                  Y: '1'
+                  blockNumber: '101'
+                  entryNumber: '1'
+                  entryType: FILLER
+                  germplasmDbId: '2'
+                  germplasmName: Name002
+                  observationLevel: plot
+                  observationLevels: block:101;plot:6
+                  observationUnitDbId: '11'
+                  observationUnitName: Plot 6
+                  observationUnitXref: []
+                  observations:
+                  - collector: B. Tech
+                    observationDbId: '19'
+                    observationTimeStamp: '2011-06-14T22:09:51-04:00'
+                    observationVariableDbId: MO_123:100002
+                    observationVariableName: Plant height
+                    season: winter 2012
+                    value: '11'
+                  - collector: B. Tech
+                    observationDbId: '20'
+                    observationTimeStamp: '2011-06-14T22:10:51-04:00'
+                    observationVariableDbId: MO_123:100003
+                    observationVariableName: Carotenoid
+                    season: winter 2012
+                    value: '12'
+                  - collector: B. Tech
+                    observationDbId: '21'
+                    observationTimeStamp: '2011-06-14T22:11:51-04:00'
+                    observationVariableDbId: MO_123:100005
+                    observationVariableName: Root color
+                    season: winter 2012
+                    value: black
+                  - collector: B. Tech
+                    observationDbId: '22'
+                    observationTimeStamp: '2011-06-14T22:12:51-04:00'
+                    observationVariableDbId: MO_123:100004
+                    observationVariableName: Root weight
+                    season: winter 2012
+                    value: '5'
+                  plantNumber: 'null'
+                  plotNumber: '6'
+                  programName: Program 1
+                  replicate: '1'
+                  studyDbId: '1003'
+                  studyLocation: Peru
+                  studyLocationDbId: '2'
+                  studyName: Study 3
+                  treatments: []
+                - X: '1'
+                  Y: '1'
+                  blockNumber: '101'
+                  entryNumber: '1'
+                  entryType: FILLER
+                  germplasmDbId: '2'
+                  germplasmName: Name002
+                  observationLevel: plot
+                  observationLevels: block:101;plot:6
+                  observationUnitDbId: '11'
+                  observationUnitName: Plot 6
+                  observationUnitXref: []
+                  observations:
+                  - collector: B. Tech
+                    observationDbId: '19'
+                    observationTimeStamp: '2011-06-14T22:09:51-04:00'
+                    observationVariableDbId: MO_123:100002
+                    observationVariableName: Plant height
+                    season: winter 2012
+                    value: '11'
+                  - collector: B. Tech
+                    observationDbId: '20'
+                    observationTimeStamp: '2011-06-14T22:10:51-04:00'
+                    observationVariableDbId: MO_123:100003
+                    observationVariableName: Carotenoid
+                    season: winter 2012
+                    value: '12'
+                  - collector: B. Tech
+                    observationDbId: '21'
+                    observationTimeStamp: '2011-06-14T22:11:51-04:00'
+                    observationVariableDbId: MO_123:100005
+                    observationVariableName: Root color
+                    season: winter 2012
+                    value: black
+                  - collector: B. Tech
+                    observationDbId: '22'
+                    observationTimeStamp: '2011-06-14T22:12:51-04:00'
+                    observationVariableDbId: MO_123:100004
+                    observationVariableName: Root weight
+                    season: winter 2012
+                    value: '5'
+                  plantNumber: 'null'
+                  plotNumber: '6'
+                  programName: Program 1
+                  replicate: '1'
+                  studyDbId: '1003'
+                  studyLocation: Peru
+                  studyLocationDbId: '2'
+                  studyName: Study 3
+                  treatments: []
+                - X: '1'
+                  Y: '1'
+                  blockNumber: '101'
+                  entryNumber: '1'
+                  entryType: FILLER
+                  germplasmDbId: '4'
+                  germplasmName: Name004
+                  observationLevel: plant
+                  observationLevels: block:101;plot:5;plant:5
+                  observationUnitDbId: '10'
+                  observationUnitName: Plant 5
+                  observationUnitXref: []
+                  observations:
+                  - collector: B. Tech
+                    observationDbId: '16'
+                    observationTimeStamp: '2011-06-14T22:06:51-04:00'
+                    observationVariableDbId: MO_123:100002
+                    observationVariableName: Plant height
+                    season: winter 2012
+                    value: '100'
+                  - collector: B. Tech
+                    observationDbId: '17'
+                    observationTimeStamp: '2011-06-14T22:07:51-04:00'
+                    observationVariableDbId: MO_123:100003
+                    observationVariableName: Carotenoid
+                    season: winter 2012
+                    value: '9'
+                  - collector: B. Tech
+                    observationDbId: '18'
+                    observationTimeStamp: '2011-06-14T22:08:51-04:00'
+                    observationVariableDbId: MO_123:100004
+                    observationVariableName: Root weight
+                    season: winter 2012
+                    value: '2'
+                  plantNumber: '5'
+                  plotNumber: '5'
+                  programName: Program 1
+                  replicate: '1'
+                  studyDbId: '1003'
+                  studyLocation: Peru
+                  studyLocationDbId: '2'
+                  studyName: Study 3
+                  treatments: []
+                - X: '1'
+                  Y: '1'
+                  blockNumber: '101'
+                  entryNumber: '1'
+                  entryType: FILLER
+                  germplasmDbId: '4'
+                  germplasmName: Name004
+                  observationLevel: plant
+                  observationLevels: block:101;plot:5;plant:5
+                  observationUnitDbId: '10'
+                  observationUnitName: Plant 5
+                  observationUnitXref: []
+                  observations:
+                  - collector: B. Tech
+                    observationDbId: '16'
+                    observationTimeStamp: '2011-06-14T22:06:51-04:00'
+                    observationVariableDbId: MO_123:100002
+                    observationVariableName: Plant height
+                    season: winter 2012
+                    value: '100'
+                  - collector: B. Tech
+                    observationDbId: '17'
+                    observationTimeStamp: '2011-06-14T22:07:51-04:00'
+                    observationVariableDbId: MO_123:100003
+                    observationVariableName: Carotenoid
+                    season: winter 2012
+                    value: '9'
+                  - collector: B. Tech
+                    observationDbId: '18'
+                    observationTimeStamp: '2011-06-14T22:08:51-04:00'
+                    observationVariableDbId: MO_123:100004
+                    observationVariableName: Root weight
+                    season: winter 2012
+                    value: '2'
+                  plantNumber: '5'
+                  plotNumber: '5'
+                  programName: Program 1
+                  replicate: '1'
+                  studyDbId: '1003'
+                  studyLocation: Peru
+                  studyLocationDbId: '2'
+                  studyName: Study 3
+                  treatments: []
+                - X: '1'
+                  Y: '1'
+                  blockNumber: '101'
+                  entryNumber: '1'
+                  entryType: FILLER
+                  germplasmDbId: '4'
+                  germplasmName: Name004
+                  observationLevel: plant
+                  observationLevels: block:101;plot:5;plant:5
+                  observationUnitDbId: '10'
+                  observationUnitName: Plant 5
+                  observationUnitXref: []
+                  observations:
+                  - collector: B. Tech
+                    observationDbId: '16'
+                    observationTimeStamp: '2011-06-14T22:06:51-04:00'
+                    observationVariableDbId: MO_123:100002
+                    observationVariableName: Plant height
+                    season: winter 2012
+                    value: '100'
+                  - collector: B. Tech
+                    observationDbId: '17'
+                    observationTimeStamp: '2011-06-14T22:07:51-04:00'
+                    observationVariableDbId: MO_123:100003
+                    observationVariableName: Carotenoid
+                    season: winter 2012
+                    value: '9'
+                  - collector: B. Tech
+                    observationDbId: '18'
+                    observationTimeStamp: '2011-06-14T22:08:51-04:00'
+                    observationVariableDbId: MO_123:100004
+                    observationVariableName: Root weight
+                    season: winter 2012
+                    value: '2'
+                  plantNumber: '5'
+                  plotNumber: '5'
+                  programName: Program 1
+                  replicate: '1'
+                  studyDbId: '1003'
+                  studyLocation: Peru
+                  studyLocationDbId: '2'
+                  studyName: Study 3
+                  treatments: []
+                - X: '1'
+                  Y: '1'
+                  blockNumber: '101'
+                  entryNumber: '1'
+                  entryType: CHECK
+                  germplasmDbId: '4'
+                  germplasmName: Name004
+                  observationLevel: plot
+                  observationLevels: block:101;plot:5
+                  observationUnitDbId: '9'
+                  observationUnitName: Plot 5
+                  observationUnitXref: []
+                  observations:
+                  - collector: B. Tech
+                    observationDbId: '13'
+                    observationTimeStamp: '2011-06-14T22:03:51-04:00'
+                    observationVariableDbId: MO_123:100002
+                    observationVariableName: Plant height
+                    season: winter 2012
+                    value: '10'
+                  - collector: B. Tech
+                    observationDbId: '14'
+                    observationTimeStamp: '2011-06-14T22:04:51-04:00'
+                    observationVariableDbId: MO_123:100003
+                    observationVariableName: Carotenoid
+                    season: winter 2012
+                    value: '20'
+                  - collector: B. Tech
+                    observationDbId: '15'
+                    observationTimeStamp: '2011-06-14T22:05:51-04:00'
+                    observationVariableDbId: MO_123:100005
+                    observationVariableName: Root color
+                    season: winter 2012
+                    value: red
+                  plantNumber: 'null'
+                  plotNumber: '5'
+                  programName: Program 1
+                  replicate: '1'
+                  studyDbId: '1003'
+                  studyLocation: Peru
+                  studyLocationDbId: '2'
+                  studyName: Study 3
+                  treatments: []
+                - X: '1'
+                  Y: '1'
+                  blockNumber: '101'
+                  entryNumber: '1'
+                  entryType: CHECK
+                  germplasmDbId: '4'
+                  germplasmName: Name004
+                  observationLevel: plot
+                  observationLevels: block:101;plot:5
+                  observationUnitDbId: '9'
+                  observationUnitName: Plot 5
+                  observationUnitXref: []
+                  observations:
+                  - collector: B. Tech
+                    observationDbId: '13'
+                    observationTimeStamp: '2011-06-14T22:03:51-04:00'
+                    observationVariableDbId: MO_123:100002
+                    observationVariableName: Plant height
+                    season: winter 2012
+                    value: '10'
+                  - collector: B. Tech
+                    observationDbId: '14'
+                    observationTimeStamp: '2011-06-14T22:04:51-04:00'
+                    observationVariableDbId: MO_123:100003
+                    observationVariableName: Carotenoid
+                    season: winter 2012
+                    value: '20'
+                  - collector: B. Tech
+                    observationDbId: '15'
+                    observationTimeStamp: '2011-06-14T22:05:51-04:00'
+                    observationVariableDbId: MO_123:100005
+                    observationVariableName: Root color
+                    season: winter 2012
+                    value: red
+                  plantNumber: 'null'
+                  plotNumber: '5'
+                  programName: Program 1
+                  replicate: '1'
+                  studyDbId: '1003'
+                  studyLocation: Peru
+                  studyLocationDbId: '2'
+                  studyName: Study 3
+                  treatments: []
+                - X: '1'
+                  Y: '1'
+                  blockNumber: '101'
+                  entryNumber: '1'
+                  entryType: CHECK
+                  germplasmDbId: '4'
+                  germplasmName: Name004
+                  observationLevel: plot
+                  observationLevels: block:101;plot:5
+                  observationUnitDbId: '9'
+                  observationUnitName: Plot 5
+                  observationUnitXref: []
+                  observations:
+                  - collector: B. Tech
+                    observationDbId: '13'
+                    observationTimeStamp: '2011-06-14T22:03:51-04:00'
+                    observationVariableDbId: MO_123:100002
+                    observationVariableName: Plant height
+                    season: winter 2012
+                    value: '10'
+                  - collector: B. Tech
+                    observationDbId: '14'
+                    observationTimeStamp: '2011-06-14T22:04:51-04:00'
+                    observationVariableDbId: MO_123:100003
+                    observationVariableName: Carotenoid
+                    season: winter 2012
+                    value: '20'
+                  - collector: B. Tech
+                    observationDbId: '15'
+                    observationTimeStamp: '2011-06-14T22:05:51-04:00'
+                    observationVariableDbId: MO_123:100005
+                    observationVariableName: Root color
+                    season: winter 2012
+                    value: red
+                  plantNumber: 'null'
+                  plotNumber: '5'
+                  programName: Program 1
+                  replicate: '1'
+                  studyDbId: '1003'
+                  studyLocation: Peru
+                  studyLocationDbId: '2'
+                  studyName: Study 3
                   treatments: []
           headers: {}
           schema:

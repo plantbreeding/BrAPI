@@ -28,21 +28,28 @@ paths:
                   totalPages: 0
                 status: []
               result:
-                abbreviation: IB
-                abreviation: IB -- DEPRECATED -- see abbreviation
+                abbreviation: L1
+                abreviation: L1
                 additionalInfo:
-                  annualMeanRain: value
-                  soilDescription: '23'
-                altitude: 12
-                countryCode: NGA
-                countryName: Nigeria
-                instituteAddress: road foo, nigeria
-                instituteName: INRA - GDEC
-                latitude: -21.5
-                locationDbId: abc123
-                locationType: Breeding Location
-                longitude: 165.5
-                name: Ibadan
+                  adm1: Junin
+                  adm2: Chanchamayo
+                  adm3: San Ramon
+                  annualMeanTemperature: '23'
+                  annualTotalPrecipitation: '360'
+                  cont: South America
+                  creg: LAC
+                  local: San Ramon
+                altitude: 828
+                countryCode: PER
+                countryName: Peru
+                instituteAddress: 71 Pilgrim Avenue Chevy Chase MD 20815
+                instituteAdress: 71 Pilgrim Avenue Chevy Chase MD 20815
+                instituteName: Plant Science Institute
+                latitude: -11.1274995803833
+                locationDbId: '1'
+                locationType: Storage location
+                longitude: -75.35639190673828
+                name: Location 1
           headers: {}
           schema:
             properties:

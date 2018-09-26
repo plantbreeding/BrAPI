@@ -27,10 +27,10 @@ paths:
               metadata:
                 datafiles: []
                 pagination:
-                  currentPage: 1
-                  pageSize: 10
-                  totalCount: 2
-                  totalPages: 1
+                  currentPage: 0
+                  pageSize: 2
+                  totalCount: 0
+                  totalPages: 0
                 status: []
               result:
                 data:

@@ -31,18 +31,18 @@ paths:
                 datafiles: []
                 pagination:
                   currentPage: 0
-                  pageSize: 1000
-                  totalCount: 2
-                  totalPages: 1
+                  pageSize: 2
+                  totalCount: 10
+                  totalPages: 5
                 status: []
               result:
                 data:
-                - season: Fall
-                  seasonDbId: '237'
-                  year: '2015'
-                - season: Spring
-                  seasonDbId: '238'
-                  year: '2016'
+                - season: fall
+                  seasonDbId: '1'
+                  year: '2011'
+                - season: winter
+                  seasonDbId: '2'
+                  year: '2012'
           headers: {}
           schema:
             properties:

@@ -71,24 +71,18 @@ paths:
                 datafiles: []
                 pagination:
                   currentPage: 0
-                  pageSize: 1000
-                  totalCount: 4
-                  totalPages: 1
+                  pageSize: 2
+                  totalCount: 66
+                  totalPages: 33
                 status: []
               result:
                 data:
-                - - '1'
+                - - mr1
+                  - mp1
                   - '1'
-                  - A/B
-                - - '1'
-                  - '2'
-                  - B
-                - - '2'
-                  - '1'
-                  - A
-                - - '2'
-                  - '2'
-                  - A/B
+                - - mr2
+                  - mp1
+                  - '0'
           headers: {}
           schema:
             properties:
@@ -150,24 +144,210 @@ paths:
                 datafiles: []
                 pagination:
                   currentPage: 0
-                  pageSize: 0
-                  totalCount: 0
-                  totalPages: 0
+                  pageSize: 1000
+                  totalCount: 66
+                  totalPages: 1
                 status: []
               result:
                 data:
-                - - '1'
+                - - mr1
+                  - mp1
                   - '1'
-                  - A/B
-                - - '1'
-                  - '2'
-                  - B
-                - - '2'
+                - - mr2
+                  - mp1
+                  - '0'
+                - - mr3
+                  - mp1
+                  - '0'
+                - - mr4
+                  - mp1
+                  - '0'
+                - - mr5
+                  - mp1
+                  - '0'
+                - - mr6
+                  - mp1
                   - '1'
-                  - A
-                - - '2'
-                  - '2'
-                  - A/B
+                - - mr7
+                  - mp1
+                  - '0'
+                - - mr8
+                  - mp1
+                  - '0'
+                - - mr9
+                  - mp1
+                  - '0'
+                - - mr10
+                  - mp1
+                  - '1'
+                - - mr11
+                  - mp1
+                  - '0'
+                - - mr12
+                  - mp1
+                  - '0'
+                - - mr13
+                  - mp1
+                  - '1'
+                - - mr14
+                  - mp1
+                  - '1'
+                - - mr15
+                  - mp1
+                  - '1'
+                - - mr16
+                  - mp1
+                  - '0'
+                - - mr17
+                  - mp1
+                  - '1'
+                - - mr18
+                  - mp1
+                  - '1'
+                - - mr19
+                  - mp1
+                  - '0'
+                - - mr20
+                  - mp1
+                  - '0'
+                - - mr21
+                  - mp1
+                  - '0'
+                - - mr22
+                  - mp1
+                  - '0'
+                - - mr1
+                  - mp2
+                  - '0'
+                - - mr2
+                  - mp2
+                  - '1'
+                - - mr3
+                  - mp2
+                  - '0'
+                - - mr4
+                  - mp2
+                  - '0'
+                - - mr5
+                  - mp2
+                  - '1'
+                - - mr6
+                  - mp2
+                  - '0'
+                - - mr7
+                  - mp2
+                  - '0'
+                - - mr8
+                  - mp2
+                  - '1'
+                - - mr9
+                  - mp2
+                  - '0'
+                - - mr10
+                  - mp2
+                  - '1'
+                - - mr11
+                  - mp2
+                  - '0'
+                - - mr12
+                  - mp2
+                  - '0'
+                - - mr13
+                  - mp2
+                  - '0'
+                - - mr14
+                  - mp2
+                  - '1'
+                - - mr15
+                  - mp2
+                  - '0'
+                - - mr16
+                  - mp2
+                  - '1'
+                - - mr17
+                  - mp2
+                  - '0'
+                - - mr18
+                  - mp2
+                  - '1'
+                - - mr19
+                  - mp2
+                  - '1'
+                - - mr20
+                  - mp2
+                  - '1'
+                - - mr21
+                  - mp2
+                  - '0'
+                - - mr22
+                  - mp2
+                  - '0'
+                - - mr1
+                  - mp3
+                  - '0'
+                - - mr2
+                  - mp3
+                  - '1'
+                - - mr3
+                  - mp3
+                  - '1'
+                - - mr4
+                  - mp3
+                  - '1'
+                - - mr5
+                  - mp3
+                  - '1'
+                - - mr6
+                  - mp3
+                  - '0'
+                - - mr7
+                  - mp3
+                  - '1'
+                - - mr8
+                  - mp3
+                  - '1'
+                - - mr9
+                  - mp3
+                  - '0'
+                - - mr10
+                  - mp3
+                  - '0'
+                - - mr11
+                  - mp3
+                  - '0'
+                - - mr12
+                  - mp3
+                  - '1'
+                - - mr13
+                  - mp3
+                  - '1'
+                - - mr14
+                  - mp3
+                  - '1'
+                - - mr15
+                  - mp3
+                  - '1'
+                - - mr16
+                  - mp3
+                  - '1'
+                - - mr17
+                  - mp3
+                  - '0'
+                - - mr18
+                  - mp3
+                  - '0'
+                - - mr22
+                  - mp3
+                  - '0'
+                - - mr19
+                  - mp3
+                  - '1'
+                - - mr20
+                  - mp3
+                  - '0'
+                - - mr21
+                  - mp3
+                  - '1'
             application/tsv:
               metadata:
                 datafiles:

@@ -37,9 +37,9 @@ paths:
                 datafiles: []
                 pagination:
                   currentPage: 0
-                  pageSize: 1000
+                  pageSize: 2
                   totalCount: 4
-                  totalPages: 1
+                  totalPages: 2
                 status: []
               result:
                 data:
@@ -47,66 +47,26 @@ paths:
                   Y: '1'
                   additionalInfo: {}
                   blockNumber: '1'
-                  entryType: check/test/filler
-                  germplasmDbId: '143'
-                  germplasmName: ZIPA_68
-                  observationLevel: plot
-                  observationUnitDbId: '11'
-                  observationUnitName: ZIPA_68_Ibadan_2014
-                  positionCoordinateX: '1'
-                  positionCoordinateXType: PLANTED_INDIVIDUAl
-                  positionCoordinateY: '1'
-                  positionCoordinateYType: PLANTED_ROW
-                  replicate: '1'
-                  studyDbId: '35'
-                - X: '2'
-                  Y: '1'
-                  additionalInfo: {}
-                  blockNumber: '1'
-                  entryType: check/test/filler
-                  germplasmDbId: '144'
-                  germplasmName: ZIPA_69
-                  observationLevel: plot
-                  observationUnitDbId: '12'
-                  observationUnitName: ZIPA_69_Ibadan_2014
-                  positionCoordinateX: '2'
-                  positionCoordinateXType: PLANTED_INDIVIDUAl
-                  positionCoordinateY: '1'
-                  positionCoordinateYType: PLANTED_ROW
-                  replicate: '1'
-                  studyDbId: '35'
-                - X: '3'
-                  Y: '1'
-                  additionalInfo: {}
-                  blockNumber: '1'
-                  entryType: check/test/filler
-                  germplasmDbId: '145'
-                  germplasmName: ZIPA_70
-                  observationLevel: plot
-                  observationUnitDbId: '13'
-                  observationUnitName: ZIPA_70_Ibadan_2014
-                  positionCoordinateX: '3'
-                  positionCoordinateXType: PLANTED_INDIVIDUAl
-                  positionCoordinateY: '1'
-                  positionCoordinateYType: PLANTED_ROW
-                  replicate: '1'
-                  studyDbId: '35'
+                  entryType: TEST
+                  germplasmDbId: '1'
+                  germplasmName: Name001
+                  observationLevel: plant
+                  observationUnitDbId: '2'
+                  observationUnitName: Plant 1
+                  replicate: '0'
+                  studyDbId: '1001'
                 - X: '1'
                   Y: '2'
                   additionalInfo: {}
-                  blockNumber: '2'
-                  entryType: check/test/filler
-                  germplasmDbId: '143'
-                  germplasmName: ZIPA_68
+                  blockNumber: '1'
+                  entryType: TEST
+                  germplasmDbId: '2'
+                  germplasmName: Name002
                   observationLevel: plot
-                  observationUnitDbId: '11'
-                  observationUnitName: ZIPA_68_Ibadan_2014
-                  positionCoordinateX: '1'
-                  positionCoordinateXType: PLANTED_INDIVIDUAl
-                  positionCoordinateY: '2'
-                  positionCoordinateYType: PLANTED_ROW
-                  replicate: '2'
-                  studyDbId: '35'
+                  observationUnitDbId: '3'
+                  observationUnitName: Plot 2
+                  replicate: '0'
+                  studyDbId: '1001'
           headers: {}
           schema:
             properties:
@@ -156,76 +116,24 @@ paths:
                 datafiles: []
                 pagination:
                   currentPage: 0
-                  pageSize: 1000
-                  totalCount: 4
-                  totalPages: 1
+                  pageSize: 0
+                  totalCount: 0
+                  totalPages: 0
                 status: []
               result:
                 data:
-                - X: '1'
-                  Y: '1'
+                - X: '10'
+                  Y: '12'
                   additionalInfo: {}
-                  blockNumber: '1'
-                  entryType: check/test/filler
-                  germplasmDbId: '143'
-                  germplasmName: ZIPA_68
+                  blockNumber: '0'
+                  entryType: CHECK
+                  germplasmDbId: '1'
+                  germplasmName: Name001
                   observationLevel: plot
-                  observationUnitDbId: '11'
-                  observationUnitName: ZIPA_68_Ibadan_2014
-                  positionCoordinateX: '1'
-                  positionCoordinateXType: PLANTED_INDIVIDUAl
-                  positionCoordinateY: '1'
-                  positionCoordinateYType: PLANTED_ROW
-                  replicate: '1'
-                  studyDbId: '1'
-                - X: '2'
-                  Y: '1'
-                  additionalInfo: {}
-                  blockNumber: '1'
-                  entryType: check/test/filler
-                  germplasmDbId: '144'
-                  germplasmName: ZIPA_69
-                  observationLevel: plot
-                  observationUnitDbId: '12'
-                  observationUnitName: ZIPA_69_Ibadan_2014
-                  positionCoordinateX: '2'
-                  positionCoordinateXType: PLANTED_INDIVIDUAl
-                  positionCoordinateY: '1'
-                  positionCoordinateYType: PLANTED_ROW
-                  replicate: '1'
-                  studyDbId: '1'
-                - X: '3'
-                  Y: '1'
-                  additionalInfo: {}
-                  blockNumber: '1'
-                  entryType: check/test/filler
-                  germplasmDbId: '145'
-                  germplasmName: ZIPA_70
-                  observationLevel: plot
-                  observationUnitDbId: '13'
-                  observationUnitName: ZIPA_70_Ibadan_2014
-                  positionCoordinateX: '3'
-                  positionCoordinateXType: PLANTED_INDIVIDUAl
-                  positionCoordinateY: '1'
-                  positionCoordinateYType: PLANTED_ROW
-                  replicate: '1'
-                  studyDbId: '1'
-                - X: '1'
-                  Y: '2'
-                  additionalInfo: {}
-                  blockNumber: '2'
-                  entryType: check/test/filler
-                  germplasmDbId: '143'
-                  germplasmName: ZIPA_68
-                  observationLevel: plot
-                  observationUnitDbId: '11'
-                  observationUnitName: ZIPA_68_Ibadan_2014
-                  positionCoordinateX: '1'
-                  positionCoordinateXType: PLANTED_INDIVIDUAl
-                  positionCoordinateY: '2'
-                  positionCoordinateYType: PLANTED_ROW
-                  replicate: '2'
-                  studyDbId: '1'
+                  observationUnitDbId: '1'
+                  observationUnitName: Plot 1
+                  replicate: '0'
+                  studyDbId: '1001'
           headers: {}
           schema:
             properties:
