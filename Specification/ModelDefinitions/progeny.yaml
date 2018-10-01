@@ -7,8 +7,25 @@ definitions:
       germplasmDbId:
         description: ' The ID which uniquely identifies a germplasm'
         type: string
-      progeny:
+      data:
         description: List of germplasm entities which are direct children of this germplasm
+        items:
+          properties:
+            defaultDisplayName:
+              type: string
+            germplasmDbId:
+              type: string
+            parentType:
+              enum:
+              - MALE
+              - FEMALE
+              - SELF
+              - POPULATION
+              type: string
+          type: object
+        type: array
+      progeny:
+        description: DEPRECATED (v1.3) use data instead
         items:
           properties:
             defaultDisplayName:

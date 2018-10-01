@@ -47,7 +47,7 @@ paths:
                 $ref: '#/definitions/progeny'
             title: progenyResponse
             type: object
-      summary: Germplasm pedigree by id
+      summary: Germplasm progeny by id
       tags:
       - Germplasm
 swagger: '2.0'
