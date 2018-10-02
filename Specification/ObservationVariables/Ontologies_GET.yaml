@@ -1,57 +1,63 @@
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
 paths:
   /ontologies:
     get:
-      description: "Call to retrieve a list of observation variable ontologies available in the system. <br>\n<strong>Scope:</strong> CORE. \n<strong>Status:</strong> ACCEPTED."
+      description: "Call to retrieve a list of observation variable ontologies available in the system. \n\nScope: CORE. \nStatus: ACCEPTED."
       parameters:
       - description: The size of the pages to be returned. Default is `1000`.
         in: query
         name: pageSize
         required: false
-        type: integer
+        schema:
+          type: integer
       - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
         in: query
         name: page
         required: false
-        type: integer
-      produces:
-      - application/json
+        schema:
+          type: integer
       responses:
         '200':
-          description: OK
-          examples:
+          content:
             application/json:
-              metadata:
-                datafiles: []
-                pagination:
-                  currentPage: 0
-                  pageSize: 2
-                  totalCount: 1
-                  totalPages: 0
-                status: []
-              result:
-                data:
-                - authors: Bob
-                  copyright: 2017 Ontology.org
-                  description: Ontology.org
-                  licence: Apache
-                  ontologyDbId: MO_123
-                  ontologyName: Ontology.org
-                  version: '17'
-          headers: {}
-          schema:
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata'
-              result:
+              examples:
+                response:
+                  value:
+                    metadata:
+                      datafiles: []
+                      pagination:
+                        currentPage: 0
+                        pageSize: 2
+                        totalCount: 1
+                        totalPages: 0
+                      status: []
+                    result:
+                      data:
+                      - authors: Bob
+                        copyright: 2017 Ontology.org
+                        description: Ontology.org
+                        licence: Apache
+                        ontologyDbId: MO_123
+                        ontologyName: Ontology.org
+                        version: '17'
+              schema:
                 properties:
-                  data:
-                    items:
-                      $ref: '#/definitions/ontology'
-                    type: array
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    properties:
+                      data:
+                        items:
+                          $ref: '#/components/schemas/ontology'
+                        type: array
+                    type: object
+                title: ontologiesResponse
                 type: object
-            title: ontologiesResponse
-            type: object
+          description: OK
+          headers: {}
       summary: Variable ontology list
       tags:
       - Observation Variables
-swagger: '2.0'

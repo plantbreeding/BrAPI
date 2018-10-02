@@ -3,8 +3,9 @@ info:
   version: 1.3-oas3
 openapi: 3.0.0
 paths:
-  /markers-search:
+  /markers:
     get:
+      deprecated: true
       description: ' Scope: CORE.  Status: ACCEPTED.
 
         Implemented by: Germinate
@@ -13,15 +14,7 @@ paths:
 
         Other service requests use the servers internal `markerDbId`. This service returns marker records that provide the markerDbId. For the requested name or synonym, returns an array (possibly empty) of marker records that match the search criteria. - If there is none, an empty array is returned. - If there is one or more than one match, returns an array of all marker records that match the search criteria. '
       parameters:
-      - description: The database IDs of the markers to search for
-        in: query
-        name: markerDbIds
-        required: false
-        schema:
-          items:
-            type: string
-          type: array
-      - description: 'The search pattern for a marker name or synonym. Examples: "11_10002" "11_1%" "11_1*" "11_10?02"'
+      - description: The name or synonym.
         in: query
         name: name
         required: false
@@ -39,10 +32,10 @@ paths:
           type: string
       - description: Whether to include synonyms in the output.
         in: query
-        name: includeSynonyms
+        name: include
         required: false
         schema:
-          type: boolean
+          type: string
       - description: The type of the marker.
         in: query
         name: type
@@ -113,75 +106,7 @@ paths:
                 type: object
           description: OK
           headers: {}
-      summary: Markers Search (GET)
+      summary: Markers Search (/markers)
       tags:
       - Markers
-    post:
-      description: ' Scope: CORE.  Status: ACCEPTED.
-
-        Implemented by: Germinate
-
-        See Search Services for additional implementation details.
-
-        Other service requests use the servers internal `markerDbId`. This service returns marker records that provide the markerDbId. For the requested name or synonym, returns an array (possibly empty) of marker records that match the search criteria. - If there is none, an empty array is returned. - If there is one or more than one match, returns an array of all marker records that match the search criteria. '
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/markersSearchRequest'
-        description: The database IDs of the markers to search for
-      responses:
-        '200':
-          content:
-            application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 2
-                        totalCount: 22
-                        totalPages: 11
-                      status: []
-                    result:
-                      data:
-                      - analysisMethods:
-                        - illumina
-                        defaultDisplayName: marker1-1
-                        markerDbId: mr1
-                        refAlt:
-                        - A
-                        - T
-                        synonyms:
-                        - i_11_10010
-                        type: marker
-                      - analysisMethods:
-                        - kasp
-                        defaultDisplayName: marker1-2
-                        markerDbId: mr2
-                        refAlt:
-                        - A
-                        - T
-                        synonyms:
-                        - i_11_10020
-                        type: marker
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    properties:
-                      data:
-                        items:
-                          $ref: '#/components/schemas/marker'
-                        type: array
-                    type: object
-                title: markersResponse
-                type: object
-          description: OK
-          headers: {}
-      summary: Markers Search (POST)
-      tags:
-      - Markers
+      - Deprecated

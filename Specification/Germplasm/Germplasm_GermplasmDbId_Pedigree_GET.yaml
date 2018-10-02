@@ -1,3 +1,7 @@
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
 paths:
   /germplasm/{germplasmDbId}/pedigree:
     get:
@@ -11,62 +15,69 @@ paths:
 
         (http://wheat.pw.usda.gov/ggpages/gopher/administration/Template%20for%20Germplasm%20records.html) or [Lamacraft] (http://link.springer.com/article/10.1007%2FBF00021556).
 
-        <a href="https://test-server.brapi.org/brapi/v1/germplasm"> test-server.brapi.org/brapi/v1/germplasm/{germplasmDbId}/pedigree</a> '
+
+        test-server.brapi.org/brapi/v1/germplasm/{germplasmDbId}/pedigree '
       parameters:
       - description: the internal id of the germplasm
         in: path
         name: germplasmDbId
         required: true
-        type: string
+        schema:
+          type: string
       - description: text representation of the pedigree
         in: query
         name: notation
         required: false
-        type: string
+        schema:
+          type: string
       - description: include array of siblings in response
         in: query
         name: includeSiblings
         required: false
-        type: boolean
+        schema:
+          type: boolean
       responses:
         '200':
-          description: OK
-          examples:
+          content:
+            '*/*':
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/pedigree'
+                title: pedigreeResponse
+                type: object
             application/json:
-              metadata:
-                datafiles: []
-                pagination:
-                  currentPage: 0
-                  pageSize: 0
-                  totalCount: 0
-                  totalPages: 0
-                status: []
-              result:
-                crossingPlan: OPEN_POLLINATION
-                crossingYear: '2018'
-                defaultDisplayName: G000003
-                familyCode: Cree_x_Bonanza_2018
-                germplasmDbId: '3'
-                parent1DbId: '1'
-                parent1Id: '1'
-                parent1Name: G000001
-                parent1Type: FEMALE
-                parent2DbId: '2'
-                parent2Id: '2'
-                parent2Name: G000002
-                parent2Type: MALE
-                pedigree: A000001/A000002
-                siblings: []
+              examples:
+                response:
+                  value:
+                    metadata:
+                      datafiles: []
+                      pagination:
+                        currentPage: 0
+                        pageSize: 0
+                        totalCount: 0
+                        totalPages: 0
+                      status: []
+                    result:
+                      crossingPlan: OPEN_POLLINATION
+                      crossingYear: '2018'
+                      defaultDisplayName: G000003
+                      familyCode: Cree_x_Bonanza_2018
+                      germplasmDbId: '3'
+                      parent1DbId: '1'
+                      parent1Id: '1'
+                      parent1Name: G000001
+                      parent1Type: FEMALE
+                      parent2DbId: '2'
+                      parent2Id: '2'
+                      parent2Name: G000002
+                      parent2Type: MALE
+                      pedigree: A000001/A000002
+                      siblings: []
+          description: OK
           headers: {}
-          schema:
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata'
-              result:
-                $ref: '#/definitions/pedigree'
-            title: pedigreeResponse
-            type: object
       summary: Germplasm pedigree by id
       tags:
       - Germplasm
-swagger: '2.0'

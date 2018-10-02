@@ -1,3 +1,7 @@
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
 paths:
   /attributes/categories:
     get:
@@ -7,52 +11,58 @@ paths:
 
         List all available attribute categories.
 
-        <a href="https://test-server.brapi.org/brapi/v1/attributes"> test-server.brapi.org/brapi/v1/attributes/categories</a>'
+
+        test-server.brapi.org/brapi/v1/attributes/categories'
       parameters:
       - description: The size of the pages to be returned. Default is `1000`.
         in: query
         name: pageSize
         required: false
-        type: integer
+        schema:
+          type: integer
       - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
         in: query
         name: page
         required: false
-        type: integer
+        schema:
+          type: integer
       responses:
         '200':
-          description: OK
-          examples:
-            application/json:
-              metadata:
-                datafiles: []
-                pagination:
-                  currentPage: 0
-                  pageSize: 2
-                  totalCount: 0
-                  totalPages: 0
-                status: []
-              result:
-                data:
-                - attributeCategoryDbId: '1'
-                  name: Morphological
-                - attributeCategoryDbId: '2'
-                  name: Agronomic
-          headers: {}
-          schema:
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata'
-              result:
+          content:
+            '*/*':
+              schema:
                 properties:
-                  data:
-                    items:
-                      $ref: '#/definitions/germplasmAttributeCategory'
-                    type: array
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    properties:
+                      data:
+                        items:
+                          $ref: '#/components/schemas/germplasmAttributeCategory'
+                        type: array
+                    type: object
+                title: germplasmAttributeCategoriesResponse
                 type: object
-            title: germplasmAttributeCategoriesResponse
-            type: object
+            application/json:
+              examples:
+                response:
+                  value:
+                    metadata:
+                      datafiles: []
+                      pagination:
+                        currentPage: 0
+                        pageSize: 2
+                        totalCount: 0
+                        totalPages: 0
+                      status: []
+                    result:
+                      data:
+                      - attributeCategoryDbId: '1'
+                        name: Morphological
+                      - attributeCategoryDbId: '2'
+                        name: Agronomic
+          description: OK
+          headers: {}
       summary: Germplasm attribute categories
       tags:
       - Germplasm Attributes
-swagger: '2.0'

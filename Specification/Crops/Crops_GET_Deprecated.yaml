@@ -3,34 +3,15 @@ info:
   version: 1.3-oas3
 openapi: 3.0.0
 paths:
-  /maps/{mapDbId}/positions/{linkageGroupName}:
+  /crops:
     get:
-      description: markers ordered by linkageGroup and position
+      deprecated: true
+      description: 'For multi crop systems this is a useful call to list all the supported crops.
+
+
+
+        test-server.brapi.org/brapi/v1/crops'
       parameters:
-      - description: unique id of the map
-        in: path
-        name: mapDbId
-        required: true
-        schema:
-          type: string
-      - description: The chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.
-        in: path
-        name: linkageGroupName
-        required: true
-        schema:
-          type: string
-      - description: minimum position on linkage group
-        in: query
-        name: min
-        required: false
-        schema:
-          type: integer
-      - description: maximum position on linkage group
-        in: query
-        name: max
-        required: false
-        schema:
-          type: integer
       - description: The size of the pages to be returned. Default is `1000`.
         in: query
         name: pageSize
@@ -55,17 +36,13 @@ paths:
                       pagination:
                         currentPage: 0
                         pageSize: 2
-                        totalCount: 11
-                        totalPages: 6
+                        totalCount: 2
+                        totalPages: 1
                       status: []
                     result:
                       data:
-                      - location: '1000'
-                        markerDbId: mr1
-                        markerName: marker1-1
-                      - location: '1020'
-                        markerDbId: mr2
-                        markerName: marker1-2
+                      - Tomatillo
+                      - Paw Paw
               schema:
                 properties:
                   metadata:
@@ -73,14 +50,17 @@ paths:
                   result:
                     properties:
                       data:
+                        description: array of crop names availible on the server
                         items:
-                          $ref: '#/components/schemas/markerSummaryLinkageGroup'
+                          description: supported crop name
+                          type: string
                         type: array
                     type: object
-                title: markersResponse
+                title: cropsResponse
                 type: object
           description: OK
           headers: {}
-      summary: Get map data by range on linkageGroup
+      summary: List supported crops
       tags:
-      - Genome Maps
+      - Crops
+      - Deprecated

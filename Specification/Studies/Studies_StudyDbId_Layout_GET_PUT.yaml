@@ -1,3 +1,7 @@
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
 paths:
   /studies/{studyDbId}/layout:
     get:
@@ -9,78 +13,83 @@ paths:
 
         Also return some human readable meta data about the observationUnit and germplasm.
 
-        <a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies/{studyDbId}/layout</a> '
+
+        test-server.brapi.org/brapi/v1/studies/{studyDbId}/layout '
       parameters:
       - description: Identifier of the study. Usually a number, could be alphanumeric.
         in: path
         name: studyDbId
         required: true
-        type: string
+        schema:
+          type: string
       - description: The size of the pages to be returned. Default is `1000`.
         in: query
         name: pageSize
         required: false
-        type: integer
+        schema:
+          type: integer
       - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
         in: query
         name: page
         required: false
-        type: integer
-      produces:
-      - application/json
+        schema:
+          type: integer
       responses:
         '200':
-          description: OK
-          examples:
+          content:
             application/json:
-              metadata:
-                datafiles: []
-                pagination:
-                  currentPage: 0
-                  pageSize: 2
-                  totalCount: 4
-                  totalPages: 2
-                status: []
-              result:
-                data:
-                - X: '1'
-                  Y: '1'
-                  additionalInfo: {}
-                  blockNumber: '1'
-                  entryType: TEST
-                  germplasmDbId: '1'
-                  germplasmName: Name001
-                  observationLevel: plant
-                  observationUnitDbId: '2'
-                  observationUnitName: Plant 1
-                  replicate: '0'
-                  studyDbId: '1001'
-                - X: '1'
-                  Y: '2'
-                  additionalInfo: {}
-                  blockNumber: '1'
-                  entryType: TEST
-                  germplasmDbId: '2'
-                  germplasmName: Name002
-                  observationLevel: plot
-                  observationUnitDbId: '3'
-                  observationUnitName: Plot 2
-                  replicate: '0'
-                  studyDbId: '1001'
-          headers: {}
-          schema:
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata'
-              result:
+              examples:
+                response:
+                  value:
+                    metadata:
+                      datafiles: []
+                      pagination:
+                        currentPage: 0
+                        pageSize: 2
+                        totalCount: 4
+                        totalPages: 2
+                      status: []
+                    result:
+                      data:
+                      - X: '1'
+                        Y: '1'
+                        additionalInfo: {}
+                        blockNumber: '1'
+                        entryType: TEST
+                        germplasmDbId: '1'
+                        germplasmName: Name001
+                        observationLevel: plant
+                        observationUnitDbId: '2'
+                        observationUnitName: Plant 1
+                        replicate: '0'
+                        studyDbId: '1001'
+                      - X: '1'
+                        Y: '2'
+                        additionalInfo: {}
+                        blockNumber: '1'
+                        entryType: TEST
+                        germplasmDbId: '2'
+                        germplasmName: Name002
+                        observationLevel: plot
+                        observationUnitDbId: '3'
+                        observationUnitName: Plot 2
+                        replicate: '0'
+                        studyDbId: '1001'
+              schema:
                 properties:
-                  data:
-                    items:
-                      $ref: '#/definitions/observationUnitPosition'
-                    type: array
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    properties:
+                      data:
+                        items:
+                          $ref: '#/components/schemas/observationUnitPosition'
+                        type: array
+                    type: object
+                title: observationUnitPositionsResponse
                 type: object
-            title: observationUnitPositionsResponse
-            type: object
+          description: OK
+          headers: {}
       summary: Retrieve plot layout details
       tags:
       - Studies
@@ -93,62 +102,65 @@ paths:
 
         + If any of the fields in the request object is missing, that piece of data will not be updated. + If an observationUnitDbId can not be found within the given study, an error will be returned. + `entryType` can have the values "check", "test", or "filler". + The response should match the structure of the response from `GET studies/{studyDbId}/layout`, but it should only contain the layout objects which have been updated by the PUT request. Also, pagination is not available in the response.
 
-        <a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies/{studyDbId}/layout</a> '
+
+        test-server.brapi.org/brapi/v1/studies/{studyDbId}/layout '
       parameters:
       - description: Identifier of the study. Usually a number, could be alphanumeric.
         in: path
         name: studyDbId
         required: true
-        type: string
-      - description: The request body for updateing a study layout
-        in: body
-        name: studyLayoutRequest
         schema:
-          $ref: '#/definitions/studyLayoutRequest'
-      produces:
-      - application/json
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/studyLayoutRequest'
+        description: The request body for updateing a study layout
       responses:
         '200':
-          description: OK
-          examples:
+          content:
             application/json:
-              metadata:
-                datafiles: []
-                pagination:
-                  currentPage: 0
-                  pageSize: 0
-                  totalCount: 0
-                  totalPages: 0
-                status: []
-              result:
-                data:
-                - X: '10'
-                  Y: '12'
-                  additionalInfo: {}
-                  blockNumber: '0'
-                  entryType: CHECK
-                  germplasmDbId: '1'
-                  germplasmName: Name001
-                  observationLevel: plot
-                  observationUnitDbId: '1'
-                  observationUnitName: Plot 1
-                  replicate: '0'
-                  studyDbId: '1001'
-          headers: {}
-          schema:
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata'
-              result:
+              examples:
+                response:
+                  value:
+                    metadata:
+                      datafiles: []
+                      pagination:
+                        currentPage: 0
+                        pageSize: 0
+                        totalCount: 0
+                        totalPages: 0
+                      status: []
+                    result:
+                      data:
+                      - X: '10'
+                        Y: '12'
+                        additionalInfo: {}
+                        blockNumber: '0'
+                        entryType: CHECK
+                        germplasmDbId: '1'
+                        germplasmName: Name001
+                        observationLevel: plot
+                        observationUnitDbId: '1'
+                        observationUnitName: Plot 1
+                        replicate: '0'
+                        studyDbId: '1001'
+              schema:
                 properties:
-                  data:
-                    items:
-                      $ref: '#/definitions/observationUnitPosition'
-                    type: array
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    properties:
+                      data:
+                        items:
+                          $ref: '#/components/schemas/observationUnitPosition'
+                        type: array
+                    type: object
+                title: observationUnitPositionsResponse
                 type: object
-            title: observationUnitPositionsResponse
-            type: object
+          description: OK
+          headers: {}
       summary: Retrieve plot layout details
       tags:
       - Studies
-swagger: '2.0'

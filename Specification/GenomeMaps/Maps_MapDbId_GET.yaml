@@ -1,69 +1,74 @@
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
 paths:
   /maps/{mapDbId}:
     get:
-      description: 'Provides the number of markers on each linkageGroup and the max position on the linkageGroup <br>
-
-        <strong>Status:</strong> ACCEPTED <strong>Implemented by:</strong> Germinate, Cassavabase <strong>Used by:</strong> Flapjack'
+      description: "Provides the number of markers on each linkageGroup and the max position on the linkageGroup \n\nStatus: ACCEPTED Implemented by: Germinate, Cassavabase Used by: Flapjack"
       parameters:
       - description: The internal db id of a selected map
         in: path
         name: mapDbId
         required: true
-        type: string
+        schema:
+          type: string
       - description: The size of the pages to be returned. Default is `1000`.
         in: query
         name: pageSize
         required: false
-        type: integer
+        schema:
+          type: integer
       - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
         in: query
         name: page
         required: false
-        type: integer
-      produces:
-      - application/json
+        schema:
+          type: integer
       responses:
         '200':
-          description: OK
-          examples:
+          content:
             application/json:
-              metadata:
-                datafiles: []
-                pagination:
-                  currentPage: 0
-                  pageSize: 2
-                  totalCount: 3
-                  totalPages: 2
-                status: []
-              result:
-                data:
-                - linkageGroupName: '1'
-                  markerCount: 11
-                  maxPosition: 1110
-                - linkageGroupName: '2'
-                  markerCount: 5
-                  maxPosition: 5050
-                linkageGroups:
-                - linkageGroupName: '1'
-                  markerCount: 11
-                  maxPosition: 1110
-                - linkageGroupName: '2'
-                  markerCount: 5
-                  maxPosition: 5050
-                mapDbId: gm1
-                name: Genome Map 1
-                type: Genetic
-                unit: cM
+              examples:
+                response:
+                  value:
+                    metadata:
+                      datafiles: []
+                      pagination:
+                        currentPage: 0
+                        pageSize: 2
+                        totalCount: 3
+                        totalPages: 2
+                      status: []
+                    result:
+                      data:
+                      - linkageGroupName: '1'
+                        markerCount: 11
+                        maxPosition: 1110
+                      - linkageGroupName: '2'
+                        markerCount: 5
+                        maxPosition: 5050
+                      linkageGroups:
+                      - linkageGroupName: '1'
+                        markerCount: 11
+                        maxPosition: 1110
+                      - linkageGroupName: '2'
+                        markerCount: 5
+                        maxPosition: 5050
+                      mapDbId: gm1
+                      name: Genome Map 1
+                      type: Genetic
+                      unit: cM
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/mapDetails'
+                title: mapDetailsResponse
+                type: object
+          description: OK
           headers: {}
-          schema:
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata'
-              result:
-                $ref: '#/definitions/mapDetails'
-            title: mapDetailsResponse
-            type: object
       summary: Get map details
       tags:
       - Genome Maps
-swagger: '2.0'

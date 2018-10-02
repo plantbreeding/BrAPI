@@ -1,152 +1,180 @@
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
 paths:
   /studies/{studyDbId}/table:
     get:
       description: ' Scope: PHENOTYPING. Status: ACCEPTED. Implemented in Cassavabase, HIDAP and Germinate. Notes: Implementation target date: after PAG2016 Retrieve the details of the study required for field data collection. Includes actual trait data.
 
-        <a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies/{studyDbId}/table</a>'
+
+        test-server.brapi.org/brapi/v1/studies/{studyDbId}/table'
       parameters:
       - description: Identifier of the study. Usually a number, could be alphanumeric.
         in: path
         name: studyDbId
         required: true
-        type: string
+        schema:
+          type: string
       - description: The format parameter will cause the data to be dumped to a file in the specified format. Currently, tsv and csv are supported.
         in: query
         name: format
         required: false
-        type: string
-      produces:
-      - application/json
-      - application/csv
-      - application/tsv
+        schema:
+          type: string
       responses:
         '200':
-          description: OK
-          examples:
-            application/csv: "year,studyDbId,studyName,locationDbId,locationName,germplasmDbId,germplasmName,observationUnitDbId,plotNumber,replicate,blockNumber,observationTimestamp,entryType,X,Y,variable1DbId,variable2DbId,variable3DbId\n2017,stu1,Study Name,loc1,Location Name,CIP1,CIP Name,abc123,1,1,1,2017-06-16T00:53:26Z,Test Entry,1,2,25.3,103.4,50.75 \n2017,stu1,Study Name,loc1,Location Name,CIP1,CIP Name,abc124,1,1,1,2017-06-16T00:54:57Z,Test Entry,2,2,27.9,98.65,45.345\n"
+          content:
+            application/csv:
+              examples:
+                response:
+                  value: "year,studyDbId,studyName,locationDbId,locationName,germplasmDbId,germplasmName,observationUnitDbId,plotNumber,replicate,blockNumber,observationTimestamp,entryType,X,Y,variable1DbId,variable2DbId,variable3DbId\n2017,stu1,Study Name,loc1,Location Name,CIP1,CIP Name,abc123,1,1,1,2017-06-16T00:53:26Z,Test Entry,1,2,25.3,103.4,50.75 \n2017,stu1,Study Name,loc1,Location Name,CIP1,CIP Name,abc124,1,1,1,2017-06-16T00:54:57Z,Test Entry,2,2,27.9,98.65,45.345\n"
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/observationsTable'
+                title: studyobservationsTableResponse
+                type: object
             application/json:
-              metadata:
-                datafiles: []
-                pagination:
-                  currentPage: 0
-                  pageSize: 0
-                  totalCount: 0
-                  totalPages: 0
-                status: []
-              result:
-                data:
-                - - '2011'
-                  - '1001'
-                  - Study 1
-                  - '1'
-                  - Peru
-                  - '1'
-                  - Name001
-                  - '2'
-                  - '1'
-                  - '0'
-                  - '1'
-                  - '2013-06-14T22:05:51-04:00'
-                  - TEST
-                  - '1'
-                  - '1'
-                  - '1.1'
-                  - ''
-                  - ''
-                  - '5.1'
-                - - '2012'
-                  - '1001'
-                  - Study 1
-                  - '1'
-                  - Peru
-                  - '2'
-                  - Name002
-                  - '3'
-                  - '2'
-                  - '0'
-                  - '1'
-                  - '2013-06-14T22:07:51-04:00'
-                  - TEST
-                  - '1'
-                  - '2'
-                  - ''
-                  - '2.1'
-                  - dark blue
-                  - ''
-                - - '2012'
-                  - '1001'
-                  - Study 1
-                  - '1'
-                  - Peru
-                  - '2'
-                  - Name002
-                  - '4'
-                  - '2'
-                  - '0'
-                  - '1'
-                  - '2013-06-14T22:09:51-04:00'
-                  - TEST
-                  - '1'
-                  - '2'
-                  - ''
-                  - '1.8'
-                  - blue
-                  - ''
-                - - '2011'
-                  - '1001'
-                  - Study 1
-                  - '1'
-                  - Peru
-                  - '1'
-                  - Name001
-                  - '1'
-                  - '1'
-                  - '0'
-                  - '0'
-                  - '2013-06-14T22:03:51-04:00'
-                  - CHECK
-                  - '10'
-                  - '12'
-                  - '1.2'
-                  - ''
-                  - ''
-                  - '4.5'
-                headerRow:
-                - year
-                - studyDbId
-                - studyName
-                - locationDbId
-                - locationName
-                - germplasmDbId
-                - germplasmName
-                - observationUnitDbId
-                - plotNumber
-                - replicate
-                - blockNumber
-                - observationTimestamp
-                - entryType
-                - X
-                - Y
-                observationVariableDbIds:
-                - MO_123:100002
-                - MO_123:100003
-                - MO_123:100005
-                - MO_123:100006
-                observationVariableNames:
-                - Plant height
-                - Carotenoid
-                - Root color
-                - Virus susceptibility
-            application/tsv: "year\tstudyDbId\tstudyName\tlocationDbId\tlocationName\tgermplasmDbId\tgermplasmName\tobservationUnitDbId\tplotNumber\treplicate\tblockNumber\tobservationTimestamp\tentryType\tX\tY\tvariable1DbId\tvariable2DbId\tvariable3DbId\n 2017\tstu1\tStudy Name\tloc1\tLocation Name\tCIP1\tCIP Name\tabc123\t1\t1\t1\t2017-06-16T00:53:26Z\tTest Entry\t1\t2\t25.3\t103.4\t50.75\n 2017\tstu1\tStudy Name\tloc1\tLocation Name\tCIP1\tCIP Name\tabc124\t1\t1\t1\t2017-06-16T00:54:57Z\tTest Entry\t2\t2\t27.9\t98.65\t45.345\n"
+              examples:
+                response:
+                  value:
+                    metadata:
+                      datafiles: []
+                      pagination:
+                        currentPage: 0
+                        pageSize: 0
+                        totalCount: 0
+                        totalPages: 0
+                      status: []
+                    result:
+                      data:
+                      - - '2011'
+                        - '1001'
+                        - Study 1
+                        - '1'
+                        - Peru
+                        - '1'
+                        - Name001
+                        - '2'
+                        - '1'
+                        - '0'
+                        - '1'
+                        - '2013-06-14T22:05:51-04:00'
+                        - TEST
+                        - '1'
+                        - '1'
+                        - '1.1'
+                        - ''
+                        - ''
+                        - '5.1'
+                      - - '2012'
+                        - '1001'
+                        - Study 1
+                        - '1'
+                        - Peru
+                        - '2'
+                        - Name002
+                        - '3'
+                        - '2'
+                        - '0'
+                        - '1'
+                        - '2013-06-14T22:07:51-04:00'
+                        - TEST
+                        - '1'
+                        - '2'
+                        - ''
+                        - '2.1'
+                        - dark blue
+                        - ''
+                      - - '2012'
+                        - '1001'
+                        - Study 1
+                        - '1'
+                        - Peru
+                        - '2'
+                        - Name002
+                        - '4'
+                        - '2'
+                        - '0'
+                        - '1'
+                        - '2013-06-14T22:09:51-04:00'
+                        - TEST
+                        - '1'
+                        - '2'
+                        - ''
+                        - '1.8'
+                        - blue
+                        - ''
+                      - - '2011'
+                        - '1001'
+                        - Study 1
+                        - '1'
+                        - Peru
+                        - '1'
+                        - Name001
+                        - '1'
+                        - '1'
+                        - '0'
+                        - '0'
+                        - '2013-06-14T22:03:51-04:00'
+                        - CHECK
+                        - '10'
+                        - '12'
+                        - '1.2'
+                        - ''
+                        - ''
+                        - '4.5'
+                      headerRow:
+                      - year
+                      - studyDbId
+                      - studyName
+                      - locationDbId
+                      - locationName
+                      - germplasmDbId
+                      - germplasmName
+                      - observationUnitDbId
+                      - plotNumber
+                      - replicate
+                      - blockNumber
+                      - observationTimestamp
+                      - entryType
+                      - X
+                      - Y
+                      observationVariableDbIds:
+                      - MO_123:100002
+                      - MO_123:100003
+                      - MO_123:100005
+                      - MO_123:100006
+                      observationVariableNames:
+                      - Plant height
+                      - Carotenoid
+                      - Root color
+                      - Virus susceptibility
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/observationsTable'
+                title: studyobservationsTableResponse
+                type: object
+            application/tsv:
+              examples:
+                response:
+                  value: "year\tstudyDbId\tstudyName\tlocationDbId\tlocationName\tgermplasmDbId\tgermplasmName\tobservationUnitDbId\tplotNumber\treplicate\tblockNumber\tobservationTimestamp\tentryType\tX\tY\tvariable1DbId\tvariable2DbId\tvariable3DbId\n 2017\tstu1\tStudy Name\tloc1\tLocation Name\tCIP1\tCIP Name\tabc123\t1\t1\t1\t2017-06-16T00:53:26Z\tTest Entry\t1\t2\t25.3\t103.4\t50.75\n 2017\tstu1\tStudy Name\tloc1\tLocation Name\tCIP1\tCIP Name\tabc124\t1\t1\t1\t2017-06-16T00:54:57Z\tTest Entry\t2\t2\t27.9\t98.65\t45.345\n"
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/observationsTable'
+                title: studyobservationsTableResponse
+                type: object
+          description: OK
           headers: {}
-          schema:
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata'
-              result:
-                $ref: '#/definitions/observationsTable'
-            title: studyobservationsTableResponse
-            type: object
       summary: Retrieve study Observation Units as table
       tags:
       - Studies
@@ -168,36 +196,41 @@ paths:
         in: path
         name: studyDbId
         required: true
-        type: string
-      - in: body
-        name: newObservationsTableRequest
         schema:
-          $ref: '#/definitions/newObservationsTableRequest'
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/newObservationsTableRequest'
       responses:
         '200':
-          description: OK
-          examples:
+          content:
+            '*/*':
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/newObservationDbIds'
+                title: newObservationDbIdsResponse
+                type: object
             application/json:
-              metadata:
-                datafiles: []
-                pagination:
-                  currentPage: 0
-                  pageSize: 0
-                  totalCount: 0
-                  totalPages: 0
-                status: []
-              result: null
+              examples:
+                response:
+                  value:
+                    metadata:
+                      datafiles: []
+                      pagination:
+                        currentPage: 0
+                        pageSize: 0
+                        totalCount: 0
+                        totalPages: 0
+                      status: []
+                    result: null
+          description: OK
           headers: {}
-          schema:
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata'
-              result:
-                $ref: '#/definitions/newObservationDbIds'
-            title: newObservationDbIdsResponse
-            type: object
       summary: Save study Observation Units as table
       tags:
       - Studies
       - Observations
-swagger: '2.0'

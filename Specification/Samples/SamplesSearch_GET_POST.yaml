@@ -1,97 +1,109 @@
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
 paths:
   /samples-search:
     get:
       description: ' Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
 
-        <a href="https://test-server.brapi.org/brapi/v1/samples"> test-server.brapi.org/brapi/v1/samples-search</a>'
+
+        test-server.brapi.org/brapi/v1/samples-search'
       parameters:
       - description: the internal DB id for a sample
         in: query
         name: sampleDbId
         required: false
-        type: string
+        schema:
+          type: string
       - description: the internal DB id for an observation unit where a sample was taken from
         in: query
         name: observationUnitDbId
         required: false
-        type: string
+        schema:
+          type: string
       - description: the internal DB id for a plate of samples
         in: query
         name: plateDbId
         required: false
-        type: string
+        schema:
+          type: string
       - description: the internal DB id for a germplasm
         in: query
         name: germplasmDbId
         required: false
-        type: string
+        schema:
+          type: string
       - description: The size of the pages to be returned. Default is 1000.
         in: query
         name: pageSize
         required: false
-        type: integer
+        schema:
+          type: integer
       - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is 0.
         in: query
         name: page
         required: false
-        type: integer
-      produces:
-      - application/json
+        schema:
+          type: integer
       responses:
         '200':
-          description: OK
-          examples:
+          content:
             application/json:
-              metadata:
-                datafiles: []
-                pagination:
-                  currentPage: 0
-                  pageSize: 2
-                  totalCount: 4
-                  totalPages: 2
-                status: []
-              result:
-                data:
-                - germplasmDbId: '1'
-                  notes: Example Sample
-                  observationUnitDbId: '1'
-                  plantDbId: 'null'
-                  plateDbId: pl1
-                  plateIndex: 0
-                  plotDbId: '1'
-                  sampleDbId: sam1
-                  sampleTimestamp: '2018-01-01T00:00:00-05:00'
-                  sampleType: DNA
-                  studyDbId: '1001'
-                  takenBy: Bob
-                  tissueType: Leaf
-                - germplasmDbId: '1'
-                  notes: Example Sample
-                  observationUnitDbId: '2'
-                  plantDbId: '1'
-                  plateDbId: pl1
-                  plateIndex: 1
-                  plotDbId: '1'
-                  sampleDbId: sam2
-                  sampleTimestamp: '2018-01-01T00:00:00-05:00'
-                  sampleType: DNA
-                  studyDbId: '1001'
-                  takenBy: Bob
-                  tissueType: Leaf
-          headers: {}
-          schema:
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata'
-              result:
+              examples:
+                response:
+                  value:
+                    metadata:
+                      datafiles: []
+                      pagination:
+                        currentPage: 0
+                        pageSize: 2
+                        totalCount: 4
+                        totalPages: 2
+                      status: []
+                    result:
+                      data:
+                      - germplasmDbId: '1'
+                        notes: Example Sample
+                        observationUnitDbId: '1'
+                        plantDbId: 'null'
+                        plateDbId: pl1
+                        plateIndex: 0
+                        plotDbId: '1'
+                        sampleDbId: sam1
+                        sampleTimestamp: '2018-01-01T00:00:00-05:00'
+                        sampleType: DNA
+                        studyDbId: '1001'
+                        takenBy: Bob
+                        tissueType: Leaf
+                      - germplasmDbId: '1'
+                        notes: Example Sample
+                        observationUnitDbId: '2'
+                        plantDbId: '1'
+                        plateDbId: pl1
+                        plateIndex: 1
+                        plotDbId: '1'
+                        sampleDbId: sam2
+                        sampleTimestamp: '2018-01-01T00:00:00-05:00'
+                        sampleType: DNA
+                        studyDbId: '1001'
+                        takenBy: Bob
+                        tissueType: Leaf
+              schema:
                 properties:
-                  data:
-                    items:
-                      $ref: '#/definitions/sample'
-                    type: array
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    properties:
+                      data:
+                        items:
+                          $ref: '#/components/schemas/sample'
+                        type: array
+                    type: object
+                title: samplesResponse
                 type: object
-            title: samplesResponse
-            type: object
+          description: OK
+          headers: {}
       summary: Get Sample Search
       tags:
       - Samples
@@ -99,97 +111,98 @@ paths:
     post:
       description: ' Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
 
-        <a href="https://test-server.brapi.org/brapi/v1/samples"> test-server.brapi.org/brapi/v1/samples-search</a>'
-      parameters:
-      - in: body
-        name: sampleSearch
-        schema:
-          $ref: '#/definitions/sampleSearchRequest'
-      produces:
-      - application/json
+
+        test-server.brapi.org/brapi/v1/samples-search'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/sampleSearchRequest'
       responses:
         '200':
-          description: OK
-          examples:
+          content:
             application/json:
-              metadata:
-                datafiles: []
-                pagination:
-                  currentPage: 0
-                  pageSize: 1000
-                  totalCount: 4
-                  totalPages: 1
-                status: []
-              result:
-                data:
-                - germplasmDbId: '1'
-                  notes: Example Sample
-                  observationUnitDbId: '1'
-                  plantDbId: 'null'
-                  plateDbId: pl1
-                  plateIndex: 0
-                  plotDbId: '1'
-                  sampleDbId: sam1
-                  sampleTimestamp: '2018-01-01T00:00:00-05:00'
-                  sampleType: DNA
-                  studyDbId: '1001'
-                  takenBy: Bob
-                  tissueType: Leaf
-                - germplasmDbId: '1'
-                  notes: Example Sample
-                  observationUnitDbId: '2'
-                  plantDbId: '1'
-                  plateDbId: pl1
-                  plateIndex: 1
-                  plotDbId: '1'
-                  sampleDbId: sam2
-                  sampleTimestamp: '2018-01-01T00:00:00-05:00'
-                  sampleType: DNA
-                  studyDbId: '1001'
-                  takenBy: Bob
-                  tissueType: Leaf
-                - germplasmDbId: '2'
-                  notes: Example Sample
-                  observationUnitDbId: '3'
-                  plantDbId: 'null'
-                  plateDbId: pl1
-                  plateIndex: 2
-                  plotDbId: '2'
-                  sampleDbId: sam3
-                  sampleTimestamp: '2018-01-01T00:00:00-05:00'
-                  sampleType: DNA
-                  studyDbId: '1001'
-                  takenBy: Bob
-                  tissueType: Leaf
-                - germplasmDbId: '1'
-                  notes: string
-                  observationUnitDbId: '1'
-                  plantDbId: 'null'
-                  plateDbId: ''
-                  plateIndex: 0
-                  plotDbId: '1'
-                  sampleDbId: 3f179189-1119-4c5f-9085-baabbd4d5986
-                  sampleTimestamp: '1970-01-18T14:11:49-05:00'
-                  sampleType: string
-                  studyDbId: '1001'
-                  takenBy: string
-                  tissueType: string
-          headers: {}
-          schema:
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata'
-              result:
+              examples:
+                response:
+                  value:
+                    metadata:
+                      datafiles: []
+                      pagination:
+                        currentPage: 0
+                        pageSize: 1000
+                        totalCount: 4
+                        totalPages: 1
+                      status: []
+                    result:
+                      data:
+                      - germplasmDbId: '1'
+                        notes: Example Sample
+                        observationUnitDbId: '1'
+                        plantDbId: 'null'
+                        plateDbId: pl1
+                        plateIndex: 0
+                        plotDbId: '1'
+                        sampleDbId: sam1
+                        sampleTimestamp: '2018-01-01T00:00:00-05:00'
+                        sampleType: DNA
+                        studyDbId: '1001'
+                        takenBy: Bob
+                        tissueType: Leaf
+                      - germplasmDbId: '1'
+                        notes: Example Sample
+                        observationUnitDbId: '2'
+                        plantDbId: '1'
+                        plateDbId: pl1
+                        plateIndex: 1
+                        plotDbId: '1'
+                        sampleDbId: sam2
+                        sampleTimestamp: '2018-01-01T00:00:00-05:00'
+                        sampleType: DNA
+                        studyDbId: '1001'
+                        takenBy: Bob
+                        tissueType: Leaf
+                      - germplasmDbId: '2'
+                        notes: Example Sample
+                        observationUnitDbId: '3'
+                        plantDbId: 'null'
+                        plateDbId: pl1
+                        plateIndex: 2
+                        plotDbId: '2'
+                        sampleDbId: sam3
+                        sampleTimestamp: '2018-01-01T00:00:00-05:00'
+                        sampleType: DNA
+                        studyDbId: '1001'
+                        takenBy: Bob
+                        tissueType: Leaf
+                      - germplasmDbId: '1'
+                        notes: string
+                        observationUnitDbId: '1'
+                        plantDbId: 'null'
+                        plateDbId: ''
+                        plateIndex: 0
+                        plotDbId: '1'
+                        sampleDbId: 3f179189-1119-4c5f-9085-baabbd4d5986
+                        sampleTimestamp: '1970-01-18T14:11:49-05:00'
+                        sampleType: string
+                        studyDbId: '1001'
+                        takenBy: string
+                        tissueType: string
+              schema:
                 properties:
-                  data:
-                    items:
-                      $ref: '#/definitions/sample'
-                    type: array
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    properties:
+                      data:
+                        items:
+                          $ref: '#/components/schemas/sample'
+                        type: array
+                    type: object
+                title: samplesResponse
                 type: object
-            title: samplesResponse
-            type: object
+          description: OK
+          headers: {}
       summary: Post Sample Search
       tags:
       - Samples
       - Search Services
-swagger: '2.0'

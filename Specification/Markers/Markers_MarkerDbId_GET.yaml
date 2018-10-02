@@ -1,47 +1,55 @@
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
 paths:
   /markers/{markerDbId}:
     get:
-      description: "<strong>Status</strong>: ACCEPTED \n<strong>Implemented By</strong>:"
+      description: "Status: ACCEPTED \nImplemented By:"
       parameters:
       - description: the internal id of the marker
         in: path
         name: markerDbId
         required: true
-        type: string
+        schema:
+          type: string
       responses:
         '200':
-          description: OK
-          examples:
+          content:
+            '*/*':
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/marker'
+                title: markerResponse
+                type: object
             application/json:
-              metadata:
-                datafiles: []
-                pagination:
-                  currentPage: 0
-                  pageSize: 0
-                  totalCount: 0
-                  totalPages: 0
-                status: []
-              result:
-                analysisMethods:
-                - kasp
-                defaultDisplayName: marker1-2
-                markerDbId: mr2
-                refAlt:
-                - A
-                - T
-                synonyms:
-                - i_11_10020
-                type: marker
+              examples:
+                response:
+                  value:
+                    metadata:
+                      datafiles: []
+                      pagination:
+                        currentPage: 0
+                        pageSize: 0
+                        totalCount: 0
+                        totalPages: 0
+                      status: []
+                    result:
+                      analysisMethods:
+                      - kasp
+                      defaultDisplayName: marker1-2
+                      markerDbId: mr2
+                      refAlt:
+                      - A
+                      - T
+                      synonyms:
+                      - i_11_10020
+                      type: marker
+          description: OK
           headers: {}
-          schema:
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata'
-              result:
-                $ref: '#/definitions/marker'
-            title: markerResponse
-            type: object
       summary: Marker Details by id
       tags:
       - Markers
-swagger: '2.0'

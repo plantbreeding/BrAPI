@@ -1,7 +1,11 @@
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
 paths:
   /locations/{locationDbId}:
     get:
-      description: ' <strong>Implemented by:</strong>  GnpIS
+      description: ' Implemented by:  GnpIS
 
         Get details for a location.
 
@@ -13,53 +17,57 @@ paths:
         in: path
         name: locationDbId
         required: true
-        type: string
+        schema:
+          type: string
       responses:
         '200':
-          description: OK
-          examples:
+          content:
+            '*/*':
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/location'
+                title: locationResponse
+                type: object
             application/json:
-              metadata:
-                datafiles: []
-                pagination:
-                  currentPage: 0
-                  pageSize: 0
-                  totalCount: 0
-                  totalPages: 0
-                status: []
-              result:
-                abbreviation: L1
-                abreviation: L1
-                additionalInfo:
-                  adm1: Junin
-                  adm2: Chanchamayo
-                  adm3: San Ramon
-                  annualMeanTemperature: '23'
-                  annualTotalPrecipitation: '360'
-                  cont: South America
-                  creg: LAC
-                  local: San Ramon
-                altitude: 828
-                countryCode: PER
-                countryName: Peru
-                instituteAddress: 71 Pilgrim Avenue Chevy Chase MD 20815
-                instituteAdress: 71 Pilgrim Avenue Chevy Chase MD 20815
-                instituteName: Plant Science Institute
-                latitude: -11.1274995803833
-                locationDbId: '1'
-                locationType: Storage location
-                longitude: -75.35639190673828
-                name: Location 1
+              examples:
+                response:
+                  value:
+                    metadata:
+                      datafiles: []
+                      pagination:
+                        currentPage: 0
+                        pageSize: 0
+                        totalCount: 0
+                        totalPages: 0
+                      status: []
+                    result:
+                      abbreviation: L1
+                      abreviation: L1
+                      additionalInfo:
+                        adm1: Junin
+                        adm2: Chanchamayo
+                        adm3: San Ramon
+                        annualMeanTemperature: '23'
+                        annualTotalPrecipitation: '360'
+                        cont: South America
+                        creg: LAC
+                        local: San Ramon
+                      altitude: 828
+                      countryCode: PER
+                      countryName: Peru
+                      instituteAddress: 71 Pilgrim Avenue Chevy Chase MD 20815
+                      instituteAdress: 71 Pilgrim Avenue Chevy Chase MD 20815
+                      instituteName: Plant Science Institute
+                      latitude: -11.1274995803833
+                      locationDbId: '1'
+                      locationType: Storage location
+                      longitude: -75.35639190673828
+                      name: Location 1
+          description: OK
           headers: {}
-          schema:
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata'
-              result:
-                $ref: '#/definitions/location'
-            title: locationResponse
-            type: object
       summary: The internal DB id for a location
       tags:
       - Locations
-swagger: '2.0'

@@ -1,3 +1,7 @@
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
 paths:
   /traits:
     get:
@@ -7,67 +11,70 @@ paths:
 
         Call to retrieve a list of traits available in the system and their associated variables.
 
-        <a href="https://test-server.brapi.org/brapi/v1/traits"> test-server.brapi.org/brapi/v1/traits</a>'
+
+        test-server.brapi.org/brapi/v1/traits'
       parameters:
       - description: The size of the pages to be returned. Default is `1000`.
         in: query
         name: pageSize
         required: false
-        type: integer
+        schema:
+          type: integer
       - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
         in: query
         name: page
         required: false
-        type: integer
-      produces:
-      - application/json
+        schema:
+          type: integer
       responses:
         '200':
-          description: OK
-          examples:
+          content:
             application/json:
-              metadata:
-                datafiles: []
-                pagination:
-                  currentPage: 0
-                  pageSize: 2
-                  totalCount: 2
-                  totalPages: 1
-                status: []
-              result:
-                data:
-                - defaultValue: '0'
-                  description: height
-                  name: Height
-                  observationVariables:
-                  - MO_123:100002
-                  - MO_123:100003
-                  - MO_123:100004
-                  traitDbId: '1'
-                  traitId: xref
-                - defaultValue: '0'
-                  description: weight
-                  name: Weight
-                  observationVariables:
-                  - MO_123:100005
-                  - MO_123:100006
-                  traitDbId: '2'
-                  traitId: xref
-          headers: {}
-          schema:
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata'
-              result:
+              examples:
+                response:
+                  value:
+                    metadata:
+                      datafiles: []
+                      pagination:
+                        currentPage: 0
+                        pageSize: 2
+                        totalCount: 2
+                        totalPages: 1
+                      status: []
+                    result:
+                      data:
+                      - defaultValue: '0'
+                        description: height
+                        name: Height
+                        observationVariables:
+                        - MO_123:100002
+                        - MO_123:100003
+                        - MO_123:100004
+                        traitDbId: '1'
+                        traitId: xref
+                      - defaultValue: '0'
+                        description: weight
+                        name: Weight
+                        observationVariables:
+                        - MO_123:100005
+                        - MO_123:100006
+                        traitDbId: '2'
+                        traitId: xref
+              schema:
                 properties:
-                  data:
-                    items:
-                      $ref: '#/definitions/traitSummary'
-                    type: array
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    properties:
+                      data:
+                        items:
+                          $ref: '#/components/schemas/traitSummary'
+                        type: array
+                    type: object
+                title: traitsResponse
                 type: object
-            title: traitsResponse
-            type: object
+          description: OK
+          headers: {}
       summary: List all traits
       tags:
       - Observation Variables
-swagger: '2.0'

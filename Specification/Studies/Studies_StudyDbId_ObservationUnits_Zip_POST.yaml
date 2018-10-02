@@ -1,54 +1,61 @@
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
 paths:
   /studies/{studyDbId}/observationunits/zip:
     post:
-      consumes:
-      - application/zip
       description: 'Note: If ''observationUnitDbId'' or ''observationDbId'' is populated, they should be considered updates to existing records. If an existing record of that DbId is not found, the document should be treated as new records and assigned new DbIds. If ''observationUnitDbId'' or ''observationDbId'' is un-populated (empty string or null) the document should be treated as new records and assigned new DbIds.'
       parameters:
       - description: The study these observation units are related to.
         in: path
         name: studyDbId
         required: true
-        type: string
-      - in: body
-        name: zipRequest
         schema:
-          format: binary
           type: string
-      produces:
-      - application/json
+      requestBody:
+        content:
+          application/zip:
+            schema:
+              format: binary
+              type: string
       responses:
         '200':
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    metadata:
+                      datafiles: []
+                      pagination: {}
+                      status: []
+                    result:
+                      observationUnitDbIds:
+                      - observationUnitDbIds0
+                      - observationUnitDbIds1
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/newObservationUnitDbIds'
+                title: newObservationUnitDbIdsResponse
+                type: object
           description: OK
-          examples:
-            application/json:
-              metadata:
-                datafiles: []
-                pagination: {}
-                status: []
-              result:
-                observationUnitDbIds:
-                - observationUnitDbIds0
-                - observationUnitDbIds1
           headers: {}
-          schema:
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata'
-              result:
-                $ref: '#/definitions/newObservationUnitDbIds'
-            title: newObservationUnitDbIdsResponse
-            type: object
         '400':
-          description: Bad Request
-          examples:
+          content:
             application/json:
-              metadata:
-                status:
-                - code: Error
-                  message: Could not update values for Observation Units
+              examples:
+                response:
+                  value:
+                    metadata:
+                      status:
+                      - code: Error
+                        message: Could not update values for Observation Units
+          description: Bad Request
       summary: Use this call for uploading new Observations as a Batched Zip File to a system.
       tags:
       - Observations
       - Studies
-swagger: '2.0'

@@ -1,3 +1,7 @@
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
 paths:
   /programs:
     get:
@@ -5,70 +9,75 @@ paths:
 
         Status: ACCEPTED Implemented By:
 
-        <a href="https://test-server.brapi.org/brapi/v1/programs"> test-server.brapi.org/brapi/v1/programs</a>'
+
+        test-server.brapi.org/brapi/v1/programs'
       parameters:
       - description: Filter by program name. Exact match.
         in: query
         name: programName
         required: false
-        type: string
+        schema:
+          type: string
       - description: Filter by program abbreviation. Exact match.
         in: query
         name: abbreviation
         required: false
-        type: string
+        schema:
+          type: string
       - description: The size of the pages to be returned. Default is `1000`.
         in: query
         name: pageSize
         required: false
-        type: integer
+        schema:
+          type: integer
       - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
         in: query
         name: page
         required: false
-        type: integer
-      produces:
-      - application/json
+        schema:
+          type: integer
       responses:
         '200':
-          description: OK
-          examples:
+          content:
             application/json:
-              metadata:
-                datafiles: []
-                pagination:
-                  currentPage: 0
-                  pageSize: 2
-                  totalCount: 6
-                  totalPages: 3
-                status: []
-              result:
-                data:
-                - abbreviation: P1
-                  leadPerson: G. Leader
-                  name: Program 1
-                  objective: Global Population Improvement
-                  programDbId: '1'
-                - abbreviation: P2
-                  leadPerson: M. Breeder
-                  name: Program 2
-                  objective: XYZ
-                  programDbId: '2'
-          headers: {}
-          schema:
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata'
-              result:
+              examples:
+                response:
+                  value:
+                    metadata:
+                      datafiles: []
+                      pagination:
+                        currentPage: 0
+                        pageSize: 2
+                        totalCount: 6
+                        totalPages: 3
+                      status: []
+                    result:
+                      data:
+                      - abbreviation: P1
+                        leadPerson: G. Leader
+                        name: Program 1
+                        objective: Global Population Improvement
+                        programDbId: '1'
+                      - abbreviation: P2
+                        leadPerson: M. Breeder
+                        name: Program 2
+                        objective: XYZ
+                        programDbId: '2'
+              schema:
                 properties:
-                  data:
-                    items:
-                      $ref: '#/definitions/program'
-                    type: array
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    properties:
+                      data:
+                        items:
+                          $ref: '#/components/schemas/program'
+                        type: array
+                    type: object
+                title: programsResponse
                 type: object
-            title: programsResponse
-            type: object
+          description: OK
+          headers: {}
       summary: List programs
       tags:
       - Programs
-swagger: '2.0'

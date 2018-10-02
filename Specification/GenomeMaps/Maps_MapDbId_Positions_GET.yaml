@@ -1,75 +1,82 @@
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
 paths:
   /maps/{mapDbId}/positions:
     get:
-      description: 'markers ordered by linkageGroup and position <br>
-
-        <strong>Status:</strong> ACCEPTED. <strong>Implemented by:</strong> Germinate, Cassavabase <strong>Used by:</strong> Flapjack'
+      description: "markers ordered by linkageGroup and position \n\nStatus: ACCEPTED. Implemented by: Germinate, Cassavabase Used by: Flapjack"
       parameters:
       - description: unique id of the map
         in: path
         name: mapDbId
         required: true
-        type: string
-      - description: <strong>Deprecated</strong> Use linkageGroupName instead
+        schema:
+          type: string
+      - description: Deprecated Use linkageGroupName instead
         in: query
         name: linkageGroupId
         required: false
-        type: string
+        schema:
+          type: string
       - description: The chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.
         in: query
         name: linkageGroupName
         required: false
-        type: string
+        schema:
+          type: string
       - description: The size of the pages to be returned. Default is `1000`.
         in: query
         name: pageSize
         required: false
-        type: integer
+        schema:
+          type: integer
       - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
         in: query
         name: page
         required: false
-        type: integer
-      produces:
-      - application/json
+        schema:
+          type: integer
       responses:
         '200':
-          description: OK
-          examples:
+          content:
             application/json:
-              metadata:
-                datafiles: []
-                pagination:
-                  currentPage: 0
-                  pageSize: 2
-                  totalCount: 22
-                  totalPages: 11
-                status: []
-              result:
-                data:
-                - linkageGroupName: '1'
-                  location: '1000'
-                  markerDbId: mr1
-                  markerName: marker1-1
-                - linkageGroupName: '1'
-                  location: '1020'
-                  markerDbId: mr2
-                  markerName: marker1-2
-          headers: {}
-          schema:
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata'
-              result:
+              examples:
+                response:
+                  value:
+                    metadata:
+                      datafiles: []
+                      pagination:
+                        currentPage: 0
+                        pageSize: 2
+                        totalCount: 22
+                        totalPages: 11
+                      status: []
+                    result:
+                      data:
+                      - linkageGroupName: '1'
+                        location: '1000'
+                        markerDbId: mr1
+                        markerName: marker1-1
+                      - linkageGroupName: '1'
+                        location: '1020'
+                        markerDbId: mr2
+                        markerName: marker1-2
+              schema:
                 properties:
-                  data:
-                    items:
-                      $ref: '#/definitions/markerSummaryMap'
-                    type: array
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    properties:
+                      data:
+                        items:
+                          $ref: '#/components/schemas/markerSummaryMap'
+                        type: array
+                    type: object
+                title: markersResponse
                 type: object
-            title: markersResponse
-            type: object
+          description: OK
+          headers: {}
       summary: Get map data
       tags:
       - Genome Maps
-swagger: '2.0'

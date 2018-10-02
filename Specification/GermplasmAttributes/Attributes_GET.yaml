@@ -1,89 +1,97 @@
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
 paths:
   /attributes:
     get:
       description: ' List available attributes.
 
-        <a href="https://test-server.brapi.org/brapi/v1/attributes"> test-server.brapi.org/brapi/v1/attributes</a> '
+
+        test-server.brapi.org/brapi/v1/attributes '
       parameters:
       - description: filter for kind of attributes
         in: query
         name: attributeCategoryDbId
         required: false
-        type: string
+        schema:
+          type: string
       - description: The size of the pages to be returned. Default is `1000`.
         in: query
         name: pageSize
         required: false
-        type: integer
+        schema:
+          type: integer
       - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
         in: query
         name: page
         required: false
-        type: integer
-      produces:
-      - application/json
+        schema:
+          type: integer
       responses:
         '200':
-          description: OK
-          examples:
+          content:
             application/json:
-              metadata:
-                datafiles: []
-                pagination:
-                  currentPage: 0
-                  pageSize: 2
-                  totalCount: 10
-                  totalPages: 5
-                status: []
-              result:
-                data:
-                - attributeCategoryDbId: '2'
-                  attributeDbId: '1'
-                  code: RHT
-                  datatype: Categorical
-                  description: Allele of marker 11_4769
-                  name: Rht-B1b
-                  uri: http://www.brapi.org/ontology/MO_123:1000001
-                  values:
-                  - Present
-                  - Absent
-                  - Heterozygous
-                  - Present
-                  - Absent
-                  - Heterozygous
-                  - Present
-                  - Absent
-                - attributeCategoryDbId: '3'
-                  attributeDbId: '2'
-                  code: WEV
-                  datatype: Categorical
-                  description: Resistance allele
-                  name: Weevil Resistance
-                  uri: http://www.brapi.org/ontology/MO_123:1000002
-                  values:
-                  - Absent
-                  - Heterozygous
-                  - Present
-                  - Heterozygous
-                  - Heterozygous
-                  - Absent
-                  - Heterozygous
-                  - Absent
-          headers: {}
-          schema:
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata'
-              result:
+              examples:
+                response:
+                  value:
+                    metadata:
+                      datafiles: []
+                      pagination:
+                        currentPage: 0
+                        pageSize: 2
+                        totalCount: 10
+                        totalPages: 5
+                      status: []
+                    result:
+                      data:
+                      - attributeCategoryDbId: '2'
+                        attributeDbId: '1'
+                        code: RHT
+                        datatype: Categorical
+                        description: Allele of marker 11_4769
+                        name: Rht-B1b
+                        uri: http://www.brapi.org/ontology/MO_123:1000001
+                        values:
+                        - Present
+                        - Absent
+                        - Heterozygous
+                        - Present
+                        - Absent
+                        - Heterozygous
+                        - Present
+                        - Absent
+                      - attributeCategoryDbId: '3'
+                        attributeDbId: '2'
+                        code: WEV
+                        datatype: Categorical
+                        description: Resistance allele
+                        name: Weevil Resistance
+                        uri: http://www.brapi.org/ontology/MO_123:1000002
+                        values:
+                        - Absent
+                        - Heterozygous
+                        - Present
+                        - Heterozygous
+                        - Heterozygous
+                        - Absent
+                        - Heterozygous
+                        - Absent
+              schema:
                 properties:
-                  data:
-                    items:
-                      $ref: '#/definitions/germplasmAttributeDef'
-                    type: array
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    properties:
+                      data:
+                        items:
+                          $ref: '#/components/schemas/germplasmAttributeDef'
+                        type: array
+                    type: object
+                title: germplasmAttributeDefsResponse
                 type: object
-            title: germplasmAttributeDefsResponse
-            type: object
+          description: OK
+          headers: {}
       summary: Attributes by attributeCategoryDbId
       tags:
       - Germplasm Attributes
-swagger: '2.0'

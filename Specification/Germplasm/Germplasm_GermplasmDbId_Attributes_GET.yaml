@@ -1,0 +1,89 @@
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
+paths:
+  /germplasm/{germplasmDbId}/attributes:
+    get:
+      description: 'Values for all attributes by default.
+
+
+
+        test-server.brapi.org/brapi/v1/germplasm/{germplasmDbId}/attributes'
+      parameters:
+      - description: The germplasm characterized
+        in: path
+        name: germplasmDbId
+        required: true
+        schema:
+          type: string
+      - description: Restrict the response to only the listed attributeDbIds.
+        in: query
+        name: attributeDbIds
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+      - description: '**Deprecated** Use "attributeDbIds" instead'
+        in: query
+        name: attributeList
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+      - description: The size of the pages to be returned. Default is `1000`.
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          type: integer
+      - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+        in: query
+        name: page
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    metadata:
+                      datafiles: []
+                      pagination:
+                        currentPage: 0
+                        pageSize: 2
+                        totalCount: 10
+                        totalPages: 5
+                      status: []
+                    result:
+                      data:
+                      - attributeCode: RHT
+                        attributeDbId: '1'
+                        attributeName: Rht-B1b
+                        determinedDate: '2017-03-17'
+                        value: Heterozygous
+                      - attributeCode: WEV
+                        attributeDbId: '2'
+                        attributeName: Weevil Resistance
+                        determinedDate: '2017-03-17'
+                        value: Present
+                      germplasmDbId: '3'
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/germplasmAttributeList'
+                title: germplasmAttributeListResponse
+                type: object
+          description: OK
+          headers: {}
+      summary: Germplasm attribute values
+      tags:
+      - Germplasm Attributes
+      - Germplasm

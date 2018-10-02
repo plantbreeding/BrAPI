@@ -1,3 +1,7 @@
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
 paths:
   /studies/{studyDbId}/observations:
     get:
@@ -7,85 +11,94 @@ paths:
 
         observationTimestamp should be ISO8601 format with timezone: YYYY-MM-DDThh:mm:ss+hhmm
 
-        <a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies/{studyDbId}/observations</a>'
+
+        test-server.brapi.org/brapi/v1/studies/{studyDbId}/observations'
       parameters:
       - description: Identifier of the study. Usually a number, could be alphanumeric.
         in: path
         name: studyDbId
         required: true
-        type: string
+        schema:
+          type: string
       - description: Numeric `id` of that variable (combination of trait, unit and method)
         in: query
-        items:
-          type: string
         name: observationVariableDbIds
         required: false
-        type: array
+        schema:
+          items:
+            type: string
+          type: array
       - description: The size of the pages to be returned. Default is `1000`.
         in: query
         name: pageSize
         required: false
-        type: integer
+        schema:
+          type: integer
       - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
         in: query
         name: page
         required: false
-        type: integer
+        schema:
+          type: integer
       responses:
         '200':
-          description: OK
-          examples:
-            application/json:
-              metadata:
-                datafiles: []
-                pagination:
-                  currentPage: 0
-                  pageSize: 2
-                  totalCount: 10
-                  totalPages: 5
-                status: []
-              result:
-                data:
-                - germplasmDbId: '1'
-                  germplasmName: Name001
-                  observationDbId: '3'
-                  observationLevel: plant
-                  observationTimestamp: '2013-06-14T22:05:51-04:00'
-                  observationUnitDbId: '2'
-                  observationUnitName: Plant 1
-                  observationVariableDbId: MO_123:100002
-                  observationVariableName: Plant height
-                  operator: Bob
-                  studyDbId: '1001'
-                  uploadedBy: Bob
-                  value: '1.1'
-                - germplasmDbId: '1'
-                  germplasmName: Name001
-                  observationDbId: '4'
-                  observationLevel: plant
-                  observationTimestamp: '2013-06-14T22:06:51-04:00'
-                  observationUnitDbId: '2'
-                  observationUnitName: Plant 1
-                  observationVariableDbId: MO_123:100006
-                  observationVariableName: Virus susceptibility
-                  operator: Bob
-                  studyDbId: '1001'
-                  uploadedBy: Bob
-                  value: '5.1'
-          headers: {}
-          schema:
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata'
-              result:
+          content:
+            '*/*':
+              schema:
                 properties:
-                  data:
-                    items:
-                      $ref: '#/definitions/observation'
-                    type: array
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    properties:
+                      data:
+                        items:
+                          $ref: '#/components/schemas/observation'
+                        type: array
+                    type: object
+                title: observationsResponse
                 type: object
-            title: observationsResponse
-            type: object
+            application/json:
+              examples:
+                response:
+                  value:
+                    metadata:
+                      datafiles: []
+                      pagination:
+                        currentPage: 0
+                        pageSize: 2
+                        totalCount: 10
+                        totalPages: 5
+                      status: []
+                    result:
+                      data:
+                      - germplasmDbId: '1'
+                        germplasmName: Name001
+                        observationDbId: '3'
+                        observationLevel: plant
+                        observationTimestamp: '2013-06-14T22:05:51-04:00'
+                        observationUnitDbId: '2'
+                        observationUnitName: Plant 1
+                        observationVariableDbId: MO_123:100002
+                        observationVariableName: Plant height
+                        operator: Bob
+                        studyDbId: '1001'
+                        uploadedBy: Bob
+                        value: '1.1'
+                      - germplasmDbId: '1'
+                        germplasmName: Name001
+                        observationDbId: '4'
+                        observationLevel: plant
+                        observationTimestamp: '2013-06-14T22:06:51-04:00'
+                        observationUnitDbId: '2'
+                        observationUnitName: Plant 1
+                        observationVariableDbId: MO_123:100006
+                        observationVariableName: Virus susceptibility
+                        operator: Bob
+                        studyDbId: '1001'
+                        uploadedBy: Bob
+                        value: '5.1'
+          description: OK
+          headers: {}
       summary: Get Observation Units by observation variable ids
       tags:
       - Studies
@@ -93,42 +106,48 @@ paths:
     put:
       description: ' Implementation Guidelines: + If an `observationDbId` is "null" or an empty string in the request, a NEW observation should be created for the given study and observationUnit + If an `observationDbId` is populated but not found in the database, a NEW observation should be created for the given study and observationUnit AND an NEW `observationDbId` should be assigned to it. A warning should be returned to the client. + If an `observationDbId` is populated and found in the database, but the existing entry is not associated with the given study or observationUnit, a NEW observation should be created for the given study and observationUnit AND an NEW `observationDbId` should be assigned to it. A warning should be returned to the client. + If an `observationDbId` is populated and found in the database and is associated with the given study and observationUnit, then it should be updated with the new data given.
 
-        <a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies/{studyDbId}/observations</a>'
+
+        test-server.brapi.org/brapi/v1/studies/{studyDbId}/observations'
       parameters:
       - description: Identifier of the study. Usually a number, could be alphanumeric.
         in: path
         name: studyDbId
         required: true
-        type: string
-      - in: body
-        name: newObservations
         schema:
-          $ref: '#/definitions/newObservationsRequest'
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/newObservationsRequest'
       responses:
         '200':
-          description: OK
-          examples:
+          content:
+            '*/*':
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/newObservationDbIds'
+                title: newObservationDbIdsResponse
+                type: object
             application/json:
-              metadata:
-                datafiles: []
-                pagination:
-                  currentPage: 0
-                  pageSize: 0
-                  totalCount: 0
-                  totalPages: 0
-                status: []
-              result: null
+              examples:
+                response:
+                  value:
+                    metadata:
+                      datafiles: []
+                      pagination:
+                        currentPage: 0
+                        pageSize: 0
+                        totalCount: 0
+                        totalPages: 0
+                      status: []
+                    result: null
+          description: OK
           headers: {}
-          schema:
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata'
-              result:
-                $ref: '#/definitions/newObservationDbIds'
-            title: newObservationDbIdsResponse
-            type: object
       summary: Get Observation Units by observation variable ids
       tags:
       - Studies
       - Observations
-swagger: '2.0'

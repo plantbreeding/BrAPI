@@ -1,71 +1,77 @@
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
 paths:
   /maps:
     get:
-      description: 'Get list of maps <br>
-
-        <strong>Status:</strong> ACCEPTED <strong>Implemented by:</strong> Germinate, Cassavabase <strong>Used by:</strong> Flapjack do we need list of parents and specify mapping population?'
+      description: "Get list of maps \n\nStatus: ACCEPTED Implemented by: Germinate, Cassavabase Used by: Flapjack do we need list of parents and specify mapping population?"
       parameters:
       - description: Species name
         in: query
         name: species
         required: false
-        type: string
+        schema:
+          type: string
       - description: Type of map
         in: query
         name: type
         required: false
-        type: string
+        schema:
+          type: string
       - description: The size of the pages to be returned. Default is `1000`.
         in: query
         name: pageSize
         required: false
-        type: integer
+        schema:
+          type: integer
       - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
         in: query
         name: page
         required: false
-        type: integer
-      produces:
-      - application/json
+        schema:
+          type: integer
       responses:
         '200':
-          description: OK
-          examples:
+          content:
             application/json:
-              metadata:
-                datafiles: []
-                pagination:
-                  currentPage: 0
-                  pageSize: 2
-                  totalCount: 1
-                  totalPages: 1
-                status: []
-              result:
-                data:
-                - comments: comments
-                  linkageGroupCount: 3
-                  mapDbId: gm1
-                  markerCount: 22
-                  name: Genome Map 1
-                  publishedDate: '2018-01-01'
-                  species: novus
-                  type: Genetic
-                  unit: cM
-          headers: {}
-          schema:
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata'
-              result:
+              examples:
+                response:
+                  value:
+                    metadata:
+                      datafiles: []
+                      pagination:
+                        currentPage: 0
+                        pageSize: 2
+                        totalCount: 1
+                        totalPages: 1
+                      status: []
+                    result:
+                      data:
+                      - comments: comments
+                        linkageGroupCount: 3
+                        mapDbId: gm1
+                        markerCount: 22
+                        name: Genome Map 1
+                        publishedDate: '2018-01-01'
+                        species: novus
+                        type: Genetic
+                        unit: cM
+              schema:
                 properties:
-                  data:
-                    items:
-                      $ref: '#/definitions/genomeMap'
-                    type: array
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    properties:
+                      data:
+                        items:
+                          $ref: '#/components/schemas/genomeMap'
+                        type: array
+                    type: object
+                title: genomeMapsResponse
                 type: object
-            title: genomeMapsResponse
-            type: object
+          description: OK
+          headers: {}
       summary: Get list of maps
       tags:
       - Genome Maps
-swagger: '2.0'

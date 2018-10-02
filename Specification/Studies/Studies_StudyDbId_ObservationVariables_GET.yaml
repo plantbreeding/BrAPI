@@ -1,3 +1,7 @@
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
 paths:
   /studies/{studyDbId}/observationvariables:
     get:
@@ -7,246 +11,250 @@ paths:
 
         Refer to the data type definition of variables in `/Specification/ObservationVariables/README.md`.
 
-        <a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationvariables</a>'
+
+        test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationvariables'
       parameters:
       - description: string database unique identifier
         in: path
         name: studyDbId
         required: true
-        type: string
+        schema:
+          type: string
       - description: The size of the pages to be returned. Default is `1000`.
         in: query
         name: pageSize
         required: false
-        type: integer
+        schema:
+          type: integer
       - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
         in: query
         name: page
         required: false
-        type: integer
-      produces:
-      - application/json
+        schema:
+          type: integer
       responses:
         '200':
-          description: OK
-          examples:
+          content:
             application/json:
-              metadata:
-                datafiles: []
-                pagination:
-                  currentPage: 0
-                  pageSize: 2
-                  totalCount: 0
-                  totalPages: 0
-                status: []
-              result:
-                data:
-                - contextOfUse: []
-                  crop: maize
-                  date: '2018-09-26'
-                  defaultValue: '10'
-                  growthStage: '1'
-                  institution: '1'
-                  language: English
-                  method:
-                    class: classy
-                    description: Used for finding the lengths of the sides of a right triangle
-                    formula: a^2 + b^2 = c^2
-                    methodDbId: '1'
-                    name: pythagorean theorem
-                    reference: google.com
-                  name: Plant height
-                  observationVariableDbId: MO_123:100002
-                  observationVariableName: Plant height
-                  ontologyDbId: MO_123
-                  ontologyName: Ontology.org
-                  scale:
-                    dataType: Numerical
-                    decimalPlaces: 1
-                    name: Centimeter
-                    scaleDbId: '1'
-                    validValues:
-                      categories: []
-                      max: 0
-                      min: 99999
-                    xref: xref
-                  scientist: Bob
-                  status: active
-                  submissionTimestamp: '2011-06-14T22:12:51-04:00'
-                  synonyms: []
-                  trait:
-                    alternativeAbbreviations: []
-                    attribute: height
-                    class: Int
-                    description: height
-                    entity: entity
-                    mainAbbreviation: H
-                    name: Height
-                    status: active
-                    synonyms: []
-                    traitDbId: '1'
-                    xref: xref
-                  xref: MO_123:100002
-                - contextOfUse: []
-                  crop: maize
-                  date: '2018-09-26'
-                  defaultValue: '10'
-                  growthStage: '1'
-                  institution: '1'
-                  language: English
-                  method:
-                    class: classy
-                    description: Used for finding the lengths of the sides of a right triangle
-                    formula: a^2 + b^2 = c^2
-                    methodDbId: '1'
-                    name: pythagorean theorem
-                    reference: google.com
-                  name: Carotenoid
-                  observationVariableDbId: MO_123:100003
-                  observationVariableName: Carotenoid
-                  ontologyDbId: MO_123
-                  ontologyName: Ontology.org
-                  scale:
-                    dataType: Numerical
-                    decimalPlaces: 1
-                    name: Centimeter
-                    scaleDbId: '1'
-                    validValues:
-                      categories: []
-                      max: 0
-                      min: 99999
-                    xref: xref
-                  scientist: Bob
-                  status: active
-                  submissionTimestamp: '2011-06-14T22:12:51-04:00'
-                  synonyms: []
-                  trait:
-                    alternativeAbbreviations: []
-                    attribute: height
-                    class: Int
-                    description: height
-                    entity: entity
-                    mainAbbreviation: H
-                    name: Height
-                    status: active
-                    synonyms: []
-                    traitDbId: '1'
-                    xref: xref
-                  xref: MO_123:100003
-                - contextOfUse: []
-                  crop: maize
-                  date: '2018-09-26'
-                  defaultValue: '10'
-                  growthStage: '1'
-                  institution: '1'
-                  language: English
-                  method:
-                    class: classy
-                    description: Used for finding the lengths of the sides of a right triangle
-                    formula: a^2 + b^2 = c^2
-                    methodDbId: '1'
-                    name: pythagorean theorem
-                    reference: google.com
-                  name: Root color
-                  observationVariableDbId: MO_123:100005
-                  observationVariableName: Root color
-                  ontologyDbId: MO_123
-                  ontologyName: Ontology.org
-                  scale:
-                    dataType: Categorical
-                    decimalPlaces: 0
-                    name: Color
-                    scaleDbId: '2'
-                    validValues:
-                      categories: []
-                      max: 0
-                      min: 99999
-                    xref: xref
-                  scientist: Bob
-                  status: active
-                  submissionTimestamp: '2011-06-14T22:12:51-04:00'
-                  synonyms: []
-                  trait:
-                    alternativeAbbreviations: []
-                    attribute: weight
-                    class: Int
-                    description: weight
-                    entity: entity
-                    mainAbbreviation: H
-                    name: Weight
-                    status: active
-                    synonyms: []
-                    traitDbId: '2'
-                    xref: xref
-                  xref: MO_123:100005
-                - contextOfUse: []
-                  crop: maize
-                  date: '2018-09-26'
-                  defaultValue: '10'
-                  growthStage: '1'
-                  institution: '1'
-                  language: English
-                  method:
-                    class: classy
-                    description: Used for finding the lengths of the sides of a right triangle
-                    formula: a^2 + b^2 = c^2
-                    methodDbId: '1'
-                    name: pythagorean theorem
-                    reference: google.com
-                  name: Virus susceptibility
-                  observationVariableDbId: MO_123:100006
-                  observationVariableName: Virus susceptibility
-                  ontologyDbId: MO_123
-                  ontologyName: Ontology.org
-                  scale:
-                    dataType: Numerical
-                    decimalPlaces: 1
-                    name: Centimeter
-                    scaleDbId: '1'
-                    validValues:
-                      categories: []
-                      max: 0
-                      min: 99999
-                    xref: xref
-                  scientist: Bob
-                  status: active
-                  submissionTimestamp: '2011-06-14T22:12:51-04:00'
-                  synonyms: []
-                  trait:
-                    alternativeAbbreviations: []
-                    attribute: weight
-                    class: Int
-                    description: weight
-                    entity: entity
-                    mainAbbreviation: H
-                    name: Weight
-                    status: active
-                    synonyms: []
-                    traitDbId: '2'
-                    xref: xref
-                  xref: MO_123:100006
-                studyDbId: '1001'
-                trialName: Peru Yield Trial 1
-          headers: {}
-          schema:
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata'
-              result:
+              examples:
+                response:
+                  value:
+                    metadata:
+                      datafiles: []
+                      pagination:
+                        currentPage: 0
+                        pageSize: 2
+                        totalCount: 0
+                        totalPages: 0
+                      status: []
+                    result:
+                      data:
+                      - contextOfUse: []
+                        crop: maize
+                        date: '2018-09-26'
+                        defaultValue: '10'
+                        growthStage: '1'
+                        institution: '1'
+                        language: English
+                        method:
+                          class: classy
+                          description: Used for finding the lengths of the sides of a right triangle
+                          formula: a^2 + b^2 = c^2
+                          methodDbId: '1'
+                          name: pythagorean theorem
+                          reference: google.com
+                        name: Plant height
+                        observationVariableDbId: MO_123:100002
+                        observationVariableName: Plant height
+                        ontologyDbId: MO_123
+                        ontologyName: Ontology.org
+                        scale:
+                          dataType: Numerical
+                          decimalPlaces: 1
+                          name: Centimeter
+                          scaleDbId: '1'
+                          validValues:
+                            categories: []
+                            max: 0
+                            min: 99999
+                          xref: xref
+                        scientist: Bob
+                        status: active
+                        submissionTimestamp: '2011-06-14T22:12:51-04:00'
+                        synonyms: []
+                        trait:
+                          alternativeAbbreviations: []
+                          attribute: height
+                          class: Int
+                          description: height
+                          entity: entity
+                          mainAbbreviation: H
+                          name: Height
+                          status: active
+                          synonyms: []
+                          traitDbId: '1'
+                          xref: xref
+                        xref: MO_123:100002
+                      - contextOfUse: []
+                        crop: maize
+                        date: '2018-09-26'
+                        defaultValue: '10'
+                        growthStage: '1'
+                        institution: '1'
+                        language: English
+                        method:
+                          class: classy
+                          description: Used for finding the lengths of the sides of a right triangle
+                          formula: a^2 + b^2 = c^2
+                          methodDbId: '1'
+                          name: pythagorean theorem
+                          reference: google.com
+                        name: Carotenoid
+                        observationVariableDbId: MO_123:100003
+                        observationVariableName: Carotenoid
+                        ontologyDbId: MO_123
+                        ontologyName: Ontology.org
+                        scale:
+                          dataType: Numerical
+                          decimalPlaces: 1
+                          name: Centimeter
+                          scaleDbId: '1'
+                          validValues:
+                            categories: []
+                            max: 0
+                            min: 99999
+                          xref: xref
+                        scientist: Bob
+                        status: active
+                        submissionTimestamp: '2011-06-14T22:12:51-04:00'
+                        synonyms: []
+                        trait:
+                          alternativeAbbreviations: []
+                          attribute: height
+                          class: Int
+                          description: height
+                          entity: entity
+                          mainAbbreviation: H
+                          name: Height
+                          status: active
+                          synonyms: []
+                          traitDbId: '1'
+                          xref: xref
+                        xref: MO_123:100003
+                      - contextOfUse: []
+                        crop: maize
+                        date: '2018-09-26'
+                        defaultValue: '10'
+                        growthStage: '1'
+                        institution: '1'
+                        language: English
+                        method:
+                          class: classy
+                          description: Used for finding the lengths of the sides of a right triangle
+                          formula: a^2 + b^2 = c^2
+                          methodDbId: '1'
+                          name: pythagorean theorem
+                          reference: google.com
+                        name: Root color
+                        observationVariableDbId: MO_123:100005
+                        observationVariableName: Root color
+                        ontologyDbId: MO_123
+                        ontologyName: Ontology.org
+                        scale:
+                          dataType: Categorical
+                          decimalPlaces: 0
+                          name: Color
+                          scaleDbId: '2'
+                          validValues:
+                            categories: []
+                            max: 0
+                            min: 99999
+                          xref: xref
+                        scientist: Bob
+                        status: active
+                        submissionTimestamp: '2011-06-14T22:12:51-04:00'
+                        synonyms: []
+                        trait:
+                          alternativeAbbreviations: []
+                          attribute: weight
+                          class: Int
+                          description: weight
+                          entity: entity
+                          mainAbbreviation: H
+                          name: Weight
+                          status: active
+                          synonyms: []
+                          traitDbId: '2'
+                          xref: xref
+                        xref: MO_123:100005
+                      - contextOfUse: []
+                        crop: maize
+                        date: '2018-09-26'
+                        defaultValue: '10'
+                        growthStage: '1'
+                        institution: '1'
+                        language: English
+                        method:
+                          class: classy
+                          description: Used for finding the lengths of the sides of a right triangle
+                          formula: a^2 + b^2 = c^2
+                          methodDbId: '1'
+                          name: pythagorean theorem
+                          reference: google.com
+                        name: Virus susceptibility
+                        observationVariableDbId: MO_123:100006
+                        observationVariableName: Virus susceptibility
+                        ontologyDbId: MO_123
+                        ontologyName: Ontology.org
+                        scale:
+                          dataType: Numerical
+                          decimalPlaces: 1
+                          name: Centimeter
+                          scaleDbId: '1'
+                          validValues:
+                            categories: []
+                            max: 0
+                            min: 99999
+                          xref: xref
+                        scientist: Bob
+                        status: active
+                        submissionTimestamp: '2011-06-14T22:12:51-04:00'
+                        synonyms: []
+                        trait:
+                          alternativeAbbreviations: []
+                          attribute: weight
+                          class: Int
+                          description: weight
+                          entity: entity
+                          mainAbbreviation: H
+                          name: Weight
+                          status: active
+                          synonyms: []
+                          traitDbId: '2'
+                          xref: xref
+                        xref: MO_123:100006
+                      studyDbId: '1001'
+                      trialName: Peru Yield Trial 1
+              schema:
                 properties:
-                  data:
-                    items:
-                      $ref: '#/definitions/observationVariable'
-                    type: array
-                  studyDbId:
-                    type: string
-                  trialName:
-                    type: string
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    properties:
+                      data:
+                        items:
+                          $ref: '#/components/schemas/observationVariable'
+                        type: array
+                      studyDbId:
+                        type: string
+                      trialName:
+                        type: string
+                    type: object
+                title: studyObservationVariablesResponse
                 type: object
-            title: studyObservationVariablesResponse
-            type: object
+          description: OK
+          headers: {}
       summary: Get Observation Variables By Study
       tags:
       - Studies
       - Observation Variables
-swagger: '2.0'

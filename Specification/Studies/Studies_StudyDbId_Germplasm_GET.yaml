@@ -1,71 +1,82 @@
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
 paths:
   /studies/{studyDbId}/germplasm:
     get:
       description: ' Scope: PHENOTYPING
 
-        <a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies/{studyDbId}/germplasm</a>'
+
+        test-server.brapi.org/brapi/v1/studies/{studyDbId}/germplasm'
       parameters:
       - description: Identifier of the study. Usually a number, could be alphanumeric.
         in: path
         name: studyDbId
         required: true
-        type: string
+        schema:
+          type: string
       - description: The size of the pages to be returned. Default is `1000`.
         in: query
         name: pageSize
         required: false
-        type: integer
+        schema:
+          type: integer
       - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
         in: query
         name: page
         required: false
-        type: integer
+        schema:
+          type: integer
       responses:
         '200':
-          description: OK
-          examples:
+          content:
+            '*/*':
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/germplasmSummaryList'
+                title: germplasmSummaryListResponse
+                type: object
             application/json:
-              metadata:
-                datafiles: []
-                pagination:
-                  currentPage: 0
-                  pageSize: 2
-                  totalCount: 4
-                  totalPages: 2
-                status: []
-              result:
-                data:
-                - accessionNumber: A000001
-                  entryNumber: '1'
-                  germplasmDbId: '1'
-                  germplasmName: Name001
-                  germplasmPUI: http://pui.per/accession/A000001
-                  pedigree: A000001
-                  seedSource: open pollination
-                  synonyms:
-                  - landrace 1
-                - accessionNumber: A000002
-                  entryNumber: '4'
-                  germplasmDbId: '2'
-                  germplasmName: Name002
-                  germplasmPUI: http://pui.per/accession/A000002
-                  pedigree: A000002
-                  seedSource: open pollination
-                  synonyms:
-                  - landrace 2
-                studyDbId: '1001'
-                trialName: Peru Yield Trial 1
+              examples:
+                response:
+                  value:
+                    metadata:
+                      datafiles: []
+                      pagination:
+                        currentPage: 0
+                        pageSize: 2
+                        totalCount: 4
+                        totalPages: 2
+                      status: []
+                    result:
+                      data:
+                      - accessionNumber: A000001
+                        entryNumber: '1'
+                        germplasmDbId: '1'
+                        germplasmName: Name001
+                        germplasmPUI: http://pui.per/accession/A000001
+                        pedigree: A000001
+                        seedSource: open pollination
+                        synonyms:
+                        - landrace 1
+                      - accessionNumber: A000002
+                        entryNumber: '4'
+                        germplasmDbId: '2'
+                        germplasmName: Name002
+                        germplasmPUI: http://pui.per/accession/A000002
+                        pedigree: A000002
+                        seedSource: open pollination
+                        synonyms:
+                        - landrace 2
+                      studyDbId: '1001'
+                      trialName: Peru Yield Trial 1
+          description: OK
           headers: {}
-          schema:
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata'
-              result:
-                $ref: '#/definitions/germplasmSummaryList'
-            title: germplasmSummaryListResponse
-            type: object
       summary: Study Germplasm Details
       tags:
       - Studies
       - Germplasm
-swagger: '2.0'

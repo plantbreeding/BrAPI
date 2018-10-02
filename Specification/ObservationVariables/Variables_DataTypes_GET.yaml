@@ -1,3 +1,7 @@
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
 paths:
   /variables/datatypes:
     get:
@@ -7,40 +11,43 @@ paths:
         in: query
         name: pageSize
         required: false
-        type: integer
+        schema:
+          type: integer
       - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
         in: query
         name: page
         required: false
-        type: integer
-      produces:
-      - application/json
+        schema:
+          type: integer
       responses:
         '200':
-          description: OK
-          examples:
+          content:
             application/json:
-              metadata:
-                datafiles: []
-                pagination:
-                  currentPage: 0
-                  pageSize: 2
-                  totalCount: 2
-                  totalPages: 1
-                status: []
-              result:
-                data:
-                - Categorical
-                - Numerical
+              examples:
+                response:
+                  value:
+                    metadata:
+                      datafiles: []
+                      pagination:
+                        currentPage: 0
+                        pageSize: 2
+                        totalCount: 2
+                        totalPages: 1
+                      status: []
+                    result:
+                      data:
+                      - Categorical
+                      - Numerical
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/dataTypesResponseResult'
+                title: dataTypesResponse
+                type: object
+          description: OK
           headers: {}
-          schema:
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata'
-              result:
-                $ref: '#/definitions/dataTypesResponseResult'
-            title: dataTypesResponse
       summary: Variable data type list
       tags:
       - Observation Variables
-swagger: '2.0'

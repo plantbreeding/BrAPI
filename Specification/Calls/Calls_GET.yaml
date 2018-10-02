@@ -1,74 +1,82 @@
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
 paths:
   /calls:
     get:
-      description: "<strong>Implementation Notes</strong>\nHaving a consistent structure for the path string of each call is very important for teams to be able to connect and find errors. Read more on <a href=\"https://github.com/plantbreeding/API/issues/144\">Github</a>.\nHere are the rules for the path of each call that should be returned\n<ul>       \n  <li>Every word in the call path should match the documentation exactly, both in spelling and capitalization. Note that path strings are all lower case, but path parameters are camel case.</li>        \n  <li>Each path should start relative to '/' and therefore should not include '/'</li>\n  <li>No leading or trailing slashes ('/') </li>\n  <li>Path parameters are wrapped in curly braces ('{}'). The name of the path parameter should be spelled exactly as it is specified in the documentation.</li>        \n</ul>\n<table>\n  <tr>\n    <th>Examples</th>\n  </tr>\n  <tr>\n    <td><strong>GOOD</strong></td>\n    <td>\"call\": \"germplasm/{germplasmDbId}/markerprofiles\"</td>\n  </tr> \n  <tr>\n    <td>BAD</td>\n    <td>\"call\": \"germplasm/{<strong>id</strong>}/markerprofiles\"</td>\n  </tr> \n  <tr>\n    <td>BAD</td>\n    <td>\"call\": \"germplasm/{germplasmDbId}/marker<strong>P</strong>rofiles\"</td>\n  </tr>\n  <tr>\n    <td>BAD</td>\n    <td>\"call\": \"germplasm/{germplasm<strong>dbid</strong>}/markerprofiles\"</td>\n  </tr> \n  <tr>\n    <td>BAD</td>\n    <td>\"call\": \"<strong>brapi/v1</strong>/germplasm/{germplasmDbId}/markerprofiles\"</td>\n  </tr>\n  <tr>\n    <td>BAD</td>\n    <td>\"call\": \"<strong>/g</strong>ermplasm/{germplasmDbId}/markerprofile<strong>s/</strong>\"</td>\n  </tr> \n  <tr>\n    <td>BAD</td>\n    <td>\"call\": \"germplasm/<strong>&lt</strong>germplasmDbId<strong>&gt</strong>/markerprofiles\"</td>\n  </tr> \n</table>\n\n<a href=\"https://test-server.brapi.org/brapi/v1/calls\"> test-server.brapi.org/brapi/v1/calls</a>"
+      description: " Implementation Notes\nHaving a consistent structure for the path string of each call is very important for teams to be able to connect and find errors. Read more on Github.\nHere are the rules for the path of each call that should be returned\n\n\n\nEvery word in the call path should match the documentation exactly, both in spelling and capitalization. Note that path strings are all lower case, but path parameters are camel case.\n\nEach path should start relative to \"/\" and therefore should not include \"/\"\n\nNo leading or trailing slashes (\"/\") \n\nPath parameters are wrapped in curly braces (\"{}\"). The name of the path parameter should be spelled exactly as it is specified in the documentation.\n\n\n\n\nExamples GOOD\t\"call\": \"germplasm/{germplasmDbId}/markerprofiles\" BAD\t\"call\": \"germplasm/{id}/markerprofiles\" BAD\t\"call\": \"germplasm/{germplasmDbId}/markerProfiles\" BAD\t\"call\": \"germplasm/{germplasmdbid}/markerprofiles\" BAD\t\"call\": \"brapi/v1/germplasm/{germplasmDbId}/markerprofiles\" BAD\t\"call\": \"/germplasm/{germplasmDbId}/markerprofiles/\" BAD\t\"call\": \"germplasm/<germplasmDbId>/markerprofiles\"\n\n\n\ntest-server.brapi.org/brapi/v1/calls"
       parameters:
       - description: 'The data format supported by the call. Example: `json`'
         in: query
         name: datatype
         required: false
-        type: string
+        schema:
+          type: string
       - description: The size of the pages to be returned. Default is `1000`.
         in: query
         name: pageSize
         required: false
-        type: integer
+        schema:
+          type: integer
       - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
         in: query
         name: page
         required: false
-        type: integer
-      produces:
-      - application/json
+        schema:
+          type: integer
       responses:
         '200':
-          description: OK
-          examples:
+          content:
             application/json:
-              metadata:
-                datafiles: []
-                pagination:
-                  currentPage: 0
-                  pageSize: 2
-                  totalCount: 65
-                  totalPages: 33
-                status: []
-              result:
-                data:
-                - call: allelematrices
-                  datatypes:
-                  - json
-                  methods:
-                  - GET
-                  versions:
-                  - '1.0'
-                  - '1.1'
-                  - '1.2'
-                - call: allelematrices-search
-                  datatypes:
-                  - json
-                  methods:
-                  - GET
-                  - POST
-                  versions:
-                  - '1.0'
-                  - '1.1'
-                  - '1.2'
-          headers: {}
-          schema:
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata'
-              result:
+              examples:
+                response:
+                  value:
+                    metadata:
+                      datafiles: []
+                      pagination:
+                        currentPage: 0
+                        pageSize: 2
+                        totalCount: 65
+                        totalPages: 33
+                      status: []
+                    result:
+                      data:
+                      - call: allelematrices
+                        datatypes:
+                        - json
+                        methods:
+                        - GET
+                        versions:
+                        - '1.0'
+                        - '1.1'
+                        - '1.2'
+                      - call: allelematrices-search
+                        datatypes:
+                        - json
+                        methods:
+                        - GET
+                        - POST
+                        versions:
+                        - '1.0'
+                        - '1.1'
+                        - '1.2'
+              schema:
                 properties:
-                  data:
-                    description: Array of availible calls on this server
-                    items:
-                      $ref: '#/definitions/call'
-                    type: array
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    properties:
+                      data:
+                        description: Array of availible calls on this server
+                        items:
+                          $ref: '#/components/schemas/call'
+                        type: array
+                    type: object
+                title: callsResponse
                 type: object
-            title: callsResponse
-            type: object
+          description: OK
+          headers: {}
       summary: Call search
       tags:
       - Calls

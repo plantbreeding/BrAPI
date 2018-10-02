@@ -1,34 +1,41 @@
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
 paths:
   /samples:
     put:
       description: 'Call to register the event of a sample being taken. Sample ID is assigned as a result of the operation and returned in response.
 
         '
-      parameters:
-      - in: body
-        name: sample
-        schema:
-          $ref: '#/definitions/sample'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/sample'
       responses:
         '200':
-          description: OK
-          examples:
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/newSampleDbId'
             application/json:
-              metadata:
-                datafiles: []
-                pagination:
-                  currentPage: 0
-                  pageSize: 0
-                  totalCount: 0
-                  totalPages: 0
-                status: []
-              result:
-                sampleDbId: ab8e9999-18d6-4d0c-bfe3-800357ecce55
-                sampleId: ab8e9999-18d6-4d0c-bfe3-800357ecce55
+              examples:
+                response:
+                  value:
+                    metadata:
+                      datafiles: []
+                      pagination:
+                        currentPage: 0
+                        pageSize: 0
+                        totalCount: 0
+                        totalPages: 0
+                      status: []
+                    result:
+                      sampleDbId: ab8e9999-18d6-4d0c-bfe3-800357ecce55
+                      sampleId: ab8e9999-18d6-4d0c-bfe3-800357ecce55
+          description: OK
           headers: {}
-          schema:
-            $ref: '#/definitions/newSampleDbId'
       summary: Add a sample
       tags:
       - Samples
-swagger: '2.0'

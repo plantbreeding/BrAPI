@@ -1,3 +1,7 @@
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
 paths:
   /germplasm/{germplasmDbId}/markerprofiles:
     get:
@@ -11,39 +15,44 @@ paths:
 
         Implemented by: Germinate, Cassavabase
 
-        <a href="https://test-server.brapi.org/brapi/v1/germplasm"> test-server.brapi.org/brapi/v1/germplasm/{germplasmDbId}/markerprofiles</a> '
+
+        test-server.brapi.org/brapi/v1/germplasm/{germplasmDbId}/markerprofiles '
       parameters:
       - description: the internal id of the germplasm
         in: path
         name: germplasmDbId
         required: true
-        type: string
+        schema:
+          type: string
       responses:
         '200':
-          description: OK
-          examples:
+          content:
+            '*/*':
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/germplasmMarkerprofilesList'
+                title: germplasmMarkerprofilesListResponse
+                type: object
             application/json:
-              metadata:
-                datafiles: []
-                pagination:
-                  currentPage: 0
-                  pageSize: 0
-                  totalCount: 0
-                  totalPages: 0
-                status: []
-              result:
-                germplasmDbId: '3'
-                markerprofileDbIds: []
+              examples:
+                response:
+                  value:
+                    metadata:
+                      datafiles: []
+                      pagination:
+                        currentPage: 0
+                        pageSize: 0
+                        totalCount: 0
+                        totalPages: 0
+                      status: []
+                    result:
+                      germplasmDbId: '3'
+                      markerprofileDbIds: []
+          description: OK
           headers: {}
-          schema:
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata'
-              result:
-                $ref: '#/definitions/germplasmMarkerprofilesList'
-            title: germplasmMarkerprofilesListResponse
-            type: object
       summary: Markerprofiles by germplasmDbId
       tags:
       - Germplasm
-swagger: '2.0'

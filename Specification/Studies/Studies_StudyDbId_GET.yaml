@@ -1,3 +1,7 @@
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
 paths:
   /studies/{studyDbId}:
     get:
@@ -9,98 +13,103 @@ paths:
 
         More linked data: * observation variables: ```/brapi/v1/studies/{studyDbId}/observationVariables``` * germplasm: ```/brapi/v1/studies/{studyDbId}/germplasm``` * observation units: ```/brapi/v1/studies/{studyDbId}/observationUnits``` * layout: ```brapi/v1/studies/{studyDbId}/layout```
 
-        <a href="https://test-server.brapi.org/brapi/v1/studies"> test-server.brapi.org/brapi/v1/studies/{studyDbId}</a>'
+
+        test-server.brapi.org/brapi/v1/studies/{studyDbId}'
       parameters:
       - description: Identifier of the study. Usually a number, could be alphanumeric.
         in: path
         name: studyDbId
         required: true
-        type: string
+        schema:
+          type: string
       responses:
         '200':
-          description: OK
-          examples:
+          content:
+            '*/*':
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/study'
+                title: studyResponse
+                type: object
             application/json:
-              metadata:
-                datafiles: []
-                pagination:
-                  currentPage: 0
-                  pageSize: 0
-                  totalCount: 0
-                  totalPages: 0
-                status: []
-              result:
-                active: 'true'
-                additionalInfo:
-                  studyObjective: Increase yield
-                contacts:
-                - contactDbId: '1'
-                  email: a.breeder@brapi.org
-                  instituteName: Plant Science Institute
-                  name: A. Breeder
-                  orcid: 0000-0002-0607-8728
-                  type: Breeder
-                - contactDbId: '2'
-                  email: b.breeder@brapi.org
-                  instituteName: Plant Science Institute
-                  name: B. Breeder
-                  orcid: 0000-0002-0607-8729
-                  type: Breeder
-                dataLinks:
-                - name: image-archive12.zip
-                  type: Image archive
-                  url: http://data.inra.fr/archive/multi-spect-flowering.zip
-                - name: image-archive13.zip
-                  type: Image archive
-                  url: http://data.inra.fr/archive/biomass-img.zip
-                endDate: '2014-01-01'
-                lastUpdate:
-                  timestamp: '2015-01-01T00:00:00-05:00'
-                  version: '1.1'
-                license: https://creativecommons.org/licenses/by/4.0
-                location:
-                  abbreviation: L1
-                  abreviation: L1
-                  additionalInfo:
-                    adm1: Junin
-                    adm2: Chanchamayo
-                    adm3: San Ramon
-                    annualMeanTemperature: '23'
-                    annualTotalPrecipitation: '360'
-                    cont: South America
-                    creg: LAC
-                    local: San Ramon
-                  altitude: 828
-                  countryCode: PER
-                  countryName: Peru
-                  instituteAddress: 71 Pilgrim Avenue Chevy Chase MD 20815
-                  instituteAdress: 71 Pilgrim Avenue Chevy Chase MD 20815
-                  instituteName: Plant Science Institute
-                  latitude: -11.1274995803833
-                  locationDbId: '1'
-                  locationType: Storage location
-                  longitude: -75.35639190673828
-                  name: Location 1
-                seasons:
-                - fall 2011
-                - winter 2012
-                startDate: '2013-01-01'
-                studyDbId: '1001'
-                studyDescription: Field yield phenotyping study
-                studyName: Study 1
-                studyType: Yield study
-                trialDbId: '101'
-                trialName: Peru Yield Trial 1
+              examples:
+                response:
+                  value:
+                    metadata:
+                      datafiles: []
+                      pagination:
+                        currentPage: 0
+                        pageSize: 0
+                        totalCount: 0
+                        totalPages: 0
+                      status: []
+                    result:
+                      active: 'true'
+                      additionalInfo:
+                        studyObjective: Increase yield
+                      contacts:
+                      - contactDbId: '1'
+                        email: a.breeder@brapi.org
+                        instituteName: Plant Science Institute
+                        name: A. Breeder
+                        orcid: 0000-0002-0607-8728
+                        type: Breeder
+                      - contactDbId: '2'
+                        email: b.breeder@brapi.org
+                        instituteName: Plant Science Institute
+                        name: B. Breeder
+                        orcid: 0000-0002-0607-8729
+                        type: Breeder
+                      dataLinks:
+                      - name: image-archive12.zip
+                        type: Image archive
+                        url: http://data.inra.fr/archive/multi-spect-flowering.zip
+                      - name: image-archive13.zip
+                        type: Image archive
+                        url: http://data.inra.fr/archive/biomass-img.zip
+                      endDate: '2014-01-01'
+                      lastUpdate:
+                        timestamp: '2015-01-01T00:00:00-05:00'
+                        version: '1.1'
+                      license: https://creativecommons.org/licenses/by/4.0
+                      location:
+                        abbreviation: L1
+                        abreviation: L1
+                        additionalInfo:
+                          adm1: Junin
+                          adm2: Chanchamayo
+                          adm3: San Ramon
+                          annualMeanTemperature: '23'
+                          annualTotalPrecipitation: '360'
+                          cont: South America
+                          creg: LAC
+                          local: San Ramon
+                        altitude: 828
+                        countryCode: PER
+                        countryName: Peru
+                        instituteAddress: 71 Pilgrim Avenue Chevy Chase MD 20815
+                        instituteAdress: 71 Pilgrim Avenue Chevy Chase MD 20815
+                        instituteName: Plant Science Institute
+                        latitude: -11.1274995803833
+                        locationDbId: '1'
+                        locationType: Storage location
+                        longitude: -75.35639190673828
+                        name: Location 1
+                      seasons:
+                      - fall 2011
+                      - winter 2012
+                      startDate: '2013-01-01'
+                      studyDbId: '1001'
+                      studyDescription: Field yield phenotyping study
+                      studyName: Study 1
+                      studyType: Yield study
+                      trialDbId: '101'
+                      trialName: Peru Yield Trial 1
+          description: OK
           headers: {}
-          schema:
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata'
-              result:
-                $ref: '#/definitions/study'
-            title: studyResponse
-            type: object
       summary: Retrieve study details
       tags:
       - Studies
-swagger: '2.0'

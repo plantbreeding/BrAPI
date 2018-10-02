@@ -1,52 +1,61 @@
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
 paths:
   /samples/{sampleDbId}:
     get:
       description: ' Used to retrieve the details of a single Sample from a Sample Tracking system.
 
-        <a href="https://test-server.brapi.org/brapi/v1/samples"> test-server.brapi.org/brapi/v1/samples/{sampleDbId}</a>'
+
+        test-server.brapi.org/brapi/v1/samples/{sampleDbId}'
       parameters:
       - description: the internal DB id for a sample
         in: path
         name: sampleDbId
         required: true
-        type: string
+        schema:
+          type: string
       responses:
         '200':
-          description: OK
-          examples:
+          content:
+            '*/*':
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/sample'
+                title: sampleResponse
+                type: object
             application/json:
-              metadata:
-                datafiles: []
-                pagination:
-                  currentPage: 0
-                  pageSize: 0
-                  totalCount: 0
-                  totalPages: 0
-                status: []
-              result:
-                germplasmDbId: '1'
-                notes: Example Sample
-                observationUnitDbId: '1'
-                plantDbId: 'null'
-                plateDbId: pl1
-                plateIndex: 0
-                plotDbId: '1'
-                sampleDbId: sam1
-                sampleTimestamp: '2018-01-01T00:00:00-05:00'
-                sampleType: DNA
-                studyDbId: '1001'
-                takenBy: Bob
-                tissueType: Leaf
+              examples:
+                response:
+                  value:
+                    metadata:
+                      datafiles: []
+                      pagination:
+                        currentPage: 0
+                        pageSize: 0
+                        totalCount: 0
+                        totalPages: 0
+                      status: []
+                    result:
+                      germplasmDbId: '1'
+                      notes: Example Sample
+                      observationUnitDbId: '1'
+                      plantDbId: 'null'
+                      plateDbId: pl1
+                      plateIndex: 0
+                      plotDbId: '1'
+                      sampleDbId: sam1
+                      sampleTimestamp: '2018-01-01T00:00:00-05:00'
+                      sampleType: DNA
+                      studyDbId: '1001'
+                      takenBy: Bob
+                      tissueType: Leaf
+          description: OK
           headers: {}
-          schema:
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata'
-              result:
-                $ref: '#/definitions/sample'
-            title: sampleResponse
-            type: object
       summary: Get Sample
       tags:
       - Samples
-swagger: '2.0'

@@ -1,55 +1,62 @@
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
 paths:
   /observationlevels:
     get:
       description: ' Call to retrieve the list of supported observation levels. Observation levels indicate the granularity level at which the measurements are taken. The values are used to supply the `observationLevel` parameter in the observation unit details call.
 
-        <a href="https://test-server.brapi.org/brapi/v1/observationlevels"> test-server.brapi.org/brapi/v1/observationlevels</a>'
+
+        test-server.brapi.org/brapi/v1/observationlevels'
       parameters:
       - description: The size of the pages to be returned. Default is `1000`.
         in: query
         name: pageSize
         required: false
-        type: integer
+        schema:
+          type: integer
       - description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
         in: query
         name: page
         required: false
-        type: integer
-      produces:
-      - application/json
+        schema:
+          type: integer
       responses:
         '200':
-          description: OK
-          examples:
+          content:
             application/json:
-              metadata:
-                datafiles: []
-                pagination:
-                  currentPage: 0
-                  pageSize: 2
-                  totalCount: 11
-                  totalPages: 6
-                status: []
-              result:
-                data:
-                - plant
-                - plot
-          headers: {}
-          schema:
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata'
-              result:
+              examples:
+                response:
+                  value:
+                    metadata:
+                      datafiles: []
+                      pagination:
+                        currentPage: 0
+                        pageSize: 2
+                        totalCount: 11
+                        totalPages: 6
+                      status: []
+                    result:
+                      data:
+                      - plant
+                      - plot
+              schema:
                 properties:
-                  data:
-                    items:
-                      description: observation levels available in this database
-                      type: string
-                    type: array
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    properties:
+                      data:
+                        items:
+                          description: observation levels available in this database
+                          type: string
+                        type: array
+                    type: object
+                title: observationLevelsResponse
                 type: object
-            title: observationLevelsResponse
-            type: object
+          description: OK
+          headers: {}
       summary: Get Observation Levels
       tags:
       - Observations
-swagger: '2.0'

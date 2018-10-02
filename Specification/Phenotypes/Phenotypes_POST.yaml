@@ -1,54 +1,59 @@
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
 paths:
   /phenotypes:
     post:
       description: "Scope: PHENOTYPING. \n\nNotes: \nAlong with the study specific phenotype saving calls (in the observationUnit and table formats), this call allows phenotypes to be saved and images to optionally be transferred as well.\n      \nCall to invoke for saving the measurements (observations) collected\nfrom field for all the observation units.\nObservation timestamp should be ISO 8601 https://www.w3.org/TR/NOTE-datetime\nIn case where JSON data is zipped for faster transfer speed (as in the case\nof the IRRI handheld implementation), the zipped JSON file will be listed\nin datafiles. The zipped file contains a JSON file with the same structure\nas the BrAPI call. In this case a format parameter should be passed as well.\nImages can be optionally be uploaded using this call by providing a zipfile\nof all images in the datafiles, along with the actual zipfile in multi-part\nform data."
       parameters:
       - description: In case where JSON data is zipped for faster transfer speed (as in the case of the IRRI handheld implementation), the zipped JSON file will be listed in datafiles. The zipped file contains a JSON file with the same structure as the BrAPI call.
-        enum:
-        - json
-        - zip
         in: query
         name: format
-        type: string
-      - in: body
-        name: body
         schema:
-          $ref: '#/definitions/phenotypesRequest'
-      produces:
-      - application/json
+          enum:
+          - json
+          - zip
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/phenotypesRequest'
       responses:
         '200':
-          description: OK
-          examples:
+          content:
             application/json:
-              metadata:
-                datafiles: []
-                pagination:
-                  currentPage: 0
-                  pageSize: 0
-                  totalCount: 0
-                  totalPages: 0
-                status: []
-              result:
-                observations:
-                - observationDbId: 920028c0-a6c2-47e3-a4c2-4eccea6ce066
-                  observationUnitDbId: '1'
-                  observationVariableDbId: MO_123:100002
+              examples:
+                response:
+                  value:
+                    metadata:
+                      datafiles: []
+                      pagination:
+                        currentPage: 0
+                        pageSize: 0
+                        totalCount: 0
+                        totalPages: 0
+                      status: []
+                    result:
+                      observations:
+                      - observationDbId: 920028c0-a6c2-47e3-a4c2-4eccea6ce066
+                        observationUnitDbId: '1'
+                        observationVariableDbId: MO_123:100002
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/newObservationDbIds'
+                title: newObservationDbIdsResponse
+                type: object
+          description: OK
           headers: {}
-          schema:
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata'
-              result:
-                $ref: '#/definitions/newObservationDbIds'
-            title: newObservationDbIdsResponse
-            type: object
         '400':
           description: Bad Request
-          examples: {}
           headers: {}
       summary: Save Observation Unit Phenotypes
       tags:
       - Phenotypes
       - Observations
-swagger: '2.0'

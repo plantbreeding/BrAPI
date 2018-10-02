@@ -1,3 +1,7 @@
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
 paths:
   /logout:
     delete:
@@ -9,21 +13,11 @@ paths:
 
 
         For logout, returns an empty resource. A token to remove could be provided (amdin interface) but it is not required. By default, current user token will be removed.'
-      parameters:
-      - in: body
-        name: body
-        schema:
-          properties:
-            access_token:
-              type: string
-          type: object
       responses:
         '201':
           description: Created
-          examples: {}
           headers: {}
       summary: Logout
       tags:
       - Authentication
       - Deprecated
-swagger: '2.0'

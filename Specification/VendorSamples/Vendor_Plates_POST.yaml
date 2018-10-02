@@ -1,0 +1,72 @@
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
+paths:
+  /vendor/plates:
+    post:
+      description: 'Note: if the samples array is empty, plate ID will be returned.
+
+        Samples can be updated later.'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/vendorPlateRequest'
+      responses:
+        '200':
+          content:
+            '*/*':
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    properties:
+                      plates:
+                        items:
+                          $ref: '#/components/schemas/vendorPlate'
+                        type: array
+                    type: object
+                title: vendorPlatesResponse
+                type: object
+            application/json:
+              examples:
+                response:
+                  value:
+                    metadata:
+                      datafiles: []
+                      pagination:
+                        currentPage: 0
+                        pageSize: 0
+                        totalCount: 0
+                        totalPages: 0
+                      status: []
+                    result:
+                      data:
+                      - clientPlateDbId: string
+                        files: []
+                        plateFormat: string
+                        sampleType: string
+                        samples:
+                        - column: '1'
+                          concentration: string
+                          row: '0'
+                          sampleDbId: 2ad357ce-b0c7-4236-a2dc-ee88b4a67e49
+                          taxonId:
+                            sourceName: string
+                            taxonId: string
+                          tissueType: string
+                          volume: string
+                          well: '1'
+                        status: recieved
+                        statusTimeStamp: '2018-09-26T16:14:58-04:00'
+                        vendorBarcode: BARCODE
+                        vendorBarcodeImageURL: BARCODE
+                        vendorPlateDbId: facbaf62-8bcb-488c-aac1-89908425ecf3
+                        vendorProjectDbId: string
+          description: OK
+          headers: {}
+      summary: Register plates
+      tags:
+      - Vendor Samples

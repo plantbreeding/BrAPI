@@ -1,98 +1,105 @@
 info:
-  description: BRAPI Marker profiles
-  title: Marker Profiles
-  version: '1.0'
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
 paths:
   /markerprofiles:
     get:
-      description: '<strong>Scope</strong>: GENOTYPING.
+      description: 'Scope: GENOTYPING.
 
-        <strong>Status</strong>: ACCEPTED.
+        Status: ACCEPTED.
 
-        <strong>Implemented by</strong>: Germinate
+        Implemented by: Germinate
 
-        <strong>Used by</strong>: Flapjack
+        Used by: Flapjack
 
-        </br>
+
+
 
         For the requested Germplasm Id and/or Extract Id, returns the Markerprofile Id and number of non-missing allele calls (marker/allele pairs).'
       parameters:
-      - description: The server's internal ids for the Germplasm IDs, as returned by the <strong>Find markerprofile by Germplasm</strong> service.
+      - description: The server's internal ids for the Germplasm IDs, as returned by the Find markerprofile by Germplasm service.
         in: query
         name: germplasmDbId
         required: false
-        type: string
+        schema:
+          type: string
       - description: The server's internal id for the StudyDbId
         in: query
         name: studyDbId
         required: false
-        type: string
+        schema:
+          type: string
       - description: The server's internal id for the SampleDbId
         in: query
         name: sampleDbId
         required: false
-        type: string
+        schema:
+          type: string
       - description: The server's internal id for the ExtractDbId
         in: query
         name: extractDbId
         required: false
-        type: string
+        schema:
+          type: string
       - description: The number of allele call results (marker/allele pairs) to be returned in the response. If multiple experiments are requested, some responses will contain the last results from one experiment followed by the first results from the next.
         in: query
         name: pageSize
         required: false
-        type: integer
+        schema:
+          type: integer
       - description: Required if `pageSize` is given; and requires that `pageSize` be given. The page indexing starts at 0 (the first page is 'page'=0)
         in: query
         name: page
         required: false
-        type: integer
-      produces:
-      - application/json
+        schema:
+          type: integer
       responses:
         '200':
-          description: OK
-          examples:
+          content:
             application/json:
-              metadata:
-                datafiles: []
-                pagination:
-                  currentPage: 0
-                  pageSize: 2
-                  totalCount: 3
-                  totalPages: 2
-                status: []
-              result:
-                data:
-                - analysisMethod: GBS
-                  extractDbId: extract1
-                  germplasmDbId: '1'
-                  markerprofileDbId: mp1
-                  resultCount: 22
-                  sampleDbId: sam1
-                  uniqueDisplayName: My Fancy Germplasm
-                - analysisMethod: GoldenGate
-                  extractDbId: extract2
-                  germplasmDbId: '1'
-                  markerprofileDbId: mp2
-                  resultCount: 22
-                  sampleDbId: sam2
-                  uniqueDisplayName: My Fancy Germplasm
-          headers: {}
-          schema:
-            properties:
-              metadata:
-                $ref: '#/definitions/metadata'
-              result:
+              examples:
+                response:
+                  value:
+                    metadata:
+                      datafiles: []
+                      pagination:
+                        currentPage: 0
+                        pageSize: 2
+                        totalCount: 3
+                        totalPages: 2
+                      status: []
+                    result:
+                      data:
+                      - analysisMethod: GBS
+                        extractDbId: extract1
+                        germplasmDbId: '1'
+                        markerprofileDbId: mp1
+                        resultCount: 22
+                        sampleDbId: sam1
+                        uniqueDisplayName: My Fancy Germplasm
+                      - analysisMethod: GoldenGate
+                        extractDbId: extract2
+                        germplasmDbId: '1'
+                        markerprofileDbId: mp2
+                        resultCount: 22
+                        sampleDbId: sam2
+                        uniqueDisplayName: My Fancy Germplasm
+              schema:
                 properties:
-                  data:
-                    items:
-                      $ref: '#/definitions/markerProfileDescription'
-                    type: array
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    properties:
+                      data:
+                        items:
+                          $ref: '#/components/schemas/markerProfileDescription'
+                        type: array
+                    type: object
+                title: markerProfileDescriptionsResponse
                 type: object
-            title: markerProfileDescriptionsResponse
-            type: object
+          description: OK
+          headers: {}
       summary: Retrieve Markerprofile Ids
       tags:
       - Marker Profiles
-swagger: '2.0'
