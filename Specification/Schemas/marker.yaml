@@ -1,0 +1,34 @@
+components:
+  schemas:
+    marker:
+      properties:
+        analysisMethods:
+          description: List of the genotyping platforms used to interrogate the marker
+          items:
+            type: string
+          type: array
+        defaultDisplayName:
+          description: A string representing the marker that will be meaningful to the user
+          type: string
+        markerDbId:
+          description: Internal db identifier
+          type: string
+        refAlt:
+          description: List of the reference (as the first item) and alternatives (the remaining items)
+          items:
+            type: string
+          type: array
+        synonyms:
+          description: List of other names for this marker
+          items:
+            type: string
+          type: array
+        type:
+          description: The type of marker, e.g. SNP
+          type: string
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

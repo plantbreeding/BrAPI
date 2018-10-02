@@ -1,6 +1,6 @@
 info:
   title: BrAPI
-  version: 1.3-oas3
+  version: ''
 openapi: 3.0.0
 paths:
   /locations/{locationDbId}:

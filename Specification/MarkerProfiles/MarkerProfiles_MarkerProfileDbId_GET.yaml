@@ -1,6 +1,6 @@
 info:
   title: BrAPI
-  version: 1.3-oas3
+  version: ''
 openapi: 3.0.0
 paths:
   /markerprofiles/{markerprofileDbId}:
@@ -37,18 +37,8 @@ paths:
         required: false
         schema:
           type: string
-      - description: The number of allele call results (marker/allele pairs) to be returned in the response. If multiple experiments are requested, some responses will contain the last results from one experiment followed by the first results from the next.
-        in: query
-        name: pageSize
-        required: false
-        schema:
-          type: integer
-      - description: Required if `pageSize` is given; and requires that `pageSize` be given. The page indexing starts at 0 (the first page is 'page'=0)
-        in: query
-        name: page
-        required: false
-        schema:
-          type: integer
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
       responses:
         '200':
           content:

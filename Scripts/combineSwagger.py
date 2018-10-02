@@ -12,7 +12,7 @@ if len(sys.argv) > 2 :
 	metaFilePath = sys.argv[2];
 
 paths = {}
-defin = {}
+defin = {'schemas': {}, 'parameters': {}}
 
 for filename in glob.iglob(rootPath + '/**/*.yaml', recursive=True):
 	print(filename)
@@ -23,7 +23,9 @@ for filename in glob.iglob(rootPath + '/**/*.yaml', recursive=True):
 				paths.update(fileObj['paths'])
 			if 'components' in fileObj:
 				if 'schemas' in fileObj['components']:
-					defin.update(fileObj['components']['schemas'])
+					defin['schemas'].update(fileObj['components']['schemas'])
+				if 'parameters' in fileObj['components']:
+					defin['parameters'].update(fileObj['components']['parameters'])
 		except yaml.YAMLError as exc:
 			print(exc)
 
@@ -35,8 +37,7 @@ with open(metaFilePath, "r") as metaFile:
 		print(exc)
 		
 out['paths'].update(paths)
-out['components'] = {'schemas': {}}
-out['components']['schemas'].update(defin)
+out['components'].update(defin)
 
 with open('brapi_openapi.yaml', 'w') as outfile:
 	yaml.dump(out, outfile, default_flow_style=False, width=float("inf"))

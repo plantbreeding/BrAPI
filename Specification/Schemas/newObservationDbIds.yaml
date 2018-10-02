@@ -1,0 +1,22 @@
+components:
+  schemas:
+    newObservationDbIds:
+      properties:
+        observations:
+          description: List of observation references which have been created or updated
+          items:
+            properties:
+              observationDbId:
+                type: string
+              observationUnitDbId:
+                type: string
+              observationVariableDbId:
+                type: string
+            type: object
+          type: array
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

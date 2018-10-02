@@ -1,0 +1,26 @@
+components:
+  schemas:
+    germplasmAttribute:
+      properties:
+        attributeCode:
+          description: Short abbreviation which represents this attribute
+          type: string
+        attributeDbId:
+          description: The ID which uniquely identifies this attribute within the given database server
+          type: string
+        attributeName:
+          description: The human readable name of this attribute
+          type: string
+        determinedDate:
+          description: The date the value of this attribute was determined for a given germplasm
+          format: date
+          type: string
+        value:
+          description: The value of this attribute for a given germplasm
+          type: string
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

@@ -1,0 +1,16 @@
+components:
+  schemas:
+    observationUnitXref:
+      properties:
+        id:
+          description: The unique ID in the external reference 'source' system
+          type: string
+        source:
+          description: The system identifier (name, URL, etc) which has an external reference to the observation unit
+          type: string
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

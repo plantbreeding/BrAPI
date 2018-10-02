@@ -1,0 +1,29 @@
+components:
+  schemas:
+    newObservationsRequest:
+      properties:
+        observations:
+          description: List of observation references to be created or updated
+          items:
+            properties:
+              collector:
+                type: string
+              observationDbId:
+                type: string
+              observationTimeStamp:
+                format: date-time
+                type: string
+              observationUnitDbId:
+                type: string
+              observationVariableDbId:
+                type: string
+              value:
+                type: string
+            type: object
+          type: array
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

@@ -1,0 +1,28 @@
+components:
+  schemas:
+    program:
+      properties:
+        abbreviation:
+          description: An abbreviation which represnts this program
+          type: string
+        leadPerson:
+          description: The name or identifier of the program leader
+          type: string
+        name:
+          description: DEPRECATED in v1.3 - Use "programName"
+          type: string
+        objective:
+          description: The primary objective of the program
+          type: string
+        programDbId:
+          description: The ID which uniquely identifies the program
+          type: string
+        programName:
+          description: Human readable name of the program
+          type: string
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

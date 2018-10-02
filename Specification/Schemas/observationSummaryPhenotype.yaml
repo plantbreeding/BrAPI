@@ -1,0 +1,32 @@
+components:
+  schemas:
+    observationSummaryPhenotype:
+      properties:
+        collector:
+          description: The name or identifier of the entity which collected the observation
+          type: string
+        observationDbId:
+          description: The ID which uniquely identifies an observation
+          type: string
+        observationTimeStamp:
+          description: 'The date and time  when this observation was made '
+          format: date-time
+          type: string
+        observationVariableDbId:
+          description: The ID which uniquely identifies an observation variable
+          type: string
+        observationVariableName:
+          description: A human readable name for an observation variable
+          type: string
+        season:
+          description: The season when the observation data was collected
+          type: string
+        value:
+          description: The value of the data collected as an observation
+          type: string
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

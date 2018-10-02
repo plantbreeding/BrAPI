@@ -1,0 +1,53 @@
+components:
+  schemas:
+    genomeMap:
+      properties:
+        comments:
+          description: Additional comments
+          type: string
+        commonCropName:
+          description: The common name of the crop, found from "GET /commoncropnames"
+          type: string
+        linkageGroupCount:
+          description: The number of linkage groups present in this genome map
+          format: int32
+          type: integer
+        mapDbId:
+          description: The ID which uniquely identifies this genome map
+          type: string
+        mapName:
+          description: A human readable name for this genome map
+          type: string
+        markerCount:
+          description: The number of markers present in this genome map
+          format: int32
+          type: integer
+        name:
+          description: DEPRECATED in v1.3 - Use "mapName"
+          type: string
+        publishedDate:
+          description: The date this genome was published
+          format: date
+          type: string
+        scientificName:
+          description: Full scientific binomial format name. This includes Genus, Species, and Sub-species
+          type: string
+        species:
+          description: DEPRECATED in v1.3 - See "scientificName"
+          type: string
+        type:
+          description: The type of map this represents, ussually "Genetic"
+          type: string
+        unit:
+          description: The units used to describe the data in this map
+          type: string
+      required:
+      - mapDbId
+      - commonCropName
+      - type
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

@@ -1,0 +1,21 @@
+components:
+  schemas:
+    validValues:
+      properties:
+        categories:
+          description: 'List of possible values and their meaning (examples: ["0=low", "1=medium", "2=high"]'
+          items:
+            type: string
+          type: array
+        max:
+          description: Maximum value (used for field data capture control).
+          type: integer
+        min:
+          description: Minimum value (used for data capture control) for numerical and date scales
+          type: integer
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

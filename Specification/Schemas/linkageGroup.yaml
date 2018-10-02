@@ -1,0 +1,19 @@
+components:
+  schemas:
+    linkageGroup:
+      properties:
+        linkageGroupName:
+          description: The Uniquely Identifiable name of this linkage group
+          type: string
+        markerCount:
+          description: The number of markers associated with this linkage group
+          type: integer
+        maxPosition:
+          description: The maximum position of a marker within this linkage group
+          type: integer
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

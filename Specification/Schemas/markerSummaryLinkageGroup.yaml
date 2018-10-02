@@ -1,0 +1,19 @@
+components:
+  schemas:
+    markerSummaryLinkageGroup:
+      properties:
+        location:
+          description: The position of a marker within a linkage group
+          type: string
+        markerDbId:
+          description: Internal db identifier
+          type: string
+        markerName:
+          description: The human readable name for a marker
+          type: string
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

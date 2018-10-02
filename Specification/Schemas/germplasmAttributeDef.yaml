@@ -1,0 +1,39 @@
+components:
+  schemas:
+    germplasmAttributeDef:
+      properties:
+        attributeCategoryDbId:
+          description: The ID which uniquely identifies this attribute category within the given database server
+          type: string
+        attributeDbId:
+          description: The ID which uniquely identifies this attribute within the given database server
+          type: string
+        attributeName:
+          description: A human readable name for this attribute
+          type: string
+        code:
+          description: Short abbreviation which represents this attribute
+          type: string
+        datatype:
+          description: The type of data represented by this attribute
+          type: string
+        description:
+          description: A human readable description of this attribute
+          type: string
+        name:
+          description: DEPRECATED in v1.3 - Use "attributeName"
+          type: string
+        uri:
+          description: The URI reference some external documentation or ontology for this attribute
+          type: string
+        values:
+          description: List of acceptable values for this attribute
+          items:
+            type: string
+          type: array
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

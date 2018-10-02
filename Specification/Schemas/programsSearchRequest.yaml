@@ -1,0 +1,34 @@
+components:
+  schemas:
+    programsSearchRequest:
+      properties:
+        abbreviation:
+          description: An abbreviation of a program to search for
+          type: string
+        leadPerson:
+          description: The name or identifier of the program leader to search for
+          type: string
+        name:
+          description: DEPRECATED in v1.3 - Use "programName"
+          type: string
+        objective:
+          description: A program objective to search for
+          type: string
+        page:
+          description: Which page of the "data" array to return. The page indexing starts at 0 (page=0 will return the first page). Default is 0.
+          type: integer
+        pageSize:
+          description: The maximum number of items to return per page of the "data" array. Default is 1000.
+          type: integer
+        programDbId:
+          description: A program identifier to search for
+          type: string
+        programName:
+          description: A name of a program to search for
+          type: string
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

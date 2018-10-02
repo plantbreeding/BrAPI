@@ -1,0 +1,33 @@
+components:
+  schemas:
+    traitSummary:
+      properties:
+        defaultValue:
+          description: The default value of a trait (if applicable) ex. "0", "", "null"
+          type: string
+        description:
+          description: The description of a trait
+          type: string
+        name:
+          description: DEPRECATED in v1.3 - Use "traitName"
+          type: string
+        observationVariables:
+          description: List of observation variable DbIds which include this trait
+          items:
+            type: string
+          type: array
+        traitDbId:
+          description: The ID which uniquely identifies a trait
+          type: string
+        traitId:
+          description: DEPRECATED The ID which uniquely identifies a trait
+          type: string
+        traitName:
+          description: The human readable name of a trait
+          type: string
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

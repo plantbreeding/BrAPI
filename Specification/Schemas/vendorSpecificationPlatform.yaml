@@ -1,0 +1,66 @@
+components:
+  schemas:
+    vendorSpecificationPlatform:
+      properties:
+        contactEmail:
+          description: The primary email address to contact a particular vendor platform
+          type: string
+        contactName:
+          description: The name or identifier of the primary vendor platfrom contact
+          type: string
+        contactPhone:
+          description: The phone number used to contact the vendor about a particular platform
+          type: string
+        deliverables:
+          description: List of specific deliverables provided by the vendor platform
+          items:
+            properties:
+              deliverableName:
+                description: Human readable name of a vendor deliverable
+                type: string
+              description:
+                type: string
+              format:
+                type: string
+              name:
+                description: DEPRECATED in v1.3 - Use "deliverableName"
+                type: string
+            type: object
+          type: array
+        platformDescription:
+          description: Description of the vendor platform
+          type: string
+        platformName:
+          description: The human readable name of a platform
+          type: string
+        platformURL:
+          description: The URL for a vendor platform
+          type: string
+        shippingAddress:
+          description: The street address for a vendor platform
+          type: string
+        specificRequirements:
+          description: Additional arbitrary requirements for a particular platform
+          type: object
+        standardRequirements:
+          $ref: '#/components/schemas/vendorSpecificationStandardRequirement'
+        statuses:
+          description: List of possible status messages for a vendor platform
+          items:
+            properties:
+              statusDescription:
+                type: string
+              statusName:
+                type: string
+            type: object
+          type: array
+        taxonomyIdSystem:
+          $ref: '#/components/schemas/vendorSpecificationReferenceSystem'
+        tissueIdSystem:
+          $ref: '#/components/schemas/vendorSpecificationReferenceSystem'
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

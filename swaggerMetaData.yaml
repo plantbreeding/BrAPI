@@ -17,6 +17,7 @@ info:
   title: 'BrAPI'
   version: '1.3'
 paths: {}
+components: {}
 tags:
 - name: Calls
   description: Check the available calls on a server

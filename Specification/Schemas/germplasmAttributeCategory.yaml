@@ -1,0 +1,19 @@
+components:
+  schemas:
+    germplasmAttributeCategory:
+      properties:
+        attributeCategoryDbId:
+          description: The ID which uniquely identifies this attribute category within the given database server
+          type: string
+        attributeCategoryName:
+          description: A human readable name for this attribute category
+          type: string
+        name:
+          description: DEPRECATED in v1.3 - Use "attributeCategoryName"
+          type: string
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

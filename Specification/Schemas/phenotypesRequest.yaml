@@ -1,0 +1,29 @@
+components:
+  schemas:
+    phenotypesRequest:
+      properties:
+        data:
+          description: Matrix of observation data recorded for different observation variables across different observation units
+          items:
+            description: new phenotypes
+            properties:
+              observatioUnitDbId:
+                type: string
+              observations:
+                items:
+                  $ref: '#/components/schemas/phenotypesRequestObservation'
+                type: array
+              studyDbId:
+                type: string
+            required:
+            - observatioUnitDbId
+            - studyDbId
+            - observations
+            type: object
+          type: array
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

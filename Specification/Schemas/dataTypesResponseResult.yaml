@@ -1,0 +1,15 @@
+components:
+  schemas:
+    dataTypesResponseResult:
+      properties:
+        data:
+          items:
+            type: string
+          type: array
+      title: dataTypesResponseResult
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
