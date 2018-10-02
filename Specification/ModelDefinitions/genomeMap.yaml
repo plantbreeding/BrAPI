@@ -27,7 +27,13 @@ components:
           format: date
           type: string
         species:
-          description: 'The name of the species '
+          description: DEPRECATED in v1.3 - See "scientificName"
+          type: string
+        commonCropName:
+          description: The common name of the crop, found from "GET /commoncropnames"
+          type: string
+        scientificName:
+          description: Full scientific binomial format name. This includes Genus, Species, and Sub-species 
           type: string
         type:
           description: The type of map this represents, ussually "Genetic"
@@ -36,6 +42,10 @@ components:
           description: The units used to describe the data in this map
           type: string
       type: object
+      required:
+      - "mapDbId"
+      - "commonCropName"
+      - "type"
 info:
   title: BrAPI
   version: 1.3-oas3
