@@ -65,39 +65,37 @@ paths:
         '200':
           content:
             application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 2
-                        totalCount: 22
-                        totalPages: 11
-                      status: []
-                    result:
-                      data:
-                      - analysisMethods:
-                        - illumina
-                        defaultDisplayName: marker1-1
-                        markerDbId: mr1
-                        refAlt:
-                        - A
-                        - T
-                        synonyms:
-                        - i_11_10010
-                        type: marker
-                      - analysisMethods:
-                        - kasp
-                        defaultDisplayName: marker1-2
-                        markerDbId: mr2
-                        refAlt:
-                        - A
-                        - T
-                        synonyms:
-                        - i_11_10020
-                        type: marker
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 22
+                    totalPages: 11
+                  status: []
+                result:
+                  data:
+                  - analysisMethods:
+                    - illumina
+                    defaultDisplayName: marker1-1
+                    markerDbId: mr1
+                    refAlt:
+                    - A
+                    - T
+                    synonyms:
+                    - i_11_10010
+                    type: marker
+                  - analysisMethods:
+                    - kasp
+                    defaultDisplayName: marker1-2
+                    markerDbId: mr2
+                    refAlt:
+                    - A
+                    - T
+                    synonyms:
+                    - i_11_10020
+                    type: marker
               schema:
                 properties:
                   metadata:
@@ -134,39 +132,37 @@ paths:
         '200':
           content:
             application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 2
-                        totalCount: 22
-                        totalPages: 11
-                      status: []
-                    result:
-                      data:
-                      - analysisMethods:
-                        - illumina
-                        defaultDisplayName: marker1-1
-                        markerDbId: mr1
-                        refAlt:
-                        - A
-                        - T
-                        synonyms:
-                        - i_11_10010
-                        type: marker
-                      - analysisMethods:
-                        - kasp
-                        defaultDisplayName: marker1-2
-                        markerDbId: mr2
-                        refAlt:
-                        - A
-                        - T
-                        synonyms:
-                        - i_11_10020
-                        type: marker
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 22
+                    totalPages: 11
+                  status: []
+                result:
+                  data:
+                  - analysisMethods:
+                    - illumina
+                    defaultDisplayName: marker1-1
+                    markerDbId: mr1
+                    refAlt:
+                    - A
+                    - T
+                    synonyms:
+                    - i_11_10010
+                    type: marker
+                  - analysisMethods:
+                    - kasp
+                    defaultDisplayName: marker1-2
+                    markerDbId: mr2
+                    refAlt:
+                    - A
+                    - T
+                    synonyms:
+                    - i_11_10020
+                    type: marker
               schema:
                 properties:
                   metadata:

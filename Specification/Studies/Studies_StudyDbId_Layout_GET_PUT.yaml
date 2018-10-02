@@ -38,43 +38,41 @@ paths:
         '200':
           content:
             application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 2
-                        totalCount: 4
-                        totalPages: 2
-                      status: []
-                    result:
-                      data:
-                      - X: '1'
-                        Y: '1'
-                        additionalInfo: {}
-                        blockNumber: '1'
-                        entryType: TEST
-                        germplasmDbId: '1'
-                        germplasmName: Name001
-                        observationLevel: plant
-                        observationUnitDbId: '2'
-                        observationUnitName: Plant 1
-                        replicate: '0'
-                        studyDbId: '1001'
-                      - X: '1'
-                        Y: '2'
-                        additionalInfo: {}
-                        blockNumber: '1'
-                        entryType: TEST
-                        germplasmDbId: '2'
-                        germplasmName: Name002
-                        observationLevel: plot
-                        observationUnitDbId: '3'
-                        observationUnitName: Plot 2
-                        replicate: '0'
-                        studyDbId: '1001'
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 4
+                    totalPages: 2
+                  status: []
+                result:
+                  data:
+                  - X: '1'
+                    Y: '1'
+                    additionalInfo: {}
+                    blockNumber: '1'
+                    entryType: TEST
+                    germplasmDbId: '1'
+                    germplasmName: Name001
+                    observationLevel: plot
+                    observationUnitDbId: '1'
+                    observationUnitName: Plot 1
+                    replicate: '0'
+                    studyDbId: '1001'
+                  - X: '1'
+                    Y: '1'
+                    additionalInfo: {}
+                    blockNumber: '1'
+                    entryType: TEST
+                    germplasmDbId: '1'
+                    germplasmName: Name001
+                    observationLevel: plant
+                    observationUnitDbId: '2'
+                    observationUnitName: Plant 1
+                    replicate: '0'
+                    studyDbId: '1001'
               schema:
                 properties:
                   metadata:
@@ -121,31 +119,29 @@ paths:
         '200':
           content:
             application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 0
-                        totalCount: 0
-                        totalPages: 0
-                      status: []
-                    result:
-                      data:
-                      - X: '10'
-                        Y: '12'
-                        additionalInfo: {}
-                        blockNumber: '0'
-                        entryType: CHECK
-                        germplasmDbId: '1'
-                        germplasmName: Name001
-                        observationLevel: plot
-                        observationUnitDbId: '1'
-                        observationUnitName: Plot 1
-                        replicate: '0'
-                        studyDbId: '1001'
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result:
+                  data:
+                  - X: '10'
+                    Y: '12'
+                    additionalInfo: {}
+                    blockNumber: '0'
+                    entryType: CHECK
+                    germplasmDbId: '1'
+                    germplasmName: Name001
+                    observationLevel: plot
+                    observationUnitDbId: '1'
+                    observationUnitName: Plot 1
+                    replicate: '0'
+                    studyDbId: '1001'
               schema:
                 properties:
                   metadata:

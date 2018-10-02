@@ -28,21 +28,19 @@ paths:
         '200':
           content:
             application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 2
-                        totalCount: 2
-                        totalPages: 1
-                      status: []
-                    result:
-                      data:
-                      - Tomatillo
-                      - Paw Paw
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 2
+                    totalPages: 1
+                  status: []
+                result:
+                  data:
+                  - Tomatillo
+                  - Paw Paw
               schema:
                 properties:
                   metadata:

@@ -23,26 +23,24 @@ paths:
         '200':
           content:
             application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 2
-                        totalCount: 1
-                        totalPages: 0
-                      status: []
-                    result:
-                      data:
-                      - authors: Bob
-                        copyright: 2017 Ontology.org
-                        description: Ontology.org
-                        licence: Apache
-                        ontologyDbId: MO_123
-                        ontologyName: Ontology.org
-                        version: '17'
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 1
+                    totalPages: 0
+                  status: []
+                result:
+                  data:
+                  - authors: Bob
+                    copyright: 2017 Ontology.org
+                    description: Ontology.org
+                    licence: Apache
+                    ontologyDbId: MO_123
+                    ontologyName: Ontology.org
+                    version: '17'
               schema:
                 properties:
                   metadata:

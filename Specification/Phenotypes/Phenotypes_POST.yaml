@@ -24,22 +24,20 @@ paths:
         '200':
           content:
             application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 0
-                        totalCount: 0
-                        totalPages: 0
-                      status: []
-                    result:
-                      observations:
-                      - observationDbId: 920028c0-a6c2-47e3-a4c2-4eccea6ce066
-                        observationUnitDbId: '1'
-                        observationVariableDbId: MO_123:100002
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result:
+                  observations:
+                  - observationDbId: 8762e0a9-9d3a-4db9-b67d-cc8fdb7f9d60
+                    observationUnitDbId: '1'
+                    observationVariableDbId: MO_123:100002
               schema:
                 properties:
                   metadata:

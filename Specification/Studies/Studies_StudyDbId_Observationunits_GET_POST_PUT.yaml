@@ -40,85 +40,83 @@ paths:
         '200':
           content:
             application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 2
-                        totalCount: 4
-                        totalPages: 2
-                      status: []
-                    result:
-                      data:
-                      - X: '1'
-                        Y: '1'
-                        blockNumber: '1'
-                        entryNumber: '2'
-                        entryType: TEST
-                        germplasmDbId: '1'
-                        germplasmName: Name001
-                        observationUnitDbId: '2'
-                        observationUnitName: Plant 1
-                        observationUnitXref:
-                        - id: SAMEA179865815
-                          source: ebi.biosample
-                        - id: INRA:CoeSt6 _SMH13
-                          source: gnpis.lot
-                        - id: '239167'
-                          source: kernelDB
-                        observations:
-                        - collector: A. Technician
-                          observationDbId: '3'
-                          observationTimeStamp: '2013-06-14T22:05:51-04:00'
-                          observationVariableDbId: MO_123:100002
-                          observationVariableName: Plant height
-                          value: '1.1'
-                        - collector: A. Technician
-                          observationDbId: '4'
-                          observationTimeStamp: '2013-06-14T22:06:51-04:00'
-                          observationVariableDbId: MO_123:100006
-                          observationVariableName: Virus susceptibility
-                          value: '5.1'
-                        pedigree: A000001/A000002
-                        plantNumber: '1'
-                        plotNumber: '1'
-                        replicate: '0'
-                      - X: '1'
-                        Y: '2'
-                        blockNumber: '1'
-                        entryNumber: '3'
-                        entryType: TEST
-                        germplasmDbId: '2'
-                        germplasmName: Name002
-                        observationUnitDbId: '3'
-                        observationUnitName: Plot 2
-                        observationUnitXref:
-                        - id: SAMEA179865682
-                          source: ebi.biosample
-                        - id: INRA:CoeSt6 _SMH51
-                          source: gnpis.lot
-                        - id: '239146'
-                          source: kernelDB
-                        observations:
-                        - collector: A. Technician
-                          observationDbId: '5'
-                          observationTimeStamp: '2013-06-14T22:07:51-04:00'
-                          observationVariableDbId: MO_123:100003
-                          observationVariableName: Carotenoid
-                          value: '2.1'
-                        - collector: A. Technician
-                          observationDbId: '6'
-                          observationTimeStamp: '2013-06-14T22:08:51-04:00'
-                          observationVariableDbId: MO_123:100005
-                          observationVariableName: Root color
-                          value: dark blue
-                        pedigree: A000001/A000002
-                        plantNumber: '0'
-                        plotNumber: '2'
-                        replicate: '0'
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 4
+                    totalPages: 2
+                  status: []
+                result:
+                  data:
+                  - X: '1'
+                    Y: '1'
+                    blockNumber: '1'
+                    entryNumber: '2'
+                    entryType: TEST
+                    germplasmDbId: '1'
+                    germplasmName: Name001
+                    observationUnitDbId: '2'
+                    observationUnitName: Plant 1
+                    observationUnitXref:
+                    - id: SAMEA179865815
+                      source: ebi.biosample
+                    - id: INRA:CoeSt6 _SMH13
+                      source: gnpis.lot
+                    - id: '239167'
+                      source: kernelDB
+                    observations:
+                    - collector: A. Technician
+                      observationDbId: '3'
+                      observationTimeStamp: '2013-06-14T22:05:51-04:00'
+                      observationVariableDbId: MO_123:100002
+                      observationVariableName: Plant height
+                      value: '1.1'
+                    - collector: A. Technician
+                      observationDbId: '4'
+                      observationTimeStamp: '2013-06-14T22:06:51-04:00'
+                      observationVariableDbId: MO_123:100006
+                      observationVariableName: Virus severity
+                      value: '5.1'
+                    pedigree: A000001/A000002
+                    plantNumber: '1'
+                    plotNumber: '1'
+                    replicate: '0'
+                  - X: '1'
+                    Y: '2'
+                    blockNumber: '1'
+                    entryNumber: '3'
+                    entryType: TEST
+                    germplasmDbId: '2'
+                    germplasmName: Name002
+                    observationUnitDbId: '3'
+                    observationUnitName: Plot 2
+                    observationUnitXref:
+                    - id: SAMEA179865682
+                      source: ebi.biosample
+                    - id: INRA:CoeSt6 _SMH51
+                      source: gnpis.lot
+                    - id: '239146'
+                      source: kernelDB
+                    observations:
+                    - collector: A. Technician
+                      observationDbId: '5'
+                      observationTimeStamp: '2013-06-14T22:07:51-04:00'
+                      observationVariableDbId: MO_123:100003
+                      observationVariableName: Carotenoid
+                      value: '2.1'
+                    - collector: A. Technician
+                      observationDbId: '6'
+                      observationTimeStamp: '2013-06-14T22:08:51-04:00'
+                      observationVariableDbId: MO_123:100005
+                      observationVariableName: Root color
+                      value: dark blue
+                    pedigree: A000001/A000002
+                    plantNumber: '0'
+                    plotNumber: '2'
+                    replicate: '0'
               schema:
                 properties:
                   metadata:
@@ -210,22 +208,20 @@ paths:
         '200':
           content:
             application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 0
-                        totalCount: 0
-                        totalPages: 0
-                      status:
-                      - code: '200'
-                        message: Upload Successful
-                    result:
-                      observationUnitDbIds:
-                      - e4dd0ba0-c491-4e84-bfb3-be65e5ad25a8
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status:
+                  - code: '200'
+                    message: Upload Successful
+                result:
+                  observationUnitDbIds:
+                  - 5873048a-f30d-435c-931a-c88b522304cc
               schema:
                 properties:
                   metadata:

@@ -27,27 +27,25 @@ paths:
         '200':
           content:
             application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 2
-                        totalCount: 2
-                        totalPages: 1
-                      status: []
-                    result:
-                      data:
-                      - abbreviation: MBCR
-                        breedingMethodDbId: bm1
-                        description: Backcross to recover a specific gene.
-                        name: Male Backcross
-                      - abbreviation: FBCR
-                        breedingMethodDbId: bm2
-                        description: Backcross to recover a specific gene.
-                        name: Female Backcross
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 2
+                    totalPages: 1
+                  status: []
+                result:
+                  data:
+                  - abbreviation: MBCR
+                    breedingMethodDbId: bm1
+                    description: Backcross to recover a specific gene.
+                    name: Male Backcross
+                  - abbreviation: FBCR
+                    breedingMethodDbId: bm2
+                    description: Backcross to recover a specific gene.
+                    name: Female Backcross
               schema:
                 properties:
                   metadata:

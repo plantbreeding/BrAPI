@@ -49,30 +49,28 @@ paths:
         '200':
           content:
             application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 2
-                        totalCount: 10
-                        totalPages: 5
-                      status: []
-                    result:
-                      data:
-                      - attributeCode: RHT
-                        attributeDbId: '1'
-                        attributeName: Rht-B1b
-                        determinedDate: '2017-03-17'
-                        value: Heterozygous
-                      - attributeCode: WEV
-                        attributeDbId: '2'
-                        attributeName: Weevil Resistance
-                        determinedDate: '2017-03-17'
-                        value: Present
-                      germplasmDbId: '3'
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 10
+                    totalPages: 5
+                  status: []
+                result:
+                  data:
+                  - attributeCode: RHT
+                    attributeDbId: '1'
+                    attributeName: Rht-B1b
+                    determinedDate: '2017-03-17'
+                    value: Heterozygous
+                  - attributeCode: WEV
+                    attributeDbId: '2'
+                    attributeName: Weevil Resistance
+                    determinedDate: '2017-03-17'
+                    value: Present
+                  germplasmDbId: '3'
               schema:
                 properties:
                   metadata:

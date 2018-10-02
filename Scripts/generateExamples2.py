@@ -52,13 +52,16 @@ def addExamples(obj):
 		for path in obj['paths']:
 			for method in obj['paths'][path]:
 				for responseCode in obj['paths'][path][method]['responses']:
-					response = obj['paths'][path][method]['responses'][responseCode]
-					if ('schema' in response):
-						schema = dereferenceAll(deepcopy(response['schema']))
-						newExample = getObjectExample(schema, path, method)
-						if newExample is not None :
-							print('.')
-							obj['paths'][path][method]['responses'][responseCode]['examples']['application/json'] = newExample
+					if 'content' in obj['paths'][path][method]['responses'][responseCode]:
+						response = obj['paths'][path][method]['responses'][responseCode]['content']['application/json']
+						if ('schema' in response):
+							schema = dereferenceAll(deepcopy(response['schema']))
+							newExample = getObjectExample(schema, path, method)
+							if newExample is not None :
+								print('.')
+								obj['paths'][path][method]['responses'][responseCode]['content']['application/json']['example'] = newExample
+								if 'examples' in obj['paths'][path][method]['responses'][responseCode]['content']['application/json']:
+									obj['paths'][path][method]['responses'][responseCode]['content']['application/json'].pop('examples')
 						
 	return obj
 
@@ -66,9 +69,9 @@ def dereferenceAll(obj, modelsPath = 'C:/Users/ps664/Documents/BrAPI/API/Specifi
 	if type(obj) is dict:
 		for fieldStr in obj:
 			if(fieldStr == '$ref'):
-				refName = obj[fieldStr].split('/')[2]
+				refName = obj[fieldStr].split('/')[3]
 				path = modelsPath + refName + '.yaml'
-				refObj = dereferenceAll(readFileToDict(path)['definitions'][refName])
+				refObj = dereferenceAll(readFileToDict(path)['components']['schemas'][refName])
 				obj = {**obj, **refObj}
 			else:
 				obj[fieldStr] = dereferenceAll(obj[fieldStr])

@@ -26,21 +26,19 @@ paths:
         '200':
           content:
             application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 2
-                        totalCount: 11
-                        totalPages: 6
-                      status: []
-                    result:
-                      data:
-                      - plant
-                      - plot
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 11
+                    totalPages: 6
+                  status: []
+                result:
+                  data:
+                  - plot
+                  - plant
               schema:
                 properties:
                   metadata:

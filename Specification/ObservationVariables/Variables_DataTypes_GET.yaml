@@ -23,21 +23,19 @@ paths:
         '200':
           content:
             application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 2
-                        totalCount: 2
-                        totalPages: 1
-                      status: []
-                    result:
-                      data:
-                      - Categorical
-                      - Numerical
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 3
+                    totalPages: 2
+                  status: []
+                result:
+                  data:
+                  - Categorical
+                  - Numerical
               schema:
                 properties:
                   metadata:

@@ -58,33 +58,31 @@ paths:
         '200':
           content:
             application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 2
-                        totalCount: 3
-                        totalPages: 2
-                      status: []
-                    result:
-                      data:
-                      - analysisMethod: GBS
-                        extractDbId: extract1
-                        germplasmDbId: '1'
-                        markerprofileDbId: mp1
-                        resultCount: 22
-                        sampleDbId: sam1
-                        uniqueDisplayName: My Fancy Germplasm
-                      - analysisMethod: GoldenGate
-                        extractDbId: extract2
-                        germplasmDbId: '1'
-                        markerprofileDbId: mp2
-                        resultCount: 22
-                        sampleDbId: sam2
-                        uniqueDisplayName: My Fancy Germplasm
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 3
+                    totalPages: 2
+                  status: []
+                result:
+                  data:
+                  - analysisMethod: GBS
+                    extractDbId: extract1
+                    germplasmDbId: '1'
+                    markerprofileDbId: mp1
+                    resultCount: 22
+                    sampleDbId: sam1
+                    uniqueDisplayName: My Fancy Germplasm
+                  - analysisMethod: GoldenGate
+                    extractDbId: extract2
+                    germplasmDbId: '1'
+                    markerprofileDbId: mp2
+                    resultCount: 22
+                    sampleDbId: sam2
+                    uniqueDisplayName: My Fancy Germplasm
               schema:
                 properties:
                   metadata:

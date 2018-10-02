@@ -32,25 +32,23 @@ paths:
         '200':
           content:
             application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 2
-                        totalCount: 10
-                        totalPages: 5
-                      status: []
-                    result:
-                      data:
-                      - season: fall
-                        seasonDbId: '1'
-                        year: '2011'
-                      - season: winter
-                        seasonDbId: '2'
-                        year: '2012'
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 10
+                    totalPages: 5
+                  status: []
+                result:
+                  data:
+                  - season: fall
+                    seasonDbId: '1'
+                    year: '2011'
+                  - season: winter
+                    seasonDbId: '2'
+                    year: '2012'
               schema:
                 properties:
                   metadata:

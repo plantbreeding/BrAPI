@@ -50,45 +50,43 @@ paths:
         '200':
           content:
             application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 2
-                        totalCount: 4
-                        totalPages: 2
-                      status: []
-                    result:
-                      data:
-                      - germplasmDbId: '1'
-                        notes: Example Sample
-                        observationUnitDbId: '1'
-                        plantDbId: 'null'
-                        plateDbId: pl1
-                        plateIndex: 0
-                        plotDbId: '1'
-                        sampleDbId: sam1
-                        sampleTimestamp: '2018-01-01T00:00:00-05:00'
-                        sampleType: DNA
-                        studyDbId: '1001'
-                        takenBy: Bob
-                        tissueType: Leaf
-                      - germplasmDbId: '1'
-                        notes: Example Sample
-                        observationUnitDbId: '2'
-                        plantDbId: '1'
-                        plateDbId: pl1
-                        plateIndex: 1
-                        plotDbId: '1'
-                        sampleDbId: sam2
-                        sampleTimestamp: '2018-01-01T00:00:00-05:00'
-                        sampleType: DNA
-                        studyDbId: '1001'
-                        takenBy: Bob
-                        tissueType: Leaf
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 3
+                    totalPages: 2
+                  status: []
+                result:
+                  data:
+                  - germplasmDbId: '1'
+                    notes: Example Sample
+                    observationUnitDbId: '1'
+                    plantDbId: 'null'
+                    plateDbId: pl1
+                    plateIndex: 0
+                    plotDbId: '1'
+                    sampleDbId: sam1
+                    sampleTimestamp: '2018-01-01T00:00:00-05:00'
+                    sampleType: DNA
+                    studyDbId: '1001'
+                    takenBy: Bob
+                    tissueType: Leaf
+                  - germplasmDbId: '1'
+                    notes: Example Sample
+                    observationUnitDbId: '2'
+                    plantDbId: '1'
+                    plateDbId: pl1
+                    plateIndex: 1
+                    plotDbId: '1'
+                    sampleDbId: sam2
+                    sampleTimestamp: '2018-01-01T00:00:00-05:00'
+                    sampleType: DNA
+                    studyDbId: '1001'
+                    takenBy: Bob
+                    tissueType: Leaf
               schema:
                 properties:
                   metadata:
@@ -122,71 +120,56 @@ paths:
         '200':
           content:
             application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 1000
-                        totalCount: 4
-                        totalPages: 1
-                      status: []
-                    result:
-                      data:
-                      - germplasmDbId: '1'
-                        notes: Example Sample
-                        observationUnitDbId: '1'
-                        plantDbId: 'null'
-                        plateDbId: pl1
-                        plateIndex: 0
-                        plotDbId: '1'
-                        sampleDbId: sam1
-                        sampleTimestamp: '2018-01-01T00:00:00-05:00'
-                        sampleType: DNA
-                        studyDbId: '1001'
-                        takenBy: Bob
-                        tissueType: Leaf
-                      - germplasmDbId: '1'
-                        notes: Example Sample
-                        observationUnitDbId: '2'
-                        plantDbId: '1'
-                        plateDbId: pl1
-                        plateIndex: 1
-                        plotDbId: '1'
-                        sampleDbId: sam2
-                        sampleTimestamp: '2018-01-01T00:00:00-05:00'
-                        sampleType: DNA
-                        studyDbId: '1001'
-                        takenBy: Bob
-                        tissueType: Leaf
-                      - germplasmDbId: '2'
-                        notes: Example Sample
-                        observationUnitDbId: '3'
-                        plantDbId: 'null'
-                        plateDbId: pl1
-                        plateIndex: 2
-                        plotDbId: '2'
-                        sampleDbId: sam3
-                        sampleTimestamp: '2018-01-01T00:00:00-05:00'
-                        sampleType: DNA
-                        studyDbId: '1001'
-                        takenBy: Bob
-                        tissueType: Leaf
-                      - germplasmDbId: '1'
-                        notes: string
-                        observationUnitDbId: '1'
-                        plantDbId: 'null'
-                        plateDbId: ''
-                        plateIndex: 0
-                        plotDbId: '1'
-                        sampleDbId: 3f179189-1119-4c5f-9085-baabbd4d5986
-                        sampleTimestamp: '1970-01-18T14:11:49-05:00'
-                        sampleType: string
-                        studyDbId: '1001'
-                        takenBy: string
-                        tissueType: string
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 1000
+                    totalCount: 3
+                    totalPages: 1
+                  status: []
+                result:
+                  data:
+                  - germplasmDbId: '1'
+                    notes: Example Sample
+                    observationUnitDbId: '1'
+                    plantDbId: 'null'
+                    plateDbId: pl1
+                    plateIndex: 0
+                    plotDbId: '1'
+                    sampleDbId: sam1
+                    sampleTimestamp: '2018-01-01T00:00:00-05:00'
+                    sampleType: DNA
+                    studyDbId: '1001'
+                    takenBy: Bob
+                    tissueType: Leaf
+                  - germplasmDbId: '1'
+                    notes: Example Sample
+                    observationUnitDbId: '2'
+                    plantDbId: '1'
+                    plateDbId: pl1
+                    plateIndex: 1
+                    plotDbId: '1'
+                    sampleDbId: sam2
+                    sampleTimestamp: '2018-01-01T00:00:00-05:00'
+                    sampleType: DNA
+                    studyDbId: '1001'
+                    takenBy: Bob
+                    tissueType: Leaf
+                  - germplasmDbId: '2'
+                    notes: Example Sample
+                    observationUnitDbId: '3'
+                    plantDbId: 'null'
+                    plateDbId: pl1
+                    plateIndex: 2
+                    plotDbId: '2'
+                    sampleDbId: sam3
+                    sampleTimestamp: '2018-01-01T00:00:00-05:00'
+                    sampleType: DNA
+                    studyDbId: '1001'
+                    takenBy: Bob
+                    tissueType: Leaf
               schema:
                 properties:
                   metadata:
