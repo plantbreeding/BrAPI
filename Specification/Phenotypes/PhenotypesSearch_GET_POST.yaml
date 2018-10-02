@@ -208,7 +208,10 @@ paths:
     post:
       description: "Scope: PHENOTYPING.\nStatus: ACCEPTED.\n\nReturns a list of observationUnit with the observed Phenotypes.\n\nSee Search Services for additional implementation details.\n\nImplemented for GnpIS and PHIS data (https://urgi.versailles.inra.fr/ws/webresources/brapi/v1/phenotypes). \nUse case: this section allows to get a dataset from multiple studies. It allows to integrate data from several databases.\nRefactor note : This call allows to get and integrate portions of multiple phenotyping data matrixes. A proposed evolution allowed to get a list of single observations, this functionality is still possible with this call by specifybing the observation variable, see below.\nExample Use cases:\n- Study a panel of germplasm accross multiple studies, search parameters : {\"germplasmDbIds\" : [ \"Syrah\", \"34Mtp362\" ]}\n- Get all data for a specific study : {\"studyDbIds\" : [ \"383\" ]}\n- Get simple atomic phenotyping values : {\"germplasmDbIds\" : [ \"Syrah\", \"34Mtp362\" ], \"observationVariableDbIds\" : [ \"CO_345:0000043\"]}\n- Study Locations for adaptation to climat change : {\"locationDbIds\" : [ \"383838\", \"MONTPELLIER\" ], \"germplasmDbIds\" : [ \"all ids for a given species\"]}\n- Find phenotypes that are from after a certain timestamp\n\nobservationTimeStamp : Iso Standard 8601.\n\nobservationValue data type inferred from the ontology"
       requestBody:
-        $ref: '#/components/requestBodies/phenotypesSearchRequest'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/phenotypesSearchRequest'
       responses:
         '200':
           content:

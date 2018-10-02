@@ -21,8 +21,9 @@ for filename in glob.iglob(rootPath + '/**/*.yaml', recursive=True):
 			fileObj = yaml.load(stream)
 			if 'paths' in fileObj:
 				paths.update(fileObj['paths'])
-			if 'definitions' in fileObj:
-				defin.update(fileObj['definitions'])
+			if 'components' in fileObj:
+				if 'schemas' in fileObj['components']:
+					defin.update(fileObj['components']['schemas'])
 		except yaml.YAMLError as exc:
 			print(exc)
 
@@ -34,7 +35,8 @@ with open(metaFilePath, "r") as metaFile:
 		print(exc)
 		
 out['paths'].update(paths)
-out['definitions'].update(defin)
+out['components'] = {'schemas': {}}
+out['components']['schemas'].update(defin)
 
 with open('brapi_openapi.yaml', 'w') as outfile:
 	yaml.dump(out, outfile, default_flow_style=False, width=float("inf"))

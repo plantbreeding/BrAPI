@@ -7,7 +7,10 @@ paths:
     post:
       description: "Scope: PHENOTYPING.\nStatus: ACCEPTED.\n\nReturns a list of observationUnit with the observed Phenotypes.\n      \nobservationTimeStamp : Iso Standard 8601.\n\nobservationValue data type inferred from the ontology"
       requestBody:
-        $ref: '#/components/requestBodies/phenotypesSearchRequest'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/phenotypesSearchRequest'
       responses:
         '200':
           content:
