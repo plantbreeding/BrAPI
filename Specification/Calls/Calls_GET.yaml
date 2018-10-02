@@ -29,38 +29,36 @@ paths:
         '200':
           content:
             application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 2
-                        totalCount: 65
-                        totalPages: 33
-                      status: []
-                    result:
-                      data:
-                      - call: allelematrices
-                        datatypes:
-                        - json
-                        methods:
-                        - GET
-                        versions:
-                        - '1.0'
-                        - '1.1'
-                        - '1.2'
-                      - call: allelematrices-search
-                        datatypes:
-                        - json
-                        methods:
-                        - GET
-                        - POST
-                        versions:
-                        - '1.0'
-                        - '1.1'
-                        - '1.2'
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 65
+                    totalPages: 33
+                  status: []
+                result:
+                  data:
+                  - call: allelematrices
+                    datatypes:
+                    - json
+                    methods:
+                    - GET
+                    versions:
+                    - '1.0'
+                    - '1.1'
+                    - '1.2'
+                  - call: allelematrices-search
+                    datatypes:
+                    - json
+                    methods:
+                    - GET
+                    - POST
+                    versions:
+                    - '1.0'
+                    - '1.1'
+                    - '1.2'
               schema:
                 properties:
                   metadata:

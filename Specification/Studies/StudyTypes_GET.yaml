@@ -28,23 +28,21 @@ paths:
         '200':
           content:
             application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 2
-                        totalCount: 3
-                        totalPages: 1
-                      status: []
-                    result:
-                      data:
-                      - description: Description for Nursery study type
-                        name: Crossing Nursery
-                      - description: Description for yield study type
-                        name: Yield study
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 3
+                    totalPages: 1
+                  status: []
+                result:
+                  data:
+                  - description: Description for Nursery study type
+                    name: Crossing Nursery
+                  - description: Description for yield study type
+                    name: Yield study
               schema:
                 properties:
                   metadata:

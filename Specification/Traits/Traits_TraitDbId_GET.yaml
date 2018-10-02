@@ -24,27 +24,22 @@ paths:
         '200':
           content:
             application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 0
-                        totalCount: 0
-                        totalPages: 0
-                      status: []
-                    result:
-                      defaultValue: '0'
-                      description: height
-                      name: Height
-                      observationVariables:
-                      - MO_123:100002
-                      - MO_123:100003
-                      - MO_123:100004
-                      traitDbId: '1'
-                      traitId: xref
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result:
+                  defaultValue: null
+                  description: null
+                  name: null
+                  observationVariables: null
+                  traitDbId: null
+                  traitId: null
               schema:
                 properties:
                   metadata:

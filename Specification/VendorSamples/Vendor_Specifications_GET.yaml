@@ -13,82 +13,80 @@ paths:
         '200':
           content:
             application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 0
-                        totalCount: 0
-                        totalPages: 0
-                      status: []
-                    result:
-                      additionalInfo: {}
-                      contactName: Bob Smith
-                      platforms:
-                      - contactEmail: plat1@brapi.org
-                        contactName: Bob Smith
-                        contactPhone: '+12345678910'
-                        deliverables:
-                        - description: An Example Deliverable
-                          format: CSV
-                          name: Example Deliverable
-                        platformDescription: This is an example platform
-                        platformName: Example Platform
-                        platformURL: https://brapi.org
-                        shippingAddress: 123 Street Ave, Townsville, USA
-                        specificRequirements: {}
-                        standardRequirements:
-                          blankWellPosition:
-                            numberOfBlanksPerPlate: 3
-                            positions:
-                            - random
-                            - A01
-                            - H12
-                          inputFormatDetails: https://brapi.org
-                          inputFormats:
-                          - Plate_96
-                          - Tubes
-                          maxConcentration: 1000ppm
-                          maxVolume: 50ml
-                          minConcentration: 20ppm
-                          minSampleNumber: '1'
-                          minVolume: 2ml
-                          plateOrientation: rowFirst
-                          sampleTypeDetails: https://brapi.org
-                          sampleTypes:
-                          - LEAF
-                          - STEM
-                          - ROOT
-                        statuses:
-                        - statusDescription: Samples have been recored, but not recieved
-                          statusName: Created
-                        - statusDescription: Physical samples have been received
-                          statusName: Received
-                        - statusDescription: Sample submission has been rejected by the vendor
-                          statusName: Rejected
-                        - statusDescription: Vendor has begun to process the samples
-                          statusName: Processing
-                        - statusDescription: Processing is complete, data is ready to download
-                          statusName: Completed
-                        taxonomyIdSystem:
-                          URI: https://ncbi.org
-                          name: NCBITaxonomyId
-                          uri: https://ncbi.org
-                        tissueIdSystem:
-                          URI: https://tis.org
-                          name: TIS
-                          uri: https://tis.org
-                      vendorAddress: 123 Street Ave
-                      vendorCity: Townsville
-                      vendorCountry: USA
-                      vendorDescription: Example vendor used for testing
-                      vendorEmail: bsmith@brapi.org
-                      vendorName: Bobs Vendor
-                      vendorPhone: '+12345678910'
-                      vendorURL: https://brapi.org
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result:
+                  additionalInfo: {}
+                  contactName: Bob Smith
+                  platforms:
+                  - contactEmail: plat1@brapi.org
+                    contactName: Bob Smith
+                    contactPhone: '+12345678910'
+                    deliverables:
+                    - description: An Example Deliverable
+                      format: CSV
+                      name: Example Deliverable
+                    platformDescription: This is an example platform
+                    platformName: Example Platform
+                    platformURL: https://brapi.org
+                    shippingAddress: 123 Street Ave, Townsville, USA
+                    specificRequirements: {}
+                    standardRequirements:
+                      blankWellPosition:
+                        numberOfBlanksPerPlate: 3
+                        positions:
+                        - random
+                        - A01
+                        - H12
+                      inputFormatDetails: https://brapi.org
+                      inputFormats:
+                      - Plate_96
+                      - Tubes
+                      maxConcentration: 1000ppm
+                      maxVolume: 50ml
+                      minConcentration: 20ppm
+                      minSampleNumber: '1'
+                      minVolume: 2ml
+                      plateOrientation: rowFirst
+                      sampleTypeDetails: https://brapi.org
+                      sampleTypes:
+                      - LEAF
+                      - STEM
+                      - ROOT
+                    statuses:
+                    - statusDescription: Samples have been recored, but not recieved
+                      statusName: Created
+                    - statusDescription: Physical samples have been received
+                      statusName: Received
+                    - statusDescription: Sample submission has been rejected by the vendor
+                      statusName: Rejected
+                    - statusDescription: Vendor has begun to process the samples
+                      statusName: Processing
+                    - statusDescription: Processing is complete, data is ready to download
+                      statusName: Completed
+                    taxonomyIdSystem:
+                      URI: https://ncbi.org
+                      name: NCBITaxonomyId
+                      uri: https://ncbi.org
+                    tissueIdSystem:
+                      URI: https://tis.org
+                      name: TIS
+                      uri: https://tis.org
+                  vendorAddress: 123 Street Ave
+                  vendorCity: Townsville
+                  vendorCountry: USA
+                  vendorDescription: Example vendor used for testing
+                  vendorEmail: bsmith@brapi.org
+                  vendorName: Bobs Vendor
+                  vendorPhone: '+12345678910'
+                  vendorURL: https://brapi.org
               schema:
                 properties:
                   metadata:

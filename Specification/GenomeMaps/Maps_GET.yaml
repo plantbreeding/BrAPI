@@ -7,9 +7,22 @@ paths:
     get:
       description: "Get list of maps \n\nStatus: ACCEPTED Implemented by: Germinate, Cassavabase Used by: Flapjack do we need list of parents and specify mapping population?"
       parameters:
-      - description: Species name
+      - deprecated: true
+        description: DEPRECATED in v1.3 - See "scientificName"
         in: query
         name: species
+        required: false
+        schema:
+          type: string
+      - description: The common name of the crop, found from "GET /commoncropnames"
+        in: query
+        name: commonCropName
+        required: false
+        schema:
+          type: string
+      - description: Full scientific binomial format name. This includes Genus, Species, and Sub-species
+        in: query
+        name: scientificName
         required: false
         schema:
           type: string
@@ -35,28 +48,28 @@ paths:
         '200':
           content:
             application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 2
-                        totalCount: 1
-                        totalPages: 1
-                      status: []
-                    result:
-                      data:
-                      - comments: comments
-                        linkageGroupCount: 3
-                        mapDbId: gm1
-                        markerCount: 22
-                        name: Genome Map 1
-                        publishedDate: '2018-01-01'
-                        species: novus
-                        type: Genetic
-                        unit: cM
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 1
+                    totalPages: 1
+                  status: []
+                result:
+                  data:
+                  - comments: comments
+                    commonCropName: Tomatillo
+                    linkageGroupCount: 3
+                    mapDbId: gm1
+                    markerCount: 22
+                    name: Genome Map 1
+                    publishedDate: '2018-01-01'
+                    scientificName: Physalis philadelphica
+                    species: philadelphica
+                    type: Genetic
+                    unit: cM
               schema:
                 properties:
                   metadata:

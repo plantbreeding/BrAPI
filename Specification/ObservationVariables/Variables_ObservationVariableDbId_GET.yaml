@@ -17,64 +17,62 @@ paths:
         '200':
           content:
             application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 0
-                        totalCount: 0
-                        totalPages: 0
-                      status: []
-                    result:
-                      contextOfUse: []
-                      crop: maize
-                      date: '2018-09-26'
-                      defaultValue: '10'
-                      growthStage: '1'
-                      institution: '1'
-                      language: English
-                      method:
-                        class: classy
-                        description: Used for finding the lengths of the sides of a right triangle
-                        formula: a^2 + b^2 = c^2
-                        methodDbId: '1'
-                        name: pythagorean theorem
-                        reference: google.com
-                      name: Plant height
-                      observationVariableDbId: MO_123:100002
-                      observationVariableName: Plant height
-                      ontologyDbId: MO_123
-                      ontologyName: Ontology.org
-                      scale:
-                        dataType: Numerical
-                        decimalPlaces: 1
-                        name: Centimeter
-                        scaleDbId: '1'
-                        validValues:
-                          categories: []
-                          max: 0
-                          min: 99999
-                        xref: xref
-                      scientist: Bob
-                      status: active
-                      submissionTimestamp: '2011-06-14T22:12:51-04:00'
-                      synonyms: []
-                      trait:
-                        alternativeAbbreviations: []
-                        attribute: height
-                        class: Int
-                        description: height
-                        entity: entity
-                        mainAbbreviation: H
-                        name: Height
-                        status: active
-                        synonyms: []
-                        traitDbId: '1'
-                        xref: xref
-                      xref: MO_123:100002
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result:
+                  contextOfUse: []
+                  crop: maize
+                  date: '2018-10-02'
+                  defaultValue: '10'
+                  growthStage: '1'
+                  institution: '1'
+                  language: English
+                  method:
+                    class: Numeric
+                    description: Standard rolled measuring tape
+                    formula: a^2 + b^2 = c^2
+                    methodDbId: m1
+                    name: Tape Measure
+                    reference: google.com
+                  name: Plant height
+                  observationVariableDbId: MO_123:100002
+                  observationVariableName: Plant height
+                  ontologyDbId: MO_123
+                  ontologyName: Ontology.org
+                  scale:
+                    dataType: Numerical
+                    decimalPlaces: 1
+                    name: Centimeter
+                    scaleDbId: s1
+                    validValues:
+                      categories: []
+                      max: 99999
+                      min: 0
+                    xref: xref
+                  scientist: Bob
+                  status: active
+                  submissionTimestamp: '2011-06-14T22:12:51-04:00'
+                  synonyms: []
+                  trait:
+                    alternativeAbbreviations: []
+                    attribute: plant height
+                    class: Numeric
+                    description: plant height
+                    entity: entity
+                    mainAbbreviation: H
+                    name: Plant Height
+                    status: active
+                    synonyms: []
+                    traitDbId: t1
+                    xref: xref
+                  xref: MO_123:100002
               schema:
                 properties:
                   metadata:

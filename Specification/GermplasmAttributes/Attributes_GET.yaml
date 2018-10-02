@@ -32,51 +32,49 @@ paths:
         '200':
           content:
             application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 2
-                        totalCount: 10
-                        totalPages: 5
-                      status: []
-                    result:
-                      data:
-                      - attributeCategoryDbId: '2'
-                        attributeDbId: '1'
-                        code: RHT
-                        datatype: Categorical
-                        description: Allele of marker 11_4769
-                        name: Rht-B1b
-                        uri: http://www.brapi.org/ontology/MO_123:1000001
-                        values:
-                        - Present
-                        - Absent
-                        - Heterozygous
-                        - Present
-                        - Absent
-                        - Heterozygous
-                        - Present
-                        - Absent
-                      - attributeCategoryDbId: '3'
-                        attributeDbId: '2'
-                        code: WEV
-                        datatype: Categorical
-                        description: Resistance allele
-                        name: Weevil Resistance
-                        uri: http://www.brapi.org/ontology/MO_123:1000002
-                        values:
-                        - Absent
-                        - Heterozygous
-                        - Present
-                        - Heterozygous
-                        - Heterozygous
-                        - Absent
-                        - Heterozygous
-                        - Absent
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 10
+                    totalPages: 5
+                  status: []
+                result:
+                  data:
+                  - attributeCategoryDbId: '2'
+                    attributeDbId: '1'
+                    code: RHT
+                    datatype: Categorical
+                    description: Allele of marker 11_4769
+                    name: Rht-B1b
+                    uri: http://www.brapi.org/ontology/MO_123:1000001
+                    values:
+                    - Present
+                    - Absent
+                    - Heterozygous
+                    - Present
+                    - Absent
+                    - Heterozygous
+                    - Present
+                    - Absent
+                  - attributeCategoryDbId: '3'
+                    attributeDbId: '2'
+                    code: WEV
+                    datatype: Categorical
+                    description: Resistance allele
+                    name: Weevil Resistance
+                    uri: http://www.brapi.org/ontology/MO_123:1000002
+                    values:
+                    - Absent
+                    - Heterozygous
+                    - Present
+                    - Heterozygous
+                    - Heterozygous
+                    - Absent
+                    - Heterozygous
+                    - Absent
               schema:
                 properties:
                   metadata:

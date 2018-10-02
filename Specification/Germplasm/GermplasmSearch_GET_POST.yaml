@@ -55,87 +55,85 @@ paths:
         '200':
           content:
             application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 2
-                        totalCount: 9
-                        totalPages: 5
-                      status: []
-                    result:
-                      data:
-                      - accessionNumber: A000001
-                        acquisitionDate: '1984-01-01'
-                        biologicalStatusOfAccessionCode: 300
-                        breedingMethodDbId: bm1
-                        commonCropName: G000001
-                        countryOfOriginCode: COUNTRY1
-                        defaultDisplayName: G000001
-                        donors:
-                        - donorAccessionNumber: A001230
-                          donorInstituteCode: INRA
-                          germplasmPUI: https://doi.org/10.1109/5.771073
-                        - donorAccessionNumber: A004560
-                          donorInstituteCode: INRA
-                          germplasmPUI: https://doi.org/10.1109/5.231123
-                        genus: Fructus
-                        germplasmDbId: '1'
-                        germplasmName: Name001
-                        germplasmPUI: http://pui.per/accession/A000001
-                        instituteCode: PER001
-                        instituteName: INST1
-                        pedigree: A000001
-                        seedSource: open pollination
-                        species: novus
-                        speciesAuthority: L
-                        subtaxa: subtaxa
-                        subtaxaAuthority: N
-                        synonyms:
-                        - landrace 1
-                        taxonIds:
-                        - sourceName: ncbiTaxon
-                          taxonId: '2340'
-                        - sourceName: ciradTaxon
-                          taxonId: E312
-                        typeOfGermplasmStorageCode: []
-                      - accessionNumber: A000002
-                        acquisitionDate: '1984-01-01'
-                        biologicalStatusOfAccessionCode: 300
-                        breedingMethodDbId: bm1
-                        commonCropName: G000002
-                        countryOfOriginCode: COUNTRY1
-                        defaultDisplayName: G000002
-                        donors:
-                        - donorAccessionNumber: A007890
-                          donorInstituteCode: INRA
-                          germplasmPUI: https://doi.org/10.1109/5.771073
-                        - donorAccessionNumber: A001010
-                          donorInstituteCode: INRA
-                          germplasmPUI: https://doi.org/10.1109/5.231123
-                        genus: Fructus
-                        germplasmDbId: '2'
-                        germplasmName: Name002
-                        germplasmPUI: http://pui.per/accession/A000002
-                        instituteCode: PER001
-                        instituteName: INST1
-                        pedigree: A000002
-                        seedSource: open pollination
-                        species: novus
-                        speciesAuthority: L
-                        subtaxa: subtaxa
-                        subtaxaAuthority: N
-                        synonyms:
-                        - landrace 2
-                        taxonIds:
-                        - sourceName: ncbiTaxon
-                          taxonId: '2340'
-                        - sourceName: ciradTaxon
-                          taxonId: E312
-                        typeOfGermplasmStorageCode: []
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 9
+                    totalPages: 5
+                  status: []
+                result:
+                  data:
+                  - accessionNumber: A000001
+                    acquisitionDate: '1984-01-01'
+                    biologicalStatusOfAccessionCode: 300
+                    breedingMethodDbId: bm1
+                    commonCropName: G000001
+                    countryOfOriginCode: COUNTRY1
+                    defaultDisplayName: G000001
+                    donors:
+                    - donorAccessionNumber: A001230
+                      donorInstituteCode: INRA
+                      germplasmPUI: https://doi.org/10.1109/5.771073
+                    - donorAccessionNumber: A004560
+                      donorInstituteCode: INRA
+                      germplasmPUI: https://doi.org/10.1109/5.231123
+                    genus: Fructus
+                    germplasmDbId: '1'
+                    germplasmName: Name001
+                    germplasmPUI: http://pui.per/accession/A000001
+                    instituteCode: PER001
+                    instituteName: INST1
+                    pedigree: A000001
+                    seedSource: open pollination
+                    species: novus
+                    speciesAuthority: L
+                    subtaxa: subtaxa
+                    subtaxaAuthority: N
+                    synonyms:
+                    - landrace 1
+                    taxonIds:
+                    - sourceName: ncbiTaxon
+                      taxonId: '2340'
+                    - sourceName: ciradTaxon
+                      taxonId: E312
+                    typeOfGermplasmStorageCode: []
+                  - accessionNumber: A000002
+                    acquisitionDate: '1984-01-01'
+                    biologicalStatusOfAccessionCode: 300
+                    breedingMethodDbId: bm1
+                    commonCropName: G000002
+                    countryOfOriginCode: COUNTRY1
+                    defaultDisplayName: G000002
+                    donors:
+                    - donorAccessionNumber: A007890
+                      donorInstituteCode: INRA
+                      germplasmPUI: https://doi.org/10.1109/5.771073
+                    - donorAccessionNumber: A001010
+                      donorInstituteCode: INRA
+                      germplasmPUI: https://doi.org/10.1109/5.231123
+                    genus: Fructus
+                    germplasmDbId: '2'
+                    germplasmName: Name002
+                    germplasmPUI: http://pui.per/accession/A000002
+                    instituteCode: PER001
+                    instituteName: INST1
+                    pedigree: A000002
+                    seedSource: open pollination
+                    species: novus
+                    speciesAuthority: L
+                    subtaxa: subtaxa
+                    subtaxaAuthority: N
+                    synonyms:
+                    - landrace 2
+                    taxonIds:
+                    - sourceName: ncbiTaxon
+                      taxonId: '2340'
+                    - sourceName: ciradTaxon
+                      taxonId: E312
+                    typeOfGermplasmStorageCode: []
               schema:
                 properties:
                   metadata:
@@ -174,87 +172,85 @@ paths:
         '200':
           content:
             application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 2
-                        totalCount: 9
-                        totalPages: 5
-                      status: []
-                    result:
-                      data:
-                      - accessionNumber: A000001
-                        acquisitionDate: '1984-01-01'
-                        biologicalStatusOfAccessionCode: 300
-                        breedingMethodDbId: bm1
-                        commonCropName: G000001
-                        countryOfOriginCode: COUNTRY1
-                        defaultDisplayName: G000001
-                        donors:
-                        - donorAccessionNumber: A001230
-                          donorInstituteCode: INRA
-                          germplasmPUI: https://doi.org/10.1109/5.771073
-                        - donorAccessionNumber: A004560
-                          donorInstituteCode: INRA
-                          germplasmPUI: https://doi.org/10.1109/5.231123
-                        genus: Fructus
-                        germplasmDbId: '1'
-                        germplasmName: Name001
-                        germplasmPUI: http://pui.per/accession/A000001
-                        instituteCode: PER001
-                        instituteName: INST1
-                        pedigree: A000001
-                        seedSource: open pollination
-                        species: novus
-                        speciesAuthority: L
-                        subtaxa: subtaxa
-                        subtaxaAuthority: N
-                        synonyms:
-                        - landrace 1
-                        taxonIds:
-                        - sourceName: ncbiTaxon
-                          taxonId: '2340'
-                        - sourceName: ciradTaxon
-                          taxonId: E312
-                        typeOfGermplasmStorageCode: []
-                      - accessionNumber: A000002
-                        acquisitionDate: '1984-01-01'
-                        biologicalStatusOfAccessionCode: 300
-                        breedingMethodDbId: bm1
-                        commonCropName: G000002
-                        countryOfOriginCode: COUNTRY1
-                        defaultDisplayName: G000002
-                        donors:
-                        - donorAccessionNumber: A007890
-                          donorInstituteCode: INRA
-                          germplasmPUI: https://doi.org/10.1109/5.771073
-                        - donorAccessionNumber: A001010
-                          donorInstituteCode: INRA
-                          germplasmPUI: https://doi.org/10.1109/5.231123
-                        genus: Fructus
-                        germplasmDbId: '2'
-                        germplasmName: Name002
-                        germplasmPUI: http://pui.per/accession/A000002
-                        instituteCode: PER001
-                        instituteName: INST1
-                        pedigree: A000002
-                        seedSource: open pollination
-                        species: novus
-                        speciesAuthority: L
-                        subtaxa: subtaxa
-                        subtaxaAuthority: N
-                        synonyms:
-                        - landrace 2
-                        taxonIds:
-                        - sourceName: ncbiTaxon
-                          taxonId: '2340'
-                        - sourceName: ciradTaxon
-                          taxonId: E312
-                        typeOfGermplasmStorageCode: []
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 9
+                    totalPages: 5
+                  status: []
+                result:
+                  data:
+                  - accessionNumber: A000001
+                    acquisitionDate: '1984-01-01'
+                    biologicalStatusOfAccessionCode: 300
+                    breedingMethodDbId: bm1
+                    commonCropName: G000001
+                    countryOfOriginCode: COUNTRY1
+                    defaultDisplayName: G000001
+                    donors:
+                    - donorAccessionNumber: A001230
+                      donorInstituteCode: INRA
+                      germplasmPUI: https://doi.org/10.1109/5.771073
+                    - donorAccessionNumber: A004560
+                      donorInstituteCode: INRA
+                      germplasmPUI: https://doi.org/10.1109/5.231123
+                    genus: Fructus
+                    germplasmDbId: '1'
+                    germplasmName: Name001
+                    germplasmPUI: http://pui.per/accession/A000001
+                    instituteCode: PER001
+                    instituteName: INST1
+                    pedigree: A000001
+                    seedSource: open pollination
+                    species: novus
+                    speciesAuthority: L
+                    subtaxa: subtaxa
+                    subtaxaAuthority: N
+                    synonyms:
+                    - landrace 1
+                    taxonIds:
+                    - sourceName: ncbiTaxon
+                      taxonId: '2340'
+                    - sourceName: ciradTaxon
+                      taxonId: E312
+                    typeOfGermplasmStorageCode: []
+                  - accessionNumber: A000002
+                    acquisitionDate: '1984-01-01'
+                    biologicalStatusOfAccessionCode: 300
+                    breedingMethodDbId: bm1
+                    commonCropName: G000002
+                    countryOfOriginCode: COUNTRY1
+                    defaultDisplayName: G000002
+                    donors:
+                    - donorAccessionNumber: A007890
+                      donorInstituteCode: INRA
+                      germplasmPUI: https://doi.org/10.1109/5.771073
+                    - donorAccessionNumber: A001010
+                      donorInstituteCode: INRA
+                      germplasmPUI: https://doi.org/10.1109/5.231123
+                    genus: Fructus
+                    germplasmDbId: '2'
+                    germplasmName: Name002
+                    germplasmPUI: http://pui.per/accession/A000002
+                    instituteCode: PER001
+                    instituteName: INST1
+                    pedigree: A000002
+                    seedSource: open pollination
+                    species: novus
+                    speciesAuthority: L
+                    subtaxa: subtaxa
+                    subtaxaAuthority: N
+                    synonyms:
+                    - landrace 2
+                    taxonIds:
+                    - sourceName: ncbiTaxon
+                      taxonId: '2340'
+                    - sourceName: ciradTaxon
+                      taxonId: E312
+                    typeOfGermplasmStorageCode: []
               schema:
                 properties:
                   metadata:

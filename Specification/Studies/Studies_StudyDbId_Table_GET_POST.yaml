@@ -38,121 +38,119 @@ paths:
                 title: studyobservationsTableResponse
                 type: object
             application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 0
-                        totalCount: 0
-                        totalPages: 0
-                      status: []
-                    result:
-                      data:
-                      - - '2011'
-                        - '1001'
-                        - Study 1
-                        - '1'
-                        - Peru
-                        - '1'
-                        - Name001
-                        - '2'
-                        - '1'
-                        - '0'
-                        - '1'
-                        - '2013-06-14T22:05:51-04:00'
-                        - TEST
-                        - '1'
-                        - '1'
-                        - '1.1'
-                        - ''
-                        - ''
-                        - '5.1'
-                      - - '2012'
-                        - '1001'
-                        - Study 1
-                        - '1'
-                        - Peru
-                        - '2'
-                        - Name002
-                        - '3'
-                        - '2'
-                        - '0'
-                        - '1'
-                        - '2013-06-14T22:07:51-04:00'
-                        - TEST
-                        - '1'
-                        - '2'
-                        - ''
-                        - '2.1'
-                        - dark blue
-                        - ''
-                      - - '2012'
-                        - '1001'
-                        - Study 1
-                        - '1'
-                        - Peru
-                        - '2'
-                        - Name002
-                        - '4'
-                        - '2'
-                        - '0'
-                        - '1'
-                        - '2013-06-14T22:09:51-04:00'
-                        - TEST
-                        - '1'
-                        - '2'
-                        - ''
-                        - '1.8'
-                        - blue
-                        - ''
-                      - - '2011'
-                        - '1001'
-                        - Study 1
-                        - '1'
-                        - Peru
-                        - '1'
-                        - Name001
-                        - '1'
-                        - '1'
-                        - '0'
-                        - '0'
-                        - '2013-06-14T22:03:51-04:00'
-                        - CHECK
-                        - '10'
-                        - '12'
-                        - '1.2'
-                        - ''
-                        - ''
-                        - '4.5'
-                      headerRow:
-                      - year
-                      - studyDbId
-                      - studyName
-                      - locationDbId
-                      - locationName
-                      - germplasmDbId
-                      - germplasmName
-                      - observationUnitDbId
-                      - plotNumber
-                      - replicate
-                      - blockNumber
-                      - observationTimestamp
-                      - entryType
-                      - X
-                      - Y
-                      observationVariableDbIds:
-                      - MO_123:100002
-                      - MO_123:100003
-                      - MO_123:100005
-                      - MO_123:100006
-                      observationVariableNames:
-                      - Plant height
-                      - Carotenoid
-                      - Root color
-                      - Virus susceptibility
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result:
+                  data:
+                  - - '2011'
+                    - '1001'
+                    - Study 1
+                    - '1'
+                    - Peru
+                    - '1'
+                    - Name001
+                    - '2'
+                    - '1'
+                    - '0'
+                    - '1'
+                    - '2013-06-14T22:05:51-04:00'
+                    - TEST
+                    - '1'
+                    - '1'
+                    - '1.1'
+                    - ''
+                    - ''
+                    - '5.1'
+                  - - '2012'
+                    - '1001'
+                    - Study 1
+                    - '1'
+                    - Peru
+                    - '2'
+                    - Name002
+                    - '3'
+                    - '2'
+                    - '0'
+                    - '1'
+                    - '2013-06-14T22:07:51-04:00'
+                    - TEST
+                    - '1'
+                    - '2'
+                    - ''
+                    - '2.1'
+                    - dark blue
+                    - ''
+                  - - '2012'
+                    - '1001'
+                    - Study 1
+                    - '1'
+                    - Peru
+                    - '2'
+                    - Name002
+                    - '4'
+                    - '2'
+                    - '0'
+                    - '1'
+                    - '2013-06-14T22:09:51-04:00'
+                    - TEST
+                    - '1'
+                    - '2'
+                    - ''
+                    - '1.8'
+                    - blue
+                    - ''
+                  - - '2011'
+                    - '1001'
+                    - Study 1
+                    - '1'
+                    - Peru
+                    - '1'
+                    - Name001
+                    - '1'
+                    - '1'
+                    - '0'
+                    - '0'
+                    - '2013-06-14T22:03:51-04:00'
+                    - CHECK
+                    - '10'
+                    - '12'
+                    - '1.2'
+                    - ''
+                    - ''
+                    - '4.5'
+                  headerRow:
+                  - year
+                  - studyDbId
+                  - studyName
+                  - locationDbId
+                  - locationName
+                  - germplasmDbId
+                  - germplasmName
+                  - observationUnitDbId
+                  - plotNumber
+                  - replicate
+                  - blockNumber
+                  - observationTimestamp
+                  - entryType
+                  - X
+                  - Y
+                  observationVariableDbIds:
+                  - MO_123:100002
+                  - MO_123:100003
+                  - MO_123:100005
+                  - MO_123:100006
+                  observationVariableNames:
+                  - Plant height
+                  - Carotenoid
+                  - Root color
+                  - Virus severity
               schema:
                 properties:
                   metadata:

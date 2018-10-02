@@ -26,46 +26,44 @@ paths:
         '200':
           content:
             application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 0
-                        totalCount: 0
-                        totalPages: 0
-                      status: []
-                    result:
-                      accessionNumber: A000003
-                      acquisitionDate: '2001-01-01'
-                      biologicalStatusOfAccessionCode: 500
-                      breedingMethodDbId: bm1
-                      commonCropName: G000003
-                      countryOfOriginCode: COUNTRY1
-                      defaultDisplayName: G000003
-                      donors: []
-                      genus: Fructus
-                      germplasmDbId: '3'
-                      germplasmName: Name003
-                      germplasmPUI: http://pui.per/accession/A000003
-                      instituteCode: PER001
-                      instituteName: INST1
-                      pedigree: A000001/A000002
-                      seedSource: A000001/A000002
-                      species: novus
-                      speciesAuthority: L
-                      subtaxa: subtaxa
-                      subtaxaAuthority: N
-                      synonyms:
-                      - variety 1
-                      taxonIds:
-                      - sourceName: ncbiTaxon
-                        taxonId: '2340'
-                      - sourceName: ciradTaxon
-                        taxonId: E312
-                      typeOfGermplasmStorageCode: []
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result:
+                  accessionNumber: A000003
+                  acquisitionDate: '2001-01-01'
+                  biologicalStatusOfAccessionCode: 500
+                  breedingMethodDbId: bm1
+                  commonCropName: G000003
+                  countryOfOriginCode: COUNTRY1
+                  defaultDisplayName: G000003
+                  donors: []
+                  genus: Fructus
+                  germplasmDbId: '3'
+                  germplasmName: Name003
+                  germplasmPUI: http://pui.per/accession/A000003
+                  instituteCode: PER001
+                  instituteName: INST1
+                  pedigree: A000001/A000002
+                  seedSource: A000001/A000002
+                  species: novus
+                  speciesAuthority: L
+                  subtaxa: subtaxa
+                  subtaxaAuthority: N
+                  synonyms:
+                  - variety 1
+                  taxonIds:
+                  - sourceName: ncbiTaxon
+                    taxonId: '2340'
+                  - sourceName: ciradTaxon
+                    taxonId: E312
+                  typeOfGermplasmStorageCode: []
               schema:
                 properties:
                   metadata:

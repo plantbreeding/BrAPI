@@ -20,22 +20,20 @@ paths:
         '200':
           content:
             application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 0
-                        totalCount: 0
-                        totalPages: 0
-                      status: []
-                    result:
-                      abbreviation: MBCR
-                      breedingMethodDbId: bm1
-                      description: Backcross to recover a specific gene.
-                      name: Male Backcross
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result:
+                  abbreviation: MBCR
+                  breedingMethodDbId: bm1
+                  description: Backcross to recover a specific gene.
+                  name: Male Backcross
               schema:
                 properties:
                   metadata:

@@ -5,6 +5,9 @@ components:
         comments:
           description: Additional comments
           type: string
+        commonCropName:
+          description: The common name of the crop, found from "GET /commoncropnames"
+          type: string
         linkageGroupCount:
           description: The number of linkage groups present in this genome map
           format: int32
@@ -26,8 +29,11 @@ components:
           description: The date this genome was published
           format: date
           type: string
+        scientificName:
+          description: Full scientific binomial format name. This includes Genus, Species, and Sub-species
+          type: string
         species:
-          description: 'The name of the species '
+          description: DEPRECATED in v1.3 - See "scientificName"
           type: string
         type:
           description: The type of map this represents, ussually "Genetic"
@@ -35,6 +41,10 @@ components:
         unit:
           description: The units used to describe the data in this map
           type: string
+      required:
+      - mapDbId
+      - commonCropName
+      - type
       type: object
 info:
   title: BrAPI

@@ -43,24 +43,22 @@ paths:
         '200':
           content:
             application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 2
-                        totalCount: 1
-                        totalPages: 1
-                      status: []
-                    result:
-                      data:
-                      - description: example matrix
-                        lastUpdated: '2018-05-03T11:03:56-04:00'
-                        matrixDbId: mat1
-                        name: Example Matrix
-                        studyDbId: '1001'
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 1
+                    totalPages: 1
+                  status: []
+                result:
+                  data:
+                  - description: example matrix
+                    lastUpdated: '2018-05-03T11:03:56-04:00'
+                    matrixDbId: mat1
+                    name: Example Matrix
+                    studyDbId: '1001'
               schema:
                 properties:
                   metadata:
