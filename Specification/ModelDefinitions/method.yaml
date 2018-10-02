@@ -1,27 +1,33 @@
-definitions:
-  method:
-    description: Method metadata
-    properties:
-      class:
-        description: 'Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.'
-        title: className
-        type: string
-      description:
-        description: Method description.
-        type: string
-      formula:
-        description: For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation
-        type: string
-      methodDbId:
-        description: Method unique identifier
-        type: string
-      methodName:
-        description: Human readable name for the method
-        type: string
-      name:
-        description: DEPRECATED in v1.3 - Use "methodName"
-        type: string
-      reference:
-        description: Bibliographical reference describing the method.
-        type: string
-    type: object
+components:
+  schemas:
+    method:
+      description: Method metadata
+      properties:
+        class:
+          description: 'Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.'
+          title: className
+          type: string
+        description:
+          description: Method description.
+          type: string
+        formula:
+          description: For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation
+          type: string
+        methodDbId:
+          description: Method unique identifier
+          type: string
+        methodName:
+          description: Human readable name for the method
+          type: string
+        name:
+          description: DEPRECATED in v1.3 - Use "methodName"
+          type: string
+        reference:
+          description: Bibliographical reference describing the method.
+          type: string
+      type: object
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
+paths: {}

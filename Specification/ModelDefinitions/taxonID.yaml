@@ -1,9 +1,16 @@
-definitions:
-  taxonID:
-    properties:
-      sourceName:
-        description: The human readable name of the taxonomy provider
-        type: string
-      taxonId:
-        description: The identifier (name, ID, URI) of a particular taxonomy within the source provider
-        type: string
+components:
+  schemas:
+    taxonID:
+      properties:
+        sourceName:
+          description: The human readable name of the taxonomy provider
+          type: string
+        taxonId:
+          description: The identifier (name, ID, URI) of a particular taxonomy within the source provider
+          type: string
+      type: object
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
+paths: {}

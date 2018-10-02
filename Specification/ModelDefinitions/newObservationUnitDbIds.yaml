@@ -1,8 +1,15 @@
-definitions:
-  newObservationUnitDbIds:
-    properties:
-      observationUnitDbIds:
-        description: List of observation unit references which have been created or updated
-        items:
-          type: string
-        type: array
+components:
+  schemas:
+    newObservationUnitDbIds:
+      properties:
+        observationUnitDbIds:
+          description: List of observation unit references which have been created or updated
+          items:
+            type: string
+          type: array
+      type: object
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
+paths: {}

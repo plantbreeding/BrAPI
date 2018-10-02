@@ -1,30 +1,37 @@
-definitions:
-  vendorPlateFile:
-    properties:
-      URL:
-        description: The URL to a file with the results of a vendor analysis
-        type: string
-      additionalInfo:
-        additionalProperties:
+components:
+  schemas:
+    vendorPlateFile:
+      properties:
+        URL:
+          description: The URL to a file with the results of a vendor analysis
           type: string
-        description: Additional arbitrary info
-        type: object
-      fileType:
-        description: Format of the file
-        type: string
-      filename:
-        description: Name of the file
-        type: string
-      md5sum:
-        description: MD5 Hash Check Sum for the file to confirm download without error
-        type: string
-      sampleDbIds:
-        description: The list of sampleDbIds included in the file
-        items:
+        additionalInfo:
+          additionalProperties:
+            type: string
+          description: Additional arbitrary info
+          type: object
+        fileType:
+          description: Format of the file
           type: string
-        type: array
-    required:
-    - URL
-    - fileType
-    - filename
-    - sampleDbIds
+        filename:
+          description: Name of the file
+          type: string
+        md5sum:
+          description: MD5 Hash Check Sum for the file to confirm download without error
+          type: string
+        sampleDbIds:
+          description: The list of sampleDbIds included in the file
+          items:
+            type: string
+          type: array
+      required:
+      - URL
+      - fileType
+      - filename
+      - sampleDbIds
+      type: object
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
+paths: {}

@@ -1,88 +1,95 @@
-definitions:
-  germplasm:
-    properties:
-      accessionNumber:
-        description: This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection
-        type: string
-      acquisitionDate:
-        description: The date this germplasm was aquired by the genebank (MCPD)
-        format: date
-        type: string
-      biologicalStatusOfAccessionCode:
-        description: The 3 digit code representing the biological status of the accession (MCPD)
-        type: integer
-      breedingMethodDbId:
-        description: The unique identifier for the breeding method used to create this germplasm
-        type: string
-      commonCropName:
-        description: Common name for the crop (MCPD)
-        type: string
-      countryOfOriginCode:
-        description: 3-letter ISO 3166-1 code of the country in which the sample was originally collected (MCPD)
-        type: string
-      defaultDisplayName:
-        description: Human readable name used for display purposes
-        type: string
-      donors:
-        description: List of donor institutes (MCPD)
-        items:
-          properties:
-            donorAccessionNumber:
-              type: string
-            donorInstituteCode:
-              type: string
-            germplasmPUI:
-              type: string
-          type: object
-        type: array
-      genus:
-        description: Genus name for taxon. Initial uppercase letter required. (MCPD)
-        type: string
-      germplasmDbId:
-        description: The ID which uniquely identifies a germplasm within the given database server
-        type: string
-      germplasmName:
-        description: Name of the germplasm. It can be the prefered name and does not have to be unique.
-        type: string
-      germplasmPUI:
-        description: The Permanent Unique Identifier which represents a germplasm
-        type: string
-      instituteCode:
-        description: The code for the Institute that has bred the material. (MCPD)
-        type: string
-      instituteName:
-        description: The name of the institution which bred the material (MCPD)
-        type: string
-      pedigree:
-        description: The cross name and optional selection history.
-        type: string
-      seedSource:
-        description: 'The source of the seed '
-        type: string
-      species:
-        description: Specific epithet portion of the scientific name in lowercase letters. (MCPD)
-        type: string
-      speciesAuthority:
-        description: The authority organization responsible for tracking and maintaining the species name (MCPD)
-        type: string
-      subtaxa:
-        description: Subtaxon can be used to store any additional taxonomic identifier. (MCPD)
-        type: string
-      subtaxaAuthority:
-        description: ' The authority organization responsible for tracking and maintaining the subtaxon information (MCPD)'
-        type: string
-      synonyms:
-        description: List of alternative names or IDs used to reference this germplasm
-        items:
+components:
+  schemas:
+    germplasm:
+      properties:
+        accessionNumber:
+          description: This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection
           type: string
-        type: array
-      taxonIds:
-        description: The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.
-        items:
-          $ref: '#/definitions/taxonID'
-        type: array
-      typeOfGermplasmStorageCode:
-        description: The 2 digit code representing the type of storage this germplasm is kept in at a genebank. (MCPD)
-        items:
+        acquisitionDate:
+          description: The date this germplasm was aquired by the genebank (MCPD)
+          format: date
           type: string
-        type: array
+        biologicalStatusOfAccessionCode:
+          description: The 3 digit code representing the biological status of the accession (MCPD)
+          type: integer
+        breedingMethodDbId:
+          description: The unique identifier for the breeding method used to create this germplasm
+          type: string
+        commonCropName:
+          description: Common name for the crop (MCPD)
+          type: string
+        countryOfOriginCode:
+          description: 3-letter ISO 3166-1 code of the country in which the sample was originally collected (MCPD)
+          type: string
+        defaultDisplayName:
+          description: Human readable name used for display purposes
+          type: string
+        donors:
+          description: List of donor institutes (MCPD)
+          items:
+            properties:
+              donorAccessionNumber:
+                type: string
+              donorInstituteCode:
+                type: string
+              germplasmPUI:
+                type: string
+            type: object
+          type: array
+        genus:
+          description: Genus name for taxon. Initial uppercase letter required. (MCPD)
+          type: string
+        germplasmDbId:
+          description: The ID which uniquely identifies a germplasm within the given database server
+          type: string
+        germplasmName:
+          description: Name of the germplasm. It can be the prefered name and does not have to be unique.
+          type: string
+        germplasmPUI:
+          description: The Permanent Unique Identifier which represents a germplasm
+          type: string
+        instituteCode:
+          description: The code for the Institute that has bred the material. (MCPD)
+          type: string
+        instituteName:
+          description: The name of the institution which bred the material (MCPD)
+          type: string
+        pedigree:
+          description: The cross name and optional selection history.
+          type: string
+        seedSource:
+          description: 'The source of the seed '
+          type: string
+        species:
+          description: Specific epithet portion of the scientific name in lowercase letters. (MCPD)
+          type: string
+        speciesAuthority:
+          description: The authority organization responsible for tracking and maintaining the species name (MCPD)
+          type: string
+        subtaxa:
+          description: Subtaxon can be used to store any additional taxonomic identifier. (MCPD)
+          type: string
+        subtaxaAuthority:
+          description: ' The authority organization responsible for tracking and maintaining the subtaxon information (MCPD)'
+          type: string
+        synonyms:
+          description: List of alternative names or IDs used to reference this germplasm
+          items:
+            type: string
+          type: array
+        taxonIds:
+          description: The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.
+          items:
+            $ref: '#/components/schemas/taxonID'
+          type: array
+        typeOfGermplasmStorageCode:
+          description: The 2 digit code representing the type of storage this germplasm is kept in at a genebank. (MCPD)
+          items:
+            type: string
+          type: array
+      type: object
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
+paths: {}

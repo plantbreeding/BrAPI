@@ -142,7 +142,14 @@ paths:
 
         The format of the tsv response can be found on GitHub (https://github.com/plantbreeding/Documentation/wiki/BrAPI-TSV-Expected-Formats)'
       requestBody:
-        $ref: '#/components/requestBodies/alleleMatrixSearchRequest'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/alleleMatrixSearchRequest'
+        description: >-
+          The markerprofile db ids. Not Required if 'markerDbId' or 'matrixDbId'
+          is present.
+        required: true
       responses:
         '200':
           content:

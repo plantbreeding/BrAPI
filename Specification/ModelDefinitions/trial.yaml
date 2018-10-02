@@ -1,58 +1,65 @@
-definitions:
-  trial:
-    properties:
-      active:
-        description: Is this trail currently active
-        type: boolean
-      additionalInfo:
-        additionalProperties:
-          type: string
-        description: Additional arbitrary info
-        type: object
-      contacts:
-        description: List of contact entities associated with this trial
-        items:
-          $ref: '#/definitions/contact'
-        type: array
-      datasetAuthorship:
-        description: License and citation information for the data in this trial
-        properties:
-          datasetPUI:
+components:
+  schemas:
+    trial:
+      properties:
+        active:
+          description: Is this trail currently active
+          type: boolean
+        additionalInfo:
+          additionalProperties:
             type: string
-          license:
-            type: string
-        type: object
-      endDate:
-        description: The date this trial ends
-        format: date
-        type: string
-      programDbId:
-        description: A program identifier to search for
-        type: string
-      programName:
-        description: The human readable name of a program
-        type: string
-      startDate:
-        description: The date this trial started
-        format: date
-        type: string
-      studies:
-        description: List of studies inside this trial
-        items:
+          description: Additional arbitrary info
+          type: object
+        contacts:
+          description: List of contact entities associated with this trial
+          items:
+            $ref: '#/components/schemas/contact'
+          type: array
+        datasetAuthorship:
+          description: License and citation information for the data in this trial
           properties:
-            locationDbId:
+            datasetPUI:
               type: string
-            locationName:
-              type: string
-            studyDbId:
-              type: string
-            studyName:
+            license:
               type: string
           type: object
-        type: array
-      trialDbId:
-        description: The ID which uniquely identifies a trial
-        type: string
-      trialName:
-        description: The human readable name of a trial
-        type: string
+        endDate:
+          description: The date this trial ends
+          format: date
+          type: string
+        programDbId:
+          description: A program identifier to search for
+          type: string
+        programName:
+          description: The human readable name of a program
+          type: string
+        startDate:
+          description: The date this trial started
+          format: date
+          type: string
+        studies:
+          description: List of studies inside this trial
+          items:
+            properties:
+              locationDbId:
+                type: string
+              locationName:
+                type: string
+              studyDbId:
+                type: string
+              studyName:
+                type: string
+            type: object
+          type: array
+        trialDbId:
+          description: The ID which uniquely identifies a trial
+          type: string
+        trialName:
+          description: The human readable name of a trial
+          type: string
+      type: object
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
+paths: {}

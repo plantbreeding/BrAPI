@@ -1,67 +1,73 @@
-definitions:
-  study:
-    properties:
-      active:
-        description: Is this study currently active
-        type: string
-      additionalInfo:
-        additionalProperties:
+components:
+  schemas:
+    study:
+      properties:
+        active:
+          description: Is this study currently active
           type: string
-        description: Additional arbitrary info
-        type: object
-      contacts:
-        description: List of contact entities associated with this study
-        items:
-          $ref: '#/definitions/contact'
-        type: array
-      dataLinks:
-        description: List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.
-        items:
-          $ref: '#/definitions/dataLink'
-        type: array
-      endDate:
-        description: The date the study ends
-        format: date
-        type: string
-      lastUpdate:
-        description: The date and time when this study was last modified
-        properties:
-          timestamp:
-            format: date-time
+        additionalInfo:
+          additionalProperties:
             type: string
-          version:
-            type: string
-        type: object
-      license:
-        description: The usage license associated with the study data
-        type: string
-      location:
-        $ref: '#/definitions/location'
-        description: The location reference where this study is located.
-      seasons:
-        description: List of seasons over which this study was performed.
-        items:
+          description: Additional arbitrary info
+          type: object
+        contacts:
+          description: List of contact entities associated with this study
+          items:
+            $ref: '#/components/schemas/contact'
+          type: array
+        dataLinks:
+          description: List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.
+          items:
+            $ref: '#/components/schemas/dataLink'
+          type: array
+        endDate:
+          description: The date the study ends
+          format: date
           type: string
-        type: array
-      startDate:
-        description: The date this study started
-        format: date
-        type: string
-      studyDbId:
-        description: The ID which uniquely identifies a study within the given database server
-        type: string
-      studyDescription:
-        description: The description of this study
-        type: string
-      studyName:
-        description: The human readable name for a study
-        type: string
-      studyType:
-        description: The type of study being performed. ex. "Yeald Trial", etc
-        type: string
-      trialDbId:
-        description: The ID which uniquely identifies a trial
-        type: string
-      trialName:
-        description: The human readable name of a trial
-        type: string
+        lastUpdate:
+          description: The date and time when this study was last modified
+          properties:
+            timestamp:
+              format: date-time
+              type: string
+            version:
+              type: string
+          type: object
+        license:
+          description: The usage license associated with the study data
+          type: string
+        location:
+          $ref: '#/components/schemas/location'
+        seasons:
+          description: List of seasons over which this study was performed.
+          items:
+            type: string
+          type: array
+        startDate:
+          description: The date this study started
+          format: date
+          type: string
+        studyDbId:
+          description: The ID which uniquely identifies a study within the given database server
+          type: string
+        studyDescription:
+          description: The description of this study
+          type: string
+        studyName:
+          description: The human readable name for a study
+          type: string
+        studyType:
+          description: The type of study being performed. ex. "Yeald Trial", etc
+          type: string
+        trialDbId:
+          description: The ID which uniquely identifies a trial
+          type: string
+        trialName:
+          description: The human readable name of a trial
+          type: string
+      type: object
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
+paths: {}

@@ -1,30 +1,37 @@
-definitions:
-  markersSearchRequest:
-    properties:
-      includeSynonyms:
-        description: Should an array of synonyms be included in the response
-        type: boolean
-      markerDbIds:
-        description: 'List of IDs which uniquely identify markers '
-        items:
+components:
+  schemas:
+    markersSearchRequest:
+      properties:
+        includeSynonyms:
+          description: Should an array of synonyms be included in the response
+          type: boolean
+        markerDbIds:
+          description: 'List of IDs which uniquely identify markers '
+          items:
+            type: string
+          type: array
+        matchMethod:
+          description: How to perform string matching during search. 'exact' will search for exact, case sensitive matches only. 'case_insensitive' will search for exact matches, but case insensitive. 'wildcard' will allow the special characters '*' (star) and '%' (percent) to represent variable length arbitrary strings, and the special character '?' (question) to represent one arbitrary character.
+          enum:
+          - exact
+          - case_insensitive
+          - wildcard
           type: string
-        type: array
-      matchMethod:
-        description: How to perform string matching during search. 'exact' will search for exact, case sensitive matches only. 'case_insensitive' will search for exact matches, but case insensitive. 'wildcard' will allow the special characters '*' (star) and '%' (percent) to represent variable length arbitrary strings, and the special character '?' (question) to represent one arbitrary character.
-        enum:
-        - exact
-        - case_insensitive
-        - wildcard
-        type: string
-      name:
-        description: The search pattern for the marker name or synonym.
-        type: string
-      page:
-        description: Which page of the "data" array to return. The page indexing starts at 0 (page=0 will return the first page). Default is 0.
-        type: integer
-      pageSize:
-        description: The maximum number of items to return per page of the "data" array. Default is 1000.
-        type: integer
-      type:
-        description: The type of marker, e.g. SNP
-        type: string
+        name:
+          description: The search pattern for the marker name or synonym.
+          type: string
+        page:
+          description: Which page of the "data" array to return. The page indexing starts at 0 (page=0 will return the first page). Default is 0.
+          type: integer
+        pageSize:
+          description: The maximum number of items to return per page of the "data" array. Default is 1000.
+          type: integer
+        type:
+          description: The type of marker, e.g. SNP
+          type: string
+      type: object
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
+paths: {}

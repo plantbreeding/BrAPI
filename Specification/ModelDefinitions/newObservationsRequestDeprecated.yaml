@@ -1,37 +1,46 @@
-definitions:
-  newObservationsRequestDeprecated:
-    properties:
-      commit:
-        description: Should these changes be commited
-        type: string
-      data:
-        description: '<strong>Required</strong>
+components:
+  schemas:
+    newObservationsRequestDeprecated:
+      properties:
+        commit:
+          description: Should these changes be commited
+          type: string
+        data:
+          description: 'Required
 
-          array of marker-name/score pairs'
-        items:
-          properties:
-            observatioUnitDbId:
-              type: string
-            observations:
-              items:
-                properties:
-                  collector:
-                    type: string
-                  observationDbId:
-                    type: string
-                  observationTimeStamp:
-                    format: date-time
-                    type: string
-                  observationUnitDbId:
-                    type: string
-                  observationVariableDbId:
-                    type: string
-                  value:
-                    type: string
-              type: array
-            studyDbId:
-              type: number
-        type: array
-      transactionDbId:
-        description: The ID representing this transaction
-        type: string
+            array of marker-name/score pairs'
+          items:
+            properties:
+              observatioUnitDbId:
+                type: string
+              observations:
+                items:
+                  properties:
+                    collector:
+                      type: string
+                    observationDbId:
+                      type: string
+                    observationTimeStamp:
+                      format: date-time
+                      type: string
+                    observationUnitDbId:
+                      type: string
+                    observationVariableDbId:
+                      type: string
+                    value:
+                      type: string
+                  type: object
+                type: array
+              studyDbId:
+                type: number
+            type: object
+          type: array
+        transactionDbId:
+          description: The ID representing this transaction
+          type: string
+      type: object
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
+paths: {}

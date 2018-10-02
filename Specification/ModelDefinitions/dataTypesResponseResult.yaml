@@ -1,9 +1,15 @@
-definitions:
-  dataTypesResponseResult:
-    properties:
-      data:
-        items:
-          type: string
-        type: array
-    title: dataTypesResponseResult
-    type: object
+components:
+  schemas:
+    dataTypesResponseResult:
+      properties:
+        data:
+          items:
+            type: string
+          type: array
+      title: dataTypesResponseResult
+      type: object
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
+paths: {}

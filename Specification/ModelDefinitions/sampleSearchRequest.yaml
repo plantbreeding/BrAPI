@@ -1,29 +1,36 @@
-definitions:
-  sampleSearchRequest:
-    properties:
-      germplasmDbId:
-        description: ' The ID which uniquely identifies a germplasm'
-        items:
-          type: string
-        type: array
-      observationUnitDbId:
-        description: The ID which uniquely identifies an observation unit
-        items:
-          type: string
-        type: array
-      page:
-        description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is 0.
-        type: integer
-      pageSize:
-        description: The size of the pages to be returned. Default is 1000.
-        type: integer
-      plateDbId:
-        description: The ID which uniquely identifies a plate of samples
-        items:
-          type: string
-        type: array
-      sampleDbId:
-        description: The ID which uniquely identifies a sample
-        items:
-          type: string
-        type: array
+components:
+  schemas:
+    sampleSearchRequest:
+      properties:
+        germplasmDbId:
+          description: ' The ID which uniquely identifies a germplasm'
+          items:
+            type: string
+          type: array
+        observationUnitDbId:
+          description: The ID which uniquely identifies an observation unit
+          items:
+            type: string
+          type: array
+        page:
+          description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is 0.
+          type: integer
+        pageSize:
+          description: The size of the pages to be returned. Default is 1000.
+          type: integer
+        plateDbId:
+          description: The ID which uniquely identifies a plate of samples
+          items:
+            type: string
+          type: array
+        sampleDbId:
+          description: The ID which uniquely identifies a sample
+          items:
+            type: string
+          type: array
+      type: object
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
+paths: {}

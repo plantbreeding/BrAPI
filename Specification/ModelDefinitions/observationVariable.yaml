@@ -1,78 +1,81 @@
-definitions:
-  observationVariable:
-    properties:
-      contextOfUse:
-        description: 'Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])'
-        items:
+components:
+  schemas:
+    observationVariable:
+      properties:
+        contextOfUse:
+          description: 'Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])'
+          items:
+            type: string
+          type: array
+        crop:
+          description: 'Crop name (examples: "Maize", "Wheat")'
           type: string
-        type: array
-      crop:
-        description: 'Crop name (examples: "Maize", "Wheat")'
-        type: string
-      date:
-        description: Date of submission of the variable (ISO 8601).
-        type: string
-      defaultValue:
-        description: 'Variable default value. (examples: "red", "2.3", etc.)'
-        type: string
-      growthStage:
-        description: 'Growth stage at which measurement is made (examples: "flowering")'
-        type: string
-      institution:
-        description: Name of institution submitting the variable
-        type: string
-      language:
-        description: 2 letter ISO code for the language of submission of the variable.
-        type: string
-      method:
-        $ref: '#/definitions/method'
-        description: The description of the method used to collect data for this variable
-      name:
-        description: DEPRECATED in v1.3 - Use "observationVariableName"
-        type: string
-      observationVariableDbId:
-        description: Variable unique identifier
-        type: string
-      observationVariableName:
-        description: Variable name (usually a short name)
-        type: string
-      ontologyDbId:
-        description: Variable ontology unique identifier
-        type: string
-      ontologyName:
-        description: Variable ontology name (usually a short name)
-        type: string
-      scale:
-        $ref: '#/definitions/scale'
-        description: The description of the reference scale and units used on the collected data for this variable
-      scientist:
-        description: Name of scientist submitting the variable.
-        type: string
-      status:
-        description: 'Variable status. (examples: "recommended", "obsolete", "legacy", etc.)'
-        type: string
-      submissionTimestamp:
-        description: Timestamp when the Variable was added
-        format: date-time
-        type: string
-      synonyms:
-        description: Other variable names
-        items:
+        date:
+          description: Date of submission of the variable (ISO 8601).
           type: string
-        type: array
-      trait:
-        $ref: '#/definitions/trait'
-        description: The description of the trait which is being examined for this variable
-      xref:
-        description: Cross reference of the variable term to a term from an external ontology or to a database of a major system.
-        type: string
-    required:
-    - observationVariableDbId
-    - observationVariableName
-    - ontologyDbId
-    - ontologyName
-    - trait
-    - method
-    - scale
-    - defaultValue
-    type: object
+        defaultValue:
+          description: 'Variable default value. (examples: "red", "2.3", etc.)'
+          type: string
+        growthStage:
+          description: 'Growth stage at which measurement is made (examples: "flowering")'
+          type: string
+        institution:
+          description: Name of institution submitting the variable
+          type: string
+        language:
+          description: 2 letter ISO code for the language of submission of the variable.
+          type: string
+        method:
+          $ref: '#/components/schemas/method'
+        name:
+          description: DEPRECATED in v1.3 - Use "observationVariableName"
+          type: string
+        observationVariableDbId:
+          description: Variable unique identifier
+          type: string
+        observationVariableName:
+          description: Variable name (usually a short name)
+          type: string
+        ontologyDbId:
+          description: Variable ontology unique identifier
+          type: string
+        ontologyName:
+          description: Variable ontology name (usually a short name)
+          type: string
+        scale:
+          $ref: '#/components/schemas/scale'
+        scientist:
+          description: Name of scientist submitting the variable.
+          type: string
+        status:
+          description: 'Variable status. (examples: "recommended", "obsolete", "legacy", etc.)'
+          type: string
+        submissionTimestamp:
+          description: Timestamp when the Variable was added
+          format: date-time
+          type: string
+        synonyms:
+          description: Other variable names
+          items:
+            type: string
+          type: array
+        trait:
+          $ref: '#/components/schemas/trait'
+        xref:
+          description: Cross reference of the variable term to a term from an external ontology or to a database of a major system.
+          type: string
+      required:
+      - observationVariableDbId
+      - observationVariableName
+      - ontologyDbId
+      - ontologyName
+      - trait
+      - method
+      - scale
+      - defaultValue
+      type: object
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
+paths: {}

@@ -1,36 +1,42 @@
-definitions:
-  call:
-    properties:
-      call:
-        description: The name of the available call as recorded in the documentation
-        type: string
-      datatypes:
-        description: The possible data formats returned by the available call
-        items:
+components:
+  schemas:
+    call:
+      properties:
+        call:
+          description: The name of the available call as recorded in the documentation
           type: string
-        type: array
-      methods:
-        description: The possible HTTP Methods to be used with the available call
-        items:
-          enum:
-          - GET
-          - POST
-          - PUT
-          - DELETE
-          type: string
-        type: array
-      versions:
-        description: The supported versions of a particular call
-        items:
-          enum:
-          - '1.0'
-          - '1.1'
-          - '1.2'
-          - '1.3'
-          type: string
-        type: array
-    required:
-    - call
-    - datatypes
-    - methods
-    type: object
+        datatypes:
+          description: The possible data formats returned by the available call
+          items:
+            type: string
+          type: array
+        methods:
+          description: The possible HTTP Methods to be used with the available call
+          items:
+            enum:
+            - GET
+            - POST
+            - PUT
+            - DELETE
+            type: string
+          type: array
+        versions:
+          description: The supported versions of a particular call
+          items:
+            enum:
+            - '1.0'
+            - '1.1'
+            - '1.2'
+            - '1.3'
+            type: string
+          type: array
+      required:
+      - call
+      - datatypes
+      - methods
+      type: object
+info:
+  title: BrAPI
+  version: 1.3-oas3
+openapi: 3.0.0
+paths: {}
