@@ -5,12 +5,23 @@ openapi: 3.0.0
 paths:
   /seasons:
     get:
-      description: ' Call to retrive all seasons (or years) in the database. (Added by Jan-Erik and Lukas 5/26/2016) Scope: PHENOTYPING.
-
-
-        test-server.brapi.org/brapi/v1/seasons'
+      description: Call to retrive all seasons (or years) in the database.
       parameters:
-      - description: ''
+      - description: The unique identifier for a season 
+        in: query
+        name: seasonDbId
+        required: false
+        schema:
+          type: string
+      - description: The term to describe a given season. Example "Spring" OR "May" OR "PlantingTime7" 
+        example: Spring
+        in: query
+        name: season
+        required: false
+        schema:
+          type: string
+      - description: The 4 digit year of a season. Example "2017"
+        example: 2017
         in: query
         name: year
         required: false
