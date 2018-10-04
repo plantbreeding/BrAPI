@@ -8,7 +8,7 @@ components:
         datatypes:
           description: The possible data formats returned by the available call
           items:
-            type: string
+            $ref: '#/components/schemas/WSMIMEDatatypes'
           type: array
         methods:
           description: The possible HTTP Methods to be used with the available call

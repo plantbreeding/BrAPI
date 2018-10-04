@@ -4,17 +4,7 @@ components:
       description: Scale metadata
       properties:
         dataType:
-          description: Class of the scale, entries can be "Numerical", "Nominal", "Ordinal", "Text", "Code", "Time", "Duration"
-          enum:
-          - Numerical
-          - Nominal
-          - Ordinal
-          - Text
-          - Code
-          - Time
-          - Duration
-          - Categorical
-          type: string
+          $ref: '#/components/schemas/traitDatatype'
         decimalPlaces:
           description: For numerical, number of decimal places to be reported
           type: integer

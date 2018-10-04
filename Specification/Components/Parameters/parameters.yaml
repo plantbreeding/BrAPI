@@ -27,13 +27,7 @@ components:
       name: Accept
       required: true
       schema:
-        type: string
-        enum:
-        - application/json
-        - text/csv
-        - text/tsv
-        - application/flapjack
-    
+        $ref: '#/components/schemas/WSMIMEDatatypes'
 info:
   title: BrAPI
   version: ''
