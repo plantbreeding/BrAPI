@@ -12,7 +12,7 @@ paths:
         name: datatype
         required: false
         schema:
-          type: string
+          $ref: '#/components/schemas/WSMIMEDatatypes'
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
       responses:
