@@ -10,7 +10,7 @@ components:
             type: array
           type: array
         headerRow:
-          description: Names of the columns included in the data matrix. Any or All of [ "year","studyDbId","studyName","locationDbId","locationName","germplasmDbId","germplasmName","observationUnitDbId","plotNumber","replicate","blockNumber", "observationTimestamp", "entryType", "X", "Y"]
+          description: Names of the columns included in the data matrix. Any or All of [ "year","studyDbId","studyName","locationDbId","locationName","germplasmDbId","germplasmName","observationUnitDbId","plotNumber","replicate","blockNumber", "entryType", "X", "Y"]
           items:
             type: string
           type: array

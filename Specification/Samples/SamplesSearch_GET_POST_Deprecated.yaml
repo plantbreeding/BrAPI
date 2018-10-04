@@ -101,7 +101,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/sampleSearchRequest'
+              $ref: '#/components/schemas/sampleSearchRequest_Dep'
       responses:
         '200':
           content:

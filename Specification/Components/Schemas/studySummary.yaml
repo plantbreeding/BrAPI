@@ -33,7 +33,7 @@ components:
         seasons:
           description: List of seasons over which this study was performed.
           items:
-            type: string
+            $ref: '#/components/schemas/season'
           type: array
         startDate:
           description: The date this study started

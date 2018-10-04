@@ -1,13 +1,13 @@
 components:
   schemas:
-    sampleSearchRequest:
+    sampleSearchRequest_Dep:
       properties:
-        germplasmDbIds:
+        germplasmDbId:
           description: ' The ID which uniquely identifies a germplasm'
           items:
             type: string
           type: array
-        observationUnitDbIds:
+        observationUnitDbId:
           description: The ID which uniquely identifies an observation unit
           items:
             type: string
@@ -18,12 +18,12 @@ components:
         pageSize:
           description: The size of the pages to be returned. Default is 1000.
           type: integer
-        plateDbIds:
+        plateDbId:
           description: The ID which uniquely identifies a plate of samples
           items:
             type: string
           type: array
-        sampleDbIds:
+        sampleDbId:
           description: The ID which uniquely identifies a sample
           items:
             type: string
