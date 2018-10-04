@@ -1,0 +1,117 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /search/germplasm/{searchResultsDbId}:
+    get:
+      description: |-
+        See Search Services for additional implementation details.
+        Notes: The germplasm and germplasm MCPD calls were merged.  The MCPD fields are optional and indicated as such with the [MCPD] prefix in the description field of the "Response data types" table. Please use the "features" hash of the "calls" call to communicate with clients as to whether MCPD is supported by your implementation.
+        Addresses these needs: 1. General germplasm search mechanism that accepts POST for complex queries 2. possibility to search germplasm by more parameters than those allowed by the existing germplasm search 3. possibility to get MCPD details by PUID rather than dbId
+      parameters:
+      - $ref: '#/components/parameters/searchResultsDbId'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      responses:
+        '200':
+          content:
+            application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 9
+                    totalPages: 5
+                  status: []
+                result:
+                  data:
+                  - accessionNumber: A000001
+                    acquisitionDate: '1984-01-01'
+                    biologicalStatusOfAccessionCode: 300
+                    breedingMethodDbId: bm1
+                    commonCropName: G000001
+                    countryOfOriginCode: COUNTRY1
+                    defaultDisplayName: G000001
+                    donors:
+                    - donorAccessionNumber: A001230
+                      donorInstituteCode: INRA
+                      germplasmPUI: https://doi.org/10.1109/5.771073
+                    - donorAccessionNumber: A004560
+                      donorInstituteCode: INRA
+                      germplasmPUI: https://doi.org/10.1109/5.231123
+                    genus: Fructus
+                    germplasmDbId: '1'
+                    germplasmName: Name001
+                    germplasmPUI: http://pui.per/accession/A000001
+                    instituteCode: PER001
+                    instituteName: INST1
+                    pedigree: A000001
+                    seedSource: open pollination
+                    species: novus
+                    speciesAuthority: L
+                    subtaxa: subtaxa
+                    subtaxaAuthority: N
+                    synonyms:
+                    - landrace 1
+                    taxonIds:
+                    - sourceName: ncbiTaxon
+                      taxonId: '2340'
+                    - sourceName: ciradTaxon
+                      taxonId: E312
+                    typeOfGermplasmStorageCode: []
+                  - accessionNumber: A000002
+                    acquisitionDate: '1984-01-01'
+                    biologicalStatusOfAccessionCode: 300
+                    breedingMethodDbId: bm1
+                    commonCropName: G000002
+                    countryOfOriginCode: COUNTRY1
+                    defaultDisplayName: G000002
+                    donors:
+                    - donorAccessionNumber: A007890
+                      donorInstituteCode: INRA
+                      germplasmPUI: https://doi.org/10.1109/5.771073
+                    - donorAccessionNumber: A001010
+                      donorInstituteCode: INRA
+                      germplasmPUI: https://doi.org/10.1109/5.231123
+                    genus: Fructus
+                    germplasmDbId: '2'
+                    germplasmName: Name002
+                    germplasmPUI: http://pui.per/accession/A000002
+                    instituteCode: PER001
+                    instituteName: INST1
+                    pedigree: A000002
+                    seedSource: open pollination
+                    species: novus
+                    speciesAuthority: L
+                    subtaxa: subtaxa
+                    subtaxaAuthority: N
+                    synonyms:
+                    - landrace 2
+                    taxonIds:
+                    - sourceName: ncbiTaxon
+                      taxonId: '2340'
+                    - sourceName: ciradTaxon
+                      taxonId: E312
+                    typeOfGermplasmStorageCode: []
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    properties:
+                      data:
+                        items:
+                          $ref: '#/components/schemas/germplasm'
+                        type: array
+                    type: object
+                title: germplasmResponse
+                type: object
+          description: OK
+          headers: {}
+      summary: Germplasm search through GET
+      tags:
+      - Germplasm
+      - Search Services

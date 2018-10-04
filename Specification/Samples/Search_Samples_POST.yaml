@@ -1,0 +1,22 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /search/samples:
+    post:
+      description: |-
+        Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
+        See Search Services for additional implementation details.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/sampleSearchRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/successfulSearchResponse'
+      summary: Post Sample Search
+      tags:
+      - Samples
+      - Search Services

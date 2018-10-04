@@ -5,10 +5,8 @@ openapi: 3.0.0
 paths:
   /samples-search:
     get:
-      description: ' Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
-
-
-        test-server.brapi.org/brapi/v1/samples-search'
+      deprecated: true
+      description: DEPRECATED in v1.3 - see GET /samples
       parameters:
       - description: the internal DB id for a sample
         in: query
@@ -97,10 +95,8 @@ paths:
       - Samples
       - Search Services
     post:
-      description: ' Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
-
-
-        test-server.brapi.org/brapi/v1/samples-search'
+      deprecated: true
+      description: DEPRECATED in v1.3 - see GET /search/samples
       requestBody:
         content:
           application/json:

@@ -3,20 +3,15 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /programs-search:
-    post:
-      description: ' Advanced searching for the programs resource.
-
-        Status: ACCEPTED.
-
+  /search/programs/{searchResultsDbId}:
+    get:
+      description: |-
+        Advanced searching for the programs resource.
         See Search Services for additional implementation details.
-
-        '
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/programsSearchRequest'
+      parameters:
+      - $ref: '#/components/parameters/searchResultsDbId'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
       responses:
         '200':
           content:

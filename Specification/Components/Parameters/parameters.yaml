@@ -1,0 +1,41 @@
+components:
+  parameters:
+    page:
+      description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+      in: query
+      name: page
+      required: false
+      schema:
+        type: integer
+    pageSize:
+      description: The size of the pages to be returned. Default is `1000`.
+      in: query
+      name: pageSize
+      required: false
+      schema:
+        type: integer
+    searchResultsDbId:
+      description: Permanent unique identifier which references the search results
+      in: path
+      name: searchResultsDbId
+      required: true
+      schema:
+        type: string
+    acceptHeader:
+      description: The requested content type which should be returned by the server
+      in: header
+      name: Accept
+      required: true
+      schema:
+        type: string
+        enum:
+        - application/json
+        - text/csv
+        - text/tsv
+        - application/flapjack
+    
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

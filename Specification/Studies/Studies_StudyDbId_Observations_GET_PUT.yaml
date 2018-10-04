@@ -5,14 +5,10 @@ openapi: 3.0.0
 paths:
   /studies/{studyDbId}/observations:
     get:
-      description: '
-
+      description: |-
         Retrieve all observations where there are measurements for the given observation variables.
-
-        observationTimestamp should be ISO8601 format with timezone: YYYY-MM-DDThh:mm:ss+hhmm
-
-
-        test-server.brapi.org/brapi/v1/studies/{studyDbId}/observations'
+        observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:ss+hhmm
+        test-server.brapi.org/brapi/v1/studies/{studyDbId}/observations
       parameters:
       - description: Identifier of the study. Usually a number, could be alphanumeric.
         in: path
@@ -33,7 +29,7 @@ paths:
       responses:
         '200':
           content:
-            '*/*':
+            application/json:
               schema:
                 properties:
                   metadata:
@@ -47,46 +43,43 @@ paths:
                     type: object
                 title: observationsResponse
                 type: object
-            application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 2
-                        totalCount: 10
-                        totalPages: 5
-                      status: []
-                    result:
-                      data:
-                      - germplasmDbId: '1'
-                        germplasmName: Name001
-                        observationDbId: '3'
-                        observationLevel: plant
-                        observationTimestamp: '2013-06-14T22:05:51-04:00'
-                        observationUnitDbId: '2'
-                        observationUnitName: Plant 1
-                        observationVariableDbId: MO_123:100002
-                        observationVariableName: Plant height
-                        operator: Bob
-                        studyDbId: '1001'
-                        uploadedBy: Bob
-                        value: '1.1'
-                      - germplasmDbId: '1'
-                        germplasmName: Name001
-                        observationDbId: '4'
-                        observationLevel: plant
-                        observationTimestamp: '2013-06-14T22:06:51-04:00'
-                        observationUnitDbId: '2'
-                        observationUnitName: Plant 1
-                        observationVariableDbId: MO_123:100006
-                        observationVariableName: Virus susceptibility
-                        operator: Bob
-                        studyDbId: '1001'
-                        uploadedBy: Bob
-                        value: '5.1'
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 10
+                    totalPages: 5
+                  status: []
+                result:
+                  data:
+                  - germplasmDbId: '1'
+                    germplasmName: Name001
+                    observationDbId: '3'
+                    observationLevel: plant
+                    observationTimestamp: '2013-06-14T22:05:51-04:00'
+                    observationUnitDbId: '2'
+                    observationUnitName: Plant 1
+                    observationVariableDbId: MO_123:100002
+                    observationVariableName: Plant height
+                    operator: Bob
+                    studyDbId: '1001'
+                    uploadedBy: Bob
+                    value: '1.1'
+                  - germplasmDbId: '1'
+                    germplasmName: Name001
+                    observationDbId: '4'
+                    observationLevel: plant
+                    observationTimestamp: '2013-06-14T22:06:51-04:00'
+                    observationUnitDbId: '2'
+                    observationUnitName: Plant 1
+                    observationVariableDbId: MO_123:100006
+                    observationVariableName: Virus susceptibility
+                    operator: Bob
+                    studyDbId: '1001'
+                    uploadedBy: Bob
+                    value: '5.1'
           description: OK
           headers: {}
       summary: Get Observation Units by observation variable ids
@@ -113,7 +106,7 @@ paths:
       responses:
         '200':
           content:
-            '*/*':
+            application/json:
               schema:
                 properties:
                   metadata:
@@ -122,19 +115,16 @@ paths:
                     $ref: '#/components/schemas/newObservationDbIds'
                 title: newObservationDbIdsResponse
                 type: object
-            application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 0
-                        totalCount: 0
-                        totalPages: 0
-                      status: []
-                    result: null
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result: null
           description: OK
           headers: {}
       summary: Get Observation Units by observation variable ids

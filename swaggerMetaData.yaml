@@ -55,11 +55,11 @@ tags:
     description: Docs
     url: https://wiki.brapi.org/
 - name: Observation Variables
-  description: >-
+  description: |-
     API to retrieve list and details of observation variables. An observation variable is composed by the unique combination of one Trait, one Method and one Scale.
   externalDocs:
-    description: "github"
-    url: "https://github.com/plantbreeding/API/tree/master/Specification/ObservationVariables"
+    description: Docs
+    url: https://wiki.brapi.org/
 - name: Phenotypes
   description: Information about Phenotypes
   externalDocs: 

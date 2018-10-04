@@ -1,0 +1,37 @@
+components:
+  responses:
+    successfulSearchResponse:
+      content:
+        application/json:
+          example:
+            metadata:
+              datafiles: []
+              pagination:
+                currentPage: 0
+                pageSize: 0
+                totalCount: 0
+                totalPages: 0
+              status: []
+            result:
+              searchResultDbId: 551ae08c-4548-4bde-ad70-f23beb25e2ea
+          schema:
+            $ref: '#/components/schemas/successfulSearchResponse'
+      description: OK
+      headers: {}
+  schemas:
+    successfulSearchResponse:
+      title: successfulSearchResponse
+      type: object
+      properties:
+        metadata:
+          $ref: '#/components/schemas/metadata'
+        result:
+          type: object
+          properties:
+            searchResultDbId:
+              type: string
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

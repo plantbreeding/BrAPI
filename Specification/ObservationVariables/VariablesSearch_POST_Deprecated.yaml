@@ -3,18 +3,17 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /variables:
-    get:
-      description: Call to retrieve a list of observationVariables available in the system.
-      parameters:
-      - $ref: '#/components/parameters/page'
-      - $ref: '#/components/parameters/pageSize'
-      - description: Variable's trait class (phenological, physiological, morphological, etc.)
-        in: query
-        name: traitClass
-        required: false
-        schema:
-          type: string
+  /variables-search:
+    post:
+      deprecated: true
+      description: |- 
+        Search observation variables. 
+        See Search Services for additional implementation details.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/observationVariableSearchRequest'
       responses:
         '200':
           content:
@@ -84,30 +83,25 @@ paths:
                     institution: '1'
                     language: English
                     method:
-                      class: Categorical
-                      description: Comparing sample color to standard color palette
+                      class: Numeric
+                      description: Dried sample on electric scale
                       formula: NA
-                      methodDbId: m3
-                      name: Standard Color Palette
+                      methodDbId: m2
+                      name: Dry Electric Scale
                       reference: google.com
-                    name: Carotenoid
-                    observationVariableDbId: MO_123:100003
-                    observationVariableName: Carotenoid
+                    name: Root weight
+                    observationVariableDbId: MO_123:100004
+                    observationVariableName: Root weight
                     ontologyDbId: MO_123
                     ontologyName: Ontology.org
                     scale:
-                      dataType: Categorical
-                      decimalPlaces: 0
-                      name: Color
-                      scaleDbId: s3
+                      dataType: Numerical
+                      decimalPlaces: 3
+                      name: Kilogram
+                      scaleDbId: s2
                       validValues:
-                        categories:
-                        - dark red
-                        - red
-                        - dark blue
-                        - blue
-                        - black
-                        max: 0
+                        categories: []
+                        max: 99999
                         min: 0
                       xref: xref
                     scientist: Bob
@@ -116,17 +110,17 @@ paths:
                     synonyms: []
                     trait:
                       alternativeAbbreviations: []
-                      attribute: leaf color
-                      class: Categorical
-                      description: color of leaf sample
+                      attribute: root weight
+                      class: Numeric
+                      description: root weight
                       entity: entity
-                      mainAbbreviation: LC
-                      name: Leaf Color
+                      mainAbbreviation: RW
+                      name: Root Weight
                       status: active
                       synonyms: []
-                      traitDbId: t3
+                      traitDbId: t2
                       xref: xref
-                    xref: MO_123:100003
+                    xref: MO_123:100004
               schema:
                 properties:
                   metadata:
@@ -142,6 +136,6 @@ paths:
                 type: object
           description: OK
           headers: {}
-      summary: Variable list
+      summary: Variable search
       tags:
       - Observation Variables

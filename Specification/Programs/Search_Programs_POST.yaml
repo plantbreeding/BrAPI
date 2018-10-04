@@ -1,0 +1,22 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /search/programs:
+    post:
+      description: |-
+        Advanced searching for the programs resource.
+        See Search Services for additional implementation details.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/programsSearchRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/successfulSearchResponse'
+      summary: Search Programs
+      tags:
+      - Programs
+      - Search Services

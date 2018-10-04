@@ -1,0 +1,23 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /search/observationtables:
+    post:
+      description: |-
+        Returns a list of observationUnit with the observed Phenotypes.
+        observationTimeStamp - Iso Standard 8601.
+        observationValue data type inferred from the ontology
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/phenotypesSearchRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/successfulSearchResponse'
+      summary: Observations Table Search
+      tags:
+      - Observations
+      - Search Services

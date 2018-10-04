@@ -1,0 +1,24 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /search/studies:
+    post:
+      description: |-
+        Get list of studies
+        StartDate and endDate should be ISO8601 format for dates
+        See Search Services for additional implementation details.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/studySearchRequest'
+        description: Study Search request
+      responses:
+        '200':
+          $ref: '#/components/responses/successfulSearchResponse'
+      summary: Search Studies 
+      tags:
+      - Studies
+      - Search Services
