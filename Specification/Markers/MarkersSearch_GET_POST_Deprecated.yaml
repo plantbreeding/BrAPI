@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /markers-search:
     get:
+      deprecated: true
       description: ' Scope: CORE.  Status: ACCEPTED.
 
         Implemented by: Germinate
@@ -105,6 +106,7 @@ paths:
       tags:
       - Markers
     post:
+      deprecated: true
       description: ' Scope: CORE.  Status: ACCEPTED.
 
         Implemented by: Germinate

@@ -3,14 +3,15 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /variables-search:
-    post:
-      description: "Search observation variables.\nSee Search Services for additional implementation details. \n\nScope: CORE.\nStatus: ACCEPTED."
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/observationVariableSearchRequest'
+  /search/variables/{searchResultsDbId}:
+    get:
+      description: |-
+        Search observation variables.
+        See Search Services for additional implementation details.
+      parameters:
+      - $ref: '#/components/parameters/searchResultsDbId'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
       responses:
         '200':
           content:
@@ -136,3 +137,4 @@ paths:
       summary: Variable search
       tags:
       - Observation Variables
+      - Search Services

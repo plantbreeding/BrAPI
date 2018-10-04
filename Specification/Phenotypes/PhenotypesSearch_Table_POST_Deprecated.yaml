@@ -5,7 +5,8 @@ openapi: 3.0.0
 paths:
   /phenotypes-search/table:
     post:
-      description: "Scope: PHENOTYPING.\nStatus: ACCEPTED.\n\nReturns a list of observationUnit with the observed Phenotypes.\n      \nobservationTimeStamp : Iso Standard 8601.\n\nobservationValue data type inferred from the ontology"
+      deprecated: true
+      description: DEPRECATED in v1.3 - See /search/observationtables
       requestBody:
         content:
           application/json:

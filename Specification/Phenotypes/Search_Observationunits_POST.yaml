@@ -1,0 +1,47 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /search/observationunits:
+    post:
+      description: |-
+        Returns a list of observationUnit with the observed Phenotypes.
+        See Search Services for additional implementation details.
+        Use case - this section allows to get a dataset from multiple studies. It allows to integrate data from several databases.
+        Refactor note - This call allows to get and integrate portions of multiple phenotyping data matrixes. A proposed evolution allowed to get a list of single observations, this functionality is still possible with this call by specifybing the observation variable, see below.
+        Example Use cases 
+        - Study a panel of germplasm accross multiple studies
+            '{"germplasmDbIds": ["Syrah", "34Mtp362"]}'
+        - Get all data for a specific study (same as "/studies/{studyDbId}/observationunits")
+            '{"studyDbIds" : ["383"]}'
+        - Get simple atomic phenotyping values 
+            '{
+               "germplasmDbIds" : [ "Syrah", "34Mtp362" ], 
+               "observationVariableDbIds" : [ "CO_345:0000043"]
+             }'
+        - Study Locations for adaptation to climate change
+            '{
+               "locationDbIds" : ["383838", "MONTPELLIER"], 
+               "germplasmDbIds" : [ "14Mtp361", "24Mtp362", "34Mtp363", "44Mtp364"]
+             }'
+        - Find phenotypes that are from after a certain timestamp
+            '{
+               "observationTimeStampRangeStart" : "2013-06-14T23:59:59-04:00", 
+               "observationTimeStampRangeEnd" : "2013-06-15T23:59:59-04:00"
+             }'
+             
+        observationTimeStampRangeStart and observationTimeStampRangeEnd use Iso Standard 8601.
+        observationValue data type inferred from the ontology
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/phenotypesSearchRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/successfulSearchResponse'
+      summary: Observation Unit Search
+      tags:
+      - Observations
+      - Search Services

@@ -1,0 +1,74 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /search/samples/{searchResultsDbId}:
+    get:
+      description: |-
+        Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
+        See Search Services for additional implementation details.
+      parameters:
+      - $ref: '#/components/parameters/searchResultsDbId'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      responses:
+        '200':
+          content:
+            application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 3
+                    totalPages: 2
+                  status: []
+                result:
+                  data:
+                  - germplasmDbId: '1'
+                    notes: Example Sample
+                    observationUnitDbId: '1'
+                    plantDbId: 'null'
+                    plateDbId: pl1
+                    plateIndex: 0
+                    plotDbId: '1'
+                    sampleDbId: sam1
+                    sampleTimestamp: '2018-01-01T00:00:00-05:00'
+                    sampleType: DNA
+                    studyDbId: '1001'
+                    takenBy: Bob
+                    tissueType: Leaf
+                  - germplasmDbId: '1'
+                    notes: Example Sample
+                    observationUnitDbId: '2'
+                    plantDbId: '1'
+                    plateDbId: pl1
+                    plateIndex: 1
+                    plotDbId: '1'
+                    sampleDbId: sam2
+                    sampleTimestamp: '2018-01-01T00:00:00-05:00'
+                    sampleType: DNA
+                    studyDbId: '1001'
+                    takenBy: Bob
+                    tissueType: Leaf
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    properties:
+                      data:
+                        items:
+                          $ref: '#/components/schemas/sample'
+                        type: array
+                    type: object
+                title: samplesResponse
+                type: object
+          description: OK
+          headers: {}
+      summary: Get Sample Search
+      tags:
+      - Samples
+      - Search Services
