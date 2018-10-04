@@ -154,7 +154,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/studySearchRequest'
+              $ref: '#/components/schemas/studySearchRequest_Dep'
         description: Study Search request
       responses:
         '200':

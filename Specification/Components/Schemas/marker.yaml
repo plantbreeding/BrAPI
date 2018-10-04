@@ -8,6 +8,10 @@ components:
             type: string
           type: array
         defaultDisplayName:
+          description: DEPRECATED in v 1.3 - see "markerName"
+          deprecated: true
+          type: string
+        markerName:
           description: A string representing the marker that will be meaningful to the user
           type: string
         markerDbId:

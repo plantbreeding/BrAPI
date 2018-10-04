@@ -15,13 +15,21 @@ paths:
         required: false
         schema:
           type: string
-      - description: 'The search pattern for a marker name or synonym. Examples: "11_10002" "11_1%" "11_1*" "11_10?02"'
+      - description: The search paramater for a marker name or synonym.
         in: query
+        name: markerName
+        required: false
+        schema:
+          type: string
+      - description: DEPRECAED in v1.3 - see "markerName"
+        in: query
+        deprecated: true
         name: name
         required: false
         schema:
           type: string
-      - description: Possible values are "case_insensitive", "exact" (case sensitive), "wildcard" (which is case insensitive). Wildcard uses both "*" and "%" for any number of characters and "?" for one character matching. Default is exact.
+      - description: DEPRECAED in v1.3 - see /search/markers
+        deprecated: true
         in: query
         name: matchMethod
         required: false

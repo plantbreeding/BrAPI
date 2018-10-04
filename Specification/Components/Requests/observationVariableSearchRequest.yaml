@@ -13,6 +13,12 @@ components:
             type: string
           type: array
         names:
+          description: DEPRECATED in v1.3 - see "observationVariableNames"
+          deprecated: true
+          items:
+            type: string
+          type: array
+        observationVariableNames:
           description: List of human readable observation variable names to search for
           items:
             type: string
@@ -28,7 +34,12 @@ components:
             type: string
           type: array
         ontologyXrefs:
-          description: List of ontology IDs to search for
+          description: DEPRECATED in v1.3 - see "xrefs"
+          items:
+            type: string
+          type: array
+        xrefs:
+          description: List of cross reference values to search for
           items:
             type: string
           type: array

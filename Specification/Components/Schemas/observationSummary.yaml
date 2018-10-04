@@ -18,6 +18,8 @@ components:
         observationVariableName:
           description: A human readable name for an observation variable
           type: string
+        season:
+          $ref: '#/components/schemas/season'
         value:
           description: The value of the data collected as an observation
           type: string

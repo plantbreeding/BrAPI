@@ -47,8 +47,11 @@ components:
         observations:
           description: List of observations associated with this observation unit
           items:
-            $ref: '#/components/schemas/observation'
+            $ref: '#/components/schemas/observationSummary'
           type: array
+        pedigree:
+          description: The string representation of the pedigree of this observation unit
+          type: string
         plantNumber:
           description: 'The plant number in a field. Applicable for observationLevel: "plant"'
           type: string
@@ -85,8 +88,17 @@ components:
           - MEASURED_ROW
           - MEASURED_COL
           type: string
+        programDbId:
+          description: The ID which uniquely identifies a program
+          type: string
         programName:
           description: The human readable name of a program
+          type: string
+        trialDbId:
+          description: The ID which uniquely identifies a trial
+          type: string
+        trialName:
+          description: The human readable name of a trial
           type: string
         replicate:
           description: The replicate number of an observation unit. May be the same as blockNumber.
@@ -94,14 +106,22 @@ components:
         studyDbId:
           description: The ID which uniquely identifies a study within the given database server
           type: string
-        studyLocation:
-          description: The human readable name of a location associated with this study
-          type: string
-        studyLocationDbId:
-          description: The ID which uniquely identifies a location, associated with this study
-          type: string
         studyName:
           description: The human readable name for a study
+          type: string
+        studyLocation:
+          description: DEPRECATED in v1.3 - see "locationName"
+          deprecated: true
+          type: string
+        studyLocationDbId:
+          description: DEPRECATED in v1.3 - see "locationDbId"
+          deprecated: true
+          type: string
+        locationName:
+          description: The human readable name of a location associated with this study
+          type: string
+        locationDbId:
+          description: The ID which uniquely identifies a location, associated with this study
           type: string
         treatments:
           description: List of treatments applied to an observation unit.

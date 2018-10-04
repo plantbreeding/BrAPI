@@ -37,6 +37,10 @@ components:
             type: object
           type: array
         genus:
+          description: DEPRECATED in v1.3 - see "germplasmGenus"
+          deprecated: true
+          type: string
+        germplasmGenus:
           description: Genus name for taxon. Initial uppercase letter required. (MCPD)
           type: string
         germplasmDbId:
@@ -61,6 +65,10 @@ components:
           description: 'The source of the seed '
           type: string
         species:
+          description:  DEPRECATED in v1.3 - see "germplasmSpecies"
+          deprecated: true
+          type: string
+        germplasmSpecies:
           description: Specific epithet portion of the scientific name in lowercase letters. (MCPD)
           type: string
         speciesAuthority:

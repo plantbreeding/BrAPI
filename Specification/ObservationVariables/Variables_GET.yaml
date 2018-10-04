@@ -9,6 +9,12 @@ paths:
       parameters:
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
+      - description: Variable's unique ID
+        in: query
+        name: observationVariableDbId
+        required: false
+        schema:
+          type: string
       - description: Variable's trait class (phenological, physiological, morphological, etc.)
         in: query
         name: traitClass

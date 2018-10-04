@@ -1,6 +1,6 @@
 components:
   schemas:
-    studySearchRequest:
+    studySearchRequest_Dep:
       properties:
         active:
           description: Is this study currently active
@@ -36,7 +36,7 @@ components:
           items:
             type: string
           type: array
-        seasonDbIds:
+        seasonDbId:
           description: The ID which uniquely identifies a season
           items:
             type: string
@@ -60,16 +60,14 @@ components:
           description: Order results should be sorted. ex. "ASC" or "DESC"
           enum:
           - asc
-          - ASC
           - desc
-          - DESC
           type: string
         studyDbIds:
           description: List of study identifiers to search for
           items:
             type: string
           type: array
-        locationDbIds: 
+        studyLocations:
           description: List of location names to filter search results
           items:
             type: string
