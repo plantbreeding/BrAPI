@@ -16,13 +16,32 @@ components:
             $ref: '#/components/schemas/contact'
           type: array
         datasetAuthorship:
-          description: License and citation information for the data in this trial
+          description: DEPRECATED in v1.3 - see datasetAuthorships
           properties:
             datasetPUI:
               type: string
             license:
               type: string
           type: object
+        datasetAuthorships:
+          description: License and citation information for the data in this trial
+          items:
+            type: object
+            properties:
+              datasetPUI:
+                type: string
+              license:
+                type: string
+          type: array
+        publications:
+          type: array
+          items:
+            type: object
+            properties:
+              publicationReference:
+                type: string
+              publicationPUI:
+                type: string
         endDate:
           description: The date this trial ends
           format: date

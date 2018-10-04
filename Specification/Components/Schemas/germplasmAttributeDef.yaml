@@ -38,6 +38,9 @@ components:
             description: DEPRECATED in v1.3 - see "this.scale.validValues"
             deprecated: true
             type: string
+        required:
+        - attributeDbId
+        - attributeName
 info:
   title: BrAPI
   version: ''
