@@ -7,6 +7,7 @@ components:
           type: string
         name:
           description: DEPRECATED in v1.3 - Use "studyTypeName"
+          deprecated: true
           type: string
         studyTypeName:
           description: The human readable name of a study type

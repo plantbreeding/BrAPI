@@ -20,6 +20,7 @@ components:
           type: integer
         name:
           description: DEPRECATED in v1.3 - Use "scaleName"
+          deprecated: true
           type: string
         scaleDbId:
           description: Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.

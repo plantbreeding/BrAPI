@@ -25,6 +25,7 @@ components:
           type: string
         name:
           description: DEPRECATED in v1.3 - Use "traitName"
+          deprecated: true
           type: string
         status:
           description: 'Trait status (examples: "recommended", "obsolete", "legacy", etc.)'

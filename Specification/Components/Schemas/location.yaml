@@ -48,6 +48,7 @@ components:
           type: number
         name:
           description: DEPRECATED in v1.3 - Use "locationName"
+          deprecated: true
           type: string
       type: object
 info:

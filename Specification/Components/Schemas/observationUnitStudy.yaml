@@ -4,10 +4,12 @@ components:
       properties:
         X:
           description: DEPRECATED - use "positionCoordinateX"
+          deprecated: true
           title: xCoordinate
           type: string
         Y:
           description: DEPRECATED - use "positionCoordinateY"
+          deprecated: true
           title: yCoordinate
           type: string
         blockNumber:

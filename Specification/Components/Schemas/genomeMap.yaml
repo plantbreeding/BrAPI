@@ -24,6 +24,7 @@ components:
           type: integer
         name:
           description: DEPRECATED in v1.3 - Use "mapName"
+          deprecated: true
           type: string
         publishedDate:
           description: The date this genome was published
@@ -34,6 +35,7 @@ components:
           type: string
         species:
           description: DEPRECATED in v1.3 - See "scientificName"
+          deprecated: true
           type: string
         type:
           description: The type of map this represents, ussually "Genetic"

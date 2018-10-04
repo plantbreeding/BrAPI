@@ -24,6 +24,7 @@ components:
                 type: string
               name:
                 description: DEPRECATED in v1.3 - Use "deliverableName"
+                deprecated: true
                 type: string
             type: object
           type: array

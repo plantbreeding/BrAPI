@@ -17,6 +17,7 @@ components:
           type: string
         name:
           description: DEPRECATED in v1.3 - Use "matrixName"
+          deprecated: true
           type: string
         studyDbId:
           description: Link to the study where the matrix was produced
