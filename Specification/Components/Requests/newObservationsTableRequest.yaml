@@ -16,6 +16,7 @@ components:
           type: array
         metadata:
           description: DEPRECATED
+          deprecated: true
           type: string
         observationVariableDbIds:
           description: The list of observation variables which have values recorded for them in the data matrix. Append to the 'headerRow' for comlete header row.
@@ -24,6 +25,7 @@ components:
           type: array
         result:
           description: DEPRECATED
+          deprecated: true
           type: string
       type: object
 info:

@@ -1,37 +1,43 @@
 components:
   schemas:
     germplasmAttributeDef:
-      properties:
-        attributeCategoryDbId:
-          description: The ID which uniquely identifies this attribute category within the given database server
-          type: string
-        attributeDbId:
-          description: The ID which uniquely identifies this attribute within the given database server
-          type: string
-        attributeName:
-          description: A human readable name for this attribute
-          type: string
-        code:
-          description: Short abbreviation which represents this attribute
-          type: string
-        datatype:
-          description: The type of data represented by this attribute
-          type: string
-        description:
-          description: A human readable description of this attribute
-          type: string
-        name:
-          description: DEPRECATED in v1.3 - Use "attributeName"
-          type: string
-        uri:
-          description: The URI reference some external documentation or ontology for this attribute
-          type: string
-        values:
-          description: List of acceptable values for this attribute
-          items:
+      allOf:
+      - $ref: '#/components/schemas/VariableBaseClass'
+      - type: object
+        properties: 
+          attributeCategoryDbId:
+            description: DEPRECATED in v1.3 - see "this.trait.class"
+            deprecated: true
             type: string
-          type: array
-      type: object
+          attributeDbId:
+            description: The ID which uniquely identifies this attribute within the given database server
+            type: string
+          attributeName:
+            description: A human readable name for this attribute
+            type: string
+          code:
+            description: DEPRECATED in v1.3 - see "this.trait.alternativeAbbreviations"
+            deprecated: true
+            type: string
+          datatype:
+            description: DEPRECATED in v1.3 - see "this.scale.datatype"
+            deprecated: true
+            type: string
+          description:
+            description: A human readable description of this attribute
+            type: string
+          name:
+            description: DEPRECATED in v1.3 - Use "this.attributeName"
+            deprecated: true
+            type: string
+          uri:
+            description: DEPRECATED in v1.3 - see "this.xref"
+            deprecated: true
+            type: string
+          values:
+            description: DEPRECATED in v1.3 - see "this.scale.validValues"
+            deprecated: true
+            type: string
 info:
   title: BrAPI
   version: ''

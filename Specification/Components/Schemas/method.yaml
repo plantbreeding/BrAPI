@@ -21,6 +21,7 @@ components:
           type: string
         name:
           description: DEPRECATED in v1.3 - Use "methodName"
+          deprecated: true
           type: string
         reference:
           description: Bibliographical reference describing the method.

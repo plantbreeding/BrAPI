@@ -20,6 +20,7 @@ components:
           type: string
         name:
           description: DEPRECATED in v1.3 - Use "mapName"
+          deprecated: true
           type: string
         type:
           description: The type of map this represents, ussually "Genetic"

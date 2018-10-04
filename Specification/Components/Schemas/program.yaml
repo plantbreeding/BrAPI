@@ -10,6 +10,7 @@ components:
           type: string
         name:
           description: DEPRECATED in v1.3 - Use "programName"
+          deprecated: true
           type: string
         objective:
           description: The primary objective of the program

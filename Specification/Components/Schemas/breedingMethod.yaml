@@ -16,6 +16,7 @@ components:
           type: string
         name:
           description: DEPRECATED in v1.3 - Use "breedingMethodName"
+          deprecated: true
           type: string
       required:
       - breedingMethodDbId

@@ -10,6 +10,7 @@ components:
           type: string
         name:
           description: DEPRECATED in v1.3 - Use "traitName"
+          deprecated: true
           type: string
         observationVariables:
           description: List of observation variable DbIds which include this trait
@@ -21,6 +22,7 @@ components:
           type: string
         traitId:
           description: DEPRECATED The ID which uniquely identifies a trait
+          deprecated: true
           type: string
         traitName:
           description: The human readable name of a trait
