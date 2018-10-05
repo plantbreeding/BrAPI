@@ -50,6 +50,10 @@ components:
           description: DEPRECATED in v1.3 - Use "locationName"
           deprecated: true
           type: string
+        documentationURL:
+          description: A URL to the human readable documentation of this object
+          type: string
+          format: uri
       type: object
 info:
   title: BrAPI

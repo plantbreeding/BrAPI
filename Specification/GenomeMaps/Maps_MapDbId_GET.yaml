@@ -52,7 +52,7 @@ paths:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    $ref: '#/components/schemas/mapDetails'
+                    $ref: '#/components/schemas/genomeMapDetails'
                 title: mapDetailsResponse
                 type: object
           description: OK

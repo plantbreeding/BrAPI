@@ -1,6 +1,6 @@
 components:
   schemas:
-    mapDetails:
+    genomeMapDetails:
       properties:
         data:
           description: List of linkage group details associated with a given map
@@ -23,11 +23,15 @@ components:
           deprecated: true
           type: string
         type:
-          description: The type of map this represents, ussually "Genetic"
+          description: The type of map this represents, ussually "Genetic" or "Physical"
           type: string
         unit:
           description: The units used to describe the data in this map
           type: string
+        documentationURL:
+          description: A URL to the human readable documentation of this object
+          type: string
+          format: uri
       type: object
 info:
   title: BrAPI
