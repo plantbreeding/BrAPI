@@ -5,10 +5,7 @@ openapi: 3.0.0
 paths:
   /attributes:
     get:
-      description: ' List available attributes.
-
-
-        test-server.brapi.org/brapi/v1/attributes '
+      description: List available attributes.
       parameters:
       - description: filter for kind of attributes
         in: query
@@ -37,7 +34,7 @@ paths:
                   - attributeCategoryDbId: '2'
                     attributeDbId: '1'
                     code: RHT
-                    datatype: Categorical
+                    dataType: Categorical
                     description: Allele of marker 11_4769
                     name: Rht-B1b
                     uri: http://www.brapi.org/ontology/MO_123:1000001
@@ -53,7 +50,7 @@ paths:
                   - attributeCategoryDbId: '3'
                     attributeDbId: '2'
                     code: WEV
-                    datatype: Categorical
+                    dataType: Categorical
                     description: Resistance allele
                     name: Weevil Resistance
                     uri: http://www.brapi.org/ontology/MO_123:1000002

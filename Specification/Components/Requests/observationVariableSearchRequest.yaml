@@ -42,10 +42,10 @@ components:
           items:
             type: string
           type: array
-        datatypes:
+        dataTypes:
           description: List of scale data types to filter search results
           items:
-            $ref: '#/components/schemas/traitDatatype'
+            $ref: '#/components/schemas/traitDataType'
           type: array
         scaleXrefs:
           description: List of cross references for the scale to search for

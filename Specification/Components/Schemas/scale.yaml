@@ -4,7 +4,7 @@ components:
       description: Scale metadata
       properties:
         dataType:
-          $ref: '#/components/schemas/traitDatatype'
+          $ref: '#/components/schemas/traitDataType'
         decimalPlaces:
           description: For numerical, number of decimal places to be reported
           type: integer

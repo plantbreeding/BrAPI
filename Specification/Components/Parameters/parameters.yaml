@@ -30,7 +30,7 @@ components:
       in: header
       required: true
       schema:
-        $ref: '#/components/schemas/WSMIMEDatatypes'
+        $ref: '#/components/schemas/WSMIMEDataTypes'
     authorizationHeader:
       name: Authorization
       description: |-
