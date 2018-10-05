@@ -36,6 +36,8 @@ components:
         studyDbId:
           description: The ID which uniquely identifies a study within the given database server
           type: string
+        season:
+          $ref: '#/components/schemas/season'
         uploadedBy:
           description: The name or id of the user who uploaded the observation to the database system
           type: string
