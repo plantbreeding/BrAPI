@@ -5,10 +5,9 @@ openapi: 3.0.0
 paths:
   /vendor/specifications:
     get:
-      description: ' Defines the plate format specification for the vendor.
-
-
-        test-server.brapi.org/brapi/v1/vendor/specifications'
+      description: Defines the plate format specification for the vendor.
+      parameters: 
+      - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
           content:

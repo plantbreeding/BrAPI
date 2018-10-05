@@ -5,14 +5,10 @@ openapi: 3.0.0
 paths:
   /studies/{studyDbId}/observationvariables:
     get:
-      description: ' Scope: PHENOTYPING
-
+      description: |-
         List all the observation variables measured in the study.
 
         Refer to the data type definition of variables in `/Specification/ObservationVariables/README.md`.
-
-
-        test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationvariables'
       parameters:
       - description: string database unique identifier
         in: path
@@ -22,6 +18,7 @@ paths:
           type: string
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
           content:

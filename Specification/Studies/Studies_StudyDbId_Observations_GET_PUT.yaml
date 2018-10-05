@@ -26,6 +26,7 @@ paths:
           type: array
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
           content:
@@ -87,10 +88,16 @@ paths:
       - Studies
       - Observations
     put:
-      description: ' Implementation Guidelines: + If an `observationDbId` is "null" or an empty string in the request, a NEW observation should be created for the given study and observationUnit + If an `observationDbId` is populated but not found in the database, a NEW observation should be created for the given study and observationUnit AND an NEW `observationDbId` should be assigned to it. A warning should be returned to the client. + If an `observationDbId` is populated and found in the database, but the existing entry is not associated with the given study or observationUnit, a NEW observation should be created for the given study and observationUnit AND an NEW `observationDbId` should be assigned to it. A warning should be returned to the client. + If an `observationDbId` is populated and found in the database and is associated with the given study and observationUnit, then it should be updated with the new data given.
-
-
-        test-server.brapi.org/brapi/v1/studies/{studyDbId}/observations'
+      description: |-
+        Implementation Guidelines: 
+        
+        + If an `observationDbId` is "null" or an empty string in the request, a NEW observation should be created for the given study and observationUnit 
+        
+        + If an `observationDbId` is populated but not found in the database, a NEW observation should be created for the given study and observationUnit AND an NEW `observationDbId` should be assigned to it. A warning should be returned to the client. 
+        
+        + If an `observationDbId` is populated and found in the database, but the existing entry is not associated with the given study or observationUnit, a NEW observation should be created for the given study and observationUnit AND an NEW `observationDbId` should be assigned to it. A warning should be returned to the client. 
+        
+        + If an `observationDbId` is populated and found in the database and is associated with the given study and observationUnit, then it should be updated with the new data given.
       parameters:
       - description: Identifier of the study. Usually a number, could be alphanumeric.
         in: path
@@ -98,6 +105,7 @@ paths:
         required: true
         schema:
           type: string
+      - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
         content:
           application/json:

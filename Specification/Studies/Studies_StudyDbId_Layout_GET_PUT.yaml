@@ -24,6 +24,7 @@ paths:
           type: string
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
           content:
@@ -82,16 +83,20 @@ paths:
       tags:
       - Studies
     put:
-      description: ' Modify a study layout
+      description: |- 
+        Modify a study layout
 
         Update the layout data for a set of observation units within a study. Each layout object is a subset of fields within an observationUnit, so it doesnt make sense to create a new layout object by itself.
 
         Implementation Notes:
 
-        + If any of the fields in the request object is missing, that piece of data will not be updated. + If an observationUnitDbId can not be found within the given study, an error will be returned. + `entryType` can have the values "check", "test", or "filler". + The response should match the structure of the response from `GET studies/{studyDbId}/layout`, but it should only contain the layout objects which have been updated by the PUT request. Also, pagination is not available in the response.
-
-
-        test-server.brapi.org/brapi/v1/studies/{studyDbId}/layout '
+        + If any of the fields in the request object is missing, that piece of data will not be updated. 
+        
+        + If an observationUnitDbId can not be found within the given study, an error will be returned. 
+        
+        + `entryType` can have the values "check", "test", or "filler". 
+        
+        + The response should match the structure of the response from `GET studies/{studyDbId}/layout`, but it should only contain the layout objects which have been updated by the PUT request. Also, pagination is not available in the response.
       parameters:
       - description: Identifier of the study. Usually a number, could be alphanumeric.
         in: path
@@ -99,6 +104,7 @@ paths:
         required: true
         schema:
           type: string
+      - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
         content:
           application/json:

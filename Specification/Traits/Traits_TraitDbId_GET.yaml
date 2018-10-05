@@ -5,14 +5,7 @@ openapi: 3.0.0
 paths:
   /traits/{traitDbId}:
     get:
-      description: ' Scope: CORE. Status: ACCEPTED.
-
-        Implemented by: Germinate
-
-        Retrieve the variables associated to a trait
-
-
-        test-server.brapi.org/brapi/v1/traits/{traitDbId}'
+      description: Retrieve the variables associated to a trait
       parameters:
       - description: Id of the trait to retrieve details of.
         in: path
@@ -20,6 +13,7 @@ paths:
         required: true
         schema:
           type: string
+      - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
           content:

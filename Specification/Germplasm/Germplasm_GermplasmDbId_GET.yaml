@@ -22,6 +22,7 @@ paths:
         required: true
         schema:
           type: string
+      - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
           content:

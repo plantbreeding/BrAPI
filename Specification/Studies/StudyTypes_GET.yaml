@@ -5,15 +5,11 @@ openapi: 3.0.0
 paths:
   /studytypes:
     get:
-      description: ' Call to retrieve the list of study types.
-
-        Scope: PHENOTYPING. Implementation target date: PAG2016
-
-
-        test-server.brapi.org/brapi/v1/studytypes'
+      description: Call to retrieve the list of study types.
       parameters:
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
           content:

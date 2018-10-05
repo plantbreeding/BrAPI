@@ -33,6 +33,8 @@ paths:
              
         observationTimeStampRangeStart and observationTimeStampRangeEnd use Iso Standard 8601.
         observationValue data type inferred from the ontology
+      parameters: 
+      - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
         content:
           application/json:

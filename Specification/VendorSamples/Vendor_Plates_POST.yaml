@@ -8,6 +8,8 @@ paths:
       description: 'Note: if the samples array is empty, plate ID will be returned.
 
         Samples can be updated later.'
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
         content:
           application/json:

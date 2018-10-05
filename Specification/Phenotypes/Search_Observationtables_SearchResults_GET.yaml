@@ -13,6 +13,7 @@ paths:
         observationValue data type inferred from the ontology
       parameters:
       - $ref: '#/components/parameters/acceptHeader'
+      - $ref: '#/components/parameters/authorizationHeader'
       - $ref: '#/components/parameters/searchResultsDbId'
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'

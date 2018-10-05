@@ -9,6 +9,8 @@ paths:
         Get list of studies
         StartDate and endDate should be ISO8601 format for dates
         See Search Services for additional implementation details.
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
         content:
           application/json:

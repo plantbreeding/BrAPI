@@ -8,6 +8,8 @@ paths:
       description: |-
         Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
         See Search Services for additional implementation details.
+      parameters: 
+      - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
         content:
           application/json:
