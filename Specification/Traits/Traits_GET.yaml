@@ -5,17 +5,11 @@ openapi: 3.0.0
 paths:
   /traits:
     get:
-      description: ' Scope: CORE. Status: ACCEPTED.
-
-        Implemented by: Germinate, Cassavabase
-
-        Call to retrieve a list of traits available in the system and their associated variables.
-
-
-        test-server.brapi.org/brapi/v1/traits'
+      description: Call to retrieve a list of traits available in the system and their associated variables.
       parameters:
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
           content:

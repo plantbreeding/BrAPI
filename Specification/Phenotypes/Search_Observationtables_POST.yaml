@@ -9,6 +9,8 @@ paths:
         Returns a list of observationUnit with the observed Phenotypes.
         observationTimeStamp - Iso Standard 8601.
         observationValue data type inferred from the ontology
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
         content:
           application/json:

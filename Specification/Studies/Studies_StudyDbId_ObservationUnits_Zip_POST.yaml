@@ -13,6 +13,7 @@ paths:
         required: true
         schema:
           type: string
+      - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
         content:
           application/zip:

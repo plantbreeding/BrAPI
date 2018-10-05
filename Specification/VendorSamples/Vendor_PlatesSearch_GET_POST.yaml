@@ -37,6 +37,7 @@ paths:
           type: boolean
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
           content:
@@ -97,11 +98,9 @@ paths:
       - Vendor Samples
       - Search Services
     post:
-      description: 'Search for plates in the database.
-
-
-
-        test-server.brapi.org/brapi/v1/vendor/plate-search'
+      description: Search for plates in the database.
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
         content:
           application/json:

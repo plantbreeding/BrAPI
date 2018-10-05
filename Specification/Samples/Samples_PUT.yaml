@@ -5,9 +5,9 @@ openapi: 3.0.0
 paths:
   /samples:
     put:
-      description: 'Call to register the event of a sample being taken. Sample ID is assigned as a result of the operation and returned in response.
-
-        '
+      description: Call to register the event of a sample being taken. Sample ID is assigned as a result of the operation and returned in response.
+      parameters: 
+      - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
         content:
           application/json:

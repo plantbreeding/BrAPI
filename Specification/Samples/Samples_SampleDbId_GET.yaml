@@ -5,10 +5,7 @@ openapi: 3.0.0
 paths:
   /samples/{sampleDbId}:
     get:
-      description: ' Used to retrieve the details of a single Sample from a Sample Tracking system.
-
-
-        test-server.brapi.org/brapi/v1/samples/{sampleDbId}'
+      description: Used to retrieve the details of a single Sample from a Sample Tracking system.
       parameters:
       - description: the internal DB id for a sample
         in: path
@@ -16,6 +13,7 @@ paths:
         required: true
         schema:
           type: string
+      - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
           content:

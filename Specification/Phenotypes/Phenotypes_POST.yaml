@@ -11,10 +11,8 @@ paths:
         in: query
         name: format
         schema:
-          enum:
-          - json
-          - zip
-          type: string
+          $ref: '#/components/schemas/WSMIMEDatatypes'
+      - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
         content:
           application/json:

@@ -63,6 +63,7 @@ paths:
           type: string
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
           content:
@@ -126,6 +127,8 @@ paths:
 
 
         The format of the tsv response can be found on GitHub (https://github.com/plantbreeding/Documentation/wiki/BrAPI-TSV-Expected-Formats)'
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
         content:
           application/json:

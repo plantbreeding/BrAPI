@@ -5,10 +5,7 @@ openapi: 3.0.0
 paths:
   /trials:
     get:
-      description: ' Scope: PHENOTYPING. Status: ACCEPTED. Implementation target date: PAG2016.
-
-
-        test-server.brapi.org/brapi/v1/trials'
+      description: Retrieve a filtered list of Trials. A Trial is a collection of studies 
       parameters:
       - description: Program filter to only return trials associated with given program id.
         in: query
@@ -22,8 +19,6 @@ paths:
         required: false
         schema:
           type: string
-      - $ref: '#/components/parameters/page'
-      - $ref: '#/components/parameters/pageSize'
       - description: Filter active status true/false.
         in: query
         name: active
@@ -42,6 +37,9 @@ paths:
         required: false
         schema:
           type: string
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
           content:

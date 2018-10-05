@@ -1,0 +1,12 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  securitySchemes:
+    AuthorizationToken: 
+      type: http
+      scheme: bearer
+      bearerFormat: nonce token or JWT 
+      description: OAuth Bearer Token - A valid Bearer token to prove authorization

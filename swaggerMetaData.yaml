@@ -18,6 +18,8 @@ info:
   version: '1.3'
 paths: {}
 components: {}
+security:
+  - bearerAuth: []
 tags:
 - name: Calls
   description: Check the available calls on a server

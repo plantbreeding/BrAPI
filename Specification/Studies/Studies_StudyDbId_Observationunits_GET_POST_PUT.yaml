@@ -5,12 +5,7 @@ openapi: 3.0.0
 paths:
   /studies/{studyDbId}/observationunits:
     get:
-      description: ' The main API call for field data collection, to retrieve all the observation units within a study.
-
-        Scope: PHENOTYPING
-
-
-        test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationunits'
+      description:  The main API call for field data collection, to retrieve all the observation units within a study.
       parameters:
       - description: The study these observation units are related to.
         in: path
@@ -26,6 +21,7 @@ paths:
           type: string
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
           content:
@@ -142,6 +138,7 @@ paths:
         required: true
         schema:
           type: string
+      - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
         content:
           application/json:
@@ -186,6 +183,7 @@ paths:
         required: true
         schema:
           type: string
+      - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
         content:
           application/json:

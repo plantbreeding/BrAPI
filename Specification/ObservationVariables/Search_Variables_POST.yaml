@@ -8,6 +8,8 @@ paths:
       description: |-
         Search observation variables.
         See Search Services for additional implementation details.
+      parameters: 
+      - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
         content:
           application/json:
