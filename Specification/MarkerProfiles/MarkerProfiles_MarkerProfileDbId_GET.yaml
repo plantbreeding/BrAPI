@@ -22,12 +22,6 @@ paths:
         
         Open issue: The pages of data will need to be sorted sensibly in order for the requested page to be delivered consistently.  By map or genome position? Alphabetically?'"
       parameters:
-      - name: markerprofileDbId
-        description: DEPRECATED in v1.3 - see "markerProfileDbId" (camel case)
-        deprecated: true
-        in: path
-        schema:
-          type: string
       - name: markerProfileDbId
         description: The server's internal id for the marker profile
         in: path

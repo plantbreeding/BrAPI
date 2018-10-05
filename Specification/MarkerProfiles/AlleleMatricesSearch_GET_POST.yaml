@@ -7,7 +7,7 @@ paths:
     get:
       description: "Status: ACCEPTED.\n\nImplemented by: Germinate (POST only), Cassavabase\n\nUsed by: Flapjack (POST only)\n\nSee Search Services for additional implementation details.\n\nThis uses a more efficient data structure and pagination for large number of markers.\n\nSee Search Services for additional implementation details.\n\n\n\nThis uses a more efficient data structure and pagination for large number of markers. \n\n\n\nUse GET when parameter size is less than 2K bytes.\nThis method may support asynchronous processing."
       parameters:
-      -  name: markerprofileDbId
+      - name: markerprofileDbId
         description: DEPRECATED in v1.3 - see "markerProfileDbId" (camel case)
         in: query
         required: false
