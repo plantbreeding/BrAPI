@@ -19,7 +19,7 @@ info:
 paths: {}
 components: {}
 security:
-  - bearerAuth: []
+  - AuthorizationToken: []
 tags:
 - name: Calls
   description: Check the available calls on a server
