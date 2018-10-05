@@ -44,6 +44,8 @@ components:
         xref:
           description: Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term
           type: string
+        ontologyRefernce:
+          $ref: '#/components/schemas/ontologyRefernce'
       type: object
 info:
   title: BrAPI

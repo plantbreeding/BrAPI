@@ -2,6 +2,12 @@ components:
   schemas:
     VariableBaseClass:
       properties:
+        method:
+          $ref: '#/components/schemas/method'
+        scale:
+          $ref: '#/components/schemas/scale'
+        trait:
+          $ref: '#/components/schemas/trait'
         contextOfUse:
           description: 'Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])'
           items:
@@ -22,16 +28,14 @@ components:
         language:
           description: 2 letter ISO code for the language of submission of the variable.
           type: string
-        method:
-          $ref: '#/components/schemas/method'
         ontologyDbId:
-          description: Variable ontology unique identifier
+          description: DEPRECATED in v1.3 - see "this.ontologyRefernce.ontologyDbId"
+          deprecated: true
           type: string
         ontologyName:
-          description: Variable ontology name (usually a short name)
+          description: DEPRECATED in v1.3 - see "this.ontologyRefernce.ontologyName"
+          deprecated: true
           type: string
-        scale:
-          $ref: '#/components/schemas/scale'
         scientist:
           description: Name of scientist submitting the variable.
           type: string
@@ -47,8 +51,6 @@ components:
           items:
             type: string
           type: array
-        trait:
-          $ref: '#/components/schemas/trait'
         xref:
           description: Cross reference of the variable term to a term from an external ontology or to a database of a major system.
           type: string
@@ -56,10 +58,10 @@ components:
           description: A URL to the human readable documentation of this object
           type: string
           format: uri
+        ontologyRefernce:
+          $ref: '#/components/schemas/ontologyRefernce'
       type: object
       required:
-      - ontologyDbId
-      - ontologyName
       - trait
       - method
       - scale
