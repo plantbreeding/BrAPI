@@ -7,57 +7,65 @@ paths:
     get:
       description: "Status: ACCEPTED.\n\nImplemented by: Germinate (POST only), Cassavabase\n\nUsed by: Flapjack (POST only)\n\nSee Search Services for additional implementation details.\n\nThis uses a more efficient data structure and pagination for large number of markers.\n\nSee Search Services for additional implementation details.\n\n\n\nThis uses a more efficient data structure and pagination for large number of markers. \n\n\n\nUse GET when parameter size is less than 2K bytes.\nThis method may support asynchronous processing."
       parameters:
-      - description: The markerprofile db ids. Not Required if 'markerDbId' or 'matrixDbId' is present.
+      -  name: markerprofileDbId
+        description: DEPRECATED in v1.3 - see "markerProfileDbId" (camel case)
         in: query
-        name: markerprofileDbId
         required: false
         schema:
           items:
             type: string
           type: array
-      - description: ids of the markers. if none are specified, results are returned for all markers in the database. Not Required if 'markerprofileDbId' or 'matrixDbId' is present.
+      - name: markerProfileDbId
+        description: The marker Profile db ids. Not Required if 'markerDbId' or 'matrixDbId' is present.
         in: query
-        name: markerDbId
         required: false
         schema:
           items:
             type: string
           type: array
-      - description: ''
+      - name: markerDbId
+        description: ids of the markers. if none are specified, results are returned for all markers in the database. Not Required if 'markerProfileDbId' or 'matrixDbId' is present.
         in: query
-        name: matrixDbId
         required: false
         schema:
           items:
             type: string
           type: array
-      - description: format for the datafile to be downloaded. tsv and csv currently supported; flapjack may be supported.
+      - name: matrixDbId
+        description: ''
         in: query
-        name: format
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+      - name: format
+        description: format for the datafile to be downloaded. tsv and csv currently supported; flapjack may be supported.
+        in: query
         required: false
         schema:
           type: string
-      - description: Should homozygotes NOT be collapsed into a single occurrence?
+      - name: expandHomozygotes
+        description: Should homozygotes NOT be collapsed into a single occurrence?
         in: query
-        name: expandHomozygotes
         required: false
         schema:
           type: boolean
-      - description: The string to use as a representation for missing data or the reserved word "empty_string".
+      - name: unknownString
+        description: The string to use as a representation for missing data or the reserved word "empty_string".
         in: query
-        name: unknownString
         required: false
         schema:
           type: string
-      - description: The string to use as a separator for phased allele calls or the reserved word "empty_string".
+      - name: sepPhased
+        description: The string to use as a separator for phased allele calls or the reserved word "empty_string".
         in: query
-        name: sepPhased
         required: false
         schema:
           type: string
-      - description: The string to use as a separator for unphased allele calls or the reserved word "empty_string".
+      - name: sepUnphased
+        description: The string to use as a separator for unphased allele calls or the reserved word "empty_string".
         in: query
-        name: sepUnphased
         required: false
         schema:
           type: string
@@ -134,7 +142,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/alleleMatrixSearchRequest'
-        description: The markerprofile db ids. Not Required if 'markerDbId' or 'matrixDbId' is present.
+        description: The marker profile db ids. Not Required if 'markerDbId' or 'matrixDbId' is present.
         required: true
       responses:
         '200':

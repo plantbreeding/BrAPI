@@ -14,6 +14,12 @@ components:
             type: string
           type: array
         markerprofileDbId:
+          description: DEPRECATED in v1.3 - see "markerProfileDbId" (camel case)
+          deprecated: true
+          items:
+            type: string
+          type: array
+        markerProfileDbId: 
           description: An ID which uniquely identifies a Marker Profile
           items:
             type: string

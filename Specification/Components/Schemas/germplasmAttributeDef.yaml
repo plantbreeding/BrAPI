@@ -20,7 +20,7 @@ components:
             deprecated: true
             type: string
           datatype:
-            description: DEPRECATED in v1.3 - see "this.scale.datatype"
+            description: DEPRECATED in v1.3 - see "this.scale.dataType"
             deprecated: true
             type: string
           description:

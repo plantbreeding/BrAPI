@@ -3,37 +3,58 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /markerprofiles/{markerprofileDbId}:
+  /markerprofiles/{markerProfileDbId}:
     get:
-      description: "Scope:GENOTYPING.\nStatus: ACCEPTED.\nImplemented by: Germinate, Cassavabase\n\n\n\nFor the requested markerprofile ID, returns the allele call for each marker. \n[Example](http://malt.pw.usda.gov/t3/wheatplus/markerprofiles/1784_99/count?analysisMethod=GoldenGate)\n\n\n\nAllele encodings\n\n- Unknown data will by default be encoded by \"N\"\n- Homozygotes are returned as a single occurance, e.g. AA -> A, GG -> G\n- Phased heterozygotes are by default separated by a pipe (\"|\") and unphased heterozygotes are by default separated by a forward slash (\"/\")\n- Dominant markers such as DArTs: 1 for present, 0 for absent\n\nParameters\n- If the user would like to use an empty string (\"\") for any of the parameters, the value should be set to the reserved word \"empty_string\", e.g. sepUnphased=empty_string.\n\nOpen issue:\nThe pages of data will need to be sorted sensibly in order for the\nrequested page to be delivered consistently.  By map or genome position?\nAlphabetically?'"
+      description: |-
+        For the requested marker profile ID, returns the allele call for each marker. 
+                
+        Allele encodings
+        
+        - Unknown data will by default be encoded by \"N\"
+        
+        - Homozygotes are returned as a single occurance, e.g. AA -> A, GG -> G
+        
+        - Phased heterozygotes are by default separated by a pipe (\"|\") and unphased heterozygotes are by default separated by a forward slash (\"/\")
+        
+        - Dominant markers such as DArTs: 1 for present, 0 for absent
+                
+        - If the user would like to use an empty string (\"\") for any of the parameters, the value should be set to the reserved word \"empty_string\", e.g. sepUnphased=empty_string.
+        
+        Open issue: The pages of data will need to be sorted sensibly in order for the requested page to be delivered consistently.  By map or genome position? Alphabetically?'"
       parameters:
-      - description: The server's internal id for the markerprofile
+      - name: markerprofileDbId
+        description: DEPRECATED in v1.3 - see "markerProfileDbId" (camel case)
+        deprecated: true
         in: path
-        name: markerprofileDbId
+        schema:
+          type: string
+      - name: markerProfileDbId
+        description: The server's internal id for the marker profile
+        in: path
         required: true
         schema:
           type: string
-      - description: Should homozygotes NOT be collapsed into a single orrucance?
+      - name: expandHomozygotes
+        description: Should homozygotes NOT be collapsed into a single orrucance?
         in: query
-        name: expandHomozygotes
         required: false
         schema:
           type: boolean
-      - description: The string to use as a representation for missing data or the reserved word "empty_string".
+      - name: unknownString
+        description: The string to use as a representation for missing data or the reserved word "empty_string".
         in: query
-        name: unknownString
         required: false
         schema:
           type: string
-      - description: The string to use as a separator for phased allele calls or the reserved word "empty_string".
+      - name: sepPhased
+        description: The string to use as a separator for phased allele calls or the reserved word "empty_string".
         in: query
-        name: sepPhased
         required: false
         schema:
           type: string
-      - description: The string to use as a separator for unphased allele calls or the reserved word "empty_string".
+      - name: sepUnphased
+        description: The string to use as a separator for unphased allele calls or the reserved word "empty_string".
         in: query
-        name: sepUnphased
         required: false
         schema:
           type: string
@@ -71,7 +92,7 @@ paths:
                       - marker1-2: '0'
                       extractDbId: extract1
                       germplasmDbId: '1'
-                      markerprofileDbId: mp1
+                      markerProfileDbId: mp1
                       uniqueDisplayName: My Fancy Germplasm
           description: OK
           headers: {}

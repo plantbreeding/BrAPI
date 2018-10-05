@@ -6,6 +6,11 @@ components:
           description: The ID which uniquely identifies a germplasm within the given database server
           type: string
         markerprofileDbIds:
+          description: DEPRECATED in v1.3 - see "markerProfileDbIds" (camel case)
+          deprecated: true
+          items:
+            type: string
+        markerProfileDbIds: 
           description: The ID which uniquely identifies a marker profile within the given database server
           items:
             type: string

@@ -11,7 +11,7 @@ paths:
         in: query
         name: format
         schema:
-          $ref: '#/components/schemas/WSMIMEDatatypes'
+          $ref: '#/components/schemas/WSMIMEDataTypes'
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
         content:

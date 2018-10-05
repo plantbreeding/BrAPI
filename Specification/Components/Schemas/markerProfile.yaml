@@ -6,9 +6,7 @@ components:
           description: The type of analysis performed to determine a set of marker data
           type: string
         data:
-          description: 'Required
-
-            array of marker-name/score pairs'
+          description: array of marker-name/score pairs
           items:
             additionalProperties:
               type: string
@@ -21,12 +19,20 @@ components:
           description: Required
           type: string
         markerprofileDbId:
+          description: DEPRECATED in v1.3 - see "markerProfileDbId" (camel case)
+          type: string
+        markerProfileDbId: 
           description: Unique in the database. Can be a catenation of unique IDs for germplasm and extract. Required
           type: string
         uniqueDisplayName:
           description: Human readable display name for this marker profile
           type: string
       type: object
+      required:
+      - data
+      - extractDbId
+      - germplasmDbId
+      - markerProfileDbId
 info:
   title: BrAPI
   version: ''

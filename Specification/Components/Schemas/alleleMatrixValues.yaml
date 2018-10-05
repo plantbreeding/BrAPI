@@ -3,7 +3,7 @@ components:
     alleleMatrixValues:
       properties:
         data:
-          description: 'Is an array of arrays; each inner array has three entries: ```markerDbId```, ```markerprofileDbId```, ```alleleCall```. Scores have to be represented as described further up. e.g. unknown data as "N", etc. Missing data can be skipped.'
+          description: 'Is an array of arrays; each inner array has three entries: ```markerDbId```, ```markerProfileDbId```, ```alleleCall```. Scores have to be represented as described further up. e.g. unknown data as "N", etc. Missing data can be skipped.'
           items:
             items:
               type: string

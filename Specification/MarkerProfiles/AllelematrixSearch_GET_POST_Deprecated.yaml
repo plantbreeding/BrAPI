@@ -8,7 +8,7 @@ paths:
       deprecated: true
       description: "Status: ACCEPTED.\n\nImplemented by: Germinate (POST only), Cassavabase\n\nUsed by: Flapjack (POST only)\n\nSee Search Services for additional implementation details.\n\nThis uses a more efficient data structure and pagination for large number of markers.\n\nSee Search Services for additional implementation details.\n\n\n\nThis uses a more efficient data structure and pagination for large number of markers. \n\n\n\nUse GET when parameter size is less than 2K bytes.\nThis method may support asynchronous processing."
       parameters:
-      - description: The markerprofile db ids. Not Required if 'markerDbId' or 'matrixDbId' is present.
+      - description: The marker profile db ids. Not Required if 'markerDbId' or 'matrixDbId' is present.
         in: query
         name: markerprofileDbId
         required: false

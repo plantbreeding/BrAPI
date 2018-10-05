@@ -44,7 +44,7 @@ The metadata key is structured as followed:
 
 ````
 
-+  **pagination**: The `pagination` object is applicable only when the payload contains a "data" key. It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. Pages are zero indexed, so the first page will be page 0 (zero).
++  **pagination**: The `pagination` object is applicable only when the payload contains a "data" key. It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. Pages are zero indexed, so the first page will be page 0 (zero). If the "data" key is not present in the results, pagination should be ignored. 
 
 + **datafiles**: The `datafiles` key contains a list of file paths, which can be relative or complete URLs. These files contain additional information related to the returned object and can be retrieved by a subsequent call. The empty list should be returned if no additional data files are present.
 
@@ -77,12 +77,7 @@ The BRAPI response payload, which is contained in the "result" key, allows for t
 ````
 {
   "metadata" : {
-    "pagination" : {
-      "totalCount" : 0,
-      "pageSize" : 0,
-      "totalPages" : 0,
-      "currentPage" : 0
-    },
+    "pagination" : {},
     "status" : [ ],
     "datafiles" : [ ]
   },
