@@ -23,6 +23,8 @@ components:
         xref:
           description: Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database
           type: string
+        ontologyRefernce:
+          $ref: '#/components/schemas/ontologyRefernce'
       type: object
 info:
   title: BrAPI

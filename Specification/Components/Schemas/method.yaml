@@ -26,6 +26,8 @@ components:
         reference:
           description: Bibliographical reference describing the method.
           type: string
+        ontologyRefernce:
+          $ref: '#/components/schemas/ontologyRefernce'
       type: object
 info:
   title: BrAPI
