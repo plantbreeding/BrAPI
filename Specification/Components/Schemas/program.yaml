@@ -21,6 +21,10 @@ components:
         programName:
           description: Human readable name of the program
           type: string
+        documentationURL:
+          description: A URL to the human readable documentation of this object
+          type: string
+          format: uri
       type: object
 info:
   title: BrAPI

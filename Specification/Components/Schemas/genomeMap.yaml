@@ -43,6 +43,10 @@ components:
         unit:
           description: The units used to describe the data in this map
           type: string
+        documentationURL:
+          description: A URL to the human readable documentation of this object
+          type: string
+          format: uri
       required:
       - mapDbId
       - commonCropName

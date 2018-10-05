@@ -23,6 +23,10 @@ components:
         version:
           description: Ontology version (no specific format)
           type: string
+        documentationURL:
+          description: A URL to the human readable documentation of this object
+          type: string
+          format: uri
       required:
       - ontologyDbId
       - ontologyName

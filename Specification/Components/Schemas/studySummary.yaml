@@ -54,6 +54,10 @@ components:
         trialName:
           description: The human readable name of a trial
           type: string
+        documentationURL:
+          description: A URL to the human readable documentation of this object
+          type: string
+          format: uri
       type: object
 info:
   title: BrAPI
