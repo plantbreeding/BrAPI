@@ -13,7 +13,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/observationVariableSearchRequest'
+              $ref: '#/components/schemas/observationVariableSearchRequest_Dep'
       responses:
         '200':
           content:

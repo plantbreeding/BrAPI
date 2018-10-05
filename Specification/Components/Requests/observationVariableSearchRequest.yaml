@@ -2,22 +2,6 @@ components:
   schemas:
     observationVariableSearchRequest:
       properties:
-        datatypes:
-          description: List of scale data types to filter search results
-          items:
-            $ref: '#/components/schemas/traitDatatype'
-          type: array
-        methodDbIds:
-          description: List of methods to filter search results
-          items:
-            type: string
-          type: array
-        names:
-          description: DEPRECATED in v1.3 - see "observationVariableNames"
-          deprecated: true
-          items:
-            type: string
-          type: array
         observationVariableNames:
           description: List of human readable observation variable names to search for
           items:
@@ -28,18 +12,48 @@ components:
           items:
             type: string
           type: array
+        observationVariableXrefs:
+          description: List of cross references for the observation variable to search for
+          items:
+            type: string
+          type: array
         ontologyDbIds:
           description: List of ontology IDs to search for
           items:
             type: string
           type: array
-        ontologyXrefs:
-          description: DEPRECATED in v1.3 - see "xrefs"
+        traitDbIds:
+          description: List of trait unique ID to filter search results
           items:
             type: string
           type: array
-        xrefs:
-          description: List of cross reference values to search for
+        traitClasses:
+          description: List of trait classes to filter search results
+          items:
+            type: string
+          type: array
+        traitXrefs:
+          description: List of cross references for the trait to search for
+          items:
+            type: string
+          type: array
+        scaleDbIds:
+          description: List of scales to filter search results
+          items:
+            type: string
+          type: array
+        datatypes:
+          description: List of scale data types to filter search results
+          items:
+            $ref: '#/components/schemas/traitDatatype'
+          type: array
+        scaleXrefs:
+          description: List of cross references for the scale to search for
+          items:
+            type: string
+          type: array
+        methodDbIds:
+          description: List of methods to filter search results
           items:
             type: string
           type: array
@@ -49,16 +63,6 @@ components:
         pageSize:
           description: The maximum number of items to return per page of the "data" array. Default is 1000.
           type: integer
-        scaleDbIds:
-          description: List of scales to filter search results
-          items:
-            type: string
-          type: array
-        traitClasses:
-          description: List of trait classes to filter search results
-          items:
-            type: string
-          type: array
       type: object
 info:
   title: BrAPI
