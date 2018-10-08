@@ -1,0 +1,83 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /lists:
+    get:
+      description: Get filtered set of generic lists
+      parameters:
+      - name: listType
+        description: The type of objects contained by this genreic list
+        in: query
+        required: false
+        schema:
+          $ref: '#/components/schemas/listTypes'
+      - name: listName
+        description: The human readable name of this genreic list
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: listDbId
+        description: The unique ID of this genreic list
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: listSource
+        description: The source tag of this genreic list
+        in: query
+        required: false
+        schema:
+          type: string
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    type: object
+                    properties:
+                      data:
+                        type: array
+                        description: Array of generic list summaries
+                        items:
+                          $ref: '#/components/schemas/listSummary'
+          description: OK
+          headers: {}
+      summary: Get List Summaries
+      tags:
+      - Lists
+    post: 
+      description: Create a new list
+      parameters: 
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/newListRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/listDetails'
+          description: OK
+          headers: {}
+      summary: Create a New List
+      tags:
+      - Lists

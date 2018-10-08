@@ -1,0 +1,14 @@
+components:
+  parameters: 
+    searchResultsDbId:
+      name: searchResultsDbId
+      description: Permanent unique identifier which references the search results
+      in: path
+      required: true
+      schema:
+        type: string
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
