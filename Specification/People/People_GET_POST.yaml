@@ -1,0 +1,83 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /people:
+    get:
+      description: Get filtered list of people
+      parameters:
+      - name: firstName
+        description: A persons first name
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: lastName
+        description: A persons last name
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: personDbId
+        description: The unique ID of a person
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: userID
+        description: A systems user ID ascociated with this person. Different from personDbId because you could have a person who is not a user of the system.
+        in: query
+        required: false
+        schema:
+          type: string
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    type: object
+                    properties:
+                      data:
+                        type: array
+                        description: Array of people
+                        items:
+                          $ref: '#/components/schemas/person'
+          description: OK
+          headers: {}
+      summary: Get People
+      tags:
+      - People
+    post: 
+      description: Create a new person
+      parameters: 
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/newPersonRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/person'
+          description: OK
+          headers: {}
+      summary: Create a New Person
+      tags:
+      - People

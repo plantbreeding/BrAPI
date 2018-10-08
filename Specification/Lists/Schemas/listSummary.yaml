@@ -14,7 +14,9 @@ components:
           type: string
         listDbId: 
           type: string
-        listOwner: 
+        listOwnerName: 
+          type: string
+        listOwnerPersonDbId: 
           type: string
         dateCreated:
           type: string

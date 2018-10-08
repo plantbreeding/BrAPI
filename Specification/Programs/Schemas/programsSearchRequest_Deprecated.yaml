@@ -9,8 +9,7 @@ components:
           description: The name or identifier of the program leader to search for
           type: string
         name:
-          description: DEPRECATED in v1.3 - Use "programName"
-          deprecated: true
+          description: A name of a program to search for
           type: string
         objective:
           description: A program objective to search for
@@ -23,9 +22,6 @@ components:
           type: integer
         programDbId:
           description: A program identifier to search for
-          type: string
-        programName:
-          description: A name of a program to search for
           type: string
       type: object
 info:
