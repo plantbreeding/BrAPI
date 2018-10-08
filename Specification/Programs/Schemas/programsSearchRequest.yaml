@@ -7,8 +7,13 @@ components:
           type: array
           items:
             type: string
-        leadPersons:
-          description: The name or identifier of the program leader to search for
+        leadPersonNames:
+          description: The names of the program leader to search for
+          type: array
+          items:
+            type: string
+        leadPersonDbIds:
+          description: The person DbIds of the program leader to search for
           type: array
           items:
             type: string

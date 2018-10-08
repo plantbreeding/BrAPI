@@ -12,7 +12,9 @@ components:
           type: string
         description: 
           type: string
-        listOwner: 
+        listOwnerName: 
+          type: string
+        listOwnerPersonDbId: 
           type: string
         listType: 
           $ref: '#/components/schemas/listTypes'
