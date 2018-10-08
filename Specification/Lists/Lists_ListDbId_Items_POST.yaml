@@ -1,0 +1,39 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /lists/{listDbId}/items:
+    post:
+      description: Add new data to a specific generic lists
+      parameters:
+      - name: listDbId
+        description: The unique ID of this genreic list
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody: 
+        content: 
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/listDetails'
+          description: OK
+          headers: {}
+      summary: Add Items
+      tags:
+      - Lists

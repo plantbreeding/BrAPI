@@ -1,0 +1,66 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /lists/{listDbId}:
+    get:
+      description: Get a specific generic lists
+      parameters:
+      - name: listDbId
+        description: The unique ID of this genreic list
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/listDetails'
+          description: OK
+          headers: {}
+      summary: Get List Details
+      tags:
+      - Lists
+    put: 
+      description: Update an existing generic list
+      parameters: 
+      - name: listDbId
+        description: The unique ID of this genreic list
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/newListRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/listDetails'
+          description: OK
+          headers: {}
+      summary: Update a List
+      tags:
+      - Lists
+      
+        
+      

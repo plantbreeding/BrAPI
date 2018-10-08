@@ -1,0 +1,28 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components: 
+  schemas: 
+    newListRequest:
+      type: object
+      properties:
+        listName:
+          type: string
+        description: 
+          type: string
+        listOwner: 
+          type: string
+        listType: 
+          $ref: '#/components/schemas/listTypes'
+        listSource: 
+          type: string
+        listSize: 
+          type: integer
+        data:
+          type: array
+          items: 
+            type: string
+      required: 
+      - listType

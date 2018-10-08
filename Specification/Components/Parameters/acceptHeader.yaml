@@ -1,0 +1,15 @@
+components:
+  parameters:
+    acceptHeader:
+      name: Accept
+      description: The requested content type which should be returned by the server
+      example: application/json
+      in: header
+      required: true
+      schema:
+        $ref: '#/components/schemas/WSMIMEDataTypes'
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

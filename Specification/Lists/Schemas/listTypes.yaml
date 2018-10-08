@@ -1,0 +1,19 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components: 
+  schemas: 
+    listTypes:
+      type: string
+      enum: 
+      - germplasm
+      - markers
+      - programs
+      - trials
+      - studies
+      - observationUnits
+      - observations
+      - observationVariables
+      - samples
