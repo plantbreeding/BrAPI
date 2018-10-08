@@ -8,7 +8,7 @@ paths:
       description: Add new data to a specific generic lists
       parameters:
       - name: listDbId
-        description: The unique ID of this genreic list
+        description: The unique ID of this generic list
         in: path
         required: true
         schema:
@@ -34,6 +34,14 @@ paths:
                     $ref: '#/components/schemas/listDetails'
           description: OK
           headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
       summary: Add Items
       tags:
       - Lists

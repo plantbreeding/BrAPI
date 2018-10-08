@@ -93,6 +93,12 @@ paths:
                         vendorProjectDbId: vp1
           description: OK
           headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
       summary: Search for plates
       tags:
       - Vendor Samples
@@ -221,6 +227,12 @@ paths:
                         vendorProjectDbId: vp1
           description: OK
           headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
       summary: Search for plates
       tags:
       - Vendor Samples

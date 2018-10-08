@@ -1,0 +1,15 @@
+components:
+  responses:
+    400BadRequest:
+      content:
+        application/json:
+          example: ERROR - 2018-10-08T20:15:11Z - Malformed JSON!
+          schema:
+            type: string
+      description: Bad Request
+      headers: {}
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

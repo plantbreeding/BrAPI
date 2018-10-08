@@ -19,6 +19,12 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/successfulSearchResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
       summary: Observations Table Search
       tags:
       - Observations

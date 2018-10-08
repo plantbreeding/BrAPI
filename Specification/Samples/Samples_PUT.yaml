@@ -36,6 +36,12 @@ paths:
                       sampleId: ab8e9999-18d6-4d0c-bfe3-800357ecce55
           description: OK
           headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
       summary: Add a sample
       tags:
       - Samples
