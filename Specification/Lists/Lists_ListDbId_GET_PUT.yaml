@@ -8,7 +8,7 @@ paths:
       description: Get a specific generic lists
       parameters:
       - name: listDbId
-        description: The unique ID of this genreic list
+        description: The unique ID of this generic list
         in: path
         required: true
         schema:
@@ -27,6 +27,14 @@ paths:
                     $ref: '#/components/schemas/listDetails'
           description: OK
           headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
       summary: Get List Details
       tags:
       - Lists
@@ -34,7 +42,7 @@ paths:
       description: Update an existing generic list
       parameters: 
       - name: listDbId
-        description: The unique ID of this genreic list
+        description: The unique ID of this generic list
         in: path
         required: true
         schema:
@@ -58,9 +66,14 @@ paths:
                     $ref: '#/components/schemas/listDetails'
           description: OK
           headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
       summary: Update a List
       tags:
       - Lists
-      
-        
-      

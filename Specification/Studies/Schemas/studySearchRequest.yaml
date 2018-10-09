@@ -10,11 +10,6 @@ components:
           items:
             type: string
           type: array
-        locationDbIds:
-          description: List of location identifiers to filter search results
-          items:
-            type: string
-          type: array
         observationVariableDbIds:
           description: List of observation variable IDs to search for
           items:

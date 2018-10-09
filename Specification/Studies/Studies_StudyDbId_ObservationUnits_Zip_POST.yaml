@@ -46,16 +46,13 @@ paths:
           description: OK
           headers: {}
         '400':
-          content:
-            application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      status:
-                      - code: Error
-                        message: Could not update values for Observation Units
-          description: Bad Request
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
       summary: Use this call for uploading new Observations as a Batched Zip File to a system.
       tags:
       - Observations

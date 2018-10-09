@@ -8,25 +8,25 @@ paths:
       description: Get filtered set of generic lists
       parameters:
       - name: listType
-        description: The type of objects contained by this genreic list
+        description: The type of objects contained by this generic list
         in: query
         required: false
         schema:
           $ref: '#/components/schemas/listTypes'
       - name: listName
-        description: The human readable name of this genreic list
+        description: The human readable name of this generic list
         in: query
         required: false
         schema:
           type: string
       - name: listDbId
-        description: The unique ID of this genreic list
+        description: The unique ID of this generic list
         in: query
         required: false
         schema:
           type: string
       - name: listSource
-        description: The source tag of this genreic list
+        description: The source tag of this generic list
         in: query
         required: false
         schema:
@@ -53,6 +53,12 @@ paths:
                           $ref: '#/components/schemas/listSummary'
           description: OK
           headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
       summary: Get List Summaries
       tags:
       - Lists
@@ -78,6 +84,12 @@ paths:
                     $ref: '#/components/schemas/listDetails'
           description: OK
           headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
       summary: Create a New List
       tags:
       - Lists

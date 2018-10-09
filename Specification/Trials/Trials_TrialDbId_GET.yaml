@@ -74,6 +74,14 @@ paths:
                 type: object
           description: OK
           headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
       summary: Get trial by Id
       tags:
       - Trials

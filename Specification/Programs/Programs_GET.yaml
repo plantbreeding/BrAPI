@@ -5,12 +5,7 @@ openapi: 3.0.0
 paths:
   /programs:
     get:
-      description: ' Call to retrieve a list of programs.
-
-        Status: ACCEPTED Implemented By:
-
-
-        test-server.brapi.org/brapi/v1/programs'
+      description: Call to retrieve a list of programs.
       parameters:
       - description: Filter by program name. Exact match.
         in: query
@@ -67,6 +62,12 @@ paths:
                 type: object
           description: OK
           headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
       summary: List programs
       tags:
       - Programs

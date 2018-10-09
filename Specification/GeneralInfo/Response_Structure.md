@@ -27,7 +27,7 @@ The metadata key is structured as followed:
        },
        "status" : [
            {
-               "code" : "200",
+               "messageType" : "INFO",
                "message" : "Success"
            }
        ],
@@ -48,27 +48,11 @@ The metadata key is structured as followed:
 
 + **datafiles**: The `datafiles` key contains a list of file paths, which can be relative or complete URLs. These files contain additional information related to the returned object and can be retrieved by a subsequent call. The empty list should be returned if no additional data files are present.
 
-+ **status**: The `status` object contains a list of objects with the keys "code" and "message". If no status is reported, an empty list should be returned. 
++ **status**: The `status` object contains a list of objects with the keys "message" and "messageType". The "messageType" contains a standard logging level (ie "INFO", "WARNING", etc), and the "message" is the log entry which accompanies the message type log level. If no status messages are reported, an empty list should be returned. 
 
-**NOTE:** The Status object should be used _in addition_ to the standard [HTTP status codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes). The purpose is to provide additional, BrAPI specific information back to the client.   
-
-The following are officially accepted status codes, though others maybe used for specific implementation needs.
-
-Code|Message|Description
---|--|--
-200|"Success"|Optional status for representing explicitly that the request was accepted and returned without any issue
-2001|"Upload Successful"|New data was submitted to and accepted by the server
-2002|"Async call in progress"|An Async call has been successfully started, See the section on Asynchronous Calls for more details.
-400|"Failure"|Optional status for representing explicitly that the request was bad in some way
-4001|"Could not update values for <object type>"| Error to be returned when the server is unable to store some data submitted
-4002|"Missing required parameter <parameter name>"| Error to be returned when a required parameter is missing from request
-4003|"Permission Denied"| Error to be returned when the user does not have permission to access the requested resource
-4004|"No objects found for given parameters"| Error to be returned when there are no objects in the database which match the requested search parameters
-
+**NOTE:** See the Error Handling documentation for some outlines on when it is appropriate to include and ERROR message in the status array. 
 
 + **asynchStatus**: (Optional) The `asynchStatus` object is used to provide additional information around certain calls being performed asynchronously. See the section on Asynchronous Calls for more details.
-
-
 
 #### Payload
 

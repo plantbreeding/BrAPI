@@ -3,8 +3,16 @@ components:
     status:
       properties:
         code:
-          description: Short numeric code to represent the status message
+          description: DEPRECATED in v1.3 - see Error Handling best practice documentation
           type: string
+        messageType:
+          description: The logging level for the attached message
+          type: string
+          enum:
+          - DEBUG
+          - ERROR
+          - WARNING
+          - INFO
         message:
           description: A short message concerning the status of this request/response
           type: string
