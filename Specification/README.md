@@ -20,6 +20,7 @@ Example: _https://test-server.brapi.org/**maize\_db\_01**/brapi/v1/markerprofile
 
 Example: _https://test-server.brapi.org/**cornell/cals/wheat_db**/brapi/v1/markerprofiles/2939_
 
+
 ### Structure of the response object:
 
 The return objects are encoded in JSON. The response consists of:
@@ -48,7 +49,7 @@ The metadata key is structured as followed:
        },
        "status" : [
            {
-               "code" : "200",
+               "messageType" : "INFO",
                "message" : "Success"
            }
        ],
@@ -65,31 +66,15 @@ The metadata key is structured as followed:
 
 ````
 
-+  **pagination**: The `pagination` object is applicable only when the payload contains a "data" key. It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. Pages are zero indexed, so the first page will be page 0 (zero).
++  **pagination**: The `pagination` object is applicable only when the payload contains a "data" key. It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. Pages are zero indexed, so the first page will be page 0 (zero). If the "data" key is not present in the results, pagination should be ignored. 
 
 + **datafiles**: The `datafiles` key contains a list of file paths, which can be relative or complete URLs. These files contain additional information related to the returned object and can be retrieved by a subsequent call. The empty list should be returned if no additional data files are present.
 
-+ **status**: The `status` object contains a list of objects with the keys "code" and "message". If no status is reported, an empty list should be returned. 
++ **status**: The `status` object contains a list of objects with the keys "message" and "messageType". The "messageType" contains a standard logging level (ie "INFO", "WARNING", etc), and the "message" is the log entry which accompanies the message type log level. If no status messages are reported, an empty list should be returned. 
 
-**NOTE:** The Status object should be used _in addition_ to the standard [HTTP status codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes). The purpose is to provide additional, BrAPI specific information back to the client.   
-
-The following are officially accepted status codes, though others maybe used for specific implementation needs.
-
-Code|Message|Description
---|--|--
-200|"Success"|Optional status for representing explicitly that the request was accepted and returned without any issue
-2001|"Upload Successful"|New data was submitted to and accepted by the server
-2002|"Async call in progress"|An Async call has been successfully started, See the section on Asynchronous Calls for more details.
-400|"Failure"|Optional status for representing explicitly that the request was bad in some way
-4001|"Could not update values for <object type>"| Error to be returned when the server is unable to store some data submitted
-4002|"Missing required parameter <parameter name>"| Error to be returned when a required parameter is missing from request
-4003|"Permission Denied"| Error to be returned when the user does not have permission to access the requested resource
-4004|"No objects found for given parameters"| Error to be returned when there are no objects in the database which match the requested search parameters
-
+**NOTE:** See the Error Handling documentation for some outlines on when it is appropriate to include and ERROR message in the status array. 
 
 + **asynchStatus**: (Optional) The `asynchStatus` object is used to provide additional information around certain calls being performed asynchronously. See the section on Asynchronous Calls for more details.
-
-
 
 #### Payload
 
@@ -98,12 +83,7 @@ The BRAPI response payload, which is contained in the "result" key, allows for t
 ````
 {
   "metadata" : {
-    "pagination" : {
-      "totalCount" : 0,
-      "pageSize" : 0,
-      "totalPages" : 0,
-      "currentPage" : 0
-    },
+    "pagination" : {},
     "status" : [ ],
     "datafiles" : [ ]
   },
@@ -186,11 +166,65 @@ See especially the [Best Practices and Conventions]
 (https://github.com/plantbreeding/documentation/wiki/Best-Practices-and-Conventions).
 
 
+
 ### Error Handling
 
-HTTP error codes are used as required, e.g., 200 for ok, 404 for page not found, 401 for not authorized, 501 for not implemented, 201 for created in a PUT, 202 for request received but not yet processed, etc.
+Following the RESTful architecture standard, most errors in BrAPI should be reported back to the client using the appropriate HTTP status code. The status codes that BrAPI officially supports are outlined below. Any response which does NOT have a 200 status code should have a plain text body with a reasonable error message which can be displayed to a user if necessary. 
 
-All capturable errors should be responded to with the appropriate HTTP error code and a well formulated JSON structure that includes a message describing the error.  The error code is intended as a debugging tool for the service provider.
+<table>
+<tr>
+<th style="text-align: left; vertical-align: top">Code</th>
+<th style="text-align: left; vertical-align: top">Description</th>
+<th style="text-align: left; vertical-align: top">Use Case</th>
+</tr>
+
+<tr style="vertical-align: top">
+<td>200</td>
+<td>OK</td>
+<td>Use code 200 for every successful JSON response. The 'status' array in a response metadata may contain addition logged errors as described below.</td>
+</tr>
+
+<tr style="vertical-align: top">
+<td>400</td>
+<td>Bad Request</td>
+<td>Use code 400 when there is something wrong with the request. This could be a problem with any of the query parameters or request body object. <br/>
+ - Example: A malformed JSON object which does not match the expected schema <br/>
+ - Example: A parameter is sent as a alphanumeric string but is expected to an integer</td>
+</tr>
+
+<tr style="vertical-align: top">
+<td>401</td>
+<td>Unauthorized</td>
+<td>Use code 401 when the request does not pass authorization checks. This could be caused by a missing Authorization token header, if the token is expired, or can not be verified. 401 can be replaced by 403 if desired.</td>
+</tr>
+
+<tr style="vertical-align: top">
+<td>403</td>
+<td>Forbidden</td>
+<td>Use code 403 when the user is not allowed to access the requested resource. This could be caused by a system level authorization error (as described by 401) or by a more granular user permission issue. </td>
+</tr>
+
+<tr style="vertical-align: top">
+<td>404</td>
+<td>Not Found</td>
+<td>Most servers and libraries have automatic 404 errors built in for unknown paths tried against the server. Use 404 explicitly when there is a path parameter which can not be found. Most path parameters in BrAPI are DbIds of specific objects, so if a requested DbId doesn't exist in the database, return a 404. </td>
+</tr>
+
+<tr style="vertical-align: top">
+<td>500</td>
+<td>Internal Server Error</td>
+<td>Status code 500 indicates that the server has malfunctioned in some way. Use 500 for all unexpected exceptions, code defects, or configuration issues. For security, it is a best practice to implement an explicit error handler which can hide the cause of the error from the client and return a generic error message. </td>
+</tr>
+</table>
+
+##### When to use an ERROR in the 'status' array?
+
+As of BrAPI v1.3, the 'status' array in the response metadata is reserved for sending additional logging messages from the server to the client. These status messages may contain "ERROR" logs, but they should not supersede HTTP status codes or be relied upon for critical error handling. For most errors, it is a best practice to use the appropriate HTTP status code. However, there are a few cases where it is acceptable to return an error message to a user via the "status" array in the return objects metadata. Generally, this is acceptable when the request is valid, but the server has determined the response is not what the user is intending. Another way to think about this is the difference between errors intended for a developer vs errors intended for an end user. HTTP status code errors should be primarily directed at developers building a tool, but status error log messages should be directed at the user of a system.
+
+For example, making the request `GET /trials?locationDbId=abc123`. If there are no locations with the DbId of "abc123", then the server will not be able to find any trials which have that locationDbId. This is a valid request, and an empty "data" array is the correct response, but it would be nice to notify the user that they will never find any trials with this locationDbId. 
+
+Another example, making the request `GET /studies?studyType=Genotyping`. If the database does not contain any information about study types, then it is important to notify the user that the study type query parameter will be ignored. 
+
 
 ### Date and timestamp fields
 
@@ -276,9 +310,9 @@ If a search call has an asynchronous implementation, then the `asynchStatus` obj
 + The `endTime` indicates the date and time when the processing for the call is complete.
 + The `percentComplete` is an integer [range 0-100] which indicates how much of the process has completed. If a system has no way of detecting intermediate status, `percentComplete` may jump directly from 0 to 100 when processing is finished.
 
-After making the initial asynch call and receiving an `asynchId`, all subsequent polling calls should go to `/asynch_call/{asynchId}` 
+After making the initial asynch call and receiving an `asynchId`, all subsequent polling calls should go to `/{asynch_call}/{asynchId}` 
 
-For example, a call to **`/allelematrix-search`** might give the following response: 
+For example, a call to **`POST /allelematrix-search`** might give the following response: 
 
 ````
 {
@@ -304,7 +338,7 @@ For example, a call to **`/allelematrix-search`** might give the following respo
 }
 ````
 
-Given this response, a GET on the resource **`/allelematrix-search/abc123`** will give a response as follows:
+Given this response, polling the resource **`GET /allelematrix-search/abc123`** will give a response as follows:
 
 ````
 {
@@ -329,4 +363,3 @@ Given this response, a GET on the resource **`/allelematrix-search/abc123`** wil
     "result" : {}
 }
 ````
-
