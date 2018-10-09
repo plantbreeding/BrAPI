@@ -3,7 +3,10 @@ components:
     400BadRequest:
       content:
         application/json:
-          example: ERROR - 2018-10-08T20:15:11Z - Malformed JSON!
+          example: |-
+            ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object
+            ERROR - 2018-10-08T20:15:11Z - Invalid query parameter
+            ERROR - 2018-10-08T20:15:11Z - Required parameter is missing
           schema:
             type: string
       description: Bad Request

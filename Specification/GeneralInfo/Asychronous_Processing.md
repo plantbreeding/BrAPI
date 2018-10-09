@@ -19,9 +19,9 @@ If a search call has an asynchronous implementation, then the `asynchStatus` obj
 + The `endTime` indicates the date and time when the processing for the call is complete.
 + The `percentComplete` is an integer [range 0-100] which indicates how much of the process has completed. If a system has no way of detecting intermediate status, `percentComplete` may jump directly from 0 to 100 when processing is finished.
 
-After making the initial asynch call and receiving an `asynchId`, all subsequent polling calls should go to `/asynch_call/{asynchId}` 
+After making the initial asynch call and receiving an `asynchId`, all subsequent polling calls should go to `/{asynch_call}/{asynchId}` 
 
-For example, a call to **`/allelematrix-search`** might give the following response: 
+For example, a call to **`POST /allelematrix-search`** might give the following response: 
 
 ````
 {
@@ -47,7 +47,7 @@ For example, a call to **`/allelematrix-search`** might give the following respo
 }
 ````
 
-Given this response, a GET on the resource **`/allelematrix-search/abc123`** will give a response as follows:
+Given this response, polling the resource **`GET /allelematrix-search/abc123`** will give a response as follows:
 
 ````
 {

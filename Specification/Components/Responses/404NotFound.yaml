@@ -3,7 +3,7 @@ components:
     404NotFound:
       content:
         application/json:
-          example: ERROR - 2018-10-08T20:15:11Z - The request object DbId is not found
+          example: ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found
           schema:
             type: string
       description: Not Found
