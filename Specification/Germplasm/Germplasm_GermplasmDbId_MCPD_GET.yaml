@@ -3,13 +3,20 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /markers/{markerDbId}:
+  /germplasm/{germplasmDbId}/mcpd:
     get:
-      description: "Status: ACCEPTED \nImplemented By:"
+      description: |-
+        Get all MCPD details of a germplasm
+        
+        <a target="_blank" href="https://www.bioversityinternational.org/fileadmin/user_upload/online_library/publications/pdfs/FAOBIOVERSITY_MULTI-CROP_PASSPORT_DESCRIPTORS_V.2.1_2015_2020.pdf"> MCPD v2.1 spec can be found here </a>
+        
+        Implementation Notes
+        
+        - When the MCPD spec identifies a field which can have multiple values returned, the JSON response should be an array instead of a semi-colon seperated string.
       parameters:
-      - description: the internal id of the marker
+      - description: the internal id of the germplasm
         in: path
-        name: markerDbId
+        name: germplasmDbId
         required: true
         schema:
           type: string
@@ -23,25 +30,9 @@ paths:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    $ref: '#/components/schemas/marker'
-                title: markerResponse
+                    $ref: '#/components/schemas/germplasmMCPD'
+                title: germplasmMCPDResponse
                 type: object
-              example:
-                metadata:
-                  datafiles: []
-                  pagination: {}
-                  status: []
-                result:
-                  analysisMethods:
-                  - kasp
-                  defaultDisplayName: marker1-2
-                  markerDbId: mr2
-                  refAlt:
-                  - A
-                  - T
-                  synonyms:
-                  - i_11_10020
-                  type: marker
           description: OK
           headers: {}
         '400':
@@ -52,6 +43,6 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Marker Details by id
+      summary: Germplasm pedigree by id
       tags:
-      - Markers
+      - Germplasm

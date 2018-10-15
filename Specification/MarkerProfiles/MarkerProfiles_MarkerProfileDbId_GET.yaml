@@ -58,7 +58,7 @@ paths:
       responses:
         '200':
           content:
-            '*/*':
+            application/json:
               schema:
                 properties:
                   metadata:
@@ -67,27 +67,24 @@ paths:
                     $ref: '#/components/schemas/markerProfile'
                 title: markerProfilesResponse
                 type: object
-            application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 2
-                        totalCount: 22
-                        totalPages: 11
-                      status: []
-                    result:
-                      analysisMethod: GBS
-                      data:
-                      - marker1-1: '1'
-                      - marker1-2: '0'
-                      extractDbId: extract1
-                      germplasmDbId: '1'
-                      markerProfileDbId: mp1
-                      uniqueDisplayName: My Fancy Germplasm
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 22
+                    totalPages: 11
+                  status: []
+                result:
+                  analysisMethod: GBS
+                  data:
+                  - marker1-1: '1'
+                  - marker1-2: '0'
+                  extractDbId: extract1
+                  germplasmDbId: '1'
+                  markerProfileDbId: mp1
+                  uniqueDisplayName: My Fancy Germplasm
           description: OK
           headers: {}
         '400':

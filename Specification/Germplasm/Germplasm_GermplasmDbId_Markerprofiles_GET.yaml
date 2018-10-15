@@ -17,7 +17,7 @@ paths:
       responses:
         '200':
           content:
-            '*/*':
+            application/json:
               schema:
                 properties:
                   metadata:
@@ -26,21 +26,18 @@ paths:
                     $ref: '#/components/schemas/germplasmMarkerprofilesList'
                 title: germplasmMarkerprofilesListResponse
                 type: object
-            application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 0
-                        totalCount: 0
-                        totalPages: 0
-                      status: []
-                    result:
-                      germplasmDbId: '3'
-                      markerProfileDbIds: []
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result:
+                  germplasmDbId: '3'
+                  markerProfileDbIds: []
           description: OK
           headers: {}
         '400':
