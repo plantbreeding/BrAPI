@@ -20,7 +20,7 @@ paths:
       responses:
         '200':
           content:
-            '*/*':
+            application/json:
               schema:
                 properties:
                   metadata:
@@ -34,24 +34,21 @@ paths:
                     type: object
                 title: germplasmAttributeCategoriesResponse
                 type: object
-            application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 2
-                        totalCount: 0
-                        totalPages: 0
-                      status: []
-                    result:
-                      data:
-                      - attributeCategoryDbId: '1'
-                        name: Morphological
-                      - attributeCategoryDbId: '2'
-                        name: Agronomic
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result:
+                  data:
+                  - attributeCategoryDbId: '1'
+                    name: Morphological
+                  - attributeCategoryDbId: '2'
+                    name: Agronomic
           description: OK
           headers: {}
         '400':

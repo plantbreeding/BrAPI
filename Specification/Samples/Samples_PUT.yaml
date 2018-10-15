@@ -16,24 +16,21 @@ paths:
       responses:
         '200':
           content:
-            '*/*':
+            application/json:
               schema:
                 $ref: '#/components/schemas/newSampleDbId'
-            application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 0
-                        totalCount: 0
-                        totalPages: 0
-                      status: []
-                    result:
-                      sampleDbId: ab8e9999-18d6-4d0c-bfe3-800357ecce55
-                      sampleId: ab8e9999-18d6-4d0c-bfe3-800357ecce55
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result:
+                  sampleDbId: ab8e9999-18d6-4d0c-bfe3-800357ecce55
+                  sampleId: ab8e9999-18d6-4d0c-bfe3-800357ecce55
           description: OK
           headers: {}
         '400':

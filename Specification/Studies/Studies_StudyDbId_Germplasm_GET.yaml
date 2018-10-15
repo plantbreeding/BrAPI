@@ -22,7 +22,7 @@ paths:
       responses:
         '200':
           content:
-            '*/*':
+            application/json:
               schema:
                 properties:
                   metadata:
@@ -31,40 +31,37 @@ paths:
                     $ref: '#/components/schemas/germplasmSummaryList'
                 title: germplasmSummaryListResponse
                 type: object
-            application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 2
-                        totalCount: 4
-                        totalPages: 2
-                      status: []
-                    result:
-                      data:
-                      - accessionNumber: A000001
-                        entryNumber: '1'
-                        germplasmDbId: '1'
-                        germplasmName: Name001
-                        germplasmPUI: http://pui.per/accession/A000001
-                        pedigree: A000001
-                        seedSource: open pollination
-                        synonyms:
-                        - landrace 1
-                      - accessionNumber: A000002
-                        entryNumber: '4'
-                        germplasmDbId: '2'
-                        germplasmName: Name002
-                        germplasmPUI: http://pui.per/accession/A000002
-                        pedigree: A000002
-                        seedSource: open pollination
-                        synonyms:
-                        - landrace 2
-                      studyDbId: '1001'
-                      trialName: Peru Yield Trial 1
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 4
+                    totalPages: 2
+                  status: []
+                result:
+                  data:
+                  - accessionNumber: A000001
+                    entryNumber: '1'
+                    germplasmDbId: '1'
+                    germplasmName: Name001
+                    germplasmPUI: http://pui.per/accession/A000001
+                    pedigree: A000001
+                    seedSource: open pollination
+                    synonyms:
+                    - landrace 1
+                  - accessionNumber: A000002
+                    entryNumber: '4'
+                    germplasmDbId: '2'
+                    germplasmName: Name002
+                    germplasmPUI: http://pui.per/accession/A000002
+                    pedigree: A000002
+                    seedSource: open pollination
+                    synonyms:
+                    - landrace 2
+                  studyDbId: '1001'
+                  trialName: Peru Yield Trial 1
           description: OK
           headers: {}
         '400':

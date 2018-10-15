@@ -18,7 +18,7 @@ paths:
       responses:
         '200':
           content:
-            '*/*':
+            application/json:
               schema:
                 properties:
                   metadata:
@@ -32,41 +32,34 @@ paths:
                     type: object
                 title: vendorPlatesResponse
                 type: object
-            application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 0
-                        totalCount: 0
-                        totalPages: 0
-                      status: []
-                    result:
-                      data:
-                      - clientPlateDbId: string
-                        files: []
-                        plateFormat: string
-                        sampleType: string
-                        samples:
-                        - column: '1'
-                          concentration: string
-                          row: '0'
-                          sampleDbId: 2ad357ce-b0c7-4236-a2dc-ee88b4a67e49
-                          taxonId:
-                            sourceName: string
-                            taxonId: string
-                          tissueType: string
-                          volume: string
-                          well: '1'
-                        status: recieved
-                        statusTimeStamp: '2018-09-26T16:14:58-04:00'
-                        vendorBarcode: BARCODE
-                        vendorBarcodeImageURL: BARCODE
-                        vendorPlateDbId: facbaf62-8bcb-488c-aac1-89908425ecf3
-                        vendorProjectDbId: string
+              example:
+                metadata:
+                  datafiles: []
+                  pagination: {}
+                  status: []
+                result:
+                  data:
+                  - clientPlateDbId: string
+                    files: []
+                    plateFormat: string
+                    sampleType: string
+                    samples:
+                    - column: '1'
+                      concentration: string
+                      row: '0'
+                      sampleDbId: 2ad357ce-b0c7-4236-a2dc-ee88b4a67e49
+                      taxonId:
+                        sourceName: string
+                        taxonId: string
+                      tissueType: string
+                      volume: string
+                      well: '1'
+                    status: recieved
+                    statusTimeStamp: '2018-09-26T16:14:58-04:00'
+                    vendorBarcode: BARCODE
+                    vendorBarcodeImageURL: BARCODE
+                    vendorPlateDbId: facbaf62-8bcb-488c-aac1-89908425ecf3
+                    vendorProjectDbId: string
           description: OK
           headers: {}
         '400':

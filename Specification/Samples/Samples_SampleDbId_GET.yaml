@@ -17,7 +17,7 @@ paths:
       responses:
         '200':
           content:
-            '*/*':
+            application/json:
               schema:
                 properties:
                   metadata:
@@ -26,32 +26,29 @@ paths:
                     $ref: '#/components/schemas/sample'
                 title: sampleResponse
                 type: object
-            application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 0
-                        totalCount: 0
-                        totalPages: 0
-                      status: []
-                    result:
-                      germplasmDbId: '1'
-                      notes: Example Sample
-                      observationUnitDbId: '1'
-                      plantDbId: 'null'
-                      plateDbId: pl1
-                      plateIndex: 0
-                      plotDbId: '1'
-                      sampleDbId: sam1
-                      sampleTimestamp: '2018-01-01T00:00:00-05:00'
-                      sampleType: DNA
-                      studyDbId: '1001'
-                      takenBy: Bob
-                      tissueType: Leaf
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result:
+                  germplasmDbId: '1'
+                  notes: Example Sample
+                  observationUnitDbId: '1'
+                  plantDbId: 'null'
+                  plateDbId: pl1
+                  plateIndex: 0
+                  plotDbId: '1'
+                  sampleDbId: sam1
+                  sampleTimestamp: '2018-01-01T00:00:00-05:00'
+                  sampleType: DNA
+                  studyDbId: '1001'
+                  takenBy: Bob
+                  tissueType: Leaf
           description: OK
           headers: {}
         '400':

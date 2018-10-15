@@ -40,7 +40,7 @@ paths:
       responses:
         '200':
           content:
-            '*/*':
+            application/json:
               schema:
                 properties:
                   metadata:
@@ -49,34 +49,31 @@ paths:
                     $ref: '#/components/schemas/pedigree'
                 title: pedigreeResponse
                 type: object
-            application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 0
-                        totalCount: 0
-                        totalPages: 0
-                      status: []
-                    result:
-                      crossingPlan: OPEN_POLLINATION
-                      crossingYear: '2018'
-                      defaultDisplayName: G000003
-                      familyCode: Cree_x_Bonanza_2018
-                      germplasmDbId: '3'
-                      parent1DbId: '1'
-                      parent1Id: '1'
-                      parent1Name: G000001
-                      parent1Type: FEMALE
-                      parent2DbId: '2'
-                      parent2Id: '2'
-                      parent2Name: G000002
-                      parent2Type: MALE
-                      pedigree: A000001/A000002
-                      siblings: []
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result:
+                  crossingPlan: OPEN_POLLINATION
+                  crossingYear: '2018'
+                  defaultDisplayName: G000003
+                  familyCode: Cree_x_Bonanza_2018
+                  germplasmDbId: '3'
+                  parent1DbId: '1'
+                  parent1Id: '1'
+                  parent1Name: G000001
+                  parent1Type: FEMALE
+                  parent2DbId: '2'
+                  parent2Id: '2'
+                  parent2Name: G000002
+                  parent2Type: MALE
+                  pedigree: A000001/A000002
+                  siblings: []
           description: OK
           headers: {}
         '400':

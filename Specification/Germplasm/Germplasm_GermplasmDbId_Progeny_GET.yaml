@@ -22,7 +22,7 @@ paths:
       responses:
         '200':
           content:
-            '*/*':
+            application/json:
               schema:
                 properties:
                   metadata:
@@ -31,31 +31,28 @@ paths:
                     $ref: '#/components/schemas/progeny'
                 title: progenyResponse
                 type: object
-            application/json:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles: []
-                      pagination:
-                        currentPage: 0
-                        pageSize: 0
-                        totalCount: 0
-                        totalPages: 0
-                      status: []
-                    result:
-                      defaultDisplayName: G000002
-                      germplasmDbId: '3'
-                      progeny:
-                      - defaultDisplayName: G000004
-                        germplasmDbId: '4'
-                        parentType: MALE
-                      - defaultDisplayName: G000005
-                        germplasmDbId: '5'
-                        parentType: MALE
-                      - defaultDisplayName: G000006
-                        germplasmDbId: '6'
-                        parentType: MALE
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result:
+                  defaultDisplayName: G000002
+                  germplasmDbId: '3'
+                  progeny:
+                  - defaultDisplayName: G000004
+                    germplasmDbId: '4'
+                    parentType: MALE
+                  - defaultDisplayName: G000005
+                    germplasmDbId: '5'
+                    parentType: MALE
+                  - defaultDisplayName: G000006
+                    germplasmDbId: '6'
+                    parentType: MALE
           description: OK
           headers: {}
         '400':
