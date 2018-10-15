@@ -8,11 +8,11 @@ paths:
       description: |-
         Get all MCPD details of a germplasm
         
-        MCPD v2.1 spec can be found here - https://www.bioversityinternational.org/fileadmin/user_upload/online_library/publications/pdfs/FAOBIOVERSITY_MULTI-CROP_PASSPORT_DESCRIPTORS_V.2.1_2015_2020.pdf
+        <a target="_blank" href="https://www.bioversityinternational.org/fileadmin/user_upload/online_library/publications/pdfs/FAOBIOVERSITY_MULTI-CROP_PASSPORT_DESCRIPTORS_V.2.1_2015_2020.pdf"> MCPD v2.1 spec can be found here </a>
         
         Implementation Notes
         
-        - When the MCPD spec identifies a field which can have multiple values returned, the response should take the for of an array instead of a semi-colon seperated string.
+        - When the MCPD spec identifies a field which can have multiple values returned, the JSON response should be an array instead of a semi-colon seperated string.
       parameters:
       - description: the internal id of the germplasm
         in: path
