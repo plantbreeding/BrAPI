@@ -5,12 +5,12 @@ openapi: 3.0.0
 paths:
   /germplasm/{germplasmDbId}/progeny:
     get:
-      description: ' Scope: Germplasm
-
+      description: |-
         Get the germplasmDbIds for all the Progeny of a particular germplasm.
-
-
-        test-server.brapi.org/brapi/v1/germplasm/{germplasmDbId}/progeny '
+        
+        Implementation Notes
+        
+        - Regarding the 'parentType' field in the progeny object. Given a germplasm A having a progeny B and C, 'parentType' for progeny B refers to the 'parentType' of A toward B.
       parameters:
       - description: the internal id of the germplasm
         in: path
@@ -34,11 +34,7 @@ paths:
               example:
                 metadata:
                   datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 0
-                    totalCount: 0
-                    totalPages: 0
+                  pagination: {}
                   status: []
                 result:
                   defaultDisplayName: G000002
