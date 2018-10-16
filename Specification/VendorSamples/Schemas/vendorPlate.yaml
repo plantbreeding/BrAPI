@@ -1,55 +1,23 @@
-components:
-  schemas:
-    vendorPlate:
-      properties:
-        clientPlateDbId:
-          description: The ID which uniquely identifies this plate in the clients database
-          type: string
-        files:
-          description: The array of data files produced by the vendors analysis
-          items:
-            $ref: '#/components/schemas/vendorPlateFile'
-          type: array
-        plateFormat:
-          description: Defines the plate layout format, usually "Plate_96" for a 96 well plate or "Tubes" for plateless format
-          type: string
-        sampleType:
-          description: 'The type of sample. ie "DNA", "RNA", "Tissue", etc '
-          type: string
-        samples:
-          description: List of samples in the plate
-          items:
-            $ref: '#/components/schemas/vendorSample'
-          type: array
-        status:
-          description: ' The status of the plate in the processing pipeline. Typically, "Received", "Processing", "QC_passed", QC_failed", "Completed" (as per vendor specifications)'
-          type: string
-        statusTimeStamp:
-          description: The time stamp of the most recent status update
-          format: date-time
-          type: string
-        vendorBarcode:
-          description: 'A string that can be represented as a barcode, identifying this plate '
-          type: string
-        vendorBarcodeImageURL:
-          description: A URL pointing to an image file which has the bar code which identifies this plate
-          type: string
-        vendorPlateDbId:
-          description: The ID which uniquely identifies this plate in the vendors database
-          type: string
-        vendorProjectDbId:
-          description: The ID which uniquely identifies this project in the vendors database
-          type: string
-      required:
-      - clientPlateDbId
-      - samples
-      - status
-      - statusTimeStamp
-      - vendorPlateDbId
-      - vendorProjectDbId
-      type: object
 info:
   title: BrAPI
   version: ''
 openapi: 3.0.0
 paths: {}
+components:
+  schemas:
+    vendorPlate:
+      type: object
+      properties:
+        clientPlateId:
+          description: The ID which uniquely identifies this plate to the client making the request
+          type: string
+        clientPlateBarcode:
+          description: (Optional) The value of the bar code attached to this plate 
+          type: string
+        sampleSubmissionFormat:
+          $ref: '#/components/schemas/plateFormat'
+        samples:
+          type: array
+          items:
+            $ref: '#/components/schemas/vendorSample'
+              

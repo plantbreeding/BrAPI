@@ -1,33 +1,46 @@
-components:
-  schemas:
-    vendorSample:
-      properties:
-        column:
-          description: The sample column index number in a plate
-          type: string
-        concentration:
-          description: The concentration of a sample in solution
-          type: string
-        row:
-          description: the sample row index number in a plate
-          type: string
-        sampleDbId:
-          description: The ID which uniquely identifies a sample
-          type: string
-        taxonId:
-          $ref: '#/components/schemas/taxonID'
-        tissueType:
-          description: The type of tissue sampled. ex. 'Leaf', 'Root', etc.
-          type: string
-        volume:
-          description: The physical volume of a sample
-          type: string
-        well:
-          description: The plate well number where a sample is located
-          type: string
-      type: object
 info:
   title: BrAPI
   version: ''
 openapi: 3.0.0
 paths: {}
+components:
+  schemas:
+    vendorSample:
+      type: object
+      properties:
+        column:
+          description: The Column identifier for this samples location in the plate 
+          type: string
+        row:
+          description: The Row identifier for this samples location in the plate
+          type: string
+        well:
+          description: The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column.
+          type: string
+        clientSampleId:
+          description: The ID which uniquely identifies this sample to the client making the request
+          type: string
+        clientSampleBarCode:
+          description: (Optional) The value of the bar code attached to this sample 
+          type: string
+        tissueType:
+          description: The type of tissue in this sample. List of accepted tissue types can be found in the Vendor Specs.
+          type: string
+        tissueTypeOntologyReference:
+          $ref: '#/components/schemas/ontologyReference'
+        organismName:
+          description: Scientific organism name 
+          type: string
+        speciesName:
+          description: Scientific species name 
+          type: string
+        taxonomyOntologyReference:
+          $ref: '#/components/schemas/ontologyReference'
+        comments:
+          description: Generic comments about this sample for the vendor 
+          type: string
+        volume:
+          $ref: '#/components/schemas/measurement'
+        concentration:
+          $ref: '#/components/schemas/measurement'
+                    

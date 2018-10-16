@@ -1,0 +1,13 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    plateFormat:
+      description: Enum for plate formats, usually "PLATE_96" for a 96 well plate or "TUBES" for plateless format
+      type: string
+      enum:
+      - PLATE_96
+      - TUBES

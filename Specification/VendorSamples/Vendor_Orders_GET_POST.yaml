@@ -1,0 +1,80 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /vendor/orders:
+    post:
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/vendorOrderRequest'
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: vendorPlatesResponse
+                type: object
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata' 
+                  result:
+                    $ref: '#/components/schemas/vendorOrderResponse'
+              example: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      summary: Submit New Order
+      description: Submit a new order to a vendor
+      tags: 
+      - Vendor
+    get:
+      parameters:
+      - name: orderId
+        description: The order id returned by the vendor when the order was successfully submitted. From response of "POST /vendor/orders"
+        in: query
+        schema:
+          type: string
+      - name: submissionId
+        description: The submission id returned by the vendor when a set of plates was successfully submitted. From response of "POST /vendor/plates"
+        in: query
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: vendorPlateResponse
+                type: object
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/vendorOrder'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      summary: List current available orders
+      description: List current available orders
+      tags:
+      - Vendor

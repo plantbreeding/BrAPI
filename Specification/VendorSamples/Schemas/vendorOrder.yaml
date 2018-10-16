@@ -1,0 +1,28 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    vendorOrder:
+      type: object
+      description: The details of a vendor order 
+      properties:
+        orderId:
+          description: The order id returned by the vendor when the order was successfully submitted.
+          type: string
+        clientId:
+          description: A unique, alpha-numeric ID which identifies the client to the vendor. Used to connect the order to the correct billing and contact info.
+          type: string
+        serviceId:
+          description: A unique, alpha-numeric ID which identifies the requested service to be used for this order. The service defines what platform, technology, and markers will be used. A list of service IDs can be retrieved from the Vendor Specs.
+          type: string
+        requiredServiceInfo:
+          description: A map of additional data required by the requested service. This includes things like Volume and Concentration.
+          type: object
+          additionalProperties:
+            type: string 
+        numberOfSamples:
+          description: The total number of samples contained in this request. Used for billing and basic validation of the request.
+          type: integer
