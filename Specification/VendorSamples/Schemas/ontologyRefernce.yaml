@@ -1,0 +1,20 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    ontologyReference:
+      description: Ontology reference details
+      type: object
+      properties:
+        ontologyTerm:
+          description: 'Ontology term string (example: "leaf" or "Zea mays")'
+          type: string
+        ontologyPrefix:
+          description: 'Ontology identifier prefix (example: "PO" or "NCBITaxon")'
+          type: string
+        ontologyID:
+          description: 'Ontology unique ID (example: "0025034" or "4577")'
+          type: string

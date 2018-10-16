@@ -1,0 +1,17 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    measurement:
+      description: A value with units
+      type: object
+      properties:
+        value:
+          description: 'Value (example: "2.3")'
+          type: number
+        units:
+          description: 'Units (example: "ng/ul")'
+          type: string

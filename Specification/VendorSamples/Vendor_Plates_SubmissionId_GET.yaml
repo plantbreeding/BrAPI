@@ -3,15 +3,14 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /vendor/plates:
-    post:
+  /vendor/plates/{submissionId}:
+    get:
       parameters:
-      - $ref: '#/components/parameters/authorizationHeader'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/vendorPlatesRequest'
+      - name: submissionId
+        in: path
+        schema:
+          type: string
+        required: true
       responses:
         '200':
           description: OK
@@ -19,13 +18,13 @@ paths:
           content:
             application/json:
               schema:
-                title: vendorPlatesResponse
+                title: vendorPlateGetResponse
                 type: object
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata' 
                   result:
-                    $ref: '#/components/schemas/vendorPlatesResponse'
+                    $ref: '#/components/schemas/vendorPlateGetResponse'
               example: {}
         '400':
           $ref: '#/components/responses/400BadRequest'
@@ -33,7 +32,9 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Submit a new set of sample data
-      description: Submit a new set of sample data
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      summary: Get data for a subbmitted set of plates
+      description: Get data for a subbmitted set of plates
       tags: 
       - Vendor

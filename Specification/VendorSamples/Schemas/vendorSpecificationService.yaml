@@ -1,0 +1,31 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    vendorSpecificationService:
+      type: object
+      properties:
+        serviceDescription:
+          description: Description of the vendor platform
+          type: string
+        serviceName:
+          description: The human readable name of a platform
+          type: string
+        serviceId:
+          description: Unique identifier for this service 
+          type: string
+        servicePlatformName:
+          description: The technology platform used by this service
+          type: string
+        servicePlatformMarkerType:
+          description: The type of markers used in this services platform
+          type: string
+          enum:
+          - FIXED
+          - DISCOVERABLE
+        specificRequirements:
+          description: Additional arbitrary requirements for a particular platform
+          type: object

@@ -1,0 +1,37 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    vendorResultFile:
+      type: object
+      required:
+      - fileURL
+      - fileType
+      - fileName
+      - clientSampleIds
+      properties:
+        fileURL:
+          description: 'The URL to a file with the results of a vendor analysis'
+          type: string
+        additionalInfo:
+          type: object
+          description: Additional arbitrary info
+          additionalProperties:
+            type: string
+        fileType:
+          description: 'Format of the file'
+          type: string
+        fileName:
+          description: 'Name of the file'
+          type: string
+        md5sum:
+          description: 'MD5 Hash Check Sum for the file to confirm download without error'
+          type: string
+        clientSampleIds:
+          description: 'The list of sampleDbIds included in the file'
+          items:
+            type: string
+          type: array

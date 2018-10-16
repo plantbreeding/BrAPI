@@ -1,0 +1,30 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    vendorOrderResponse:
+      type: object
+      description: Response to an order request
+      properties:
+        orderId:
+          description: A unique, alpha-numeric ID which identifies the order .
+          type: string
+        shipmentForms:
+          description: Array of paper forms which need to be printed and included with the physical shipment
+          type: array
+          items:
+            type: object
+            properties:
+              fileName:
+                description: The human readable name for this form
+                type: string
+              fileURL:
+                description: The URL to download this form
+                type: string
+              fileDescription:
+                description: The human readable long description for this form
+                type: string
+                  
