@@ -7,6 +7,11 @@ components:
           type: array
           items:
             type: string
+        commonCropNames:
+          description: Common name for the crop which this program is for
+          type: array
+          items:
+            type: string
         leadPersonNames:
           description: The names of the program leader to search for
           type: array
