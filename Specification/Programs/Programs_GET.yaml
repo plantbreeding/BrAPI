@@ -7,15 +7,21 @@ paths:
     get:
       description: Call to retrieve a list of programs.
       parameters:
-      - description: Filter by program name. Exact match.
+      - name: commonCropName
+        description: Filter by the common crop name. Exact match.
         in: query
-        name: programName
         required: false
         schema:
           type: string
-      - description: Filter by program abbreviation. Exact match.
+      - name: programName
+        description: Filter by program name. Exact match.
         in: query
-        name: abbreviation
+        required: false
+        schema:
+          type: string
+      - name: abbreviation
+        description: Filter by program abbreviation. Exact match.
+        in: query
         required: false
         schema:
           type: string
