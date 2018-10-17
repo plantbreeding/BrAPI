@@ -10,6 +10,9 @@ components:
             type: string
           description: Additional arbitrary info
           type: object
+        commonCropName: 
+          description: Common name for the crop associated with this study
+          type: string
         contacts:
           description: List of contact entities associated with this study
           items:
