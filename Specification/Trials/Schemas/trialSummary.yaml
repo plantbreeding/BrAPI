@@ -10,6 +10,9 @@ components:
             type: string
           description: Additional arbitrary info
           type: object
+        commonCropName: 
+          description: Common name for the crop associated with this trial
+          type: string
         endDate:
           description: The date this trial ends
           format: date

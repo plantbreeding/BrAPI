@@ -7,72 +7,82 @@ paths:
     get:
       description: |-
         Get list of studies
+        
+        Implementation Notes
+        
         StartDate and endDate should be ISO8601 format for dates
+        
         See Search Services for additional implementation details.
       parameters:
-      - description: Filter based on study type e.g. Nursery, Trial or Genotype.
+      - name: commonCropName
+        description: Common name for the crop associated with this study
         in: query
-        name: studyType
         required: false
         schema:
           type: string
-      - description: Program filter to only return studies associated with given program id.
+      - name: studyType
+        description: Filter based on study type e.g. Nursery, Trial or Genotype.
         in: query
-        name: programDbId
         required: false
         schema:
           type: string
-      - description: Filter by location
+      - name: programDbId
+        description: Program filter to only return studies associated with given program id.
         in: query
-        name: locationDbId
         required: false
         schema:
           type: string
-      - description: Filter by season or year
+      - name: locationDbId
+        description: Filter by location
         in: query
-        name: seasonDbId
         required: false
         schema:
           type: string
-      - description: Filter by trial
+      - name: seasonDbId
+        description: Filter by season or year
         in: query
-        name: trialDbId
         required: false
         schema:
           type: string
-      - description: Filter by study DbId
+      - name: trialDbId
+        description: Filter by trial
         in: query
-        name: studyDbId
         required: false
         schema:
           type: string
-      - description: DEPRECATED in v1.3 - see /search/studies
+      - name: studyDbId
+        description: Filter by study DbId
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: germplasmDbIds
+        description: DEPRECATED in v1.3 - see /search/studies
         deprecated: true
         in: query
-        name: germplasmDbIds
         required: false
         schema:
           items:
             type: string
           type: array
-      - description: DEPRECATED in v1.3 - see /search/studies
+      - name: observationVariableDbIds
+        description: DEPRECATED in v1.3 - see /search/studies
         deprecated: true
         in: query
-        name: observationVariableDbIds
         required: false
         schema:
           items:
             type: string
           type: array
-      - description: Filter active status true/false.
+      - name: active
+        description: Filter active status true/false.
         in: query
-        name: active
         required: false
         schema:
           type: boolean
-      - description: Name of the field to sort by.
+      - name: sortBy
+        description: Name of the field to sort by.
         in: query
-        name: sortBy
         required: false
         schema:
           type: string
@@ -86,9 +96,9 @@ paths:
           - studyName
           - studyLocation
           - programName
-      - description: Sort order direction. Ascending/Descending.
+      - name: sortOrder
+        description: Sort order direction. Ascending/Descending.
         in: query
-        name: sortOrder
         required: false
         schema:
           type: string

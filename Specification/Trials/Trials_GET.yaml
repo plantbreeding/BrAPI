@@ -7,36 +7,55 @@ paths:
     get:
       description: Retrieve a filtered list of Trials. A Trial is a collection of studies 
       parameters:
-      - description: Program filter to only return trials associated with given program id.
+      - name: commonCropName
+        description: Common name for the crop associated with this trial
         in: query
-        name: programDbId
         required: false
         schema:
           type: string
-      - description: Filter by location
+      - name: programDbId
+        description: Program filter to only return trials associated with given program id.
         in: query
-        name: locationDbId
         required: false
         schema:
           type: string
-      - description: Filter active status true/false.
+      - name: locationDbId
+        description: Filter by location
         in: query
-        name: active
+        required: false
+        schema:
+          type: string
+      - name: active
+        description: Filter active status true/false.
+        in: query
         required: false
         schema:
           type: boolean
-      - description: Sort order. Name of the field to sorty by.
+      - name: sortBy
+        description: Sort order. Name of the field to sorty by.
         in: query
-        name: sortBy
         required: false
         schema:
           type: string
-      - description: 'Sort order direction: asc/desc'
+          enum:
+          - trialDbId
+          - trialName
+          - programDbId
+          - programName
+          - locationDbId
+          - startDate
+          - endDate
+      - name: sortOrder
+        description: 'Sort order direction: asc/desc'
         in: query
-        name: sortOrder
         required: false
         schema:
           type: string
+          enum:
+          - asc
+          - ASC
+          - desc
+          - DESC
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
       - $ref: '#/components/parameters/authorizationHeader'

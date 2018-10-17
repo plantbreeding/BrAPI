@@ -5,6 +5,11 @@ components:
         active:
           description: Is this study currently active
           type: boolean
+        commonCropNames: 
+          description: Common names for the crop associated with this study
+          items:
+            type: string
+          type: array
         germplasmDbIds:
           description: List of IDs which uniquely identify germplasm
           items:
