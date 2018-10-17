@@ -8,7 +8,7 @@ paths:
       description: Retrieve a filtered list of Trials. A Trial is a collection of studies 
       parameters:
       - name: commonCropName
-        description: Common name for the crop associated with this study
+        description: Common name for the crop associated with this trial
         in: query
         required: false
         schema:
