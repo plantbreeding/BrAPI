@@ -5,14 +5,7 @@ openapi: 3.0.0
 paths:
   /attributes/categories:
     get:
-      description: ' Scope: OTHER. Status: ACCEPTED.
-
-        Implementation target date: PAG2016
-
-        List all available attribute categories.
-
-
-        test-server.brapi.org/brapi/v1/attributes/categories'
+      description: List all available attribute categories.
       parameters:
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'

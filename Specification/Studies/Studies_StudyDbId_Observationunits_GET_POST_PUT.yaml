@@ -162,6 +162,30 @@ paths:
         '200':
           description: OK
           headers: {}
+          content:
+            application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status:
+                  - code: '200'
+                    message: Upload Successful
+                result:
+                  observationUnitDbIds:
+                  - 5873048a-f30d-435c-931a-c88b522304cc
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/newObservationUnitDbIds'
+                title: newObservationUnitDbIdsResponse
+                type: object
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
