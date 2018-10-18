@@ -198,4 +198,4 @@ paths:
           $ref: '#/components/responses/403Forbidden'
       summary: Phenotype Search
       tags:
-      - Observation Units
+      - Observations
