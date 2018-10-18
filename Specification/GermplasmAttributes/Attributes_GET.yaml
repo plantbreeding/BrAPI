@@ -7,9 +7,9 @@ paths:
     get:
       description: List available attributes.
       parameters:
-      - description: filter for kind of attributes
+      - name: attributeCategoryDbId
+        description: 'Unique identifier for the general category for the attribute. very similar to Trait class.'
         in: query
-        name: attributeCategoryDbId
         required: false
         schema:
           type: string

@@ -1,5 +1,10 @@
 #! /usr/bin/env python
 
+# --------------------------------------------READ ME-------------------------------------------------------
+# Run this script to combine all the pieces of the the BrAPI specification into a single swagger file.
+# ----------------------------------------------------------------------------------------------------------
+
+
 import yaml
 import glob
 import sys

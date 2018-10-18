@@ -6,8 +6,7 @@ components:
       - type: object
         properties: 
           attributeCategoryDbId:
-            description: DEPRECATED in v1.3 - see "this.trait.class"
-            deprecated: true
+            description: General category for the attribute. very similar to Trait class.
             type: string
           attributeDbId:
             description: The ID which uniquely identifies this attribute within the given database server
