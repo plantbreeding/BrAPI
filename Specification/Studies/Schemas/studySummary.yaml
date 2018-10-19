@@ -49,7 +49,14 @@ components:
           description: The humane readable name of a study
           type: string
         studyType:
-          description: The type of study being performed. ex. "Yeald Trial", etc
+          description: DEPRECATED in v1.3 - See "studyTypeName"
+          deprecated: true
+          type: string
+        studyTypeName:
+          description: The name of the type of study being performed. ex. "Yield Trial", etc
+          type: string
+        studyTypeDbId: 
+          description: The unique identifier of the type of study being performed.
           type: string
         trialDbId:
           description: The ID which uniquely identifies a trial

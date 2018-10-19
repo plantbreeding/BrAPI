@@ -12,6 +12,9 @@ components:
         studyTypeName:
           description: The human readable name of a study type
           type: string
+        studyTypeDbId:
+          description: The unique identifier of a study type
+          type: string
       type: object
 info:
   title: BrAPI

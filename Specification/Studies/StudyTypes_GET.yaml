@@ -7,6 +7,12 @@ paths:
     get:
       description: Call to retrieve the list of study types.
       parameters:
+      - name: studyTypeDbId
+        description: Filter based on study type unique identifier
+        in: query
+        required: false
+        schema:
+          type: string
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
       - $ref: '#/components/parameters/authorizationHeader'

@@ -21,7 +21,14 @@ paths:
         schema:
           type: string
       - name: studyType
-        description: Filter based on study type e.g. Nursery, Trial or Genotype.
+        description: DEPRECATED in v1.3 - see "studyTypeDbId"
+        deprecated: true
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: studyTypeDbId
+        description: Filter based on study type unique identifier
         in: query
         required: false
         schema:
@@ -92,7 +99,7 @@ paths:
           - programDbId
           - locationDbId
           - seasonDbId
-          - studyType
+          - studyTypeDbId
           - studyName
           - studyLocation
           - programName
