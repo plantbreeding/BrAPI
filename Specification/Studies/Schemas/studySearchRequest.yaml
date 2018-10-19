@@ -80,12 +80,16 @@ components:
           items:
             type: string
           type: array
-        studyTypeName:
+        studyTypeNames:
           description: The name of the type of study being performed. ex. "Yield Trial", etc
-          type: string
-        studyTypeDbId:
+          items:
+            type: string
+          type: array
+        studyTypeDbIds:
           description: The unique identifier of the type of study being performed.
-          type: string
+          items:
+            type: string
+          type: array
         trialDbIds:
           description: List of trial identifiers to filter search results
           items:
