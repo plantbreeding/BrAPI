@@ -9,38 +9,55 @@ components:
       type: object
       properties:
         imageDbId:
+          description: The unique identifier of an image
           type: string
         imageName:
+          description: The human readable name of an image. Might be the same as 'imageFileName', but could be different.
           type: string
         description:
+          description: The human readable description of an image.
           type: string
         copyright:
+          description: The copyright information of this image. Example 'Copyright 2018 Bob Robertson'
           type: string
         observationUnitDbId:
+          description: The related observation unit identifier, if relevent. 
           type: string
         imageURL:
+          description: The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.
           type: string
         imageFileName:
+          description: The name of the image file. Might be the same as 'imageName', but could be different.
           type: string
         imageFileSize:
+          description: The size of the image in Bytes.
           type: integer
         imageWidth:
+          description: The width of the image in Pixels.
           type: integer
         imageHeight:
+          description: The height of the image in Pixels.
           type: integer
         mimeType:
+          description: The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc
           type: string
           pattern: image/.*
         imageTimeStamp:
+          description: The date and time the image was taken
           type: string
           format: date
         imageLocation:
           "$ref": "#/components/schemas/geoJSON"
         descriptiveOntologyTerms: 
+          description: A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.
           type: array
           items:
             type: string
         observationDbIds: 
+          description: A list of observation Ids this image is associated with, if applicable.
           type: array
           items:
             type: string
+        additionalInfo:
+          type: object
+          additionalProperties: true
