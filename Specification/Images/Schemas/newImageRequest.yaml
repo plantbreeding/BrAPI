@@ -1,0 +1,46 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components: 
+  schemas: 
+    newImageRequest: 
+      type: object
+      properties:
+        imageName:
+          type: string
+        description:
+          type: string
+        copyright:
+          type: string
+        observationUnitDbId:
+          type: string
+        imageFileName:
+          type: string
+        imageFileSize:
+          type: integer
+        imageWidth:
+          type: integer
+        imageHeight:
+          type: integer
+        mimeType:
+          type: string
+          pattern: image/.*
+        imageTimeStamp:
+          type: string
+          format: date
+        imageLocation:
+          "$ref": "#/components/schemas/geoJSON"
+        descriptiveOntologyTerms: 
+          type: array
+          items:
+            type: string
+        observationDbIds: 
+          type: array
+          items:
+            type: string
+        additionalInfo:
+          type: object
+          additionalProperties: true
+          
