@@ -1,0 +1,56 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components: 
+  schemas: 
+    imagesSearchRequest: 
+      type: object
+      properties:
+        imageNames:
+          type: array
+          items:
+            type: string
+        observationUnitDbIds:
+          type: array
+          items:
+            type: string
+        imageFileNames:
+          type: array
+          items:
+            type: string
+        imageFileSizeMax:
+          type: integer
+        imageFileSizeMin:
+          type: integer
+        imageWidthMax:
+          type: integer
+        imageWidthMin: 
+          type: integer
+        imageHeightMax:
+          type: integer
+        imageHeightMin:
+          type: integer
+        mimeTypes:
+          type: array
+          items:
+            type: string
+            pattern: image/.*
+        imageTimeStampRangeStart: 
+          type: string
+          format: date
+        imageTimeStampRangeEnd: 
+          type: string
+          format: date
+        imageLocation:
+          "$ref": "#/components/schemas/geoJSON"
+        descriptiveOntologyTerms: 
+          type: array
+          items:
+            type: string
+        observationDbIds: 
+          type: array
+          items:
+            type: string
+          

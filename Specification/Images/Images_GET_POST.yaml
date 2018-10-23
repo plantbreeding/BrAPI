@@ -1,0 +1,115 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /images:
+    get:
+      description: |-
+        Get filtered set of image meta data
+        
+        Implementation Notes
+        
+        - 'imageURL' should be a complete URL decribing the location of the image. There is no BrAPI call for retireiving the image content, so it could be on a different path, or a different host.
+        
+        - 'descriptiveOntologyTerm' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI's.  
+      parameters:
+      - name: imageDbId
+        description: The unique identifier for a image
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: imageName
+        description: The human readable name of an image
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: observationUnitDbId
+        description: The unique identifier of the observation unit an image is portraying
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: observationDbId
+        description: The unique identifier of the observation an image is accosiated with
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: descriptiveOntologyTerm
+        description: A descriptive term associated with an image
+        in: query
+        required: false
+        schema:
+          type: string
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    type: object
+                    properties:
+                      data:
+                        type: array
+                        description: Array of image meta data
+                        items:
+                          $ref: '#/components/schemas/image'
+          description: OK
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      summary: Get image meta data summaries
+      tags:
+      - Images
+    post: 
+      description: |-
+        Create a new image meta data object
+        
+        Implementation Notes
+        
+        - 'imageURL' should be a complete URL decribing the location of the image. There is no BrAPI call for retireiving the image content, so it could be on a different path, or a different host.
+        
+        - 'descriptiveOntologyTerm' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI's. 
+      parameters: 
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/newImageRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/image'
+          description: OK
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      summary: Create a new image meta data object
+      tags:
+      - Images
