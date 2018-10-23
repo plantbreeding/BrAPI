@@ -5,7 +5,11 @@ openapi: 3.0.0
 paths:
   /traits:
     get:
-      description: Call to retrieve a list of traits available in the system and their associated variables.
+      summary: List available traits
+      description: |-
+        Call to retrieve a list of traits available in the system and their associated variables.
+        
+        An Observation Variable has 3 critical parts: A Trait being observed, a Method for making the observation, and a Scale on which the observation can be measured and compared with other observations.
       parameters:
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
@@ -50,7 +54,6 @@ paths:
                           $ref: '#/components/schemas/traitSummary'
                         type: array
                     type: object
-                title: traitsResponse
                 type: object
           description: OK
           headers: {}
@@ -60,6 +63,36 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: List all traits
+      tags:
+      - Observation Variables
+    post:
+      summary: Add a new trait
+      description: Create a new trait object in the database
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/newTraitRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/trait'
+                type: object
+          description: OK
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
       tags:
       - Observation Variables

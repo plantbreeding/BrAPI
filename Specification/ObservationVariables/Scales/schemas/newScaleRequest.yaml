@@ -1,0 +1,26 @@
+components:
+  schemas:
+    newScaleRequest:
+      description: New scale request object
+      properties:
+        dataType:
+          $ref: '#/components/schemas/traitDataType'
+        decimalPlaces:
+          description: For numerical, number of decimal places to be reported
+          type: integer
+        scaleName:
+          description: Name of the scale
+          type: string
+        validValues:
+          $ref: '#/components/schemas/validValues'
+        xref:
+          description: Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database
+          type: string
+        ontologyRefernce:
+          $ref: '#/components/schemas/ontologyRefernce'
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

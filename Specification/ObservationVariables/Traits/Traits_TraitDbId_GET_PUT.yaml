@@ -5,7 +5,10 @@ openapi: 3.0.0
 paths:
   /traits/{traitDbId}:
     get:
-      description: Retrieve the variables associated to a trait
+      description: |-
+        Retrieve the details of a single trait
+        
+        An Observation Variable has 3 critical parts: A Trait being observed, a Method for making the observation, and a Scale on which the observation can be measured and compared with other observations.
       parameters:
       - description: Id of the trait to retrieve details of.
         in: path
@@ -40,7 +43,6 @@ paths:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/traitSummary'
-                title: traitResponse
                 type: object
           description: OK
           headers: {}
@@ -55,3 +57,43 @@ paths:
       summary: Retrieve trait details by id
       tags:
       - Observation Variables
+    put:
+      summary: Update an existing trait
+      description: Update an existing trait
+      parameters:
+      - description: Id of the trait to retrieve details of.
+        in: path
+        name: traitDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/newTraitRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/trait'
+                type: object
+          description: OK
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Observation Variables
+      
