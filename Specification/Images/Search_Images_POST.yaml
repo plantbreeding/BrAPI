@@ -3,7 +3,7 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /images:
+  /search/images:
     post:
       description: |-
         Get filtered set of image meta data
