@@ -5,11 +5,8 @@ openapi: 3.0.0
 paths:
   /breedingmethods:
     get:
-      description: ' Scope: Germplasm
-
-        Get the list of germplasm breeding methods available in a system.
-
-        example.com/brapi/v1/breedingmethods'
+      summary: Get the Breeding Methods
+      description: Get the list of germplasm breeding methods available in a system.
       parameters:
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
@@ -58,6 +55,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: GET List of Breeding Methods
       tags:
       - Germplasm

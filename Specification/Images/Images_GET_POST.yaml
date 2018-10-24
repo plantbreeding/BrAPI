@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /images:
     get:
+      summary: Get the image meta data summaries
       description: |-
         Get filtered set of image meta data
         
@@ -72,10 +73,10 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Get image meta data summaries
       tags:
       - Images
     post: 
+      summary: Create a new image meta data object
       description: |-
         Create a new image meta data object
         
@@ -110,6 +111,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Create a new image meta data object
       tags:
       - Images

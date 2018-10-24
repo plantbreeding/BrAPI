@@ -5,6 +5,8 @@ openapi: 3.0.0
 paths:
   /vendor/orders:
     post:
+      summary: Submit New Order
+      description: Submit a new order to a vendor
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
@@ -33,11 +35,11 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Submit New Order
-      description: Submit a new order to a vendor
       tags: 
       - Vendor
     get:
+      summary: List current available orders
+      description: List current available orders
       parameters:
       - name: orderId
         description: The order id returned by the vendor when the order was successfully submitted. From response of "POST /vendor/orders"
@@ -74,7 +76,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: List current available orders
-      description: List current available orders
       tags:
       - Vendor

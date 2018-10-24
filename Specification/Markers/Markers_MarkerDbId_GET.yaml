@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /markers/{markerDbId}:
     get:
+      summary: Get the details for a specific Marker
       description: "Status: ACCEPTED \nImplemented By:"
       parameters:
       - description: the internal id of the marker
@@ -52,6 +53,5 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Marker Details by id
       tags:
       - Markers

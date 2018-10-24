@@ -5,16 +5,8 @@ openapi: 3.0.0
 paths:
   /germplasm/{germplasmDbId}:
     get:
-      description: ' Scope: CORE. Status: ACCEPTED.
-
-        Implementation target date: PAG2016
-
-        Implemented by: Tripal Brapi module, Germinate, Cassavabase
-
-        Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport Data. The MCPD fields are optional and marked with the prefix [MCPD].
-
-
-        test-server.brapi.org/brapi/v1/germplasm/{germplasmDbId} '
+      summary: Get the details of a specific Germplasm
+      description: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport Data. The MCPD fields are optional and marked with the prefix [MCPD].
       parameters:
       - description: The internal id of the germplasm
         in: path
@@ -83,6 +75,5 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Germplasm search by germplasmDbId
       tags:
       - Germplasm

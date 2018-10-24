@@ -5,7 +5,7 @@ openapi: 3.0.0
 paths:
   /traits:
     get:
-      summary: List available traits
+      summary: Get the Traits
       description: |-
         Call to retrieve a list of traits available in the system and their associated variables.
         
@@ -66,7 +66,7 @@ paths:
       tags:
       - Observation Variables
     post:
-      summary: Add a new trait
+      summary: Add a new Trait
       description: Create a new trait object in the database
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'

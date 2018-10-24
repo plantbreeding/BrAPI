@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /markerprofiles:
     get:
+      summary: Get the Marker Profiles
       description: For the requested Germplasm Id and/or Extract Id, returns the Markerprofile Id and number of non-missing allele calls (marker/allele pairs).
       parameters:
       - description: The server's internal ids for the Germplasm IDs, as returned by the Find marker profile by Germplasm service.
@@ -84,6 +85,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Retrieve Markerprofile Ids
       tags:
       - Marker Profiles

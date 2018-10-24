@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /germplasm/{germplasmDbId}/mcpd:
     get:
+      summary: Get the details of a specifc Germplasm in MCPD format
       description: |-
         Get all MCPD details of a germplasm
         
@@ -43,6 +44,5 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Germplasm pedigree by id
       tags:
       - Germplasm

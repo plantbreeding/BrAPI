@@ -5,7 +5,7 @@ openapi: 3.0.0
 paths:
   /methods:
     get:
-      summary: List available methods
+      summary: Get the Methods
       description: |-
         Returns a list of Methods available on a server.
         
@@ -42,7 +42,7 @@ paths:
       tags:
       - Observation Variables
     post:
-      summary: Add a new method
+      summary: Add a new Method
       description: Create a new method object in the database
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'

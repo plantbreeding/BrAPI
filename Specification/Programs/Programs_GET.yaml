@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /programs:
     get:
+      summary: Get the breeding Programs
       description: Call to retrieve a list of programs.
       parameters:
       - name: commonCropName
@@ -74,6 +75,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: List programs
       tags:
       - Programs

@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /lists:
     get:
+      summary: Get the List Summaries
       description: Get filtered set of generic lists
       parameters:
       - name: listType
@@ -59,10 +60,10 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Get List Summaries
       tags:
       - Lists
     post: 
+      summary: Create a New List
       description: Create a new list
       parameters: 
       - $ref: '#/components/parameters/authorizationHeader'
@@ -90,6 +91,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Create a New List
       tags:
       - Lists

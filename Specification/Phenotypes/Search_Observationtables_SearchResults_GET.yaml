@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /search/observationtables/{searchResultsDbId}:
     get:
+      summary: Get the results of a Observation table search request
       description: |
         Returns a list of observationUnit with the observed Phenotypes.
         
@@ -171,7 +172,6 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Observations Table Search
       tags:
       - Observations
       - Search Services

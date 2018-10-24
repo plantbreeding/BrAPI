@@ -5,7 +5,8 @@ openapi: 3.0.0
 paths:
   /maps/{mapDbId}:
     get:
-      description: "Provides the number of markers on each linkageGroup and the max position on the linkageGroup \n\nStatus: ACCEPTED Implemented by: Germinate, Cassavabase Used by: Flapjack"
+      summary: Get the details of a specific Genomic Map
+      description: Provides the number of markers on each linkageGroup and the max position on the linkageGroup 
       parameters:
       - description: The internal db id of a selected map
         in: path
@@ -66,6 +67,5 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Get map details
       tags:
       - Genome Maps

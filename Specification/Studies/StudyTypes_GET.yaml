@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /studytypes:
     get:
+      summary: Get the Study Types
       description: Call to retrieve the list of study types.
       parameters:
       - name: studyTypeDbId
@@ -56,6 +57,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: List study types
       tags:
       - Studies

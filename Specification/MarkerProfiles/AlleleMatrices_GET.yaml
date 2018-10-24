@@ -5,21 +5,11 @@ openapi: 3.0.0
 paths:
   /allelematrices:
     get:
-      description: 'Status: Proposed
-
-        Implemented by: GOBII
-
-        Used by: Flapjack
-
-
-
-        This resource is used for reading and writing genomic matrices:
-
-
+      summary: Get the Allele Matrix summaries
+      description: |-
+        This resource is used for reading and writing genomic matrices
 
         GET provides a list of available matrices, optionally filtered by study;
-
-        POST will provide a means for adding new matrices (content TBD).'
       parameters:
       - description: restricts the list of matrices to a specific study.
         in: query
@@ -71,6 +61,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Matrices through GET
       tags:
       - Marker Profiles

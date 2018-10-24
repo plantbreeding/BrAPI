@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /search/studies:
     post:
+      summary: Submit a search request for Studies
       description: |-
         Get list of studies
         StartDate and endDate should be ISO8601 format for dates
@@ -26,7 +27,6 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Search Studies 
       tags:
       - Studies
       - Search Services

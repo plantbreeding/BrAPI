@@ -5,8 +5,10 @@ openapi: 3.0.0
 paths:
   /search/variables/{searchResultsDbId}:
     get:
+      summary: Get the results of a Observation Variable search request
       description: |-
         Search observation variables.
+        
         See Search Services for additional implementation details.
       parameters:
       - $ref: '#/components/parameters/searchResultsDbId'
@@ -143,7 +145,6 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Variable search
       tags:
       - Observation Variables
       - Search Services

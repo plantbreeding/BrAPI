@@ -5,7 +5,8 @@ openapi: 3.0.0
 paths:
   /variables/{observationVariableDbId}:
     get:
-      description: "Retrieve variable details \n\nScope: CORE\nStatus: ACCEPTED"
+      summary: Get the details for a specific Observation Variable
+      description: Retrieve variable details
       parameters:
       - description: string id of the variable
         in: path
@@ -92,6 +93,5 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Variable details by id
       tags:
       - Observation Variables

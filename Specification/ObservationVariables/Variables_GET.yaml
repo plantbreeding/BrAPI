@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /variables:
     get:
+      summary: Get the Observation Variables
       description: Call to retrieve a list of observationVariables available in the system.
       parameters:
       - $ref: '#/components/parameters/page'
@@ -155,6 +156,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Variable list
       tags:
       - Observation Variables

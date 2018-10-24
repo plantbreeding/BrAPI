@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /lists/{listDbId}/items:
     post:
+      summary: Add Items to a specific List
       description: Add new data to a specific generic lists
       parameters:
       - name: listDbId
@@ -42,6 +43,5 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Add Items
       tags:
       - Lists

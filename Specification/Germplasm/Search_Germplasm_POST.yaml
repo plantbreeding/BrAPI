@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /search/germplasm:
     post:
+      summary: Submit a search request for Germplasm
       description: |-
         Search for a set of germplasm based on some criteria
         
@@ -34,7 +35,6 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Germplasm search through POST
       tags:
       - Germplasm
       - Search Services

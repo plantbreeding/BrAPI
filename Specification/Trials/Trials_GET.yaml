@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /trials:
     get:
+      summary: Get the breeding Trials
       description: Retrieve a filtered list of Trials. A Trial is a collection of studies 
       parameters:
       - name: commonCropName
@@ -135,6 +136,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: List of trial summaries
       tags:
       - Trials

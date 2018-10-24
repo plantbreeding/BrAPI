@@ -5,7 +5,7 @@ openapi: 3.0.0
 paths:
   /scales:
     get:
-      summary: List available scales
+      summary: Get the Scales
       description: |-
         Returns a list of Scales available on a server.
         
@@ -41,7 +41,7 @@ paths:
       tags:
       - Observation Variables
     post:
-      summary: Add a new scale
+      summary: Add a new Scale
       description: Create a new scale object in the database
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'

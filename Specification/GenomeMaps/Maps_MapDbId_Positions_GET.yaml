@@ -5,7 +5,8 @@ openapi: 3.0.0
 paths:
   /maps/{mapDbId}/positions:
     get:
-      description: "markers ordered by linkageGroup and position \n\nStatus: ACCEPTED. Implemented by: Germinate, Cassavabase Used by: Flapjack"
+      summary: Get the positions of Markers inside a specific Genomic Map
+      description: All the markers in a given Map, ordered by linkageGroup and position.
       parameters:
       - description: unique id of the map
         in: path
@@ -75,6 +76,5 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Get map data
       tags:
       - Genome Maps

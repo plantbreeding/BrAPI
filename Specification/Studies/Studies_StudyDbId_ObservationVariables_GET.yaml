@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /studies/{studyDbId}/observationvariables:
     get:
+      summary: Get the Observation Variables for a specific Study
       description: |-
         List all the observation variables measured in the study.
 
@@ -158,7 +159,6 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Get Observation Variables By Study
       tags:
       - Studies
       - Observation Variables

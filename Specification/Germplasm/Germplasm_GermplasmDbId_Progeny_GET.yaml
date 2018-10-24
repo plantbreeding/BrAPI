@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /germplasm/{germplasmDbId}/progeny:
     get:
+      summary: Get the progeny details of a specific Germplasm
       description: |-
         Get the germplasmDbIds for all the Progeny of a particular germplasm.
         
@@ -59,6 +60,5 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Germplasm pedigree by id
       tags:
       - Germplasm

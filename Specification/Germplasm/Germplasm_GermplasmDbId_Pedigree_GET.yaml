@@ -5,18 +5,8 @@ openapi: 3.0.0
 paths:
   /germplasm/{germplasmDbId}/pedigree:
     get:
-      description: '
-
-        Scope: CORE. Status: ACCEPTED.
-
-        Implementation target date: PAG2016
-
-        Implemented by: Germinate, Tripal Brapi Module, Cassavabase (without notation option)
-
-        (http://wheat.pw.usda.gov/ggpages/gopher/administration/Template%20for%20Germplasm%20records.html) or [Lamacraft] (http://link.springer.com/article/10.1007%2FBF00021556).
-
-
-        test-server.brapi.org/brapi/v1/germplasm/{germplasmDbId}/pedigree '
+      summary: Get the pedigree details of a specific Germplasm
+      description: Get the parentage information of a specific Germplasm
       parameters:
       - description: the internal id of the germplasm
         in: path
@@ -84,6 +74,5 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Germplasm pedigree by id
       tags:
       - Germplasm

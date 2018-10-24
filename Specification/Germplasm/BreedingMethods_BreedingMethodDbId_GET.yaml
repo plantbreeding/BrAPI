@@ -5,10 +5,8 @@ openapi: 3.0.0
 paths:
   /breedingmethods/{breedingMethodDbId}:
     get:
-      description: '
-
-
-        example.com/brapi/v1/breedingmethods/{breedingMethodDbId}'
+      summary: Get the details of a specific Breeding Method
+      description: Get the details of a specific Breeding Method used to produce Germplasm
       parameters:
       - description: Internal database identifier for a breeding method
         in: path
@@ -53,6 +51,5 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: GET specific breeding method details
       tags:
       - Germplasm

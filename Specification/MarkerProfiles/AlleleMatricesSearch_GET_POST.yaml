@@ -5,7 +5,17 @@ openapi: 3.0.0
 paths:
   /allelematrices-search:
     get:
-      description: "Status: ACCEPTED.\n\nImplemented by: Germinate (POST only), Cassavabase\n\nUsed by: Flapjack (POST only)\n\nSee Search Services for additional implementation details.\n\nThis uses a more efficient data structure and pagination for large number of markers.\n\nSee Search Services for additional implementation details.\n\n\n\nThis uses a more efficient data structure and pagination for large number of markers. \n\n\n\nUse GET when parameter size is less than 2K bytes.\nThis method may support asynchronous processing."
+      summary: Get the a Matrix of Allele data
+      description: |-
+        See Search Services for additional implementation details.
+        
+        This uses a more efficient data structure and pagination for large number of markers.
+        
+        See Search Services for additional implementation details.
+
+        Use GET when parameter size is less than 2K bytes.
+        
+        This method may support asynchronous processing.
       parameters:
       - name: markerprofileDbId
         description: DEPRECATED in v1.3 - see "markerProfileDbId" (camel case)
@@ -109,36 +119,22 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Scores through GET
       tags:
       - Marker Profiles
     post:
-      description: 'Status: ACCEPTED.
-
-
-        Implemented by: Germinate (POST only), Cassavabase
-
-
-        Used by: Flapjack (POST only)
-
-
+      summary: Submit a request to get a Matrix of Allele data
+      description: |-
         See Search Services for additional implementation details.
-
 
         This uses a more efficient data structure and pagination for large number of markers.
 
-
         Use POST when parameter size is greater than 2K bytes.
-
 
         - If no format is specified, this call returns the data in JSON form.
 
-
         - If a format (other than JSON) is specified and the server supports this format, it will return the link to the exported data file in the "datafiles" field of the "metadata".
 
-
         - If more than one format is requested at a time, the server will throw a "501 Not Implemented" error.
-
 
         The format of the tsv response can be found on GitHub (https://github.com/plantbreeding/Documentation/wiki/BrAPI-TSV-Expected-Formats)'
       parameters:
@@ -394,6 +390,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Scores through POST
       tags:
       - Marker Profiles

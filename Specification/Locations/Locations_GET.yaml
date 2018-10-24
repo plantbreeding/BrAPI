@@ -5,8 +5,8 @@ openapi: 3.0.0
 paths:
   /locations:
     get:
-      description: '
-
+      summary: Get the Locations
+      description: |-
         Implemented by: Germinate
 
         Get a list of locations.
@@ -15,7 +15,7 @@ paths:
 
         * `altitude` is in meters.
 
-        **Note**: Consider revising to describe polygon lat/lan points and check if adopting http://geojson.org/ is worth doing for v1. '
+        **Note**: Consider revising to describe polygon lat/lan points and check if adopting http://geojson.org/ is worth doing for v1.
       parameters:
       - description: Filter by location type specified.
         in: query
