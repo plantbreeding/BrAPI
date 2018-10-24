@@ -90,7 +90,7 @@ paths:
                 type: object
           description: OK
           headers: {}
-      summary: Get Sample Search
+      summary: Get the Sample Search
       tags:
       - Samples
       - Search Services

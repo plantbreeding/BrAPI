@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /markers:
     get:
+      summary: Get the Markers
       description: |-
         Other service requests use the servers internal `markerDbId`. This service returns marker records that provide the markerDbId. For the requested name or synonym, returns an array (possibly empty) of marker records that match the search criteria.
         If there is none, an empty array is returned. If there is one or more than one match, returns an array of all marker records that match the search criteria.
@@ -110,6 +111,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Markers Search (/markers)
       tags:
       - Markers

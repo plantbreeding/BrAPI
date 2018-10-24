@@ -5,16 +5,15 @@ openapi: 3.0.0
 paths:
   /studies/{studyDbId}/layout:
     get:
-      description: ' Retrive the layout details for a study. Returns an array of observation unit position data which describes where each unit and germplasm is located within the study layout
+      summary: Get the plot layout details for a specific Study
+      description: |-
+        Retrive the layout details for a study. Returns an array of observation unit position data which describes where each unit and germplasm is located within the study layout
 
         Retrieve the plot layout of the study with id {id}.
 
         For each observationUnit within a study, return the `block`, `replicate`, and `entryType` values as well as the `X` and `Y` coordinates. `entryType` can be "check", "test", or "filler".
 
         Also return some human readable meta data about the observationUnit and germplasm.
-
-
-        test-server.brapi.org/brapi/v1/studies/{studyDbId}/layout '
       parameters:
       - description: Identifier of the study. Usually a number, could be alphanumeric.
         in: path
@@ -87,10 +86,10 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Retrieve plot layout details
       tags:
       - Studies
     put:
+      summary: Update an existing Study with new layout details
       description: |- 
         Modify a study layout
 
@@ -169,6 +168,5 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Retrieve plot layout details
       tags:
       - Studies

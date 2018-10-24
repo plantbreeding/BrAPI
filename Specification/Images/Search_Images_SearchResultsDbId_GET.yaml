@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /search/images/{searchResultsDbId}:
     get:
+      summary: Get the results of an Images search request
       description: |-
         Get filtered set of image meta data
         
@@ -45,7 +46,6 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Get image search results
       tags:
       - Images
       - Search Services

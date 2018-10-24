@@ -5,7 +5,8 @@ openapi: 3.0.0
 paths:
   /maps/{mapDbId}/positions/{linkageGroupName}:
     get:
-      description: markers ordered by linkageGroup and position
+      summary: Get the positions of Markers inside a specific Linkage Group
+      description: All the markers in a specific Linkage Group (aka Chromasome) inside a particular Map, ordered by position.
       parameters:
       - description: unique id of the map
         in: path
@@ -78,6 +79,5 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Get map data by range on linkageGroup
       tags:
       - Genome Maps

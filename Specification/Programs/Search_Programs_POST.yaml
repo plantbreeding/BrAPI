@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /search/programs:
     post:
+      summary: Submit a search request for Programs
       description: |-
         Advanced searching for the programs resource.
         See Search Services for additional implementation details.
@@ -24,7 +25,6 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Search Programs
       tags:
       - Programs
       - Search Services

@@ -5,16 +5,21 @@ openapi: 3.0.0
 paths:
   /studies/{studyDbId}:
     get:
-      description: ' Scope: PHENOTYPING. Status: ACCEPTED. Implemented by: Germinate, GnpIS
-
-        Notes: an additionalInfo field was added to provide a controlled vocabulary for less common data fields.
-
+      summary: Get the details for a specific Study
+      description: |-
         Retrieve the information of the study required for field data collection
+        
+        An additionalInfo field was added to provide a controlled vocabulary for less common data fields.
 
-        More linked data: * observation variables: ```/brapi/v1/studies/{studyDbId}/observationVariables``` * germplasm: ```/brapi/v1/studies/{studyDbId}/germplasm``` * observation units: ```/brapi/v1/studies/{studyDbId}/observationUnits``` * layout: ```brapi/v1/studies/{studyDbId}/layout```
-
-
-        test-server.brapi.org/brapi/v1/studies/{studyDbId}'
+        Linked data
+        
+        - Observation Variables: ```/brapi/v1/studies/{studyDbId}/observationvariables``` 
+        
+        - Germplasm: ```/brapi/v1/studies/{studyDbId}/germplasm``` 
+        
+        - Observation Units: ```/brapi/v1/studies/{studyDbId}/observationunits``` 
+        
+        - Layout: ```brapi/v1/studies/{studyDbId}/layout```
       parameters:
       - description: Identifier of the study. Usually a number, could be alphanumeric.
         in: path
@@ -112,6 +117,5 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Retrieve study details
       tags:
       - Studies

@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /studies/{studyDbId}/observationunits:
     get:
+      summary: Get the Observation Units associated with a specific Study
       description:  The main API call for field data collection, to retrieve all the observation units within a study.
       parameters:
       - description: The study these observation units are related to.
@@ -126,7 +127,6 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Get all observation units
       tags:
       - Studies
       - Observations
@@ -200,10 +200,13 @@ paths:
       - Observations
       - Deprecated
     put:
-      description: 'Use this call for uploading new Observations as JSON to a system.
+      summary: Update the Observation Units for a specific Study
+      description: |-
+        Use this call for uploading new Observations as JSON to a system.
 
-
-        Note: If ''observationUnitDbId'' or ''observationDbId'' is populated, they should be considered updates to existing records. If an existing record of that DbId is not found, the document should be treated as new records and assigned new DbIds. If ''observationUnitDbId'' or ''observationDbId'' is un-populated (empty string or null) the document should be treated as new records and assigned new DbIds.'
+        Note: If ''observationUnitDbId'' or ''observationDbId'' is populated, they should be considered updates to existing records. 
+        If an existing record of that DbId is not found, the document should be treated as new records and assigned new DbIds. 
+        If ''observationUnitDbId'' or ''observationDbId'' is un-populated (empty string or null) the document should be treated as new records and assigned new DbIds.
       parameters:
       - description: The study these observation units are related to.
         in: path
@@ -256,7 +259,6 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Save Observation Unit Phenotypes
       tags:
       - Studies
       - Observations

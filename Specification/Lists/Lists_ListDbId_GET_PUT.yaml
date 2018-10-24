@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /lists/{listDbId}:
     get:
+      summary: Get the details of a specific List
       description: Get a specific generic lists
       parameters:
       - name: listDbId
@@ -35,10 +36,10 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Get List Details
       tags:
       - Lists
     put: 
+      summary: Update a specific List
       description: Update an existing generic list
       parameters: 
       - name: listDbId
@@ -74,6 +75,5 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Update a List
       tags:
       - Lists

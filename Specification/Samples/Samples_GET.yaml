@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /samples:
     get:
+      summary: Get the Samples
       description: |-
         Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
       parameters:
@@ -97,6 +98,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Get Samples
       tags:
       - Samples

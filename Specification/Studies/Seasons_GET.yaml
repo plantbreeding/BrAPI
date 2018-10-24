@@ -5,7 +5,18 @@ openapi: 3.0.0
 paths:
   /seasons:
     get:
-      description: Call to retrive all seasons (or years) in the database.
+      summary: Get the Seasons
+      description: |-
+        Call to retrive all seasons in the database.
+        
+        A season is made of 2 parts
+        
+        - The primary year 
+        
+        - A term which defines a segment of the year. 
+        This could be a traditional season, like "Spring" or "Summer"; 
+        this could be a month, like "May" or "June"; 
+        or this could be an arbitrary season name which is meaningful to the breeding program like "PlantingTime_3" or "Season E"
       parameters:
       - description: The unique identifier for a season 
         in: query
@@ -72,6 +83,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: List seasons or years
       tags:
       - Studies

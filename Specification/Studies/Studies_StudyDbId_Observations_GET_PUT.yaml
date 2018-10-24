@@ -5,10 +5,11 @@ openapi: 3.0.0
 paths:
   /studies/{studyDbId}/observations:
     get:
+      summary: Get the Observations associated with a specific Study
       description: |-
         Retrieve all observations where there are measurements for the given observation variables.
+        
         observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:ss+hhmm
-        test-server.brapi.org/brapi/v1/studies/{studyDbId}/observations
       parameters:
       - description: Identifier of the study. Usually a number, could be alphanumeric.
         in: path
@@ -91,11 +92,11 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Get Observation Units by observation variable ids
       tags:
       - Studies
       - Observations
     put:
+      summary: Update the Observations of a specific Study
       description: |-
         Implementation Guidelines: 
         
@@ -151,7 +152,6 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Get Observation Units by observation variable ids
       tags:
       - Studies
       - Observations

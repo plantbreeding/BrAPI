@@ -5,7 +5,7 @@ openapi: 3.0.0
 paths:
   /scales/{scaleDbId}:
     get:
-      summary: Retrieve scale details by id
+      summary: Get the details of a specific Scale
       description: |-
         Retrieve details about a specific scale
         
@@ -42,7 +42,7 @@ paths:
       tags:
       - Observation Variables
     put:
-      summary: Update an existing scale
+      summary: Update an existing Scale
       description: Update the details of an existing scale
       parameters:
       - description: Id of the scale to retrieve details of.

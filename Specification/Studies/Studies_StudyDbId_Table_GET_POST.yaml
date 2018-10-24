@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /studies/{studyDbId}/table:
     get:
+      summary: Get the Observations for a specific Study in a table format
       description: Retrieve the details of the study required for field data collection. Includes actual trait data.
       parameters:
       - description: Identifier of the study. Usually a number, could be alphanumeric.
@@ -179,11 +180,11 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Retrieve study Observation Units as table
       tags:
       - Studies
       - Observations
     post:
+      summary: Submit new Observations in a table format for a specific Study
       description: |-
         This call can be used to create new observations in bulk.
 
@@ -243,7 +244,6 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Save study Observation Units as table
       tags:
       - Studies
       - Observations

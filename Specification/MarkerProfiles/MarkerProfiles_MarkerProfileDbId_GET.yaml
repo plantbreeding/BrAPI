@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /markerprofiles/{markerProfileDbId}:
     get:
+      summary: Get the details for a specific Marker Profile
       description: |-
         For the requested marker profile ID, returns the allele call for each marker. 
                 
@@ -95,6 +96,5 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Alleles By Markerprofile Id
       tags:
       - Marker Profiles

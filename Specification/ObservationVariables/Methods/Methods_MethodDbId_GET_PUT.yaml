@@ -5,7 +5,7 @@ openapi: 3.0.0
 paths:
   /methods/{methodDbId}:
     get:
-      summary: Retrieve method details by id
+      summary: Get the details for a specific Method
       description: |-
         Retrieve details about a specific method
         
@@ -42,7 +42,7 @@ paths:
       tags:
       - Observation Variables
     put:
-      summary: Update an existing method
+      summary: Update an existing Method
       description: Update the details of an existing method
       parameters:
       - description: Id of the method to retrieve details of.

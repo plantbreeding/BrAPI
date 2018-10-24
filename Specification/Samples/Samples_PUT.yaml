@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /samples:
     put:
+      summary: Add a new Sample
       description: Call to register the event of a sample being taken. Sample ID is assigned as a result of the operation and returned in response.
       parameters: 
       - $ref: '#/components/parameters/authorizationHeader'
@@ -39,6 +40,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Add a sample
       tags:
       - Samples

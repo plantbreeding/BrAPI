@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /studies:
     get:
+      summary: Get the Studies
       description: |-
         Get list of studies
         
@@ -186,6 +187,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Search Studies (GET)
       tags:
       - Studies

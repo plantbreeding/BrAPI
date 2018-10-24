@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /search/programs/{searchResultsDbId}:
     get:
+      summary: Get the results of a Programs search request
       description: |-
         Advanced searching for the programs resource.
         See Search Services for additional implementation details.
@@ -61,7 +62,6 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Search Programs
       tags:
       - Programs
       - Search Services

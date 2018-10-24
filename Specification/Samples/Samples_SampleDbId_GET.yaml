@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /samples/{sampleDbId}:
     get:
+      summary: Get the details of a specific Sample
       description: Used to retrieve the details of a single Sample from a Sample Tracking system.
       parameters:
       - description: the internal DB id for a sample
@@ -59,6 +60,5 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Get Sample
       tags:
       - Samples

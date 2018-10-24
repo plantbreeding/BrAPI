@@ -5,6 +5,8 @@ openapi: 3.0.0
 paths:
   /vendor/orders/{orderId}/plates:
     get:
+      summary: Get the Plates for a specific Order
+      description: Retrieve the plate and sample details of an order being processed
       parameters:
       - name: orderId
         description: The order id returned by the vendor when the order was successfully submitted.
@@ -40,7 +42,5 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Plates by orderId
-      description: 'Retrieve the plate and sample details of an order being processed'
       tags:
       - Vendor

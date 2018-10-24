@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /people/{personDbId}:
     get:
+      summary: Get the details for a specific Person
       description: Get a specific person
       parameters:
       - name: personDbId
@@ -35,11 +36,10 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Get People
       tags:
       - People
     put: 
-      description: Update a person
+      description: Update an existing Person
       parameters: 
       - name: personDbId
         description: The unique ID of a person

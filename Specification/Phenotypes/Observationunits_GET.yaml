@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /observationunits:
     get:
+      summary: Get the Observation Units
       description: Get a set of observation units
       parameters:
       - description: The unique ID of a germplasm (accession) to filter on
@@ -196,6 +197,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Phenotype Search
       tags:
       - Observations

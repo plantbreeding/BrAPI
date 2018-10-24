@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /attributes:
     get:
+      summary: Get the Germplasm Attributes
       description: List available attributes.
       parameters:
       - name: attributeCategoryDbId
@@ -84,6 +85,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Attributes by attributeCategoryDbId
       tags:
       - Germplasm Attributes

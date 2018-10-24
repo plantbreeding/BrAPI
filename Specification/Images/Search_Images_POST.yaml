@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /search/images:
     post:
+      summary: Submit a search request for Images
       description: |-
         Get filtered set of image meta data
         
@@ -31,7 +32,6 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Search for images
       tags:
       - Images
       - Search Services

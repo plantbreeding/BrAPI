@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /traits/{traitDbId}:
     get:
+      summary: Get the details of a specific Trait
       description: |-
         Retrieve the details of a single trait
         
@@ -54,11 +55,10 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Retrieve trait details by id
       tags:
       - Observation Variables
     put:
-      summary: Update an existing trait
+      summary: Update an existing Trait
       description: Update an existing trait
       parameters:
       - description: Id of the trait to retrieve details of.

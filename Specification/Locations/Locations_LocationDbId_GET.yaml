@@ -5,13 +5,13 @@ openapi: 3.0.0
 paths:
   /locations/{locationDbId}:
     get:
-      description: ' Implemented by:  GnpIS
-
+      summary: Get the details of a specific Location
+      description: |-
         Get details for a location.
 
-        * The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
+        - The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
 
-        * `altitude` is in meters. '
+        - `altitude` is in meters.
       parameters:
       - description: The internal DB id for a location
         in: path
@@ -70,6 +70,5 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: The internal DB id for a location
       tags:
       - Locations

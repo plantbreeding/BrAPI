@@ -5,6 +5,8 @@ openapi: 3.0.0
 paths:
   /vendor/plates:
     post:
+      summary: Submit a new set of Sample data
+      description: Submit a new set of Sample data
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
@@ -33,7 +35,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Submit a new set of sample data
-      description: Submit a new set of sample data
       tags: 
       - Vendor

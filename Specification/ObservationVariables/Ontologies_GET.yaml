@@ -5,7 +5,8 @@ openapi: 3.0.0
 paths:
   /ontologies:
     get:
-      description: "Call to retrieve a list of observation variable ontologies available in the system. \n\nScope: CORE. \nStatus: ACCEPTED."
+      summary: Get the Ontologies
+      description: Call to retrieve a list of observation variable ontologies available in the system.
       parameters:
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
@@ -53,6 +54,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Variable ontology list
       tags:
       - Observation Variables

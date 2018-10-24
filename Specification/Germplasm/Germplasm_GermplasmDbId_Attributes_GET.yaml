@@ -5,11 +5,8 @@ openapi: 3.0.0
 paths:
   /germplasm/{germplasmDbId}/attributes:
     get:
-      description: 'Values for all attributes by default.
-
-
-
-        test-server.brapi.org/brapi/v1/germplasm/{germplasmDbId}/attributes'
+      summary: Get the Germplasm Attributes associated with a specific Germplasm
+      description: Values for all attributes by default.
       parameters:
       - description: The germplasm characterized
         in: path
@@ -80,7 +77,6 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Germplasm attribute values
       tags:
       - Germplasm Attributes
       - Germplasm

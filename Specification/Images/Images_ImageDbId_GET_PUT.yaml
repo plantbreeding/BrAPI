@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /images/{imageDbId}:
     get:
+      summary: Get the an image meta data summary
       description: |-
         Get one image meta data object
         
@@ -42,10 +43,10 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Get an image meta data summary
       tags:
       - Images
     put: 
+      summary: Update an image meta data
       description: |-
         Update an image meta data object
         
@@ -92,6 +93,5 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Update an image meta data
       tags:
       - Images
