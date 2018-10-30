@@ -5,29 +5,37 @@ openapi: 3.0.0
 paths:
   /vendor/plates/{submissionId}:
     get:
-      summary: Get the data for a submitted set of plates
       description: Get data for a submitted set of plates
       parameters:
-      - name: submissionId
-        in: path
+      - in: path
+        name: submissionId
+        required: true
         schema:
           type: string
-        required: true
       responses:
         '200':
-          description: OK
-          headers: {}
           content:
             application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result: null
               schema:
-                title: vendorPlateGetResponse
-                type: object
                 properties:
                   metadata:
-                    $ref: '#/components/schemas/metadata' 
+                    $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/vendorPlateGetResponse'
-              example: {}
+                title: vendorPlateGetResponse
+                type: object
+          description: OK
+          headers: {}
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -36,5 +44,6 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      tags: 
+      summary: Get the data for a submitted set of plates
+      tags:
       - Vendor

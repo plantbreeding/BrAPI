@@ -5,39 +5,38 @@ openapi: 3.0.0
 paths:
   /vendor/orders/{orderId}/status:
     get:
-      summary: Get the status of a specific Order
       description: Retrieve the current status of an order being processed
       parameters:
-      - name: orderId
-        description: The order id returned by the vendor when the order was successfully submitted.
+      - description: The order id returned by the vendor when the order was successfully submitted.
         in: path
+        name: orderId
         required: true
         schema:
           type: string
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          description: OK
-          headers: {}
           content:
             application/json:
               schema:
-                title: vendorPlateResponse
-                type: object
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    type: object
                     properties:
                       status:
-                        type: string
                         enum:
                         - registered
                         - received
                         - inProgress
                         - completed
                         - rejected
+                        type: string
+                    type: object
+                title: vendorOrderStatusResponse
+                type: object
+          description: OK
+          headers: {}
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -46,5 +45,6 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
+      summary: Get the status of a specific Order
       tags:
       - Vendor

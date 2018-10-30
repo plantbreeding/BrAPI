@@ -5,15 +5,16 @@ openapi: 3.0.0
 paths:
   /germplasm/{germplasmDbId}/mcpd:
     get:
-      summary: Get the details of a specifc Germplasm in MCPD format
-      description: |-
-        Get all MCPD details of a germplasm
-        
+      description: 'Get all MCPD details of a germplasm
+
+
         <a target="_blank" href="https://www.bioversityinternational.org/fileadmin/user_upload/online_library/publications/pdfs/FAOBIOVERSITY_MULTI-CROP_PASSPORT_DESCRIPTORS_V.2.1_2015_2020.pdf"> MCPD v2.1 spec can be found here </a>
-        
+
+
         Implementation Notes
-        
-        - When the MCPD spec identifies a field which can have multiple values returned, the JSON response should be an array instead of a semi-colon seperated string.
+
+
+        - When the MCPD spec identifies a field which can have multiple values returned, the JSON response should be an array instead of a semi-colon seperated string.'
       parameters:
       - description: the internal id of the germplasm
         in: path
@@ -44,5 +45,6 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
+      summary: Get the details of a specifc Germplasm in MCPD format
       tags:
       - Germplasm

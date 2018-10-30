@@ -27,8 +27,8 @@ paths:
                   status: []
                 result:
                   data:
-                  - plot
                   - plant
+                  - plot
               schema:
                 properties:
                   metadata:

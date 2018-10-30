@@ -5,7 +5,6 @@ openapi: 3.0.0
 paths:
   /maps:
     get:
-      summary: Get the Genomic Maps
       description: Get list of maps
       parameters:
       - deprecated: true
@@ -52,14 +51,16 @@ paths:
                 result:
                   data:
                   - comments: comments
-                    commonCropName: Tomatillo
+                    commonCropName: null
+                    documentationURL: null
                     linkageGroupCount: 3
                     mapDbId: gm1
+                    mapName: null
                     markerCount: 22
                     name: Genome Map 1
                     publishedDate: '2018-01-01'
-                    scientificName: Physalis philadelphica
-                    species: philadelphica
+                    scientificName: null
+                    species: novus
                     type: Genetic
                     unit: cM
               schema:
@@ -83,5 +84,6 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
+      summary: Get the Genomic Maps
       tags:
       - Genome Maps

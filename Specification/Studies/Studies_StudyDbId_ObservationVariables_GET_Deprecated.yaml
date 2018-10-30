@@ -35,8 +35,9 @@ paths:
                   data:
                   - contextOfUse: []
                     crop: maize
-                    date: '2018-10-02'
+                    date: '2018-10-26'
                     defaultValue: '10'
+                    documentationURL: null
                     growthStage: '1'
                     institution: '1'
                     language: English
@@ -45,18 +46,23 @@ paths:
                       description: Standard rolled measuring tape
                       formula: a^2 + b^2 = c^2
                       methodDbId: m1
+                      methodName: null
                       name: Tape Measure
+                      ontologyRefernce: null
                       reference: google.com
                     name: Plant height
                     observationVariableDbId: MO_123:100002
                     observationVariableName: Plant height
                     ontologyDbId: MO_123
                     ontologyName: Ontology.org
+                    ontologyRefernce: null
                     scale:
                       dataType: Numerical
                       decimalPlaces: 1
                       name: Centimeter
+                      ontologyRefernce: null
                       scaleDbId: s1
+                      scaleName: null
                       validValues:
                         categories: []
                         max: 99999
@@ -74,15 +80,18 @@ paths:
                       entity: entity
                       mainAbbreviation: H
                       name: Plant Height
+                      ontologyRefernce: null
                       status: active
                       synonyms: []
                       traitDbId: t1
+                      traitName: null
                       xref: xref
                     xref: MO_123:100002
                   - contextOfUse: []
                     crop: maize
-                    date: '2018-10-02'
+                    date: '2018-10-26'
                     defaultValue: '10'
+                    documentationURL: null
                     growthStage: '1'
                     institution: '1'
                     language: English
@@ -91,18 +100,23 @@ paths:
                       description: Comparing sample color to standard color palette
                       formula: NA
                       methodDbId: m3
+                      methodName: null
                       name: Standard Color Palette
+                      ontologyRefernce: null
                       reference: google.com
                     name: Carotenoid
                     observationVariableDbId: MO_123:100003
                     observationVariableName: Carotenoid
                     ontologyDbId: MO_123
                     ontologyName: Ontology.org
+                    ontologyRefernce: null
                     scale:
-                      dataType: Categorical
+                      dataType: null
                       decimalPlaces: 0
                       name: Color
+                      ontologyRefernce: null
                       scaleDbId: s3
+                      scaleName: null
                       validValues:
                         categories:
                         - dark red
@@ -125,15 +139,18 @@ paths:
                       entity: entity
                       mainAbbreviation: LC
                       name: Leaf Color
+                      ontologyRefernce: null
                       status: active
                       synonyms: []
                       traitDbId: t3
+                      traitName: null
                       xref: xref
                     xref: MO_123:100003
                   - contextOfUse: []
                     crop: maize
-                    date: '2018-10-02'
+                    date: '2018-10-26'
                     defaultValue: '10'
+                    documentationURL: null
                     growthStage: '1'
                     institution: '1'
                     language: English
@@ -142,18 +159,23 @@ paths:
                       description: Comparing sample color to standard color palette
                       formula: NA
                       methodDbId: m3
+                      methodName: null
                       name: Standard Color Palette
+                      ontologyRefernce: null
                       reference: google.com
                     name: Root color
                     observationVariableDbId: MO_123:100005
                     observationVariableName: Root color
                     ontologyDbId: MO_123
                     ontologyName: Ontology.org
+                    ontologyRefernce: null
                     scale:
-                      dataType: Categorical
+                      dataType: null
                       decimalPlaces: 0
                       name: Color
+                      ontologyRefernce: null
                       scaleDbId: s3
+                      scaleName: null
                       validValues:
                         categories:
                         - dark red
@@ -176,15 +198,18 @@ paths:
                       entity: entity
                       mainAbbreviation: RC
                       name: Root Color
+                      ontologyRefernce: null
                       status: active
                       synonyms: []
                       traitDbId: t4
+                      traitName: null
                       xref: xref
                     xref: MO_123:100005
                   - contextOfUse: []
                     crop: maize
-                    date: '2018-10-02'
+                    date: '2018-10-26'
                     defaultValue: '10'
+                    documentationURL: null
                     growthStage: '1'
                     institution: '1'
                     language: English
@@ -193,18 +218,23 @@ paths:
                       description: Image analysis of sample photo
                       formula: Bobs Color Threshold Tool
                       methodDbId: m4
+                      methodName: null
                       name: Image analysis
+                      ontologyRefernce: null
                       reference: https://bobsimageanalysis.com
                     name: Virus severity
                     observationVariableDbId: MO_123:100006
                     observationVariableName: Virus severity
                     ontologyDbId: MO_123
                     ontologyName: Ontology.org
+                    ontologyRefernce: null
                     scale:
-                      dataType: Percentage
+                      dataType: null
                       decimalPlaces: 0
                       name: Percentage
+                      ontologyRefernce: null
                       scaleDbId: s4
+                      scaleName: null
                       validValues:
                         categories: []
                         max: 100
@@ -222,9 +252,11 @@ paths:
                       entity: entity
                       mainAbbreviation: LC
                       name: Virus severity
+                      ontologyRefernce: null
                       status: active
                       synonyms: []
                       traitDbId: t5
+                      traitName: null
                       xref: xref
                     xref: MO_123:100006
                   studyDbId: '1001'

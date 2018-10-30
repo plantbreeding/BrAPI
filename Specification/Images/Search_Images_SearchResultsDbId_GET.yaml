@@ -5,15 +5,16 @@ openapi: 3.0.0
 paths:
   /search/images/{searchResultsDbId}:
     get:
-      summary: Get the results of an Images search request
-      description: |-
-        Get filtered set of image meta data
-        
+      description: 'Get filtered set of image meta data
+
+
         Implementation Notes
-        
-        - 'imageURL' should be a complete URL decribing the location of the image. There is no BrAPI call for retireiving the image content, so it could be on a different path, or a different host.
-        
-        - 'descriptiveOntologyTerm' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI's.  
+
+
+        - ''imageURL'' should be a complete URL decribing the location of the image. There is no BrAPI call for retireiving the image content, so it could be on a different path, or a different host.
+
+
+        - ''descriptiveOntologyTerm'' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI''s.  '
       parameters:
       - $ref: '#/components/parameters/searchResultsDbId'
       - $ref: '#/components/parameters/page'
@@ -24,18 +25,19 @@ paths:
           content:
             application/json:
               schema:
-                type: object
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    type: object
                     properties:
                       data:
-                        type: array
                         description: Array of image meta data
                         items:
                           $ref: '#/components/schemas/image'
+                        type: array
+                    type: object
+                title: imagesResponse
+                type: object
           description: OK
           headers: {}
         '400':
@@ -46,6 +48,7 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
+      summary: Get the results of an Images search request
       tags:
       - Images
       - Search Services

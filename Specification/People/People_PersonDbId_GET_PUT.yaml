@@ -5,12 +5,11 @@ openapi: 3.0.0
 paths:
   /people/{personDbId}:
     get:
-      summary: Get the details for a specific Person
       description: Get a specific person
       parameters:
-      - name: personDbId
-        description: The unique ID of a person
+      - description: The unique ID of a person
         in: path
+        name: personDbId
         required: true
         schema:
           type: string
@@ -20,12 +19,13 @@ paths:
           content:
             application/json:
               schema:
-                type: object
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/person'
+                title: personResponse
+                type: object
           description: OK
           headers: {}
         '400':
@@ -36,19 +36,20 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
+      summary: Get the details for a specific Person
       tags:
       - People
-    put: 
+    put:
       description: Update an existing Person
-      parameters: 
-      - name: personDbId
-        description: The unique ID of a person
+      parameters:
+      - description: The unique ID of a person
         in: path
+        name: personDbId
         required: true
         schema:
           type: string
       - $ref: '#/components/parameters/authorizationHeader'
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -58,12 +59,13 @@ paths:
           content:
             application/json:
               schema:
-                type: object
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/person'
+                title: personResponse
+                type: object
           description: OK
           headers: {}
         '400':

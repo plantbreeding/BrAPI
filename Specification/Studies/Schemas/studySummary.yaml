@@ -10,8 +10,12 @@ components:
             type: string
           description: Additional arbitrary info
           type: object
-        commonCropName: 
+        commonCropName:
           description: Common name for the crop associated with this study
+          type: string
+        documentationURL:
+          description: A URL to the human readable documentation of this object
+          format: uri
           type: string
         endDate:
           description: The date the study ends
@@ -24,8 +28,8 @@ components:
           description: The human readable name for a location
           type: string
         name:
-          description: DEPRECATED in v1.3 - Use "studyName"
           deprecated: true
+          description: DEPRECATED in v1.3 - Use "studyName"
           type: string
         programDbId:
           description: The ID which uniquely identifies a program within the given database server
@@ -49,14 +53,14 @@ components:
           description: The humane readable name of a study
           type: string
         studyType:
-          description: DEPRECATED in v1.3 - See "studyTypeName"
           deprecated: true
+          description: DEPRECATED in v1.3 - See "studyTypeName"
+          type: string
+        studyTypeDbId:
+          description: The unique identifier of the type of study being performed.
           type: string
         studyTypeName:
           description: The name of the type of study being performed. ex. "Yield Trial", etc
-          type: string
-        studyTypeDbId: 
-          description: The unique identifier of the type of study being performed.
           type: string
         trialDbId:
           description: The ID which uniquely identifies a trial
@@ -64,10 +68,6 @@ components:
         trialName:
           description: The human readable name of a trial
           type: string
-        documentationURL:
-          description: A URL to the human readable documentation of this object
-          type: string
-          format: uri
       type: object
 info:
   title: BrAPI

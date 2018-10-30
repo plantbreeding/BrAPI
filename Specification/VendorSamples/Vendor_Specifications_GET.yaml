@@ -5,23 +5,23 @@ openapi: 3.0.0
 paths:
   /vendor/specifications:
     get:
-      summary: Get the Vendor Specifications
       description: Defines the plate format specification for the vendor.
-      parameters: 
+      parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          description: OK
-          headers: {}
           content:
             application/json:
               schema:
-                title: vendorSpecificationResponse
-                type: object
                 properties:
                   metadata:
-                    $ref: '#/components/schemas/metadata' 
+                    $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/vendorSpecification'
+                title: vendorSpecificationResponse
+                type: object
+          description: OK
+          headers: {}
+      summary: Get the Vendor Specifications
       tags:
       - Vendor

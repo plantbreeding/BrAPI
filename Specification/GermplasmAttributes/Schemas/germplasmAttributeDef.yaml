@@ -3,8 +3,7 @@ components:
     germplasmAttributeDef:
       allOf:
       - $ref: '#/components/schemas/VariableBaseClass'
-      - type: object
-        properties: 
+      - properties:
           attributeCategoryDbId:
             description: General category for the attribute. very similar to Trait class.
             type: string
@@ -15,31 +14,32 @@ components:
             description: A human readable name for this attribute
             type: string
           code:
-            description: DEPRECATED in v1.3 - see "this.trait.alternativeAbbreviations"
             deprecated: true
+            description: DEPRECATED in v1.3 - see "this.trait.alternativeAbbreviations"
             type: string
           datatype:
-            description: DEPRECATED in v1.3 - see "this.scale.dataType"
             deprecated: true
+            description: DEPRECATED in v1.3 - see "this.scale.dataType"
             type: string
           description:
             description: A human readable description of this attribute
             type: string
           name:
-            description: DEPRECATED in v1.3 - Use "this.attributeName"
             deprecated: true
+            description: DEPRECATED in v1.3 - Use "this.attributeName"
             type: string
           uri:
-            description: DEPRECATED in v1.3 - see "this.xref"
             deprecated: true
+            description: DEPRECATED in v1.3 - see "this.xref"
             type: string
           values:
-            description: DEPRECATED in v1.3 - see "this.scale.validValues"
             deprecated: true
+            description: DEPRECATED in v1.3 - see "this.scale.validValues"
             type: string
         required:
         - attributeDbId
         - attributeName
+        type: object
 info:
   title: BrAPI
   version: ''

@@ -88,18 +88,7 @@ paths:
                     - i_11_10020
                     type: marker
               schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    properties:
-                      data:
-                        items:
-                          $ref: '#/components/schemas/marker'
-                        type: array
-                    type: object
-                title: markersResponse
-                type: object
+                $ref: '#/components/schemas/markersResponse'
           description: OK
           headers: {}
       summary: Markers Search (GET)
@@ -138,7 +127,8 @@ paths:
                   - analysisMethods:
                     - illumina
                     defaultDisplayName: marker1-1
-                    markerDbId: mr1
+                    markerDbId: mr01
+                    markerName: null
                     refAlt:
                     - A
                     - T
@@ -148,7 +138,8 @@ paths:
                   - analysisMethods:
                     - kasp
                     defaultDisplayName: marker1-2
-                    markerDbId: mr2
+                    markerDbId: mr02
+                    markerName: null
                     refAlt:
                     - A
                     - T
@@ -156,18 +147,7 @@ paths:
                     - i_11_10020
                     type: marker
               schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    properties:
-                      data:
-                        items:
-                          $ref: '#/components/schemas/marker'
-                        type: array
-                    type: object
-                title: markersResponse
-                type: object
+                $ref: '#/components/schemas/markersResponse'
           description: OK
           headers: {}
       summary: Markers Search (POST)

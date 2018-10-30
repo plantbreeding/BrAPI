@@ -9,6 +9,8 @@ from copy import deepcopy
 import jsonschema
 from jsonschema import validate
 
+verbose = True
+
 def getObjectExample(schema, path, method):
 	url = 'http://localhost:8080/brapi/v1' + replaceIDs(path)
 	headers = {'Authorization':'Bearer YYYY'}
@@ -25,29 +27,38 @@ def getObjectExample(schema, path, method):
 	try :
 		example = res.json()
 	except:
-		print('Bad JSON')
-		print(method + ' ' + url)
-		print(res)
+		if verbose:
+			print('Bad JSON')
+			print(method + ' ' + url)
+			print(res)
+		else:
+			print('X')
 		return None
 	
 	if not res.ok :
-		print('Bad Response Code')
-		print(method + ' ' + url)
-		print(example)
+		if verbose:
+			print('Bad Response Code')
+			print(method + ' ' + url)
+			print(example)
+		else:
+			print('X')
 		return None
 		
 	try :
 		if res.ok :
 			validate(example, schema)
 	except jsonschema.exceptions.ValidationError as ve:
-		print('Bad Schema Match')
-		print(method + ' ' + url)
-		print(str(ve) + "\n")
+		if verbose:
+			print('Bad Schema Match')
+			print(method + ' ' + url)
+			print(str(ve) + "\n")
+		else:
+			print('X')
 		return example
 	
 	return example
 
-def addExamples(obj):
+def addExamples(obj, parent):	
 	if('paths' in obj):
 		for path in obj['paths']:
 			for method in obj['paths'][path]:
@@ -55,7 +66,7 @@ def addExamples(obj):
 					if 'content' in obj['paths'][path][method]['responses'][responseCode]:
 						response = obj['paths'][path][method]['responses'][responseCode]['content']['application/json']
 						if ('schema' in response):
-							schema = dereferenceAll(deepcopy(response['schema']))
+							schema = dereferenceAll(deepcopy(response['schema']), parent)
 							newExample = getObjectExample(schema, path, method)
 							if newExample is not None :
 								print('.')
@@ -65,27 +76,29 @@ def addExamples(obj):
 						
 	return obj
 
-def dereferenceAll(obj, modelsPath = 'C:/Users/ps664/Documents/BrAPI/API/Specification/ModelDefinitions/'):
-	if type(obj) is dict:
-		for fieldStr in obj:
-			if(fieldStr == '$ref'):
-				refName = obj[fieldStr].split('/')[3]
-				path = modelsPath + refName + '.yaml'
-				refObj = dereferenceAll(readFileToDict(path)['components']['schemas'][refName])
-				obj = {**obj, **refObj}
-			else:
-				obj[fieldStr] = dereferenceAll(obj[fieldStr])
-		if '$ref' in obj:
-			obj.pop('$ref')
-	elif type(obj) is list:
-		newList = []
-		for item in obj:
-			newList.append(dereferenceAll(item))
-		obj = newList
-		
-	#print(obj)
-	return obj
-
+def dereferenceAll(obj, parent):
+    if type(obj) is dict:
+        for fieldStr in obj:
+            if(fieldStr == '$ref'):
+                refPath = obj[fieldStr].split('/')
+                refObj = parent
+                for refPart in refPath:
+                    if refPart in refObj:
+                        refObj = refObj[refPart]
+                refObj = dereferenceAll(refObj, parent)
+                obj = {**obj, **refObj}
+            else:
+                obj[fieldStr] = dereferenceAll(obj[fieldStr], parent)
+        if '$ref' in obj:
+            obj.pop('$ref')
+    elif type(obj) is list:
+        newList = []
+        for item in obj:
+            newList.append(dereferenceAll(item, parent))
+        obj = newList
+        
+    #print(obj)
+    return obj
 
 def readFileToDict(path):
 	fileObj = {}	
@@ -217,11 +230,13 @@ if len(sys.argv) > 1 :
 
 if(rootPath[-1] == '/'):
 	rootPath = rootPath + '**/*.yaml'
+	
+parentFile = readFileToDict('./brapi_openapi.yaml')
 
 for filename in glob.iglob(rootPath, recursive=True):
 	#print(filename)
 	file = readFileToDict(filename)	
-	newFile = addExamples(file)
+	newFile = addExamples(file, parentFile)
 	
 	with open(filename, 'w') as outfile:
 		yaml.dump(newFile, outfile, default_flow_style=False, width=float("inf"))

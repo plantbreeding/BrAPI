@@ -33,11 +33,11 @@ components:
         operator:
           description: The name or identifier of the entity which collected the observation
           type: string
+        season:
+          $ref: '#/components/schemas/season'
         studyDbId:
           description: The ID which uniquely identifies a study within the given database server
           type: string
-        season:
-          $ref: '#/components/schemas/season'
         uploadedBy:
           description: The name or id of the user who uploaded the observation to the database system
           type: string

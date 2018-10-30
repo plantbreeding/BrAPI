@@ -1,39 +1,22 @@
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}
-components: 
-  schemas: 
-    imagesSearchRequest: 
-      type: object
+components:
+  schemas:
+    imagesSearchRequest:
       properties:
-        imageNames:
-          description: Human readable names to search for.
-          type: array
+        descriptiveOntologyTerms:
+          description: A list of terms to formally describe the image to search for. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.
           items:
             type: string
-        observationUnitDbIds:
-          description: A set of observation unit identifiers to search for.
           type: array
-          items:
-            type: string
         imageFileNames:
           description: Image file names to search for.
-          type: array
           items:
             type: string
+          type: array
         imageFileSizeMax:
           description: A maximum image file size to search for.
           type: integer
         imageFileSizeMin:
           description: A minimum image file size to search for.
-          type: integer
-        imageWidthMax:
-          description: A maximum image width to search for.
-          type: integer
-        imageWidthMin: 
-          description: A minimum image width to search for.
           type: integer
         imageHeightMax:
           description: A maximum image height to search for.
@@ -41,30 +24,46 @@ components:
         imageHeightMin:
           description: A minimum image height to search for.
           type: integer
+        imageLocation:
+          $ref: '#/components/schemas/geoJSON'
+        imageNames:
+          description: Human readable names to search for.
+          items:
+            type: string
+          type: array
+        imageTimeStampRangeEnd:
+          description: The latest timestamp to search for.
+          format: date
+          type: string
+        imageTimeStampRangeStart:
+          description: The earliest timestamp to search for.
+          format: date
+          type: string
+        imageWidthMax:
+          description: A maximum image width to search for.
+          type: integer
+        imageWidthMin:
+          description: A minimum image width to search for.
+          type: integer
         mimeTypes:
           description: A set of image file types to search for.
-          type: array
           items:
-            type: string
             pattern: image/.*
-        imageTimeStampRangeStart: 
-          description: The earliest timestamp to search for.
-          type: string
-          format: date
-        imageTimeStampRangeEnd: 
-          description: The latest timestamp to search for.
-          type: string
-          format: date
-        imageLocation:
-          "$ref": "#/components/schemas/geoJSON"
-        descriptiveOntologyTerms: 
-          description: A list of terms to formally describe the image to search for. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.
-          type: array
-          items:
             type: string
-        observationDbIds: 
+          type: array
+        observationDbIds:
           description: A list of observation Ids this image is associated with to search for
-          type: array
           items:
             type: string
-          
+          type: array
+        observationUnitDbIds:
+          description: A set of observation unit identifiers to search for.
+          items:
+            type: string
+          type: array
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

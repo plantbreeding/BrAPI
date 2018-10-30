@@ -5,13 +5,13 @@ openapi: 3.0.0
 paths:
   /locations/{locationDbId}:
     get:
-      summary: Get the details of a specific Location
-      description: |-
-        Get details for a location.
+      description: 'Get details for a location.
+
 
         - The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
 
-        - `altitude` is in meters.
+
+        - `altitude` is in meters.'
       parameters:
       - description: The internal DB id for a location
         in: path
@@ -24,18 +24,14 @@ paths:
         '200':
           content:
             application/json:
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    $ref: '#/components/schemas/location'
-                title: locationResponse
-                type: object
               example:
                 metadata:
                   datafiles: []
-                  pagination: {}
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
                   status: []
                 result:
                   abbreviation: L1
@@ -52,14 +48,24 @@ paths:
                   altitude: 828
                   countryCode: PER
                   countryName: Peru
+                  documentationURL: null
                   instituteAddress: 71 Pilgrim Avenue Chevy Chase MD 20815
                   instituteAdress: 71 Pilgrim Avenue Chevy Chase MD 20815
                   instituteName: Plant Science Institute
                   latitude: -11.1274995803833
                   locationDbId: '1'
+                  locationName: null
                   locationType: Storage location
                   longitude: -75.35639190673828
                   name: Location 1
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/location'
+                title: locationResponse
+                type: object
           description: OK
           headers: {}
         '400':
@@ -70,5 +76,6 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
+      summary: Get the details of a specific Location
       tags:
       - Locations

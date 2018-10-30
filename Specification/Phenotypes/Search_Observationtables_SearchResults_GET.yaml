@@ -5,13 +5,15 @@ openapi: 3.0.0
 paths:
   /search/observationtables/{searchResultsDbId}:
     get:
-      summary: Get the results of a Observation table search request
-      description: |
-        Returns a list of observationUnit with the observed Phenotypes.
-        
+      description: 'Returns a list of observationUnit with the observed Phenotypes.
+
+
         observationTimeStamp - Iso Standard 8601.
-        
+
+
         observationValue data type inferred from the ontology
+
+        '
       parameters:
       - $ref: '#/components/parameters/acceptHeader'
       - $ref: '#/components/parameters/authorizationHeader'
@@ -135,7 +137,7 @@ paths:
                   - Virus severity
                   - Carotenoid
                   - Root weight
-                  - Root color    
+                  - Root color
               schema:
                 properties:
                   metadata:
@@ -145,26 +147,24 @@ paths:
                 title: observationUnitsTableResponse
                 type: object
             text/csv:
-              example: |-
-                "year", "studyDbId", "studyName", "locationDbId", "locationName", "germplasmDbId", "germplasmName", "observationUnitDbId", "plotNumber", "replicate", "blockNumber", "entryType", "X", "Y", "MO_123:100002", "MO_123:100006", "MO_123:100003", "MO_123:100004", "MO_123:100005"
+              example: '"year", "studyDbId", "studyName", "locationDbId", "locationName", "germplasmDbId", "germplasmName", "observationUnitDbId", "plotNumber", "replicate", "blockNumber", "entryType", "X", "Y", "MO_123:100002", "MO_123:100006", "MO_123:100003", "MO_123:100004", "MO_123:100005"
+
                 "2013", "1001", "Study 1", "1", "Location 1", "1", "Name001", "1", "1", "0", "1", "TEST", "1", "1", "1.2", "4.5", "", "", ""
+
                 "2011", "1003", "Study 3", "2", "Location 2", "4", "Name004", "10", "5", "1", "101", "FILLER", "1", "1", "100", "", "9", "2", ""
+
                 "2011", "1003", "Study 3", "2", "Location 2", "2", "Name002", "11", "6", "1", "101", "FILLER", "1", "1", "11", "", "12", "5", "black"
-                "2013", "1001", "Study 1", "1", "Location 1", "1", "Name001", "2", "1", "0", "1", "TEST", "1", "1", "1.1", "5.1", "", "", ""
+
+                "2013", "1001", "Study 1", "1", "Location 1", "1", "Name001", "2", "1", "0", "1", "TEST", "1", "1", "1.1", "5.1", "", "", ""'
               schema:
                 type: string
             text/tsv:
-              example: |-
-                "year"	"studyDbId"	"studyName"	"locationDbId"	"locationName"	"germplasmDbId"	"germplasmName"	"observationUnitDbId"	"plotNumber"	"replicate"	"blockNumber"	"entryType"	"X"	"Y"	"MO_123:100002"	"MO_123:100006"	"MO_123:100003"	"MO_123:100004"	"MO_123:100005"
-                "2013"	"1001"	"Study 1"	"1"	"Location 1"	"1"	"Name001"	"1"	"1"	"0"	"1"	"TEST"	"1"	"1"	"1.2"	"4.5"	""	""	""
-                "2011"	"1003"	"Study 3"	"2"	"Location 2"	"4"	"Name004"	"10"	"5"	"1"	"101"	"FILLER"	"1"	"1"	"100"	""	"9"	"2"	""
-                "2011"	"1003"	"Study 3"	"2"	"Location 2"	"2"	"Name002"	"11"	"6"	"1"	"101"	"FILLER"	"1"	"1"	"11"	""	"12"	"5"	"black"
-                "2013"	"1001"	"Study 1"	"1"	"Location 1"	"1"	"Name001"	"2"	"1"	"0"	"1"	"TEST"	"1"	"1"	"1.1"	"5.1"	""	""	""
+              example: "\"year\"\t\"studyDbId\"\t\"studyName\"\t\"locationDbId\"\t\"locationName\"\t\"germplasmDbId\"\t\"germplasmName\"\t\"observationUnitDbId\"\t\"plotNumber\"\t\"replicate\"\t\"blockNumber\"\t\"entryType\"\t\"X\"\t\"Y\"\t\"MO_123:100002\"\t\"MO_123:100006\"\t\"MO_123:100003\"\t\"MO_123:100004\"\t\"MO_123:100005\"\n\"2013\"\t\"1001\"\t\"Study 1\"\t\"1\"\t\"Location 1\"\t\"1\"\t\"Name001\"\t\"1\"\t\"1\"\t\"0\"\t\"1\"\t\"TEST\"\t\"1\"\t\"1\"\t\"1.2\"\t\"4.5\"\t\"\"\t\"\"\t\"\"\n\"2011\"\t\"1003\"\t\"Study 3\"\t\"2\"\t\"Location 2\"\t\"4\"\t\"Name004\"\t\"10\"\t\"5\"\t\"1\"\t\"101\"\t\"FILLER\"\t\"1\"\t\"1\"\t\"100\"\t\"\"\t\"9\"\t\"2\"\t\"\"\n\"2011\"\t\"1003\"\t\"Study 3\"\t\"2\"\t\"Location 2\"\t\"2\"\t\"Name002\"\t\"11\"\t\"6\"\t\"1\"\t\"101\"\t\"FILLER\"\t\"1\"\t\"1\"\t\"11\"\t\"\"\t\"12\"\t\"5\"\t\"black\"\n\"2013\"\t\"1001\"\t\"Study 1\"\t\"1\"\t\"Location 1\"\t\"1\"\t\"Name001\"\t\"2\"\t\"1\"\t\"0\"\t\"1\"\t\"TEST\"\t\"1\"\t\"1\"\t\"1.1\"\t\"5.1\"\t\"\"\t\"\"\t\"\""
               schema:
-                type: string            
+                type: string
           description: OK
-          headers: {} 
-        '400': 
+          headers: {}
+        '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
           $ref: '#/components/responses/401Unauthorized'
@@ -172,6 +172,7 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
+      summary: Get the results of a Observation table search request
       tags:
       - Observations
       - Search Services

@@ -5,7 +5,6 @@ openapi: 3.0.0
 paths:
   /breedingmethods:
     get:
-      summary: Get the Breeding Methods
       description: Get the list of germplasm breeding methods available in a system.
       parameters:
       - $ref: '#/components/parameters/page'
@@ -28,10 +27,12 @@ paths:
                   data:
                   - abbreviation: MBCR
                     breedingMethodDbId: bm1
+                    breedingMethodName: null
                     description: Backcross to recover a specific gene.
                     name: Male Backcross
                   - abbreviation: FBCR
                     breedingMethodDbId: bm2
+                    breedingMethodName: null
                     description: Backcross to recover a specific gene.
                     name: Female Backcross
               schema:
@@ -55,5 +56,6 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
+      summary: Get the Breeding Methods
       tags:
       - Germplasm

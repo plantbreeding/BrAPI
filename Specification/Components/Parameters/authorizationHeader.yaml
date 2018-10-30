@@ -1,16 +1,13 @@
 components:
   parameters:
     authorizationHeader:
-      name: Authorization
-      description: |-
-        HTTP HEADER - Token used for Authorization 
-        
-        <strong>Bearer {token_string} </strong>
+      description: "HTTP HEADER - Token used for Authorization \n\n<strong>Bearer {token_string} </strong>"
       example: Bearer XXXX
       in: header
+      name: Authorization
       schema:
+        pattern: ^Bearer .*$
         type: string
-        pattern: '^Bearer .*$' 
 info:
   title: BrAPI
   version: ''

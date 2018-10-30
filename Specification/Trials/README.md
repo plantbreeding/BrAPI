@@ -6,19 +6,31 @@ Services related to trials. Trials comprise of multiple studies. The trial conce
 
 
 
-## Get Trials  [GET /brapi/v1/trials{?programDbId}{?locationDbId}{?pageSize}{?page}{?active}{?sortBy}{?sortOrder}]
+## Trials [/brapi/v1/trials] 
 
- Scope: PHENOTYPING. Status: ACCEPTED. Implementation target date: PAG2016.
-<a href="https://test-server.brapi.org/brapi/v1/trials"> test-server.brapi.org/brapi/v1/trials</a> 
+
+
+
+### Get Trials  [GET /brapi/v1/trials{?commonCropName}{?programDbId}{?locationDbId}{?active}{?sortBy}{?sortOrder}{?page}{?pageSize}]
+
+Retrieve a filtered list of Trials. A Trial is a collection of studies
+
+ 
 
 + Parameters
-    + programDbId (Optional, string) ... Program filter to only return trials associated with given program id.
-    + locationDbId (Optional, string) ... Filter by location
-    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
-    + page (Optional, integer) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + active (Optional, boolean) ... Filter active status true/false.
-    + sortBy (Optional, string) ... Sort order. Name of the field to sorty by.
-    + sortOrder (Optional, string) ... Sort order direction: asc/desc
+    + commonCropName (Optional, ) ... Common name for the crop associated with this trial
+    + programDbId (Optional, ) ... Program filter to only return trials associated with given program id.
+    + locationDbId (Optional, ) ... Filter by location
+    + active (Optional, ) ... Filter active status true/false.
+    + sortBy (Optional, ) ... Sort order. Name of the field to sorty by.
+    + sortOrder (Optional, ) ... Sort order direction: asc/desc
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
+
+<strong>Bearer {token_string} </strong>
+
+
 
 
 + Response 200 (application/json)
@@ -28,85 +40,111 @@ Services related to trials. Trials comprise of multiple studies. The trial conce
         "datafiles": [],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 2,
-            "totalPages": 1
+            "pageSize": 2,
+            "totalCount": 10,
+            "totalPages": 5
         },
         "status": []
     },
     "result": {
         "data": [
             {
-                "active": "false",
+                "active": false,
                 "additionalInfo": {
-                    "property1Name": "property1Value",
-                    "property2Name": "property2Value",
-                    "property3Name": "property3Value"
+                    "donorName": "Donor1",
+                    "publications": "doi:10.2345/GEZG3T23535",
+                    "specialProject": "Project1"
                 },
-                "endDate": "2008-12-31",
-                "programDbId": "27",
-                "programName": "International Yield Trial",
-                "startDate": "2007-06-01",
+                "commonCropName": null,
+                "documentationURL": null,
+                "endDate": "2013-07-05",
+                "programDbId": "1",
+                "programName": "Program 1",
+                "startDate": "2013-01-01",
                 "studies": [
                     {
-                        "locationDbId": "abc123",
-                        "locationName": "Zimbabwe",
-                        "studyDbId": "1",
-                        "studyName": "Zimbabwe Yield Trial"
+                        "locationDbId": "1",
+                        "locationName": "Location 1",
+                        "studyDbId": "1001",
+                        "studyName": "Study 1"
                     },
                     {
-                        "locationDbId": "def456",
-                        "locationName": "Kenya",
-                        "studyDbId": "2",
-                        "studyName": "Kenya Yield Trial"
+                        "locationDbId": "1",
+                        "locationName": "Location 1",
+                        "studyDbId": "1002",
+                        "studyName": "Study 2"
                     }
                 ],
-                "trialDbId": "1",
-                "trialName": "InternationalTrialA"
+                "trialDbId": "101",
+                "trialName": "Peru Yield Trial 1"
             },
             {
-                "active": "true",
+                "active": false,
                 "additionalInfo": {
-                    "property1Name": "property1Value",
-                    "property2Name": "property2Value",
-                    "property3Name": "property3Value"
+                    "donorName": "Donor1",
+                    "publications": "doi:10.2345/GEZG3T23535",
+                    "specialProject": "Project1"
                 },
-                "endDate": "2009-12-31",
-                "programDbId": "35",
-                "programName": "International Yield Trial 2: Return of the Trial",
-                "startDate": "2008-06-01",
+                "commonCropName": null,
+                "documentationURL": null,
+                "endDate": "2013-07-05",
+                "programDbId": "1",
+                "programName": "Program 1",
+                "startDate": "2013-01-01",
                 "studies": [
                     {
-                        "locationDbId": "abc123",
-                        "locationName": "Zimbabwe",
-                        "studyDbId": "3",
-                        "studyName": "Zimbabwe Yield Trial"
+                        "locationDbId": "1",
+                        "locationName": "Location 1",
+                        "studyDbId": "1001",
+                        "studyName": "Study 1"
                     },
                     {
-                        "locationDbId": "def456",
-                        "locationName": "Kenya",
-                        "studyDbId": "4",
-                        "studyName": "Kenya Yield Trial"
+                        "locationDbId": "1",
+                        "locationName": "Location 1",
+                        "studyDbId": "1002",
+                        "studyName": "Study 2"
                     }
                 ],
-                "trialDbId": "2",
-                "trialName": "InternationalTrialB"
+                "trialDbId": "101",
+                "trialName": "Peru Yield Trial 1"
             }
         ]
     }
 }
 ```
 
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+```
 
 
-## Get Trials by trialDbId  [GET /brapi/v1/trials/{trialDbId}]
 
- Scope: PHENOTYPING. Status: ACCEPTED. Implementation target date: PAG2016.
+
+
+### Get Trials by trialDbId  [GET /brapi/v1/trials/{trialDbId}]
+
 Get trial by id.
-<a href="https://test-server.brapi.org/brapi/v1/trials"> test-server.brapi.org/brapi/v1/trials/{trialDbId}</a> 
+
+ 
 
 + Parameters
-    + trialDbId (Required, string) ... The internal trialDbId
+    + trialDbId (Required, ) ... The internal trialDbId
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
+
+<strong>Bearer {token_string} </strong>
+
+
 
 
 + Response 200 (application/json)
@@ -123,55 +161,79 @@ Get trial by id.
         "status": []
     },
     "result": {
-        "active": "true",
+        "active": false,
         "additionalInfo": {
-            "property2Name": "property2Value",
-            "property3Name": "property3Value",
-            "publications": "pmid:239823988, doi:10.2345/GEZG3T23535"
+            "donorName": "Donor1",
+            "publications": "doi:10.2345/GEZG3T23535",
+            "specialProject": "Project1"
         },
+        "commonCropName": null,
         "contacts": [
             {
-                "contactDbId": "C025",
-                "email": "j.doe@mail.com",
-                "instituteName": "IRRI",
-                "name": "John Doe",
-                "orcid": "0000-0002-0607-8728",
-                "type": "Scientist"
+                "contactDbId": "4",
+                "email": "b.technician@brapi.org",
+                "instituteName": "Plant Science Institute",
+                "name": "B. Technician",
+                "orcid": "0000-0002-0607-8732",
+                "type": "Technician"
             },
             {
-                "contactDbId": "C026",
-                "email": null,
-                "instituteName": "IRRI",
-                "name": "Dave Peters",
-                "orcid": null,
-                "type": null
+                "contactDbId": "3",
+                "email": "a.technician@brapi.org",
+                "instituteName": "Plant Science Institute",
+                "name": "A. Technician",
+                "orcid": "0000-0002-0607-8731",
+                "type": "Technician"
             }
         ],
         "datasetAuthorship": {
             "datasetPUI": "doi:10.15454/312953986E3",
             "license": "https://creativecommons.org/licenses/by/4.0"
         },
-        "endDate": "2008-12-31",
-        "programDbId": 27,
-        "programName": "International Yield Trial",
-        "startDate": "2007-06-01",
+        "datasetAuthorships": null,
+        "documentationURL": null,
+        "endDate": "2013-07-05",
+        "programDbId": "1",
+        "programName": "Program 1",
+        "publications": null,
+        "startDate": "2013-01-01",
         "studies": [
             {
-                "locationDbId": "z-2",
-                "locationName": "Zimbabwe",
-                "studyDbId": 1,
-                "studyName": "Zimbabwe Yield Trial"
+                "locationDbId": "1",
+                "locationName": "Location 1",
+                "studyDbId": "1001",
+                "studyName": "Study 1"
             },
             {
-                "locationDbId": "k-1",
-                "locationName": "Kenya",
-                "studyDbId": 2,
-                "studyName": "Kenya Yield Trial"
+                "locationDbId": "1",
+                "locationName": "Location 1",
+                "studyDbId": "1002",
+                "studyName": "Study 2"
             }
         ],
-        "trialDbId": 1,
-        "trialName": "InternationalTrialA"
+        "trialDbId": "101",
+        "trialName": "Peru Yield Trial 1"
     }
 }
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
 ```
 

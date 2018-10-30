@@ -1,9 +1,9 @@
 components:
-  parameters: 
+  parameters:
     searchResultsDbId:
-      name: searchResultsDbId
       description: Permanent unique identifier which references the search results
       in: path
+      name: searchResultsDbId
       required: true
       schema:
         type: string

@@ -6,7 +6,6 @@ paths:
   /studies/{studyDbId}/layout:
     get:
       deprecated: true
-      summary: Get the plot layout details for a specific Study
       description: DEPRECATED in v1.3 - see `GET /studies/{studyDbId}/layouts` (pluralized)
       parameters:
       - description: Identifier of the study. Usually a number, could be alphanumeric.
@@ -40,21 +39,21 @@ paths:
                     entryType: TEST
                     germplasmDbId: '1'
                     germplasmName: Name001
-                    observationLevel: plot
-                    observationUnitDbId: '1'
-                    observationUnitName: Plot 1
-                    replicate: '0'
-                    studyDbId: '1001'
-                  - X: '1'
-                    Y: '1'
-                    additionalInfo: {}
-                    blockNumber: '1'
-                    entryType: TEST
-                    germplasmDbId: '1'
-                    germplasmName: Name001
                     observationLevel: plant
                     observationUnitDbId: '2'
                     observationUnitName: Plant 1
+                    replicate: '0'
+                    studyDbId: '1001'
+                  - X: '1'
+                    Y: '2'
+                    additionalInfo: {}
+                    blockNumber: '1'
+                    entryType: TEST
+                    germplasmDbId: '2'
+                    germplasmName: Name002
+                    observationLevel: plot
+                    observationUnitDbId: '3'
+                    observationUnitName: Plot 2
                     replicate: '0'
                     studyDbId: '1001'
               schema:
@@ -80,11 +79,11 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
+      summary: Get the plot layout details for a specific Study
       tags:
       - Studies
     put:
       deprecated: true
-      summary: Update an existing Study with new layout details
       description: DEPRECATED in v1.3 - see `PUT /studies/{studyDbId}/layouts` (pluralized)
       parameters:
       - description: Identifier of the study. Usually a number, could be alphanumeric.
@@ -150,5 +149,6 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
+      summary: Update an existing Study with new layout details
       tags:
       - Studies

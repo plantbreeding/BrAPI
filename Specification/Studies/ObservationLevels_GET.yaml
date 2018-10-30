@@ -5,11 +5,7 @@ openapi: 3.0.0
 paths:
   /observationlevels:
     get:
-      summary: Get the Observation Levels
-      description: |- 
-        Call to retrieve the list of supported observation levels. 
-        Observation levels indicate the granularity level at which the measurements are taken. 
-        The values are used to supply the `observationLevel` parameter in the observation unit details call.
+      description: "Call to retrieve the list of supported observation levels. \nObservation levels indicate the granularity level at which the measurements are taken. \nThe values are used to supply the `observationLevel` parameter in the observation unit details call."
       parameters:
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
@@ -29,8 +25,8 @@ paths:
                   status: []
                 result:
                   data:
-                  - plot
                   - plant
+                  - plot
               schema:
                 properties:
                   metadata:
@@ -53,5 +49,6 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
+      summary: Get the Observation Levels
       tags:
       - Observations

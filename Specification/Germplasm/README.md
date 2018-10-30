@@ -5,14 +5,24 @@ Fun Fact: The plural of germplasm is germplasm (no "s").
 
 
 
-## Get Breedingmethods by breedingMethodDbId  [GET /brapi/v1/breedingmethods/{breedingMethodDbId}]
+## Breedingmethods [/brapi/v1/breedingmethods] 
 
 
 
-<a>example.com/brapi/v1/breedingmethods/{breedingMethodDbId}</a> 
+
+### Get Breedingmethods by breedingMethodDbId  [GET /brapi/v1/breedingmethods/{breedingMethodDbId}]
+
+Get the details of a specific Breeding Method used to produce Germplasm
+
+ 
 
 + Parameters
-    + breedingMethodDbId (Required, string) ... Internal database identifier for a breeding method
+    + breedingMethodDbId (Required, ) ... Internal database identifier for a breeding method
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
+
+<strong>Bearer {token_string} </strong>
+
+
 
 
 + Response 200 (application/json)
@@ -30,24 +40,52 @@ Fun Fact: The plural of germplasm is germplasm (no "s").
     },
     "result": {
         "abbreviation": "MBCR",
-        "breedingMethodDbId": "BM987",
-        "description": "Backcross to recover a specific gene. The coding in the genealogical table records which parent was used as the male in each cycle. Each entity kept separate.",
+        "breedingMethodDbId": "bm1",
+        "breedingMethodName": null,
+        "description": "Backcross to recover a specific gene.",
         "name": "Male Backcross"
     }
 }
 ```
 
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
+```
 
 
-## Get Breedingmethods  [GET /brapi/v1/breedingmethods{?pageSize}{?page}]
 
- Scope: Germplasm
+
+
+### Get Breedingmethods  [GET /brapi/v1/breedingmethods{?page}{?pageSize}]
+
 Get the list of germplasm breeding methods available in a system.
-<a>example.com/brapi/v1/breedingmethods</a> 
+
+ 
 
 + Parameters
-    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
-    + page (Optional, integer) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
+
+<strong>Bearer {token_string} </strong>
+
+
 
 
 + Response 200 (application/json)
@@ -57,7 +95,7 @@ Get the list of germplasm breeding methods available in a system.
         "datafiles": [],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 1000,
+            "pageSize": 2,
             "totalCount": 2,
             "totalPages": 1
         },
@@ -67,38 +105,60 @@ Get the list of germplasm breeding methods available in a system.
         "data": [
             {
                 "abbreviation": "MBCR",
-                "breedingMethodDbId": "BM987",
-                "description": "Backcross to recover a specific gene. The coding in the genealogical table records which parent was used as the male in each cycle. Each entity kept separate.",
+                "breedingMethodDbId": "bm1",
+                "breedingMethodName": null,
+                "description": "Backcross to recover a specific gene.",
                 "name": "Male Backcross"
             },
             {
-                "abbreviation": "DSP",
-                "breedingMethodDbId": "BM324",
-                "description": "Derivation through selection of a single plant, inflorescence, fruit or seed from a population",
-                "name": "Single plant selection"
+                "abbreviation": "FBCR",
+                "breedingMethodDbId": "bm2",
+                "breedingMethodName": null,
+                "description": "Backcross to recover a specific gene.",
+                "name": "Female Backcross"
             }
         ]
     }
 }
 ```
 
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+```
 
 
-## Get Germplasm-search  [GET /brapi/v1/germplasm-search{?germplasmPUI}{?germplasmDbId}{?germplasmName}{?commonCropName}{?pageSize}{?page}]
 
- Implemented by: GnpIS, Germinate (GET only)
-See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
-Notes: The germplasm and germplasm MCPD calls were merged.  The MCPD fields are optional and indicated as such with the [MCPD] prefix in the description field of the "Response data types" table. Please use the "features" hash of the "calls" call to communicate with clients as to whether MCPD is supported by your implementation.
-Addresses these needs: 1. General germplasm search mechanism that accepts POST for complex queries 2. possibility to search germplasm by more parameters than those allowed by the existing germplasm search 3. possibility to get MCPD details by PUID rather than dbId
-Use GET when parameter size is less than 2K bytes. <a href="https://test-server.brapi.org/brapi/v1/germplasm"> test-server.brapi.org/brapi/v1/germplasm-search</a>  
+## Germplasm-search [/brapi/v1/germplasm-search] 
+
+
+
+
+### **Deprecated** Get Germplasm-search  [GET /brapi/v1/germplasm-search{?germplasmPUI}{?germplasmDbId}{?germplasmName}{?commonCropName}{?page}{?pageSize}]
+
+DEPRECATED in V1.3 - see GET /germplasm
+
+ 
 
 + Parameters
-    + germplasmPUI (Optional, string) ... Permanent unique identifier (DOI, URI, etc.)
-    + germplasmDbId (Optional, string) ... Internal database identifier
-    + germplasmName (Optional, string) ... Name of the germplasm
-    + commonCropName (Optional, string) ... The common crop name related to this germplasm
-    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
-    + page (Optional, integer) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + germplasmPUI (Optional, ) ... Permanent unique identifier (DOI, URI, etc.)
+    + germplasmDbId (Optional, ) ... Internal database identifier
+    + germplasmName (Optional, ) ... Name of the germplasm
+    + commonCropName (Optional, ) ... The common crop name related to this germplasm
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+
+
 
 
 + Response 200 (application/json)
@@ -108,95 +168,113 @@ Use GET when parameter size is less than 2K bytes. <a href="https://test-server.
         "datafiles": [],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 2,
-            "totalPages": 1
+            "pageSize": 2,
+            "totalCount": 9,
+            "totalPages": 5
         },
         "status": []
     },
     "result": {
         "data": [
             {
-                "accessionNumber": "ITC0609",
-                "acquisitionDate": "1947-01-31",
-                "biologicalStatusOfAccessionCode": 412,
-                "commonCropName": "banana",
-                "countryOfOriginCode": "UNK",
-                "defaultDisplayName": "Pahang",
+                "accessionNumber": "A000001",
+                "acquisitionDate": "1984-01-01",
+                "biologicalStatusOfAccessionCode": 300,
+                "breedingMethodDbId": "bm1",
+                "commonCropName": "G000001",
+                "countryOfOriginCode": "COUNTRY1",
+                "defaultDisplayName": "G000001",
+                "documentationURL": null,
                 "donors": [
                     {
-                        "donorAccessionNumber": "",
-                        "donorInstituteCode": "",
-                        "germplasmPUI": ""
+                        "donorAccessionNumber": "A001230",
+                        "donorInstituteCode": "INRA",
+                        "germplasmPUI": "https://doi.org/10.1109/5.771073"
+                    },
+                    {
+                        "donorAccessionNumber": "A004560",
+                        "donorInstituteCode": "INRA",
+                        "germplasmPUI": "https://doi.org/10.1109/5.231123"
                     }
                 ],
-                "genus": "Musa",
-                "germplasmDbId": "01BEL084609",
-                "germplasmName": "Pahang",
-                "germplasmPUI": "http://www.crop-diversity.org/mgis/accession/01BEL084609",
-                "germplasmSeedSource": "Female GID:4/Male GID:4",
-                "instituteCode": "01BEL084",
-                "instituteName": "ITC",
-                "pedigree": "TOBA97/SW90.1057",
-                "species": "acuminata",
-                "speciesAuthority": "",
-                "subtaxa": "sp malaccensis var pahang",
-                "subtaxaAuthority": "",
-                "synonyms": [],
+                "genus": "Fructus",
+                "germplasmDbId": "1",
+                "germplasmGenus": null,
+                "germplasmName": "Name001",
+                "germplasmPUI": "http://pui.per/accession/A000001",
+                "germplasmSpecies": null,
+                "instituteCode": "PER001",
+                "instituteName": "INST1",
+                "pedigree": "A000001",
+                "seedSource": "open pollination",
+                "species": "novus",
+                "speciesAuthority": "L",
+                "subtaxa": "subtaxa",
+                "subtaxaAuthority": "N",
+                "synonyms": [
+                    "landrace 1"
+                ],
                 "taxonIds": [
                     {
                         "sourceName": "ncbiTaxon",
-                        "taxonId": "http://purl.obolibrary.org/obo/NCBITaxon_4641"
+                        "taxonId": "2340"
                     },
                     {
                         "sourceName": "ciradTaxon",
-                        "taxonId": "23-E"
+                        "taxonId": "E312"
                     }
                 ],
-                "typeOfGermplasmStorageCode": [
-                    10
-                ]
+                "typeOfGermplasmStorageCode": []
             },
             {
-                "accessionNumber": "ITC0685",
-                "acquisitionDate": "1977-01-31",
-                "biologicalStatusOfAccessionCode": 412,
-                "commonCropName": "banana",
-                "countryOfOriginCode": "UNK",
-                "defaultDisplayName": "Pah",
+                "accessionNumber": "A000002",
+                "acquisitionDate": "1984-01-01",
+                "biologicalStatusOfAccessionCode": 300,
+                "breedingMethodDbId": "bm1",
+                "commonCropName": "G000002",
+                "countryOfOriginCode": "COUNTRY1",
+                "defaultDisplayName": "G000002",
+                "documentationURL": null,
                 "donors": [
                     {
-                        "donorAccessionNumber": "",
-                        "donorInstituteCode": "",
-                        "germplasmPUI": ""
+                        "donorAccessionNumber": "A007890",
+                        "donorInstituteCode": "INRA",
+                        "germplasmPUI": "https://doi.org/10.1109/5.771073"
+                    },
+                    {
+                        "donorAccessionNumber": "A001010",
+                        "donorInstituteCode": "INRA",
+                        "germplasmPUI": "https://doi.org/10.1109/5.231123"
                     }
                 ],
-                "genus": "Musa",
-                "germplasmDbId": "03REL084609",
-                "germplasmName": "Pah",
-                "germplasmPUI": "doi:10.15454/328757862534E12",
-                "germplasmSeedSource": "Female GID:4/Male GID:4",
-                "instituteCode": "01BEL084",
-                "instituteName": "ITC",
-                "pedigree": "TOBA97/SW90.1057",
-                "species": "acuminata",
-                "speciesAuthority": "",
-                "subtaxa": "sp malaccensis var pah",
-                "subtaxaAuthority": "",
-                "synonyms": [],
+                "genus": "Fructus",
+                "germplasmDbId": "2",
+                "germplasmGenus": null,
+                "germplasmName": "Name002",
+                "germplasmPUI": "http://pui.per/accession/A000002",
+                "germplasmSpecies": null,
+                "instituteCode": "PER001",
+                "instituteName": "INST1",
+                "pedigree": "A000002",
+                "seedSource": "open pollination",
+                "species": "novus",
+                "speciesAuthority": "L",
+                "subtaxa": "subtaxa",
+                "subtaxaAuthority": "N",
+                "synonyms": [
+                    "landrace 2"
+                ],
                 "taxonIds": [
                     {
                         "sourceName": "ncbiTaxon",
-                        "taxonId": "http://purl.obolibrary.org/obo/NCBITaxon_4641"
+                        "taxonId": "2340"
                     },
                     {
                         "sourceName": "ciradTaxon",
-                        "taxonId": "23-E"
+                        "taxonId": "E312"
                     }
                 ],
-                "typeOfGermplasmStorageCode": [
-                    10
-                ]
+                "typeOfGermplasmStorageCode": []
             }
         ]
     }
@@ -205,19 +283,52 @@ Use GET when parameter size is less than 2K bytes. <a href="https://test-server.
 
 
 
-## Post Germplasm-search  [POST /brapi/v1/germplasm-search]
 
- Implemented by: GnpIS, Germinate (GET only)
-See <a href="#introduction/search-services">Search Services</a> for additional implementation details.
-Notes: The germplasm and germplasm MCPD calls were merged.  The MCPD fields are optional and indicated as such with the [MCPD] prefix in the description field of the "Response data types" table. Please use the "features" hash of the "calls" call to communicate with clients as to whether MCPD is supported by your implementation.
-Addresses these needs: 1. General germplasm search mechanism that accepts POST for complex queries 2. possibility to search germplasm by more parameters than those allowed by the existing germplasm search 3. possibility to get MCPD details by PUID rather than dbId
-Use POST for large queries (>2K bytes).  
+
+### **Deprecated** Post Germplasm-search  [POST /brapi/v1/germplasm-search]
+
+DEPRECATED in V1.3 - see POST /search/germplasm
+
+ 
 
 + Parameters
+
+
  
 + Request (application/json)
 ```
-/definitions/germplasmSearchRequest
+{
+    "accessionNumbers": [
+        "accessionNumbers0",
+        "accessionNumbers1"
+    ],
+    "commonCropNames": [
+        "commonCropNames0",
+        "commonCropNames1"
+    ],
+    "germplasmDbIds": [
+        "germplasmDbIds0",
+        "germplasmDbIds1"
+    ],
+    "germplasmGenus": [
+        "germplasmGenus0",
+        "germplasmGenus1"
+    ],
+    "germplasmNames": [
+        "germplasmNames0",
+        "germplasmNames1"
+    ],
+    "germplasmPUIs": [
+        "germplasmPUIs0",
+        "germplasmPUIs1"
+    ],
+    "germplasmSpecies": [
+        "germplasmSpecies0",
+        "germplasmSpecies1"
+    ],
+    "page": 0,
+    "pageSize": 0
+}
 ```
 
 
@@ -228,96 +339,114 @@ Use POST for large queries (>2K bytes).
     "metadata": {
         "datafiles": [],
         "pagination": {
-            "currentPage": 1,
-            "pageSize": 100,
-            "totalCount": 102,
-            "totalPages": 2
+            "currentPage": 0,
+            "pageSize": 2,
+            "totalCount": 9,
+            "totalPages": 5
         },
         "status": []
     },
     "result": {
         "data": [
             {
-                "accessionNumber": "ITC0609",
-                "acquisitionDate": "1947-01-31",
-                "biologicalStatusOfAccessionCode": 412,
-                "commonCropName": "banana",
-                "countryOfOriginCode": "UNK",
-                "defaultDisplayName": "Pahang",
+                "accessionNumber": "A000001",
+                "acquisitionDate": "1984-01-01",
+                "biologicalStatusOfAccessionCode": 300,
+                "breedingMethodDbId": "bm1",
+                "commonCropName": "G000001",
+                "countryOfOriginCode": "COUNTRY1",
+                "defaultDisplayName": "G000001",
+                "documentationURL": null,
                 "donors": [
                     {
-                        "donorAccessionNumber": "",
-                        "donorInstituteCode": "",
-                        "germplasmPUI": ""
+                        "donorAccessionNumber": "A001230",
+                        "donorInstituteCode": "INRA",
+                        "germplasmPUI": "https://doi.org/10.1109/5.771073"
+                    },
+                    {
+                        "donorAccessionNumber": "A004560",
+                        "donorInstituteCode": "INRA",
+                        "germplasmPUI": "https://doi.org/10.1109/5.231123"
                     }
                 ],
-                "genus": "Musa",
-                "germplasmDbId": "01BEL084609",
-                "germplasmName": "Pahang",
-                "germplasmPUI": "http://www.crop-diversity.org/mgis/accession/01BEL084609",
-                "germplasmSeedSource": "Female GID:4/Male GID:4",
-                "instituteCode": "01BEL084",
-                "instituteName": "ITC",
-                "pedigree": "TOBA97/SW90.1057",
-                "species": "acuminata",
-                "speciesAuthority": "",
-                "subtaxa": "sp malaccensis var pahang",
-                "subtaxaAuthority": "",
-                "synonyms": [],
+                "genus": "Fructus",
+                "germplasmDbId": "1",
+                "germplasmGenus": null,
+                "germplasmName": "Name001",
+                "germplasmPUI": "http://pui.per/accession/A000001",
+                "germplasmSpecies": null,
+                "instituteCode": "PER001",
+                "instituteName": "INST1",
+                "pedigree": "A000001",
+                "seedSource": "open pollination",
+                "species": "novus",
+                "speciesAuthority": "L",
+                "subtaxa": "subtaxa",
+                "subtaxaAuthority": "N",
+                "synonyms": [
+                    "landrace 1"
+                ],
                 "taxonIds": [
                     {
                         "sourceName": "ncbiTaxon",
-                        "taxonId": "http://purl.obolibrary.org/obo/NCBITaxon_4641"
+                        "taxonId": "2340"
                     },
                     {
                         "sourceName": "ciradTaxon",
-                        "taxonId": "23-E"
+                        "taxonId": "E312"
                     }
                 ],
-                "typeOfGermplasmStorageCode": [
-                    10
-                ]
+                "typeOfGermplasmStorageCode": []
             },
             {
-                "accessionNumber": "ITC0685",
-                "acquisitionDate": "1977-01-31",
-                "biologicalStatusOfAccessionCode": 412,
-                "commonCropName": "banana",
-                "countryOfOriginCode": "UNK",
-                "defaultDisplayName": "Pah",
+                "accessionNumber": "A000002",
+                "acquisitionDate": "1984-01-01",
+                "biologicalStatusOfAccessionCode": 300,
+                "breedingMethodDbId": "bm1",
+                "commonCropName": "G000002",
+                "countryOfOriginCode": "COUNTRY1",
+                "defaultDisplayName": "G000002",
+                "documentationURL": null,
                 "donors": [
                     {
-                        "donorAccessionNumber": "",
-                        "donorInstituteCode": "",
-                        "germplasmPUI": ""
+                        "donorAccessionNumber": "A007890",
+                        "donorInstituteCode": "INRA",
+                        "germplasmPUI": "https://doi.org/10.1109/5.771073"
+                    },
+                    {
+                        "donorAccessionNumber": "A001010",
+                        "donorInstituteCode": "INRA",
+                        "germplasmPUI": "https://doi.org/10.1109/5.231123"
                     }
                 ],
-                "genus": "Musa",
-                "germplasmDbId": "03REL084609",
-                "germplasmName": "Pah",
-                "germplasmPUI": "doi:10.15454/328757862534E12",
-                "germplasmSeedSource": "Female GID:4/Male GID:4",
-                "instituteCode": "01BEL084",
-                "instituteName": "ITC",
-                "pedigree": "TOBA97/SW90.1057",
-                "species": "acuminata",
-                "speciesAuthority": "",
-                "subtaxa": "sp malaccensis var pah",
-                "subtaxaAuthority": "",
-                "synonyms": [],
+                "genus": "Fructus",
+                "germplasmDbId": "2",
+                "germplasmGenus": null,
+                "germplasmName": "Name002",
+                "germplasmPUI": "http://pui.per/accession/A000002",
+                "germplasmSpecies": null,
+                "instituteCode": "PER001",
+                "instituteName": "INST1",
+                "pedigree": "A000002",
+                "seedSource": "open pollination",
+                "species": "novus",
+                "speciesAuthority": "L",
+                "subtaxa": "subtaxa",
+                "subtaxaAuthority": "N",
+                "synonyms": [
+                    "landrace 2"
+                ],
                 "taxonIds": [
                     {
                         "sourceName": "ncbiTaxon",
-                        "taxonId": "http://purl.obolibrary.org/obo/NCBITaxon_4641"
+                        "taxonId": "2340"
                     },
                     {
                         "sourceName": "ciradTaxon",
-                        "taxonId": "23-E"
+                        "taxonId": "E312"
                     }
                 ],
-                "typeOfGermplasmStorageCode": [
-                    10
-                ]
+                "typeOfGermplasmStorageCode": []
             }
         ]
     }
@@ -326,16 +455,267 @@ Use POST for large queries (>2K bytes).
 
 
 
-## Get Germplasm by germplasmDbId  [GET /brapi/v1/germplasm/{germplasmDbId}]
+## Germplasm [/brapi/v1/germplasm] 
 
- Scope: CORE. Status: ACCEPTED.
-Implementation target date: PAG2016
-Implemented by: Tripal Brapi module, Germinate, Cassavabase
-Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport Data. The MCPD fields are optional and marked with the prefix [MCPD].
-<a href="https://test-server.brapi.org/brapi/v1/germplasm"> test-server.brapi.org/brapi/v1/germplasm/{germplasmDbId}</a>  
+
+
+
+### Get Germplasm  [GET /brapi/v1/germplasm{?germplasmPUI}{?germplasmDbId}{?germplasmName}{?commonCropName}{?page}{?pageSize}]
+
+Addresses these needs
+
+- General germplasm search mechanism that accepts POST for complex queries 
+
+- Possibility to search germplasm by more parameters than those allowed by the existing germplasm search 
+
+- Possibility to get MCPD details by PUID rather than dbId
+
+ 
 
 + Parameters
-    + germplasmDbId (Required, string) ... The internal id of the germplasm
+    + germplasmPUI (Optional, ) ... Permanent unique identifier (DOI, URI, etc.)
+    + germplasmDbId (Optional, ) ... Internal database identifier
+    + germplasmName (Optional, ) ... Name of the germplasm
+    + commonCropName (Optional, ) ... The common crop name related to this germplasm
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
+
+<strong>Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 2,
+            "totalCount": 9,
+            "totalPages": 5
+        },
+        "status": []
+    },
+    "result": {
+        "data": [
+            {
+                "accessionNumber": "A000001",
+                "acquisitionDate": "1984-01-01",
+                "biologicalStatusOfAccessionCode": 300,
+                "breedingMethodDbId": "bm1",
+                "commonCropName": "G000001",
+                "countryOfOriginCode": "COUNTRY1",
+                "defaultDisplayName": "G000001",
+                "documentationURL": null,
+                "donors": [
+                    {
+                        "donorAccessionNumber": "A001230",
+                        "donorInstituteCode": "INRA",
+                        "germplasmPUI": "https://doi.org/10.1109/5.771073"
+                    },
+                    {
+                        "donorAccessionNumber": "A004560",
+                        "donorInstituteCode": "INRA",
+                        "germplasmPUI": "https://doi.org/10.1109/5.231123"
+                    }
+                ],
+                "genus": "Fructus",
+                "germplasmDbId": "1",
+                "germplasmGenus": null,
+                "germplasmName": "Name001",
+                "germplasmPUI": "http://pui.per/accession/A000001",
+                "germplasmSpecies": null,
+                "instituteCode": "PER001",
+                "instituteName": "INST1",
+                "pedigree": "A000001",
+                "seedSource": "open pollination",
+                "species": "novus",
+                "speciesAuthority": "L",
+                "subtaxa": "subtaxa",
+                "subtaxaAuthority": "N",
+                "synonyms": [
+                    "landrace 1"
+                ],
+                "taxonIds": [
+                    {
+                        "sourceName": "ncbiTaxon",
+                        "taxonId": "2340"
+                    },
+                    {
+                        "sourceName": "ciradTaxon",
+                        "taxonId": "E312"
+                    }
+                ],
+                "typeOfGermplasmStorageCode": []
+            },
+            {
+                "accessionNumber": "A000002",
+                "acquisitionDate": "1984-01-01",
+                "biologicalStatusOfAccessionCode": 300,
+                "breedingMethodDbId": "bm1",
+                "commonCropName": "G000002",
+                "countryOfOriginCode": "COUNTRY1",
+                "defaultDisplayName": "G000002",
+                "documentationURL": null,
+                "donors": [
+                    {
+                        "donorAccessionNumber": "A007890",
+                        "donorInstituteCode": "INRA",
+                        "germplasmPUI": "https://doi.org/10.1109/5.771073"
+                    },
+                    {
+                        "donorAccessionNumber": "A001010",
+                        "donorInstituteCode": "INRA",
+                        "germplasmPUI": "https://doi.org/10.1109/5.231123"
+                    }
+                ],
+                "genus": "Fructus",
+                "germplasmDbId": "2",
+                "germplasmGenus": null,
+                "germplasmName": "Name002",
+                "germplasmPUI": "http://pui.per/accession/A000002",
+                "germplasmSpecies": null,
+                "instituteCode": "PER001",
+                "instituteName": "INST1",
+                "pedigree": "A000002",
+                "seedSource": "open pollination",
+                "species": "novus",
+                "speciesAuthority": "L",
+                "subtaxa": "subtaxa",
+                "subtaxaAuthority": "N",
+                "synonyms": [
+                    "landrace 2"
+                ],
+                "taxonIds": [
+                    {
+                        "sourceName": "ncbiTaxon",
+                        "taxonId": "2340"
+                    },
+                    {
+                        "sourceName": "ciradTaxon",
+                        "taxonId": "E312"
+                    }
+                ],
+                "typeOfGermplasmStorageCode": []
+            }
+        ]
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+```
+
+
+
+
+
+### Get Germplasm Attributes by germplasmDbId  [GET /brapi/v1/germplasm/{germplasmDbId}/attributes{?attributeDbIds}{?attributeList}{?page}{?pageSize}]
+
+Values for all attributes by default.
+
+ 
+
++ Parameters
+    + germplasmDbId (Required, ) ... The germplasm characterized
+    + attributeDbIds (Optional, ) ... Restrict the response to only the listed attributeDbIds.
+    + attributeList (Optional, ) ... **Deprecated** Use "attributeDbIds" instead
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
+
+<strong>Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 2,
+            "totalCount": 10,
+            "totalPages": 5
+        },
+        "status": []
+    },
+    "result": {
+        "data": [
+            {
+                "attributeCode": "RHT",
+                "attributeDbId": "1",
+                "attributeName": "Rht-B1b",
+                "determinedDate": "2017-03-17",
+                "value": "Heterozygous"
+            },
+            {
+                "attributeCode": "WEV",
+                "attributeDbId": "2",
+                "attributeName": "Weevil Resistance",
+                "determinedDate": "2017-03-17",
+                "value": "Present"
+            }
+        ],
+        "germplasmDbId": "3"
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
+```
+
+
+
+
+
+### Get Germplasm by germplasmDbId  [GET /brapi/v1/germplasm/{germplasmDbId}]
+
+Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport Data. The MCPD fields are optional and marked with the prefix [MCPD].
+
+ 
+
++ Parameters
+    + germplasmDbId (Required, ) ... The internal id of the germplasm
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
+
+<strong>Bearer {token_string} </strong>
+
+
 
 
 + Response 200 (application/json)
@@ -352,62 +732,226 @@ Note: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Pa
         "status": []
     },
     "result": {
-        "accessionNumber": "ITC0609",
-        "acquisitionDate": "1947-01-31",
-        "biologicalStatusOfAccessionCode": 412,
-        "commonCropName": "banana",
-        "countryOfOriginCode": "UNK",
-        "defaultDisplayName": "Pahang",
-        "donors": [
-            {
-                "donorAccessionNumber": "",
-                "donorGermplasmPUI": "",
-                "donorInstituteCode": ""
-            }
+        "accessionNumber": "A000003",
+        "acquisitionDate": "2001-01-01",
+        "biologicalStatusOfAccessionCode": 500,
+        "breedingMethodDbId": "bm1",
+        "commonCropName": "G000003",
+        "countryOfOriginCode": "COUNTRY1",
+        "defaultDisplayName": "G000003",
+        "documentationURL": null,
+        "donors": [],
+        "genus": "Fructus",
+        "germplasmDbId": "3",
+        "germplasmGenus": null,
+        "germplasmName": "Name003",
+        "germplasmPUI": "http://pui.per/accession/A000003",
+        "germplasmSpecies": null,
+        "instituteCode": "PER001",
+        "instituteName": "INST1",
+        "pedigree": "A000001/A000002",
+        "seedSource": "A000001/A000002",
+        "species": "novus",
+        "speciesAuthority": "L",
+        "subtaxa": "subtaxa",
+        "subtaxaAuthority": "N",
+        "synonyms": [
+            "variety 1"
         ],
-        "genus": "Musa",
-        "germplasmDbId": "01BEL084609",
-        "germplasmName": "Pahang",
-        "germplasmPUI": "http://www.crop-diversity.org/mgis/accession/01BEL084609",
-        "instituteCode": "01BEL084",
-        "instituteName": "ITC",
-        "pedigree": "TOBA97/SW90.1057",
-        "seedSource": "ITC0609-2016-77",
-        "species": "acuminata",
-        "speciesAuthority": "",
-        "subtaxa": "sp malaccensis var pahang",
-        "subtaxaAuthority": "",
-        "synonyms": [],
         "taxonIds": [
             {
                 "sourceName": "ncbiTaxon",
-                "taxonId": "http://purl.obolibrary.org/obo/NCBITaxon_4641"
+                "taxonId": "2340"
             },
             {
                 "sourceName": "ciradTaxon",
-                "taxonId": "23-E"
+                "taxonId": "E312"
             }
         ],
-        "typeOfGermplasmStorageCode": [
-            10
-        ]
+        "typeOfGermplasmStorageCode": []
     }
 }
 ```
 
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
+```
 
 
-## Get Germplasm Markerprofiles by germplasmDbId  [GET /brapi/v1/germplasm/{germplasmDbId}/markerprofiles]
 
- Retrieve the markerProfileDbIds for a given Germplasm ID
-Scope: GENOTYPING.
-Status: ACCEPTED.
-Implementation target date: PAG2016
-Implemented by: Germinate, Cassavabase
-<a href="https://test-server.brapi.org/brapi/v1/germplasm"> test-server.brapi.org/brapi/v1/germplasm/{germplasmDbId}/markerprofiles</a>  
+
+
+### Get Germplasm Mcpd by germplasmDbId  [GET /brapi/v1/germplasm/{germplasmDbId}/mcpd]
+
+Get all MCPD details of a germplasm
+
+<a target="_blank" href="https://www.bioversityinternational.org/fileadmin/user_upload/online_library/publications/pdfs/FAOBIOVERSITY_MULTI-CROP_PASSPORT_DESCRIPTORS_V.2.1_2015_2020.pdf"> MCPD v2.1 spec can be found here </a>
+
+Implementation Notes
+
+- When the MCPD spec identifies a field which can have multiple values returned, the JSON response should be an array instead of a semi-colon seperated string.
+
+ 
 
 + Parameters
-    + germplasmDbId (Required, string) ... the internal id of the germplasm
+    + germplasmDbId (Required, ) ... the internal id of the germplasm
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
+
+<strong>Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [],
+        "pagination": {},
+        "status": []
+    },
+    "result": {
+        "accessionNames": [
+            "accessionNames0",
+            "accessionNames1"
+        ],
+        "accessionNumber": "accessionNumber0",
+        "acquisitionDate": "acquisitionDate0",
+        "acquisitionSourceCode": "10",
+        "alternateIDs": [
+            "alternateIDs0",
+            "alternateIDs1"
+        ],
+        "ancestralData": "ancestralData0",
+        "biologicalStatusOfAccessionCode": "100",
+        "breedingInstitutes": [
+            {
+                "instituteCode": "instituteCode0",
+                "instituteName": "instituteName0"
+            },
+            {
+                "instituteCode": "instituteCode1",
+                "instituteName": "instituteName1"
+            }
+        ],
+        "collectingInfo": {
+            "collectingDate": "collectingDate0",
+            "collectingInstitutes": [
+                {
+                    "instituteAddress": "instituteAddress0",
+                    "instituteCode": "instituteCode0",
+                    "instituteName": "instituteName0"
+                },
+                {
+                    "instituteAddress": "instituteAddress1",
+                    "instituteCode": "instituteCode1",
+                    "instituteName": "instituteName1"
+                }
+            ],
+            "collectingMissionIdentifier": "collectingMissionIdentifier0",
+            "collectingNumber": "collectingNumber0",
+            "collectingSite": {
+                "coordinateUncertainty": "coordinateUncertainty0",
+                "elevation": "elevation0",
+                "georeferencingMethod": "georeferencingMethod0",
+                "latitudeDecimal": "latitudeDecimal0",
+                "latitudeDegrees": "latitudeDegrees0",
+                "locationDescription": "locationDescription0",
+                "longitudeDecimal": "longitudeDecimal0",
+                "longitudeDegrees": "longitudeDegrees0",
+                "spatialReferenceSystem": "spatialReferenceSystem0"
+            }
+        },
+        "commonCropName": "commonCropName0",
+        "countryOfOrigin": "countryOfOrigin0",
+        "donorInfo": {
+            "donorAccessionNumber": "donorAccessionNumber0",
+            "donorInstitute": {
+                "instituteCode": "instituteCode0",
+                "instituteName": "instituteName0"
+            }
+        },
+        "genus": "genus0",
+        "germplasmDbId": "germplasmDbId0",
+        "germplasmPUI": "germplasmPUI0",
+        "instituteCode": "instituteCode0",
+        "mlsStatus": "",
+        "remarks": "remarks0",
+        "safetyDuplicateInstitues": [
+            {
+                "instituteCode": "instituteCode0",
+                "instituteName": "instituteName0"
+            },
+            {
+                "instituteCode": "instituteCode1",
+                "instituteName": "instituteName1"
+            }
+        ],
+        "species": "species0",
+        "speciesAuthority": "speciesAuthority0",
+        "storageTypeCodes": [
+            "10",
+            "11"
+        ],
+        "subtaxon": "subtaxon0",
+        "subtaxonAuthority": "subtaxonAuthority0"
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
+```
+
+
+
+
+
+### Get Germplasm Markerprofiles by germplasmDbId  [GET /brapi/v1/germplasm/{germplasmDbId}/markerprofiles]
+
+Retrieve the markerProfileDbIds for a given Germplasm ID
+
+ 
+
++ Parameters
+    + germplasmDbId (Required, ) ... the internal id of the germplasm
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
+
+<strong>Bearer {token_string} </strong>
+
+
 
 
 + Response 200 (application/json)
@@ -421,39 +965,55 @@ Implemented by: Germinate, Cassavabase
             "totalCount": 0,
             "totalPages": 0
         },
-        "status": [
-            {
-                "code": "",
-                "message": ""
-            }
-        ]
+        "status": []
     },
     "result": {
-        "germplasmDbId": "01BEL084609",
-        "markerprofileDbIds": [
-            "3939",
-            "4484",
-            "3993"
-        ]
+        "germplasmDbId": null,
+        "markerProfileDbIds": null,
+        "markerprofileDbIds": []
     }
 }
 ```
 
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
+```
 
 
-## Get Germplasm Pedigree by germplasmDbId  [GET /brapi/v1/germplasm/{germplasmDbId}/pedigree{?notation}{?includeSiblings}]
 
 
-Scope: CORE. Status: ACCEPTED.
-Implementation target date: PAG2016
-Implemented by: Germinate, Tripal Brapi Module, Cassavabase (without notation option)
-(http://wheat.pw.usda.gov/ggpages/gopher/administration/Template%20for%20Germplasm%20records.html) or [Lamacraft] (http://link.springer.com/article/10.1007%2FBF00021556).
-<a href="https://test-server.brapi.org/brapi/v1/germplasm"> test-server.brapi.org/brapi/v1/germplasm/{germplasmDbId}/pedigree</a>  
+
+### Get Germplasm Pedigree by germplasmDbId  [GET /brapi/v1/germplasm/{germplasmDbId}/pedigree{?notation}{?includeSiblings}]
+
+Get the parentage information of a specific Germplasm
+
+ 
 
 + Parameters
-    + germplasmDbId (Required, string) ... the internal id of the germplasm
-    + notation (Optional, string) ... text representation of the pedigree
-    + includeSiblings (Optional, boolean) ... include array of siblings in response
+    + germplasmDbId (Required, ) ... the internal id of the germplasm
+    + notation (Optional, ) ... text representation of the pedigree
+    + includeSiblings (Optional, ) ... include array of siblings in response
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
+
+<strong>Bearer {token_string} </strong>
+
+
 
 
 + Response 200 (application/json)
@@ -472,40 +1032,64 @@ Implemented by: Germinate, Tripal Brapi Module, Cassavabase (without notation op
     "result": {
         "crossingPlan": "OPEN_POLLINATION",
         "crossingYear": "2018",
-        "defaultDisplayName": "Pahang 1",
+        "defaultDisplayName": "G000003",
         "familyCode": "Cree_x_Bonanza_2018",
-        "germplasmDbId": "01BEL084609",
-        "parent1DbId": "166",
-        "parent1Name": "Cree",
+        "germplasmDbId": "3",
+        "parent1DbId": "1",
+        "parent1Id": "1",
+        "parent1Name": "G000001",
         "parent1Type": "FEMALE",
-        "parent2DbId": "143",
-        "parent2Name": "Bonanza",
+        "parent2DbId": "2",
+        "parent2Id": "2",
+        "parent2Name": "G000002",
         "parent2Type": "MALE",
-        "pedigree": "Cree / Bonanza",
-        "siblings": [
-            {
-                "defaultDisplayName": "Pahang 2",
-                "germplasmDbId": "383"
-            },
-            {
-                "defaultDisplayName": "Pahang 3",
-                "germplasmDbId": "384"
-            }
-        ]
+        "pedigree": "A000001/A000002",
+        "siblings": []
     }
 }
 ```
 
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
+```
 
 
-## Get Germplasm Progeny by germplasmDbId  [GET /brapi/v1/germplasm/{germplasmDbId}/progeny]
 
- Scope: Germplasm
+
+
+### Get Germplasm Progeny by germplasmDbId  [GET /brapi/v1/germplasm/{germplasmDbId}/progeny]
+
 Get the germplasmDbIds for all the Progeny of a particular germplasm.
-<a href="https://test-server.brapi.org/brapi/v1/germplasm"> test-server.brapi.org/brapi/v1/germplasm/{germplasmDbId}/progeny</a>  
+
+Implementation Notes
+
+- Regarding the 'parentType' field in the progeny object. Given a germplasm A having a progeny B and C, 'parentType' for progeny B refers to the 'parentType' of A toward B.
+
+ 
 
 + Parameters
-    + germplasmDbId (Required, string) ... the internal id of the germplasm
+    + germplasmDbId (Required, ) ... the internal id of the germplasm
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
+
+<strong>Bearer {token_string} </strong>
+
+
 
 
 + Response 200 (application/json)
@@ -522,26 +1106,304 @@ Get the germplasmDbIds for all the Progeny of a particular germplasm.
         "status": []
     },
     "result": {
-        "defaultDisplayName": "Pahang",
-        "germplasmDbId": "382",
+        "defaultDisplayName": "G000002",
+        "germplasmDbId": "3",
         "progeny": [
             {
-                "defaultDisplayName": "Child 1",
-                "germplasmDbId": "402",
-                "parentType": "FEMALE"
-            },
-            {
-                "defaultDisplayName": "Child 2",
-                "germplasmDbId": "403",
+                "defaultDisplayName": "G000004",
+                "germplasmDbId": "4",
                 "parentType": "MALE"
             },
             {
-                "defaultDisplayName": "Pahang Selfed",
-                "germplasmDbId": "405",
-                "parentType": "SELF"
+                "defaultDisplayName": "G000005",
+                "germplasmDbId": "5",
+                "parentType": "MALE"
+            },
+            {
+                "defaultDisplayName": "G000006",
+                "germplasmDbId": "6",
+                "parentType": "MALE"
             }
         ]
     }
 }
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
+```
+
+
+
+## Search [/brapi/v1/search] 
+
+
+
+
+### Post Search Germplasm  [POST /brapi/v1/search/germplasm]
+
+Search for a set of germplasm based on some criteria
+
+Addresses these needs 
+
+- General germplasm search mechanism that accepts POST for complex queries 
+
+- Possibility to search germplasm by more parameters than those allowed by the existing germplasm search 
+
+- Possibility to get MCPD details by PUID rather than dbId
+
+See Search Services for additional implementation details.
+
+ 
+
++ Parameters
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
+
+<strong>Bearer {token_string} </strong>
+
+
+ 
++ Request (application/json)
+```
+{
+    "accessionNumbers": [
+        "accessionNumbers0",
+        "accessionNumbers1"
+    ],
+    "commonCropNames": [
+        "commonCropNames0",
+        "commonCropNames1"
+    ],
+    "germplasmDbIds": [
+        "germplasmDbIds0",
+        "germplasmDbIds1"
+    ],
+    "germplasmGenus": [
+        "germplasmGenus0",
+        "germplasmGenus1"
+    ],
+    "germplasmNames": [
+        "germplasmNames0",
+        "germplasmNames1"
+    ],
+    "germplasmPUIs": [
+        "germplasmPUIs0",
+        "germplasmPUIs1"
+    ],
+    "germplasmSpecies": [
+        "germplasmSpecies0",
+        "germplasmSpecies1"
+    ],
+    "page": 0,
+    "pageSize": 0
+}
+```
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 0,
+            "totalCount": 0,
+            "totalPages": 0
+        },
+        "status": []
+    },
+    "result": {
+        "searchResultDbId": "551ae08c-4548-4bde-ad70-f23beb25e2ea"
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+```
+
+
+
+
+
+### Get Search Germplasm by searchResultsDbId  [GET /brapi/v1/search/germplasm/{searchResultsDbId}{?page}{?pageSize}]
+
+See Search Services for additional implementation details.
+Addresses these needs: 1. General germplasm search mechanism that accepts POST for complex queries 2. possibility to search germplasm by more parameters than those allowed by the existing germplasm search 3. possibility to get MCPD details by PUID rather than dbId
+
+ 
+
++ Parameters
+    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
+
+<strong>Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 2,
+            "totalCount": 9,
+            "totalPages": 5
+        },
+        "status": []
+    },
+    "result": {
+        "data": [
+            {
+                "accessionNumber": "A000001",
+                "acquisitionDate": "1984-01-01",
+                "biologicalStatusOfAccessionCode": 300,
+                "breedingMethodDbId": "bm1",
+                "commonCropName": "G000001",
+                "countryOfOriginCode": "COUNTRY1",
+                "defaultDisplayName": "G000001",
+                "donors": [
+                    {
+                        "donorAccessionNumber": "A001230",
+                        "donorInstituteCode": "INRA",
+                        "germplasmPUI": "https://doi.org/10.1109/5.771073"
+                    },
+                    {
+                        "donorAccessionNumber": "A004560",
+                        "donorInstituteCode": "INRA",
+                        "germplasmPUI": "https://doi.org/10.1109/5.231123"
+                    }
+                ],
+                "genus": "Fructus",
+                "germplasmDbId": "1",
+                "germplasmName": "Name001",
+                "germplasmPUI": "http://pui.per/accession/A000001",
+                "instituteCode": "PER001",
+                "instituteName": "INST1",
+                "pedigree": "A000001",
+                "seedSource": "open pollination",
+                "species": "novus",
+                "speciesAuthority": "L",
+                "subtaxa": "subtaxa",
+                "subtaxaAuthority": "N",
+                "synonyms": [
+                    "landrace 1"
+                ],
+                "taxonIds": [
+                    {
+                        "sourceName": "ncbiTaxon",
+                        "taxonId": "2340"
+                    },
+                    {
+                        "sourceName": "ciradTaxon",
+                        "taxonId": "E312"
+                    }
+                ],
+                "typeOfGermplasmStorageCode": []
+            },
+            {
+                "accessionNumber": "A000002",
+                "acquisitionDate": "1984-01-01",
+                "biologicalStatusOfAccessionCode": 300,
+                "breedingMethodDbId": "bm1",
+                "commonCropName": "G000002",
+                "countryOfOriginCode": "COUNTRY1",
+                "defaultDisplayName": "G000002",
+                "donors": [
+                    {
+                        "donorAccessionNumber": "A007890",
+                        "donorInstituteCode": "INRA",
+                        "germplasmPUI": "https://doi.org/10.1109/5.771073"
+                    },
+                    {
+                        "donorAccessionNumber": "A001010",
+                        "donorInstituteCode": "INRA",
+                        "germplasmPUI": "https://doi.org/10.1109/5.231123"
+                    }
+                ],
+                "genus": "Fructus",
+                "germplasmDbId": "2",
+                "germplasmName": "Name002",
+                "germplasmPUI": "http://pui.per/accession/A000002",
+                "instituteCode": "PER001",
+                "instituteName": "INST1",
+                "pedigree": "A000002",
+                "seedSource": "open pollination",
+                "species": "novus",
+                "speciesAuthority": "L",
+                "subtaxa": "subtaxa",
+                "subtaxaAuthority": "N",
+                "synonyms": [
+                    "landrace 2"
+                ],
+                "taxonIds": [
+                    {
+                        "sourceName": "ncbiTaxon",
+                        "taxonId": "2340"
+                    },
+                    {
+                        "sourceName": "ciradTaxon",
+                        "taxonId": "E312"
+                    }
+                ],
+                "typeOfGermplasmStorageCode": []
+            }
+        ]
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
 ```
 

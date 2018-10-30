@@ -5,11 +5,10 @@ openapi: 3.0.0
 paths:
   /methods:
     get:
-      summary: Get the Methods
-      description: |-
-        Returns a list of Methods available on a server.
-        
-        An Observation Variable has 3 critical parts: A Trait being observed, a Method for making the observation, and a Scale on which the observation can be measured and compared with other observations.
+      description: 'Returns a list of Methods available on a server.
+
+
+        An Observation Variable has 3 critical parts: A Trait being observed, a Method for making the observation, and a Scale on which the observation can be measured and compared with other observations.'
       parameters:
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
@@ -29,7 +28,7 @@ paths:
                           $ref: '#/components/schemas/method'
                         type: array
                     type: object
-                title: traitsResponse
+                title: MethodsResponse
                 type: object
           description: OK
           headers: {}
@@ -39,10 +38,10 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
+      summary: Get the Methods
       tags:
       - Observation Variables
     post:
-      summary: Add a new Method
       description: Create a new method object in the database
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
@@ -61,7 +60,7 @@ paths:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/method'
-                title: traitsResponse
+                title: MethodResponse
                 type: object
           description: OK
           headers: {}
@@ -71,5 +70,6 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
+      summary: Add a new Method
       tags:
       - Observation Variables

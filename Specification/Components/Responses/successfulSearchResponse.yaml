@@ -20,16 +20,16 @@ components:
       headers: {}
   schemas:
     successfulSearchResponse:
-      title: successfulSearchResponse
-      type: object
       properties:
         metadata:
           $ref: '#/components/schemas/metadata'
         result:
-          type: object
           properties:
             searchResultDbId:
               type: string
+          type: object
+      title: successfulSearchResponse
+      type: object
 info:
   title: BrAPI
   version: ''

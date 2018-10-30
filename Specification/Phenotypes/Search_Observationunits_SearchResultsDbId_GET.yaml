@@ -5,11 +5,10 @@ openapi: 3.0.0
 paths:
   /search/observationunits/searchResultsDbId:
     get:
-      summary: Get the results of an Observation Unit search request
-      description: |-
-        Returns a list of observationUnit with the observed Phenotypes.
-        
-        See Search Services for additional implementation details.
+      description: 'Returns a list of observationUnit with the observed Phenotypes.
+
+
+        See Search Services for additional implementation details.'
       parameters:
       - $ref: '#/components/parameters/searchResultsDbId'
       - $ref: '#/components/parameters/page'

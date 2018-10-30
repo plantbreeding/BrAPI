@@ -5,15 +5,7 @@ openapi: 3.0.0
 paths:
   /germplasm:
     get:
-      summary: Get the Germplasm
-      description: |-
-        Addresses these needs
-        
-        - General germplasm search mechanism that accepts POST for complex queries 
-        
-        - Possibility to search germplasm by more parameters than those allowed by the existing germplasm search 
-        
-        - Possibility to get MCPD details by PUID rather than dbId
+      description: "Addresses these needs\n\n- General germplasm search mechanism that accepts POST for complex queries \n\n- Possibility to search germplasm by more parameters than those allowed by the existing germplasm search \n\n- Possibility to get MCPD details by PUID rather than dbId"
       parameters:
       - description: Permanent unique identifier (DOI, URI, etc.)
         in: query
@@ -64,6 +56,7 @@ paths:
                     commonCropName: G000001
                     countryOfOriginCode: COUNTRY1
                     defaultDisplayName: G000001
+                    documentationURL: null
                     donors:
                     - donorAccessionNumber: A001230
                       donorInstituteCode: INRA
@@ -73,8 +66,10 @@ paths:
                       germplasmPUI: https://doi.org/10.1109/5.231123
                     genus: Fructus
                     germplasmDbId: '1'
+                    germplasmGenus: null
                     germplasmName: Name001
                     germplasmPUI: http://pui.per/accession/A000001
+                    germplasmSpecies: null
                     instituteCode: PER001
                     instituteName: INST1
                     pedigree: A000001
@@ -98,6 +93,7 @@ paths:
                     commonCropName: G000002
                     countryOfOriginCode: COUNTRY1
                     defaultDisplayName: G000002
+                    documentationURL: null
                     donors:
                     - donorAccessionNumber: A007890
                       donorInstituteCode: INRA
@@ -107,8 +103,10 @@ paths:
                       germplasmPUI: https://doi.org/10.1109/5.231123
                     genus: Fructus
                     germplasmDbId: '2'
+                    germplasmGenus: null
                     germplasmName: Name002
                     germplasmPUI: http://pui.per/accession/A000002
+                    germplasmSpecies: null
                     instituteCode: PER001
                     instituteName: INST1
                     pedigree: A000002
@@ -146,5 +144,6 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
+      summary: Get the Germplasm
       tags:
       - Germplasm

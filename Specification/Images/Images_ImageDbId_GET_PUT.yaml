@@ -5,19 +5,20 @@ openapi: 3.0.0
 paths:
   /images/{imageDbId}:
     get:
-      summary: Get the an image meta data summary
-      description: |-
-        Get one image meta data object
-        
+      description: 'Get one image meta data object
+
+
         Implementation Notes
-        
-        - 'imageURL' should be a complete URL decribing the location of the image. There is no BrAPI call for retireiving the image content, so it could be on a different path, or a different host.
-        
-        - 'descriptiveOntologyTerm' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI's. 
+
+
+        - ''imageURL'' should be a complete URL decribing the location of the image. There is no BrAPI call for retireiving the image content, so it could be on a different path, or a different host.
+
+
+        - ''descriptiveOntologyTerm'' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI''s. '
       parameters:
-      - name: imageDbId
-        description: The unique identifier for a image
+      - description: The unique identifier for a image
         in: path
+        name: imageDbId
         required: true
         schema:
           type: string
@@ -26,13 +27,24 @@ paths:
         '200':
           content:
             application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result: null
               schema:
-                type: object
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/image'
+                title: imageResponse
+                type: object
           description: OK
           headers: {}
         '400':
@@ -43,31 +55,20 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
+      summary: Get the an image meta data summary
       tags:
       - Images
-    put: 
-      summary: Update an image meta data
-      description: |-
-        Update an image meta data object
-        
-        Implementation Notes
-        
-        - This call should be paired with 'PUT /images/{imageDbId}/imagecontent' for full capability
-        
-        - A server may choose to modify the image meta data object based on the actually image which has been uploaded. 
-        
-        - Image data may be stored in a database or file system. Servers should generate and provide the "imageURL" as an absolute path for retrieving the image, wherever it happens to live. 
-        
-        - 'descriptiveOntologyTerm' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI's. 
-      parameters: 
-      - name: imageDbId
-        description: The unique identifier for a image
+    put:
+      description: "Update an image meta data object\n\nImplementation Notes\n\n- This call should be paired with 'PUT /images/{imageDbId}/imagecontent' for full capability\n\n- A server may choose to modify the image meta data object based on the actually image which has been uploaded. \n\n- Image data may be stored in a database or file system. Servers should generate and provide the \"imageURL\" as an absolute path for retrieving the image, wherever it happens to live. \n\n- 'descriptiveOntologyTerm' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI's. "
+      parameters:
+      - description: The unique identifier for a image
         in: path
+        name: imageDbId
         required: true
         schema:
           type: string
       - $ref: '#/components/parameters/authorizationHeader'
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -76,13 +77,24 @@ paths:
         '200':
           content:
             application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result: null
               schema:
-                type: object
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/image'
+                title: imageResponse
+                type: object
           description: OK
           headers: {}
         '400':
@@ -93,5 +105,6 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
+      summary: Update an image meta data
       tags:
       - Images

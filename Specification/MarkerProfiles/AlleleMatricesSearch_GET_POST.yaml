@@ -5,77 +5,79 @@ openapi: 3.0.0
 paths:
   /allelematrices-search:
     get:
-      summary: Get the a Matrix of Allele data
-      description: |-
-        See Search Services for additional implementation details.
-        
+      description: 'See Search Services for additional implementation details.
+
+
         This uses a more efficient data structure and pagination for large number of markers.
-        
+
+
         See Search Services for additional implementation details.
 
+
         Use GET when parameter size is less than 2K bytes.
-        
-        This method may support asynchronous processing.
+
+
+        This method may support asynchronous processing.'
       parameters:
-      - name: markerprofileDbId
-        description: DEPRECATED in v1.3 - see "markerProfileDbId" (camel case)
+      - description: DEPRECATED in v1.3 - see "markerProfileDbId" (camel case)
         in: query
+        name: markerprofileDbId
         required: false
         schema:
           items:
             type: string
           type: array
-      - name: markerProfileDbId
-        description: The marker Profile db ids. Not Required if 'markerDbId' or 'matrixDbId' is present.
+      - description: The marker Profile db ids. Not Required if 'markerDbId' or 'matrixDbId' is present.
         in: query
+        name: markerProfileDbId
         required: false
         schema:
           items:
             type: string
           type: array
-      - name: markerDbId
-        description: ids of the markers. if none are specified, results are returned for all markers in the database. Not Required if 'markerProfileDbId' or 'matrixDbId' is present.
+      - description: ids of the markers. if none are specified, results are returned for all markers in the database. Not Required if 'markerProfileDbId' or 'matrixDbId' is present.
         in: query
+        name: markerDbId
         required: false
         schema:
           items:
             type: string
           type: array
-      - name: matrixDbId
-        description: ''
+      - description: ''
         in: query
+        name: matrixDbId
         required: false
         schema:
           items:
             type: string
           type: array
-      - name: format
-        description: format for the datafile to be downloaded. tsv and csv currently supported; flapjack may be supported.
+      - description: format for the datafile to be downloaded. tsv and csv currently supported; flapjack may be supported.
         in: query
+        name: format
         required: false
         schema:
           type: string
-      - name: expandHomozygotes
-        description: Should homozygotes NOT be collapsed into a single occurrence?
+      - description: Should homozygotes NOT be collapsed into a single occurrence?
         in: query
+        name: expandHomozygotes
         required: false
         schema:
           type: boolean
-      - name: unknownString
-        description: The string to use as a representation for missing data or the reserved word "empty_string".
+      - description: The string to use as a representation for missing data or the reserved word "empty_string".
         in: query
+        name: unknownString
         required: false
         schema:
           type: string
-      - name: sepPhased
-        description: The string to use as a separator for phased allele calls or the reserved word "empty_string".
+      - description: The string to use as a separator for phased allele calls or the reserved word "empty_string".
         in: query
+        name: sepPhased
         required: false
         schema:
           type: string
-      - name: sepUnphased
-        description: The string to use as a separator for unphased allele calls or the reserved word "empty_string".
+      - description: The string to use as a separator for unphased allele calls or the reserved word "empty_string".
         in: query
+        name: sepUnphased
         required: false
         schema:
           type: string
@@ -119,24 +121,29 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
+      summary: Get the a Matrix of Allele data
       tags:
       - Marker Profiles
     post:
-      summary: Submit a request to get a Matrix of Allele data
-      description: |-
-        See Search Services for additional implementation details.
+      description: 'See Search Services for additional implementation details.
+
 
         This uses a more efficient data structure and pagination for large number of markers.
 
+
         Use POST when parameter size is greater than 2K bytes.
+
 
         - If no format is specified, this call returns the data in JSON form.
 
+
         - If a format (other than JSON) is specified and the server supports this format, it will return the link to the exported data file in the "datafiles" field of the "metadata".
+
 
         - If more than one format is requested at a time, the server will throw a "501 Not Implemented" error.
 
-        The format of the tsv response can be found on GitHub (https://github.com/plantbreeding/Documentation/wiki/BrAPI-TSV-Expected-Formats)'
+
+        The format of the tsv response can be found on GitHub (https://github.com/plantbreeding/Documentation/wiki/BrAPI-TSV-Expected-Formats)'''
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
@@ -155,210 +162,18 @@ paths:
                   datafiles: []
                   pagination:
                     currentPage: 0
-                    pageSize: 1000
-                    totalCount: 66
-                    totalPages: 1
+                    pageSize: 2
+                    totalCount: 280
+                    totalPages: 140
                   status: []
                 result:
                   data:
-                  - - mr1
-                    - mp1
-                    - '1'
-                  - - mr2
-                    - mp1
-                    - '0'
-                  - - mr3
-                    - mp1
-                    - '0'
-                  - - mr4
-                    - mp1
-                    - '0'
-                  - - mr5
-                    - mp1
-                    - '0'
-                  - - mr6
-                    - mp1
-                    - '1'
-                  - - mr7
-                    - mp1
-                    - '0'
-                  - - mr8
-                    - mp1
-                    - '0'
-                  - - mr9
-                    - mp1
-                    - '0'
-                  - - mr10
-                    - mp1
-                    - '1'
-                  - - mr11
-                    - mp1
-                    - '0'
-                  - - mr12
-                    - mp1
-                    - '0'
-                  - - mr13
-                    - mp1
-                    - '1'
-                  - - mr14
-                    - mp1
-                    - '1'
-                  - - mr15
-                    - mp1
-                    - '1'
-                  - - mr16
-                    - mp1
-                    - '0'
-                  - - mr17
-                    - mp1
-                    - '1'
-                  - - mr18
-                    - mp1
-                    - '1'
-                  - - mr19
-                    - mp1
-                    - '0'
-                  - - mr20
-                    - mp1
-                    - '0'
-                  - - mr21
-                    - mp1
-                    - '0'
-                  - - mr22
-                    - mp1
-                    - '0'
-                  - - mr1
-                    - mp2
-                    - '0'
-                  - - mr2
-                    - mp2
-                    - '1'
-                  - - mr3
-                    - mp2
-                    - '0'
-                  - - mr4
-                    - mp2
-                    - '0'
-                  - - mr5
-                    - mp2
-                    - '1'
-                  - - mr6
-                    - mp2
-                    - '0'
-                  - - mr7
-                    - mp2
-                    - '0'
-                  - - mr8
-                    - mp2
-                    - '1'
-                  - - mr9
-                    - mp2
-                    - '0'
-                  - - mr10
-                    - mp2
-                    - '1'
-                  - - mr11
-                    - mp2
-                    - '0'
-                  - - mr12
-                    - mp2
-                    - '0'
-                  - - mr13
-                    - mp2
-                    - '0'
-                  - - mr14
-                    - mp2
-                    - '1'
-                  - - mr15
-                    - mp2
-                    - '0'
-                  - - mr16
-                    - mp2
-                    - '1'
-                  - - mr17
-                    - mp2
-                    - '0'
-                  - - mr18
-                    - mp2
-                    - '1'
-                  - - mr19
-                    - mp2
-                    - '1'
-                  - - mr20
-                    - mp2
-                    - '1'
-                  - - mr21
-                    - mp2
-                    - '0'
-                  - - mr22
-                    - mp2
-                    - '0'
-                  - - mr1
-                    - mp3
-                    - '0'
-                  - - mr2
-                    - mp3
-                    - '1'
-                  - - mr3
-                    - mp3
-                    - '1'
-                  - - mr4
-                    - mp3
-                    - '1'
-                  - - mr5
-                    - mp3
-                    - '1'
-                  - - mr6
-                    - mp3
-                    - '0'
-                  - - mr7
-                    - mp3
-                    - '1'
-                  - - mr8
-                    - mp3
-                    - '1'
-                  - - mr9
-                    - mp3
-                    - '0'
-                  - - mr10
-                    - mp3
-                    - '0'
-                  - - mr11
-                    - mp3
-                    - '0'
-                  - - mr12
-                    - mp3
-                    - '1'
-                  - - mr13
-                    - mp3
-                    - '1'
-                  - - mr14
-                    - mp3
-                    - '1'
-                  - - mr15
-                    - mp3
-                    - '1'
-                  - - mr16
-                    - mp3
-                    - '1'
-                  - - mr17
-                    - mp3
-                    - '0'
-                  - - mr18
-                    - mp3
-                    - '0'
-                  - - mr22
-                    - mp3
-                    - '0'
-                  - - mr19
-                    - mp3
-                    - '1'
-                  - - mr20
-                    - mp3
-                    - '0'
-                  - - mr21
-                    - mp3
-                    - '1'
+                  - - mr01
+                    - P1
+                    - A
+                  - - mr02
+                    - P1
+                    - C
               schema:
                 properties:
                   metadata:
@@ -390,5 +205,6 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
+      summary: Submit a request to get a Matrix of Allele data
       tags:
       - Marker Profiles

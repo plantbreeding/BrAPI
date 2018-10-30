@@ -5,8 +5,8 @@ openapi: 3.0.0
 paths:
   /variables/datatypes:
     get:
-      description: DEPRECATED in v1.3 - See documentation on BrAPI fixed set of data types, references from the Crop Ontology
       deprecated: true
+      description: DEPRECATED in v1.3 - See documentation on BrAPI fixed set of data types, references from the Crop Ontology
       parameters:
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'

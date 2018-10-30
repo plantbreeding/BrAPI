@@ -5,7 +5,6 @@ openapi: 3.0.0
 paths:
   /variables:
     get:
-      summary: Get the Observation Variables
       description: Call to retrieve a list of observationVariables available in the system.
       parameters:
       - $ref: '#/components/parameters/page'
@@ -40,8 +39,9 @@ paths:
                   data:
                   - contextOfUse: []
                     crop: maize
-                    date: '2018-10-02'
+                    date: '2018-10-26'
                     defaultValue: '10'
+                    documentationURL: null
                     growthStage: '1'
                     institution: '1'
                     language: English
@@ -50,18 +50,23 @@ paths:
                       description: Standard rolled measuring tape
                       formula: a^2 + b^2 = c^2
                       methodDbId: m1
+                      methodName: null
                       name: Tape Measure
+                      ontologyRefernce: null
                       reference: google.com
                     name: Plant height
                     observationVariableDbId: MO_123:100002
                     observationVariableName: Plant height
                     ontologyDbId: MO_123
                     ontologyName: Ontology.org
+                    ontologyRefernce: null
                     scale:
                       dataType: Numerical
                       decimalPlaces: 1
                       name: Centimeter
+                      ontologyRefernce: null
                       scaleDbId: s1
+                      scaleName: null
                       validValues:
                         categories: []
                         max: 99999
@@ -79,15 +84,18 @@ paths:
                       entity: entity
                       mainAbbreviation: H
                       name: Plant Height
+                      ontologyRefernce: null
                       status: active
                       synonyms: []
                       traitDbId: t1
+                      traitName: null
                       xref: xref
                     xref: MO_123:100002
                   - contextOfUse: []
                     crop: maize
-                    date: '2018-10-02'
+                    date: '2018-10-26'
                     defaultValue: '10'
+                    documentationURL: null
                     growthStage: '1'
                     institution: '1'
                     language: English
@@ -96,18 +104,23 @@ paths:
                       description: Comparing sample color to standard color palette
                       formula: NA
                       methodDbId: m3
+                      methodName: null
                       name: Standard Color Palette
+                      ontologyRefernce: null
                       reference: google.com
                     name: Carotenoid
                     observationVariableDbId: MO_123:100003
                     observationVariableName: Carotenoid
                     ontologyDbId: MO_123
                     ontologyName: Ontology.org
+                    ontologyRefernce: null
                     scale:
-                      dataType: Categorical
+                      dataType: null
                       decimalPlaces: 0
                       name: Color
+                      ontologyRefernce: null
                       scaleDbId: s3
+                      scaleName: null
                       validValues:
                         categories:
                         - dark red
@@ -130,9 +143,11 @@ paths:
                       entity: entity
                       mainAbbreviation: LC
                       name: Leaf Color
+                      ontologyRefernce: null
                       status: active
                       synonyms: []
                       traitDbId: t3
+                      traitName: null
                       xref: xref
                     xref: MO_123:100003
               schema:
@@ -156,5 +171,6 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
+      summary: Get the Observation Variables
       tags:
       - Observation Variables

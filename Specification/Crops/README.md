@@ -5,7 +5,12 @@ For multi crop systems this is a useful call to list all the supported crops.
 
 
 
-## Get CommonCropNames  [GET /brapi/v1/commonCropNames{?pageSize}{?page}]
+## Commoncropnames [/brapi/v1/commoncropnames] 
+
+
+
+
+### Get Commoncropnames  [GET /brapi/v1/commoncropnames{?page}{?pageSize}]
 
 List the common crop names for the crops available in a database server. 
 
@@ -15,11 +20,19 @@ This call is recommended for single crop systems to be compatible with multi-cro
 
 The common crop name can be used as a search parameter for Programs, Studies, and Germplasm.
 
-<a href="https://test-server.brapi.org/brapi/v1/commonCropNames"> test-server.brapi.org/brapi/v1/commonCropNames</a> 
+
+test-server.brapi.org/brapi/v1/commonCropNames
+
+ 
 
 + Parameters
-    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
-    + page (Optional, integer) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
+
+<strong>Bearer {token_string} </strong>
+
+
 
 
 + Response 200 (application/json)
@@ -29,34 +42,57 @@ The common crop name can be used as a search parameter for Programs, Studies, an
         "datafiles": [],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 3,
+            "pageSize": 2,
+            "totalCount": 2,
             "totalPages": 1
         },
         "status": []
     },
     "result": {
         "data": [
-            "maize",
-            "wheat",
-            "rice",
-            "potato"
+            "Tomatillo",
+            "Paw Paw"
         ]
     }
 }
 ```
 
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+```
 
 
-## Get Crops  [GET /brapi/v1/crops{?pageSize}{?page}]
+
+## Crops [/brapi/v1/crops] 
+
+
+
+
+### **Deprecated** Get Crops  [GET /brapi/v1/crops{?page}{?pageSize}]
 
 For multi crop systems this is a useful call to list all the supported crops.
 
-<a href="https://test-server.brapi.org/brapi/v1/crops"> test-server.brapi.org/brapi/v1/crops</a> 
+
+test-server.brapi.org/brapi/v1/crops
+
+ 
 
 + Parameters
-    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
-    + page (Optional, integer) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+
+
 
 
 + Response 200 (application/json)
@@ -65,19 +101,15 @@ For multi crop systems this is a useful call to list all the supported crops.
     "metadata": {
         "datafiles": [],
         "pagination": {
-            "currentPage": 0,
+            "currentPage": 2,
             "pageSize": 1000,
-            "totalCount": 3,
+            "totalCount": 2,
             "totalPages": 1
         },
         "status": []
     },
     "result": {
-        "data": [
-            "maize",
-            "wheat",
-            "rice"
-        ]
+        "data": []
     }
 }
 ```

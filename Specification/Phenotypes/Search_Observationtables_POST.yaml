@@ -5,13 +5,13 @@ openapi: 3.0.0
 paths:
   /search/observationtables:
     post:
-      summary: Submit a search request for a table of Observations
-      description: |-
-        Returns a list of observationUnit with the observed Phenotypes.
-        
+      description: 'Returns a list of observationUnit with the observed Phenotypes.
+
+
         observationTimeStamp - Iso Standard 8601.
-        
-        observationValue data type inferred from the ontology
+
+
+        observationValue data type inferred from the ontology'
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
@@ -28,6 +28,7 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
+      summary: Submit a search request for a table of Observations
       tags:
       - Observations
       - Search Services

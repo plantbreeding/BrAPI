@@ -5,13 +5,7 @@ openapi: 3.0.0
 paths:
   /studies/{studyDbId}/observationunits/zip:
     post:
-      summary: Use this call for uploading new Observations as a Batched Zip File to a system.
-      description: |-
-        If ''observationUnitDbId'' or ''observationDbId'' is populated, they should be considered updates to existing records. 
-        
-        If an existing record of that DbId is not found, the document should be treated as new records and assigned new DbIds. 
-        
-        If ''observationUnitDbId'' or ''observationDbId'' is un-populated (empty string or null) the document should be treated as new records and assigned new DbIds.
+      description: "If ''observationUnitDbId'' or ''observationDbId'' is populated, they should be considered updates to existing records. \n\nIf an existing record of that DbId is not found, the document should be treated as new records and assigned new DbIds. \n\nIf ''observationUnitDbId'' or ''observationDbId'' is un-populated (empty string or null) the document should be treated as new records and assigned new DbIds."
       parameters:
       - description: The study these observation units are related to.
         in: path
@@ -59,6 +53,7 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
+      summary: Use this call for uploading new Observations as a Batched Zip File to a system.
       tags:
       - Observations
       - Studies

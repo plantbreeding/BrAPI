@@ -5,8 +5,7 @@ openapi: 3.0.0
 paths:
   /studies/{studyDbId}/observationunits:
     get:
-      summary: Get the Observation Units associated with a specific Study
-      description:  The main API call for field data collection, to retrieve all the observation units within a study.
+      description: The main API call for field data collection, to retrieve all the observation units within a study.
       parameters:
       - description: The study these observation units are related to.
         in: path
@@ -60,12 +59,14 @@ paths:
                       observationTimeStamp: '2013-06-14T22:05:51-04:00'
                       observationVariableDbId: MO_123:100002
                       observationVariableName: Plant height
+                      season: null
                       value: '1.1'
                     - collector: A. Technician
                       observationDbId: '4'
                       observationTimeStamp: '2013-06-14T22:06:51-04:00'
                       observationVariableDbId: MO_123:100006
                       observationVariableName: Virus severity
+                      season: null
                       value: '5.1'
                     pedigree: A000001/A000002
                     plantNumber: '1'
@@ -93,12 +94,14 @@ paths:
                       observationTimeStamp: '2013-06-14T22:07:51-04:00'
                       observationVariableDbId: MO_123:100003
                       observationVariableName: Carotenoid
+                      season: null
                       value: '2.1'
                     - collector: A. Technician
                       observationDbId: '6'
                       observationTimeStamp: '2013-06-14T22:08:51-04:00'
                       observationVariableDbId: MO_123:100005
                       observationVariableName: Root color
+                      season: null
                       value: dark blue
                     pedigree: A000001/A000002
                     plantNumber: '0'
@@ -127,6 +130,7 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
+      summary: Get the Observation Units associated with a specific Study
       tags:
       - Studies
       - Observations
@@ -160,8 +164,6 @@ paths:
               type: object
       responses:
         '200':
-          description: OK
-          headers: {}
           content:
             application/json:
               example:
@@ -186,6 +188,8 @@ paths:
                     $ref: '#/components/schemas/newObservationUnitDbIds'
                 title: newObservationUnitDbIdsResponse
                 type: object
+          description: OK
+          headers: {}
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -200,13 +204,7 @@ paths:
       - Observations
       - Deprecated
     put:
-      summary: Update the Observation Units for a specific Study
-      description: |-
-        Use this call for uploading new Observations as JSON to a system.
-
-        Note: If ''observationUnitDbId'' or ''observationDbId'' is populated, they should be considered updates to existing records. 
-        If an existing record of that DbId is not found, the document should be treated as new records and assigned new DbIds. 
-        If ''observationUnitDbId'' or ''observationDbId'' is un-populated (empty string or null) the document should be treated as new records and assigned new DbIds.
+      description: "Use this call for uploading new Observations as JSON to a system.\n\nNote: If ''observationUnitDbId'' or ''observationDbId'' is populated, they should be considered updates to existing records. \nIf an existing record of that DbId is not found, the document should be treated as new records and assigned new DbIds. \nIf ''observationUnitDbId'' or ''observationDbId'' is un-populated (empty string or null) the document should be treated as new records and assigned new DbIds."
       parameters:
       - description: The study these observation units are related to.
         in: path
@@ -238,9 +236,10 @@ paths:
                   status:
                   - code: '200'
                     message: Upload Successful
+                    messageType: null
                 result:
                   observationUnitDbIds:
-                  - 5873048a-f30d-435c-931a-c88b522304cc
+                  - 080f6dd1-82a8-4308-a858-3c36d9e55948
               schema:
                 properties:
                   metadata:
@@ -259,6 +258,7 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
+      summary: Update the Observation Units for a specific Study
       tags:
       - Studies
       - Observations

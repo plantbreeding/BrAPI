@@ -5,11 +5,10 @@ openapi: 3.0.0
 paths:
   /methods/{methodDbId}:
     get:
-      summary: Get the details for a specific Method
-      description: |-
-        Retrieve details about a specific method
-        
-        An Observation Variable has 3 critical parts: A Trait being observed, a Method for making the observation, and a Scale on which the observation can be measured and compared with other observations.
+      description: 'Retrieve details about a specific method
+
+
+        An Observation Variable has 3 critical parts: A Trait being observed, a Method for making the observation, and a Scale on which the observation can be measured and compared with other observations.'
       parameters:
       - description: Id of the method to retrieve details of.
         in: path
@@ -28,6 +27,7 @@ paths:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/method'
+                title: MethodResponse
                 type: object
           description: OK
           headers: {}
@@ -39,10 +39,10 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
+      summary: Get the details for a specific Method
       tags:
       - Observation Variables
     put:
-      summary: Update an existing Method
       description: Update the details of an existing method
       parameters:
       - description: Id of the method to retrieve details of.
@@ -67,6 +67,7 @@ paths:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/method'
+                title: MethodResponse
                 type: object
           description: OK
           headers: {}
@@ -78,6 +79,6 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
+      summary: Update an existing Method
       tags:
       - Observation Variables
-      

@@ -5,7 +5,6 @@ openapi: 3.0.0
 paths:
   /germplasm/{germplasmDbId}/attributes:
     get:
-      summary: Get the Germplasm Attributes associated with a specific Germplasm
       description: Values for all attributes by default.
       parameters:
       - description: The germplasm characterized
@@ -77,6 +76,7 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
+      summary: Get the Germplasm Attributes associated with a specific Germplasm
       tags:
       - Germplasm Attributes
       - Germplasm

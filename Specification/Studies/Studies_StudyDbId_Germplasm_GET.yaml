@@ -5,12 +5,11 @@ openapi: 3.0.0
 paths:
   /studies/{studyDbId}/germplasm:
     get:
-      summary: Get the Germplasm associated with a specific Study
       description: Get the available Germplasm which are associated with this study
       parameters:
-      - name: studyDbId
-        description: Identifier of the study. Usually a number, could be alphanumeric.
+      - description: Identifier of the study. Usually a number, could be alphanumeric.
         in: path
+        name: studyDbId
         required: true
         schema:
           type: string
@@ -21,14 +20,6 @@ paths:
         '200':
           content:
             application/json:
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    $ref: '#/components/schemas/germplasmSummaryList'
-                title: germplasmSummaryListResponse
-                type: object
               example:
                 metadata:
                   datafiles: []
@@ -41,25 +32,67 @@ paths:
                 result:
                   data:
                   - accessionNumber: A000001
+                    acquisitionDate: null
+                    biologicalStatusOfAccessionCode: null
+                    breedingMethodDbId: null
+                    commonCropName: null
+                    countryOfOriginCode: null
+                    defaultDisplayName: null
+                    documentationURL: null
+                    donors: null
                     entryNumber: '1'
+                    genus: null
                     germplasmDbId: '1'
                     germplasmName: Name001
                     germplasmPUI: http://pui.per/accession/A000001
+                    instituteCode: null
+                    instituteName: null
                     pedigree: A000001
                     seedSource: open pollination
+                    species: null
+                    speciesAuthority: null
+                    subtaxa: null
+                    subtaxaAuthority: null
                     synonyms:
                     - landrace 1
+                    taxonIds: null
+                    typeOfGermplasmStorageCode: null
                   - accessionNumber: A000002
+                    acquisitionDate: null
+                    biologicalStatusOfAccessionCode: null
+                    breedingMethodDbId: null
+                    commonCropName: null
+                    countryOfOriginCode: null
+                    defaultDisplayName: null
+                    documentationURL: null
+                    donors: null
                     entryNumber: '4'
+                    genus: null
                     germplasmDbId: '2'
                     germplasmName: Name002
                     germplasmPUI: http://pui.per/accession/A000002
+                    instituteCode: null
+                    instituteName: null
                     pedigree: A000002
                     seedSource: open pollination
+                    species: null
+                    speciesAuthority: null
+                    subtaxa: null
+                    subtaxaAuthority: null
                     synonyms:
                     - landrace 2
+                    taxonIds: null
+                    typeOfGermplasmStorageCode: null
                   studyDbId: '1001'
                   trialName: Peru Yield Trial 1
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/germplasmSummaryList'
+                title: germplasmSummaryListResponse
+                type: object
           description: OK
           headers: {}
         '400':
@@ -70,6 +103,7 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
+      summary: Get the Germplasm associated with a specific Study
       tags:
       - Studies
       - Germplasm

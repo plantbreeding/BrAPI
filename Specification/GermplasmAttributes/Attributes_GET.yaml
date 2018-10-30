@@ -5,12 +5,11 @@ openapi: 3.0.0
 paths:
   /attributes:
     get:
-      summary: Get the Germplasm Attributes
       description: List available attributes.
       parameters:
-      - name: attributeCategoryDbId
-        description: 'Unique identifier for the general category for the attribute. very similar to Trait class.'
+      - description: Unique identifier for the general category for the attribute. very similar to Trait class.
         in: query
+        name: attributeCategoryDbId
         required: false
         schema:
           type: string
@@ -34,36 +33,58 @@ paths:
                   data:
                   - attributeCategoryDbId: '2'
                     attributeDbId: '1'
+                    attributeName: null
                     code: RHT
-                    dataType: Categorical
+                    contextOfUse: null
+                    crop: null
+                    datatype: Categorical
+                    defaultValue: null
                     description: Allele of marker 11_4769
+                    documentationURL: null
+                    growthStage: null
+                    institution: null
+                    language: null
+                    method: null
                     name: Rht-B1b
+                    ontologyDbId: null
+                    ontologyName: null
+                    ontologyRefernce: null
+                    scale: null
+                    scientist: null
+                    status: null
+                    submissionTimestamp: null
+                    synonyms: null
+                    trait: null
                     uri: http://www.brapi.org/ontology/MO_123:1000001
-                    values:
-                    - Present
-                    - Absent
-                    - Heterozygous
-                    - Present
-                    - Absent
-                    - Heterozygous
-                    - Present
-                    - Absent
+                    values: Present
+                    xref: null
                   - attributeCategoryDbId: '3'
                     attributeDbId: '2'
+                    attributeName: null
                     code: WEV
-                    dataType: Categorical
+                    contextOfUse: null
+                    crop: null
+                    datatype: Categorical
+                    defaultValue: null
                     description: Resistance allele
+                    documentationURL: null
+                    growthStage: null
+                    institution: null
+                    language: null
+                    method: null
                     name: Weevil Resistance
+                    ontologyDbId: null
+                    ontologyName: null
+                    ontologyRefernce: null
+                    scale: null
+                    scientist: null
+                    status: null
+                    submissionTimestamp: null
+                    synonyms: null
+                    trait: null
                     uri: http://www.brapi.org/ontology/MO_123:1000002
-                    values:
-                    - Absent
-                    - Heterozygous
-                    - Present
-                    - Heterozygous
-                    - Heterozygous
-                    - Absent
-                    - Heterozygous
-                    - Absent
+                    values: Absent
+                    xref: null
               schema:
                 properties:
                   metadata:
@@ -85,5 +106,6 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
+      summary: Get the Germplasm Attributes
       tags:
       - Germplasm Attributes

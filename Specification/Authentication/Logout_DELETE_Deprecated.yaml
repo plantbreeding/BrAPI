@@ -15,6 +15,9 @@ paths:
         For logout, returns an empty resource. A token to remove could be provided (amdin interface) but it is not required. By default, current user token will be removed.'
       responses:
         '201':
+          content:
+            application/json:
+              example: {}
           description: Created
           headers: {}
       summary: Logout

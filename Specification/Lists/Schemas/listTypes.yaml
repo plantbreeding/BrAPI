@@ -1,13 +1,7 @@
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}
-components: 
-  schemas: 
+components:
+  schemas:
     listTypes:
-      type: string
-      enum: 
+      enum:
       - germplasm
       - markers
       - programs
@@ -17,3 +11,9 @@ components:
       - observations
       - observationVariables
       - samples
+      type: string
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

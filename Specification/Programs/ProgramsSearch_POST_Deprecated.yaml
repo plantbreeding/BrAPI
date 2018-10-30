@@ -28,15 +28,25 @@ paths:
                 result:
                   data:
                   - abbreviation: P1
+                    commonCropName: null
+                    documentationURL: null
                     leadPerson: G. Leader
+                    leadPersonDbId: null
+                    leadPersonName: null
                     name: Program 1
                     objective: Global Population Improvement
                     programDbId: '1'
+                    programName: null
                   - abbreviation: P2
+                    commonCropName: null
+                    documentationURL: null
                     leadPerson: M. Breeder
+                    leadPersonDbId: null
+                    leadPersonName: null
                     name: Program 2
                     objective: XYZ
                     programDbId: '2'
+                    programName: null
               schema:
                 properties:
                   metadata:

@@ -5,34 +5,34 @@ openapi: 3.0.0
 paths:
   /lists/{listDbId}/items:
     post:
-      summary: Add Items to a specific List
       description: Add new data to a specific generic lists
       parameters:
-      - name: listDbId
-        description: The unique ID of this generic list
+      - description: The unique ID of this generic list
         in: path
+        name: listDbId
         required: true
         schema:
           type: string
       - $ref: '#/components/parameters/authorizationHeader'
-      requestBody: 
-        content: 
+      requestBody:
+        content:
           application/json:
             schema:
-              type: array
               items:
                 type: string
+              type: array
       responses:
         '200':
           content:
             application/json:
               schema:
-                type: object
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/listDetails'
+                title: listResponse
+                type: object
           description: OK
           headers: {}
         '400':
@@ -43,5 +43,6 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
+      summary: Add Items to a specific List
       tags:
       - Lists

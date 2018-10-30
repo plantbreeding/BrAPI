@@ -3,13 +3,13 @@ components:
     observationUnit:
       properties:
         X:
-          description: DEPRECATED - use "positionCoordinateX"
           deprecated: true
+          description: DEPRECATED - use "positionCoordinateX"
           title: xCoordinate
           type: string
         Y:
-          description: DEPRECATED - use "positionCoordinateY"
           deprecated: true
+          description: DEPRECATED - use "positionCoordinateY"
           title: yCoordinate
           type: string
         blockNumber:
@@ -26,6 +26,12 @@ components:
           type: string
         germplasmName:
           description: Name of the germplasm. It can be the prefered name and does not have to be unique.
+          type: string
+        locationDbId:
+          description: The ID which uniquely identifies a location, associated with this study
+          type: string
+        locationName:
+          description: The human readable name of a location associated with this study
           type: string
         observationLevel:
           description: The level of an observation unit. ex. "plot", "plant"
@@ -94,40 +100,34 @@ components:
         programName:
           description: The human readable name of a program
           type: string
-        trialDbId:
-          description: The ID which uniquely identifies a trial
-          type: string
-        trialName:
-          description: The human readable name of a trial
-          type: string
         replicate:
           description: The replicate number of an observation unit. May be the same as blockNumber.
           type: string
         studyDbId:
           description: The ID which uniquely identifies a study within the given database server
           type: string
-        studyName:
-          description: The human readable name for a study
-          type: string
         studyLocation:
-          description: DEPRECATED in v1.3 - see "locationName"
           deprecated: true
+          description: DEPRECATED in v1.3 - see "locationName"
           type: string
         studyLocationDbId:
-          description: DEPRECATED in v1.3 - see "locationDbId"
           deprecated: true
+          description: DEPRECATED in v1.3 - see "locationDbId"
           type: string
-        locationName:
-          description: The human readable name of a location associated with this study
-          type: string
-        locationDbId:
-          description: The ID which uniquely identifies a location, associated with this study
+        studyName:
+          description: The human readable name for a study
           type: string
         treatments:
           description: List of treatments applied to an observation unit.
           items:
             $ref: '#/components/schemas/observationTreatment'
           type: array
+        trialDbId:
+          description: The ID which uniquely identifies a trial
+          type: string
+        trialName:
+          description: The human readable name of a trial
+          type: string
       type: object
 info:
   title: BrAPI

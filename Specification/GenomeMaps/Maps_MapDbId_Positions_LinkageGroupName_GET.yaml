@@ -5,7 +5,6 @@ openapi: 3.0.0
 paths:
   /maps/{mapDbId}/positions/{linkageGroupName}:
     get:
-      summary: Get the positions of Markers inside a specific Linkage Group
       description: All the markers in a specific Linkage Group (aka Chromasome) inside a particular Map, ordered by position.
       parameters:
       - description: unique id of the map
@@ -45,16 +44,16 @@ paths:
                   pagination:
                     currentPage: 0
                     pageSize: 2
-                    totalCount: 11
-                    totalPages: 6
+                    totalCount: 22
+                    totalPages: 11
                   status: []
                 result:
                   data:
                   - location: '1000'
-                    markerDbId: mr1
+                    markerDbId: mr01
                     markerName: marker1-1
                   - location: '1020'
-                    markerDbId: mr2
+                    markerDbId: mr02
                     markerName: marker1-2
               schema:
                 properties:
@@ -67,7 +66,7 @@ paths:
                           $ref: '#/components/schemas/markerSummaryLinkageGroup'
                         type: array
                     type: object
-                title: markersResponse
+                title: markerSummaryLinkageGroupResponse
                 type: object
           description: OK
           headers: {}
@@ -79,5 +78,6 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
+      summary: Get the positions of Markers inside a specific Linkage Group
       tags:
       - Genome Maps

@@ -5,7 +5,6 @@ openapi: 3.0.0
 paths:
   /germplasm/{germplasmDbId}:
     get:
-      summary: Get the details of a specific Germplasm
       description: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport Data. The MCPD fields are optional and marked with the prefix [MCPD].
       parameters:
       - description: The internal id of the germplasm
@@ -36,11 +35,14 @@ paths:
                   commonCropName: G000003
                   countryOfOriginCode: COUNTRY1
                   defaultDisplayName: G000003
+                  documentationURL: null
                   donors: []
                   genus: Fructus
                   germplasmDbId: '3'
+                  germplasmGenus: null
                   germplasmName: Name003
                   germplasmPUI: http://pui.per/accession/A000003
+                  germplasmSpecies: null
                   instituteCode: PER001
                   instituteName: INST1
                   pedigree: A000001/A000002
@@ -75,5 +77,6 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
+      summary: Get the details of a specific Germplasm
       tags:
       - Germplasm

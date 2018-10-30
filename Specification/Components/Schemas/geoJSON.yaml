@@ -1,196 +1,112 @@
+components:
+  schemas:
+    geoJSON:
+      description: One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate refernce system.
+      properties:
+        geometry:
+          oneOf:
+          - description: "Example \n\n    [ -76.506042, 42.417373 ]"
+            properties:
+              coordinates:
+                $ref: '#/components/schemas/position'
+              type:
+                enum:
+                - Point
+                type: string
+            title: Point
+            type: object
+          - description: "Example \n  \n    [ \n    \n      [ -76.506042, 42.417373 ], \n    \n      [ -75.414133, 41.508282 ], \n    \n      [ -77.495523, 43.554376 ] \n    \n    ]"
+            properties:
+              coordinates:
+                $ref: '#/components/schemas/positionArray'
+              type:
+                enum:
+                - MultiPoint
+                type: string
+            title: MultiPoint
+            type: object
+          - description: "Example \n\n    [ \n    \n      [ -76.506042, 42.417373 ], \n      \n      [ -75.414133, 41.508282 ], \n      \n      [ -77.495523, 43.554376 ] \n    \n    ]"
+            properties:
+              coordinates:
+                $ref: '#/components/schemas/lineString'
+              type:
+                enum:
+                - LineString
+                type: string
+            title: LineString
+            type: object
+          - description: "Example \n\n    [ \n    \n      [ \n      \n        [ -77.456654, 42.241133 ], \n        \n        [ -75.414133, 41.508282 ] \n      \n      ], \n    \n      [ \n      \n        [ -76.506042, 42.417373 ], \n        \n        [ -77.495523, 43.554376 ] \n      \n      ] \n    \n    ]"
+            properties:
+              coordinates:
+                items:
+                  $ref: '#/components/schemas/lineString'
+                type: array
+              type:
+                enum:
+                - MultiLineString
+                type: string
+            title: MultiLineString
+            type: object
+          - description: "Example \n\n    [ \n    \n      [ \n      \n        [ -77.456654, 42.241133 ], \n        \n        [ -75.414133, 41.508282 ],\n      \n        [ -76.506042, 42.417373 ], \n        \n        [ -77.456654, 42.241133 ] \n      \n      ] \n    \n    ]"
+            properties:
+              coordinates:
+                $ref: '#/components/schemas/polygon'
+              type:
+                enum:
+                - Polygon
+                type: string
+            title: Polygon
+            type: object
+          - description: "Example \n\n    [\n    \n      [ \n      \n        [ \n        \n          [ -77.456654, 42.241133 ], \n          \n          [ -75.414133, 41.508282 ],\n        \n          [ -76.506042, 42.417373 ], \n          \n          [ -77.456654, 42.241133 ] \n        \n        ] \n      \n      ]\n    \n    ]"
+            properties:
+              coordinates:
+                items:
+                  $ref: '#/components/schemas/polygon'
+                type: array
+              type:
+                enum:
+                - MultiPolygon
+                type: string
+            title: MultiPolygon
+            type: object
+          title: GeoJSON Geometry
+          type: object
+        type:
+          enum:
+          - Feature
+          type: string
+      title: GeoJSON
+      type: object
+    lineString:
+      description: An array of two or more positions
+      items:
+        $ref: '#/components/schemas/position'
+      minItems: 2
+      type: array
+    linearRing:
+      description: An array of at least four positions where the first equals the last
+      items:
+        $ref: '#/components/schemas/position'
+      minItems: 4
+      type: array
+    polygon:
+      description: An array of linear rings
+      items:
+        $ref: '#/components/schemas/linearRing'
+      type: array
+    position:
+      description: A single position
+      items:
+        type: number
+      minItems: 2
+      type: array
+    positionArray:
+      description: An array of positions
+      items:
+        $ref: '#/components/schemas/position'
+      type: array
 info:
   title: BrAPI
   version: ''
 openapi: 3.0.0
 paths: {}
-components:
-  schemas:
-    geoJSON: 
-      title: GeoJSON 
-      description: "One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate refernce system."
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-          - Feature
-        geometry:  
-          title: GeoJSON Geometry
-          type: object
-          oneOf: 
-          - title: Point
-            description: |-
-              Example 
-              
-                  [ -76.506042, 42.417373 ]
-            type: object
-            properties: 
-              type:
-                type: string 
-                enum: 
-                - Point
-              coordinates: 
-                "$ref": "#/components/schemas/position"
-          - title: MultiPoint
-            description: |-
-              Example 
-                
-                  [ 
-                  
-                    [ -76.506042, 42.417373 ], 
-                  
-                    [ -75.414133, 41.508282 ], 
-                  
-                    [ -77.495523, 43.554376 ] 
-                  
-                  ]
-            type: object
-            properties: 
-              type: 
-                type: string 
-                enum: 
-                - MultiPoint
-              coordinates: 
-                "$ref": "#/components/schemas/positionArray"
-          - title: LineString
-            description: |-
-              Example 
-              
-                  [ 
-                  
-                    [ -76.506042, 42.417373 ], 
-                    
-                    [ -75.414133, 41.508282 ], 
-                    
-                    [ -77.495523, 43.554376 ] 
-                  
-                  ]
-            type: object
-            properties: 
-              type: 
-                type: string 
-                enum: 
-                - LineString
-              coordinates: 
-                "$ref": "#/components/schemas/lineString"
-          - title: MultiLineString
-            description: |-
-              Example 
-              
-                  [ 
-                  
-                    [ 
-                    
-                      [ -77.456654, 42.241133 ], 
-                      
-                      [ -75.414133, 41.508282 ] 
-                    
-                    ], 
-                  
-                    [ 
-                    
-                      [ -76.506042, 42.417373 ], 
-                      
-                      [ -77.495523, 43.554376 ] 
-                    
-                    ] 
-                  
-                  ]
-            type: object
-            properties: 
-              type: 
-                type: string 
-                enum: 
-                - MultiLineString
-              coordinates: 
-                type: array
-                items: 
-                  "$ref": "#/components/schemas/lineString"
-          - title: Polygon
-            description: |-
-              Example 
-              
-                  [ 
-                  
-                    [ 
-                    
-                      [ -77.456654, 42.241133 ], 
-                      
-                      [ -75.414133, 41.508282 ],
-                    
-                      [ -76.506042, 42.417373 ], 
-                      
-                      [ -77.456654, 42.241133 ] 
-                    
-                    ] 
-                  
-                  ]
-            type: object
-            properties: 
-              type: 
-                type: string 
-                enum: 
-                - Polygon
-              coordinates: 
-                "$ref": "#/components/schemas/polygon"
-          - title: MultiPolygon
-            description: |-
-              Example 
-              
-                  [
-                  
-                    [ 
-                    
-                      [ 
-                      
-                        [ -77.456654, 42.241133 ], 
-                        
-                        [ -75.414133, 41.508282 ],
-                      
-                        [ -76.506042, 42.417373 ], 
-                        
-                        [ -77.456654, 42.241133 ] 
-                      
-                      ] 
-                    
-                    ]
-                  
-                  ]
-            type: object
-            properties: 
-              type: 
-                type: string 
-                enum: 
-                - MultiPolygon
-              coordinates: 
-                type: array
-                items: 
-                  "$ref": "#/components/schemas/polygon"
-    position: 
-      description: "A single position"
-      type: array
-      minItems: 2
-      items: 
-        type: number
-    positionArray: 
-      description: "An array of positions"
-      type: array
-      items: 
-        "$ref": "#/components/schemas/position"
-    lineString: 
-      description: "An array of two or more positions"
-      type: array
-      items: 
-        "$ref": "#/components/schemas/position"
-      minItems: 2
-    linearRing: 
-      description: "An array of at least four positions where the first equals the last"
-      type: array
-      items: 
-        "$ref": "#/components/schemas/position"
-      minItems: 4
-    polygon: 
-      description: "An array of linear rings"
-      type: array
-      items: 
-        "$ref": "#/components/schemas/linearRing"

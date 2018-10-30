@@ -44,8 +44,8 @@ paths:
                   pagination:
                     currentPage: 0
                     pageSize: 2
-                    totalCount: 3
-                    totalPages: 2
+                    totalCount: 16
+                    totalPages: 8
                   status: []
                 result:
                   data:
@@ -56,7 +56,7 @@ paths:
                     plateDbId: pl1
                     plateIndex: 0
                     plotDbId: '1'
-                    sampleDbId: sam1
+                    sampleDbId: sam00
                     sampleTimestamp: '2018-01-01T00:00:00-05:00'
                     sampleType: DNA
                     studyDbId: '1001'
@@ -69,7 +69,7 @@ paths:
                     plateDbId: pl1
                     plateIndex: 1
                     plotDbId: '1'
-                    sampleDbId: sam2
+                    sampleDbId: sam01
                     sampleTimestamp: '2018-01-01T00:00:00-05:00'
                     sampleType: DNA
                     studyDbId: '1001'
@@ -111,9 +111,9 @@ paths:
                   datafiles: []
                   pagination:
                     currentPage: 0
-                    pageSize: 1000
-                    totalCount: 3
-                    totalPages: 1
+                    pageSize: 2
+                    totalCount: 16
+                    totalPages: 8
                   status: []
                 result:
                   data:
@@ -124,7 +124,7 @@ paths:
                     plateDbId: pl1
                     plateIndex: 0
                     plotDbId: '1'
-                    sampleDbId: sam1
+                    sampleDbId: sam00
                     sampleTimestamp: '2018-01-01T00:00:00-05:00'
                     sampleType: DNA
                     studyDbId: '1001'
@@ -137,20 +137,7 @@ paths:
                     plateDbId: pl1
                     plateIndex: 1
                     plotDbId: '1'
-                    sampleDbId: sam2
-                    sampleTimestamp: '2018-01-01T00:00:00-05:00'
-                    sampleType: DNA
-                    studyDbId: '1001'
-                    takenBy: Bob
-                    tissueType: Leaf
-                  - germplasmDbId: '2'
-                    notes: Example Sample
-                    observationUnitDbId: '3'
-                    plantDbId: 'null'
-                    plateDbId: pl1
-                    plateIndex: 2
-                    plotDbId: '2'
-                    sampleDbId: sam3
+                    sampleDbId: sam01
                     sampleTimestamp: '2018-01-01T00:00:00-05:00'
                     sampleType: DNA
                     studyDbId: '1001'

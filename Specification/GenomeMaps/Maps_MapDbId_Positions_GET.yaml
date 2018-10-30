@@ -5,7 +5,6 @@ openapi: 3.0.0
 paths:
   /maps/{mapDbId}/positions:
     get:
-      summary: Get the positions of Markers inside a specific Genomic Map
       description: All the markers in a given Map, ordered by linkageGroup and position.
       parameters:
       - description: unique id of the map
@@ -14,8 +13,8 @@ paths:
         required: true
         schema:
           type: string
-      - description: Deprecated Use linkageGroupName instead
-        deprecated: true
+      - deprecated: true
+        description: Deprecated Use linkageGroupName instead
         in: query
         name: linkageGroupId
         required: false
@@ -47,11 +46,11 @@ paths:
                   data:
                   - linkageGroupName: '1'
                     location: '1000'
-                    markerDbId: mr1
+                    markerDbId: mr01
                     markerName: marker1-1
                   - linkageGroupName: '1'
                     location: '1020'
-                    markerDbId: mr2
+                    markerDbId: mr02
                     markerName: marker1-2
               schema:
                 properties:
@@ -64,7 +63,7 @@ paths:
                           $ref: '#/components/schemas/markerSummaryMap'
                         type: array
                     type: object
-                title: markersResponse
+                title: markerSummaryMapResponse
                 type: object
           description: OK
           headers: {}
@@ -76,5 +75,6 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
+      summary: Get the positions of Markers inside a specific Genomic Map
       tags:
       - Genome Maps

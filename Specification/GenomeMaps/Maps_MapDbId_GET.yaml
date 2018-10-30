@@ -5,8 +5,7 @@ openapi: 3.0.0
 paths:
   /maps/{mapDbId}:
     get:
-      summary: Get the details of a specific Genomic Map
-      description: Provides the number of markers on each linkageGroup and the max position on the linkageGroup 
+      description: Provides the number of markers on each linkageGroup and the max position on the linkageGroup
       parameters:
       - description: The internal db id of a selected map
         in: path
@@ -38,6 +37,7 @@ paths:
                   - linkageGroupName: '2'
                     markerCount: 5
                     maxPosition: 5050
+                  documentationURL: null
                   linkageGroups:
                   - linkageGroupName: '1'
                     markerCount: 11
@@ -46,6 +46,7 @@ paths:
                     markerCount: 5
                     maxPosition: 5050
                   mapDbId: gm1
+                  mapName: null
                   name: Genome Map 1
                   type: Genetic
                   unit: cM
@@ -67,5 +68,6 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
+      summary: Get the details of a specific Genomic Map
       tags:
       - Genome Maps

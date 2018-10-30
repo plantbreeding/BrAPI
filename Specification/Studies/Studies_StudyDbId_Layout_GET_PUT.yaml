@@ -5,15 +5,16 @@ openapi: 3.0.0
 paths:
   /studies/{studyDbId}/layouts:
     get:
-      summary: Get the plot layout details for a specific Study
-      description: |-
-        Retrive the layout details for a study. Returns an array of observation unit position data which describes where each unit and germplasm is located within the study layout
+      description: 'Retrive the layout details for a study. Returns an array of observation unit position data which describes where each unit and germplasm is located within the study layout
+
 
         Retrieve the plot layout of the study with id {id}.
 
+
         For each observationUnit within a study, return the `block`, `replicate`, and `entryType` values as well as the `X` and `Y` coordinates. `entryType` can be "check", "test", or "filler".
 
-        Also return some human readable meta data about the observationUnit and germplasm.
+
+        Also return some human readable meta data about the observationUnit and germplasm.'
       parameters:
       - description: Identifier of the study. Usually a number, could be alphanumeric.
         in: path
@@ -86,24 +87,11 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
+      summary: Get the plot layout details for a specific Study
       tags:
       - Studies
     put:
-      summary: Update an existing Study with new layout details
-      description: |- 
-        Modify a study layout
-
-        Update the layout data for a set of observation units within a study. Each layout object is a subset of fields within an observationUnit, so it doesnt make sense to create a new layout object by itself.
-
-        Implementation Notes:
-
-        + If any of the fields in the request object is missing, that piece of data will not be updated. 
-        
-        + If an observationUnitDbId can not be found within the given study, an error will be returned. 
-        
-        + `entryType` can have the values "check", "test", or "filler". 
-        
-        + The response should match the structure of the response from `GET studies/{studyDbId}/layout`, but it should only contain the layout objects which have been updated by the PUT request. Also, pagination is not available in the response.
+      description: "Modify a study layout\n\nUpdate the layout data for a set of observation units within a study. Each layout object is a subset of fields within an observationUnit, so it doesnt make sense to create a new layout object by itself.\n\nImplementation Notes:\n\n+ If any of the fields in the request object is missing, that piece of data will not be updated. \n\n+ If an observationUnitDbId can not be found within the given study, an error will be returned. \n\n+ `entryType` can have the values \"check\", \"test\", or \"filler\". \n\n+ The response should match the structure of the response from `GET studies/{studyDbId}/layout`, but it should only contain the layout objects which have been updated by the PUT request. Also, pagination is not available in the response."
       parameters:
       - description: Identifier of the study. Usually a number, could be alphanumeric.
         in: path
@@ -168,5 +156,6 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
+      summary: Update an existing Study with new layout details
       tags:
       - Studies

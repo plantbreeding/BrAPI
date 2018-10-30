@@ -5,10 +5,9 @@ openapi: 3.0.0
 paths:
   /search/germplasm/{searchResultsDbId}:
     get:
-      summary: Get the results of a Germplasm search request
-      description: |-
-        See Search Services for additional implementation details.
-        Addresses these needs: 1. General germplasm search mechanism that accepts POST for complex queries 2. possibility to search germplasm by more parameters than those allowed by the existing germplasm search 3. possibility to get MCPD details by PUID rather than dbId
+      description: 'See Search Services for additional implementation details.
+
+        Addresses these needs: 1. General germplasm search mechanism that accepts POST for complex queries 2. possibility to search germplasm by more parameters than those allowed by the existing germplasm search 3. possibility to get MCPD details by PUID rather than dbId'
       parameters:
       - $ref: '#/components/parameters/searchResultsDbId'
       - $ref: '#/components/parameters/page'
@@ -120,6 +119,7 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
+      summary: Get the results of a Germplasm search request
       tags:
       - Germplasm
       - Search Services

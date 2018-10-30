@@ -9,8 +9,8 @@ components:
           description: 'A human readable name for this attribute category. Very similar to Trait class. (examples: "morphologic", "phenologic", "agronomic", "physiologic", "abiotic stress", "biotic stress", "biochemic", "quality traits", "fertility", etc.)'
           type: string
         name:
-          description: DEPRECATED in v1.3 - Use "attributeCategoryName"
           deprecated: true
+          description: DEPRECATED in v1.3 - Use "attributeCategoryName"
           type: string
       type: object
 info:

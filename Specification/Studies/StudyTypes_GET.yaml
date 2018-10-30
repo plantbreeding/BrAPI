@@ -5,12 +5,11 @@ openapi: 3.0.0
 paths:
   /studytypes:
     get:
-      summary: Get the Study Types
       description: Call to retrieve the list of study types.
       parameters:
-      - name: studyTypeDbId
-        description: Filter based on study type unique identifier
+      - description: Filter based on study type unique identifier
         in: query
+        name: studyTypeDbId
         required: false
         schema:
           type: string
@@ -34,8 +33,12 @@ paths:
                   data:
                   - description: Description for Nursery study type
                     name: Crossing Nursery
+                    studyTypeDbId: null
+                    studyTypeName: null
                   - description: Description for yield study type
                     name: Yield study
+                    studyTypeDbId: null
+                    studyTypeName: null
               schema:
                 properties:
                   metadata:
@@ -57,5 +60,6 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
+      summary: Get the Study Types
       tags:
       - Studies

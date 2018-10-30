@@ -5,19 +5,7 @@ openapi: 3.0.0
 paths:
   /phenotypes:
     post:
-      summary: Add new Observation Unit Phenotypes
-      description: |-
-        Notes: 
-        
-        Along with the study specific phenotype saving calls (in the observationUnit and table formats), this call allows phenotypes to be saved and images to optionally be transferred as well.
-        
-        Call to invoke for saving the measurements (observations) collected\nfrom field for all the observation units.
-        
-        Observation timestamp should be ISO 8601 https://www.w3.org/TR/NOTE-datetime 
-        
-        In case where JSON data is zipped for faster transfer speed (as in the case of the IRRI handheld implementation), the zipped JSON file will be listed in datafiles. The zipped file contains a JSON file with the same structure as the BrAPI call. In this case a format parameter should be passed as well. 
-        
-        Images can be optionally be uploaded using this call by providing a zipfile of all images in the datafiles, along with the actual zipfile in multi-part form data."
+      description: "Notes: \n\nAlong with the study specific phenotype saving calls (in the observationUnit and table formats), this call allows phenotypes to be saved and images to optionally be transferred as well.\n\nCall to invoke for saving the measurements (observations) collected\\nfrom field for all the observation units.\n\nObservation timestamp should be ISO 8601 https://www.w3.org/TR/NOTE-datetime \n\nIn case where JSON data is zipped for faster transfer speed (as in the case of the IRRI handheld implementation), the zipped JSON file will be listed in datafiles. The zipped file contains a JSON file with the same structure as the BrAPI call. In this case a format parameter should be passed as well. \n\nImages can be optionally be uploaded using this call by providing a zipfile of all images in the datafiles, along with the actual zipfile in multi-part form data.\""
       parameters:
       - description: In case where JSON data is zipped for faster transfer speed (as in the case of the IRRI handheld implementation), the zipped JSON file will be listed in datafiles. The zipped file contains a JSON file with the same structure as the BrAPI call.
         in: query
@@ -45,7 +33,7 @@ paths:
                   status: []
                 result:
                   observations:
-                  - observationDbId: 8762e0a9-9d3a-4db9-b67d-cc8fdb7f9d60
+                  - observationDbId: 5438fc7b-be54-4ed3-847a-ac110735f7fd
                     observationUnitDbId: '1'
                     observationVariableDbId: MO_123:100002
               schema:
@@ -64,6 +52,7 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
+      summary: Add new Observation Unit Phenotypes
       tags:
       - Phenotypes
       - Observations

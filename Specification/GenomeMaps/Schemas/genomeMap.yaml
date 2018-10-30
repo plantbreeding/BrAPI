@@ -8,6 +8,10 @@ components:
         commonCropName:
           description: The common name of the crop, found from "GET /commoncropnames"
           type: string
+        documentationURL:
+          description: A URL to the human readable documentation of this object
+          format: uri
+          type: string
         linkageGroupCount:
           description: The number of linkage groups present in this genome map
           format: int32
@@ -23,8 +27,8 @@ components:
           format: int32
           type: integer
         name:
-          description: DEPRECATED in v1.3 - Use "mapName"
           deprecated: true
+          description: DEPRECATED in v1.3 - Use "mapName"
           type: string
         publishedDate:
           description: The date this genome was published
@@ -34,8 +38,8 @@ components:
           description: Full scientific binomial format name. This includes Genus, Species, and Sub-species
           type: string
         species:
-          description: DEPRECATED in v1.3 - See "scientificName"
           deprecated: true
+          description: DEPRECATED in v1.3 - See "scientificName"
           type: string
         type:
           description: The type of map this represents, ussually "Genetic"
@@ -43,10 +47,6 @@ components:
         unit:
           description: The units used to describe the data in this map
           type: string
-        documentationURL:
-          description: A URL to the human readable documentation of this object
-          type: string
-          format: uri
       required:
       - mapDbId
       - commonCropName

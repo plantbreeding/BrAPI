@@ -5,13 +5,13 @@ openapi: 3.0.0
 paths:
   /germplasm/{germplasmDbId}/progeny:
     get:
-      summary: Get the progeny details of a specific Germplasm
-      description: |-
-        Get the germplasmDbIds for all the Progeny of a particular germplasm.
-        
+      description: 'Get the germplasmDbIds for all the Progeny of a particular germplasm.
+
+
         Implementation Notes
-        
-        - Regarding the 'parentType' field in the progeny object. Given a germplasm A having a progeny B and C, 'parentType' for progeny B refers to the 'parentType' of A toward B.
+
+
+        - Regarding the ''parentType'' field in the progeny object. Given a germplasm A having a progeny B and C, ''parentType'' for progeny B refers to the ''parentType'' of A toward B.'
       parameters:
       - description: the internal id of the germplasm
         in: path
@@ -24,18 +24,14 @@ paths:
         '200':
           content:
             application/json:
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    $ref: '#/components/schemas/progeny'
-                title: progenyResponse
-                type: object
               example:
                 metadata:
                   datafiles: []
-                  pagination: {}
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
                   status: []
                 result:
                   defaultDisplayName: G000002
@@ -50,6 +46,14 @@ paths:
                   - defaultDisplayName: G000006
                     germplasmDbId: '6'
                     parentType: MALE
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/progeny'
+                title: progenyResponse
+                type: object
           description: OK
           headers: {}
         '400':
@@ -60,5 +64,6 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
+      summary: Get the progeny details of a specific Germplasm
       tags:
       - Germplasm

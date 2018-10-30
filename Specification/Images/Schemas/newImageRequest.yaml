@@ -1,58 +1,58 @@
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}
-components: 
-  schemas: 
-    newImageRequest: 
-      type: object
+components:
+  schemas:
+    newImageRequest:
       properties:
-        imageName:
-          description: The human readable name of an image. Might be the same as 'imageFileName', but could be different.
+        additionalInfo:
+          additionalProperties:
+            type: string
+          type: object
+        copyright:
+          description: The copyright information of this image. Example 'Copyright 2018 Bob Robertson'
           type: string
         description:
           description: The human readable description of an image.
           type: string
-        copyright:
-          description: The copyright information of this image. Example 'Copyright 2018 Bob Robertson'
-          type: string
-        observationUnitDbId:
-          description: The related observation unit identifier, if relevent. 
-          type: string
+        descriptiveOntologyTerms:
+          description: A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.
+          items:
+            type: string
+          type: array
         imageFileName:
           description: The name of the image file. Might be the same as 'imageName', but could be different.
           type: string
         imageFileSize:
           description: The size of the image in Bytes.
           type: integer
-        imageWidth:
-          description: The width of the image in Pixels.
-          type: integer
         imageHeight:
           description: The height of the image in Pixels.
           type: integer
-        mimeType:
-          description: The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc
+        imageLocation:
+          $ref: '#/components/schemas/geoJSON'
+        imageName:
+          description: The human readable name of an image. Might be the same as 'imageFileName', but could be different.
           type: string
-          pattern: image/.*
         imageTimeStamp:
           description: The date and time the image was taken
-          type: string
           format: date
-        imageLocation:
-          "$ref": "#/components/schemas/geoJSON"
-        descriptiveOntologyTerms:
-          description: A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.
-          type: array
-          items:
-            type: string
-        observationDbIds: 
+          type: string
+        imageWidth:
+          description: The width of the image in Pixels.
+          type: integer
+        mimeType:
+          description: The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc
+          pattern: image/.*
+          type: string
+        observationDbIds:
           description: A list of observation Ids this image is associated with, if applicable.
-          type: array
           items:
             type: string
-        additionalInfo:
-          type: object
-          additionalProperties: true
-          
+          type: array
+        observationUnitDbId:
+          description: The related observation unit identifier, if relevent.
+          type: string
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

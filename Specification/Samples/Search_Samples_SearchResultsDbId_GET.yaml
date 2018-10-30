@@ -5,10 +5,9 @@ openapi: 3.0.0
 paths:
   /search/samples/{searchResultsDbId}:
     get:
-      summary: Get the results of a Samples search request
-      description: |-
-        Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
-        See Search Services for additional implementation details.
+      description: 'Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
+
+        See Search Services for additional implementation details.'
       parameters:
       - $ref: '#/components/parameters/searchResultsDbId'
       - $ref: '#/components/parameters/page'
@@ -78,6 +77,7 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
+      summary: Get the results of a Samples search request
       tags:
       - Samples
       - Search Services

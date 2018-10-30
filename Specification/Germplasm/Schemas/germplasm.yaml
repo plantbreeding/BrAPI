@@ -24,6 +24,10 @@ components:
         defaultDisplayName:
           description: Human readable name used for display purposes
           type: string
+        documentationURL:
+          description: A URL to the human readable documentation of this object
+          format: uri
+          type: string
         donors:
           description: List of donor institutes (MCPD)
           items:
@@ -37,20 +41,23 @@ components:
             type: object
           type: array
         genus:
-          description: DEPRECATED in v1.3 - see "germplasmGenus"
           deprecated: true
-          type: string
-        germplasmGenus:
-          description: Genus name for taxon. Initial uppercase letter required. (MCPD)
+          description: DEPRECATED in v1.3 - see "germplasmGenus"
           type: string
         germplasmDbId:
           description: The ID which uniquely identifies a germplasm within the given database server
+          type: string
+        germplasmGenus:
+          description: Genus name for taxon. Initial uppercase letter required. (MCPD)
           type: string
         germplasmName:
           description: Name of the germplasm. It can be the prefered name and does not have to be unique.
           type: string
         germplasmPUI:
           description: The Permanent Unique Identifier which represents a germplasm
+          type: string
+        germplasmSpecies:
+          description: Specific epithet portion of the scientific name in lowercase letters. (MCPD)
           type: string
         instituteCode:
           description: The code for the Institute that has bred the material. (MCPD)
@@ -65,11 +72,8 @@ components:
           description: 'The source of the seed '
           type: string
         species:
-          description:  DEPRECATED in v1.3 - see "germplasmSpecies"
           deprecated: true
-          type: string
-        germplasmSpecies:
-          description: Specific epithet portion of the scientific name in lowercase letters. (MCPD)
+          description: DEPRECATED in v1.3 - see "germplasmSpecies"
           type: string
         speciesAuthority:
           description: The authority organization responsible for tracking and maintaining the species name (MCPD)
@@ -95,10 +99,6 @@ components:
           items:
             type: string
           type: array
-        documentationURL:
-          description: A URL to the human readable documentation of this object
-          type: string
-          format: uri
       type: object
 info:
   title: BrAPI

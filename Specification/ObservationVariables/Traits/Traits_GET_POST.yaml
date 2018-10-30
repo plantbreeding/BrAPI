@@ -5,11 +5,10 @@ openapi: 3.0.0
 paths:
   /traits:
     get:
-      summary: Get the Traits
-      description: |-
-        Call to retrieve a list of traits available in the system and their associated variables.
-        
-        An Observation Variable has 3 critical parts: A Trait being observed, a Method for making the observation, and a Scale on which the observation can be measured and compared with other observations.
+      description: 'Call to retrieve a list of traits available in the system and their associated variables.
+
+
+        An Observation Variable has 3 critical parts: A Trait being observed, a Method for making the observation, and a Scale on which the observation can be measured and compared with other observations.'
       parameters:
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
@@ -36,6 +35,7 @@ paths:
                     - MO_123:100002
                     traitDbId: t1
                     traitId: xref
+                    traitName: null
                   - defaultValue: '0'
                     description: root weight
                     name: Root Weight
@@ -43,6 +43,7 @@ paths:
                     - MO_123:100004
                     traitDbId: t2
                     traitId: xref
+                    traitName: null
               schema:
                 properties:
                   metadata:
@@ -54,6 +55,7 @@ paths:
                           $ref: '#/components/schemas/traitSummary'
                         type: array
                     type: object
+                title: TraitsResponse
                 type: object
           description: OK
           headers: {}
@@ -63,10 +65,10 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
+      summary: Get the Traits
       tags:
       - Observation Variables
     post:
-      summary: Add a new Trait
       description: Create a new trait object in the database
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
@@ -85,6 +87,7 @@ paths:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/trait'
+                title: TraitResponse
                 type: object
           description: OK
           headers: {}
@@ -94,5 +97,6 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
+      summary: Add a new Trait
       tags:
       - Observation Variables

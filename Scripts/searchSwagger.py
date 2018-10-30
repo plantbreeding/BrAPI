@@ -9,17 +9,10 @@
 
 import yaml
 import sys
+import derefernceAll
 
-def go(filePath = './brapi_openapi.yaml'):    
-    fileObj = {}
-    print(filePath)
-    with open(filePath, "r") as stream:
-        try:
-            fileObj = yaml.load(stream)
-        except yaml.YAMLError as exc:
-            print(exc)
-    
-    fileObj = dereferenceAll(fileObj, fileObj)
+def go(filePath = './brapi_openapi.yaml'):
+    fileObj = derefernceAll.dereferenceBrAPI(filePath)
     searchList = transform(fileObj)
     search(searchList)
     
@@ -89,31 +82,6 @@ def findAllKeys(schema, keys = []):
             keys.append(key)
             keys = findAllKeys(schema[key], keys)
     return keys
-
-def dereferenceAll(obj, parent):
-    if type(obj) is dict:
-        for fieldStr in obj:
-            if(fieldStr == '$ref'):
-                refPath = obj[fieldStr].split('/')
-                refObj = parent
-                for refPart in refPath:
-                    if refPart in refObj:
-                        refObj = refObj[refPart]
-                refObj = dereferenceAll(refObj, parent)
-                obj = {**obj, **refObj}
-            else:
-                obj[fieldStr] = dereferenceAll(obj[fieldStr], parent)
-        if '$ref' in obj:
-            obj.pop('$ref')
-    elif type(obj) is list:
-        newList = []
-        for item in obj:
-            newList.append(dereferenceAll(item, parent))
-        obj = newList
-        
-    #print(obj)
-    return obj
-
 
 if len(sys.argv) > 1 :
     go(sys.argv[1])

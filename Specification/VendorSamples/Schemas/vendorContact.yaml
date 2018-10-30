@@ -1,21 +1,15 @@
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}
 components:
   schemas:
     vendorContact:
-      type: object
       properties:
-        vendorContactName:
-          description: The name or identifier of the primary vendor contact
-          type: string
         vendorAddress:
           description: The street address of the vendor
           type: string
         vendorCity:
           description: The name of the city where the vendor is located
+          type: string
+        vendorContactName:
+          description: The name or identifier of the primary vendor contact
           type: string
         vendorCountry:
           description: The name of the country where the vendor is located
@@ -35,3 +29,9 @@ components:
         vendorURL:
           description: The primary URL for the vendor
           type: string
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

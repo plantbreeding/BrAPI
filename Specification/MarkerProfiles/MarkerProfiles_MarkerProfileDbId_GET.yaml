@@ -5,51 +5,35 @@ openapi: 3.0.0
 paths:
   /markerprofiles/{markerProfileDbId}:
     get:
-      summary: Get the details for a specific Marker Profile
-      description: |-
-        For the requested marker profile ID, returns the allele call for each marker. 
-                
-        Allele encodings
-        
-        - Unknown data will by default be encoded by \"N\"
-        
-        - Homozygotes are returned as a single occurance, e.g. AA -> A, GG -> G
-        
-        - Phased heterozygotes are by default separated by a pipe (\"|\") and unphased heterozygotes are by default separated by a forward slash (\"/\")
-        
-        - Dominant markers such as DArTs: 1 for present, 0 for absent
-                
-        - If the user would like to use an empty string (\"\") for any of the parameters, the value should be set to the reserved word \"empty_string\", e.g. sepUnphased=empty_string.
-        
-        Open issue: The pages of data will need to be sorted sensibly in order for the requested page to be delivered consistently.  By map or genome position? Alphabetically?'"
+      description: "For the requested marker profile ID, returns the allele call for each marker. \n        \nAllele encodings\n\n- Unknown data will by default be encoded by \\\"N\\\"\n\n- Homozygotes are returned as a single occurance, e.g. AA -> A, GG -> G\n\n- Phased heterozygotes are by default separated by a pipe (\\\"|\\\") and unphased heterozygotes are by default separated by a forward slash (\\\"/\\\")\n\n- Dominant markers such as DArTs: 1 for present, 0 for absent\n        \n- If the user would like to use an empty string (\\\"\\\") for any of the parameters, the value should be set to the reserved word \\\"empty_string\\\", e.g. sepUnphased=empty_string.\n\nOpen issue: The pages of data will need to be sorted sensibly in order for the requested page to be delivered consistently.  By map or genome position? Alphabetically?'\""
       parameters:
-      - name: markerProfileDbId
-        description: The server's internal id for the marker profile
+      - description: The server's internal id for the marker profile
         in: path
+        name: markerProfileDbId
         required: true
         schema:
           type: string
-      - name: expandHomozygotes
-        description: Should homozygotes NOT be collapsed into a single orrucance?
+      - description: Should homozygotes NOT be collapsed into a single orrucance?
         in: query
+        name: expandHomozygotes
         required: false
         schema:
           type: boolean
-      - name: unknownString
-        description: The string to use as a representation for missing data or the reserved word "empty_string".
+      - description: The string to use as a representation for missing data or the reserved word "empty_string".
         in: query
+        name: unknownString
         required: false
         schema:
           type: string
-      - name: sepPhased
-        description: The string to use as a separator for phased allele calls or the reserved word "empty_string".
+      - description: The string to use as a separator for phased allele calls or the reserved word "empty_string".
         in: query
+        name: sepPhased
         required: false
         schema:
           type: string
-      - name: sepUnphased
-        description: The string to use as a separator for unphased allele calls or the reserved word "empty_string".
+      - description: The string to use as a separator for unphased allele calls or the reserved word "empty_string".
         in: query
+        name: sepUnphased
         required: false
         schema:
           type: string
@@ -60,6 +44,16 @@ paths:
         '200':
           content:
             application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result: null
               schema:
                 properties:
                   metadata:
@@ -68,24 +62,6 @@ paths:
                     $ref: '#/components/schemas/markerProfile'
                 title: markerProfilesResponse
                 type: object
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 2
-                    totalCount: 22
-                    totalPages: 11
-                  status: []
-                result:
-                  analysisMethod: GBS
-                  data:
-                  - marker1-1: '1'
-                  - marker1-2: '0'
-                  extractDbId: extract1
-                  germplasmDbId: '1'
-                  markerProfileDbId: mp1
-                  uniqueDisplayName: My Fancy Germplasm
           description: OK
           headers: {}
         '400':
@@ -96,5 +72,6 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
+      summary: Get the details for a specific Marker Profile
       tags:
       - Marker Profiles

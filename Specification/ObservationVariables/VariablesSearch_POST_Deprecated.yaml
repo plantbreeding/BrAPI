@@ -6,9 +6,7 @@ paths:
   /variables-search:
     post:
       deprecated: true
-      description: |- 
-        Search observation variables. 
-        See Search Services for additional implementation details.
+      description: "Search observation variables. \nSee Search Services for additional implementation details."
       requestBody:
         content:
           application/json:
@@ -31,8 +29,9 @@ paths:
                   data:
                   - contextOfUse: []
                     crop: maize
-                    date: '2018-10-02'
+                    date: '2018-10-26'
                     defaultValue: '10'
+                    documentationURL: null
                     growthStage: '1'
                     institution: '1'
                     language: English
@@ -41,18 +40,23 @@ paths:
                       description: Standard rolled measuring tape
                       formula: a^2 + b^2 = c^2
                       methodDbId: m1
+                      methodName: null
                       name: Tape Measure
+                      ontologyRefernce: null
                       reference: google.com
                     name: Plant height
                     observationVariableDbId: MO_123:100002
                     observationVariableName: Plant height
                     ontologyDbId: MO_123
                     ontologyName: Ontology.org
+                    ontologyRefernce: null
                     scale:
                       dataType: Numerical
                       decimalPlaces: 1
                       name: Centimeter
+                      ontologyRefernce: null
                       scaleDbId: s1
+                      scaleName: null
                       validValues:
                         categories: []
                         max: 99999
@@ -70,15 +74,18 @@ paths:
                       entity: entity
                       mainAbbreviation: H
                       name: Plant Height
+                      ontologyRefernce: null
                       status: active
                       synonyms: []
                       traitDbId: t1
+                      traitName: null
                       xref: xref
                     xref: MO_123:100002
                   - contextOfUse: []
                     crop: maize
-                    date: '2018-10-02'
+                    date: '2018-10-26'
                     defaultValue: '10'
+                    documentationURL: null
                     growthStage: '1'
                     institution: '1'
                     language: English
@@ -87,18 +94,23 @@ paths:
                       description: Dried sample on electric scale
                       formula: NA
                       methodDbId: m2
+                      methodName: null
                       name: Dry Electric Scale
+                      ontologyRefernce: null
                       reference: google.com
                     name: Root weight
                     observationVariableDbId: MO_123:100004
                     observationVariableName: Root weight
                     ontologyDbId: MO_123
                     ontologyName: Ontology.org
+                    ontologyRefernce: null
                     scale:
                       dataType: Numerical
                       decimalPlaces: 3
                       name: Kilogram
+                      ontologyRefernce: null
                       scaleDbId: s2
+                      scaleName: null
                       validValues:
                         categories: []
                         max: 99999
@@ -116,9 +128,11 @@ paths:
                       entity: entity
                       mainAbbreviation: RW
                       name: Root Weight
+                      ontologyRefernce: null
                       status: active
                       synonyms: []
                       traitDbId: t2
+                      traitName: null
                       xref: xref
                     xref: MO_123:100004
               schema:

@@ -20,14 +20,14 @@ components:
           description: Human readable name for the method
           type: string
         name:
-          description: DEPRECATED in v1.3 - Use "methodName"
           deprecated: true
-          type: string
-        reference:
-          description: Bibliographical reference describing the method.
+          description: DEPRECATED in v1.3 - Use "methodName"
           type: string
         ontologyRefernce:
           $ref: '#/components/schemas/ontologyRefernce'
+        reference:
+          description: Bibliographical reference describing the method.
+          type: string
       type: object
 info:
   title: BrAPI

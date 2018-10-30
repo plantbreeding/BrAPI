@@ -2,6 +2,21 @@ components:
   schemas:
     ontologyRefernce:
       properties:
+        documentationLinks:
+          description: links to various ontology documentation
+          items:
+            properties:
+              URL:
+                format: uri
+                type: string
+              type:
+                enum:
+                - OBO
+                - RDF
+                - WEBPAGE
+                type: string
+            type: object
+          type: array
         ontologyDbId:
           description: Ontology database unique identifier
           type: string
@@ -11,21 +26,6 @@ components:
         version:
           description: Ontology version (no specific format)
           type: string
-        documentationLinks:
-          description: links to various ontology documentation
-          type: array
-          items:
-            type: object
-            properties:
-              URL:
-                type: string
-                format: uri
-              type:
-                type: string
-                enum:
-                - OBO
-                - RDF
-                - WEBPAGE
       required:
       - ontologyName
       type: object

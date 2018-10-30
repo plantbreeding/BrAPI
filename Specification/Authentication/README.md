@@ -14,7 +14,12 @@ The token life time is fixed. If additional time is required, a new /token call 
 
 
 
-## Post Login  [POST /brapi/v1/login]
+## Login [/brapi/v1/login] 
+
+
+
+
+### **Deprecated** Post Login  [POST /brapi/v1/login]
 
 Implemented by: Tripal Brapi module, Cassavabase, Germinate, BMS
 
@@ -30,28 +35,21 @@ For logout, returns an empty resource. A token to remove could be provided (amdi
 |------|------|------|:-----:|
 | userDisplayName| string| the display name of the user | Y |
 | access_token | string | the access token for the session | Y |
-| expires_in | integer | The lifetime in seconds of the access token | Y |  
+| expires_in | integer | The lifetime in seconds of the access token | Y | 
+
+ 
 
 + Parameters
+
+
  
 + Request (application/json)
 ```
 {
-    "properties": {
-        "client_id": {
-            "type": "string"
-        },
-        "grant_type": {
-            "type": "string"
-        },
-        "password": {
-            "type": "string"
-        },
-        "username": {
-            "type": "string"
-        }
-    },
-    "type": "object"
+    "client_id": "client_id0",
+    "grant_type": "grant_type0",
+    "password": "password0",
+    "username": "username0"
 }
 ```
 
@@ -78,27 +76,28 @@ For logout, returns an empty resource. A token to remove could be provided (amdi
 
 
 
-## Delete Logout  [DELETE /brapi/v1/logout]
+## Logout [/brapi/v1/logout] 
+
+
+
+
+### **Deprecated** Delete Logout  [DELETE /brapi/v1/logout]
 
 Implemented by: Tripal Brapi module, Cassavabase, Germinate, BMS
 
 Used by: Flapjack, BMS
 
-For logout, returns an empty resource. A token to remove could be provided (amdin interface) but it is not required. By default, current user token will be removed. 
+For logout, returns an empty resource. A token to remove could be provided (amdin interface) but it is not required. By default, current user token will be removed.
+
+ 
 
 + Parameters
- 
-+ Request (application/json)
-```
-{
-    "properties": {
-        "access_token": {
-            "type": "string"
-        }
-    },
-    "type": "object"
-}
-```
 
 
+
+
++ Response 201 (application/json)
+```
+{}
+```
 

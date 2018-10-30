@@ -5,30 +5,29 @@ openapi: 3.0.0
 paths:
   /lists:
     get:
-      summary: Get the List Summaries
       description: Get filtered set of generic lists
       parameters:
-      - name: listType
-        description: The type of objects contained by this generic list
+      - description: The type of objects contained by this generic list
         in: query
+        name: listType
         required: false
         schema:
           $ref: '#/components/schemas/listTypes'
-      - name: listName
-        description: The human readable name of this generic list
+      - description: The human readable name of this generic list
         in: query
+        name: listName
         required: false
         schema:
           type: string
-      - name: listDbId
-        description: The unique ID of this generic list
+      - description: The unique ID of this generic list
         in: query
+        name: listDbId
         required: false
         schema:
           type: string
-      - name: listSource
-        description: The source tag of this generic list
+      - description: The source tag of this generic list
         in: query
+        name: listSource
         required: false
         schema:
           type: string
@@ -40,18 +39,19 @@ paths:
           content:
             application/json:
               schema:
-                type: object
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    type: object
                     properties:
                       data:
-                        type: array
                         description: Array of generic list summaries
                         items:
                           $ref: '#/components/schemas/listSummary'
+                        type: array
+                    type: object
+                title: listSummaryResponse
+                type: object
           description: OK
           headers: {}
         '400':
@@ -60,14 +60,14 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
+      summary: Get the List Summaries
       tags:
       - Lists
-    post: 
-      summary: Create a New List
+    post:
       description: Create a new list
-      parameters: 
+      parameters:
       - $ref: '#/components/parameters/authorizationHeader'
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -77,12 +77,13 @@ paths:
           content:
             application/json:
               schema:
-                type: object
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/listDetails'
+                title: listResponse
+                type: object
           description: OK
           headers: {}
         '400':
@@ -91,5 +92,6 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
+      summary: Create a New List
       tags:
       - Lists

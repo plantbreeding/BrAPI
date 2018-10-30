@@ -5,10 +5,9 @@ openapi: 3.0.0
 paths:
   /markers:
     get:
-      summary: Get the Markers
-      description: |-
-        Other service requests use the servers internal `markerDbId`. This service returns marker records that provide the markerDbId. For the requested name or synonym, returns an array (possibly empty) of marker records that match the search criteria.
-        If there is none, an empty array is returned. If there is one or more than one match, returns an array of all marker records that match the search criteria.
+      description: 'Other service requests use the servers internal `markerDbId`. This service returns marker records that provide the markerDbId. For the requested name or synonym, returns an array (possibly empty) of marker records that match the search criteria.
+
+        If there is none, an empty array is returned. If there is one or more than one match, returns an array of all marker records that match the search criteria.'
       parameters:
       - description: The database ID of the markers to search for
         in: query
@@ -22,27 +21,33 @@ paths:
         required: false
         schema:
           type: string
-      - description: DEPRECAED in v1.3 - see "markerName"
+      - deprecated: true
+        description: DEPRECAED in v1.3 - see "markerName"
         in: query
-        deprecated: true
         name: name
         required: false
         schema:
           type: string
-      - description: DEPRECAED in v1.3 - see /search/markers
-        deprecated: true
+      - deprecated: true
+        description: DEPRECAED in v1.3 - see /search/markers
         in: query
         name: matchMethod
         required: false
         schema:
-          type: string
           enum:
           - case_insensitive
           - exact
           - wildcard
+          type: string
       - description: Whether to include synonyms in the output.
         in: query
         name: includeSynonyms
+        required: false
+        schema:
+          type: boolean
+      - description: DEPRECATED in v1.1 - see "includeSynonyms"
+        in: query
+        name: include
         required: false
         schema:
           type: string
@@ -73,7 +78,8 @@ paths:
                   - analysisMethods:
                     - illumina
                     defaultDisplayName: marker1-1
-                    markerDbId: mr1
+                    markerDbId: mr01
+                    markerName: null
                     refAlt:
                     - A
                     - T
@@ -83,7 +89,8 @@ paths:
                   - analysisMethods:
                     - kasp
                     defaultDisplayName: marker1-2
-                    markerDbId: mr2
+                    markerDbId: mr02
+                    markerName: null
                     refAlt:
                     - A
                     - T
@@ -91,18 +98,7 @@ paths:
                     - i_11_10020
                     type: marker
               schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    properties:
-                      data:
-                        items:
-                          $ref: '#/components/schemas/marker'
-                        type: array
-                    type: object
-                title: markersResponse
-                type: object
+                $ref: '#/components/schemas/markersResponse'
           description: OK
           headers: {}
         '400':
@@ -111,5 +107,6 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
+      summary: Get the Markers
       tags:
       - Markers

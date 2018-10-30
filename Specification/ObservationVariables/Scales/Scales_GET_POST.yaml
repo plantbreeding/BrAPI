@@ -5,11 +5,10 @@ openapi: 3.0.0
 paths:
   /scales:
     get:
-      summary: Get the Scales
-      description: |-
-        Returns a list of Scales available on a server.
-        
-        An Observation Variable has 3 critical parts: A Trait being observed, a Method for making the observation, and a Scale on which the observation can be measured and compared with other observations.
+      description: 'Returns a list of Scales available on a server.
+
+
+        An Observation Variable has 3 critical parts: A Trait being observed, a Method for making the observation, and a Scale on which the observation can be measured and compared with other observations.'
       parameters:
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
@@ -29,6 +28,7 @@ paths:
                           $ref: '#/components/schemas/scale'
                         type: array
                     type: object
+                title: ScalesResponse
                 type: object
           description: OK
           headers: {}
@@ -38,10 +38,10 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
+      summary: Get the Scales
       tags:
       - Observation Variables
     post:
-      summary: Add a new Scale
       description: Create a new scale object in the database
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
@@ -60,6 +60,7 @@ paths:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/scale'
+                title: ScaleResponse
                 type: object
           description: OK
           headers: {}
@@ -69,5 +70,6 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
+      summary: Add a new Scale
       tags:
       - Observation Variables

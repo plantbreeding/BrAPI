@@ -5,7 +5,6 @@ openapi: 3.0.0
 paths:
   /attributes/categories:
     get:
-      summary: Get the Categories of Germplasm Attributes
       description: List all available attribute categories.
       parameters:
       - $ref: '#/components/parameters/page'
@@ -15,6 +14,23 @@ paths:
         '200':
           content:
             application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result:
+                  data:
+                  - attributeCategoryDbId: '1'
+                    attributeCategoryName: null
+                    name: Morphological
+                  - attributeCategoryDbId: '2'
+                    attributeCategoryName: null
+                    name: Agronomic
               schema:
                 properties:
                   metadata:
@@ -28,21 +44,6 @@ paths:
                     type: object
                 title: germplasmAttributeCategoriesResponse
                 type: object
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 2
-                    totalCount: 0
-                    totalPages: 0
-                  status: []
-                result:
-                  data:
-                  - attributeCategoryDbId: '1'
-                    name: Morphological
-                  - attributeCategoryDbId: '2'
-                    name: Agronomic
           description: OK
           headers: {}
         '400':
@@ -51,5 +52,6 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
+      summary: Get the Categories of Germplasm Attributes
       tags:
       - Germplasm Attributes

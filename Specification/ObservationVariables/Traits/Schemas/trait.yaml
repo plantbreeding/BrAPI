@@ -24,9 +24,11 @@ components:
           description: 'Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")'
           type: string
         name:
-          description: DEPRECATED in v1.3 - Use "traitName"
           deprecated: true
+          description: DEPRECATED in v1.3 - Use "traitName"
           type: string
+        ontologyRefernce:
+          $ref: '#/components/schemas/ontologyRefernce'
         status:
           description: 'Trait status (examples: "recommended", "obsolete", "legacy", etc.)'
           type: string
@@ -44,8 +46,6 @@ components:
         xref:
           description: Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term
           type: string
-        ontologyRefernce:
-          $ref: '#/components/schemas/ontologyRefernce'
       type: object
 info:
   title: BrAPI

@@ -4,57 +4,48 @@ The '/calls' call is used to find the available BrAPI calls on a particular serv
 
 
 
-## Get Calls  [GET /brapi/v1/calls{?datatype}{?pageSize}{?page}]
+## Calls [/brapi/v1/calls] 
 
-<strong>Implementation Notes</strong>
-Having a consistent structure for the path string of each call is very important for teams to be able to connect and find errors. Read more on <a href="https://github.com/plantbreeding/API/issues/144">Github</a>.
+
+
+
+### Get Calls  [GET /brapi/v1/calls{?datatype}{?dataType}{?page}{?pageSize}]
+
+ Implementation Notes
+Having a consistent structure for the path string of each call is very important for teams to be able to connect and find errors. Read more on Github.
 Here are the rules for the path of each call that should be returned
-<ul>       
-  <li>Every word in the call path should match the documentation exactly, both in spelling and capitalization. Note that path strings are all lower case, but path parameters are camel case.</li>        
-  <li>Each path should start relative to '/' and therefore should not include '/'</li>
-  <li>No leading or trailing slashes ('/') </li>
-  <li>Path parameters are wrapped in curly braces ('{}'). The name of the path parameter should be spelled exactly as it is specified in the documentation.</li>        
-</ul>
-<table>
-  <tr>
-    <th>Examples</th>
-  </tr>
-  <tr>
-    <td><strong>GOOD</strong></td>
-    <td>"call": "germplasm/{germplasmDbId}/markerprofiles"</td>
-  </tr> 
-  <tr>
-    <td>BAD</td>
-    <td>"call": "germplasm/{<strong>id</strong>}/markerprofiles"</td>
-  </tr> 
-  <tr>
-    <td>BAD</td>
-    <td>"call": "germplasm/{germplasmDbId}/marker<strong>P</strong>rofiles"</td>
-  </tr>
-  <tr>
-    <td>BAD</td>
-    <td>"call": "germplasm/{germplasm<strong>dbid</strong>}/markerprofiles"</td>
-  </tr> 
-  <tr>
-    <td>BAD</td>
-    <td>"call": "<strong>brapi/v1</strong>/germplasm/{germplasmDbId}/markerprofiles"</td>
-  </tr>
-  <tr>
-    <td>BAD</td>
-    <td>"call": "<strong>/g</strong>ermplasm/{germplasmDbId}/markerprofile<strong>s/</strong>"</td>
-  </tr> 
-  <tr>
-    <td>BAD</td>
-    <td>"call": "germplasm/<strong>&lt</strong>germplasmDbId<strong>&gt</strong>/markerprofiles"</td>
-  </tr> 
-</table>
 
-<a href="https://test-server.brapi.org/brapi/v1/calls"> test-server.brapi.org/brapi/v1/calls</a> 
+
+
+Every word in the call path should match the documentation exactly, both in spelling and capitalization. Note that path strings are all lower case, but path parameters are camel case.
+
+Each path should start relative to "/" and therefore should not include "/"
+
+No leading or trailing slashes ("/") 
+
+Path parameters are wrapped in curly braces ("{}"). The name of the path parameter should be spelled exactly as it is specified in the documentation.
+
+
+
+
+Examples GOOD    "call": "germplasm/{germplasmDbId}/markerprofiles" BAD    "call": "germplasm/{id}/markerprofiles" BAD    "call": "germplasm/{germplasmDbId}/markerProfiles" BAD    "call": "germplasm/{germplasmdbid}/markerprofiles" BAD    "call": "brapi/v1/germplasm/{germplasmDbId}/markerprofiles" BAD    "call": "/germplasm/{germplasmDbId}/markerprofiles/" BAD    "call": "germplasm/<germplasmDbId>/markerprofiles"
+
+
+
+test-server.brapi.org/brapi/v1/calls
+
+ 
 
 + Parameters
-    + datatype (Optional, string) ... The data format supported by the call. Example: `json`
-    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
-    + page (Optional, integer) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + datatype (Optional, ) ... DEPRECATED in v1.3 - see dataType (camel case)
+    + dataType (Optional, ) ... The data format supported by the call. Example: `json`
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
+
+<strong>Bearer {token_string} </strong>
+
+
 
 
 + Response 200 (application/json)
@@ -64,31 +55,19 @@ Here are the rules for the path of each call that should be returned
         "datafiles": [],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 8,
-            "totalPages": 1
-        }
+            "pageSize": 2,
+            "totalCount": 65,
+            "totalPages": 33
+        },
+        "status": []
     },
     "result": {
         "data": [
             {
-                "call": "token",
+                "call": "allelematrices",
+                "dataTypes": [],
                 "datatypes": [
-                    "json"
-                ],
-                "methods": [
-                    "POST",
-                    "DELETE"
-                ],
-                "versions": [
-                    "1.0",
-                    "1.1"
-                ]
-            },
-            {
-                "call": "calls",
-                "datatypes": [
-                    "json"
+                    null
                 ],
                 "methods": [
                     "GET"
@@ -100,37 +79,10 @@ Here are the rules for the path of each call that should be returned
                 ]
             },
             {
-                "call": "allelematrix",
+                "call": "allelematrices-search",
+                "dataTypes": [],
                 "datatypes": [
-                    "json",
-                    "tsv"
-                ],
-                "methods": [
-                    "GET",
-                    "POST"
-                ],
-                "versions": [
-                    "1.0"
-                ]
-            },
-            {
-                "call": "observationLevels",
-                "datatypes": [
-                    "json"
-                ],
-                "methods": [
-                    "GET"
-                ],
-                "versions": [
-                    "1.0",
-                    "1.1",
-                    "1.2"
-                ]
-            },
-            {
-                "call": "germplasm-search",
-                "datatypes": [
-                    "json"
+                    null
                 ],
                 "methods": [
                     "GET",
@@ -138,46 +90,6 @@ Here are the rules for the path of each call that should be returned
                 ],
                 "versions": [
                     "1.0",
-                    "1.1",
-                    "1.2"
-                ]
-            },
-            {
-                "call": "germplasm/{germplasmDbId}",
-                "datatypes": [
-                    "json"
-                ],
-                "methods": [
-                    "GET"
-                ],
-                "versions": [
-                    "1.0",
-                    "1.1",
-                    "1.2"
-                ]
-            },
-            {
-                "call": "germplasm/{germplasmDbId}/pedigree",
-                "datatypes": [
-                    "json"
-                ],
-                "methods": [
-                    "GET"
-                ],
-                "versions": [
-                    "1.1",
-                    "1.2"
-                ]
-            },
-            {
-                "call": "germplasm/{germplasmDbId}/markerprofiles",
-                "datatypes": [
-                    "json"
-                ],
-                "methods": [
-                    "GET"
-                ],
-                "versions": [
                     "1.1",
                     "1.2"
                 ]
@@ -185,5 +97,20 @@ Here are the rules for the path of each call that should be returned
         ]
     }
 }
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
 ```
 

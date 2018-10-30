@@ -5,20 +5,7 @@ openapi: 3.0.0
 paths:
   /search/germplasm:
     post:
-      summary: Submit a search request for Germplasm
-      description: |-
-        Search for a set of germplasm based on some criteria
-        
-        Addresses these needs 
-        
-        - General germplasm search mechanism that accepts POST for complex queries 
-        
-        - Possibility to search germplasm by more parameters than those allowed by the existing germplasm search 
-        
-        - Possibility to get MCPD details by PUID rather than dbId
-        
-        See Search Services for additional implementation details.
-        
+      description: "Search for a set of germplasm based on some criteria\n\nAddresses these needs \n\n- General germplasm search mechanism that accepts POST for complex queries \n\n- Possibility to search germplasm by more parameters than those allowed by the existing germplasm search \n\n- Possibility to get MCPD details by PUID rather than dbId\n\nSee Search Services for additional implementation details."
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
@@ -35,6 +22,7 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
+      summary: Submit a search request for Germplasm
       tags:
       - Germplasm
       - Search Services

@@ -84,28 +84,6 @@ def addExamples(obj):
 						
 	return obj
 
-def dereferenceAll(obj, modelsPath = 'C:/Users/ps664/Documents/BrAPI/API/Specification/ModelDefinitions/'):
-	if type(obj) is dict:
-		for fieldStr in obj:
-			if(fieldStr == '$ref'):
-				refName = obj[fieldStr].split('/')[2]
-				path = modelsPath + refName + '.yaml'
-				refObj = dereferenceAll(readFileToDict(path)['definitions'][refName])
-				obj = {**obj, **refObj}
-			else:
-				obj[fieldStr] = dereferenceAll(obj[fieldStr])
-		if '$ref' in obj:
-			obj.pop('$ref')
-	elif type(obj) is list:
-		newList = []
-		for item in obj:
-			newList.append(dereferenceAll(item))
-		obj = newList
-		
-	#print(obj)
-	return obj
-
-
 def readFileToDict(path):
 	fileObj = {}	
 	with open(path, "r") as stream:
@@ -116,21 +94,21 @@ def readFileToDict(path):
 			print(exc)
 	return fileObj
 
-
-rootPath = './'
-if len(sys.argv) > 1 :
-	rootPath = sys.argv[1];
-
-if(rootPath[-1] == '/'):
-	rootPath = rootPath + '**/*.yaml'
-
-for filename in glob.iglob(rootPath, recursive=True):
-	print(filename)
-	file = readFileToDict(filename)	
-	newFile = addExamples(file)
+def go():
+	rootPath = './'
+	if len(sys.argv) > 1 :
+		rootPath = sys.argv[1];
 	
-	with open(filename, 'w') as outfile:
-		yaml.dump(newFile, outfile, default_flow_style=False, width=float("inf"))
+	if(rootPath[-1] == '/'):
+		rootPath = rootPath + '**/*.yaml'
+	
+	for filename in glob.iglob(rootPath, recursive=True):
+		print(filename)
+		file = readFileToDict(filename)	
+		newFile = addExamples(file)
+		
+		with open(filename, 'w') as outfile:
+			yaml.dump(newFile, outfile, default_flow_style=False, width=float("inf"))
 	
 		
 

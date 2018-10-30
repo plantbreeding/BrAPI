@@ -6,8 +6,8 @@ components:
           description: The name of the external data link
           type: string
         name:
-          description: DEPRECATED in v1.3 - Use "dataLinkName"
           deprecated: true
+          description: DEPRECATED in v1.3 - Use "dataLinkName"
           type: string
         type:
           description: The type of external data link

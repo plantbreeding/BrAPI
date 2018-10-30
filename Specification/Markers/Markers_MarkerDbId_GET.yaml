@@ -5,7 +5,6 @@ openapi: 3.0.0
 paths:
   /markers/{markerDbId}:
     get:
-      summary: Get the details for a specific Marker
       description: "Status: ACCEPTED \nImplemented By:"
       parameters:
       - description: the internal id of the marker
@@ -19,30 +18,18 @@ paths:
         '200':
           content:
             application/json:
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    $ref: '#/components/schemas/marker'
-                title: markerResponse
-                type: object
               example:
                 metadata:
                   datafiles: []
-                  pagination: {}
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
                   status: []
-                result:
-                  analysisMethods:
-                  - kasp
-                  defaultDisplayName: marker1-2
-                  markerDbId: mr2
-                  refAlt:
-                  - A
-                  - T
-                  synonyms:
-                  - i_11_10020
-                  type: marker
+                result: null
+              schema:
+                $ref: '#/components/schemas/markerResponse'
           description: OK
           headers: {}
         '400':
@@ -53,5 +40,6 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
+      summary: Get the details for a specific Marker
       tags:
       - Markers

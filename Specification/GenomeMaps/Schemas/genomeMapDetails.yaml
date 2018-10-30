@@ -7,6 +7,10 @@ components:
           items:
             $ref: '#/components/schemas/linkageGroup'
           type: array
+        documentationURL:
+          description: A URL to the human readable documentation of this object
+          format: uri
+          type: string
         linkageGroups:
           description: '**Deprecated** Use "data"'
           items:
@@ -19,8 +23,8 @@ components:
           description: A human readable name for this map
           type: string
         name:
-          description: DEPRECATED in v1.3 - Use "mapName"
           deprecated: true
+          description: DEPRECATED in v1.3 - Use "mapName"
           type: string
         type:
           description: The type of map this represents, ussually "Genetic" or "Physical"
@@ -28,10 +32,6 @@ components:
         unit:
           description: The units used to describe the data in this map
           type: string
-        documentationURL:
-          description: A URL to the human readable documentation of this object
-          type: string
-          format: uri
       type: object
 info:
   title: BrAPI

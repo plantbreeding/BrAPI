@@ -5,7 +5,6 @@ openapi: 3.0.0
 paths:
   /samples/{sampleDbId}:
     get:
-      summary: Get the details of a specific Sample
       description: Used to retrieve the details of a single Sample from a Sample Tracking system.
       parameters:
       - description: the internal DB id for a sample
@@ -19,14 +18,6 @@ paths:
         '200':
           content:
             application/json:
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    $ref: '#/components/schemas/sample'
-                title: sampleResponse
-                type: object
               example:
                 metadata:
                   datafiles: []
@@ -36,20 +27,15 @@ paths:
                     totalCount: 0
                     totalPages: 0
                   status: []
-                result:
-                  germplasmDbId: '1'
-                  notes: Example Sample
-                  observationUnitDbId: '1'
-                  plantDbId: 'null'
-                  plateDbId: pl1
-                  plateIndex: 0
-                  plotDbId: '1'
-                  sampleDbId: sam1
-                  sampleTimestamp: '2018-01-01T00:00:00-05:00'
-                  sampleType: DNA
-                  studyDbId: '1001'
-                  takenBy: Bob
-                  tissueType: Leaf
+                result: null
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/sample'
+                title: sampleResponse
+                type: object
           description: OK
           headers: {}
         '400':
@@ -60,5 +46,6 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
+      summary: Get the details of a specific Sample
       tags:
       - Samples

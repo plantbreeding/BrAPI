@@ -11,11 +11,11 @@ components:
         germplasmDbId:
           description: ' The ID which uniquely identifies a germplasm'
           type: string
-        markerprofileDbId:
-          description: DEPRECATED in v1.3 - see "markerProfileDbId" (camel case)
-          type: string
         markerProfileDbId:
           description: Unique in the database. Can be a catenation of unique IDs for germplasm and extract. Required
+          type: string
+        markerprofileDbId:
+          description: DEPRECATED in v1.3 - see "markerProfileDbId" (camel case)
           type: string
         resultCount:
           description: Number of markers present in the marker profile
@@ -26,9 +26,9 @@ components:
         uniqueDisplayName:
           description: Human readable display name for this marker profile
           type: string
-      type: object
       required:
       - markerProfileDbId
+      type: object
 info:
   title: BrAPI
   version: ''

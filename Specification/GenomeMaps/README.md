@@ -11,16 +11,29 @@ Retrieving genetic or physical maps
 
 
 
-## Get Maps  [GET /brapi/v1/maps{?species}{?type}{?pageSize}{?page}]
+## Maps [/brapi/v1/maps] 
 
-Get list of maps <br>
-<strong>Status:</strong> ACCEPTED <strong>Implemented by:</strong> Germinate, Cassavabase <strong>Used by:</strong> Flapjack do we need list of parents and specify mapping population? 
+
+
+
+### Get Maps  [GET /brapi/v1/maps{?species}{?commonCropName}{?scientificName}{?type}{?page}{?pageSize}]
+
+Get list of maps
+
+ 
 
 + Parameters
-    + species (Optional, string) ... Species name
-    + type (Optional, string) ... Type of map
-    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
-    + page (Optional, integer) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + species (Optional, ) ... DEPRECATED in v1.3 - See "scientificName"
+    + commonCropName (Optional, ) ... The common name of the crop, found from "GET /commoncropnames"
+    + scientificName (Optional, ) ... Full scientific binomial format name. This includes Genus, Species, and Sub-species
+    + type (Optional, ) ... Type of map
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
+
+<strong>Bearer {token_string} </strong>
+
+
 
 
 + Response 200 (application/json)
@@ -30,8 +43,8 @@ Get list of maps <br>
         "datafiles": [],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 2,
+            "pageSize": 2,
+            "totalCount": 1,
             "totalPages": 1
         },
         "status": []
@@ -39,24 +52,17 @@ Get list of maps <br>
     "result": {
         "data": [
             {
-                "comments": "This map contains ...",
-                "linkageGroupCount": 7,
-                "mapDbId": "abc123",
-                "markerCount": 1000,
-                "name": "Some Map",
-                "publishedDate": "2008-04-16",
-                "species": "Some species",
-                "type": "Genetic",
-                "unit": "cM"
-            },
-            {
-                "comments": "this is blah blah",
-                "linkageGroupCount": 7,
-                "mapDbId": "def234",
-                "markerCount": 1501,
-                "name": "Some Other map",
-                "publishedDate": "2009-01-12",
-                "species": "Some Species",
+                "comments": "comments",
+                "commonCropName": null,
+                "documentationURL": null,
+                "linkageGroupCount": 3,
+                "mapDbId": "gm1",
+                "mapName": null,
+                "markerCount": 22,
+                "name": "Genome Map 1",
+                "publishedDate": "2018-01-01",
+                "scientificName": null,
+                "species": "novus",
                 "type": "Genetic",
                 "unit": "cM"
             }
@@ -65,17 +71,40 @@ Get list of maps <br>
 }
 ```
 
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+```
 
 
-## Get Maps by mapDbId  [GET /brapi/v1/maps/{mapDbId}{?pageSize}{?page}]
 
-Provides the number of markers on each linkageGroup and the max position on the linkageGroup <br>
-<strong>Status:</strong> ACCEPTED <strong>Implemented by:</strong> Germinate, Cassavabase <strong>Used by:</strong> Flapjack 
+
+
+### Get Maps by mapDbId  [GET /brapi/v1/maps/{mapDbId}{?page}{?pageSize}]
+
+Provides the number of markers on each linkageGroup and the max position on the linkageGroup
+
+ 
 
 + Parameters
-    + mapDbId (Required, string) ... The internal db id of a selected map
-    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
-    + page (Optional, integer) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + mapDbId (Required, ) ... The internal db id of a selected map
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
+
+<strong>Bearer {token_string} </strong>
+
+
 
 
 + Response 200 (application/json)
@@ -85,9 +114,9 @@ Provides the number of markers on each linkageGroup and the max position on the 
         "datafiles": [],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 2,
-            "totalPages": 1
+            "pageSize": 2,
+            "totalCount": 3,
+            "totalPages": 2
         },
         "status": []
     },
@@ -95,39 +124,78 @@ Provides the number of markers on each linkageGroup and the max position on the 
         "data": [
             {
                 "linkageGroupName": "1",
-                "markerCount": 100000,
-                "maxPosition": 10000000
+                "markerCount": 11,
+                "maxPosition": 1110
             },
             {
                 "linkageGroupName": "2",
-                "markerCount": 1247,
-                "maxPosition": 12347889
+                "markerCount": 5,
+                "maxPosition": 5050
             }
         ],
+        "documentationURL": null,
         "linkageGroups": [
-            "DEPRECATED - Replaced by 'data' in v1.1"
+            {
+                "linkageGroupName": "1",
+                "markerCount": 11,
+                "maxPosition": 1110
+            },
+            {
+                "linkageGroupName": "2",
+                "markerCount": 5,
+                "maxPosition": 5050
+            }
         ],
-        "mapDbId": "abc123",
-        "name": "Some map",
+        "mapDbId": "gm1",
+        "mapName": null,
+        "name": "Genome Map 1",
         "type": "Genetic",
         "unit": "cM"
     }
 }
 ```
 
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
+```
 
 
-## Get Maps Positions by mapDbId  [GET /brapi/v1/maps/{mapDbId}/positions{?linkageGroupId}{?linkageGroupName}{?pageSize}{?page}]
 
-markers ordered by linkageGroup and position <br>
-<strong>Status:</strong> ACCEPTED. <strong>Implemented by:</strong> Germinate, Cassavabase <strong>Used by:</strong> Flapjack 
+
+
+### Get Maps Positions by mapDbId  [GET /brapi/v1/maps/{mapDbId}/positions{?linkageGroupId}{?linkageGroupName}{?page}{?pageSize}]
+
+All the markers in a given Map, ordered by linkageGroup and position.
+
+ 
 
 + Parameters
-    + mapDbId (Required, string) ... unique id of the map
-    + linkageGroupId (Optional, string) ... <strong>Deprecated</strong> Use linkageGroupName instead
-    + linkageGroupName (Optional, string) ... The chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.
-    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
-    + page (Optional, integer) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + mapDbId (Required, ) ... unique id of the map
+    + linkageGroupId (Optional, ) ... Deprecated Use linkageGroupName instead
+    + linkageGroupName (Optional, ) ... The chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
+
+<strong>Bearer {token_string} </strong>
+
+
 
 
 + Response 200 (application/json)
@@ -137,44 +205,73 @@ markers ordered by linkageGroup and position <br>
         "datafiles": [],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 2,
-            "totalPages": 1
+            "pageSize": 2,
+            "totalCount": 22,
+            "totalPages": 11
         },
         "status": []
     },
     "result": {
         "data": [
             {
-                "linkageGroupName": "1A",
+                "linkageGroupName": "1",
                 "location": "1000",
-                "markerDbId": "1",
-                "markerName": "marker1"
+                "markerDbId": "mr01",
+                "markerName": "marker1-1"
             },
             {
-                "linkageGroupName": "1A",
-                "location": "1001",
-                "markerDbId": "2",
-                "markerName": "marker2"
+                "linkageGroupName": "1",
+                "location": "1020",
+                "markerDbId": "mr02",
+                "markerName": "marker1-2"
             }
         ]
     }
 }
 ```
 
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
+```
 
 
-## Get Maps Positions by mapDbId and linkageGroupName  [GET /brapi/v1/maps/{mapDbId}/positions/{linkageGroupName}{?min}{?max}{?pageSize}{?page}]
 
-markers ordered by linkageGroup and position 
+
+
+### Get Maps Positions by mapDbId and linkageGroupName  [GET /brapi/v1/maps/{mapDbId}/positions/{linkageGroupName}{?min}{?max}{?page}{?pageSize}]
+
+All the markers in a specific Linkage Group (aka Chromasome) inside a particular Map, ordered by position.
+
+ 
 
 + Parameters
-    + mapDbId (Required, string) ... unique id of the map
-    + linkageGroupName (Required, string) ... The chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.
-    + min (Optional, integer) ... minimum position on linkage group
-    + max (Optional, integer) ... maximum position on linkage group
-    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
-    + page (Optional, integer) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + mapDbId (Required, ) ... unique id of the map
+    + linkageGroupName (Required, ) ... The chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.
+    + min (Optional, ) ... minimum position on linkage group
+    + max (Optional, ) ... maximum position on linkage group
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
+
+<strong>Bearer {token_string} </strong>
+
+
 
 
 + Response 200 (application/json)
@@ -184,9 +281,9 @@ markers ordered by linkageGroup and position
         "datafiles": [],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 2,
-            "totalPages": 1
+            "pageSize": 2,
+            "totalCount": 22,
+            "totalPages": 11
         },
         "status": []
     },
@@ -194,16 +291,36 @@ markers ordered by linkageGroup and position
         "data": [
             {
                 "location": "1000",
-                "markerDbId": "1",
-                "markerName": "marker1"
+                "markerDbId": "mr01",
+                "markerName": "marker1-1"
             },
             {
-                "location": "1001",
-                "markerDbId": "2",
-                "markerName": "marker2"
+                "location": "1020",
+                "markerDbId": "mr02",
+                "markerName": "marker1-2"
             }
         ]
     }
 }
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
 ```
 

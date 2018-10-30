@@ -1,12 +1,6 @@
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}
 components:
   schemas:
     vendorPlateGetResponse:
-      type: object
       description: Response of a plate submission
       properties:
         clientId:
@@ -17,20 +11,25 @@ components:
           type: integer
         plates:
           description: Array of new plates to be submitted to a vendor
-          type: array
           items:
-            type: object
             properties:
+              clientPlateBarcode:
+                description: (Optional) The value of the bar code attached to this plate
+                type: string
               clientPlateId:
                 description: The ID which uniquely identifies this plate to the client making the request
-                type: string
-              clientPlateBarcode:
-                description: (Optional) The value of the bar code attached to this plate 
                 type: string
               sampleSubmissionFormat:
                 $ref: '#/components/schemas/plateFormat'
               samples:
-                type: array
                 items:
                   $ref: '#/components/schemas/vendorSample'
-                  
+                type: array
+            type: object
+          type: array
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

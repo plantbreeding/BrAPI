@@ -5,30 +5,29 @@ openapi: 3.0.0
 paths:
   /people:
     get:
-      summary: Get the People
       description: Get filtered list of people
       parameters:
-      - name: firstName
-        description: A persons first name
+      - description: A persons first name
         in: query
+        name: firstName
         required: false
         schema:
           type: string
-      - name: lastName
-        description: A persons last name
+      - description: A persons last name
         in: query
+        name: lastName
         required: false
         schema:
           type: string
-      - name: personDbId
-        description: The unique ID of a person
+      - description: The unique ID of a person
         in: query
+        name: personDbId
         required: false
         schema:
           type: string
-      - name: userID
-        description: A systems user ID ascociated with this person. Different from personDbId because you could have a person who is not a user of the system.
+      - description: A systems user ID ascociated with this person. Different from personDbId because you could have a person who is not a user of the system.
         in: query
+        name: userID
         required: false
         schema:
           type: string
@@ -40,18 +39,19 @@ paths:
           content:
             application/json:
               schema:
-                type: object
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    type: object
                     properties:
                       data:
-                        type: array
                         description: Array of people
                         items:
                           $ref: '#/components/schemas/person'
+                        type: array
+                    type: object
+                title: personsResponse
+                type: object
           description: OK
           headers: {}
         '400':
@@ -60,14 +60,14 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
+      summary: Get the People
       tags:
       - People
-    post: 
-      summary: Create a new Person
+    post:
       description: Create a new person
-      parameters: 
+      parameters:
       - $ref: '#/components/parameters/authorizationHeader'
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -77,12 +77,13 @@ paths:
           content:
             application/json:
               schema:
-                type: object
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/person'
+                title: personResponse
+                type: object
           description: OK
           headers: {}
         '400':
@@ -91,5 +92,6 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
+      summary: Create a new Person
       tags:
       - People

@@ -1,10 +1,10 @@
 components:
   parameters:
     acceptHeader:
-      name: Accept
       description: The requested content type which should be returned by the server
       example: application/json
       in: header
+      name: Accept
       required: true
       schema:
         $ref: '#/components/schemas/WSMIMEDataTypes'

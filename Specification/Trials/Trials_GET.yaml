@@ -5,39 +5,37 @@ openapi: 3.0.0
 paths:
   /trials:
     get:
-      summary: Get the breeding Trials
-      description: Retrieve a filtered list of Trials. A Trial is a collection of studies 
+      description: Retrieve a filtered list of Trials. A Trial is a collection of studies
       parameters:
-      - name: commonCropName
-        description: Common name for the crop associated with this trial
+      - description: Common name for the crop associated with this trial
         in: query
+        name: commonCropName
         required: false
         schema:
           type: string
-      - name: programDbId
-        description: Program filter to only return trials associated with given program id.
+      - description: Program filter to only return trials associated with given program id.
         in: query
+        name: programDbId
         required: false
         schema:
           type: string
-      - name: locationDbId
-        description: Filter by location
+      - description: Filter by location
         in: query
+        name: locationDbId
         required: false
         schema:
           type: string
-      - name: active
-        description: Filter active status true/false.
+      - description: Filter active status true/false.
         in: query
+        name: active
         required: false
         schema:
           type: boolean
-      - name: sortBy
-        description: Sort order. Name of the field to sorty by.
+      - description: Sort order. Name of the field to sorty by.
         in: query
+        name: sortBy
         required: false
         schema:
-          type: string
           enum:
           - trialDbId
           - trialName
@@ -46,17 +44,18 @@ paths:
           - locationDbId
           - startDate
           - endDate
-      - name: sortOrder
-        description: 'Sort order direction: asc/desc'
+          type: string
+      - description: 'Sort order direction: asc/desc'
         in: query
+        name: sortOrder
         required: false
         schema:
-          type: string
           enum:
           - asc
           - ASC
           - desc
           - DESC
+          type: string
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
       - $ref: '#/components/parameters/authorizationHeader'
@@ -80,6 +79,8 @@ paths:
                       donorName: Donor1
                       publications: doi:10.2345/GEZG3T23535
                       specialProject: Project1
+                    commonCropName: null
+                    documentationURL: null
                     endDate: '2013-07-05'
                     programDbId: '1'
                     programName: Program 1
@@ -100,6 +101,8 @@ paths:
                       donorName: Donor1
                       publications: doi:10.2345/GEZG3T23535
                       specialProject: Project1
+                    commonCropName: null
+                    documentationURL: null
                     endDate: '2013-07-05'
                     programDbId: '1'
                     programName: Program 1
@@ -136,5 +139,6 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
+      summary: Get the breeding Trials
       tags:
       - Trials

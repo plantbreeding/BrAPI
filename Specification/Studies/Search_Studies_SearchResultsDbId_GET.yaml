@@ -5,13 +5,13 @@ openapi: 3.0.0
 paths:
   /search/studies/{searchResultsDbId}:
     get:
-      summary: Get the results of a Studies search request
-      description: |-
-        Get list of studies
-        
+      description: 'Get list of studies
+
+
         StartDate and endDate should be ISO8601 format for dates
-        
-        See Search Services for additional implementation details.
+
+
+        See Search Services for additional implementation details.'
       parameters:
       - $ref: '#/components/parameters/searchResultsDbId'
       - $ref: '#/components/parameters/page'
@@ -88,6 +88,7 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
+      summary: Get the results of a Studies search request
       tags:
       - Studies
       - Search Services

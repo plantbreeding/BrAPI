@@ -5,7 +5,6 @@ openapi: 3.0.0
 paths:
   /vendor/plates:
     post:
-      summary: Submit a new set of Sample data
       description: Submit a new set of Sample data
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
@@ -13,27 +12,28 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/vendorPlatesRequest'
+              $ref: '#/components/schemas/vendorPlatesSubmissionRequest'
       responses:
         '200':
-          description: OK
-          headers: {}
           content:
             application/json:
+              example: {}
               schema:
-                title: vendorPlatesResponse
-                type: object
                 properties:
                   metadata:
-                    $ref: '#/components/schemas/metadata' 
+                    $ref: '#/components/schemas/metadata'
                   result:
-                    $ref: '#/components/schemas/vendorPlatesResponse'
-              example: {}
+                    $ref: '#/components/schemas/vendorPlatesSubmissionResponse'
+                title: vendorPlateResponse
+                type: object
+          description: OK
+          headers: {}
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      tags: 
+      summary: Submit a new set of Sample data
+      tags:
       - Vendor

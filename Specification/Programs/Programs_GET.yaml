@@ -5,24 +5,23 @@ openapi: 3.0.0
 paths:
   /programs:
     get:
-      summary: Get the breeding Programs
       description: Call to retrieve a list of programs.
       parameters:
-      - name: commonCropName
-        description: Filter by the common crop name. Exact match.
+      - description: Filter by the common crop name. Exact match.
         in: query
+        name: commonCropName
         required: false
         schema:
           type: string
-      - name: programName
-        description: Filter by program name. Exact match.
+      - description: Filter by program name. Exact match.
         in: query
+        name: programName
         required: false
         schema:
           type: string
-      - name: abbreviation
-        description: Filter by program abbreviation. Exact match.
+      - description: Filter by program abbreviation. Exact match.
         in: query
+        name: abbreviation
         required: false
         schema:
           type: string
@@ -45,15 +44,25 @@ paths:
                 result:
                   data:
                   - abbreviation: P1
+                    commonCropName: null
+                    documentationURL: null
                     leadPerson: G. Leader
+                    leadPersonDbId: null
+                    leadPersonName: null
                     name: Program 1
                     objective: Global Population Improvement
                     programDbId: '1'
+                    programName: null
                   - abbreviation: P2
+                    commonCropName: null
+                    documentationURL: null
                     leadPerson: M. Breeder
+                    leadPersonDbId: null
+                    leadPersonName: null
                     name: Program 2
                     objective: XYZ
                     programDbId: '2'
+                    programName: null
               schema:
                 properties:
                   metadata:
@@ -75,5 +84,6 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
+      summary: Get the breeding Programs
       tags:
       - Programs

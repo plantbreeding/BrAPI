@@ -8,48 +8,25 @@ Note that to use these calls, you likely have to use the authentication call pri
 
 
 
-## Get Vendor Plates-search  [GET /brapi/v1/vendor/plates-search{?vendorProjectDbId}{?vendorPlateDbId}{?clientPlateDbId}{?sampleInfo}{?pageSize}{?page}]
-
-Search for plates in the database.
-
-<a href="https://test-server.brapi.org/brapi/v1/vendor/plates-search"> test-server.brapi.org/brapi/v1/vendor/plates-search</a> 
-
-+ Parameters
-    + vendorProjectDbId (Optional, string) ... 
-    + vendorPlateDbId (Optional, string) ... 
-    + clientPlateDbId (Optional, string) ... 
-    + sampleInfo (Optional, boolean) ... 
-    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
-    + page (Optional, integer) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+## Vendor [/brapi/v1/vendor] 
 
 
 
 
-## Post Vendor Plates-search  [POST /brapi/v1/vendor/plates-search]
+### Get Vendor Orders  [GET /brapi/v1/vendor/orders{?orderId}{?submissionId}]
 
-Search for plates in the database.
+List current available orders
 
-<a href="https://test-server.brapi.org/brapi/v1/vendor"> test-server.brapi.org/brapi/v1/vendor/plate-search</a> 
-
-+ Parameters
  
-+ Request (application/json)
-```
-/definitions/vendorPlateSearchRequest
-```
-
-
-
-
-
-## Get Vendor Plates by vendorPlateDbId  [GET /brapi/v1/vendor/plates/{vendorPlateDbId}]
-
- Response data types 
- <table> <thead> <tr> <th>Variable</th> <th>Datatype</th> <th>Description</th> <th>Required</th> </tr> </thead> <tbody> <tr> <td>metadata</td> <td>object</td> <td>pagination, status</td> <td>Y</td> </tr> <tr> <td>pagination</td> <td>object</td> <td>pageSize, currentPage, totalCount, totalPages</td> <td>Y</td> </tr> <tr> <td>status</td> <td>list</td> <td>code, message</td> <td>Y</td> </tr> <tr> <td>result</td> <td>Object</td> <td>Object containing MCPD data</td> <td>Y</td> </tr> <tr> <td>vendorProjectDbId</td> <td>string</td> <td>the name or identifier given to a project by the vendor</td> <td>Y</td> </tr> <tr> <td>vendorPlateDbId</td> <td>string</td> <td>the name or identifier of the plate, given by the vendor</td> <td>Y</td> </tr> <tr> <td>clientPlateDbId</td> <td>string</td> <td>the name of the plate, given by the client</td> <td>Y</td> </tr> <tr> <td>barcode</td> <td>string</td> <td>a string that can be represented as a barcode, identifying this plate</td> <td>N</td> </tr> <tr> <td>plateFormat</td> <td>string</td> <td>defines that plate format, usually Plate_96 or tubes for plateless format</td> <td>Y</td> </tr> <tr> <td>sampleType</td> <td>string</td> <td>DNA or RNA or Tissue, etc.</td> <td>Y</td> </tr> <tr> <td>status</td> <td>string</td> <td>The status of the plate in the processing pipeline. Typically,  &quot;Received&quot;, &quot;Processing&quot;, &quot;QC_passed&quot;, QC_failed&quot;, &quot;Completed&quot; (as per vendor-requirements call)</td> <td>Y</td> </tr> <tr> <td>samples</td> <td>Array</td> <td>list of samples in the plate</td> <td>Y</td> </tr> </tbody> </table>
- <a href="https://test-server.brapi.org/brapi/v1/vendor"> test-server.brapi.org/brapi/v1/vendor/plate/{vendorPlateDbId}</a> 
 
 + Parameters
-    + vendorPlateDbId (Required, string) ... The plate ID defined by the vendor
+    + orderId (Optional, ) ... The order id returned by the vendor when the order was successfully submitted. From response of "POST /vendor/orders"
+    + submissionId (Optional, ) ... The submission id returned by the vendor when a set of plates was successfully submitted. From response of "POST /vendor/plates"
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
+
+<strong>Bearer {token_string} </strong>
+
+
 
 
 + Response 200 (application/json)
@@ -59,65 +36,726 @@ Search for plates in the database.
         "datafiles": [],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 0,
-            "totalCount": 0,
-            "totalPages": 0
+            "pageSize": 1000,
+            "totalCount": 2,
+            "totalPages": 1
         },
         "status": []
     },
     "result": {
-        "clientPlateDbId": "def456",
-        "plateFormat": "Plate_96",
-        "sampleType": "DNA",
-        "samples": [
+        "data": [
             {
-                "column": "(optional)",
-                "concentration": "(ng/ul)",
-                "row": "(optional)",
-                "sampleDbId": "sample_name",
-                "taxonId": {
-                    "sourceName": "ncbiTaxon",
-                    "taxonId": "http://purl.obolibrary.org/obo/NCBITaxon_4641"
-                },
-                "tissueType": "",
-                "volume": "(ul)",
-                "well": "(optional)"
+                "clientId": "clientId0",
+                "numberOfSamples": 0,
+                "orderId": "orderId0",
+                "requiredServiceInfo": {},
+                "serviceId": "serviceId0"
+            },
+            {
+                "clientId": "clientId1",
+                "numberOfSamples": 0,
+                "orderId": "orderId1",
+                "requiredServiceInfo": {},
+                "serviceId": "serviceId1"
             }
-        ],
-        "status": "(not null)",
-        "statusTimeStamp": "2017-06-01 01:57 GMT",
-        "vendorBarcode": "",
-        "vendorBarcodeImageURL": "",
-        "vendorPlateDbId": "8338",
-        "vendorProjectDbId": "abc123"
+        ]
     }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+```
+
+
+
+
+
+### Post Vendor Orders  [POST /brapi/v1/vendor/orders]
+
+Submit a new order to a vendor
+
+ 
+
++ Parameters
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
+
+<strong>Bearer {token_string} </strong>
+
+
+ 
++ Request (application/json)
+```
+{
+    "clientId": "clientId0",
+    "numberOfSamples": 0,
+    "plates": [
+        {
+            "clientPlateBarcode": "clientPlateBarcode0",
+            "clientPlateId": "clientPlateId0",
+            "sampleSubmissionFormat": "PLATE_96",
+            "samples": [
+                {
+                    "clientSampleBarCode": "clientSampleBarCode0",
+                    "clientSampleId": "clientSampleId0",
+                    "column": "column0",
+                    "comments": "comments0",
+                    "concentration": {
+                        "units": "units0"
+                    },
+                    "organismName": "organismName0",
+                    "row": "row0",
+                    "speciesName": "speciesName0",
+                    "taxonomyOntologyReference": {
+                        "ontologyID": "ontologyID0",
+                        "ontologyPrefix": "ontologyPrefix0",
+                        "ontologyTerm": "ontologyTerm0"
+                    },
+                    "tissueType": "tissueType0",
+                    "tissueTypeOntologyReference": {
+                        "ontologyID": "ontologyID0",
+                        "ontologyPrefix": "ontologyPrefix0",
+                        "ontologyTerm": "ontologyTerm0"
+                    },
+                    "volume": {
+                        "units": "units0"
+                    },
+                    "well": "well0"
+                },
+                {
+                    "clientSampleBarCode": "clientSampleBarCode1",
+                    "clientSampleId": "clientSampleId1",
+                    "column": "column1",
+                    "comments": "comments1",
+                    "concentration": {
+                        "units": "units0"
+                    },
+                    "organismName": "organismName1",
+                    "row": "row1",
+                    "speciesName": "speciesName1",
+                    "taxonomyOntologyReference": {
+                        "ontologyID": "ontologyID0",
+                        "ontologyPrefix": "ontologyPrefix0",
+                        "ontologyTerm": "ontologyTerm0"
+                    },
+                    "tissueType": "tissueType1",
+                    "tissueTypeOntologyReference": {
+                        "ontologyID": "ontologyID0",
+                        "ontologyPrefix": "ontologyPrefix0",
+                        "ontologyTerm": "ontologyTerm0"
+                    },
+                    "volume": {
+                        "units": "units0"
+                    },
+                    "well": "well1"
+                }
+            ]
+        },
+        {
+            "clientPlateBarcode": "clientPlateBarcode1",
+            "clientPlateId": "clientPlateId1",
+            "sampleSubmissionFormat": "TUBES",
+            "samples": [
+                {
+                    "clientSampleBarCode": "clientSampleBarCode0",
+                    "clientSampleId": "clientSampleId0",
+                    "column": "column0",
+                    "comments": "comments0",
+                    "concentration": {
+                        "units": "units0"
+                    },
+                    "organismName": "organismName0",
+                    "row": "row0",
+                    "speciesName": "speciesName0",
+                    "taxonomyOntologyReference": {
+                        "ontologyID": "ontologyID0",
+                        "ontologyPrefix": "ontologyPrefix0",
+                        "ontologyTerm": "ontologyTerm0"
+                    },
+                    "tissueType": "tissueType0",
+                    "tissueTypeOntologyReference": {
+                        "ontologyID": "ontologyID0",
+                        "ontologyPrefix": "ontologyPrefix0",
+                        "ontologyTerm": "ontologyTerm0"
+                    },
+                    "volume": {
+                        "units": "units0"
+                    },
+                    "well": "well0"
+                },
+                {
+                    "clientSampleBarCode": "clientSampleBarCode1",
+                    "clientSampleId": "clientSampleId1",
+                    "column": "column1",
+                    "comments": "comments1",
+                    "concentration": {
+                        "units": "units0"
+                    },
+                    "organismName": "organismName1",
+                    "row": "row1",
+                    "speciesName": "speciesName1",
+                    "taxonomyOntologyReference": {
+                        "ontologyID": "ontologyID0",
+                        "ontologyPrefix": "ontologyPrefix0",
+                        "ontologyTerm": "ontologyTerm0"
+                    },
+                    "tissueType": "tissueType1",
+                    "tissueTypeOntologyReference": {
+                        "ontologyID": "ontologyID0",
+                        "ontologyPrefix": "ontologyPrefix0",
+                        "ontologyTerm": "ontologyTerm0"
+                    },
+                    "volume": {
+                        "units": "units0"
+                    },
+                    "well": "well1"
+                }
+            ]
+        }
+    ],
+    "requiredServiceInfo": {},
+    "sampleType": "DNA",
+    "serviceIds": [
+        "serviceIds0",
+        "serviceIds1"
+    ]
 }
 ```
 
 
 
-## Post Vendor Plates  [POST /brapi/v1/vendor/plates]
++ Response 200 (application/json)
+```
+{}
+```
 
-Note: if the samples array is empty, plate ID will be returned.
-Samples can be updated later. 
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+```
+
+
+
+
+
+### Get Vendor Orders Plates by orderId  [GET /brapi/v1/vendor/orders/{orderId}/plates]
+
+Retrieve the plate and sample details of an order being processed
+
+ 
 
 + Parameters
+    + orderId (Required, ) ... The order id returned by the vendor when the order was successfully submitted.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
+
+<strong>Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 2,
+            "totalPages": 1
+        },
+        "status": []
+    },
+    "result": {
+        "data": [
+            {
+                "clientPlateBarcode": "clientPlateBarcode0",
+                "clientPlateId": "clientPlateId0",
+                "sampleSubmissionFormat": "PLATE_96",
+                "samples": [
+                    {
+                        "clientSampleBarCode": "clientSampleBarCode0",
+                        "clientSampleId": "clientSampleId0",
+                        "column": "column0",
+                        "comments": "comments0",
+                        "concentration": {
+                            "units": "units0"
+                        },
+                        "organismName": "organismName0",
+                        "row": "row0",
+                        "speciesName": "speciesName0",
+                        "taxonomyOntologyReference": {
+                            "ontologyID": "ontologyID0",
+                            "ontologyPrefix": "ontologyPrefix0",
+                            "ontologyTerm": "ontologyTerm0"
+                        },
+                        "tissueType": "tissueType0",
+                        "tissueTypeOntologyReference": {
+                            "ontologyID": "ontologyID0",
+                            "ontologyPrefix": "ontologyPrefix0",
+                            "ontologyTerm": "ontologyTerm0"
+                        },
+                        "volume": {
+                            "units": "units0"
+                        },
+                        "well": "well0"
+                    },
+                    {
+                        "clientSampleBarCode": "clientSampleBarCode1",
+                        "clientSampleId": "clientSampleId1",
+                        "column": "column1",
+                        "comments": "comments1",
+                        "concentration": {
+                            "units": "units0"
+                        },
+                        "organismName": "organismName1",
+                        "row": "row1",
+                        "speciesName": "speciesName1",
+                        "taxonomyOntologyReference": {
+                            "ontologyID": "ontologyID0",
+                            "ontologyPrefix": "ontologyPrefix0",
+                            "ontologyTerm": "ontologyTerm0"
+                        },
+                        "tissueType": "tissueType1",
+                        "tissueTypeOntologyReference": {
+                            "ontologyID": "ontologyID0",
+                            "ontologyPrefix": "ontologyPrefix0",
+                            "ontologyTerm": "ontologyTerm0"
+                        },
+                        "volume": {
+                            "units": "units0"
+                        },
+                        "well": "well1"
+                    }
+                ]
+            },
+            {
+                "clientPlateBarcode": "clientPlateBarcode1",
+                "clientPlateId": "clientPlateId1",
+                "sampleSubmissionFormat": "TUBES",
+                "samples": [
+                    {
+                        "clientSampleBarCode": "clientSampleBarCode0",
+                        "clientSampleId": "clientSampleId0",
+                        "column": "column0",
+                        "comments": "comments0",
+                        "concentration": {
+                            "units": "units0"
+                        },
+                        "organismName": "organismName0",
+                        "row": "row0",
+                        "speciesName": "speciesName0",
+                        "taxonomyOntologyReference": {
+                            "ontologyID": "ontologyID0",
+                            "ontologyPrefix": "ontologyPrefix0",
+                            "ontologyTerm": "ontologyTerm0"
+                        },
+                        "tissueType": "tissueType0",
+                        "tissueTypeOntologyReference": {
+                            "ontologyID": "ontologyID0",
+                            "ontologyPrefix": "ontologyPrefix0",
+                            "ontologyTerm": "ontologyTerm0"
+                        },
+                        "volume": {
+                            "units": "units0"
+                        },
+                        "well": "well0"
+                    },
+                    {
+                        "clientSampleBarCode": "clientSampleBarCode1",
+                        "clientSampleId": "clientSampleId1",
+                        "column": "column1",
+                        "comments": "comments1",
+                        "concentration": {
+                            "units": "units0"
+                        },
+                        "organismName": "organismName1",
+                        "row": "row1",
+                        "speciesName": "speciesName1",
+                        "taxonomyOntologyReference": {
+                            "ontologyID": "ontologyID0",
+                            "ontologyPrefix": "ontologyPrefix0",
+                            "ontologyTerm": "ontologyTerm0"
+                        },
+                        "tissueType": "tissueType1",
+                        "tissueTypeOntologyReference": {
+                            "ontologyID": "ontologyID0",
+                            "ontologyPrefix": "ontologyPrefix0",
+                            "ontologyTerm": "ontologyTerm0"
+                        },
+                        "volume": {
+                            "units": "units0"
+                        },
+                        "well": "well1"
+                    }
+                ]
+            }
+        ]
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
+```
+
+
+
+
+
+### Get Vendor Orders Results by orderId  [GET /brapi/v1/vendor/orders/{orderId}/results]
+
+Retrieve the data files generated by the vendors analysis
+
+ 
+
++ Parameters
+    + orderId (Required, ) ... The order id returned by the vendor when the order was successfully submitted.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
+
+<strong>Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 2,
+            "totalPages": 1
+        },
+        "status": []
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "clientSampleIds": [
+                    "clientSampleIds0",
+                    "clientSampleIds1"
+                ],
+                "fileName": "fileName0",
+                "fileType": "fileType0",
+                "fileURL": "fileURL0",
+                "md5sum": "md5sum0"
+            },
+            {
+                "additionalInfo": {},
+                "clientSampleIds": [
+                    "clientSampleIds0",
+                    "clientSampleIds1"
+                ],
+                "fileName": "fileName1",
+                "fileType": "fileType1",
+                "fileURL": "fileURL1",
+                "md5sum": "md5sum1"
+            }
+        ]
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
+```
+
+
+
+
+
+### Get Vendor Orders Status by orderId  [GET /brapi/v1/vendor/orders/{orderId}/status]
+
+Retrieve the current status of an order being processed
+
+ 
+
++ Parameters
+    + orderId (Required, ) ... The order id returned by the vendor when the order was successfully submitted.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
+
+<strong>Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [],
+        "pagination": {},
+        "status": []
+    },
+    "result": {
+        "status": "registered"
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
+```
+
+
+
+
+
+### Post Vendor Plates  [POST /brapi/v1/vendor/plates]
+
+Submit a new set of Sample data
+
+ 
+
++ Parameters
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
+
+<strong>Bearer {token_string} </strong>
+
+
  
 + Request (application/json)
 ```
-/definitions/vendorPlateRequest
+{
+    "clientId": "clientId0",
+    "numberOfSamples": 0,
+    "plates": [
+        {
+            "clientPlateBarcode": "clientPlateBarcode0",
+            "clientPlateId": "clientPlateId0",
+            "sampleSubmissionFormat": "PLATE_96",
+            "samples": [
+                {
+                    "clientSampleBarCode": "clientSampleBarCode0",
+                    "clientSampleId": "clientSampleId0",
+                    "column": "column0",
+                    "comments": "comments0",
+                    "concentration": {
+                        "units": "units0"
+                    },
+                    "organismName": "organismName0",
+                    "row": "row0",
+                    "speciesName": "speciesName0",
+                    "taxonomyOntologyReference": {
+                        "ontologyID": "ontologyID0",
+                        "ontologyPrefix": "ontologyPrefix0",
+                        "ontologyTerm": "ontologyTerm0"
+                    },
+                    "tissueType": "tissueType0",
+                    "tissueTypeOntologyReference": {
+                        "ontologyID": "ontologyID0",
+                        "ontologyPrefix": "ontologyPrefix0",
+                        "ontologyTerm": "ontologyTerm0"
+                    },
+                    "volume": {
+                        "units": "units0"
+                    },
+                    "well": "well0"
+                },
+                {
+                    "clientSampleBarCode": "clientSampleBarCode1",
+                    "clientSampleId": "clientSampleId1",
+                    "column": "column1",
+                    "comments": "comments1",
+                    "concentration": {
+                        "units": "units0"
+                    },
+                    "organismName": "organismName1",
+                    "row": "row1",
+                    "speciesName": "speciesName1",
+                    "taxonomyOntologyReference": {
+                        "ontologyID": "ontologyID0",
+                        "ontologyPrefix": "ontologyPrefix0",
+                        "ontologyTerm": "ontologyTerm0"
+                    },
+                    "tissueType": "tissueType1",
+                    "tissueTypeOntologyReference": {
+                        "ontologyID": "ontologyID0",
+                        "ontologyPrefix": "ontologyPrefix0",
+                        "ontologyTerm": "ontologyTerm0"
+                    },
+                    "volume": {
+                        "units": "units0"
+                    },
+                    "well": "well1"
+                }
+            ]
+        },
+        {
+            "clientPlateBarcode": "clientPlateBarcode1",
+            "clientPlateId": "clientPlateId1",
+            "sampleSubmissionFormat": "TUBES",
+            "samples": [
+                {
+                    "clientSampleBarCode": "clientSampleBarCode0",
+                    "clientSampleId": "clientSampleId0",
+                    "column": "column0",
+                    "comments": "comments0",
+                    "concentration": {
+                        "units": "units0"
+                    },
+                    "organismName": "organismName0",
+                    "row": "row0",
+                    "speciesName": "speciesName0",
+                    "taxonomyOntologyReference": {
+                        "ontologyID": "ontologyID0",
+                        "ontologyPrefix": "ontologyPrefix0",
+                        "ontologyTerm": "ontologyTerm0"
+                    },
+                    "tissueType": "tissueType0",
+                    "tissueTypeOntologyReference": {
+                        "ontologyID": "ontologyID0",
+                        "ontologyPrefix": "ontologyPrefix0",
+                        "ontologyTerm": "ontologyTerm0"
+                    },
+                    "volume": {
+                        "units": "units0"
+                    },
+                    "well": "well0"
+                },
+                {
+                    "clientSampleBarCode": "clientSampleBarCode1",
+                    "clientSampleId": "clientSampleId1",
+                    "column": "column1",
+                    "comments": "comments1",
+                    "concentration": {
+                        "units": "units0"
+                    },
+                    "organismName": "organismName1",
+                    "row": "row1",
+                    "speciesName": "speciesName1",
+                    "taxonomyOntologyReference": {
+                        "ontologyID": "ontologyID0",
+                        "ontologyPrefix": "ontologyPrefix0",
+                        "ontologyTerm": "ontologyTerm0"
+                    },
+                    "tissueType": "tissueType1",
+                    "tissueTypeOntologyReference": {
+                        "ontologyID": "ontologyID0",
+                        "ontologyPrefix": "ontologyPrefix0",
+                        "ontologyTerm": "ontologyTerm0"
+                    },
+                    "volume": {
+                        "units": "units0"
+                    },
+                    "well": "well1"
+                }
+            ]
+        }
+    ],
+    "sampleType": "DNA"
+}
+```
+
+
+
++ Response 200 (application/json)
+```
+{}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
 ```
 
 
 
 
 
-## Get Vendor Specifications  [GET /brapi/v1/vendor/specifications]
+### Get Vendor Plates by submissionId  [GET /brapi/v1/vendor/plates/{submissionId}]
 
- Defines the plate format specification for the vendor.
-<a href="https://test-server.brapi.org/brapi/v1/vendor"> test-server.brapi.org/brapi/v1/vendor/specifications</a> 
+Get data for a submitted set of plates
+
+ 
 
 + Parameters
+    + submissionId (Required, ) ... 
+
+
 
 
 + Response 200 (application/json)
@@ -133,84 +771,87 @@ Samples can be updated later.
         },
         "status": []
     },
+    "result": null
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
+```
+
+
+
+
+
+### Get Vendor Specifications  [GET /brapi/v1/vendor/specifications]
+
+Defines the plate format specification for the vendor.
+
+ 
+
++ Parameters
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
+
+<strong>Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [],
+        "pagination": {},
+        "status": []
+    },
     "result": {
         "additionalInfo": {},
-        "contactName": "John Doe",
-        "platforms": [
+        "services": [
             {
-                "contactEmail": "",
-                "contactName": "",
-                "contactPhone": "",
-                "deliverables": [
-                    {
-                        "description": "",
-                        "format": "",
-                        "name": ""
-                    }
-                ],
-                "platformDescription": "",
-                "platformName": "GBS",
-                "platformURL": "",
-                "shippingAddress": "",
-                "specificRequirements": {},
-                "standardRequirements": {
-                    "blankWellPosition": {
-                        "numberOfBlanksPerPlate": "",
-                        "positions": [
-                            "random",
-                            "A01",
-                            "H12"
-                        ]
-                    },
-                    "inputFormatDetails": "https://...",
-                    "inputFormats": [
-                        "Plate_96",
-                        "Tubes"
-                    ],
-                    "maxConcentration": "",
-                    "maxVolume": "",
-                    "minConcentration": "",
-                    "minSampleNumber": "",
-                    "minVolume": "",
-                    "plateOrientation": "rowFirst|columnFirst",
-                    "sampleTypeDetails": "https://...",
-                    "sampleTypes": [
-                        "",
-                        ""
-                    ]
-                },
-                "statuses": [
-                    {
-                        "statusDescription": "Platesarereceivedbyvendor.",
-                        "statusName": "received"
-                    },
-                    {
-                        "statusDescription": "Resultfilesareready.",
-                        "statusName": "completed"
-                    },
-                    {
-                        "statusDescription": "Platesarerejectedbyvendor",
-                        "statusName": "rejected"
-                    }
-                ],
-                "taxonomyIdSystem": {
-                    "URI": "https://...",
-                    "name": "NCBITaxonomyId"
-                },
-                "tissueIdSystem": {
-                    "URI": "https://...",
-                    "name": "DArT"
-                }
+                "serviceDescription": "serviceDescription0",
+                "serviceId": "serviceId0",
+                "serviceName": "serviceName0",
+                "servicePlatformMarkerType": "FIXED",
+                "servicePlatformName": "servicePlatformName0",
+                "specificRequirements": {}
+            },
+            {
+                "serviceDescription": "serviceDescription1",
+                "serviceId": "serviceId1",
+                "serviceName": "serviceName1",
+                "servicePlatformMarkerType": "DISCOVERABLE",
+                "servicePlatformName": "servicePlatformName1",
+                "specificRequirements": {}
             }
         ],
-        "vendorAddress": "123 Lane St",
-        "vendorCity": "Metropolis",
-        "vendorCountry": "USA",
-        "vendorDescription": "Gene Sequencing Vendor",
-        "vendorEmail": "jdoe@example.org",
-        "vendorName": "Gene Sequencing Vendor",
-        "vendorPhone": "1-234-567-8910",
-        "vendorURL": "www.example.org"
+        "vendorContact": {
+            "vendorAddress": "vendorAddress0",
+            "vendorCity": "vendorCity0",
+            "vendorContactName": "vendorContactName0",
+            "vendorCountry": "vendorCountry0",
+            "vendorDescription": "vendorDescription0",
+            "vendorEmail": "vendorEmail0",
+            "vendorName": "vendorName0",
+            "vendorPhone": "vendorPhone0",
+            "vendorURL": "vendorURL0"
+        }
     }
 }
 ```

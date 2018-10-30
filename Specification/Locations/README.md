@@ -6,19 +6,34 @@ Location calls.
 
 
 
-## Get Locations  [GET /brapi/v1/locations{?locationType}{?pageSize}{?page}]
+## Locations [/brapi/v1/locations] 
 
+
+
+
+### Get Locations  [GET /brapi/v1/locations{?locationType}{?page}{?pageSize}]
 
 Implemented by: Germinate
+
 Get a list of locations.
+
 * The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
+
 * `altitude` is in meters.
-**Note**: Consider revising to describe polygon lat/lan points and check if adopting http://geojson.org/ is worth doing for v1.  
+
+**Note**: Consider revising to describe polygon lat/lan points and check if adopting http://geojson.org/ is worth doing for v1.
+
+ 
 
 + Parameters
-    + locationType (Optional, string) ... Filter by location type specified.
-    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
-    + page (Optional, integer) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + locationType (Optional, ) ... Filter by location type specified.
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
+
+<strong>Bearer {token_string} </strong>
+
+
 
 
 + Response 200 (application/json)
@@ -28,62 +43,100 @@ Get a list of locations.
         "datafiles": [],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 2,
-            "totalPages": 1
+            "pageSize": 2,
+            "totalCount": 17,
+            "totalPages": 9
         },
         "status": []
     },
     "result": {
         "data": [
             {
-                "abbreviation": "IB",
+                "abbreviation": "L1",
+                "abreviation": "L1",
                 "additionalInfo": {
-                    "annualMeanRain": "value",
-                    "soilDescription": "23"
+                    "adm1": "Junin",
+                    "adm2": "Chanchamayo",
+                    "adm3": "San Ramon",
+                    "annualMeanTemperature": "23",
+                    "annualTotalPrecipitation": "360",
+                    "cont": "South America",
+                    "creg": "LAC",
+                    "local": "San Ramon"
                 },
-                "altitude": 12,
-                "countryCode": "NGA",
-                "countryName": "Nigeria",
-                "instituteAddress": "route foo, Clermont Ferrand, France",
-                "instituteName": "INRA - GDEC",
-                "latitude": -21.5,
-                "locationDbId": "abc123",
-                "locationType": "Breeding Location",
-                "longitude": 165.5,
-                "name": "Ibadan"
+                "altitude": 828,
+                "countryCode": "PER",
+                "countryName": "Peru",
+                "documentationURL": null,
+                "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
+                "instituteAdress": "71 Pilgrim Avenue Chevy Chase MD 20815",
+                "instituteName": "Plant Science Institute",
+                "latitude": -11.1274995803833,
+                "locationDbId": "1",
+                "locationName": null,
+                "locationType": "Storage location",
+                "longitude": -75.35639190673828,
+                "name": "Location 1"
             },
             {
-                "abbreviation": "GO",
-                "additionalInfo": {
-                    "name1": "value1",
-                    "name2": "value2"
-                },
-                "altitude": 10,
-                "countryCode": "IND",
-                "countryName": "India",
-                "latitude": 28.36,
-                "locationDbId": "def456",
-                "locationType": "Storage Location",
-                "longitude": 77.12,
-                "name": "Goa"
+                "abbreviation": "L2",
+                "abreviation": "L2",
+                "additionalInfo": {},
+                "altitude": 964,
+                "countryCode": "PER",
+                "countryName": "Peru",
+                "documentationURL": null,
+                "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
+                "instituteAdress": "71 Pilgrim Avenue Chevy Chase MD 20815",
+                "instituteName": "Plant Science Institute",
+                "latitude": -11.161160469055176,
+                "locationDbId": "2",
+                "locationName": null,
+                "locationType": "Breeding location",
+                "longitude": -75.34171295166016,
+                "name": "Location 2"
             }
         ]
     }
 }
 ```
 
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+```
 
 
-## Get Locations by locationDbId  [GET /brapi/v1/locations/{locationDbId}]
 
- <strong>Implemented by:</strong>  GnpIS
+
+
+### Get Locations by locationDbId  [GET /brapi/v1/locations/{locationDbId}]
+
 Get details for a location.
-* The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
-* `altitude` is in meters.  
+
+- The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
+
+- `altitude` is in meters.
+
+ 
 
 + Parameters
-    + locationDbId (Required, string) ... The internal DB id for a location
+    + locationDbId (Required, ) ... The internal DB id for a location
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
+
+<strong>Bearer {token_string} </strong>
+
+
 
 
 + Response 200 (application/json)
@@ -100,23 +153,52 @@ Get details for a location.
         "status": []
     },
     "result": {
-        "abbreviation": "IB",
-        "abreviation": "IB -- DEPRECATED -- see abbreviation",
+        "abbreviation": "L1",
+        "abreviation": "L1",
         "additionalInfo": {
-            "annualMeanRain": "value",
-            "soilDescription": "23"
+            "adm1": "Junin",
+            "adm2": "Chanchamayo",
+            "adm3": "San Ramon",
+            "annualMeanTemperature": "23",
+            "annualTotalPrecipitation": "360",
+            "cont": "South America",
+            "creg": "LAC",
+            "local": "San Ramon"
         },
-        "altitude": 12,
-        "countryCode": "NGA",
-        "countryName": "Nigeria",
-        "instituteAddress": "road foo, nigeria",
-        "instituteName": "INRA - GDEC",
-        "latitude": -21.5,
-        "locationDbId": "abc123",
-        "locationType": "Breeding Location",
-        "longitude": 165.5,
-        "name": "Ibadan"
+        "altitude": 828,
+        "countryCode": "PER",
+        "countryName": "Peru",
+        "documentationURL": null,
+        "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
+        "instituteAdress": "71 Pilgrim Avenue Chevy Chase MD 20815",
+        "instituteName": "Plant Science Institute",
+        "latitude": -11.1274995803833,
+        "locationDbId": "1",
+        "locationName": null,
+        "locationType": "Storage location",
+        "longitude": -75.35639190673828,
+        "name": "Location 1"
     }
 }
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
 ```
 

@@ -1,22 +1,22 @@
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}
 components:
   schemas:
     vendorSpecification:
-      type: object
       properties:
         additionalInfo:
           additionalProperties:
             type: object
           description: Additional arbitrary information specific to a particular Vendor. Look for the Vedors specific API documentation for more details
           type: object
-        vendorContact:
-          $ref: '#/components/schemas/vendorContact'
         services:
           description: List of platform specifications available at the vendor
           items:
             $ref: '#/components/schemas/vendorSpecificationService'
           type: array
+        vendorContact:
+          $ref: '#/components/schemas/vendorContact'
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

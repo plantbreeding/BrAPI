@@ -22,15 +22,13 @@ paths:
                 metadata:
                   datafiles: []
                   pagination:
-                    currentPage: 0
-                    pageSize: 2
+                    currentPage: 2
+                    pageSize: 1000
                     totalCount: 2
                     totalPages: 1
                   status: []
                 result:
-                  data:
-                  - Tomatillo
-                  - Paw Paw
+                  data: []
               schema:
                 properties:
                   metadata:

@@ -10,7 +10,7 @@ components:
             type: string
           description: Additional arbitrary info
           type: object
-        commonCropName: 
+        commonCropName:
           description: Common name for the crop associated with this trial
           type: string
         contacts:
@@ -29,22 +29,17 @@ components:
         datasetAuthorships:
           description: License and citation information for the data in this trial
           items:
-            type: object
             properties:
               datasetPUI:
                 type: string
               license:
                 type: string
-          type: array
-        publications:
-          type: array
-          items:
             type: object
-            properties:
-              publicationReference:
-                type: string
-              publicationPUI:
-                type: string
+          type: array
+        documentationURL:
+          description: A URL to the human readable documentation of this object
+          format: uri
+          type: string
         endDate:
           description: The date this trial ends
           format: date
@@ -55,6 +50,15 @@ components:
         programName:
           description: The human readable name of a program
           type: string
+        publications:
+          items:
+            properties:
+              publicationPUI:
+                type: string
+              publicationReference:
+                type: string
+            type: object
+          type: array
         startDate:
           description: The date this trial started
           format: date
@@ -79,10 +83,6 @@ components:
         trialName:
           description: The human readable name of a trial
           type: string
-        documentationURL:
-          description: A URL to the human readable documentation of this object
-          type: string
-          format: uri
       type: object
 info:
   title: BrAPI

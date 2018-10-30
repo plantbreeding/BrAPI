@@ -4,8 +4,48 @@ info:
 openapi: 3.0.0
 paths:
   /vendor/orders:
+    get:
+      description: List current available orders
+      parameters:
+      - description: The order id returned by the vendor when the order was successfully submitted. From response of "POST /vendor/orders"
+        in: query
+        name: orderId
+        schema:
+          type: string
+      - description: The submission id returned by the vendor when a set of plates was successfully submitted. From response of "POST /vendor/plates"
+        in: query
+        name: submissionId
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    properties:
+                      data:
+                        items:
+                          $ref: '#/components/schemas/vendorOrder'
+                        type: array
+                    type: object
+                title: vendorOrdersResponse
+                type: object
+          description: OK
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      summary: List current available orders
+      tags:
+      - Vendor
     post:
-      summary: Submit New Order
       description: Submit a new order to a vendor
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
@@ -16,65 +56,19 @@ paths:
               $ref: '#/components/schemas/vendorOrderRequest'
       responses:
         '200':
+          content:
+            application/json:
+              example: {}
+              schema:
+                $ref: '#/components/schemas/vendorOrderResponse'
           description: OK
           headers: {}
-          content:
-            application/json:
-              schema:
-                title: vendorPlatesResponse
-                type: object
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata' 
-                  result:
-                    $ref: '#/components/schemas/vendorOrderResponse'
-              example: {}
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      tags: 
-      - Vendor
-    get:
-      summary: List current available orders
-      description: List current available orders
-      parameters:
-      - name: orderId
-        description: The order id returned by the vendor when the order was successfully submitted. From response of "POST /vendor/orders"
-        in: query
-        schema:
-          type: string
-      - name: submissionId
-        description: The submission id returned by the vendor when a set of plates was successfully submitted. From response of "POST /vendor/plates"
-        in: query
-        schema:
-          type: string
-      - $ref: '#/components/parameters/authorizationHeader'
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                title: vendorPlateResponse
-                type: object
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    type: object
-                    properties:
-                      data:
-                        type: array
-                        items:
-                          $ref: '#/components/schemas/vendorOrder'
-        '400':
-          $ref: '#/components/responses/400BadRequest'
-        '401':
-          $ref: '#/components/responses/401Unauthorized'
-        '403':
-          $ref: '#/components/responses/403Forbidden'
+      summary: Submit New Order
       tags:
       - Vendor

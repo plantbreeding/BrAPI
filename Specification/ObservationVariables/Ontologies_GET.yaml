@@ -5,7 +5,6 @@ openapi: 3.0.0
 paths:
   /ontologies:
     get:
-      summary: Get the Ontologies
       description: Call to retrieve a list of observation variable ontologies available in the system.
       parameters:
       - $ref: '#/components/parameters/page'
@@ -29,6 +28,7 @@ paths:
                   - authors: Bob
                     copyright: 2017 Ontology.org
                     description: Ontology.org
+                    documentationURL: null
                     licence: Apache
                     ontologyDbId: MO_123
                     ontologyName: Ontology.org
@@ -54,5 +54,6 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
+      summary: Get the Ontologies
       tags:
       - Observation Variables

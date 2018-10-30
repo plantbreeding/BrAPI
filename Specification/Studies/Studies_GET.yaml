@@ -5,95 +5,95 @@ openapi: 3.0.0
 paths:
   /studies:
     get:
-      summary: Get the Studies
-      description: |-
-        Get list of studies
-        
+      description: 'Get list of studies
+
+
         Implementation Notes
-        
+
+
         StartDate and endDate should be ISO8601 format for dates
-        
-        See Search Services for additional implementation details.
+
+
+        See Search Services for additional implementation details.'
       parameters:
-      - name: commonCropName
-        description: Common name for the crop associated with this study
+      - description: Common name for the crop associated with this study
         in: query
+        name: commonCropName
         required: false
         schema:
           type: string
-      - name: studyType
+      - deprecated: true
         description: DEPRECATED in v1.3 - see "studyTypeDbId"
-        deprecated: true
         in: query
+        name: studyType
         required: false
         schema:
           type: string
-      - name: studyTypeDbId
-        description: Filter based on study type unique identifier
+      - description: Filter based on study type unique identifier
         in: query
+        name: studyTypeDbId
         required: false
         schema:
           type: string
-      - name: programDbId
-        description: Program filter to only return studies associated with given program id.
+      - description: Program filter to only return studies associated with given program id.
         in: query
+        name: programDbId
         required: false
         schema:
           type: string
-      - name: locationDbId
-        description: Filter by location
+      - description: Filter by location
         in: query
+        name: locationDbId
         required: false
         schema:
           type: string
-      - name: seasonDbId
-        description: Filter by season or year
+      - description: Filter by season or year
         in: query
+        name: seasonDbId
         required: false
         schema:
           type: string
-      - name: trialDbId
-        description: Filter by trial
+      - description: Filter by trial
         in: query
+        name: trialDbId
         required: false
         schema:
           type: string
-      - name: studyDbId
-        description: Filter by study DbId
+      - description: Filter by study DbId
         in: query
+        name: studyDbId
         required: false
         schema:
           type: string
-      - name: germplasmDbIds
+      - deprecated: true
         description: DEPRECATED in v1.3 - see /search/studies
-        deprecated: true
         in: query
+        name: germplasmDbIds
         required: false
         schema:
           items:
             type: string
           type: array
-      - name: observationVariableDbIds
+      - deprecated: true
         description: DEPRECATED in v1.3 - see /search/studies
-        deprecated: true
         in: query
+        name: observationVariableDbIds
         required: false
         schema:
           items:
             type: string
           type: array
-      - name: active
-        description: Filter active status true/false.
+      - description: Filter active status true/false.
         in: query
+        name: active
         required: false
         schema:
           type: boolean
-      - name: sortBy
-        description: Name of the field to sort by.
+      - description: Name of the field to sort by.
         in: query
+        name: sortBy
         required: false
         schema:
-          type: string
           enum:
           - studyDbId
           - trialDbId
@@ -104,17 +104,18 @@ paths:
           - studyName
           - studyLocation
           - programName
-      - name: sortOrder
-        description: Sort order direction. Ascending/Descending.
+          type: string
+      - description: Sort order direction. Ascending/Descending.
         in: query
+        name: sortOrder
         required: false
         schema:
-          type: string
           enum:
           - asc
           - ASC
           - desc
           - DESC
+          type: string
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
       - $ref: '#/components/parameters/authorizationHeader'
@@ -187,5 +188,6 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
+      summary: Get the Studies
       tags:
       - Studies

@@ -1,35 +1,35 @@
+components:
+  schemas:
+    listSummary:
+      properties:
+        dateCreated:
+          format: date-time
+          type: string
+        dateModified:
+          format: date-time
+          type: string
+        description:
+          type: string
+        listDbId:
+          type: string
+        listName:
+          type: string
+        listOwnerName:
+          type: string
+        listOwnerPersonDbId:
+          type: string
+        listSize:
+          type: integer
+        listSource:
+          type: string
+        listType:
+          $ref: '#/components/schemas/listTypes'
+      required:
+      - listDbId
+      - listType
+      type: object
 info:
   title: BrAPI
   version: ''
 openapi: 3.0.0
 paths: {}
-components: 
-  schemas: 
-    listSummary:
-      type: object
-      properties:
-        listName:
-          type: string
-        description: 
-          type: string
-        listDbId: 
-          type: string
-        listOwnerName: 
-          type: string
-        listOwnerPersonDbId: 
-          type: string
-        dateCreated:
-          type: string
-          format: date-time
-        dateModified:
-          type: string
-          format: date-time
-        listType: 
-          $ref: '#/components/schemas/listTypes'
-        listSource: 
-          type: string
-        listSize: 
-          type: integer
-      required:
-      - listDbId
-      - listType

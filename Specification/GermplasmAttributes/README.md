@@ -7,16 +7,25 @@ hardness.  They are often evaluated by genotyping for diagnostic markers.
 
 
 
-## Get Attributes Categories  [GET /brapi/v1/attributes/categories{?pageSize}{?page}]
+## Attributes [/brapi/v1/attributes] 
 
- Scope: OTHER. Status: ACCEPTED.
-Implementation target date: PAG2016
+
+
+
+### Get Attributes Categories  [GET /brapi/v1/attributes/categories{?page}{?pageSize}]
+
 List all available attribute categories.
-<a href="https://test-server.brapi.org/brapi/v1/attributes"> test-server.brapi.org/brapi/v1/attributes/categories</a> 
+
+ 
 
 + Parameters
-    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
-    + page (Optional, integer) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
+
+<strong>Bearer {token_string} </strong>
+
+
 
 
 + Response 200 (application/json)
@@ -25,10 +34,10 @@ List all available attribute categories.
     "metadata": {
         "datafiles": [],
         "pagination": {
-            "currentPage": 1,
-            "pageSize": 10,
-            "totalCount": 2,
-            "totalPages": 1
+            "currentPage": 0,
+            "pageSize": 2,
+            "totalCount": 0,
+            "totalPages": 0
         },
         "status": []
     },
@@ -36,10 +45,12 @@ List all available attribute categories.
         "data": [
             {
                 "attributeCategoryDbId": "1",
+                "attributeCategoryName": null,
                 "name": "Morphological"
             },
             {
                 "attributeCategoryDbId": "2",
+                "attributeCategoryName": null,
                 "name": "Agronomic"
             }
         ]
@@ -47,17 +58,40 @@ List all available attribute categories.
 }
 ```
 
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+```
 
 
-## Get Attributes  [GET /brapi/v1/attributes{?attributeCategoryDbId}{?pageSize}{?page}]
 
- List available attributes.
-<a href="https://test-server.brapi.org/brapi/v1/attributes"> test-server.brapi.org/brapi/v1/attributes</a>  
+
+
+### Get Attributes  [GET /brapi/v1/attributes{?attributeCategoryDbId}{?page}{?pageSize}]
+
+List available attributes.
+
+ 
 
 + Parameters
-    + attributeCategoryDbId (Optional, string) ... filter for kind of attributes
-    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
-    + page (Optional, integer) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + attributeCategoryDbId (Optional, ) ... Unique identifier for the general category for the attribute. very similar to Trait class.
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
+
+<strong>Bearer {token_string} </strong>
+
+
 
 
 + Response 200 (application/json)
@@ -67,73 +101,89 @@ List all available attribute categories.
         "datafiles": [],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
+            "pageSize": 2,
+            "totalCount": 10,
+            "totalPages": 5
         },
         "status": []
     },
     "result": {
         "data": [
             {
-                "attributeCategoryDbId": "1",
+                "attributeCategoryDbId": "2",
+                "attributeDbId": "1",
+                "attributeName": null,
                 "code": "RHT",
+                "contextOfUse": null,
+                "crop": null,
                 "datatype": "Categorical",
-                "description": "Allele of marker 11_4769, diagnostic for allele b of reduced-height gene Rht-B1",
+                "defaultValue": null,
+                "description": "Allele of marker 11_4769",
+                "documentationURL": null,
+                "growthStage": null,
+                "institution": null,
+                "language": null,
+                "method": null,
                 "name": "Rht-B1b",
-                "uri": "http://www.cropontology.org/rdf/CO_321:0000020",
-                "values": [
-                    "Present",
-                    "Absent",
-                    "Heterozygous"
-                ]
+                "ontologyDbId": null,
+                "ontologyName": null,
+                "ontologyRefernce": null,
+                "scale": null,
+                "scientist": null,
+                "status": null,
+                "submissionTimestamp": null,
+                "synonyms": null,
+                "trait": null,
+                "uri": "http://www.brapi.org/ontology/MO_123:1000001",
+                "values": "Present",
+                "xref": null
+            },
+            {
+                "attributeCategoryDbId": "3",
+                "attributeDbId": "2",
+                "attributeName": null,
+                "code": "WEV",
+                "contextOfUse": null,
+                "crop": null,
+                "datatype": "Categorical",
+                "defaultValue": null,
+                "description": "Resistance allele",
+                "documentationURL": null,
+                "growthStage": null,
+                "institution": null,
+                "language": null,
+                "method": null,
+                "name": "Weevil Resistance",
+                "ontologyDbId": null,
+                "ontologyName": null,
+                "ontologyRefernce": null,
+                "scale": null,
+                "scientist": null,
+                "status": null,
+                "submissionTimestamp": null,
+                "synonyms": null,
+                "trait": null,
+                "uri": "http://www.brapi.org/ontology/MO_123:1000002",
+                "values": "Absent",
+                "xref": null
             }
         ]
     }
 }
 ```
 
-
-
-## Get Germplasm Attributes by germplasmDbId  [GET /brapi/v1/germplasm/{germplasmDbId}/attributes{?attributeDbIds}{?attributeList}{?pageSize}{?page}]
-
-Values for all attributes by default.
-
-<a href="https://test-server.brapi.org/brapi/v1/germplasm"> test-server.brapi.org/brapi/v1/germplasm/{germplasmDbId}/attributes</a> 
-
-+ Parameters
-    + germplasmDbId (Required, string) ... The germplasm characterized
-    + attributeDbIds (Optional, array) ... Restrict the response to only the listed attributeDbIds.
-    + attributeList (Optional, array) ... **Deprecated** Use "attributeDbIds" instead
-    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is `1000`.
-    + page (Optional, integer) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-
-
-+ Response 200 (application/json)
++ Response 400 (application/json)
 ```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": []
-    },
-    "result": {
-        "data": [
-            {
-                "attributeCode": "RHT",
-                "attributeDbId": "1",
-                "attributeName": "Rht-B1b",
-                "determinedDate": "2007-05-28",
-                "value": "Present"
-            }
-        ],
-        "germplasmDbId": "01BEL084609"
-    }
-}
+"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
 ```
 

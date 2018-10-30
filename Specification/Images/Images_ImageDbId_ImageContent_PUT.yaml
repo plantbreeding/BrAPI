@@ -4,43 +4,34 @@ info:
 openapi: 3.0.0
 paths:
   /images/{imageDbId}/imagecontent:
-    put: 
-      summary: Update an image with the image file content
-      description: |-
-        Update an image with the image file content
-        
-        Implementation Notes
-        
-        - This call should be paired with 'PUT /images/{imageDbId}' for full capability
-        
-        - A server may choose to modify the image meta data object based on the actually image which has been uploaded. 
-        
-        - Image data may be stored in a database or file system. Servers should generate and provide the "imageURL" for retrieving the image, wherever it happens to live.  
-      parameters: 
-      - name: imageDbId
-        description: The unique identifier for a image
+    put:
+      description: "Update an image with the image file content\n\nImplementation Notes\n\n- This call should be paired with 'PUT /images/{imageDbId}' for full capability\n\n- A server may choose to modify the image meta data object based on the actually image which has been uploaded. \n\n- Image data may be stored in a database or file system. Servers should generate and provide the \"imageURL\" for retrieving the image, wherever it happens to live.  "
+      parameters:
+      - description: The unique identifier for a image
         in: path
+        name: imageDbId
         required: true
         schema:
           type: string
       - $ref: '#/components/parameters/authorizationHeader'
-      requestBody: 
+      requestBody:
         content:
-          image/*:    
+          image/*:
             schema:
-              type: string
               format: binary
+              type: string
       responses:
         '200':
           content:
             application/json:
               schema:
-                type: object
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/image'
+                title: imageResponse
+                type: object
           description: OK
           headers: {}
         '400':
@@ -51,5 +42,6 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
+      summary: Update an image with the image file content
       tags:
       - Images

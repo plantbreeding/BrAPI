@@ -5,17 +5,19 @@ openapi: 3.0.0
 paths:
   /locations:
     get:
-      summary: Get the Locations
-      description: |-
-        Implemented by: Germinate
+      description: 'Implemented by: Germinate
+
 
         Get a list of locations.
 
+
         * The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
+
 
         * `altitude` is in meters.
 
-        **Note**: Consider revising to describe polygon lat/lan points and check if adopting http://geojson.org/ is worth doing for v1.
+
+        **Note**: Consider revising to describe polygon lat/lan points and check if adopting http://geojson.org/ is worth doing for v1.'
       parameters:
       - description: Filter by location type specified.
         in: query
@@ -55,11 +57,13 @@ paths:
                     altitude: 828
                     countryCode: PER
                     countryName: Peru
+                    documentationURL: null
                     instituteAddress: 71 Pilgrim Avenue Chevy Chase MD 20815
                     instituteAdress: 71 Pilgrim Avenue Chevy Chase MD 20815
                     instituteName: Plant Science Institute
                     latitude: -11.1274995803833
                     locationDbId: '1'
+                    locationName: null
                     locationType: Storage location
                     longitude: -75.35639190673828
                     name: Location 1
@@ -69,11 +73,13 @@ paths:
                     altitude: 964
                     countryCode: PER
                     countryName: Peru
+                    documentationURL: null
                     instituteAddress: 71 Pilgrim Avenue Chevy Chase MD 20815
                     instituteAdress: 71 Pilgrim Avenue Chevy Chase MD 20815
                     instituteName: Plant Science Institute
                     latitude: -11.161160469055176
                     locationDbId: '2'
+                    locationName: null
                     locationType: Breeding location
                     longitude: -75.34171295166016
                     name: Location 2
@@ -98,5 +104,6 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
+      summary: Get the Locations
       tags:
       - Locations

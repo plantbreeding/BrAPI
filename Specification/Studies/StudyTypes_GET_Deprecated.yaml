@@ -31,8 +31,12 @@ paths:
                   data:
                   - description: Description for Nursery study type
                     name: Crossing Nursery
+                    studyTypeDbId: null
+                    studyTypeName: null
                   - description: Description for yield study type
                     name: Yield study
+                    studyTypeDbId: null
+                    studyTypeName: null
               schema:
                 properties:
                   metadata:

@@ -5,10 +5,7 @@ openapi: 3.0.0
 paths:
   /search/markers/{searchResultsDbId}:
     get:
-      summary: Get the results of a Markers search request
-      description:
-        See Search Services for additional implementation details.
-        Other service requests use the servers internal `markerDbId`. This service returns marker records that provide the markerDbId. For the requested name or synonym, returns an array (possibly empty) of marker records that match the search criteria. - If there is none, an empty array is returned. - If there is one or more than one match, returns an array of all marker records that match the search criteria. '
+      description: See Search Services for additional implementation details. Other service requests use the servers internal `markerDbId`. This service returns marker records that provide the markerDbId. For the requested name or synonym, returns an array (possibly empty) of marker records that match the search criteria. - If there is none, an empty array is returned. - If there is one or more than one match, returns an array of all marker records that match the search criteria. '
       parameters:
       - $ref: '#/components/parameters/searchResultsDbId'
       - $ref: '#/components/parameters/page'
@@ -50,18 +47,7 @@ paths:
                     - i_11_10020
                     type: marker
               schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    properties:
-                      data:
-                        items:
-                          $ref: '#/components/schemas/marker'
-                        type: array
-                    type: object
-                title: markersResponse
-                type: object
+                $ref: '#/components/schemas/markersResponse'
           description: OK
           headers: {}
         '400':
@@ -72,6 +58,7 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
+      summary: Get the results of a Markers search request
       tags:
       - Markers
       - Search Services

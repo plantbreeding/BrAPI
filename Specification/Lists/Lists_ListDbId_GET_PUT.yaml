@@ -5,12 +5,11 @@ openapi: 3.0.0
 paths:
   /lists/{listDbId}:
     get:
-      summary: Get the details of a specific List
       description: Get a specific generic lists
       parameters:
-      - name: listDbId
-        description: The unique ID of this generic list
+      - description: The unique ID of this generic list
         in: path
+        name: listDbId
         required: true
         schema:
           type: string
@@ -20,12 +19,13 @@ paths:
           content:
             application/json:
               schema:
-                type: object
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/listDetails'
+                title: listResponse
+                type: object
           description: OK
           headers: {}
         '400':
@@ -36,20 +36,20 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
+      summary: Get the details of a specific List
       tags:
       - Lists
-    put: 
-      summary: Update a specific List
+    put:
       description: Update an existing generic list
-      parameters: 
-      - name: listDbId
-        description: The unique ID of this generic list
+      parameters:
+      - description: The unique ID of this generic list
         in: path
+        name: listDbId
         required: true
         schema:
           type: string
       - $ref: '#/components/parameters/authorizationHeader'
-      requestBody: 
+      requestBody:
         content:
           application/json:
             schema:
@@ -59,12 +59,13 @@ paths:
           content:
             application/json:
               schema:
-                type: object
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/listDetails'
+                title: listResponse
+                type: object
           description: OK
           headers: {}
         '400':
@@ -75,5 +76,6 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
+      summary: Update a specific List
       tags:
       - Lists

@@ -5,14 +5,14 @@ components:
         call:
           description: The name of the available call as recorded in the documentation
           type: string
-        datatypes:
-          description: DEPRECATED in v1.3 - see "dataTypes" (camel case)
-          deprecated: true
+        dataTypes:
+          description: The possible data formats returned by the available call
           items:
             $ref: '#/components/schemas/WSMIMEDataTypes'
           type: array
-        dataTypes:
-          description: The possible data formats returned by the available call
+        datatypes:
+          deprecated: true
+          description: DEPRECATED in v1.3 - see "dataTypes" (camel case)
           items:
             $ref: '#/components/schemas/WSMIMEDataTypes'
           type: array

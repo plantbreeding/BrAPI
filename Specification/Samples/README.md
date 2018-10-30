@@ -6,18 +6,26 @@ API methods for tracking/managing plant samples and related meta-data. A 'Sample
 
 
 
-## Get Samples-search  [GET /brapi/v1/samples-search{?sampleDbId}{?observationUnitDbId}{?plateDbId}{?germplasmDbId}{?pageSize}{?page}]
+## Samples-search [/brapi/v1/samples-search] 
 
- Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
-<a href="https://test-server.brapi.org/brapi/v1/samples"> test-server.brapi.org/brapi/v1/samples-search</a> 
+
+
+
+### **Deprecated** Get Samples-search  [GET /brapi/v1/samples-search{?sampleDbId}{?observationUnitDbId}{?plateDbId}{?germplasmDbId}{?page}{?pageSize}]
+
+DEPRECATED in v1.3 - see GET /samples
+
+ 
 
 + Parameters
-    + sampleDbId (Optional, string) ... the internal DB id for a sample
-    + observationUnitDbId (Optional, string) ... the internal DB id for an observation unit where a sample was taken from
-    + plateDbId (Optional, string) ... the internal DB id for a plate of samples
-    + germplasmDbId (Optional, string) ... the internal DB id for a germplasm
-    + pageSize (Optional, integer) ... The size of the pages to be returned. Default is 1000.
-    + page (Optional, integer) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is 0.
+    + sampleDbId (Optional, ) ... the internal DB id for a sample
+    + observationUnitDbId (Optional, ) ... the internal DB id for an observation unit where a sample was taken from
+    + plateDbId (Optional, ) ... the internal DB id for a plate of samples
+    + germplasmDbId (Optional, ) ... the internal DB id for a germplasm
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+
+
 
 
 + Response 200 (application/json)
@@ -27,43 +35,43 @@ API methods for tracking/managing plant samples and related meta-data. A 'Sample
         "datafiles": [],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 2,
-            "totalPages": 1
+            "pageSize": 2,
+            "totalCount": 16,
+            "totalPages": 8
         },
         "status": []
     },
     "result": {
         "data": [
             {
-                "germplasmDbId": "def456",
-                "notes": "Cut from infected leaf",
-                "observationUnitDbId": "abc123",
-                "plantDbId": "PlantID-123",
-                "plateDbId": "PlateID-123",
+                "germplasmDbId": "1",
+                "notes": "Example Sample",
+                "observationUnitDbId": "1",
+                "plantDbId": "null",
+                "plateDbId": "pl1",
                 "plateIndex": 0,
-                "plotDbId": "PlotId-123",
-                "sampleDbId": "Unique-Plant-SampleID-1",
-                "sampleTimestamp": "2016-07-27 13:43:22",
-                "sampleType": "TypeOfSample",
-                "studyDbId": "StudyId-123",
-                "takenBy": "Mr. Technician",
-                "tissueType": "TypeOfTissue"
+                "plotDbId": "1",
+                "sampleDbId": "sam00",
+                "sampleTimestamp": "2018-01-01T00:00:00-05:00",
+                "sampleType": "DNA",
+                "studyDbId": "1001",
+                "takenBy": "Bob",
+                "tissueType": "Leaf"
             },
             {
-                "germplasmDbId": "def456",
-                "notes": "Cut from infected leaf",
-                "observationUnitDbId": "a1b2c3",
-                "plantDbId": "PlantID-123",
-                "plateDbId": "PlateID-123",
-                "plateIndex": 0,
-                "plotDbId": "PlotId-123",
-                "sampleDbId": "Unique-Plant-SampleID-2",
-                "sampleTimestamp": "2016-07-27 13:43:22",
-                "sampleType": "TypeOfSample",
-                "studyDbId": "StudyId-123",
-                "takenBy": "Mr. Technician",
-                "tissueType": "TypeOfTissue"
+                "germplasmDbId": "1",
+                "notes": "Example Sample",
+                "observationUnitDbId": "2",
+                "plantDbId": "1",
+                "plateDbId": "pl1",
+                "plateIndex": 1,
+                "plotDbId": "1",
+                "sampleDbId": "sam01",
+                "sampleTimestamp": "2018-01-01T00:00:00-05:00",
+                "sampleType": "DNA",
+                "studyDbId": "1001",
+                "takenBy": "Bob",
+                "tissueType": "Leaf"
             }
         ]
     }
@@ -72,16 +80,40 @@ API methods for tracking/managing plant samples and related meta-data. A 'Sample
 
 
 
-## Post Samples-search  [POST /brapi/v1/samples-search]
 
- Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
-<a href="https://test-server.brapi.org/brapi/v1/samples"> test-server.brapi.org/brapi/v1/samples-search</a> 
+
+### **Deprecated** Post Samples-search  [POST /brapi/v1/samples-search]
+
+DEPRECATED in v1.3 - see GET /search/samples
+
+ 
 
 + Parameters
+
+
  
 + Request (application/json)
 ```
-/definitions/sampleSearchRequest
+{
+    "germplasmDbId": [
+        "germplasmDbId0",
+        "germplasmDbId1"
+    ],
+    "observationUnitDbId": [
+        "observationUnitDbId0",
+        "observationUnitDbId1"
+    ],
+    "page": 0,
+    "pageSize": 0,
+    "plateDbId": [
+        "plateDbId0",
+        "plateDbId1"
+    ],
+    "sampleDbId": [
+        "sampleDbId0",
+        "sampleDbId1"
+    ]
+}
 ```
 
 
@@ -93,43 +125,43 @@ API methods for tracking/managing plant samples and related meta-data. A 'Sample
         "datafiles": [],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 2,
-            "totalPages": 1
+            "pageSize": 2,
+            "totalCount": 16,
+            "totalPages": 8
         },
         "status": []
     },
     "result": {
         "data": [
             {
-                "germplasmDbId": "def456",
-                "notes": "Cut from infected leaf",
-                "observationUnitDbId": "abc123",
-                "plantDbId": "PlantID-123",
-                "plateDbId": "PlateID-123",
+                "germplasmDbId": "1",
+                "notes": "Example Sample",
+                "observationUnitDbId": "1",
+                "plantDbId": "null",
+                "plateDbId": "pl1",
                 "plateIndex": 0,
-                "plotDbId": "PlotId-123",
-                "sampleDbId": "Unique-Plant-SampleID-1",
-                "sampleTimestamp": "2016-07-27 13:43:22",
-                "sampleType": "TypeOfSample",
-                "studyDbId": "StudyId-123",
-                "takenBy": "Mr. Technician",
-                "tissueType": "TypeOfTissue"
+                "plotDbId": "1",
+                "sampleDbId": "sam00",
+                "sampleTimestamp": "2018-01-01T00:00:00-05:00",
+                "sampleType": "DNA",
+                "studyDbId": "1001",
+                "takenBy": "Bob",
+                "tissueType": "Leaf"
             },
             {
-                "germplasmDbId": "def456",
-                "notes": "Cut from infected leaf",
-                "observationUnitDbId": "a1b2c3",
-                "plantDbId": "PlantID-123",
-                "plateDbId": "PlateID-123",
-                "plateIndex": 0,
-                "plotDbId": "PlotId-123",
-                "sampleDbId": "Unique-Plant-SampleID-2",
-                "sampleTimestamp": "2016-07-27 13:43:22",
-                "sampleType": "TypeOfSample",
-                "studyDbId": "StudyId-123",
-                "takenBy": "Mr. Technician",
-                "tissueType": "TypeOfTissue"
+                "germplasmDbId": "1",
+                "notes": "Example Sample",
+                "observationUnitDbId": "2",
+                "plantDbId": "1",
+                "plateDbId": "pl1",
+                "plateIndex": 1,
+                "plotDbId": "1",
+                "sampleDbId": "sam01",
+                "sampleTimestamp": "2018-01-01T00:00:00-05:00",
+                "sampleType": "DNA",
+                "studyDbId": "1001",
+                "takenBy": "Bob",
+                "tissueType": "Leaf"
             }
         ]
     }
@@ -138,39 +170,132 @@ API methods for tracking/managing plant samples and related meta-data. A 'Sample
 
 
 
-## Put Samples  [PUT /brapi/v1/samples]
+## Samples [/brapi/v1/samples] 
+
+
+
+
+### Get Samples  [GET /brapi/v1/samples{?sampleDbId}{?observationUnitDbId}{?plateDbId}{?germplasmDbId}{?page}{?pageSize}]
+
+Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
+
+ 
+
++ Parameters
+    + sampleDbId (Optional, ) ... the internal DB id for a sample
+    + observationUnitDbId (Optional, ) ... the internal DB id for an observation unit where a sample was taken from
+    + plateDbId (Optional, ) ... the internal DB id for a plate of samples
+    + germplasmDbId (Optional, ) ... the internal DB id for a germplasm
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
+
+<strong>Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 2,
+            "totalCount": 3,
+            "totalPages": 2
+        },
+        "status": []
+    },
+    "result": {
+        "data": [
+            {
+                "germplasmDbId": "1",
+                "notes": "Example Sample",
+                "observationUnitDbId": "1",
+                "plantDbId": "null",
+                "plateDbId": "pl1",
+                "plateIndex": 0,
+                "plotDbId": "1",
+                "sampleDbId": "sam1",
+                "sampleTimestamp": "2018-01-01T00:00:00-05:00",
+                "sampleType": "DNA",
+                "studyDbId": "1001",
+                "takenBy": "Bob",
+                "tissueType": "Leaf"
+            },
+            {
+                "germplasmDbId": "1",
+                "notes": "Example Sample",
+                "observationUnitDbId": "2",
+                "plantDbId": "1",
+                "plateDbId": "pl1",
+                "plateIndex": 1,
+                "plotDbId": "1",
+                "sampleDbId": "sam2",
+                "sampleTimestamp": "2018-01-01T00:00:00-05:00",
+                "sampleType": "DNA",
+                "studyDbId": "1001",
+                "takenBy": "Bob",
+                "tissueType": "Leaf"
+            }
+        ]
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+```
+
+
+
+
+
+### Put Samples  [PUT /brapi/v1/samples]
 
 Call to register the event of a sample being taken. Sample ID is assigned as a result of the operation and returned in response.
+
  
 
 + Parameters
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
+
+<strong>Bearer {token_string} </strong>
+
+
  
 + Request (application/json)
 ```
-/definitions/sample
-```
-
-
-
-+ Response 200 (application/json)
-```
 {
-    "metadata": null,
-    "result": {
-        "sampleDbId": "Unique-Plant-SampleID"
-    }
+    "germplasmDbId": "germplasmDbId0",
+    "notes": "notes0",
+    "observationUnitDbId": "observationUnitDbId0",
+    "plantDbId": "plantDbId0",
+    "plateDbId": "plateDbId0",
+    "plateIndex": 0,
+    "plotDbId": "plotDbId0",
+    "sampleDbId": "sampleDbId0",
+    "sampleTimestamp": "2018-01-01T14:47:23-0600",
+    "sampleType": "sampleType0",
+    "studyDbId": "studyDbId0",
+    "takenBy": "takenBy0",
+    "tissueType": "tissueType0"
 }
 ```
 
-
-
-## Get Samples by sampleDbId  [GET /brapi/v1/samples/{sampleDbId}]
-
- Used to retrieve the details of a single Sample from a Sample Tracking system.
-<a href="https://test-server.brapi.org/brapi/v1/samples"> test-server.brapi.org/brapi/v1/samples/{sampleDbId}</a> 
-
-+ Parameters
-    + sampleDbId (Required, string) ... the internal DB id for a sample
 
 
 + Response 200 (application/json)
@@ -187,20 +312,253 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
         "status": []
     },
     "result": {
-        "germplasmDbId": "def456",
-        "notes": "Cut from infected leaf",
-        "observationUnitDbId": "abc123",
-        "plantDbId": "PlantID-123",
-        "plateDbId": "PlateID-123",
-        "plateIndex": 0,
-        "plotDbId": "PlotId-123",
-        "sampleDbId": "Unique-Plant-SampleID-1",
-        "sampleTimestamp": "2016-07-27T14:43:22+01:00",
-        "sampleType": "TypeOfSample",
-        "studyDbId": "StudyId-123",
-        "takenBy": "Mr. Technician",
-        "tissueType": "TypeOfTissue"
+        "sampleDbId": "aef17fd3-2f6a-44d1-ae03-1b65266dd49d",
+        "sampleId": "aef17fd3-2f6a-44d1-ae03-1b65266dd49d"
     }
 }
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+```
+
+
+
+
+
+### Get Samples by sampleDbId  [GET /brapi/v1/samples/{sampleDbId}]
+
+Used to retrieve the details of a single Sample from a Sample Tracking system.
+
+ 
+
++ Parameters
+    + sampleDbId (Required, ) ... the internal DB id for a sample
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
+
+<strong>Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 0,
+            "totalCount": 0,
+            "totalPages": 0
+        },
+        "status": []
+    },
+    "result": null
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
+```
+
+
+
+## Search [/brapi/v1/search] 
+
+
+
+
+### Post Search Samples  [POST /brapi/v1/search/samples]
+
+Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
+See Search Services for additional implementation details.
+
+ 
+
++ Parameters
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
+
+<strong>Bearer {token_string} </strong>
+
+
+ 
++ Request (application/json)
+```
+{
+    "germplasmDbIds": [
+        "germplasmDbIds0",
+        "germplasmDbIds1"
+    ],
+    "observationUnitDbIds": [
+        "observationUnitDbIds0",
+        "observationUnitDbIds1"
+    ],
+    "page": 0,
+    "pageSize": 0,
+    "plateDbIds": [
+        "plateDbIds0",
+        "plateDbIds1"
+    ],
+    "sampleDbIds": [
+        "sampleDbIds0",
+        "sampleDbIds1"
+    ]
+}
+```
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 0,
+            "totalCount": 0,
+            "totalPages": 0
+        },
+        "status": []
+    },
+    "result": {
+        "searchResultDbId": "551ae08c-4548-4bde-ad70-f23beb25e2ea"
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+```
+
+
+
+
+
+### Get Search Samples by searchResultsDbId  [GET /brapi/v1/search/samples/{searchResultsDbId}{?page}{?pageSize}]
+
+Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
+See Search Services for additional implementation details.
+
+ 
+
++ Parameters
+    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
+
+<strong>Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 2,
+            "totalCount": 3,
+            "totalPages": 2
+        },
+        "status": []
+    },
+    "result": {
+        "data": [
+            {
+                "germplasmDbId": "1",
+                "notes": "Example Sample",
+                "observationUnitDbId": "1",
+                "plantDbId": "null",
+                "plateDbId": "pl1",
+                "plateIndex": 0,
+                "plotDbId": "1",
+                "sampleDbId": "sam1",
+                "sampleTimestamp": "2018-01-01T00:00:00-05:00",
+                "sampleType": "DNA",
+                "studyDbId": "1001",
+                "takenBy": "Bob",
+                "tissueType": "Leaf"
+            },
+            {
+                "germplasmDbId": "1",
+                "notes": "Example Sample",
+                "observationUnitDbId": "2",
+                "plantDbId": "1",
+                "plateDbId": "pl1",
+                "plateIndex": 1,
+                "plotDbId": "1",
+                "sampleDbId": "sam2",
+                "sampleTimestamp": "2018-01-01T00:00:00-05:00",
+                "sampleType": "DNA",
+                "studyDbId": "1001",
+                "takenBy": "Bob",
+                "tissueType": "Leaf"
+            }
+        ]
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
 ```
 

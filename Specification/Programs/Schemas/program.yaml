@@ -1,27 +1,30 @@
 components:
   schemas:
     program:
-      type: object
       properties:
         abbreviation:
           description: An abbreviation which represnts this program
           type: string
-        commonCropName: 
+        commonCropName:
           description: Common name for the crop which this program is for
           type: string
+        documentationURL:
+          description: A URL to the human readable documentation of this object
+          format: uri
+          type: string
         leadPerson:
-          description: DEPRECATED in v1.3 - see "leadPersonName" or "leadPersonDbId"
           deprecated: true
+          description: DEPRECATED in v1.3 - see "leadPersonName" or "leadPersonDbId"
+          type: string
+        leadPersonDbId:
+          description: The unique identifier of the program leader
           type: string
         leadPersonName:
           description: The name of the program leader
           type: string
-        leadPersonDbId: 
-          description: The unique identifier of the program leader
-          type: string
         name:
-          description: DEPRECATED in v1.3 - Use "programName"
           deprecated: true
+          description: DEPRECATED in v1.3 - Use "programName"
           type: string
         objective:
           description: The primary objective of the program
@@ -32,10 +35,7 @@ components:
         programName:
           description: Human readable name of the program
           type: string
-        documentationURL:
-          description: A URL to the human readable documentation of this object
-          type: string
-          format: uri
+      type: object
 info:
   title: BrAPI
   version: ''

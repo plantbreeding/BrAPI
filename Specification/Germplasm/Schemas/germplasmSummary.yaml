@@ -24,6 +24,10 @@ components:
         defaultDisplayName:
           description: Human readable name used for display purposes
           type: string
+        documentationURL:
+          description: A URL to the human readable documentation of this object
+          format: uri
+          type: string
         donors:
           description: List of donor institutes (MCPD)
           items:
@@ -90,10 +94,6 @@ components:
           items:
             type: string
           type: array
-        documentationURL:
-          description: A URL to the human readable documentation of this object
-          type: string
-          format: uri
       type: object
 info:
   title: BrAPI

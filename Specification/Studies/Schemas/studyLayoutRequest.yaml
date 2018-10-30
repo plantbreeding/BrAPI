@@ -7,13 +7,13 @@ components:
           items:
             properties:
               X:
-                description: DEPRECATED - use "positionCoordinateX"
                 deprecated: true
+                description: DEPRECATED - use "positionCoordinateX"
                 title: xCoordinate
                 type: string
               Y:
-                description: DEPRECATED - use "positionCoordinateY"
                 deprecated: true
+                description: DEPRECATED - use "positionCoordinateY"
                 title: yCoordinate
                 type: string
               blockNumber:

@@ -10,6 +10,11 @@ components:
           items:
             type: string
           type: array
+        markerNames:
+          description: The search pattern for the marker name or synonym.
+          items:
+            type: string
+          type: array
         matchMethod:
           description: How to perform string matching during search. 'exact' will search for exact, case sensitive matches only. 'case_insensitive' will search for exact matches, but case insensitive. 'wildcard' will allow the special characters '*' (star) and '%' (percent) to represent variable length arbitrary strings, and the special character '?' (question) to represent one arbitrary character.
           enum:
@@ -18,29 +23,24 @@ components:
           - wildcard
           type: string
         name:
+          deprecated: true
           description: DEPRECATED in v 1.3 - see "markerNames"
-          deprecated: true
           type: string
-        markerNames:
-          description: The search pattern for the marker name or synonym.
-          type: array
-          items:
-            type: string
-        type:
-          description:  DEPRECATED in v 1.3 - see "types"
-          deprecated: true
-          type: string
-        types:
-          description: The type of marker, e.g. SNP
-          type: array
-          items:
-            type: string
         page:
           description: Which page of the "data" array to return. The page indexing starts at 0 (page=0 will return the first page). Default is 0.
           type: integer
         pageSize:
           description: The maximum number of items to return per page of the "data" array. Default is 1000.
           type: integer
+        type:
+          deprecated: true
+          description: DEPRECATED in v 1.3 - see "types"
+          type: string
+        types:
+          description: The type of marker, e.g. SNP
+          items:
+            type: string
+          type: array
       type: object
 info:
   title: BrAPI

@@ -6,14 +6,14 @@ components:
           description: The description of this study type
           type: string
         name:
-          description: DEPRECATED in v1.3 - Use "studyTypeName"
           deprecated: true
-          type: string
-        studyTypeName:
-          description: The human readable name of a study type
+          description: DEPRECATED in v1.3 - Use "studyTypeName"
           type: string
         studyTypeDbId:
           description: The unique identifier of a study type
+          type: string
+        studyTypeName:
+          description: The human readable name of a study type
           type: string
       type: object
 info:

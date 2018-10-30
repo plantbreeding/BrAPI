@@ -3,15 +3,14 @@ components:
     observationVariable:
       allOf:
       - $ref: '#/components/schemas/VariableBaseClass'
-      - type: object
-        properties:
+      - properties:
           date:
-            description: DEPRECATED in v1.3 - see "submissionTimestamp"
             deprecated: true
+            description: DEPRECATED in v1.3 - see "submissionTimestamp"
             type: string
           name:
-            description: DEPRECATED in v1.3 - Use "observationVariableName"
             deprecated: true
+            description: DEPRECATED in v1.3 - Use "observationVariableName"
             type: string
           observationVariableDbId:
             description: Variable unique identifier
@@ -22,6 +21,7 @@ components:
         required:
         - observationVariableDbId
         - observationVariableName
+        type: object
 info:
   title: BrAPI
   version: ''

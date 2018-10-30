@@ -5,7 +5,6 @@ openapi: 3.0.0
 paths:
   /observationunits:
     get:
-      summary: Get the Observation Units
       description: Get a set of observation units
       parameters:
       - description: The unique ID of a germplasm (accession) to filter on
@@ -14,7 +13,7 @@ paths:
         required: false
         schema:
           type: string
-      - description: The unique ID of an observation variable 
+      - description: The unique ID of an observation variable
         in: query
         name: observationVariableDbId
         required: false
@@ -197,5 +196,6 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
+      summary: Get the Observation Units
       tags:
       - Observations

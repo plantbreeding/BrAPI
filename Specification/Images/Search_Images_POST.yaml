@@ -5,22 +5,12 @@ openapi: 3.0.0
 paths:
   /search/images:
     post:
-      summary: Submit a search request for Images
-      description: |-
-        Get filtered set of image meta data
-        
-        Implementation Notes
-        
-        - 'imageURL' should be a complete URL decribing the location of the image. There is no BrAPI call for retireiving the image content, so it could be on a different path, or a different host.
-        
-        - 'descriptiveOntologyTerm' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI's.  
-        
-        See Search Services for additional implementation details.
+      description: "Get filtered set of image meta data\n\nImplementation Notes\n\n- 'imageURL' should be a complete URL decribing the location of the image. There is no BrAPI call for retireiving the image content, so it could be on a different path, or a different host.\n\n- 'descriptiveOntologyTerm' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI's.  \n\nSee Search Services for additional implementation details."
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
-      requestBody: 
-        content: 
-          application/json: 
+      requestBody:
+        content:
+          application/json:
             schema:
               $ref: '#/components/schemas/imagesSearchRequest'
       responses:
@@ -32,6 +22,7 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
+      summary: Submit a search request for Images
       tags:
       - Images
       - Search Services

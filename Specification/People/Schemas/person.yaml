@@ -1,39 +1,39 @@
+components:
+  schemas:
+    person:
+      properties:
+        description:
+          description: description of this person
+          type: string
+        emailAddress:
+          description: email address for this person
+          type: string
+        firstName:
+          description: Persons first name
+          type: string
+        lastName:
+          description: Persons last name
+          type: string
+        mailingAddress:
+          description: physical address of this person
+          type: string
+        middleName:
+          description: Persons middle name
+          type: string
+        personDbId:
+          description: Unique ID for this person
+          type: string
+        phoneNumber:
+          description: phone number of this person
+          type: string
+        userID:
+          description: A systems user ID ascociated with this person. Different from personDbId because you could have a person who is not a user of the system.
+          type: string
+      required:
+      - personDbId
+      type: object
 info:
   title: BrAPI
   version: ''
 openapi: 3.0.0
 paths: {}
-components: 
-  schemas: 
-    person: 
-      type: object
-      properties:
-        firstName:
-          type: string
-          description: Persons first name
-        middleName:
-          type: string
-          description: Persons middle name
-        lastName:
-          type: string
-          description: Persons last name
-        description: 
-          type: string
-          description: description of this person
-        personDbId: 
-          type: string
-          description: Unique ID for this person 
-        phoneNumber: 
-          type: string
-          description: phone number of this person
-        emailAddress:
-          type: string
-          description: email address for this person
-        mailingAddress:
-          type: string
-          description: physical address of this person
-        userID: 
-          type: string
-          description: A systems user ID ascociated with this person. Different from personDbId because you could have a person who is not a user of the system.
-      required:
-      - personDbId

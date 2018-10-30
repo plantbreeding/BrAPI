@@ -1,10 +1,10 @@
 components:
   parameters:
     page:
-      name: page
       description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
       example: '0'
       in: query
+      name: page
       required: false
       schema:
         type: integer

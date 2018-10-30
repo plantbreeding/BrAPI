@@ -5,7 +5,6 @@ openapi: 3.0.0
 paths:
   /germplasm/{germplasmDbId}/pedigree:
     get:
-      summary: Get the pedigree details of a specific Germplasm
       description: Get the parentage information of a specific Germplasm
       parameters:
       - description: the internal id of the germplasm
@@ -31,14 +30,6 @@ paths:
         '200':
           content:
             application/json:
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    $ref: '#/components/schemas/pedigree'
-                title: pedigreeResponse
-                type: object
               example:
                 metadata:
                   datafiles: []
@@ -64,6 +55,14 @@ paths:
                   parent2Type: MALE
                   pedigree: A000001/A000002
                   siblings: []
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/pedigree'
+                title: pedigreeResponse
+                type: object
           description: OK
           headers: {}
         '400':
@@ -74,5 +73,6 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
+      summary: Get the pedigree details of a specific Germplasm
       tags:
       - Germplasm

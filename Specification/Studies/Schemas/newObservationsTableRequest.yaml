@@ -15,18 +15,44 @@ components:
             type: string
           type: array
         metadata:
-          description: DEPRECATED
           deprecated: true
-          type: string
+          description: DEPRECATED
+          properties:
+            datafiles:
+              items:
+                type: string
+              type: array
+            pagination:
+              properties:
+                currentPage:
+                  type: integer
+                pageSize:
+                  type: integer
+                totalCount:
+                  type: integer
+                totalPages:
+                  type: integer
+              type: object
+            status:
+              items:
+                $ref: '#/components/schemas/status'
+              type: array
         observationVariableDbIds:
           description: The list of observation variables which have values recorded for them in the data matrix. Append to the 'headerRow' for comlete header row.
           items:
             type: string
           type: array
         result:
-          description: DEPRECATED
           deprecated: true
-          type: string
+          description: DEPRECATED
+          properties:
+            data:
+              items:
+                items:
+                  type: string
+                type: array
+              type: array
+          type: object
       type: object
 info:
   title: BrAPI

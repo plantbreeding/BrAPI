@@ -4,45 +4,45 @@ components:
       properties:
         abbreviations:
           description: An abbreviation of a program to search for
-          type: array
           items:
             type: string
+          type: array
         commonCropNames:
           description: Common name for the crop which this program is for
-          type: array
           items:
             type: string
-        leadPersonNames:
-          description: The names of the program leader to search for
           type: array
-          items:
-            type: string
         leadPersonDbIds:
           description: The person DbIds of the program leader to search for
-          type: array
           items:
             type: string
+          type: array
+        leadPersonNames:
+          description: The names of the program leader to search for
+          items:
+            type: string
+          type: array
         objectives:
           description: A program objective to search for
-          type: array
           items:
             type: string
-        programDbIds:
-          description: A program identifier to search for
           type: array
-          items:
-            type: string
-        programNames: 
-          description: A name of a program to search for
-          type: array
-          items:
-            type: string
         page:
           description: Which page of the "data" array to return. The page indexing starts at 0 (page=0 will return the first page). Default is 0.
           type: integer
         pageSize:
           description: The maximum number of items to return per page of the "data" array. Default is 1000.
           type: integer
+        programDbIds:
+          description: A program identifier to search for
+          items:
+            type: string
+          type: array
+        programNames:
+          description: A name of a program to search for
+          items:
+            type: string
+          type: array
       type: object
 info:
   title: BrAPI
