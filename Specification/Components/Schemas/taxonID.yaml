@@ -9,6 +9,9 @@ components:
           description: The identifier (name, ID, URI) of a particular taxonomy within the source provider
           type: string
       type: object
+      required:
+        - sourceName
+        - taxonId
 info:
   title: BrAPI
   version: ''

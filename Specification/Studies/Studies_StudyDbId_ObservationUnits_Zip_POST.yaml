@@ -36,6 +36,9 @@ paths:
                       - observationUnitDbIds0
                       - observationUnitDbIds1
               schema:
+                required:
+                  - metadata
+                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'

@@ -75,6 +75,9 @@ paths:
                     xref: xref
                   xref: MO_123:100002
               schema:
+                required:
+                  - metadata
+                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'

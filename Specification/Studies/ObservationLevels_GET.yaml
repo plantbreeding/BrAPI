@@ -28,10 +28,15 @@ paths:
                   - plant
                   - plot
               schema:
+                required:
+                  - metadata
+                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
+                    required:
+                      - data
                     properties:
                       data:
                         items:

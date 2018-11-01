@@ -1,0 +1,31 @@
+components:
+  schemas:
+    asynchStatus: 
+      properties:
+        asynchId:
+          type: string
+          description: The unique ID to poll for asynchronous results
+        status: 
+          type: string
+          enum: 
+          - STARTED
+          - PENDING
+          - FINISHED
+          - ERROR
+        startTime:
+          type: string
+          format: date
+        endTime:
+          type: string
+          format: date
+        percentComplete:
+          type: integer
+          minimum: 0
+          maximum: 100
+      required:
+        - asynchId
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

@@ -55,10 +55,15 @@ paths:
                     takenBy: Bob
                     tissueType: Leaf
               schema:
+                required:
+                  - metadata
+                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
+                    required:
+                      - data
                     properties:
                       data:
                         items:

@@ -101,10 +101,15 @@ paths:
                     - ''
                     observationUnitDbId: null
               schema:
+                required:
+                  - metadata
+                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
+                    required:
+                      - data
                     properties:
                       data:
                         description: Array of image meta data
@@ -135,7 +140,16 @@ paths:
         - ''imageURL'' should be a complete URL decribing the location of the image. There is no BrAPI call for retireiving the image content, so it could be on a different path, or a different host.
 
 
-        - ''descriptiveOntologyTerm'' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI''s. '
+        - ''descriptiveOntologyTerm'' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI''s. 
+        
+        
+        - The `/images` calls support a GeoJSON object structure for describing their location. The BrAPI spec for GeoJSON only supports two of the possible geometries: Points and Polygons. 
+        
+        
+        - With most images, the Point geometry should be used, and it should indicate the longitude and latitude of the camera. 
+        
+        
+        - For top down images (ie from drones, cranes, etc), the Point geometry may be used to indicate the longitude and latitude of the centroid of the image content, and the Polygon geometry may be used to indicate the border of the image content. '
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
@@ -176,6 +190,9 @@ paths:
                   - ''
                   observationUnitDbId: null
               schema:
+                required:
+                  - metadata
+                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'

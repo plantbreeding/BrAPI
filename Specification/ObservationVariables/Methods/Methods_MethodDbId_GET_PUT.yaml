@@ -22,6 +22,9 @@ paths:
           content:
             application/json:
               schema:
+                required:
+                  - metadata
+                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
@@ -62,6 +65,9 @@ paths:
           content:
             application/json:
               schema:
+                required:
+                  - metadata
+                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'

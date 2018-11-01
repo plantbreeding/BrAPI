@@ -17,6 +17,9 @@ components:
           - INFO
           type: string
       type: object
+      required:
+        - message
+        - messageType
 info:
   title: BrAPI
   version: ''

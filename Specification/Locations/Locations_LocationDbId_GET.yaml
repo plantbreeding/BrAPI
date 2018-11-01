@@ -59,6 +59,9 @@ paths:
                   longitude: -75.35639190673828
                   name: Location 1
               schema:
+                required:
+                  - metadata
+                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'

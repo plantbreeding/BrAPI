@@ -129,6 +129,9 @@ paths:
                     trialDbId: '101'
                     trialName: Peru Yield Trial 1
               schema:
+                required:
+                  - metadata
+                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
@@ -205,6 +208,9 @@ paths:
                     trialDbId: '101'
                     trialName: Peru Yield Trial 1
               schema:
+                required:
+                  - metadata
+                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'

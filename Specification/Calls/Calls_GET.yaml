@@ -60,10 +60,15 @@ paths:
                     - '1.1'
                     - '1.2'
               schema:
+                required:
+                  - metadata
+                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
+                    required:
+                      - data
                     properties:
                       data:
                         description: Array of availible calls on this server

@@ -56,6 +56,9 @@ paths:
                   pedigree: A000001/A000002
                   siblings: []
               schema:
+                required:
+                  - metadata
+                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'

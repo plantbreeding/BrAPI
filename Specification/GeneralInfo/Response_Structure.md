@@ -46,11 +46,17 @@ The metadata key is structured as followed:
 
 +  **pagination**: The `pagination` object is applicable only when the payload contains a "data" key. It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. Pages are zero indexed, so the first page will be page 0 (zero). If the "data" key is not present in the results, pagination should be ignored. 
 
+    **NOTE:** When the `data` key is not present and no pagination is required, all of the following are acceptable, and should be ignored equally.
+      - No `pagination` key in the meta data
+      - "pagination": null
+      - "pagination": {}
+      - "pagination": {"totalCount" : 0, "pageSize" : 0, "totalPages" : 0, "currentPage" : 0}
+
 + **datafiles**: The `datafiles` key contains a list of file paths, which can be relative or complete URLs. These files contain additional information related to the returned object and can be retrieved by a subsequent call. The empty list should be returned if no additional data files are present.
 
 + **status**: The `status` object contains a list of objects with the keys "message" and "messageType". The "messageType" contains a standard logging level (ie "INFO", "WARNING", etc), and the "message" is the log entry which accompanies the message type log level. If no status messages are reported, an empty list should be returned. 
 
-**NOTE:** See the Error Handling documentation for some outlines on when it is appropriate to include and ERROR message in the status array. 
+    **NOTE:** See the Error Handling documentation for some outlines on when it is appropriate to include and ERROR message in the status array. 
 
 + **asynchStatus**: (Optional) The `asynchStatus` object is used to provide additional information around certain calls being performed asynchronously. See the section on Asynchronous Calls for more details.
 

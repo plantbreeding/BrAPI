@@ -108,10 +108,15 @@ paths:
                     plotNumber: '2'
                     replicate: '0'
               schema:
+                required:
+                  - metadata
+                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
+                    required:
+                      - data
                     properties:
                       data:
                         items:
@@ -181,6 +186,9 @@ paths:
                   observationUnitDbIds:
                   - 5873048a-f30d-435c-931a-c88b522304cc
               schema:
+                required:
+                  - metadata
+                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
@@ -241,6 +249,9 @@ paths:
                   observationUnitDbIds:
                   - 080f6dd1-82a8-4308-a858-3c36d9e55948
               schema:
+                required:
+                  - metadata
+                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'

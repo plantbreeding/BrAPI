@@ -86,6 +86,9 @@ paths:
                   studyDbId: '1001'
                   trialName: Peru Yield Trial 1
               schema:
+                required:
+                  - metadata
+                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'

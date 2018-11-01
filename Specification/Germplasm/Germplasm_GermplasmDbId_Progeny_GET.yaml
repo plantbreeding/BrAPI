@@ -47,6 +47,9 @@ paths:
                     germplasmDbId: '6'
                     parentType: MALE
               schema:
+                required:
+                  - metadata
+                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'

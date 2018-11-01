@@ -65,10 +65,15 @@ paths:
                     replicate: '0'
                     studyDbId: '1001'
               schema:
+                required:
+                  - metadata
+                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
+                    required:
+                      - data
                     properties:
                       data:
                         items:
@@ -134,10 +139,15 @@ paths:
                     replicate: '0'
                     studyDbId: '1001'
               schema:
+                required:
+                  - metadata
+                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
+                    required:
+                      - data
                     properties:
                       data:
                         items:

@@ -19,6 +19,9 @@ paths:
             application/json:
               example: {}
               schema:
+                required:
+                  - metadata
+                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'

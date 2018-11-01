@@ -53,10 +53,15 @@ paths:
                     markerDbId: mr02
                     markerName: marker1-2
               schema:
+                required:
+                  - metadata
+                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
+                    required:
+                      - data
                     properties:
                       data:
                         items:

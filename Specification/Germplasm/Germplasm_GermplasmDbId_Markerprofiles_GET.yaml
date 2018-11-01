@@ -32,6 +32,9 @@ paths:
                   markerProfileDbIds: null
                   markerprofileDbIds: []
               schema:
+                required:
+                  - metadata
+                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'

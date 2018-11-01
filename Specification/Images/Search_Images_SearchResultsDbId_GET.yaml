@@ -25,10 +25,15 @@ paths:
           content:
             application/json:
               schema:
+                required:
+                  - metadata
+                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
+                    required:
+                      - data
                     properties:
                       data:
                         description: Array of image meta data

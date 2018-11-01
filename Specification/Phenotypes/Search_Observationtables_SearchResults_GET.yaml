@@ -139,6 +139,9 @@ paths:
                   - Root weight
                   - Root color
               schema:
+                required:
+                  - metadata
+                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'

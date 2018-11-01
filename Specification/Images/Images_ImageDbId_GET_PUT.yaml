@@ -38,6 +38,9 @@ paths:
                   status: []
                 result: null
               schema:
+                required:
+                  - metadata
+                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
@@ -59,7 +62,24 @@ paths:
       tags:
       - Images
     put:
-      description: "Update an image meta data object\n\nImplementation Notes\n\n- This call should be paired with 'PUT /images/{imageDbId}/imagecontent' for full capability\n\n- A server may choose to modify the image meta data object based on the actually image which has been uploaded. \n\n- Image data may be stored in a database or file system. Servers should generate and provide the \"imageURL\" as an absolute path for retrieving the image, wherever it happens to live. \n\n- 'descriptiveOntologyTerm' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI's. "
+      description: |-
+        Update an image meta data object
+        
+        Implementation Notes
+        
+        - This call should be paired with 'PUT /images/{imageDbId}/imagecontent' for full capability
+        
+        - A server may choose to modify the image meta data object based on the actually image which has been uploaded. 
+        
+        - Image data may be stored in a database or file system. Servers should generate and provide the \"imageURL\" as an absolute path for retrieving the image, wherever it happens to live. 
+        
+        - 'descriptiveOntologyTerm' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI's. 
+        
+        - The `/images` calls support a GeoJSON object structure for describing their location. The BrAPI spec for GeoJSON only supports two of the possible geometries: Points and Polygons. 
+                
+        - With most images, the Point geometry should be used, and it should indicate the longitude and latitude of the camera. 
+                
+        - For top down images (ie from drones, cranes, etc), the Point geometry may be used to indicate the longitude and latitude of the centroid of the image content, and the Polygon geometry may be used to indicate the border of the image content. '
       parameters:
       - description: The unique identifier for a image
         in: path
@@ -88,6 +108,9 @@ paths:
                   status: []
                 result: null
               schema:
+                required:
+                  - metadata
+                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'

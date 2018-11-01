@@ -29,6 +29,9 @@ paths:
                   status: []
                 result: null
               schema:
+                required:
+                  - metadata
+                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'

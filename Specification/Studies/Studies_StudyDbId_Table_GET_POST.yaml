@@ -142,6 +142,9 @@ paths:
                   - Root color
                   - Virus severity
               schema:
+                required:
+                  - metadata
+                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
@@ -197,6 +200,9 @@ paths:
                   status: []
                 result: null
               schema:
+                required:
+                  - metadata
+                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'

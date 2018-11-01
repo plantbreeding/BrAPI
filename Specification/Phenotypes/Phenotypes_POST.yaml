@@ -37,6 +37,9 @@ paths:
                     observationUnitDbId: '1'
                     observationVariableDbId: MO_123:100002
               schema:
+                required:
+                  - metadata
+                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'

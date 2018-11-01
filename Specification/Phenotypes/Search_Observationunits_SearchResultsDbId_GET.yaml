@@ -92,10 +92,15 @@ paths:
                     - factor: water regimen
                       modality: normal
               schema:
+                required:
+                  - metadata
+                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
+                    required:
+                      - data
                     properties:
                       data:
                         items:

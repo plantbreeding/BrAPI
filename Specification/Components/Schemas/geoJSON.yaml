@@ -15,38 +15,6 @@ components:
                 type: string
             title: Point
             type: object
-          - description: "Example \n  \n    [ \n    \n      [ -76.506042, 42.417373 ], \n    \n      [ -75.414133, 41.508282 ], \n    \n      [ -77.495523, 43.554376 ] \n    \n    ]"
-            properties:
-              coordinates:
-                $ref: '#/components/schemas/positionArray'
-              type:
-                enum:
-                - MultiPoint
-                type: string
-            title: MultiPoint
-            type: object
-          - description: "Example \n\n    [ \n    \n      [ -76.506042, 42.417373 ], \n      \n      [ -75.414133, 41.508282 ], \n      \n      [ -77.495523, 43.554376 ] \n    \n    ]"
-            properties:
-              coordinates:
-                $ref: '#/components/schemas/lineString'
-              type:
-                enum:
-                - LineString
-                type: string
-            title: LineString
-            type: object
-          - description: "Example \n\n    [ \n    \n      [ \n      \n        [ -77.456654, 42.241133 ], \n        \n        [ -75.414133, 41.508282 ] \n      \n      ], \n    \n      [ \n      \n        [ -76.506042, 42.417373 ], \n        \n        [ -77.495523, 43.554376 ] \n      \n      ] \n    \n    ]"
-            properties:
-              coordinates:
-                items:
-                  $ref: '#/components/schemas/lineString'
-                type: array
-              type:
-                enum:
-                - MultiLineString
-                type: string
-            title: MultiLineString
-            type: object
           - description: "Example \n\n    [ \n    \n      [ \n      \n        [ -77.456654, 42.241133 ], \n        \n        [ -75.414133, 41.508282 ],\n      \n        [ -76.506042, 42.417373 ], \n        \n        [ -77.456654, 42.241133 ] \n      \n      ] \n    \n    ]"
             properties:
               coordinates:
@@ -57,18 +25,6 @@ components:
                 type: string
             title: Polygon
             type: object
-          - description: "Example \n\n    [\n    \n      [ \n      \n        [ \n        \n          [ -77.456654, 42.241133 ], \n          \n          [ -75.414133, 41.508282 ],\n        \n          [ -76.506042, 42.417373 ], \n          \n          [ -77.456654, 42.241133 ] \n        \n        ] \n      \n      ]\n    \n    ]"
-            properties:
-              coordinates:
-                items:
-                  $ref: '#/components/schemas/polygon'
-                type: array
-              type:
-                enum:
-                - MultiPolygon
-                type: string
-            title: MultiPolygon
-            type: object
           title: GeoJSON Geometry
           type: object
         type:
@@ -77,12 +33,6 @@ components:
           type: string
       title: GeoJSON
       type: object
-    lineString:
-      description: An array of two or more positions
-      items:
-        $ref: '#/components/schemas/position'
-      minItems: 2
-      type: array
     linearRing:
       description: An array of at least four positions where the first equals the last
       items:
@@ -99,11 +49,6 @@ components:
       items:
         type: number
       minItems: 2
-      type: array
-    positionArray:
-      description: An array of positions
-      items:
-        $ref: '#/components/schemas/position'
       type: array
 info:
   title: BrAPI

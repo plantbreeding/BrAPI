@@ -69,10 +69,15 @@ paths:
                     uploadedBy: Bob
                     value: '5.1'
               schema:
+                required:
+                  - metadata
+                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
+                    required:
+                      - data
                     properties:
                       data:
                         items:
@@ -125,6 +130,9 @@ paths:
                   status: []
                 result: null
               schema:
+                required:
+                  - metadata
+                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'

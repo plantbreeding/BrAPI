@@ -106,9 +106,14 @@ paths:
                     - mp1
                     - '0'
               schema:
+                required:
+                  - metadata
+                  - result
                 properties:
                   metadata:
-                    $ref: '#/components/schemas/metadata'
+                    allOf:
+                      - $ref: '#/components/schemas/metadata'
+                      - $ref: '#/components/schemas/asynchStatus'
                   result:
                     $ref: '#/components/schemas/alleleMatrixValues'
                 title: alleleMatrixValuesResponse
@@ -175,28 +180,31 @@ paths:
                     - P1
                     - C
               schema:
+                required:
+                  - metadata
+                  - result
                 properties:
                   metadata:
-                    $ref: '#/components/schemas/metadata'
+                    allOf:
+                      - $ref: '#/components/schemas/metadata'
+                      - $ref: '#/components/schemas/asynchStatus'
                   result:
                     $ref: '#/components/schemas/alleleMatrixValues'
                 title: alleleMatrixValuesResponse
                 type: object
             application/tsv:
-              examples:
-                response:
-                  value:
-                    metadata:
-                      datafiles:
-                      - https://my-fancy-server/files/allelematrix-1234.tsv
-                      pagination:
-                        currentPage: 0
-                        pageSize: 0
-                        totalCount: 0
-                        totalPages: 0
-                      status: []
-                    result:
-                      data: []
+              example:
+                metadata:
+                  datafiles:
+                  - https://my-fancy-server/files/allelematrix-1234.tsv
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result:
+                  data: []
           description: OK
           headers: {}
         '400':
