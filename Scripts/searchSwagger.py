@@ -64,17 +64,8 @@ def transform(fileObj):
 def search(searchList):
     for item in searchList:
         #print(item['response']['schema'])
-        #print(item['path'])
         if not item['deprecated']:
-            
-            for parameter in item['parameters']:
-                paramName = parameter['name']
-                if (paramName[-4:] == 'DbId' 
-                        or paramName[-5:] == 'DbIds' 
-                        or paramName[-2:] == 'Id'):
-                    allKeys = findAllKeys(item['response']['schema'])
-                    if not paramName in allKeys:
-                        print(paramName + ' not found in response for ' + item['method'] + item['path'])
+            print(item['method'] + '\t' + item['path'])
 
 def findAllKeys(schema, keys = []):
     if type(schema) is dict:
