@@ -1,6 +1,12 @@
 # Group Images
+
 Calls for manipulating images
 
+Implementation Notes:
+
+The `/images` calls support a GeoJSON object structure for describing their location. The BrAPI spec for GeoJSON only supports two of the possible geometries: Points and Polygons. 
+ + With most images, the Point geometry should be used, and it should indicate the longitude and latitude of the camera. 
+ + For top down images (ie from drones, cranes, etc), the Point geometry may be used to indicate the longitude and latitude of the centroid of the image content, and the Polygon geometry may be used to indicate the border of the image content. 
 
 
 
@@ -127,7 +133,13 @@ Implementation Notes
 
 - 'imageURL' should be a complete URL decribing the location of the image. There is no BrAPI call for retireiving the image content, so it could be on a different path, or a different host.
 
-- 'descriptiveOntologyTerm' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI's. 
+- 'descriptiveOntologyTerm' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI's.
+
+- The `/images` calls support a GeoJSON object structure for describing their location. The BrAPI spec for GeoJSON only supports two of the possible geometries: Points and Polygons.
+
+- With most images, the Point geometry should be used, and it should indicate the longitude and latitude of the camera.
+
+- For top down images (ie from drones, cranes, etc), the Point geometry may be used to indicate the longitude and latitude of the centroid of the image content, and the Polygon geometry may be used to indicate the border of the image content. 
 
  
 
@@ -298,9 +310,15 @@ Implementation Notes
 
 - A server may choose to modify the image meta data object based on the actually image which has been uploaded. 
 
-- Image data may be stored in a database or file system. Servers should generate and provide the "imageURL" as an absolute path for retrieving the image, wherever it happens to live. 
+- Image data may be stored in a database or file system. Servers should generate and provide the \"imageURL\" as an absolute path for retrieving the image, wherever it happens to live. 
 
 - 'descriptiveOntologyTerm' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI's. 
+
+- The `/images` calls support a GeoJSON object structure for describing their location. The BrAPI spec for GeoJSON only supports two of the possible geometries: Points and Polygons. 
+        
+- With most images, the Point geometry should be used, and it should indicate the longitude and latitude of the camera. 
+        
+- For top down images (ie from drones, cranes, etc), the Point geometry may be used to indicate the longitude and latitude of the centroid of the image content, and the Polygon geometry may be used to indicate the border of the image content. '
 
  
 
