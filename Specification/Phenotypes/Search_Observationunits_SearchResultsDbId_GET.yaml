@@ -3,7 +3,7 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /search/observationunits/searchResultsDbId:
+  /search/observationunits/{searchResultsDbId}:
     get:
       description: 'Returns a list of observationUnit with the observed Phenotypes.
 
