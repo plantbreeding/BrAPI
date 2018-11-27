@@ -502,11 +502,11 @@ DEPRECATED in v1.3 - See /search/observationunits
     "result": {
         "data": [
             {
-                "X": "10",
-                "Y": "12",
-                "blockNumber": "0",
+                "X": "1",
+                "Y": "1",
+                "blockNumber": "1",
                 "entryNumber": "1",
-                "entryType": "CHECK",
+                "entryType": "TEST",
                 "germplasmDbId": "1",
                 "germplasmName": "Name001",
                 "observationLevel": "plot",
@@ -545,24 +545,6 @@ DEPRECATED in v1.3 - See /search/observationunits
                         "observationVariableName": "Virus severity",
                         "season": "fall 2011",
                         "value": "4.5"
-                    },
-                    {
-                        "collector": "string",
-                        "observationDbId": "be7ca923-240b-431f-bb01-23b611c25850",
-                        "observationTimeStamp": "1970-01-18T14:02:52-05:00",
-                        "observationVariableDbId": "MO_123:100002",
-                        "observationVariableName": "Plant height",
-                        "season": "fall 2011",
-                        "value": "string"
-                    },
-                    {
-                        "collector": "string",
-                        "observationDbId": "83b8ccde-69c7-4cb8-84c8-3ab8b5c5d934",
-                        "observationTimeStamp": "1970-01-18T14:02:52-05:00",
-                        "observationVariableDbId": "MO_123:100002",
-                        "observationVariableName": "Plant height",
-                        "season": "fall 2011",
-                        "value": "string"
                     }
                 ],
                 "plantNumber": "null",
@@ -783,10 +765,10 @@ DEPRECATED in v1.3 - See /search/observationtables
                 "1",
                 "1",
                 "0",
-                "0",
-                "CHECK",
-                "10",
-                "12",
+                "1",
+                "TEST",
+                "1",
+                "1",
                 "1.2",
                 "4.5",
                 "",
@@ -950,7 +932,7 @@ Images can be optionally be uploaded using this call by providing a zipfile of a
     "result": {
         "observations": [
             {
-                "observationDbId": "5438fc7b-be54-4ed3-847a-ac110735f7fd",
+                "observationDbId": "1ab919c7-101b-4986-8bb7-ea0cc4c753e5",
                 "observationUnitDbId": "1",
                 "observationVariableDbId": "MO_123:100002"
             }
@@ -1410,7 +1392,7 @@ observationValue data type inferred from the ontology
 
 
 
-### Get Search Observationunits SearchResultsDbId  [GET /brapi/v1/search/observationunits/searchResultsDbId{?page}{?pageSize}]
+### Get Search Observationunits by searchResultsDbId  [GET /brapi/v1/search/observationunits/{searchResultsDbId}{?page}{?pageSize}]
 
 Returns a list of observationUnit with the observed Phenotypes.
 

@@ -53,7 +53,8 @@ and '?' for one character matching. Default is exact.
                     "illumina"
                 ],
                 "defaultDisplayName": "marker1-1",
-                "markerDbId": "mr1",
+                "markerDbId": "mr01",
+                "markerName": "marker1-1",
                 "refAlt": [
                     "A",
                     "T"
@@ -68,7 +69,8 @@ and '?' for one character matching. Default is exact.
                     "kasp"
                 ],
                 "defaultDisplayName": "marker1-2",
-                "markerDbId": "mr2",
+                "markerDbId": "mr02",
+                "markerName": "marker1-2",
                 "refAlt": [
                     "A",
                     "T"
@@ -146,7 +148,7 @@ Other service requests use the servers internal `markerDbId`. This service retur
                 ],
                 "defaultDisplayName": "marker1-1",
                 "markerDbId": "mr01",
-                "markerName": null,
+                "markerName": "marker1-1",
                 "refAlt": [
                     "A",
                     "T"
@@ -162,7 +164,7 @@ Other service requests use the servers internal `markerDbId`. This service retur
                 ],
                 "defaultDisplayName": "marker1-2",
                 "markerDbId": "mr02",
-                "markerName": null,
+                "markerName": "marker1-2",
                 "refAlt": [
                     "A",
                     "T"
@@ -229,7 +231,7 @@ If there is none, an empty array is returned. If there is one or more than one m
                 ],
                 "defaultDisplayName": "marker1-1",
                 "markerDbId": "mr01",
-                "markerName": null,
+                "markerName": "marker1-1",
                 "refAlt": [
                     "A",
                     "T"
@@ -245,7 +247,7 @@ If there is none, an empty array is returned. If there is one or more than one m
                 ],
                 "defaultDisplayName": "marker1-2",
                 "markerDbId": "mr02",
-                "markerName": null,
+                "markerName": "marker1-2",
                 "refAlt": [
                     "A",
                     "T"
@@ -308,7 +310,22 @@ Implemented By:
         },
         "status": []
     },
-    "result": null
+    "result": {
+        "analysisMethods": [
+            "kasp"
+        ],
+        "defaultDisplayName": "marker1-2",
+        "markerDbId": "mr02",
+        "markerName": "marker1-2",
+        "refAlt": [
+            "A",
+            "T"
+        ],
+        "synonyms": [
+            "i_11_10020"
+        ],
+        "type": "marker"
+    }
 }
 ```
 

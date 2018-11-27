@@ -46,8 +46,8 @@ The values are used to supply the `observationLevel` parameter in the observatio
     },
     "result": {
         "data": [
-            "plant",
-            "plot"
+            "plot",
+            "plant"
         ]
     }
 }
@@ -101,8 +101,8 @@ Call to retrieve the list of supported observation levels. Observation levels in
     },
     "result": {
         "data": [
-            "plant",
-            "plot"
+            "plot",
+            "plant"
         ]
     }
 }
@@ -947,7 +947,7 @@ Get the available Germplasm which are associated with this study
                 "defaultDisplayName": null,
                 "documentationURL": null,
                 "donors": null,
-                "entryNumber": "1",
+                "entryNumber": "2",
                 "genus": null,
                 "germplasmDbId": "1",
                 "germplasmName": "Name001",
@@ -967,7 +967,7 @@ Get the available Germplasm which are associated with this study
                 "typeOfGermplasmStorageCode": null
             },
             {
-                "accessionNumber": "A000002",
+                "accessionNumber": "A000001",
                 "acquisitionDate": null,
                 "biologicalStatusOfAccessionCode": null,
                 "breedingMethodDbId": null,
@@ -976,21 +976,21 @@ Get the available Germplasm which are associated with this study
                 "defaultDisplayName": null,
                 "documentationURL": null,
                 "donors": null,
-                "entryNumber": "4",
+                "entryNumber": "2",
                 "genus": null,
-                "germplasmDbId": "2",
-                "germplasmName": "Name002",
-                "germplasmPUI": "http://pui.per/accession/A000002",
+                "germplasmDbId": "1",
+                "germplasmName": "Name001",
+                "germplasmPUI": "http://pui.per/accession/A000001",
                 "instituteCode": null,
                 "instituteName": null,
-                "pedigree": "A000002",
+                "pedigree": "A000001",
                 "seedSource": "open pollination",
                 "species": null,
                 "speciesAuthority": null,
                 "subtaxa": null,
                 "subtaxaAuthority": null,
                 "synonyms": [
-                    "landrace 2"
+                    "landrace 1"
                 ],
                 "taxonIds": null,
                 "typeOfGermplasmStorageCode": null
@@ -1336,7 +1336,7 @@ Refer to the data type definition of variables in `/Specification/ObservationVar
             {
                 "contextOfUse": [],
                 "crop": "maize",
-                "date": "2018-10-26",
+                "date": "2018-11-06",
                 "defaultValue": "10",
                 "documentationURL": null,
                 "growthStage": "1",
@@ -1396,7 +1396,7 @@ Refer to the data type definition of variables in `/Specification/ObservationVar
             {
                 "contextOfUse": [],
                 "crop": "maize",
-                "date": "2018-10-26",
+                "date": "2018-11-06",
                 "defaultValue": "10",
                 "documentationURL": null,
                 "growthStage": "1",
@@ -1462,7 +1462,7 @@ Refer to the data type definition of variables in `/Specification/ObservationVar
             {
                 "contextOfUse": [],
                 "crop": "maize",
-                "date": "2018-10-26",
+                "date": "2018-11-06",
                 "defaultValue": "10",
                 "documentationURL": null,
                 "growthStage": "1",
@@ -1528,7 +1528,7 @@ Refer to the data type definition of variables in `/Specification/ObservationVar
             {
                 "contextOfUse": [],
                 "crop": "maize",
-                "date": "2018-10-26",
+                "date": "2018-11-06",
                 "defaultValue": "10",
                 "documentationURL": null,
                 "growthStage": "1",
@@ -2005,7 +2005,7 @@ If ''observationUnitDbId'' or ''observationDbId'' is un-populated (empty string 
     },
     "result": {
         "observationUnitDbIds": [
-            "080f6dd1-82a8-4308-a858-3c36d9e55948"
+            "0de9f875-ca46-43a9-ab83-df11bd9e71dd"
         ]
     }
 }
@@ -2373,23 +2373,23 @@ DEPRECATED in v1.3 - see `GET /studies/{studyDbId}/layouts` (pluralized)
                 "entryType": "TEST",
                 "germplasmDbId": "1",
                 "germplasmName": "Name001",
-                "observationLevel": "plant",
-                "observationUnitDbId": "2",
-                "observationUnitName": "Plant 1",
+                "observationLevel": "plot",
+                "observationUnitDbId": "1",
+                "observationUnitName": "Plot 1",
                 "replicate": "0",
                 "studyDbId": "1001"
             },
             {
                 "X": "1",
-                "Y": "2",
+                "Y": "1",
                 "additionalInfo": {},
                 "blockNumber": "1",
                 "entryType": "TEST",
-                "germplasmDbId": "2",
-                "germplasmName": "Name002",
-                "observationLevel": "plot",
-                "observationUnitDbId": "3",
-                "observationUnitName": "Plot 2",
+                "germplasmDbId": "1",
+                "germplasmName": "Name001",
+                "observationLevel": "plant",
+                "observationUnitDbId": "2",
+                "observationUnitName": "Plant 1",
                 "replicate": "0",
                 "studyDbId": "1001"
             }
@@ -2561,7 +2561,7 @@ test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationVariables
             {
                 "contextOfUse": [],
                 "crop": "maize",
-                "date": "2018-10-26",
+                "date": "2018-11-06",
                 "defaultValue": "10",
                 "documentationURL": null,
                 "growthStage": "1",
@@ -2621,7 +2621,7 @@ test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationVariables
             {
                 "contextOfUse": [],
                 "crop": "maize",
-                "date": "2018-10-26",
+                "date": "2018-11-06",
                 "defaultValue": "10",
                 "documentationURL": null,
                 "growthStage": "1",
@@ -2687,7 +2687,7 @@ test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationVariables
             {
                 "contextOfUse": [],
                 "crop": "maize",
-                "date": "2018-10-26",
+                "date": "2018-11-06",
                 "defaultValue": "10",
                 "documentationURL": null,
                 "growthStage": "1",
@@ -2753,7 +2753,7 @@ test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationVariables
             {
                 "contextOfUse": [],
                 "crop": "maize",
-                "date": "2018-10-26",
+                "date": "2018-11-06",
                 "defaultValue": "10",
                 "documentationURL": null,
                 "growthStage": "1",

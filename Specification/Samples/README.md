@@ -36,8 +36,8 @@ DEPRECATED in v1.3 - see GET /samples
         "pagination": {
             "currentPage": 0,
             "pageSize": 2,
-            "totalCount": 16,
-            "totalPages": 8
+            "totalCount": 14,
+            "totalPages": 7
         },
         "status": []
     },
@@ -126,8 +126,8 @@ DEPRECATED in v1.3 - see GET /search/samples
         "pagination": {
             "currentPage": 0,
             "pageSize": 2,
-            "totalCount": 16,
-            "totalPages": 8
+            "totalCount": 14,
+            "totalPages": 7
         },
         "status": []
     },
@@ -312,8 +312,8 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
         "status": []
     },
     "result": {
-        "sampleDbId": "aef17fd3-2f6a-44d1-ae03-1b65266dd49d",
-        "sampleId": "aef17fd3-2f6a-44d1-ae03-1b65266dd49d"
+        "sampleDbId": "937de585-2492-4130-957f-0d8a881dabea",
+        "sampleId": "937de585-2492-4130-957f-0d8a881dabea"
     }
 }
 ```

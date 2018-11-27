@@ -50,58 +50,13 @@ Implementation Notes
         "pagination": {
             "currentPage": 0,
             "pageSize": 2,
-            "totalCount": 2,
-            "totalPages": 1
+            "totalCount": 0,
+            "totalPages": 0
         },
         "status": []
     },
     "result": {
-        "data": [
-            {
-                "additionalInfo": null,
-                "copyright": null,
-                "description": null,
-                "descriptiveOntologyTerms": [
-                    ""
-                ],
-                "imageDbId": "940028bc-7ad6-4119-b6af-936ade8f0cb3",
-                "imageFileName": null,
-                "imageFileSize": null,
-                "imageHeight": null,
-                "imageLocation": null,
-                "imageName": null,
-                "imageTimeStamp": null,
-                "imageURL": null,
-                "imageWidth": null,
-                "mimeType": null,
-                "observationDbIds": [
-                    ""
-                ],
-                "observationUnitDbId": null
-            },
-            {
-                "additionalInfo": null,
-                "copyright": null,
-                "description": null,
-                "descriptiveOntologyTerms": [
-                    ""
-                ],
-                "imageDbId": "8a4c82c1-f1f2-4334-adec-4d693b2da1e6",
-                "imageFileName": null,
-                "imageFileSize": null,
-                "imageHeight": null,
-                "imageLocation": null,
-                "imageName": null,
-                "imageTimeStamp": null,
-                "imageURL": null,
-                "imageWidth": null,
-                "mimeType": null,
-                "observationDbIds": [
-                    ""
-                ],
-                "observationUnitDbId": null
-            }
-        ]
+        "data": []
     }
 }
 ```
@@ -201,7 +156,7 @@ Implementation Notes
         "descriptiveOntologyTerms": [
             ""
         ],
-        "imageDbId": "b2d6d3de-afa4-4bda-be92-d430f01af2ba",
+        "imageDbId": "db9258d6-2432-4af2-b4dd-86b4214e891f",
         "imageFileName": null,
         "imageFileSize": null,
         "imageHeight": null,

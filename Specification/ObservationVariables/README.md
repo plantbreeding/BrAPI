@@ -427,7 +427,7 @@ Call to retrieve a list of observation variable ontologies available in the syst
                 "authors": "Bob",
                 "copyright": "2017 Ontology.org",
                 "description": "Ontology.org",
-                "documentationURL": null,
+                "documentationURL": "https://ontology.org",
                 "licence": "Apache",
                 "ontologyDbId": "MO_123",
                 "ontologyName": "Ontology.org",
@@ -1204,22 +1204,24 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
                 "description": "plant height",
                 "name": "Plant Height",
                 "observationVariables": [
+                    "ATT01",
                     "MO_123:100002"
                 ],
                 "traitDbId": "t1",
                 "traitId": "xref",
-                "traitName": null
+                "traitName": "Plant Height"
             },
             {
                 "defaultValue": "0",
                 "description": "root weight",
                 "name": "Root Weight",
                 "observationVariables": [
+                    "ATT03",
                     "MO_123:100004"
                 ],
                 "traitDbId": "t2",
                 "traitId": "xref",
-                "traitName": null
+                "traitName": "Root Weight"
             }
         ]
     }
@@ -1393,13 +1395,16 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
         "status": []
     },
     "result": {
-        "defaultValue": null,
-        "description": null,
-        "name": null,
-        "observationVariables": null,
-        "traitDbId": null,
-        "traitId": null,
-        "traitName": null
+        "defaultValue": "0",
+        "description": "plant height",
+        "name": "Plant Height",
+        "observationVariables": [
+            "ATT01",
+            "MO_123:100002"
+        ],
+        "traitDbId": "t1",
+        "traitId": "xref",
+        "traitName": "Plant Height"
     }
 }
 ```
@@ -1625,9 +1630,9 @@ See Search Services for additional implementation details.
             {
                 "contextOfUse": [],
                 "crop": "maize",
-                "date": "2018-10-26",
+                "date": "2018-11-06",
                 "defaultValue": "10",
-                "documentationURL": null,
+                "documentationURL": "https://brapi.org",
                 "growthStage": "1",
                 "institution": "1",
                 "language": "English",
@@ -1636,9 +1641,20 @@ See Search Services for additional implementation details.
                     "description": "Standard rolled measuring tape",
                     "formula": "a^2 + b^2 = c^2",
                     "methodDbId": "m1",
-                    "methodName": null,
+                    "methodName": "Tape Measure",
                     "name": "Tape Measure",
-                    "ontologyRefernce": null,
+                    "ontologyRefernce": {
+                        "documentationLinks": [
+                            {
+                                "URL": "https://ontology.org",
+                                "type": "WEBPAGE",
+                                "url": "https://ontology.org"
+                            }
+                        ],
+                        "ontologyDbId": "MO_123",
+                        "ontologyName": "Ontology.org",
+                        "version": "17"
+                    },
                     "reference": "google.com"
                 },
                 "name": "Plant height",
@@ -1646,14 +1662,36 @@ See Search Services for additional implementation details.
                 "observationVariableName": "Plant height",
                 "ontologyDbId": "MO_123",
                 "ontologyName": "Ontology.org",
-                "ontologyRefernce": null,
+                "ontologyRefernce": {
+                    "documentationLinks": [
+                        {
+                            "URL": "https://ontology.org",
+                            "type": "WEBPAGE",
+                            "url": "https://ontology.org"
+                        }
+                    ],
+                    "ontologyDbId": "MO_123",
+                    "ontologyName": "Ontology.org",
+                    "version": "17"
+                },
                 "scale": {
                     "dataType": "Numerical",
                     "decimalPlaces": 1,
                     "name": "Centimeter",
-                    "ontologyRefernce": null,
+                    "ontologyRefernce": {
+                        "documentationLinks": [
+                            {
+                                "URL": "https://ontology.org",
+                                "type": "WEBPAGE",
+                                "url": "https://ontology.org"
+                            }
+                        ],
+                        "ontologyDbId": "MO_123",
+                        "ontologyName": "Ontology.org",
+                        "version": "17"
+                    },
                     "scaleDbId": "s1",
-                    "scaleName": null,
+                    "scaleName": "Centimeter",
                     "validValues": {
                         "categories": [],
                         "max": 99999,
@@ -1673,11 +1711,22 @@ See Search Services for additional implementation details.
                     "entity": "entity",
                     "mainAbbreviation": "H",
                     "name": "Plant Height",
-                    "ontologyRefernce": null,
+                    "ontologyRefernce": {
+                        "documentationLinks": [
+                            {
+                                "URL": "https://ontology.org",
+                                "type": "WEBPAGE",
+                                "url": "https://ontology.org"
+                            }
+                        ],
+                        "ontologyDbId": "MO_123",
+                        "ontologyName": "Ontology.org",
+                        "version": "17"
+                    },
                     "status": "active",
                     "synonyms": [],
                     "traitDbId": "t1",
-                    "traitName": null,
+                    "traitName": "Plant Height",
                     "xref": "xref"
                 },
                 "xref": "MO_123:100002"
@@ -1685,9 +1734,9 @@ See Search Services for additional implementation details.
             {
                 "contextOfUse": [],
                 "crop": "maize",
-                "date": "2018-10-26",
+                "date": "2018-11-06",
                 "defaultValue": "10",
-                "documentationURL": null,
+                "documentationURL": "https://brapi.org",
                 "growthStage": "1",
                 "institution": "1",
                 "language": "English",
@@ -1696,9 +1745,20 @@ See Search Services for additional implementation details.
                     "description": "Dried sample on electric scale",
                     "formula": "NA",
                     "methodDbId": "m2",
-                    "methodName": null,
+                    "methodName": "Dry Electric Scale",
                     "name": "Dry Electric Scale",
-                    "ontologyRefernce": null,
+                    "ontologyRefernce": {
+                        "documentationLinks": [
+                            {
+                                "URL": "https://ontology.org",
+                                "type": "WEBPAGE",
+                                "url": "https://ontology.org"
+                            }
+                        ],
+                        "ontologyDbId": "MO_123",
+                        "ontologyName": "Ontology.org",
+                        "version": "17"
+                    },
                     "reference": "google.com"
                 },
                 "name": "Root weight",
@@ -1706,14 +1766,36 @@ See Search Services for additional implementation details.
                 "observationVariableName": "Root weight",
                 "ontologyDbId": "MO_123",
                 "ontologyName": "Ontology.org",
-                "ontologyRefernce": null,
+                "ontologyRefernce": {
+                    "documentationLinks": [
+                        {
+                            "URL": "https://ontology.org",
+                            "type": "WEBPAGE",
+                            "url": "https://ontology.org"
+                        }
+                    ],
+                    "ontologyDbId": "MO_123",
+                    "ontologyName": "Ontology.org",
+                    "version": "17"
+                },
                 "scale": {
                     "dataType": "Numerical",
                     "decimalPlaces": 3,
                     "name": "Kilogram",
-                    "ontologyRefernce": null,
+                    "ontologyRefernce": {
+                        "documentationLinks": [
+                            {
+                                "URL": "https://ontology.org",
+                                "type": "WEBPAGE",
+                                "url": "https://ontology.org"
+                            }
+                        ],
+                        "ontologyDbId": "MO_123",
+                        "ontologyName": "Ontology.org",
+                        "version": "17"
+                    },
                     "scaleDbId": "s2",
-                    "scaleName": null,
+                    "scaleName": "Kilogram",
                     "validValues": {
                         "categories": [],
                         "max": 99999,
@@ -1733,11 +1815,22 @@ See Search Services for additional implementation details.
                     "entity": "entity",
                     "mainAbbreviation": "RW",
                     "name": "Root Weight",
-                    "ontologyRefernce": null,
+                    "ontologyRefernce": {
+                        "documentationLinks": [
+                            {
+                                "URL": "https://ontology.org",
+                                "type": "WEBPAGE",
+                                "url": "https://ontology.org"
+                            }
+                        ],
+                        "ontologyDbId": "MO_123",
+                        "ontologyName": "Ontology.org",
+                        "version": "17"
+                    },
                     "status": "active",
                     "synonyms": [],
                     "traitDbId": "t2",
-                    "traitName": null,
+                    "traitName": "Root Weight",
                     "xref": "xref"
                 },
                 "xref": "MO_123:100004"
@@ -1790,9 +1883,9 @@ Call to retrieve a list of observationVariables available in the system.
             {
                 "contextOfUse": [],
                 "crop": "maize",
-                "date": "2018-10-26",
+                "date": "2018-11-06",
                 "defaultValue": "10",
-                "documentationURL": null,
+                "documentationURL": "https://brapi.org",
                 "growthStage": "1",
                 "institution": "1",
                 "language": "English",
@@ -1801,9 +1894,20 @@ Call to retrieve a list of observationVariables available in the system.
                     "description": "Standard rolled measuring tape",
                     "formula": "a^2 + b^2 = c^2",
                     "methodDbId": "m1",
-                    "methodName": null,
+                    "methodName": "Tape Measure",
                     "name": "Tape Measure",
-                    "ontologyRefernce": null,
+                    "ontologyRefernce": {
+                        "documentationLinks": [
+                            {
+                                "URL": "https://ontology.org",
+                                "type": "WEBPAGE",
+                                "url": "https://ontology.org"
+                            }
+                        ],
+                        "ontologyDbId": "MO_123",
+                        "ontologyName": "Ontology.org",
+                        "version": "17"
+                    },
                     "reference": "google.com"
                 },
                 "name": "Plant height",
@@ -1811,14 +1915,36 @@ Call to retrieve a list of observationVariables available in the system.
                 "observationVariableName": "Plant height",
                 "ontologyDbId": "MO_123",
                 "ontologyName": "Ontology.org",
-                "ontologyRefernce": null,
+                "ontologyRefernce": {
+                    "documentationLinks": [
+                        {
+                            "URL": "https://ontology.org",
+                            "type": "WEBPAGE",
+                            "url": "https://ontology.org"
+                        }
+                    ],
+                    "ontologyDbId": "MO_123",
+                    "ontologyName": "Ontology.org",
+                    "version": "17"
+                },
                 "scale": {
                     "dataType": "Numerical",
                     "decimalPlaces": 1,
                     "name": "Centimeter",
-                    "ontologyRefernce": null,
+                    "ontologyRefernce": {
+                        "documentationLinks": [
+                            {
+                                "URL": "https://ontology.org",
+                                "type": "WEBPAGE",
+                                "url": "https://ontology.org"
+                            }
+                        ],
+                        "ontologyDbId": "MO_123",
+                        "ontologyName": "Ontology.org",
+                        "version": "17"
+                    },
                     "scaleDbId": "s1",
-                    "scaleName": null,
+                    "scaleName": "Centimeter",
                     "validValues": {
                         "categories": [],
                         "max": 99999,
@@ -1838,11 +1964,22 @@ Call to retrieve a list of observationVariables available in the system.
                     "entity": "entity",
                     "mainAbbreviation": "H",
                     "name": "Plant Height",
-                    "ontologyRefernce": null,
+                    "ontologyRefernce": {
+                        "documentationLinks": [
+                            {
+                                "URL": "https://ontology.org",
+                                "type": "WEBPAGE",
+                                "url": "https://ontology.org"
+                            }
+                        ],
+                        "ontologyDbId": "MO_123",
+                        "ontologyName": "Ontology.org",
+                        "version": "17"
+                    },
                     "status": "active",
                     "synonyms": [],
                     "traitDbId": "t1",
-                    "traitName": null,
+                    "traitName": "Plant Height",
                     "xref": "xref"
                 },
                 "xref": "MO_123:100002"
@@ -1850,9 +1987,9 @@ Call to retrieve a list of observationVariables available in the system.
             {
                 "contextOfUse": [],
                 "crop": "maize",
-                "date": "2018-10-26",
+                "date": "2018-11-06",
                 "defaultValue": "10",
-                "documentationURL": null,
+                "documentationURL": "https://brapi.org",
                 "growthStage": "1",
                 "institution": "1",
                 "language": "English",
@@ -1861,9 +1998,20 @@ Call to retrieve a list of observationVariables available in the system.
                     "description": "Comparing sample color to standard color palette",
                     "formula": "NA",
                     "methodDbId": "m3",
-                    "methodName": null,
+                    "methodName": "Standard Color Palette",
                     "name": "Standard Color Palette",
-                    "ontologyRefernce": null,
+                    "ontologyRefernce": {
+                        "documentationLinks": [
+                            {
+                                "URL": "https://ontology.org",
+                                "type": "WEBPAGE",
+                                "url": "https://ontology.org"
+                            }
+                        ],
+                        "ontologyDbId": "MO_123",
+                        "ontologyName": "Ontology.org",
+                        "version": "17"
+                    },
                     "reference": "google.com"
                 },
                 "name": "Carotenoid",
@@ -1871,14 +2019,36 @@ Call to retrieve a list of observationVariables available in the system.
                 "observationVariableName": "Carotenoid",
                 "ontologyDbId": "MO_123",
                 "ontologyName": "Ontology.org",
-                "ontologyRefernce": null,
+                "ontologyRefernce": {
+                    "documentationLinks": [
+                        {
+                            "URL": "https://ontology.org",
+                            "type": "WEBPAGE",
+                            "url": "https://ontology.org"
+                        }
+                    ],
+                    "ontologyDbId": "MO_123",
+                    "ontologyName": "Ontology.org",
+                    "version": "17"
+                },
                 "scale": {
-                    "dataType": null,
+                    "dataType": "Nominal",
                     "decimalPlaces": 0,
                     "name": "Color",
-                    "ontologyRefernce": null,
+                    "ontologyRefernce": {
+                        "documentationLinks": [
+                            {
+                                "URL": "https://ontology.org",
+                                "type": "WEBPAGE",
+                                "url": "https://ontology.org"
+                            }
+                        ],
+                        "ontologyDbId": "MO_123",
+                        "ontologyName": "Ontology.org",
+                        "version": "17"
+                    },
                     "scaleDbId": "s3",
-                    "scaleName": null,
+                    "scaleName": "Color",
                     "validValues": {
                         "categories": [
                             "dark red",
@@ -1904,11 +2074,22 @@ Call to retrieve a list of observationVariables available in the system.
                     "entity": "entity",
                     "mainAbbreviation": "LC",
                     "name": "Leaf Color",
-                    "ontologyRefernce": null,
+                    "ontologyRefernce": {
+                        "documentationLinks": [
+                            {
+                                "URL": "https://ontology.org",
+                                "type": "WEBPAGE",
+                                "url": "https://ontology.org"
+                            }
+                        ],
+                        "ontologyDbId": "MO_123",
+                        "ontologyName": "Ontology.org",
+                        "version": "17"
+                    },
                     "status": "active",
                     "synonyms": [],
                     "traitDbId": "t3",
-                    "traitName": null,
+                    "traitName": "Leaf Color",
                     "xref": "xref"
                 },
                 "xref": "MO_123:100003"
@@ -1968,8 +2149,9 @@ Retrieve variable details
     "result": {
         "contextOfUse": [],
         "crop": "maize",
-        "date": "2018-10-02",
+        "date": "2018-11-06",
         "defaultValue": "10",
+        "documentationURL": "https://brapi.org",
         "growthStage": "1",
         "institution": "1",
         "language": "English",
@@ -1978,7 +2160,20 @@ Retrieve variable details
             "description": "Standard rolled measuring tape",
             "formula": "a^2 + b^2 = c^2",
             "methodDbId": "m1",
+            "methodName": "Tape Measure",
             "name": "Tape Measure",
+            "ontologyRefernce": {
+                "documentationLinks": [
+                    {
+                        "URL": "https://ontology.org",
+                        "type": "WEBPAGE",
+                        "url": "https://ontology.org"
+                    }
+                ],
+                "ontologyDbId": "MO_123",
+                "ontologyName": "Ontology.org",
+                "version": "17"
+            },
             "reference": "google.com"
         },
         "name": "Plant height",
@@ -1986,11 +2181,36 @@ Retrieve variable details
         "observationVariableName": "Plant height",
         "ontologyDbId": "MO_123",
         "ontologyName": "Ontology.org",
+        "ontologyRefernce": {
+            "documentationLinks": [
+                {
+                    "URL": "https://ontology.org",
+                    "type": "WEBPAGE",
+                    "url": "https://ontology.org"
+                }
+            ],
+            "ontologyDbId": "MO_123",
+            "ontologyName": "Ontology.org",
+            "version": "17"
+        },
         "scale": {
             "dataType": "Numerical",
             "decimalPlaces": 1,
             "name": "Centimeter",
+            "ontologyRefernce": {
+                "documentationLinks": [
+                    {
+                        "URL": "https://ontology.org",
+                        "type": "WEBPAGE",
+                        "url": "https://ontology.org"
+                    }
+                ],
+                "ontologyDbId": "MO_123",
+                "ontologyName": "Ontology.org",
+                "version": "17"
+            },
             "scaleDbId": "s1",
+            "scaleName": "Centimeter",
             "validValues": {
                 "categories": [],
                 "max": 99999,
@@ -2010,9 +2230,22 @@ Retrieve variable details
             "entity": "entity",
             "mainAbbreviation": "H",
             "name": "Plant Height",
+            "ontologyRefernce": {
+                "documentationLinks": [
+                    {
+                        "URL": "https://ontology.org",
+                        "type": "WEBPAGE",
+                        "url": "https://ontology.org"
+                    }
+                ],
+                "ontologyDbId": "MO_123",
+                "ontologyName": "Ontology.org",
+                "version": "17"
+            },
             "status": "active",
             "synonyms": [],
             "traitDbId": "t1",
+            "traitName": "Plant Height",
             "xref": "xref"
         },
         "xref": "MO_123:100002"
@@ -2065,14 +2298,14 @@ DEPRECATED in v1.3 - See documentation on BrAPI fixed set of data types, referen
         "pagination": {
             "currentPage": 0,
             "pageSize": 2,
-            "totalCount": 3,
-            "totalPages": 2
+            "totalCount": 2,
+            "totalPages": 1
         },
         "status": []
     },
     "result": {
         "data": [
-            "Categorical",
+            "Nominal",
             "Numerical"
         ]
     }

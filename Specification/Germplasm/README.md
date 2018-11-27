@@ -41,7 +41,7 @@ Get the details of a specific Breeding Method used to produce Germplasm
     "result": {
         "abbreviation": "MBCR",
         "breedingMethodDbId": "bm1",
-        "breedingMethodName": null,
+        "breedingMethodName": "Male Backcross",
         "description": "Backcross to recover a specific gene.",
         "name": "Male Backcross"
     }
@@ -106,14 +106,14 @@ Get the list of germplasm breeding methods available in a system.
             {
                 "abbreviation": "MBCR",
                 "breedingMethodDbId": "bm1",
-                "breedingMethodName": null,
+                "breedingMethodName": "Male Backcross",
                 "description": "Backcross to recover a specific gene.",
                 "name": "Male Backcross"
             },
             {
                 "abbreviation": "FBCR",
                 "breedingMethodDbId": "bm2",
-                "breedingMethodName": null,
+                "breedingMethodName": "Female Backcross",
                 "description": "Backcross to recover a specific gene.",
                 "name": "Female Backcross"
             }
@@ -184,7 +184,7 @@ DEPRECATED in V1.3 - see GET /germplasm
                 "commonCropName": "G000001",
                 "countryOfOriginCode": "COUNTRY1",
                 "defaultDisplayName": "G000001",
-                "documentationURL": null,
+                "documentationURL": "https://brapi.org",
                 "donors": [
                     {
                         "donorAccessionNumber": "A001230",
@@ -199,10 +199,10 @@ DEPRECATED in V1.3 - see GET /germplasm
                 ],
                 "genus": "Fructus",
                 "germplasmDbId": "1",
-                "germplasmGenus": null,
+                "germplasmGenus": "Fructus",
                 "germplasmName": "Name001",
                 "germplasmPUI": "http://pui.per/accession/A000001",
-                "germplasmSpecies": null,
+                "germplasmSpecies": "novus",
                 "instituteCode": "PER001",
                 "instituteName": "INST1",
                 "pedigree": "A000001",
@@ -234,7 +234,7 @@ DEPRECATED in V1.3 - see GET /germplasm
                 "commonCropName": "G000002",
                 "countryOfOriginCode": "COUNTRY1",
                 "defaultDisplayName": "G000002",
-                "documentationURL": null,
+                "documentationURL": "https://brapi.org",
                 "donors": [
                     {
                         "donorAccessionNumber": "A007890",
@@ -249,10 +249,10 @@ DEPRECATED in V1.3 - see GET /germplasm
                 ],
                 "genus": "Fructus",
                 "germplasmDbId": "2",
-                "germplasmGenus": null,
+                "germplasmGenus": "Fructus",
                 "germplasmName": "Name002",
                 "germplasmPUI": "http://pui.per/accession/A000002",
-                "germplasmSpecies": null,
+                "germplasmSpecies": "novus",
                 "instituteCode": "PER001",
                 "instituteName": "INST1",
                 "pedigree": "A000002",
@@ -356,7 +356,7 @@ DEPRECATED in V1.3 - see POST /search/germplasm
                 "commonCropName": "G000001",
                 "countryOfOriginCode": "COUNTRY1",
                 "defaultDisplayName": "G000001",
-                "documentationURL": null,
+                "documentationURL": "https://brapi.org",
                 "donors": [
                     {
                         "donorAccessionNumber": "A001230",
@@ -371,10 +371,10 @@ DEPRECATED in V1.3 - see POST /search/germplasm
                 ],
                 "genus": "Fructus",
                 "germplasmDbId": "1",
-                "germplasmGenus": null,
+                "germplasmGenus": "Fructus",
                 "germplasmName": "Name001",
                 "germplasmPUI": "http://pui.per/accession/A000001",
-                "germplasmSpecies": null,
+                "germplasmSpecies": "novus",
                 "instituteCode": "PER001",
                 "instituteName": "INST1",
                 "pedigree": "A000001",
@@ -406,7 +406,7 @@ DEPRECATED in V1.3 - see POST /search/germplasm
                 "commonCropName": "G000002",
                 "countryOfOriginCode": "COUNTRY1",
                 "defaultDisplayName": "G000002",
-                "documentationURL": null,
+                "documentationURL": "https://brapi.org",
                 "donors": [
                     {
                         "donorAccessionNumber": "A007890",
@@ -421,10 +421,10 @@ DEPRECATED in V1.3 - see POST /search/germplasm
                 ],
                 "genus": "Fructus",
                 "germplasmDbId": "2",
-                "germplasmGenus": null,
+                "germplasmGenus": "Fructus",
                 "germplasmName": "Name002",
                 "germplasmPUI": "http://pui.per/accession/A000002",
-                "germplasmSpecies": null,
+                "germplasmSpecies": "novus",
                 "instituteCode": "PER001",
                 "instituteName": "INST1",
                 "pedigree": "A000002",
@@ -509,7 +509,7 @@ Addresses these needs
                 "commonCropName": "G000001",
                 "countryOfOriginCode": "COUNTRY1",
                 "defaultDisplayName": "G000001",
-                "documentationURL": null,
+                "documentationURL": "https://brapi.org",
                 "donors": [
                     {
                         "donorAccessionNumber": "A001230",
@@ -524,10 +524,10 @@ Addresses these needs
                 ],
                 "genus": "Fructus",
                 "germplasmDbId": "1",
-                "germplasmGenus": null,
+                "germplasmGenus": "Fructus",
                 "germplasmName": "Name001",
                 "germplasmPUI": "http://pui.per/accession/A000001",
-                "germplasmSpecies": null,
+                "germplasmSpecies": "novus",
                 "instituteCode": "PER001",
                 "instituteName": "INST1",
                 "pedigree": "A000001",
@@ -559,7 +559,7 @@ Addresses these needs
                 "commonCropName": "G000002",
                 "countryOfOriginCode": "COUNTRY1",
                 "defaultDisplayName": "G000002",
-                "documentationURL": null,
+                "documentationURL": "https://brapi.org",
                 "donors": [
                     {
                         "donorAccessionNumber": "A007890",
@@ -574,10 +574,10 @@ Addresses these needs
                 ],
                 "genus": "Fructus",
                 "germplasmDbId": "2",
-                "germplasmGenus": null,
+                "germplasmGenus": "Fructus",
                 "germplasmName": "Name002",
                 "germplasmPUI": "http://pui.per/accession/A000002",
-                "germplasmSpecies": null,
+                "germplasmSpecies": "novus",
                 "instituteCode": "PER001",
                 "instituteName": "INST1",
                 "pedigree": "A000002",
@@ -739,14 +739,14 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
         "commonCropName": "G000003",
         "countryOfOriginCode": "COUNTRY1",
         "defaultDisplayName": "G000003",
-        "documentationURL": null,
+        "documentationURL": "https://brapi.org",
         "donors": [],
         "genus": "Fructus",
         "germplasmDbId": "3",
-        "germplasmGenus": null,
+        "germplasmGenus": "Fructus",
         "germplasmName": "Name003",
         "germplasmPUI": "http://pui.per/accession/A000003",
-        "germplasmSpecies": null,
+        "germplasmSpecies": "novus",
         "instituteCode": "PER001",
         "instituteName": "INST1",
         "pedigree": "A000001/A000002",
@@ -968,9 +968,13 @@ Retrieve the markerProfileDbIds for a given Germplasm ID
         "status": []
     },
     "result": {
-        "germplasmDbId": null,
-        "markerProfileDbIds": null,
-        "markerprofileDbIds": []
+        "germplasmDbId": "3",
+        "markerProfileDbIds": [
+            "G3-P2"
+        ],
+        "markerprofileDbIds": [
+            "G3-P2"
+        ]
     }
 }
 ```

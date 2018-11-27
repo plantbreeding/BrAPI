@@ -65,9 +65,11 @@ test-server.brapi.org/brapi/v1/calls
         "data": [
             {
                 "call": "allelematrices",
-                "dataTypes": [],
+                "dataTypes": [
+                    "application/json"
+                ],
                 "datatypes": [
-                    null
+                    "application/json"
                 ],
                 "methods": [
                     "GET"
@@ -80,9 +82,11 @@ test-server.brapi.org/brapi/v1/calls
             },
             {
                 "call": "allelematrices-search",
-                "dataTypes": [],
+                "dataTypes": [
+                    "application/json"
+                ],
                 "datatypes": [
-                    null
+                    "application/json"
                 ],
                 "methods": [
                     "GET",

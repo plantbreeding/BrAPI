@@ -53,16 +53,16 @@ Get list of maps
         "data": [
             {
                 "comments": "comments",
-                "commonCropName": null,
-                "documentationURL": null,
+                "commonCropName": "Paw Paw",
+                "documentationURL": "https://brapi.org",
                 "linkageGroupCount": 3,
                 "mapDbId": "gm1",
-                "mapName": null,
+                "mapName": "Genome Map 1",
                 "markerCount": 22,
                 "name": "Genome Map 1",
                 "publishedDate": "2018-01-01",
-                "scientificName": null,
-                "species": "novus",
+                "scientificName": "Asimina triloba",
+                "species": "triloba",
                 "type": "Genetic",
                 "unit": "cM"
             }
@@ -133,7 +133,7 @@ Provides the number of markers on each linkageGroup and the max position on the 
                 "maxPosition": 5050
             }
         ],
-        "documentationURL": null,
+        "documentationURL": "https://brapi.org",
         "linkageGroups": [
             {
                 "linkageGroupName": "1",
@@ -147,7 +147,7 @@ Provides the number of markers on each linkageGroup and the max position on the 
             }
         ],
         "mapDbId": "gm1",
-        "mapName": null,
+        "mapName": "Genome Map 1",
         "name": "Genome Map 1",
         "type": "Genetic",
         "unit": "cM"

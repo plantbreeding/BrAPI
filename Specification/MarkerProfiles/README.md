@@ -62,22 +62,22 @@ This method may support asynchronous processing.
         "pagination": {
             "currentPage": 0,
             "pageSize": 2,
-            "totalCount": 66,
-            "totalPages": 33
+            "totalCount": 280,
+            "totalPages": 140
         },
         "status": []
     },
     "result": {
         "data": [
             [
-                "mr1",
-                "mp1",
-                "1"
+                "mr01",
+                "P1",
+                "A"
             ],
             [
-                "mr2",
-                "mp1",
-                "0"
+                "mr02",
+                "P1",
+                "C"
             ]
         ]
     }
@@ -269,7 +269,7 @@ GET provides a list of available matrices, optionally filtered by study;
                 "description": "example matrix",
                 "lastUpdated": "2018-05-03T11:03:56-04:00",
                 "matrixDbId": "mat1",
-                "matrixName": null,
+                "matrixName": "Example Matrix",
                 "name": "Example Matrix",
                 "studyDbId": "1001"
             }
@@ -348,22 +348,22 @@ This method may support asynchronous processing.
         "pagination": {
             "currentPage": 0,
             "pageSize": 2,
-            "totalCount": 66,
-            "totalPages": 33
+            "totalCount": 280,
+            "totalPages": 140
         },
         "status": []
     },
     "result": {
         "data": [
             [
-                "mr1",
-                "mp1",
-                "1"
+                "mr01",
+                "P1",
+                "A"
             ],
             [
-                "mr2",
-                "mp1",
-                "0"
+                "mr02",
+                "P1",
+                "C"
             ]
         ]
     }
@@ -1903,7 +1903,7 @@ For the requested Germplasm Id and/or Extract Id, returns the Markerprofile Id a
                 "analysisMethod": "GBS",
                 "extractDbId": "extract1",
                 "germplasmDbId": "1",
-                "markerProfileDbId": null,
+                "markerProfileDbId": "P1",
                 "markerprofileDbId": "P1",
                 "resultCount": 20,
                 "sampleDbId": "sam00",
@@ -1913,7 +1913,7 @@ For the requested Germplasm Id and/or Extract Id, returns the Markerprofile Id a
                 "analysisMethod": "GBS",
                 "extractDbId": "extract2",
                 "germplasmDbId": "1",
-                "markerProfileDbId": null,
+                "markerProfileDbId": "P2",
                 "markerprofileDbId": "P2",
                 "resultCount": 20,
                 "sampleDbId": "sam01",
@@ -1986,12 +1986,27 @@ Open issue: The pages of data will need to be sorted sensibly in order for the r
         "pagination": {
             "currentPage": 0,
             "pageSize": 2,
-            "totalCount": 0,
-            "totalPages": 0
+            "totalCount": 20,
+            "totalPages": 10
         },
         "status": []
     },
-    "result": null
+    "result": {
+        "analysisMethod": "GBS",
+        "data": [
+            {
+                "marker1-1": "A"
+            },
+            {
+                "marker1-2": "C"
+            }
+        ],
+        "extractDbId": "extract1",
+        "germplasmDbId": "1",
+        "markerProfileDbId": "P1",
+        "markerprofileDbId": "P1",
+        "uniqueDisplayName": "My Fancy Germplasm"
+    }
 }
 ```
 
