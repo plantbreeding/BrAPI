@@ -494,6 +494,9 @@ GET /search/names/c3d4e5
 
 Some searchable entities have non-array parameters in their request body objects. These are generally for things like numbers and dates where a client might be interested in a certain range instead of an exact value. Numeric fields with the suffix "Min" or "Max" describe the minimum and maximum values to search for (inclusive). Date string fields with the suffix "Start" or "End" should be treated as the beginning and ending (respectively) of a time range (inclusive).
 
+#### A Note on Pagination
+It has come to my attention that some of the search services still have their "page" and "pageSize" keys as part of the search request object. This is an accident, generated from a line of reasoning which is no longer relevent. Any "page" and "pageSize" keys found in `POST` seach request object should be ignored. The "page" and "pageSize" query parameters in the `GET` call should be used instead. The `POST` call is meant to establish the parameters of the search, the `GET` call is responsible for how the client gets that data back. This will be cleaned up in v1.4.
+
 
 
 
