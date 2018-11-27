@@ -27,14 +27,16 @@ paths:
                   pagination:
                     currentPage: 0
                     pageSize: 2
-                    totalCount: 3
-                    totalPages: 2
+                    totalCount: 2
+                    totalPages: 1
                   status: []
                 result:
                   data:
                   - active: 'true'
                     additionalInfo:
                       studyObjective: Increase yield
+                    commonCropName: Tomatillo
+                    documentationURL: https://brapi.org
                     endDate: '2014-01-01'
                     locationDbId: '1'
                     locationName: Location 1
@@ -42,16 +44,25 @@ paths:
                     programDbId: '1'
                     programName: Program 1
                     seasons:
-                    - fall 2011
-                    - winter 2012
+                    - season: fall
+                      seasonDbId: '1'
+                      year: '2011'
+                    - season: winter
+                      seasonDbId: '2'
+                      year: '2012'
                     startDate: '2013-01-01'
                     studyDbId: '1001'
+                    studyName: Study 1
                     studyType: Yield study
+                    studyTypeDbId: '2'
+                    studyTypeName: Yield study
                     trialDbId: '101'
                     trialName: Peru Yield Trial 1
                   - active: 'true'
                     additionalInfo:
                       publications: pmid:23643517318968
+                    commonCropName: Tomatillo
+                    documentationURL: https://brapi.org
                     endDate: '2015-01-01'
                     locationDbId: '1'
                     locationName: Location 1
@@ -59,28 +70,33 @@ paths:
                     programDbId: '1'
                     programName: Program 1
                     seasons:
-                    - winter 2012
+                    - season: winter
+                      seasonDbId: '2'
+                      year: '2012'
                     startDate: '2014-01-01'
                     studyDbId: '1002'
+                    studyName: Study 2
                     studyType: Yield study
+                    studyTypeDbId: '2'
+                    studyTypeName: Yield study
                     trialDbId: '101'
                     trialName: Peru Yield Trial 1
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    required:
-                      - data
                     properties:
                       data:
                         items:
                           $ref: '#/components/schemas/studySummary'
                         type: array
+                    required:
+                    - data
                     type: object
+                required:
+                - metadata
+                - result
                 title: studiesResponse
                 type: object
           description: OK

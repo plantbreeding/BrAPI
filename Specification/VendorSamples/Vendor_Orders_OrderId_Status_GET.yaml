@@ -19,9 +19,6 @@ paths:
           content:
             application/json:
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
@@ -36,6 +33,9 @@ paths:
                         - rejected
                         type: string
                     type: object
+                required:
+                - metadata
+                - result
                 title: vendorOrderStatusResponse
                 type: object
           description: OK

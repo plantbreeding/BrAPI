@@ -19,14 +19,14 @@ paths:
             application/json:
               example: {}
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/vendorPlatesSubmissionResponse'
+                required:
+                - metadata
+                - result
                 title: vendorPlateResponse
                 type: object
           description: OK

@@ -28,15 +28,10 @@ paths:
                   - Tomatillo
                   - Paw Paw
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    required:
-                      - data
                     properties:
                       data:
                         description: array of crop names availible on the server
@@ -44,7 +39,12 @@ paths:
                           description: supported crop name
                           type: string
                         type: array
+                    required:
+                    - data
                     type: object
+                required:
+                - metadata
+                - result
                 title: commonCropNamesResponse
                 type: object
           description: OK

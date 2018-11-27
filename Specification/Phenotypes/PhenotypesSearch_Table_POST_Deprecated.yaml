@@ -22,8 +22,8 @@ paths:
                   pagination:
                     currentPage: 0
                     pageSize: 2
-                    totalCount: 11
-                    totalPages: 6
+                    totalCount: 2
+                    totalPages: 1
                   status: []
                 result:
                   data:
@@ -37,10 +37,10 @@ paths:
                     - '1'
                     - '1'
                     - '0'
-                    - '0'
-                    - CHECK
-                    - '10'
-                    - '12'
+                    - '1'
+                    - TEST
+                    - '1'
+                    - '1'
                     - '1.2'
                     - '4.5'
                     - ''

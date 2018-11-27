@@ -24,15 +24,16 @@ paths:
                   pagination:
                     currentPage: 0
                     pageSize: 2
-                    totalCount: 5
-                    totalPages: 3
+                    totalCount: 2
+                    totalPages: 1
                   status: []
                 result:
                   data:
                   - contextOfUse: []
                     crop: maize
-                    date: '2018-10-02'
+                    date: '2018-11-27'
                     defaultValue: '10'
+                    documentationURL: https://brapi.org
                     growthStage: '1'
                     institution: '1'
                     language: English
@@ -41,18 +42,44 @@ paths:
                       description: Standard rolled measuring tape
                       formula: a^2 + b^2 = c^2
                       methodDbId: m1
+                      methodName: Tape Measure
                       name: Tape Measure
+                      ontologyRefernce:
+                        documentationLinks:
+                        - URL: https://ontology.org/m1
+                          type: RDF
+                          url: https://ontology.org/m1
+                        ontologyDbId: MO_123
+                        ontologyName: Ontology.org
+                        version: '17'
                       reference: google.com
                     name: Plant height
                     observationVariableDbId: MO_123:100002
                     observationVariableName: Plant height
                     ontologyDbId: MO_123
                     ontologyName: Ontology.org
+                    ontologyRefernce:
+                      documentationLinks:
+                      - URL: https://ontology.org
+                        type: WEBPAGE
+                        url: https://ontology.org
+                      ontologyDbId: MO_123
+                      ontologyName: Ontology.org
+                      version: '17'
                     scale:
                       dataType: Numerical
                       decimalPlaces: 1
                       name: Centimeter
+                      ontologyRefernce:
+                        documentationLinks:
+                        - URL: https://ontology.org/s1
+                          type: OBO
+                          url: https://ontology.org/s1
+                        ontologyDbId: MO_123
+                        ontologyName: Ontology.org
+                        version: '17'
                       scaleDbId: s1
+                      scaleName: Centimeter
                       validValues:
                         categories: []
                         max: 99999
@@ -70,38 +97,79 @@ paths:
                       entity: entity
                       mainAbbreviation: H
                       name: Plant Height
+                      ontologyRefernce:
+                        documentationLinks:
+                        - URL: https://ontology.org/t1
+                          type: WEBPAGE
+                          url: https://ontology.org/t1
+                        ontologyDbId: MO_123
+                        ontologyName: Ontology.org
+                        version: '17'
                       status: active
                       synonyms: []
                       traitDbId: t1
+                      traitName: Plant Height
                       xref: xref
                     xref: MO_123:100002
                   - contextOfUse: []
                     crop: maize
-                    date: '2018-10-02'
+                    date: '2018-11-27'
                     defaultValue: '10'
+                    documentationURL: https://brapi.org
                     growthStage: '1'
                     institution: '1'
                     language: English
                     method:
-                      class: Numeric
-                      description: Dried sample on electric scale
+                      class: Categorical
+                      description: Comparing sample color to standard color palette
                       formula: NA
-                      methodDbId: m2
-                      name: Dry Electric Scale
+                      methodDbId: m3
+                      methodName: Standard Color Palette
+                      name: Standard Color Palette
+                      ontologyRefernce:
+                        documentationLinks:
+                        - URL: https://ontology.org/m3
+                          type: OBO
+                          url: https://ontology.org/m3
+                        ontologyDbId: MO_123
+                        ontologyName: Ontology.org
+                        version: '17'
                       reference: google.com
-                    name: Root weight
-                    observationVariableDbId: MO_123:100004
-                    observationVariableName: Root weight
+                    name: Carotenoid
+                    observationVariableDbId: MO_123:100003
+                    observationVariableName: Carotenoid
                     ontologyDbId: MO_123
                     ontologyName: Ontology.org
+                    ontologyRefernce:
+                      documentationLinks:
+                      - URL: https://ontology.org
+                        type: WEBPAGE
+                        url: https://ontology.org
+                      ontologyDbId: MO_123
+                      ontologyName: Ontology.org
+                      version: '17'
                     scale:
-                      dataType: Numerical
-                      decimalPlaces: 3
-                      name: Kilogram
-                      scaleDbId: s2
+                      dataType: Nominal
+                      decimalPlaces: 0
+                      name: Color
+                      ontologyRefernce:
+                        documentationLinks:
+                        - URL: https://ontology.org/s3
+                          type: WEBPAGE
+                          url: https://ontology.org/s3
+                        ontologyDbId: MO_123
+                        ontologyName: Ontology.org
+                        version: '17'
+                      scaleDbId: s3
+                      scaleName: Color
                       validValues:
-                        categories: []
-                        max: 99999
+                        categories:
+                        - dark red
+                        - red
+                        - dark blue
+                        - blue
+                        - black
+                        max: 0
                         min: 0
                       xref: xref
                     scientist: Bob
@@ -110,33 +178,42 @@ paths:
                     synonyms: []
                     trait:
                       alternativeAbbreviations: []
-                      attribute: root weight
-                      class: Numeric
-                      description: root weight
+                      attribute: leaf color
+                      class: Categorical
+                      description: color of leaf sample
                       entity: entity
-                      mainAbbreviation: RW
-                      name: Root Weight
+                      mainAbbreviation: LC
+                      name: Leaf Color
+                      ontologyRefernce:
+                        documentationLinks:
+                        - URL: https://ontology.org/t3
+                          type: RDF
+                          url: https://ontology.org/t3
+                        ontologyDbId: MO_123
+                        ontologyName: Ontology.org
+                        version: '17'
                       status: active
                       synonyms: []
-                      traitDbId: t2
+                      traitDbId: t3
+                      traitName: Leaf Color
                       xref: xref
-                    xref: MO_123:100004
+                    xref: MO_123:100003
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    required:
-                      - data
                     properties:
                       data:
                         items:
                           $ref: '#/components/schemas/observationVariable'
                         type: array
+                    required:
+                    - data
                     type: object
+                required:
+                - metadata
+                - result
                 title: observationVariablesResponse
                 type: object
           description: OK

@@ -51,34 +51,34 @@ paths:
                 result:
                   data:
                   - comments: comments
-                    commonCropName: null
-                    documentationURL: null
+                    commonCropName: Paw Paw
+                    documentationURL: https://brapi.org
                     linkageGroupCount: 3
                     mapDbId: gm1
-                    mapName: null
+                    mapName: Genome Map 1
                     markerCount: 22
                     name: Genome Map 1
                     publishedDate: '2018-01-01'
-                    scientificName: null
-                    species: novus
+                    scientificName: Asimina triloba
+                    species: triloba
                     type: Genetic
                     unit: cM
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    required:
-                      - data
                     properties:
                       data:
                         items:
                           $ref: '#/components/schemas/genomeMap'
                         type: array
+                    required:
+                    - data
                     type: object
+                required:
+                - metadata
+                - result
                 title: genomeMapsResponse
                 type: object
           description: OK

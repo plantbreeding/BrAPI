@@ -32,68 +32,88 @@ paths:
                 result:
                   data:
                   - accessionNumber: A000001
-                    acquisitionDate: null
-                    biologicalStatusOfAccessionCode: null
-                    breedingMethodDbId: null
-                    commonCropName: null
-                    countryOfOriginCode: null
-                    defaultDisplayName: null
-                    documentationURL: null
-                    donors: null
-                    entryNumber: '1'
-                    genus: null
+                    acquisitionDate: '1984-01-01'
+                    biologicalStatusOfAccessionCode: 300
+                    breedingMethodDbId: bm1
+                    commonCropName: G000001
+                    countryOfOriginCode: COUNTRY1
+                    defaultDisplayName: G000001
+                    documentationURL: https://brapi.org
+                    donors:
+                    - donorAccessionNumber: A001230
+                      donorInstituteCode: INRA
+                      germplasmPUI: https://doi.org/10.1109/5.771073
+                    - donorAccessionNumber: A004560
+                      donorInstituteCode: INRA
+                      germplasmPUI: https://doi.org/10.1109/5.231123
+                    entryNumber: '2'
+                    genus: Fructus
                     germplasmDbId: '1'
                     germplasmName: Name001
                     germplasmPUI: http://pui.per/accession/A000001
-                    instituteCode: null
-                    instituteName: null
+                    instituteCode: PER001
+                    instituteName: INST1
                     pedigree: A000001
                     seedSource: open pollination
-                    species: null
-                    speciesAuthority: null
-                    subtaxa: null
-                    subtaxaAuthority: null
+                    species: novus
+                    speciesAuthority: L
+                    subtaxa: subtaxa
+                    subtaxaAuthority: N
                     synonyms:
                     - landrace 1
-                    taxonIds: null
-                    typeOfGermplasmStorageCode: null
-                  - accessionNumber: A000002
-                    acquisitionDate: null
-                    biologicalStatusOfAccessionCode: null
-                    breedingMethodDbId: null
-                    commonCropName: null
-                    countryOfOriginCode: null
-                    defaultDisplayName: null
-                    documentationURL: null
-                    donors: null
-                    entryNumber: '4'
-                    genus: null
-                    germplasmDbId: '2'
-                    germplasmName: Name002
-                    germplasmPUI: http://pui.per/accession/A000002
-                    instituteCode: null
-                    instituteName: null
-                    pedigree: A000002
+                    taxonIds:
+                    - sourceName: ncbiTaxon
+                      taxonId: '2340'
+                    - sourceName: ciradTaxon
+                      taxonId: E312
+                    typeOfGermplasmStorageCode: []
+                  - accessionNumber: A000001
+                    acquisitionDate: '1984-01-01'
+                    biologicalStatusOfAccessionCode: 300
+                    breedingMethodDbId: bm1
+                    commonCropName: G000001
+                    countryOfOriginCode: COUNTRY1
+                    defaultDisplayName: G000001
+                    documentationURL: https://brapi.org
+                    donors:
+                    - donorAccessionNumber: A001230
+                      donorInstituteCode: INRA
+                      germplasmPUI: https://doi.org/10.1109/5.771073
+                    - donorAccessionNumber: A004560
+                      donorInstituteCode: INRA
+                      germplasmPUI: https://doi.org/10.1109/5.231123
+                    entryNumber: '2'
+                    genus: Fructus
+                    germplasmDbId: '1'
+                    germplasmName: Name001
+                    germplasmPUI: http://pui.per/accession/A000001
+                    instituteCode: PER001
+                    instituteName: INST1
+                    pedigree: A000001
                     seedSource: open pollination
-                    species: null
-                    speciesAuthority: null
-                    subtaxa: null
-                    subtaxaAuthority: null
+                    species: novus
+                    speciesAuthority: L
+                    subtaxa: subtaxa
+                    subtaxaAuthority: N
                     synonyms:
-                    - landrace 2
-                    taxonIds: null
-                    typeOfGermplasmStorageCode: null
+                    - landrace 1
+                    taxonIds:
+                    - sourceName: ncbiTaxon
+                      taxonId: '2340'
+                    - sourceName: ciradTaxon
+                      taxonId: E312
+                    typeOfGermplasmStorageCode: []
                   studyDbId: '1001'
                   trialName: Peru Yield Trial 1
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/germplasmSummaryList'
+                required:
+                - metadata
+                - result
                 title: germplasmSummaryListResponse
                 type: object
           description: OK

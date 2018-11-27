@@ -44,8 +44,8 @@ paths:
                   pagination:
                     currentPage: 0
                     pageSize: 2
-                    totalCount: 3
-                    totalPages: 2
+                    totalCount: 2
+                    totalPages: 1
                   status: []
                 result:
                   data:
@@ -56,7 +56,7 @@ paths:
                     plateDbId: pl1
                     plateIndex: 0
                     plotDbId: '1'
-                    sampleDbId: sam1
+                    sampleDbId: sam00
                     sampleTimestamp: '2018-01-01T00:00:00-05:00'
                     sampleType: DNA
                     studyDbId: '1001'
@@ -69,28 +69,28 @@ paths:
                     plateDbId: pl1
                     plateIndex: 1
                     plotDbId: '1'
-                    sampleDbId: sam2
+                    sampleDbId: sam01
                     sampleTimestamp: '2018-01-01T00:00:00-05:00'
                     sampleType: DNA
                     studyDbId: '1001'
                     takenBy: Bob
                     tissueType: Leaf
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    required:
-                      - data
                     properties:
                       data:
                         items:
                           $ref: '#/components/schemas/sample'
                         type: array
+                    required:
+                    - data
                     type: object
+                required:
+                - metadata
+                - result
                 title: samplesResponse
                 type: object
           description: OK
@@ -127,8 +127,8 @@ paths:
                     totalPages: 0
                   status: []
                 result:
-                  sampleDbId: aef17fd3-2f6a-44d1-ae03-1b65266dd49d
-                  sampleId: aef17fd3-2f6a-44d1-ae03-1b65266dd49d
+                  sampleDbId: ec3e4d53-ecd1-41c2-88b4-6eccbc5154ea
+                  sampleId: ec3e4d53-ecd1-41c2-88b4-6eccbc5154ea
               schema:
                 $ref: '#/components/schemas/newSampleDbId'
           description: OK

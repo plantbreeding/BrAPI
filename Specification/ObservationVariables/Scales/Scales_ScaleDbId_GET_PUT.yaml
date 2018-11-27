@@ -21,15 +21,43 @@ paths:
         '200':
           content:
             application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result:
+                  dataType: Numerical
+                  decimalPlaces: 1
+                  name: Centimeter
+                  ontologyRefernce:
+                    documentationLinks:
+                    - URL: https://ontology.org/s1
+                      type: OBO
+                      url: https://ontology.org/s1
+                    ontologyDbId: MO_123
+                    ontologyName: Ontology.org
+                    version: '17'
+                  scaleDbId: s1
+                  scaleName: Centimeter
+                  validValues:
+                    categories: []
+                    max: 99999
+                    min: 0
+                  xref: xref
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/scale'
+                required:
+                - metadata
+                - result
                 title: ScaleResponse
                 type: object
           description: OK
@@ -64,15 +92,44 @@ paths:
         '200':
           content:
             application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result:
+                  dataType: Code
+                  decimalPlaces: 0
+                  name: string
+                  ontologyRefernce:
+                    documentationLinks:
+                    - URL: string
+                      type: OBO
+                      url: string
+                    ontologyDbId: MO_123
+                    ontologyName: Ontology.org
+                    version: '17'
+                  scaleDbId: s1
+                  scaleName: string
+                  validValues:
+                    categories:
+                    - string
+                    max: 0
+                    min: 0
+                  xref: string
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/scale'
+                required:
+                - metadata
+                - result
                 title: ScaleResponse
                 type: object
           description: OK

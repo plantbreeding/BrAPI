@@ -33,18 +33,18 @@ paths:
                   status: []
                 result:
                   observations:
-                  - observationDbId: 5438fc7b-be54-4ed3-847a-ac110735f7fd
+                  - observationDbId: b0faedb2-5dfe-48a9-bfe4-932a0d245d07
                     observationUnitDbId: '1'
                     observationVariableDbId: MO_123:100002
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/newObservationDbIds'
+                required:
+                - metadata
+                - result
                 title: newObservationDbIdsResponse
                 type: object
           description: OK

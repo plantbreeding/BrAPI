@@ -50,19 +50,28 @@ paths:
                   pagination:
                     currentPage: 0
                     pageSize: 2
-                    totalCount: 0
-                    totalPages: 0
+                    totalCount: 20
+                    totalPages: 10
                   status: []
-                result: null
+                result:
+                  analysisMethod: GBS
+                  data:
+                  - marker1-1: A
+                  - marker1-2: C
+                  extractDbId: extract1
+                  germplasmDbId: '1'
+                  markerProfileDbId: P1
+                  markerprofileDbId: P1
+                  uniqueDisplayName: My Fancy Germplasm
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/markerProfile'
+                required:
+                - metadata
+                - result
                 title: markerProfilesResponse
                 type: object
           description: OK

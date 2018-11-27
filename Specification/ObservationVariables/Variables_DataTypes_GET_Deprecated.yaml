@@ -20,12 +20,12 @@ paths:
                   pagination:
                     currentPage: 0
                     pageSize: 2
-                    totalCount: 3
-                    totalPages: 2
+                    totalCount: 2
+                    totalPages: 1
                   status: []
                 result:
                   data:
-                  - Categorical
+                  - Nominal
                   - Numerical
               schema:
                 properties:

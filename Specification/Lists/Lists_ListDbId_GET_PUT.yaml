@@ -18,15 +18,39 @@ paths:
         '200':
           content:
             application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result:
+                  data:
+                  - '1'
+                  - '2'
+                  - '3'
+                  dateCreated: '2011-06-14T22:12:51-04:00'
+                  dateModified: '2011-06-14T22:12:51-04:00'
+                  description: Example List of germplasm
+                  listDbId: list1
+                  listName: Example List 1
+                  listOwnerName: Bob Robertson
+                  listOwnerPersonDbId: bob123
+                  listSize: 3
+                  listSource: User Created
+                  listType: germplasm
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/listDetails'
+                required:
+                - metadata
+                - result
                 title: listResponse
                 type: object
           description: OK
@@ -61,15 +85,37 @@ paths:
         '200':
           content:
             application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result:
+                  data:
+                  - string
+                  dateCreated: '2011-06-14T22:12:51-04:00'
+                  dateModified: '2018-11-27T17:44:42-05:00'
+                  description: string
+                  listDbId: list1
+                  listName: string
+                  listOwnerName: string
+                  listOwnerPersonDbId: string
+                  listSize: 1
+                  listSource: string
+                  listType: germplasm
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/listDetails'
+                required:
+                - metadata
+                - result
                 title: listResponse
                 type: object
           description: OK

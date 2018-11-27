@@ -27,14 +27,14 @@ paths:
                   status: []
                 result: null
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/vendorPlateGetResponse'
+                required:
+                - metadata
+                - result
                 title: vendorPlateGetResponse
                 type: object
           description: OK

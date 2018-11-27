@@ -37,7 +37,7 @@ paths:
                   - linkageGroupName: '2'
                     markerCount: 5
                     maxPosition: 5050
-                  documentationURL: null
+                  documentationURL: https://brapi.org
                   linkageGroups:
                   - linkageGroupName: '1'
                     markerCount: 11
@@ -46,19 +46,19 @@ paths:
                     markerCount: 5
                     maxPosition: 5050
                   mapDbId: gm1
-                  mapName: null
+                  mapName: Genome Map 1
                   name: Genome Map 1
                   type: Genetic
                   unit: cM
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/genomeMapDetails'
+                required:
+                - metadata
+                - result
                 title: mapDetailsResponse
                 type: object
           description: OK

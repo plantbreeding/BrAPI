@@ -30,8 +30,9 @@ paths:
                 result:
                   contextOfUse: []
                   crop: maize
-                  date: '2018-10-02'
+                  date: '2018-11-27'
                   defaultValue: '10'
+                  documentationURL: https://brapi.org
                   growthStage: '1'
                   institution: '1'
                   language: English
@@ -40,18 +41,44 @@ paths:
                     description: Standard rolled measuring tape
                     formula: a^2 + b^2 = c^2
                     methodDbId: m1
+                    methodName: Tape Measure
                     name: Tape Measure
+                    ontologyRefernce:
+                      documentationLinks:
+                      - URL: https://ontology.org/m1
+                        type: RDF
+                        url: https://ontology.org/m1
+                      ontologyDbId: MO_123
+                      ontologyName: Ontology.org
+                      version: '17'
                     reference: google.com
                   name: Plant height
                   observationVariableDbId: MO_123:100002
                   observationVariableName: Plant height
                   ontologyDbId: MO_123
                   ontologyName: Ontology.org
+                  ontologyRefernce:
+                    documentationLinks:
+                    - URL: https://ontology.org
+                      type: WEBPAGE
+                      url: https://ontology.org
+                    ontologyDbId: MO_123
+                    ontologyName: Ontology.org
+                    version: '17'
                   scale:
                     dataType: Numerical
                     decimalPlaces: 1
                     name: Centimeter
+                    ontologyRefernce:
+                      documentationLinks:
+                      - URL: https://ontology.org/s1
+                        type: OBO
+                        url: https://ontology.org/s1
+                      ontologyDbId: MO_123
+                      ontologyName: Ontology.org
+                      version: '17'
                     scaleDbId: s1
+                    scaleName: Centimeter
                     validValues:
                       categories: []
                       max: 99999
@@ -69,20 +96,29 @@ paths:
                     entity: entity
                     mainAbbreviation: H
                     name: Plant Height
+                    ontologyRefernce:
+                      documentationLinks:
+                      - URL: https://ontology.org/t1
+                        type: WEBPAGE
+                        url: https://ontology.org/t1
+                      ontologyDbId: MO_123
+                      ontologyName: Ontology.org
+                      version: '17'
                     status: active
                     synonyms: []
                     traitDbId: t1
+                    traitName: Plant Height
                     xref: xref
                   xref: MO_123:100002
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/observationVariable'
+                required:
+                - metadata
+                - result
                 title: observationVariableResponse
                 type: object
           description: OK

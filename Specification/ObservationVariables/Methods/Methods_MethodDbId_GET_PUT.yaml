@@ -21,15 +21,40 @@ paths:
         '200':
           content:
             application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result:
+                  class: Numeric
+                  description: Standard rolled measuring tape
+                  formula: a^2 + b^2 = c^2
+                  methodDbId: m1
+                  methodName: Tape Measure
+                  name: Tape Measure
+                  ontologyRefernce:
+                    documentationLinks:
+                    - URL: https://ontology.org/m1
+                      type: RDF
+                      url: https://ontology.org/m1
+                    ontologyDbId: MO_123
+                    ontologyName: Ontology.org
+                    version: '17'
+                  reference: google.com
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/method'
+                required:
+                - metadata
+                - result
                 title: MethodResponse
                 type: object
           description: OK
@@ -64,15 +89,40 @@ paths:
         '200':
           content:
             application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result:
+                  class: string
+                  description: string
+                  formula: string
+                  methodDbId: m1
+                  methodName: string
+                  name: string
+                  ontologyRefernce:
+                    documentationLinks:
+                    - URL: string
+                      type: OBO
+                      url: string
+                    ontologyDbId: MO_123
+                    ontologyName: Ontology.org
+                    version: '17'
+                  reference: string
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/method'
+                required:
+                - metadata
+                - result
                 title: MethodResponse
                 type: object
           description: OK

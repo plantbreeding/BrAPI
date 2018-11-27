@@ -21,34 +21,34 @@ paths:
                     currentPage: 0
                     pageSize: 2
                     totalCount: 1
-                    totalPages: 0
+                    totalPages: 1
                   status: []
                 result:
                   data:
                   - authors: Bob
                     copyright: 2017 Ontology.org
                     description: Ontology.org
-                    documentationURL: null
+                    documentationURL: https://ontology.org
                     licence: Apache
                     ontologyDbId: MO_123
                     ontologyName: Ontology.org
                     version: '17'
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    required:
-                      - data
                     properties:
                       data:
                         items:
                           $ref: '#/components/schemas/ontology'
                         type: array
+                    required:
+                    - data
                     type: object
+                required:
+                - metadata
+                - result
                 title: ontologiesResponse
                 type: object
           description: OK

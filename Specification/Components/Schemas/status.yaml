@@ -16,10 +16,10 @@ components:
           - WARNING
           - INFO
           type: string
-      type: object
       required:
-        - message
-        - messageType
+      - message
+      - messageType
+      type: object
 info:
   title: BrAPI
   version: ''

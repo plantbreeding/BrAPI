@@ -36,16 +36,42 @@ paths:
                     totalCount: 0
                     totalPages: 0
                   status: []
-                result: null
+                result:
+                  additionalInfo: {}
+                  copyright: Copyright 2018
+                  description: BrAPI Logo
+                  descriptiveOntologyTerms:
+                  - brapi
+                  - logo
+                  imageDbId: img1
+                  imageFileName: brapi-logo.svg
+                  imageFileSize: 3676
+                  imageHeight: 56
+                  imageLocation:
+                    geometry:
+                      coordinates:
+                      - -110.11301
+                      - 50.010082
+                      type: Point
+                    type: Feature
+                  imageName: brapiLogo
+                  imageTimeStamp: '2011-06-14'
+                  imageURL: https://brapi.org/assets/images/brapi-logo.svg
+                  imageWidth: 258
+                  mimeType: image/svg
+                  observationDbIds:
+                  - '1'
+                  - '2'
+                  observationUnitDbId: '1'
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/image'
+                required:
+                - metadata
+                - result
                 title: imageResponse
                 type: object
           description: OK
@@ -62,24 +88,7 @@ paths:
       tags:
       - Images
     put:
-      description: |-
-        Update an image meta data object
-        
-        Implementation Notes
-        
-        - This call should be paired with 'PUT /images/{imageDbId}/imagecontent' for full capability
-        
-        - A server may choose to modify the image meta data object based on the actually image which has been uploaded. 
-        
-        - Image data may be stored in a database or file system. Servers should generate and provide the \"imageURL\" as an absolute path for retrieving the image, wherever it happens to live. 
-        
-        - 'descriptiveOntologyTerm' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI's. 
-        
-        - The `/images` calls support a GeoJSON object structure for describing their location. The BrAPI spec for GeoJSON only supports two of the possible geometries: Points and Polygons. 
-                
-        - With most images, the Point geometry should be used, and it should indicate the longitude and latitude of the camera. 
-                
-        - For top down images (ie from drones, cranes, etc), the Point geometry may be used to indicate the longitude and latitude of the centroid of the image content, and the Polygon geometry may be used to indicate the border of the image content. '
+      description: "Update an image meta data object\n\nImplementation Notes\n\n- This call should be paired with 'PUT /images/{imageDbId}/imagecontent' for full capability\n\n- A server may choose to modify the image meta data object based on the actually image which has been uploaded. \n\n- Image data may be stored in a database or file system. Servers should generate and provide the \\\"imageURL\\\" as an absolute path for retrieving the image, wherever it happens to live. \n\n- 'descriptiveOntologyTerm' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI's. \n\n- The `/images` calls support a GeoJSON object structure for describing their location. The BrAPI spec for GeoJSON only supports two of the possible geometries: Points and Polygons. \n        \n- With most images, the Point geometry should be used, and it should indicate the longitude and latitude of the camera. \n        \n- For top down images (ie from drones, cranes, etc), the Point geometry may be used to indicate the longitude and latitude of the centroid of the image content, and the Polygon geometry may be used to indicate the border of the image content. '"
       parameters:
       - description: The unique identifier for a image
         in: path
@@ -106,16 +115,42 @@ paths:
                     totalCount: 0
                     totalPages: 0
                   status: []
-                result: null
+                result:
+                  additionalInfo: {}
+                  copyright: Copyright 2019
+                  description: BrAPI Logo
+                  descriptiveOntologyTerms:
+                  - brapi
+                  - logo
+                  imageDbId: img1
+                  imageFileName: brapi-logo.svg
+                  imageFileSize: 3676
+                  imageHeight: 56
+                  imageLocation:
+                    geometry:
+                      coordinates:
+                      - -110.11301
+                      - 50.010082
+                      type: Point
+                    type: Feature
+                  imageName: brapiLogo
+                  imageTimeStamp: '1969-12-31'
+                  imageURL: ''
+                  imageWidth: 258
+                  mimeType: image/svg
+                  observationDbIds:
+                  - '1'
+                  - '2'
+                  observationUnitDbId: '1'
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/image'
+                required:
+                - metadata
+                - result
                 title: imageResponse
                 type: object
           description: OK

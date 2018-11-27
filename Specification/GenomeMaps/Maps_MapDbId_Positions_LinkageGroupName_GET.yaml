@@ -56,21 +56,21 @@ paths:
                     markerDbId: mr02
                     markerName: marker1-2
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    required:
-                      - data
                     properties:
                       data:
                         items:
                           $ref: '#/components/schemas/markerSummaryLinkageGroup'
                         type: array
+                    required:
+                    - data
                     type: object
+                required:
+                - metadata
+                - result
                 title: markerSummaryLinkageGroupResponse
                 type: object
           description: OK

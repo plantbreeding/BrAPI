@@ -52,7 +52,7 @@ paths:
                   - analysisMethod: GBS
                     extractDbId: extract1
                     germplasmDbId: '1'
-                    markerProfileDbId: null
+                    markerProfileDbId: P1
                     markerprofileDbId: P1
                     resultCount: 20
                     sampleDbId: sam00
@@ -60,27 +60,27 @@ paths:
                   - analysisMethod: GBS
                     extractDbId: extract2
                     germplasmDbId: '1'
-                    markerProfileDbId: null
+                    markerProfileDbId: P2
                     markerprofileDbId: P2
                     resultCount: 20
                     sampleDbId: sam01
                     uniqueDisplayName: My Fancy Germplasm
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    required:
-                      - data
                     properties:
                       data:
                         items:
                           $ref: '#/components/schemas/markerProfileDescription'
                         type: array
+                    required:
+                    - data
                     type: object
+                required:
+                - metadata
+                - result
                 title: markerProfileDescriptionsResponse
                 type: object
           description: OK

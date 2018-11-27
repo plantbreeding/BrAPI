@@ -79,8 +79,8 @@ paths:
                       donorName: Donor1
                       publications: doi:10.2345/GEZG3T23535
                       specialProject: Project1
-                    commonCropName: null
-                    documentationURL: null
+                    commonCropName: Tomatillo
+                    documentationURL: https://brapi.org
                     endDate: '2013-07-05'
                     programDbId: '1'
                     programName: Program 1
@@ -101,8 +101,8 @@ paths:
                       donorName: Donor1
                       publications: doi:10.2345/GEZG3T23535
                       specialProject: Project1
-                    commonCropName: null
-                    documentationURL: null
+                    commonCropName: Tomatillo
+                    documentationURL: https://brapi.org
                     endDate: '2013-07-05'
                     programDbId: '1'
                     programName: Program 1
@@ -119,21 +119,21 @@ paths:
                     trialDbId: '101'
                     trialName: Peru Yield Trial 1
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    required:
-                      - data
                     properties:
                       data:
                         items:
                           $ref: '#/components/schemas/trialSummary'
                         type: array
+                    required:
+                    - data
                     type: object
+                required:
+                - metadata
+                - result
                 title: trialsResponse
                 type: object
           description: OK

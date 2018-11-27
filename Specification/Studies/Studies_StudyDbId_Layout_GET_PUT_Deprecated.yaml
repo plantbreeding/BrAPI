@@ -39,9 +39,9 @@ paths:
                     entryType: TEST
                     germplasmDbId: '1'
                     germplasmName: Name001
-                    observationLevel: plant
-                    observationUnitDbId: '2'
-                    observationUnitName: Plant 1
+                    observationLevel: plot
+                    observationUnitDbId: '1'
+                    observationUnitName: Plot 1
                     replicate: '0'
                     studyDbId: '1001'
                   - X: '1'
@@ -114,16 +114,16 @@ paths:
                   status: []
                 result:
                   data:
-                  - X: '10'
-                    Y: '12'
+                  - X: '1'
+                    Y: '1'
                     additionalInfo: {}
                     blockNumber: '0'
                     entryType: CHECK
                     germplasmDbId: '1'
                     germplasmName: Name001
-                    observationLevel: plot
-                    observationUnitDbId: '1'
-                    observationUnitName: Plot 1
+                    observationLevel: plant
+                    observationUnitDbId: '2'
+                    observationUnitName: Plant 1
                     replicate: '0'
                     studyDbId: '1001'
               schema:

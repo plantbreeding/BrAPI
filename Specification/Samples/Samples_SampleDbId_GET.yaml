@@ -27,16 +27,29 @@ paths:
                     totalCount: 0
                     totalPages: 0
                   status: []
-                result: null
+                result:
+                  germplasmDbId: '1'
+                  notes: Example Sample
+                  observationUnitDbId: '2'
+                  plantDbId: '1'
+                  plateDbId: pl1
+                  plateIndex: 1
+                  plotDbId: '1'
+                  sampleDbId: sam01
+                  sampleTimestamp: '2018-01-01T00:00:00-05:00'
+                  sampleType: DNA
+                  studyDbId: '1001'
+                  takenBy: Bob
+                  tissueType: Leaf
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/sample'
+                required:
+                - metadata
+                - result
                 title: sampleResponse
                 type: object
           description: OK

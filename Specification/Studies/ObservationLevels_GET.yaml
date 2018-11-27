@@ -25,25 +25,25 @@ paths:
                   status: []
                 result:
                   data:
-                  - plant
                   - plot
+                  - plant
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    required:
-                      - data
                     properties:
                       data:
                         items:
                           description: observation levels available in this database
                           type: string
                         type: array
+                    required:
+                    - data
                     type: object
+                required:
+                - metadata
+                - result
                 title: observationLevelsResponse
                 type: object
           description: OK

@@ -4,7 +4,7 @@ import yaml
 import glob
 import sys
 import json
-import derefernceAll
+import dereferenceAll
 ##import buildOpenAPI
 import generateExamples
 
@@ -176,7 +176,7 @@ def buildReadMe(dir, fullBrAPI):
 	
 
 def go(rootPath, specificPath):
-	fullBrAPI = derefernceAll.dereferenceBrAPI(filePath = rootPath + '/brapi_openapi.yaml')
+	fullBrAPI = dereferenceAll.dereferenceBrAPI(filePath = rootPath + '/brapi_openapi.yaml')
 	
 	if specificPath == '' :
 		for dir in glob.iglob(rootPath + '/Specification/**/', recursive=False):

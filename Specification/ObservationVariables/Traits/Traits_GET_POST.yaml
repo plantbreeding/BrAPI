@@ -32,34 +32,36 @@ paths:
                     description: plant height
                     name: Plant Height
                     observationVariables:
+                    - ATT01
                     - MO_123:100002
                     traitDbId: t1
-                    traitId: xref
-                    traitName: null
+                    traitId: t1
+                    traitName: Plant Height
                   - defaultValue: '0'
                     description: root weight
                     name: Root Weight
                     observationVariables:
+                    - ATT03
                     - MO_123:100004
                     traitDbId: t2
-                    traitId: xref
-                    traitName: null
+                    traitId: t2
+                    traitName: Root Weight
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    required:
-                      - data
                     properties:
                       data:
                         items:
                           $ref: '#/components/schemas/traitSummary'
                         type: array
+                    required:
+                    - data
                     type: object
+                required:
+                - metadata
+                - result
                 title: TraitsResponse
                 type: object
           description: OK
@@ -86,15 +88,47 @@ paths:
         '200':
           content:
             application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result:
+                  alternativeAbbreviations:
+                  - string
+                  attribute: string
+                  class: string
+                  description: string
+                  entity: string
+                  mainAbbreviation: string
+                  name: string
+                  ontologyRefernce:
+                    documentationLinks:
+                    - URL: string
+                      type: OBO
+                      url: string
+                    ontologyDbId: MO_123
+                    ontologyName: Ontology.org
+                    version: '17'
+                  status: string
+                  synonyms:
+                  - string
+                  traitDbId: e7e8dc55-ee66-4eb5-8203-84cff854bc6b
+                  traitName: string
+                  xref: string
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/trait'
+                required:
+                - metadata
+                - result
                 title: TraitResponse
                 type: object
           description: OK

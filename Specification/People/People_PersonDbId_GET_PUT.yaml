@@ -18,15 +18,34 @@ paths:
         '200':
           content:
             application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result:
+                  description: Example Person
+                  emailAddress: bob@bob.com
+                  firstName: Bob
+                  lastName: Robertson
+                  mailingAddress: 123 Road Street, City, State, Country, 98765
+                  middleName: Danger
+                  personDbId: person1
+                  phoneNumber: '+19876543210'
+                  userID: bdr45
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/person'
+                required:
+                - metadata
+                - result
                 title: personResponse
                 type: object
           description: OK
@@ -61,15 +80,34 @@ paths:
         '200':
           content:
             application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result:
+                  description: string
+                  emailAddress: string
+                  firstName: Name
+                  lastName: Nameson
+                  mailingAddress: string
+                  middleName: string
+                  personDbId: person1
+                  phoneNumber: string
+                  userID: string
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/person'
+                required:
+                - metadata
+                - result
                 title: personResponse
                 type: object
           description: OK

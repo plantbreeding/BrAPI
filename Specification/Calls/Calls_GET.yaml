@@ -39,9 +39,10 @@ paths:
                 result:
                   data:
                   - call: allelematrices
-                    dataTypes: []
+                    dataTypes:
+                    - application/json
                     datatypes:
-                    - null
+                    - application/json
                     methods:
                     - GET
                     versions:
@@ -49,9 +50,10 @@ paths:
                     - '1.1'
                     - '1.2'
                   - call: allelematrices-search
-                    dataTypes: []
+                    dataTypes:
+                    - application/json
                     datatypes:
-                    - null
+                    - application/json
                     methods:
                     - GET
                     - POST
@@ -60,22 +62,22 @@ paths:
                     - '1.1'
                     - '1.2'
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    required:
-                      - data
                     properties:
                       data:
                         description: Array of availible calls on this server
                         items:
                           $ref: '#/components/schemas/call'
                         type: array
+                    required:
+                    - data
                     type: object
+                required:
+                - metadata
+                - result
                 title: callsResponse
                 type: object
           description: OK

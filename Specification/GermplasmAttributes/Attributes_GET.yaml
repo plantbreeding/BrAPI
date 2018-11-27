@@ -26,81 +26,206 @@ paths:
                   pagination:
                     currentPage: 0
                     pageSize: 2
-                    totalCount: 10
-                    totalPages: 5
+                    totalCount: 5
+                    totalPages: 3
                   status: []
                 result:
                   data:
                   - attributeCategoryDbId: '2'
-                    attributeDbId: '1'
-                    attributeName: null
+                    attributeDbId: ATT01
+                    attributeName: Rht-B1b
                     code: RHT
-                    contextOfUse: null
-                    crop: null
+                    contextOfUse: []
+                    crop: maize
                     datatype: Categorical
-                    defaultValue: null
+                    defaultValue: '10'
                     description: Allele of marker 11_4769
-                    documentationURL: null
-                    growthStage: null
-                    institution: null
-                    language: null
-                    method: null
+                    documentationURL: https://brapi.org
+                    growthStage: '1'
+                    institution: '1'
+                    language: English
+                    method:
+                      class: Numeric
+                      description: Standard rolled measuring tape
+                      formula: a^2 + b^2 = c^2
+                      methodDbId: m1
+                      methodName: Tape Measure
+                      name: Tape Measure
+                      ontologyRefernce:
+                        documentationLinks:
+                        - URL: https://ontology.org/m1
+                          type: RDF
+                          url: https://ontology.org/m1
+                        ontologyDbId: MO_123
+                        ontologyName: Ontology.org
+                        version: '17'
+                      reference: google.com
                     name: Rht-B1b
-                    ontologyDbId: null
-                    ontologyName: null
-                    ontologyRefernce: null
-                    scale: null
-                    scientist: null
-                    status: null
-                    submissionTimestamp: null
-                    synonyms: null
-                    trait: null
+                    ontologyDbId: MO_123
+                    ontologyName: Ontology.org
+                    ontologyRefernce:
+                      documentationLinks:
+                      - URL: https://ontology.org
+                        type: WEBPAGE
+                        url: https://ontology.org
+                      ontologyDbId: MO_123
+                      ontologyName: Ontology.org
+                      version: '17'
+                    scale:
+                      dataType: Numerical
+                      decimalPlaces: 1
+                      name: Centimeter
+                      ontologyRefernce:
+                        documentationLinks:
+                        - URL: https://ontology.org/s1
+                          type: OBO
+                          url: https://ontology.org/s1
+                        ontologyDbId: MO_123
+                        ontologyName: Ontology.org
+                        version: '17'
+                      scaleDbId: s1
+                      scaleName: Centimeter
+                      validValues:
+                        categories: []
+                        max: 99999
+                        min: 0
+                      xref: xref
+                    scientist: Bob
+                    status: active
+                    submissionTimestamp: '2011-06-14T22:12:51-04:00'
+                    synonyms: []
+                    trait:
+                      alternativeAbbreviations: []
+                      attribute: plant height
+                      class: Numeric
+                      description: plant height
+                      entity: entity
+                      mainAbbreviation: H
+                      name: Plant Height
+                      ontologyRefernce:
+                        documentationLinks:
+                        - URL: https://ontology.org/t1
+                          type: WEBPAGE
+                          url: https://ontology.org/t1
+                        ontologyDbId: MO_123
+                        ontologyName: Ontology.org
+                        version: '17'
+                      status: active
+                      synonyms: []
+                      traitDbId: t1
+                      traitName: Plant Height
+                      xref: xref
                     uri: http://www.brapi.org/ontology/MO_123:1000001
                     values: Present
-                    xref: null
+                    xref: MO_123:100002
                   - attributeCategoryDbId: '3'
-                    attributeDbId: '2'
-                    attributeName: null
+                    attributeDbId: ATT02
+                    attributeName: Weevil Resistance
                     code: WEV
-                    contextOfUse: null
-                    crop: null
+                    contextOfUse: []
+                    crop: maize
                     datatype: Categorical
-                    defaultValue: null
+                    defaultValue: '10'
                     description: Resistance allele
-                    documentationURL: null
-                    growthStage: null
-                    institution: null
-                    language: null
-                    method: null
+                    documentationURL: https://brapi.org
+                    growthStage: '1'
+                    institution: '1'
+                    language: English
+                    method:
+                      class: Categorical
+                      description: Comparing sample color to standard color palette
+                      formula: NA
+                      methodDbId: m3
+                      methodName: Standard Color Palette
+                      name: Standard Color Palette
+                      ontologyRefernce:
+                        documentationLinks:
+                        - URL: https://ontology.org/m3
+                          type: OBO
+                          url: https://ontology.org/m3
+                        ontologyDbId: MO_123
+                        ontologyName: Ontology.org
+                        version: '17'
+                      reference: google.com
                     name: Weevil Resistance
-                    ontologyDbId: null
-                    ontologyName: null
-                    ontologyRefernce: null
-                    scale: null
-                    scientist: null
-                    status: null
-                    submissionTimestamp: null
-                    synonyms: null
-                    trait: null
+                    ontologyDbId: MO_123
+                    ontologyName: Ontology.org
+                    ontologyRefernce:
+                      documentationLinks:
+                      - URL: https://ontology.org
+                        type: WEBPAGE
+                        url: https://ontology.org
+                      ontologyDbId: MO_123
+                      ontologyName: Ontology.org
+                      version: '17'
+                    scale:
+                      dataType: Nominal
+                      decimalPlaces: 0
+                      name: Color
+                      ontologyRefernce:
+                        documentationLinks:
+                        - URL: https://ontology.org/s3
+                          type: WEBPAGE
+                          url: https://ontology.org/s3
+                        ontologyDbId: MO_123
+                        ontologyName: Ontology.org
+                        version: '17'
+                      scaleDbId: s3
+                      scaleName: Color
+                      validValues:
+                        categories:
+                        - dark red
+                        - red
+                        - dark blue
+                        - blue
+                        - black
+                        max: 0
+                        min: 0
+                      xref: xref
+                    scientist: Bob
+                    status: active
+                    submissionTimestamp: '2011-06-14T22:12:51-04:00'
+                    synonyms: []
+                    trait:
+                      alternativeAbbreviations: []
+                      attribute: leaf color
+                      class: Categorical
+                      description: color of leaf sample
+                      entity: entity
+                      mainAbbreviation: LC
+                      name: Leaf Color
+                      ontologyRefernce:
+                        documentationLinks:
+                        - URL: https://ontology.org/t3
+                          type: RDF
+                          url: https://ontology.org/t3
+                        ontologyDbId: MO_123
+                        ontologyName: Ontology.org
+                        version: '17'
+                      status: active
+                      synonyms: []
+                      traitDbId: t3
+                      traitName: Leaf Color
+                      xref: xref
                     uri: http://www.brapi.org/ontology/MO_123:1000002
                     values: Absent
-                    xref: null
+                    xref: MO_123:100003
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    required:
-                      - data
                     properties:
                       data:
                         items:
                           $ref: '#/components/schemas/germplasmAttributeDef'
                         type: array
+                    required:
+                    - data
                     type: object
+                required:
+                - metadata
+                - result
                 title: germplasmAttributeDefsResponse
                 type: object
           description: OK

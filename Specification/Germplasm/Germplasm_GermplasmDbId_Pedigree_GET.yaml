@@ -56,14 +56,14 @@ paths:
                   pedigree: A000001/A000002
                   siblings: []
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/pedigree'
+                required:
+                - metadata
+                - result
                 title: pedigreeResponse
                 type: object
           description: OK

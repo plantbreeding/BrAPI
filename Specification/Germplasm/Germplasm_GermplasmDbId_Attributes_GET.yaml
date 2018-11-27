@@ -42,31 +42,31 @@ paths:
                   pagination:
                     currentPage: 0
                     pageSize: 2
-                    totalCount: 10
-                    totalPages: 5
+                    totalCount: 5
+                    totalPages: 3
                   status: []
                 result:
                   data:
                   - attributeCode: RHT
-                    attributeDbId: '1'
+                    attributeDbId: ATT01
                     attributeName: Rht-B1b
                     determinedDate: '2017-03-17'
                     value: Heterozygous
                   - attributeCode: WEV
-                    attributeDbId: '2'
+                    attributeDbId: ATT02
                     attributeName: Weevil Resistance
                     determinedDate: '2017-03-17'
                     value: Present
                   germplasmDbId: '3'
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/germplasmAttributeList'
+                required:
+                - metadata
+                - result
                 title: germplasmAttributeListResponse
                 type: object
           description: OK

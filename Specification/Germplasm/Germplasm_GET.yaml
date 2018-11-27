@@ -44,8 +44,8 @@ paths:
                   pagination:
                     currentPage: 0
                     pageSize: 2
-                    totalCount: 9
-                    totalPages: 5
+                    totalCount: 2
+                    totalPages: 1
                   status: []
                 result:
                   data:
@@ -56,7 +56,7 @@ paths:
                     commonCropName: G000001
                     countryOfOriginCode: COUNTRY1
                     defaultDisplayName: G000001
-                    documentationURL: null
+                    documentationURL: https://brapi.org
                     donors:
                     - donorAccessionNumber: A001230
                       donorInstituteCode: INRA
@@ -66,10 +66,10 @@ paths:
                       germplasmPUI: https://doi.org/10.1109/5.231123
                     genus: Fructus
                     germplasmDbId: '1'
-                    germplasmGenus: null
+                    germplasmGenus: Fructus
                     germplasmName: Name001
                     germplasmPUI: http://pui.per/accession/A000001
-                    germplasmSpecies: null
+                    germplasmSpecies: novus
                     instituteCode: PER001
                     instituteName: INST1
                     pedigree: A000001
@@ -93,7 +93,7 @@ paths:
                     commonCropName: G000002
                     countryOfOriginCode: COUNTRY1
                     defaultDisplayName: G000002
-                    documentationURL: null
+                    documentationURL: https://brapi.org
                     donors:
                     - donorAccessionNumber: A007890
                       donorInstituteCode: INRA
@@ -103,10 +103,10 @@ paths:
                       germplasmPUI: https://doi.org/10.1109/5.231123
                     genus: Fructus
                     germplasmDbId: '2'
-                    germplasmGenus: null
+                    germplasmGenus: Fructus
                     germplasmName: Name002
                     germplasmPUI: http://pui.per/accession/A000002
-                    germplasmSpecies: null
+                    germplasmSpecies: novus
                     instituteCode: PER001
                     instituteName: INST1
                     pedigree: A000002
@@ -124,21 +124,21 @@ paths:
                       taxonId: E312
                     typeOfGermplasmStorageCode: []
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    required:
-                      - data
                     properties:
                       data:
                         items:
                           $ref: '#/components/schemas/germplasm'
                         type: array
+                    required:
+                    - data
                     type: object
+                required:
+                - metadata
+                - result
                 title: germplasmResponse
                 type: object
           description: OK

@@ -27,7 +27,18 @@ paths:
                     totalCount: 0
                     totalPages: 0
                   status: []
-                result: null
+                result:
+                  analysisMethods:
+                  - kasp
+                  defaultDisplayName: marker1-2
+                  markerDbId: mr02
+                  markerName: marker1-2
+                  refAlt:
+                  - A
+                  - T
+                  synonyms:
+                  - i_11_10020
+                  type: marker
               schema:
                 $ref: '#/components/schemas/markerResponse'
           description: OK

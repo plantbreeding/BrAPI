@@ -62,15 +62,16 @@ paths:
                   pagination:
                     currentPage: 0
                     pageSize: 2
-                    totalCount: 22
-                    totalPages: 11
+                    totalCount: 2
+                    totalPages: 1
                   status: []
                 result:
                   data:
                   - analysisMethods:
                     - illumina
                     defaultDisplayName: marker1-1
-                    markerDbId: mr1
+                    markerDbId: mr01
+                    markerName: marker1-1
                     refAlt:
                     - A
                     - T
@@ -80,7 +81,8 @@ paths:
                   - analysisMethods:
                     - kasp
                     defaultDisplayName: marker1-2
-                    markerDbId: mr2
+                    markerDbId: mr02
+                    markerName: marker1-2
                     refAlt:
                     - A
                     - T
@@ -119,8 +121,8 @@ paths:
                   pagination:
                     currentPage: 0
                     pageSize: 2
-                    totalCount: 22
-                    totalPages: 11
+                    totalCount: 2
+                    totalPages: 1
                   status: []
                 result:
                   data:
@@ -128,7 +130,7 @@ paths:
                     - illumina
                     defaultDisplayName: marker1-1
                     markerDbId: mr01
-                    markerName: null
+                    markerName: marker1-1
                     refAlt:
                     - A
                     - T
@@ -139,7 +141,7 @@ paths:
                     - kasp
                     defaultDisplayName: marker1-2
                     markerDbId: mr02
-                    markerName: null
+                    markerName: marker1-2
                     refAlt:
                     - A
                     - T

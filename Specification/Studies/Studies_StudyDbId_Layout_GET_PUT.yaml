@@ -65,21 +65,21 @@ paths:
                     replicate: '0'
                     studyDbId: '1001'
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    required:
-                      - data
                     properties:
                       data:
                         items:
                           $ref: '#/components/schemas/observationUnitPosition'
                         type: array
+                    required:
+                    - data
                     type: object
+                required:
+                - metadata
+                - result
                 title: observationUnitPositionsResponse
                 type: object
           description: OK
@@ -126,34 +126,34 @@ paths:
                   status: []
                 result:
                   data:
-                  - X: '10'
-                    Y: '12'
+                  - X: '1'
+                    Y: '1'
                     additionalInfo: {}
                     blockNumber: '0'
                     entryType: CHECK
                     germplasmDbId: '1'
                     germplasmName: Name001
-                    observationLevel: plot
-                    observationUnitDbId: '1'
-                    observationUnitName: Plot 1
+                    observationLevel: plant
+                    observationUnitDbId: '2'
+                    observationUnitName: Plant 1
                     replicate: '0'
                     studyDbId: '1001'
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    required:
-                      - data
                     properties:
                       data:
                         items:
                           $ref: '#/components/schemas/observationUnitPosition'
                         type: array
+                    required:
+                    - data
                     type: object
+                required:
+                - metadata
+                - result
                 title: observationUnitPositionsResponse
                 type: object
           description: OK

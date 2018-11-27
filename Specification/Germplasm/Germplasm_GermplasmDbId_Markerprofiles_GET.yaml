@@ -28,18 +28,20 @@ paths:
                     totalPages: 0
                   status: []
                 result:
-                  germplasmDbId: null
-                  markerProfileDbIds: null
-                  markerprofileDbIds: []
+                  germplasmDbId: '3'
+                  markerProfileDbIds:
+                  - G3-P2
+                  markerprofileDbIds:
+                  - G3-P2
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/germplasmMarkerprofilesList'
+                required:
+                - metadata
+                - result
                 title: germplasmMarkerprofilesListResponse
                 type: object
           description: OK

@@ -36,63 +36,94 @@ paths:
                   data:
                   - contextOfUse: []
                     crop: maize
-                    date: '2018-10-26'
+                    date: '2018-11-27'
                     defaultValue: '10'
-                    documentationURL: null
+                    documentationURL: https://brapi.org
                     growthStage: '1'
                     institution: '1'
                     language: English
                     method:
-                      class: Numeric
-                      description: Standard rolled measuring tape
-                      formula: a^2 + b^2 = c^2
+                      class: string
+                      description: string
+                      formula: string
                       methodDbId: m1
-                      methodName: null
-                      name: Tape Measure
-                      ontologyRefernce: null
-                      reference: google.com
+                      methodName: string
+                      name: string
+                      ontologyRefernce:
+                        documentationLinks:
+                        - URL: string
+                          type: OBO
+                          url: string
+                        ontologyDbId: MO_123
+                        ontologyName: Ontology.org
+                        version: '17'
+                      reference: string
                     name: Plant height
                     observationVariableDbId: MO_123:100002
                     observationVariableName: Plant height
                     ontologyDbId: MO_123
                     ontologyName: Ontology.org
-                    ontologyRefernce: null
+                    ontologyRefernce:
+                      documentationLinks:
+                      - URL: https://ontology.org
+                        type: WEBPAGE
+                        url: https://ontology.org
+                      ontologyDbId: MO_123
+                      ontologyName: Ontology.org
+                      version: '17'
                     scale:
-                      dataType: Numerical
-                      decimalPlaces: 1
-                      name: Centimeter
-                      ontologyRefernce: null
+                      dataType: Code
+                      decimalPlaces: 0
+                      name: string
+                      ontologyRefernce:
+                        documentationLinks:
+                        - URL: string
+                          type: OBO
+                          url: string
+                        ontologyDbId: MO_123
+                        ontologyName: Ontology.org
+                        version: '17'
                       scaleDbId: s1
-                      scaleName: null
+                      scaleName: string
                       validValues:
-                        categories: []
-                        max: 99999
+                        categories:
+                        - string
+                        max: 0
                         min: 0
-                      xref: xref
+                      xref: string
                     scientist: Bob
                     status: active
                     submissionTimestamp: '2011-06-14T22:12:51-04:00'
                     synonyms: []
                     trait:
-                      alternativeAbbreviations: []
-                      attribute: plant height
-                      class: Numeric
-                      description: plant height
-                      entity: entity
-                      mainAbbreviation: H
-                      name: Plant Height
-                      ontologyRefernce: null
-                      status: active
-                      synonyms: []
+                      alternativeAbbreviations:
+                      - string
+                      attribute: string
+                      class: string
+                      description: string
+                      entity: string
+                      mainAbbreviation: string
+                      name: string
+                      ontologyRefernce:
+                        documentationLinks:
+                        - URL: string
+                          type: OBO
+                          url: string
+                        ontologyDbId: MO_123
+                        ontologyName: Ontology.org
+                        version: '17'
+                      status: string
+                      synonyms:
+                      - string
                       traitDbId: t1
-                      traitName: null
-                      xref: xref
+                      traitName: string
+                      xref: string
                     xref: MO_123:100002
                   - contextOfUse: []
                     crop: maize
-                    date: '2018-10-26'
+                    date: '2018-11-27'
                     defaultValue: '10'
-                    documentationURL: null
+                    documentationURL: https://brapi.org
                     growthStage: '1'
                     institution: '1'
                     language: English
@@ -101,23 +132,44 @@ paths:
                       description: Comparing sample color to standard color palette
                       formula: NA
                       methodDbId: m3
-                      methodName: null
+                      methodName: Standard Color Palette
                       name: Standard Color Palette
-                      ontologyRefernce: null
+                      ontologyRefernce:
+                        documentationLinks:
+                        - URL: https://ontology.org/m3
+                          type: OBO
+                          url: https://ontology.org/m3
+                        ontologyDbId: MO_123
+                        ontologyName: Ontology.org
+                        version: '17'
                       reference: google.com
                     name: Carotenoid
                     observationVariableDbId: MO_123:100003
                     observationVariableName: Carotenoid
                     ontologyDbId: MO_123
                     ontologyName: Ontology.org
-                    ontologyRefernce: null
+                    ontologyRefernce:
+                      documentationLinks:
+                      - URL: https://ontology.org
+                        type: WEBPAGE
+                        url: https://ontology.org
+                      ontologyDbId: MO_123
+                      ontologyName: Ontology.org
+                      version: '17'
                     scale:
-                      dataType: null
+                      dataType: Nominal
                       decimalPlaces: 0
                       name: Color
-                      ontologyRefernce: null
+                      ontologyRefernce:
+                        documentationLinks:
+                        - URL: https://ontology.org/s3
+                          type: WEBPAGE
+                          url: https://ontology.org/s3
+                        ontologyDbId: MO_123
+                        ontologyName: Ontology.org
+                        version: '17'
                       scaleDbId: s3
-                      scaleName: null
+                      scaleName: Color
                       validValues:
                         categories:
                         - dark red
@@ -140,18 +192,25 @@ paths:
                       entity: entity
                       mainAbbreviation: LC
                       name: Leaf Color
-                      ontologyRefernce: null
+                      ontologyRefernce:
+                        documentationLinks:
+                        - URL: https://ontology.org/t3
+                          type: RDF
+                          url: https://ontology.org/t3
+                        ontologyDbId: MO_123
+                        ontologyName: Ontology.org
+                        version: '17'
                       status: active
                       synonyms: []
                       traitDbId: t3
-                      traitName: null
+                      traitName: Leaf Color
                       xref: xref
                     xref: MO_123:100003
                   - contextOfUse: []
                     crop: maize
-                    date: '2018-10-26'
+                    date: '2018-11-27'
                     defaultValue: '10'
-                    documentationURL: null
+                    documentationURL: https://brapi.org
                     growthStage: '1'
                     institution: '1'
                     language: English
@@ -160,23 +219,44 @@ paths:
                       description: Comparing sample color to standard color palette
                       formula: NA
                       methodDbId: m3
-                      methodName: null
+                      methodName: Standard Color Palette
                       name: Standard Color Palette
-                      ontologyRefernce: null
+                      ontologyRefernce:
+                        documentationLinks:
+                        - URL: https://ontology.org/m3
+                          type: OBO
+                          url: https://ontology.org/m3
+                        ontologyDbId: MO_123
+                        ontologyName: Ontology.org
+                        version: '17'
                       reference: google.com
                     name: Root color
                     observationVariableDbId: MO_123:100005
                     observationVariableName: Root color
                     ontologyDbId: MO_123
                     ontologyName: Ontology.org
-                    ontologyRefernce: null
+                    ontologyRefernce:
+                      documentationLinks:
+                      - URL: https://ontology.org
+                        type: WEBPAGE
+                        url: https://ontology.org
+                      ontologyDbId: MO_123
+                      ontologyName: Ontology.org
+                      version: '17'
                     scale:
-                      dataType: null
+                      dataType: Nominal
                       decimalPlaces: 0
                       name: Color
-                      ontologyRefernce: null
+                      ontologyRefernce:
+                        documentationLinks:
+                        - URL: https://ontology.org/s3
+                          type: WEBPAGE
+                          url: https://ontology.org/s3
+                        ontologyDbId: MO_123
+                        ontologyName: Ontology.org
+                        version: '17'
                       scaleDbId: s3
-                      scaleName: null
+                      scaleName: Color
                       validValues:
                         categories:
                         - dark red
@@ -199,18 +279,25 @@ paths:
                       entity: entity
                       mainAbbreviation: RC
                       name: Root Color
-                      ontologyRefernce: null
+                      ontologyRefernce:
+                        documentationLinks:
+                        - URL: https://ontology.org/t4
+                          type: WEBPAGE
+                          url: https://ontology.org/t4
+                        ontologyDbId: MO_123
+                        ontologyName: Ontology.org
+                        version: '17'
                       status: active
                       synonyms: []
                       traitDbId: t4
-                      traitName: null
+                      traitName: Root Color
                       xref: xref
                     xref: MO_123:100005
                   - contextOfUse: []
                     crop: maize
-                    date: '2018-10-26'
+                    date: '2018-11-27'
                     defaultValue: '10'
-                    documentationURL: null
+                    documentationURL: https://brapi.org
                     growthStage: '1'
                     institution: '1'
                     language: English
@@ -219,23 +306,44 @@ paths:
                       description: Image analysis of sample photo
                       formula: Bobs Color Threshold Tool
                       methodDbId: m4
-                      methodName: null
+                      methodName: Image analysis
                       name: Image analysis
-                      ontologyRefernce: null
+                      ontologyRefernce:
+                        documentationLinks:
+                        - URL: https://ontology.org/m4
+                          type: RDF
+                          url: https://ontology.org/m4
+                        ontologyDbId: MO_123
+                        ontologyName: Ontology.org
+                        version: '17'
                       reference: https://bobsimageanalysis.com
                     name: Virus severity
                     observationVariableDbId: MO_123:100006
                     observationVariableName: Virus severity
                     ontologyDbId: MO_123
                     ontologyName: Ontology.org
-                    ontologyRefernce: null
+                    ontologyRefernce:
+                      documentationLinks:
+                      - URL: https://ontology.org
+                        type: WEBPAGE
+                        url: https://ontology.org
+                      ontologyDbId: MO_123
+                      ontologyName: Ontology.org
+                      version: '17'
                     scale:
-                      dataType: null
+                      dataType: Numerical
                       decimalPlaces: 0
                       name: Percentage
-                      ontologyRefernce: null
+                      ontologyRefernce:
+                        documentationLinks:
+                        - URL: https://ontology.org/s4
+                          type: OBO
+                          url: https://ontology.org/s4
+                        ontologyDbId: MO_123
+                        ontologyName: Ontology.org
+                        version: '17'
                       scaleDbId: s4
-                      scaleName: null
+                      scaleName: Percentage
                       validValues:
                         categories: []
                         max: 100
@@ -253,25 +361,27 @@ paths:
                       entity: entity
                       mainAbbreviation: LC
                       name: Virus severity
-                      ontologyRefernce: null
+                      ontologyRefernce:
+                        documentationLinks:
+                        - URL: https://ontology.org/t5
+                          type: OBO
+                          url: https://ontology.org/t5
+                        ontologyDbId: MO_123
+                        ontologyName: Ontology.org
+                        version: '17'
                       status: active
                       synonyms: []
                       traitDbId: t5
-                      traitName: null
+                      traitName: Virus severity
                       xref: xref
                     xref: MO_123:100006
                   studyDbId: '1001'
                   trialName: Peru Yield Trial 1
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    required:
-                      - data
                     properties:
                       data:
                         items:
@@ -281,7 +391,12 @@ paths:
                         type: string
                       trialName:
                         type: string
+                    required:
+                    - data
                     type: object
+                required:
+                - metadata
+                - result
                 title: studyObservationVariablesResponse
                 type: object
           description: OK

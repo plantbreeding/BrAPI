@@ -21,32 +21,32 @@ paths:
                     currentPage: 0
                     pageSize: 2
                     totalCount: 0
-                    totalPages: 0
+                    totalPages: 1
                   status: []
                 result:
                   data:
                   - attributeCategoryDbId: '1'
-                    attributeCategoryName: null
+                    attributeCategoryName: Morphological
                     name: Morphological
                   - attributeCategoryDbId: '2'
-                    attributeCategoryName: null
+                    attributeCategoryName: Agronomic
                     name: Agronomic
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    required:
-                      - data
                     properties:
                       data:
                         items:
                           $ref: '#/components/schemas/germplasmAttributeCategory'
                         type: array
+                    required:
+                    - data
                     type: object
+                required:
+                - metadata
+                - result
                 title: germplasmAttributeCategoriesResponse
                 type: object
           description: OK

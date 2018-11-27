@@ -23,37 +23,47 @@ paths:
                   pagination:
                     currentPage: 0
                     pageSize: 2
-                    totalCount: 6
-                    totalPages: 3
+                    totalCount: 2
+                    totalPages: 1
                   status: []
                 result:
                   data:
                   - abbreviation: P1
-                    leadPerson: G. Leader
+                    commonCropName: Tomatillo
+                    documentationURL: https://brapi.org
+                    leadPerson: Name Nameson
+                    leadPersonDbId: person1
+                    leadPersonName: Name Nameson
                     name: Program 1
                     objective: Global Population Improvement
                     programDbId: '1'
+                    programName: Program 1
                   - abbreviation: P2
-                    leadPerson: M. Breeder
+                    commonCropName: Tomatillo
+                    documentationURL: https://brapi.org
+                    leadPerson: Name Nameson
+                    leadPersonDbId: person1
+                    leadPersonName: Name Nameson
                     name: Program 2
                     objective: XYZ
                     programDbId: '2'
+                    programName: Program 2
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    required:
-                      - data
                     properties:
                       data:
                         items:
                           $ref: '#/components/schemas/program'
                         type: array
+                    required:
+                    - data
                     type: object
+                required:
+                - metadata
+                - result
                 title: programsResponse
                 type: object
           description: OK

@@ -24,15 +24,51 @@ paths:
         '200':
           content:
             application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result:
+                  additionalInfo: {}
+                  copyright: Copyright 2019
+                  description: BrAPI Logo
+                  descriptiveOntologyTerms:
+                  - brapi
+                  - logo
+                  imageDbId: img1
+                  imageFileName: brapi-logo.svg
+                  imageFileSize: 3676
+                  imageHeight: 56
+                  imageLocation:
+                    geometry:
+                      coordinates:
+                      - -110.11301
+                      - 50.010082
+                      type: Point
+                    type: Feature
+                  imageName: brapiLogo
+                  imageTimeStamp: '1969-12-31'
+                  imageURL: http://localhost:8080/brapi/v1/images/img1/brapi-logo.svg
+                  imageWidth: 258
+                  mimeType: image/svg
+                  observationDbIds:
+                  - '1'
+                  - '2'
+                  observationUnitDbId: '1'
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/image'
+                required:
+                - metadata
+                - result
                 title: imageResponse
                 type: object
           description: OK

@@ -37,25 +37,25 @@ paths:
                   - description: example matrix
                     lastUpdated: '2018-05-03T11:03:56-04:00'
                     matrixDbId: mat1
-                    matrixName: null
+                    matrixName: Example Matrix
                     name: Example Matrix
                     studyDbId: '1001'
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    required:
-                      - data
                     properties:
                       data:
                         items:
                           $ref: '#/components/schemas/alleleMatrixDetails'
                         type: array
+                    required:
+                    - data
                     type: object
+                required:
+                - metadata
+                - result
                 title: alleleMatrixDetailsResponse
                 type: object
           description: OK

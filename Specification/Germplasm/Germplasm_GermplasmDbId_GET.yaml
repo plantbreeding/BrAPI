@@ -35,14 +35,14 @@ paths:
                   commonCropName: G000003
                   countryOfOriginCode: COUNTRY1
                   defaultDisplayName: G000003
-                  documentationURL: null
+                  documentationURL: https://brapi.org
                   donors: []
                   genus: Fructus
                   germplasmDbId: '3'
-                  germplasmGenus: null
+                  germplasmGenus: Fructus
                   germplasmName: Name003
                   germplasmPUI: http://pui.per/accession/A000003
-                  germplasmSpecies: null
+                  germplasmSpecies: novus
                   instituteCode: PER001
                   instituteName: INST1
                   pedigree: A000001/A000002
@@ -60,14 +60,14 @@ paths:
                     taxonId: E312
                   typeOfGermplasmStorageCode: []
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/germplasm'
+                required:
+                - metadata
+                - result
                 title: germplasmResponse
                 type: object
           description: OK

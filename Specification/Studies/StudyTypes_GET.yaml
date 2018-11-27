@@ -27,34 +27,34 @@ paths:
                     currentPage: 0
                     pageSize: 2
                     totalCount: 3
-                    totalPages: 1
+                    totalPages: 2
                   status: []
                 result:
                   data:
                   - description: Description for Nursery study type
                     name: Crossing Nursery
-                    studyTypeDbId: null
-                    studyTypeName: null
+                    studyTypeDbId: '1'
+                    studyTypeName: Crossing Nursery
                   - description: Description for yield study type
                     name: Yield study
-                    studyTypeDbId: null
-                    studyTypeName: null
+                    studyTypeDbId: '2'
+                    studyTypeName: Yield study
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    required:
-                      - data
                     properties:
                       data:
                         items:
                           $ref: '#/components/schemas/studyType'
                         type: array
+                    required:
+                    - data
                     type: object
+                required:
+                - metadata
+                - result
                 title: studyTypesResponse
                 type: object
           description: OK

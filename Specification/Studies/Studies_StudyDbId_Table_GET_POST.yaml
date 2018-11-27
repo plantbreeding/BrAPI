@@ -142,14 +142,14 @@ paths:
                   - Root color
                   - Virus severity
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/observationsTable'
+                required:
+                - metadata
+                - result
                 title: studyobservationsTableResponse
                 type: object
             application/tsv:
@@ -194,20 +194,24 @@ paths:
                   datafiles: []
                   pagination:
                     currentPage: 0
-                    pageSize: 0
-                    totalCount: 0
-                    totalPages: 0
+                    pageSize: 1
+                    totalCount: 1
+                    totalPages: 1
                   status: []
-                result: null
+                result:
+                  observations:
+                  - observationDbId: 09bf675a-a857-4794-83ec-4ea6269c607a
+                    observationUnitDbId: 512060c1-cf03-4456-9698-4072b71d7199
+                    observationVariableDbId: MO_123:100002
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/newObservationDbIds'
+                required:
+                - metadata
+                - result
                 title: newObservationDbIdsResponse
                 type: object
           description: OK

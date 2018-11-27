@@ -70,21 +70,27 @@ paths:
             application/json:
               example:
                 metadata:
+                  asynchStatus:
+                    asynchId: ''
+                    endTime: '2018-11-27'
+                    percentComplete: 100
+                    startTime: '2018-11-27'
+                    status: FINISHED
                   datafiles: []
                   pagination:
                     currentPage: 0
                     pageSize: 2
-                    totalCount: 66
-                    totalPages: 33
+                    totalCount: 280
+                    totalPages: 140
                   status: []
                 result:
                   data:
-                  - - mr1
-                    - mp1
-                    - '1'
-                  - - mr2
-                    - mp1
-                    - '0'
+                  - - mr01
+                    - P1
+                    - A
+                  - - mr02
+                    - P1
+                    - C
               schema:
                 properties:
                   metadata:

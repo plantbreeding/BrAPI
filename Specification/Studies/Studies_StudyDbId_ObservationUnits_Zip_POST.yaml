@@ -36,14 +36,14 @@ paths:
                       - observationUnitDbIds0
                       - observationUnitDbIds1
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/newObservationUnitDbIds'
+                required:
+                - metadata
+                - result
                 title: newObservationUnitDbIdsResponse
                 type: object
           description: OK

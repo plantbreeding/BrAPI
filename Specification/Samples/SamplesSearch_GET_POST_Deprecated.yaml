@@ -44,8 +44,8 @@ paths:
                   pagination:
                     currentPage: 0
                     pageSize: 2
-                    totalCount: 16
-                    totalPages: 8
+                    totalCount: 2
+                    totalPages: 1
                   status: []
                 result:
                   data:
@@ -112,8 +112,8 @@ paths:
                   pagination:
                     currentPage: 0
                     pageSize: 2
-                    totalCount: 16
-                    totalPages: 8
+                    totalCount: 2
+                    totalPages: 1
                   status: []
                 result:
                   data:

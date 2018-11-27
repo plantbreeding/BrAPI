@@ -9,10 +9,10 @@
 
 import yaml
 import sys
-import derefernceAll
+import dereferenceAll
 
 def go(filePath = './brapi_openapi.yaml'):
-    fileObj = derefernceAll.dereferenceBrAPI(filePath)
+    fileObj = dereferenceAll.dereferenceBrAPI(filePath)
     searchList = transform(fileObj)
     search(searchList)
     

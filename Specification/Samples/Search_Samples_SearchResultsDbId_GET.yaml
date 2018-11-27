@@ -23,8 +23,8 @@ paths:
                   pagination:
                     currentPage: 0
                     pageSize: 2
-                    totalCount: 3
-                    totalPages: 2
+                    totalCount: 2
+                    totalPages: 1
                   status: []
                 result:
                   data:
@@ -35,7 +35,7 @@ paths:
                     plateDbId: pl1
                     plateIndex: 0
                     plotDbId: '1'
-                    sampleDbId: sam1
+                    sampleDbId: sam00
                     sampleTimestamp: '2018-01-01T00:00:00-05:00'
                     sampleType: DNA
                     studyDbId: '1001'
@@ -48,28 +48,28 @@ paths:
                     plateDbId: pl1
                     plateIndex: 1
                     plotDbId: '1'
-                    sampleDbId: sam2
+                    sampleDbId: sam01
                     sampleTimestamp: '2018-01-01T00:00:00-05:00'
                     sampleType: DNA
                     studyDbId: '1001'
                     takenBy: Bob
                     tissueType: Leaf
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    required:
-                      - data
                     properties:
                       data:
                         items:
                           $ref: '#/components/schemas/sample'
                         type: array
+                    required:
+                    - data
                     type: object
+                required:
+                - metadata
+                - result
                 title: samplesResponse
                 type: object
           description: OK

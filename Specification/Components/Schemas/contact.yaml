@@ -20,9 +20,9 @@ components:
         type:
           description: 'The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)'
           type: string
-      type: object
       required:
-        - contactDbId
+      - contactDbId
+      type: object
 info:
   title: BrAPI
   version: ''

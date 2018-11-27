@@ -48,25 +48,25 @@ paths:
                   altitude: 828
                   countryCode: PER
                   countryName: Peru
-                  documentationURL: null
+                  documentationURL: https://brapi.org
                   instituteAddress: 71 Pilgrim Avenue Chevy Chase MD 20815
                   instituteAdress: 71 Pilgrim Avenue Chevy Chase MD 20815
                   instituteName: Plant Science Institute
                   latitude: -11.1274995803833
                   locationDbId: '1'
-                  locationName: null
+                  locationName: Location 1
                   locationType: Storage location
                   longitude: -75.35639190673828
                   name: Location 1
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/location'
+                required:
+                - metadata
+                - result
                 title: locationResponse
                 type: object
           description: OK

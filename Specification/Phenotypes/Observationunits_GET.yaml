@@ -82,8 +82,8 @@ paths:
                   pagination:
                     currentPage: 0
                     pageSize: 2
-                    totalCount: 22
-                    totalPages: 11
+                    totalCount: 2
+                    totalPages: 1
                   status: []
                 result:
                   data:
@@ -133,64 +133,63 @@ paths:
                       modality: deficit
                   - X: '1'
                     Y: '1'
-                    blockNumber: '1'
+                    blockNumber: '101'
                     entryNumber: '1'
-                    entryType: TEST
-                    germplasmDbId: '1'
-                    germplasmName: Name001
-                    observationLevel: plot
-                    observationLevels: block:1;plot:1
-                    observationUnitDbId: '1'
-                    observationUnitName: Plot 1
-                    observationUnitXref:
-                    - id: SAMEA179865230
-                      source: ebi.biosample
-                    - id: INRA:CoeSt6 _SMH03
-                      source: gnpis.lot
-                    - id: '239865'
-                      source: kernelDB
+                    entryType: FILLER
+                    germplasmDbId: '4'
+                    germplasmName: Name004
+                    observationLevel: plant
+                    observationLevels: block:101;plot:5;plant:5
+                    observationUnitDbId: '10'
+                    observationUnitName: Plant 5
+                    observationUnitXref: []
                     observations:
-                    - collector: A. Technician
-                      observationDbId: '1'
-                      observationTimeStamp: '2013-06-14T22:03:51-04:00'
+                    - collector: B. Tech
+                      observationDbId: '16'
+                      observationTimeStamp: '2011-06-14T22:06:51-04:00'
                       observationVariableDbId: MO_123:100002
                       observationVariableName: Plant height
-                      season: fall 2011
-                      value: '1.2'
-                    - collector: A. Technician
-                      observationDbId: '2'
-                      observationTimeStamp: '2013-06-14T22:04:51-04:00'
-                      observationVariableDbId: MO_123:100006
-                      observationVariableName: Virus severity
-                      season: fall 2011
-                      value: '4.5'
-                    plantNumber: 'null'
-                    plotNumber: '1'
+                      season: winter 2012
+                      value: '100'
+                    - collector: B. Tech
+                      observationDbId: '17'
+                      observationTimeStamp: '2011-06-14T22:07:51-04:00'
+                      observationVariableDbId: MO_123:100003
+                      observationVariableName: Carotenoid
+                      season: winter 2012
+                      value: '9'
+                    - collector: B. Tech
+                      observationDbId: '18'
+                      observationTimeStamp: '2011-06-14T22:08:51-04:00'
+                      observationVariableDbId: MO_123:100004
+                      observationVariableName: Root weight
+                      season: winter 2012
+                      value: '2'
+                    plantNumber: '5'
+                    plotNumber: '5'
                     programName: Program 1
-                    replicate: '0'
-                    studyDbId: '1001'
+                    replicate: '1'
+                    studyDbId: '1003'
                     studyLocation: Peru
-                    studyLocationDbId: '1'
-                    studyName: Study 1
-                    treatments:
-                    - factor: water regimen
-                      modality: deficit
+                    studyLocationDbId: '2'
+                    studyName: Study 3
+                    treatments: []
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    required:
-                      - data
                     properties:
                       data:
                         items:
                           $ref: '#/components/schemas/observationUnitPhenotype'
                         type: array
+                    required:
+                    - data
                     type: object
+                required:
+                - metadata
+                - result
                 title: observationUnitsResponse
                 type: object
           description: OK

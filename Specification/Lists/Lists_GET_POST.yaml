@@ -38,23 +38,44 @@ paths:
         '200':
           content:
             application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 1
+                    totalPages: 1
+                  status: []
+                result:
+                  data:
+                  - dateCreated: '2011-06-14T22:12:51-04:00'
+                    dateModified: '2011-06-14T22:12:51-04:00'
+                    description: Example List of germplasm
+                    listDbId: list1
+                    listName: Example List 1
+                    listOwnerName: Bob Robertson
+                    listOwnerPersonDbId: bob123
+                    listSize: 3
+                    listSource: User Created
+                    listType: germplasm
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    required:
-                      - data
                     properties:
                       data:
                         description: Array of generic list summaries
                         items:
                           $ref: '#/components/schemas/listSummary'
                         type: array
+                    required:
+                    - data
                     type: object
+                required:
+                - metadata
+                - result
                 title: listSummaryResponse
                 type: object
           description: OK
@@ -81,15 +102,37 @@ paths:
         '200':
           content:
             application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result:
+                  data:
+                  - string
+                  dateCreated: '2018-11-27T17:44:42-05:00'
+                  dateModified: '2018-11-27T17:44:42-05:00'
+                  description: string
+                  listDbId: f1a457c1-2476-40ce-bed4-c71d7b90fe02
+                  listName: string
+                  listOwnerName: string
+                  listOwnerPersonDbId: string
+                  listSize: 1
+                  listSource: string
+                  listType: germplasm
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/listDetails'
+                required:
+                - metadata
+                - result
                 title: listResponse
                 type: object
           description: OK

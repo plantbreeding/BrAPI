@@ -40,36 +40,62 @@ paths:
                   - X: '1'
                     Y: '1'
                     blockNumber: '1'
-                    entryNumber: '2'
+                    entryNumber: '1'
                     entryType: TEST
                     germplasmDbId: '1'
                     germplasmName: Name001
-                    observationUnitDbId: '2'
-                    observationUnitName: Plant 1
+                    observationUnitDbId: '1'
+                    observationUnitName: Plot 1
                     observationUnitXref:
-                    - id: SAMEA179865815
+                    - id: SAMEA179865230
                       source: ebi.biosample
-                    - id: INRA:CoeSt6 _SMH13
+                    - id: INRA:CoeSt6 _SMH03
                       source: gnpis.lot
-                    - id: '239167'
+                    - id: '239865'
                       source: kernelDB
                     observations:
                     - collector: A. Technician
-                      observationDbId: '3'
-                      observationTimeStamp: '2013-06-14T22:05:51-04:00'
+                      observationDbId: '1'
+                      observationTimeStamp: '2013-06-14T22:03:51-04:00'
                       observationVariableDbId: MO_123:100002
                       observationVariableName: Plant height
-                      season: null
-                      value: '1.1'
+                      season:
+                        season: fall
+                        seasonDbId: '1'
+                        year: '2011'
+                      value: '1.2'
                     - collector: A. Technician
-                      observationDbId: '4'
-                      observationTimeStamp: '2013-06-14T22:06:51-04:00'
+                      observationDbId: '2'
+                      observationTimeStamp: '2013-06-14T22:04:51-04:00'
                       observationVariableDbId: MO_123:100006
                       observationVariableName: Virus severity
-                      season: null
-                      value: '5.1'
+                      season:
+                        season: fall
+                        seasonDbId: '1'
+                        year: '2011'
+                      value: '4.5'
+                    - collector: string
+                      observationDbId: b0faedb2-5dfe-48a9-bfe4-932a0d245d07
+                      observationTimeStamp: '1970-01-18T14:02:52-05:00'
+                      observationVariableDbId: MO_123:100002
+                      observationVariableName: Plant height
+                      season:
+                        season: fall
+                        seasonDbId: '1'
+                        year: '2011'
+                      value: string
+                    - collector: string
+                      observationDbId: 8fa36f50-3b9a-429a-bf5e-ccefdf1caff7
+                      observationTimeStamp: '1970-01-18T15:41:05-05:00'
+                      observationVariableDbId: MO_123:100002
+                      observationVariableName: Plant height
+                      season:
+                        season: fall
+                        seasonDbId: '1'
+                        year: '2011'
+                      value: string
                     pedigree: A000001/A000002
-                    plantNumber: '1'
+                    plantNumber: '0'
                     plotNumber: '1'
                     replicate: '0'
                   - X: '1'
@@ -94,35 +120,41 @@ paths:
                       observationTimeStamp: '2013-06-14T22:07:51-04:00'
                       observationVariableDbId: MO_123:100003
                       observationVariableName: Carotenoid
-                      season: null
+                      season:
+                        season: summer
+                        seasonDbId: '4'
+                        year: '2012'
                       value: '2.1'
                     - collector: A. Technician
                       observationDbId: '6'
                       observationTimeStamp: '2013-06-14T22:08:51-04:00'
                       observationVariableDbId: MO_123:100005
                       observationVariableName: Root color
-                      season: null
+                      season:
+                        season: summer
+                        seasonDbId: '4'
+                        year: '2012'
                       value: dark blue
                     pedigree: A000001/A000002
                     plantNumber: '0'
                     plotNumber: '2'
                     replicate: '0'
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    required:
-                      - data
                     properties:
                       data:
                         items:
                           $ref: '#/components/schemas/observationUnit'
                         type: array
+                    required:
+                    - data
                     type: object
+                required:
+                - metadata
+                - result
                 title: observationUnitsResponse
                 type: object
           description: OK
@@ -176,24 +208,22 @@ paths:
                   datafiles: []
                   pagination:
                     currentPage: 0
-                    pageSize: 0
-                    totalCount: 0
-                    totalPages: 0
-                  status:
-                  - code: '200'
-                    message: Upload Successful
+                    pageSize: 1
+                    totalCount: 1
+                    totalPages: 1
+                  status: []
                 result:
                   observationUnitDbIds:
-                  - 5873048a-f30d-435c-931a-c88b522304cc
+                  - '1'
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/newObservationUnitDbIds'
+                required:
+                - metadata
+                - result
                 title: newObservationUnitDbIdsResponse
                 type: object
           description: OK
@@ -244,19 +274,19 @@ paths:
                   status:
                   - code: '200'
                     message: Upload Successful
-                    messageType: null
+                    messageType: INFO
                 result:
                   observationUnitDbIds:
-                  - 080f6dd1-82a8-4308-a858-3c36d9e55948
+                  - '1'
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/newObservationUnitDbIds'
+                required:
+                - metadata
+                - result
                 title: newObservationUnitDbIdsResponse
                 type: object
           description: OK

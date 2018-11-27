@@ -8,20 +8,21 @@ import requests
 from copy import deepcopy
 import jsonschema
 from jsonschema import validate
+import dereferenceAll
+import testInputs
 
-verbose = True
 
 def getObjectExample(schema, path, method):
-	url = 'http://localhost:8080/brapi/v1' + replaceIDs(path)
+	url = 'http://localhost:8080/brapi/v1' + testInputs.replaceIDs(path)
 	headers = {'Authorization':'Bearer YYYY'}
 	if method == 'get':
-		params = getParams(path)
+		params = testInputs.getParams(path)
 		res = requests.get(url, params, headers=headers)
 	elif method == 'post' :
-		params = postParams(path)
+		params = testInputs.postParams(path)
 		res = requests.post(url, json=params, headers=headers)
 	elif method == 'put' :
-		params = putParams(path)
+		params = testInputs.putParams(path)
 		res = requests.put(url, json=params, headers=headers)
 		
 	try :
@@ -32,7 +33,7 @@ def getObjectExample(schema, path, method):
 			print(method + ' ' + url)
 			print(res)
 		else:
-			print('X')
+			print('X1 - ' + method + ' ' + url)
 		return None
 	
 	if not res.ok :
@@ -41,7 +42,7 @@ def getObjectExample(schema, path, method):
 			print(method + ' ' + url)
 			print(example)
 		else:
-			print('X')
+			print('X2 - ' + method + ' ' + url)
 		return None
 		
 	try :
@@ -53,10 +54,11 @@ def getObjectExample(schema, path, method):
 			print(method + ' ' + url)
 			print(str(ve) + "\n")
 		else:
-			print('X')
+			print('X3 - ' + method + ' ' + url)
 		return example
 	
 	return example
+
 
 def addExamples(obj, parent):	
 	if('paths' in obj):
@@ -66,7 +68,7 @@ def addExamples(obj, parent):
 					if 'content' in obj['paths'][path][method]['responses'][responseCode]:
 						response = obj['paths'][path][method]['responses'][responseCode]['content']['application/json']
 						if ('schema' in response):
-							schema = dereferenceAll(deepcopy(response['schema']), parent)
+							schema = dereferenceAll.dereferenceAll(deepcopy(response['schema']), parent)
 							newExample = getObjectExample(schema, path, method)
 							if newExample is not None :
 								print('.')
@@ -76,29 +78,6 @@ def addExamples(obj, parent):
 						
 	return obj
 
-def dereferenceAll(obj, parent):
-    if type(obj) is dict:
-        for fieldStr in obj:
-            if(fieldStr == '$ref'):
-                refPath = obj[fieldStr].split('/')
-                refObj = parent
-                for refPart in refPath:
-                    if refPart in refObj:
-                        refObj = refObj[refPart]
-                refObj = dereferenceAll(refObj, parent)
-                obj = {**obj, **refObj}
-            else:
-                obj[fieldStr] = dereferenceAll(obj[fieldStr], parent)
-        if '$ref' in obj:
-            obj.pop('$ref')
-    elif type(obj) is list:
-        newList = []
-        for item in obj:
-            newList.append(dereferenceAll(item, parent))
-        obj = newList
-        
-    #print(obj)
-    return obj
 
 def readFileToDict(path):
 	fileObj = {}	
@@ -110,137 +89,26 @@ def readFileToDict(path):
 			print(exc)
 	return fileObj
 
-def replaceIDs(url):
-	newURL = url
-	newURL = newURL.replace('{studyDbId}', '1001')
-	newURL = newURL.replace('{mapDbId}', 'gm1')
-	newURL = newURL.replace('{breedingMethodDbId}', 'bm1')
-	newURL = newURL.replace('{germplasmDbId}', '3')
-	newURL = newURL.replace('{locationDbId}', '1')
-	newURL = newURL.replace('{observationVariableDbId}', 'MO_123:100002')
-	newURL = newURL.replace('{traitDbId}', '1')
-	newURL = newURL.replace('{trialDbId}', '101')
-	newURL = newURL.replace('{markerDbId}', 'mr2')
-	newURL = newURL.replace('{markerprofileDbId}', 'mp1')
-	newURL = newURL.replace('{linkageGroupName}', '1')
-	newURL = newURL.replace('{sampleDbId}', 'sam1')
-	newURL = newURL.replace('{vendorPlateDbId}', 'pl1')
-	return newURL
 
-def postParams(path):
-	params = {'pageSize': 2}
-	if path == '/vendor/plates':
-		params = {
-		  "plates": [
-		    {
-		      "clientPlateDbId": "string",
-		      "plateFormat": "string",
-		      "sampleType": "string",
-		      "samples": [
-		        {
-		          "column": "1",
-		          "concentration": "string",
-		          "row": "0",
-		          "sampleDbId": "string",
-		          "taxonId": {
-		            "sourceName": "string",
-		            "taxonId": "string"
-		          },
-		          "tissueType": "string",
-		          "volume": "string",
-		          "well": "1"
-		        }
-		      ],
-		      "vendorProjectDbId": "string"
-		    }
-		  ]
-		}
-	elif path == '/phenotypes':
-		params = {
-		  "data": [
-		    {
-		      "observatioUnitDbId": "1",
-		      "observations": [
-		        {
-		          "collector": "string",
-		          "observationDbId": "string",
-		          "observationTimeStamp": "2018-09-19T15:57:27.903Z",
-		          "observationVariableDbId": "MO_123:100002",
-		          "observationVariableName": "string",
-		          "season": "fall 2011",
-		          "value": "string"
-		        }
-		      ],
-		      "studyDbId": "string"
-		    }
-		  ]
-		}
-	elif path == '/markers-search' : 
-		params['includeSynonyms'] = 'true'
-	return params
-
-def putParams(path):
-	params = {'pageSize': 2}
-	if path == '/samples':
-		params = {
-		  "germplasmDbId": "1",
-		  "notes": "string",
-		  "observationUnitDbId": "1",
-		  "plantDbId": None,
-		  "plateDbId": "string",
-		  "plateIndex": 0,
-		  "plotDbId": "1",
-		  "sampleDbId": "string",
-		  "sampleTimestamp": "2018-09-25T21:07:17.505Z",
-		  "sampleType": "string",
-		  "studyDbId": "1001",
-		  "takenBy": "string",
-		  "tissueType": "string"
-		}
-	elif path == '/studies/{studyDbId}/layout':
-		params = {
-		  "layout": [
-		    {
-		      "X": 10,
-		      "Y": 12,
-		      "blockNumber": 0,
-		      "entryType": "CHECK",
-		      "observationUnitDbId": "1",
-		      "replicate": 0
-		    }
-		  ]
-		}
-	elif path == '/studies/{studyDbId}/observationunits':
-		params = [{}]
-	return params
-
-def getParams(path):
-	params = {'pageSize': 2}
-	if path == '/markers-search' : 
-		params['includeSynonyms'] = 'true'
-	elif path == '/markers':
-		params['include'] = 'synonyms'
-	elif path == '/germplasm/{germplasmDbId}/pedigree':
-		params['includeSiblings'] = 'true'
-	return params
 
 rootPath = './'
+verbose = False
+
 if len(sys.argv) > 1 :
 	rootPath = sys.argv[1];
+if len(sys.argv) > 2 :
+	verbose = sys.argv[2] == 't';
 
 if(rootPath[-1] == '/'):
 	rootPath = rootPath + '**/*.yaml'
 	
-parentFile = readFileToDict('./brapi_openapi.yaml')
+parentFile = dereferenceAll.dereferenceBrAPI()
 
 for filename in glob.iglob(rootPath, recursive=True):
-	#print(filename)
+	# print(filename)
 	file = readFileToDict(filename)	
 	newFile = addExamples(file, parentFile)
 	
 	with open(filename, 'w') as outfile:
 		yaml.dump(newFile, outfile, default_flow_style=False, width=float("inf"))
-	
-		
-
 	

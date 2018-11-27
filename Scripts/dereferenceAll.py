@@ -5,6 +5,7 @@ import sys
 def dereferenceAll(obj, parent):
     if type(obj) is dict:
         for fieldStr in obj:
+            #print(fieldStr)
             if(fieldStr == '$ref'):
                 refPath = obj[fieldStr].split('/')
                 refObj = parent

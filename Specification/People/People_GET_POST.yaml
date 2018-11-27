@@ -38,23 +38,43 @@ paths:
         '200':
           content:
             application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 1
+                    totalPages: 1
+                  status: []
+                result:
+                  data:
+                  - description: Example Person
+                    emailAddress: bob@bob.com
+                    firstName: Bob
+                    lastName: Robertson
+                    mailingAddress: 123 Road Street, City, State, Country, 98765
+                    middleName: Danger
+                    personDbId: person1
+                    phoneNumber: '+19876543210'
+                    userID: bdr45
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    required:
-                      - data
                     properties:
                       data:
                         description: Array of people
                         items:
                           $ref: '#/components/schemas/person'
                         type: array
+                    required:
+                    - data
                     type: object
+                required:
+                - metadata
+                - result
                 title: personsResponse
                 type: object
           description: OK
@@ -81,15 +101,34 @@ paths:
         '200':
           content:
             application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result:
+                  description: string
+                  emailAddress: string
+                  firstName: Name
+                  lastName: Smith
+                  mailingAddress: string
+                  middleName: string
+                  personDbId: 13f4c1a1-0571-4c86-b748-c246c00ae020
+                  phoneNumber: string
+                  userID: string
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/person'
+                required:
+                - metadata
+                - result
                 title: personResponse
                 type: object
           description: OK

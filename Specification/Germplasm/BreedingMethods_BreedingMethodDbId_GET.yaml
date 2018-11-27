@@ -30,18 +30,18 @@ paths:
                 result:
                   abbreviation: MBCR
                   breedingMethodDbId: bm1
-                  breedingMethodName: null
+                  breedingMethodName: Male Backcross
                   description: Backcross to recover a specific gene.
                   name: Male Backcross
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/breedingMethod'
+                required:
+                - metadata
+                - result
                 title: breedingMethodResponse
                 type: object
           description: OK

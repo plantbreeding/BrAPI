@@ -59,64 +59,54 @@ paths:
                   pagination:
                     currentPage: 0
                     pageSize: 2
-                    totalCount: 2
+                    totalCount: 1
                     totalPages: 1
                   status: []
                 result:
                   data:
-                  - additionalInfo: null
-                    copyright: null
-                    description: null
+                  - additionalInfo: {}
+                    copyright: Copyright 2018
+                    description: BrAPI Logo
                     descriptiveOntologyTerms:
-                    - ''
-                    imageDbId: 940028bc-7ad6-4119-b6af-936ade8f0cb3
-                    imageFileName: null
-                    imageFileSize: null
-                    imageHeight: null
-                    imageLocation: null
-                    imageName: null
-                    imageTimeStamp: null
-                    imageURL: null
-                    imageWidth: null
-                    mimeType: null
+                    - brapi
+                    - logo
+                    imageDbId: img1
+                    imageFileName: brapi-logo.svg
+                    imageFileSize: 3676
+                    imageHeight: 56
+                    imageLocation:
+                      geometry:
+                        coordinates:
+                        - -110.11301
+                        - 50.010082
+                        type: Point
+                      type: Feature
+                    imageName: brapiLogo
+                    imageTimeStamp: '2011-06-14'
+                    imageURL: https://brapi.org/assets/images/brapi-logo.svg
+                    imageWidth: 258
+                    mimeType: image/svg
                     observationDbIds:
-                    - ''
-                    observationUnitDbId: null
-                  - additionalInfo: null
-                    copyright: null
-                    description: null
-                    descriptiveOntologyTerms:
-                    - ''
-                    imageDbId: 8a4c82c1-f1f2-4334-adec-4d693b2da1e6
-                    imageFileName: null
-                    imageFileSize: null
-                    imageHeight: null
-                    imageLocation: null
-                    imageName: null
-                    imageTimeStamp: null
-                    imageURL: null
-                    imageWidth: null
-                    mimeType: null
-                    observationDbIds:
-                    - ''
-                    observationUnitDbId: null
+                    - '1'
+                    - '2'
+                    observationUnitDbId: '1'
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    required:
-                      - data
                     properties:
                       data:
                         description: Array of image meta data
                         items:
                           $ref: '#/components/schemas/image'
                         type: array
+                    required:
+                    - data
                     type: object
+                required:
+                - metadata
+                - result
                 title: imagesResponse
                 type: object
           description: OK
@@ -140,15 +130,15 @@ paths:
         - ''imageURL'' should be a complete URL decribing the location of the image. There is no BrAPI call for retireiving the image content, so it could be on a different path, or a different host.
 
 
-        - ''descriptiveOntologyTerm'' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI''s. 
-        
-        
-        - The `/images` calls support a GeoJSON object structure for describing their location. The BrAPI spec for GeoJSON only supports two of the possible geometries: Points and Polygons. 
-        
-        
-        - With most images, the Point geometry should be used, and it should indicate the longitude and latitude of the camera. 
-        
-        
+        - ''descriptiveOntologyTerm'' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI''s.
+
+
+        - The `/images` calls support a GeoJSON object structure for describing their location. The BrAPI spec for GeoJSON only supports two of the possible geometries: Points and Polygons.
+
+
+        - With most images, the Point geometry should be used, and it should indicate the longitude and latitude of the camera.
+
+
         - For top down images (ie from drones, cranes, etc), the Point geometry may be used to indicate the longitude and latitude of the centroid of the image content, and the Polygon geometry may be used to indicate the border of the image content. '
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
@@ -171,33 +161,41 @@ paths:
                     totalPages: 0
                   status: []
                 result:
-                  additionalInfo: null
-                  copyright: null
-                  description: null
+                  additionalInfo: {}
+                  copyright: Copyright 2019
+                  description: BrAPI Logo
                   descriptiveOntologyTerms:
-                  - ''
-                  imageDbId: b2d6d3de-afa4-4bda-be92-d430f01af2ba
-                  imageFileName: null
-                  imageFileSize: null
-                  imageHeight: null
-                  imageLocation: null
-                  imageName: null
-                  imageTimeStamp: null
-                  imageURL: null
-                  imageWidth: null
-                  mimeType: null
+                  - brapi
+                  - logo
+                  imageDbId: 3551bf0c-2068-4b93-b830-bb296d37448e
+                  imageFileName: brapi-logo.svg
+                  imageFileSize: 3676
+                  imageHeight: 56
+                  imageLocation:
+                    geometry:
+                      coordinates:
+                      - -110.11301
+                      - 50.010082
+                      type: Point
+                    type: Feature
+                  imageName: brapiLogo
+                  imageTimeStamp: '1969-12-31'
+                  imageURL: ''
+                  imageWidth: 258
+                  mimeType: image/svg
                   observationDbIds:
-                  - ''
-                  observationUnitDbId: null
+                  - '1'
+                  - '2'
+                  observationUnitDbId: '1'
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/image'
+                required:
+                - metadata
+                - result
                 title: imageResponse
                 type: object
           description: OK

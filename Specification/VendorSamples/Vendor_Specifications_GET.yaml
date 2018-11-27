@@ -13,14 +13,14 @@ paths:
           content:
             application/json:
               schema:
-                required:
-                  - metadata
-                  - result
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     $ref: '#/components/schemas/vendorSpecification'
+                required:
+                - metadata
+                - result
                 title: vendorSpecificationResponse
                 type: object
           description: OK
