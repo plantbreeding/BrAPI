@@ -13,6 +13,7 @@ def dereferenceAll(obj, parent):
                     if refPart in refObj:
                         refObj = refObj[refPart]
                 refObj = dereferenceAll(refObj, parent)
+                refObj['title'] = refPath[-1]
                 obj = {**obj, **refObj}
             elif(fieldStr == 'allOf'):
                 comboObj = {'properties': {}}
