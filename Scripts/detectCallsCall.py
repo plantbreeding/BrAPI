@@ -9,6 +9,7 @@ from json import JSONEncoder
 from pip._vendor.distlib.compat import raw_input
 import dereferenceAll
 import testInputs
+import brapiVersions
 
 ##----------------------------------------------------------------------
 
@@ -18,20 +19,17 @@ class callObj:
 		self.call = call
 		self.methods = []
 		self.datatypes = ["application/json"]
-		self.versions = ["1.0", "1.1", "1.2", "1.3"]
+		self.dataTypes = ["application/json"]
+		self.versions = []
 	
 	def __repr__(self):
 		return self.__str__()
 	
 	def __str__(self):
-		return "\
-{\n\
-\tcall: \"" + self._call +"\",\n\
-\tmethods: " + str(self._methods) + ",\n\
-\tdataTypes: " + str(self._dataTypes) +",\n\
-\tdatatypes: " + str(self._dataTypes) +",\n\
-\tversions: " + str(self._versions) +"\n\
-}"
+		## Not used
+		##callSpacerTabs = 4 - (len(self.call) // 4)
+		##return "{\"call\": \"" + self.call +"\", " + ("\t" * callSpacerTabs) + "\"methods\": " + str(self.methods) + ",\t\"dataTypes\": " + str(self.dataTypes) +",\t\"datatypes\": " + str(self.datatypes) +",\t\"versions\": " + str(self.versions) +"}\n"
+		return self.call
 	
 	def addMethod(self, method):
 		self.methods.append(method)
@@ -39,8 +37,9 @@ class callObj:
 	def addDataType(self, dataType):
 		self.dataTypes.append(dataType)
 		
-	def addVersion(self, version):
-		self.versions.append(version)
+	def addVersions(self, version):
+		self.versions = list(set(self.versions + version))
+		self.versions.sort()
 		
 ##----------------------------------------------------------------------
 
@@ -82,6 +81,8 @@ if 'paths' in fileObj:
 				r = requests.put(testURL, json={})
 			elif method == 'delete':
 				r = requests.delete(testURL)
+			
+			call.addVersions(brapiVersions.getVersions(path, method))
 		
 			if(r.status_code == 200):
 				call.addMethod(method.upper())
@@ -93,7 +94,7 @@ if 'paths' in fileObj:
 		
 		if call.methods:
 			calls.append(call)
-
+	
 expectedJson = {
 	"metadata" : {
 		"pagination": {
@@ -111,11 +112,17 @@ expectedJson = {
 	}
 expected = json.dumps(expectedJson, indent=4, separators=(',', ': '), sort_keys=True,  cls=MyEncoder)
 
-r = requests.get(baseURL + '/calls', {'page' : 0, 'pageSize' : 100})
+rawOut = ""
+for callraw in calls:
+	rawOut += json.dumps(callraw, cls=MyEncoder) + "\n"
+
+r = requests.get(baseURL + '/calls', {'page' : 0, 'pageSize' : 200})
 actual = json.dumps(r.json(), indent=4, separators=(',', ': '), sort_keys=True, cls=MyEncoder)
 
 with open('./out/CallsCall_expected.json', 'w') as outfile:
 	outfile.write(expected)
+with open('./out/CallsCall_expected_raw.json', 'w') as outfile:
+	outfile.write(rawOut)
 with open('./out/CallsCall_actual.json', 'w') as outfile:
 	outfile.write(actual)
 
