@@ -43,8 +43,8 @@ DEPRECATED in v1.3 - see /search/programs
         "pagination": {
             "currentPage": 0,
             "pageSize": 2,
-            "totalCount": 6,
-            "totalPages": 3
+            "totalCount": 2,
+            "totalPages": 1
         },
         "status": []
     },
@@ -52,27 +52,27 @@ DEPRECATED in v1.3 - see /search/programs
         "data": [
             {
                 "abbreviation": "P1",
-                "commonCropName": null,
-                "documentationURL": null,
-                "leadPerson": "G. Leader",
-                "leadPersonDbId": null,
-                "leadPersonName": null,
+                "commonCropName": "Tomatillo",
+                "documentationURL": "https://brapi.org",
+                "leadPerson": "Name Nameson",
+                "leadPersonDbId": "person1",
+                "leadPersonName": "Name Nameson",
                 "name": "Program 1",
                 "objective": "Global Population Improvement",
                 "programDbId": "1",
-                "programName": null
+                "programName": "Program 1"
             },
             {
                 "abbreviation": "P2",
-                "commonCropName": null,
-                "documentationURL": null,
-                "leadPerson": "M. Breeder",
-                "leadPersonDbId": null,
-                "leadPersonName": null,
+                "commonCropName": "Tomatillo",
+                "documentationURL": "https://brapi.org",
+                "leadPerson": "Name Nameson",
+                "leadPersonDbId": "person1",
+                "leadPersonName": "Name Nameson",
                 "name": "Program 2",
                 "objective": "XYZ",
                 "programDbId": "2",
-                "programName": null
+                "programName": "Program 2"
             }
         ]
     }
@@ -113,8 +113,8 @@ Call to retrieve a list of programs.
         "pagination": {
             "currentPage": 0,
             "pageSize": 2,
-            "totalCount": 6,
-            "totalPages": 3
+            "totalCount": 2,
+            "totalPages": 1
         },
         "status": []
     },
@@ -122,27 +122,27 @@ Call to retrieve a list of programs.
         "data": [
             {
                 "abbreviation": "P1",
-                "commonCropName": null,
-                "documentationURL": null,
-                "leadPerson": "G. Leader",
-                "leadPersonDbId": null,
-                "leadPersonName": null,
+                "commonCropName": "Tomatillo",
+                "documentationURL": "https://brapi.org",
+                "leadPerson": "Name Nameson",
+                "leadPersonDbId": "person1",
+                "leadPersonName": "Name Nameson",
                 "name": "Program 1",
                 "objective": "Global Population Improvement",
                 "programDbId": "1",
-                "programName": null
+                "programName": "Program 1"
             },
             {
                 "abbreviation": "P2",
-                "commonCropName": null,
-                "documentationURL": null,
-                "leadPerson": "M. Breeder",
-                "leadPersonDbId": null,
-                "leadPersonName": null,
+                "commonCropName": "Tomatillo",
+                "documentationURL": "https://brapi.org",
+                "leadPerson": "Name Nameson",
+                "leadPersonDbId": "person1",
+                "leadPersonName": "Name Nameson",
                 "name": "Program 2",
                 "objective": "XYZ",
                 "programDbId": "2",
-                "programName": null
+                "programName": "Program 2"
             }
         ]
     }
@@ -287,8 +287,8 @@ See Search Services for additional implementation details.
         "pagination": {
             "currentPage": 0,
             "pageSize": 2,
-            "totalCount": 6,
-            "totalPages": 3
+            "totalCount": 2,
+            "totalPages": 1
         },
         "status": []
     },
@@ -296,17 +296,27 @@ See Search Services for additional implementation details.
         "data": [
             {
                 "abbreviation": "P1",
-                "leadPerson": "G. Leader",
+                "commonCropName": "Tomatillo",
+                "documentationURL": "https://brapi.org",
+                "leadPerson": "Name Nameson",
+                "leadPersonDbId": "person1",
+                "leadPersonName": "Name Nameson",
                 "name": "Program 1",
                 "objective": "Global Population Improvement",
-                "programDbId": "1"
+                "programDbId": "1",
+                "programName": "Program 1"
             },
             {
                 "abbreviation": "P2",
-                "leadPerson": "M. Breeder",
+                "commonCropName": "Tomatillo",
+                "documentationURL": "https://brapi.org",
+                "leadPerson": "Name Nameson",
+                "leadPersonDbId": "person1",
+                "leadPersonName": "Name Nameson",
                 "name": "Program 2",
                 "objective": "XYZ",
-                "programDbId": "2"
+                "programDbId": "2",
+                "programName": "Program 2"
             }
         ]
     }

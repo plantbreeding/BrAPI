@@ -36,8 +36,8 @@ DEPRECATED in v1.3 - see GET /samples
         "pagination": {
             "currentPage": 0,
             "pageSize": 2,
-            "totalCount": 14,
-            "totalPages": 7
+            "totalCount": 2,
+            "totalPages": 1
         },
         "status": []
     },
@@ -126,8 +126,8 @@ DEPRECATED in v1.3 - see GET /search/samples
         "pagination": {
             "currentPage": 0,
             "pageSize": 2,
-            "totalCount": 14,
-            "totalPages": 7
+            "totalCount": 2,
+            "totalPages": 1
         },
         "status": []
     },
@@ -203,8 +203,8 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
         "pagination": {
             "currentPage": 0,
             "pageSize": 2,
-            "totalCount": 3,
-            "totalPages": 2
+            "totalCount": 2,
+            "totalPages": 1
         },
         "status": []
     },
@@ -218,7 +218,7 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
                 "plateDbId": "pl1",
                 "plateIndex": 0,
                 "plotDbId": "1",
-                "sampleDbId": "sam1",
+                "sampleDbId": "sam00",
                 "sampleTimestamp": "2018-01-01T00:00:00-05:00",
                 "sampleType": "DNA",
                 "studyDbId": "1001",
@@ -233,7 +233,7 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
                 "plateDbId": "pl1",
                 "plateIndex": 1,
                 "plotDbId": "1",
-                "sampleDbId": "sam2",
+                "sampleDbId": "sam01",
                 "sampleTimestamp": "2018-01-01T00:00:00-05:00",
                 "sampleType": "DNA",
                 "studyDbId": "1001",
@@ -312,8 +312,8 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
         "status": []
     },
     "result": {
-        "sampleDbId": "937de585-2492-4130-957f-0d8a881dabea",
-        "sampleId": "937de585-2492-4130-957f-0d8a881dabea"
+        "sampleDbId": "b528f627-7548-4d01-a3c2-6b78f9a4f221",
+        "sampleId": "b528f627-7548-4d01-a3c2-6b78f9a4f221"
     }
 }
 ```
@@ -365,7 +365,21 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
         },
         "status": []
     },
-    "result": null
+    "result": {
+        "germplasmDbId": "1",
+        "notes": "Example Sample",
+        "observationUnitDbId": "2",
+        "plantDbId": "1",
+        "plateDbId": "pl1",
+        "plateIndex": 1,
+        "plotDbId": "1",
+        "sampleDbId": "sam01",
+        "sampleTimestamp": "2018-01-01T00:00:00-05:00",
+        "sampleType": "DNA",
+        "studyDbId": "1001",
+        "takenBy": "Bob",
+        "tissueType": "Leaf"
+    }
 }
 ```
 
@@ -500,8 +514,8 @@ See Search Services for additional implementation details.
         "pagination": {
             "currentPage": 0,
             "pageSize": 2,
-            "totalCount": 3,
-            "totalPages": 2
+            "totalCount": 2,
+            "totalPages": 1
         },
         "status": []
     },
@@ -515,7 +529,7 @@ See Search Services for additional implementation details.
                 "plateDbId": "pl1",
                 "plateIndex": 0,
                 "plotDbId": "1",
-                "sampleDbId": "sam1",
+                "sampleDbId": "sam00",
                 "sampleTimestamp": "2018-01-01T00:00:00-05:00",
                 "sampleType": "DNA",
                 "studyDbId": "1001",
@@ -530,7 +544,7 @@ See Search Services for additional implementation details.
                 "plateDbId": "pl1",
                 "plateIndex": 1,
                 "plotDbId": "1",
-                "sampleDbId": "sam2",
+                "sampleDbId": "sam01",
                 "sampleTimestamp": "2018-01-01T00:00:00-05:00",
                 "sampleType": "DNA",
                 "studyDbId": "1001",

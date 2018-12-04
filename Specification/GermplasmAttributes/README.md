@@ -37,7 +37,7 @@ List all available attribute categories.
             "currentPage": 0,
             "pageSize": 2,
             "totalCount": 0,
-            "totalPages": 0
+            "totalPages": 1
         },
         "status": []
     },
@@ -133,9 +133,9 @@ List available attributes.
                     "ontologyRefernce": {
                         "documentationLinks": [
                             {
-                                "URL": "https://ontology.org",
-                                "type": "WEBPAGE",
-                                "url": "https://ontology.org"
+                                "URL": "https://ontology.org/m1",
+                                "type": "RDF",
+                                "url": "https://ontology.org/m1"
                             }
                         ],
                         "ontologyDbId": "MO_123",
@@ -166,9 +166,9 @@ List available attributes.
                     "ontologyRefernce": {
                         "documentationLinks": [
                             {
-                                "URL": "https://ontology.org",
-                                "type": "WEBPAGE",
-                                "url": "https://ontology.org"
+                                "URL": "https://ontology.org/s1",
+                                "type": "OBO",
+                                "url": "https://ontology.org/s1"
                             }
                         ],
                         "ontologyDbId": "MO_123",
@@ -199,9 +199,9 @@ List available attributes.
                     "ontologyRefernce": {
                         "documentationLinks": [
                             {
-                                "URL": "https://ontology.org",
+                                "URL": "https://ontology.org/t1",
                                 "type": "WEBPAGE",
-                                "url": "https://ontology.org"
+                                "url": "https://ontology.org/t1"
                             }
                         ],
                         "ontologyDbId": "MO_123",
@@ -242,9 +242,9 @@ List available attributes.
                     "ontologyRefernce": {
                         "documentationLinks": [
                             {
-                                "URL": "https://ontology.org",
-                                "type": "WEBPAGE",
-                                "url": "https://ontology.org"
+                                "URL": "https://ontology.org/m3",
+                                "type": "OBO",
+                                "url": "https://ontology.org/m3"
                             }
                         ],
                         "ontologyDbId": "MO_123",
@@ -275,9 +275,9 @@ List available attributes.
                     "ontologyRefernce": {
                         "documentationLinks": [
                             {
-                                "URL": "https://ontology.org",
+                                "URL": "https://ontology.org/s3",
                                 "type": "WEBPAGE",
-                                "url": "https://ontology.org"
+                                "url": "https://ontology.org/s3"
                             }
                         ],
                         "ontologyDbId": "MO_123",
@@ -314,9 +314,9 @@ List available attributes.
                     "ontologyRefernce": {
                         "documentationLinks": [
                             {
-                                "URL": "https://ontology.org",
-                                "type": "WEBPAGE",
-                                "url": "https://ontology.org"
+                                "URL": "https://ontology.org/t3",
+                                "type": "RDF",
+                                "url": "https://ontology.org/t3"
                             }
                         ],
                         "ontologyDbId": "MO_123",

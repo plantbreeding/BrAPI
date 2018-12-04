@@ -56,8 +56,8 @@ test-server.brapi.org/brapi/v1/calls
         "pagination": {
             "currentPage": 0,
             "pageSize": 2,
-            "totalCount": 65,
-            "totalPages": 33
+            "totalCount": 103,
+            "totalPages": 52
         },
         "status": []
     },
@@ -77,7 +77,8 @@ test-server.brapi.org/brapi/v1/calls
                 "versions": [
                     "1.0",
                     "1.1",
-                    "1.2"
+                    "1.2",
+                    "1.3"
                 ]
             },
             {
@@ -93,9 +94,8 @@ test-server.brapi.org/brapi/v1/calls
                     "POST"
                 ],
                 "versions": [
-                    "1.0",
-                    "1.1",
-                    "1.2"
+                    "1.2",
+                    "1.3"
                 ]
             }
         ]

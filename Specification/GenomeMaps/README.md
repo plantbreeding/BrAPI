@@ -44,7 +44,7 @@ Get list of maps
         "pagination": {
             "currentPage": 0,
             "pageSize": 2,
-            "totalCount": 1,
+            "totalCount": 2,
             "totalPages": 1
         },
         "status": []
@@ -55,11 +55,26 @@ Get list of maps
                 "comments": "comments",
                 "commonCropName": "Paw Paw",
                 "documentationURL": "https://brapi.org",
-                "linkageGroupCount": 3,
+                "linkageGroupCount": 1,
                 "mapDbId": "gm1",
                 "mapName": "Genome Map 1",
-                "markerCount": 22,
+                "markerCount": 11,
                 "name": "Genome Map 1",
+                "publishedDate": "2018-01-01",
+                "scientificName": "Asimina triloba",
+                "species": "triloba",
+                "type": "Genetic",
+                "unit": "cM"
+            },
+            {
+                "comments": "comments",
+                "commonCropName": "Paw Paw",
+                "documentationURL": "https://brapi.org",
+                "linkageGroupCount": 2,
+                "mapDbId": "gm2",
+                "mapName": "Genome Map 2",
+                "markerCount": 11,
+                "name": "Genome Map 2",
                 "publishedDate": "2018-01-01",
                 "scientificName": "Asimina triloba",
                 "species": "triloba",
@@ -115,8 +130,8 @@ Provides the number of markers on each linkageGroup and the max position on the 
         "pagination": {
             "currentPage": 0,
             "pageSize": 2,
-            "totalCount": 3,
-            "totalPages": 2
+            "totalCount": 1,
+            "totalPages": 1
         },
         "status": []
     },
@@ -126,11 +141,6 @@ Provides the number of markers on each linkageGroup and the max position on the 
                 "linkageGroupName": "1",
                 "markerCount": 11,
                 "maxPosition": 1110
-            },
-            {
-                "linkageGroupName": "2",
-                "markerCount": 5,
-                "maxPosition": 5050
             }
         ],
         "documentationURL": "https://brapi.org",
@@ -139,11 +149,6 @@ Provides the number of markers on each linkageGroup and the max position on the 
                 "linkageGroupName": "1",
                 "markerCount": 11,
                 "maxPosition": 1110
-            },
-            {
-                "linkageGroupName": "2",
-                "markerCount": 5,
-                "maxPosition": 5050
             }
         ],
         "mapDbId": "gm1",
@@ -206,8 +211,8 @@ All the markers in a given Map, ordered by linkageGroup and position.
         "pagination": {
             "currentPage": 0,
             "pageSize": 2,
-            "totalCount": 22,
-            "totalPages": 11
+            "totalCount": 11,
+            "totalPages": 6
         },
         "status": []
     },
@@ -282,8 +287,8 @@ All the markers in a specific Linkage Group (aka Chromasome) inside a particular
         "pagination": {
             "currentPage": 0,
             "pageSize": 2,
-            "totalCount": 22,
-            "totalPages": 11
+            "totalCount": 11,
+            "totalPages": 6
         },
         "status": []
     },

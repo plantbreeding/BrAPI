@@ -169,50 +169,39 @@ DEPRECATED in V1.3 - see GET /germplasm
         "pagination": {
             "currentPage": 0,
             "pageSize": 2,
-            "totalCount": 9,
-            "totalPages": 5
+            "totalCount": 2,
+            "totalPages": 1
         },
         "status": []
     },
     "result": {
         "data": [
             {
-                "accessionNumber": "A000001",
-                "acquisitionDate": "1984-01-01",
-                "biologicalStatusOfAccessionCode": 300,
+                "accessionNumber": "A000003",
+                "acquisitionDate": "2001-01-01",
+                "biologicalStatusOfAccessionCode": 500,
                 "breedingMethodDbId": "bm1",
-                "commonCropName": "G000001",
+                "commonCropName": "G000003",
                 "countryOfOriginCode": "COUNTRY1",
-                "defaultDisplayName": "G000001",
+                "defaultDisplayName": "G000003",
                 "documentationURL": "https://brapi.org",
-                "donors": [
-                    {
-                        "donorAccessionNumber": "A001230",
-                        "donorInstituteCode": "INRA",
-                        "germplasmPUI": "https://doi.org/10.1109/5.771073"
-                    },
-                    {
-                        "donorAccessionNumber": "A004560",
-                        "donorInstituteCode": "INRA",
-                        "germplasmPUI": "https://doi.org/10.1109/5.231123"
-                    }
-                ],
+                "donors": [],
                 "genus": "Fructus",
-                "germplasmDbId": "1",
+                "germplasmDbId": "3",
                 "germplasmGenus": "Fructus",
-                "germplasmName": "Name001",
-                "germplasmPUI": "http://pui.per/accession/A000001",
+                "germplasmName": "Name003",
+                "germplasmPUI": "http://pui.per/accession/A000003",
                 "germplasmSpecies": "novus",
                 "instituteCode": "PER001",
                 "instituteName": "INST1",
-                "pedigree": "A000001",
-                "seedSource": "open pollination",
+                "pedigree": "A000001/A000002",
+                "seedSource": "A000001/A000002",
                 "species": "novus",
                 "speciesAuthority": "L",
                 "subtaxa": "subtaxa",
                 "subtaxaAuthority": "N",
                 "synonyms": [
-                    "landrace 1"
+                    "variety 1"
                 ],
                 "taxonIds": [
                     {
@@ -227,42 +216,31 @@ DEPRECATED in V1.3 - see GET /germplasm
                 "typeOfGermplasmStorageCode": []
             },
             {
-                "accessionNumber": "A000002",
-                "acquisitionDate": "1984-01-01",
-                "biologicalStatusOfAccessionCode": 300,
+                "accessionNumber": "A000004",
+                "acquisitionDate": "2001-01-01",
+                "biologicalStatusOfAccessionCode": 500,
                 "breedingMethodDbId": "bm1",
-                "commonCropName": "G000002",
+                "commonCropName": "G000004",
                 "countryOfOriginCode": "COUNTRY1",
-                "defaultDisplayName": "G000002",
+                "defaultDisplayName": "G000004",
                 "documentationURL": "https://brapi.org",
-                "donors": [
-                    {
-                        "donorAccessionNumber": "A007890",
-                        "donorInstituteCode": "INRA",
-                        "germplasmPUI": "https://doi.org/10.1109/5.771073"
-                    },
-                    {
-                        "donorAccessionNumber": "A001010",
-                        "donorInstituteCode": "INRA",
-                        "germplasmPUI": "https://doi.org/10.1109/5.231123"
-                    }
-                ],
+                "donors": [],
                 "genus": "Fructus",
-                "germplasmDbId": "2",
+                "germplasmDbId": "4",
                 "germplasmGenus": "Fructus",
-                "germplasmName": "Name002",
-                "germplasmPUI": "http://pui.per/accession/A000002",
+                "germplasmName": "Name004",
+                "germplasmPUI": "http://pui.per/accession/A000004",
                 "germplasmSpecies": "novus",
                 "instituteCode": "PER001",
                 "instituteName": "INST1",
-                "pedigree": "A000002",
+                "pedigree": "A000001/A000003",
                 "seedSource": "open pollination",
                 "species": "novus",
                 "speciesAuthority": "L",
                 "subtaxa": "subtaxa",
                 "subtaxaAuthority": "N",
                 "synonyms": [
-                    "landrace 2"
+                    "variety 4"
                 ],
                 "taxonIds": [
                     {
@@ -341,50 +319,39 @@ DEPRECATED in V1.3 - see POST /search/germplasm
         "pagination": {
             "currentPage": 0,
             "pageSize": 2,
-            "totalCount": 9,
-            "totalPages": 5
+            "totalCount": 2,
+            "totalPages": 1
         },
         "status": []
     },
     "result": {
         "data": [
             {
-                "accessionNumber": "A000001",
-                "acquisitionDate": "1984-01-01",
-                "biologicalStatusOfAccessionCode": 300,
+                "accessionNumber": "A000003",
+                "acquisitionDate": "2001-01-01",
+                "biologicalStatusOfAccessionCode": 500,
                 "breedingMethodDbId": "bm1",
-                "commonCropName": "G000001",
+                "commonCropName": "G000003",
                 "countryOfOriginCode": "COUNTRY1",
-                "defaultDisplayName": "G000001",
+                "defaultDisplayName": "G000003",
                 "documentationURL": "https://brapi.org",
-                "donors": [
-                    {
-                        "donorAccessionNumber": "A001230",
-                        "donorInstituteCode": "INRA",
-                        "germplasmPUI": "https://doi.org/10.1109/5.771073"
-                    },
-                    {
-                        "donorAccessionNumber": "A004560",
-                        "donorInstituteCode": "INRA",
-                        "germplasmPUI": "https://doi.org/10.1109/5.231123"
-                    }
-                ],
+                "donors": [],
                 "genus": "Fructus",
-                "germplasmDbId": "1",
+                "germplasmDbId": "3",
                 "germplasmGenus": "Fructus",
-                "germplasmName": "Name001",
-                "germplasmPUI": "http://pui.per/accession/A000001",
+                "germplasmName": "Name003",
+                "germplasmPUI": "http://pui.per/accession/A000003",
                 "germplasmSpecies": "novus",
                 "instituteCode": "PER001",
                 "instituteName": "INST1",
-                "pedigree": "A000001",
-                "seedSource": "open pollination",
+                "pedigree": "A000001/A000002",
+                "seedSource": "A000001/A000002",
                 "species": "novus",
                 "speciesAuthority": "L",
                 "subtaxa": "subtaxa",
                 "subtaxaAuthority": "N",
                 "synonyms": [
-                    "landrace 1"
+                    "variety 1"
                 ],
                 "taxonIds": [
                     {
@@ -399,42 +366,31 @@ DEPRECATED in V1.3 - see POST /search/germplasm
                 "typeOfGermplasmStorageCode": []
             },
             {
-                "accessionNumber": "A000002",
-                "acquisitionDate": "1984-01-01",
-                "biologicalStatusOfAccessionCode": 300,
+                "accessionNumber": "A000004",
+                "acquisitionDate": "2001-01-01",
+                "biologicalStatusOfAccessionCode": 500,
                 "breedingMethodDbId": "bm1",
-                "commonCropName": "G000002",
+                "commonCropName": "G000004",
                 "countryOfOriginCode": "COUNTRY1",
-                "defaultDisplayName": "G000002",
+                "defaultDisplayName": "G000004",
                 "documentationURL": "https://brapi.org",
-                "donors": [
-                    {
-                        "donorAccessionNumber": "A007890",
-                        "donorInstituteCode": "INRA",
-                        "germplasmPUI": "https://doi.org/10.1109/5.771073"
-                    },
-                    {
-                        "donorAccessionNumber": "A001010",
-                        "donorInstituteCode": "INRA",
-                        "germplasmPUI": "https://doi.org/10.1109/5.231123"
-                    }
-                ],
+                "donors": [],
                 "genus": "Fructus",
-                "germplasmDbId": "2",
+                "germplasmDbId": "4",
                 "germplasmGenus": "Fructus",
-                "germplasmName": "Name002",
-                "germplasmPUI": "http://pui.per/accession/A000002",
+                "germplasmName": "Name004",
+                "germplasmPUI": "http://pui.per/accession/A000004",
                 "germplasmSpecies": "novus",
                 "instituteCode": "PER001",
                 "instituteName": "INST1",
-                "pedigree": "A000002",
+                "pedigree": "A000001/A000003",
                 "seedSource": "open pollination",
                 "species": "novus",
                 "speciesAuthority": "L",
                 "subtaxa": "subtaxa",
                 "subtaxaAuthority": "N",
                 "synonyms": [
-                    "landrace 2"
+                    "variety 4"
                 ],
                 "taxonIds": [
                     {
@@ -494,50 +450,39 @@ Addresses these needs
         "pagination": {
             "currentPage": 0,
             "pageSize": 2,
-            "totalCount": 9,
-            "totalPages": 5
+            "totalCount": 2,
+            "totalPages": 1
         },
         "status": []
     },
     "result": {
         "data": [
             {
-                "accessionNumber": "A000001",
-                "acquisitionDate": "1984-01-01",
-                "biologicalStatusOfAccessionCode": 300,
+                "accessionNumber": "A000003",
+                "acquisitionDate": "2001-01-01",
+                "biologicalStatusOfAccessionCode": 500,
                 "breedingMethodDbId": "bm1",
-                "commonCropName": "G000001",
+                "commonCropName": "G000003",
                 "countryOfOriginCode": "COUNTRY1",
-                "defaultDisplayName": "G000001",
+                "defaultDisplayName": "G000003",
                 "documentationURL": "https://brapi.org",
-                "donors": [
-                    {
-                        "donorAccessionNumber": "A001230",
-                        "donorInstituteCode": "INRA",
-                        "germplasmPUI": "https://doi.org/10.1109/5.771073"
-                    },
-                    {
-                        "donorAccessionNumber": "A004560",
-                        "donorInstituteCode": "INRA",
-                        "germplasmPUI": "https://doi.org/10.1109/5.231123"
-                    }
-                ],
+                "donors": [],
                 "genus": "Fructus",
-                "germplasmDbId": "1",
+                "germplasmDbId": "3",
                 "germplasmGenus": "Fructus",
-                "germplasmName": "Name001",
-                "germplasmPUI": "http://pui.per/accession/A000001",
+                "germplasmName": "Name003",
+                "germplasmPUI": "http://pui.per/accession/A000003",
                 "germplasmSpecies": "novus",
                 "instituteCode": "PER001",
                 "instituteName": "INST1",
-                "pedigree": "A000001",
-                "seedSource": "open pollination",
+                "pedigree": "A000001/A000002",
+                "seedSource": "A000001/A000002",
                 "species": "novus",
                 "speciesAuthority": "L",
                 "subtaxa": "subtaxa",
                 "subtaxaAuthority": "N",
                 "synonyms": [
-                    "landrace 1"
+                    "variety 1"
                 ],
                 "taxonIds": [
                     {
@@ -552,42 +497,31 @@ Addresses these needs
                 "typeOfGermplasmStorageCode": []
             },
             {
-                "accessionNumber": "A000002",
-                "acquisitionDate": "1984-01-01",
-                "biologicalStatusOfAccessionCode": 300,
+                "accessionNumber": "A000004",
+                "acquisitionDate": "2001-01-01",
+                "biologicalStatusOfAccessionCode": 500,
                 "breedingMethodDbId": "bm1",
-                "commonCropName": "G000002",
+                "commonCropName": "G000004",
                 "countryOfOriginCode": "COUNTRY1",
-                "defaultDisplayName": "G000002",
+                "defaultDisplayName": "G000004",
                 "documentationURL": "https://brapi.org",
-                "donors": [
-                    {
-                        "donorAccessionNumber": "A007890",
-                        "donorInstituteCode": "INRA",
-                        "germplasmPUI": "https://doi.org/10.1109/5.771073"
-                    },
-                    {
-                        "donorAccessionNumber": "A001010",
-                        "donorInstituteCode": "INRA",
-                        "germplasmPUI": "https://doi.org/10.1109/5.231123"
-                    }
-                ],
+                "donors": [],
                 "genus": "Fructus",
-                "germplasmDbId": "2",
+                "germplasmDbId": "4",
                 "germplasmGenus": "Fructus",
-                "germplasmName": "Name002",
-                "germplasmPUI": "http://pui.per/accession/A000002",
+                "germplasmName": "Name004",
+                "germplasmPUI": "http://pui.per/accession/A000004",
                 "germplasmSpecies": "novus",
                 "instituteCode": "PER001",
                 "instituteName": "INST1",
-                "pedigree": "A000002",
+                "pedigree": "A000001/A000003",
                 "seedSource": "open pollination",
                 "species": "novus",
                 "speciesAuthority": "L",
                 "subtaxa": "subtaxa",
                 "subtaxaAuthority": "N",
                 "synonyms": [
-                    "landrace 2"
+                    "variety 4"
                 ],
                 "taxonIds": [
                     {
@@ -652,8 +586,8 @@ Values for all attributes by default.
         "pagination": {
             "currentPage": 0,
             "pageSize": 2,
-            "totalCount": 10,
-            "totalPages": 5
+            "totalCount": 5,
+            "totalPages": 3
         },
         "status": []
     },
@@ -661,14 +595,14 @@ Values for all attributes by default.
         "data": [
             {
                 "attributeCode": "RHT",
-                "attributeDbId": "1",
+                "attributeDbId": "ATT01",
                 "attributeName": "Rht-B1b",
                 "determinedDate": "2017-03-17",
                 "value": "Heterozygous"
             },
             {
                 "attributeCode": "WEV",
-                "attributeDbId": "2",
+                "attributeDbId": "ATT02",
                 "attributeName": "Weevil Resistance",
                 "determinedDate": "2017-03-17",
                 "value": "Present"
@@ -823,94 +757,83 @@ Implementation Notes
 {
     "metadata": {
         "datafiles": [],
-        "pagination": {},
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 0,
+            "totalCount": 0,
+            "totalPages": 0
+        },
         "status": []
     },
     "result": {
         "accessionNames": [
-            "accessionNames0",
-            "accessionNames1"
+            "Name003"
         ],
-        "accessionNumber": "accessionNumber0",
-        "acquisitionDate": "acquisitionDate0",
-        "acquisitionSourceCode": "10",
+        "accessionNumber": "A000003",
+        "acquisitionDate": "2001-01-01",
+        "acquisitionSourceCode": "11",
         "alternateIDs": [
-            "alternateIDs0",
-            "alternateIDs1"
+            "3",
+            "http://pui.per/accession/A000003",
+            "A000003"
         ],
-        "ancestralData": "ancestralData0",
-        "biologicalStatusOfAccessionCode": "100",
+        "ancestralData": "A000001/A000002",
+        "biologicalStatusOfAccessionCode": "500",
         "breedingInstitutes": [
             {
-                "instituteCode": "instituteCode0",
-                "instituteName": "instituteName0"
-            },
-            {
-                "instituteCode": "instituteCode1",
-                "instituteName": "instituteName1"
+                "instituteCode": "PER001",
+                "instituteName": "INST1"
             }
         ],
         "collectingInfo": {
-            "collectingDate": "collectingDate0",
+            "collectingDate": "2001-01-01",
             "collectingInstitutes": [
                 {
-                    "instituteAddress": "instituteAddress0",
-                    "instituteCode": "instituteCode0",
-                    "instituteName": "instituteName0"
-                },
-                {
-                    "instituteAddress": "instituteAddress1",
-                    "instituteCode": "instituteCode1",
-                    "instituteName": "instituteName1"
+                    "instituteAddress": "INST1",
+                    "instituteCode": "PER001",
+                    "instituteName": "INST1"
                 }
             ],
-            "collectingMissionIdentifier": "collectingMissionIdentifier0",
-            "collectingNumber": "collectingNumber0",
+            "collectingMissionIdentifier": "3",
+            "collectingNumber": "A000003",
             "collectingSite": {
-                "coordinateUncertainty": "coordinateUncertainty0",
-                "elevation": "elevation0",
-                "georeferencingMethod": "georeferencingMethod0",
-                "latitudeDecimal": "latitudeDecimal0",
-                "latitudeDegrees": "latitudeDegrees0",
-                "locationDescription": "locationDescription0",
-                "longitudeDecimal": "longitudeDecimal0",
-                "longitudeDegrees": "longitudeDegrees0",
-                "spatialReferenceSystem": "spatialReferenceSystem0"
+                "coordinateUncertainty": "20m",
+                "elevation": "20m",
+                "georeferencingMethod": "WGS84",
+                "latitudeDecimal": "+42.445295",
+                "latitudeDegrees": "42 26 43.1 N",
+                "locationDescription": "INST1",
+                "longitudeDecimal": "-076.471934",
+                "longitudeDegrees": "76 28 19.0 W",
+                "spatialReferenceSystem": "WGS84"
             }
         },
-        "commonCropName": "commonCropName0",
-        "countryOfOrigin": "countryOfOrigin0",
+        "commonCropName": "G000003",
+        "countryOfOrigin": "COUNTRY1",
         "donorInfo": {
-            "donorAccessionNumber": "donorAccessionNumber0",
+            "donorAccessionNumber": "A000003",
             "donorInstitute": {
-                "instituteCode": "instituteCode0",
-                "instituteName": "instituteName0"
+                "instituteCode": "PER001",
+                "instituteName": "INST1"
             }
         },
-        "genus": "genus0",
-        "germplasmDbId": "germplasmDbId0",
-        "germplasmPUI": "germplasmPUI0",
-        "instituteCode": "instituteCode0",
-        "mlsStatus": "",
-        "remarks": "remarks0",
+        "genus": "Fructus",
+        "germplasmDbId": "3",
+        "germplasmPUI": "http://pui.per/accession/A000003",
+        "instituteCode": "PER001",
+        "mlsStatus": "0",
+        "remarks": "G000003",
         "safetyDuplicateInstitues": [
             {
-                "instituteCode": "instituteCode0",
-                "instituteName": "instituteName0"
-            },
-            {
-                "instituteCode": "instituteCode1",
-                "instituteName": "instituteName1"
+                "instituteCode": "PER001",
+                "instituteName": "INST1"
             }
         ],
-        "species": "species0",
-        "speciesAuthority": "speciesAuthority0",
-        "storageTypeCodes": [
-            "10",
-            "11"
-        ],
-        "subtaxon": "subtaxon0",
-        "subtaxonAuthority": "subtaxonAuthority0"
+        "species": "novus",
+        "speciesAuthority": "L",
+        "storageTypeCodes": [],
+        "subtaxon": "subtaxa",
+        "subtaxonAuthority": "N"
     }
 }
 ```
@@ -1285,47 +1208,39 @@ Addresses these needs: 1. General germplasm search mechanism that accepts POST f
         "pagination": {
             "currentPage": 0,
             "pageSize": 2,
-            "totalCount": 9,
-            "totalPages": 5
+            "totalCount": 2,
+            "totalPages": 1
         },
         "status": []
     },
     "result": {
         "data": [
             {
-                "accessionNumber": "A000001",
-                "acquisitionDate": "1984-01-01",
-                "biologicalStatusOfAccessionCode": 300,
+                "accessionNumber": "A000003",
+                "acquisitionDate": "2001-01-01",
+                "biologicalStatusOfAccessionCode": 500,
                 "breedingMethodDbId": "bm1",
-                "commonCropName": "G000001",
+                "commonCropName": "G000003",
                 "countryOfOriginCode": "COUNTRY1",
-                "defaultDisplayName": "G000001",
-                "donors": [
-                    {
-                        "donorAccessionNumber": "A001230",
-                        "donorInstituteCode": "INRA",
-                        "germplasmPUI": "https://doi.org/10.1109/5.771073"
-                    },
-                    {
-                        "donorAccessionNumber": "A004560",
-                        "donorInstituteCode": "INRA",
-                        "germplasmPUI": "https://doi.org/10.1109/5.231123"
-                    }
-                ],
+                "defaultDisplayName": "G000003",
+                "documentationURL": "https://brapi.org",
+                "donors": [],
                 "genus": "Fructus",
-                "germplasmDbId": "1",
-                "germplasmName": "Name001",
-                "germplasmPUI": "http://pui.per/accession/A000001",
+                "germplasmDbId": "3",
+                "germplasmGenus": "Fructus",
+                "germplasmName": "Name003",
+                "germplasmPUI": "http://pui.per/accession/A000003",
+                "germplasmSpecies": "novus",
                 "instituteCode": "PER001",
                 "instituteName": "INST1",
-                "pedigree": "A000001",
-                "seedSource": "open pollination",
+                "pedigree": "A000001/A000002",
+                "seedSource": "A000001/A000002",
                 "species": "novus",
                 "speciesAuthority": "L",
                 "subtaxa": "subtaxa",
                 "subtaxaAuthority": "N",
                 "synonyms": [
-                    "landrace 1"
+                    "variety 1"
                 ],
                 "taxonIds": [
                     {
@@ -1340,39 +1255,31 @@ Addresses these needs: 1. General germplasm search mechanism that accepts POST f
                 "typeOfGermplasmStorageCode": []
             },
             {
-                "accessionNumber": "A000002",
-                "acquisitionDate": "1984-01-01",
-                "biologicalStatusOfAccessionCode": 300,
+                "accessionNumber": "A000004",
+                "acquisitionDate": "2001-01-01",
+                "biologicalStatusOfAccessionCode": 500,
                 "breedingMethodDbId": "bm1",
-                "commonCropName": "G000002",
+                "commonCropName": "G000004",
                 "countryOfOriginCode": "COUNTRY1",
-                "defaultDisplayName": "G000002",
-                "donors": [
-                    {
-                        "donorAccessionNumber": "A007890",
-                        "donorInstituteCode": "INRA",
-                        "germplasmPUI": "https://doi.org/10.1109/5.771073"
-                    },
-                    {
-                        "donorAccessionNumber": "A001010",
-                        "donorInstituteCode": "INRA",
-                        "germplasmPUI": "https://doi.org/10.1109/5.231123"
-                    }
-                ],
+                "defaultDisplayName": "G000004",
+                "documentationURL": "https://brapi.org",
+                "donors": [],
                 "genus": "Fructus",
-                "germplasmDbId": "2",
-                "germplasmName": "Name002",
-                "germplasmPUI": "http://pui.per/accession/A000002",
+                "germplasmDbId": "4",
+                "germplasmGenus": "Fructus",
+                "germplasmName": "Name004",
+                "germplasmPUI": "http://pui.per/accession/A000004",
+                "germplasmSpecies": "novus",
                 "instituteCode": "PER001",
                 "instituteName": "INST1",
-                "pedigree": "A000002",
+                "pedigree": "A000001/A000003",
                 "seedSource": "open pollination",
                 "species": "novus",
                 "speciesAuthority": "L",
                 "subtaxa": "subtaxa",
                 "subtaxaAuthority": "N",
                 "synonyms": [
-                    "landrace 2"
+                    "variety 4"
                 ],
                 "taxonIds": [
                     {

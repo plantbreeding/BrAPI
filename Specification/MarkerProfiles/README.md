@@ -162,6 +162,13 @@ The format of the tsv response can be found on GitHub (https://github.com/plantb
 ```
 {
     "metadata": {
+        "asynchStatus": {
+            "asynchId": "",
+            "endTime": "2018-12-04",
+            "percentComplete": 100,
+            "startTime": "2018-12-04",
+            "status": "FINISHED"
+        },
         "datafiles": [],
         "pagination": {
             "currentPage": 0,
@@ -344,6 +351,13 @@ This method may support asynchronous processing.
 ```
 {
     "metadata": {
+        "asynchStatus": {
+            "asynchId": "",
+            "endTime": "2018-12-04",
+            "percentComplete": 100,
+            "startTime": "2018-12-04",
+            "status": "FINISHED"
+        },
         "datafiles": [],
         "pagination": {
             "currentPage": 0,

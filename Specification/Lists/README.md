@@ -36,7 +36,7 @@ Get filtered set of generic lists
         "datafiles": [],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 1000,
+            "pageSize": 2,
             "totalCount": 2,
             "totalPages": 1
         },
@@ -45,28 +45,28 @@ Get filtered set of generic lists
     "result": {
         "data": [
             {
-                "dateCreated": "2018-01-01T14:47:23-0600",
-                "dateModified": "2018-01-01T14:47:23-0600",
-                "description": "description0",
-                "listDbId": "listDbId0",
-                "listName": "listName0",
-                "listOwnerName": "listOwnerName0",
-                "listOwnerPersonDbId": "listOwnerPersonDbId0",
-                "listSize": 0,
-                "listSource": "listSource0",
+                "dateCreated": "2011-06-14T22:12:51-04:00",
+                "dateModified": "2011-06-14T22:12:51-04:00",
+                "description": "Example List of germplasm",
+                "listDbId": "list1",
+                "listName": "Example List 1",
+                "listOwnerName": "Bob Robertson",
+                "listOwnerPersonDbId": "person1",
+                "listSize": 3,
+                "listSource": "User Created",
                 "listType": "germplasm"
             },
             {
-                "dateCreated": "2018-01-01T14:47:23-0600",
-                "dateModified": "2018-01-01T14:47:23-0600",
-                "description": "description1",
-                "listDbId": "listDbId1",
-                "listName": "listName1",
-                "listOwnerName": "listOwnerName1",
-                "listOwnerPersonDbId": "listOwnerPersonDbId1",
-                "listSize": 0,
-                "listSource": "listSource1",
-                "listType": "markers"
+                "dateCreated": "2011-06-14T22:12:51-04:00",
+                "dateModified": "2011-06-14T22:12:51-04:00",
+                "description": "Example List of germplasm",
+                "listDbId": "list2",
+                "listName": "Example List 2",
+                "listOwnerName": "Rob Robertson",
+                "listOwnerPersonDbId": "person2",
+                "listSize": 3,
+                "listSource": "User Created",
+                "listType": "germplasm"
             }
         ]
     }
@@ -131,26 +131,25 @@ Create a new list
         "datafiles": [],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 2,
-            "totalPages": 1
+            "pageSize": 0,
+            "totalCount": 0,
+            "totalPages": 0
         },
         "status": []
     },
     "result": {
         "data": [
-            "data0",
-            "data1"
+            "string"
         ],
-        "dateCreated": "2018-01-01T14:47:23-0600",
-        "dateModified": "2018-01-01T14:47:23-0600",
-        "description": "description0",
-        "listDbId": "listDbId0",
-        "listName": "listName0",
-        "listOwnerName": "listOwnerName0",
-        "listOwnerPersonDbId": "listOwnerPersonDbId0",
-        "listSize": 0,
-        "listSource": "listSource0",
+        "dateCreated": "2018-12-04T17:21:06-05:00",
+        "dateModified": "2018-12-04T17:21:06-05:00",
+        "description": "string",
+        "listDbId": "cb685990-675c-4700-a78d-eabe908185db",
+        "listName": "string",
+        "listOwnerName": "string",
+        "listOwnerPersonDbId": "string",
+        "listSize": 1,
+        "listSource": "string",
         "listType": "germplasm"
     }
 }
@@ -197,26 +196,27 @@ Get a specific generic lists
         "datafiles": [],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 2,
-            "totalPages": 1
+            "pageSize": 0,
+            "totalCount": 0,
+            "totalPages": 0
         },
         "status": []
     },
     "result": {
         "data": [
-            "data0",
-            "data1"
+            "1",
+            "2",
+            "3"
         ],
-        "dateCreated": "2018-01-01T14:47:23-0600",
-        "dateModified": "2018-01-01T14:47:23-0600",
-        "description": "description0",
-        "listDbId": "listDbId0",
-        "listName": "listName0",
-        "listOwnerName": "listOwnerName0",
-        "listOwnerPersonDbId": "listOwnerPersonDbId0",
-        "listSize": 0,
-        "listSource": "listSource0",
+        "dateCreated": "2011-06-14T22:12:51-04:00",
+        "dateModified": "2011-06-14T22:12:51-04:00",
+        "description": "Example List of germplasm",
+        "listDbId": "list1",
+        "listName": "Example List 1",
+        "listOwnerName": "Bob Robertson",
+        "listOwnerPersonDbId": "person1",
+        "listSize": 3,
+        "listSource": "User Created",
         "listType": "germplasm"
     }
 }
@@ -286,26 +286,25 @@ Update an existing generic list
         "datafiles": [],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 2,
-            "totalPages": 1
+            "pageSize": 0,
+            "totalCount": 0,
+            "totalPages": 0
         },
         "status": []
     },
     "result": {
         "data": [
-            "data0",
-            "data1"
+            "string"
         ],
-        "dateCreated": "2018-01-01T14:47:23-0600",
-        "dateModified": "2018-01-01T14:47:23-0600",
-        "description": "description0",
-        "listDbId": "listDbId0",
-        "listName": "listName0",
-        "listOwnerName": "listOwnerName0",
-        "listOwnerPersonDbId": "listOwnerPersonDbId0",
-        "listSize": 0,
-        "listSource": "listSource0",
+        "dateCreated": "2011-06-14T22:12:51-04:00",
+        "dateModified": "2018-12-04T17:21:06-05:00",
+        "description": "string",
+        "listDbId": "list1",
+        "listName": "string",
+        "listOwnerName": "string",
+        "listOwnerPersonDbId": "string",
+        "listSize": 1,
+        "listSource": "string",
         "listType": "germplasm"
     }
 }
@@ -363,26 +362,27 @@ Add new data to a specific generic lists
         "datafiles": [],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 2,
-            "totalPages": 1
+            "pageSize": 0,
+            "totalCount": 0,
+            "totalPages": 0
         },
         "status": []
     },
     "result": {
         "data": [
-            "data0",
-            "data1"
+            "1",
+            "2",
+            "3"
         ],
-        "dateCreated": "2018-01-01T14:47:23-0600",
-        "dateModified": "2018-01-01T14:47:23-0600",
-        "description": "description0",
-        "listDbId": "listDbId0",
-        "listName": "listName0",
-        "listOwnerName": "listOwnerName0",
-        "listOwnerPersonDbId": "listOwnerPersonDbId0",
-        "listSize": 0,
-        "listSource": "listSource0",
+        "dateCreated": "2011-06-14T22:12:51-04:00",
+        "dateModified": "2018-12-04T17:21:06-05:00",
+        "description": "string",
+        "listDbId": "list1",
+        "listName": "string",
+        "listOwnerName": "string",
+        "listOwnerPersonDbId": "string",
+        "listSize": 3,
+        "listSource": "string",
         "listType": "germplasm"
     }
 }

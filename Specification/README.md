@@ -3,7 +3,6 @@ FORMAT: 1A
 # BrAPI V1.3
 
 The Breeding API (BrAPI) is an interface for exchanging plant phenotype and genotype data between crop breeding applications. BrAPI is a standardized specification, meaning that any application may create their own implementation and that all of those implementations should be compatible. It is a <i>shared</i>, <i>open</i> API, to be used by all data providers and data consumers who wish to participate. Initiated in May 2014, it is currently in an actively developing state, so now is the time for potential participants to help shape the specifications to ensure their needs are addressed. For more information, go to <a href="https://brapi.org/">brapi.org</a>.
-
 ### URL structure
 
 API requests are structured as 
@@ -19,7 +18,6 @@ To distinguish between multiple databases available from the same server, includ
 Example: _https://test-server.brapi.org/**maize\_db\_01**/brapi/v1/markerprofiles/2939_
 
 Example: _https://test-server.brapi.org/**cornell/cals/wheat_db**/brapi/v1/markerprofiles/2939_
-
 ### Structure of the response object:
 
 The return objects are encoded in JSON. The response consists of:
@@ -170,7 +168,6 @@ Additional documentation is in the [GitHub wiki](https://github.com/plantbreedin
 See especially the [Best Practices and Conventions]
 (https://github.com/plantbreeding/documentation/wiki/Best-Practices-and-Conventions).
 
-
 ### Error Handling
 
 Following the RESTful architecture standard, most errors in BrAPI should be reported back to the client using the appropriate HTTP status code. The status codes that BrAPI officially supports are outlined below. Any response which does NOT have a 200 status code should have a plain text body with a reasonable error message which can be displayed to a user if necessary. 
@@ -230,7 +227,6 @@ For example, making the request `GET /trials?locationDbId=abc123`. If there are 
 Another example, making the request `GET /studies?studyType=Genotyping`. If the database does not contain any information about study types, then it is important to notify the user that the study type query parameter will be ignored. 
 
 
-
 ### Date and timestamp fields
 
 Date and timestamp fields are coded in the ISO 8601 standard, extended format. If the field name ends in "Date", only the date portion should be provided, for example "2017-06-16". If a field ends in "Timestamp", the date, time and time zone information needs to be provided, as in this example: "2017-06-16T14:47:23-0600". In version 1, milliseconds are not supported.
@@ -240,7 +236,6 @@ Date and timestamp fields are coded in the ISO 8601 standard, extended format. I
 Date | yyyy-MM-dd | 2017-06-16
 Timestamp | yyyy-MM-ddThh:mm:ssz | 2017-06-16T14:47:23-0600
 Timestamp UTC | yyyy-MM-ddThh:mm:ssZ | 2017-06-16T20:47:23Z
-
 
 ### Location coordinate encoding
 
@@ -264,7 +259,6 @@ Note:
 The `/images` calls support a GeoJSON object structure for describing their location. The BrAPI spec for GeoJSON only supports two of the possible geometries: Points and Polygons. 
  + With most images, the Point geometry should be used, and it should indicate the longitude and latitude of the camera. 
  + For top down images (ie from drones, cranes, etc), the Point geometry may be used to indicate the longitude and latitude of the centroid of the image content, and the Polygon geometry may be used to indicate the border of the image content. 
-
 ### Search Services
 
 ---
@@ -496,7 +490,6 @@ Some searchable entities have non-array parameters in their request body objects
 
 #### A Note on Pagination
 It has come to my attention that some of the search services still have their "page" and "pageSize" keys as part of the search request object. This is an accident, generated from a line of reasoning which is no longer relevent. Any "page" and "pageSize" keys found in `POST` seach request object should be ignored. The "page" and "pageSize" query parameters in the `GET` call should be used instead. The `POST` call is meant to establish the parameters of the search, the `GET` call is responsible for how the client gets that data back. This will be cleaned up in v1.4.
-
 
 
 

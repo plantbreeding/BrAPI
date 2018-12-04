@@ -55,8 +55,8 @@ Retrieve a filtered list of Trials. A Trial is a collection of studies
                     "publications": "doi:10.2345/GEZG3T23535",
                     "specialProject": "Project1"
                 },
-                "commonCropName": null,
-                "documentationURL": null,
+                "commonCropName": "Tomatillo",
+                "documentationURL": "https://brapi.org",
                 "endDate": "2013-07-05",
                 "programDbId": "1",
                 "programName": "Program 1",
@@ -85,8 +85,8 @@ Retrieve a filtered list of Trials. A Trial is a collection of studies
                     "publications": "doi:10.2345/GEZG3T23535",
                     "specialProject": "Project1"
                 },
-                "commonCropName": null,
-                "documentationURL": null,
+                "commonCropName": "Tomatillo",
+                "documentationURL": "https://brapi.org",
                 "endDate": "2013-07-05",
                 "programDbId": "1",
                 "programName": "Program 1",
@@ -167,7 +167,7 @@ Get trial by id.
             "publications": "doi:10.2345/GEZG3T23535",
             "specialProject": "Project1"
         },
-        "commonCropName": null,
+        "commonCropName": "Tomatillo",
         "contacts": [
             {
                 "contactDbId": "4",
@@ -190,12 +190,22 @@ Get trial by id.
             "datasetPUI": "doi:10.15454/312953986E3",
             "license": "https://creativecommons.org/licenses/by/4.0"
         },
-        "datasetAuthorships": null,
-        "documentationURL": null,
+        "datasetAuthorships": [
+            {
+                "datasetPUI": "doi:10.15454/312953986E3",
+                "license": "https://creativecommons.org/licenses/by/4.0"
+            }
+        ],
+        "documentationURL": "https://brapi.org",
         "endDate": "2013-07-05",
         "programDbId": "1",
         "programName": "Program 1",
-        "publications": null,
+        "publications": [
+            {
+                "publicationPUI": "doi:10.15454/312953986E3",
+                "publicationReference": "https://brapi.org"
+            }
+        ],
         "startDate": "2013-01-01",
         "studies": [
             {

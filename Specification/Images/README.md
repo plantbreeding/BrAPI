@@ -50,13 +50,80 @@ Implementation Notes
         "pagination": {
             "currentPage": 0,
             "pageSize": 2,
-            "totalCount": 0,
-            "totalPages": 0
+            "totalCount": 2,
+            "totalPages": 1
         },
         "status": []
     },
     "result": {
-        "data": []
+        "data": [
+            {
+                "additionalInfo": {},
+                "copyright": "Copyright 2018",
+                "description": "BrAPI Logo",
+                "descriptiveOntologyTerms": [
+                    "brapi",
+                    "logo"
+                ],
+                "imageDbId": "img1",
+                "imageFileName": "brapi-logo.svg",
+                "imageFileSize": 3676,
+                "imageHeight": 56,
+                "imageLocation": {
+                    "geometry": {
+                        "coordinates": [
+                            -110.11301,
+                            50.010082
+                        ],
+                        "type": "Point"
+                    },
+                    "type": "Feature"
+                },
+                "imageName": "brapiLogo",
+                "imageTimeStamp": "2011-06-14",
+                "imageURL": "https://brapi.org/assets/images/brapi-logo.svg",
+                "imageWidth": 258,
+                "mimeType": "image/svg",
+                "observationDbIds": [
+                    "1",
+                    "2"
+                ],
+                "observationUnitDbId": "1"
+            },
+            {
+                "additionalInfo": {},
+                "copyright": "Copyright 2018",
+                "description": "BrAPI Logo",
+                "descriptiveOntologyTerms": [
+                    "brapi",
+                    "logo"
+                ],
+                "imageDbId": "img2",
+                "imageFileName": "brapi-logo.svg",
+                "imageFileSize": 3676,
+                "imageHeight": 56,
+                "imageLocation": {
+                    "geometry": {
+                        "coordinates": [
+                            -110.11301,
+                            50.010082
+                        ],
+                        "type": "Point"
+                    },
+                    "type": "Feature"
+                },
+                "imageName": "brapiLogo",
+                "imageTimeStamp": "2011-06-14",
+                "imageURL": "https://brapi.org/assets/images/brapi-logo.svg",
+                "imageWidth": 258,
+                "mimeType": "image/svg",
+                "observationDbIds": [
+                    "1",
+                    "2"
+                ],
+                "observationUnitDbId": "1"
+            }
+        ]
     }
 }
 ```
@@ -150,26 +217,37 @@ Implementation Notes
         "status": []
     },
     "result": {
-        "additionalInfo": null,
-        "copyright": null,
-        "description": null,
+        "additionalInfo": {},
+        "copyright": "Copyright 2019",
+        "description": "BrAPI Logo",
         "descriptiveOntologyTerms": [
-            ""
+            "brapi",
+            "logo"
         ],
-        "imageDbId": "db9258d6-2432-4af2-b4dd-86b4214e891f",
-        "imageFileName": null,
-        "imageFileSize": null,
-        "imageHeight": null,
-        "imageLocation": null,
-        "imageName": null,
-        "imageTimeStamp": null,
-        "imageURL": null,
-        "imageWidth": null,
-        "mimeType": null,
+        "imageDbId": "60ff3c3b-986b-4c57-8650-5968f66ced28",
+        "imageFileName": "brapi-logo.svg",
+        "imageFileSize": 3676,
+        "imageHeight": 56,
+        "imageLocation": {
+            "geometry": {
+                "coordinates": [
+                    -110.11301,
+                    50.010082
+                ],
+                "type": "Point"
+            },
+            "type": "Feature"
+        },
+        "imageName": "brapiLogo",
+        "imageTimeStamp": "1969-12-31",
+        "imageURL": "",
+        "imageWidth": 258,
+        "mimeType": "image/svg",
         "observationDbIds": [
-            ""
+            "1",
+            "2"
         ],
-        "observationUnitDbId": null
+        "observationUnitDbId": "11"
     }
 }
 ```
@@ -227,7 +305,39 @@ Implementation Notes
         },
         "status": []
     },
-    "result": null
+    "result": {
+        "additionalInfo": {},
+        "copyright": "Copyright 2018",
+        "description": "BrAPI Logo",
+        "descriptiveOntologyTerms": [
+            "brapi",
+            "logo"
+        ],
+        "imageDbId": "img1",
+        "imageFileName": "brapi-logo.svg",
+        "imageFileSize": 3676,
+        "imageHeight": 56,
+        "imageLocation": {
+            "geometry": {
+                "coordinates": [
+                    -110.11301,
+                    50.010082
+                ],
+                "type": "Point"
+            },
+            "type": "Feature"
+        },
+        "imageName": "brapiLogo",
+        "imageTimeStamp": "2011-06-14",
+        "imageURL": "https://brapi.org/assets/images/brapi-logo.svg",
+        "imageWidth": 258,
+        "mimeType": "image/svg",
+        "observationDbIds": [
+            "1",
+            "2"
+        ],
+        "observationUnitDbId": "1"
+    }
 }
 ```
 
@@ -329,7 +439,39 @@ Implementation Notes
         },
         "status": []
     },
-    "result": null
+    "result": {
+        "additionalInfo": {},
+        "copyright": "Copyright 2019",
+        "description": "BrAPI Logo",
+        "descriptiveOntologyTerms": [
+            "brapi",
+            "logo"
+        ],
+        "imageDbId": "img1",
+        "imageFileName": "brapi-logo.svg",
+        "imageFileSize": 3676,
+        "imageHeight": 56,
+        "imageLocation": {
+            "geometry": {
+                "coordinates": [
+                    -110.11301,
+                    50.010082
+                ],
+                "type": "Point"
+            },
+            "type": "Feature"
+        },
+        "imageName": "brapiLogo",
+        "imageTimeStamp": "1969-12-31",
+        "imageURL": "",
+        "imageWidth": 258,
+        "mimeType": "image/svg",
+        "observationDbIds": [
+            "1",
+            "2"
+        ],
+        "observationUnitDbId": "11"
+    }
 }
 ```
 
@@ -385,35 +527,46 @@ Implementation Notes
 {
     "metadata": {
         "datafiles": [],
-        "pagination": {},
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 0,
+            "totalCount": 0,
+            "totalPages": 0
+        },
         "status": []
     },
     "result": {
         "additionalInfo": {},
-        "copyright": "copyright0",
-        "description": "description0",
+        "copyright": "Copyright 2019",
+        "description": "BrAPI Logo",
         "descriptiveOntologyTerms": [
-            "descriptiveOntologyTerms0",
-            "descriptiveOntologyTerms1"
+            "brapi",
+            "logo"
         ],
-        "imageDbId": "imageDbId0",
-        "imageFileName": "imageFileName0",
-        "imageFileSize": 0,
-        "imageHeight": 0,
+        "imageDbId": "img1",
+        "imageFileName": "brapi-logo.svg",
+        "imageFileSize": 3676,
+        "imageHeight": 56,
         "imageLocation": {
-            "geometry": {},
+            "geometry": {
+                "coordinates": [
+                    -110.11301,
+                    50.010082
+                ],
+                "type": "Point"
+            },
             "type": "Feature"
         },
-        "imageName": "imageName0",
-        "imageTimeStamp": "2018-01-01",
-        "imageURL": "imageURL0",
-        "imageWidth": 0,
-        "mimeType": "mimeType0",
+        "imageName": "brapiLogo",
+        "imageTimeStamp": "1969-12-31",
+        "imageURL": "http://localhost:8080/brapi/v1/images/img1/brapi-logo.svg",
+        "imageWidth": 258,
+        "mimeType": "image/svg",
         "observationDbIds": [
-            "observationDbIds0",
-            "observationDbIds1"
+            "1",
+            "2"
         ],
-        "observationUnitDbId": "observationUnitDbId0"
+        "observationUnitDbId": "11"
     }
 }
 ```
@@ -578,7 +731,7 @@ Implementation Notes
         "datafiles": [],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 1000,
+            "pageSize": 2,
             "totalCount": 2,
             "totalPages": 1
         },
@@ -588,57 +741,69 @@ Implementation Notes
         "data": [
             {
                 "additionalInfo": {},
-                "copyright": "copyright0",
-                "description": "description0",
+                "copyright": "Copyright 2018",
+                "description": "BrAPI Logo",
                 "descriptiveOntologyTerms": [
-                    "descriptiveOntologyTerms0",
-                    "descriptiveOntologyTerms1"
+                    "brapi",
+                    "logo"
                 ],
-                "imageDbId": "imageDbId0",
-                "imageFileName": "imageFileName0",
-                "imageFileSize": 0,
-                "imageHeight": 0,
+                "imageDbId": "img2",
+                "imageFileName": "brapi-logo.svg",
+                "imageFileSize": 3676,
+                "imageHeight": 56,
                 "imageLocation": {
-                    "geometry": {},
+                    "geometry": {
+                        "coordinates": [
+                            -110.11301,
+                            50.010082
+                        ],
+                        "type": "Point"
+                    },
                     "type": "Feature"
                 },
-                "imageName": "imageName0",
-                "imageTimeStamp": "2018-01-01",
-                "imageURL": "imageURL0",
-                "imageWidth": 0,
-                "mimeType": "mimeType0",
+                "imageName": "brapiLogo",
+                "imageTimeStamp": "2011-06-14",
+                "imageURL": "https://brapi.org/assets/images/brapi-logo.svg",
+                "imageWidth": 258,
+                "mimeType": "image/svg",
                 "observationDbIds": [
-                    "observationDbIds0",
-                    "observationDbIds1"
+                    "1",
+                    "2"
                 ],
-                "observationUnitDbId": "observationUnitDbId0"
+                "observationUnitDbId": "1"
             },
             {
                 "additionalInfo": {},
-                "copyright": "copyright1",
-                "description": "description1",
+                "copyright": "Copyright 2019",
+                "description": "BrAPI Logo",
                 "descriptiveOntologyTerms": [
-                    "descriptiveOntologyTerms0",
-                    "descriptiveOntologyTerms1"
+                    "brapi",
+                    "logo"
                 ],
-                "imageDbId": "imageDbId1",
-                "imageFileName": "imageFileName1",
-                "imageFileSize": 0,
-                "imageHeight": 0,
+                "imageDbId": "60ff3c3b-986b-4c57-8650-5968f66ced28",
+                "imageFileName": "brapi-logo.svg",
+                "imageFileSize": 3676,
+                "imageHeight": 56,
                 "imageLocation": {
-                    "geometry": {},
+                    "geometry": {
+                        "coordinates": [
+                            -110.11301,
+                            50.010082
+                        ],
+                        "type": "Point"
+                    },
                     "type": "Feature"
                 },
-                "imageName": "imageName1",
-                "imageTimeStamp": "2018-01-01",
-                "imageURL": "imageURL1",
-                "imageWidth": 0,
-                "mimeType": "mimeType1",
+                "imageName": "brapiLogo",
+                "imageTimeStamp": "1969-12-31",
+                "imageURL": "",
+                "imageWidth": 258,
+                "mimeType": "image/svg",
                 "observationDbIds": [
-                    "observationDbIds0",
-                    "observationDbIds1"
+                    "1",
+                    "2"
                 ],
-                "observationUnitDbId": "observationUnitDbId1"
+                "observationUnitDbId": "11"
             }
         ]
     }

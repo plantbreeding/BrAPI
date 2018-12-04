@@ -45,8 +45,8 @@ Get a set of observation units
         "pagination": {
             "currentPage": 0,
             "pageSize": 2,
-            "totalCount": 22,
-            "totalPages": 11
+            "totalCount": 2,
+            "totalPages": 1
         },
         "status": []
     },
@@ -116,63 +116,54 @@ Get a set of observation units
             {
                 "X": "1",
                 "Y": "1",
-                "blockNumber": "1",
+                "blockNumber": "101",
                 "entryNumber": "1",
-                "entryType": "TEST",
-                "germplasmDbId": "1",
-                "germplasmName": "Name001",
-                "observationLevel": "plot",
-                "observationLevels": "block:1;plot:1",
-                "observationUnitDbId": "1",
-                "observationUnitName": "Plot 1",
-                "observationUnitXref": [
-                    {
-                        "id": "SAMEA179865230",
-                        "source": "ebi.biosample"
-                    },
-                    {
-                        "id": "INRA:CoeSt6 _SMH03",
-                        "source": "gnpis.lot"
-                    },
-                    {
-                        "id": "239865",
-                        "source": "kernelDB"
-                    }
-                ],
+                "entryType": "FILLER",
+                "germplasmDbId": "4",
+                "germplasmName": "Name004",
+                "observationLevel": "plant",
+                "observationLevels": "block:101;plot:5;plant:5",
+                "observationUnitDbId": "10",
+                "observationUnitName": "Plant 5",
+                "observationUnitXref": [],
                 "observations": [
                     {
-                        "collector": "A. Technician",
-                        "observationDbId": "1",
-                        "observationTimeStamp": "2013-06-14T22:03:51-04:00",
+                        "collector": "B. Tech",
+                        "observationDbId": "16",
+                        "observationTimeStamp": "2011-06-14T22:06:51-04:00",
                         "observationVariableDbId": "MO_123:100002",
                         "observationVariableName": "Plant height",
-                        "season": "fall 2011",
-                        "value": "1.2"
+                        "season": "winter 2012",
+                        "value": "100"
                     },
                     {
-                        "collector": "A. Technician",
-                        "observationDbId": "2",
-                        "observationTimeStamp": "2013-06-14T22:04:51-04:00",
-                        "observationVariableDbId": "MO_123:100006",
-                        "observationVariableName": "Virus severity",
-                        "season": "fall 2011",
-                        "value": "4.5"
+                        "collector": "B. Tech",
+                        "observationDbId": "17",
+                        "observationTimeStamp": "2011-06-14T22:07:51-04:00",
+                        "observationVariableDbId": "MO_123:100003",
+                        "observationVariableName": "Carotenoid",
+                        "season": "winter 2012",
+                        "value": "9"
+                    },
+                    {
+                        "collector": "B. Tech",
+                        "observationDbId": "18",
+                        "observationTimeStamp": "2011-06-14T22:08:51-04:00",
+                        "observationVariableDbId": "MO_123:100004",
+                        "observationVariableName": "Root weight",
+                        "season": "winter 2012",
+                        "value": "2"
                     }
                 ],
-                "plantNumber": "null",
-                "plotNumber": "1",
+                "plantNumber": "5",
+                "plotNumber": "5",
                 "programName": "Program 1",
-                "replicate": "0",
-                "studyDbId": "1001",
+                "replicate": "1",
+                "studyDbId": "1003",
                 "studyLocation": "Peru",
-                "studyLocationDbId": "1",
-                "studyName": "Study 1",
-                "treatments": [
-                    {
-                        "factor": "water regimen",
-                        "modality": "deficit"
-                    }
-                ]
+                "studyLocationDbId": "2",
+                "studyName": "Study 3",
+                "treatments": []
             }
         ]
     }
@@ -297,8 +288,8 @@ DEPRECATED in v1.3 - See GET /observationunits
         "pagination": {
             "currentPage": 0,
             "pageSize": 2,
-            "totalCount": 22,
-            "totalPages": 11
+            "totalCount": 2,
+            "totalPages": 1
         },
         "status": []
     },
@@ -368,63 +359,54 @@ DEPRECATED in v1.3 - See GET /observationunits
             {
                 "X": "1",
                 "Y": "1",
-                "blockNumber": "1",
+                "blockNumber": "101",
                 "entryNumber": "1",
-                "entryType": "TEST",
-                "germplasmDbId": "1",
-                "germplasmName": "Name001",
-                "observationLevel": "plot",
-                "observationLevels": "block:1;plot:1",
-                "observationUnitDbId": "1",
-                "observationUnitName": "Plot 1",
-                "observationUnitXref": [
-                    {
-                        "id": "SAMEA179865230",
-                        "source": "ebi.biosample"
-                    },
-                    {
-                        "id": "INRA:CoeSt6 _SMH03",
-                        "source": "gnpis.lot"
-                    },
-                    {
-                        "id": "239865",
-                        "source": "kernelDB"
-                    }
-                ],
+                "entryType": "FILLER",
+                "germplasmDbId": "4",
+                "germplasmName": "Name004",
+                "observationLevel": "plant",
+                "observationLevels": "block:101;plot:5;plant:5",
+                "observationUnitDbId": "10",
+                "observationUnitName": "Plant 5",
+                "observationUnitXref": [],
                 "observations": [
                     {
-                        "collector": "A. Technician",
-                        "observationDbId": "1",
-                        "observationTimeStamp": "2013-06-14T22:03:51-04:00",
+                        "collector": "B. Tech",
+                        "observationDbId": "16",
+                        "observationTimeStamp": "2011-06-14T22:06:51-04:00",
                         "observationVariableDbId": "MO_123:100002",
                         "observationVariableName": "Plant height",
-                        "season": "fall 2011",
-                        "value": "1.2"
+                        "season": "winter 2012",
+                        "value": "100"
                     },
                     {
-                        "collector": "A. Technician",
-                        "observationDbId": "2",
-                        "observationTimeStamp": "2013-06-14T22:04:51-04:00",
-                        "observationVariableDbId": "MO_123:100006",
-                        "observationVariableName": "Virus severity",
-                        "season": "fall 2011",
-                        "value": "4.5"
+                        "collector": "B. Tech",
+                        "observationDbId": "17",
+                        "observationTimeStamp": "2011-06-14T22:07:51-04:00",
+                        "observationVariableDbId": "MO_123:100003",
+                        "observationVariableName": "Carotenoid",
+                        "season": "winter 2012",
+                        "value": "9"
+                    },
+                    {
+                        "collector": "B. Tech",
+                        "observationDbId": "18",
+                        "observationTimeStamp": "2011-06-14T22:08:51-04:00",
+                        "observationVariableDbId": "MO_123:100004",
+                        "observationVariableName": "Root weight",
+                        "season": "winter 2012",
+                        "value": "2"
                     }
                 ],
-                "plantNumber": "null",
-                "plotNumber": "1",
+                "plantNumber": "5",
+                "plotNumber": "5",
                 "programName": "Program 1",
-                "replicate": "0",
-                "studyDbId": "1001",
+                "replicate": "1",
+                "studyDbId": "1003",
                 "studyLocation": "Peru",
-                "studyLocationDbId": "1",
-                "studyName": "Study 1",
-                "treatments": [
-                    {
-                        "factor": "water regimen",
-                        "modality": "deficit"
-                    }
-                ]
+                "studyLocationDbId": "2",
+                "studyName": "Study 3",
+                "treatments": []
             }
         ]
     }
@@ -494,8 +476,8 @@ DEPRECATED in v1.3 - See /search/observationunits
         "pagination": {
             "currentPage": 0,
             "pageSize": 2,
-            "totalCount": 11,
-            "totalPages": 6
+            "totalCount": 2,
+            "totalPages": 1
         },
         "status": []
     },
@@ -747,8 +729,8 @@ DEPRECATED in v1.3 - See /search/observationtables
         "pagination": {
             "currentPage": 0,
             "pageSize": 2,
-            "totalCount": 11,
-            "totalPages": 6
+            "totalCount": 2,
+            "totalPages": 1
         },
         "status": []
     },
@@ -932,7 +914,7 @@ Images can be optionally be uploaded using this call by providing a zipfile of a
     "result": {
         "observations": [
             {
-                "observationDbId": "1ab919c7-101b-4986-8bb7-ea0cc4c753e5",
+                "observationDbId": "93f807fb-a07f-4882-9f8f-8a48302eee3b",
                 "observationUnitDbId": "1",
                 "observationVariableDbId": "MO_123:100002"
             }
@@ -1089,9 +1071,9 @@ observationValue data type inferred from the ontology
         "datafiles": [],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 4,
-            "totalCount": 11,
-            "totalPages": 3
+            "pageSize": 2,
+            "totalCount": 2,
+            "totalPages": 1
         },
         "status": []
     },
@@ -1115,7 +1097,6 @@ observationValue data type inferred from the ontology
                 "1.2",
                 "4.5",
                 "",
-                "",
                 ""
             ],
             [
@@ -1136,50 +1117,7 @@ observationValue data type inferred from the ontology
                 "100",
                 "",
                 "9",
-                "2",
-                ""
-            ],
-            [
-                "2011",
-                "1003",
-                "Study 3",
-                "2",
-                "Location 2",
-                "2",
-                "Name002",
-                "11",
-                "6",
-                "1",
-                "101",
-                "FILLER",
-                "1",
-                "1",
-                "11",
-                "",
-                "12",
-                "5",
-                "black"
-            ],
-            [
-                "2013",
-                "1001",
-                "Study 1",
-                "1",
-                "Location 1",
-                "1",
-                "Name001",
-                "2",
-                "1",
-                "0",
-                "1",
-                "TEST",
-                "1",
-                "1",
-                "1.1",
-                "5.1",
-                "",
-                "",
-                ""
+                "2"
             ]
         ],
         "headerRow": [
@@ -1202,15 +1140,13 @@ observationValue data type inferred from the ontology
             "MO_123:100002",
             "MO_123:100006",
             "MO_123:100003",
-            "MO_123:100004",
-            "MO_123:100005"
+            "MO_123:100004"
         ],
         "observationVariableNames": [
             "Plant height",
             "Virus severity",
             "Carotenoid",
-            "Root weight",
-            "Root color"
+            "Root weight"
         ]
     }
 }
@@ -1418,8 +1354,8 @@ See Search Services for additional implementation details.
         "datafiles": [],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 22,
+            "pageSize": 2,
+            "totalCount": 2,
             "totalPages": 1
         },
         "status": []
@@ -1428,81 +1364,130 @@ See Search Services for additional implementation details.
         "data": [
             {
                 "X": "1",
-                "Y": "2",
+                "Y": "1",
                 "blockNumber": "1",
-                "entryNumber": "8",
-                "entryType": "CHECK",
-                "germplasmDbId": "3",
-                "germplasmName": "Name003",
-                "observationLevel": "plant",
-                "observationLevels": "block:1;plot:4;plant:4",
-                "observationUnitDbId": "8",
-                "observationUnitName": "Plant 4",
-                "observationUnitXref": [],
+                "entryNumber": "1",
+                "entryType": "TEST",
+                "germplasmDbId": "1",
+                "germplasmName": "Name001",
+                "observationUnitDbId": "1",
+                "observationUnitName": "Plot 1",
+                "observationUnitXref": [
+                    {
+                        "id": "SAMEA179865230",
+                        "source": "ebi.biosample"
+                    },
+                    {
+                        "id": "INRA:CoeSt6 _SMH03",
+                        "source": "gnpis.lot"
+                    },
+                    {
+                        "id": "239865",
+                        "source": "kernelDB"
+                    }
+                ],
                 "observations": [
                     {
                         "collector": "A. Technician",
-                        "observationDbId": "12",
-                        "observationTimeStamp": "2013-06-14T22:14:51-04:00",
-                        "observationVariableDbId": "MO_123:100005",
-                        "observationVariableName": "Root color",
-                        "season": "spring 2012",
-                        "value": "red"
+                        "observationDbId": "1",
+                        "observationTimeStamp": "2013-06-14T22:03:51-04:00",
+                        "observationVariableDbId": "MO_123:100002",
+                        "observationVariableName": "Plant height",
+                        "season": {
+                            "season": "fall",
+                            "seasonDbId": "1",
+                            "year": "2011"
+                        },
+                        "value": "1.2"
+                    },
+                    {
+                        "collector": "A. Technician",
+                        "observationDbId": "2",
+                        "observationTimeStamp": "2013-06-14T22:04:51-04:00",
+                        "observationVariableDbId": "MO_123:100006",
+                        "observationVariableName": "Virus severity",
+                        "season": {
+                            "season": "fall",
+                            "seasonDbId": "1",
+                            "year": "2011"
+                        },
+                        "value": "4.5"
+                    },
+                    {
+                        "collector": "string",
+                        "observationDbId": "93f807fb-a07f-4882-9f8f-8a48302eee3b",
+                        "observationTimeStamp": "1970-01-18T14:02:52-05:00",
+                        "observationVariableDbId": "MO_123:100002",
+                        "observationVariableName": "Plant height",
+                        "season": {
+                            "season": "fall",
+                            "seasonDbId": "1",
+                            "year": "2011"
+                        },
+                        "value": "string"
                     }
                 ],
-                "plantNumber": "4",
-                "plotNumber": "4",
-                "programName": "Program 1",
-                "replicate": "0",
-                "studyDbId": "1002",
-                "studyLocation": "Peru",
-                "studyLocationDbId": "1",
-                "studyName": "Study 2",
-                "treatments": [
-                    {
-                        "factor": "water regimen",
-                        "modality": "normal"
-                    }
-                ]
+                "pedigree": "",
+                "plantNumber": "null",
+                "plotNumber": "1",
+                "replicate": "0"
             },
             {
                 "X": "1",
-                "Y": "2",
-                "blockNumber": "1",
-                "entryNumber": "7",
-                "entryType": "TEST",
-                "germplasmDbId": "3",
-                "germplasmName": "Name003",
-                "observationLevel": "plot",
-                "observationLevels": "block:1;plot:4",
-                "observationUnitDbId": "7",
-                "observationUnitName": "Plot 4",
+                "Y": "1",
+                "blockNumber": "101",
+                "entryNumber": "1",
+                "entryType": "FILLER",
+                "germplasmDbId": "4",
+                "germplasmName": "Name004",
+                "observationUnitDbId": "10",
+                "observationUnitName": "Plant 5",
                 "observationUnitXref": [],
                 "observations": [
                     {
-                        "collector": "A. Technician",
-                        "observationDbId": "11",
-                        "observationTimeStamp": "2013-06-14T22:13:51-04:00",
+                        "collector": "B. Tech",
+                        "observationDbId": "16",
+                        "observationTimeStamp": "2011-06-14T22:06:51-04:00",
+                        "observationVariableDbId": "MO_123:100002",
+                        "observationVariableName": "Plant height",
+                        "season": {
+                            "season": "winter",
+                            "seasonDbId": "2",
+                            "year": "2012"
+                        },
+                        "value": "100"
+                    },
+                    {
+                        "collector": "B. Tech",
+                        "observationDbId": "17",
+                        "observationTimeStamp": "2011-06-14T22:07:51-04:00",
                         "observationVariableDbId": "MO_123:100003",
                         "observationVariableName": "Carotenoid",
-                        "season": "spring 2012",
-                        "value": "1.4"
+                        "season": {
+                            "season": "winter",
+                            "seasonDbId": "2",
+                            "year": "2012"
+                        },
+                        "value": "9"
+                    },
+                    {
+                        "collector": "B. Tech",
+                        "observationDbId": "18",
+                        "observationTimeStamp": "2011-06-14T22:08:51-04:00",
+                        "observationVariableDbId": "MO_123:100004",
+                        "observationVariableName": "Root weight",
+                        "season": {
+                            "season": "winter",
+                            "seasonDbId": "2",
+                            "year": "2012"
+                        },
+                        "value": "2"
                     }
                 ],
-                "plantNumber": "null",
-                "plotNumber": "4",
-                "programName": "Program 1",
-                "replicate": "0",
-                "studyDbId": "1002",
-                "studyLocation": "Peru",
-                "studyLocationDbId": "1",
-                "studyName": "Study 2",
-                "treatments": [
-                    {
-                        "factor": "water regimen",
-                        "modality": "normal"
-                    }
-                ]
+                "pedigree": "",
+                "plantNumber": "5",
+                "plotNumber": "5",
+                "replicate": "1"
             }
         ]
     }

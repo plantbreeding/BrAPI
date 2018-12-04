@@ -36,7 +36,7 @@ Get filtered list of people
         "datafiles": [],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 1000,
+            "pageSize": 2,
             "totalCount": 2,
             "totalPages": 1
         },
@@ -45,26 +45,26 @@ Get filtered list of people
     "result": {
         "data": [
             {
-                "description": "description0",
-                "emailAddress": "emailAddress0",
-                "firstName": "firstName0",
-                "lastName": "lastName0",
-                "mailingAddress": "mailingAddress0",
-                "middleName": "middleName0",
-                "personDbId": "personDbId0",
-                "phoneNumber": "phoneNumber0",
-                "userID": "userID0"
+                "description": "Example Person",
+                "emailAddress": "bob@bob.com",
+                "firstName": "Bob",
+                "lastName": "Robertson",
+                "mailingAddress": "123 Road Street, City, State, Country, 98765",
+                "middleName": "Danger",
+                "personDbId": "person1",
+                "phoneNumber": "+19876543210",
+                "userID": "bdr45"
             },
             {
-                "description": "description1",
-                "emailAddress": "emailAddress1",
-                "firstName": "firstName1",
-                "lastName": "lastName1",
-                "mailingAddress": "mailingAddress1",
-                "middleName": "middleName1",
-                "personDbId": "personDbId1",
-                "phoneNumber": "phoneNumber1",
-                "userID": "userID1"
+                "description": "Example Person",
+                "emailAddress": "rob@bob.com",
+                "firstName": "Rob",
+                "lastName": "Robertson",
+                "mailingAddress": "123 Road Street, City, State, Country, 98765",
+                "middleName": "Danger",
+                "personDbId": "person2",
+                "phoneNumber": "+19876543210",
+                "userID": "rdr45"
             }
         ]
     }
@@ -124,19 +124,24 @@ Create a new person
 {
     "metadata": {
         "datafiles": [],
-        "pagination": {},
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 0,
+            "totalCount": 0,
+            "totalPages": 0
+        },
         "status": []
     },
     "result": {
-        "description": "description0",
-        "emailAddress": "emailAddress0",
-        "firstName": "firstName0",
-        "lastName": "lastName0",
-        "mailingAddress": "mailingAddress0",
-        "middleName": "middleName0",
-        "personDbId": "personDbId0",
-        "phoneNumber": "phoneNumber0",
-        "userID": "userID0"
+        "description": "string",
+        "emailAddress": "string",
+        "firstName": "Name",
+        "lastName": "Smith",
+        "mailingAddress": "string",
+        "middleName": "string",
+        "personDbId": "5bf0f4b9-0e59-4265-88e2-ea2b589e3d2f",
+        "phoneNumber": "string",
+        "userID": "string"
     }
 }
 ```
@@ -180,19 +185,24 @@ Get a specific person
 {
     "metadata": {
         "datafiles": [],
-        "pagination": {},
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 0,
+            "totalCount": 0,
+            "totalPages": 0
+        },
         "status": []
     },
     "result": {
-        "description": "description0",
-        "emailAddress": "emailAddress0",
-        "firstName": "firstName0",
-        "lastName": "lastName0",
-        "mailingAddress": "mailingAddress0",
-        "middleName": "middleName0",
-        "personDbId": "personDbId0",
-        "phoneNumber": "phoneNumber0",
-        "userID": "userID0"
+        "description": "Example Person",
+        "emailAddress": "bob@bob.com",
+        "firstName": "Bob",
+        "lastName": "Robertson",
+        "mailingAddress": "123 Road Street, City, State, Country, 98765",
+        "middleName": "Danger",
+        "personDbId": "person1",
+        "phoneNumber": "+19876543210",
+        "userID": "bdr45"
     }
 }
 ```
@@ -256,19 +266,24 @@ Update an existing Person
 {
     "metadata": {
         "datafiles": [],
-        "pagination": {},
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 0,
+            "totalCount": 0,
+            "totalPages": 0
+        },
         "status": []
     },
     "result": {
-        "description": "description0",
-        "emailAddress": "emailAddress0",
-        "firstName": "firstName0",
-        "lastName": "lastName0",
-        "mailingAddress": "mailingAddress0",
-        "middleName": "middleName0",
-        "personDbId": "personDbId0",
-        "phoneNumber": "phoneNumber0",
-        "userID": "userID0"
+        "description": "string",
+        "emailAddress": "string",
+        "firstName": "Name",
+        "lastName": "Nameson",
+        "mailingAddress": "string",
+        "middleName": "string",
+        "personDbId": "person1",
+        "phoneNumber": "string",
+        "userID": "string"
     }
 }
 ```

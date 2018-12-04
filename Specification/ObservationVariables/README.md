@@ -37,61 +37,55 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
         "datafiles": [],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 2,
-            "totalPages": 1
+            "pageSize": 2,
+            "totalCount": 4,
+            "totalPages": 2
         },
         "status": []
     },
     "result": {
         "data": [
             {
-                "class": "class0",
-                "description": "description0",
-                "formula": "formula0",
-                "methodDbId": "methodDbId0",
-                "methodName": "methodName0",
-                "name": "name0",
+                "class": "Numeric",
+                "description": "Standard rolled measuring tape",
+                "formula": "a^2 + b^2 = c^2",
+                "methodDbId": "m1",
+                "methodName": "Tape Measure",
+                "name": "Tape Measure",
                 "ontologyRefernce": {
                     "documentationLinks": [
                         {
-                            "URL": "URL0",
-                            "type": "OBO"
-                        },
-                        {
-                            "URL": "URL1",
-                            "type": "RDF"
+                            "URL": "https://ontology.org/m1",
+                            "type": "RDF",
+                            "url": "https://ontology.org/m1"
                         }
                     ],
-                    "ontologyDbId": "ontologyDbId0",
-                    "ontologyName": "ontologyName0",
-                    "version": "version0"
+                    "ontologyDbId": "MO_123",
+                    "ontologyName": "Ontology.org",
+                    "version": "17"
                 },
-                "reference": "reference0"
+                "reference": "google.com"
             },
             {
-                "class": "class1",
-                "description": "description1",
-                "formula": "formula1",
-                "methodDbId": "methodDbId1",
-                "methodName": "methodName1",
-                "name": "name1",
+                "class": "Numeric",
+                "description": "Dried sample on electric scale",
+                "formula": "NA",
+                "methodDbId": "m2",
+                "methodName": "Dry Electric Scale",
+                "name": "Dry Electric Scale",
                 "ontologyRefernce": {
                     "documentationLinks": [
                         {
-                            "URL": "URL0",
-                            "type": "OBO"
-                        },
-                        {
-                            "URL": "URL1",
-                            "type": "RDF"
+                            "URL": "https://ontology.org/m2",
+                            "type": "WEBPAGE",
+                            "url": "https://ontology.org/m2"
                         }
                     ],
-                    "ontologyDbId": "ontologyDbId0",
-                    "ontologyName": "ontologyName0",
-                    "version": "version0"
+                    "ontologyDbId": "MO_123",
+                    "ontologyName": "Ontology.org",
+                    "version": "17"
                 },
-                "reference": "reference1"
+                "reference": "google.com"
             }
         ]
     }
@@ -137,20 +131,10 @@ Create a new method object in the database
     "description": "description0",
     "formula": "formula0",
     "methodName": "methodName0",
-    "ontologyRefernce": {
-        "documentationLinks": [
-            {
-                "URL": "URL0",
-                "type": "OBO"
-            },
-            {
-                "URL": "URL1",
-                "type": "RDF"
-            }
-        ],
-        "ontologyDbId": "ontologyDbId0",
-        "ontologyName": "ontologyName0",
-        "version": "version0"
+    "ontologyReference": {
+        "ontologyID": "ontologyID0",
+        "ontologyPrefix": "ontologyPrefix0",
+        "ontologyTerm": "ontologyTerm0"
     },
     "reference": "reference0"
 }
@@ -163,32 +147,34 @@ Create a new method object in the database
 {
     "metadata": {
         "datafiles": [],
-        "pagination": {},
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 0,
+            "totalCount": 0,
+            "totalPages": 0
+        },
         "status": []
     },
     "result": {
-        "class": "class0",
-        "description": "description0",
-        "formula": "formula0",
-        "methodDbId": "methodDbId0",
-        "methodName": "methodName0",
-        "name": "name0",
+        "class": "string",
+        "description": "string",
+        "formula": "string",
+        "methodDbId": "ded56cdc-ab8b-4c93-b286-4a1471390b75",
+        "methodName": "string",
+        "name": "string",
         "ontologyRefernce": {
             "documentationLinks": [
                 {
-                    "URL": "URL0",
-                    "type": "OBO"
-                },
-                {
-                    "URL": "URL1",
-                    "type": "RDF"
+                    "URL": "string",
+                    "type": "OBO",
+                    "url": "string"
                 }
             ],
-            "ontologyDbId": "ontologyDbId0",
-            "ontologyName": "ontologyName0",
-            "version": "version0"
+            "ontologyDbId": "MO_123",
+            "ontologyName": "Ontology.org",
+            "version": "17"
         },
-        "reference": "reference0"
+        "reference": "string"
     }
 }
 ```
@@ -234,32 +220,34 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
 {
     "metadata": {
         "datafiles": [],
-        "pagination": {},
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 0,
+            "totalCount": 0,
+            "totalPages": 0
+        },
         "status": []
     },
     "result": {
-        "class": "class0",
-        "description": "description0",
-        "formula": "formula0",
-        "methodDbId": "methodDbId0",
-        "methodName": "methodName0",
-        "name": "name0",
+        "class": "Numeric",
+        "description": "Standard rolled measuring tape",
+        "formula": "a^2 + b^2 = c^2",
+        "methodDbId": "m1",
+        "methodName": "Tape Measure",
+        "name": "Tape Measure",
         "ontologyRefernce": {
             "documentationLinks": [
                 {
-                    "URL": "URL0",
-                    "type": "OBO"
-                },
-                {
-                    "URL": "URL1",
-                    "type": "RDF"
+                    "URL": "https://ontology.org/m1",
+                    "type": "RDF",
+                    "url": "https://ontology.org/m1"
                 }
             ],
-            "ontologyDbId": "ontologyDbId0",
-            "ontologyName": "ontologyName0",
-            "version": "version0"
+            "ontologyDbId": "MO_123",
+            "ontologyName": "Ontology.org",
+            "version": "17"
         },
-        "reference": "reference0"
+        "reference": "google.com"
     }
 }
 ```
@@ -309,20 +297,10 @@ Update the details of an existing method
     "description": "description0",
     "formula": "formula0",
     "methodName": "methodName0",
-    "ontologyRefernce": {
-        "documentationLinks": [
-            {
-                "URL": "URL0",
-                "type": "OBO"
-            },
-            {
-                "URL": "URL1",
-                "type": "RDF"
-            }
-        ],
-        "ontologyDbId": "ontologyDbId0",
-        "ontologyName": "ontologyName0",
-        "version": "version0"
+    "ontologyReference": {
+        "ontologyID": "ontologyID0",
+        "ontologyPrefix": "ontologyPrefix0",
+        "ontologyTerm": "ontologyTerm0"
     },
     "reference": "reference0"
 }
@@ -335,32 +313,34 @@ Update the details of an existing method
 {
     "metadata": {
         "datafiles": [],
-        "pagination": {},
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 0,
+            "totalCount": 0,
+            "totalPages": 0
+        },
         "status": []
     },
     "result": {
-        "class": "class0",
-        "description": "description0",
-        "formula": "formula0",
-        "methodDbId": "methodDbId0",
-        "methodName": "methodName0",
-        "name": "name0",
+        "class": "string",
+        "description": "string",
+        "formula": "string",
+        "methodDbId": "m1",
+        "methodName": "string",
+        "name": "string",
         "ontologyRefernce": {
             "documentationLinks": [
                 {
-                    "URL": "URL0",
-                    "type": "OBO"
-                },
-                {
-                    "URL": "URL1",
-                    "type": "RDF"
+                    "URL": "string",
+                    "type": "OBO",
+                    "url": "string"
                 }
             ],
-            "ontologyDbId": "ontologyDbId0",
-            "ontologyName": "ontologyName0",
-            "version": "version0"
+            "ontologyDbId": "MO_123",
+            "ontologyName": "Ontology.org",
+            "version": "17"
         },
-        "reference": "reference0"
+        "reference": "string"
     }
 }
 ```
@@ -417,7 +397,7 @@ Call to retrieve a list of observation variable ontologies available in the syst
             "currentPage": 0,
             "pageSize": 2,
             "totalCount": 1,
-            "totalPages": 0
+            "totalPages": 1
         },
         "status": []
     },
@@ -485,75 +465,63 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
         "datafiles": [],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 2,
-            "totalPages": 1
+            "pageSize": 2,
+            "totalCount": 4,
+            "totalPages": 2
         },
         "status": []
     },
     "result": {
         "data": [
             {
-                "dataType": "Code",
-                "decimalPlaces": 0,
-                "name": "name0",
+                "dataType": "Numerical",
+                "decimalPlaces": 1,
+                "name": "Centimeter",
                 "ontologyRefernce": {
                     "documentationLinks": [
                         {
-                            "URL": "URL0",
-                            "type": "OBO"
-                        },
-                        {
-                            "URL": "URL1",
-                            "type": "RDF"
+                            "URL": "https://ontology.org/s1",
+                            "type": "OBO",
+                            "url": "https://ontology.org/s1"
                         }
                     ],
-                    "ontologyDbId": "ontologyDbId0",
-                    "ontologyName": "ontologyName0",
-                    "version": "version0"
+                    "ontologyDbId": "MO_123",
+                    "ontologyName": "Ontology.org",
+                    "version": "17"
                 },
-                "scaleDbId": "scaleDbId0",
-                "scaleName": "scaleName0",
+                "scaleDbId": "s1",
+                "scaleName": "Centimeter",
                 "validValues": {
-                    "categories": [
-                        "categories0",
-                        "categories1"
-                    ],
-                    "max": 0,
+                    "categories": [],
+                    "max": 99999,
                     "min": 0
                 },
-                "xref": "xref0"
+                "xref": "xref"
             },
             {
-                "dataType": "Duration",
-                "decimalPlaces": 0,
-                "name": "name1",
+                "dataType": "Numerical",
+                "decimalPlaces": 3,
+                "name": "Kilogram",
                 "ontologyRefernce": {
                     "documentationLinks": [
                         {
-                            "URL": "URL0",
-                            "type": "OBO"
-                        },
-                        {
-                            "URL": "URL1",
-                            "type": "RDF"
+                            "URL": "https://ontology.org/s2",
+                            "type": "RDF",
+                            "url": "https://ontology.org/s2"
                         }
                     ],
-                    "ontologyDbId": "ontologyDbId0",
-                    "ontologyName": "ontologyName0",
-                    "version": "version0"
+                    "ontologyDbId": "MO_123",
+                    "ontologyName": "Ontology.org",
+                    "version": "17"
                 },
-                "scaleDbId": "scaleDbId1",
-                "scaleName": "scaleName1",
+                "scaleDbId": "s2",
+                "scaleName": "Kilogram",
                 "validValues": {
-                    "categories": [
-                        "categories0",
-                        "categories1"
-                    ],
-                    "max": 0,
+                    "categories": [],
+                    "max": 99999,
                     "min": 0
                 },
-                "xref": "xref1"
+                "xref": "xref"
             }
         ]
     }
@@ -597,20 +565,10 @@ Create a new scale object in the database
 {
     "dataType": "Code",
     "decimalPlaces": 0,
-    "ontologyRefernce": {
-        "documentationLinks": [
-            {
-                "URL": "URL0",
-                "type": "OBO"
-            },
-            {
-                "URL": "URL1",
-                "type": "RDF"
-            }
-        ],
-        "ontologyDbId": "ontologyDbId0",
-        "ontologyName": "ontologyName0",
-        "version": "version0"
+    "ontologyReference": {
+        "ontologyID": "ontologyID0",
+        "ontologyPrefix": "ontologyPrefix0",
+        "ontologyTerm": "ontologyTerm0"
     },
     "scaleName": "scaleName0",
     "validValues": {
@@ -632,39 +590,40 @@ Create a new scale object in the database
 {
     "metadata": {
         "datafiles": [],
-        "pagination": {},
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 0,
+            "totalCount": 0,
+            "totalPages": 0
+        },
         "status": []
     },
     "result": {
         "dataType": "Code",
         "decimalPlaces": 0,
-        "name": "name0",
+        "name": "string",
         "ontologyRefernce": {
             "documentationLinks": [
                 {
-                    "URL": "URL0",
-                    "type": "OBO"
-                },
-                {
-                    "URL": "URL1",
-                    "type": "RDF"
+                    "URL": "string",
+                    "type": "OBO",
+                    "url": "string"
                 }
             ],
-            "ontologyDbId": "ontologyDbId0",
-            "ontologyName": "ontologyName0",
-            "version": "version0"
+            "ontologyDbId": "MO_123",
+            "ontologyName": "Ontology.org",
+            "version": "17"
         },
-        "scaleDbId": "scaleDbId0",
-        "scaleName": "scaleName0",
+        "scaleDbId": "81db1ded-3b7c-4d40-8121-efd412375cd4",
+        "scaleName": "string",
         "validValues": {
             "categories": [
-                "categories0",
-                "categories1"
+                "string"
             ],
             "max": 0,
             "min": 0
         },
-        "xref": "xref0"
+        "xref": "string"
     }
 }
 ```
@@ -710,39 +669,38 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
 {
     "metadata": {
         "datafiles": [],
-        "pagination": {},
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 0,
+            "totalCount": 0,
+            "totalPages": 0
+        },
         "status": []
     },
     "result": {
-        "dataType": "Code",
-        "decimalPlaces": 0,
-        "name": "name0",
+        "dataType": "Numerical",
+        "decimalPlaces": 1,
+        "name": "Centimeter",
         "ontologyRefernce": {
             "documentationLinks": [
                 {
-                    "URL": "URL0",
-                    "type": "OBO"
-                },
-                {
-                    "URL": "URL1",
-                    "type": "RDF"
+                    "URL": "https://ontology.org/s1",
+                    "type": "OBO",
+                    "url": "https://ontology.org/s1"
                 }
             ],
-            "ontologyDbId": "ontologyDbId0",
-            "ontologyName": "ontologyName0",
-            "version": "version0"
+            "ontologyDbId": "MO_123",
+            "ontologyName": "Ontology.org",
+            "version": "17"
         },
-        "scaleDbId": "scaleDbId0",
-        "scaleName": "scaleName0",
+        "scaleDbId": "s1",
+        "scaleName": "Centimeter",
         "validValues": {
-            "categories": [
-                "categories0",
-                "categories1"
-            ],
-            "max": 0,
+            "categories": [],
+            "max": 99999,
             "min": 0
         },
-        "xref": "xref0"
+        "xref": "xref"
     }
 }
 ```
@@ -790,20 +748,10 @@ Update the details of an existing scale
 {
     "dataType": "Code",
     "decimalPlaces": 0,
-    "ontologyRefernce": {
-        "documentationLinks": [
-            {
-                "URL": "URL0",
-                "type": "OBO"
-            },
-            {
-                "URL": "URL1",
-                "type": "RDF"
-            }
-        ],
-        "ontologyDbId": "ontologyDbId0",
-        "ontologyName": "ontologyName0",
-        "version": "version0"
+    "ontologyReference": {
+        "ontologyID": "ontologyID0",
+        "ontologyPrefix": "ontologyPrefix0",
+        "ontologyTerm": "ontologyTerm0"
     },
     "scaleName": "scaleName0",
     "validValues": {
@@ -825,39 +773,40 @@ Update the details of an existing scale
 {
     "metadata": {
         "datafiles": [],
-        "pagination": {},
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 0,
+            "totalCount": 0,
+            "totalPages": 0
+        },
         "status": []
     },
     "result": {
         "dataType": "Code",
         "decimalPlaces": 0,
-        "name": "name0",
+        "name": "string",
         "ontologyRefernce": {
             "documentationLinks": [
                 {
-                    "URL": "URL0",
-                    "type": "OBO"
-                },
-                {
-                    "URL": "URL1",
-                    "type": "RDF"
+                    "URL": "string",
+                    "type": "OBO",
+                    "url": "string"
                 }
             ],
-            "ontologyDbId": "ontologyDbId0",
-            "ontologyName": "ontologyName0",
-            "version": "version0"
+            "ontologyDbId": "MO_123",
+            "ontologyName": "Ontology.org",
+            "version": "17"
         },
-        "scaleDbId": "scaleDbId0",
-        "scaleName": "scaleName0",
+        "scaleDbId": "s1",
+        "scaleName": "string",
         "validValues": {
             "categories": [
-                "categories0",
-                "categories1"
+                "string"
             ],
             "max": 0,
             "min": 0
         },
-        "xref": "xref0"
+        "xref": "string"
     }
 }
 ```
@@ -1023,8 +972,8 @@ See Search Services for additional implementation details.
         "pagination": {
             "currentPage": 0,
             "pageSize": 2,
-            "totalCount": 5,
-            "totalPages": 3
+            "totalCount": 2,
+            "totalPages": 1
         },
         "status": []
     },
@@ -1033,8 +982,9 @@ See Search Services for additional implementation details.
             {
                 "contextOfUse": [],
                 "crop": "maize",
-                "date": "2018-10-02",
+                "date": "2018-12-04",
                 "defaultValue": "10",
+                "documentationURL": "https://brapi.org",
                 "growthStage": "1",
                 "institution": "1",
                 "language": "English",
@@ -1043,7 +993,20 @@ See Search Services for additional implementation details.
                     "description": "Standard rolled measuring tape",
                     "formula": "a^2 + b^2 = c^2",
                     "methodDbId": "m1",
+                    "methodName": "Tape Measure",
                     "name": "Tape Measure",
+                    "ontologyRefernce": {
+                        "documentationLinks": [
+                            {
+                                "URL": "https://ontology.org/m1",
+                                "type": "RDF",
+                                "url": "https://ontology.org/m1"
+                            }
+                        ],
+                        "ontologyDbId": "MO_123",
+                        "ontologyName": "Ontology.org",
+                        "version": "17"
+                    },
                     "reference": "google.com"
                 },
                 "name": "Plant height",
@@ -1051,11 +1014,36 @@ See Search Services for additional implementation details.
                 "observationVariableName": "Plant height",
                 "ontologyDbId": "MO_123",
                 "ontologyName": "Ontology.org",
+                "ontologyRefernce": {
+                    "documentationLinks": [
+                        {
+                            "URL": "https://ontology.org",
+                            "type": "WEBPAGE",
+                            "url": "https://ontology.org"
+                        }
+                    ],
+                    "ontologyDbId": "MO_123",
+                    "ontologyName": "Ontology.org",
+                    "version": "17"
+                },
                 "scale": {
                     "dataType": "Numerical",
                     "decimalPlaces": 1,
                     "name": "Centimeter",
+                    "ontologyRefernce": {
+                        "documentationLinks": [
+                            {
+                                "URL": "https://ontology.org/s1",
+                                "type": "OBO",
+                                "url": "https://ontology.org/s1"
+                            }
+                        ],
+                        "ontologyDbId": "MO_123",
+                        "ontologyName": "Ontology.org",
+                        "version": "17"
+                    },
                     "scaleDbId": "s1",
+                    "scaleName": "Centimeter",
                     "validValues": {
                         "categories": [],
                         "max": 99999,
@@ -1075,9 +1063,22 @@ See Search Services for additional implementation details.
                     "entity": "entity",
                     "mainAbbreviation": "H",
                     "name": "Plant Height",
+                    "ontologyRefernce": {
+                        "documentationLinks": [
+                            {
+                                "URL": "https://ontology.org/t1",
+                                "type": "WEBPAGE",
+                                "url": "https://ontology.org/t1"
+                            }
+                        ],
+                        "ontologyDbId": "MO_123",
+                        "ontologyName": "Ontology.org",
+                        "version": "17"
+                    },
                     "status": "active",
                     "synonyms": [],
                     "traitDbId": "t1",
+                    "traitName": "Plant Height",
                     "xref": "xref"
                 },
                 "xref": "MO_123:100002"
@@ -1085,32 +1086,77 @@ See Search Services for additional implementation details.
             {
                 "contextOfUse": [],
                 "crop": "maize",
-                "date": "2018-10-02",
+                "date": "2018-12-04",
                 "defaultValue": "10",
+                "documentationURL": "https://brapi.org",
                 "growthStage": "1",
                 "institution": "1",
                 "language": "English",
                 "method": {
-                    "class": "Numeric",
-                    "description": "Dried sample on electric scale",
+                    "class": "Categorical",
+                    "description": "Comparing sample color to standard color palette",
                     "formula": "NA",
-                    "methodDbId": "m2",
-                    "name": "Dry Electric Scale",
+                    "methodDbId": "m3",
+                    "methodName": "Standard Color Palette",
+                    "name": "Standard Color Palette",
+                    "ontologyRefernce": {
+                        "documentationLinks": [
+                            {
+                                "URL": "https://ontology.org/m3",
+                                "type": "OBO",
+                                "url": "https://ontology.org/m3"
+                            }
+                        ],
+                        "ontologyDbId": "MO_123",
+                        "ontologyName": "Ontology.org",
+                        "version": "17"
+                    },
                     "reference": "google.com"
                 },
-                "name": "Root weight",
-                "observationVariableDbId": "MO_123:100004",
-                "observationVariableName": "Root weight",
+                "name": "Carotenoid",
+                "observationVariableDbId": "MO_123:100003",
+                "observationVariableName": "Carotenoid",
                 "ontologyDbId": "MO_123",
                 "ontologyName": "Ontology.org",
+                "ontologyRefernce": {
+                    "documentationLinks": [
+                        {
+                            "URL": "https://ontology.org",
+                            "type": "WEBPAGE",
+                            "url": "https://ontology.org"
+                        }
+                    ],
+                    "ontologyDbId": "MO_123",
+                    "ontologyName": "Ontology.org",
+                    "version": "17"
+                },
                 "scale": {
-                    "dataType": "Numerical",
-                    "decimalPlaces": 3,
-                    "name": "Kilogram",
-                    "scaleDbId": "s2",
+                    "dataType": "Nominal",
+                    "decimalPlaces": 0,
+                    "name": "Color",
+                    "ontologyRefernce": {
+                        "documentationLinks": [
+                            {
+                                "URL": "https://ontology.org/s3",
+                                "type": "WEBPAGE",
+                                "url": "https://ontology.org/s3"
+                            }
+                        ],
+                        "ontologyDbId": "MO_123",
+                        "ontologyName": "Ontology.org",
+                        "version": "17"
+                    },
+                    "scaleDbId": "s3",
+                    "scaleName": "Color",
                     "validValues": {
-                        "categories": [],
-                        "max": 99999,
+                        "categories": [
+                            "dark red",
+                            "red",
+                            "dark blue",
+                            "blue",
+                            "black"
+                        ],
+                        "max": 0,
                         "min": 0
                     },
                     "xref": "xref"
@@ -1121,18 +1167,31 @@ See Search Services for additional implementation details.
                 "synonyms": [],
                 "trait": {
                     "alternativeAbbreviations": [],
-                    "attribute": "root weight",
-                    "class": "Numeric",
-                    "description": "root weight",
+                    "attribute": "leaf color",
+                    "class": "Categorical",
+                    "description": "color of leaf sample",
                     "entity": "entity",
-                    "mainAbbreviation": "RW",
-                    "name": "Root Weight",
+                    "mainAbbreviation": "LC",
+                    "name": "Leaf Color",
+                    "ontologyRefernce": {
+                        "documentationLinks": [
+                            {
+                                "URL": "https://ontology.org/t3",
+                                "type": "RDF",
+                                "url": "https://ontology.org/t3"
+                            }
+                        ],
+                        "ontologyDbId": "MO_123",
+                        "ontologyName": "Ontology.org",
+                        "version": "17"
+                    },
                     "status": "active",
                     "synonyms": [],
-                    "traitDbId": "t2",
+                    "traitDbId": "t3",
+                    "traitName": "Leaf Color",
                     "xref": "xref"
                 },
-                "xref": "MO_123:100004"
+                "xref": "MO_123:100003"
             }
         ]
     }
@@ -1208,7 +1267,7 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
                     "MO_123:100002"
                 ],
                 "traitDbId": "t1",
-                "traitId": "xref",
+                "traitId": "t1",
                 "traitName": "Plant Height"
             },
             {
@@ -1220,7 +1279,7 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
                     "MO_123:100004"
                 ],
                 "traitDbId": "t2",
-                "traitId": "xref",
+                "traitId": "t2",
                 "traitName": "Root Weight"
             }
         ]
@@ -1272,20 +1331,10 @@ Create a new trait object in the database
     "description": "description0",
     "entity": "entity0",
     "mainAbbreviation": "mainAbbreviation0",
-    "ontologyRefernce": {
-        "documentationLinks": [
-            {
-                "URL": "URL0",
-                "type": "OBO"
-            },
-            {
-                "URL": "URL1",
-                "type": "RDF"
-            }
-        ],
-        "ontologyDbId": "ontologyDbId0",
-        "ontologyName": "ontologyName0",
-        "version": "version0"
+    "ontologyReference": {
+        "ontologyID": "ontologyID0",
+        "ontologyPrefix": "ontologyPrefix0",
+        "ontologyTerm": "ontologyTerm0"
     },
     "status": "status0",
     "synonyms": [
@@ -1304,43 +1353,43 @@ Create a new trait object in the database
 {
     "metadata": {
         "datafiles": [],
-        "pagination": {},
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 0,
+            "totalCount": 0,
+            "totalPages": 0
+        },
         "status": []
     },
     "result": {
         "alternativeAbbreviations": [
-            "alternativeAbbreviations0",
-            "alternativeAbbreviations1"
+            "string"
         ],
-        "attribute": "attribute0",
-        "class": "class0",
-        "description": "description0",
-        "entity": "entity0",
-        "mainAbbreviation": "mainAbbreviation0",
-        "name": "name0",
+        "attribute": "string",
+        "class": "string",
+        "description": "string",
+        "entity": "string",
+        "mainAbbreviation": "string",
+        "name": "string",
         "ontologyRefernce": {
             "documentationLinks": [
                 {
-                    "URL": "URL0",
-                    "type": "OBO"
-                },
-                {
-                    "URL": "URL1",
-                    "type": "RDF"
+                    "URL": "string",
+                    "type": "OBO",
+                    "url": "string"
                 }
             ],
-            "ontologyDbId": "ontologyDbId0",
-            "ontologyName": "ontologyName0",
-            "version": "version0"
+            "ontologyDbId": "MO_123",
+            "ontologyName": "Ontology.org",
+            "version": "17"
         },
-        "status": "status0",
+        "status": "string",
         "synonyms": [
-            "synonyms0",
-            "synonyms1"
+            "string"
         ],
-        "traitDbId": "traitDbId0",
-        "traitName": "traitName0",
-        "xref": "xref0"
+        "traitDbId": "166e5017-d160-4435-9cfb-86815e6a41e3",
+        "traitName": "string",
+        "xref": "string"
     }
 }
 ```
@@ -1403,7 +1452,7 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
             "MO_123:100002"
         ],
         "traitDbId": "t1",
-        "traitId": "xref",
+        "traitId": "t1",
         "traitName": "Plant Height"
     }
 }
@@ -1459,20 +1508,10 @@ Update an existing trait
     "description": "description0",
     "entity": "entity0",
     "mainAbbreviation": "mainAbbreviation0",
-    "ontologyRefernce": {
-        "documentationLinks": [
-            {
-                "URL": "URL0",
-                "type": "OBO"
-            },
-            {
-                "URL": "URL1",
-                "type": "RDF"
-            }
-        ],
-        "ontologyDbId": "ontologyDbId0",
-        "ontologyName": "ontologyName0",
-        "version": "version0"
+    "ontologyReference": {
+        "ontologyID": "ontologyID0",
+        "ontologyPrefix": "ontologyPrefix0",
+        "ontologyTerm": "ontologyTerm0"
     },
     "status": "status0",
     "synonyms": [
@@ -1491,43 +1530,43 @@ Update an existing trait
 {
     "metadata": {
         "datafiles": [],
-        "pagination": {},
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 0,
+            "totalCount": 0,
+            "totalPages": 0
+        },
         "status": []
     },
     "result": {
         "alternativeAbbreviations": [
-            "alternativeAbbreviations0",
-            "alternativeAbbreviations1"
+            "string"
         ],
-        "attribute": "attribute0",
-        "class": "class0",
-        "description": "description0",
-        "entity": "entity0",
-        "mainAbbreviation": "mainAbbreviation0",
-        "name": "name0",
+        "attribute": "string",
+        "class": "string",
+        "description": "string",
+        "entity": "string",
+        "mainAbbreviation": "string",
+        "name": "string",
         "ontologyRefernce": {
             "documentationLinks": [
                 {
-                    "URL": "URL0",
-                    "type": "OBO"
-                },
-                {
-                    "URL": "URL1",
-                    "type": "RDF"
+                    "URL": "string",
+                    "type": "OBO",
+                    "url": "string"
                 }
             ],
-            "ontologyDbId": "ontologyDbId0",
-            "ontologyName": "ontologyName0",
-            "version": "version0"
+            "ontologyDbId": "MO_123",
+            "ontologyName": "Ontology.org",
+            "version": "17"
         },
-        "status": "status0",
+        "status": "string",
         "synonyms": [
-            "synonyms0",
-            "synonyms1"
+            "string"
         ],
-        "traitDbId": "traitDbId0",
-        "traitName": "traitName0",
-        "xref": "xref0"
+        "traitDbId": "t1",
+        "traitName": "string",
+        "xref": "string"
     }
 }
 ```
@@ -1620,8 +1659,8 @@ See Search Services for additional implementation details.
         "pagination": {
             "currentPage": 0,
             "pageSize": 2,
-            "totalCount": 5,
-            "totalPages": 3
+            "totalCount": 2,
+            "totalPages": 1
         },
         "status": []
     },
@@ -1630,7 +1669,7 @@ See Search Services for additional implementation details.
             {
                 "contextOfUse": [],
                 "crop": "maize",
-                "date": "2018-11-06",
+                "date": "2018-12-04",
                 "defaultValue": "10",
                 "documentationURL": "https://brapi.org",
                 "growthStage": "1",
@@ -1646,9 +1685,9 @@ See Search Services for additional implementation details.
                     "ontologyRefernce": {
                         "documentationLinks": [
                             {
-                                "URL": "https://ontology.org",
-                                "type": "WEBPAGE",
-                                "url": "https://ontology.org"
+                                "URL": "https://ontology.org/m1",
+                                "type": "RDF",
+                                "url": "https://ontology.org/m1"
                             }
                         ],
                         "ontologyDbId": "MO_123",
@@ -1681,9 +1720,9 @@ See Search Services for additional implementation details.
                     "ontologyRefernce": {
                         "documentationLinks": [
                             {
-                                "URL": "https://ontology.org",
-                                "type": "WEBPAGE",
-                                "url": "https://ontology.org"
+                                "URL": "https://ontology.org/s1",
+                                "type": "OBO",
+                                "url": "https://ontology.org/s1"
                             }
                         ],
                         "ontologyDbId": "MO_123",
@@ -1714,9 +1753,9 @@ See Search Services for additional implementation details.
                     "ontologyRefernce": {
                         "documentationLinks": [
                             {
-                                "URL": "https://ontology.org",
+                                "URL": "https://ontology.org/t1",
                                 "type": "WEBPAGE",
-                                "url": "https://ontology.org"
+                                "url": "https://ontology.org/t1"
                             }
                         ],
                         "ontologyDbId": "MO_123",
@@ -1734,25 +1773,25 @@ See Search Services for additional implementation details.
             {
                 "contextOfUse": [],
                 "crop": "maize",
-                "date": "2018-11-06",
+                "date": "2018-12-04",
                 "defaultValue": "10",
                 "documentationURL": "https://brapi.org",
                 "growthStage": "1",
                 "institution": "1",
                 "language": "English",
                 "method": {
-                    "class": "Numeric",
-                    "description": "Dried sample on electric scale",
+                    "class": "Categorical",
+                    "description": "Comparing sample color to standard color palette",
                     "formula": "NA",
-                    "methodDbId": "m2",
-                    "methodName": "Dry Electric Scale",
-                    "name": "Dry Electric Scale",
+                    "methodDbId": "m3",
+                    "methodName": "Standard Color Palette",
+                    "name": "Standard Color Palette",
                     "ontologyRefernce": {
                         "documentationLinks": [
                             {
-                                "URL": "https://ontology.org",
-                                "type": "WEBPAGE",
-                                "url": "https://ontology.org"
+                                "URL": "https://ontology.org/m3",
+                                "type": "OBO",
+                                "url": "https://ontology.org/m3"
                             }
                         ],
                         "ontologyDbId": "MO_123",
@@ -1761,9 +1800,9 @@ See Search Services for additional implementation details.
                     },
                     "reference": "google.com"
                 },
-                "name": "Root weight",
-                "observationVariableDbId": "MO_123:100004",
-                "observationVariableName": "Root weight",
+                "name": "Carotenoid",
+                "observationVariableDbId": "MO_123:100003",
+                "observationVariableName": "Carotenoid",
                 "ontologyDbId": "MO_123",
                 "ontologyName": "Ontology.org",
                 "ontologyRefernce": {
@@ -1779,26 +1818,32 @@ See Search Services for additional implementation details.
                     "version": "17"
                 },
                 "scale": {
-                    "dataType": "Numerical",
-                    "decimalPlaces": 3,
-                    "name": "Kilogram",
+                    "dataType": "Nominal",
+                    "decimalPlaces": 0,
+                    "name": "Color",
                     "ontologyRefernce": {
                         "documentationLinks": [
                             {
-                                "URL": "https://ontology.org",
+                                "URL": "https://ontology.org/s3",
                                 "type": "WEBPAGE",
-                                "url": "https://ontology.org"
+                                "url": "https://ontology.org/s3"
                             }
                         ],
                         "ontologyDbId": "MO_123",
                         "ontologyName": "Ontology.org",
                         "version": "17"
                     },
-                    "scaleDbId": "s2",
-                    "scaleName": "Kilogram",
+                    "scaleDbId": "s3",
+                    "scaleName": "Color",
                     "validValues": {
-                        "categories": [],
-                        "max": 99999,
+                        "categories": [
+                            "dark red",
+                            "red",
+                            "dark blue",
+                            "blue",
+                            "black"
+                        ],
+                        "max": 0,
                         "min": 0
                     },
                     "xref": "xref"
@@ -1809,18 +1854,18 @@ See Search Services for additional implementation details.
                 "synonyms": [],
                 "trait": {
                     "alternativeAbbreviations": [],
-                    "attribute": "root weight",
-                    "class": "Numeric",
-                    "description": "root weight",
+                    "attribute": "leaf color",
+                    "class": "Categorical",
+                    "description": "color of leaf sample",
                     "entity": "entity",
-                    "mainAbbreviation": "RW",
-                    "name": "Root Weight",
+                    "mainAbbreviation": "LC",
+                    "name": "Leaf Color",
                     "ontologyRefernce": {
                         "documentationLinks": [
                             {
-                                "URL": "https://ontology.org",
-                                "type": "WEBPAGE",
-                                "url": "https://ontology.org"
+                                "URL": "https://ontology.org/t3",
+                                "type": "RDF",
+                                "url": "https://ontology.org/t3"
                             }
                         ],
                         "ontologyDbId": "MO_123",
@@ -1829,11 +1874,11 @@ See Search Services for additional implementation details.
                     },
                     "status": "active",
                     "synonyms": [],
-                    "traitDbId": "t2",
-                    "traitName": "Root Weight",
+                    "traitDbId": "t3",
+                    "traitName": "Leaf Color",
                     "xref": "xref"
                 },
-                "xref": "MO_123:100004"
+                "xref": "MO_123:100003"
             }
         ]
     }
@@ -1883,7 +1928,7 @@ Call to retrieve a list of observationVariables available in the system.
             {
                 "contextOfUse": [],
                 "crop": "maize",
-                "date": "2018-11-06",
+                "date": "2018-12-04",
                 "defaultValue": "10",
                 "documentationURL": "https://brapi.org",
                 "growthStage": "1",
@@ -1899,9 +1944,9 @@ Call to retrieve a list of observationVariables available in the system.
                     "ontologyRefernce": {
                         "documentationLinks": [
                             {
-                                "URL": "https://ontology.org",
-                                "type": "WEBPAGE",
-                                "url": "https://ontology.org"
+                                "URL": "https://ontology.org/m1",
+                                "type": "RDF",
+                                "url": "https://ontology.org/m1"
                             }
                         ],
                         "ontologyDbId": "MO_123",
@@ -1934,9 +1979,9 @@ Call to retrieve a list of observationVariables available in the system.
                     "ontologyRefernce": {
                         "documentationLinks": [
                             {
-                                "URL": "https://ontology.org",
-                                "type": "WEBPAGE",
-                                "url": "https://ontology.org"
+                                "URL": "https://ontology.org/s1",
+                                "type": "OBO",
+                                "url": "https://ontology.org/s1"
                             }
                         ],
                         "ontologyDbId": "MO_123",
@@ -1967,9 +2012,9 @@ Call to retrieve a list of observationVariables available in the system.
                     "ontologyRefernce": {
                         "documentationLinks": [
                             {
-                                "URL": "https://ontology.org",
+                                "URL": "https://ontology.org/t1",
                                 "type": "WEBPAGE",
-                                "url": "https://ontology.org"
+                                "url": "https://ontology.org/t1"
                             }
                         ],
                         "ontologyDbId": "MO_123",
@@ -1987,7 +2032,7 @@ Call to retrieve a list of observationVariables available in the system.
             {
                 "contextOfUse": [],
                 "crop": "maize",
-                "date": "2018-11-06",
+                "date": "2018-12-04",
                 "defaultValue": "10",
                 "documentationURL": "https://brapi.org",
                 "growthStage": "1",
@@ -2003,9 +2048,9 @@ Call to retrieve a list of observationVariables available in the system.
                     "ontologyRefernce": {
                         "documentationLinks": [
                             {
-                                "URL": "https://ontology.org",
-                                "type": "WEBPAGE",
-                                "url": "https://ontology.org"
+                                "URL": "https://ontology.org/m3",
+                                "type": "OBO",
+                                "url": "https://ontology.org/m3"
                             }
                         ],
                         "ontologyDbId": "MO_123",
@@ -2038,9 +2083,9 @@ Call to retrieve a list of observationVariables available in the system.
                     "ontologyRefernce": {
                         "documentationLinks": [
                             {
-                                "URL": "https://ontology.org",
+                                "URL": "https://ontology.org/s3",
                                 "type": "WEBPAGE",
-                                "url": "https://ontology.org"
+                                "url": "https://ontology.org/s3"
                             }
                         ],
                         "ontologyDbId": "MO_123",
@@ -2077,9 +2122,9 @@ Call to retrieve a list of observationVariables available in the system.
                     "ontologyRefernce": {
                         "documentationLinks": [
                             {
-                                "URL": "https://ontology.org",
-                                "type": "WEBPAGE",
-                                "url": "https://ontology.org"
+                                "URL": "https://ontology.org/t3",
+                                "type": "RDF",
+                                "url": "https://ontology.org/t3"
                             }
                         ],
                         "ontologyDbId": "MO_123",
@@ -2149,7 +2194,7 @@ Retrieve variable details
     "result": {
         "contextOfUse": [],
         "crop": "maize",
-        "date": "2018-11-06",
+        "date": "2018-12-04",
         "defaultValue": "10",
         "documentationURL": "https://brapi.org",
         "growthStage": "1",
@@ -2165,9 +2210,9 @@ Retrieve variable details
             "ontologyRefernce": {
                 "documentationLinks": [
                     {
-                        "URL": "https://ontology.org",
-                        "type": "WEBPAGE",
-                        "url": "https://ontology.org"
+                        "URL": "https://ontology.org/m1",
+                        "type": "RDF",
+                        "url": "https://ontology.org/m1"
                     }
                 ],
                 "ontologyDbId": "MO_123",
@@ -2200,9 +2245,9 @@ Retrieve variable details
             "ontologyRefernce": {
                 "documentationLinks": [
                     {
-                        "URL": "https://ontology.org",
-                        "type": "WEBPAGE",
-                        "url": "https://ontology.org"
+                        "URL": "https://ontology.org/s1",
+                        "type": "OBO",
+                        "url": "https://ontology.org/s1"
                     }
                 ],
                 "ontologyDbId": "MO_123",
@@ -2233,9 +2278,9 @@ Retrieve variable details
             "ontologyRefernce": {
                 "documentationLinks": [
                     {
-                        "URL": "https://ontology.org",
+                        "URL": "https://ontology.org/t1",
                         "type": "WEBPAGE",
-                        "url": "https://ontology.org"
+                        "url": "https://ontology.org/t1"
                     }
                 ],
                 "ontologyDbId": "MO_123",

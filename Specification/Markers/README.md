@@ -41,8 +41,8 @@ and '?' for one character matching. Default is exact.
         "pagination": {
             "currentPage": 0,
             "pageSize": 2,
-            "totalCount": 22,
-            "totalPages": 11
+            "totalCount": 2,
+            "totalPages": 1
         },
         "status": []
     },
@@ -135,8 +135,8 @@ Other service requests use the servers internal `markerDbId`. This service retur
         "pagination": {
             "currentPage": 0,
             "pageSize": 2,
-            "totalCount": 22,
-            "totalPages": 11
+            "totalCount": 2,
+            "totalPages": 1
         },
         "status": []
     },
@@ -218,8 +218,8 @@ If there is none, an empty array is returned. If there is one or more than one m
         "pagination": {
             "currentPage": 0,
             "pageSize": 2,
-            "totalCount": 22,
-            "totalPages": 11
+            "totalCount": 2,
+            "totalPages": 1
         },
         "status": []
     },
@@ -459,8 +459,8 @@ See Search Services for additional implementation details. Other service request
         "pagination": {
             "currentPage": 0,
             "pageSize": 2,
-            "totalCount": 22,
-            "totalPages": 11
+            "totalCount": 2,
+            "totalPages": 1
         },
         "status": []
     },
@@ -471,7 +471,8 @@ See Search Services for additional implementation details. Other service request
                     "illumina"
                 ],
                 "defaultDisplayName": "marker1-1",
-                "markerDbId": "mr1",
+                "markerDbId": "mr01",
+                "markerName": "marker1-1",
                 "refAlt": [
                     "A",
                     "T"
@@ -486,7 +487,8 @@ See Search Services for additional implementation details. Other service request
                     "kasp"
                 ],
                 "defaultDisplayName": "marker1-2",
-                "markerDbId": "mr2",
+                "markerDbId": "mr02",
+                "markerName": "marker1-2",
                 "refAlt": [
                     "A",
                     "T"
