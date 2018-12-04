@@ -98,7 +98,7 @@ def postParams(path):
 				  "imageWidth": 258,
 				  "mimeType": "image/svg",
 				  "observationDbIds": [ "1", "2" ],
-				  "observationUnitDbId": "1",
+				  "observationUnitDbId": "11",
 				  "imageLocation": {
 					                    "geometry": {
 					                        "type": "Point",
@@ -223,7 +223,7 @@ def postParams(path):
 				            "collector": "string",
 				            "observationDbId": "1",
 				            "observationTimeStamp": "2018-11-26T22:07:58.096Z",
-				            "observationUnitDbId": "1",
+				            "observationUnitDbId": "11",
 				            "observationVariableDbId": "MO_123:100002",
 				            "value": "string"
 				          }
@@ -256,17 +256,17 @@ def putParams(path):
 	params = {'pageSize': 2}
 	if path == '/samples':
 		params = {
-		  "germplasmDbId": "1",
+		  "germplasmDbId": "4",
 		  "notes": "string",
-		  "observationUnitDbId": "1",
-		  "plantDbId": None,
+		  "observationUnitDbId": "9",
+		  "plantDbId": "null",
 		  "plateDbId": "string",
 		  "plateIndex": 0,
-		  "plotDbId": "1",
+		  "plotDbId": "5",
 		  "sampleDbId": "string",
 		  "sampleTimestamp": "2018-09-25T21:07:17.505Z",
 		  "sampleType": "string",
-		  "studyDbId": "1001",
+		  "studyDbId": "1003",
 		  "takenBy": "string",
 		  "tissueType": "string"
 		}
@@ -278,7 +278,7 @@ def putParams(path):
 				    "entryType": "string",
 				    "germplasmDbId": "2",
 				    "observationLevel": "string",
-				    "observationUnitDbId": "1",
+				    "observationUnitDbId": "11",
 				    "observationUnitName": "string",
 				    "observationUnitXref": [
 				      {
@@ -293,15 +293,15 @@ def putParams(path):
 				        "observationDbId": "1",
 				        "observationLevel": "string",
 				        "observationTimeStamp": "2018-11-26T22:39:48.919Z",
-				        "observationUnitDbId": "1",
+				        "observationUnitDbId": "11",
 				        "observationUnitName": "string",
 				        "observationVariableDbId": "MO_123:100005",
 				        "observationVariableName": "string",
 				        "operator": "string",
 				        "season": {
-				          "season": "string",
+				          "season": "fall",
 				          "seasonDbId": "1",
-				          "year": "string"
+				          "year": "2011"
 				        },
 				        "studyDbId": "1001",
 				        "uploadedBy": "string",
@@ -331,7 +331,7 @@ def putParams(path):
 				      "collector": "string",
 				      "observationDbId": "5",
 				      "observationTimeStamp": "2018-11-26T20:56:29.814Z",
-				      "observationUnitDbId": "1",
+				      "observationUnitDbId": "11",
 				      "observationVariableDbId": "MO_123:100002",
 				      "value": "string"
 				    }
@@ -349,7 +349,7 @@ def putParams(path):
 				  "imageWidth": 258,
 				  "mimeType": "image/svg",
 				  "observationDbIds": [ "1", "2" ],
-				  "observationUnitDbId": "1",
+				  "observationUnitDbId": "11",
 				  "imageLocation": {
 					                    "geometry": {
 					                        "type": "Point",
@@ -465,7 +465,7 @@ def putParams(path):
 				    {
 				      "blockNumber": 0,
 				      "entryType": "CHECK",
-				      "observationUnitDbId": "2",
+				      "observationUnitDbId": "11",
 				      "X": "1",
 				      "Y": "1",
 				      "positionCoordinateX": "1",

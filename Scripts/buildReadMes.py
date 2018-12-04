@@ -5,9 +5,71 @@ import glob
 import sys
 import json
 import dereferenceAll
-##import buildOpenAPI
-import generateExamples
 
+def buildMetaData(includePagination):
+	example = {'datafiles': [], 'status': [], 'pagination': {}}
+	if includePagination :
+		example['pagination'] = {'currentPage': 0, 'pageSize': 1000, 'totalCount': 2, 'totalPages': 1}
+	return example
+
+def buildStringExample(fieldName, strSchema, index = 0):
+	strExample = fieldName + str(index)
+	if('enum' in strSchema):
+		strExample = strSchema['enum'][index]
+	elif('format' in strSchema):
+		if 'date' == strSchema['format']:
+			strExample = '2018-01-01'
+		elif 'date-time' == strSchema['format']:
+			strExample = '2018-01-01T14:47:23-0600'
+	return strExample
+
+def buildIntExample(fieldName):
+	return 0
+
+def buildArrayExample(fieldName, itemSchema):
+	arr = []
+	
+	if ('type' in itemSchema):
+		if (itemSchema['type'] == 'string'):
+			arr.append(buildStringExample(fieldName, itemSchema, 0))
+			arr.append(buildStringExample(fieldName, itemSchema, 1))
+		elif (itemSchema['type'] == 'int'):
+			arr = [1, 2]
+		elif (itemSchema['type'] == 'array'):
+			arr.append(buildArrayExample(fieldName, itemSchema['items']))
+			arr.append(buildArrayExample(fieldName, itemSchema['items']))
+		elif (itemSchema['type'] == 'object'):
+			arr.append(buildObjectExample(itemSchema, 0))
+			arr.append(buildObjectExample(itemSchema, 1))
+	elif ('properties' in itemSchema):
+		arr.append(buildObjectExample(itemSchema, 0))
+		arr.append(buildObjectExample(itemSchema, 1))
+		
+	return arr
+
+def buildObjectExample(schema, index = 0):
+	example = {}
+	
+	if ('properties' in schema):
+		for fieldName in schema['properties']:
+			if(fieldName == 'metadata'):
+				example['metadata'] = buildMetaData('data' in schema['properties']['result']['properties'])
+			else:
+				fieldObj = schema['properties'][fieldName]
+				
+				if ('type' in fieldObj):
+					if (fieldObj['type'] == 'string'):
+						example[fieldName] = buildStringExample(fieldName, fieldObj, index)
+					elif (fieldObj['type'] == 'integer'):
+						example[fieldName] = buildIntExample(fieldName)
+					elif (fieldObj['type'] == 'array'):
+						example[fieldName] = buildArrayExample(fieldName, fieldObj['items'])
+					elif (fieldObj['type'] == 'object'):
+						example[fieldName] = buildObjectExample(fieldObj)
+				elif ('properties' in fieldObj):
+					example[fieldName] = buildObjectExample(fieldObj)
+			
+	return example
 
 def buildTitleStr(path, method = 'GET', params = [], deprecated = False):
 
@@ -67,7 +129,7 @@ def buildRequestBody(requestBody):
 		if 'application/json' in requestBody['content']:
 			if 'schema' in requestBody['content']['application/json']:
 				schema = requestBody['content']['application/json']['schema']
-				example = generateExamples.buildObjectExample(schema)
+				example = buildObjectExample(schema)
 		
 				requestBodyStr += ' \n+ Request (application/json)\n```\n' 
 				requestBodyStr += json.dumps(example, indent=4, separators=(',', ': '), default=str, sort_keys=True) 
@@ -84,7 +146,7 @@ def buildExamples(responses):
 					example = responses[code]['content'][type]['example']
 				elif 'schema' in responses[code]['content'][type]:
 					schema = responses[code]['content'][type]['schema']
-					example = generateExamples.buildObjectExample(schema)
+					example = buildObjectExample(schema)
 				else:
 					example = {}
 					
@@ -111,7 +173,7 @@ def buildReadMe(dir, fullBrAPI):
 		
 	callsStrings = {}
 	for filename in sorted(glob.iglob(dir + '/**/*.yaml', recursive=True)):
-		print(filename)
+		#print(filename)
 		fileObj = {}	
 		with open(filename, "r") as stream:
 			try:
@@ -175,23 +237,44 @@ def buildReadMe(dir, fullBrAPI):
 	return readMeStr
 	
 
-def go(rootPath, specificPath):
+def buildReadMes(rootPath, specificPath):
 	fullBrAPI = dereferenceAll.dereferenceBrAPI(filePath = rootPath + '/brapi_openapi.yaml')
 	
 	if specificPath == '' :
 		for dir in glob.iglob(rootPath + '/Specification/**/', recursive=False):
-			print(dir)
 			readMeStr = buildReadMe(dir, fullBrAPI)
-			with open(dir + '/README.md', 'w') as outfile:
+			fileName = dir + '/README.md'
+			with open(fileName, 'w') as outfile:
 				outfile.write(readMeStr)
+				print(fileName)
 	else:
 		dir = rootPath + specificPath
-		print(dir)
 		readMeStr = buildReadMe(dir, fullBrAPI)
-		# print(readMeStr)
-		with open(dir + '/README.md', 'w') as outfile:
+		fileName = dir + '/README.md'
+		with open(fileName, 'w') as outfile:
 			outfile.write(readMeStr)
+			print(fileName)
 			
+def buildGitHubReadMe(rootPath):
+	sources=[  "GeneralInfo/Intro.md",
+		       "GeneralInfo/URL_Structure.md",
+		       "GeneralInfo/Response_Structure.md",
+		       "GeneralInfo/Error_Handling.md",
+		       "GeneralInfo/Date_Time_Encoding.md",
+		       "GeneralInfo/Location_Encoding.md",
+		       "GeneralInfo/Search_Services.md",
+		       "GeneralInfo/Asychronous_Processing.md"
+	       ]
+		
+	outFilePath = rootPath + '/Specification/README.md'
+	with open(outFilePath, "w") as outFile:
+		for source in sources:
+			filename = rootPath + '/Specification/' + source
+			with open(filename, "r") as inFile:
+				outFile.write(inFile.read())
+	
+		print(outFilePath)
+
 
 rootPath = '.'
 specificPath = ''
@@ -201,5 +284,6 @@ if len(sys.argv) > 2 :
 	specificPath = sys.argv[2];
 
 #buildOpenAPI.go(rootPath)
-go(rootPath, specificPath)
+buildReadMes(rootPath, specificPath)
+buildGitHubReadMe(rootPath)
 	

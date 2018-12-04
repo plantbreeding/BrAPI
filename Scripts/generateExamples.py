@@ -4,85 +4,80 @@ import yaml
 import glob
 import sys
 import json
+import requests
 from copy import deepcopy
+import jsonschema
+from jsonschema import validate
+import dereferenceAll
+import testInputs
 
-def buildMetaData(includePagination):
-	example = {'datafiles': [], 'status': [], 'pagination': {}}
-	if includePagination :
-		example['pagination'] = {'currentPage': 0, 'pageSize': 1000, 'totalCount': 2, 'totalPages': 1}
-	return example
 
-def buildStringExample(fieldName, strSchema, index = 0):
-	strExample = fieldName + str(index)
-	if('enum' in strSchema):
-		strExample = strSchema['enum'][index]
-	elif('format' in strSchema):
-		if 'date' == strSchema['format']:
-			strExample = '2018-01-01'
-		elif 'date-time' == strSchema['format']:
-			strExample = '2018-01-01T14:47:23-0600'
-	return strExample
-
-def buildIntExample(fieldName):
-	return 0
-
-def buildArrayExample(fieldName, itemSchema):
-	arr = []
-	
-	if ('type' in itemSchema):
-		if (itemSchema['type'] == 'string'):
-			arr.append(buildStringExample(fieldName, itemSchema, 0))
-			arr.append(buildStringExample(fieldName, itemSchema, 1))
-		elif (itemSchema['type'] == 'int'):
-			arr = [1, 2]
-		elif (itemSchema['type'] == 'array'):
-			arr.append(buildArrayExample(fieldName, itemSchema['items']))
-			arr.append(buildArrayExample(fieldName, itemSchema['items']))
-		elif (itemSchema['type'] == 'object'):
-			arr.append(buildObjectExample(itemSchema, 0))
-			arr.append(buildObjectExample(itemSchema, 1))
-	elif ('properties' in itemSchema):
-		arr.append(buildObjectExample(itemSchema, 0))
-		arr.append(buildObjectExample(itemSchema, 1))
+def getObjectExample(schema, path, method):
+	url = 'http://localhost:8080/brapi/v1' + testInputs.replaceIDs(path)
+	headers = {'Authorization':'Bearer YYYY'}
+	if method == 'get':
+		params = testInputs.getParams(path)
+		res = requests.get(url, params, headers=headers)
+	elif method == 'post' :
+		params = testInputs.postParams(path)
+		res = requests.post(url, json=params, headers=headers)
+	elif method == 'put' :
+		params = testInputs.putParams(path)
+		res = requests.put(url, json=params, headers=headers)
 		
-	return arr
-
-def buildObjectExample(schema, index = 0):
-	example = {}
+	try :
+		example = res.json()
+	except:
+		if verbose:
+			print('Bad JSON')
+			print(method + ' ' + url)
+			print(res)
+		else:
+			print('X1 - ' + method + ' ' + url)
+		return None
 	
-	if ('properties' in schema):
-		for fieldName in schema['properties']:
-			if(fieldName == 'metadata'):
-				example['metadata'] = buildMetaData('data' in schema['properties']['result']['properties'])
-			else:
-				fieldObj = schema['properties'][fieldName]
-				
-				if ('type' in fieldObj):
-					if (fieldObj['type'] == 'string'):
-						example[fieldName] = buildStringExample(fieldName, fieldObj, index)
-					elif (fieldObj['type'] == 'integer'):
-						example[fieldName] = buildIntExample(fieldName)
-					elif (fieldObj['type'] == 'array'):
-						example[fieldName] = buildArrayExample(fieldName, fieldObj['items'])
-					elif (fieldObj['type'] == 'object'):
-						example[fieldName] = buildObjectExample(fieldObj)
-				elif ('properties' in fieldObj):
-					example[fieldName] = buildObjectExample(fieldObj)
-			
+	if not res.ok :
+		if verbose:
+			print('Bad Response Code')
+			print(method + ' ' + url)
+			print(example)
+		else:
+			print('X2 - ' + method + ' ' + url)
+		return None
+		
+	try :
+		if res.ok :
+			validate(example, schema)
+	except jsonschema.exceptions.ValidationError as ve:
+		if verbose:
+			print('Bad Schema Match')
+			print(method + ' ' + url)
+			print(str(ve) + "\n")
+		else:
+			print('X3 - ' + method + ' ' + url)
+		return example
+	
 	return example
 
-def addExamples(obj):
+
+def addExamples(obj, parent):	
 	if('paths' in obj):
 		for path in obj['paths']:
 			for method in obj['paths'][path]:
 				for responseCode in obj['paths'][path][method]['responses']:
-					response = obj['paths'][path][method]['responses'][responseCode]
-					if ('schema' in response):
-						schema = dereferenceAll(deepcopy(response['schema']))
-						newExample = buildObjectExample(schema)
-						obj['paths'][path][method]['responses'][responseCode]['examples']['application/json'] = newExample
+					if 'content' in obj['paths'][path][method]['responses'][responseCode]:
+						response = obj['paths'][path][method]['responses'][responseCode]['content']['application/json']
+						if ('schema' in response):
+							schema = dereferenceAll.dereferenceAll(deepcopy(response['schema']), parent)
+							newExample = getObjectExample(schema, path, method)
+							if newExample is not None :
+								# print('.')
+								obj['paths'][path][method]['responses'][responseCode]['content']['application/json']['example'] = newExample
+								if 'examples' in obj['paths'][path][method]['responses'][responseCode]['content']['application/json']:
+									obj['paths'][path][method]['responses'][responseCode]['content']['application/json'].pop('examples')
 						
 	return obj
+
 
 def readFileToDict(path):
 	fileObj = {}	
@@ -94,22 +89,27 @@ def readFileToDict(path):
 			print(exc)
 	return fileObj
 
-def go():
-	rootPath = './'
-	if len(sys.argv) > 1 :
-		rootPath = sys.argv[1];
-	
-	if(rootPath[-1] == '/'):
-		rootPath = rootPath + '**/*.yaml'
-	
-	for filename in glob.iglob(rootPath, recursive=True):
-		print(filename)
-		file = readFileToDict(filename)	
-		newFile = addExamples(file)
-		
-		with open(filename, 'w') as outfile:
-			yaml.dump(newFile, outfile, default_flow_style=False, width=float("inf"))
-	
-		
 
+
+rootPath = './Specification/'
+verbose = False
+
+if len(sys.argv) > 1 :
+	rootPath = sys.argv[1];
+if len(sys.argv) > 2 :
+	verbose = sys.argv[2] == '-v';
+
+if(rootPath[-1] == '/'):
+	rootPath = rootPath + '**/*.yaml'
+	
+parentFile = dereferenceAll.dereferenceBrAPI()
+
+for filename in glob.iglob(rootPath, recursive=True):
+	# print(filename)
+	file = readFileToDict(filename)	
+	newFile = addExamples(file, parentFile)
+	
+	with open(filename, 'w') as outfile:
+		yaml.dump(newFile, outfile, default_flow_style=False, width=float("inf"))
+		
 	
