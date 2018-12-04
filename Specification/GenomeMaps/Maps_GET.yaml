@@ -45,7 +45,7 @@ paths:
                   pagination:
                     currentPage: 0
                     pageSize: 2
-                    totalCount: 1
+                    totalCount: 2
                     totalPages: 1
                   status: []
                 result:
@@ -53,11 +53,24 @@ paths:
                   - comments: comments
                     commonCropName: Paw Paw
                     documentationURL: https://brapi.org
-                    linkageGroupCount: 3
+                    linkageGroupCount: 1
                     mapDbId: gm1
                     mapName: Genome Map 1
-                    markerCount: 22
+                    markerCount: 11
                     name: Genome Map 1
+                    publishedDate: '2018-01-01'
+                    scientificName: Asimina triloba
+                    species: triloba
+                    type: Genetic
+                    unit: cM
+                  - comments: comments
+                    commonCropName: Paw Paw
+                    documentationURL: https://brapi.org
+                    linkageGroupCount: 2
+                    mapDbId: gm2
+                    mapName: Genome Map 2
+                    markerCount: 11
+                    name: Genome Map 2
                     publishedDate: '2018-01-01'
                     scientificName: Asimina triloba
                     species: triloba

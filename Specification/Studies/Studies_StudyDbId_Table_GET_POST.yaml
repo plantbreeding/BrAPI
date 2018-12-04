@@ -200,8 +200,8 @@ paths:
                   status: []
                 result:
                   observations:
-                  - observationDbId: 09bf675a-a857-4794-83ec-4ea6269c607a
-                    observationUnitDbId: 512060c1-cf03-4456-9698-4072b71d7199
+                  - observationDbId: 5a481996-9337-479b-a740-b10217a50cdb
+                    observationUnitDbId: 9b30952b-6f8d-4c99-acce-25d2b0b86fd0
                     observationVariableDbId: MO_123:100002
               schema:
                 properties:

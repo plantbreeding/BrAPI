@@ -138,17 +138,20 @@ paths:
                   status: []
                 result:
                   observations:
-                  - observationDbId: '1'
-                    observationUnitDbId: '1'
+                  - observationDbId: '19'
+                    observationUnitDbId: '11'
                     observationVariableDbId: MO_123:100002
-                  - observationDbId: '2'
-                    observationUnitDbId: '1'
-                    observationVariableDbId: MO_123:100006
-                  - observationDbId: b0faedb2-5dfe-48a9-bfe4-932a0d245d07
-                    observationUnitDbId: '1'
-                    observationVariableDbId: MO_123:100002
-                  - observationDbId: 8fa36f50-3b9a-429a-bf5e-ccefdf1caff7
-                    observationUnitDbId: '1'
+                  - observationDbId: '20'
+                    observationUnitDbId: '11'
+                    observationVariableDbId: MO_123:100003
+                  - observationDbId: '21'
+                    observationUnitDbId: '11'
+                    observationVariableDbId: MO_123:100005
+                  - observationDbId: '22'
+                    observationUnitDbId: '11'
+                    observationVariableDbId: MO_123:100004
+                  - observationDbId: 63c7f145-b181-4cc0-a224-2477ce3aaa8a
+                    observationUnitDbId: '11'
                     observationVariableDbId: MO_123:100002
               schema:
                 properties:

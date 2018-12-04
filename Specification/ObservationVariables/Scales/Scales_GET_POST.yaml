@@ -127,7 +127,7 @@ paths:
                     ontologyDbId: MO_123
                     ontologyName: Ontology.org
                     version: '17'
-                  scaleDbId: 9e102460-3885-4ac0-8f26-d30dfbb15b5a
+                  scaleDbId: 70083e1e-2c7f-474a-8ce5-1228b21d2d30
                   scaleName: string
                   validValues:
                     categories:

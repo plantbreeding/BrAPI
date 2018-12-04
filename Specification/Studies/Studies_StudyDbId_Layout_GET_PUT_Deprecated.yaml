@@ -45,15 +45,15 @@ paths:
                     replicate: '0'
                     studyDbId: '1001'
                   - X: '1'
-                    Y: '2'
+                    Y: '1'
                     additionalInfo: {}
                     blockNumber: '1'
                     entryType: TEST
-                    germplasmDbId: '2'
-                    germplasmName: Name002
-                    observationLevel: plot
-                    observationUnitDbId: '3'
-                    observationUnitName: Plot 2
+                    germplasmDbId: '1'
+                    germplasmName: Name001
+                    observationLevel: plant
+                    observationUnitDbId: '2'
+                    observationUnitName: Plant 1
                     replicate: '0'
                     studyDbId: '1001'
               schema:
@@ -119,13 +119,13 @@ paths:
                     additionalInfo: {}
                     blockNumber: '0'
                     entryType: CHECK
-                    germplasmDbId: '1'
-                    germplasmName: Name001
-                    observationLevel: plant
-                    observationUnitDbId: '2'
-                    observationUnitName: Plant 1
+                    germplasmDbId: '2'
+                    germplasmName: Name002
+                    observationLevel: plot
+                    observationUnitDbId: '11'
+                    observationUnitName: Plot 6
                     replicate: '0'
-                    studyDbId: '1001'
+                    studyDbId: '1003'
               schema:
                 properties:
                   metadata:

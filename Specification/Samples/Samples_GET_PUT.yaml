@@ -127,8 +127,8 @@ paths:
                     totalPages: 0
                   status: []
                 result:
-                  sampleDbId: ec3e4d53-ecd1-41c2-88b4-6eccbc5154ea
-                  sampleId: ec3e4d53-ecd1-41c2-88b4-6eccbc5154ea
+                  sampleDbId: 613ff314-5727-43a1-beb4-00576bdbfbe6
+                  sampleId: 613ff314-5727-43a1-beb4-00576bdbfbe6
               schema:
                 $ref: '#/components/schemas/newSampleDbId'
           description: OK

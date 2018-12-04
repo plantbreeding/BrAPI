@@ -117,7 +117,7 @@ paths:
                   status: string
                   synonyms:
                   - string
-                  traitDbId: e7e8dc55-ee66-4eb5-8203-84cff854bc6b
+                  traitDbId: 4c412b5e-c663-4747-a1a8-7e9ba0821b7a
                   traitName: string
                   xref: string
               schema:

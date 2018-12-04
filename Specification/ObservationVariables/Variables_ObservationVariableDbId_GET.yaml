@@ -30,7 +30,7 @@ paths:
                 result:
                   contextOfUse: []
                   crop: maize
-                  date: '2018-11-27'
+                  date: '2018-12-04'
                   defaultValue: '10'
                   documentationURL: https://brapi.org
                   growthStage: '1'

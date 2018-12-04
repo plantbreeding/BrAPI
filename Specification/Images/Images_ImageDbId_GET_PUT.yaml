@@ -141,7 +141,7 @@ paths:
                   observationDbIds:
                   - '1'
                   - '2'
-                  observationUnitDbId: '1'
+                  observationUnitDbId: '11'
               schema:
                 properties:
                   metadata:

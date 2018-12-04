@@ -59,7 +59,7 @@ paths:
                   pagination:
                     currentPage: 0
                     pageSize: 2
-                    totalCount: 1
+                    totalCount: 2
                     totalPages: 1
                   status: []
                 result:
@@ -71,6 +71,32 @@ paths:
                     - brapi
                     - logo
                     imageDbId: img1
+                    imageFileName: brapi-logo.svg
+                    imageFileSize: 3676
+                    imageHeight: 56
+                    imageLocation:
+                      geometry:
+                        coordinates:
+                        - -110.11301
+                        - 50.010082
+                        type: Point
+                      type: Feature
+                    imageName: brapiLogo
+                    imageTimeStamp: '2011-06-14'
+                    imageURL: https://brapi.org/assets/images/brapi-logo.svg
+                    imageWidth: 258
+                    mimeType: image/svg
+                    observationDbIds:
+                    - '1'
+                    - '2'
+                    observationUnitDbId: '1'
+                  - additionalInfo: {}
+                    copyright: Copyright 2018
+                    description: BrAPI Logo
+                    descriptiveOntologyTerms:
+                    - brapi
+                    - logo
+                    imageDbId: img2
                     imageFileName: brapi-logo.svg
                     imageFileSize: 3676
                     imageHeight: 56
@@ -167,7 +193,7 @@ paths:
                   descriptiveOntologyTerms:
                   - brapi
                   - logo
-                  imageDbId: 3551bf0c-2068-4b93-b830-bb296d37448e
+                  imageDbId: ed375d13-13d1-4425-a552-e53ba4fa5824
                   imageFileName: brapi-logo.svg
                   imageFileSize: 3676
                   imageHeight: 56
@@ -186,7 +212,7 @@ paths:
                   observationDbIds:
                   - '1'
                   - '2'
-                  observationUnitDbId: '1'
+                  observationUnitDbId: '11'
               schema:
                 properties:
                   metadata:

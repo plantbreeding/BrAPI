@@ -26,25 +26,19 @@ paths:
                   pagination:
                     currentPage: 0
                     pageSize: 2
-                    totalCount: 3
-                    totalPages: 2
+                    totalCount: 1
+                    totalPages: 1
                   status: []
                 result:
                   data:
                   - linkageGroupName: '1'
                     markerCount: 11
                     maxPosition: 1110
-                  - linkageGroupName: '2'
-                    markerCount: 5
-                    maxPosition: 5050
                   documentationURL: https://brapi.org
                   linkageGroups:
                   - linkageGroupName: '1'
                     markerCount: 11
                     maxPosition: 1110
-                  - linkageGroupName: '2'
-                    markerCount: 5
-                    maxPosition: 5050
                   mapDbId: gm1
                   mapName: Genome Map 1
                   name: Genome Map 1

@@ -75,18 +75,8 @@ paths:
                         year: '2011'
                       value: '4.5'
                     - collector: string
-                      observationDbId: b0faedb2-5dfe-48a9-bfe4-932a0d245d07
+                      observationDbId: cba781e3-8dfc-49cd-b5e3-41d03124b077
                       observationTimeStamp: '1970-01-18T14:02:52-05:00'
-                      observationVariableDbId: MO_123:100002
-                      observationVariableName: Plant height
-                      season:
-                        season: fall
-                        seasonDbId: '1'
-                        year: '2011'
-                      value: string
-                    - collector: string
-                      observationDbId: 8fa36f50-3b9a-429a-bf5e-ccefdf1caff7
-                      observationTimeStamp: '1970-01-18T15:41:05-05:00'
                       observationVariableDbId: MO_123:100002
                       observationVariableName: Plant height
                       season:
@@ -99,45 +89,45 @@ paths:
                     plotNumber: '1'
                     replicate: '0'
                   - X: '1'
-                    Y: '2'
+                    Y: '1'
                     blockNumber: '1'
-                    entryNumber: '3'
+                    entryNumber: '2'
                     entryType: TEST
-                    germplasmDbId: '2'
-                    germplasmName: Name002
-                    observationUnitDbId: '3'
-                    observationUnitName: Plot 2
+                    germplasmDbId: '1'
+                    germplasmName: Name001
+                    observationUnitDbId: '2'
+                    observationUnitName: Plant 1
                     observationUnitXref:
-                    - id: SAMEA179865682
+                    - id: SAMEA179865815
                       source: ebi.biosample
-                    - id: INRA:CoeSt6 _SMH51
+                    - id: INRA:CoeSt6 _SMH13
                       source: gnpis.lot
-                    - id: '239146'
+                    - id: '239167'
                       source: kernelDB
                     observations:
                     - collector: A. Technician
-                      observationDbId: '5'
-                      observationTimeStamp: '2013-06-14T22:07:51-04:00'
-                      observationVariableDbId: MO_123:100003
-                      observationVariableName: Carotenoid
+                      observationDbId: '3'
+                      observationTimeStamp: '2013-06-14T22:05:51-04:00'
+                      observationVariableDbId: MO_123:100002
+                      observationVariableName: Plant height
                       season:
-                        season: summer
-                        seasonDbId: '4'
-                        year: '2012'
-                      value: '2.1'
+                        season: fall
+                        seasonDbId: '1'
+                        year: '2011'
+                      value: '1.1'
                     - collector: A. Technician
-                      observationDbId: '6'
-                      observationTimeStamp: '2013-06-14T22:08:51-04:00'
-                      observationVariableDbId: MO_123:100005
-                      observationVariableName: Root color
+                      observationDbId: '4'
+                      observationTimeStamp: '2013-06-14T22:06:51-04:00'
+                      observationVariableDbId: MO_123:100006
+                      observationVariableName: Virus severity
                       season:
-                        season: summer
-                        seasonDbId: '4'
-                        year: '2012'
-                      value: dark blue
+                        season: fall
+                        seasonDbId: '1'
+                        year: '2011'
+                      value: '5.1'
                     pedigree: A000001/A000002
-                    plantNumber: '0'
-                    plotNumber: '2'
+                    plantNumber: '1'
+                    plotNumber: '1'
                     replicate: '0'
               schema:
                 properties:
@@ -277,7 +267,7 @@ paths:
                     messageType: INFO
                 result:
                   observationUnitDbIds:
-                  - '1'
+                  - '11'
               schema:
                 properties:
                   metadata:

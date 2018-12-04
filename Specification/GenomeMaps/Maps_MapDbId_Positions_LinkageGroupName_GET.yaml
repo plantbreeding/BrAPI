@@ -44,8 +44,8 @@ paths:
                   pagination:
                     currentPage: 0
                     pageSize: 2
-                    totalCount: 22
-                    totalPages: 11
+                    totalCount: 11
+                    totalPages: 6
                   status: []
                 result:
                   data:

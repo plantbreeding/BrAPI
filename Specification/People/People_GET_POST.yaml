@@ -44,7 +44,7 @@ paths:
                   pagination:
                     currentPage: 0
                     pageSize: 2
-                    totalCount: 1
+                    totalCount: 2
                     totalPages: 1
                   status: []
                 result:
@@ -58,6 +58,15 @@ paths:
                     personDbId: person1
                     phoneNumber: '+19876543210'
                     userID: bdr45
+                  - description: Example Person
+                    emailAddress: rob@bob.com
+                    firstName: Rob
+                    lastName: Robertson
+                    mailingAddress: 123 Road Street, City, State, Country, 98765
+                    middleName: Danger
+                    personDbId: person2
+                    phoneNumber: '+19876543210'
+                    userID: rdr45
               schema:
                 properties:
                   metadata:
@@ -117,7 +126,7 @@ paths:
                   lastName: Smith
                   mailingAddress: string
                   middleName: string
-                  personDbId: 13f4c1a1-0571-4c86-b748-c246c00ae020
+                  personDbId: 3e4304ee-09f6-400e-b83a-6844df01bcfc
                   phoneNumber: string
                   userID: string
               schema:

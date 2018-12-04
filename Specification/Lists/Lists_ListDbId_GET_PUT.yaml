@@ -38,7 +38,7 @@ paths:
                   listDbId: list1
                   listName: Example List 1
                   listOwnerName: Bob Robertson
-                  listOwnerPersonDbId: bob123
+                  listOwnerPersonDbId: person1
                   listSize: 3
                   listSource: User Created
                   listType: germplasm
@@ -98,7 +98,7 @@ paths:
                   data:
                   - string
                   dateCreated: '2011-06-14T22:12:51-04:00'
-                  dateModified: '2018-11-27T17:44:42-05:00'
+                  dateModified: '2018-12-04T17:42:22-05:00'
                   description: string
                   listDbId: list1
                   listName: string

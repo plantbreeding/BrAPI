@@ -64,10 +64,10 @@ paths:
                       elevation: 20m
                       georeferencingMethod: WGS84
                       latitudeDecimal: '+42.445295'
-                      latitudeDegrees: "42\xB026'43.1\"N"
+                      latitudeDegrees: 42 26 43.1 N
                       locationDescription: INST1
                       longitudeDecimal: '-076.471934'
-                      longitudeDegrees: "76\xB028'19.0\"W"
+                      longitudeDegrees: 76 28 19.0 W
                       spatialReferenceSystem: WGS84
                   commonCropName: G000003
                   countryOfOrigin: COUNTRY1

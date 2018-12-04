@@ -44,7 +44,7 @@ paths:
                   pagination:
                     currentPage: 0
                     pageSize: 2
-                    totalCount: 1
+                    totalCount: 2
                     totalPages: 1
                   status: []
                 result:
@@ -55,7 +55,17 @@ paths:
                     listDbId: list1
                     listName: Example List 1
                     listOwnerName: Bob Robertson
-                    listOwnerPersonDbId: bob123
+                    listOwnerPersonDbId: person1
+                    listSize: 3
+                    listSource: User Created
+                    listType: germplasm
+                  - dateCreated: '2011-06-14T22:12:51-04:00'
+                    dateModified: '2011-06-14T22:12:51-04:00'
+                    description: Example List of germplasm
+                    listDbId: list2
+                    listName: Example List 2
+                    listOwnerName: Rob Robertson
+                    listOwnerPersonDbId: person2
                     listSize: 3
                     listSource: User Created
                     listType: germplasm
@@ -114,10 +124,10 @@ paths:
                 result:
                   data:
                   - string
-                  dateCreated: '2018-11-27T17:44:42-05:00'
-                  dateModified: '2018-11-27T17:44:42-05:00'
+                  dateCreated: '2018-12-04T17:42:22-05:00'
+                  dateModified: '2018-12-04T17:42:22-05:00'
                   description: string
-                  listDbId: f1a457c1-2476-40ce-bed4-c71d7b90fe02
+                  listDbId: 4cf54a1f-4f84-4e2b-a9c2-0a5ff072f80c
                   listName: string
                   listOwnerName: string
                   listOwnerPersonDbId: string

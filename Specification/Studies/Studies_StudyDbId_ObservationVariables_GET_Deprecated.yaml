@@ -35,7 +35,7 @@ paths:
                   data:
                   - contextOfUse: []
                     crop: maize
-                    date: '2018-11-27'
+                    date: '2018-12-04'
                     defaultValue: '10'
                     documentationURL: https://brapi.org
                     growthStage: '1'
@@ -120,7 +120,7 @@ paths:
                     xref: MO_123:100002
                   - contextOfUse: []
                     crop: maize
-                    date: '2018-11-27'
+                    date: '2018-12-04'
                     defaultValue: '10'
                     documentationURL: https://brapi.org
                     growthStage: '1'
@@ -207,7 +207,89 @@ paths:
                     xref: MO_123:100003
                   - contextOfUse: []
                     crop: maize
-                    date: '2018-11-27'
+                    date: '2018-12-04'
+                    defaultValue: '10'
+                    documentationURL: https://brapi.org
+                    growthStage: '1'
+                    institution: '1'
+                    language: English
+                    method:
+                      class: Numeric
+                      description: Dried sample on electric scale
+                      formula: NA
+                      methodDbId: m2
+                      methodName: Dry Electric Scale
+                      name: Dry Electric Scale
+                      ontologyRefernce:
+                        documentationLinks:
+                        - URL: https://ontology.org/m2
+                          type: WEBPAGE
+                          url: https://ontology.org/m2
+                        ontologyDbId: MO_123
+                        ontologyName: Ontology.org
+                        version: '17'
+                      reference: google.com
+                    name: Root weight
+                    observationVariableDbId: MO_123:100004
+                    observationVariableName: Root weight
+                    ontologyDbId: MO_123
+                    ontologyName: Ontology.org
+                    ontologyRefernce:
+                      documentationLinks:
+                      - URL: https://ontology.org
+                        type: WEBPAGE
+                        url: https://ontology.org
+                      ontologyDbId: MO_123
+                      ontologyName: Ontology.org
+                      version: '17'
+                    scale:
+                      dataType: Numerical
+                      decimalPlaces: 3
+                      name: Kilogram
+                      ontologyRefernce:
+                        documentationLinks:
+                        - URL: https://ontology.org/s2
+                          type: RDF
+                          url: https://ontology.org/s2
+                        ontologyDbId: MO_123
+                        ontologyName: Ontology.org
+                        version: '17'
+                      scaleDbId: s2
+                      scaleName: Kilogram
+                      validValues:
+                        categories: []
+                        max: 99999
+                        min: 0
+                      xref: xref
+                    scientist: Bob
+                    status: active
+                    submissionTimestamp: '2011-06-14T22:12:51-04:00'
+                    synonyms: []
+                    trait:
+                      alternativeAbbreviations: []
+                      attribute: root weight
+                      class: Numeric
+                      description: root weight
+                      entity: entity
+                      mainAbbreviation: RW
+                      name: Root Weight
+                      ontologyRefernce:
+                        documentationLinks:
+                        - URL: https://ontology.org/t2
+                          type: OBO
+                          url: https://ontology.org/t2
+                        ontologyDbId: MO_123
+                        ontologyName: Ontology.org
+                        version: '17'
+                      status: active
+                      synonyms: []
+                      traitDbId: t2
+                      traitName: Root Weight
+                      xref: xref
+                    xref: MO_123:100004
+                  - contextOfUse: []
+                    crop: maize
+                    date: '2018-12-04'
                     defaultValue: '10'
                     documentationURL: https://brapi.org
                     growthStage: '1'
@@ -294,7 +376,7 @@ paths:
                     xref: MO_123:100005
                   - contextOfUse: []
                     crop: maize
-                    date: '2018-11-27'
+                    date: '2018-12-04'
                     defaultValue: '10'
                     documentationURL: https://brapi.org
                     growthStage: '1'
