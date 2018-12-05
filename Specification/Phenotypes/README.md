@@ -914,7 +914,7 @@ Images can be optionally be uploaded using this call by providing a zipfile of a
     "result": {
         "observations": [
             {
-                "observationDbId": "93f807fb-a07f-4882-9f8f-8a48302eee3b",
+                "observationDbId": "bb989815-86bf-430b-9d87-054df8919767",
                 "observationUnitDbId": "1",
                 "observationVariableDbId": "MO_123:100002"
             }
@@ -1415,7 +1415,7 @@ See Search Services for additional implementation details.
                     },
                     {
                         "collector": "string",
-                        "observationDbId": "93f807fb-a07f-4882-9f8f-8a48302eee3b",
+                        "observationDbId": "bb989815-86bf-430b-9d87-054df8919767",
                         "observationTimeStamp": "1970-01-18T14:02:52-05:00",
                         "observationVariableDbId": "MO_123:100002",
                         "observationVariableName": "Plant height",

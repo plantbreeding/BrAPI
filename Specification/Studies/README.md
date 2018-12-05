@@ -1454,8 +1454,8 @@ Refer to the data type definition of variables in `/Specification/ObservationVar
         "pagination": {
             "currentPage": 0,
             "pageSize": 2,
-            "totalCount": 0,
-            "totalPages": 0
+            "totalCount": 5,
+            "totalPages": 3
         },
         "status": []
     },
@@ -1464,7 +1464,7 @@ Refer to the data type definition of variables in `/Specification/ObservationVar
             {
                 "contextOfUse": [],
                 "crop": "maize",
-                "date": "2018-12-04",
+                "date": "2018-12-05",
                 "defaultValue": "10",
                 "documentationURL": "https://brapi.org",
                 "growthStage": "1",
@@ -1477,7 +1477,7 @@ Refer to the data type definition of variables in `/Specification/ObservationVar
                     "methodDbId": "m1",
                     "methodName": "string",
                     "name": "string",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "string",
@@ -1496,7 +1496,7 @@ Refer to the data type definition of variables in `/Specification/ObservationVar
                 "observationVariableName": "Plant height",
                 "ontologyDbId": "MO_123",
                 "ontologyName": "Ontology.org",
-                "ontologyRefernce": {
+                "ontologyReference": {
                     "documentationLinks": [
                         {
                             "URL": "https://ontology.org",
@@ -1512,7 +1512,7 @@ Refer to the data type definition of variables in `/Specification/ObservationVar
                     "dataType": "Code",
                     "decimalPlaces": 0,
                     "name": "string",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "string",
@@ -1549,7 +1549,7 @@ Refer to the data type definition of variables in `/Specification/ObservationVar
                     "entity": "string",
                     "mainAbbreviation": "string",
                     "name": "string",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "string",
@@ -1574,7 +1574,7 @@ Refer to the data type definition of variables in `/Specification/ObservationVar
             {
                 "contextOfUse": [],
                 "crop": "maize",
-                "date": "2018-12-04",
+                "date": "2018-12-05",
                 "defaultValue": "10",
                 "documentationURL": "https://brapi.org",
                 "growthStage": "1",
@@ -1587,7 +1587,7 @@ Refer to the data type definition of variables in `/Specification/ObservationVar
                     "methodDbId": "m3",
                     "methodName": "Standard Color Palette",
                     "name": "Standard Color Palette",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/m3",
@@ -1606,7 +1606,7 @@ Refer to the data type definition of variables in `/Specification/ObservationVar
                 "observationVariableName": "Carotenoid",
                 "ontologyDbId": "MO_123",
                 "ontologyName": "Ontology.org",
-                "ontologyRefernce": {
+                "ontologyReference": {
                     "documentationLinks": [
                         {
                             "URL": "https://ontology.org",
@@ -1622,7 +1622,7 @@ Refer to the data type definition of variables in `/Specification/ObservationVar
                     "dataType": "Nominal",
                     "decimalPlaces": 0,
                     "name": "Color",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/s3",
@@ -1661,7 +1661,7 @@ Refer to the data type definition of variables in `/Specification/ObservationVar
                     "entity": "entity",
                     "mainAbbreviation": "LC",
                     "name": "Leaf Color",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/t3",
@@ -1680,324 +1680,6 @@ Refer to the data type definition of variables in `/Specification/ObservationVar
                     "xref": "xref"
                 },
                 "xref": "MO_123:100003"
-            },
-            {
-                "contextOfUse": [],
-                "crop": "maize",
-                "date": "2018-12-04",
-                "defaultValue": "10",
-                "documentationURL": "https://brapi.org",
-                "growthStage": "1",
-                "institution": "1",
-                "language": "English",
-                "method": {
-                    "class": "Numeric",
-                    "description": "Dried sample on electric scale",
-                    "formula": "NA",
-                    "methodDbId": "m2",
-                    "methodName": "Dry Electric Scale",
-                    "name": "Dry Electric Scale",
-                    "ontologyRefernce": {
-                        "documentationLinks": [
-                            {
-                                "URL": "https://ontology.org/m2",
-                                "type": "WEBPAGE",
-                                "url": "https://ontology.org/m2"
-                            }
-                        ],
-                        "ontologyDbId": "MO_123",
-                        "ontologyName": "Ontology.org",
-                        "version": "17"
-                    },
-                    "reference": "google.com"
-                },
-                "name": "Root weight",
-                "observationVariableDbId": "MO_123:100004",
-                "observationVariableName": "Root weight",
-                "ontologyDbId": "MO_123",
-                "ontologyName": "Ontology.org",
-                "ontologyRefernce": {
-                    "documentationLinks": [
-                        {
-                            "URL": "https://ontology.org",
-                            "type": "WEBPAGE",
-                            "url": "https://ontology.org"
-                        }
-                    ],
-                    "ontologyDbId": "MO_123",
-                    "ontologyName": "Ontology.org",
-                    "version": "17"
-                },
-                "scale": {
-                    "dataType": "Numerical",
-                    "decimalPlaces": 3,
-                    "name": "Kilogram",
-                    "ontologyRefernce": {
-                        "documentationLinks": [
-                            {
-                                "URL": "https://ontology.org/s2",
-                                "type": "RDF",
-                                "url": "https://ontology.org/s2"
-                            }
-                        ],
-                        "ontologyDbId": "MO_123",
-                        "ontologyName": "Ontology.org",
-                        "version": "17"
-                    },
-                    "scaleDbId": "s2",
-                    "scaleName": "Kilogram",
-                    "validValues": {
-                        "categories": [],
-                        "max": 99999,
-                        "min": 0
-                    },
-                    "xref": "xref"
-                },
-                "scientist": "Bob",
-                "status": "active",
-                "submissionTimestamp": "2011-06-14T22:12:51-04:00",
-                "synonyms": [],
-                "trait": {
-                    "alternativeAbbreviations": [],
-                    "attribute": "root weight",
-                    "class": "Numeric",
-                    "description": "root weight",
-                    "entity": "entity",
-                    "mainAbbreviation": "RW",
-                    "name": "Root Weight",
-                    "ontologyRefernce": {
-                        "documentationLinks": [
-                            {
-                                "URL": "https://ontology.org/t2",
-                                "type": "OBO",
-                                "url": "https://ontology.org/t2"
-                            }
-                        ],
-                        "ontologyDbId": "MO_123",
-                        "ontologyName": "Ontology.org",
-                        "version": "17"
-                    },
-                    "status": "active",
-                    "synonyms": [],
-                    "traitDbId": "t2",
-                    "traitName": "Root Weight",
-                    "xref": "xref"
-                },
-                "xref": "MO_123:100004"
-            },
-            {
-                "contextOfUse": [],
-                "crop": "maize",
-                "date": "2018-12-04",
-                "defaultValue": "10",
-                "documentationURL": "https://brapi.org",
-                "growthStage": "1",
-                "institution": "1",
-                "language": "English",
-                "method": {
-                    "class": "Categorical",
-                    "description": "Comparing sample color to standard color palette",
-                    "formula": "NA",
-                    "methodDbId": "m3",
-                    "methodName": "Standard Color Palette",
-                    "name": "Standard Color Palette",
-                    "ontologyRefernce": {
-                        "documentationLinks": [
-                            {
-                                "URL": "https://ontology.org/m3",
-                                "type": "OBO",
-                                "url": "https://ontology.org/m3"
-                            }
-                        ],
-                        "ontologyDbId": "MO_123",
-                        "ontologyName": "Ontology.org",
-                        "version": "17"
-                    },
-                    "reference": "google.com"
-                },
-                "name": "Root color",
-                "observationVariableDbId": "MO_123:100005",
-                "observationVariableName": "Root color",
-                "ontologyDbId": "MO_123",
-                "ontologyName": "Ontology.org",
-                "ontologyRefernce": {
-                    "documentationLinks": [
-                        {
-                            "URL": "https://ontology.org",
-                            "type": "WEBPAGE",
-                            "url": "https://ontology.org"
-                        }
-                    ],
-                    "ontologyDbId": "MO_123",
-                    "ontologyName": "Ontology.org",
-                    "version": "17"
-                },
-                "scale": {
-                    "dataType": "Nominal",
-                    "decimalPlaces": 0,
-                    "name": "Color",
-                    "ontologyRefernce": {
-                        "documentationLinks": [
-                            {
-                                "URL": "https://ontology.org/s3",
-                                "type": "WEBPAGE",
-                                "url": "https://ontology.org/s3"
-                            }
-                        ],
-                        "ontologyDbId": "MO_123",
-                        "ontologyName": "Ontology.org",
-                        "version": "17"
-                    },
-                    "scaleDbId": "s3",
-                    "scaleName": "Color",
-                    "validValues": {
-                        "categories": [
-                            "dark red",
-                            "red",
-                            "dark blue",
-                            "blue",
-                            "black"
-                        ],
-                        "max": 0,
-                        "min": 0
-                    },
-                    "xref": "xref"
-                },
-                "scientist": "Bob",
-                "status": "active",
-                "submissionTimestamp": "2011-06-14T22:12:51-04:00",
-                "synonyms": [],
-                "trait": {
-                    "alternativeAbbreviations": [],
-                    "attribute": "root color",
-                    "class": "Categorical",
-                    "description": "color of root sample",
-                    "entity": "entity",
-                    "mainAbbreviation": "RC",
-                    "name": "Root Color",
-                    "ontologyRefernce": {
-                        "documentationLinks": [
-                            {
-                                "URL": "https://ontology.org/t4",
-                                "type": "WEBPAGE",
-                                "url": "https://ontology.org/t4"
-                            }
-                        ],
-                        "ontologyDbId": "MO_123",
-                        "ontologyName": "Ontology.org",
-                        "version": "17"
-                    },
-                    "status": "active",
-                    "synonyms": [],
-                    "traitDbId": "t4",
-                    "traitName": "Root Color",
-                    "xref": "xref"
-                },
-                "xref": "MO_123:100005"
-            },
-            {
-                "contextOfUse": [],
-                "crop": "maize",
-                "date": "2018-12-04",
-                "defaultValue": "10",
-                "documentationURL": "https://brapi.org",
-                "growthStage": "1",
-                "institution": "1",
-                "language": "English",
-                "method": {
-                    "class": "Percentage",
-                    "description": "Image analysis of sample photo",
-                    "formula": "Bobs Color Threshold Tool",
-                    "methodDbId": "m4",
-                    "methodName": "Image analysis",
-                    "name": "Image analysis",
-                    "ontologyRefernce": {
-                        "documentationLinks": [
-                            {
-                                "URL": "https://ontology.org/m4",
-                                "type": "RDF",
-                                "url": "https://ontology.org/m4"
-                            }
-                        ],
-                        "ontologyDbId": "MO_123",
-                        "ontologyName": "Ontology.org",
-                        "version": "17"
-                    },
-                    "reference": "https://bobsimageanalysis.com"
-                },
-                "name": "Virus severity",
-                "observationVariableDbId": "MO_123:100006",
-                "observationVariableName": "Virus severity",
-                "ontologyDbId": "MO_123",
-                "ontologyName": "Ontology.org",
-                "ontologyRefernce": {
-                    "documentationLinks": [
-                        {
-                            "URL": "https://ontology.org",
-                            "type": "WEBPAGE",
-                            "url": "https://ontology.org"
-                        }
-                    ],
-                    "ontologyDbId": "MO_123",
-                    "ontologyName": "Ontology.org",
-                    "version": "17"
-                },
-                "scale": {
-                    "dataType": "Numerical",
-                    "decimalPlaces": 0,
-                    "name": "Percentage",
-                    "ontologyRefernce": {
-                        "documentationLinks": [
-                            {
-                                "URL": "https://ontology.org/s4",
-                                "type": "OBO",
-                                "url": "https://ontology.org/s4"
-                            }
-                        ],
-                        "ontologyDbId": "MO_123",
-                        "ontologyName": "Ontology.org",
-                        "version": "17"
-                    },
-                    "scaleDbId": "s4",
-                    "scaleName": "Percentage",
-                    "validValues": {
-                        "categories": [],
-                        "max": 100,
-                        "min": 0
-                    },
-                    "xref": "xref"
-                },
-                "scientist": "Bob",
-                "status": "active",
-                "submissionTimestamp": "2011-06-14T22:12:51-04:00",
-                "synonyms": [],
-                "trait": {
-                    "alternativeAbbreviations": [],
-                    "attribute": "Virus severity",
-                    "class": "Percentage",
-                    "description": "Percentage of contaminated sample",
-                    "entity": "entity",
-                    "mainAbbreviation": "LC",
-                    "name": "Virus severity",
-                    "ontologyRefernce": {
-                        "documentationLinks": [
-                            {
-                                "URL": "https://ontology.org/t5",
-                                "type": "OBO",
-                                "url": "https://ontology.org/t5"
-                            }
-                        ],
-                        "ontologyDbId": "MO_123",
-                        "ontologyName": "Ontology.org",
-                        "version": "17"
-                    },
-                    "status": "active",
-                    "synonyms": [],
-                    "traitDbId": "t5",
-                    "traitName": "Virus severity",
-                    "xref": "xref"
-                },
-                "xref": "MO_123:100006"
             }
         ],
         "studyDbId": "1001",
@@ -2218,7 +1900,7 @@ Implementation Guidelines:
                 "observationVariableDbId": "MO_123:100004"
             },
             {
-                "observationDbId": "f9b1cc8a-6f3f-4032-b199-52a9d752c6f5",
+                "observationDbId": "1f55443e-c7e1-4b71-bc9c-02ddbca9ab7d",
                 "observationUnitDbId": "11",
                 "observationVariableDbId": "MO_123:100002"
             }
@@ -2337,7 +2019,7 @@ The main API call for field data collection, to retrieve all the observation uni
                     },
                     {
                         "collector": "string",
-                        "observationDbId": "93f807fb-a07f-4882-9f8f-8a48302eee3b",
+                        "observationDbId": "bb989815-86bf-430b-9d87-054df8919767",
                         "observationTimeStamp": "1970-01-18T14:02:52-05:00",
                         "observationVariableDbId": "MO_123:100002",
                         "observationVariableName": "Plant height",
@@ -2789,8 +2471,8 @@ Implementation Guidelines:
     "result": {
         "observations": [
             {
-                "observationDbId": "06d16532-e532-4073-b2c1-d2c50472bb22",
-                "observationUnitDbId": "a3c304d2-1929-429f-b043-b8d3abbb5203",
+                "observationDbId": "f439cdc6-768f-4d11-b66c-489d980b3d3b",
+                "observationUnitDbId": "ee89a58d-b104-437b-9cb4-7b500eaafa11",
                 "observationVariableDbId": "MO_123:100002"
             }
         ]
@@ -3040,8 +2722,8 @@ test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationVariables
         "pagination": {
             "currentPage": 0,
             "pageSize": 0,
-            "totalCount": 0,
-            "totalPages": 0
+            "totalCount": 5,
+            "totalPages": 1
         },
         "status": []
     },
@@ -3050,7 +2732,7 @@ test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationVariables
             {
                 "contextOfUse": [],
                 "crop": "maize",
-                "date": "2018-12-04",
+                "date": "2018-12-05",
                 "defaultValue": "10",
                 "documentationURL": "https://brapi.org",
                 "growthStage": "1",
@@ -3063,7 +2745,7 @@ test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationVariables
                     "methodDbId": "m1",
                     "methodName": "string",
                     "name": "string",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "string",
@@ -3082,7 +2764,7 @@ test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationVariables
                 "observationVariableName": "Plant height",
                 "ontologyDbId": "MO_123",
                 "ontologyName": "Ontology.org",
-                "ontologyRefernce": {
+                "ontologyReference": {
                     "documentationLinks": [
                         {
                             "URL": "https://ontology.org",
@@ -3098,7 +2780,7 @@ test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationVariables
                     "dataType": "Code",
                     "decimalPlaces": 0,
                     "name": "string",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "string",
@@ -3135,7 +2817,7 @@ test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationVariables
                     "entity": "string",
                     "mainAbbreviation": "string",
                     "name": "string",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "string",
@@ -3160,7 +2842,7 @@ test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationVariables
             {
                 "contextOfUse": [],
                 "crop": "maize",
-                "date": "2018-12-04",
+                "date": "2018-12-05",
                 "defaultValue": "10",
                 "documentationURL": "https://brapi.org",
                 "growthStage": "1",
@@ -3173,7 +2855,7 @@ test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationVariables
                     "methodDbId": "m3",
                     "methodName": "Standard Color Palette",
                     "name": "Standard Color Palette",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/m3",
@@ -3192,7 +2874,7 @@ test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationVariables
                 "observationVariableName": "Carotenoid",
                 "ontologyDbId": "MO_123",
                 "ontologyName": "Ontology.org",
-                "ontologyRefernce": {
+                "ontologyReference": {
                     "documentationLinks": [
                         {
                             "URL": "https://ontology.org",
@@ -3208,7 +2890,7 @@ test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationVariables
                     "dataType": "Nominal",
                     "decimalPlaces": 0,
                     "name": "Color",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/s3",
@@ -3247,7 +2929,7 @@ test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationVariables
                     "entity": "entity",
                     "mainAbbreviation": "LC",
                     "name": "Leaf Color",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/t3",
@@ -3270,7 +2952,7 @@ test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationVariables
             {
                 "contextOfUse": [],
                 "crop": "maize",
-                "date": "2018-12-04",
+                "date": "2018-12-05",
                 "defaultValue": "10",
                 "documentationURL": "https://brapi.org",
                 "growthStage": "1",
@@ -3283,7 +2965,7 @@ test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationVariables
                     "methodDbId": "m2",
                     "methodName": "Dry Electric Scale",
                     "name": "Dry Electric Scale",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/m2",
@@ -3302,7 +2984,7 @@ test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationVariables
                 "observationVariableName": "Root weight",
                 "ontologyDbId": "MO_123",
                 "ontologyName": "Ontology.org",
-                "ontologyRefernce": {
+                "ontologyReference": {
                     "documentationLinks": [
                         {
                             "URL": "https://ontology.org",
@@ -3318,7 +3000,7 @@ test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationVariables
                     "dataType": "Numerical",
                     "decimalPlaces": 3,
                     "name": "Kilogram",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/s2",
@@ -3351,7 +3033,7 @@ test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationVariables
                     "entity": "entity",
                     "mainAbbreviation": "RW",
                     "name": "Root Weight",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/t2",
@@ -3374,7 +3056,7 @@ test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationVariables
             {
                 "contextOfUse": [],
                 "crop": "maize",
-                "date": "2018-12-04",
+                "date": "2018-12-05",
                 "defaultValue": "10",
                 "documentationURL": "https://brapi.org",
                 "growthStage": "1",
@@ -3387,7 +3069,7 @@ test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationVariables
                     "methodDbId": "m3",
                     "methodName": "Standard Color Palette",
                     "name": "Standard Color Palette",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/m3",
@@ -3406,7 +3088,7 @@ test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationVariables
                 "observationVariableName": "Root color",
                 "ontologyDbId": "MO_123",
                 "ontologyName": "Ontology.org",
-                "ontologyRefernce": {
+                "ontologyReference": {
                     "documentationLinks": [
                         {
                             "URL": "https://ontology.org",
@@ -3422,7 +3104,7 @@ test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationVariables
                     "dataType": "Nominal",
                     "decimalPlaces": 0,
                     "name": "Color",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/s3",
@@ -3461,7 +3143,7 @@ test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationVariables
                     "entity": "entity",
                     "mainAbbreviation": "RC",
                     "name": "Root Color",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/t4",
@@ -3484,7 +3166,7 @@ test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationVariables
             {
                 "contextOfUse": [],
                 "crop": "maize",
-                "date": "2018-12-04",
+                "date": "2018-12-05",
                 "defaultValue": "10",
                 "documentationURL": "https://brapi.org",
                 "growthStage": "1",
@@ -3497,7 +3179,7 @@ test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationVariables
                     "methodDbId": "m4",
                     "methodName": "Image analysis",
                     "name": "Image analysis",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/m4",
@@ -3516,7 +3198,7 @@ test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationVariables
                 "observationVariableName": "Virus severity",
                 "ontologyDbId": "MO_123",
                 "ontologyName": "Ontology.org",
-                "ontologyRefernce": {
+                "ontologyReference": {
                     "documentationLinks": [
                         {
                             "URL": "https://ontology.org",
@@ -3532,7 +3214,7 @@ test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationVariables
                     "dataType": "Numerical",
                     "decimalPlaces": 0,
                     "name": "Percentage",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/s4",
@@ -3565,7 +3247,7 @@ test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationVariables
                     "entity": "entity",
                     "mainAbbreviation": "LC",
                     "name": "Virus severity",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/t5",

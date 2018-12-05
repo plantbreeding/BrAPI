@@ -224,7 +224,7 @@ Implementation Notes
             "brapi",
             "logo"
         ],
-        "imageDbId": "60ff3c3b-986b-4c57-8650-5968f66ced28",
+        "imageDbId": "ce15937e-093e-4624-8950-00dab3172e4c",
         "imageFileName": "brapi-logo.svg",
         "imageFileSize": 3676,
         "imageHeight": 56,
@@ -780,7 +780,7 @@ Implementation Notes
                     "brapi",
                     "logo"
                 ],
-                "imageDbId": "60ff3c3b-986b-4c57-8650-5968f66ced28",
+                "imageDbId": "ce15937e-093e-4624-8950-00dab3172e4c",
                 "imageFileName": "brapi-logo.svg",
                 "imageFileSize": 3676,
                 "imageHeight": 56,

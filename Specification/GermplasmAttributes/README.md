@@ -130,7 +130,7 @@ List available attributes.
                     "methodDbId": "m1",
                     "methodName": "Tape Measure",
                     "name": "Tape Measure",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/m1",
@@ -147,7 +147,7 @@ List available attributes.
                 "name": "Rht-B1b",
                 "ontologyDbId": "MO_123",
                 "ontologyName": "Ontology.org",
-                "ontologyRefernce": {
+                "ontologyReference": {
                     "documentationLinks": [
                         {
                             "URL": "https://ontology.org",
@@ -163,7 +163,7 @@ List available attributes.
                     "dataType": "Numerical",
                     "decimalPlaces": 1,
                     "name": "Centimeter",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/s1",
@@ -196,7 +196,7 @@ List available attributes.
                     "entity": "entity",
                     "mainAbbreviation": "H",
                     "name": "Plant Height",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/t1",
@@ -239,7 +239,7 @@ List available attributes.
                     "methodDbId": "m3",
                     "methodName": "Standard Color Palette",
                     "name": "Standard Color Palette",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/m3",
@@ -256,7 +256,7 @@ List available attributes.
                 "name": "Weevil Resistance",
                 "ontologyDbId": "MO_123",
                 "ontologyName": "Ontology.org",
-                "ontologyRefernce": {
+                "ontologyReference": {
                     "documentationLinks": [
                         {
                             "URL": "https://ontology.org",
@@ -272,7 +272,7 @@ List available attributes.
                     "dataType": "Nominal",
                     "decimalPlaces": 0,
                     "name": "Color",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/s3",
@@ -311,7 +311,7 @@ List available attributes.
                     "entity": "entity",
                     "mainAbbreviation": "LC",
                     "name": "Leaf Color",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/t3",

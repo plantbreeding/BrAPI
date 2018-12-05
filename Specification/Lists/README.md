@@ -141,10 +141,10 @@ Create a new list
         "data": [
             "string"
         ],
-        "dateCreated": "2018-12-04T17:21:06-05:00",
-        "dateModified": "2018-12-04T17:21:06-05:00",
+        "dateCreated": "2018-12-05T14:36:04-05:00",
+        "dateModified": "2018-12-05T14:36:04-05:00",
         "description": "string",
-        "listDbId": "cb685990-675c-4700-a78d-eabe908185db",
+        "listDbId": "d93d6bb6-dfc3-4d15-8d2e-654c618ce12e",
         "listName": "string",
         "listOwnerName": "string",
         "listOwnerPersonDbId": "string",
@@ -297,7 +297,7 @@ Update an existing generic list
             "string"
         ],
         "dateCreated": "2011-06-14T22:12:51-04:00",
-        "dateModified": "2018-12-04T17:21:06-05:00",
+        "dateModified": "2018-12-05T14:36:04-05:00",
         "description": "string",
         "listDbId": "list1",
         "listName": "string",
@@ -375,7 +375,7 @@ Add new data to a specific generic lists
             "3"
         ],
         "dateCreated": "2011-06-14T22:12:51-04:00",
-        "dateModified": "2018-12-04T17:21:06-05:00",
+        "dateModified": "2018-12-05T14:36:04-05:00",
         "description": "string",
         "listDbId": "list1",
         "listName": "string",

@@ -52,7 +52,7 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
                 "methodDbId": "m1",
                 "methodName": "Tape Measure",
                 "name": "Tape Measure",
-                "ontologyRefernce": {
+                "ontologyReference": {
                     "documentationLinks": [
                         {
                             "URL": "https://ontology.org/m1",
@@ -73,7 +73,7 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
                 "methodDbId": "m2",
                 "methodName": "Dry Electric Scale",
                 "name": "Dry Electric Scale",
-                "ontologyRefernce": {
+                "ontologyReference": {
                     "documentationLinks": [
                         {
                             "URL": "https://ontology.org/m2",
@@ -132,9 +132,19 @@ Create a new method object in the database
     "formula": "formula0",
     "methodName": "methodName0",
     "ontologyReference": {
-        "ontologyID": "ontologyID0",
-        "ontologyPrefix": "ontologyPrefix0",
-        "ontologyTerm": "ontologyTerm0"
+        "documentationLinks": [
+            {
+                "URL": "URL0",
+                "type": "OBO"
+            },
+            {
+                "URL": "URL1",
+                "type": "RDF"
+            }
+        ],
+        "ontologyDbId": "ontologyDbId0",
+        "ontologyName": "ontologyName0",
+        "version": "version0"
     },
     "reference": "reference0"
 }
@@ -159,10 +169,10 @@ Create a new method object in the database
         "class": "string",
         "description": "string",
         "formula": "string",
-        "methodDbId": "ded56cdc-ab8b-4c93-b286-4a1471390b75",
+        "methodDbId": "8175d7ac-6221-4e1d-8023-91ddb8b30fd8",
         "methodName": "string",
         "name": "string",
-        "ontologyRefernce": {
+        "ontologyReference": {
             "documentationLinks": [
                 {
                     "URL": "string",
@@ -235,7 +245,7 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
         "methodDbId": "m1",
         "methodName": "Tape Measure",
         "name": "Tape Measure",
-        "ontologyRefernce": {
+        "ontologyReference": {
             "documentationLinks": [
                 {
                     "URL": "https://ontology.org/m1",
@@ -298,9 +308,19 @@ Update the details of an existing method
     "formula": "formula0",
     "methodName": "methodName0",
     "ontologyReference": {
-        "ontologyID": "ontologyID0",
-        "ontologyPrefix": "ontologyPrefix0",
-        "ontologyTerm": "ontologyTerm0"
+        "documentationLinks": [
+            {
+                "URL": "URL0",
+                "type": "OBO"
+            },
+            {
+                "URL": "URL1",
+                "type": "RDF"
+            }
+        ],
+        "ontologyDbId": "ontologyDbId0",
+        "ontologyName": "ontologyName0",
+        "version": "version0"
     },
     "reference": "reference0"
 }
@@ -328,7 +348,7 @@ Update the details of an existing method
         "methodDbId": "m1",
         "methodName": "string",
         "name": "string",
-        "ontologyRefernce": {
+        "ontologyReference": {
             "documentationLinks": [
                 {
                     "URL": "string",
@@ -477,7 +497,7 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
                 "dataType": "Numerical",
                 "decimalPlaces": 1,
                 "name": "Centimeter",
-                "ontologyRefernce": {
+                "ontologyReference": {
                     "documentationLinks": [
                         {
                             "URL": "https://ontology.org/s1",
@@ -502,7 +522,7 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
                 "dataType": "Numerical",
                 "decimalPlaces": 3,
                 "name": "Kilogram",
-                "ontologyRefernce": {
+                "ontologyReference": {
                     "documentationLinks": [
                         {
                             "URL": "https://ontology.org/s2",
@@ -566,9 +586,19 @@ Create a new scale object in the database
     "dataType": "Code",
     "decimalPlaces": 0,
     "ontologyReference": {
-        "ontologyID": "ontologyID0",
-        "ontologyPrefix": "ontologyPrefix0",
-        "ontologyTerm": "ontologyTerm0"
+        "documentationLinks": [
+            {
+                "URL": "URL0",
+                "type": "OBO"
+            },
+            {
+                "URL": "URL1",
+                "type": "RDF"
+            }
+        ],
+        "ontologyDbId": "ontologyDbId0",
+        "ontologyName": "ontologyName0",
+        "version": "version0"
     },
     "scaleName": "scaleName0",
     "validValues": {
@@ -602,7 +632,7 @@ Create a new scale object in the database
         "dataType": "Code",
         "decimalPlaces": 0,
         "name": "string",
-        "ontologyRefernce": {
+        "ontologyReference": {
             "documentationLinks": [
                 {
                     "URL": "string",
@@ -614,7 +644,7 @@ Create a new scale object in the database
             "ontologyName": "Ontology.org",
             "version": "17"
         },
-        "scaleDbId": "81db1ded-3b7c-4d40-8121-efd412375cd4",
+        "scaleDbId": "90fdedbc-6412-47ac-877b-81dd466fe6d2",
         "scaleName": "string",
         "validValues": {
             "categories": [
@@ -681,7 +711,7 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
         "dataType": "Numerical",
         "decimalPlaces": 1,
         "name": "Centimeter",
-        "ontologyRefernce": {
+        "ontologyReference": {
             "documentationLinks": [
                 {
                     "URL": "https://ontology.org/s1",
@@ -749,9 +779,19 @@ Update the details of an existing scale
     "dataType": "Code",
     "decimalPlaces": 0,
     "ontologyReference": {
-        "ontologyID": "ontologyID0",
-        "ontologyPrefix": "ontologyPrefix0",
-        "ontologyTerm": "ontologyTerm0"
+        "documentationLinks": [
+            {
+                "URL": "URL0",
+                "type": "OBO"
+            },
+            {
+                "URL": "URL1",
+                "type": "RDF"
+            }
+        ],
+        "ontologyDbId": "ontologyDbId0",
+        "ontologyName": "ontologyName0",
+        "version": "version0"
     },
     "scaleName": "scaleName0",
     "validValues": {
@@ -785,7 +825,7 @@ Update the details of an existing scale
         "dataType": "Code",
         "decimalPlaces": 0,
         "name": "string",
-        "ontologyRefernce": {
+        "ontologyReference": {
             "documentationLinks": [
                 {
                     "URL": "string",
@@ -982,7 +1022,7 @@ See Search Services for additional implementation details.
             {
                 "contextOfUse": [],
                 "crop": "maize",
-                "date": "2018-12-04",
+                "date": "2018-12-05",
                 "defaultValue": "10",
                 "documentationURL": "https://brapi.org",
                 "growthStage": "1",
@@ -995,7 +1035,7 @@ See Search Services for additional implementation details.
                     "methodDbId": "m1",
                     "methodName": "Tape Measure",
                     "name": "Tape Measure",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/m1",
@@ -1014,7 +1054,7 @@ See Search Services for additional implementation details.
                 "observationVariableName": "Plant height",
                 "ontologyDbId": "MO_123",
                 "ontologyName": "Ontology.org",
-                "ontologyRefernce": {
+                "ontologyReference": {
                     "documentationLinks": [
                         {
                             "URL": "https://ontology.org",
@@ -1030,7 +1070,7 @@ See Search Services for additional implementation details.
                     "dataType": "Numerical",
                     "decimalPlaces": 1,
                     "name": "Centimeter",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/s1",
@@ -1063,7 +1103,7 @@ See Search Services for additional implementation details.
                     "entity": "entity",
                     "mainAbbreviation": "H",
                     "name": "Plant Height",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/t1",
@@ -1086,7 +1126,7 @@ See Search Services for additional implementation details.
             {
                 "contextOfUse": [],
                 "crop": "maize",
-                "date": "2018-12-04",
+                "date": "2018-12-05",
                 "defaultValue": "10",
                 "documentationURL": "https://brapi.org",
                 "growthStage": "1",
@@ -1099,7 +1139,7 @@ See Search Services for additional implementation details.
                     "methodDbId": "m3",
                     "methodName": "Standard Color Palette",
                     "name": "Standard Color Palette",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/m3",
@@ -1118,7 +1158,7 @@ See Search Services for additional implementation details.
                 "observationVariableName": "Carotenoid",
                 "ontologyDbId": "MO_123",
                 "ontologyName": "Ontology.org",
-                "ontologyRefernce": {
+                "ontologyReference": {
                     "documentationLinks": [
                         {
                             "URL": "https://ontology.org",
@@ -1134,7 +1174,7 @@ See Search Services for additional implementation details.
                     "dataType": "Nominal",
                     "decimalPlaces": 0,
                     "name": "Color",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/s3",
@@ -1173,7 +1213,7 @@ See Search Services for additional implementation details.
                     "entity": "entity",
                     "mainAbbreviation": "LC",
                     "name": "Leaf Color",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/t3",
@@ -1332,9 +1372,19 @@ Create a new trait object in the database
     "entity": "entity0",
     "mainAbbreviation": "mainAbbreviation0",
     "ontologyReference": {
-        "ontologyID": "ontologyID0",
-        "ontologyPrefix": "ontologyPrefix0",
-        "ontologyTerm": "ontologyTerm0"
+        "documentationLinks": [
+            {
+                "URL": "URL0",
+                "type": "OBO"
+            },
+            {
+                "URL": "URL1",
+                "type": "RDF"
+            }
+        ],
+        "ontologyDbId": "ontologyDbId0",
+        "ontologyName": "ontologyName0",
+        "version": "version0"
     },
     "status": "status0",
     "synonyms": [
@@ -1371,7 +1421,7 @@ Create a new trait object in the database
         "entity": "string",
         "mainAbbreviation": "string",
         "name": "string",
-        "ontologyRefernce": {
+        "ontologyReference": {
             "documentationLinks": [
                 {
                     "URL": "string",
@@ -1387,7 +1437,7 @@ Create a new trait object in the database
         "synonyms": [
             "string"
         ],
-        "traitDbId": "166e5017-d160-4435-9cfb-86815e6a41e3",
+        "traitDbId": "2d078dee-3d06-4deb-b0bb-2919c021a538",
         "traitName": "string",
         "xref": "string"
     }
@@ -1509,9 +1559,19 @@ Update an existing trait
     "entity": "entity0",
     "mainAbbreviation": "mainAbbreviation0",
     "ontologyReference": {
-        "ontologyID": "ontologyID0",
-        "ontologyPrefix": "ontologyPrefix0",
-        "ontologyTerm": "ontologyTerm0"
+        "documentationLinks": [
+            {
+                "URL": "URL0",
+                "type": "OBO"
+            },
+            {
+                "URL": "URL1",
+                "type": "RDF"
+            }
+        ],
+        "ontologyDbId": "ontologyDbId0",
+        "ontologyName": "ontologyName0",
+        "version": "version0"
     },
     "status": "status0",
     "synonyms": [
@@ -1548,7 +1608,7 @@ Update an existing trait
         "entity": "string",
         "mainAbbreviation": "string",
         "name": "string",
-        "ontologyRefernce": {
+        "ontologyReference": {
             "documentationLinks": [
                 {
                     "URL": "string",
@@ -1669,7 +1729,7 @@ See Search Services for additional implementation details.
             {
                 "contextOfUse": [],
                 "crop": "maize",
-                "date": "2018-12-04",
+                "date": "2018-12-05",
                 "defaultValue": "10",
                 "documentationURL": "https://brapi.org",
                 "growthStage": "1",
@@ -1682,7 +1742,7 @@ See Search Services for additional implementation details.
                     "methodDbId": "m1",
                     "methodName": "Tape Measure",
                     "name": "Tape Measure",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/m1",
@@ -1701,7 +1761,7 @@ See Search Services for additional implementation details.
                 "observationVariableName": "Plant height",
                 "ontologyDbId": "MO_123",
                 "ontologyName": "Ontology.org",
-                "ontologyRefernce": {
+                "ontologyReference": {
                     "documentationLinks": [
                         {
                             "URL": "https://ontology.org",
@@ -1717,7 +1777,7 @@ See Search Services for additional implementation details.
                     "dataType": "Numerical",
                     "decimalPlaces": 1,
                     "name": "Centimeter",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/s1",
@@ -1750,7 +1810,7 @@ See Search Services for additional implementation details.
                     "entity": "entity",
                     "mainAbbreviation": "H",
                     "name": "Plant Height",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/t1",
@@ -1773,7 +1833,7 @@ See Search Services for additional implementation details.
             {
                 "contextOfUse": [],
                 "crop": "maize",
-                "date": "2018-12-04",
+                "date": "2018-12-05",
                 "defaultValue": "10",
                 "documentationURL": "https://brapi.org",
                 "growthStage": "1",
@@ -1786,7 +1846,7 @@ See Search Services for additional implementation details.
                     "methodDbId": "m3",
                     "methodName": "Standard Color Palette",
                     "name": "Standard Color Palette",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/m3",
@@ -1805,7 +1865,7 @@ See Search Services for additional implementation details.
                 "observationVariableName": "Carotenoid",
                 "ontologyDbId": "MO_123",
                 "ontologyName": "Ontology.org",
-                "ontologyRefernce": {
+                "ontologyReference": {
                     "documentationLinks": [
                         {
                             "URL": "https://ontology.org",
@@ -1821,7 +1881,7 @@ See Search Services for additional implementation details.
                     "dataType": "Nominal",
                     "decimalPlaces": 0,
                     "name": "Color",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/s3",
@@ -1860,7 +1920,7 @@ See Search Services for additional implementation details.
                     "entity": "entity",
                     "mainAbbreviation": "LC",
                     "name": "Leaf Color",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/t3",
@@ -1928,7 +1988,7 @@ Call to retrieve a list of observationVariables available in the system.
             {
                 "contextOfUse": [],
                 "crop": "maize",
-                "date": "2018-12-04",
+                "date": "2018-12-05",
                 "defaultValue": "10",
                 "documentationURL": "https://brapi.org",
                 "growthStage": "1",
@@ -1941,7 +2001,7 @@ Call to retrieve a list of observationVariables available in the system.
                     "methodDbId": "m1",
                     "methodName": "Tape Measure",
                     "name": "Tape Measure",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/m1",
@@ -1960,7 +2020,7 @@ Call to retrieve a list of observationVariables available in the system.
                 "observationVariableName": "Plant height",
                 "ontologyDbId": "MO_123",
                 "ontologyName": "Ontology.org",
-                "ontologyRefernce": {
+                "ontologyReference": {
                     "documentationLinks": [
                         {
                             "URL": "https://ontology.org",
@@ -1976,7 +2036,7 @@ Call to retrieve a list of observationVariables available in the system.
                     "dataType": "Numerical",
                     "decimalPlaces": 1,
                     "name": "Centimeter",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/s1",
@@ -2009,7 +2069,7 @@ Call to retrieve a list of observationVariables available in the system.
                     "entity": "entity",
                     "mainAbbreviation": "H",
                     "name": "Plant Height",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/t1",
@@ -2032,7 +2092,7 @@ Call to retrieve a list of observationVariables available in the system.
             {
                 "contextOfUse": [],
                 "crop": "maize",
-                "date": "2018-12-04",
+                "date": "2018-12-05",
                 "defaultValue": "10",
                 "documentationURL": "https://brapi.org",
                 "growthStage": "1",
@@ -2045,7 +2105,7 @@ Call to retrieve a list of observationVariables available in the system.
                     "methodDbId": "m3",
                     "methodName": "Standard Color Palette",
                     "name": "Standard Color Palette",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/m3",
@@ -2064,7 +2124,7 @@ Call to retrieve a list of observationVariables available in the system.
                 "observationVariableName": "Carotenoid",
                 "ontologyDbId": "MO_123",
                 "ontologyName": "Ontology.org",
-                "ontologyRefernce": {
+                "ontologyReference": {
                     "documentationLinks": [
                         {
                             "URL": "https://ontology.org",
@@ -2080,7 +2140,7 @@ Call to retrieve a list of observationVariables available in the system.
                     "dataType": "Nominal",
                     "decimalPlaces": 0,
                     "name": "Color",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/s3",
@@ -2119,7 +2179,7 @@ Call to retrieve a list of observationVariables available in the system.
                     "entity": "entity",
                     "mainAbbreviation": "LC",
                     "name": "Leaf Color",
-                    "ontologyRefernce": {
+                    "ontologyReference": {
                         "documentationLinks": [
                             {
                                 "URL": "https://ontology.org/t3",
@@ -2194,7 +2254,7 @@ Retrieve variable details
     "result": {
         "contextOfUse": [],
         "crop": "maize",
-        "date": "2018-12-04",
+        "date": "2018-12-05",
         "defaultValue": "10",
         "documentationURL": "https://brapi.org",
         "growthStage": "1",
@@ -2207,7 +2267,7 @@ Retrieve variable details
             "methodDbId": "m1",
             "methodName": "Tape Measure",
             "name": "Tape Measure",
-            "ontologyRefernce": {
+            "ontologyReference": {
                 "documentationLinks": [
                     {
                         "URL": "https://ontology.org/m1",
@@ -2226,7 +2286,7 @@ Retrieve variable details
         "observationVariableName": "Plant height",
         "ontologyDbId": "MO_123",
         "ontologyName": "Ontology.org",
-        "ontologyRefernce": {
+        "ontologyReference": {
             "documentationLinks": [
                 {
                     "URL": "https://ontology.org",
@@ -2242,7 +2302,7 @@ Retrieve variable details
             "dataType": "Numerical",
             "decimalPlaces": 1,
             "name": "Centimeter",
-            "ontologyRefernce": {
+            "ontologyReference": {
                 "documentationLinks": [
                     {
                         "URL": "https://ontology.org/s1",
@@ -2275,7 +2335,7 @@ Retrieve variable details
             "entity": "entity",
             "mainAbbreviation": "H",
             "name": "Plant Height",
-            "ontologyRefernce": {
+            "ontologyReference": {
                 "documentationLinks": [
                     {
                         "URL": "https://ontology.org/t1",

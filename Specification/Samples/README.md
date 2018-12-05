@@ -312,8 +312,8 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
         "status": []
     },
     "result": {
-        "sampleDbId": "b528f627-7548-4d01-a3c2-6b78f9a4f221",
-        "sampleId": "b528f627-7548-4d01-a3c2-6b78f9a4f221"
+        "sampleDbId": "d3636ed9-f0d5-47fd-90ea-278d95043411",
+        "sampleId": "d3636ed9-f0d5-47fd-90ea-278d95043411"
     }
 }
 ```
