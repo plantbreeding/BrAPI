@@ -150,7 +150,7 @@ paths:
                   - observationDbId: '22'
                     observationUnitDbId: '11'
                     observationVariableDbId: MO_123:100004
-                  - observationDbId: 63c7f145-b181-4cc0-a224-2477ce3aaa8a
+                  - observationDbId: 1f55443e-c7e1-4b71-bc9c-02ddbca9ab7d
                     observationUnitDbId: '11'
                     observationVariableDbId: MO_123:100002
               schema:

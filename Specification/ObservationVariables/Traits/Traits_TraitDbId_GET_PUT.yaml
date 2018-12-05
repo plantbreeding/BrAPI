@@ -101,7 +101,7 @@ paths:
                   entity: string
                   mainAbbreviation: string
                   name: string
-                  ontologyRefernce:
+                  ontologyReference:
                     documentationLinks:
                     - URL: string
                       type: OBO

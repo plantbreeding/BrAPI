@@ -23,8 +23,8 @@ components:
         mainAbbreviation:
           description: 'Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")'
           type: string
-        ontologyRefernce:
-          $ref: '#/components/schemas/ontologyRefernce'
+        ontologyReference:
+          $ref: '#/components/schemas/ontologyReference'
         status:
           description: 'Trait status (examples: "recommended", "obsolete", "legacy", etc.)'
           type: string

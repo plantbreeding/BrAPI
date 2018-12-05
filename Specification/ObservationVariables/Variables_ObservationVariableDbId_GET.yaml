@@ -30,7 +30,7 @@ paths:
                 result:
                   contextOfUse: []
                   crop: maize
-                  date: '2018-12-04'
+                  date: '2018-12-05'
                   defaultValue: '10'
                   documentationURL: https://brapi.org
                   growthStage: '1'
@@ -43,7 +43,7 @@ paths:
                     methodDbId: m1
                     methodName: Tape Measure
                     name: Tape Measure
-                    ontologyRefernce:
+                    ontologyReference:
                       documentationLinks:
                       - URL: https://ontology.org/m1
                         type: RDF
@@ -57,7 +57,7 @@ paths:
                   observationVariableName: Plant height
                   ontologyDbId: MO_123
                   ontologyName: Ontology.org
-                  ontologyRefernce:
+                  ontologyReference:
                     documentationLinks:
                     - URL: https://ontology.org
                       type: WEBPAGE
@@ -69,7 +69,7 @@ paths:
                     dataType: Numerical
                     decimalPlaces: 1
                     name: Centimeter
-                    ontologyRefernce:
+                    ontologyReference:
                       documentationLinks:
                       - URL: https://ontology.org/s1
                         type: OBO
@@ -96,7 +96,7 @@ paths:
                     entity: entity
                     mainAbbreviation: H
                     name: Plant Height
-                    ontologyRefernce:
+                    ontologyReference:
                       documentationLinks:
                       - URL: https://ontology.org/t1
                         type: WEBPAGE

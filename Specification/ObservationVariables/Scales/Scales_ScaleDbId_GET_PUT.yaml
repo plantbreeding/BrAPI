@@ -34,7 +34,7 @@ paths:
                   dataType: Numerical
                   decimalPlaces: 1
                   name: Centimeter
-                  ontologyRefernce:
+                  ontologyReference:
                     documentationLinks:
                     - URL: https://ontology.org/s1
                       type: OBO
@@ -105,7 +105,7 @@ paths:
                   dataType: Code
                   decimalPlaces: 0
                   name: string
-                  ontologyRefernce:
+                  ontologyReference:
                     documentationLinks:
                     - URL: string
                       type: OBO

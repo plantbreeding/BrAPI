@@ -124,10 +124,10 @@ paths:
                 result:
                   data:
                   - string
-                  dateCreated: '2018-12-04T17:42:22-05:00'
-                  dateModified: '2018-12-04T17:42:22-05:00'
+                  dateCreated: '2018-12-05T14:36:04-05:00'
+                  dateModified: '2018-12-05T14:36:04-05:00'
                   description: string
-                  listDbId: 4cf54a1f-4f84-4e2b-a9c2-0a5ff072f80c
+                  listDbId: d93d6bb6-dfc3-4d15-8d2e-654c618ce12e
                   listName: string
                   listOwnerName: string
                   listOwnerPersonDbId: string

@@ -166,9 +166,9 @@ paths:
                 metadata:
                   asynchStatus:
                     asynchId: ''
-                    endTime: '2018-12-04'
+                    endTime: '2018-12-05'
                     percentComplete: 100
-                    startTime: '2018-12-04'
+                    startTime: '2018-12-05'
                     status: FINISHED
                   datafiles: []
                   pagination:

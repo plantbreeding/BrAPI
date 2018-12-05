@@ -33,7 +33,7 @@ paths:
                   status: []
                 result:
                   observations:
-                  - observationDbId: cba781e3-8dfc-49cd-b5e3-41d03124b077
+                  - observationDbId: bb989815-86bf-430b-9d87-054df8919767
                     observationUnitDbId: '1'
                     observationVariableDbId: MO_123:100002
               schema:

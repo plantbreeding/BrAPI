@@ -26,12 +26,12 @@ components:
           description: Scientific species name
           type: string
         taxonomyOntologyReference:
-          $ref: '#/components/schemas/ontologyReference'
+          $ref: '#/components/schemas/vendorOntologyReference'
         tissueType:
           description: The type of tissue in this sample. List of accepted tissue types can be found in the Vendor Specs.
           type: string
         tissueTypeOntologyReference:
-          $ref: '#/components/schemas/ontologyReference'
+          $ref: '#/components/schemas/vendorOntologyReference'
         volume:
           $ref: '#/components/schemas/measurement'
         well:

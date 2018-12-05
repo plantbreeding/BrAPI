@@ -34,7 +34,7 @@ paths:
                     methodDbId: m1
                     methodName: Tape Measure
                     name: Tape Measure
-                    ontologyRefernce:
+                    ontologyReference:
                       documentationLinks:
                       - URL: https://ontology.org/m1
                         type: RDF
@@ -49,7 +49,7 @@ paths:
                     methodDbId: m2
                     methodName: Dry Electric Scale
                     name: Dry Electric Scale
-                    ontologyRefernce:
+                    ontologyReference:
                       documentationLinks:
                       - URL: https://ontology.org/m2
                         type: WEBPAGE
@@ -113,10 +113,10 @@ paths:
                   class: string
                   description: string
                   formula: string
-                  methodDbId: 2b965245-9006-44cd-86a5-7e282fc4a6c8
+                  methodDbId: 8175d7ac-6221-4e1d-8023-91ddb8b30fd8
                   methodName: string
                   name: string
-                  ontologyRefernce:
+                  ontologyReference:
                     documentationLinks:
                     - URL: string
                       type: OBO

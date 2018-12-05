@@ -16,8 +16,8 @@ components:
         methodName:
           description: Human readable name for the method
           type: string
-        ontologyRefernce:
-          $ref: '#/components/schemas/ontologyRefernce'
+        ontologyReference:
+          $ref: '#/components/schemas/ontologyReference'
         reference:
           description: Bibliographical reference describing the method.
           type: string

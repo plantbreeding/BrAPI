@@ -144,7 +144,7 @@ def postParams(path):
 				  "description": "string",
 				  "formula": "string",
 				  "methodName": "string",
-				  "ontologyRefernce": {
+				  "ontologyReference": {
 				    "documentationLinks": [
 				      {
 				        "URL": "string",
@@ -161,7 +161,7 @@ def postParams(path):
 		params = {
 				  "dataType": "Code",
 				  "decimalPlaces": 0,
-				  "ontologyRefernce": {
+				  "ontologyReference": {
 				    "documentationLinks": [
 				      {
 				        "URL": "string",
@@ -192,7 +192,7 @@ def postParams(path):
 				  "description": "string",
 				  "entity": "string",
 				  "mainAbbreviation": "string",
-				  "ontologyRefernce": {
+				  "ontologyReference": {
 				    "documentationLinks": [
 				      {
 				        "URL": "string",
@@ -393,7 +393,7 @@ def putParams(path):
 				  "description": "string",
 				  "formula": "string",
 				  "methodName": "string",
-				  "ontologyRefernce": {
+				  "ontologyReference": {
 				    "documentationLinks": [
 				      {
 				        "URL": "string",
@@ -410,7 +410,7 @@ def putParams(path):
 		params = {
 				  "dataType": "Code",
 				  "decimalPlaces": 0,
-				  "ontologyRefernce": {
+				  "ontologyReference": {
 				    "documentationLinks": [
 				      {
 				        "URL": "string",
@@ -441,7 +441,7 @@ def putParams(path):
 				  "description": "string",
 				  "entity": "string",
 				  "mainAbbreviation": "string",
-				  "ontologyRefernce": {
+				  "ontologyReference": {
 				    "documentationLinks": [
 				      {
 				        "URL": "string",

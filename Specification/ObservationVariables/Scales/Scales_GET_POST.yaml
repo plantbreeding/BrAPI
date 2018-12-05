@@ -31,7 +31,7 @@ paths:
                   - dataType: Numerical
                     decimalPlaces: 1
                     name: Centimeter
-                    ontologyRefernce:
+                    ontologyReference:
                       documentationLinks:
                       - URL: https://ontology.org/s1
                         type: OBO
@@ -49,7 +49,7 @@ paths:
                   - dataType: Numerical
                     decimalPlaces: 3
                     name: Kilogram
-                    ontologyRefernce:
+                    ontologyReference:
                       documentationLinks:
                       - URL: https://ontology.org/s2
                         type: RDF
@@ -119,7 +119,7 @@ paths:
                   dataType: Code
                   decimalPlaces: 0
                   name: string
-                  ontologyRefernce:
+                  ontologyReference:
                     documentationLinks:
                     - URL: string
                       type: OBO
@@ -127,7 +127,7 @@ paths:
                     ontologyDbId: MO_123
                     ontologyName: Ontology.org
                     version: '17'
-                  scaleDbId: 70083e1e-2c7f-474a-8ce5-1228b21d2d30
+                  scaleDbId: 90fdedbc-6412-47ac-877b-81dd466fe6d2
                   scaleName: string
                   validValues:
                     categories:

@@ -1,6 +1,6 @@
 components:
   schemas:
-    ontologyRefernce:
+    ontologyReference:
       properties:
         documentationLinks:
           description: links to various ontology documentation

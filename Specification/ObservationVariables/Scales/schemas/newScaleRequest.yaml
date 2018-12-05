@@ -8,8 +8,8 @@ components:
         decimalPlaces:
           description: For numerical, number of decimal places to be reported
           type: integer
-        ontologyRefernce:
-          $ref: '#/components/schemas/ontologyRefernce'
+        ontologyReference:
+          $ref: '#/components/schemas/ontologyReference'
         scaleName:
           description: Name of the scale
           type: string

@@ -37,7 +37,7 @@ paths:
                   methodDbId: m1
                   methodName: Tape Measure
                   name: Tape Measure
-                  ontologyRefernce:
+                  ontologyReference:
                     documentationLinks:
                     - URL: https://ontology.org/m1
                       type: RDF
@@ -105,7 +105,7 @@ paths:
                   methodDbId: m1
                   methodName: string
                   name: string
-                  ontologyRefernce:
+                  ontologyReference:
                     documentationLinks:
                     - URL: string
                       type: OBO

@@ -1,7 +1,7 @@
 components:
   schemas:
     geoJSON:
-      description: One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate refernce system.
+      description: One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
       properties:
         geometry:
           oneOf:

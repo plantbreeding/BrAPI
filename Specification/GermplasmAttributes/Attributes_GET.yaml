@@ -51,7 +51,7 @@ paths:
                       methodDbId: m1
                       methodName: Tape Measure
                       name: Tape Measure
-                      ontologyRefernce:
+                      ontologyReference:
                         documentationLinks:
                         - URL: https://ontology.org/m1
                           type: RDF
@@ -63,7 +63,7 @@ paths:
                     name: Rht-B1b
                     ontologyDbId: MO_123
                     ontologyName: Ontology.org
-                    ontologyRefernce:
+                    ontologyReference:
                       documentationLinks:
                       - URL: https://ontology.org
                         type: WEBPAGE
@@ -75,7 +75,7 @@ paths:
                       dataType: Numerical
                       decimalPlaces: 1
                       name: Centimeter
-                      ontologyRefernce:
+                      ontologyReference:
                         documentationLinks:
                         - URL: https://ontology.org/s1
                           type: OBO
@@ -102,7 +102,7 @@ paths:
                       entity: entity
                       mainAbbreviation: H
                       name: Plant Height
-                      ontologyRefernce:
+                      ontologyReference:
                         documentationLinks:
                         - URL: https://ontology.org/t1
                           type: WEBPAGE
@@ -138,7 +138,7 @@ paths:
                       methodDbId: m3
                       methodName: Standard Color Palette
                       name: Standard Color Palette
-                      ontologyRefernce:
+                      ontologyReference:
                         documentationLinks:
                         - URL: https://ontology.org/m3
                           type: OBO
@@ -150,7 +150,7 @@ paths:
                     name: Weevil Resistance
                     ontologyDbId: MO_123
                     ontologyName: Ontology.org
-                    ontologyRefernce:
+                    ontologyReference:
                       documentationLinks:
                       - URL: https://ontology.org
                         type: WEBPAGE
@@ -162,7 +162,7 @@ paths:
                       dataType: Nominal
                       decimalPlaces: 0
                       name: Color
-                      ontologyRefernce:
+                      ontologyReference:
                         documentationLinks:
                         - URL: https://ontology.org/s3
                           type: WEBPAGE
@@ -194,7 +194,7 @@ paths:
                       entity: entity
                       mainAbbreviation: LC
                       name: Leaf Color
-                      ontologyRefernce:
+                      ontologyReference:
                         documentationLinks:
                         - URL: https://ontology.org/t3
                           type: RDF

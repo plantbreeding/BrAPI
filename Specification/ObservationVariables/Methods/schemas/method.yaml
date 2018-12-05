@@ -23,8 +23,8 @@ components:
           deprecated: true
           description: DEPRECATED in v1.3 - Use "methodName"
           type: string
-        ontologyRefernce:
-          $ref: '#/components/schemas/ontologyRefernce'
+        ontologyReference:
+          $ref: '#/components/schemas/ontologyReference'
         reference:
           description: Bibliographical reference describing the method.
           type: string

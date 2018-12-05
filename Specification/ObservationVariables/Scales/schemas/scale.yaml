@@ -12,8 +12,8 @@ components:
           deprecated: true
           description: DEPRECATED in v1.3 - Use "scaleName"
           type: string
-        ontologyRefernce:
-          $ref: '#/components/schemas/ontologyRefernce'
+        ontologyReference:
+          $ref: '#/components/schemas/ontologyReference'
         scaleDbId:
           description: Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.
           type: string

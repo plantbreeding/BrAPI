@@ -106,7 +106,7 @@ paths:
                   entity: string
                   mainAbbreviation: string
                   name: string
-                  ontologyRefernce:
+                  ontologyReference:
                     documentationLinks:
                     - URL: string
                       type: OBO
@@ -117,7 +117,7 @@ paths:
                   status: string
                   synonyms:
                   - string
-                  traitDbId: 4c412b5e-c663-4747-a1a8-7e9ba0821b7a
+                  traitDbId: 2d078dee-3d06-4deb-b0bb-2919c021a538
                   traitName: string
                   xref: string
               schema:
