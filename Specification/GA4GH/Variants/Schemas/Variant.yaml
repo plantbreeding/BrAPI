@@ -1,0 +1,137 @@
+components:
+  schemas:
+    Variant:
+      description: |-
+        A `Variant` represents a change in DNA sequence relative to some reference.
+        For example, a variant could represent a SNP or an insertion.
+        Variants belong to a `VariantSet`.
+        This is equivalent to a row in VCF.
+      properties:
+        alternate_bases:
+          description: |-
+            The bases that appear instead of the reference bases. Multiple alternate
+            alleles are possible.
+          items:
+            type: string
+          type: array
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+        calls:
+          description: |-
+            The variant calls for this particular variant. Each one represents the
+            determination of genotype with respect to this variant. `Call`s in this
+            array are implicitly associated with this `Variant`.
+          items:
+            $ref: '#/components/schemas/Call'
+          type: array
+        ciend:
+          items:
+            format: int32
+            type: integer
+          title: |-
+            Similar to "cipos", but for the variant's end position (which is derived
+            from start + svlen).
+            Example:
+              [ -1000, 0 ]
+          type: array
+        cipos:
+          items:
+            format: int32
+            type: integer
+          title: |-
+            In the case of structural variants, start and end of the variant may not
+            be known with an exact base position. "cipos" provides an interval with
+            high confidence for the start position. The interval is provided by 0 or
+            2 signed integers which are added to the start position.
+            Based on the use in VCFv4.2
+            Example:
+              [ -12000, 1000 ]
+          type: array
+        created:
+          description: The date this variant was created in milliseconds from the epoch.
+          format: int64
+          type: string
+        end:
+          description: |-
+            The end position (exclusive), resulting in [start, end) closed-open
+            interval.
+            This is typically calculated by `start + referenceBases.length`.
+          format: int64
+          type: string
+        filters_applied:
+          description: |-
+            True if filters were applied for this variant. VCF column 7 "FILTER"
+            any value other than the missing value.
+          format: boolean
+          type: boolean
+        filters_failed:
+          description: |-
+            Zero or more filters that failed for this variant. VCF column 7 "FILTER"
+            shared across all alleles in the same VCF record.
+          items:
+            type: string
+          type: array
+        filters_passed:
+          description: |-
+            True if all filters for this variant passed. VCF column 7 "FILTER"
+            value PASS.
+          format: boolean
+          type: boolean
+        id:
+          description: The variant ID.
+          type: string
+        names:
+          description: Names for the variant, for example a RefSNP ID.
+          items:
+            type: string
+          type: array
+        reference_bases:
+          description: |-
+            The reference bases for this variant. They start at the given start
+            position.
+          type: string
+        reference_name:
+          title: |-
+            The reference on which this variant occurs.
+            (e.g. `chr20` or `X`)
+          type: string
+        start:
+          description: |-
+            The start position at which this variant occurs (0-based).
+            This corresponds to the first base of the string of reference bases.
+            Genomic positions are non-negative integers less than reference length.
+            Variants spanning the join of circular genomes are represented as
+            two variants one on each side of the join (position 0).
+          format: int64
+          type: string
+        svlen:
+          format: int64
+          title: |-
+            Length of the - if labeled as such in variant_type - structural variation.
+            Based on the use in VCFv4.2
+          type: string
+        updated:
+          description: |-
+            The time at which this variant was last updated in
+            milliseconds from the epoch.
+          format: int64
+          type: string
+        variant_set_id:
+          description: |-
+            The ID of the `VariantSet` this variant belongs to. This transitively
+            defines
+            the `ReferenceSet` against which the `Variant` is to be interpreted.
+          type: string
+        variant_type:
+          title: |-
+            The "variant_type" is used to denote e.g. structural variants.
+            Examples:
+              DUP  : duplication of sequence following "start"; not necessarily in situ
+              DEL  : deletion of sequence following "start"
+          type: string
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

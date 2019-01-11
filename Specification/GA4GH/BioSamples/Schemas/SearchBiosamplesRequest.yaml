@@ -1,0 +1,34 @@
+components:
+  schemas:
+    SearchBiosamplesRequest:
+      description: |-
+        *********************  /biosamples ********************************
+        This is the request sent to `POST /biosamples/search` expressed as JSON.
+      properties:
+        dataset_id:
+          description: Optionally specify the dataset to search within.
+          type: string
+        individual_id:
+          description: Returns Biosamples for the provided individual ID.
+          type: string
+        name:
+          description: Returns Biosamples with the given name found by case-sensitive string matching.
+          type: string
+        page_size:
+          description: |-
+            Specifies the maximum number of results to return in a single page.
+            If unspecified, a system default will be used.
+          format: int32
+          type: integer
+        page_token:
+          description: |-
+            The continuation token, which is used to page through large result sets.
+            To get the next page of results, set this parameter to the value of
+            `nextPageToken` from the previous response.
+          type: string
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

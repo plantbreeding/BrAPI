@@ -1,0 +1,840 @@
+openapi: 3.0.0
+info:
+  title: ga4gh/sequence_annotation_service.proto
+  version: version not set
+paths:
+  /v0.6.0a10/features/search:
+    post:
+      summary: Gets a list of `Feature` matching the search criteria.
+      description: >-
+        `POST /features/search` must accept a JSON version of
+
+        `SearchFeaturesRequest` as the post body and will return a JSON version
+        of
+
+        `SearchFeaturesResponse`.
+      operationId: SearchFeatures
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchFeaturesResponse'
+      tags:
+        - SequenceAnnotationService
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchFeaturesRequest'
+        required: true
+  '/v0.6.0a10/features/{feature_id}':
+    get:
+      summary: Gets a `Feature` by ID.
+      description: '`GET /features/{id}` will return a JSON version of `Feature`.'
+      operationId: GetFeature
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Feature'
+      parameters:
+        - name: feature_id
+          description: The ID of the `Feature` to be retrieved.
+          in: path
+          required: true
+          schema:
+            type: string
+      tags:
+        - SequenceAnnotationService
+  /v0.6.0a10/featuresets/search:
+    post:
+      summary: Gets a list of `FeatureSet` matching the search criteria.
+      description: >-
+        `POST /featuresets/search` must accept a JSON version of
+
+        `SearchFeatureSetsRequest` as the post body and will return a JSON
+        version
+
+        of `SearchFeatureSetsResponse`.
+      operationId: SearchFeatureSets
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchFeatureSetsResponse'
+      tags:
+        - SequenceAnnotationService
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchFeatureSetsRequest'
+        required: true
+  '/v0.6.0a10/featuresets/{feature_set_id}':
+    get:
+      summary: Gets a `FeatureSet` by ID.
+      description: '`GET /featuresets/{id}` will return a JSON version of `FeatureSet`.'
+      operationId: GetFeatureSet
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FeatureSet'
+      parameters:
+        - name: feature_set_id
+          description: The ID of the `FeatureSet` to be retrieved.
+          in: path
+          required: true
+          schema:
+            type: string
+      tags:
+        - SequenceAnnotationService
+  /v0.6.0a8/continuous/search:
+    post:
+      summary: Gets continuous values matching the search criteria.
+      description: >-
+        `POST /continuous/search` must accept a JSON version of
+
+        `SearchContinuousRequest` as the post body and will return a JSON
+        version
+
+        of `SearchContinuousResponse`.
+      operationId: SearchContinuous
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchContinuousResponse'
+      tags:
+        - SequenceAnnotationService
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchContinuousRequest'
+        required: true
+  /v0.6.0a8/continuoussets/search:
+    post:
+      summary: Gets a list of `ContinuousSet` matching the search criteria.
+      description: |-
+        `POST /continuoussets/search` must accept a JSON version of
+        `SearchContinuousSetsRequest` as the post body and will return a JSON
+        version of `SearchContinuousSetsResponse`.
+      operationId: SearchContinuousSets
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchContinuousSetsResponse'
+      tags:
+        - SequenceAnnotationService
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchContinuousSetsRequest'
+        required: true
+  '/v0.6.0a8/continuoussets/{continuous_set_id}':
+    get:
+      summary: Gets a `ContinuousSet` by ID.
+      description: >-
+        `GET /continuoussets/{id}` will return a JSON version of
+        `ContinuousSet`.
+      operationId: GetContinuousSet
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContinuousSet'
+      parameters:
+        - name: continuous_set_id
+          description: The ID of the `ContinuousSet` to be retrieved.
+          in: path
+          required: true
+          schema:
+            type: string
+      tags:
+        - SequenceAnnotationService
+components:
+  schemas:
+    ga4ghAnalysis:
+      type: object
+      properties:
+        id:
+          type: string
+          description: |-
+            Formats of id | name | description | accessions are described in the
+            documentation on general attributes and formats.
+        name:
+          type: string
+        description:
+          type: string
+        created:
+          type: string
+          description: 'The time at which this record was created, in ISO 8601 format.'
+        updated:
+          type: string
+          description: 'The time at which this record was last updated, in ISO 8601 format.'
+        type:
+          type: string
+          description: The type of analysis.
+        software:
+          type: array
+          items:
+            type: string
+          description: The software run to generate this analysis.
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+      description: >-
+        An analysis contains an interpretation of one or several experiments.
+        (e.g.
+
+        SNVs, copy number variations, methylation status) together with
+        information
+
+        about the methodology used.
+    ga4ghAttributeValue:
+      type: object
+      properties:
+        string_value:
+          type: string
+        int64_value:
+          type: string
+          format: int64
+        int32_value:
+          type: integer
+          format: int32
+        bool_value:
+          type: boolean
+          format: boolean
+        double_value:
+          type: number
+          format: double
+        external_identifier:
+          $ref: '#/components/schemas/ExternalIdentifier'
+        ontology_term:
+          $ref: '#/components/schemas/OntologyTerm'
+        experiment:
+          $ref: '#/components/schemas/Experiment'
+        program:
+          $ref: '#/components/schemas/Program'
+        analysis:
+          $ref: '#/components/schemas/Analysis'
+        null_value:
+          $ref: '#/components/schemas/NullValue'
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+        attribute_list:
+          $ref: '#/components/schemas/AttributeValueList'
+      description: >-
+        Type defining a collection of attributes associated with various
+        protocol
+
+        records. Each attribute is a name that maps to an array of one or more
+
+        values. Values are chosen from both internal protobuf types and GA4GH.
+         Values should be split into array elements instead of using a separator
+        syntax that needs to parsed.
+    ga4ghAttributeValueList:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/AttributeValue'
+    ga4ghAttributes:
+      type: object
+      properties:
+        attr:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/AttributeValueList'
+    ga4ghContinuous:
+      type: object
+      properties:
+        start:
+          type: string
+          format: int64
+          description: >-
+            The start position at which this signal occurs (0-based). This
+
+            corresponds to the first base of the string of reference bases.
+            Genomic
+
+            positions are non-negative integers less than the reference length.
+        values:
+          type: array
+          items:
+            type: number
+            format: double
+          description: The contiguous data values. Unsampled bases are given as NaN.
+        continuous_set_id:
+          type: string
+          description: Identifier for the containing continous set.
+        reference_name:
+          type: string
+          description: The reference on which this signal is defined (e.g. `chr20` or `X`).
+      description: >-
+        This message defines a format for exchanging continuous valued signal
+        data,
+
+        such as those produced experimentally (e.g. ChIP-Seq data) or through 
+
+        calculations (e.g. conservation scores). It can be used, for example,
+
+        to share data from Wiggle, BigWig, and BedGraph sources.
+    ga4ghContinuousSet:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The ID of this annotation set.
+        dataset_id:
+          type: string
+          description: The ID of the dataset this annotation set belongs to.
+        reference_set_id:
+          type: string
+          description: >-
+            The ID of the reference set which defines the coordinate-space for
+            this
+
+            set of annotations.
+        name:
+          type: string
+          description: The display name for this annotation set.
+        source_uri:
+          type: string
+          description: >-
+            The source URI describing the file from which this annotation set
+            was
+
+            generated, if any.
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+      description: |-
+        A set of Continous messages. Continuous values can be sent
+        as a single Continuous message containing all values or a series
+        of Continuous messages to either limit the size of the values array
+        or to skip NaN values.
+    ga4ghExperiment:
+      type: object
+      properties:
+        id:
+          type: string
+          title: The experiment ID
+        name:
+          type: string
+          description: The name of the experiment.
+        description:
+          type: string
+          description: A description of the experiment.
+        message_create_time:
+          type: string
+          title: >-
+            The time at which this message was created.
+
+            Format: ISO 8601, YYYY-MM-DDTHH:MM:SS.SSS (e.g.
+            2015-02-10T00:03:42.123Z)
+        message_update_time:
+          type: string
+          title: >-
+            The time at which this message was last updated.
+
+            Format: ISO 8601, YYYY-MM-DDTHH:MM:SS.SSS (e.g.
+            2015-02-10T00:03:42.123Z)
+        run_time:
+          type: string
+          title: |-
+            The time at which this experiment was performed.
+            Granularity here is variable (e.g. date only).
+            Format: ISO 8601, YYYY-MM-DDTHH:MM:SS (e.g. 2015-02-10T00:03:42)
+        molecule:
+          type: string
+          title: >-
+            The molecule examined in this experiment. (e.g. genomics DNA, total
+            RNA)
+        strategy:
+          type: string
+          title: |-
+            The experiment technique or strategy applied to the sample.
+            (e.g. whole genome sequencing, RNA-seq, RIP-seq)
+        selection:
+          type: string
+          title: >-
+            The method used to enrich the target. (e.g. immunoprecipitation,
+            size
+
+            fractionation, MNase digestion)
+        library:
+          type: string
+          description: The name of the library used as part of this experiment.
+        library_layout:
+          type: string
+          description: The configuration of sequenced reads. (e.g. Single or Paired).
+        instrument_model:
+          type: string
+          description: |-
+            The instrument model used as part of this experiment.
+            This maps to sequencing technology in BAM.
+        instrument_data_file:
+          type: string
+          title: |-
+            The data file generated by the instrument.
+            TODO: This isn't actually a file is it?
+            Should this be `instrumentData` instead?
+        sequencing_center:
+          type: string
+          description: The sequencing center used as part of this experiment.
+        platform_unit:
+          type: string
+          description: |-
+            The platform unit used as part of this experiment. This is a
+            flowcell-barcode
+            or slide unique identifier.
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+      description: An experimental preparation of a sample.
+    ga4ghExternalIdentifier:
+      type: object
+      properties:
+        database:
+          type: string
+          description: 'The source of the identifier, e.g. `Ensembl`.'
+        identifier:
+          type: string
+          description: 'The ID defined by the external database, e.g. `ENST00000000000`.'
+        version:
+          type: string
+          description: 'The version of the object or the database, e.g. `78`.'
+      title: Identifier from a public database
+    ga4ghFeature:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Id of this annotation node.
+        name:
+          type: string
+          description: An optional name to provide for the feature.
+        gene_symbol:
+          type: string
+          description: |-
+            The gene symbol the feature occurs on. This field may be
+            replaced with a more generic representation in a future version.
+        parent_id:
+          type: string
+          description: Parent Id of this node. Set to empty string if node has no parent.
+        child_ids:
+          type: array
+          items:
+            type: string
+          description: >-
+            Ordered array of Child Ids of this node. Since not all child nodes
+            are
+
+            ordered by genomic coordinates, this can't always be reconstructed
+            from
+
+            parent_id's of the children alone.
+        feature_set_id:
+          type: string
+          description: Identifier for the containing feature set.
+        reference_name:
+          type: string
+          description: The reference on which this feature occurs (e.g. `chr20` or `X`).
+        start:
+          type: string
+          format: int64
+          description: >-
+            The start position at which this feature occurs (0-based). This
+
+            corresponds to the first base of the string of reference bases.
+            Genomic
+
+            positions are non-negative integers less than reference length.
+            Features
+
+            spanning the join of circular genomes are represented as two
+            features one
+
+            on each side of the join (position 0).
+        end:
+          type: string
+          format: int64
+          description: |-
+            The end position (exclusive), resulting in [start, end) closed-open
+            interval. This is typically calculated by `start +
+            reference_bases.length`.
+        strand:
+          $ref: '#/components/schemas/Strand'
+        feature_type:
+          $ref: '#/components/schemas/OntologyTerm'
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+      description: |-
+        Node in the annotation graph that annotates a contiguous region of a
+        sequence.
+    ga4ghFeatureSet:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The ID of this annotation set.
+        dataset_id:
+          type: string
+          description: The ID of the dataset this annotation set belongs to.
+        reference_set_id:
+          type: string
+          description: >-
+            The ID of the reference set which defines the coordinate-space for
+            this
+
+            set of annotations.
+        name:
+          type: string
+          description: The display name for this annotation set.
+        source_uri:
+          type: string
+          description: >-
+            The source URI describing the file from which this annotation set
+            was
+
+            generated, if any.
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+      description: A set of sequence features annotations.
+    ga4ghNullValue:
+      type: string
+      enum:
+        - NULL_VALUE
+      default: NULL_VALUE
+      description: ' - NULL_VALUE: Null value.'
+    ga4ghOntologyTerm:
+      type: object
+      properties:
+        term_id:
+          type: string
+          description: >-
+            Ontology term identifier - the CURIE for an ontology term. It
+
+            differs from the standard GA4GH schema's :ref:`id
+            `
+
+            in that it is a CURIE pointing to an information resource outside of
+            the
+
+            scope of the schema or its resource implementation.
+        term:
+          type: string
+          description: >-
+            Ontology term - the label of the ontology term the termId is
+            pointing to.
+      title: |-
+        An ontology term describing an attribute. (e.g. the phenotype attribute
+        'polydactyly' from HPO)
+    ga4ghProgram:
+      type: object
+      properties:
+        command_line:
+          type: string
+          description: The command line used to run this program.
+        id:
+          type: string
+          description: The user specified ID of the program.
+        name:
+          type: string
+          description: The name of the program.
+        prev_program_id:
+          type: string
+          description: The ID of the program run before this one.
+        version:
+          type: string
+          description: The version of the program run.
+      description: A Program describes software used in data processing or analysis.
+    ga4ghSearchContinuousRequest:
+      type: object
+      properties:
+        continuous_set_id:
+          type: string
+          description: The annotation set to search within. Required value.
+        reference_name:
+          type: string
+          description: Get continuous values on this reference. Required value.
+        start:
+          type: string
+          format: int64
+          description: |-
+            The beginning of the window (0-based, inclusive) for which
+            continuous values should be returned.
+            Required value.
+        end:
+          type: string
+          format: int64
+          description: |-
+            The end of the window (0-based, exclusive) for which continuous
+            values should be returned. 
+            Required value.
+        page_size:
+          type: integer
+          format: int32
+          description: |-
+            Specifies the maximum number of results to return in a single page.
+            If unspecified, a system default will be used.
+        page_token:
+          type: string
+          description: >-
+            The continuation token, which is used to page through large result
+            sets.
+
+            To get the next page of results, set this parameter to the value of
+
+            `next_page_token` from the previous response.
+      description: This request maps to the body of `POST /continuous/search` as JSON.
+    ga4ghSearchContinuousResponse:
+      type: object
+      properties:
+        continuous:
+          type: array
+          items:
+            $ref: '#/components/schemas/Continuous'
+          description: |-
+            The list of matching continuous values, sorted by start position.
+            All sampled values within the query range are returned.
+            Unsampled values are assigned 'NaN' value. The values returned
+            do not necessarily cover the same range as the query as all
+            unsampled values might not be returned or if the query range extends
+            beyond the reference range.
+        next_page_token:
+          type: string
+          description: >-
+            The continuation token, which is used to page through large result
+            sets.
+
+            Provide this value in a subsequent request to return the next page
+            of
+
+            results. This field will be empty if there aren't any additional
+            results.
+      description: This is the response from `POST /continuous/search` expressed as JSON.
+    ga4ghSearchContinuousSetsRequest:
+      type: object
+      properties:
+        dataset_id:
+          type: string
+          description: The `Dataset` to search.
+        page_size:
+          type: integer
+          format: int32
+          description: |-
+            Specifies the maximum number of results to return in a single page.
+            If unspecified, a system default will be used.
+        page_token:
+          type: string
+          description: >-
+            The continuation token, which is used to page through large result
+            sets.
+
+            To get the next page of results, set this parameter to the value of
+
+            `next_page_token` from the previous response.
+      description: >-
+        * This request maps to the body of `POST /continuoussets/search` as
+        JSON.
+    ga4ghSearchContinuousSetsResponse:
+      type: object
+      properties:
+        continuous_sets:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContinuousSet'
+          description: The list of matching feature sets.
+        next_page_token:
+          type: string
+          description: >-
+            The continuation token, which is used to page through large result
+            sets.
+
+            Provide this value in a subsequent request to return the next page
+            of
+
+            results. This field will be empty if there aren't any additional
+            results.
+      description: >-
+        This is the response from `POST /continuoussets/search` expressed as
+        JSON.
+    ga4ghSearchFeatureSetsRequest:
+      type: object
+      properties:
+        dataset_id:
+          type: string
+          description: The `Dataset` to search.
+        page_size:
+          type: integer
+          format: int32
+          description: |-
+            Specifies the maximum number of results to return in a single page.
+            If unspecified, a system default will be used.
+        page_token:
+          type: string
+          description: >-
+            The continuation token, which is used to page through large result
+            sets.
+
+            To get the next page of results, set this parameter to the value of
+
+            `next_page_token` from the previous response.
+      description: '* This request maps to the body of `POST /featuresets/search` as JSON.'
+    ga4ghSearchFeatureSetsResponse:
+      type: object
+      properties:
+        feature_sets:
+          type: array
+          items:
+            $ref: '#/components/schemas/FeatureSet'
+          description: The list of matching feature sets.
+        next_page_token:
+          type: string
+          description: >-
+            The continuation token, which is used to page through large result
+            sets.
+
+            Provide this value in a subsequent request to return the next page
+            of
+
+            results. This field will be empty if there aren't any additional
+            results.
+      description: This is the response from `POST /featuresets/search` expressed as JSON.
+    ga4ghSearchFeaturesRequest:
+      type: object
+      properties:
+        feature_set_id:
+          type: string
+          description: |-
+            The annotation set to search within. Either `feature_set_id` or
+            `parent_id` must be non-empty.
+        name:
+          type: string
+          description: 'Only returns features with this name (case-sensitive, exact match).'
+        gene_symbol:
+          type: string
+          description: |-
+            Only return features with matching the provided gene symbol
+            (case-sensitive, exact match).
+            This field may be replaced with a more generic representation
+            in a future version.
+        parent_id:
+          type: string
+          description: >-
+            Restricts the search to direct children of the given parent
+            `feature`
+
+            ID. Either `feature_set_id` or `parent_id` must be non-empty.
+        reference_name:
+          type: string
+          description: |-
+            Only return features on the reference with this name
+            (matched to literal reference name as imported from the GFF3).
+        start:
+          type: string
+          format: int64
+          description: >-
+            Required, if name or symbol not provided.
+
+            The beginning of the window (0-based, inclusive) for which
+
+            overlapping features should be returned.  Genomic positions are
+
+            non-negative integers less than reference length.  Requests spanning
+            the
+
+            join of circular genomes are represented as two requests one on each
+            side
+
+            of the join (position 0).
+        end:
+          type: string
+          format: int64
+          description: |-
+            Required, if name or symbol not provided.
+            The end of the window (0-based, exclusive) for which overlapping
+            features should be returned.
+        feature_types:
+          type: array
+          items:
+            type: string
+          description: >-
+            TODO: To be replaced with a fully featured ontology search
+
+            once the Metadata definitions are rounded out.
+
+            If specified, this query matches only annotations whose
+            `feature_type`
+
+            matches one of the provided ontology terms.
+        page_size:
+          type: integer
+          format: int32
+          description: |-
+            Specifies the maximum number of results to return in a single page.
+            If unspecified, a system default will be used.
+        page_token:
+          type: string
+          description: >-
+            The continuation token, which is used to page through large result
+            sets.
+
+            To get the next page of results, set this parameter to the value of
+
+            `next_page_token` from the previous response.
+      description: This request maps to the body of `POST /features/search` as JSON.
+    ga4ghSearchFeaturesResponse:
+      type: object
+      properties:
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/Feature'
+          description: >-
+            The list of matching annotations, sorted by start position.
+            Annotations
+
+            which share a start position are returned in a deterministic order.
+        next_page_token:
+          type: string
+          description: >-
+            The continuation token, which is used to page through large result
+            sets.
+
+            Provide this value in a subsequent request to return the next page
+            of
+
+            results. This field will be empty if there aren't any additional
+            results.
+      description: This is the response from `POST /features/search` expressed as JSON.
+    ga4ghStrand:
+      type: string
+      enum:
+        - STRAND_UNSPECIFIED
+        - NEG_STRAND
+        - POS_STRAND
+      default: STRAND_UNSPECIFIED
+      description: |-
+        Indicates the associated DNA strand for some data item.
+
+         - STRAND_UNSPECIFIED: If no strand data is available.
+         - NEG_STRAND: The negative (-) strand.
+         - POS_STRAND: The postive (+) strand.

@@ -1,0 +1,61 @@
+components:
+  schemas:
+    FeaturePhenotypeAssociation:
+      description: |-
+        An association between one or more genomic features and a phenotype.
+        The instance of association allows us to link a feature to a phenotype,
+        multiple times, each bearing potentially different levels of confidence,
+        such as resulting from alternative experiments and analysis.
+      properties:
+        description:
+          description: A textual description of the association.
+          type: string
+        environmental_contexts:
+          items:
+            $ref: '#/components/schemas/EnvironmentalContext'
+          title: |-
+            The context in which the phenotype arises.
+            Multiple contexts can be specified - these are assumed to all hold together
+          type: array
+        evidence:
+          description: |-
+            The evidence for this specific instance of association between the
+            features and the phenotype.
+          items:
+            $ref: '#/components/schemas/Evidence'
+          type: array
+        feature_ids:
+          description: |-
+            The set of features of the organism that bears the phenotype.
+            This could be as complete as a full complement of variants,
+            or as minimal as the confirmed variants that are known causation
+            for the annotated phenotype.
+            Examples of features could be variations at the nucleotide level,
+            large rearrangements at the chromosome level, or relevant epigenetic
+            markers.  Relevant genomic feature types are suggested to be
+            those typed in the Sequence Ontology (SO).
+            The feature set can have only one item, and must not be null.
+          items:
+            type: string
+          type: array
+        id:
+          description: A unique identifier for the association.
+          type: string
+        info:
+          additionalProperties:
+            $ref: '#/components/schemas/ListValue'
+          description: Additional annotation data in key-value pairs.
+          type: object
+        phenotype:
+          $ref: '#/components/schemas/PhenotypeInstance'
+        phenotype_association_set_id:
+          description: |-
+            The ID of the PhenotypeAssociationSet this FeaturePhenotypeAssociation
+            belongs to.
+          type: string
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

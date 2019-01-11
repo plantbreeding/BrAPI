@@ -1,0 +1,14 @@
+components:
+  schemas:
+    AttributeValueList:
+      properties:
+        values:
+          items:
+            $ref: '#/components/schemas/AttributeValue'
+          type: array
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

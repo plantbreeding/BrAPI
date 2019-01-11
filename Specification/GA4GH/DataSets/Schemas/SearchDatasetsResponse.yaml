@@ -1,0 +1,22 @@
+components:
+  schemas:
+    SearchDatasetsResponse:
+      description: This is the response from `POST /datasets/search` expressed as JSON.
+      properties:
+        datasets:
+          description: The list of datasets.
+          items:
+            $ref: '#/components/schemas/Dataset'
+          type: array
+        next_page_token:
+          description: |-
+            The continuation token, which is used to page through large result sets.
+            Provide this value in a subsequent request to return the next page of
+            results. This field will be empty if there aren't any additional results.
+          type: string
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

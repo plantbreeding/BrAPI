@@ -1,0 +1,42 @@
+components:
+  schemas:
+    Individual:
+      properties:
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+        created:
+          description: |-
+            The :ref:`ISO 8601` time at which this Individual's record
+            was created.
+          type: string
+        dataset_id:
+          description: The ID of the dataset this Individual belongs to.
+          type: string
+        description:
+          description: |-
+            The Individual's description. This attribute contains human readable text.
+            The "description" attributes should not contain any structured data.
+          type: string
+        id:
+          description: |-
+            The Individual's :ref:`id `. This is unique in the
+            context of the server instance.
+          type: string
+        name:
+          description: The Individual's name. This is a label or symbolic identifier for the individual.
+          type: string
+        sex:
+          $ref: '#/components/schemas/OntologyTerm'
+        species:
+          $ref: '#/components/schemas/OntologyTerm'
+        updated:
+          description: |-
+            The :ref:`ISO 8601` time at which this Individual record
+            was updated.
+          type: string
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

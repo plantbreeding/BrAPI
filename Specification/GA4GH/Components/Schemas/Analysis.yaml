@@ -1,0 +1,39 @@
+components:
+  schemas:
+    Analysis:
+      description: |-
+        An analysis contains an interpretation of one or several experiments. (e.g.
+        SNVs, copy number variations, methylation status) together with information
+        about the methodology used.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+        created:
+          description: The time at which this record was created, in ISO 8601 format.
+          type: string
+        description:
+          type: string
+        id:
+          description: |-
+            Formats of id | name | description | accessions are described in the
+            documentation on general attributes and formats.
+          type: string
+        name:
+          type: string
+        software:
+          description: The software run to generate this analysis.
+          items:
+            type: string
+          type: array
+        type:
+          description: The type of analysis.
+          type: string
+        updated:
+          description: The time at which this record was last updated, in ISO 8601 format.
+          type: string
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

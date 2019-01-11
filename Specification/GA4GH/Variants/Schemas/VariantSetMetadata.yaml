@@ -1,0 +1,37 @@
+components:
+  schemas:
+    VariantSetMetadata:
+      description: This metadata represents VCF header information.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+        description:
+          description: A textual description of this metadata.
+          type: string
+        id:
+          title: |-
+            User-provided ID field, not enforced by this API.
+            Two or more pieces of structured metadata with identical
+            id and key fields are considered equivalent.
+            FIXME: If it's not enforced, then why can't it be null?
+          type: string
+        key:
+          description: The top-level key.
+          type: string
+        number:
+          description: |-
+            The number of values that can be included in a field described by this
+            metadata.
+          type: string
+        type:
+          description: The type of data.
+          type: string
+        value:
+          description: The value field for simple metadata.
+          type: string
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

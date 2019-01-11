@@ -1,0 +1,32 @@
+openapi: 3.0.0
+info:
+  title: ga4gh/allele_annotation_service.proto
+  version: version not set
+paths:
+  /variantannotations/search:
+    post:
+      summary: >-
+        Gets a list of `VariantAnnotation` messages matching the search
+        criteria.
+      description: >-
+        This allows the mining of allele-specific annotations on a VariantSet by either a region or by a set of genomic features. Where a region is supplied annotation of all alleles vs all features in the region is returned. Where a set of features is supplied, only annotations against these features (matching on featuretype and id) are returned and other overlapping features are ignored.
+
+        `variantannotationsets/search` returns information on the input to the annotation. This will be a VariantSet and the reference data and software versions used in calculating the annotation. It is essential this information is exhaustive.
+
+        `POST /variantannotations/search` must accept a JSON version of `SearchVariantAnnotationsRequest` as the post body and will return a JSON version of `SearchVariantAnnotationsResponse`.
+      operationId: SearchVariantAnnotations
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchVariantAnnotationsResponse'
+      tags:
+        - GA4GH
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchVariantAnnotationsRequest'
+        required: true

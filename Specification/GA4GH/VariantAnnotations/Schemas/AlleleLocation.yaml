@@ -1,0 +1,28 @@
+components:
+  schemas:
+    AlleleLocation:
+      properties:
+        alternate_sequence:
+          title: Alternate sequence in feature (this should be the codon at CDS level)
+          type: string
+        end:
+          format: int32
+          title: Relative end position of the allele in this coordinate system
+          type: integer
+        reference_sequence:
+          title: Reference sequence in feature (this should be the codon at CDS level)
+          type: string
+        start:
+          format: int32
+          title: Relative start position of the allele in this coordinate system
+          type: integer
+      title: |-
+        An allele location record holds the location of an allele relative to a non -
+        genomic coordinate system such as a CDS or protein and holds the reference
+        and alternate sequence where appropriate
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

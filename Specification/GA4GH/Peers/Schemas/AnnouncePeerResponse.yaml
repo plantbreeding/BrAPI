@@ -1,0 +1,19 @@
+components:
+  schemas:
+    AnnouncePeerResponse:
+      description: This is the response from `POST /peers/announce`.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+        success:
+          description: |-
+            This message notifies the client whether the AnnouncePeerRequest
+            was well formed.
+          format: boolean
+          type: boolean
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

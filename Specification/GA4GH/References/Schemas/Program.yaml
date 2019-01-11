@@ -1,0 +1,26 @@
+components:
+  schemas:
+    Program:
+      description: A Program describes software used in data processing or analysis.
+      properties:
+        command_line:
+          description: The command line used to run this program.
+          type: string
+        id:
+          description: The user specified ID of the program.
+          type: string
+        name:
+          description: The name of the program.
+          type: string
+        prev_program_id:
+          description: The ID of the program run before this one.
+          type: string
+        version:
+          description: The version of the program run.
+          type: string
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

@@ -1,0 +1,28 @@
+openapi: 3.0.0
+info:
+  title: ga4gh/reference_service.proto
+  version: version not set
+paths:
+  /referencesets/{reference_set_id}:
+    get:
+      summary: Gets a `ReferenceSet` by ID.
+      description: |-
+        `GET /referencesets/{reference_set_id}` will return a JSON version of
+        `ReferenceSet`.
+      operationId: GetReferenceSet
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReferenceSet'
+      parameters:
+        - name: reference_set_id
+          description: The ID of the `ReferenceSet` to be retrieved.
+          in: path
+          required: true
+          schema:
+            type: string
+      tags:
+        - GA4GH

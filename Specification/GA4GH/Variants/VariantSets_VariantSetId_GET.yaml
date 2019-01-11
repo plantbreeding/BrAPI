@@ -1,0 +1,28 @@
+openapi: 3.0.0
+info:
+  title: ga4gh/variant_service.proto
+  version: version not set
+paths:
+  /variantsets/{variant_set_id}:
+    get:
+      summary: Gets a `VariantSet` by ID.
+      description: |-
+        `GET /variantsets/{variant_set_id}` will return a JSON version of
+        `VariantSet`.
+      operationId: GetVariantSet
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VariantSet'
+      parameters:
+        - name: variant_set_id
+          description: The ID of the `VariantSet` to be retrieved.
+          in: path
+          required: true
+          schema:
+            type: string
+      tags:
+        - GA4GH
