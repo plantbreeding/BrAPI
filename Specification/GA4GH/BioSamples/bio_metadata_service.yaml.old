@@ -1,0 +1,548 @@
+openapi: 3.0.0
+info:
+  title: ga4gh/bio_metadata_service.proto
+  version: version not set
+paths:
+  /v0.6.0a10/biosamples/search:
+    post:
+      summary: >-
+        `POST /biosamples/search` must accept a JSON version of
+
+        `SearchBiosamplesRequest` as the post body and will return a JSON
+        version
+
+        of `SearchBiosamplesResponse`.
+      operationId: SearchBiosamples
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchBiosamplesResponse'
+      tags:
+        - BioMetadataService
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchBiosamplesRequest'
+        required: true
+  '/v0.6.0a10/biosamples/{biosample_id}':
+    get:
+      summary: |-
+        Gets a `Biosample` by ID.
+        `GET /biosamples/{id}` will return a JSON version of `Biosample`.
+      operationId: GetBiosample
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Biosample'
+      parameters:
+        - name: biosample_id
+          description: The ID of the biosample requested
+          in: path
+          required: true
+          schema:
+            type: string
+      tags:
+        - BioMetadataService
+  /v0.6.0a10/individuals/search:
+    post:
+      summary: >-
+        Gets a list of Individuals accessible through the API.
+
+        `POST /individuals/search` must accept a JSON version of
+
+        `SearchIndividualsRequest` as the post body and will return a JSON
+        version
+
+        of `SearchIndividualsResponse`.
+      operationId: SearchIndividuals
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchIndividualsResponse'
+      tags:
+        - BioMetadataService
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchIndividualsRequest'
+        required: true
+  '/v0.6.0a10/individuals/{individual_id}':
+    get:
+      summary: |-
+        Gets an `Individual` by ID.
+        `GET /individuals/{id}` will return a JSON version of `Individual`.
+      operationId: GetIndividual
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Individual'
+      parameters:
+        - name: individual_id
+          description: The ID of the individual requested
+          in: path
+          required: true
+          schema:
+            type: string
+      tags:
+        - BioMetadataService
+components:
+  schemas:
+    ga4ghAge:
+      type: object
+      properties:
+        age:
+          type: string
+          title: >-
+            The :ref:`ISO 8601` age of this object as
+            ISO8601
+
+            duration or time intervals. The use of time intervals makes an
+            additional
+
+            anchor unnecessary (i.e. DOB and age can be represented as
+            start-anchored
+
+            time interval, e.g. 1967-11-21/P40Y10M05D)
+
+            TODO: Anonymous reference time attribute/pointer?
+        age_class:
+          $ref: '#/components/schemas/OntologyTerm'
+    ga4ghAnalysis:
+      type: object
+      properties:
+        id:
+          type: string
+          description: |-
+            Formats of id | name | description | accessions are described in the
+            documentation on general attributes and formats.
+        name:
+          type: string
+        description:
+          type: string
+        created:
+          type: string
+          description: 'The time at which this record was created, in ISO 8601 format.'
+        updated:
+          type: string
+          description: 'The time at which this record was last updated, in ISO 8601 format.'
+        type:
+          type: string
+          description: The type of analysis.
+        software:
+          type: array
+          items:
+            type: string
+          description: The software run to generate this analysis.
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+      description: >-
+        An analysis contains an interpretation of one or several experiments.
+        (e.g.
+
+        SNVs, copy number variations, methylation status) together with
+        information
+
+        about the methodology used.
+    ga4ghAttributeValue:
+      type: object
+      properties:
+        string_value:
+          type: string
+        int64_value:
+          type: string
+          format: int64
+        int32_value:
+          type: integer
+          format: int32
+        bool_value:
+          type: boolean
+          format: boolean
+        double_value:
+          type: number
+          format: double
+        external_identifier:
+          $ref: '#/components/schemas/ExternalIdentifier'
+        ontology_term:
+          $ref: '#/components/schemas/OntologyTerm'
+        experiment:
+          $ref: '#/components/schemas/Experiment'
+        program:
+          $ref: '#/components/schemas/Program'
+        analysis:
+          $ref: '#/components/schemas/Analysis'
+        null_value:
+          $ref: '#/components/schemas/NullValue'
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+        attribute_list:
+          $ref: '#/components/schemas/AttributeValueList'
+      description: >-
+        Type defining a collection of attributes associated with various
+        protocol
+
+        records. Each attribute is a name that maps to an array of one or more
+
+        values. Values are chosen from both internal protobuf types and GA4GH.
+         Values should be split into array elements instead of using a separator
+        syntax that needs to parsed.
+    ga4ghAttributeValueList:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/AttributeValue'
+    ga4ghAttributes:
+      type: object
+      properties:
+        attr:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/AttributeValueList'
+    ga4ghBiosample:
+      type: object
+      properties:
+        id:
+          type: string
+          description: >-
+            The Biosample :ref:`id `. This is unique in
+            the
+
+            context of the server instance.
+        dataset_id:
+          type: string
+          description: The ID of the dataset this Biosample belongs to.
+        name:
+          type: string
+          description: >-
+            The Biosample's name This is a label or symbolic identifier for the
+            biosample.
+        description:
+          type: string
+          description: >-
+            The biosample's description. This attribute contains human readable
+            text.
+
+            The "description" attributes should not contain any structured data.
+        disease:
+          $ref: '#/components/schemas/OntologyTerm'
+        created:
+          type: string
+          description: >-
+            The :ref:`ISO 8601` time at which this Biosample
+            record
+
+            was created.
+        updated:
+          type: string
+          description: >-
+            The :ref:`ISO 8601` time at which this Biosample
+            record was 
+
+            updated.
+        individual_id:
+          type: string
+          description: The individual this biosample was derived from.
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+        individual_age_at_collection:
+          $ref: '#/components/schemas/Age'
+    ga4ghExperiment:
+      type: object
+      properties:
+        id:
+          type: string
+          title: The experiment ID
+        name:
+          type: string
+          description: The name of the experiment.
+        description:
+          type: string
+          description: A description of the experiment.
+        message_create_time:
+          type: string
+          title: >-
+            The time at which this message was created.
+
+            Format: ISO 8601, YYYY-MM-DDTHH:MM:SS.SSS (e.g.
+            2015-02-10T00:03:42.123Z)
+        message_update_time:
+          type: string
+          title: >-
+            The time at which this message was last updated.
+
+            Format: ISO 8601, YYYY-MM-DDTHH:MM:SS.SSS (e.g.
+            2015-02-10T00:03:42.123Z)
+        run_time:
+          type: string
+          title: |-
+            The time at which this experiment was performed.
+            Granularity here is variable (e.g. date only).
+            Format: ISO 8601, YYYY-MM-DDTHH:MM:SS (e.g. 2015-02-10T00:03:42)
+        molecule:
+          type: string
+          title: >-
+            The molecule examined in this experiment. (e.g. genomics DNA, total
+            RNA)
+        strategy:
+          type: string
+          title: |-
+            The experiment technique or strategy applied to the sample.
+            (e.g. whole genome sequencing, RNA-seq, RIP-seq)
+        selection:
+          type: string
+          title: >-
+            The method used to enrich the target. (e.g. immunoprecipitation,
+            size
+
+            fractionation, MNase digestion)
+        library:
+          type: string
+          description: The name of the library used as part of this experiment.
+        library_layout:
+          type: string
+          description: The configuration of sequenced reads. (e.g. Single or Paired).
+        instrument_model:
+          type: string
+          description: |-
+            The instrument model used as part of this experiment.
+            This maps to sequencing technology in BAM.
+        instrument_data_file:
+          type: string
+          title: |-
+            The data file generated by the instrument.
+            TODO: This isn't actually a file is it?
+            Should this be `instrumentData` instead?
+        sequencing_center:
+          type: string
+          description: The sequencing center used as part of this experiment.
+        platform_unit:
+          type: string
+          description: |-
+            The platform unit used as part of this experiment. This is a
+            flowcell-barcode
+            or slide unique identifier.
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+      description: An experimental preparation of a sample.
+    ga4ghExternalIdentifier:
+      type: object
+      properties:
+        database:
+          type: string
+          description: 'The source of the identifier, e.g. `Ensembl`.'
+        identifier:
+          type: string
+          description: 'The ID defined by the external database, e.g. `ENST00000000000`.'
+        version:
+          type: string
+          description: 'The version of the object or the database, e.g. `78`.'
+      title: Identifier from a public database
+    ga4ghIndividual:
+      type: object
+      properties:
+        id:
+          type: string
+          description: >-
+            The Individual's :ref:`id `. This is unique in
+            the
+
+            context of the server instance.
+        dataset_id:
+          type: string
+          description: The ID of the dataset this Individual belongs to.
+        name:
+          type: string
+          description: >-
+            The Individual's name. This is a label or symbolic identifier for
+            the individual.
+        description:
+          type: string
+          description: >-
+            The Individual's description. This attribute contains human readable
+            text.
+
+            The "description" attributes should not contain any structured data.
+        created:
+          type: string
+          description: >-
+            The :ref:`ISO 8601` time at which this
+            Individual's record
+
+            was created.
+        updated:
+          type: string
+          description: >-
+            The :ref:`ISO 8601` time at which this
+            Individual record
+
+            was updated.
+        species:
+          $ref: '#/components/schemas/OntologyTerm'
+        sex:
+          $ref: '#/components/schemas/OntologyTerm'
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+    ga4ghNullValue:
+      type: string
+      enum:
+        - NULL_VALUE
+      default: NULL_VALUE
+      description: ' - NULL_VALUE: Null value.'
+    ga4ghOntologyTerm:
+      type: object
+      properties:
+        term_id:
+          type: string
+          description: >-
+            Ontology term identifier - the CURIE for an ontology term. It
+
+            differs from the standard GA4GH schema's :ref:`id
+            `
+
+            in that it is a CURIE pointing to an information resource outside of
+            the
+
+            scope of the schema or its resource implementation.
+        term:
+          type: string
+          description: >-
+            Ontology term - the label of the ontology term the termId is
+            pointing to.
+      title: |-
+        An ontology term describing an attribute. (e.g. the phenotype attribute
+        'polydactyly' from HPO)
+    ga4ghProgram:
+      type: object
+      properties:
+        command_line:
+          type: string
+          description: The command line used to run this program.
+        id:
+          type: string
+          description: The user specified ID of the program.
+        name:
+          type: string
+          description: The name of the program.
+        prev_program_id:
+          type: string
+          description: The ID of the program run before this one.
+        version:
+          type: string
+          description: The version of the program run.
+      description: A Program describes software used in data processing or analysis.
+    ga4ghSearchBiosamplesRequest:
+      type: object
+      properties:
+        dataset_id:
+          type: string
+          description: Optionally specify the dataset to search within.
+        name:
+          type: string
+          description: >-
+            Returns Biosamples with the given name found by case-sensitive
+            string matching.
+        individual_id:
+          type: string
+          description: Returns Biosamples for the provided individual ID.
+        page_size:
+          type: integer
+          format: int32
+          description: |-
+            Specifies the maximum number of results to return in a single page.
+            If unspecified, a system default will be used.
+        page_token:
+          type: string
+          description: >-
+            The continuation token, which is used to page through large result
+            sets.
+
+            To get the next page of results, set this parameter to the value of
+
+            `nextPageToken` from the previous response.
+      description: |-
+        *********************  /biosamples ********************************
+        This is the request sent to `POST /biosamples/search` expressed as JSON.
+    ga4ghSearchBiosamplesResponse:
+      type: object
+      properties:
+        biosamples:
+          type: array
+          items:
+            $ref: '#/components/schemas/Biosample'
+          description: The list of biosamples.
+        next_page_token:
+          type: string
+          description: >-
+            The continuation token, which is used to page through large result
+            sets.
+
+            Provide this value in a subsequent request to return the next page
+            of
+
+            results. This field will be empty if there aren't any additional
+            results.
+      description: This is the response from `POST /biosamples/search` expressed as JSON.
+    ga4ghSearchIndividualsRequest:
+      type: object
+      properties:
+        dataset_id:
+          type: string
+          description: Optionally specify the dataset to search within.
+        name:
+          type: string
+          description: >-
+            Returns Individuals with the given name found by case-sensitive
+            string matching.
+        page_size:
+          type: integer
+          format: int32
+          description: |-
+            Specifies the maximum number of results to return in a single page.
+            If unspecified, a system default will be used.
+        page_token:
+          type: string
+          description: >-
+            The continuation token, which is used to page through large result
+            sets.
+
+            To get the next page of results, set this parameter to the value of
+
+            `nextPageToken` from the previous response.
+      description: |-
+        *********************  /individuals ********************************
+        This request maps to the body of `POST /individuals/search` as JSON.
+    ga4ghSearchIndividualsResponse:
+      type: object
+      properties:
+        individuals:
+          type: array
+          items:
+            $ref: '#/components/schemas/Individual'
+          description: The list of individuals.
+        next_page_token:
+          type: string
+          description: >-
+            The continuation token, which is used to page through large result
+            sets.
+
+            Provide this value in a subsequent request to return the next page
+            of
+
+            results. This field will be empty if there aren't any additional
+            results.
+      description: This is the response from `POST /individuals/search` expressed as JSON.

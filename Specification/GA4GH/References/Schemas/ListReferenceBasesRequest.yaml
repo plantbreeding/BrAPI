@@ -1,0 +1,34 @@
+components:
+  schemas:
+    ListReferenceBasesRequest:
+      description: "This request retrieves a region of a reference genome when sent to \nthe `/listreferencebases` endpoint."
+      properties:
+        end:
+          description: |-
+            The end position (0-based, exclusive) of this query. Defaults
+            to the length of this `Reference`.
+          format: int64
+          type: string
+        page_token:
+          description: |-
+            The continuation token, which is used to page through large result sets.
+            To get the next page of results, set this parameter to the value of
+            `next_page_token` from the previous response.
+          type: string
+        reference_id:
+          description: The ID of the `Reference` to be retrieved.
+          type: string
+        start:
+          description: |-
+            The start position (0-based) of this query. Defaults to 0.
+            Genomic positions are non-negative integers less than reference length.
+            Requests spanning the join of circular genomes are represented as
+            two requests one on each side of the join (position 0).
+          format: int64
+          type: string
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

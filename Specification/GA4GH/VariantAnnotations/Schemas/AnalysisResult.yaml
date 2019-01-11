@@ -1,0 +1,23 @@
+components:
+  schemas:
+    AnalysisResult:
+      description: |-
+        An AnalysisResult record holds the output of a prediction package such as
+        SIFT on a specific allele.
+      properties:
+        analysis_id:
+          title: The ID of the analysis record for this result
+          type: string
+        result:
+          title: The text-based result for this analysis
+          type: string
+        score:
+          format: int32
+          title: The numeric score for this analysis
+          type: integer
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

@@ -1,0 +1,28 @@
+openapi: 3.0.0
+info:
+  title: ga4gh/metadata_service.proto
+  version: version not set
+paths:
+  /datasets/{dataset_id}:
+    get:
+      summary: Gets a `Dataset` by ID.
+      description: |-
+        `GET /datasets/{dataset_id}` will return a JSON version of
+        `Dataset`.
+      operationId: GetDataset
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dataset'
+      parameters:
+        - name: dataset_id
+          description: The ID of the `Dataset` to be retrieved.
+          in: path
+          required: true
+          schema:
+            type: string
+      tags:
+        - GA4GH

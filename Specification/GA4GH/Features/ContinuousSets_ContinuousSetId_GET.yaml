@@ -1,0 +1,28 @@
+openapi: 3.0.0
+info:
+  title: ga4gh/sequence_annotation_service.proto
+  version: version not set
+paths:
+  /continuoussets/{continuous_set_id}:
+    get:
+      summary: Gets a `ContinuousSet` by ID.
+      description: >-
+        `GET /continuoussets/{id}` will return a JSON version of
+        `ContinuousSet`.
+      operationId: GetContinuousSet
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContinuousSet'
+      parameters:
+        - name: continuous_set_id
+          description: The ID of the `ContinuousSet` to be retrieved.
+          in: path
+          required: true
+          schema:
+            type: string
+      tags:
+        - GA4GH

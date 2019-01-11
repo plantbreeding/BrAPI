@@ -1,0 +1,22 @@
+components:
+  schemas:
+    SearchVariantSetsResponse:
+      description: This is the response from `POST /variantsets/search` expressed as JSON.
+      properties:
+        next_page_token:
+          description: |-
+            The continuation token, which is used to page through large result sets.
+            Provide this value in a subsequent request to return the next page of
+            results. This field will be empty if there aren't any additional results.
+          type: string
+        variant_sets:
+          description: The list of matching variant sets.
+          items:
+            $ref: '#/components/schemas/VariantSet'
+          type: array
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

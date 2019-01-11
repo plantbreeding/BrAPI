@@ -1,0 +1,34 @@
+openapi: 3.0.0
+info:
+  title: ga4gh/genotype_phenotype_service.proto
+  version: version not set
+paths:
+  /featurephenotypeassociations/search:
+    post:
+      summary: >-
+        Gets a list of genotype-phenotype assoications accessible through the
+        API.
+
+        `POST /featurephenotypeassociations/search` must accept a JSON version
+        of
+
+        `SearchPhenotypesRequest` as the post body and will return a JSON
+        version
+
+        of `SearchPhenotypeAssociationSetsResponse`.
+      operationId: SearchPhenotypeAssociations
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchGenotypePhenotypeResponse'
+      tags:
+        - GA4GH
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchGenotypePhenotypeRequest'
+        required: true

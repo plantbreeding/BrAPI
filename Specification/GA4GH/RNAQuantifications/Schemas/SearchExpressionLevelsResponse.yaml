@@ -1,0 +1,22 @@
+components:
+  schemas:
+    SearchExpressionLevelsResponse:
+      description: This is the response from 'POST /expressionlevels/search' expressed as JSON.
+      properties:
+        expression_levels:
+          description: The list of matching quantifications.
+          items:
+            $ref: '#/components/schemas/ExpressionLevel'
+          type: array
+        next_page_token:
+          description: |-
+            The continuation token, which is used to page through large result sets.
+            To get the next page of results, set this parameter to the value of
+            'nextPageToken' from the previous response.
+          type: string
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

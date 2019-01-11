@@ -34,6 +34,11 @@ security:
 servers:
 - url: https://test-server.brapi.org/brapi/v1
 tags:
+- description: GA4GH Schema
+  externalDocs:
+    description: Docs
+    url: https://ga4gh-schemas.readthedocs.io/en/latest/api/index.html
+  name: GA4GH
 - description: Check the available calls on a server
   externalDocs:
     description: Docs

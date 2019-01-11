@@ -1,0 +1,341 @@
+openapi: 3.0.0
+info:
+  title: ga4gh/metadata_service.proto
+  version: version not set
+paths:
+  /v0.6.0a10/datasets/search:
+    post:
+      summary: Gets a list of `Dataset` matching the search criteria.
+      description: |-
+        `POST /datasets/search` must accept a JSON version of
+        `SearchDatasetsRequest` as the post body and will return a JSON
+        version of `SearchDatasetsResponse`.
+      operationId: SearchDatasets
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchDatasetsResponse'
+      tags:
+        - MetadataService
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchDatasetsRequest'
+        required: true
+  '/v0.6.0a10/datasets/{dataset_id}':
+    get:
+      summary: Gets a `Dataset` by ID.
+      description: |-
+        `GET /datasets/{dataset_id}` will return a JSON version of
+        `Dataset`.
+      operationId: GetDataset
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dataset'
+      parameters:
+        - name: dataset_id
+          description: The ID of the `Dataset` to be retrieved.
+          in: path
+          required: true
+          schema:
+            type: string
+      tags:
+        - MetadataService
+components:
+  schemas:
+    ga4ghAnalysis:
+      type: object
+      properties:
+        id:
+          type: string
+          description: |-
+            Formats of id | name | description | accessions are described in the
+            documentation on general attributes and formats.
+        name:
+          type: string
+        description:
+          type: string
+        created:
+          type: string
+          description: 'The time at which this record was created, in ISO 8601 format.'
+        updated:
+          type: string
+          description: 'The time at which this record was last updated, in ISO 8601 format.'
+        type:
+          type: string
+          description: The type of analysis.
+        software:
+          type: array
+          items:
+            type: string
+          description: The software run to generate this analysis.
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+      description: >-
+        An analysis contains an interpretation of one or several experiments.
+        (e.g.
+
+        SNVs, copy number variations, methylation status) together with
+        information
+
+        about the methodology used.
+    ga4ghAttributeValue:
+      type: object
+      properties:
+        string_value:
+          type: string
+        int64_value:
+          type: string
+          format: int64
+        int32_value:
+          type: integer
+          format: int32
+        bool_value:
+          type: boolean
+          format: boolean
+        double_value:
+          type: number
+          format: double
+        external_identifier:
+          $ref: '#/components/schemas/ExternalIdentifier'
+        ontology_term:
+          $ref: '#/components/schemas/OntologyTerm'
+        experiment:
+          $ref: '#/components/schemas/Experiment'
+        program:
+          $ref: '#/components/schemas/Program'
+        analysis:
+          $ref: '#/components/schemas/Analysis'
+        null_value:
+          $ref: '#/components/schemas/NullValue'
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+        attribute_list:
+          $ref: '#/components/schemas/AttributeValueList'
+      description: >-
+        Type defining a collection of attributes associated with various
+        protocol
+
+        records. Each attribute is a name that maps to an array of one or more
+
+        values. Values are chosen from both internal protobuf types and GA4GH.
+         Values should be split into array elements instead of using a separator
+        syntax that needs to parsed.
+    ga4ghAttributeValueList:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/AttributeValue'
+    ga4ghAttributes:
+      type: object
+      properties:
+        attr:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/AttributeValueList'
+    ga4ghDataset:
+      type: object
+      properties:
+        id:
+          type: string
+          description: 'The dataset''s id, locally unique to the server instance.'
+        name:
+          type: string
+          description: The name of the dataset.
+        description:
+          type: string
+          description: 'Additional, human-readable information on the dataset.'
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+      description: |-
+        A Dataset is a collection of related data of multiple types.
+        Data providers decide how to group data into datasets.
+        See [Metadata API](../api/metadata.html) for a more detailed discussion.
+    ga4ghExperiment:
+      type: object
+      properties:
+        id:
+          type: string
+          title: The experiment ID
+        name:
+          type: string
+          description: The name of the experiment.
+        description:
+          type: string
+          description: A description of the experiment.
+        message_create_time:
+          type: string
+          title: >-
+            The time at which this message was created.
+
+            Format: ISO 8601, YYYY-MM-DDTHH:MM:SS.SSS (e.g.
+            2015-02-10T00:03:42.123Z)
+        message_update_time:
+          type: string
+          title: >-
+            The time at which this message was last updated.
+
+            Format: ISO 8601, YYYY-MM-DDTHH:MM:SS.SSS (e.g.
+            2015-02-10T00:03:42.123Z)
+        run_time:
+          type: string
+          title: |-
+            The time at which this experiment was performed.
+            Granularity here is variable (e.g. date only).
+            Format: ISO 8601, YYYY-MM-DDTHH:MM:SS (e.g. 2015-02-10T00:03:42)
+        molecule:
+          type: string
+          title: >-
+            The molecule examined in this experiment. (e.g. genomics DNA, total
+            RNA)
+        strategy:
+          type: string
+          title: |-
+            The experiment technique or strategy applied to the sample.
+            (e.g. whole genome sequencing, RNA-seq, RIP-seq)
+        selection:
+          type: string
+          title: >-
+            The method used to enrich the target. (e.g. immunoprecipitation,
+            size
+
+            fractionation, MNase digestion)
+        library:
+          type: string
+          description: The name of the library used as part of this experiment.
+        library_layout:
+          type: string
+          description: The configuration of sequenced reads. (e.g. Single or Paired).
+        instrument_model:
+          type: string
+          description: |-
+            The instrument model used as part of this experiment.
+            This maps to sequencing technology in BAM.
+        instrument_data_file:
+          type: string
+          title: |-
+            The data file generated by the instrument.
+            TODO: This isn't actually a file is it?
+            Should this be `instrumentData` instead?
+        sequencing_center:
+          type: string
+          description: The sequencing center used as part of this experiment.
+        platform_unit:
+          type: string
+          description: |-
+            The platform unit used as part of this experiment. This is a
+            flowcell-barcode
+            or slide unique identifier.
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+      description: An experimental preparation of a sample.
+    ga4ghExternalIdentifier:
+      type: object
+      properties:
+        database:
+          type: string
+          description: 'The source of the identifier, e.g. `Ensembl`.'
+        identifier:
+          type: string
+          description: 'The ID defined by the external database, e.g. `ENST00000000000`.'
+        version:
+          type: string
+          description: 'The version of the object or the database, e.g. `78`.'
+      title: Identifier from a public database
+    ga4ghNullValue:
+      type: string
+      enum:
+        - NULL_VALUE
+      default: NULL_VALUE
+      description: ' - NULL_VALUE: Null value.'
+    ga4ghOntologyTerm:
+      type: object
+      properties:
+        term_id:
+          type: string
+          description: >-
+            Ontology term identifier - the CURIE for an ontology term. It
+
+            differs from the standard GA4GH schema's :ref:`id
+            `
+
+            in that it is a CURIE pointing to an information resource outside of
+            the
+
+            scope of the schema or its resource implementation.
+        term:
+          type: string
+          description: >-
+            Ontology term - the label of the ontology term the termId is
+            pointing to.
+      title: |-
+        An ontology term describing an attribute. (e.g. the phenotype attribute
+        'polydactyly' from HPO)
+    ga4ghProgram:
+      type: object
+      properties:
+        command_line:
+          type: string
+          description: The command line used to run this program.
+        id:
+          type: string
+          description: The user specified ID of the program.
+        name:
+          type: string
+          description: The name of the program.
+        prev_program_id:
+          type: string
+          description: The ID of the program run before this one.
+        version:
+          type: string
+          description: The version of the program run.
+      description: A Program describes software used in data processing or analysis.
+    ga4ghSearchDatasetsRequest:
+      type: object
+      properties:
+        page_size:
+          type: integer
+          format: int32
+          description: |-
+            Specifies the maximum number of results to return in a single page.
+            If unspecified, a system default will be used.
+        page_token:
+          type: string
+          description: >-
+            The continuation token, which is used to page through large result
+            sets.
+
+            To get the next page of results, set this parameter to the value of
+
+            `next_page_token` from the previous response.
+      description: This request maps to the body of `POST /datasets/search` as JSON.
+    ga4ghSearchDatasetsResponse:
+      type: object
+      properties:
+        datasets:
+          type: array
+          items:
+            $ref: '#/components/schemas/Dataset'
+          description: The list of datasets.
+        next_page_token:
+          type: string
+          description: >-
+            The continuation token, which is used to page through large result
+            sets.
+
+            Provide this value in a subsequent request to return the next page
+            of
+
+            results. This field will be empty if there aren't any additional
+            results.
+      description: This is the response from `POST /datasets/search` expressed as JSON.

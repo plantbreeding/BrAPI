@@ -1,0 +1,68 @@
+components:
+  schemas:
+    SearchGenotypePhenotypeRequest:
+      description: |-
+        This request maps to the body of `POST /featurephenotypeassociations/search` as JSON.
+
+        The goal here is to allow users to query using one or more of
+        Genotype, Phenotype, Environment, and Evidence.
+
+        A query using one of the above items is to mean, by default,
+        that the remainder of the query is as a "wildcard", such
+        that all matches to just that query term would come back.
+        Combinations of the above are to act like AND rather than OR.
+
+        The "genotype" part of the query methods can be one or more
+        genomic features.  Associations can be made at many
+        levels of granularity (from whole genotypes down to individual
+        SNVs), but users may use these methods with partial or
+        inexact information.  Therefore, the query methods must be
+        able to support query of some or all of the associated features.
+        Furthermore, use of the relationships between genomic features
+        means that when querying for a gene, any variants to that
+        gene are also returned.  For example, a query with
+        BRCA2 would mean that in addition to any direct associations
+        to the BRCA2, all associations to sequence variants of BRCA2 would also
+        be returned.  Similarly, queries with OntologyTerms should perform
+        the subclass closure.
+
+        Each query can be made against a string, an array of external
+        identifers (such as for gene or SNP ids), ontology term ids, or
+        full feature/phenotype/evidence objects.
+      properties:
+        evidence:
+          items:
+            $ref: '#/components/schemas/EvidenceQuery'
+          title: evidence
+          type: array
+        feature_ids:
+          description: At least one feature_id or phenotype_id must be provided.
+          items:
+            type: string
+          type: array
+        page_size:
+          description: |-
+            Specifies the maximum number of results to return in a single page.
+            If unspecified, a system default will be used.
+          format: int64
+          type: string
+        page_token:
+          description: |-
+            The continuation token, which is used to page through large result sets.
+            To get the next page of results, set this parameter to the value of
+            `nextPageToken` from the previous response.
+          type: string
+        phenotype_association_set_id:
+          title: The `PhenotypeAssociationSet` to search. Mandatory
+          type: string
+        phenotype_ids:
+          items:
+            type: string
+          title: Phenotype IDs
+          type: array
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

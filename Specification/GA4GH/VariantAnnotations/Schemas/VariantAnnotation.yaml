@@ -1,0 +1,34 @@
+components:
+  schemas:
+    VariantAnnotation:
+      description: |-
+        A `VariantAnnotation` record represents the result of comparing a variant to
+        a set of reference data.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+        created:
+          description: The time at which this record was created, in ISO 8601 format.
+          type: string
+        id:
+          description: The ID of this VariantAnnotation.
+          type: string
+        transcript_effects:
+          description: |-
+            The transcript effect annotation for the alleles of this variant. Each
+            one represents the effect of a single allele on a single transcript.
+          items:
+            $ref: '#/components/schemas/TranscriptEffect'
+          type: array
+        variant_annotation_set_id:
+          description: The ID of the variant annotation set this record belongs to.
+          type: string
+        variant_id:
+          description: The variant ID.
+          type: string
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

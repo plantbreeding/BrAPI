@@ -1,0 +1,31 @@
+openapi: 3.0.0
+info:
+  title: ga4gh/variant_service.proto
+  version: version not set
+paths:
+  /variants/search:
+    post:
+      summary: Gets a list of `Variant` matching the search criteria.
+      description: >-
+        `POST /variants/search` must accept a JSON version of
+
+        `SearchVariantsRequest` as the post body and will return a JSON version
+        of
+
+        `SearchVariantsResponse`.
+      operationId: SearchVariants
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchVariantsResponse'
+      tags:
+        - GA4GH
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchVariantsRequest'
+        required: true

@@ -1,0 +1,27 @@
+openapi: 3.0.0
+info:
+  title: ga4gh/bio_metadata_service.proto
+  version: version not set
+paths:
+  /biosamples/{biosample_id}:
+    get:
+      summary: |-
+        Gets a `Biosample` by ID.
+        `GET /biosamples/{id}` will return a JSON version of `Biosample`.
+      operationId: GetBiosample
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Biosample'
+      parameters:
+        - name: biosample_id
+          description: The ID of the biosample requested
+          in: path
+          required: true
+          schema:
+            type: string
+      tags:
+        - GA4GH
