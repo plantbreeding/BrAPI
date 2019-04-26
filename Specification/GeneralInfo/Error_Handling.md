@@ -1,7 +1,11 @@
 
 ### Error Handling
 
-Following the RESTful architecture standard, most errors in BrAPI should be reported back to the client using the appropriate HTTP status code. The status codes that BrAPI officially supports are outlined below. Any response which does NOT have a 200 status code should have a plain text body with a reasonable error message which can be displayed to a user if necessary. 
+Following the RESTful architecture standard, most errors in BrAPI should be reported back to the client using the appropriate HTTP status code. The status codes that BrAPI officially supports are outlined below.
+
+Any response which does NOT have a 200 status code should have a plain text body with a reasonable error message which can be displayed to a user if necessary. Reasonable error messages should include information on possible actions that can be taken by the user, and additional information on the impact of the error. For example, "You are not authorized to search for a germplasm. Please authenticate and submit your search again."
+
+Developers are expected to use error codes as as an indicator of what the issue is and not necessarily rely on the error response contents.
 
 <table>
 <tr>
