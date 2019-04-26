@@ -11,12 +11,12 @@ Calls which could have asynchronous implementations:
 If a search call has an asynchronous implementation, then the `asynchStatus` object in `metadata` must be populated. 
 + The `asynchId` (required) key will contain an id that will be used in additional polling status calls.  
 + The `status` (required) key will contain one of the following possible states with the specified meanings:
-    + PENDING: The background process has not started to work on the job; 
-    + INPROCESS: The background process is working on the job;
+    + PENDING: The background process has not started to work on the job.
+    + INPROCESS: The background process is working on the job.
     + FINISHED: The job has completed successfully, in which case the `result` object will be populated with the requested data OR the `datafiles` array will have at least one data file URI which contains the requested data.
-    + FAILED: The job has failed;
-+ The `startTime` indicates the date and time when the call was first made.
-+ The `endTime` indicates the date and time when the processing for the call is complete.
+    + FAILED: The job has failed. Relevent failure information will be returned in the `status` object in `metadata`.
++ The `startTime` indicates the date and time when the call was first made as registered by the server.
++ The `endTime` indicates the date and time when the processing for the call was completed on the server.
 + The `percentComplete` is an integer [range 0-100] which indicates how much of the process has completed. If a system has no way of detecting intermediate status, `percentComplete` may jump directly from 0 to 100 when processing is finished.
 
 After making the initial asynch call and receiving an `asynchId`, all subsequent polling calls should go to `/{asynch_call}/{asynchId}` 
