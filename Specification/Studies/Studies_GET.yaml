@@ -149,9 +149,9 @@ paths:
                     - season: fall
                       seasonDbId: '1'
                       year: '2011'
-                    - season: winter
-                      seasonDbId: '2'
-                      year: '2012'
+                    - season:
+                      seasonDbId: '2012'
+                      year:
                     startDate: '2013-01-01'
                     studyDbId: '1001'
                     studyName: Study 1

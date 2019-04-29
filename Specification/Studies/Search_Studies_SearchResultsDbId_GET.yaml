@@ -44,9 +44,9 @@ paths:
                     programDbId: '1'
                     programName: Program 1
                     seasons:
-                    - season: fall
-                      seasonDbId: '1'
-                      year: '2011'
+                    - season:
+                      seasonDbId: '2007'
+                      year:
                     - season: winter
                       seasonDbId: '2'
                       year: '2012'

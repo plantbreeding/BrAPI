@@ -60,19 +60,19 @@ paths:
                       observationVariableDbId: MO_123:100002
                       observationVariableName: Plant height
                       season:
-                        season: fall
-                        seasonDbId: '1'
-                        year: '2011'
+                        season:
+                        seasonDbId: '2013'
+                        year:
                       value: '1.2'
                     - collector: A. Technician
                       observationDbId: '2'
-                      observationTimeStamp: '2013-06-14T22:04:51-04:00'
+                      observationTimeStamp: '2014-06-14T22:04:51-04:00'
                       observationVariableDbId: MO_123:100006
                       observationVariableName: Virus severity
                       season:
-                        season: fall
-                        seasonDbId: '1'
-                        year: '2011'
+                        season:
+                        seasonDbId: '2014'
+                        year:
                       value: '4.5'
                     - collector: string
                       observationDbId: bb989815-86bf-430b-9d87-054df8919767
@@ -116,9 +116,9 @@ paths:
                       observationVariableDbId: MO_123:100002
                       observationVariableName: Plant height
                       season:
-                        season: fall
-                        seasonDbId: '1'
-                        year: '2011'
+                        season:
+                        seasonDbId: '2000-2013'
+                        year:
                       value: '1.1'
                     - collector: A. Technician
                       observationDbId: '4'
@@ -126,9 +126,9 @@ paths:
                       observationVariableDbId: MO_123:100006
                       observationVariableName: Virus severity
                       season:
-                        season: fall
-                        seasonDbId: '1'
-                        year: '2011'
+                        season:
+                        seasonDbId: '2013 fall'
+                        year:
                       value: '5.1'
                     pedigree: A000001/A000002
                     plantNumber: '1'
