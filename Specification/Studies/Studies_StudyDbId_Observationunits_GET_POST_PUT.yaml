@@ -87,7 +87,12 @@ paths:
                     pedigree: A000001/A000002
                     plantNumber: '0'
                     plotNumber: '1'
+                    observationLevel: plant
+                    observationLevels: block:1;plot:1;plant:0
                     replicate: '0'
+                    treatments:
+                    - factor: water regimen
+                      modality: deficit
                   - X: '1'
                     Y: '1'
                     blockNumber: '1'
@@ -128,7 +133,12 @@ paths:
                     pedigree: A000001/A000002
                     plantNumber: '1'
                     plotNumber: '1'
+                    observationLevel: plot
+                    observationLevels: block:1;plot:1;plant:1
                     replicate: '0'
+                    treatments:
+                    - factor: water regimen
+                      modality: irrigated
               schema:
                 properties:
                   metadata:
