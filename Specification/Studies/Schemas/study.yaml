@@ -31,6 +31,11 @@ components:
           description: The date the study ends
           format: date
           type: string
+        environmentParameters:
+          description: Environmental parameters that were kept constant throughout the study and did not change between observation units.
+          items:
+            $ref: '#/components/schemas/environmentParameter'
+          type: array
         lastUpdate:
           description: The date and time when this study was last modified
           properties:

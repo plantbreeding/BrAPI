@@ -1,0 +1,34 @@
+components:
+  schemas:
+    environmentParameters:
+      properties:
+        parameterName:
+          description: Name of the environment parameter constant within the experiment
+          type: string
+        parameterPUI:
+          description: URI pointing to an ontology class for the parameter
+          type: string
+        description:
+          description: Human-readable value of the environment parameter (defined above) constant within the experiment
+          type: string
+        value:
+          description: Numerical or categorical value
+          type: string
+        valuePUI:
+          description: URI pointing to an ontology class for the parameter value
+          type: string
+        unit:
+          description: Unit of the value for this parameter
+          type: string
+        unitPUI:
+          description: URI pointing to an ontology class for the unit
+          type: string
+      required:
+      - parameterName
+      - description
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
