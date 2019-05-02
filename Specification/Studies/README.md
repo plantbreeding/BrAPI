@@ -923,10 +923,10 @@ Linked data
         "environmentParameters": [
             {
                 "parameterName": "soil type",
-                "parameterPUI": "http://purl.obolibrary.org/obo/EO_0007155",
+                "parameterPUI": "http://purl.obolibrary.org/obo/PECO_0007155",
                 "description": "the soil type was clay",
                 "value": "clay soil",
-                "valuePUI": "http://purl.obolibrary.org/obo/EO_0007156",
+                "valuePUI": "http://purl.obolibrary.org/obo/ENVO_00002262",
                 "unit": "",
                 "unitPUI": ""
             },
