@@ -51,6 +51,9 @@ components:
         trialName:
           description: The human readable name of a trial
           type: string
+        trialDescription:
+          description: The human readable description of a trial
+          type: string
       type: object
 info:
   title: BrAPI

@@ -151,6 +151,9 @@ components:
         donorInfo:
           description: Information about the donor
           properties:
+            donorAccessionPui:
+              description: PUI (DOI mostly) of the accession in the donor system.
+              type: string
             donorAccessionNumber:
               description: MCPD (v2.1) (DONORNUMB) 23. Identifier assigned to an accession by the donor. Follows ACCENUMB standard.
               type: string

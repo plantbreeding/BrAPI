@@ -96,6 +96,7 @@ paths:
                       studyName: Study 2
                     trialDbId: '101'
                     trialName: Peru Yield Trial 1
+                    trialDescription: General drougth resistance trial initiated in Peru before duplication in Africa
                   - active: false
                     additionalInfo:
                       donorName: Donor1
@@ -118,6 +119,7 @@ paths:
                       studyName: Study 2
                     trialDbId: '101'
                     trialName: Peru Yield Trial 1
+                    trialDescription: General drougth resistance trial initiated in Peru before duplication in Africa
               schema:
                 properties:
                   metadata:

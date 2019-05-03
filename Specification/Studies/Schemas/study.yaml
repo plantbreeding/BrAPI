@@ -79,6 +79,28 @@ components:
         trialName:
           description: The human readable name of a trial
           type: string
+        observationUnitsDescription:
+          description: The human readable description of the observation units design
+          type: string
+        culturalPractices:
+          description: General description of the cultural practices of the study.
+          type: string
+        experimentalDesign:
+          description: The experimental and statistical design full description plus a category PUI taken from crop research ontology or agro ontology
+          properties:
+            description:
+              type: string
+            PUI:
+              type: string
+          type: object
+        growthFacility:
+                  description: Short description of the facility in which the study was carried out.
+                  properties:
+                    description:
+                      type: string
+                    PUI:
+                      type: string
+                  type: object
       type: object
 info:
   title: BrAPI
