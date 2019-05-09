@@ -1,0 +1,27 @@
+openapi: 3.0.0
+info:
+  title: ga4gh/rna_quantification_service.proto
+  version: version not set
+paths:
+  /expressionlevels/search:
+    post:
+      summary: |-
+        'POST /expressionlevels/search' must accept JSON version of
+        'SearchExpressionLevelsRequest' as the post body and will return a JSON
+        version of 'SearchExpressionLevelsResponse'.
+      operationId: SearchExpressionLevels
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchExpressionLevelsResponse'
+      tags:
+        - GA4GH
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchExpressionLevelsRequest'
+        required: true

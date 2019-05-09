@@ -1,0 +1,61 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /variantsets/{variantSetDbId}/variants:
+    get:
+      summary: Gets a `VariantSet` by ID.
+      description: |-
+        `GET /variantsets/{variant_set_id}` will return a JSON version of
+        `VariantSet`.
+      operationId: GetVariantSet
+      parameters:
+        - name: variantDbId
+          description: The ID of the `Variant` to be retrieved.
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: variantSetDbId
+          description: The ID of the `VariantSet` to be retrieved.
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/pageSize'
+        - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    properties:
+                      data:
+                        items:
+                          $ref: '#/components/schemas/Variant'
+                        type: array
+                    required:
+                    - data
+                    title: variantListResponseResult
+                    type: object
+                required:
+                - metadata
+                - result
+                title: variantListResponse
+                type: object
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+        - Variants

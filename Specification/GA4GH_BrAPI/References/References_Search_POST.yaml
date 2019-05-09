@@ -1,0 +1,28 @@
+openapi: 3.0.0
+info:
+  title: ga4gh/reference_service.proto
+  version: version not set
+paths:
+  /references/search:
+    post:
+      summary: Gets a list of `Reference` matching the search criteria.
+      description: |-
+        `POST /references/search` must accept a JSON version of
+        `SearchReferencesRequest` as the post body and will return a JSON
+        version of `SearchReferencesResponse`.
+      operationId: SearchReferences
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchReferencesResponse'
+      tags:
+        - GA4GH
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchReferencesRequest'
+        required: true

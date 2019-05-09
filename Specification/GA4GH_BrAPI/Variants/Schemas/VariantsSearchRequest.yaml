@@ -1,0 +1,54 @@
+components:
+  schemas:
+    variantsSearchRequest: 
+      description: |-
+        ******************  /variants  *********************
+        This request maps to the body of `POST /variants/search` as JSON.
+      properties:
+        callSetDbIds: 
+          description: |-
+            Only return variant calls which belong to call sets with these IDs.
+            If unspecified, return all variants and no variant call objects.
+          items:
+            type: string
+          type: array
+        end:
+          description: |-
+            Required. The end of the window (0-based, exclusive) for which overlapping
+            variants should be returned.
+          format: int64
+          type: string
+        pageSize:
+          description: |-
+            Specifies the maximum number of results to return in a single page.
+            If unspecified, a system default will be used.
+          format: int32
+          type: integer
+        page: 
+          description: |-
+            Index number of the page to retrieve.
+          format: int32
+          type: integer
+        reference_name:
+          description: Required. Only return variants on this reference.
+          type: string
+        start:
+          description: |-
+            Required. The beginning of the window (0-based, inclusive) for
+            which overlapping variants should be returned.
+            Genomic positions are non-negative integers less than reference length.
+            Requests spanning the join of circular genomes are represented as
+            two requests one on each side of the join (position 0).
+          format: int64
+          type: string
+        variantSetDbIds: 
+          description: The `VariantSet` to search.
+          items:
+            type: string
+          type: array
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

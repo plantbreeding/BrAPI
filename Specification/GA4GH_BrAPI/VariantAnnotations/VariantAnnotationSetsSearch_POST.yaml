@@ -1,0 +1,26 @@
+openapi: 3.0.0
+info:
+  title: ga4gh/allele_annotation_service.proto
+  version: version not set
+paths:
+  /variantannotationsets/search:
+    post:
+      summary: Returns a list of available variant annotation sets.
+      description: |-
+        `POST /variantannotationsets/search` must accept a JSON version of `SearchVariantAnnotationSetsRequest` as the post body and will return a JSON version of `SearchVariantAnnotationSetsResponse`.
+      operationId: SearchVariantAnnotationSets
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchVariantAnnotationSetsResponse'
+      tags:
+        - GA4GH
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchVariantAnnotationSetsRequest'
+        required: true

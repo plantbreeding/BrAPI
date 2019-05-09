@@ -1,0 +1,31 @@
+openapi: 3.0.0
+info:
+  title: ga4gh/peer_service.proto
+  version: version not set
+paths:
+  /peers/list:
+    post:
+      summary: |-
+        Gets a list of `Peer` messages that are being managed by the
+        service. If the peer list becomes very long it is spread
+        across multiple pages.
+      description: |-
+        `POST /peers/list` must accept a JSON version of
+        `ListPeersRequest` as the post body and will return a JSON
+        version of `ListPeersResponse`.
+      operationId: ListPeers
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListPeersResponse'
+      tags:
+        - GA4GH
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListPeersRequest'
+        required: true

@@ -1,0 +1,689 @@
+openapi: 3.0.0
+info:
+  title: ga4gh/reference_service.proto
+  version: version not set
+paths:
+  /v0.6.0a10/references/search:
+    post:
+      summary: Gets a list of `Reference` matching the search criteria.
+      description: |-
+        `POST /references/search` must accept a JSON version of
+        `SearchReferencesRequest` as the post body and will return a JSON
+        version of `SearchReferencesResponse`.
+      operationId: SearchReferences
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchReferencesResponse'
+      tags:
+        - ReferenceService
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchReferencesRequest'
+        required: true
+  '/v0.6.0a10/references/{reference_id}':
+    get:
+      summary: Gets a `Reference` by ID.
+      description: |-
+        `GET /references/{reference_id}` will return a JSON version of
+        `Reference`.
+      operationId: GetReference
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Reference'
+      parameters:
+        - name: reference_id
+          description: The ID of the `Reference` to be retrieved.
+          in: path
+          required: true
+          schema:
+            type: string
+      tags:
+        - ReferenceService
+  '/v0.6.0a10/references/{reference_id}/bases':
+    post:
+      summary: Lists `Reference` bases by ID and optional range.
+      description: |-
+        `POST /listreferencebases` will return a JSON version of
+        `ListReferenceBasesResponse`.
+      operationId: ListReferenceBases
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListReferenceBasesResponse'
+      parameters:
+        - name: reference_id
+          description: The ID of the `Reference` to be retrieved.
+          in: path
+          required: true
+          schema:
+            type: string
+      tags:
+        - ReferenceService
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListReferenceBasesRequest'
+        required: true
+  /v0.6.0a10/referencesets/search:
+    post:
+      summary: Gets a list of `ReferenceSet` matching the search criteria.
+      description: |-
+        `POST /referencesets/search` must accept a JSON version of
+        `SearchReferenceSetsRequest` as the post body and will return a JSON
+        version of `SearchReferenceSetsResponse`.
+      operationId: SearchReferenceSets
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchReferenceSetsResponse'
+      tags:
+        - ReferenceService
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchReferenceSetsRequest'
+        required: true
+  '/v0.6.0a10/referencesets/{reference_set_id}':
+    get:
+      summary: Gets a `ReferenceSet` by ID.
+      description: |-
+        `GET /referencesets/{reference_set_id}` will return a JSON version of
+        `ReferenceSet`.
+      operationId: GetReferenceSet
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReferenceSet'
+      parameters:
+        - name: reference_set_id
+          description: The ID of the `ReferenceSet` to be retrieved.
+          in: path
+          required: true
+          schema:
+            type: string
+      tags:
+        - ReferenceService
+components:
+  schemas:
+    ga4ghAnalysis:
+      type: object
+      properties:
+        id:
+          type: string
+          description: |-
+            Formats of id | name | description | accessions are described in the
+            documentation on general attributes and formats.
+        name:
+          type: string
+        description:
+          type: string
+        created:
+          type: string
+          description: 'The time at which this record was created, in ISO 8601 format.'
+        updated:
+          type: string
+          description: 'The time at which this record was last updated, in ISO 8601 format.'
+        type:
+          type: string
+          description: The type of analysis.
+        software:
+          type: array
+          items:
+            type: string
+          description: The software run to generate this analysis.
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+      description: >-
+        An analysis contains an interpretation of one or several experiments.
+        (e.g.
+
+        SNVs, copy number variations, methylation status) together with
+        information
+
+        about the methodology used.
+    ga4ghAttributeValue:
+      type: object
+      properties:
+        string_value:
+          type: string
+        int64_value:
+          type: string
+          format: int64
+        int32_value:
+          type: integer
+          format: int32
+        bool_value:
+          type: boolean
+          format: boolean
+        double_value:
+          type: number
+          format: double
+        external_identifier:
+          $ref: '#/components/schemas/ExternalIdentifier'
+        ontology_term:
+          $ref: '#/components/schemas/OntologyTerm'
+        experiment:
+          $ref: '#/components/schemas/Experiment'
+        program:
+          $ref: '#/components/schemas/Program'
+        analysis:
+          $ref: '#/components/schemas/Analysis'
+        null_value:
+          $ref: '#/components/schemas/NullValue'
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+        attribute_list:
+          $ref: '#/components/schemas/AttributeValueList'
+      description: >-
+        Type defining a collection of attributes associated with various
+        protocol
+
+        records. Each attribute is a name that maps to an array of one or more
+
+        values. Values are chosen from both internal protobuf types and GA4GH.
+         Values should be split into array elements instead of using a separator
+        syntax that needs to parsed.
+    ga4ghAttributeValueList:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/AttributeValue'
+    ga4ghAttributes:
+      type: object
+      properties:
+        attr:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/AttributeValueList'
+    ga4ghExperiment:
+      type: object
+      properties:
+        id:
+          type: string
+          title: The experiment ID
+        name:
+          type: string
+          description: The name of the experiment.
+        description:
+          type: string
+          description: A description of the experiment.
+        message_create_time:
+          type: string
+          title: >-
+            The time at which this message was created.
+
+            Format: ISO 8601, YYYY-MM-DDTHH:MM:SS.SSS (e.g.
+            2015-02-10T00:03:42.123Z)
+        message_update_time:
+          type: string
+          title: >-
+            The time at which this message was last updated.
+
+            Format: ISO 8601, YYYY-MM-DDTHH:MM:SS.SSS (e.g.
+            2015-02-10T00:03:42.123Z)
+        run_time:
+          type: string
+          title: |-
+            The time at which this experiment was performed.
+            Granularity here is variable (e.g. date only).
+            Format: ISO 8601, YYYY-MM-DDTHH:MM:SS (e.g. 2015-02-10T00:03:42)
+        molecule:
+          type: string
+          title: >-
+            The molecule examined in this experiment. (e.g. genomics DNA, total
+            RNA)
+        strategy:
+          type: string
+          title: |-
+            The experiment technique or strategy applied to the sample.
+            (e.g. whole genome sequencing, RNA-seq, RIP-seq)
+        selection:
+          type: string
+          title: >-
+            The method used to enrich the target. (e.g. immunoprecipitation,
+            size
+
+            fractionation, MNase digestion)
+        library:
+          type: string
+          description: The name of the library used as part of this experiment.
+        library_layout:
+          type: string
+          description: The configuration of sequenced reads. (e.g. Single or Paired).
+        instrument_model:
+          type: string
+          description: |-
+            The instrument model used as part of this experiment.
+            This maps to sequencing technology in BAM.
+        instrument_data_file:
+          type: string
+          title: |-
+            The data file generated by the instrument.
+            TODO: This isn't actually a file is it?
+            Should this be `instrumentData` instead?
+        sequencing_center:
+          type: string
+          description: The sequencing center used as part of this experiment.
+        platform_unit:
+          type: string
+          description: |-
+            The platform unit used as part of this experiment. This is a
+            flowcell-barcode
+            or slide unique identifier.
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+      description: An experimental preparation of a sample.
+    ga4ghExternalIdentifier:
+      type: object
+      properties:
+        database:
+          type: string
+          description: 'The source of the identifier, e.g. `Ensembl`.'
+        identifier:
+          type: string
+          description: 'The ID defined by the external database, e.g. `ENST00000000000`.'
+        version:
+          type: string
+          description: 'The version of the object or the database, e.g. `78`.'
+      title: Identifier from a public database
+    ga4ghListReferenceBasesRequest:
+      type: object
+      properties:
+        reference_id:
+          type: string
+          description: The ID of the `Reference` to be retrieved.
+        start:
+          type: string
+          format: int64
+          description: >-
+            The start position (0-based) of this query. Defaults to 0.
+
+            Genomic positions are non-negative integers less than reference
+            length.
+
+            Requests spanning the join of circular genomes are represented as
+
+            two requests one on each side of the join (position 0).
+        end:
+          type: string
+          format: int64
+          description: |-
+            The end position (0-based, exclusive) of this query. Defaults
+            to the length of this `Reference`.
+        page_token:
+          type: string
+          description: >-
+            The continuation token, which is used to page through large result
+            sets.
+
+            To get the next page of results, set this parameter to the value of
+
+            `next_page_token` from the previous response.
+      description: |-
+        This request retrieves a region of a reference genome when sent to 
+        the `/listreferencebases` endpoint.
+    ga4ghListReferenceBasesResponse:
+      type: object
+      properties:
+        offset:
+          type: string
+          format: int64
+          description: >-
+            The offset position (0-based) of the given sequence from the start
+            of this
+
+            `Reference`. This value will differ for each page in a paginated
+            request.
+        sequence:
+          type: string
+          description: >-
+            A substring of the bases that make up this reference. Bases are
+            represented
+
+            as IUPAC-IUB codes; this string matches the regexp
+            `[ACGTMRWSYKVHDBN]*`.
+        next_page_token:
+          type: string
+          description: >-
+            The continuation token, which is used to page through large result
+            sets.
+
+            Provide this value in a subsequent request to return the next page
+            of
+
+            results. This field will be empty if there aren't any additional
+            results.
+      description: The response from `POST /listreferencebases` expressed as JSON.
+    ga4ghNullValue:
+      type: string
+      enum:
+        - NULL_VALUE
+      default: NULL_VALUE
+      description: ' - NULL_VALUE: Null value.'
+    ga4ghOntologyTerm:
+      type: object
+      properties:
+        term_id:
+          type: string
+          description: >-
+            Ontology term identifier - the CURIE for an ontology term. It
+
+            differs from the standard GA4GH schema's :ref:`id
+            `
+
+            in that it is a CURIE pointing to an information resource outside of
+            the
+
+            scope of the schema or its resource implementation.
+        term:
+          type: string
+          description: >-
+            Ontology term - the label of the ontology term the termId is
+            pointing to.
+      title: |-
+        An ontology term describing an attribute. (e.g. the phenotype attribute
+        'polydactyly' from HPO)
+    ga4ghProgram:
+      type: object
+      properties:
+        command_line:
+          type: string
+          description: The command line used to run this program.
+        id:
+          type: string
+          description: The user specified ID of the program.
+        name:
+          type: string
+          description: The name of the program.
+        prev_program_id:
+          type: string
+          description: The ID of the program run before this one.
+        version:
+          type: string
+          description: The version of the program run.
+      description: A Program describes software used in data processing or analysis.
+    ga4ghReference:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The reference ID. Unique within the repository.
+        length:
+          type: string
+          format: int64
+          description: The length of this reference's sequence.
+        md5checksum:
+          type: string
+          description: >-
+            The MD5 checksum uniquely representing this `Reference` as a
+            lower-case
+
+            hexadecimal string, calculated as the MD5 of the upper-case sequence
+
+            excluding all whitespace characters (this is equivalent to SQ:M5 in
+            SAM).
+        name:
+          type: string
+          description: >-
+            The unique name of this reference within the Reference Set (e.g.
+            '22').
+        source_uri:
+          type: string
+          description: >-
+            The URI from which the sequence was obtained. Specifies a FASTA
+            format
+
+            file/string with one name, sequence pair. In most cases, clients
+            should
+
+            call
+
+            the `getReferenceBases()` method to obtain sequence bases for a
+            `Reference`
+
+            instead of attempting to retrieve this URI.
+        source_accessions:
+          type: array
+          items:
+            type: string
+          description: >-
+            All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ)
+            which
+
+            must include
+
+            a version number, e.g. `GCF_000001405.26`.
+        is_derived:
+          type: boolean
+          format: boolean
+          description: >-
+            A sequence X is said to be derived from source sequence Y, if X and
+            Y
+
+            are of the same length and the per-base sequence divergence at
+            A/C/G/T
+
+            bases
+
+            is sufficiently small. Two sequences derived from the same official
+
+            sequence share the same coordinates and annotations, and
+
+            can be replaced with the official sequence for certain use cases.
+        source_divergence:
+          type: number
+          format: float
+          description: >-
+            The `sourceDivergence` is the fraction of non-indel bases that do
+            not match
+
+            the
+
+            reference this message was derived from.
+        species:
+          $ref: '#/components/schemas/OntologyTerm'
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+      description: |-
+        A `Reference` is a canonical assembled contig, intended to act as a
+        reference coordinate space for other genomic annotations. A single
+        `Reference` might represent the human chromosome 1, for instance.
+
+        `Reference` s are designed to be immutable.
+    ga4ghReferenceSet:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The reference set ID. Unique in the repository.
+        name:
+          type: string
+          description: The reference set name.
+        md5checksum:
+          type: string
+          description: >-
+            Order-independent MD5 checksum which identifies this `ReferenceSet`.
+
+
+            To compute this checksum, make a list of `Reference.md5checksum` for
+            all
+
+            `Reference` s in this set. Then sort that list, and take the MD5
+            hash of
+
+            all the strings concatenated together. Express the hash as a
+            lower-case
+
+            hexadecimal string.
+        species:
+          $ref: '#/components/schemas/OntologyTerm'
+        description:
+          type: string
+          description: Optional free text description of this reference set.
+        assembly_id:
+          type: string
+          description: |-
+            The remaining information is about the source of the sequences
+            Public id of this reference set, such as `GRCh37`.
+        source_uri:
+          type: string
+          description: Specifies a FASTA format file/string.
+        source_accessions:
+          type: array
+          items:
+            type: string
+          description: >-
+            All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ)
+            ideally
+
+            with a version number, e.g. `NC_000001.11`.
+        is_derived:
+          type: boolean
+          format: boolean
+          description: |-
+            A reference set may be derived from a source if it contains
+            additional sequences, or some of the sequences within it are derived
+            (see the definition of `isDerived` in `Reference`).
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+      description: |-
+        A `ReferenceSet` is a set of `Reference` s which typically comprise a
+        reference assembly, such as `GRCh38`. A `ReferenceSet` defines a common
+        coordinate space for comparing reference-aligned experimental data.
+    ga4ghSearchReferenceSetsRequest:
+      type: object
+      properties:
+        md5checksum:
+          type: string
+          description: |-
+            If unset, return the reference sets for which the
+            `md5checksum` matches this string (case-sensitive, exact match).
+            See `ReferenceSet::md5checksum` for details.
+        accession:
+          type: string
+          description: |-
+            If unset, return the reference sets for which the `accession`
+            matches this string (case-sensitive, exact match).
+        assembly_id:
+          type: string
+          description: |-
+            If unset, return the reference sets for which the `assemblyId`
+            matches this string (case-sensitive, exact match).
+        page_size:
+          type: integer
+          format: int32
+          description: |-
+            Specifies the maximum number of results to return in a single page.
+            If unspecified, a system default will be used.
+        page_token:
+          type: string
+          description: >-
+            The continuation token, which is used to page through large result
+            sets.
+
+            To get the next page of results, set this parameter to the value of
+
+            `next_page_token` from the previous response.
+      description: |-
+        ****************  /referencesets  *******************
+        This request maps to the body of `POST /referencesets/search` as JSON.
+    ga4ghSearchReferenceSetsResponse:
+      type: object
+      properties:
+        reference_sets:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReferenceSet'
+          description: The list of matching reference sets.
+        next_page_token:
+          type: string
+          description: >-
+            The continuation token, which is used to page through large result
+            sets.
+
+            Provide this value in a subsequent request to return the next page
+            of
+
+            results. This field will be empty if there aren't any additional
+            results.
+      description: >-
+        This is the response from `POST /referencesets/search` expressed as
+        JSON.
+    ga4ghSearchReferencesRequest:
+      type: object
+      properties:
+        reference_set_id:
+          type: string
+          description: The `ReferenceSet` to search.
+        md5checksum:
+          type: string
+          description: |-
+            If specified, return the references for which the
+            `md5checksum` matches this string (case-sensitive, exact match).
+            See `ReferenceSet::md5checksum` for details.
+        accession:
+          type: string
+          description: |-
+            If specified, return the references for which the `accession`
+            matches this string (case-sensitive, exact match).
+        page_size:
+          type: integer
+          format: int32
+          description: |-
+            Specifies the maximum number of results to return in a single page.
+            If unspecified, a system default will be used.
+        page_token:
+          type: string
+          description: >-
+            The continuation token, which is used to page through large result
+            sets.
+
+            To get the next page of results, set this parameter to the value of
+
+            `next_page_token` from the previous response.
+      description: |-
+        ****************  /references  *******************
+        This request maps to the body of `POST /references/search` as JSON.
+    ga4ghSearchReferencesResponse:
+      type: object
+      properties:
+        references:
+          type: array
+          items:
+            $ref: '#/components/schemas/Reference'
+          description: The list of matching references.
+        next_page_token:
+          type: string
+          description: >-
+            The continuation token, which is used to page through large result
+            sets.
+
+            Provide this value in a subsequent request to return the next page
+            of
+
+            results. This field will be empty if there aren't any additional
+            results.
+      description: This is the response from `POST /references/search` expressed as JSON.

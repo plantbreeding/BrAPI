@@ -1,0 +1,47 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /variantsets/extract:
+    post:
+      summary: Create new `VariantSet` based on search results
+      description: |-
+        `POST /variantsets/extract` will perform a search for `Calls` which match the search criteria in `variantSetsExtractRequest`
+        The results of the search will be used to create a new `VariantSet` on the server. The new `VariantSet` will be returned.        
+      operationId: SearchVariantSets
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/variantSetsExtractRequest'
+        description: Study Search request
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/VariantSet'
+                required:
+                - metadata
+                - result
+                title: variantSetResponse
+                type: object
+          description: OK
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Variants
