@@ -2,6 +2,19 @@
   "brapi-providers": {
     "category": [
       {
+        "name": "IPK-Gatersleben",
+        "description": "Leibniz Institute of Plant Genetics and Crop Plant Research",
+        "logo": "https://www.ipk-gatersleben.de/fileadmin/template/main/images-ipk/ipklogo.png",
+        "resource": [
+          {
+            "name": "Germplasm",
+            "base-url": "https://webapps.ipk-gatersleben.de/api/brapi/v1",
+            "logo": "https://www.ipk-gatersleben.de/fileadmin/template/main/images-ipk/ipklogo.png",
+            "description": "Germplasm resources from IPK-Gatersleben"
+          }
+        ]
+      },
+      {
         "name": "James Hutton Institute, The",
         "description": "JHI",
         "logo": "https://ics.hutton.ac.uk/resources/brapi/logos/jhi-128.png",
