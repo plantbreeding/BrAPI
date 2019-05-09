@@ -1,0 +1,63 @@
+components:
+  schemas:
+    ReadGroup:
+      description: A ReadGroup is a set of reads derived from one physical sequencing process.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+        biosample_id:
+          description: The Biosample this read group's data was generated from.
+          type: string
+        created:
+          description: |-
+            The time at which this read group was created in milliseconds from the
+            epoch.
+          format: int64
+          type: string
+        dataset_id:
+          description: The ID of the dataset this read group belongs to.
+          type: string
+        description:
+          description: The read group description.
+          type: string
+        experiment:
+          $ref: '#/components/schemas/Experiment'
+        id:
+          description: The read group ID.
+          type: string
+        name:
+          description: The read group name.
+          type: string
+        predicted_insert_size:
+          description: The predicted insert size of this read group.
+          format: int32
+          type: integer
+        programs:
+          items:
+            $ref: '#/components/schemas/Program'
+          type: array
+        reference_set_id:
+          description: |-
+            The ID of the reference set to which the reads in this read group are
+            aligned. Required if there are any read alignments.
+          type: string
+        sample_name:
+          description: |-
+            A name for the sample this read group's data were generated from.
+            This field contains an arbitrary string, typically
+            corresponding to the SM tag in a BAM file.
+          type: string
+        stats:
+          $ref: '#/components/schemas/ReadStats'
+        updated:
+          description: |-
+            The time at which this read group was last updated in milliseconds
+            from the epoch.
+          format: int64
+          type: string
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

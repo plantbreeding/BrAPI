@@ -1,0 +1,668 @@
+openapi: 3.0.0
+info:
+  title: ga4gh/allele_annotation_service.proto
+  version: version not set
+paths:
+  /v0.6.0a10/variantannotations/search:
+    post:
+      summary: >-
+        Gets a list of `VariantAnnotation` messages matching the search
+        criteria.
+      description: >-
+        This allows the mining of allele-specific annotations on a VariantSet by
+
+        either a region or by a set of genomic features. Where a region is
+        supplied
+
+        annotation of all alleles vs all features in the region is returned.
+        Where
+
+        a set of features is supplied, only annotations against these features
+
+        (matching on featuretype and id) are returned and other overlapping
+
+        features are ignored.
+
+
+        `variantannotationsets/search` returns information on the input to the
+
+        annotation. This will be a VariantSet and the reference data and
+        software
+
+        versions used in calculating the annotation. It is essential this
+
+        information is exhaustive.
+
+
+        `POST /variantannotations/search` must accept a JSON version of
+
+        `SearchVariantAnnotationsRequest` as the post body and will return a
+        JSON
+
+        version of `SearchVariantAnnotationsResponse`.
+      operationId: SearchVariantAnnotations
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchVariantAnnotationsResponse'
+      tags:
+        - AlleleAnnotationService
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchVariantAnnotationsRequest'
+        required: true
+  /v0.6.0a10/variantannotationsets/search:
+    post:
+      summary: Returns a list of available variant annotation sets.
+      description: |-
+        `POST /variantannotationsets/search` must accept a JSON version of
+        `SearchVariantAnnotationSetsRequest` as the post body and will return a
+        JSON version of `SearchVariantAnnotationSetsResponse`.
+      operationId: SearchVariantAnnotationSets
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchVariantAnnotationSetsResponse'
+      tags:
+        - AlleleAnnotationService
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchVariantAnnotationSetsRequest'
+        required: true
+  '/v0.6.0a10/variantannotationsets/{variant_annotation_set_id}':
+    get:
+      summary: Gets an `VariantAnnotationSet` by ID.
+      description: >-
+        `GET /variantannotationsets/{variant_annotation_set_id}` will return a
+        JSON
+
+        version of `VariantAnnotationSet`.
+      operationId: GetVariantAnnotationSet
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VariantAnnotationSet'
+      parameters:
+        - name: variant_annotation_set_id
+          description: The ID of the `VariantAnnotationSet` to be retrieved.
+          in: path
+          required: true
+          schema:
+            type: string
+      tags:
+        - AlleleAnnotationService
+components:
+  schemas:
+    ga4ghAlleleLocation:
+      type: object
+      properties:
+        start:
+          type: integer
+          format: int32
+          title: Relative start position of the allele in this coordinate system
+        end:
+          type: integer
+          format: int32
+          title: Relative end position of the allele in this coordinate system
+        reference_sequence:
+          type: string
+          title: >-
+            Reference sequence in feature (this should be the codon at CDS
+            level)
+        alternate_sequence:
+          type: string
+          title: >-
+            Alternate sequence in feature (this should be the codon at CDS
+            level)
+      title: >-
+        An allele location record holds the location of an allele relative to a
+        non -
+
+        genomic coordinate system such as a CDS or protein and holds the
+        reference
+
+        and alternate sequence where appropriate
+    ga4ghAnalysis:
+      type: object
+      properties:
+        id:
+          type: string
+          description: |-
+            Formats of id | name | description | accessions are described in the
+            documentation on general attributes and formats.
+        name:
+          type: string
+        description:
+          type: string
+        created:
+          type: string
+          description: 'The time at which this record was created, in ISO 8601 format.'
+        updated:
+          type: string
+          description: 'The time at which this record was last updated, in ISO 8601 format.'
+        type:
+          type: string
+          description: The type of analysis.
+        software:
+          type: array
+          items:
+            type: string
+          description: The software run to generate this analysis.
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+      description: >-
+        An analysis contains an interpretation of one or several experiments.
+        (e.g.
+
+        SNVs, copy number variations, methylation status) together with
+        information
+
+        about the methodology used.
+    ga4ghAnalysisResult:
+      type: object
+      properties:
+        analysis_id:
+          type: string
+          title: The ID of the analysis record for this result
+        result:
+          type: string
+          title: The text-based result for this analysis
+        score:
+          type: integer
+          format: int32
+          title: The numeric score for this analysis
+      description: >-
+        An AnalysisResult record holds the output of a prediction package such
+        as
+
+        SIFT on a specific allele.
+    ga4ghAttributeValue:
+      type: object
+      properties:
+        string_value:
+          type: string
+        int64_value:
+          type: string
+          format: int64
+        int32_value:
+          type: integer
+          format: int32
+        bool_value:
+          type: boolean
+          format: boolean
+        double_value:
+          type: number
+          format: double
+        external_identifier:
+          $ref: '#/components/schemas/ExternalIdentifier'
+        ontology_term:
+          $ref: '#/components/schemas/OntologyTerm'
+        experiment:
+          $ref: '#/components/schemas/Experiment'
+        program:
+          $ref: '#/components/schemas/Program'
+        analysis:
+          $ref: '#/components/schemas/Analysis'
+        null_value:
+          $ref: '#/components/schemas/NullValue'
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+        attribute_list:
+          $ref: '#/components/schemas/AttributeValueList'
+      description: >-
+        Type defining a collection of attributes associated with various
+        protocol
+
+        records. Each attribute is a name that maps to an array of one or more
+
+        values. Values are chosen from both internal protobuf types and GA4GH.
+         Values should be split into array elements instead of using a separator
+        syntax that needs to parsed.
+    ga4ghAttributeValueList:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/AttributeValue'
+    ga4ghAttributes:
+      type: object
+      properties:
+        attr:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/AttributeValueList'
+    ga4ghExperiment:
+      type: object
+      properties:
+        id:
+          type: string
+          title: The experiment ID
+        name:
+          type: string
+          description: The name of the experiment.
+        description:
+          type: string
+          description: A description of the experiment.
+        message_create_time:
+          type: string
+          title: >-
+            The time at which this message was created.
+
+            Format: ISO 8601, YYYY-MM-DDTHH:MM:SS.SSS (e.g.
+            2015-02-10T00:03:42.123Z)
+        message_update_time:
+          type: string
+          title: >-
+            The time at which this message was last updated.
+
+            Format: ISO 8601, YYYY-MM-DDTHH:MM:SS.SSS (e.g.
+            2015-02-10T00:03:42.123Z)
+        run_time:
+          type: string
+          title: |-
+            The time at which this experiment was performed.
+            Granularity here is variable (e.g. date only).
+            Format: ISO 8601, YYYY-MM-DDTHH:MM:SS (e.g. 2015-02-10T00:03:42)
+        molecule:
+          type: string
+          title: >-
+            The molecule examined in this experiment. (e.g. genomics DNA, total
+            RNA)
+        strategy:
+          type: string
+          title: |-
+            The experiment technique or strategy applied to the sample.
+            (e.g. whole genome sequencing, RNA-seq, RIP-seq)
+        selection:
+          type: string
+          title: >-
+            The method used to enrich the target. (e.g. immunoprecipitation,
+            size
+
+            fractionation, MNase digestion)
+        library:
+          type: string
+          description: The name of the library used as part of this experiment.
+        library_layout:
+          type: string
+          description: The configuration of sequenced reads. (e.g. Single or Paired).
+        instrument_model:
+          type: string
+          description: |-
+            The instrument model used as part of this experiment.
+            This maps to sequencing technology in BAM.
+        instrument_data_file:
+          type: string
+          title: |-
+            The data file generated by the instrument.
+            TODO: This isn't actually a file is it?
+            Should this be `instrumentData` instead?
+        sequencing_center:
+          type: string
+          description: The sequencing center used as part of this experiment.
+        platform_unit:
+          type: string
+          description: |-
+            The platform unit used as part of this experiment. This is a
+            flowcell-barcode
+            or slide unique identifier.
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+      description: An experimental preparation of a sample.
+    ga4ghExternalIdentifier:
+      type: object
+      properties:
+        database:
+          type: string
+          description: 'The source of the identifier, e.g. `Ensembl`.'
+        identifier:
+          type: string
+          description: 'The ID defined by the external database, e.g. `ENST00000000000`.'
+        version:
+          type: string
+          description: 'The version of the object or the database, e.g. `78`.'
+      title: Identifier from a public database
+    ga4ghHGVSAnnotation:
+      type: object
+      properties:
+        genomic:
+          type: string
+        transcript:
+          type: string
+        protein:
+          type: string
+      description: >-
+        A HGVSAnnotation record holds Human Genome Variation Society
+        descriptions of
+
+        the sequence change with respect to genomic, transcript and protein
+
+        sequences. See: http:// www.hgvs.org/mutnomen/recs.html.
+
+        Descriptions should be provided at genomic level
+         - Descriptions at transcript level should be provided when the allele
+           lies within a transcript
+         - Descriptions at protein level should be provided when the allele
+           lies within the translated sequence or stop codon.
+    ga4ghNullValue:
+      type: string
+      enum:
+        - NULL_VALUE
+      default: NULL_VALUE
+      description: ' - NULL_VALUE: Null value.'
+    ga4ghOntologyTerm:
+      type: object
+      properties:
+        term_id:
+          type: string
+          description: >-
+            Ontology term identifier - the CURIE for an ontology term. It
+
+            differs from the standard GA4GH schema's :ref:`id
+            `
+
+            in that it is a CURIE pointing to an information resource outside of
+            the
+
+            scope of the schema or its resource implementation.
+        term:
+          type: string
+          description: >-
+            Ontology term - the label of the ontology term the termId is
+            pointing to.
+      title: |-
+        An ontology term describing an attribute. (e.g. the phenotype attribute
+        'polydactyly' from HPO)
+    ga4ghProgram:
+      type: object
+      properties:
+        command_line:
+          type: string
+          description: The command line used to run this program.
+        id:
+          type: string
+          description: The user specified ID of the program.
+        name:
+          type: string
+          description: The name of the program.
+        prev_program_id:
+          type: string
+          description: The ID of the program run before this one.
+        version:
+          type: string
+          description: The version of the program run.
+      description: A Program describes software used in data processing or analysis.
+    ga4ghSearchVariantAnnotationSetsRequest:
+      type: object
+      properties:
+        variant_set_id:
+          type: string
+          description: Required. The `VariantSet` to search.
+        page_size:
+          type: integer
+          format: int32
+          description: >-
+            Specifies the maximum number of results to return in a single page.
+            If
+
+            unspecified, a system default will be used.
+        page_token:
+          type: string
+          description: >-
+            The continuation token, which is used to page through large result
+            sets.
+
+            To get the next page of results, set this parameter to the value of
+
+            `next_page_token` from the previous response.
+      description: |-
+        This request maps to the body of `POST /variantannotationsets/search` as
+        JSON.
+    ga4ghSearchVariantAnnotationSetsResponse:
+      type: object
+      properties:
+        variant_annotation_sets:
+          type: array
+          items:
+            $ref: '#/components/schemas/VariantAnnotationSet'
+          description: The list of matching variant annotation sets.
+        next_page_token:
+          type: string
+          description: >-
+            The continuation token, which is used to page through large result
+            sets.
+
+            Provide this value in a subsequent request to return the next page
+            of
+
+            results. This field will be empty if there aren't any additional
+            results.
+      description: >-
+        This is the response from `POST /variantannotationsets/search` expressed
+        as
+
+        JSON.
+    ga4ghSearchVariantAnnotationsRequest:
+      type: object
+      properties:
+        variant_annotation_set_id:
+          type: string
+          description: Required. The ID of the variant annotation set to search over.
+        reference_name:
+          type: string
+          description: >-
+            Only return variants with reference alleles on the reference with
+            this
+
+            name. One of this field or `reference_id` is required.
+        reference_id:
+          type: string
+          description: >-
+            Only return variants with reference alleles on the reference with
+            this
+
+            ID. One of this field or `reference_name` is required.
+        start:
+          type: string
+          format: int64
+          description: >-
+            Required if reference_name or reference_id supplied. The beginning
+            of the
+
+            window (0-based, inclusive) for which variants with overlapping
+            reference
+
+            alleles should be returned. Genomic positions are non-negative
+            integers
+
+            less than reference length. Requests spanning the join of circular
+
+            genomes are represented as two requests one on each side of the join
+
+            (position 0).
+        end:
+          type: string
+          format: int64
+          description: >-
+            Required if reference_name or reference_id supplied. The end of the
+            window
+
+            (0-based, exclusive) for which variants with overlapping reference
+
+            alleles should be returned.
+        effects:
+          type: array
+          items:
+            $ref: '#/components/schemas/OntologyTerm'
+          description: >-
+            This filter allows variant, transcript combinations to be extracted
+            by
+
+            effect type(s). Only return variant annotations including any of
+            these
+
+            effects and only return transcript effects including any of these
+
+            effects. Exact matching across all fields of the Sequence Ontology
+
+            OntologyTerm is required. (A transcript effect may have multiple SO
+
+            effects which will all be reported.) If empty, return all variant
+
+            annotations.
+        page_size:
+          type: integer
+          format: int32
+          description: >-
+            Specifies the maximum number of results to return in a single page.
+            If
+
+            unspecified, a system default will be used.
+        page_token:
+          type: string
+          description: >-
+            The continuation token, which is used to page through large result
+            sets.
+
+            To get the next page of results, set this parameter to the value of
+
+            `next_page_token` from the previous response.
+      description: >-
+        This request maps to the body of `POST /variantannotations/search` as
+        JSON.
+    ga4ghSearchVariantAnnotationsResponse:
+      type: object
+      properties:
+        variant_annotations:
+          type: array
+          items:
+            $ref: '#/components/schemas/VariantAnnotation'
+          description: The list of matching variant annotations.
+        next_page_token:
+          type: string
+          description: >-
+            The continuation token, which is used to page through large result
+            sets.
+
+            Provide this value in a subsequent request to return the next page
+            of
+
+            results. This field will be empty if there aren't any additional
+            results.
+      description: |-
+        This is the response from `POST /variantannotations/search` expressed as
+        JSON.
+    ga4ghTranscriptEffect:
+      type: object
+      properties:
+        id:
+          type: string
+          title: The ID of the transcript effect record
+        feature_id:
+          type: string
+          title: >-
+            The id of the transcript feature the annotation is relative to.
+
+            TODO: derive unique id from digest of data [location, allele,
+            transcript?]
+        alternate_bases:
+          type: string
+          description: >-
+            Alternate allele - a variant may have more than one alternate
+            allele,
+
+            each of which will have distinct annotation.
+        effects:
+          type: array
+          items:
+            $ref: '#/components/schemas/OntologyTerm'
+          description: Effect of variant on this feature.
+        hgvs_annotation:
+          $ref: '#/components/schemas/HGVSAnnotation'
+        cdna_location:
+          $ref: '#/components/schemas/AlleleLocation'
+        cds_location:
+          $ref: '#/components/schemas/AlleleLocation'
+        protein_location:
+          $ref: '#/components/schemas/AlleleLocation'
+        analysis_results:
+          type: array
+          items:
+            $ref: '#/components/schemas/AnalysisResult'
+          description: Output from prediction packages such as SIFT.
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+      title: >-
+        A transcript effect record is a set of information describing the effect
+        of
+
+        an allele on a transcript
+    ga4ghVariantAnnotation:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The ID of this VariantAnnotation.
+        variant_id:
+          type: string
+          description: The variant ID.
+        variant_annotation_set_id:
+          type: string
+          description: The ID of the variant annotation set this record belongs to.
+        created:
+          type: string
+          description: 'The time at which this record was created, in ISO 8601 format.'
+        transcript_effects:
+          type: array
+          items:
+            $ref: '#/components/schemas/TranscriptEffect'
+          description: >-
+            The transcript effect annotation for the alleles of this variant.
+            Each
+
+            one represents the effect of a single allele on a single transcript.
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+      description: >-
+        A `VariantAnnotation` record represents the result of comparing a
+        variant to
+
+        a set of reference data.
+    ga4ghVariantAnnotationSet:
+      type: object
+      properties:
+        id:
+          type: string
+          title: The ID of the variant annotation set record
+        variant_set_id:
+          type: string
+          title: The ID of the variant set to which this annotation set belongs
+        name:
+          type: string
+          description: The variant annotation set name.
+        analysis:
+          $ref: '#/components/schemas/Analysis'
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+      description: >-
+        A VariantAnnotationSet record groups VariantAnnotation records. It is
+        derived
+
+        from a VariantSet and holds information describing the software and
+        reference
+
+        data used in the annotation.

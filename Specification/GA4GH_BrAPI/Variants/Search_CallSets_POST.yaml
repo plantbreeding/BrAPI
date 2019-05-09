@@ -1,0 +1,36 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /search/callsets:
+    post:
+      summary: Gets a list of call sets matching the search criteria.
+      description: >-
+        `POST /callsets/search` must accept a JSON version of
+
+        `SearchCallSetsRequest` as the post body and will return a JSON version
+        of
+
+        `SearchCallSetsResponse`.
+      operationId: SearchCallSets
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/callSetsSearchRequest'
+        description: Study Search request
+      responses:
+        '200':
+          $ref: '#/components/responses/successfulSearchResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Variants
+      - Search Services

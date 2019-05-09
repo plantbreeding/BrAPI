@@ -1,0 +1,20 @@
+components:
+  schemas:
+    Strand:
+      default: STRAND_UNSPECIFIED
+      description: |-
+        Indicates the associated DNA strand for some data item.
+
+         - STRAND_UNSPECIFIED: If no strand data is available.
+         - NEG_STRAND: The negative (-) strand.
+         - POS_STRAND: The postive (+) strand.
+      enum:
+      - STRAND_UNSPECIFIED
+      - NEG_STRAND
+      - POS_STRAND
+      type: string
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

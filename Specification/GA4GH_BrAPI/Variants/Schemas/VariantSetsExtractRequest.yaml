@@ -1,0 +1,38 @@
+components:
+  schemas:
+    variantSetsExtractRequest:
+      description: |-
+        This request maps to the body of `POST /variantsets/extract` as JSON.
+      properties:
+        callSetDbIds:
+          description: The CallSet to search.
+          type: array
+          items:
+            type: string
+        pageSize:
+          description: |-
+            Specifies the maximum number of results to return in a single page.
+            If unspecified, a system default will be used.
+          format: int32
+          type: integer
+        page: 
+          description: |-
+            Index number of the page to retrieve.
+          format: int32
+          type: integer
+        variantDbIds: 
+          description: The Variant to search.
+          type: array
+          items:
+            type: string
+        variantSetDbIds: 
+          description: The VariantSet to search.
+          type: array
+          items:
+            type: string
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

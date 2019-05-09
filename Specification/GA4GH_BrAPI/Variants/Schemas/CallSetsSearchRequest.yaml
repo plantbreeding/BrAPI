@@ -1,0 +1,39 @@
+components:
+  schemas:
+    callSetsSearchRequest:
+      description: |-
+        ******************  /callsets  *********************
+        This request maps to the body of `POST /search/callsets` as JSON.
+      properties:
+        biosample_ids:
+          description: Return only call sets generated from the provided Biosample ID.
+          type: array
+          items:
+            type: string
+        callSetNames:
+          description: Only return call sets with this name (case-sensitive, exact match).
+          type: array
+          items:
+            type: string
+        pageSize:
+          description: |-
+            Specifies the maximum number of results to return in a single page.
+            If unspecified, a system default will be used.
+          format: int32
+          type: integer
+        page: 
+          description: |-
+            Index number of the page to retrieve.
+          format: int32
+          type: integer
+        variantSetDbIds: 
+          description: The VariantSet to search.
+          type: array
+          items:
+            type: string
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

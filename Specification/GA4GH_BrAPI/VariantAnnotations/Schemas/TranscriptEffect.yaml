@@ -1,0 +1,46 @@
+components:
+  schemas:
+    TranscriptEffect:
+      properties:
+        alternate_bases:
+          description: |-
+            Alternate allele - a variant may have more than one alternate allele,
+            each of which will have distinct annotation.
+          type: string
+        analysis_results:
+          description: Output from prediction packages such as SIFT.
+          items:
+            $ref: '#/components/schemas/AnalysisResult'
+          type: array
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+        cdna_location:
+          $ref: '#/components/schemas/AlleleLocation'
+        cds_location:
+          $ref: '#/components/schemas/AlleleLocation'
+        effects:
+          description: Effect of variant on this feature.
+          items:
+            $ref: '#/components/schemas/OntologyTerm'
+          type: array
+        feature_id:
+          title: |-
+            The id of the transcript feature the annotation is relative to.
+            TODO: derive unique id from digest of data [location, allele, transcript?]
+          type: string
+        hgvs_annotation:
+          $ref: '#/components/schemas/HGVSAnnotation'
+        id:
+          title: The ID of the transcript effect record
+          type: string
+        protein_location:
+          $ref: '#/components/schemas/AlleleLocation'
+      title: |-
+        A transcript effect record is a set of information describing the effect of
+        an allele on a transcript
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

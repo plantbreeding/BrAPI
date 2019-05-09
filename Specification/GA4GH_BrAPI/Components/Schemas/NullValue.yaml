@@ -1,0 +1,13 @@
+components:
+  schemas:
+    NullValue:
+      default: NULL_VALUE
+      description: ' - NULL_VALUE: Null value.'
+      enum:
+      - NULL_VALUE
+      type: string
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
