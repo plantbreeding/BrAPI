@@ -3,35 +3,36 @@ import yaml
 import sys
 
 def dereferenceAll(obj, parent):
-    if type(obj) is dict:
-        for fieldStr in obj:
-            #print(fieldStr)
-            if(fieldStr == '$ref'):
-                refPath = obj[fieldStr].split('/')
-                refObj = parent
-                for refPart in refPath:
-                    if refPart in refObj:
-                        refObj = refObj[refPart]
-                refObj = dereferenceAll(refObj, parent)
-                refObj['title'] = refPath[-1]
-                obj = {**obj, **refObj}
-            elif(fieldStr == 'allOf'):
-                comboObj = {'properties': {}}
-                for item in obj[fieldStr]:
-                    itemObj = dereferenceAll(item, parent)
-                    comboObj['properties'] = {**(comboObj['properties']), **(itemObj['properties'])}
-                obj = comboObj
-            else:
-                obj[fieldStr] = dereferenceAll(obj[fieldStr], parent)
-        if '$ref' in obj:
-            obj.pop('$ref')
-    elif type(obj) is list:
-        newList = []
-        for item in obj:
-            newList.append(dereferenceAll(item, parent))
-        obj = newList
-        
-    #print(obj)
+    try:
+        if type(obj) is dict:
+            for fieldStr in obj:
+                #print(fieldStr)
+                if(fieldStr == '$ref'):
+                    refPath = obj[fieldStr].split('/')
+                    refObj = parent
+                    for refPart in refPath:
+                        if refPart in refObj:
+                            refObj = refObj[refPart]
+                    refObj = dereferenceAll(refObj, parent)
+                    refObj['title'] = refPath[-1]
+                    obj = {**obj, **refObj}
+                elif(fieldStr == 'allOf'):
+                    comboObj = {'properties': {}}
+                    for item in obj[fieldStr]:
+                        itemObj = dereferenceAll(item, parent)
+                        comboObj['properties'] = {**(comboObj['properties']), **(itemObj['properties'])}
+                    obj = comboObj
+                else:
+                    obj[fieldStr] = dereferenceAll(obj[fieldStr], parent)
+            if '$ref' in obj:
+                obj.pop('$ref')
+        elif type(obj) is list:
+            newList = []
+            for item in obj:
+                newList.append(dereferenceAll(item, parent))
+            obj = newList
+    except:
+        print(obj)
     return obj
 
 

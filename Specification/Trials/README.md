@@ -15,6 +15,29 @@ Services related to trials. Trials comprise of multiple studies. The trial conce
 
 Retrieve a filtered list of Trials. A Trial is a collection of studies
 
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|active|boolean|Is this trail currently active|
+|additionalInfo|object|Additional arbitrary info|
+|commonCropName|string|Common name for the crop associated with this trial|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|endDate|string (date)|The date this trial ends|
+|programDbId|string|The ID which uniquely identifies a program|
+|programName|string|The human readable name of a program|
+|startDate|string (date)|The date this trial started|
+|studies|array[object]|List of studies inside this trial|
+|locationDbId|string||
+|locationName|string||
+|studyDbId|string||
+|studyName|string||
+|trialDbId|string|The ID which uniquely identifies a trial|
+|trialName|string|The human readable name of a trial|
+
+
  
 
 + Parameters
@@ -135,6 +158,44 @@ Retrieve a filtered list of Trials. A Trial is a collection of studies
 ### Get Trials by trialDbId  [GET /brapi/v1/trials/{trialDbId}]
 
 Get trial by id.
+
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|active|boolean|Is this trail currently active|
+|additionalInfo|object|Additional arbitrary info|
+|commonCropName|string|Common name for the crop associated with this trial|
+|contacts|array[object]|List of contact entities associated with this trial|
+|contactDbId|string|The ID which uniquely identifies this contact|
+|email|string|The contacts email address |
+|instituteName|string|The name of the institution which this contact is part of|
+|name|string|The full name of this contact person|
+|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
+|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
+|datasetAuthorship|object|DEPRECATED in v1.3 - see datasetAuthorships|
+|datasetPUI|string||
+|license|string||
+|datasetAuthorships|array[object]|License and citation information for the data in this trial|
+|datasetPUI|string||
+|license|string||
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|endDate|string (date)|The date this trial ends|
+|programDbId|string|A program identifier to search for|
+|programName|string|The human readable name of a program|
+|publications|array[object]||
+|publicationPUI|string||
+|publicationReference|string||
+|startDate|string (date)|The date this trial started|
+|studies|array[object]|List of studies inside this trial|
+|locationDbId|string||
+|locationName|string||
+|studyDbId|string||
+|studyName|string||
+|trialDbId|string|The ID which uniquely identifies a trial|
+|trialName|string|The human readable name of a trial|
+
 
  
 

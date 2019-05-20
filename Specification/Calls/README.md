@@ -34,6 +34,19 @@ Examples GOOD    "call": "germplasm/{germplasmDbId}/markerprofiles" BAD    "call
 
 test-server.brapi.org/brapi/v1/calls
 
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]|Array of availible calls on this server|
+|call|string|The name of the available call as recorded in the documentation|
+|dataTypes|array[string]|The possible data formats returned by the available call|
+|datatypes|array[string]|DEPRECATED in v1.3 - see "dataTypes" (camel case)|
+|methods|array[string]|The possible HTTP Methods to be used with the available call|
+|versions|array[string]|The supported versions of a particular call|
+
+
  
 
 + Parameters

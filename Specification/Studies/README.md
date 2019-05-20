@@ -19,6 +19,14 @@ Call to retrieve the list of supported observation levels.
 Observation levels indicate the granularity level at which the measurements are taken. 
 The values are used to supply the `observationLevel` parameter in the observation unit details call.
 
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[string]||
+
+
  
 
 + Parameters
@@ -77,6 +85,14 @@ The values are used to supply the `observationLevel` parameter in the observatio
  ** DEPRECTED ** Use /observationlevels
 Call to retrieve the list of supported observation levels. Observation levels indicate the granularity level at which the measurements are taken. The values are used to supply the `observationLevel` parameter in the observation unit details call. 
 
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[string]||
+
+
  
 
 + Parameters
@@ -120,6 +136,34 @@ Call to retrieve the list of supported observation levels. Observation levels in
 Get list of studies
 StartDate and endDate should be ISO8601 format for dates
 See Search Services for additional implementation details.
+
+**Request Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|active|boolean|Is this study currently active|
+|commonCropNames|array[string]|Common names for the crop associated with this study|
+|germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm|
+|locationDbIds|array[string]|List of location names to filter search results|
+|observationVariableDbIds|array[string]|List of observation variable IDs to search for|
+|page|integer|Which page of the "data" array to return. The page indexing starts at 0 (page=0 will return the first page). Default is 0.|
+|pageSize|integer|The maximum number of items to return per page of the "data" array. Default is 1000.|
+|programDbIds|array[string]|List of program identifiers to filter search results|
+|programNames|array[string]|List of program names to filter search results|
+|seasonDbIds|array[string]|The ID which uniquely identifies a season|
+|sortBy|string|Name of one of the fields within the study object on which results can be sorted|
+|sortOrder|string|Order results should be sorted. ex. "ASC" or "DESC"|
+|studyDbIds|array[string]|List of study identifiers to search for|
+|studyNames|array[string]|List of study names to filter search results|
+|studyTypeDbIds|array[string]|The unique identifier of the type of study being performed.|
+|studyTypeNames|array[string]|The name of the type of study being performed. ex. "Yield Trial", etc|
+|trialDbIds|array[string]|List of trial identifiers to filter search results|
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|searchResultDbId|string||
+
 
  
 
@@ -235,6 +279,36 @@ Get list of studies
 StartDate and endDate should be ISO8601 format for dates
 
 See Search Services for additional implementation details.
+
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|active|string|Is this study currently active|
+|additionalInfo|object|Additional arbitrary info|
+|commonCropName|string|Common name for the crop associated with this study|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|endDate|string (date)|The date the study ends|
+|locationDbId|string|The ID which uniquely identifies a location|
+|locationName|string|The human readable name for a location|
+|name|string|DEPRECATED in v1.3 - Use "studyName"|
+|programDbId|string|The ID which uniquely identifies a program within the given database server|
+|programName|string|The humane readable name of a program|
+|seasons|array[object]|List of seasons over which this study was performed.|
+|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|seasonDbId|string|The ID which uniquely identifies a season|
+|year|string|The 4 digit year of the season.|
+|startDate|string (date)|The date this study started|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|studyName|string|The humane readable name of a study|
+|studyType|string|DEPRECATED in v1.3 - See "studyTypeName"|
+|studyTypeDbId|string|The unique identifier of the type of study being performed.|
+|studyTypeName|string|The name of the type of study being performed. ex. "Yield Trial", etc|
+|trialDbId|string|The ID which uniquely identifies a trial|
+|trialName|string|The human readable name of a trial|
+
 
  
 
@@ -372,6 +446,17 @@ This could be a traditional season, like "Spring" or "Summer";
 this could be a month, like "May" or "June"; 
 or this could be an arbitrary season name which is meaningful to the breeding program like "PlantingTime_3" or "Season E"
 
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|seasonDbId|string|The ID which uniquely identifies a season|
+|year|string|The 4 digit year of the season.|
+
+
  
 
 + Parameters
@@ -442,6 +527,36 @@ or this could be an arbitrary season name which is meaningful to the breeding pr
 ### **Deprecated** Get Studies-search  [GET /brapi/v1/studies-search{?studyType}{?programDbId}{?locationDbId}{?seasonDbId}{?trialDbId}{?studyDbId}{?germplasmDbIds}{?observationVariableDbIds}{?page}{?pageSize}{?active}{?sortBy}{?sortOrder}]
 
 DEPRECATED in v1.3 - see GET /studies
+
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|active|string|Is this study currently active|
+|additionalInfo|object|Additional arbitrary info|
+|commonCropName|string|Common name for the crop associated with this study|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|endDate|string (date)|The date the study ends|
+|locationDbId|string|The ID which uniquely identifies a location|
+|locationName|string|The human readable name for a location|
+|name|string|DEPRECATED in v1.3 - Use "studyName"|
+|programDbId|string|The ID which uniquely identifies a program within the given database server|
+|programName|string|The humane readable name of a program|
+|seasons|array[object]|List of seasons over which this study was performed.|
+|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|seasonDbId|string|The ID which uniquely identifies a season|
+|year|string|The 4 digit year of the season.|
+|startDate|string (date)|The date this study started|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|studyName|string|The humane readable name of a study|
+|studyType|string|DEPRECATED in v1.3 - See "studyTypeName"|
+|studyTypeDbId|string|The unique identifier of the type of study being performed.|
+|studyTypeName|string|The name of the type of study being performed. ex. "Yield Trial", etc|
+|trialDbId|string|The ID which uniquely identifies a trial|
+|trialName|string|The human readable name of a trial|
+
 
  
 
@@ -553,6 +668,55 @@ DEPRECATED in v1.3 - see GET /studies
 ### **Deprecated** Post Studies-search  [POST /brapi/v1/studies-search]
 
 DEPRECATED in v1.3 - see /search/studies
+
+**Request Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|active|boolean|Is this study currently active|
+|germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm|
+|locationDbIds|array[string]|List of location identifiers to filter search results|
+|observationVariableDbIds|array[string]|List of observation variable IDs to search for|
+|page|integer|Which page of the "data" array to return. The page indexing starts at 0 (page=0 will return the first page). Default is 0.|
+|pageSize|integer|The maximum number of items to return per page of the "data" array. Default is 1000.|
+|programDbIds|array[string]|List of program identifiers to filter search results|
+|programNames|array[string]|List of program names to filter search results|
+|seasonDbId|array[string]|The ID which uniquely identifies a season|
+|sortBy|string|Name of one of the fields within the study object on which results can be sorted|
+|sortOrder|string|Order results should be sorted. ex. "ASC" or "DESC"|
+|studyDbIds|array[string]|List of study identifiers to search for|
+|studyLocations|array[string]|List of location names to filter search results|
+|studyNames|array[string]|List of study names to filter search results|
+|studyType|string|The type of study being performed. ex. "Yeald Trial", etc|
+|trialDbIds|array[string]|List of trial identifiers to filter search results|
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|active|string|Is this study currently active|
+|additionalInfo|object|Additional arbitrary info|
+|commonCropName|string|Common name for the crop associated with this study|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|endDate|string (date)|The date the study ends|
+|locationDbId|string|The ID which uniquely identifies a location|
+|locationName|string|The human readable name for a location|
+|name|string|DEPRECATED in v1.3 - Use "studyName"|
+|programDbId|string|The ID which uniquely identifies a program within the given database server|
+|programName|string|The humane readable name of a program|
+|seasons|array[object]|List of seasons over which this study was performed.|
+|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|seasonDbId|string|The ID which uniquely identifies a season|
+|year|string|The 4 digit year of the season.|
+|startDate|string (date)|The date this study started|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|studyName|string|The humane readable name of a study|
+|studyType|string|DEPRECATED in v1.3 - See "studyTypeName"|
+|studyTypeDbId|string|The unique identifier of the type of study being performed.|
+|studyTypeName|string|The name of the type of study being performed. ex. "Yield Trial", etc|
+|trialDbId|string|The ID which uniquely identifies a trial|
+|trialName|string|The human readable name of a trial|
+
 
  
 
@@ -713,6 +877,36 @@ StartDate and endDate should be ISO8601 format for dates
 
 See Search Services for additional implementation details.
 
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|active|string|Is this study currently active|
+|additionalInfo|object|Additional arbitrary info|
+|commonCropName|string|Common name for the crop associated with this study|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|endDate|string (date)|The date the study ends|
+|locationDbId|string|The ID which uniquely identifies a location|
+|locationName|string|The human readable name for a location|
+|name|string|DEPRECATED in v1.3 - Use "studyName"|
+|programDbId|string|The ID which uniquely identifies a program within the given database server|
+|programName|string|The humane readable name of a program|
+|seasons|array[object]|List of seasons over which this study was performed.|
+|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|seasonDbId|string|The ID which uniquely identifies a season|
+|year|string|The 4 digit year of the season.|
+|startDate|string (date)|The date this study started|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|studyName|string|The humane readable name of a study|
+|studyType|string|DEPRECATED in v1.3 - See "studyTypeName"|
+|studyTypeDbId|string|The unique identifier of the type of study being performed.|
+|studyTypeName|string|The name of the type of study being performed. ex. "Yield Trial", etc|
+|trialDbId|string|The ID which uniquely identifies a trial|
+|trialName|string|The human readable name of a trial|
+
+
  
 
 + Parameters
@@ -856,6 +1050,61 @@ Linked data
 
 - Layout: ```brapi/v1/studies/{studyDbId}/layout```
 
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|active|string|Is this study currently active|
+|additionalInfo|object|Additional arbitrary info|
+|commonCropName|string|Common name for the crop associated with this study|
+|contacts|array[object]|List of contact entities associated with this study|
+|contactDbId|string|The ID which uniquely identifies this contact|
+|email|string|The contacts email address |
+|instituteName|string|The name of the institution which this contact is part of|
+|name|string|The full name of this contact person|
+|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
+|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
+|dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
+|dataLinkName|string|The name of the external data link|
+|name|string|DEPRECATED in v1.3 - Use "dataLinkName"|
+|type|string|The type of external data link|
+|url|string|The URL which links to external data|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|endDate|string (date)|The date the study ends|
+|lastUpdate|object|The date and time when this study was last modified|
+|timestamp|string (date-time)||
+|version|string||
+|license|string|The usage license associated with the study data|
+|location|object||
+|abbreviation|string|An abbreviation which represents this location|
+|abreviation|string|Deprecated  Use abbreviation |
+|additionalInfo|object|Additional arbitrary info|
+|altitude|number|The altitude of this location|
+|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
+|countryName|string|The full name of the country where this location is|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|instituteAddress|string|The street address of the institute representing this location|
+|instituteAdress|string|Deprecated  Use instituteAddress |
+|instituteName|string|each institute/laboratory can have several experimental field|
+|latitude|number|The latitude of this location|
+|locationDbId|string|string identifier|
+|locationName|string|A human readable name for this location|
+|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
+|longitude|number|the longitude of this location|
+|name|string|DEPRECATED in v1.3 - Use "locationName"|
+|seasons|array[string]|List of seasons over which this study was performed.|
+|startDate|string (date)|The date this study started|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|studyDescription|string|The description of this study|
+|studyName|string|The human readable name for a study|
+|studyType|string|DEPRECATED in v1.3 - See "studyTypeName"|
+|studyTypeDbId|string|The unique identifier of the type of study being performed.|
+|studyTypeName|string|The name of the type of study being performed. ex. "Yield Trial", etc|
+|trialDbId|string|The ID which uniquely identifies a trial|
+|trialName|string|The human readable name of a trial|
+
+
  
 
 + Parameters
@@ -996,6 +1245,46 @@ Linked data
 ### Get Studies Germplasm by studyDbId  [GET /brapi/v1/studies/{studyDbId}/germplasm{?page}{?pageSize}]
 
 Get the available Germplasm which are associated with this study
+
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]|List of germplasm associated with a given trial and study|
+|accessionNumber|string|This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection|
+|acquisitionDate|string (date)|The date this germplasm was aquired by the genebank (MCPD)|
+|biologicalStatusOfAccessionCode|integer|The 3 digit code representing the biological status of the accession (MCPD)|
+|breedingMethodDbId|string|The unique identifier for the breeding method used to create this germplasm|
+|commonCropName|string|Common name for the crop (MCPD)|
+|countryOfOriginCode|string|3-letter ISO 3166-1 code of the country in which the sample was originally collected (MCPD)|
+|defaultDisplayName|string|Human readable name used for display purposes|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|donors|array[object]|List of donor institutes (MCPD)|
+|donorAccessionNumber|string||
+|donorInstituteCode|string||
+|germplasmPUI|string||
+|entryNumber|string|** Deprecated ** use /studies/{studyDbId/layout for positional germplasm relationships|
+|genus|string|Genus name for taxon. Initial uppercase letter required. (MCPD)|
+|germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server|
+|germplasmName|string|Name of the germplasm. It can be the prefered name and does not have to be unique.|
+|germplasmPUI|string|The Permanent Unique Identifier which represents a germplasm|
+|instituteCode|string|The code for the Institute that has bred the material. (MCPD)|
+|instituteName|string|The name of the institution which bred the material (MCPD)|
+|pedigree|string|The cross name and optional selection history.|
+|seedSource|string|The source of the seed |
+|species|string|Specific epithet portion of the scientific name in lowercase letters. (MCPD)|
+|speciesAuthority|string|The authority organization responsible for tracking and maintaining the species name (MCPD)|
+|subtaxa|string|Subtaxon can be used to store any additional taxonomic identifier. (MCPD)|
+|subtaxaAuthority|string| The authority organization responsible for tracking and maintaining the subtaxon information (MCPD)|
+|synonyms|array[string]|List of alternative names or IDs used to reference this germplasm|
+|taxonIds|array[object]|The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.|
+|sourceName|string|The human readable name of the taxonomy provider|
+|taxonId|string|The identifier (name, ID, URI) of a particular taxonomy within the source provider|
+|typeOfGermplasmStorageCode|array[string]|The 2 digit code representing the type of storage this germplasm is kept in at a genebank. (MCPD)|
+|studyDbId|string|** Deprecated ** The request contains the studyDbId The ID which uniquely identifies a study within the given database server|
+|trialName|string|** Deprecated ** trialName not relevent  The human readable name of a trial|
+
 
  
 
@@ -1164,6 +1453,30 @@ For each observationUnit within a study, return the `block`, `replicate`, and `e
 
 Also return some human readable meta data about the observationUnit and germplasm.
 
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|X|string|DEPRECATED - use "positionCoordinateX"|
+|Y|string|DEPRECATED - use "positionCoordinateY"|
+|additionalInfo|object|Additional arbitrary info|
+|blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
+|entryType|string|The type of entry for this observation unit. ex. "check", "test", "filler"|
+|germplasmDbId|string| The ID which uniquely identifies a germplasm|
+|germplasmName|string|Name of the germplasm. It can be the prefered name and does not have to be unique.|
+|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|observationUnitName|string|A human readable name for an observation unit|
+|positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
+|positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details PLANTED_ROW - The physical planted row number  PLANTED_INDIVIDUAl - The physical counted number, could be independant or within a planted row GRID_ROW - The row index number of a square grid overlay GRID_COL - The column index number of a square grid overlay MEASURED_ROW - The distance in meters from a defined 0th row MEASURED_COL - The distance in meters from a defined 0th column |
+|positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
+|positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details PLANTED_ROW - The physical planted row number  PLANTED_INDIVIDUAl - The physical counted number, could be independant or within a planted row GRID_ROW - The row index number of a square grid overlay GRID_COL - The column index number of a square grid overlay MEASURED_ROW - The distance in meters from a defined 0th row MEASURED_COL - The distance in meters from a defined 0th column |
+|replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+
+
  
 
 + Parameters
@@ -1264,6 +1577,44 @@ Implementation Notes:
 + `entryType` can have the values "check", "test", or "filler". 
 
 + The response should match the structure of the response from `GET studies/{studyDbId}/layout`, but it should only contain the layout objects which have been updated by the PUT request. Also, pagination is not available in the response.
+
+**Request Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|layout|array[object]|List of observation unit position data entities which need to be updated|
+|X|string|DEPRECATED - use "positionCoordinateX"|
+|Y|string|DEPRECATED - use "positionCoordinateY"|
+|blockNumber|integer||
+|entryType|string||
+|observationUnitDbId|string||
+|positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
+|positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details PLANTED_ROW - The physical planted row number  PLANTED_INDIVIDUAl - The physical counted number, could be independant or within a planted row GRID_ROW - The row index number of a square grid overlay GRID_COL - The column index number of a square grid overlay MEASURED_ROW - The distance in meters from a defined 0th row MEASURED_COL - The distance in meters from a defined 0th column |
+|positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
+|positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details PLANTED_ROW - The physical planted row number  PLANTED_INDIVIDUAl - The physical counted number, could be independant or within a planted row GRID_ROW - The row index number of a square grid overlay GRID_COL - The column index number of a square grid overlay MEASURED_ROW - The distance in meters from a defined 0th row MEASURED_COL - The distance in meters from a defined 0th column |
+|replicate|integer||
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|X|string|DEPRECATED - use "positionCoordinateX"|
+|Y|string|DEPRECATED - use "positionCoordinateY"|
+|additionalInfo|object|Additional arbitrary info|
+|blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
+|entryType|string|The type of entry for this observation unit. ex. "check", "test", "filler"|
+|germplasmDbId|string| The ID which uniquely identifies a germplasm|
+|germplasmName|string|Name of the germplasm. It can be the prefered name and does not have to be unique.|
+|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|observationUnitName|string|A human readable name for an observation unit|
+|positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
+|positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details PLANTED_ROW - The physical planted row number  PLANTED_INDIVIDUAl - The physical counted number, could be independant or within a planted row GRID_ROW - The row index number of a square grid overlay GRID_COL - The column index number of a square grid overlay MEASURED_ROW - The distance in meters from a defined 0th row MEASURED_COL - The distance in meters from a defined 0th column |
+|positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
+|positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details PLANTED_ROW - The physical planted row number  PLANTED_INDIVIDUAl - The physical counted number, could be independant or within a planted row GRID_ROW - The row index number of a square grid overlay GRID_COL - The column index number of a square grid overlay MEASURED_ROW - The distance in meters from a defined 0th row MEASURED_COL - The distance in meters from a defined 0th column |
+|replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+
 
  
 
@@ -1375,6 +1726,14 @@ If an existing record of that DbId is not found, the document should be treated 
 
 If ''observationUnitDbId'' or ''observationDbId'' is un-populated (empty string or null) the document should be treated as new records and assigned new DbIds.
 
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|observationUnitDbIds|array[string]|List of observation unit references which have been created or updated|
+
+
  
 
 + Parameters
@@ -1432,6 +1791,94 @@ If ''observationUnitDbId'' or ''observationDbId'' is un-populated (empty string 
 List all the observation variables measured in the study.
 
 Refer to the data type definition of variables in `/Specification/ObservationVariables/README.md`.
+
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array||
+|contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
+|crop|string|Crop name (examples: "Maize", "Wheat")|
+|defaultValue|string|Variable default value. (examples: "red", "2.3", etc.)|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|growthStage|string|Growth stage at which measurement is made (examples: "flowering")|
+|institution|string|Name of institution submitting the variable|
+|language|string|2 letter ISO code for the language of submission of the variable.|
+|method|object|Method metadata|
+|class|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.|
+|description|string|Method description.|
+|formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
+|methodDbId|string|Method unique identifier|
+|methodName|string|Human readable name for the method|
+|name|string|DEPRECATED in v1.3 - Use "methodName"|
+|ontologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|version|string|Ontology version (no specific format)|
+|reference|string|Bibliographical reference describing the method.|
+|ontologyDbId|string|DEPRECATED in v1.3 - see "this.ontologyReference.ontologyDbId"|
+|ontologyName|string|DEPRECATED in v1.3 - see "this.ontologyReference.ontologyName"|
+|ontologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|version|string|Ontology version (no specific format)|
+|scale|object|Scale metadata|
+|dataType|string|Class of the scale, entries can be     "Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal             scale that combines the expressions of the different traits composing the complex             trait. For exemple a severity trait might be expressed by a 2 digit and 2 character             code. The first 2 digits are the percentage of the plant covered by a fungus and the 2             characters refer to the delay in development, e.g. "75VD" means "75%" of the plant is              Crop Ontology & Integrated Breeding Platform  Curation Guidelines  5/6/2016 9             infected and the plant is very delayed.      "Date" - The date class is for events expressed in a time format, e.g. yyyymmddThh:mm:ssZ or dd/mm/yy      "Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months      "Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories      "Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectar, branches      "Ordinal" - Ordinal scales are scales composed of ordered categories      "Text" - A free text is used to express the trait.   |
+|decimalPlaces|integer|For numerical, number of decimal places to be reported|
+|name|string|DEPRECATED in v1.3 - Use "scaleName"|
+|ontologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|version|string|Ontology version (no specific format)|
+|scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
+|scaleName|string|Name of the scale|
+|validValues|object||
+|categories|array[string]|List of possible values and their meaning (examples: ["0=low", "1=medium", "2=high"]|
+|max|integer|Maximum value (used for field data capture control).|
+|min|integer|Minimum value (used for data capture control) for numerical and date scales|
+|xref|string|Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database|
+|scientist|string|Name of scientist submitting the variable.|
+|status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
+|submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
+|synonyms|array[string]|Other variable names|
+|trait|object||
+|alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
+|attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
+|class|string|Trait class. (examples: "morphological trait", "phenological trait", "agronomical trait", "physiological trait", "abiotic stress trait", "biotic stress trait", "biochemical trait", "quality traits trait", "fertility trait", etc.)|
+|description|string|The description of a trait|
+|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
+|name|string|DEPRECATED in v1.3 - Use "traitName"|
+|ontologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|version|string|Ontology version (no specific format)|
+|status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
+|synonyms|array[string]|Other trait names|
+|traitDbId|string|The ID which uniquely identifies a trait|
+|traitName|string|The human readable name of a trait|
+|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
+|xref|string|Cross reference of the variable term to a term from an external ontology or to a database of a major system.|
+|date|string|DEPRECATED in v1.3 - see "submissionTimestamp"|
+|name|string|DEPRECATED in v1.3 - Use "observationVariableName"|
+|observationVariableDbId|string|Variable unique identifier|
+|observationVariableName|string|Variable name (usually a short name)|
+|studyDbId|string||
+|trialName|string||
+
 
  
 
@@ -1718,6 +2165,31 @@ Retrieve all observations where there are measurements for the given observation
 
 observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:ss+hhmm
 
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|germplasmDbId|string| The ID which uniquely identifies a germplasm|
+|germplasmName|string|Name of the germplasm. It can be the prefered name and does not have to be unique.|
+|observationDbId|string|The ID which uniquely identifies an observation|
+|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
+|observationTimeStamp|string (date-time)|The date and time  when this observation was made |
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|observationUnitName|string|A human readable name for an observation unit|
+|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
+|observationVariableName|string|A human readable name for an observation variable|
+|operator|string|The name or identifier of the entity which collected the observation|
+|season|object||
+|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|seasonDbId|string|The ID which uniquely identifies a season|
+|year|string|The 4 digit year of the season.|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
+|value|string|The value of the data collected as an observation|
+
+
  
 
 + Parameters
@@ -1828,6 +2300,27 @@ Implementation Guidelines:
 
 + If an `observationDbId` is populated and found in the database and is associated with the given study and observationUnit, then it should be updated with the new data given.
 
+**Request Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|observations|array[object]|List of observation references to be created or updated|
+|collector|string||
+|observationDbId|string||
+|observationTimeStamp|string (date-time)||
+|observationUnitDbId|string||
+|observationVariableDbId|string||
+|value|string||
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|observations|array[object]|List of observation references which have been created or updated|
+|observationDbId|string||
+|observationUnitDbId|string||
+|observationVariableDbId|string||
+
+
  
 
 + Parameters
@@ -1936,6 +2429,60 @@ Implementation Guidelines:
 ### Get Studies Observationunits by studyDbId  [GET /brapi/v1/studies/{studyDbId}/observationunits{?observationLevel}{?page}{?pageSize}]
 
 The main API call for field data collection, to retrieve all the observation units within a study.
+
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|X|string|DEPRECATED - use "positionCoordinateX"|
+|Y|string|DEPRECATED - use "positionCoordinateY"|
+|blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
+|entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
+|entryType|string|The type of entry for this observation unit. ex. "check", "test", "filler"|
+|germplasmDbId|string| The ID which uniquely identifies a germplasm|
+|germplasmName|string|Name of the germplasm. It can be the prefered name and does not have to be unique.|
+|locationDbId|string|The ID which uniquely identifies a location, associated with this study|
+|locationName|string|The human readable name of a location associated with this study|
+|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
+|observationLevels|string|Concatenation of the levels of this observationUnit. Used to handle non canonical level structures. Format levelType:levelID,levelType:levelID|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|observationUnitName|string|A human readable name for an observation unit|
+|observationUnitXref|array[object]|A list of external references to this observation unit|
+|id|string|The unique ID in the external reference 'source' system|
+|source|string|The system identifier (name, URL, etc) which has an external reference to the observation unit|
+|observations|array[object]|List of observations associated with this observation unit|
+|collector|string|The name or identifier of the entity which collected the observation|
+|observationDbId|string|The ID which uniquely identifies an observation|
+|observationTimeStamp|string (date-time)|The date and time  when this observation was made |
+|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
+|observationVariableName|string|A human readable name for an observation variable|
+|season|object||
+|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|seasonDbId|string|The ID which uniquely identifies a season|
+|year|string|The 4 digit year of the season.|
+|value|string|The value of the data collected as an observation|
+|pedigree|string|The string representation of the pedigree of this observation unit|
+|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
+|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
+|positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
+|positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details PLANTED_ROW - The physical planted row number  PLANTED_INDIVIDUAl - The physical counted number, could be independant or within a planted row GRID_ROW - The row index number of a square grid overlay GRID_COL - The column index number of a square grid overlay MEASURED_ROW - The distance in meters from a defined 0th row MEASURED_COL - The distance in meters from a defined 0th column |
+|positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
+|positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details PLANTED_ROW - The physical planted row number  PLANTED_INDIVIDUAl - The physical counted number, could be independant or within a planted row GRID_ROW - The row index number of a square grid overlay GRID_COL - The column index number of a square grid overlay MEASURED_ROW - The distance in meters from a defined 0th row MEASURED_COL - The distance in meters from a defined 0th column |
+|programDbId|string|The ID which uniquely identifies a program|
+|programName|string|The human readable name of a program|
+|replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|studyLocation|string|DEPRECATED in v1.3 - see "locationName"|
+|studyLocationDbId|string|DEPRECATED in v1.3 - see "locationDbId"|
+|studyName|string|The human readable name for a study|
+|treatments|array[object]|List of treatments applied to an observation unit.|
+|factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc|
+|modality|string|The treatment/factor descritpion. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc|
+|trialDbId|string|The ID which uniquely identifies a trial|
+|trialName|string|The human readable name of a trial|
+
 
  
 
@@ -2130,6 +2677,58 @@ Note: If ''observationUnitDbId'' or ''observationDbId'' is populated, they shoul
 If an existing record of that DbId is not found, the document should be treated as new records and assigned new DbIds. 
 If ''observationUnitDbId'' or ''observationDbId'' is un-populated (empty string or null) the document should be treated as new records and assigned new DbIds.
 
+**Request Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|X|string|DEPRECATED - use "positionCoordinateX"|
+|Y|string|DEPRECATED - use "positionCoordinateY"|
+|blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
+|entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
+|entryType|string|The type of entry for this observation unit. ex. "check", "test", "filler"|
+|germplasmDbId|string| The ID which uniquely identifies a germplasm|
+|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|observationUnitName|string|A human readable name for an observation unit|
+|observationUnitXref|array[object]|A list of external references to this observation unit|
+|id|string|The unique ID in the external reference 'source' system|
+|source|string|The system identifier (name, URL, etc) which has an external reference to the observation unit|
+|observations|array[object]|List of observations associated with this observation unit|
+|germplasmDbId|string| The ID which uniquely identifies a germplasm|
+|germplasmName|string|Name of the germplasm. It can be the prefered name and does not have to be unique.|
+|observationDbId|string|The ID which uniquely identifies an observation|
+|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
+|observationTimeStamp|string (date-time)|The date and time  when this observation was made |
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|observationUnitName|string|A human readable name for an observation unit|
+|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
+|observationVariableName|string|A human readable name for an observation variable|
+|operator|string|The name or identifier of the entity which collected the observation|
+|season|object||
+|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|seasonDbId|string|The ID which uniquely identifies a season|
+|year|string|The 4 digit year of the season.|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
+|value|string|The value of the data collected as an observation|
+|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
+|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
+|positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
+|positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details PLANTED_ROW - The physical planted row number  PLANTED_INDIVIDUAl - The physical counted number, could be independant or within a planted row GRID_ROW - The row index number of a square grid overlay GRID_COL - The column index number of a square grid overlay MEASURED_ROW - The distance in meters from a defined 0th row MEASURED_COL - The distance in meters from a defined 0th column |
+|positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
+|positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details PLANTED_ROW - The physical planted row number  PLANTED_INDIVIDUAl - The physical counted number, could be independant or within a planted row GRID_ROW - The row index number of a square grid overlay GRID_COL - The column index number of a square grid overlay MEASURED_ROW - The distance in meters from a defined 0th row MEASURED_COL - The distance in meters from a defined 0th column |
+|replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|treatments|array[object]|List of treatments applied to an observation unit.|
+|factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc|
+|modality|string|The treatment/factor descritpion. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc|
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|observationUnitDbIds|array[string]|List of observation unit references which have been created or updated|
+
+
  
 
 + Parameters
@@ -2201,6 +2800,17 @@ If ''observationUnitDbId'' or ''observationDbId'' is un-populated (empty string 
 ### Get Studies Table by studyDbId  [GET /brapi/v1/studies/{studyDbId}/table{?format}]
 
 Retrieve the details of the study required for field data collection. Includes actual trait data.
+
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[array]|Matrix of observation data recorded for different observation variables across different observation units|
+|headerRow|array[string]|The header row describing observation unit fields. Append 'observationVariableDbIds' for complete header row of the table. This array should contain any or all of the following strings; year, studyDbId, studyName, locationDbId, locationName, germplasmDbId, germplasmName, observationUnitDbId, plotNumber, replicate, blockNumber, observationTimestamp (DEPRECATED in V1.3), entryType, X, Y|
+|observationVariableDbIds|array[string]|The list of observation variables which have values recorded for them in the data matrix. Append to the 'headerRow' for comlete header row.|
+|observationVariableNames|array[string]|The list of observation variable names which have values recorded for them in the data matrix. Order should match 'observationVariableDbIds'.|
+
 
  
 
@@ -2397,6 +3007,26 @@ Implementation Guidelines:
 
 + Images can optionally be saved using this call by providing a zipped file of all images in the datafiles. The physical zipped file should be transferred as well in the mulit-part form data.
 
+**Request Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[array]|Matrix of observation data recorded for different observation variables across different observation units|
+|headerRow|array[string]|The header row describing the data matrix. Append 'observationVariableDbIds' for complete header row.|
+|metadata||DEPRECATED|
+|observationVariableDbIds|array[string]|The list of observation variables which have values recorded for them in the data matrix. Append to the 'headerRow' for comlete header row.|
+|result|object|DEPRECATED|
+|data|array[array]||
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|observations|array[object]|List of observation references which have been created or updated|
+|observationDbId|string||
+|observationUnitDbId|string||
+|observationVariableDbId|string||
+
+
  
 
 + Parameters
@@ -2508,6 +3138,30 @@ Implementation Guidelines:
 
 DEPRECATED in v1.3 - see `GET /studies/{studyDbId}/layouts` (pluralized)
 
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|X|string|DEPRECATED - use "positionCoordinateX"|
+|Y|string|DEPRECATED - use "positionCoordinateY"|
+|additionalInfo|object|Additional arbitrary info|
+|blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
+|entryType|string|The type of entry for this observation unit. ex. "check", "test", "filler"|
+|germplasmDbId|string| The ID which uniquely identifies a germplasm|
+|germplasmName|string|Name of the germplasm. It can be the prefered name and does not have to be unique.|
+|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|observationUnitName|string|A human readable name for an observation unit|
+|positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
+|positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details PLANTED_ROW - The physical planted row number  PLANTED_INDIVIDUAl - The physical counted number, could be independant or within a planted row GRID_ROW - The row index number of a square grid overlay GRID_COL - The column index number of a square grid overlay MEASURED_ROW - The distance in meters from a defined 0th row MEASURED_COL - The distance in meters from a defined 0th column |
+|positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
+|positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details PLANTED_ROW - The physical planted row number  PLANTED_INDIVIDUAl - The physical counted number, could be independant or within a planted row GRID_ROW - The row index number of a square grid overlay GRID_COL - The column index number of a square grid overlay MEASURED_ROW - The distance in meters from a defined 0th row MEASURED_COL - The distance in meters from a defined 0th column |
+|replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+
+
  
 
 + Parameters
@@ -2596,6 +3250,44 @@ DEPRECATED in v1.3 - see `GET /studies/{studyDbId}/layouts` (pluralized)
 ### **Deprecated** Put Studies Layout by studyDbId  [PUT /brapi/v1/studies/{studyDbId}/layout]
 
 DEPRECATED in v1.3 - see `PUT /studies/{studyDbId}/layouts` (pluralized)
+
+**Request Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|layout|array[object]|List of observation unit position data entities which need to be updated|
+|X|string|DEPRECATED - use "positionCoordinateX"|
+|Y|string|DEPRECATED - use "positionCoordinateY"|
+|blockNumber|integer||
+|entryType|string||
+|observationUnitDbId|string||
+|positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
+|positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details PLANTED_ROW - The physical planted row number  PLANTED_INDIVIDUAl - The physical counted number, could be independant or within a planted row GRID_ROW - The row index number of a square grid overlay GRID_COL - The column index number of a square grid overlay MEASURED_ROW - The distance in meters from a defined 0th row MEASURED_COL - The distance in meters from a defined 0th column |
+|positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
+|positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details PLANTED_ROW - The physical planted row number  PLANTED_INDIVIDUAl - The physical counted number, could be independant or within a planted row GRID_ROW - The row index number of a square grid overlay GRID_COL - The column index number of a square grid overlay MEASURED_ROW - The distance in meters from a defined 0th row MEASURED_COL - The distance in meters from a defined 0th column |
+|replicate|integer||
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|X|string|DEPRECATED - use "positionCoordinateX"|
+|Y|string|DEPRECATED - use "positionCoordinateY"|
+|additionalInfo|object|Additional arbitrary info|
+|blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
+|entryType|string|The type of entry for this observation unit. ex. "check", "test", "filler"|
+|germplasmDbId|string| The ID which uniquely identifies a germplasm|
+|germplasmName|string|Name of the germplasm. It can be the prefered name and does not have to be unique.|
+|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|observationUnitName|string|A human readable name for an observation unit|
+|positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
+|positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details PLANTED_ROW - The physical planted row number  PLANTED_INDIVIDUAl - The physical counted number, could be independant or within a planted row GRID_ROW - The row index number of a square grid overlay GRID_COL - The column index number of a square grid overlay MEASURED_ROW - The distance in meters from a defined 0th row MEASURED_COL - The distance in meters from a defined 0th column |
+|positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
+|positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details PLANTED_ROW - The physical planted row number  PLANTED_INDIVIDUAl - The physical counted number, could be independant or within a planted row GRID_ROW - The row index number of a square grid overlay GRID_COL - The column index number of a square grid overlay MEASURED_ROW - The distance in meters from a defined 0th row MEASURED_COL - The distance in meters from a defined 0th column |
+|replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+
 
  
 
@@ -2705,6 +3397,94 @@ DEPRECATED in v1.3 - see `PUT /studies/{studyDbId}/layouts` (pluralized)
 
 
 test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationVariables
+
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array||
+|contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
+|crop|string|Crop name (examples: "Maize", "Wheat")|
+|defaultValue|string|Variable default value. (examples: "red", "2.3", etc.)|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|growthStage|string|Growth stage at which measurement is made (examples: "flowering")|
+|institution|string|Name of institution submitting the variable|
+|language|string|2 letter ISO code for the language of submission of the variable.|
+|method|object|Method metadata|
+|class|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.|
+|description|string|Method description.|
+|formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
+|methodDbId|string|Method unique identifier|
+|methodName|string|Human readable name for the method|
+|name|string|DEPRECATED in v1.3 - Use "methodName"|
+|ontologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|version|string|Ontology version (no specific format)|
+|reference|string|Bibliographical reference describing the method.|
+|ontologyDbId|string|DEPRECATED in v1.3 - see "this.ontologyReference.ontologyDbId"|
+|ontologyName|string|DEPRECATED in v1.3 - see "this.ontologyReference.ontologyName"|
+|ontologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|version|string|Ontology version (no specific format)|
+|scale|object|Scale metadata|
+|dataType|string|Class of the scale, entries can be     "Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal             scale that combines the expressions of the different traits composing the complex             trait. For exemple a severity trait might be expressed by a 2 digit and 2 character             code. The first 2 digits are the percentage of the plant covered by a fungus and the 2             characters refer to the delay in development, e.g. "75VD" means "75%" of the plant is              Crop Ontology & Integrated Breeding Platform  Curation Guidelines  5/6/2016 9             infected and the plant is very delayed.      "Date" - The date class is for events expressed in a time format, e.g. yyyymmddThh:mm:ssZ or dd/mm/yy      "Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months      "Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories      "Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectar, branches      "Ordinal" - Ordinal scales are scales composed of ordered categories      "Text" - A free text is used to express the trait.   |
+|decimalPlaces|integer|For numerical, number of decimal places to be reported|
+|name|string|DEPRECATED in v1.3 - Use "scaleName"|
+|ontologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|version|string|Ontology version (no specific format)|
+|scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
+|scaleName|string|Name of the scale|
+|validValues|object||
+|categories|array[string]|List of possible values and their meaning (examples: ["0=low", "1=medium", "2=high"]|
+|max|integer|Maximum value (used for field data capture control).|
+|min|integer|Minimum value (used for data capture control) for numerical and date scales|
+|xref|string|Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database|
+|scientist|string|Name of scientist submitting the variable.|
+|status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
+|submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
+|synonyms|array[string]|Other variable names|
+|trait|object||
+|alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
+|attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
+|class|string|Trait class. (examples: "morphological trait", "phenological trait", "agronomical trait", "physiological trait", "abiotic stress trait", "biotic stress trait", "biochemical trait", "quality traits trait", "fertility trait", etc.)|
+|description|string|The description of a trait|
+|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
+|name|string|DEPRECATED in v1.3 - Use "traitName"|
+|ontologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|version|string|Ontology version (no specific format)|
+|status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
+|synonyms|array[string]|Other trait names|
+|traitDbId|string|The ID which uniquely identifies a trait|
+|traitName|string|The human readable name of a trait|
+|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
+|xref|string|Cross reference of the variable term to a term from an external ontology or to a database of a major system.|
+|date|string|DEPRECATED in v1.3 - see "submissionTimestamp"|
+|name|string|DEPRECATED in v1.3 - Use "observationVariableName"|
+|observationVariableDbId|string|Variable unique identifier|
+|observationVariableName|string|Variable name (usually a short name)|
+|studyDbId|string||
+|trialName|string||
+
 
  
 
@@ -3282,6 +4062,41 @@ test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationVariables
 
 This call has been deprecated in V1.1. Use instead: "PUT /studies/{studyDbId}/observationunits" and "PUT /studies/{studyDbId}/observationunits/zip"
 
+**Request Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|metadata|object||
+|datafiles|array[string]|The datafiles key contains a list of file paths, which can be relative or complete URLs. These files contain additional information related to the returned object and can be retrieved by a subsequent call. The empty list should be returned if no additional data files are present.|
+|pagination|object|The pagination object is applicable only when the payload contains a "data" key. It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. Pages are zero indexed, so the first page will be page 0 (zero).|
+|currentPage|integer||
+|pageSize|integer||
+|totalCount|integer||
+|totalPages|integer||
+|status|array[object]|The status field contains a list of informational status messages from the server. If no status is reported, an empty list should be returned. See Error Reporting for more information.|
+|code|string|DEPRECATED in v1.3 - see Error Handling best practice documentation|
+|message|string|A short message concerning the status of this request/response|
+|messageType|string|The logging level for the attached message|
+|result|object||
+|commit|string|Should these changes be commited|
+|data|array[object]|Required array of marker-name/score pairs|
+|observatioUnitDbId|string||
+|observations|array[object]||
+|collector|string||
+|observationDbId|string||
+|observationTimeStamp|string (date-time)||
+|observationUnitDbId|string||
+|observationVariableDbId|string||
+|value|string||
+|studyDbId|number||
+|transactionDbId|string|The ID representing this transaction|
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|observationUnitDbIds|array[string]|List of observation unit references which have been created or updated|
+
+
  
 
 + Parameters
@@ -3411,6 +4226,18 @@ This call has been deprecated in V1.1. Use instead: "PUT /studies/{studyDbId}/ob
 
 Call to retrieve the list of study types.
 
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|description|string|The description of this study type|
+|name|string|DEPRECATED in v1.3 - Use "studyTypeName"|
+|studyTypeDbId|string|The unique identifier of a study type|
+|studyTypeName|string|The human readable name of a study type|
+
+
  
 
 + Parameters
@@ -3480,6 +4307,18 @@ Call to retrieve the list of study types.
  ** DEPRECTED ** Use /studytypes
 Call to retrieve the list of study types.
 Scope: PHENOTYPING. Implementation target date: PAG2016 
+
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|description|string|The description of this study type|
+|name|string|DEPRECATED in v1.3 - Use "studyTypeName"|
+|studyTypeDbId|string|The unique identifier of a study type|
+|studyTypeName|string|The human readable name of a study type|
+
 
  
 

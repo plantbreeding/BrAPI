@@ -37,6 +37,17 @@ For logout, returns an empty resource. A token to remove could be provided (amdi
 | access_token | string | the access token for the session | Y |
 | expires_in | integer | The lifetime in seconds of the access token | Y | 
 
+**Request Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|client_id|string||
+|grant_type|string||
+|password|string||
+|username|string||
+
+
+
+
  
 
 + Parameters
@@ -88,6 +99,10 @@ Implemented by: Tripal Brapi module, Cassavabase, Germinate, BMS
 Used by: Flapjack, BMS
 
 For logout, returns an empty resource. A token to remove could be provided (amdin interface) but it is not required. By default, current user token will be removed.
+
+
+
+
 
  
 

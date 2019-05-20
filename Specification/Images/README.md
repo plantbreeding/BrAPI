@@ -25,6 +25,32 @@ Implementation Notes
 
 - 'descriptiveOntologyTerm' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI's.  
 
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]|Array of image meta data|
+|additionalInfo|object||
+|copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
+|description|string|The human readable description of an image.|
+|descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
+|imageDbId|string|The unique identifier of an image|
+|imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
+|imageFileSize|integer|The size of the image in Bytes.|
+|imageHeight|integer|The height of the image in Pixels.|
+|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geometry|object||
+|type|string||
+|imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
+|imageTimeStamp|string (date)|The date and time the image was taken|
+|imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
+|imageWidth|integer|The width of the image in Pixels.|
+|mimeType|string|The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc|
+|observationDbIds|array[string]|A list of observation Ids this image is associated with, if applicable.|
+|observationUnitDbId|string|The related observation unit identifier, if relevent.|
+
+
  
 
 + Parameters
@@ -163,6 +189,50 @@ Implementation Notes
 
 - For top down images (ie from drones, cranes, etc), the Point geometry may be used to indicate the longitude and latitude of the centroid of the image content, and the Polygon geometry may be used to indicate the border of the image content. 
 
+**Request Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|additionalInfo|object||
+|copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
+|description|string|The human readable description of an image.|
+|descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
+|imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
+|imageFileSize|integer|The size of the image in Bytes.|
+|imageHeight|integer|The height of the image in Pixels.|
+|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geometry|object||
+|type|string||
+|imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
+|imageTimeStamp|string (date)|The date and time the image was taken|
+|imageWidth|integer|The width of the image in Pixels.|
+|mimeType|string|The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc|
+|observationDbIds|array[string]|A list of observation Ids this image is associated with, if applicable.|
+|observationUnitDbId|string|The related observation unit identifier, if relevent.|
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|additionalInfo|object||
+|copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
+|description|string|The human readable description of an image.|
+|descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
+|imageDbId|string|The unique identifier of an image|
+|imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
+|imageFileSize|integer|The size of the image in Bytes.|
+|imageHeight|integer|The height of the image in Pixels.|
+|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geometry|object||
+|type|string||
+|imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
+|imageTimeStamp|string (date)|The date and time the image was taken|
+|imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
+|imageWidth|integer|The width of the image in Pixels.|
+|mimeType|string|The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc|
+|observationDbIds|array[string]|A list of observation Ids this image is associated with, if applicable.|
+|observationUnitDbId|string|The related observation unit identifier, if relevent.|
+
+
  
 
 + Parameters
@@ -281,6 +351,31 @@ Implementation Notes
 
 - 'descriptiveOntologyTerm' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI's. 
 
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|additionalInfo|object||
+|copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
+|description|string|The human readable description of an image.|
+|descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
+|imageDbId|string|The unique identifier of an image|
+|imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
+|imageFileSize|integer|The size of the image in Bytes.|
+|imageHeight|integer|The height of the image in Pixels.|
+|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geometry|object||
+|type|string||
+|imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
+|imageTimeStamp|string (date)|The date and time the image was taken|
+|imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
+|imageWidth|integer|The width of the image in Pixels.|
+|mimeType|string|The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc|
+|observationDbIds|array[string]|A list of observation Ids this image is associated with, if applicable.|
+|observationUnitDbId|string|The related observation unit identifier, if relevent.|
+
+
  
 
 + Parameters
@@ -384,6 +479,50 @@ Implementation Notes
 - With most images, the Point geometry should be used, and it should indicate the longitude and latitude of the camera. 
         
 - For top down images (ie from drones, cranes, etc), the Point geometry may be used to indicate the longitude and latitude of the centroid of the image content, and the Polygon geometry may be used to indicate the border of the image content. '
+
+**Request Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|additionalInfo|object||
+|copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
+|description|string|The human readable description of an image.|
+|descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
+|imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
+|imageFileSize|integer|The size of the image in Bytes.|
+|imageHeight|integer|The height of the image in Pixels.|
+|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geometry|object||
+|type|string||
+|imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
+|imageTimeStamp|string (date)|The date and time the image was taken|
+|imageWidth|integer|The width of the image in Pixels.|
+|mimeType|string|The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc|
+|observationDbIds|array[string]|A list of observation Ids this image is associated with, if applicable.|
+|observationUnitDbId|string|The related observation unit identifier, if relevent.|
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|additionalInfo|object||
+|copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
+|description|string|The human readable description of an image.|
+|descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
+|imageDbId|string|The unique identifier of an image|
+|imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
+|imageFileSize|integer|The size of the image in Bytes.|
+|imageHeight|integer|The height of the image in Pixels.|
+|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geometry|object||
+|type|string||
+|imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
+|imageTimeStamp|string (date)|The date and time the image was taken|
+|imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
+|imageWidth|integer|The width of the image in Pixels.|
+|mimeType|string|The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc|
+|observationDbIds|array[string]|A list of observation Ids this image is associated with, if applicable.|
+|observationUnitDbId|string|The related observation unit identifier, if relevent.|
+
 
  
 
@@ -511,6 +650,31 @@ Implementation Notes
 
 - Image data may be stored in a database or file system. Servers should generate and provide the "imageURL" for retrieving the image, wherever it happens to live.  
 
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|additionalInfo|object||
+|copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
+|description|string|The human readable description of an image.|
+|descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
+|imageDbId|string|The unique identifier of an image|
+|imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
+|imageFileSize|integer|The size of the image in Bytes.|
+|imageHeight|integer|The height of the image in Pixels.|
+|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geometry|object||
+|type|string||
+|imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
+|imageTimeStamp|string (date)|The date and time the image was taken|
+|imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
+|imageWidth|integer|The width of the image in Pixels.|
+|mimeType|string|The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc|
+|observationDbIds|array[string]|A list of observation Ids this image is associated with, if applicable.|
+|observationUnitDbId|string|The related observation unit identifier, if relevent.|
+
+
  
 
 + Parameters
@@ -609,6 +773,34 @@ Implementation Notes
 - 'descriptiveOntologyTerm' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI's.  
 
 See Search Services for additional implementation details.
+
+**Request Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image to search for. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
+|imageFileNames|array[string]|Image file names to search for.|
+|imageFileSizeMax|integer|A maximum image file size to search for.|
+|imageFileSizeMin|integer|A minimum image file size to search for.|
+|imageHeightMax|integer|A maximum image height to search for.|
+|imageHeightMin|integer|A minimum image height to search for.|
+|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geometry|object||
+|type|string||
+|imageNames|array[string]|Human readable names to search for.|
+|imageTimeStampRangeEnd|string (date)|The latest timestamp to search for.|
+|imageTimeStampRangeStart|string (date)|The earliest timestamp to search for.|
+|imageWidthMax|integer|A maximum image width to search for.|
+|imageWidthMin|integer|A minimum image width to search for.|
+|mimeTypes|array[string]|A set of image file types to search for.|
+|observationDbIds|array[string]|A list of observation Ids this image is associated with to search for|
+|observationUnitDbIds|array[string]|A set of observation unit identifiers to search for.|
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|searchResultDbId|string||
+
 
  
 
@@ -710,6 +902,32 @@ Implementation Notes
 - 'imageURL' should be a complete URL decribing the location of the image. There is no BrAPI call for retireiving the image content, so it could be on a different path, or a different host.
 
 - 'descriptiveOntologyTerm' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI's.  
+
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]|Array of image meta data|
+|additionalInfo|object||
+|copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
+|description|string|The human readable description of an image.|
+|descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
+|imageDbId|string|The unique identifier of an image|
+|imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
+|imageFileSize|integer|The size of the image in Bytes.|
+|imageHeight|integer|The height of the image in Pixels.|
+|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geometry|object||
+|type|string||
+|imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
+|imageTimeStamp|string (date)|The date and time the image was taken|
+|imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
+|imageWidth|integer|The width of the image in Pixels.|
+|mimeType|string|The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc|
+|observationDbIds|array[string]|A list of observation Ids this image is associated with, if applicable.|
+|observationUnitDbId|string|The related observation unit identifier, if relevent.|
+
 
  
 

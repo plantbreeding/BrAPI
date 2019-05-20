@@ -17,6 +17,21 @@ Implemented by: Germinate
 See Search Services for additional implementation details.
 Other service requests use the servers internal `markerDbId`. This service returns marker records that provide the markerDbId. For the requested name or synonym, returns an array (possibly empty) of marker records that match the search criteria. - If there is none, an empty array is returned. - If there is one or more than one match, returns an array of all marker records that match the search criteria. 
 
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|analysisMethods|array[string]|List of the genotyping platforms used to interrogate the marker|
+|defaultDisplayName|string|DEPRECATED in v 1.3 - see "markerName"|
+|markerDbId|string|Internal db identifier|
+|markerName|string|A string representing the marker that will be meaningful to the user|
+|refAlt|array[string]|List of the reference (as the first item) and alternatives (the remaining items)|
+|synonyms|array[string]|List of other names for this marker|
+|type|string|The type of marker, e.g. SNP|
+
+
  
 
 + Parameters
@@ -95,6 +110,33 @@ and '?' for one character matching. Default is exact.
 Implemented by: Germinate
 See Search Services for additional implementation details.
 Other service requests use the servers internal `markerDbId`. This service returns marker records that provide the markerDbId. For the requested name or synonym, returns an array (possibly empty) of marker records that match the search criteria. - If there is none, an empty array is returned. - If there is one or more than one match, returns an array of all marker records that match the search criteria. 
+
+**Request Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|includeSynonyms|boolean|Should an array of synonyms be included in the response|
+|markerDbIds|array[string]|List of IDs which uniquely identify markers |
+|markerNames|array[string]|The search pattern for the marker name or synonym.|
+|matchMethod|string|How to perform string matching during search. 'exact' will search for exact, case sensitive matches only. 'case_insensitive' will search for exact matches, but case insensitive. 'wildcard' will allow the special characters '*' (star) and '%' (percent) to represent variable length arbitrary strings, and the special character '?' (question) to represent one arbitrary character.|
+|name|string|DEPRECATED in v 1.3 - see "markerNames"|
+|page|integer|Which page of the "data" array to return. The page indexing starts at 0 (page=0 will return the first page). Default is 0.|
+|pageSize|integer|The maximum number of items to return per page of the "data" array. Default is 1000.|
+|type|string|DEPRECATED in v 1.3 - see "types"|
+|types|array[string]|The type of marker, e.g. SNP|
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|analysisMethods|array[string]|List of the genotyping platforms used to interrogate the marker|
+|defaultDisplayName|string|DEPRECATED in v 1.3 - see "markerName"|
+|markerDbId|string|Internal db identifier|
+|markerName|string|A string representing the marker that will be meaningful to the user|
+|refAlt|array[string]|List of the reference (as the first item) and alternatives (the remaining items)|
+|synonyms|array[string]|List of other names for this marker|
+|type|string|The type of marker, e.g. SNP|
+
 
  
 
@@ -191,6 +233,21 @@ Other service requests use the servers internal `markerDbId`. This service retur
 Other service requests use the servers internal `markerDbId`. This service returns marker records that provide the markerDbId. For the requested name or synonym, returns an array (possibly empty) of marker records that match the search criteria.
 If there is none, an empty array is returned. If there is one or more than one match, returns an array of all marker records that match the search criteria.
 
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|analysisMethods|array[string]|List of the genotyping platforms used to interrogate the marker|
+|defaultDisplayName|string|DEPRECATED in v 1.3 - see "markerName"|
+|markerDbId|string|Internal db identifier|
+|markerName|string|A string representing the marker that will be meaningful to the user|
+|refAlt|array[string]|List of the reference (as the first item) and alternatives (the remaining items)|
+|synonyms|array[string]|List of other names for this marker|
+|type|string|The type of marker, e.g. SNP|
+
+
  
 
 + Parameters
@@ -286,6 +343,20 @@ If there is none, an empty array is returned. If there is one or more than one m
 Status: ACCEPTED 
 Implemented By:
 
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|analysisMethods|array[string]|List of the genotyping platforms used to interrogate the marker|
+|defaultDisplayName|string|DEPRECATED in v 1.3 - see "markerName"|
+|markerDbId|string|Internal db identifier|
+|markerName|string|A string representing the marker that will be meaningful to the user|
+|refAlt|array[string]|List of the reference (as the first item) and alternatives (the remaining items)|
+|synonyms|array[string]|List of other names for this marker|
+|type|string|The type of marker, e.g. SNP|
+
+
  
 
 + Parameters
@@ -362,6 +433,26 @@ See Search Services for additional implementation details.
 Other service requests use the servers internal `markerDbId`. This service returns marker records that provide the markerDbId. For the requested name or synonym, returns an array (possibly empty) of marker records that match the search criteria. 
 If there is none, an empty array is returned. If there is one or more than one match, returns an array of all marker records that match the search criteria. '
 
+**Request Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|includeSynonyms|boolean|Should an array of synonyms be included in the response|
+|markerDbIds|array[string]|List of IDs which uniquely identify markers |
+|markerNames|array[string]|The search pattern for the marker name or synonym.|
+|matchMethod|string|How to perform string matching during search. 'exact' will search for exact, case sensitive matches only. 'case_insensitive' will search for exact matches, but case insensitive. 'wildcard' will allow the special characters '*' (star) and '%' (percent) to represent variable length arbitrary strings, and the special character '?' (question) to represent one arbitrary character.|
+|name|string|DEPRECATED in v 1.3 - see "markerNames"|
+|page|integer|Which page of the "data" array to return. The page indexing starts at 0 (page=0 will return the first page). Default is 0.|
+|pageSize|integer|The maximum number of items to return per page of the "data" array. Default is 1000.|
+|type|string|DEPRECATED in v 1.3 - see "types"|
+|types|array[string]|The type of marker, e.g. SNP|
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|searchResultDbId|string||
+
+
  
 
 + Parameters
@@ -437,6 +528,21 @@ If there is none, an empty array is returned. If there is one or more than one m
 ### Get Search Markers by searchResultsDbId  [GET /brapi/v1/search/markers/{searchResultsDbId}{?page}{?pageSize}]
 
 See Search Services for additional implementation details. Other service requests use the servers internal `markerDbId`. This service returns marker records that provide the markerDbId. For the requested name or synonym, returns an array (possibly empty) of marker records that match the search criteria. - If there is none, an empty array is returned. - If there is one or more than one match, returns an array of all marker records that match the search criteria. '
+
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|analysisMethods|array[string]|List of the genotyping platforms used to interrogate the marker|
+|defaultDisplayName|string|DEPRECATED in v 1.3 - see "markerName"|
+|markerDbId|string|Internal db identifier|
+|markerName|string|A string representing the marker that will be meaningful to the user|
+|refAlt|array[string]|List of the reference (as the first item) and alternatives (the remaining items)|
+|synonyms|array[string]|List of other names for this marker|
+|type|string|The type of marker, e.g. SNP|
+
 
  
 

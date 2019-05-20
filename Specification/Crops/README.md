@@ -23,6 +23,14 @@ The common crop name can be used as a search parameter for Programs, Studies, an
 
 test-server.brapi.org/brapi/v1/commonCropNames
 
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[string]|array of crop names availible on the server|
+
+
  
 
 + Parameters
@@ -85,6 +93,14 @@ For multi crop systems this is a useful call to list all the supported crops.
 
 
 test-server.brapi.org/brapi/v1/crops
+
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[string]|array of crop names availible on the server|
+
 
  
 

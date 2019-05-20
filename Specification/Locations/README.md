@@ -23,6 +23,30 @@ Get a list of locations.
 
 **Note**: Consider revising to describe polygon lat/lan points and check if adopting http://geojson.org/ is worth doing for v1.
 
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|abbreviation|string|An abbreviation which represents this location|
+|abreviation|string|Deprecated  Use abbreviation |
+|additionalInfo|object|Additional arbitrary info|
+|altitude|number|The altitude of this location|
+|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
+|countryName|string|The full name of the country where this location is|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|instituteAddress|string|The street address of the institute representing this location|
+|instituteAdress|string|Deprecated  Use instituteAddress |
+|instituteName|string|each institute/laboratory can have several experimental field|
+|latitude|number|The latitude of this location|
+|locationDbId|string|string identifier|
+|locationName|string|A human readable name for this location|
+|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
+|longitude|number|the longitude of this location|
+|name|string|DEPRECATED in v1.3 - Use "locationName"|
+
+
  
 
 + Parameters
@@ -127,6 +151,29 @@ Get details for a location.
 - The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
 
 - `altitude` is in meters.
+
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|abbreviation|string|An abbreviation which represents this location|
+|abreviation|string|Deprecated  Use abbreviation |
+|additionalInfo|object|Additional arbitrary info|
+|altitude|number|The altitude of this location|
+|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
+|countryName|string|The full name of the country where this location is|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|instituteAddress|string|The street address of the institute representing this location|
+|instituteAdress|string|Deprecated  Use instituteAddress |
+|instituteName|string|each institute/laboratory can have several experimental field|
+|latitude|number|The latitude of this location|
+|locationDbId|string|string identifier|
+|locationName|string|A human readable name for this location|
+|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
+|longitude|number|the longitude of this location|
+|name|string|DEPRECATED in v1.3 - Use "locationName"|
+
 
  
 

@@ -20,6 +20,27 @@ Retrieving genetic or physical maps
 
 Get list of maps
 
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|comments|string|Additional comments|
+|commonCropName|string|The common name of the crop, found from "GET /commoncropnames"|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|linkageGroupCount|integer (int32)|The number of linkage groups present in this genome map|
+|mapDbId|string|The ID which uniquely identifies this genome map|
+|mapName|string|A human readable name for this genome map|
+|markerCount|integer (int32)|The number of markers present in this genome map|
+|name|string|DEPRECATED in v1.3 - Use "mapName"|
+|publishedDate|string (date)|The date this genome was published|
+|scientificName|string|Full scientific binomial format name. This includes Genus, Species, and Sub-species|
+|species|string|DEPRECATED in v1.3 - See "scientificName"|
+|type|string|The type of map this represents, ussually "Genetic"|
+|unit|string|The units used to describe the data in this map|
+
+
  
 
 + Parameters
@@ -109,6 +130,27 @@ Get list of maps
 
 Provides the number of markers on each linkageGroup and the max position on the linkageGroup
 
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]|List of linkage group details associated with a given map|
+|linkageGroupName|string|The Uniquely Identifiable name of this linkage group|
+|markerCount|integer|The number of markers associated with this linkage group|
+|maxPosition|integer|The maximum position of a marker within this linkage group|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|linkageGroups|array[object]|**Deprecated** Use "data"|
+|linkageGroupName|string|The Uniquely Identifiable name of this linkage group|
+|markerCount|integer|The number of markers associated with this linkage group|
+|maxPosition|integer|The maximum position of a marker within this linkage group|
+|mapDbId|string|The ID which uniquely identifies this genome map|
+|mapName|string|A human readable name for this map|
+|name|string|DEPRECATED in v1.3 - Use "mapName"|
+|type|string|The type of map this represents, ussually "Genetic" or "Physical"|
+|unit|string|The units used to describe the data in this map|
+
+
  
 
 + Parameters
@@ -188,6 +230,18 @@ Provides the number of markers on each linkageGroup and the max position on the 
 
 All the markers in a given Map, ordered by linkageGroup and position.
 
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|linkageGroupName|string|The Uniquely Identifiable name of this linkage group|
+|location|string|The position of a marker within a linkage group|
+|markerDbId|string|Internal db identifier|
+|markerName|string|The human readable name for a marker|
+
+
  
 
 + Parameters
@@ -262,6 +316,17 @@ All the markers in a given Map, ordered by linkageGroup and position.
 ### Get Maps Positions by mapDbId and linkageGroupName  [GET /brapi/v1/maps/{mapDbId}/positions/{linkageGroupName}{?min}{?max}{?page}{?pageSize}]
 
 All the markers in a specific Linkage Group (aka Chromasome) inside a particular Map, ordered by position.
+
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|location|string|The position of a marker within a linkage group|
+|markerDbId|string|Internal db identifier|
+|markerName|string|The human readable name for a marker|
+
 
  
 

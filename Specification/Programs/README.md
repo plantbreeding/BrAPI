@@ -14,6 +14,34 @@ A Program can contain multiple Trials. A Trial can contain multiple Studies.
 
 DEPRECATED in v1.3 - see /search/programs
 
+**Request Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|abbreviation|string|An abbreviation of a program to search for|
+|leadPerson|string|The name or identifier of the program leader to search for|
+|name|string|A name of a program to search for|
+|objective|string|A program objective to search for|
+|page|integer|Which page of the "data" array to return. The page indexing starts at 0 (page=0 will return the first page). Default is 0.|
+|pageSize|integer|The maximum number of items to return per page of the "data" array. Default is 1000.|
+|programDbId|string|A program identifier to search for|
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|abbreviation|string|An abbreviation which represnts this program|
+|commonCropName|string|Common name for the crop which this program is for|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|leadPerson|string|DEPRECATED in v1.3 - see "leadPersonName" or "leadPersonDbId"|
+|leadPersonDbId|string|The unique identifier of the program leader|
+|leadPersonName|string|The name of the program leader|
+|name|string|DEPRECATED in v1.3 - Use "programName"|
+|objective|string|The primary objective of the program|
+|programDbId|string|The ID which uniquely identifies the program|
+|programName|string|Human readable name of the program|
+
+
  
 
 + Parameters
@@ -89,6 +117,24 @@ DEPRECATED in v1.3 - see /search/programs
 ### Get Programs  [GET /brapi/v1/programs{?commonCropName}{?programName}{?abbreviation}{?page}{?pageSize}]
 
 Call to retrieve a list of programs.
+
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|abbreviation|string|An abbreviation which represnts this program|
+|commonCropName|string|Common name for the crop which this program is for|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|leadPerson|string|DEPRECATED in v1.3 - see "leadPersonName" or "leadPersonDbId"|
+|leadPersonDbId|string|The unique identifier of the program leader|
+|leadPersonName|string|The name of the program leader|
+|name|string|DEPRECATED in v1.3 - Use "programName"|
+|objective|string|The primary objective of the program|
+|programDbId|string|The ID which uniquely identifies the program|
+|programName|string|Human readable name of the program|
+
 
  
 
@@ -175,6 +221,26 @@ Call to retrieve a list of programs.
 
 Advanced searching for the programs resource.
 See Search Services for additional implementation details.
+
+**Request Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|abbreviations|array[string]|An abbreviation of a program to search for|
+|commonCropNames|array[string]|Common name for the crop which this program is for|
+|leadPersonDbIds|array[string]|The person DbIds of the program leader to search for|
+|leadPersonNames|array[string]|The names of the program leader to search for|
+|objectives|array[string]|A program objective to search for|
+|page|integer|Which page of the "data" array to return. The page indexing starts at 0 (page=0 will return the first page). Default is 0.|
+|pageSize|integer|The maximum number of items to return per page of the "data" array. Default is 1000.|
+|programDbIds|array[string]|A program identifier to search for|
+|programNames|array[string]|A name of a program to search for|
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|searchResultDbId|string||
+
 
  
 
@@ -265,6 +331,24 @@ See Search Services for additional implementation details.
 
 Advanced searching for the programs resource.
 See Search Services for additional implementation details.
+
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|abbreviation|string|An abbreviation which represnts this program|
+|commonCropName|string|Common name for the crop which this program is for|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|leadPerson|string|DEPRECATED in v1.3 - see "leadPersonName" or "leadPersonDbId"|
+|leadPersonDbId|string|The unique identifier of the program leader|
+|leadPersonName|string|The name of the program leader|
+|name|string|DEPRECATED in v1.3 - Use "programName"|
+|objective|string|The primary objective of the program|
+|programDbId|string|The ID which uniquely identifies the program|
+|programName|string|Human readable name of the program|
+
 
  
 

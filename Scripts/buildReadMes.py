@@ -165,7 +165,63 @@ def buildGroupTitle(callPath, callsStrings):
 		callsStrings[groupTitle] = {'titleStr': groupTitleStr, 'depReadMeStrings': [], 'readMeStrings': []}
 	
 	return groupTitle
-	
+
+def buildRequestDefTable(obj):
+	table = ''
+	if 'content' in obj:
+		if 'application/json' in obj['content']:
+			if 'schema' in obj['content']['application/json']:
+				table = '**Request Fields** \n |Field|Type|Description|\n|---|---|---| \n'
+				schema = obj['content']['application/json']['schema']
+				table += buildObjectTableRow(schema)
+	return table
+
+def buildResponseDefTable(responses):
+	table = ''
+	if '200' in responses:
+		if 'content' in responses['200']:
+			if 'application/json' in responses['200']['content']:
+				if 'schema' in responses['200']['content']['application/json']:
+					if 'properties' in responses['200']['content']['application/json']['schema']:
+						if 'result' in responses['200']['content']['application/json']['schema']['properties']:
+							table = '**Response Fields** \n |Field|Type|Description|\n|---|---|---| \n'
+							schema = responses['200']['content']['application/json']['schema']['properties']['result']
+							table += buildObjectTableRow(schema)
+	return table
+
+def buildObjectTableRow(schema, parentPrefix = ''):
+	row = ''
+	if 'properties' in schema:
+		for prop in schema['properties']:
+			#print(prop)
+			#print(schema['properties'][prop].keys())
+			
+			field = prop
+			type = ''
+			desc = ''
+			
+			if 'type' in schema['properties'][prop]:
+				type = schema['properties'][prop]['type']
+				if 'format' in schema['properties'][prop]:
+					type += ' (' + schema['properties'][prop]['format'] + ')'
+			if type == 'array' and 'type' in schema['properties'][prop]['items']:
+				type += '[' +  schema['properties'][prop]['items']['type'] + ']'
+			if 'description' in schema['properties'][prop]:
+				desc = schema['properties'][prop]['description'].replace('\n', ' ').replace('|', '')
+			
+			
+			row += '|' +  field + '|' + type + '|' + desc + '|\n'
+			
+			
+			if type == 'object' and 'properties' in schema['properties'][prop]:
+				row += buildObjectTableRow(schema['properties'][prop])
+			elif type[:5] == 'array' and 'properties' in schema['properties'][prop]['items']:
+				row += buildObjectTableRow(schema['properties'][prop]['items'])
+	elif 'items' in schema:
+		row += buildObjectTableRow(schema['items'])
+			
+	return row
+
 def buildReadMe(dir, fullBrAPI):
 	readMeStr = ''
 	with open(dir + 'GroupDescription.md', "r") as groupDescFile:
@@ -216,6 +272,10 @@ def buildReadMe(dir, fullBrAPI):
 					methodStr += buildTitleStr(callPath, methodKey, params, deprecated)
 					methodStr += desc
 					methodStr += '\n\n'
+					methodStr += buildRequestDefTable(requestBody)
+					methodStr += '\n\n'
+					methodStr += buildResponseDefTable(responses)
+					methodStr += '\n\n'
 					methodStr += buildParametersList(params)
 					methodStr += '\n\n'
 					methodStr += buildRequestBody(requestBody)
@@ -240,15 +300,7 @@ def buildReadMe(dir, fullBrAPI):
 def buildReadMes(rootPath, specificPath):
 	fullBrAPI = dereferenceAll.dereferenceBrAPI(filePath = rootPath + '/brapi_openapi.yaml')
 	
-	if specificPath == '' :
-		for dir in glob.iglob(rootPath + '/Specification/**/', recursive=False):
-			readMeStr = buildReadMe(dir, fullBrAPI)
-			fileName = dir + '/README.md'
-			with open(fileName, 'w') as outfile:
-				outfile.write(readMeStr)
-				print(fileName)
-	else:
-		dir = rootPath + specificPath
+	for dir in glob.iglob(rootPath + '/Specification/' + specificPath + '/', recursive=False):
 		readMeStr = buildReadMe(dir, fullBrAPI)
 		fileName = dir + '/README.md'
 		with open(fileName, 'w') as outfile:
@@ -277,7 +329,7 @@ def buildGitHubReadMe(rootPath):
 
 
 rootPath = '.'
-specificPath = ''
+specificPath = '**'
 if len(sys.argv) > 1 :
 	rootPath = sys.argv[1];
 if len(sys.argv) > 2 :

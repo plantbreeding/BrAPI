@@ -13,6 +13,23 @@ Calls for maintaining information about people
 
 Get filtered list of people
 
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]|Array of people|
+|description|string|description of this person|
+|emailAddress|string|email address for this person|
+|firstName|string|Persons first name|
+|lastName|string|Persons last name|
+|mailingAddress|string|physical address of this person|
+|middleName|string|Persons middle name|
+|personDbId|string|Unique ID for this person|
+|phoneNumber|string|phone number of this person|
+|userID|string|A systems user ID ascociated with this person. Different from personDbId because you could have a person who is not a user of the system.|
+
+
  
 
 + Parameters
@@ -94,6 +111,33 @@ Get filtered list of people
 
 Create a new person
 
+**Request Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|description|string|description of this person|
+|emailAddress|string|email address for this person|
+|firstName|string|Persons first name|
+|lastName|string|Persons last name|
+|mailingAddress|string|physical address of this person|
+|middleName|string|Persons middle name|
+|phoneNumber|string|phone number of this person|
+|userID|string|A systems user ID ascociated with this person. Different from personDbId because you could have a person who is not a user of the system.|
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|description|string|description of this person|
+|emailAddress|string|email address for this person|
+|firstName|string|Persons first name|
+|lastName|string|Persons last name|
+|mailingAddress|string|physical address of this person|
+|middleName|string|Persons middle name|
+|personDbId|string|Unique ID for this person|
+|phoneNumber|string|phone number of this person|
+|userID|string|A systems user ID ascociated with this person. Different from personDbId because you could have a person who is not a user of the system.|
+
+
  
 
 + Parameters
@@ -169,6 +213,22 @@ Create a new person
 
 Get a specific person
 
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|description|string|description of this person|
+|emailAddress|string|email address for this person|
+|firstName|string|Persons first name|
+|lastName|string|Persons last name|
+|mailingAddress|string|physical address of this person|
+|middleName|string|Persons middle name|
+|personDbId|string|Unique ID for this person|
+|phoneNumber|string|phone number of this person|
+|userID|string|A systems user ID ascociated with this person. Different from personDbId because you could have a person who is not a user of the system.|
+
+
  
 
 + Parameters
@@ -234,6 +294,33 @@ Get a specific person
 ### Put People by personDbId  [PUT /brapi/v1/people/{personDbId}]
 
 Update an existing Person
+
+**Request Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|description|string|description of this person|
+|emailAddress|string|email address for this person|
+|firstName|string|Persons first name|
+|lastName|string|Persons last name|
+|mailingAddress|string|physical address of this person|
+|middleName|string|Persons middle name|
+|phoneNumber|string|phone number of this person|
+|userID|string|A systems user ID ascociated with this person. Different from personDbId because you could have a person who is not a user of the system.|
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|description|string|description of this person|
+|emailAddress|string|email address for this person|
+|firstName|string|Persons first name|
+|lastName|string|Persons last name|
+|mailingAddress|string|physical address of this person|
+|middleName|string|Persons middle name|
+|personDbId|string|Unique ID for this person|
+|phoneNumber|string|phone number of this person|
+|userID|string|A systems user ID ascociated with this person. Different from personDbId because you could have a person who is not a user of the system.|
+
 
  
 

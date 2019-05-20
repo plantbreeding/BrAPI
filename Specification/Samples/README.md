@@ -15,6 +15,27 @@ API methods for tracking/managing plant samples and related meta-data. A 'Sample
 
 DEPRECATED in v1.3 - see GET /samples
 
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|germplasmDbId|string| The ID which uniquely identifies a germplasm|
+|notes|string|Additional notes about a samle|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|plantDbId|string|The ID which uniquely identifies a plant. Usually 'plantNumber'|
+|plateDbId|string|The ID which uniquely identifies a plate of samples|
+|plateIndex|integer|The index number of this sample on a plate|
+|plotDbId|string| The ID which uniquely identifies a plot. Usually 'plotNumber'|
+|sampleDbId|string|The ID which uniquely identifies a sample|
+|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
+|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc |
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|takenBy|string|The name or identifier of the entity which took the sample from the field|
+|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.|
+
+
  
 
 + Parameters
@@ -85,6 +106,36 @@ DEPRECATED in v1.3 - see GET /samples
 ### **Deprecated** Post Samples-search  [POST /brapi/v1/samples-search]
 
 DEPRECATED in v1.3 - see GET /search/samples
+
+**Request Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|germplasmDbId|array[string]| The ID which uniquely identifies a germplasm|
+|observationUnitDbId|array[string]|The ID which uniquely identifies an observation unit|
+|page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is 0.|
+|pageSize|integer|The size of the pages to be returned. Default is 1000.|
+|plateDbId|array[string]|The ID which uniquely identifies a plate of samples|
+|sampleDbId|array[string]|The ID which uniquely identifies a sample|
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|germplasmDbId|string| The ID which uniquely identifies a germplasm|
+|notes|string|Additional notes about a samle|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|plantDbId|string|The ID which uniquely identifies a plant. Usually 'plantNumber'|
+|plateDbId|string|The ID which uniquely identifies a plate of samples|
+|plateIndex|integer|The index number of this sample on a plate|
+|plotDbId|string| The ID which uniquely identifies a plot. Usually 'plotNumber'|
+|sampleDbId|string|The ID which uniquely identifies a sample|
+|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
+|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc |
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|takenBy|string|The name or identifier of the entity which took the sample from the field|
+|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.|
+
 
  
 
@@ -179,6 +230,27 @@ DEPRECATED in v1.3 - see GET /search/samples
 
 Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
 
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|germplasmDbId|string| The ID which uniquely identifies a germplasm|
+|notes|string|Additional notes about a samle|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|plantDbId|string|The ID which uniquely identifies a plant. Usually 'plantNumber'|
+|plateDbId|string|The ID which uniquely identifies a plate of samples|
+|plateIndex|integer|The index number of this sample on a plate|
+|plotDbId|string| The ID which uniquely identifies a plot. Usually 'plotNumber'|
+|sampleDbId|string|The ID which uniquely identifies a sample|
+|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
+|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc |
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|takenBy|string|The name or identifier of the entity which took the sample from the field|
+|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.|
+
+
  
 
 + Parameters
@@ -268,6 +340,31 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
 
 Call to register the event of a sample being taken. Sample ID is assigned as a result of the operation and returned in response.
 
+**Request Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|germplasmDbId|string| The ID which uniquely identifies a germplasm|
+|notes|string|Additional notes about a samle|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|plantDbId|string|The ID which uniquely identifies a plant. Usually 'plantNumber'|
+|plateDbId|string|The ID which uniquely identifies a plate of samples|
+|plateIndex|integer|The index number of this sample on a plate|
+|plotDbId|string| The ID which uniquely identifies a plot. Usually 'plotNumber'|
+|sampleDbId|string|The ID which uniquely identifies a sample|
+|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
+|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc |
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|takenBy|string|The name or identifier of the entity which took the sample from the field|
+|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.|
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|sampleDbId|string||
+|sampleId|string|** Deprecated ** use sampleDbId|
+
+
  
 
 + Parameters
@@ -340,6 +437,26 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
 ### Get Samples by sampleDbId  [GET /brapi/v1/samples/{sampleDbId}]
 
 Used to retrieve the details of a single Sample from a Sample Tracking system.
+
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|germplasmDbId|string| The ID which uniquely identifies a germplasm|
+|notes|string|Additional notes about a samle|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|plantDbId|string|The ID which uniquely identifies a plant. Usually 'plantNumber'|
+|plateDbId|string|The ID which uniquely identifies a plate of samples|
+|plateIndex|integer|The index number of this sample on a plate|
+|plotDbId|string| The ID which uniquely identifies a plot. Usually 'plotNumber'|
+|sampleDbId|string|The ID which uniquely identifies a sample|
+|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
+|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc |
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|takenBy|string|The name or identifier of the entity which took the sample from the field|
+|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.|
+
 
  
 
@@ -414,6 +531,23 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
 
 Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
 See Search Services for additional implementation details.
+
+**Request Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|germplasmDbIds|array[string]| The ID which uniquely identifies a germplasm|
+|observationUnitDbIds|array[string]|The ID which uniquely identifies an observation unit|
+|page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is 0.|
+|pageSize|integer|The size of the pages to be returned. Default is 1000.|
+|plateDbIds|array[string]|The ID which uniquely identifies a plate of samples|
+|sampleDbIds|array[string]|The ID which uniquely identifies a sample|
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|searchResultDbId|string||
+
 
  
 
@@ -492,6 +626,27 @@ See Search Services for additional implementation details.
 
 Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
 See Search Services for additional implementation details.
+
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|germplasmDbId|string| The ID which uniquely identifies a germplasm|
+|notes|string|Additional notes about a samle|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|plantDbId|string|The ID which uniquely identifies a plant. Usually 'plantNumber'|
+|plateDbId|string|The ID which uniquely identifies a plate of samples|
+|plateIndex|integer|The index number of this sample on a plate|
+|plotDbId|string| The ID which uniquely identifies a plot. Usually 'plotNumber'|
+|sampleDbId|string|The ID which uniquely identifies a sample|
+|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
+|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc |
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|takenBy|string|The name or identifier of the entity which took the sample from the field|
+|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.|
+
 
  
 

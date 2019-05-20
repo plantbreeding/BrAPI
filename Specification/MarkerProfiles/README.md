@@ -33,6 +33,14 @@ Use GET when parameter size is less than 2K bytes.
 
 This method may support asynchronous processing.
 
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[array]|Is an array of arrays; each inner array has three entries: ```markerDbId```, ```markerProfileDbId```, ```alleleCall```. Scores have to be represented as described further up. e.g. unknown data as "N", etc. Missing data can be skipped.|
+
+
  
 
 + Parameters
@@ -118,6 +126,28 @@ Use POST when parameter size is greater than 2K bytes.
 - If more than one format is requested at a time, the server will throw a "501 Not Implemented" error.
 
 The format of the tsv response can be found on GitHub (https://github.com/plantbreeding/Documentation/wiki/BrAPI-TSV-Expected-Formats)'
+
+**Request Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurence (false)|
+|format|string|The data format of the response data. ie "json", "tsv", etc|
+|markerDbId|array[string]|An ID which uniquely identifies a Marker|
+|markerProfileDbId|array[string]|An ID which uniquely identifies a Marker Profile|
+|markerprofileDbId|array[string]|DEPRECATED in v1.3 - see "markerProfileDbId" (camel case)|
+|matrixDbId|array[string]|An ID which uniquely identifies an Allele Matrix|
+|page|integer|Which page of the "data" array to return. The page indexing starts at 0 (page=0 will return the first page). Default is 0.|
+|pageSize|integer|The maximum number of items to return per page of the "data" array. Default is 1000.|
+|sepPhased|string|The string to use as a separator for phased allele calls.|
+|sepUnphased|string|The string to use as a separator for unphased allele calls.|
+|unknownString|string|The string to use as a representation for missing data.|
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[array]|Is an array of arrays; each inner array has three entries: ```markerDbId```, ```markerProfileDbId```, ```alleleCall```. Scores have to be represented as described further up. e.g. unknown data as "N", etc. Missing data can be skipped.|
+
 
  
 
@@ -244,6 +274,20 @@ This resource is used for reading and writing genomic matrices
 
 GET provides a list of available matrices, optionally filtered by study;
 
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|description|string|How the matrix was generated|
+|lastUpdated|string (date-time)|A date format|
+|matrixDbId|string|ID of the matrix|
+|matrixName|string|Name of the matrix|
+|name|string|DEPRECATED in v1.3 - Use "matrixName"|
+|studyDbId|string|Link to the study where the matrix was produced|
+
+
  
 
 + Parameters
@@ -330,6 +374,14 @@ This uses a more efficient data structure and pagination for large number of mar
 Use GET when parameter size is less than 2K bytes.
 This method may support asynchronous processing.
 
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[array]|Is an array of arrays; each inner array has three entries: ```markerDbId```, ```markerProfileDbId```, ```alleleCall```. Scores have to be represented as described further up. e.g. unknown data as "N", etc. Missing data can be skipped.|
+
+
  
 
 + Parameters
@@ -409,6 +461,28 @@ Use POST when parameter size is greater than 2K bytes.
 - If more than one format is requested at a time, the server will throw a "501 Not Implemented" error.
 
 The format of the tsv response can be found on GitHub (https://github.com/plantbreeding/Documentation/wiki/BrAPI-TSV-Expected-Formats)
+
+**Request Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurence (false)|
+|format|string|The data format of the response data. ie "json", "tsv", etc|
+|markerDbId|array[string]|An ID which uniquely identifies a Marker|
+|markerProfileDbId|array[string]|An ID which uniquely identifies a Marker Profile|
+|markerprofileDbId|array[string]|DEPRECATED in v1.3 - see "markerProfileDbId" (camel case)|
+|matrixDbId|array[string]|An ID which uniquely identifies an Allele Matrix|
+|page|integer|Which page of the "data" array to return. The page indexing starts at 0 (page=0 will return the first page). Default is 0.|
+|pageSize|integer|The maximum number of items to return per page of the "data" array. Default is 1000.|
+|sepPhased|string|The string to use as a separator for phased allele calls.|
+|sepUnphased|string|The string to use as a separator for unphased allele calls.|
+|unknownString|string|The string to use as a representation for missing data.|
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[array]|Is an array of arrays; each inner array has three entries: ```markerDbId```, ```markerProfileDbId```, ```alleleCall```. Scores have to be represented as described further up. e.g. unknown data as "N", etc. Missing data can be skipped.|
+
 
  
 
@@ -1882,6 +1956,22 @@ The format of the tsv response can be found on GitHub (https://github.com/plantb
 
 For the requested Germplasm Id and/or Extract Id, returns the Markerprofile Id and number of non-missing allele calls (marker/allele pairs).
 
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|analysisMethod|string|The type of analysis performed to determine a set of marker data|
+|extractDbId|string| The ID which uniquely identifies this data extract|
+|germplasmDbId|string| The ID which uniquely identifies a germplasm|
+|markerProfileDbId|string|Unique in the database. Can be a catenation of unique IDs for germplasm and extract. Required|
+|markerprofileDbId|string|DEPRECATED in v1.3 - see "markerProfileDbId" (camel case)|
+|resultCount|integer|Number of markers present in the marker profile|
+|sampleDbId|string|The ID which uniquely identifies a sample|
+|uniqueDisplayName|string|Human readable display name for this marker profile|
+
+
  
 
 + Parameters
@@ -1974,6 +2064,20 @@ Allele encodings
 - If the user would like to use an empty string (\"\") for any of the parameters, the value should be set to the reserved word \"empty_string\", e.g. sepUnphased=empty_string.
 
 Open issue: The pages of data will need to be sorted sensibly in order for the requested page to be delivered consistently.  By map or genome position? Alphabetically?'"
+
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|analysisMethod|string|The type of analysis performed to determine a set of marker data|
+|data|array[object]|array of marker-name/score pairs|
+|extractDbId|string|Required|
+|germplasmDbId|string|Required|
+|markerProfileDbId|string|Unique in the database. Can be a catenation of unique IDs for germplasm and extract. Required|
+|markerprofileDbId|string|DEPRECATED in v1.3 - see "markerProfileDbId" (camel case)|
+|uniqueDisplayName|string|Human readable display name for this marker profile|
+
 
  
 

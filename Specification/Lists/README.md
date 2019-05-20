@@ -13,6 +13,24 @@ Calls for manipulating generic lists of item IDs
 
 Get filtered set of generic lists
 
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[object]|Array of generic list summaries|
+|dateCreated|string (date-time)||
+|dateModified|string (date-time)||
+|description|string||
+|listDbId|string||
+|listName|string||
+|listOwnerName|string||
+|listOwnerPersonDbId|string||
+|listSize|integer||
+|listSource|string||
+|listType|string||
+
+
  
 
 + Parameters
@@ -96,6 +114,35 @@ Get filtered set of generic lists
 
 Create a new list
 
+**Request Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[string]||
+|description|string||
+|listName|string||
+|listOwnerName|string||
+|listOwnerPersonDbId|string||
+|listSize|integer||
+|listSource|string||
+|listType|string||
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|dateCreated|string (date-time)||
+|dateModified|string (date-time)||
+|description|string||
+|listDbId|string||
+|listName|string||
+|listOwnerName|string||
+|listOwnerPersonDbId|string||
+|listSize|integer||
+|listSource|string||
+|listType|string||
+|data|array[string]||
+
+
  
 
 + Parameters
@@ -178,6 +225,24 @@ Create a new list
 
 Get a specific generic lists
 
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|dateCreated|string (date-time)||
+|dateModified|string (date-time)||
+|description|string||
+|listDbId|string||
+|listName|string||
+|listOwnerName|string||
+|listOwnerPersonDbId|string||
+|listSize|integer||
+|listSource|string||
+|listType|string||
+|data|array[string]||
+
+
  
 
 + Parameters
@@ -249,6 +314,35 @@ Get a specific generic lists
 ### Put Lists by listDbId  [PUT /brapi/v1/lists/{listDbId}]
 
 Update an existing generic list
+
+**Request Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|data|array[string]||
+|description|string||
+|listName|string||
+|listOwnerName|string||
+|listOwnerPersonDbId|string||
+|listSize|integer||
+|listSource|string||
+|listType|string||
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|dateCreated|string (date-time)||
+|dateModified|string (date-time)||
+|description|string||
+|listDbId|string||
+|listName|string||
+|listOwnerName|string||
+|listOwnerPersonDbId|string||
+|listSize|integer||
+|listSource|string||
+|listType|string||
+|data|array[string]||
+
 
  
 
@@ -337,6 +431,27 @@ Update an existing generic list
 ### Post Lists Items by listDbId  [POST /brapi/v1/lists/{listDbId}/items]
 
 Add new data to a specific generic lists
+
+**Request Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+
+
+**Response Fields** 
+ |Field|Type|Description|
+|---|---|---| 
+|dateCreated|string (date-time)||
+|dateModified|string (date-time)||
+|description|string||
+|listDbId|string||
+|listName|string||
+|listOwnerName|string||
+|listOwnerPersonDbId|string||
+|listSize|integer||
+|listSource|string||
+|listType|string||
+|data|array[string]||
+
 
  
 
