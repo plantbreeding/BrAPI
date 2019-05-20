@@ -28,7 +28,8 @@ Implementation Notes
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]|Array of image meta data|
 |additionalInfo|object||
@@ -190,7 +191,8 @@ Implementation Notes
 - For top down images (ie from drones, cranes, etc), the Point geometry may be used to indicate the longitude and latitude of the centroid of the image content, and the Polygon geometry may be used to indicate the border of the image content. 
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |additionalInfo|object||
 |copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
@@ -211,7 +213,8 @@ Implementation Notes
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |additionalInfo|object||
 |copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
@@ -354,7 +357,8 @@ Implementation Notes
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |additionalInfo|object||
 |copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
@@ -481,7 +485,8 @@ Implementation Notes
 - For top down images (ie from drones, cranes, etc), the Point geometry may be used to indicate the longitude and latitude of the centroid of the image content, and the Polygon geometry may be used to indicate the border of the image content. '
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |additionalInfo|object||
 |copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
@@ -502,7 +507,8 @@ Implementation Notes
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |additionalInfo|object||
 |copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
@@ -653,7 +659,8 @@ Implementation Notes
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |additionalInfo|object||
 |copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
@@ -775,7 +782,8 @@ Implementation Notes
 See Search Services for additional implementation details.
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image to search for. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
 |imageFileNames|array[string]|Image file names to search for.|
@@ -797,7 +805,8 @@ See Search Services for additional implementation details.
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |searchResultDbId|string||
 
@@ -906,7 +915,8 @@ Implementation Notes
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]|Array of image meta data|
 |additionalInfo|object||

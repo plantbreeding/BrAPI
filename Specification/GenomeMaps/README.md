@@ -23,7 +23,8 @@ Get list of maps
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |comments|string|Additional comments|
@@ -133,7 +134,8 @@ Provides the number of markers on each linkageGroup and the max position on the 
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]|List of linkage group details associated with a given map|
 |linkageGroupName|string|The Uniquely Identifiable name of this linkage group|
@@ -233,7 +235,8 @@ All the markers in a given Map, ordered by linkageGroup and position.
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |linkageGroupName|string|The Uniquely Identifiable name of this linkage group|
@@ -320,7 +323,8 @@ All the markers in a specific Linkage Group (aka Chromasome) inside a particular
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |location|string|The position of a marker within a linkage group|

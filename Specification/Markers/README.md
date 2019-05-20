@@ -20,7 +20,8 @@ Other service requests use the servers internal `markerDbId`. This service retur
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |analysisMethods|array[string]|List of the genotyping platforms used to interrogate the marker|
@@ -112,7 +113,8 @@ See Search Services for additional implementation details.
 Other service requests use the servers internal `markerDbId`. This service returns marker records that provide the markerDbId. For the requested name or synonym, returns an array (possibly empty) of marker records that match the search criteria. - If there is none, an empty array is returned. - If there is one or more than one match, returns an array of all marker records that match the search criteria. 
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |includeSynonyms|boolean|Should an array of synonyms be included in the response|
 |markerDbIds|array[string]|List of IDs which uniquely identify markers |
@@ -126,7 +128,8 @@ Other service requests use the servers internal `markerDbId`. This service retur
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |analysisMethods|array[string]|List of the genotyping platforms used to interrogate the marker|
@@ -236,7 +239,8 @@ If there is none, an empty array is returned. If there is one or more than one m
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |analysisMethods|array[string]|List of the genotyping platforms used to interrogate the marker|
@@ -346,7 +350,8 @@ Implemented By:
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |analysisMethods|array[string]|List of the genotyping platforms used to interrogate the marker|
 |defaultDisplayName|string|DEPRECATED in v 1.3 - see "markerName"|
@@ -434,7 +439,8 @@ Other service requests use the servers internal `markerDbId`. This service retur
 If there is none, an empty array is returned. If there is one or more than one match, returns an array of all marker records that match the search criteria. '
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |includeSynonyms|boolean|Should an array of synonyms be included in the response|
 |markerDbIds|array[string]|List of IDs which uniquely identify markers |
@@ -448,7 +454,8 @@ If there is none, an empty array is returned. If there is one or more than one m
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |searchResultDbId|string||
 
@@ -532,7 +539,8 @@ See Search Services for additional implementation details. Other service request
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |analysisMethods|array[string]|List of the genotyping platforms used to interrogate the marker|

@@ -21,7 +21,8 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |class|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.|
@@ -138,7 +139,8 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
 Create a new method object in the database
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |class|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |description|string|Method description.|
@@ -155,7 +157,8 @@ Create a new method object in the database
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |class|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.|
 |description|string|Method description.|
@@ -275,7 +278,8 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |class|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.|
 |description|string|Method description.|
@@ -370,7 +374,8 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
 Update the details of an existing method
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |class|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |description|string|Method description.|
@@ -387,7 +392,8 @@ Update the details of an existing method
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |class|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.|
 |description|string|Method description.|
@@ -514,7 +520,8 @@ Call to retrieve a list of observation variable ontologies available in the syst
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |authors|string|Ontology's list of authors (no specific format)|
@@ -600,7 +607,8 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |dataType|string|Class of the scale, entries can be     "Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal             scale that combines the expressions of the different traits composing the complex             trait. For exemple a severity trait might be expressed by a 2 digit and 2 character             code. The first 2 digits are the percentage of the plant covered by a fungus and the 2             characters refer to the delay in development, e.g. "75VD" means "75%" of the plant is              Crop Ontology & Integrated Breeding Platform  Curation Guidelines  5/6/2016 9             infected and the plant is very delayed.      "Date" - The date class is for events expressed in a time format, e.g. yyyymmddThh:mm:ssZ or dd/mm/yy      "Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months      "Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories      "Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectar, branches      "Ordinal" - Ordinal scales are scales composed of ordered categories      "Text" - A free text is used to express the trait.   |
@@ -728,7 +736,8 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
 Create a new scale object in the database
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |dataType|string|Class of the scale, entries can be     "Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal             scale that combines the expressions of the different traits composing the complex             trait. For exemple a severity trait might be expressed by a 2 digit and 2 character             code. The first 2 digits are the percentage of the plant covered by a fungus and the 2             characters refer to the delay in development, e.g. "75VD" means "75%" of the plant is              Crop Ontology & Integrated Breeding Platform  Curation Guidelines  5/6/2016 9             infected and the plant is very delayed.      "Date" - The date class is for events expressed in a time format, e.g. yyyymmddThh:mm:ssZ or dd/mm/yy      "Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months      "Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories      "Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectar, branches      "Ordinal" - Ordinal scales are scales composed of ordered categories      "Text" - A free text is used to express the trait.   |
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
@@ -748,7 +757,8 @@ Create a new scale object in the database
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |dataType|string|Class of the scale, entries can be     "Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal             scale that combines the expressions of the different traits composing the complex             trait. For exemple a severity trait might be expressed by a 2 digit and 2 character             code. The first 2 digits are the percentage of the plant covered by a fungus and the 2             characters refer to the delay in development, e.g. "75VD" means "75%" of the plant is              Crop Ontology & Integrated Breeding Platform  Curation Guidelines  5/6/2016 9             infected and the plant is very delayed.      "Date" - The date class is for events expressed in a time format, e.g. yyyymmddThh:mm:ssZ or dd/mm/yy      "Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months      "Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories      "Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectar, branches      "Ordinal" - Ordinal scales are scales composed of ordered categories      "Text" - A free text is used to express the trait.   |
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
@@ -884,7 +894,8 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |dataType|string|Class of the scale, entries can be     "Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal             scale that combines the expressions of the different traits composing the complex             trait. For exemple a severity trait might be expressed by a 2 digit and 2 character             code. The first 2 digits are the percentage of the plant covered by a fungus and the 2             characters refer to the delay in development, e.g. "75VD" means "75%" of the plant is              Crop Ontology & Integrated Breeding Platform  Curation Guidelines  5/6/2016 9             infected and the plant is very delayed.      "Date" - The date class is for events expressed in a time format, e.g. yyyymmddThh:mm:ssZ or dd/mm/yy      "Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months      "Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories      "Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectar, branches      "Ordinal" - Ordinal scales are scales composed of ordered categories      "Text" - A free text is used to express the trait.   |
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
@@ -986,7 +997,8 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
 Update the details of an existing scale
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |dataType|string|Class of the scale, entries can be     "Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal             scale that combines the expressions of the different traits composing the complex             trait. For exemple a severity trait might be expressed by a 2 digit and 2 character             code. The first 2 digits are the percentage of the plant covered by a fungus and the 2             characters refer to the delay in development, e.g. "75VD" means "75%" of the plant is              Crop Ontology & Integrated Breeding Platform  Curation Guidelines  5/6/2016 9             infected and the plant is very delayed.      "Date" - The date class is for events expressed in a time format, e.g. yyyymmddThh:mm:ssZ or dd/mm/yy      "Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months      "Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories      "Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectar, branches      "Ordinal" - Ordinal scales are scales composed of ordered categories      "Text" - A free text is used to express the trait.   |
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
@@ -1006,7 +1018,8 @@ Update the details of an existing scale
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |dataType|string|Class of the scale, entries can be     "Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal             scale that combines the expressions of the different traits composing the complex             trait. For exemple a severity trait might be expressed by a 2 digit and 2 character             code. The first 2 digits are the percentage of the plant covered by a fungus and the 2             characters refer to the delay in development, e.g. "75VD" means "75%" of the plant is              Crop Ontology & Integrated Breeding Platform  Curation Guidelines  5/6/2016 9             infected and the plant is very delayed.      "Date" - The date class is for events expressed in a time format, e.g. yyyymmddThh:mm:ssZ or dd/mm/yy      "Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months      "Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories      "Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectar, branches      "Ordinal" - Ordinal scales are scales composed of ordered categories      "Text" - A free text is used to express the trait.   |
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
@@ -1149,7 +1162,8 @@ Search observation variables.
 See Search Services for additional implementation details.
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |dataTypes|array[string]|List of scale data types to filter search results|
 |methodDbIds|array[string]|List of methods to filter search results|
@@ -1167,7 +1181,8 @@ See Search Services for additional implementation details.
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |searchResultDbId|string||
 
@@ -1282,7 +1297,8 @@ See Search Services for additional implementation details.
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array||
 |contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
@@ -1648,7 +1664,8 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |defaultValue|string|The default value of a trait (if applicable) ex. "0", "", "null"|
@@ -1740,7 +1757,8 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
 Create a new trait object in the database
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
@@ -1762,7 +1780,8 @@ Create a new trait object in the database
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
@@ -1907,7 +1926,8 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |defaultValue|string|The default value of a trait (if applicable) ex. "0", "", "null"|
 |description|string|The description of a trait|
@@ -1986,7 +2006,8 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
 Update an existing trait
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
@@ -2008,7 +2029,8 @@ Update an existing trait
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
@@ -2159,7 +2181,8 @@ Search observation variables.
 See Search Services for additional implementation details.
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |datatypes|array[string]|List of scale data types to filter search results|
 |methodDbIds|array[string]|List of methods to filter search results|
@@ -2174,7 +2197,8 @@ See Search Services for additional implementation details.
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array||
 |contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
@@ -2553,7 +2577,8 @@ Call to retrieve a list of observationVariables available in the system.
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array||
 |contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
@@ -2910,7 +2935,8 @@ Retrieve variable details
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
 |crop|string|Crop name (examples: "Maize", "Wheat")|
@@ -3154,7 +3180,8 @@ DEPRECATED in v1.3 - See documentation on BrAPI fixed set of data types, referen
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[string]||
 

@@ -18,7 +18,8 @@ Get a set of observation units
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |X|string|DEPRECATED - use "positionCoordinateX"|
@@ -242,7 +243,8 @@ Get a set of observation units
 DEPRECATED in v1.3 - See /search/observationtables
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |germplasmDbIds|array[string]|The name or synonym of external genebank accession identifiers|
 |locationDbIds|array[string]|locations these traits were collected|
@@ -328,7 +330,8 @@ DEPRECATED in v1.3 - See GET /observationunits
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |X|string|DEPRECATED - use "positionCoordinateX"|
@@ -531,7 +534,8 @@ DEPRECATED in v1.3 - See GET /observationunits
 DEPRECATED in v1.3 - See /search/observationunits
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |germplasmDbIds|array[string]|The name or synonym of external genebank accession identifiers|
 |locationDbIds|array[string]|locations these traits were collected|
@@ -548,7 +552,8 @@ DEPRECATED in v1.3 - See /search/observationunits
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |X|string|DEPRECATED - use "positionCoordinateX"|
@@ -779,7 +784,8 @@ DEPRECATED in v1.3 - See /search/observationunits
 DEPRECATED in v1.3 - See /search/observationtables
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |germplasmDbIds|array[string]|The name or synonym of external genebank accession identifiers|
 |locationDbIds|array[string]|locations these traits were collected|
@@ -863,7 +869,8 @@ DEPRECATED in v1.3 - See /search/observationtables
 DEPRECATED in v1.3 - See /search/observationtables
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |germplasmDbIds|array[string]|The name or synonym of external genebank accession identifiers|
 |locationDbIds|array[string]|locations these traits were collected|
@@ -880,7 +887,8 @@ DEPRECATED in v1.3 - See /search/observationtables
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[array]|Matrix of observation meta-data and recorded values. Each inner array represents 1 row of data.|
 |headerRow|array[string]|Names of the columns included in the data matrix. Any or All of [ "year","studyDbId","studyName","locationDbId","locationName","germplasmDbId","germplasmName","observationUnitDbId","plotNumber","replicate","blockNumber", "entryType", "X", "Y"]|
@@ -1045,7 +1053,8 @@ In case where JSON data is zipped for faster transfer speed (as in the case of t
 Images can be optionally be uploaded using this call by providing a zipfile of all images in the datafiles, along with the actual zipfile in multi-part form data."
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]|Matrix of observation data recorded for different observation variables across different observation units|
 |observatioUnitDbId|string||
@@ -1061,7 +1070,8 @@ Images can be optionally be uploaded using this call by providing a zipfile of a
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |observations|array[object]|List of observation references which have been created or updated|
 |observationDbId|string||
@@ -1193,7 +1203,8 @@ observationTimeStamp - Iso Standard 8601.
 observationValue data type inferred from the ontology
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |germplasmDbIds|array[string]|The name or synonym of external genebank accession identifiers|
 |locationDbIds|array[string]|locations these traits were collected|
@@ -1210,7 +1221,8 @@ observationValue data type inferred from the ontology
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |searchResultDbId|string||
 
@@ -1315,7 +1327,8 @@ observationValue data type inferred from the ontology
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[array]|Matrix of observation meta-data and recorded values. Each inner array represents 1 row of data.|
 |headerRow|array[string]|Names of the columns included in the data matrix. Any or All of [ "year","studyDbId","studyName","locationDbId","locationName","germplasmDbId","germplasmName","observationUnitDbId","plotNumber","replicate","blockNumber", "entryType", "X", "Y"]|
@@ -1514,7 +1527,8 @@ observationTimeStampRangeStart and observationTimeStampRangeEnd use Iso Standard
 observationValue data type inferred from the ontology
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |germplasmDbIds|array[string]|The name or synonym of external genebank accession identifiers|
 |locationDbIds|array[string]|locations these traits were collected|
@@ -1531,7 +1545,8 @@ observationValue data type inferred from the ontology
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |searchResultDbId|string||
 
@@ -1633,7 +1648,8 @@ See Search Services for additional implementation details.
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |X|string|DEPRECATED - use "positionCoordinateX"|

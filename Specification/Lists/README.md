@@ -16,7 +16,8 @@ Get filtered set of generic lists
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]|Array of generic list summaries|
 |dateCreated|string (date-time)||
@@ -115,7 +116,8 @@ Get filtered set of generic lists
 Create a new list
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[string]||
 |description|string||
@@ -128,7 +130,8 @@ Create a new list
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |dateCreated|string (date-time)||
 |dateModified|string (date-time)||
@@ -228,7 +231,8 @@ Get a specific generic lists
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |dateCreated|string (date-time)||
 |dateModified|string (date-time)||
@@ -316,7 +320,8 @@ Get a specific generic lists
 Update an existing generic list
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[string]||
 |description|string||
@@ -329,7 +334,8 @@ Update an existing generic list
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |dateCreated|string (date-time)||
 |dateModified|string (date-time)||
@@ -433,12 +439,14 @@ Update an existing generic list
 Add new data to a specific generic lists
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |dateCreated|string (date-time)||
 |dateModified|string (date-time)||

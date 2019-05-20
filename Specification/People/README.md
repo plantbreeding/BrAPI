@@ -16,7 +16,8 @@ Get filtered list of people
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]|Array of people|
 |description|string|description of this person|
@@ -112,7 +113,8 @@ Get filtered list of people
 Create a new person
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
@@ -125,7 +127,8 @@ Create a new person
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
@@ -216,7 +219,8 @@ Get a specific person
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
@@ -296,7 +300,8 @@ Get a specific person
 Update an existing Person
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
@@ -309,7 +314,8 @@ Update an existing Person
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |description|string|description of this person|
 |emailAddress|string|email address for this person|

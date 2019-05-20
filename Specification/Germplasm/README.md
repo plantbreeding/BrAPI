@@ -17,7 +17,8 @@ Get the details of a specific Breeding Method used to produce Germplasm
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |abbreviation|string|an abbreviation for the name of this breeding method|
 |breedingMethodDbId|string|the unique identifier for this breeding method|
@@ -91,7 +92,8 @@ Get the list of germplasm breeding methods available in a system.
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |abbreviation|string|an abbreviation for the name of this breeding method|
@@ -176,7 +178,8 @@ DEPRECATED in V1.3 - see GET /germplasm
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |accessionNumber|string|This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection|
@@ -332,7 +335,8 @@ DEPRECATED in V1.3 - see GET /germplasm
 DEPRECATED in V1.3 - see POST /search/germplasm
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |accessionNumbers|array[string]|List unique identifiers for accessions within a genebank|
 |commonCropNames|array[string]|List crops to search by|
@@ -346,7 +350,8 @@ DEPRECATED in V1.3 - see POST /search/germplasm
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |accessionNumber|string|This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection|
@@ -544,7 +549,8 @@ Addresses these needs
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |accessionNumber|string|This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection|
@@ -720,7 +726,8 @@ Values for all attributes by default.
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]|List of attributes associated with the given germplasm|
 |attributeCode|string|Short abbreviation which represents this attribute|
@@ -812,7 +819,8 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |accessionNumber|string|This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection|
 |acquisitionDate|string (date)|The date this germplasm was aquired by the genebank (MCPD)|
@@ -950,7 +958,8 @@ Implementation Notes
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |accessionNames|array[string]|MCPD (v2.1) (ACCENAME) 11. Either a registered or other designation given to the material received, other than the donors accession number (23) or collecting number (3). First letter uppercase. Multiple names are separated by a semicolon without space. Example: Accession name: Bogatyr;Symphony;Emma.|
 |accessionNumber|string|MCPD (v2.1) (ACCENUMB) 2. This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection (e.g. "PI 113869").|
@@ -1131,7 +1140,8 @@ Retrieve the markerProfileDbIds for a given Germplasm ID
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server|
 |markerProfileDbIds|array[string]|The ID which uniquely identifies a marker profile within the given database server|
@@ -1205,7 +1215,8 @@ Get the parentage information of a specific Germplasm
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |crossingPlan|string|The crossing strategy used to generate this germplasm|
 |crossingYear|string|The year the parents were originally crossed|
@@ -1307,7 +1318,8 @@ Implementation Notes
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |defaultDisplayName|string|A human readable name for a germplasm|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
@@ -1407,7 +1419,8 @@ Addresses these needs
 See Search Services for additional implementation details.
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |accessionNumbers|array[string]|List unique identifiers for accessions within a genebank|
 |commonCropNames|array[string]|List crops to search by|
@@ -1421,7 +1434,8 @@ See Search Services for additional implementation details.
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |searchResultDbId|string||
 
@@ -1519,7 +1533,8 @@ Addresses these needs: 1. General germplasm search mechanism that accepts POST f
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |accessionNumber|string|This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection|

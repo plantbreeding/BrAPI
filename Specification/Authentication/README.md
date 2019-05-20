@@ -38,7 +38,8 @@ For logout, returns an empty resource. A token to remove could be provided (amdi
 | expires_in | integer | The lifetime in seconds of the access token | Y | 
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |client_id|string||
 |grant_type|string||

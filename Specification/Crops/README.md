@@ -26,7 +26,8 @@ test-server.brapi.org/brapi/v1/commonCropNames
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[string]|array of crop names availible on the server|
 
@@ -97,7 +98,8 @@ test-server.brapi.org/brapi/v1/crops
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[string]|array of crop names availible on the server|
 

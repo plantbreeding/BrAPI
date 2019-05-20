@@ -18,7 +18,8 @@ Retrieve a filtered list of Trials. A Trial is a collection of studies
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |active|boolean|Is this trail currently active|
@@ -162,7 +163,8 @@ Get trial by id.
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |active|boolean|Is this trail currently active|
 |additionalInfo|object|Additional arbitrary info|

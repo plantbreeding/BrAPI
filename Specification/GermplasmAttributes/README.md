@@ -19,7 +19,8 @@ List all available attribute categories.
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |attributeCategoryDbId|string|The ID which uniquely identifies this attribute category within the given database server|
@@ -95,7 +96,8 @@ List available attributes.
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array||
 |contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|

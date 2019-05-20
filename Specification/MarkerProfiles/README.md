@@ -36,7 +36,8 @@ This method may support asynchronous processing.
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[array]|Is an array of arrays; each inner array has three entries: ```markerDbId```, ```markerProfileDbId```, ```alleleCall```. Scores have to be represented as described further up. e.g. unknown data as "N", etc. Missing data can be skipped.|
 
@@ -128,7 +129,8 @@ Use POST when parameter size is greater than 2K bytes.
 The format of the tsv response can be found on GitHub (https://github.com/plantbreeding/Documentation/wiki/BrAPI-TSV-Expected-Formats)'
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurence (false)|
 |format|string|The data format of the response data. ie "json", "tsv", etc|
@@ -144,7 +146,8 @@ The format of the tsv response can be found on GitHub (https://github.com/plantb
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[array]|Is an array of arrays; each inner array has three entries: ```markerDbId```, ```markerProfileDbId```, ```alleleCall```. Scores have to be represented as described further up. e.g. unknown data as "N", etc. Missing data can be skipped.|
 
@@ -277,7 +280,8 @@ GET provides a list of available matrices, optionally filtered by study;
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |description|string|How the matrix was generated|
@@ -377,7 +381,8 @@ This method may support asynchronous processing.
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[array]|Is an array of arrays; each inner array has three entries: ```markerDbId```, ```markerProfileDbId```, ```alleleCall```. Scores have to be represented as described further up. e.g. unknown data as "N", etc. Missing data can be skipped.|
 
@@ -463,7 +468,8 @@ Use POST when parameter size is greater than 2K bytes.
 The format of the tsv response can be found on GitHub (https://github.com/plantbreeding/Documentation/wiki/BrAPI-TSV-Expected-Formats)
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurence (false)|
 |format|string|The data format of the response data. ie "json", "tsv", etc|
@@ -479,7 +485,8 @@ The format of the tsv response can be found on GitHub (https://github.com/plantb
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[array]|Is an array of arrays; each inner array has three entries: ```markerDbId```, ```markerProfileDbId```, ```alleleCall```. Scores have to be represented as described further up. e.g. unknown data as "N", etc. Missing data can be skipped.|
 
@@ -1959,7 +1966,8 @@ For the requested Germplasm Id and/or Extract Id, returns the Markerprofile Id a
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |analysisMethod|string|The type of analysis performed to determine a set of marker data|
@@ -2068,7 +2076,8 @@ Open issue: The pages of data will need to be sorted sensibly in order for the r
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |analysisMethod|string|The type of analysis performed to determine a set of marker data|
 |data|array[object]|array of marker-name/score pairs|

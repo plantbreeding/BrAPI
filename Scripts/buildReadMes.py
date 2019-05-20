@@ -171,7 +171,7 @@ def buildRequestDefTable(obj):
 	if 'content' in obj:
 		if 'application/json' in obj['content']:
 			if 'schema' in obj['content']['application/json']:
-				table = '**Request Fields** \n |Field|Type|Description|\n|---|---|---| \n'
+				table = '**Request Fields** \n\n|Field|Type|Description|\n|---|---|---| \n'
 				schema = obj['content']['application/json']['schema']
 				table += buildObjectTableRow(schema)
 	return table
@@ -184,7 +184,7 @@ def buildResponseDefTable(responses):
 				if 'schema' in responses['200']['content']['application/json']:
 					if 'properties' in responses['200']['content']['application/json']['schema']:
 						if 'result' in responses['200']['content']['application/json']['schema']['properties']:
-							table = '**Response Fields** \n |Field|Type|Description|\n|---|---|---| \n'
+							table = '**Response Fields** \n\n|Field|Type|Description|\n|---|---|---| \n'
 							schema = responses['200']['content']['application/json']['schema']['properties']['result']
 							table += buildObjectTableRow(schema)
 	return table

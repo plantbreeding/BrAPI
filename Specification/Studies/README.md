@@ -22,7 +22,8 @@ The values are used to supply the `observationLevel` parameter in the observatio
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[string]||
 
@@ -88,7 +89,8 @@ Call to retrieve the list of supported observation levels. Observation levels in
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[string]||
 
@@ -138,7 +140,8 @@ StartDate and endDate should be ISO8601 format for dates
 See Search Services for additional implementation details.
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |active|boolean|Is this study currently active|
 |commonCropNames|array[string]|Common names for the crop associated with this study|
@@ -160,7 +163,8 @@ See Search Services for additional implementation details.
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |searchResultDbId|string||
 
@@ -283,7 +287,8 @@ See Search Services for additional implementation details.
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |active|string|Is this study currently active|
@@ -449,7 +454,8 @@ or this could be an arbitrary season name which is meaningful to the breeding pr
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
@@ -531,7 +537,8 @@ DEPRECATED in v1.3 - see GET /studies
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |active|string|Is this study currently active|
@@ -670,7 +677,8 @@ DEPRECATED in v1.3 - see GET /studies
 DEPRECATED in v1.3 - see /search/studies
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |active|boolean|Is this study currently active|
 |germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm|
@@ -691,7 +699,8 @@ DEPRECATED in v1.3 - see /search/studies
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |active|string|Is this study currently active|
@@ -880,7 +889,8 @@ See Search Services for additional implementation details.
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |active|string|Is this study currently active|
@@ -1053,7 +1063,8 @@ Linked data
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |active|string|Is this study currently active|
 |additionalInfo|object|Additional arbitrary info|
@@ -1249,7 +1260,8 @@ Get the available Germplasm which are associated with this study
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]|List of germplasm associated with a given trial and study|
 |accessionNumber|string|This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection|
@@ -1456,7 +1468,8 @@ Also return some human readable meta data about the observationUnit and germplas
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |X|string|DEPRECATED - use "positionCoordinateX"|
@@ -1579,7 +1592,8 @@ Implementation Notes:
 + The response should match the structure of the response from `GET studies/{studyDbId}/layout`, but it should only contain the layout objects which have been updated by the PUT request. Also, pagination is not available in the response.
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |layout|array[object]|List of observation unit position data entities which need to be updated|
 |X|string|DEPRECATED - use "positionCoordinateX"|
@@ -1595,7 +1609,8 @@ Implementation Notes:
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |X|string|DEPRECATED - use "positionCoordinateX"|
@@ -1729,7 +1744,8 @@ If ''observationUnitDbId'' or ''observationDbId'' is un-populated (empty string 
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |observationUnitDbIds|array[string]|List of observation unit references which have been created or updated|
 
@@ -1795,7 +1811,8 @@ Refer to the data type definition of variables in `/Specification/ObservationVar
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array||
 |contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
@@ -2168,7 +2185,8 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |germplasmDbId|string| The ID which uniquely identifies a germplasm|
@@ -2301,7 +2319,8 @@ Implementation Guidelines:
 + If an `observationDbId` is populated and found in the database and is associated with the given study and observationUnit, then it should be updated with the new data given.
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |observations|array[object]|List of observation references to be created or updated|
 |collector|string||
@@ -2313,7 +2332,8 @@ Implementation Guidelines:
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |observations|array[object]|List of observation references which have been created or updated|
 |observationDbId|string||
@@ -2433,7 +2453,8 @@ The main API call for field data collection, to retrieve all the observation uni
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |X|string|DEPRECATED - use "positionCoordinateX"|
@@ -2678,7 +2699,8 @@ If an existing record of that DbId is not found, the document should be treated 
 If ''observationUnitDbId'' or ''observationDbId'' is un-populated (empty string or null) the document should be treated as new records and assigned new DbIds.
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |X|string|DEPRECATED - use "positionCoordinateX"|
 |Y|string|DEPRECATED - use "positionCoordinateY"|
@@ -2724,7 +2746,8 @@ If ''observationUnitDbId'' or ''observationDbId'' is un-populated (empty string 
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |observationUnitDbIds|array[string]|List of observation unit references which have been created or updated|
 
@@ -2804,7 +2827,8 @@ Retrieve the details of the study required for field data collection. Includes a
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[array]|Matrix of observation data recorded for different observation variables across different observation units|
 |headerRow|array[string]|The header row describing observation unit fields. Append 'observationVariableDbIds' for complete header row of the table. This array should contain any or all of the following strings; year, studyDbId, studyName, locationDbId, locationName, germplasmDbId, germplasmName, observationUnitDbId, plotNumber, replicate, blockNumber, observationTimestamp (DEPRECATED in V1.3), entryType, X, Y|
@@ -3008,7 +3032,8 @@ Implementation Guidelines:
 + Images can optionally be saved using this call by providing a zipped file of all images in the datafiles. The physical zipped file should be transferred as well in the mulit-part form data.
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[array]|Matrix of observation data recorded for different observation variables across different observation units|
 |headerRow|array[string]|The header row describing the data matrix. Append 'observationVariableDbIds' for complete header row.|
@@ -3019,7 +3044,8 @@ Implementation Guidelines:
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |observations|array[object]|List of observation references which have been created or updated|
 |observationDbId|string||
@@ -3141,7 +3167,8 @@ DEPRECATED in v1.3 - see `GET /studies/{studyDbId}/layouts` (pluralized)
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |X|string|DEPRECATED - use "positionCoordinateX"|
@@ -3252,7 +3279,8 @@ DEPRECATED in v1.3 - see `GET /studies/{studyDbId}/layouts` (pluralized)
 DEPRECATED in v1.3 - see `PUT /studies/{studyDbId}/layouts` (pluralized)
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |layout|array[object]|List of observation unit position data entities which need to be updated|
 |X|string|DEPRECATED - use "positionCoordinateX"|
@@ -3268,7 +3296,8 @@ DEPRECATED in v1.3 - see `PUT /studies/{studyDbId}/layouts` (pluralized)
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |X|string|DEPRECATED - use "positionCoordinateX"|
@@ -3401,7 +3430,8 @@ test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationVariables
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array||
 |contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
@@ -4063,7 +4093,8 @@ test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationVariables
 This call has been deprecated in V1.1. Use instead: "PUT /studies/{studyDbId}/observationunits" and "PUT /studies/{studyDbId}/observationunits/zip"
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |metadata|object||
 |datafiles|array[string]|The datafiles key contains a list of file paths, which can be relative or complete URLs. These files contain additional information related to the returned object and can be retrieved by a subsequent call. The empty list should be returned if no additional data files are present.|
@@ -4092,7 +4123,8 @@ This call has been deprecated in V1.1. Use instead: "PUT /studies/{studyDbId}/ob
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |observationUnitDbIds|array[string]|List of observation unit references which have been created or updated|
 
@@ -4229,7 +4261,8 @@ Call to retrieve the list of study types.
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |description|string|The description of this study type|
@@ -4311,7 +4344,8 @@ Scope: PHENOTYPING. Implementation target date: PAG2016
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |description|string|The description of this study type|

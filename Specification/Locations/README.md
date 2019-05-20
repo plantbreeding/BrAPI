@@ -26,7 +26,8 @@ Get a list of locations.
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |abbreviation|string|An abbreviation which represents this location|
@@ -155,7 +156,8 @@ Get details for a location.
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |abbreviation|string|An abbreviation which represents this location|
 |abreviation|string|Deprecated  Use abbreviation |

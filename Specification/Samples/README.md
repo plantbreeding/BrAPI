@@ -18,7 +18,8 @@ DEPRECATED in v1.3 - see GET /samples
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |germplasmDbId|string| The ID which uniquely identifies a germplasm|
@@ -108,7 +109,8 @@ DEPRECATED in v1.3 - see GET /samples
 DEPRECATED in v1.3 - see GET /search/samples
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |germplasmDbId|array[string]| The ID which uniquely identifies a germplasm|
 |observationUnitDbId|array[string]|The ID which uniquely identifies an observation unit|
@@ -119,7 +121,8 @@ DEPRECATED in v1.3 - see GET /search/samples
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |germplasmDbId|string| The ID which uniquely identifies a germplasm|
@@ -233,7 +236,8 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |germplasmDbId|string| The ID which uniquely identifies a germplasm|
@@ -341,7 +345,8 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
 Call to register the event of a sample being taken. Sample ID is assigned as a result of the operation and returned in response.
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |germplasmDbId|string| The ID which uniquely identifies a germplasm|
 |notes|string|Additional notes about a samle|
@@ -359,7 +364,8 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |sampleDbId|string||
 |sampleId|string|** Deprecated ** use sampleDbId|
@@ -441,7 +447,8 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |germplasmDbId|string| The ID which uniquely identifies a germplasm|
 |notes|string|Additional notes about a samle|
@@ -533,7 +540,8 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
 See Search Services for additional implementation details.
 
 **Request Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |germplasmDbIds|array[string]| The ID which uniquely identifies a germplasm|
 |observationUnitDbIds|array[string]|The ID which uniquely identifies an observation unit|
@@ -544,7 +552,8 @@ See Search Services for additional implementation details.
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |searchResultDbId|string||
 
@@ -630,7 +639,8 @@ See Search Services for additional implementation details.
 
 
 **Response Fields** 
- |Field|Type|Description|
+
+|Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
 |germplasmDbId|string| The ID which uniquely identifies a germplasm|
