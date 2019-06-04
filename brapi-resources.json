@@ -10,7 +10,7 @@
             "name": "Germplasm",
             "base-url": "https://webapps.ipk-gatersleben.de/api/brapi/v1",
             "logo": "https://www.ipk-gatersleben.de/fileadmin/template/main/images-ipk/ipklogo.png",
-            "description": "Germplasm resources from IPK-Gatersleben"
+            "description": "Germplasm resources and plant phenotyping from IPK-Gatersleben"
           }
         ]
       },
