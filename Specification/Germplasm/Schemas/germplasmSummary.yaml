@@ -40,9 +40,6 @@ components:
                 type: string
             type: object
           type: array
-        entryNumber:
-          description: '** Deprecated ** use /studies/{studyDbId/layout for positional germplasm relationships'
-          type: string
         genus:
           description: Genus name for taxon. Initial uppercase letter required. (MCPD)
           type: string

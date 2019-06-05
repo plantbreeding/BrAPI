@@ -21,36 +21,12 @@ paths:
         required: false
         schema:
           type: string
-      - deprecated: true
-        description: DEPRECAED in v1.3 - see "markerName"
-        in: query
-        name: name
-        required: false
-        schema:
-          type: string
-      - deprecated: true
-        description: DEPRECAED in v1.3 - see /search/markers
-        in: query
-        name: matchMethod
-        required: false
-        schema:
-          enum:
-          - case_insensitive
-          - exact
-          - wildcard
-          type: string
       - description: Whether to include synonyms in the output.
         in: query
         name: includeSynonyms
         required: false
         schema:
           type: boolean
-      - description: DEPRECATED in v1.1 - see "includeSynonyms"
-        in: query
-        name: include
-        required: false
-        schema:
-          type: string
       - description: The type of the marker.
         in: query
         name: type

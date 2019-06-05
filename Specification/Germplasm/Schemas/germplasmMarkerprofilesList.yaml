@@ -10,11 +10,6 @@ components:
           items:
             type: string
           type: array
-        markerprofileDbIds:
-          deprecated: true
-          description: DEPRECATED in v1.3 - see "markerProfileDbIds" (camel case)
-          items:
-            type: string
       type: object
 info:
   title: BrAPI

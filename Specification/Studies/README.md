@@ -79,55 +79,6 @@ The values are used to supply the `observationLevel` parameter in the observatio
 
 
 
-
-
-### **Deprecated** Get ObservationLevels  [GET /brapi/v1/observationLevels{?page}{?pageSize}]
-
- ** DEPRECTED ** Use /observationlevels
-Call to retrieve the list of supported observation levels. Observation levels indicate the granularity level at which the measurements are taken. The values are used to supply the `observationLevel` parameter in the observation unit details call. 
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[string]||
-
-
- 
-
-+ Parameters
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 2,
-            "totalCount": 11,
-            "totalPages": 6
-        },
-        "status": []
-    },
-    "result": {
-        "data": [
-            "plot",
-            "plant"
-        ]
-    }
-}
-```
-
-
-
 ## Search [/brapi/v1/search] 
 
 
@@ -298,7 +249,6 @@ See Search Services for additional implementation details.
 |endDate|string (date)|The date the study ends|
 |locationDbId|string|The ID which uniquely identifies a location|
 |locationName|string|The human readable name for a location|
-|name|string|DEPRECATED in v1.3 - Use "studyName"|
 |programDbId|string|The ID which uniquely identifies a program within the given database server|
 |programName|string|The humane readable name of a program|
 |seasons|array[object]|List of seasons over which this study was performed.|
@@ -308,7 +258,6 @@ See Search Services for additional implementation details.
 |startDate|string (date)|The date this study started|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |studyName|string|The humane readable name of a study|
-|studyType|string|DEPRECATED in v1.3 - See "studyTypeName"|
 |studyTypeDbId|string|The unique identifier of the type of study being performed.|
 |studyTypeName|string|The name of the type of study being performed. ex. "Yield Trial", etc|
 |trialDbId|string|The ID which uniquely identifies a trial|
@@ -525,358 +474,12 @@ or this could be an arbitrary season name which is meaningful to the breeding pr
 
 
 
-## Studies-search [/brapi/v1/studies-search] 
-
-
-
-
-### **Deprecated** Get Studies-search  [GET /brapi/v1/studies-search{?studyType}{?programDbId}{?locationDbId}{?seasonDbId}{?trialDbId}{?studyDbId}{?germplasmDbIds}{?observationVariableDbIds}{?page}{?pageSize}{?active}{?sortBy}{?sortOrder}]
-
-DEPRECATED in v1.3 - see GET /studies
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|active|string|Is this study currently active|
-|additionalInfo|object|Additional arbitrary info|
-|commonCropName|string|Common name for the crop associated with this study|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|endDate|string (date)|The date the study ends|
-|locationDbId|string|The ID which uniquely identifies a location|
-|locationName|string|The human readable name for a location|
-|name|string|DEPRECATED in v1.3 - Use "studyName"|
-|programDbId|string|The ID which uniquely identifies a program within the given database server|
-|programName|string|The humane readable name of a program|
-|seasons|array[object]|List of seasons over which this study was performed.|
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
-|seasonDbId|string|The ID which uniquely identifies a season|
-|year|string|The 4 digit year of the season.|
-|startDate|string (date)|The date this study started|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|studyName|string|The humane readable name of a study|
-|studyType|string|DEPRECATED in v1.3 - See "studyTypeName"|
-|studyTypeDbId|string|The unique identifier of the type of study being performed.|
-|studyTypeName|string|The name of the type of study being performed. ex. "Yield Trial", etc|
-|trialDbId|string|The ID which uniquely identifies a trial|
-|trialName|string|The human readable name of a trial|
-
-
- 
-
-+ Parameters
-    + studyType (Optional, ) ... Filter based on study type e.g. Nursery, Trial or Genotype.
-    + programDbId (Optional, ) ... Program filter to only return studies associated with given program id.
-    + locationDbId (Optional, ) ... Filter by location
-    + seasonDbId (Optional, ) ... Filter by season or year
-    + trialDbId (Optional, ) ... Filter by trial
-    + studyDbId (Optional, ) ... Filter by study DbId
-    + germplasmDbIds (Optional, ) ... Filter studies where specified germplasm have been used/tested
-    + observationVariableDbIds (Optional, ) ... Filter studies where specified observation variables have been measured
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + active (Optional, ) ... Filter active status true/false.
-    + sortBy (Optional, ) ... Sort order. Name of the field to sort by.
-    + sortOrder (Optional, ) ... Sort order direction. Ascending/Descending.
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 2,
-            "totalCount": 2,
-            "totalPages": 1
-        },
-        "status": []
-    },
-    "result": {
-        "data": [
-            {
-                "active": "true",
-                "additionalInfo": {
-                    "studyObjective": "Increase yield"
-                },
-                "commonCropName": "Tomatillo",
-                "documentationURL": "https://brapi.org",
-                "endDate": "2014-01-01",
-                "locationDbId": "1",
-                "locationName": "Location 1",
-                "name": "Study 1",
-                "programDbId": "1",
-                "programName": "Program 1",
-                "seasons": [
-                    {
-                        "season": "fall",
-                        "seasonDbId": "1",
-                        "year": "2011"
-                    },
-                    {
-                        "season": "winter",
-                        "seasonDbId": "2",
-                        "year": "2012"
-                    }
-                ],
-                "startDate": "2013-01-01",
-                "studyDbId": "1001",
-                "studyName": "Study 1",
-                "studyType": "Yield study",
-                "studyTypeDbId": "2",
-                "studyTypeName": "Yield study",
-                "trialDbId": "101",
-                "trialName": "Peru Yield Trial 1"
-            },
-            {
-                "active": "true",
-                "additionalInfo": {
-                    "publications": "pmid:23643517318968"
-                },
-                "commonCropName": "Tomatillo",
-                "documentationURL": "https://brapi.org",
-                "endDate": "2015-01-01",
-                "locationDbId": "1",
-                "locationName": "Location 1",
-                "name": "Study 2",
-                "programDbId": "1",
-                "programName": "Program 1",
-                "seasons": [
-                    {
-                        "season": "winter",
-                        "seasonDbId": "2",
-                        "year": "2012"
-                    }
-                ],
-                "startDate": "2014-01-01",
-                "studyDbId": "1002",
-                "studyName": "Study 2",
-                "studyType": "Yield study",
-                "studyTypeDbId": "2",
-                "studyTypeName": "Yield study",
-                "trialDbId": "101",
-                "trialName": "Peru Yield Trial 1"
-            }
-        ]
-    }
-}
-```
-
-
-
-
-
-### **Deprecated** Post Studies-search  [POST /brapi/v1/studies-search]
-
-DEPRECATED in v1.3 - see /search/studies
-
-**Request Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|active|boolean|Is this study currently active|
-|germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm|
-|locationDbIds|array[string]|List of location identifiers to filter search results|
-|observationVariableDbIds|array[string]|List of observation variable IDs to search for|
-|page|integer|Which page of the "data" array to return. The page indexing starts at 0 (page=0 will return the first page). Default is 0.|
-|pageSize|integer|The maximum number of items to return per page of the "data" array. Default is 1000.|
-|programDbIds|array[string]|List of program identifiers to filter search results|
-|programNames|array[string]|List of program names to filter search results|
-|seasonDbId|array[string]|The ID which uniquely identifies a season|
-|sortBy|string|Name of one of the fields within the study object on which results can be sorted|
-|sortOrder|string|Order results should be sorted. ex. "ASC" or "DESC"|
-|studyDbIds|array[string]|List of study identifiers to search for|
-|studyLocations|array[string]|List of location names to filter search results|
-|studyNames|array[string]|List of study names to filter search results|
-|studyType|string|The type of study being performed. ex. "Yeald Trial", etc|
-|trialDbIds|array[string]|List of trial identifiers to filter search results|
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|active|string|Is this study currently active|
-|additionalInfo|object|Additional arbitrary info|
-|commonCropName|string|Common name for the crop associated with this study|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|endDate|string (date)|The date the study ends|
-|locationDbId|string|The ID which uniquely identifies a location|
-|locationName|string|The human readable name for a location|
-|name|string|DEPRECATED in v1.3 - Use "studyName"|
-|programDbId|string|The ID which uniquely identifies a program within the given database server|
-|programName|string|The humane readable name of a program|
-|seasons|array[object]|List of seasons over which this study was performed.|
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
-|seasonDbId|string|The ID which uniquely identifies a season|
-|year|string|The 4 digit year of the season.|
-|startDate|string (date)|The date this study started|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|studyName|string|The humane readable name of a study|
-|studyType|string|DEPRECATED in v1.3 - See "studyTypeName"|
-|studyTypeDbId|string|The unique identifier of the type of study being performed.|
-|studyTypeName|string|The name of the type of study being performed. ex. "Yield Trial", etc|
-|trialDbId|string|The ID which uniquely identifies a trial|
-|trialName|string|The human readable name of a trial|
-
-
- 
-
-+ Parameters
-
-
- 
-+ Request (application/json)
-```
-{
-    "germplasmDbIds": [
-        "germplasmDbIds0",
-        "germplasmDbIds1"
-    ],
-    "locationDbIds": [
-        "locationDbIds0",
-        "locationDbIds1"
-    ],
-    "observationVariableDbIds": [
-        "observationVariableDbIds0",
-        "observationVariableDbIds1"
-    ],
-    "page": 0,
-    "pageSize": 0,
-    "programDbIds": [
-        "programDbIds0",
-        "programDbIds1"
-    ],
-    "programNames": [
-        "programNames0",
-        "programNames1"
-    ],
-    "seasonDbId": [
-        "seasonDbId0",
-        "seasonDbId1"
-    ],
-    "sortBy": "studyDbId",
-    "sortOrder": "asc",
-    "studyDbIds": [
-        "studyDbIds0",
-        "studyDbIds1"
-    ],
-    "studyLocations": [
-        "studyLocations0",
-        "studyLocations1"
-    ],
-    "studyNames": [
-        "studyNames0",
-        "studyNames1"
-    ],
-    "studyType": "studyType0",
-    "trialDbIds": [
-        "trialDbIds0",
-        "trialDbIds1"
-    ]
-}
-```
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 2,
-            "totalCount": 2,
-            "totalPages": 1
-        },
-        "status": []
-    },
-    "result": {
-        "data": [
-            {
-                "active": "true",
-                "additionalInfo": {
-                    "studyObjective": "Increase yield"
-                },
-                "commonCropName": "Tomatillo",
-                "documentationURL": "https://brapi.org",
-                "endDate": "2014-01-01",
-                "locationDbId": "1",
-                "locationName": "Location 1",
-                "name": "Study 1",
-                "programDbId": "1",
-                "programName": "Program 1",
-                "seasons": [
-                    {
-                        "season": "fall",
-                        "seasonDbId": "1",
-                        "year": "2011"
-                    },
-                    {
-                        "season": "winter",
-                        "seasonDbId": "2",
-                        "year": "2012"
-                    }
-                ],
-                "startDate": "2013-01-01",
-                "studyDbId": "1001",
-                "studyName": "Study 1",
-                "studyType": "Yield study",
-                "studyTypeDbId": "2",
-                "studyTypeName": "Yield study",
-                "trialDbId": "101",
-                "trialName": "Peru Yield Trial 1"
-            },
-            {
-                "active": "true",
-                "additionalInfo": {
-                    "publications": "pmid:23643517318968"
-                },
-                "commonCropName": "Tomatillo",
-                "documentationURL": "https://brapi.org",
-                "endDate": "2015-01-01",
-                "locationDbId": "1",
-                "locationName": "Location 1",
-                "name": "Study 2",
-                "programDbId": "1",
-                "programName": "Program 1",
-                "seasons": [
-                    {
-                        "season": "winter",
-                        "seasonDbId": "2",
-                        "year": "2012"
-                    }
-                ],
-                "startDate": "2014-01-01",
-                "studyDbId": "1002",
-                "studyName": "Study 2",
-                "studyType": "Yield study",
-                "studyTypeDbId": "2",
-                "studyTypeName": "Yield study",
-                "trialDbId": "101",
-                "trialName": "Peru Yield Trial 1"
-            }
-        ]
-    }
-}
-```
-
-
-
 ## Studies [/brapi/v1/studies] 
 
 
 
 
-### Get Studies  [GET /brapi/v1/studies{?commonCropName}{?studyType}{?studyTypeDbId}{?programDbId}{?locationDbId}{?seasonDbId}{?trialDbId}{?studyDbId}{?germplasmDbIds}{?observationVariableDbIds}{?active}{?sortBy}{?sortOrder}{?page}{?pageSize}]
+### Get Studies  [GET /brapi/v1/studies{?commonCropName}{?studyTypeDbId}{?programDbId}{?locationDbId}{?seasonDbId}{?trialDbId}{?studyDbId}{?active}{?sortBy}{?sortOrder}{?page}{?pageSize}]
 
 Get list of studies
 
@@ -900,7 +503,6 @@ See Search Services for additional implementation details.
 |endDate|string (date)|The date the study ends|
 |locationDbId|string|The ID which uniquely identifies a location|
 |locationName|string|The human readable name for a location|
-|name|string|DEPRECATED in v1.3 - Use "studyName"|
 |programDbId|string|The ID which uniquely identifies a program within the given database server|
 |programName|string|The humane readable name of a program|
 |seasons|array[object]|List of seasons over which this study was performed.|
@@ -910,7 +512,6 @@ See Search Services for additional implementation details.
 |startDate|string (date)|The date this study started|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |studyName|string|The humane readable name of a study|
-|studyType|string|DEPRECATED in v1.3 - See "studyTypeName"|
 |studyTypeDbId|string|The unique identifier of the type of study being performed.|
 |studyTypeName|string|The name of the type of study being performed. ex. "Yield Trial", etc|
 |trialDbId|string|The ID which uniquely identifies a trial|
@@ -921,15 +522,12 @@ See Search Services for additional implementation details.
 
 + Parameters
     + commonCropName (Optional, ) ... Common name for the crop associated with this study
-    + studyType (Optional, ) ... DEPRECATED in v1.3 - see "studyTypeDbId"
     + studyTypeDbId (Optional, ) ... Filter based on study type unique identifier
     + programDbId (Optional, ) ... Program filter to only return studies associated with given program id.
     + locationDbId (Optional, ) ... Filter by location
     + seasonDbId (Optional, ) ... Filter by season or year
     + trialDbId (Optional, ) ... Filter by trial
     + studyDbId (Optional, ) ... Filter by study DbId
-    + germplasmDbIds (Optional, ) ... DEPRECATED in v1.3 - see /search/studies
-    + observationVariableDbIds (Optional, ) ... DEPRECATED in v1.3 - see /search/studies
     + active (Optional, ) ... Filter active status true/false.
     + sortBy (Optional, ) ... Name of the field to sort by.
     + sortOrder (Optional, ) ... Sort order direction. Ascending/Descending.
@@ -1078,7 +676,6 @@ Linked data
 |type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
 |dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
 |dataLinkName|string|The name of the external data link|
-|name|string|DEPRECATED in v1.3 - Use "dataLinkName"|
 |type|string|The type of external data link|
 |url|string|The URL which links to external data|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
@@ -1089,27 +686,23 @@ Linked data
 |license|string|The usage license associated with the study data|
 |location|object||
 |abbreviation|string|An abbreviation which represents this location|
-|abreviation|string|Deprecated  Use abbreviation |
 |additionalInfo|object|Additional arbitrary info|
 |altitude|number|The altitude of this location|
 |countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
 |countryName|string|The full name of the country where this location is|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |instituteAddress|string|The street address of the institute representing this location|
-|instituteAdress|string|Deprecated  Use instituteAddress |
 |instituteName|string|each institute/laboratory can have several experimental field|
 |latitude|number|The latitude of this location|
 |locationDbId|string|string identifier|
 |locationName|string|A human readable name for this location|
 |locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
 |longitude|number|the longitude of this location|
-|name|string|DEPRECATED in v1.3 - Use "locationName"|
 |seasons|array[string]|List of seasons over which this study was performed.|
 |startDate|string (date)|The date this study started|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |studyDescription|string|The description of this study|
 |studyName|string|The human readable name for a study|
-|studyType|string|DEPRECATED in v1.3 - See "studyTypeName"|
 |studyTypeDbId|string|The unique identifier of the type of study being performed.|
 |studyTypeName|string|The name of the type of study being performed. ex. "Yield Trial", etc|
 |trialDbId|string|The ID which uniquely identifies a trial|
@@ -1180,44 +773,6 @@ Linked data
         ],
         "documentationURL": "https://brapi.org",
         "endDate": "2014-01-01",
-        "environmentParameters": [
-            {
-                "parameterName": "soil type",
-                "parameterPUI": "http://purl.obolibrary.org/obo/PECO_0007155",
-                "description": "the soil type was clay",
-                "value": "clay soil",
-                "valuePUI": "http://purl.obolibrary.org/obo/ENVO_00002262",
-                "unit": "",
-                "unitPUI": ""
-            },
-            {
-                "parameterName": "fertilizer type",
-                "parameterPUI": "",
-                "description": "Nitrogen, productID foo from company ACME",
-                "value": "",
-                "valuePUI": "",
-                "unit": "",
-                "unitPUI": ""
-            },
-            {
-                "parameterName": "sowing density",
-                "parameterPUI": "http://purl.obolibrary.org/obo/AGRO_00000202",
-                "description": "300 seeds per m2",
-                "value": "300",
-                "valuePUI": "",
-                "unit": "seeds/m2",
-                "unitPUI": ""
-            },
-            {
-                "parameterName": "rooting medium composition",
-                "parameterPUI": "",
-                "description": "Clay 50% plus sand",
-                "value": "",
-                "valuePUI": "",
-                "unit": "",
-                "unitPUI": ""
-            }
-        ],
         "lastUpdate": {
             "timestamp": "2015-01-01T00:00:00-05:00",
             "version": "1.1"
@@ -1314,7 +869,6 @@ Get the available Germplasm which are associated with this study
 |donorAccessionNumber|string||
 |donorInstituteCode|string||
 |germplasmPUI|string||
-|entryNumber|string|** Deprecated ** use /studies/{studyDbId/layout for positional germplasm relationships|
 |genus|string|Genus name for taxon. Initial uppercase letter required. (MCPD)|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server|
 |germplasmName|string|Name of the germplasm. It can be the prefered name and does not have to be unique.|
@@ -1332,8 +886,6 @@ Get the available Germplasm which are associated with this study
 |sourceName|string|The human readable name of the taxonomy provider|
 |taxonId|string|The identifier (name, ID, URI) of a particular taxonomy within the source provider|
 |typeOfGermplasmStorageCode|array[string]|The 2 digit code representing the type of storage this germplasm is kept in at a genebank. (MCPD)|
-|studyDbId|string|** Deprecated ** The request contains the studyDbId The ID which uniquely identifies a study within the given database server|
-|trialName|string|** Deprecated ** trialName not relevent  The human readable name of a trial|
 
 
  
@@ -1510,8 +1062,6 @@ Also return some human readable meta data about the observationUnit and germplas
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|X|string|DEPRECATED - use "positionCoordinateX"|
-|Y|string|DEPRECATED - use "positionCoordinateY"|
 |additionalInfo|object|Additional arbitrary info|
 |blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
 |entryType|string|The type of entry for this observation unit. ex. "check", "test", "filler"|
@@ -1584,7 +1134,92 @@ Also return some human readable meta data about the observationUnit and germplas
                 "replicate": "0",
                 "studyDbId": "1001"
             }
-        ]
+        ],
+        "documentationURL": "https://brapi.org",
+        "endDate": "2014-01-01",
+        "environmentParameters": [
+            {
+                "parameterName": "soil type",
+                "parameterPUI": "http://purl.obolibrary.org/obo/PECO_0007155",
+                "description": "the soil type was clay",
+                "value": "clay soil",
+                "valuePUI": "http://purl.obolibrary.org/obo/ENVO_00002262",
+                "unit": "",
+                "unitPUI": ""
+            },
+            {
+                "parameterName": "fertilizer type",
+                "parameterPUI": "",
+                "description": "Nitrogen, productID foo from company ACME",
+                "value": "",
+                "valuePUI": "",
+                "unit": "",
+                "unitPUI": ""
+            },
+            {
+                "parameterName": "sowing density",
+                "parameterPUI": "http://purl.obolibrary.org/obo/AGRO_00000202",
+                "description": "300 seeds per m2",
+                "value": "300",
+                "valuePUI": "",
+                "unit": "seeds/m2",
+                "unitPUI": ""
+            },
+            {
+                "parameterName": "rooting medium composition",
+                "parameterPUI": "",
+                "description": "Clay 50% plus sand",
+                "value": "",
+                "valuePUI": "",
+                "unit": "",
+                "unitPUI": ""
+            }
+        ],
+        "lastUpdate": {
+            "timestamp": "2015-01-01T00:00:00-05:00",
+            "version": "1.1"
+        },
+        "license": "https://creativecommons.org/licenses/by/4.0",
+        "location": {
+            "abbreviation": "L1",
+            "abreviation": "L1",
+            "additionalInfo": {
+                "adm1": "Junin",
+                "adm2": "Chanchamayo",
+                "adm3": "San Ramon",
+                "annualMeanTemperature": "23",
+                "annualTotalPrecipitation": "360",
+                "cont": "South America",
+                "creg": "LAC",
+                "local": "San Ramon"
+            },
+            "altitude": 828,
+            "countryCode": "PER",
+            "countryName": "Peru",
+            "documentationURL": "https://brapi.org",
+            "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
+            "instituteAdress": "71 Pilgrim Avenue Chevy Chase MD 20815",
+            "instituteName": "Plant Science Institute",
+            "latitude": -11.1274995803833,
+            "locationDbId": "1",
+            "locationName": "Location 1",
+            "locationType": "Storage location",
+            "longitude": -75.35639190673828,
+            "name": "Location 1"
+        },
+        "seasons": [
+            "fall 2011",
+            "winter 2012"
+        ],
+        "startDate": "2013-01-01",
+        "studyDbId": "1001",
+        "studyDescription": "Field yield phenotyping study",
+        "studyName": "Study 1",
+        "studyType": "Yield study",
+        "studyTypeDbId": "2",
+        "studyTypeName": "Yield study",
+        "trialDbId": "101",
+        "trialName": "Peru Yield Trial 1"
     }
 }
 ```
@@ -1634,8 +1269,6 @@ Implementation Notes:
 |Field|Type|Description|
 |---|---|---| 
 |layout|array[object]|List of observation unit position data entities which need to be updated|
-|X|string|DEPRECATED - use "positionCoordinateX"|
-|Y|string|DEPRECATED - use "positionCoordinateY"|
 |blockNumber|integer||
 |entryType|string||
 |observationUnitDbId|string||
@@ -1651,8 +1284,6 @@ Implementation Notes:
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|X|string|DEPRECATED - use "positionCoordinateX"|
-|Y|string|DEPRECATED - use "positionCoordinateY"|
 |additionalInfo|object|Additional arbitrary info|
 |blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
 |entryType|string|The type of entry for this observation unit. ex. "check", "test", "filler"|
@@ -1684,8 +1315,6 @@ Implementation Notes:
 {
     "layout": [
         {
-            "X": "X0",
-            "Y": "Y0",
             "blockNumber": 0,
             "entryType": "CHECK",
             "observationUnitDbId": "observationUnitDbId0",
@@ -1696,8 +1325,6 @@ Implementation Notes:
             "replicate": 0
         },
         {
-            "X": "X1",
-            "Y": "Y1",
             "blockNumber": 0,
             "entryType": "TEST",
             "observationUnitDbId": "observationUnitDbId1",
@@ -1866,7 +1493,6 @@ Refer to the data type definition of variables in `/Specification/ObservationVar
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 |methodDbId|string|Method unique identifier|
 |methodName|string|Human readable name for the method|
-|name|string|DEPRECATED in v1.3 - Use "methodName"|
 |ontologyReference|object||
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -1875,8 +1501,6 @@ Refer to the data type definition of variables in `/Specification/ObservationVar
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
 |reference|string|Bibliographical reference describing the method.|
-|ontologyDbId|string|DEPRECATED in v1.3 - see "this.ontologyReference.ontologyDbId"|
-|ontologyName|string|DEPRECATED in v1.3 - see "this.ontologyReference.ontologyName"|
 |ontologyReference|object||
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -1887,7 +1511,6 @@ Refer to the data type definition of variables in `/Specification/ObservationVar
 |scale|object|Scale metadata|
 |dataType|string|Class of the scale, entries can be     "Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal             scale that combines the expressions of the different traits composing the complex             trait. For exemple a severity trait might be expressed by a 2 digit and 2 character             code. The first 2 digits are the percentage of the plant covered by a fungus and the 2             characters refer to the delay in development, e.g. "75VD" means "75%" of the plant is              Crop Ontology & Integrated Breeding Platform  Curation Guidelines  5/6/2016 9             infected and the plant is very delayed.      "Date" - The date class is for events expressed in a time format, e.g. yyyymmddThh:mm:ssZ or dd/mm/yy      "Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months      "Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories      "Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectar, branches      "Ordinal" - Ordinal scales are scales composed of ordered categories      "Text" - A free text is used to express the trait.   |
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
-|name|string|DEPRECATED in v1.3 - Use "scaleName"|
 |ontologyReference|object||
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -1913,7 +1536,6 @@ Refer to the data type definition of variables in `/Specification/ObservationVar
 |description|string|The description of a trait|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
 |mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
-|name|string|DEPRECATED in v1.3 - Use "traitName"|
 |ontologyReference|object||
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -1927,8 +1549,6 @@ Refer to the data type definition of variables in `/Specification/ObservationVar
 |traitName|string|The human readable name of a trait|
 |xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
 |xref|string|Cross reference of the variable term to a term from an external ontology or to a database of a major system.|
-|date|string|DEPRECATED in v1.3 - see "submissionTimestamp"|
-|name|string|DEPRECATED in v1.3 - Use "observationVariableName"|
 |observationVariableDbId|string|Variable unique identifier|
 |observationVariableName|string|Variable name (usually a short name)|
 |studyDbId|string||
@@ -2497,8 +2117,6 @@ The main API call for field data collection, to retrieve all the observation uni
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|X|string|DEPRECATED - use "positionCoordinateX"|
-|Y|string|DEPRECATED - use "positionCoordinateY"|
 |blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
 |entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
 |entryType|string|The type of entry for this observation unit. ex. "check", "test", "filler"|
@@ -2535,8 +2153,6 @@ The main API call for field data collection, to retrieve all the observation uni
 |programName|string|The human readable name of a program|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|studyLocation|string|DEPRECATED in v1.3 - see "locationName"|
-|studyLocationDbId|string|DEPRECATED in v1.3 - see "locationDbId"|
 |studyName|string|The human readable name for a study|
 |treatments|array[object]|List of treatments applied to an observation unit.|
 |factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc|
@@ -2742,8 +2358,6 @@ If ''observationUnitDbId'' or ''observationDbId'' is un-populated (empty string 
 
 |Field|Type|Description|
 |---|---|---| 
-|X|string|DEPRECATED - use "positionCoordinateX"|
-|Y|string|DEPRECATED - use "positionCoordinateY"|
 |blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
 |entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
 |entryType|string|The type of entry for this observation unit. ex. "check", "test", "filler"|
@@ -2871,7 +2485,7 @@ Retrieve the details of the study required for field data collection. Includes a
 |Field|Type|Description|
 |---|---|---| 
 |data|array[array]|Matrix of observation data recorded for different observation variables across different observation units|
-|headerRow|array[string]|The header row describing observation unit fields. Append 'observationVariableDbIds' for complete header row of the table. This array should contain any or all of the following strings; year, studyDbId, studyName, locationDbId, locationName, germplasmDbId, germplasmName, observationUnitDbId, plotNumber, replicate, blockNumber, observationTimestamp (DEPRECATED in V1.3), entryType, X, Y|
+|headerRow|array[string]|The header row describing observation unit fields. Append 'observationVariableDbIds' for complete header row of the table. This array should contain any or all of the following strings; year, studyDbId, studyName, locationDbId, locationName, germplasmDbId, germplasmName, observationUnitDbId, plotNumber, replicate, blockNumber, entryType, X, Y|
 |observationVariableDbIds|array[string]|The list of observation variables which have values recorded for them in the data matrix. Append to the 'headerRow' for comlete header row.|
 |observationVariableNames|array[string]|The list of observation variable names which have values recorded for them in the data matrix. Order should match 'observationVariableDbIds'.|
 
@@ -3077,10 +2691,7 @@ Implementation Guidelines:
 |---|---|---| 
 |data|array[array]|Matrix of observation data recorded for different observation variables across different observation units|
 |headerRow|array[string]|The header row describing the data matrix. Append 'observationVariableDbIds' for complete header row.|
-|metadata||DEPRECATED|
 |observationVariableDbIds|array[string]|The list of observation variables which have values recorded for them in the data matrix. Append to the 'headerRow' for comlete header row.|
-|result|object|DEPRECATED|
-|data|array[array]||
 
 
 **Response Fields** 
@@ -3120,32 +2731,10 @@ Implementation Guidelines:
         "headerRow0",
         "headerRow1"
     ],
-    "metadata": {
-        "datafiles": [],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 2,
-            "totalPages": 1
-        },
-        "status": []
-    },
     "observationVariableDbIds": [
         "observationVariableDbIds0",
         "observationVariableDbIds1"
-    ],
-    "result": {
-        "data": [
-            [
-                "data0",
-                "data1"
-            ],
-            [
-                "data0",
-                "data1"
-            ]
-        ]
-    }
+    ]
 }
 ```
 
@@ -3198,1097 +2787,6 @@ Implementation Guidelines:
 
 
 
-
-
-### **Deprecated** Get Studies Layout by studyDbId  [GET /brapi/v1/studies/{studyDbId}/layout{?page}{?pageSize}]
-
-DEPRECATED in v1.3 - see `GET /studies/{studyDbId}/layouts` (pluralized)
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|X|string|DEPRECATED - use "positionCoordinateX"|
-|Y|string|DEPRECATED - use "positionCoordinateY"|
-|additionalInfo|object|Additional arbitrary info|
-|blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
-|entryType|string|The type of entry for this observation unit. ex. "check", "test", "filler"|
-|germplasmDbId|string| The ID which uniquely identifies a germplasm|
-|germplasmName|string|Name of the germplasm. It can be the prefered name and does not have to be unique.|
-|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
-|observationUnitName|string|A human readable name for an observation unit|
-|positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
-|positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details PLANTED_ROW - The physical planted row number  PLANTED_INDIVIDUAl - The physical counted number, could be independant or within a planted row GRID_ROW - The row index number of a square grid overlay GRID_COL - The column index number of a square grid overlay MEASURED_ROW - The distance in meters from a defined 0th row MEASURED_COL - The distance in meters from a defined 0th column |
-|positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
-|positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details PLANTED_ROW - The physical planted row number  PLANTED_INDIVIDUAl - The physical counted number, could be independant or within a planted row GRID_ROW - The row index number of a square grid overlay GRID_COL - The column index number of a square grid overlay MEASURED_ROW - The distance in meters from a defined 0th row MEASURED_COL - The distance in meters from a defined 0th column |
-|replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-
-
- 
-
-+ Parameters
-    + studyDbId (Required, ) ... Identifier of the study. Usually a number, could be alphanumeric.
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 2,
-            "totalCount": 4,
-            "totalPages": 2
-        },
-        "status": []
-    },
-    "result": {
-        "data": [
-            {
-                "X": "1",
-                "Y": "1",
-                "additionalInfo": {},
-                "blockNumber": "1",
-                "entryType": "TEST",
-                "germplasmDbId": "1",
-                "germplasmName": "Name001",
-                "observationLevel": "plot",
-                "observationUnitDbId": "1",
-                "observationUnitName": "Plot 1",
-                "replicate": "0",
-                "studyDbId": "1001"
-            },
-            {
-                "X": "1",
-                "Y": "1",
-                "additionalInfo": {},
-                "blockNumber": "1",
-                "entryType": "TEST",
-                "germplasmDbId": "1",
-                "germplasmName": "Name001",
-                "observationLevel": "plant",
-                "observationUnitDbId": "2",
-                "observationUnitName": "Plant 1",
-                "replicate": "0",
-                "studyDbId": "1001"
-            }
-        ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
-```
-
-+ Response 404 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
-```
-
-
-
-
-
-### **Deprecated** Put Studies Layout by studyDbId  [PUT /brapi/v1/studies/{studyDbId}/layout]
-
-DEPRECATED in v1.3 - see `PUT /studies/{studyDbId}/layouts` (pluralized)
-
-**Request Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|layout|array[object]|List of observation unit position data entities which need to be updated|
-|X|string|DEPRECATED - use "positionCoordinateX"|
-|Y|string|DEPRECATED - use "positionCoordinateY"|
-|blockNumber|integer||
-|entryType|string||
-|observationUnitDbId|string||
-|positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
-|positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details PLANTED_ROW - The physical planted row number  PLANTED_INDIVIDUAl - The physical counted number, could be independant or within a planted row GRID_ROW - The row index number of a square grid overlay GRID_COL - The column index number of a square grid overlay MEASURED_ROW - The distance in meters from a defined 0th row MEASURED_COL - The distance in meters from a defined 0th column |
-|positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
-|positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details PLANTED_ROW - The physical planted row number  PLANTED_INDIVIDUAl - The physical counted number, could be independant or within a planted row GRID_ROW - The row index number of a square grid overlay GRID_COL - The column index number of a square grid overlay MEASURED_ROW - The distance in meters from a defined 0th row MEASURED_COL - The distance in meters from a defined 0th column |
-|replicate|integer||
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|X|string|DEPRECATED - use "positionCoordinateX"|
-|Y|string|DEPRECATED - use "positionCoordinateY"|
-|additionalInfo|object|Additional arbitrary info|
-|blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
-|entryType|string|The type of entry for this observation unit. ex. "check", "test", "filler"|
-|germplasmDbId|string| The ID which uniquely identifies a germplasm|
-|germplasmName|string|Name of the germplasm. It can be the prefered name and does not have to be unique.|
-|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
-|observationUnitName|string|A human readable name for an observation unit|
-|positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
-|positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details PLANTED_ROW - The physical planted row number  PLANTED_INDIVIDUAl - The physical counted number, could be independant or within a planted row GRID_ROW - The row index number of a square grid overlay GRID_COL - The column index number of a square grid overlay MEASURED_ROW - The distance in meters from a defined 0th row MEASURED_COL - The distance in meters from a defined 0th column |
-|positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
-|positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details PLANTED_ROW - The physical planted row number  PLANTED_INDIVIDUAl - The physical counted number, could be independant or within a planted row GRID_ROW - The row index number of a square grid overlay GRID_COL - The column index number of a square grid overlay MEASURED_ROW - The distance in meters from a defined 0th row MEASURED_COL - The distance in meters from a defined 0th column |
-|replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-
-
- 
-
-+ Parameters
-    + studyDbId (Required, ) ... Identifier of the study. Usually a number, could be alphanumeric.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
-
-
- 
-+ Request (application/json)
-```
-{
-    "layout": [
-        {
-            "X": "X0",
-            "Y": "Y0",
-            "blockNumber": 0,
-            "entryType": "CHECK",
-            "observationUnitDbId": "observationUnitDbId0",
-            "positionCoordinateX": "positionCoordinateX0",
-            "positionCoordinateXType": "LONGITUDE",
-            "positionCoordinateY": "positionCoordinateY0",
-            "positionCoordinateYType": "LONGITUDE",
-            "replicate": 0
-        },
-        {
-            "X": "X1",
-            "Y": "Y1",
-            "blockNumber": 0,
-            "entryType": "TEST",
-            "observationUnitDbId": "observationUnitDbId1",
-            "positionCoordinateX": "positionCoordinateX1",
-            "positionCoordinateXType": "LATITUDE",
-            "positionCoordinateY": "positionCoordinateY1",
-            "positionCoordinateYType": "LATITUDE",
-            "replicate": 0
-        }
-    ]
-}
-```
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 0,
-            "totalCount": 0,
-            "totalPages": 0
-        },
-        "status": []
-    },
-    "result": {
-        "data": [
-            {
-                "X": "1",
-                "Y": "1",
-                "additionalInfo": {},
-                "blockNumber": "0",
-                "entryType": "CHECK",
-                "germplasmDbId": "2",
-                "germplasmName": "Name002",
-                "observationLevel": "plot",
-                "observationUnitDbId": "11",
-                "observationUnitName": "Plot 6",
-                "replicate": "0",
-                "studyDbId": "1003"
-            }
-        ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
-```
-
-+ Response 404 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
-```
-
-
-
-
-
-### **Deprecated** Get Studies ObservationVariables by studyDbId  [GET /brapi/v1/studies/{studyDbId}/observationVariables]
-
-
-
-
-test-server.brapi.org/brapi/v1/studies/{studyDbId}/observationVariables
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array||
-|contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
-|crop|string|Crop name (examples: "Maize", "Wheat")|
-|defaultValue|string|Variable default value. (examples: "red", "2.3", etc.)|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|growthStage|string|Growth stage at which measurement is made (examples: "flowering")|
-|institution|string|Name of institution submitting the variable|
-|language|string|2 letter ISO code for the language of submission of the variable.|
-|method|object|Method metadata|
-|class|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.|
-|description|string|Method description.|
-|formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
-|methodDbId|string|Method unique identifier|
-|methodName|string|Human readable name for the method|
-|name|string|DEPRECATED in v1.3 - Use "methodName"|
-|ontologyReference|object||
-|documentationLinks|array[object]|links to various ontology documentation|
-|URL|string (uri)||
-|type|string||
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|version|string|Ontology version (no specific format)|
-|reference|string|Bibliographical reference describing the method.|
-|ontologyDbId|string|DEPRECATED in v1.3 - see "this.ontologyReference.ontologyDbId"|
-|ontologyName|string|DEPRECATED in v1.3 - see "this.ontologyReference.ontologyName"|
-|ontologyReference|object||
-|documentationLinks|array[object]|links to various ontology documentation|
-|URL|string (uri)||
-|type|string||
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|version|string|Ontology version (no specific format)|
-|scale|object|Scale metadata|
-|dataType|string|Class of the scale, entries can be     "Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal             scale that combines the expressions of the different traits composing the complex             trait. For exemple a severity trait might be expressed by a 2 digit and 2 character             code. The first 2 digits are the percentage of the plant covered by a fungus and the 2             characters refer to the delay in development, e.g. "75VD" means "75%" of the plant is              Crop Ontology & Integrated Breeding Platform  Curation Guidelines  5/6/2016 9             infected and the plant is very delayed.      "Date" - The date class is for events expressed in a time format, e.g. yyyymmddThh:mm:ssZ or dd/mm/yy      "Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months      "Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories      "Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectar, branches      "Ordinal" - Ordinal scales are scales composed of ordered categories      "Text" - A free text is used to express the trait.   |
-|decimalPlaces|integer|For numerical, number of decimal places to be reported|
-|name|string|DEPRECATED in v1.3 - Use "scaleName"|
-|ontologyReference|object||
-|documentationLinks|array[object]|links to various ontology documentation|
-|URL|string (uri)||
-|type|string||
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|version|string|Ontology version (no specific format)|
-|scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
-|scaleName|string|Name of the scale|
-|validValues|object||
-|categories|array[string]|List of possible values and their meaning (examples: ["0=low", "1=medium", "2=high"]|
-|max|integer|Maximum value (used for field data capture control).|
-|min|integer|Minimum value (used for data capture control) for numerical and date scales|
-|xref|string|Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database|
-|scientist|string|Name of scientist submitting the variable.|
-|status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
-|submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
-|synonyms|array[string]|Other variable names|
-|trait|object||
-|alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
-|attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
-|class|string|Trait class. (examples: "morphological trait", "phenological trait", "agronomical trait", "physiological trait", "abiotic stress trait", "biotic stress trait", "biochemical trait", "quality traits trait", "fertility trait", etc.)|
-|description|string|The description of a trait|
-|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
-|mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
-|name|string|DEPRECATED in v1.3 - Use "traitName"|
-|ontologyReference|object||
-|documentationLinks|array[object]|links to various ontology documentation|
-|URL|string (uri)||
-|type|string||
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|version|string|Ontology version (no specific format)|
-|status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
-|synonyms|array[string]|Other trait names|
-|traitDbId|string|The ID which uniquely identifies a trait|
-|traitName|string|The human readable name of a trait|
-|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
-|xref|string|Cross reference of the variable term to a term from an external ontology or to a database of a major system.|
-|date|string|DEPRECATED in v1.3 - see "submissionTimestamp"|
-|name|string|DEPRECATED in v1.3 - Use "observationVariableName"|
-|observationVariableDbId|string|Variable unique identifier|
-|observationVariableName|string|Variable name (usually a short name)|
-|studyDbId|string||
-|trialName|string||
-
-
- 
-
-+ Parameters
-    + studyDbId (Required, ) ... string database unique identifier
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 0,
-            "totalCount": 5,
-            "totalPages": 1
-        },
-        "status": []
-    },
-    "result": {
-        "data": [
-            {
-                "contextOfUse": [],
-                "crop": "maize",
-                "date": "2018-12-05",
-                "defaultValue": "10",
-                "documentationURL": "https://brapi.org",
-                "growthStage": "1",
-                "institution": "1",
-                "language": "English",
-                "method": {
-                    "class": "string",
-                    "description": "string",
-                    "formula": "string",
-                    "methodDbId": "m1",
-                    "methodName": "string",
-                    "name": "string",
-                    "ontologyReference": {
-                        "documentationLinks": [
-                            {
-                                "URL": "string",
-                                "type": "OBO",
-                                "url": "string"
-                            }
-                        ],
-                        "ontologyDbId": "MO_123",
-                        "ontologyName": "Ontology.org",
-                        "version": "17"
-                    },
-                    "reference": "string"
-                },
-                "name": "Plant height",
-                "observationVariableDbId": "MO_123:100002",
-                "observationVariableName": "Plant height",
-                "ontologyDbId": "MO_123",
-                "ontologyName": "Ontology.org",
-                "ontologyReference": {
-                    "documentationLinks": [
-                        {
-                            "URL": "https://ontology.org",
-                            "type": "WEBPAGE",
-                            "url": "https://ontology.org"
-                        }
-                    ],
-                    "ontologyDbId": "MO_123",
-                    "ontologyName": "Ontology.org",
-                    "version": "17"
-                },
-                "scale": {
-                    "dataType": "Code",
-                    "decimalPlaces": 0,
-                    "name": "string",
-                    "ontologyReference": {
-                        "documentationLinks": [
-                            {
-                                "URL": "string",
-                                "type": "OBO",
-                                "url": "string"
-                            }
-                        ],
-                        "ontologyDbId": "MO_123",
-                        "ontologyName": "Ontology.org",
-                        "version": "17"
-                    },
-                    "scaleDbId": "s1",
-                    "scaleName": "string",
-                    "validValues": {
-                        "categories": [
-                            "string"
-                        ],
-                        "max": 0,
-                        "min": 0
-                    },
-                    "xref": "string"
-                },
-                "scientist": "Bob",
-                "status": "active",
-                "submissionTimestamp": "2011-06-14T22:12:51-04:00",
-                "synonyms": [],
-                "trait": {
-                    "alternativeAbbreviations": [
-                        "string"
-                    ],
-                    "attribute": "string",
-                    "class": "string",
-                    "description": "string",
-                    "entity": "string",
-                    "mainAbbreviation": "string",
-                    "name": "string",
-                    "ontologyReference": {
-                        "documentationLinks": [
-                            {
-                                "URL": "string",
-                                "type": "OBO",
-                                "url": "string"
-                            }
-                        ],
-                        "ontologyDbId": "MO_123",
-                        "ontologyName": "Ontology.org",
-                        "version": "17"
-                    },
-                    "status": "string",
-                    "synonyms": [
-                        "string"
-                    ],
-                    "traitDbId": "t1",
-                    "traitName": "string",
-                    "xref": "string"
-                },
-                "xref": "MO_123:100002"
-            },
-            {
-                "contextOfUse": [],
-                "crop": "maize",
-                "date": "2018-12-05",
-                "defaultValue": "10",
-                "documentationURL": "https://brapi.org",
-                "growthStage": "1",
-                "institution": "1",
-                "language": "English",
-                "method": {
-                    "class": "Categorical",
-                    "description": "Comparing sample color to standard color palette",
-                    "formula": "NA",
-                    "methodDbId": "m3",
-                    "methodName": "Standard Color Palette",
-                    "name": "Standard Color Palette",
-                    "ontologyReference": {
-                        "documentationLinks": [
-                            {
-                                "URL": "https://ontology.org/m3",
-                                "type": "OBO",
-                                "url": "https://ontology.org/m3"
-                            }
-                        ],
-                        "ontologyDbId": "MO_123",
-                        "ontologyName": "Ontology.org",
-                        "version": "17"
-                    },
-                    "reference": "google.com"
-                },
-                "name": "Carotenoid",
-                "observationVariableDbId": "MO_123:100003",
-                "observationVariableName": "Carotenoid",
-                "ontologyDbId": "MO_123",
-                "ontologyName": "Ontology.org",
-                "ontologyReference": {
-                    "documentationLinks": [
-                        {
-                            "URL": "https://ontology.org",
-                            "type": "WEBPAGE",
-                            "url": "https://ontology.org"
-                        }
-                    ],
-                    "ontologyDbId": "MO_123",
-                    "ontologyName": "Ontology.org",
-                    "version": "17"
-                },
-                "scale": {
-                    "dataType": "Nominal",
-                    "decimalPlaces": 0,
-                    "name": "Color",
-                    "ontologyReference": {
-                        "documentationLinks": [
-                            {
-                                "URL": "https://ontology.org/s3",
-                                "type": "WEBPAGE",
-                                "url": "https://ontology.org/s3"
-                            }
-                        ],
-                        "ontologyDbId": "MO_123",
-                        "ontologyName": "Ontology.org",
-                        "version": "17"
-                    },
-                    "scaleDbId": "s3",
-                    "scaleName": "Color",
-                    "validValues": {
-                        "categories": [
-                            "dark red",
-                            "red",
-                            "dark blue",
-                            "blue",
-                            "black"
-                        ],
-                        "max": 0,
-                        "min": 0
-                    },
-                    "xref": "xref"
-                },
-                "scientist": "Bob",
-                "status": "active",
-                "submissionTimestamp": "2011-06-14T22:12:51-04:00",
-                "synonyms": [],
-                "trait": {
-                    "alternativeAbbreviations": [],
-                    "attribute": "leaf color",
-                    "class": "Categorical",
-                    "description": "color of leaf sample",
-                    "entity": "entity",
-                    "mainAbbreviation": "LC",
-                    "name": "Leaf Color",
-                    "ontologyReference": {
-                        "documentationLinks": [
-                            {
-                                "URL": "https://ontology.org/t3",
-                                "type": "RDF",
-                                "url": "https://ontology.org/t3"
-                            }
-                        ],
-                        "ontologyDbId": "MO_123",
-                        "ontologyName": "Ontology.org",
-                        "version": "17"
-                    },
-                    "status": "active",
-                    "synonyms": [],
-                    "traitDbId": "t3",
-                    "traitName": "Leaf Color",
-                    "xref": "xref"
-                },
-                "xref": "MO_123:100003"
-            },
-            {
-                "contextOfUse": [],
-                "crop": "maize",
-                "date": "2018-12-05",
-                "defaultValue": "10",
-                "documentationURL": "https://brapi.org",
-                "growthStage": "1",
-                "institution": "1",
-                "language": "English",
-                "method": {
-                    "class": "Numeric",
-                    "description": "Dried sample on electric scale",
-                    "formula": "NA",
-                    "methodDbId": "m2",
-                    "methodName": "Dry Electric Scale",
-                    "name": "Dry Electric Scale",
-                    "ontologyReference": {
-                        "documentationLinks": [
-                            {
-                                "URL": "https://ontology.org/m2",
-                                "type": "WEBPAGE",
-                                "url": "https://ontology.org/m2"
-                            }
-                        ],
-                        "ontologyDbId": "MO_123",
-                        "ontologyName": "Ontology.org",
-                        "version": "17"
-                    },
-                    "reference": "google.com"
-                },
-                "name": "Root weight",
-                "observationVariableDbId": "MO_123:100004",
-                "observationVariableName": "Root weight",
-                "ontologyDbId": "MO_123",
-                "ontologyName": "Ontology.org",
-                "ontologyReference": {
-                    "documentationLinks": [
-                        {
-                            "URL": "https://ontology.org",
-                            "type": "WEBPAGE",
-                            "url": "https://ontology.org"
-                        }
-                    ],
-                    "ontologyDbId": "MO_123",
-                    "ontologyName": "Ontology.org",
-                    "version": "17"
-                },
-                "scale": {
-                    "dataType": "Numerical",
-                    "decimalPlaces": 3,
-                    "name": "Kilogram",
-                    "ontologyReference": {
-                        "documentationLinks": [
-                            {
-                                "URL": "https://ontology.org/s2",
-                                "type": "RDF",
-                                "url": "https://ontology.org/s2"
-                            }
-                        ],
-                        "ontologyDbId": "MO_123",
-                        "ontologyName": "Ontology.org",
-                        "version": "17"
-                    },
-                    "scaleDbId": "s2",
-                    "scaleName": "Kilogram",
-                    "validValues": {
-                        "categories": [],
-                        "max": 99999,
-                        "min": 0
-                    },
-                    "xref": "xref"
-                },
-                "scientist": "Bob",
-                "status": "active",
-                "submissionTimestamp": "2011-06-14T22:12:51-04:00",
-                "synonyms": [],
-                "trait": {
-                    "alternativeAbbreviations": [],
-                    "attribute": "root weight",
-                    "class": "Numeric",
-                    "description": "root weight",
-                    "entity": "entity",
-                    "mainAbbreviation": "RW",
-                    "name": "Root Weight",
-                    "ontologyReference": {
-                        "documentationLinks": [
-                            {
-                                "URL": "https://ontology.org/t2",
-                                "type": "OBO",
-                                "url": "https://ontology.org/t2"
-                            }
-                        ],
-                        "ontologyDbId": "MO_123",
-                        "ontologyName": "Ontology.org",
-                        "version": "17"
-                    },
-                    "status": "active",
-                    "synonyms": [],
-                    "traitDbId": "t2",
-                    "traitName": "Root Weight",
-                    "xref": "xref"
-                },
-                "xref": "MO_123:100004"
-            },
-            {
-                "contextOfUse": [],
-                "crop": "maize",
-                "date": "2018-12-05",
-                "defaultValue": "10",
-                "documentationURL": "https://brapi.org",
-                "growthStage": "1",
-                "institution": "1",
-                "language": "English",
-                "method": {
-                    "class": "Categorical",
-                    "description": "Comparing sample color to standard color palette",
-                    "formula": "NA",
-                    "methodDbId": "m3",
-                    "methodName": "Standard Color Palette",
-                    "name": "Standard Color Palette",
-                    "ontologyReference": {
-                        "documentationLinks": [
-                            {
-                                "URL": "https://ontology.org/m3",
-                                "type": "OBO",
-                                "url": "https://ontology.org/m3"
-                            }
-                        ],
-                        "ontologyDbId": "MO_123",
-                        "ontologyName": "Ontology.org",
-                        "version": "17"
-                    },
-                    "reference": "google.com"
-                },
-                "name": "Root color",
-                "observationVariableDbId": "MO_123:100005",
-                "observationVariableName": "Root color",
-                "ontologyDbId": "MO_123",
-                "ontologyName": "Ontology.org",
-                "ontologyReference": {
-                    "documentationLinks": [
-                        {
-                            "URL": "https://ontology.org",
-                            "type": "WEBPAGE",
-                            "url": "https://ontology.org"
-                        }
-                    ],
-                    "ontologyDbId": "MO_123",
-                    "ontologyName": "Ontology.org",
-                    "version": "17"
-                },
-                "scale": {
-                    "dataType": "Nominal",
-                    "decimalPlaces": 0,
-                    "name": "Color",
-                    "ontologyReference": {
-                        "documentationLinks": [
-                            {
-                                "URL": "https://ontology.org/s3",
-                                "type": "WEBPAGE",
-                                "url": "https://ontology.org/s3"
-                            }
-                        ],
-                        "ontologyDbId": "MO_123",
-                        "ontologyName": "Ontology.org",
-                        "version": "17"
-                    },
-                    "scaleDbId": "s3",
-                    "scaleName": "Color",
-                    "validValues": {
-                        "categories": [
-                            "dark red",
-                            "red",
-                            "dark blue",
-                            "blue",
-                            "black"
-                        ],
-                        "max": 0,
-                        "min": 0
-                    },
-                    "xref": "xref"
-                },
-                "scientist": "Bob",
-                "status": "active",
-                "submissionTimestamp": "2011-06-14T22:12:51-04:00",
-                "synonyms": [],
-                "trait": {
-                    "alternativeAbbreviations": [],
-                    "attribute": "root color",
-                    "class": "Categorical",
-                    "description": "color of root sample",
-                    "entity": "entity",
-                    "mainAbbreviation": "RC",
-                    "name": "Root Color",
-                    "ontologyReference": {
-                        "documentationLinks": [
-                            {
-                                "URL": "https://ontology.org/t4",
-                                "type": "WEBPAGE",
-                                "url": "https://ontology.org/t4"
-                            }
-                        ],
-                        "ontologyDbId": "MO_123",
-                        "ontologyName": "Ontology.org",
-                        "version": "17"
-                    },
-                    "status": "active",
-                    "synonyms": [],
-                    "traitDbId": "t4",
-                    "traitName": "Root Color",
-                    "xref": "xref"
-                },
-                "xref": "MO_123:100005"
-            },
-            {
-                "contextOfUse": [],
-                "crop": "maize",
-                "date": "2018-12-05",
-                "defaultValue": "10",
-                "documentationURL": "https://brapi.org",
-                "growthStage": "1",
-                "institution": "1",
-                "language": "English",
-                "method": {
-                    "class": "Percentage",
-                    "description": "Image analysis of sample photo",
-                    "formula": "Bobs Color Threshold Tool",
-                    "methodDbId": "m4",
-                    "methodName": "Image analysis",
-                    "name": "Image analysis",
-                    "ontologyReference": {
-                        "documentationLinks": [
-                            {
-                                "URL": "https://ontology.org/m4",
-                                "type": "RDF",
-                                "url": "https://ontology.org/m4"
-                            }
-                        ],
-                        "ontologyDbId": "MO_123",
-                        "ontologyName": "Ontology.org",
-                        "version": "17"
-                    },
-                    "reference": "https://bobsimageanalysis.com"
-                },
-                "name": "Virus severity",
-                "observationVariableDbId": "MO_123:100006",
-                "observationVariableName": "Virus severity",
-                "ontologyDbId": "MO_123",
-                "ontologyName": "Ontology.org",
-                "ontologyReference": {
-                    "documentationLinks": [
-                        {
-                            "URL": "https://ontology.org",
-                            "type": "WEBPAGE",
-                            "url": "https://ontology.org"
-                        }
-                    ],
-                    "ontologyDbId": "MO_123",
-                    "ontologyName": "Ontology.org",
-                    "version": "17"
-                },
-                "scale": {
-                    "dataType": "Numerical",
-                    "decimalPlaces": 0,
-                    "name": "Percentage",
-                    "ontologyReference": {
-                        "documentationLinks": [
-                            {
-                                "URL": "https://ontology.org/s4",
-                                "type": "OBO",
-                                "url": "https://ontology.org/s4"
-                            }
-                        ],
-                        "ontologyDbId": "MO_123",
-                        "ontologyName": "Ontology.org",
-                        "version": "17"
-                    },
-                    "scaleDbId": "s4",
-                    "scaleName": "Percentage",
-                    "validValues": {
-                        "categories": [],
-                        "max": 100,
-                        "min": 0
-                    },
-                    "xref": "xref"
-                },
-                "scientist": "Bob",
-                "status": "active",
-                "submissionTimestamp": "2011-06-14T22:12:51-04:00",
-                "synonyms": [],
-                "trait": {
-                    "alternativeAbbreviations": [],
-                    "attribute": "Virus severity",
-                    "class": "Percentage",
-                    "description": "Percentage of contaminated sample",
-                    "entity": "entity",
-                    "mainAbbreviation": "LC",
-                    "name": "Virus severity",
-                    "ontologyReference": {
-                        "documentationLinks": [
-                            {
-                                "URL": "https://ontology.org/t5",
-                                "type": "OBO",
-                                "url": "https://ontology.org/t5"
-                            }
-                        ],
-                        "ontologyDbId": "MO_123",
-                        "ontologyName": "Ontology.org",
-                        "version": "17"
-                    },
-                    "status": "active",
-                    "synonyms": [],
-                    "traitDbId": "t5",
-                    "traitName": "Virus severity",
-                    "xref": "xref"
-                },
-                "xref": "MO_123:100006"
-            }
-        ],
-        "studyDbId": "1001",
-        "trialName": "Peru Yield Trial 1"
-    }
-}
-```
-
-
-
-
-
-### **Deprecated** Post Studies Observationunits by studyDbId  [POST /brapi/v1/studies/{studyDbId}/observationunits{?format}]
-
-This call has been deprecated in V1.1. Use instead: "PUT /studies/{studyDbId}/observationunits" and "PUT /studies/{studyDbId}/observationunits/zip"
-
-**Request Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|metadata|object||
-|datafiles|array[string]|The datafiles key contains a list of file paths, which can be relative or complete URLs. These files contain additional information related to the returned object and can be retrieved by a subsequent call. The empty list should be returned if no additional data files are present.|
-|pagination|object|The pagination object is applicable only when the payload contains a "data" key. It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. Pages are zero indexed, so the first page will be page 0 (zero).|
-|currentPage|integer||
-|pageSize|integer||
-|totalCount|integer||
-|totalPages|integer||
-|status|array[object]|The status field contains a list of informational status messages from the server. If no status is reported, an empty list should be returned. See Error Reporting for more information.|
-|code|string|DEPRECATED in v1.3 - see Error Handling best practice documentation|
-|message|string|A short message concerning the status of this request/response|
-|messageType|string|The logging level for the attached message|
-|result|object||
-|commit|string|Should these changes be commited|
-|data|array[object]|Required array of marker-name/score pairs|
-|observatioUnitDbId|string||
-|observations|array[object]||
-|collector|string||
-|observationDbId|string||
-|observationTimeStamp|string (date-time)||
-|observationUnitDbId|string||
-|observationVariableDbId|string||
-|value|string||
-|studyDbId|number||
-|transactionDbId|string|The ID representing this transaction|
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|observationUnitDbIds|array[string]|List of observation unit references which have been created or updated|
-
-
- 
-
-+ Parameters
-    + studyDbId (Required, ) ... The study these observation units are related to.
-    + format (Required, ) ... (default is JSON, but can be zip) In case where JSON data is zipped for faster transfer speed (as in the case of the IRRI handheld implementation), the zipped JSON file will be listed in datafiles. The zipped file contains a JSON file with the same structure as the BrAPI call.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
-
-
- 
-+ Request (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 2,
-            "totalPages": 1
-        },
-        "status": []
-    },
-    "result": {
-        "commit": "commit0",
-        "data": [
-            {
-                "observatioUnitDbId": "observatioUnitDbId0",
-                "observations": [
-                    {
-                        "collector": "collector0",
-                        "observationDbId": "observationDbId0",
-                        "observationTimeStamp": "2018-01-01T14:47:23-0600",
-                        "observationUnitDbId": "observationUnitDbId0",
-                        "observationVariableDbId": "observationVariableDbId0",
-                        "value": "value0"
-                    },
-                    {
-                        "collector": "collector1",
-                        "observationDbId": "observationDbId1",
-                        "observationTimeStamp": "2018-01-01T14:47:23-0600",
-                        "observationUnitDbId": "observationUnitDbId1",
-                        "observationVariableDbId": "observationVariableDbId1",
-                        "value": "value1"
-                    }
-                ]
-            },
-            {
-                "observatioUnitDbId": "observatioUnitDbId1",
-                "observations": [
-                    {
-                        "collector": "collector0",
-                        "observationDbId": "observationDbId0",
-                        "observationTimeStamp": "2018-01-01T14:47:23-0600",
-                        "observationUnitDbId": "observationUnitDbId0",
-                        "observationVariableDbId": "observationVariableDbId0",
-                        "value": "value0"
-                    },
-                    {
-                        "collector": "collector1",
-                        "observationDbId": "observationDbId1",
-                        "observationTimeStamp": "2018-01-01T14:47:23-0600",
-                        "observationUnitDbId": "observationUnitDbId1",
-                        "observationVariableDbId": "observationVariableDbId1",
-                        "value": "value1"
-                    }
-                ]
-            }
-        ],
-        "transactionDbId": "transactionDbId0"
-    }
-}
-```
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": []
-    },
-    "result": {
-        "observationUnitDbIds": [
-            "1"
-        ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
-```
-
-+ Response 404 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
-```
-
-
-
 ## Studytypes [/brapi/v1/studytypes] 
 
 
@@ -4306,7 +2804,6 @@ Call to retrieve the list of study types.
 |---|---|---| 
 |data|array[object]||
 |description|string|The description of this study type|
-|name|string|DEPRECATED in v1.3 - Use "studyTypeName"|
 |studyTypeDbId|string|The unique identifier of a study type|
 |studyTypeName|string|The human readable name of a study type|
 
@@ -4369,69 +2866,5 @@ Call to retrieve the list of study types.
 + Response 403 (application/json)
 ```
 "ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
-```
-
-
-
-
-
-### **Deprecated** Get StudyTypes  [GET /brapi/v1/studyTypes{?page}{?pageSize}]
-
- ** DEPRECTED ** Use /studytypes
-Call to retrieve the list of study types.
-Scope: PHENOTYPING. Implementation target date: PAG2016 
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|description|string|The description of this study type|
-|name|string|DEPRECATED in v1.3 - Use "studyTypeName"|
-|studyTypeDbId|string|The unique identifier of a study type|
-|studyTypeName|string|The human readable name of a study type|
-
-
- 
-
-+ Parameters
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 2,
-            "totalCount": 3,
-            "totalPages": 2
-        },
-        "status": []
-    },
-    "result": {
-        "data": [
-            {
-                "description": "Description for Nursery study type",
-                "name": "Crossing Nursery",
-                "studyTypeDbId": "1",
-                "studyTypeName": "Crossing Nursery"
-            },
-            {
-                "description": "Description for yield study type",
-                "name": "Yield study",
-                "studyTypeDbId": "2",
-                "studyTypeName": "Yield study"
-            }
-        ]
-    }
-}
 ```
 

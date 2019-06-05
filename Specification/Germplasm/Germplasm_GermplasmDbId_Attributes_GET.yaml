@@ -21,14 +21,6 @@ paths:
           items:
             type: string
           type: array
-      - description: '**Deprecated** Use "attributeDbIds" instead'
-        in: query
-        name: attributeList
-        required: false
-        schema:
-          items:
-            type: string
-          type: array
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
       - $ref: '#/components/parameters/authorizationHeader'

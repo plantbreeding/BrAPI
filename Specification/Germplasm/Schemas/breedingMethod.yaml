@@ -14,10 +14,6 @@ components:
         description:
           description: human readable description of the breeding method
           type: string
-        name:
-          deprecated: true
-          description: DEPRECATED in v1.3 - Use "breedingMethodName"
-          type: string
       required:
       - breedingMethodDbId
       type: object

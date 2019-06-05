@@ -2,16 +2,6 @@ components:
   schemas:
     observationUnit:
       properties:
-        X:
-          deprecated: true
-          description: DEPRECATED - use "positionCoordinateX"
-          title: xCoordinate
-          type: string
-        Y:
-          deprecated: true
-          description: DEPRECATED - use "positionCoordinateY"
-          title: yCoordinate
-          type: string
         blockNumber:
           description: The block number for an observation unit. Different systems may use different block designs.
           type: string
@@ -105,14 +95,6 @@ components:
           type: string
         studyDbId:
           description: The ID which uniquely identifies a study within the given database server
-          type: string
-        studyLocation:
-          deprecated: true
-          description: DEPRECATED in v1.3 - see "locationName"
-          type: string
-        studyLocationDbId:
-          deprecated: true
-          description: DEPRECATED in v1.3 - see "locationDbId"
           type: string
         studyName:
           description: The human readable name for a study

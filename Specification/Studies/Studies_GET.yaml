@@ -22,13 +22,6 @@ paths:
         required: false
         schema:
           type: string
-      - deprecated: true
-        description: DEPRECATED in v1.3 - see "studyTypeDbId"
-        in: query
-        name: studyType
-        required: false
-        schema:
-          type: string
       - description: Filter based on study type unique identifier
         in: query
         name: studyTypeDbId
@@ -65,24 +58,6 @@ paths:
         required: false
         schema:
           type: string
-      - deprecated: true
-        description: DEPRECATED in v1.3 - see /search/studies
-        in: query
-        name: germplasmDbIds
-        required: false
-        schema:
-          items:
-            type: string
-          type: array
-      - deprecated: true
-        description: DEPRECATED in v1.3 - see /search/studies
-        in: query
-        name: observationVariableDbIds
-        required: false
-        schema:
-          items:
-            type: string
-          type: array
       - description: Filter active status true/false.
         in: query
         name: active

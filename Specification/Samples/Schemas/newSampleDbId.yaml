@@ -9,9 +9,6 @@ components:
           properties:
             sampleDbId:
               type: string
-            sampleId:
-              description: '** Deprecated ** use sampleDbId'
-              type: string
           type: object
       type: object
 info:

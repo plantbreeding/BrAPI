@@ -5,9 +5,6 @@ components:
         abbreviation:
           description: An abbreviation which represents this location
           type: string
-        abreviation:
-          description: 'Deprecated  Use abbreviation '
-          type: string
         additionalInfo:
           additionalProperties:
             type: string
@@ -29,9 +26,6 @@ components:
         instituteAddress:
           description: The street address of the institute representing this location
           type: string
-        instituteAdress:
-          description: 'Deprecated  Use instituteAddress '
-          type: string
         instituteName:
           description: each institute/laboratory can have several experimental field
           type: string
@@ -50,10 +44,6 @@ components:
         longitude:
           description: the longitude of this location
           type: number
-        name:
-          deprecated: true
-          description: DEPRECATED in v1.3 - Use "locationName"
-          type: string
       type: object
 info:
   title: BrAPI

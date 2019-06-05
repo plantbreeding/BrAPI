@@ -176,9 +176,6 @@ Get trial by id.
 |name|string|The full name of this contact person|
 |orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
 |type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
-|datasetAuthorship|object|DEPRECATED in v1.3 - see datasetAuthorships|
-|datasetPUI|string||
-|license|string||
 |datasetAuthorships|array[object]|License and citation information for the data in this trial|
 |datasetPUI|string||
 |license|string||

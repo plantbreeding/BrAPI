@@ -4,14 +4,6 @@ components:
       allOf:
       - $ref: '#/components/schemas/VariableBaseClass'
       - properties:
-          date:
-            deprecated: true
-            description: DEPRECATED in v1.3 - see "submissionTimestamp"
-            type: string
-          name:
-            deprecated: true
-            description: DEPRECATED in v1.3 - Use "observationVariableName"
-            type: string
           observationVariableDbId:
             description: Variable unique identifier
             type: string

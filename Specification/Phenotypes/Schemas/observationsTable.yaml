@@ -12,7 +12,7 @@ components:
         headerRow:
           description: 'The header row describing observation unit fields. Append ''observationVariableDbIds'' for complete header row of the table.
 
-            This array should contain any or all of the following strings; year, studyDbId, studyName, locationDbId, locationName, germplasmDbId, germplasmName, observationUnitDbId, plotNumber, replicate, blockNumber, observationTimestamp (DEPRECATED in V1.3), entryType, X, Y'
+            This array should contain any or all of the following strings; year, studyDbId, studyName, locationDbId, locationName, germplasmDbId, germplasmName, observationUnitDbId, plotNumber, replicate, blockNumber, entryType, X, Y'
           items:
             description: valid header fields
             enum:
@@ -27,7 +27,6 @@ components:
             - plotNumber
             - replicate
             - blockNumber
-            - observationTimestamp
             - entryType
             - X
             - Y

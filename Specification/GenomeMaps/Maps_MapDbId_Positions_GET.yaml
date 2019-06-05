@@ -13,13 +13,6 @@ paths:
         required: true
         schema:
           type: string
-      - deprecated: true
-        description: Deprecated Use linkageGroupName instead
-        in: query
-        name: linkageGroupId
-        required: false
-        schema:
-          type: string
       - description: The chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.
         in: query
         name: linkageGroupName

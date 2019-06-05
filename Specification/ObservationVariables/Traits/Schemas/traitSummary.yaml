@@ -8,10 +8,6 @@ components:
         description:
           description: The description of a trait
           type: string
-        name:
-          deprecated: true
-          description: DEPRECATED in v1.3 - Use "traitName"
-          type: string
         observationVariables:
           description: List of observation variable DbIds which include this trait
           items:
@@ -19,10 +15,6 @@ components:
           type: array
         traitDbId:
           description: The ID which uniquely identifies a trait
-          type: string
-        traitId:
-          deprecated: true
-          description: DEPRECATED The ID which uniquely identifies a trait
           type: string
         traitName:
           description: The human readable name of a trait

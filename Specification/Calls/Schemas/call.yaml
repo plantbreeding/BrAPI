@@ -10,12 +10,6 @@ components:
           items:
             $ref: '#/components/schemas/WSMIMEDataTypes'
           type: array
-        datatypes:
-          deprecated: true
-          description: DEPRECATED in v1.3 - see "dataTypes" (camel case)
-          items:
-            $ref: '#/components/schemas/WSMIMEDataTypes'
-          type: array
         methods:
           description: The possible HTTP Methods to be used with the available call
           items:

@@ -28,14 +28,6 @@ components:
           type: string
         method:
           $ref: '#/components/schemas/method'
-        ontologyDbId:
-          deprecated: true
-          description: DEPRECATED in v1.3 - see "this.ontologyReference.ontologyDbId"
-          type: string
-        ontologyName:
-          deprecated: true
-          description: DEPRECATED in v1.3 - see "this.ontologyReference.ontologyName"
-          type: string
         ontologyReference:
           $ref: '#/components/schemas/ontologyReference'
         scale:

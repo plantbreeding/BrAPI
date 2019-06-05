@@ -2,16 +2,6 @@ components:
   schemas:
     observationUnitPosition:
       properties:
-        X:
-          deprecated: true
-          description: DEPRECATED - use "positionCoordinateX"
-          title: xCoordinate
-          type: string
-        Y:
-          deprecated: true
-          description: DEPRECATED - use "positionCoordinateY"
-          title: yCoordinate
-          type: string
         additionalInfo:
           additionalProperties:
             type: string

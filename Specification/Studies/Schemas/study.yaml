@@ -68,10 +68,6 @@ components:
         studyName:
           description: The human readable name for a study
           type: string
-        studyType:
-          deprecated: true
-          description: DEPRECATED in v1.3 - See "studyTypeName"
-          type: string
         studyTypeDbId:
           description: The unique identifier of the type of study being performed.
           type: string

@@ -141,13 +141,3 @@ tags:
     description: Docs
     url: https://wiki.brapi.org/
   name: Search Services
-- description: Authenticacte your requests
-  externalDocs:
-    description: Docs
-    url: https://wiki.brapi.org/
-  name: Authentication
-- description: Deprecated Calls
-  externalDocs:
-    description: Docs
-    url: https://wiki.brapi.org/
-  name: Deprecated

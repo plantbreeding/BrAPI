@@ -7,14 +7,6 @@ components:
           items:
             $ref: '#/components/schemas/germplasmSummary'
           type: array
-        studyDbId:
-          description: '** Deprecated ** The request contains the studyDbId
-
-            The ID which uniquely identifies a study within the given database server'
-          type: string
-        trialName:
-          description: "** Deprecated ** trialName not relevent \nThe human readable name of a trial"
-          type: string
       type: object
 info:
   title: BrAPI

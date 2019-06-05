@@ -16,7 +16,7 @@ Retrieving genetic or physical maps
 
 
 
-### Get Maps  [GET /brapi/v1/maps{?species}{?commonCropName}{?scientificName}{?type}{?page}{?pageSize}]
+### Get Maps  [GET /brapi/v1/maps{?commonCropName}{?scientificName}{?type}{?page}{?pageSize}]
 
 Get list of maps
 
@@ -34,10 +34,8 @@ Get list of maps
 |mapDbId|string|The ID which uniquely identifies this genome map|
 |mapName|string|A human readable name for this genome map|
 |markerCount|integer (int32)|The number of markers present in this genome map|
-|name|string|DEPRECATED in v1.3 - Use "mapName"|
 |publishedDate|string (date)|The date this genome was published|
 |scientificName|string|Full scientific binomial format name. This includes Genus, Species, and Sub-species|
-|species|string|DEPRECATED in v1.3 - See "scientificName"|
 |type|string|The type of map this represents, ussually "Genetic"|
 |unit|string|The units used to describe the data in this map|
 
@@ -45,7 +43,6 @@ Get list of maps
  
 
 + Parameters
-    + species (Optional, ) ... DEPRECATED in v1.3 - See "scientificName"
     + commonCropName (Optional, ) ... The common name of the crop, found from "GET /commoncropnames"
     + scientificName (Optional, ) ... Full scientific binomial format name. This includes Genus, Species, and Sub-species
     + type (Optional, ) ... Type of map
@@ -142,13 +139,8 @@ Provides the number of markers on each linkageGroup and the max position on the 
 |markerCount|integer|The number of markers associated with this linkage group|
 |maxPosition|integer|The maximum position of a marker within this linkage group|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|linkageGroups|array[object]|**Deprecated** Use "data"|
-|linkageGroupName|string|The Uniquely Identifiable name of this linkage group|
-|markerCount|integer|The number of markers associated with this linkage group|
-|maxPosition|integer|The maximum position of a marker within this linkage group|
 |mapDbId|string|The ID which uniquely identifies this genome map|
 |mapName|string|A human readable name for this map|
-|name|string|DEPRECATED in v1.3 - Use "mapName"|
 |type|string|The type of map this represents, ussually "Genetic" or "Physical"|
 |unit|string|The units used to describe the data in this map|
 
@@ -228,7 +220,7 @@ Provides the number of markers on each linkageGroup and the max position on the 
 
 
 
-### Get Maps Positions by mapDbId  [GET /brapi/v1/maps/{mapDbId}/positions{?linkageGroupId}{?linkageGroupName}{?page}{?pageSize}]
+### Get Maps Positions by mapDbId  [GET /brapi/v1/maps/{mapDbId}/positions{?linkageGroupName}{?page}{?pageSize}]
 
 All the markers in a given Map, ordered by linkageGroup and position.
 
@@ -249,7 +241,6 @@ All the markers in a given Map, ordered by linkageGroup and position.
 
 + Parameters
     + mapDbId (Required, ) ... unique id of the map
-    + linkageGroupId (Optional, ) ... Deprecated Use linkageGroupName instead
     + linkageGroupName (Optional, ) ... The chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.
     + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.

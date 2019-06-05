@@ -24,7 +24,6 @@ Get the details of a specific Breeding Method used to produce Germplasm
 |breedingMethodDbId|string|the unique identifier for this breeding method|
 |breedingMethodName|string|human readable name of the breeding method|
 |description|string|human readable description of the breeding method|
-|name|string|DEPRECATED in v1.3 - Use "breedingMethodName"|
 
 
  
@@ -100,7 +99,6 @@ Get the list of germplasm breeding methods available in a system.
 |breedingMethodDbId|string|the unique identifier for this breeding method|
 |breedingMethodName|string|human readable name of the breeding method|
 |description|string|human readable description of the breeding method|
-|name|string|DEPRECATED in v1.3 - Use "breedingMethodName"|
 
 
  
@@ -166,371 +164,6 @@ Get the list of germplasm breeding methods available in a system.
 
 
 
-## Germplasm-search [/brapi/v1/germplasm-search] 
-
-
-
-
-### **Deprecated** Get Germplasm-search  [GET /brapi/v1/germplasm-search{?germplasmPUI}{?germplasmDbId}{?germplasmName}{?commonCropName}{?page}{?pageSize}]
-
-DEPRECATED in V1.3 - see GET /germplasm
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|accessionNumber|string|This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection|
-|acquisitionDate|string (date)|The date this germplasm was aquired by the genebank (MCPD)|
-|biologicalStatusOfAccessionCode|integer|The 3 digit code representing the biological status of the accession (MCPD)|
-|breedingMethodDbId|string|The unique identifier for the breeding method used to create this germplasm|
-|commonCropName|string|Common name for the crop (MCPD)|
-|countryOfOriginCode|string|3-letter ISO 3166-1 code of the country in which the sample was originally collected (MCPD)|
-|defaultDisplayName|string|Human readable name used for display purposes|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|donors|array[object]|List of donor institutes (MCPD)|
-|donorAccessionNumber|string||
-|donorInstituteCode|string||
-|germplasmPUI|string||
-|genus|string|DEPRECATED in v1.3 - see "germplasmGenus"|
-|germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server|
-|germplasmGenus|string|Genus name for taxon. Initial uppercase letter required. (MCPD)|
-|germplasmName|string|Name of the germplasm. It can be the prefered name and does not have to be unique.|
-|germplasmPUI|string|The Permanent Unique Identifier which represents a germplasm|
-|germplasmSpecies|string|Specific epithet portion of the scientific name in lowercase letters. (MCPD)|
-|instituteCode|string|The code for the Institute that has bred the material. (MCPD)|
-|instituteName|string|The name of the institution which bred the material (MCPD)|
-|pedigree|string|The cross name and optional selection history.|
-|seedSource|string|The source of the seed |
-|species|string|DEPRECATED in v1.3 - see "germplasmSpecies"|
-|speciesAuthority|string|The authority organization responsible for tracking and maintaining the species name (MCPD)|
-|subtaxa|string|Subtaxon can be used to store any additional taxonomic identifier. (MCPD)|
-|subtaxaAuthority|string| The authority organization responsible for tracking and maintaining the subtaxon information (MCPD)|
-|synonyms|array[string]|List of alternative names or IDs used to reference this germplasm|
-|taxonIds|array[object]|The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.|
-|sourceName|string|The human readable name of the taxonomy provider|
-|taxonId|string|The identifier (name, ID, URI) of a particular taxonomy within the source provider|
-|typeOfGermplasmStorageCode|array[string]|The 2 digit code representing the type of storage this germplasm is kept in at a genebank. (MCPD)|
-
-
- 
-
-+ Parameters
-    + germplasmPUI (Optional, ) ... Permanent unique identifier (DOI, URI, etc.)
-    + germplasmDbId (Optional, ) ... Internal database identifier
-    + germplasmName (Optional, ) ... Name of the germplasm
-    + commonCropName (Optional, ) ... The common crop name related to this germplasm
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 2,
-            "totalCount": 2,
-            "totalPages": 1
-        },
-        "status": []
-    },
-    "result": {
-        "data": [
-            {
-                "accessionNumber": "A000003",
-                "acquisitionDate": "2001-01-01",
-                "biologicalStatusOfAccessionCode": 500,
-                "breedingMethodDbId": "bm1",
-                "commonCropName": "G000003",
-                "countryOfOriginCode": "COUNTRY1",
-                "defaultDisplayName": "G000003",
-                "documentationURL": "https://brapi.org",
-                "donors": [],
-                "genus": "Fructus",
-                "germplasmDbId": "3",
-                "germplasmGenus": "Fructus",
-                "germplasmName": "Name003",
-                "germplasmPUI": "http://pui.per/accession/A000003",
-                "germplasmSpecies": "novus",
-                "instituteCode": "PER001",
-                "instituteName": "INST1",
-                "pedigree": "A000001/A000002",
-                "seedSource": "A000001/A000002",
-                "species": "novus",
-                "speciesAuthority": "L",
-                "subtaxa": "subtaxa",
-                "subtaxaAuthority": "N",
-                "synonyms": [
-                    "variety 1"
-                ],
-                "taxonIds": [
-                    {
-                        "sourceName": "ncbiTaxon",
-                        "taxonId": "2340"
-                    },
-                    {
-                        "sourceName": "ciradTaxon",
-                        "taxonId": "E312"
-                    }
-                ],
-                "typeOfGermplasmStorageCode": []
-            },
-            {
-                "accessionNumber": "A000004",
-                "acquisitionDate": "2001-01-01",
-                "biologicalStatusOfAccessionCode": 500,
-                "breedingMethodDbId": "bm1",
-                "commonCropName": "G000004",
-                "countryOfOriginCode": "COUNTRY1",
-                "defaultDisplayName": "G000004",
-                "documentationURL": "https://brapi.org",
-                "donors": [],
-                "genus": "Fructus",
-                "germplasmDbId": "4",
-                "germplasmGenus": "Fructus",
-                "germplasmName": "Name004",
-                "germplasmPUI": "http://pui.per/accession/A000004",
-                "germplasmSpecies": "novus",
-                "instituteCode": "PER001",
-                "instituteName": "INST1",
-                "pedigree": "A000001/A000003",
-                "seedSource": "open pollination",
-                "species": "novus",
-                "speciesAuthority": "L",
-                "subtaxa": "subtaxa",
-                "subtaxaAuthority": "N",
-                "synonyms": [
-                    "variety 4"
-                ],
-                "taxonIds": [
-                    {
-                        "sourceName": "ncbiTaxon",
-                        "taxonId": "2340"
-                    },
-                    {
-                        "sourceName": "ciradTaxon",
-                        "taxonId": "E312"
-                    }
-                ],
-                "typeOfGermplasmStorageCode": []
-            }
-        ]
-    }
-}
-```
-
-
-
-
-
-### **Deprecated** Post Germplasm-search  [POST /brapi/v1/germplasm-search]
-
-DEPRECATED in V1.3 - see POST /search/germplasm
-
-**Request Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|accessionNumbers|array[string]|List unique identifiers for accessions within a genebank|
-|commonCropNames|array[string]|List crops to search by|
-|germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm|
-|germplasmGenus|array[string]|List of Genus names to identify germplasm|
-|germplasmNames|array[string]|List of human readable names to identify germplasm|
-|germplasmPUIs|array[string]|List of Permanent Unique Identifiers to identify germplasm|
-|germplasmSpecies|array[string]|List of Species names to identify germplasm|
-|page|integer|Which page of the "data" array to return. The page indexing starts at 0 (page=0 will return the first page). Default is 0.|
-|pageSize|integer|The maximum number of items to return per page of the "data" array. Default is 1000.|
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|accessionNumber|string|This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection|
-|acquisitionDate|string (date)|The date this germplasm was aquired by the genebank (MCPD)|
-|biologicalStatusOfAccessionCode|integer|The 3 digit code representing the biological status of the accession (MCPD)|
-|breedingMethodDbId|string|The unique identifier for the breeding method used to create this germplasm|
-|commonCropName|string|Common name for the crop (MCPD)|
-|countryOfOriginCode|string|3-letter ISO 3166-1 code of the country in which the sample was originally collected (MCPD)|
-|defaultDisplayName|string|Human readable name used for display purposes|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|donors|array[object]|List of donor institutes (MCPD)|
-|donorAccessionNumber|string||
-|donorInstituteCode|string||
-|germplasmPUI|string||
-|genus|string|DEPRECATED in v1.3 - see "germplasmGenus"|
-|germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server|
-|germplasmGenus|string|Genus name for taxon. Initial uppercase letter required. (MCPD)|
-|germplasmName|string|Name of the germplasm. It can be the prefered name and does not have to be unique.|
-|germplasmPUI|string|The Permanent Unique Identifier which represents a germplasm|
-|germplasmSpecies|string|Specific epithet portion of the scientific name in lowercase letters. (MCPD)|
-|instituteCode|string|The code for the Institute that has bred the material. (MCPD)|
-|instituteName|string|The name of the institution which bred the material (MCPD)|
-|pedigree|string|The cross name and optional selection history.|
-|seedSource|string|The source of the seed |
-|species|string|DEPRECATED in v1.3 - see "germplasmSpecies"|
-|speciesAuthority|string|The authority organization responsible for tracking and maintaining the species name (MCPD)|
-|subtaxa|string|Subtaxon can be used to store any additional taxonomic identifier. (MCPD)|
-|subtaxaAuthority|string| The authority organization responsible for tracking and maintaining the subtaxon information (MCPD)|
-|synonyms|array[string]|List of alternative names or IDs used to reference this germplasm|
-|taxonIds|array[object]|The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.|
-|sourceName|string|The human readable name of the taxonomy provider|
-|taxonId|string|The identifier (name, ID, URI) of a particular taxonomy within the source provider|
-|typeOfGermplasmStorageCode|array[string]|The 2 digit code representing the type of storage this germplasm is kept in at a genebank. (MCPD)|
-
-
- 
-
-+ Parameters
-
-
- 
-+ Request (application/json)
-```
-{
-    "accessionNumbers": [
-        "accessionNumbers0",
-        "accessionNumbers1"
-    ],
-    "commonCropNames": [
-        "commonCropNames0",
-        "commonCropNames1"
-    ],
-    "germplasmDbIds": [
-        "germplasmDbIds0",
-        "germplasmDbIds1"
-    ],
-    "germplasmGenus": [
-        "germplasmGenus0",
-        "germplasmGenus1"
-    ],
-    "germplasmNames": [
-        "germplasmNames0",
-        "germplasmNames1"
-    ],
-    "germplasmPUIs": [
-        "germplasmPUIs0",
-        "germplasmPUIs1"
-    ],
-    "germplasmSpecies": [
-        "germplasmSpecies0",
-        "germplasmSpecies1"
-    ],
-    "page": 0,
-    "pageSize": 0
-}
-```
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 2,
-            "totalCount": 2,
-            "totalPages": 1
-        },
-        "status": []
-    },
-    "result": {
-        "data": [
-            {
-                "accessionNumber": "A000003",
-                "acquisitionDate": "2001-01-01",
-                "biologicalStatusOfAccessionCode": 500,
-                "breedingMethodDbId": "bm1",
-                "commonCropName": "G000003",
-                "countryOfOriginCode": "COUNTRY1",
-                "defaultDisplayName": "G000003",
-                "documentationURL": "https://brapi.org",
-                "donors": [],
-                "genus": "Fructus",
-                "germplasmDbId": "3",
-                "germplasmGenus": "Fructus",
-                "germplasmName": "Name003",
-                "germplasmPUI": "http://pui.per/accession/A000003",
-                "germplasmSpecies": "novus",
-                "instituteCode": "PER001",
-                "instituteName": "INST1",
-                "pedigree": "A000001/A000002",
-                "seedSource": "A000001/A000002",
-                "species": "novus",
-                "speciesAuthority": "L",
-                "subtaxa": "subtaxa",
-                "subtaxaAuthority": "N",
-                "synonyms": [
-                    "variety 1"
-                ],
-                "taxonIds": [
-                    {
-                        "sourceName": "ncbiTaxon",
-                        "taxonId": "2340"
-                    },
-                    {
-                        "sourceName": "ciradTaxon",
-                        "taxonId": "E312"
-                    }
-                ],
-                "typeOfGermplasmStorageCode": []
-            },
-            {
-                "accessionNumber": "A000004",
-                "acquisitionDate": "2001-01-01",
-                "biologicalStatusOfAccessionCode": 500,
-                "breedingMethodDbId": "bm1",
-                "commonCropName": "G000004",
-                "countryOfOriginCode": "COUNTRY1",
-                "defaultDisplayName": "G000004",
-                "documentationURL": "https://brapi.org",
-                "donors": [],
-                "genus": "Fructus",
-                "germplasmDbId": "4",
-                "germplasmGenus": "Fructus",
-                "germplasmName": "Name004",
-                "germplasmPUI": "http://pui.per/accession/A000004",
-                "germplasmSpecies": "novus",
-                "instituteCode": "PER001",
-                "instituteName": "INST1",
-                "pedigree": "A000001/A000003",
-                "seedSource": "open pollination",
-                "species": "novus",
-                "speciesAuthority": "L",
-                "subtaxa": "subtaxa",
-                "subtaxaAuthority": "N",
-                "synonyms": [
-                    "variety 4"
-                ],
-                "taxonIds": [
-                    {
-                        "sourceName": "ncbiTaxon",
-                        "taxonId": "2340"
-                    },
-                    {
-                        "sourceName": "ciradTaxon",
-                        "taxonId": "E312"
-                    }
-                ],
-                "typeOfGermplasmStorageCode": []
-            }
-        ]
-    }
-}
-```
-
-
-
 ## Germplasm [/brapi/v1/germplasm] 
 
 
@@ -565,7 +198,6 @@ Addresses these needs
 |donorAccessionNumber|string||
 |donorInstituteCode|string||
 |germplasmPUI|string||
-|genus|string|DEPRECATED in v1.3 - see "germplasmGenus"|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server|
 |germplasmGenus|string|Genus name for taxon. Initial uppercase letter required. (MCPD)|
 |germplasmName|string|Name of the germplasm. It can be the prefered name and does not have to be unique.|
@@ -575,7 +207,6 @@ Addresses these needs
 |instituteName|string|The name of the institution which bred the material (MCPD)|
 |pedigree|string|The cross name and optional selection history.|
 |seedSource|string|The source of the seed |
-|species|string|DEPRECATED in v1.3 - see "germplasmSpecies"|
 |speciesAuthority|string|The authority organization responsible for tracking and maintaining the species name (MCPD)|
 |subtaxa|string|Subtaxon can be used to store any additional taxonomic identifier. (MCPD)|
 |subtaxaAuthority|string| The authority organization responsible for tracking and maintaining the subtaxon information (MCPD)|
@@ -719,7 +350,7 @@ Addresses these needs
 
 
 
-### Get Germplasm Attributes by germplasmDbId  [GET /brapi/v1/germplasm/{germplasmDbId}/attributes{?attributeDbIds}{?attributeList}{?page}{?pageSize}]
+### Get Germplasm Attributes by germplasmDbId  [GET /brapi/v1/germplasm/{germplasmDbId}/attributes{?attributeDbIds}{?page}{?pageSize}]
 
 Values for all attributes by default.
 
@@ -743,7 +374,6 @@ Values for all attributes by default.
 + Parameters
     + germplasmDbId (Required, ) ... The germplasm characterized
     + attributeDbIds (Optional, ) ... Restrict the response to only the listed attributeDbIds.
-    + attributeList (Optional, ) ... **Deprecated** Use "attributeDbIds" instead
     + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
@@ -834,7 +464,6 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 |donorAccessionNumber|string||
 |donorInstituteCode|string||
 |germplasmPUI|string||
-|genus|string|DEPRECATED in v1.3 - see "germplasmGenus"|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server|
 |germplasmGenus|string|Genus name for taxon. Initial uppercase letter required. (MCPD)|
 |germplasmName|string|Name of the germplasm. It can be the prefered name and does not have to be unique.|
@@ -844,7 +473,6 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 |instituteName|string|The name of the institution which bred the material (MCPD)|
 |pedigree|string|The cross name and optional selection history.|
 |seedSource|string|The source of the seed |
-|species|string|DEPRECATED in v1.3 - see "germplasmSpecies"|
 |speciesAuthority|string|The authority organization responsible for tracking and maintaining the species name (MCPD)|
 |subtaxa|string|Subtaxon can be used to store any additional taxonomic identifier. (MCPD)|
 |subtaxaAuthority|string| The authority organization responsible for tracking and maintaining the subtaxon information (MCPD)|
@@ -1145,7 +773,6 @@ Retrieve the markerProfileDbIds for a given Germplasm ID
 |---|---|---| 
 |germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server|
 |markerProfileDbIds|array[string]|The ID which uniquely identifies a marker profile within the given database server|
-|markerprofileDbIds||DEPRECATED in v1.3 - see "markerProfileDbIds" (camel case)|
 
 
  
@@ -1224,11 +851,9 @@ Get the parentage information of a specific Germplasm
 |familyCode|string|The code representing the family|
 |germplasmDbId|string| The ID which uniquely identifies a germplasm|
 |parent1DbId|string|The germplasm DbId of the first parent of this germplasm|
-|parent1Id|string|**Deprecated** use parent1DbId|
 |parent1Name|string|the human readable name of the first parent of this germplasm|
 |parent1Type|string|The type of parent the first parent is. ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
 |parent2DbId|string|The germplasm DbId of the second parent of this germplasm|
-|parent2Id|string|**Deprecated** use parent2DbId|
 |parent2Name|string|The human readable name of the second parent of this germplasm|
 |parent2Type|string|The type of parent the second parent is. ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
 |pedigree|string|The string representation of the pedigree.|
@@ -1549,7 +1174,6 @@ Addresses these needs: 1. General germplasm search mechanism that accepts POST f
 |donorAccessionNumber|string||
 |donorInstituteCode|string||
 |germplasmPUI|string||
-|genus|string|DEPRECATED in v1.3 - see "germplasmGenus"|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server|
 |germplasmGenus|string|Genus name for taxon. Initial uppercase letter required. (MCPD)|
 |germplasmName|string|Name of the germplasm. It can be the prefered name and does not have to be unique.|
@@ -1559,7 +1183,6 @@ Addresses these needs: 1. General germplasm search mechanism that accepts POST f
 |instituteName|string|The name of the institution which bred the material (MCPD)|
 |pedigree|string|The cross name and optional selection history.|
 |seedSource|string|The source of the seed |
-|species|string|DEPRECATED in v1.3 - see "germplasmSpecies"|
 |speciesAuthority|string|The authority organization responsible for tracking and maintaining the species name (MCPD)|
 |subtaxa|string|Subtaxon can be used to store any additional taxonomic identifier. (MCPD)|
 |subtaxaAuthority|string| The authority organization responsible for tracking and maintaining the subtaxon information (MCPD)|

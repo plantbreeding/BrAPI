@@ -19,14 +19,6 @@ paths:
 
         This method may support asynchronous processing.'
       parameters:
-      - description: DEPRECATED in v1.3 - see "markerProfileDbId" (camel case)
-        in: query
-        name: markerprofileDbId
-        required: false
-        schema:
-          items:
-            type: string
-          type: array
       - description: The marker Profile db ids. Not Required if 'markerDbId' or 'matrixDbId' is present.
         in: query
         name: markerProfileDbId

@@ -9,7 +9,7 @@ The '/calls' call is used to find the available BrAPI calls on a particular serv
 
 
 
-### Get Calls  [GET /brapi/v1/calls{?datatype}{?dataType}{?page}{?pageSize}]
+### Get Calls  [GET /brapi/v1/calls{?dataType}{?page}{?pageSize}]
 
  Implementation Notes
 Having a consistent structure for the path string of each call is very important for teams to be able to connect and find errors. Read more on Github.
@@ -43,7 +43,6 @@ test-server.brapi.org/brapi/v1/calls
 |data|array[object]|Array of availible calls on this server|
 |call|string|The name of the available call as recorded in the documentation|
 |dataTypes|array[string]|The possible data formats returned by the available call|
-|datatypes|array[string]|DEPRECATED in v1.3 - see "dataTypes" (camel case)|
 |methods|array[string]|The possible HTTP Methods to be used with the available call|
 |versions|array[string]|The supported versions of a particular call|
 
@@ -51,7 +50,6 @@ test-server.brapi.org/brapi/v1/calls
  
 
 + Parameters
-    + datatype (Optional, ) ... DEPRECATED in v1.3 - see dataType (camel case)
     + dataType (Optional, ) ... The data format supported by the call. Example: `json`
     + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.

@@ -12,19 +12,11 @@ components:
           description: A URL to the human readable documentation of this object
           format: uri
           type: string
-        leadPerson:
-          deprecated: true
-          description: DEPRECATED in v1.3 - see "leadPersonName" or "leadPersonDbId"
-          type: string
         leadPersonDbId:
           description: The unique identifier of the program leader
           type: string
         leadPersonName:
           description: The name of the program leader
-          type: string
-        name:
-          deprecated: true
-          description: DEPRECATED in v1.3 - Use "programName"
           type: string
         objective:
           description: The primary objective of the program

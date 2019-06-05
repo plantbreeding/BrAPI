@@ -5,10 +5,6 @@ components:
         description:
           description: The description of this study type
           type: string
-        name:
-          deprecated: true
-          description: DEPRECATED in v1.3 - Use "studyTypeName"
-          type: string
         studyTypeDbId:
           description: The unique identifier of a study type
           type: string

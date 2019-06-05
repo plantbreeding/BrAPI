@@ -7,13 +7,6 @@ paths:
     get:
       description: " Implementation Notes\nHaving a consistent structure for the path string of each call is very important for teams to be able to connect and find errors. Read more on Github.\nHere are the rules for the path of each call that should be returned\n\n\n\nEvery word in the call path should match the documentation exactly, both in spelling and capitalization. Note that path strings are all lower case, but path parameters are camel case.\n\nEach path should start relative to \"/\" and therefore should not include \"/\"\n\nNo leading or trailing slashes (\"/\") \n\nPath parameters are wrapped in curly braces (\"{}\"). The name of the path parameter should be spelled exactly as it is specified in the documentation.\n\n\n\n\nExamples GOOD    \"call\": \"germplasm/{germplasmDbId}/markerprofiles\" BAD    \"call\": \"germplasm/{id}/markerprofiles\" BAD    \"call\": \"germplasm/{germplasmDbId}/markerProfiles\" BAD    \"call\": \"germplasm/{germplasmdbid}/markerprofiles\" BAD    \"call\": \"brapi/v1/germplasm/{germplasmDbId}/markerprofiles\" BAD    \"call\": \"/germplasm/{germplasmDbId}/markerprofiles/\" BAD    \"call\": \"germplasm/<germplasmDbId>/markerprofiles\"\n\n\n\ntest-server.brapi.org/brapi/v1/calls"
       parameters:
-      - deprecated: true
-        description: DEPRECATED in v1.3 - see dataType (camel case)
-        in: query
-        name: datatype
-        required: false
-        schema:
-          type: string
       - description: 'The data format supported by the call. Example: `json`'
         in: query
         name: dataType

@@ -19,10 +19,6 @@ components:
         methodName:
           description: Human readable name for the method
           type: string
-        name:
-          deprecated: true
-          description: DEPRECATED in v1.3 - Use "methodName"
-          type: string
         ontologyReference:
           $ref: '#/components/schemas/ontologyReference'
         reference:

@@ -5,112 +5,6 @@ A Program can contain multiple Trials. A Trial can contain multiple Studies.
 
 
 
-## Programs-search [/brapi/v1/programs-search] 
-
-
-
-
-### **Deprecated** Post Programs-search  [POST /brapi/v1/programs-search]
-
-DEPRECATED in v1.3 - see /search/programs
-
-**Request Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|abbreviation|string|An abbreviation of a program to search for|
-|leadPerson|string|The name or identifier of the program leader to search for|
-|name|string|A name of a program to search for|
-|objective|string|A program objective to search for|
-|page|integer|Which page of the "data" array to return. The page indexing starts at 0 (page=0 will return the first page). Default is 0.|
-|pageSize|integer|The maximum number of items to return per page of the "data" array. Default is 1000.|
-|programDbId|string|A program identifier to search for|
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|abbreviation|string|An abbreviation which represnts this program|
-|commonCropName|string|Common name for the crop which this program is for|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|leadPerson|string|DEPRECATED in v1.3 - see "leadPersonName" or "leadPersonDbId"|
-|leadPersonDbId|string|The unique identifier of the program leader|
-|leadPersonName|string|The name of the program leader|
-|name|string|DEPRECATED in v1.3 - Use "programName"|
-|objective|string|The primary objective of the program|
-|programDbId|string|The ID which uniquely identifies the program|
-|programName|string|Human readable name of the program|
-
-
- 
-
-+ Parameters
-
-
- 
-+ Request (application/json)
-```
-{
-    "abbreviation": "abbreviation0",
-    "leadPerson": "leadPerson0",
-    "name": "name0",
-    "objective": "objective0",
-    "page": 0,
-    "pageSize": 0,
-    "programDbId": "programDbId0"
-}
-```
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 2,
-            "totalCount": 2,
-            "totalPages": 1
-        },
-        "status": []
-    },
-    "result": {
-        "data": [
-            {
-                "abbreviation": "P1",
-                "commonCropName": "Tomatillo",
-                "documentationURL": "https://brapi.org",
-                "leadPerson": "Name Nameson",
-                "leadPersonDbId": "person1",
-                "leadPersonName": "Name Nameson",
-                "name": "Program 1",
-                "objective": "Global Population Improvement",
-                "programDbId": "1",
-                "programName": "Program 1"
-            },
-            {
-                "abbreviation": "P2",
-                "commonCropName": "Tomatillo",
-                "documentationURL": "https://brapi.org",
-                "leadPerson": "Name Nameson",
-                "leadPersonDbId": "person1",
-                "leadPersonName": "Name Nameson",
-                "name": "Program 2",
-                "objective": "XYZ",
-                "programDbId": "2",
-                "programName": "Program 2"
-            }
-        ]
-    }
-}
-```
-
-
-
 ## Programs [/brapi/v1/programs] 
 
 
@@ -130,10 +24,8 @@ Call to retrieve a list of programs.
 |abbreviation|string|An abbreviation which represnts this program|
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|leadPerson|string|DEPRECATED in v1.3 - see "leadPersonName" or "leadPersonDbId"|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
-|name|string|DEPRECATED in v1.3 - Use "programName"|
 |objective|string|The primary objective of the program|
 |programDbId|string|The ID which uniquely identifies the program|
 |programName|string|Human readable name of the program|
@@ -347,10 +239,8 @@ See Search Services for additional implementation details.
 |abbreviation|string|An abbreviation which represnts this program|
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|leadPerson|string|DEPRECATED in v1.3 - see "leadPersonName" or "leadPersonDbId"|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
-|name|string|DEPRECATED in v1.3 - Use "programName"|
 |objective|string|The primary objective of the program|
 |programDbId|string|The ID which uniquely identifies the program|
 |programName|string|Human readable name of the program|

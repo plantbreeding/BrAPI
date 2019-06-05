@@ -8,10 +8,6 @@ components:
         decimalPlaces:
           description: For numerical, number of decimal places to be reported
           type: integer
-        name:
-          deprecated: true
-          description: DEPRECATED in v1.3 - Use "scaleName"
-          type: string
         ontologyReference:
           $ref: '#/components/schemas/ontologyReference'
         scaleDbId:

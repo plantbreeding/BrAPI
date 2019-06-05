@@ -40,10 +40,6 @@ components:
                 type: string
             type: object
           type: array
-        genus:
-          deprecated: true
-          description: DEPRECATED in v1.3 - see "germplasmGenus"
-          type: string
         germplasmDbId:
           description: The ID which uniquely identifies a germplasm within the given database server
           type: string
@@ -70,10 +66,6 @@ components:
           type: string
         seedSource:
           description: 'The source of the seed '
-          type: string
-        species:
-          deprecated: true
-          description: DEPRECATED in v1.3 - see "germplasmSpecies"
           type: string
         speciesAuthority:
           description: The authority organization responsible for tracking and maintaining the species name (MCPD)

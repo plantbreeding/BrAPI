@@ -18,14 +18,6 @@ components:
           items:
             $ref: '#/components/schemas/contact'
           type: array
-        datasetAuthorship:
-          description: DEPRECATED in v1.3 - see datasetAuthorships
-          properties:
-            datasetPUI:
-              type: string
-            license:
-              type: string
-          type: object
         datasetAuthorships:
           description: License and citation information for the data in this trial
           items:

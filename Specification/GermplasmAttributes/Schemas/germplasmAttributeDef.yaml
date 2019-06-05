@@ -13,28 +13,8 @@ components:
           attributeName:
             description: A human readable name for this attribute
             type: string
-          code:
-            deprecated: true
-            description: DEPRECATED in v1.3 - see "this.trait.alternativeAbbreviations"
-            type: string
-          datatype:
-            deprecated: true
-            description: DEPRECATED in v1.3 - see "this.scale.dataType"
-            type: string
           description:
             description: A human readable description of this attribute
-            type: string
-          name:
-            deprecated: true
-            description: DEPRECATED in v1.3 - Use "this.attributeName"
-            type: string
-          uri:
-            deprecated: true
-            description: DEPRECATED in v1.3 - see "this.xref"
-            type: string
-          values:
-            deprecated: true
-            description: DEPRECATED in v1.3 - see "this.scale.validValues"
             type: string
         required:
         - attributeDbId

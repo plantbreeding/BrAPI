@@ -25,7 +25,6 @@ List all available attribute categories.
 |data|array[object]||
 |attributeCategoryDbId|string|The ID which uniquely identifies this attribute category within the given database server|
 |attributeCategoryName|string|A human readable name for this attribute category. Very similar to Trait class. (examples: "morphologic", "phenologic", "agronomic", "physiologic", "abiotic stress", "biotic stress", "biochemic", "quality traits", "fertility", etc.)|
-|name|string|DEPRECATED in v1.3 - Use "attributeCategoryName"|
 
 
  
@@ -113,7 +112,6 @@ List available attributes.
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 |methodDbId|string|Method unique identifier|
 |methodName|string|Human readable name for the method|
-|name|string|DEPRECATED in v1.3 - Use "methodName"|
 |ontologyReference|object||
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -122,8 +120,6 @@ List available attributes.
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
 |reference|string|Bibliographical reference describing the method.|
-|ontologyDbId|string|DEPRECATED in v1.3 - see "this.ontologyReference.ontologyDbId"|
-|ontologyName|string|DEPRECATED in v1.3 - see "this.ontologyReference.ontologyName"|
 |ontologyReference|object||
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -134,7 +130,6 @@ List available attributes.
 |scale|object|Scale metadata|
 |dataType|string|Class of the scale, entries can be     "Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal             scale that combines the expressions of the different traits composing the complex             trait. For exemple a severity trait might be expressed by a 2 digit and 2 character             code. The first 2 digits are the percentage of the plant covered by a fungus and the 2             characters refer to the delay in development, e.g. "75VD" means "75%" of the plant is              Crop Ontology & Integrated Breeding Platform  Curation Guidelines  5/6/2016 9             infected and the plant is very delayed.      "Date" - The date class is for events expressed in a time format, e.g. yyyymmddThh:mm:ssZ or dd/mm/yy      "Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months      "Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories      "Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectar, branches      "Ordinal" - Ordinal scales are scales composed of ordered categories      "Text" - A free text is used to express the trait.   |
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
-|name|string|DEPRECATED in v1.3 - Use "scaleName"|
 |ontologyReference|object||
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -160,7 +155,6 @@ List available attributes.
 |description|string|The description of a trait|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
 |mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
-|name|string|DEPRECATED in v1.3 - Use "traitName"|
 |ontologyReference|object||
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -177,12 +171,7 @@ List available attributes.
 |attributeCategoryDbId|string|General category for the attribute. very similar to Trait class.|
 |attributeDbId|string|The ID which uniquely identifies this attribute within the given database server|
 |attributeName|string|A human readable name for this attribute|
-|code|string|DEPRECATED in v1.3 - see "this.trait.alternativeAbbreviations"|
-|datatype|string|DEPRECATED in v1.3 - see "this.scale.dataType"|
 |description|string|A human readable description of this attribute|
-|name|string|DEPRECATED in v1.3 - Use "this.attributeName"|
-|uri|string|DEPRECATED in v1.3 - see "this.xref"|
-|values|string|DEPRECATED in v1.3 - see "this.scale.validValues"|
 
 
  

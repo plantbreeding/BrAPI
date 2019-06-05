@@ -14,7 +14,6 @@ def go():
 		       "GeneralInfo/Location_Encoding.md",
 		       "GeneralInfo/Search_Services.md",
 		       "GeneralInfo/Asychronous_Processing.md",
-		       "Authentication/README.md" ,
 		       "Calls/README.md" ,
 		       "Crops/README.md",
 		       "Germplasm/README.md",

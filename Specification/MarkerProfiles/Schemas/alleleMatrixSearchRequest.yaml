@@ -18,12 +18,6 @@ components:
           items:
             type: string
           type: array
-        markerprofileDbId:
-          deprecated: true
-          description: DEPRECATED in v1.3 - see "markerProfileDbId" (camel case)
-          items:
-            type: string
-          type: array
         matrixDbId:
           description: An ID which uniquely identifies an Allele Matrix
           items:

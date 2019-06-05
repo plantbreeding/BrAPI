@@ -23,10 +23,6 @@ components:
         mainAbbreviation:
           description: 'Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")'
           type: string
-        name:
-          deprecated: true
-          description: DEPRECATED in v1.3 - Use "traitName"
-          type: string
         ontologyReference:
           $ref: '#/components/schemas/ontologyReference'
         status:

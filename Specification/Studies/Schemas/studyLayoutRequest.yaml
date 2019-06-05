@@ -6,16 +6,6 @@ components:
           description: List of observation unit position data entities which need to be updated
           items:
             properties:
-              X:
-                deprecated: true
-                description: DEPRECATED - use "positionCoordinateX"
-                title: xCoordinate
-                type: string
-              Y:
-                deprecated: true
-                description: DEPRECATED - use "positionCoordinateY"
-                title: yCoordinate
-                type: string
               blockNumber:
                 type: integer
               entryType:

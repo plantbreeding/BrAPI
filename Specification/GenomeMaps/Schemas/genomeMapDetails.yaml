@@ -11,20 +11,11 @@ components:
           description: A URL to the human readable documentation of this object
           format: uri
           type: string
-        linkageGroups:
-          description: '**Deprecated** Use "data"'
-          items:
-            $ref: '#/components/schemas/linkageGroup'
-          type: array
         mapDbId:
           description: The ID which uniquely identifies this genome map
           type: string
         mapName:
           description: A human readable name for this map
-          type: string
-        name:
-          deprecated: true
-          description: DEPRECATED in v1.3 - Use "mapName"
           type: string
         type:
           description: The type of map this represents, ussually "Genetic" or "Physical"

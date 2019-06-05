@@ -2,16 +2,6 @@ components:
   schemas:
     newObservationUnitRequest:
       properties:
-        X:
-          deprecated: true
-          description: DEPRECATED - use "positionCoordinateX"
-          title: xCoordinate
-          type: string
-        Y:
-          deprecated: true
-          description: DEPRECATED - use "positionCoordinateY"
-          title: yCoordinate
-          type: string
         blockNumber:
           description: The block number for an observation unit. Different systems may use different block designs.
           type: string

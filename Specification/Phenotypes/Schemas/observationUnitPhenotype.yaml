@@ -2,16 +2,6 @@ components:
   schemas:
     observationUnitPhenotype:
       properties:
-        X:
-          deprecated: true
-          description: DEPRECATED - use "positionCoordinateX"
-          title: xCoordinate
-          type: string
-        Y:
-          deprecated: true
-          description: DEPRECATED - use "positionCoordinateY"
-          title: yCoordinate
-          type: string
         blockNumber:
           description: The block number for an observation unit. Different systems may use different block designs.
           type: string
@@ -47,7 +37,7 @@ components:
         observations:
           description: List of observations associated with this observation unit
           items:
-            $ref: '#/components/schemas/observationSummaryPhenotype'
+            $ref: '#/components/schemas/observationSummary'
           type: array
         plantNumber:
           description: 'The plant number in a field. Applicable for observationLevel: "plant"'
