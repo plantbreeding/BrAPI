@@ -1,4 +1,10 @@
-components: {}
+components: 
+  securitySchemes:
+    AuthorizationToken:
+      bearerFormat: nonce token or JWT
+      description: OAuth Bearer Token - A valid Bearer token to prove authorization
+      scheme: bearer
+      type: http
 info:
   description: 'The Breeding API (BrAPI) is a Standardized RESTful Web Service API Specification for communicating Plant Breeding Data. BrAPI allows for easy data sharing between databases and tools involved in plant breeding.
 
