@@ -5,6 +5,40 @@ components:
         A VariantSet is a collection of variants and variant calls intended to be
         analyzed together.
       properties:
+        availableFormats:
+          description: |-
+            When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats. 
+            
+            dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)
+            
+            fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevent request and response.
+          type: array
+          items:
+            type: object
+            description: Each 'availableFormat' object is a pairing of dataFormat and fileFormat. These must be comunicated in pairs because they are not independant parametres and sometimes one influences the other.
+            properties:
+              dataFormat:
+                description: dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)
+                type: string
+                enum:
+                - DartSeq
+                - VCF
+                - Hapmap
+                - tabular
+                - JSON 
+              fileFormat:
+                description: fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevent request and response.
+                type: string
+                enum:
+                - text/csv
+                - text/tsv
+                - application/excel
+                - application/zip
+                - application/json
+              fileURL:
+                description: A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file.
+                type: string
+                format: uri
         studyDbId:
           description: The ID of the dataset this variant set belongs to.
           type: string

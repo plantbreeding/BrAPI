@@ -1,0 +1,76 @@
+openapi: 3.0.0
+info:
+  title: ga4gh/reference_service.proto
+  version: version not set
+paths:
+  /referencesets:
+    get:
+      summary: Gets a `ReferenceSet` by ID.
+      description: |-
+        `GET /referencesets/{reference_set_id}` will return a JSON version of
+        `ReferenceSet`.
+      operationId: GetReferenceSet
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    properties:
+                      data:
+                        items:
+                          $ref: '#/components/schemas/ReferenceSet'
+                        type: array
+                    required:
+                    - data
+                    title: referenceListResponseResult
+                    type: object
+                required:
+                - metadata
+                - result
+                title: referenceListResponse
+                type: object
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      parameters:
+        - name: referenceSetDbId
+          description: The ID of the `ReferenceSet` to be retrieved.
+          in: query
+          schema:
+            type: string
+        - name: accession
+          description: |-
+            If unset, return the reference sets for which the `accession`
+            matches this string (case-sensitive, exact match).
+          in: query
+          schema:
+            type: string
+        - name: assemblyPUI
+          description: |-
+            If unset, return the reference sets for which the `assemblyId`
+            matches this string (case-sensitive, exact match).
+          in: query
+          schema:
+            type: string
+        - name: md5checksum
+          description: |-
+            If unset, return the reference sets for which the
+            `md5checksum` matches this string (case-sensitive, exact match).
+            See `ReferenceSet::md5checksum` for details.
+          in: query
+          schema:
+            type: string
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/pageSize'
+        - $ref: '#/components/parameters/authorizationHeader'
+      tags:
+        - GA4GH

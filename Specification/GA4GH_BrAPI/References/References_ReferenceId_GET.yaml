@@ -3,26 +3,44 @@ info:
   title: ga4gh/reference_service.proto
   version: version not set
 paths:
-  /references/{reference_id}:
+  /references/{referenceDbId}:
     get:
       summary: Gets a `Reference` by ID.
       description: |-
         `GET /references/{reference_id}` will return a JSON version of
         `Reference`.
       operationId: GetReference
+      parameters:
+        - name: referenceDbId
+          description: The ID of the `Reference` to be retrieved.
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         '200':
           description: A successful response.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Reference'
-      parameters:
-        - name: reference_id
-          description: The ID of the `Reference` to be retrieved.
-          in: path
-          required: true
-          schema:
-            type: string
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/Reference'
+                required:
+                - metadata
+                - result
+                title: ReferenceResponse
+                type: object
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
       tags:
         - GA4GH

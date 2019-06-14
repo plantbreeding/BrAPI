@@ -10,17 +10,12 @@ components:
       properties:
         attributes:
           $ref: '#/components/schemas/Attributes'
-        id:
+        referenceDbId:
           description: The reference ID. Unique within the repository.
           type: string
-        is_derived:
+        isDerived:
           description: |-
-            A sequence X is said to be derived from source sequence Y, if X and Y
-            are of the same length and the per-base sequence divergence at A/C/G/T
-            bases
-            is sufficiently small. Two sequences derived from the same official
-            sequence share the same coordinates and annotations, and
-            can be replaced with the official sequence for certain use cases.
+            A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.
           format: boolean
           type: boolean
         length:
@@ -33,31 +28,25 @@ components:
             hexadecimal string, calculated as the MD5 of the upper-case sequence
             excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).
           type: string
-        name:
+        referenceName:
           description: The unique name of this reference within the Reference Set (e.g. '22').
           type: string
-        source_accessions:
+        sourceAccessions:
           description: |-
             All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which
-            must include
-            a version number, e.g. `GCF_000001405.26`.
+            must include a version number, e.g. `GCF_000001405.26`.
           items:
             type: string
           type: array
-        source_divergence:
+        sourceDivergence:
           description: |-
             The `sourceDivergence` is the fraction of non-indel bases that do not match
-            the
-            reference this message was derived from.
+            the reference this message was derived from.
           format: float
           type: number
-        source_uri:
+        sourceURI:
           description: |-
-            The URI from which the sequence was obtained. Specifies a FASTA format
-            file/string with one name, sequence pair. In most cases, clients should
-            call
-            the `getReferenceBases()` method to obtain sequence bases for a `Reference`
-            instead of attempting to retrieve this URI.
+            The URI from which the sequence was obtained. Specifies a FASTA format file/string with one name, sequence pair. In most cases, clients should call the `getReferenceBases()` method to obtain sequence bases for a `Reference` instead of attempting to retrieve this URI.
           type: string
         species:
           $ref: '#/components/schemas/OntologyTerm'

@@ -13,12 +13,12 @@ components:
           type: string
         description:
           type: string
-        id:
+        analysisDbId:
           description: |-
             Formats of id | name | description | accessions are described in the
             documentation on general attributes and formats.
           type: string
-        name:
+        analysisName:
           type: string
         software:
           description: The software run to generate this analysis.

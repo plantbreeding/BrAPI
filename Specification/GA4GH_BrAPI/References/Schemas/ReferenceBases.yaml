@@ -1,9 +1,9 @@
 components:
   schemas:
-    ListReferenceBasesResponse:
+    ReferenceBases: 
       description: The response from `POST /listreferencebases` expressed as JSON.
       properties:
-        next_page_token:
+        nextPageToken:
           description: |-
             The continuation token, which is used to page through large result sets.
             Provide this value in a subsequent request to return the next page of
