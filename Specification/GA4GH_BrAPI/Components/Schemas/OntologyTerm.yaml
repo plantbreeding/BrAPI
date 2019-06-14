@@ -5,7 +5,7 @@ components:
         term:
           description: Ontology term - the label of the ontology term the termId is pointing to.
           type: string
-        term_id:
+        termURI: 
           description: |-
             Ontology term identifier - the CURIE for an ontology term. It
             differs from the standard GA4GH schema's :ref:`id `

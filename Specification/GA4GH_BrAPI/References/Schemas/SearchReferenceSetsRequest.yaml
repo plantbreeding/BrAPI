@@ -10,7 +10,7 @@ components:
             If unset, return the reference sets for which the `accession`
             matches this string (case-sensitive, exact match).
           type: string
-        assembly_id:
+        assemblyPUI:
           description: |-
             If unset, return the reference sets for which the `assemblyId`
             matches this string (case-sensitive, exact match).

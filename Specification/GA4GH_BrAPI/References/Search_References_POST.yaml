@@ -3,7 +3,7 @@ info:
   title: ga4gh/reference_service.proto
   version: version not set
 paths:
-  /references/search:
+  /search/references: 
     post:
       summary: Gets a list of `Reference` matching the search criteria.
       description: |-
@@ -11,18 +11,22 @@ paths:
         `SearchReferencesRequest` as the post body and will return a JSON
         version of `SearchReferencesResponse`.
       operationId: SearchReferences
-      responses:
-        '200':
-          description: A successful response.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SearchReferencesResponse'
-      tags:
-        - GA4GH
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
+        description: References Search request
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/SearchReferencesRequest'
-        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/successfulSearchResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+        - GA4GH

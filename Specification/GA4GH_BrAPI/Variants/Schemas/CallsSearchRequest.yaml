@@ -10,16 +10,11 @@ components:
           type: array
           items:
             type: string
-        pageSize:
-          description: |-
-            Specifies the maximum number of results to return in a single page.
-            If unspecified, a system default will be used.
-          format: int32
+        page:
+          description: Which page of the "data" array to return. The page indexing starts at 0 (page=0 will return the first page). Default is 0.
           type: integer
-        page: 
-          description: |-
-            Index number of the page to retrieve.
-          format: int32
+        pageSize:
+          description: The maximum number of items to return per page of the "data" array. Default is 1000.
           type: integer
         variantDbIds: 
           description: The Variant to search.

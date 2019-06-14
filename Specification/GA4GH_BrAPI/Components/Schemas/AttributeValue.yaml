@@ -10,7 +10,7 @@ components:
       properties:
         analysis:
           $ref: '#/components/schemas/Analysis'
-        attribute_list:
+        attributeList:
           $ref: '#/components/schemas/AttributeValueList'
         attributes:
           $ref: '#/components/schemas/Attributes'
