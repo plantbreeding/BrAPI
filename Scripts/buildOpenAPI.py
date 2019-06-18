@@ -19,7 +19,7 @@ def go(rootPath, metaFilePath = './swaggerMetaData.yaml'):
     paths = {}
     defin = {'schemas': {}, 'parameters': {}, 'responses': {}, 'securitySchemes': {}}
     
-    for filename in glob.iglob(rootPath + '/Specification/**/*.yaml', recursive=True):
+    for filename in glob.iglob(rootPath + '/**/*.yaml', recursive=True):
         #print(filename)
         with open(filename, "r") as stream:
             try:
