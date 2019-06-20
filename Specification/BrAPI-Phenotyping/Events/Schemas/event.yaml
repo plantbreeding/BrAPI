@@ -1,6 +1,7 @@
 components:
   schemas:
     event:
+      type: object 
       properties:
         eventDbId:
           description: Internal database identifier
@@ -17,8 +18,8 @@ components:
         studyDbId: 
           description: The study in which the event occurred
           type: string
-        observationUnitDbIds: A list of the affected observation units. If this parameter is not given, it is understood that the event affected all units in the study
-          description: 
+        observationUnitDbIds: 
+          description: A list of the affected observation units. If this parameter is not given, it is understood that the event affected all units in the study
           items:
             type: string
           type: array
@@ -28,8 +29,8 @@ components:
             format: date
             type: string
           type: array
-        additionalInfo: A list of objects describing additional event parameters. Each of the following accepts a human-readable value or URI
-          description:
+        additionalInfo: 
+          description: A list of objects describing additional event parameters. Each of the following accepts a human-readable value or URI
           items: 
             properties:
               key:
@@ -43,7 +44,6 @@ components:
                 type: string
             type: object
           type: array 
-    type: object
 info:
   title: BrAPI
   version: ''

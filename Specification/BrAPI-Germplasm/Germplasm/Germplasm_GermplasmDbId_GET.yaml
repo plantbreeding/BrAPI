@@ -55,7 +55,7 @@ paths:
                     latitudeDecimal: '+39.067'
                     longitudeDecimal: '-8,73'
                   seedSourseDescription: Branches were collected from a 10-year-old tree growing in a progeny trial established in a loamy brown earth soil.
-                  germplasmPreprocessing: EO:0007210 - PVY(NTN); transplanted from study http://phenome-fppn.fr/maugio/2013/t2351 observation unit ID: pot:894
+                  germplasmPreprocessing: 'EO:0007210 - PVY(NTN); transplanted from study http://phenome-fppn.fr/maugio/2013/t2351 observation unit ID: pot:894'
                   synonyms:
                   - variety 1
                   taxonIds:

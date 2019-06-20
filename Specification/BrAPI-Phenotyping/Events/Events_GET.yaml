@@ -77,4 +77,4 @@ paths:
           $ref: '#/components/responses/403Forbidden'
       summary: Get the Events
       tags:
-- Events
+      - Events
