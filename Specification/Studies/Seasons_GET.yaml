@@ -7,13 +7,14 @@ paths:
     get:
       description: "Call to retrive all seasons in the database.\n\nA season is made of 2 parts\n\n- The primary year \n\n- A term which defines a segment of the year. \nThis could be a traditional season, like \"Spring\" or \"Summer\"; \nthis could be a month, like \"May\" or \"June\"; \nor this could be an arbitrary season name which is meaningful to the breeding program like \"PlantingTime_3\" or \"Season E\""
       parameters:
-      - description: The unique identifier for a season
+      - description: The unique identifier for a season. For backward compatibility it can be a string like '2012', '1957-2004'
+        example: 2012, 2012-2019, 3
         in: query
         name: seasonDbId
         required: false
         schema:
           type: string
-      - description: The term to describe a given season. Example "Spring" OR "May" OR "PlantingTime7"
+      - description: The term to describe a given season. Example "Spring" OR "May" OR "PlantingTime7".
         example: Spring
         in: query
         name: season
@@ -49,7 +50,7 @@ paths:
                     seasonDbId: '1'
                     year: '2011'
                   - season: winter
-                    seasonDbId: '2'
+                    seasonDbId: 2012
                     year: '2012'
               schema:
                 properties:

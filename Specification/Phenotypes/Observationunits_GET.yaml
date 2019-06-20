@@ -111,14 +111,20 @@ paths:
                       observationTimeStamp: '2013-06-14T22:03:51-04:00'
                       observationVariableDbId: MO_123:100002
                       observationVariableName: Plant height
-                      season: fall 2011
+                      season:
+                        season: fall
+                        seasonDbId: '1'
+                        year: '2011'
                       value: '1.2'
                     - collector: A. Technician
                       observationDbId: '2'
                       observationTimeStamp: '2013-06-14T22:04:51-04:00'
                       observationVariableDbId: MO_123:100006
                       observationVariableName: Virus severity
-                      season: fall 2011
+                      season:
+                        season: fall
+                        seasonDbId: '1'
+                        year: '2011'
                       value: '4.5'
                     plantNumber: 'null'
                     plotNumber: '1'
@@ -149,21 +155,30 @@ paths:
                       observationTimeStamp: '2011-06-14T22:06:51-04:00'
                       observationVariableDbId: MO_123:100002
                       observationVariableName: Plant height
-                      season: winter 2012
+                      season:
+                        season: winter
+                        seasonDbId: '2'
+                        year: '2012'
                       value: '100'
                     - collector: B. Tech
                       observationDbId: '17'
                       observationTimeStamp: '2011-06-14T22:07:51-04:00'
                       observationVariableDbId: MO_123:100003
                       observationVariableName: Carotenoid
-                      season: winter 2012
+                      season:
+                        season: winter
+                        seasonDbId: '2'
+                        year: '2012'
                       value: '9'
                     - collector: B. Tech
                       observationDbId: '18'
                       observationTimeStamp: '2011-06-14T22:08:51-04:00'
                       observationVariableDbId: MO_123:100004
                       observationVariableName: Root weight
-                      season: winter 2012
+                      season:
+                        season: winter
+                        seasonDbId: '2'
+                        year: '2012'
                       value: '2'
                     plantNumber: '5'
                     plotNumber: '5'

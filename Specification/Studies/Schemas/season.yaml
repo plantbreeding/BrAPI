@@ -6,12 +6,14 @@ components:
           description: Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.
           type: string
         seasonDbId:
-          description: The ID which uniquely identifies a season
+          description: The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'
           type: string
         year:
           description: The 4 digit year of the season.
           type: string
       type: object
+      required:
+      - seasonDbId
 info:
   title: BrAPI
   version: ''
