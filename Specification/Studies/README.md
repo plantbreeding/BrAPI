@@ -1180,6 +1180,44 @@ Linked data
         ],
         "documentationURL": "https://brapi.org",
         "endDate": "2014-01-01",
+        "environmentParameters": [
+            {
+                "parameterName": "soil type",
+                "parameterPUI": "http://purl.obolibrary.org/obo/PECO_0007155",
+                "description": "the soil type was clay",
+                "value": "clay soil",
+                "valuePUI": "http://purl.obolibrary.org/obo/ENVO_00002262",
+                "unit": "",
+                "unitPUI": ""
+            },
+            {
+                "parameterName": "fertilizer type",
+                "parameterPUI": "",
+                "description": "Nitrogen, productID foo from company ACME",
+                "value": "",
+                "valuePUI": "",
+                "unit": "",
+                "unitPUI": ""
+            },
+            {
+                "parameterName": "sowing density",
+                "parameterPUI": "http://purl.obolibrary.org/obo/AGRO_00000202",
+                "description": "300 seeds per m2",
+                "value": "300",
+                "valuePUI": "",
+                "unit": "seeds/m2",
+                "unitPUI": ""
+            },
+            {
+                "parameterName": "rooting medium composition",
+                "parameterPUI": "",
+                "description": "Clay 50% plus sand",
+                "value": "",
+                "valuePUI": "",
+                "unit": "",
+                "unitPUI": ""
+            }
+        ],
         "lastUpdate": {
             "timestamp": "2015-01-01T00:00:00-05:00",
             "version": "1.1"
@@ -2211,7 +2249,9 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
  
 
 + Parameters
-    + studyDbId (Required, ) ... Identifier of the study. Usually a number, could be alphanumeric.
+    + 
+    + 
+    +  (Required, ) ... Identifier of the study. Usually a number, could be alphanumeric.
     + observationVariableDbIds (Optional, ) ... Numeric `id` of that variable (combination of trait, unit and method)
     + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
