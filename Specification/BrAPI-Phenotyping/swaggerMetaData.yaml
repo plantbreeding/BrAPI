@@ -19,7 +19,7 @@ info:
     <div><a href="https://github.com/plantbreeding/API/blob/master/Specification/GeneralInfo/Asychronous_Processing.md">Asynchronous Processing</a></div>
     </div>
 
-    <div class="current-brapi-section brapi-section">
+    <div class="brapi-section">
     <div class="brapi-section-title">BrAPI Core</div>
     <div class="brapi-section-description">The BrAPI Core module contains high level entities used for organization and management. This includes Programs, Trials, Studies, Locations, People, and Lists</div>
     <div class="version-number">V2.0</div>
@@ -29,7 +29,7 @@ info:
     <div class="stop-float"></div>
     </div>
     
-    <div class="brapi-section">
+    <div class="current-brapi-section brapi-section">
     <h2 class="brapi-section-title">BrAPI Phenotyping</h2>
     <div class="brapi-section-description">The BrAPI Phenotyping module contains entities related to phenotypic observations. This includes Observation Units, Observations, Observation Variables, Traits, Scales, Methods, and Images</div>
     <div class="version-number">V2.0</div>
@@ -99,36 +99,6 @@ security:
 servers:
 - url: https://test-server.brapi.org/brapi/v1
 tags:
-- description: Check the available calls on a server
-  externalDocs:
-    description: Docs
-    url: https://wiki.brapi.org/
-  name: Calls
-- description: Information about Crops
-  externalDocs:
-    description: Docs
-    url: https://wiki.brapi.org/
-  name: Crops
-- description: Information about Programs
-  externalDocs:
-    description: Docs
-    url: https://wiki.brapi.org/
-  name: Programs
-- description: Information about Locations
-  externalDocs:
-    description: Docs
-    url: https://wiki.brapi.org/
-  name: Locations
-- description: Information about Trials
-  externalDocs:
-    description: Docs
-    url: https://wiki.brapi.org/
-  name: Trials
-- description: Information about Studies
-  externalDocs:
-    description: Docs
-    url: https://wiki.brapi.org/
-  name: Studies
 - description: Information about Observations
   externalDocs:
     description: Docs
@@ -144,60 +114,8 @@ tags:
     description: Docs
     url: https://wiki.brapi.org/
   name: Phenotypes
-- description: Information about Germplasm
-  externalDocs:
-    description: Docs
-    url: https://wiki.brapi.org/
-  name: Germplasm
-- description: Information about Germplasm Attributes
-  externalDocs:
-    description: Docs
-    url: https://wiki.brapi.org/
-  name: Germplasm Attributes
-- description: Information about Markers
-  externalDocs:
-    description: Docs
-    url: https://wiki.brapi.org/
-  name: Markers
-- description: Information about Marker Profiles
-  externalDocs:
-    description: Docs
-    url: https://wiki.brapi.org/
-  name: Marker Profiles
-- description: Information about Genome Maps
-  externalDocs:
-    description: Docs
-    url: https://wiki.brapi.org/
-  name: Genome Maps
-- description: Information about Samples
-  externalDocs:
-    description: Docs
-    url: https://wiki.brapi.org/
-  name: Samples
-- description: 'This interface is specific to facilities that performs an external analysis, such as genotyping facilities. The interface should be implemented by that facility''s server. The breeding database is the client of this interface.
-
-    Note that to use these calls, you likely have to use the authentication call prior to connecting (see Authentication best practices).'
-  externalDocs:
-    description: Docs
-    url: https://wiki.brapi.org/
-  name: Vendor
-- description: Create and manipulate generic lists
-  externalDocs:
-    description: Docs
-    url: https://wiki.brapi.org/
-  name: Lists
 - description: Create and manipulate image data
   externalDocs:
     description: Docs
     url: https://wiki.brapi.org/
   name: Images
-- description: Create and manipulate information about people
-  externalDocs:
-    description: Docs
-    url: https://wiki.brapi.org/
-  name: People
-- description: The available Search Services for finding data
-  externalDocs:
-    description: Docs
-    url: https://wiki.brapi.org/
-  name: Search Services

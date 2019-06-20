@@ -1,0 +1,59 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /variantsets/{variantSetDbId}/calls:
+    get:
+      summary:  Gets a list of `Calls` associated with a `VariantSet`.
+      description: '
+        Gets a list of `Calls` associated with a `VariantSet`.
+      
+        Also See:
+        
+        `GET /calls?variantSetDbId={variantSetDbId}`
+        '
+      parameters:
+        - name: variantSetDbId
+          description: The ID of the `VariantSet` to be retrieved.
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/pageSize'
+        - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    properties:
+                      data:
+                        items:
+                          $ref: '#/components/schemas/Call'
+                        type: array
+                    required:
+                    - data
+                    title: callListResponseResult
+                    type: object
+                required:
+                - metadata
+                - result
+                title: callListResponse
+                type: object
+          description: OK
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+        - Variant Sets

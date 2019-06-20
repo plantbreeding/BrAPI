@@ -1,0 +1,73 @@
+openapi: 3.0.0
+info:
+  title: ga4gh/reference_service.proto
+  version: version not set
+paths:
+  /references/{referenceDbId}/bases: 
+    get:
+      summary: Lists `Reference` bases by ID and optional range.
+      description: |-
+        `POST /listreferencebases` will return a JSON version of
+        `ListReferenceBasesResponse`.
+      parameters: 
+        - name: referenceDbId
+          description: The ID of the `Reference` to be retrieved.
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: start
+          description: |-
+            The start position (0-based) of this query. Defaults to 0.
+            Genomic positions are non-negative integers less than reference length.
+            Requests spanning the join of circular genomes are represented as
+            two requests one on each side of the join (position 0).
+          in: query
+          required: false
+          schema: 
+            format: int64
+            type: integer
+        - name: end
+          description: The end position (0-based, exclusive) of this query. Defaults to the length of this `Reference`.
+          in: query
+          required: false
+          schema: 
+            format: int64
+            type: integer
+        - name: pageToken
+          description: |-
+            The continuation token, which is used to page through large result sets.
+            To get the next page of results, set this parameter to the value of
+            `next_page_token` from the previous response.
+          in: query
+          required: false
+          schema: 
+            type: string
+        - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/ReferenceBases'
+                required:
+                - metadata
+                - result
+                title: ReferenceBasesResponse
+                type: object
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+        - References

@@ -1,0 +1,44 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /variants/{variantDbId}:
+    get:
+      summary: Gets a `Variant` by ID.
+      description: '`GET /variants/{id}` will return a JSON version of `Variant`.'
+      parameters:
+        - name: variantDbId
+          description: The ID of the `Variant` to be retrieved.
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/Variant'
+                required:
+                - metadata
+                - result
+                title: callSetResponse
+                type: object
+          description: OK
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+        - Variants

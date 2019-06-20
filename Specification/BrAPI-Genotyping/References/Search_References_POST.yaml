@@ -1,20 +1,23 @@
-info:
-  title: BrAPI
-  version: ''
 openapi: 3.0.0
+info:
+  title: ga4gh/reference_service.proto
+  version: version not set
 paths:
-  /search/samples:
+  /search/references: 
     post:
-      description: 'Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
-
-        See Search Services for additional implementation details.'
+      summary: Gets a list of `Reference` matching the search criteria.
+      description: |-
+        `POST /references/search` must accept a JSON version of
+        `SearchReferencesRequest` as the post body and will return a JSON
+        version of `SearchReferencesResponse`.
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
+        description: References Search request
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/sampleSearchRequest'
+              $ref: '#/components/schemas/SearchReferencesRequest'
       responses:
         '200':
           $ref: '#/components/responses/successfulSearchResponse'
@@ -24,6 +27,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Submit a search request for Samples
       tags:
-      - Samples
+        - References

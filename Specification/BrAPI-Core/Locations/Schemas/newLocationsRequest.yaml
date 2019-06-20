@@ -1,0 +1,53 @@
+components:
+  schemas:
+    newLocationsRequest: 
+      properties:
+        locations:
+          type: array
+          items: 
+            type: object
+            properties: 
+              abbreviation:
+                description: An abbreviation which represents this location
+                type: string
+              additionalInfo:
+                additionalProperties:
+                  type: string
+                description: Additional arbitrary info
+                type: object
+              altitude:
+                description: The altitude of this location
+                type: number
+              countryCode:
+                description: '[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec'
+                type: string
+              countryName:
+                description: The full name of the country where this location is
+                type: string
+              documentationURL:
+                description: A URL to the human readable documentation of this object
+                format: uri
+                type: string
+              instituteAddress:
+                description: The street address of the institute representing this location
+                type: string
+              instituteName:
+                description: each institute/laboratory can have several experimental field
+                type: string
+              latitude:
+                description: The latitude of this location
+                type: number
+              locationName:
+                description: A human readable name for this location
+                type: string
+              locationType:
+                description: The type of location this represents (ex. Breeding Location, Storage Location, etc)
+                type: string
+              longitude:
+                description: the longitude of this location
+                type: number
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

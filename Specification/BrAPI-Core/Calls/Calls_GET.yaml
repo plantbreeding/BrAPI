@@ -34,8 +34,6 @@ paths:
                   - call: allelematrices
                     dataTypes:
                     - application/json
-                    datatypes:
-                    - application/json
                     methods:
                     - GET
                     versions:
@@ -45,8 +43,6 @@ paths:
                     - '1.3'
                   - call: allelematrices-search
                     dataTypes:
-                    - application/json
-                    datatypes:
                     - application/json
                     methods:
                     - GET

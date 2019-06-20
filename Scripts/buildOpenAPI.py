@@ -8,6 +8,7 @@
 import yaml
 import glob
 import sys
+import os
 
 
 def str_presenter(dumper, data):
@@ -18,8 +19,14 @@ def str_presenter(dumper, data):
 def go(rootPath, metaFilePath = './swaggerMetaData.yaml'):
     paths = {}
     defin = {'schemas': {}, 'parameters': {}, 'responses': {}, 'securitySchemes': {}}
-    
-    for filename in glob.iglob(rootPath + '/**/*.yaml', recursive=True):
+        
+    outFilePath = rootPath + '/brapi_openapi.yaml'
+    if os.path.exists(outFilePath):
+        os.remove(outFilePath)
+        
+    filenames = glob.glob(rootPath + '/**/*.yaml', recursive=True)
+    filenames.extend(glob.glob(rootPath + '/../Components/**/*.yaml', recursive=True))
+    for filename in filenames:
         #print(filename)
         with open(filename, "r") as stream:
             try:
@@ -53,7 +60,6 @@ def go(rootPath, metaFilePath = './swaggerMetaData.yaml'):
     out['paths'].update(paths)
     out['components'].update(defin)
     
-    outFilePath = rootPath + '/brapi_openapi.yaml'
     with open(outFilePath, 'w') as outfile:
         print(outFilePath)
         yaml.dump(out, outfile, default_flow_style=False, width=float("inf"))

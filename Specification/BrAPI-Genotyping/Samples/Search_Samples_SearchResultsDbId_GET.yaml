@@ -85,4 +85,3 @@ paths:
       summary: Get the results of a Samples search request
       tags:
       - Samples
-      - Search Services

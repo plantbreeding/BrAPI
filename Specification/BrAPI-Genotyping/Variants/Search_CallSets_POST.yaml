@@ -3,18 +3,24 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /search/samples:
+  /search/callsets:
     post:
-      description: 'Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
+      summary: Gets a list of call sets matching the search criteria.
+      description: >-
+        `POST /callsets/search` must accept a JSON version of
 
-        See Search Services for additional implementation details.'
+        `SearchCallSetsRequest` as the post body and will return a JSON version
+        of
+
+        `SearchCallSetsResponse`.
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/sampleSearchRequest'
+              $ref: '#/components/schemas/callSetsSearchRequest'
+        description: Study Search request
       responses:
         '200':
           $ref: '#/components/responses/successfulSearchResponse'
@@ -24,6 +30,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Submit a search request for Samples
       tags:
-      - Samples
+      - Call Sets
