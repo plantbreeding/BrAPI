@@ -15,6 +15,9 @@ components:
         url:
           description: The URL which links to external data
           type: string
+        version:
+          description: The version number of the data set.
+          type: string
       type: object
 info:
   title: BrAPI

@@ -50,6 +50,7 @@ paths:
                     name: image-archive12.zip
                     type: Image archive
                     url: http://data.inra.fr/archive/multi-spect-flowering.zip
+                    version: 1.1
                   - dataLinkName: image-archive13.zip
                     name: image-archive13.zip
                     type: Image archive
@@ -126,6 +127,14 @@ paths:
                   studyTypeName: Yield study
                   trialDbId: '101'
                   trialName: Peru Yield Trial 1
+                  culturalPractices: Irrigation was applied according needs during summer to prevent water stress.
+                  observationUnitsDescription: Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.
+                  experimentalDesign:
+                    description: Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliness groups based on a priori information.
+                    PUI: CO_715:0000145
+                  growthFacility:
+                    description: field environment condition, greenhouse
+                    PUI: CO_715:0000162
               schema:
                 properties:
                   metadata:

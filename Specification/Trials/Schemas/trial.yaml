@@ -34,6 +34,10 @@ components:
                 type: string
               license:
                 type: string
+              submissionDate:
+                type: string
+              publicReleaseDate:
+                type: string
             type: object
           type: array
         documentationURL:
@@ -82,6 +86,9 @@ components:
           type: string
         trialName:
           description: The human readable name of a trial
+          type: string
+        trialDescription:
+          description: The human readable description of a trial
           type: string
       type: object
 info:
