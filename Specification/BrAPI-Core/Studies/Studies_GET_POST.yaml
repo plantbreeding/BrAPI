@@ -5,16 +5,10 @@ openapi: 3.0.0
 paths:
   /studies:
     get:
-      description: 'Get list of studies
-
-
+      description: |-
+        Get list of studies
         Implementation Notes
-
-
         StartDate and endDate should be ISO8601 format for dates
-
-
-        See Search Services for additional implementation details.'
       parameters:
       - description: Common name for the crop associated with this study
         in: query
@@ -187,3 +181,114 @@ paths:
       summary: Get the Studies
       tags:
       - Studies
+    post:
+      description: |-
+        Create new studies
+        Implementation Notes
+        StartDate and endDate should be ISO8601 format for dates
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                trials:
+                  type: array
+                  items: 
+                    $ref: '#/components/schemas/newStudyRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 2
+                    totalPages: 1
+                  status: []
+                result:
+                  data:
+                  - active: 'true'
+                    additionalInfo:
+                      studyObjective: Increase yield
+                    commonCropName: Tomatillo
+                    documentationURL: https://brapi.org
+                    endDate: '2014-01-01'
+                    locationDbId: '1'
+                    locationName: Location 1
+                    name: Study 1
+                    programDbId: '1'
+                    programName: Program 1
+                    seasons:
+                    - season: fall
+                      seasonDbId: '1'
+                      year: '2011'
+                    - season:
+                      seasonDbId: '2012'
+                      year:
+                    startDate: '2013-01-01'
+                    studyDbId: '1001'
+                    studyName: Study 1
+                    studyType: Yield study
+                    studyTypeDbId: '2'
+                    studyTypeName: Yield study
+                    trialDbId: '101'
+                    trialName: Peru Yield Trial 1
+                  - active: 'true'
+                    additionalInfo:
+                      publications: pmid:23643517318968
+                    commonCropName: Tomatillo
+                    documentationURL: https://brapi.org
+                    endDate: '2015-01-01'
+                    locationDbId: '1'
+                    locationName: Location 1
+                    name: Study 2
+                    programDbId: '1'
+                    programName: Program 1
+                    seasons:
+                    - season: winter
+                      seasonDbId: '2'
+                      year: '2012'
+                    startDate: '2014-01-01'
+                    studyDbId: '1002'
+                    studyName: Study 2
+                    studyType: Yield study
+                    studyTypeDbId: '2'
+                    studyTypeName: Yield study
+                    trialDbId: '101'
+                    trialName: Peru Yield Trial 1
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    properties:
+                      data:
+                        items:
+                          $ref: '#/components/schemas/studySummary'
+                        type: array
+                    required:
+                    - data
+                    type: object
+                required:
+                - metadata
+                - result
+                title: studiesResponse
+                type: object
+          description: OK
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      summary: Get the Studies
+      tags: 
+      - Studies
+      

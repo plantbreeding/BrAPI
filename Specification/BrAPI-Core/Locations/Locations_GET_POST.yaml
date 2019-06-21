@@ -110,7 +110,12 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/newLocationsRequest'
+              type: object
+              properties:
+                locations:
+                  type: array
+                  items: 
+                    $ref: '#/components/schemas/newLocationsRequest'
       responses:
         '200':
           content:

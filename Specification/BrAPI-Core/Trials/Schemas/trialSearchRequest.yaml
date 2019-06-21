@@ -1,0 +1,51 @@
+components:
+  schemas:
+    trialSearchRequest:
+      type: object
+      properties:
+        active:
+          description: Is this trail currently active
+          type: boolean
+        commonCropNames:
+          description: Common name for the crop associated with this trial
+          type: array
+          items:
+            type: string
+        contactDbIds:
+          description: List of contact entities associated with this trial
+          type: array
+          items:
+            type: string
+        programDbIds:
+          description: A program identifier to search for
+          type: array
+          items:
+            type: string
+        searchDateRangeStart:
+          description: The start of the overlapping search date range
+          format: date
+          type: string
+        searchDateRangeEnd:
+          description: The end of the overlapping search date range
+          format: date
+          type: string
+        studyDbIds:
+          description: The ID which uniquely identifies a study
+          type: array
+          items:
+            type: string
+        trialDbIds:
+          description: The ID which uniquely identifies a trial
+          type: array
+          items:
+            type: string
+        trialNames:
+          description: The human readable name of a trial
+          type: array
+          items:
+            type: string
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

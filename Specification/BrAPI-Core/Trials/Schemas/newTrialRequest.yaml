@@ -1,6 +1,6 @@
 components:
   schemas:
-    trialSummary:
+    newTrialRequest:
       properties:
         active:
           description: Is this trail currently active
@@ -13,6 +13,25 @@ components:
         commonCropName:
           description: Common name for the crop associated with this trial
           type: string
+        contacts:
+          description: List of contact entities associated with this trial
+          items:
+            $ref: '#/components/schemas/contact'
+          type: array
+        datasetAuthorships:
+          description: License and citation information for the data in this trial
+          items:
+            properties:
+              datasetPUI:
+                type: string
+              license:
+                type: string
+              submissionDate:
+                type: string
+              publicReleaseDate:
+                type: string
+            type: object
+          type: array
         documentationURL:
           description: A URL to the human readable documentation of this object
           format: uri
@@ -22,31 +41,23 @@ components:
           format: date
           type: string
         programDbId:
-          description: The ID which uniquely identifies a program
+          description: A program identifier to search for
           type: string
         programName:
           description: The human readable name of a program
           type: string
-        startDate:
-          description: The date this trial started
-          format: date
-          type: string
-        studies:
-          description: List of studies inside this trial
+        publications:
           items:
             properties:
-              locationDbId:
+              publicationPUI:
                 type: string
-              locationName:
-                type: string
-              studyDbId:
-                type: string
-              studyName:
+              publicationReference:
                 type: string
             type: object
           type: array
-        trialDbId:
-          description: The ID which uniquely identifies a trial
+        startDate:
+          description: The date this trial started
+          format: date
           type: string
         trialName:
           description: The human readable name of a trial

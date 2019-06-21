@@ -1,0 +1,161 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /locations/{locationDbId}:
+    get:
+      description: |-
+        Get details for a location.
+        - The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
+        - `altitude` is in meters.'
+      parameters:
+      - description: The internal DB id for a location
+        in: path
+        name: locationDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          content:
+            application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result:
+                  abbreviation: L1
+                  abreviation: L1
+                  additionalInfo:
+                    adm1: Junin
+                    adm2: Chanchamayo
+                    adm3: San Ramon
+                    annualMeanTemperature: '23'
+                    annualTotalPrecipitation: '360'
+                    cont: South America
+                    creg: LAC
+                    local: San Ramon
+                  altitude: 828
+                  countryCode: PER
+                  countryName: Peru
+                  documentationURL: https://brapi.org
+                  instituteAddress: 71 Pilgrim Avenue Chevy Chase MD 20815
+                  instituteAdress: 71 Pilgrim Avenue Chevy Chase MD 20815
+                  instituteName: Plant Science Institute
+                  latitude: -11.1274995803833
+                  locationDbId: '1'
+                  locationName: Location 1
+                  locationType: Storage location
+                  longitude: -75.35639190673828
+                  name: Location 1
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/location'
+                required:
+                - metadata
+                - result
+                title: locationResponse
+                type: object
+          description: OK
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      summary: Get the details of a specific Location
+      tags:
+      - Locations
+    put:
+      description: |-
+        Update the details for an existing location.
+        - The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
+        - `altitude` is in meters.'
+      parameters:
+      - description: The internal DB id for a location
+        in: path
+        name: locationDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/newLocationsRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result:
+                  abbreviation: L1
+                  abreviation: L1
+                  additionalInfo:
+                    adm1: Junin
+                    adm2: Chanchamayo
+                    adm3: San Ramon
+                    annualMeanTemperature: '23'
+                    annualTotalPrecipitation: '360'
+                    cont: South America
+                    creg: LAC
+                    local: San Ramon
+                  altitude: 828
+                  countryCode: PER
+                  countryName: Peru
+                  documentationURL: https://brapi.org
+                  instituteAddress: 71 Pilgrim Avenue Chevy Chase MD 20815
+                  instituteAdress: 71 Pilgrim Avenue Chevy Chase MD 20815
+                  instituteName: Plant Science Institute
+                  latitude: -11.1274995803833
+                  locationDbId: '1'
+                  locationName: Location 1
+                  locationType: Storage location
+                  longitude: -75.35639190673828
+                  name: Location 1
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/location'
+                required:
+                - metadata
+                - result
+                title: locationResponse
+                type: object
+          description: OK
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      summary: Get the details of a specific Location
+      tags:
+      - Locations

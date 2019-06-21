@@ -149,3 +149,107 @@ paths:
       summary: Get the breeding Trials
       tags:
       - Trials
+    post:
+      description: Create new trials
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                trials:
+                  type: array
+                  items: 
+                    $ref: '#/components/schemas/newTrialRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 10
+                    totalPages: 5
+                  status: []
+                result:
+                  data:
+                  - active: false
+                    additionalInfo:
+                      donorName: Donor1
+                      publications: doi:10.2345/GEZG3T23535
+                      specialProject: Project1
+                    commonCropName: Tomatillo
+                    documentationURL: https://brapi.org
+                    endDate: '2013-07-05'
+                    programDbId: '1'
+                    programName: Program 1
+                    startDate: '2013-01-01'
+                    studies:
+                    - locationDbId: '1'
+                      locationName: Location 1
+                      studyDbId: '1001'
+                      studyName: Study 1
+                    - locationDbId: '1'
+                      locationName: Location 1
+                      studyDbId: '1002'
+                      studyName: Study 2
+                    trialDbId: '101'
+                    trialName: Peru Yield Trial 1
+                    trialDescription: General drougth resistance trial initiated in Peru before duplication in Africa
+                  - active: false
+                    additionalInfo:
+                      donorName: Donor1
+                      publications: doi:10.2345/GEZG3T23535
+                      specialProject: Project1
+                    commonCropName: Tomatillo
+                    documentationURL: https://brapi.org
+                    endDate: '2013-07-05'
+                    programDbId: '1'
+                    programName: Program 1
+                    startDate: '2013-01-01'
+                    studies:
+                    - locationDbId: '1'
+                      locationName: Location 1
+                      studyDbId: '1001'
+                      studyName: Study 1
+                    - locationDbId: '1'
+                      locationName: Location 1
+                      studyDbId: '1002'
+                      studyName: Study 2
+                    trialDbId: '101'
+                    trialName: Peru Yield Trial 1
+                    trialDescription: General drougth resistance trial initiated in Peru before duplication in Africa
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    properties:
+                      data:
+                        items:
+                          $ref: '#/components/schemas/trialSummary'
+                        type: array
+                    required:
+                    - data
+                    type: object
+                required:
+                - metadata
+                - result
+                title: trialsResponse
+                type: object
+          description: OK
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      summary: Get the breeding Trials
+      tags:
+      - Trials

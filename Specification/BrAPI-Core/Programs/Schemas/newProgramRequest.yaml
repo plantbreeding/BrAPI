@@ -1,0 +1,32 @@
+components:
+  schemas:
+    program:
+      properties:
+        abbreviation:
+          description: An abbreviation which represnts this program
+          type: string
+        commonCropName:
+          description: Common name for the crop which this program is for
+          type: string
+        documentationURL:
+          description: A URL to the human readable documentation of this object
+          format: uri
+          type: string
+        leadPersonDbId:
+          description: The unique identifier of the program leader
+          type: string
+        leadPersonName:
+          description: The name of the program leader
+          type: string
+        objective:
+          description: The primary objective of the program
+          type: string
+        programName:
+          description: Human readable name of the program
+          type: string
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

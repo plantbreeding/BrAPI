@@ -1,0 +1,29 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /search/trials:
+    post:
+      summary: Submit a search request for Trials
+      description: |-
+        Advanced searching for the programs resource.
+        See Search Services for additional implementation details.
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/trialSearchRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/successfulSearchResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Trials

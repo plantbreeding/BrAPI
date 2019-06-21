@@ -105,7 +105,12 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/newPersonRequest'
+              type: object
+              properties:
+                people:
+                  type: array
+                  items: 
+                    $ref: '#/components/schemas/newPersonRequest'
       responses:
         '200':
           content:
@@ -115,30 +120,48 @@ paths:
                   datafiles: []
                   pagination:
                     currentPage: 0
-                    pageSize: 0
-                    totalCount: 0
-                    totalPages: 0
+                    pageSize: 2
+                    totalCount: 2
+                    totalPages: 1
                   status: []
                 result:
-                  description: string
-                  emailAddress: string
-                  firstName: Name
-                  lastName: Smith
-                  mailingAddress: string
-                  middleName: string
-                  personDbId: 4f67d1b5-d95e-4bf5-b719-79a64b619f00
-                  phoneNumber: string
-                  userID: string
+                  data:
+                  - description: Example Person
+                    emailAddress: bob@bob.com
+                    firstName: Bob
+                    lastName: Robertson
+                    mailingAddress: 123 Road Street, City, State, Country, 98765
+                    middleName: Danger
+                    personDbId: person1
+                    phoneNumber: '+19876543210'
+                    userID: bdr45
+                  - description: Example Person
+                    emailAddress: rob@bob.com
+                    firstName: Rob
+                    lastName: Robertson
+                    mailingAddress: 123 Road Street, City, State, Country, 98765
+                    middleName: Danger
+                    personDbId: person2
+                    phoneNumber: '+19876543210'
+                    userID: rdr45
               schema:
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    $ref: '#/components/schemas/person'
+                    properties:
+                      data:
+                        description: Array of people
+                        items:
+                          $ref: '#/components/schemas/person'
+                        type: array
+                    required:
+                    - data
+                    type: object
                 required:
                 - metadata
                 - result
-                title: personResponse
+                title: personsResponse
                 type: object
           description: OK
           headers: {}

@@ -59,20 +59,6 @@ components:
           description: The date this trial started
           format: date
           type: string
-        studies:
-          description: List of studies inside this trial
-          items:
-            properties:
-              locationDbId:
-                type: string
-              locationName:
-                type: string
-              studyDbId:
-                type: string
-              studyName:
-                type: string
-            type: object
-          type: array
         trialDbId:
           description: The ID which uniquely identifies a trial
           type: string

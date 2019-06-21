@@ -1,0 +1,109 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /programs/{programDbId}:
+    get:
+      description: Get a single program by Id.
+      parameters:
+      - name: programDbId
+        description: Filter by the common crop name. Exact match.
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination: {}
+                  status: []
+                result:
+                  abbreviation: P1
+                  commonCropName: Tomatillo
+                  documentationURL: https://brapi.org
+                  leadPerson: Name Nameson
+                  leadPersonDbId: person1
+                  leadPersonName: Name Nameson
+                  name: Program 1
+                  objective: Global Population Improvement
+                  programDbId: '1'
+                  programName: Program 1
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/program'
+                required:
+                - metadata
+                - result
+                title: programsResponse
+                type: object
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      summary: Get the breeding Programs
+      tags:
+      - Programs
+    put:
+      description: Update an existing program.
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/newProgramRequest'
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination: {}
+                  status: []
+                result:
+                  abbreviation: P1
+                  commonCropName: Tomatillo
+                  documentationURL: https://brapi.org
+                  leadPerson: Name Nameson
+                  leadPersonDbId: person1
+                  leadPersonName: Name Nameson
+                  name: Program 1
+                  objective: Global Population Improvement
+                  programDbId: '1'
+                  programName: Program 1
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/program'
+                required:
+                - metadata
+                - result
+                title: programsResponse
+                type: object
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      summary: Get the breeding Programs
+      tags:
+      - Programs

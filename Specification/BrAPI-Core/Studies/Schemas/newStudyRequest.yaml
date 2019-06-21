@@ -59,9 +59,6 @@ components:
           description: The date this study started
           format: date
           type: string
-        studyDbId:
-          description: The ID which uniquely identifies a study within the given database server
-          type: string
         studyDescription:
           description: The description of this study
           type: string
