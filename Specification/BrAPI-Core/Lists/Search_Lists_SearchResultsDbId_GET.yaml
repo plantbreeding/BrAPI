@@ -3,11 +3,12 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /search/programs/{searchResultsDbId}:
+  /search/lists/{searchResultsDbId}:
     get:
-      description: 'Advanced searching for the programs resource.
-
-        See Search Services for additional implementation details.'
+      summary: Get the results of a List search request
+      description: |-
+        Advanced searching for the list resource.
+        See Search Services for additional implementation details.
       parameters:
       - $ref: '#/components/parameters/searchResultsDbId'
       - $ref: '#/components/parameters/page'
@@ -28,26 +29,26 @@ paths:
                   status: []
                 result:
                   data:
-                  - abbreviation: P1
-                    commonCropName: Tomatillo
-                    documentationURL: https://brapi.org
-                    leadPerson: Name Nameson
-                    leadPersonDbId: person1
-                    leadPersonName: Name Nameson
-                    name: Program 1
-                    objective: Global Population Improvement
-                    programDbId: '1'
-                    programName: Program 1
-                  - abbreviation: P2
-                    commonCropName: Tomatillo
-                    documentationURL: https://brapi.org
-                    leadPerson: Name Nameson
-                    leadPersonDbId: person1
-                    leadPersonName: Name Nameson
-                    name: Program 2
-                    objective: XYZ
-                    programDbId: '2'
-                    programName: Program 2
+                  - dateCreated: '2011-06-14T22:12:51-04:00'
+                    dateModified: '2011-06-14T22:12:51-04:00'
+                    description: Example List of germplasm
+                    listDbId: list1
+                    listName: Example List 1
+                    listOwnerName: Bob Robertson
+                    listOwnerPersonDbId: person1
+                    listSize: 3
+                    listSource: User Created
+                    listType: germplasm
+                  - dateCreated: '2011-06-14T22:12:51-04:00'
+                    dateModified: '2011-06-14T22:12:51-04:00'
+                    description: Example List of germplasm
+                    listDbId: list2
+                    listName: Example List 2
+                    listOwnerName: Rob Robertson
+                    listOwnerPersonDbId: person2
+                    listSize: 3
+                    listSource: User Created
+                    listType: germplasm
               schema:
                 properties:
                   metadata:
@@ -55,8 +56,9 @@ paths:
                   result:
                     properties:
                       data:
+                        description: Array of generic list summaries
                         items:
-                          $ref: '#/components/schemas/program'
+                          $ref: '#/components/schemas/listSummary'
                         type: array
                     required:
                     - data
@@ -64,7 +66,7 @@ paths:
                 required:
                 - metadata
                 - result
-                title: programsResponse
+                title: listSummaryResponse
                 type: object
           description: OK
           headers: {}
@@ -74,8 +76,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-        '404':
-          $ref: '#/components/responses/404NotFound'
-      summary: Get the results of a Programs search request
       tags:
-      - Programs
+      - Lists

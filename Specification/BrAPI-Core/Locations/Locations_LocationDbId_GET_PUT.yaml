@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /locations/{locationDbId}:
     get:
+      summary: Get the details of a specific Location
       description: |-
         Get details for a location.
         - The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
@@ -76,10 +77,10 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Get the details of a specific Location
       tags:
       - Locations
     put:
+      summary: Update the details for an existing Location
       description: |-
         Update the details for an existing location.
         - The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
@@ -156,6 +157,5 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Get the details of a specific Location
       tags:
       - Locations

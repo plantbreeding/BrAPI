@@ -32,6 +32,18 @@ paths:
           required: false
           schema:
             type: string
+        - name: sampleDbId
+          description: The ID of the `VariantSet` to be retrieved.
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: germplasmDbId
+          description: Return only call sets generated from the Sample of this Germplasm
+          in: query
+          required: false
+          schema:
+            type: string
         - $ref: '#/components/parameters/page'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/authorizationHeader'
@@ -48,7 +60,7 @@ paths:
                     properties:
                       data:
                         items:
-                          $ref: '#/components/schemas/CallSets'
+                          $ref: '#/components/schemas/CallSet'
                         type: array
                     required:
                     - data

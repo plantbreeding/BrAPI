@@ -3,21 +3,19 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /search/studies:
+  /search/lists:
     post:
-      description: 'Get list of studies
-
-        StartDate and endDate should be ISO8601 format for dates
-
-        See Search Services for additional implementation details.'
+      summary: Submit a search request for Lists
+      description: |-
+        Advanced searching for the list resource.
+        See Search Services for additional implementation details.
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/studySearchRequest'
-        description: Study Search request
+              $ref: '#/components/schemas/searchListRequest'
       responses:
         '200':
           $ref: '#/components/responses/successfulSearchResponse'
@@ -27,6 +25,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Submit a search request for Studies
       tags:
-      - Studies
+      - Lists

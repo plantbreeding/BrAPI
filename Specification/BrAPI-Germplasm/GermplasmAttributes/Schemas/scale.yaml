@@ -1,0 +1,29 @@
+components:
+  schemas:
+    scale:
+      description: Scale metadata
+      properties:
+        dataType:
+          $ref: '#/components/schemas/traitDataType'
+        decimalPlaces:
+          description: For numerical, number of decimal places to be reported
+          type: integer
+        ontologyReference:
+          $ref: '#/components/schemas/ontologyReference'
+        scaleDbId:
+          description: Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.
+          type: string
+        scaleName:
+          description: Name of the scale
+          type: string
+        validValues:
+          $ref: '#/components/schemas/validValues'
+        xref:
+          description: Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database
+          type: string
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

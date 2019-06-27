@@ -57,7 +57,7 @@ components:
         variantSetName:
           description: The variant set name.
           type: string
-        referenceSetId:
+        referenceSetDbId:
           description: |-
             The ID of the reference set that describes the sequences used by the
             variants in this set.

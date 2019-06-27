@@ -1,6 +1,6 @@
 components:
   schemas:
-    program:
+    newProgramRequest:
       properties:
         abbreviation:
           description: An abbreviation which represnts this program

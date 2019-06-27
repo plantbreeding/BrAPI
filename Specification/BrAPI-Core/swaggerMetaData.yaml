@@ -99,48 +99,43 @@ security:
 servers:
 - url: https://test-server.brapi.org/brapi/v1
 tags:
-- description: Check the available calls on a server
+- name: Calls
+  description: Check the available calls on a server
   externalDocs:
     description: Docs
     url: https://wiki.brapi.org/
-  name: Calls
-- description: Information about Crops
+- name: Common Crop Names
+  description: List of crops supported by this server
   externalDocs:
     description: Docs
     url: https://wiki.brapi.org/
-  name: Crops
-- description: Information about Programs
+- name: Programs
+  description: Information about Programs
   externalDocs:
     description: Docs
     url: https://wiki.brapi.org/
-  name: Programs
-- description: Information about Locations
+- name: Trials
+  description: Information about Trials
   externalDocs:
     description: Docs
     url: https://wiki.brapi.org/
-  name: Locations
-- description: Information about Trials
+- name: Studies
+  description: Information about Studies
   externalDocs:
     description: Docs
     url: https://wiki.brapi.org/
-  name: Trials
-- description: Information about Studies
+- name: Locations
+  description: Information about Locations
   externalDocs:
     description: Docs
     url: https://wiki.brapi.org/
-  name: Studies
-- description: Create and manipulate generic lists
+- name: Lists
+  description: Create and manipulate generic lists
   externalDocs:
     description: Docs
     url: https://wiki.brapi.org/
-  name: Lists
-- description: Create and manipulate information about people
+- name: People
+  description: Create and manipulate information about people
   externalDocs:
     description: Docs
     url: https://wiki.brapi.org/
-  name: People
-- description: The available Search Services for finding data
-  externalDocs:
-    description: Docs
-    url: https://wiki.brapi.org/
-  name: Search Services

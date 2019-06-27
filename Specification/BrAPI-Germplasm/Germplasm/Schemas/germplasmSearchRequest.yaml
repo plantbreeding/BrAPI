@@ -37,12 +37,21 @@ components:
           items:
             type: string
           type: array
-        page:
-          description: Which page of the "data" array to return. The page indexing starts at 0 (page=0 will return the first page). Default is 0.
-          type: integer
-        pageSize:
-          description: The maximum number of items to return per page of the "data" array. Default is 1000.
-          type: integer
+        parentDbIds:
+          description: Search for Germplasm with these parents
+          items:
+            type: string
+          type: array
+        progenyDbIds: 
+          description: Search for Germplasm with these children
+          items:
+            type: string
+          type: array
+        studyDbIds: 
+          description: Search for Germplasm that are associated with a particular Study
+          items:
+            type: string
+          type: array
       type: object
 info:
   title: BrAPI

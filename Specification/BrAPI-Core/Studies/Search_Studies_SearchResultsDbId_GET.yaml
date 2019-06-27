@@ -112,4 +112,3 @@ paths:
       summary: Get the results of a Studies search request
       tags:
       - Studies
-      - Search Services

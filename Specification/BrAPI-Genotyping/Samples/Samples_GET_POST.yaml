@@ -105,6 +105,7 @@ paths:
       tags:
       - Samples
     post:
+      summary: Add new Samples
       description: Call to register the event of a sample being taken. Sample ID is assigned as a result of the operation and returned in response.
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
@@ -120,7 +121,7 @@ paths:
                 samples:
                   type: array
                   items:
-                    $ref: '#/components/schemas/sample'
+                    $ref: '#/components/schemas/newSampleRequest'
       responses:
         '200':
           content:
@@ -188,6 +189,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Add a new Sample
       tags:
       - Samples

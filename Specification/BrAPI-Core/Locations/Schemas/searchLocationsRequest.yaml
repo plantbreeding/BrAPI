@@ -1,0 +1,68 @@
+components:
+  schemas:
+    searchLocationsRequest:
+      properties:
+        abbreviations:
+          description: An abbreviation which represents this location
+          type: array
+          items:
+            type: string
+        altitudeMin:
+          description: The minimum altitude to search for
+          type: number
+        altitudeMax:
+          description: The maximum altitude to search for
+          type: number
+        countryCodes:
+          description: '[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec'
+          type: array
+          items:
+            type: string
+        countryNames:
+          description: The full name of the country to search for
+          type: array
+          items:
+            type: string
+        instituteAddresses:
+          description: The street address of the institute to search for
+          type: array
+          items:
+            type: string
+        instituteNames:
+          description: The name of the institute to search for
+          type: array
+          items:
+            type: string
+        latitudeMin:
+          description: The minimum latitude to search for
+          type: number
+        latitudeMax:
+          description: The maximum latitude to search for
+          type: number
+        locationDbIds:
+          description: The location ids to search for
+          type: array
+          items:
+            type: string
+        locationNames:
+          description: A human readable names to search for
+          type: array
+          items:
+            type: string
+        locationTypes:
+          description: The type of location this represents (ex. Breeding Location, Storage Location, etc)
+          type: array
+          items:
+            type: string
+        longitudeMin:
+          description: the minimum longitude to search for
+          type: number
+        longitudeMin:
+          description: the maximum longitude to search for
+          type: number
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

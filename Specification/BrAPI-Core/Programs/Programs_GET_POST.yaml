@@ -5,7 +5,8 @@ openapi: 3.0.0
 paths:
   /programs:
     get:
-      description: Call to retrieve a list of programs.
+      summary: Get a filtered list of breeding Programs
+      description: Get a filtered list of breeding Programs. This list can be filtered by common crop name to narrow results to a specific crop.
       parameters:
       - description: Filter by the common crop name. Exact match.
         in: query
@@ -89,11 +90,11 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Get the breeding Programs
       tags:
       - Programs
     post:
-      description: Create new programs.
+      summary: Add new breeding Programs to the database
+      description: Add new breeding Programs to the database. The `programDbId` is set by the server, all other fields are take from the request body, or a default value is used.
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
@@ -167,6 +168,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Get the breeding Programs
       tags:
       - Programs

@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /locations:
     get:
+      summary: Get a filtered list of Locations
       description: |-
         Get a list of locations.
         * The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
@@ -96,10 +97,10 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Get the Locations
       tags:
       - Locations
     post:
+      summary: Create new Locations
       description: |-
         Add new locations to database
         * The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
@@ -193,6 +194,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Get the Locations
       tags:
       - Locations

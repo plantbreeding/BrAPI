@@ -3,21 +3,20 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /search/studies:
+  /search/people:
     post:
-      description: 'Get list of studies
+      summary: Submit a search request for People
+      description: |-
+        Advanced searching for the programs resource.
 
-        StartDate and endDate should be ISO8601 format for dates
-
-        See Search Services for additional implementation details.'
+        See Search Services for additional implementation details.
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/studySearchRequest'
-        description: Study Search request
+              $ref: '#/components/schemas/searchPeopleRequest'
       responses:
         '200':
           $ref: '#/components/responses/successfulSearchResponse'
@@ -27,6 +26,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Submit a search request for Studies
       tags:
-      - Studies
+      - People

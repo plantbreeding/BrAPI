@@ -121,4 +121,3 @@ paths:
       summary: Get the results of a Germplasm search request
       tags:
       - Germplasm
-      - Search Services

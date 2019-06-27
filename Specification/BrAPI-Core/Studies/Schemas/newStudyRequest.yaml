@@ -1,6 +1,6 @@
 components:
   schemas:
-    study:
+    newStudyRequest:
       properties:
         active:
           description: Is this study currently active

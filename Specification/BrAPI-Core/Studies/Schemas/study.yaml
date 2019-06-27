@@ -50,6 +50,12 @@ components:
           type: string
         location:
           $ref: '#/components/schemas/location'
+        programDbId:
+          description: The ID which uniquely identifies a program
+          type: string
+        programName:
+          description: The human readable name of a program
+          type: string
         seasons:
           description: List of seasons over which this study was performed.
           items:

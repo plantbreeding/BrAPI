@@ -1,14 +1,12 @@
 components:
   schemas:
-    germplasmAttributeDef:
+    newGermplasmAttributeRequest: 
       allOf:
       - $ref: '#/components/schemas/VariableBaseClass'
-      - properties:
-          attributeCategoryDbId:
+      - type: object
+        properties:
+          attributeCategory:
             description: General category for the attribute. very similar to Trait class.
-            type: string
-          attributeDbId:
-            description: The ID which uniquely identifies this attribute within the given database server
             type: string
           attributeName:
             description: A human readable name for this attribute
@@ -16,10 +14,6 @@ components:
           description:
             description: A human readable description of this attribute
             type: string
-        required:
-        - attributeDbId
-        - attributeName
-        type: object
 info:
   title: BrAPI
   version: ''

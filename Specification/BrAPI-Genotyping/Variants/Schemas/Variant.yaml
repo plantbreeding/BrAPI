@@ -14,16 +14,11 @@ components:
           items:
             type: string
           type: array
-        attributes:
-          $ref: '#/components/schemas/Attributes'
-        calls:
-          description: |-
-            The variant calls for this particular variant. Each one represents the
-            determination of genotype with respect to this variant. `Call`s in this
-            array are implicitly associated with this `Variant`.
-          items:
-            $ref: '#/components/schemas/Call'
-          type: array
+        additionalInfo:
+          additionalProperties:
+            type: string
+          description: Additional arbitrary info
+          type: object
         ciend:
           items:
             format: int32
@@ -58,20 +53,20 @@ components:
             This is typically calculated by `start + referenceBases.length`.
           format: int64
           type: string
-        filters_applied:
+        filtersApplied:
           description: |-
             True if filters were applied for this variant. VCF column 7 "FILTER"
             any value other than the missing value.
           format: boolean
           type: boolean
-        filters_failed:
+        filtersFailed:
           description: |-
             Zero or more filters that failed for this variant. VCF column 7 "FILTER"
             shared across all alleles in the same VCF record.
           items:
             type: string
           type: array
-        filters_passed:
+        filtersPassed:
           description: |-
             True if all filters for this variant passed. VCF column 7 "FILTER"
             value PASS.
@@ -85,12 +80,12 @@ components:
           items:
             type: string
           type: array
-        reference_bases:
+        referenceBases:
           description: |-
             The reference bases for this variant. They start at the given start
             position.
           type: string
-        reference_name:
+        referenceName:
           title: |-
             The reference on which this variant occurs.
             (e.g. `chr20` or `X`)

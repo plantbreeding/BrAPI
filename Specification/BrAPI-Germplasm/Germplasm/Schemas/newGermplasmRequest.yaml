@@ -1,6 +1,6 @@
 components:
   schemas:
-    germplasmSummary:
+    newGermplasmRequest:
       properties:
         accessionNumber:
           description: This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection
@@ -40,17 +40,17 @@ components:
                 type: string
             type: object
           type: array
-        genus:
+        germplasmGenus:
           description: Genus name for taxon. Initial uppercase letter required. (MCPD)
-          type: string
-        germplasmDbId:
-          description: The ID which uniquely identifies a germplasm within the given database server
           type: string
         germplasmName:
           description: Name of the germplasm. It can be the prefered name and does not have to be unique.
           type: string
         germplasmPUI:
           description: The Permanent Unique Identifier which represents a germplasm
+          type: string
+        germplasmSpecies:
+          description: Specific epithet portion of the scientific name in lowercase letters. (MCPD)
           type: string
         instituteCode:
           description: The code for the Institute that has bred the material. (MCPD)
@@ -63,9 +63,6 @@ components:
           type: string
         seedSource:
           description: 'The source of the seed '
-          type: string
-        species:
-          description: Specific epithet portion of the scientific name in lowercase letters. (MCPD)
           type: string
         speciesAuthority:
           description: The authority organization responsible for tracking and maintaining the species name (MCPD)
@@ -90,6 +87,17 @@ components:
           description: The 2 digit code representing the type of storage this germplasm is kept in at a genebank. (MCPD)
           items:
             type: string
+          type: array
+        germplasmPreprocessing:
+          description: Description of any process or treatment applied uniformely to the germplasm, prior to the study itself. Can be provided as free text or as an accession number from a suitable controlled vocabulary.
+          type: string
+        seedSourseDescription:
+          description: Description of the material source
+          type: string
+        germplasmOrigin:
+          description: Information for In Situ material (orchard, natural sites, ...). Geographic identification of the plants from which seeds or cutting have been taken to produce that germplasm.
+          items:
+            $ref: '#/components/schemas/germplasmOrigin'
           type: array
       type: object
 info:

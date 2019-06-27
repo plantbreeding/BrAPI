@@ -5,7 +5,8 @@ openapi: 3.0.0
 paths:
   /programs/{programDbId}:
     get:
-      description: Get a single program by Id.
+      summary: Get a breeding Program by Id
+      description: Get a single breeding Program by Id. This can be used to quickly get the details of a Program when you have the Id from another entity. 
       parameters:
       - name: programDbId
         description: Filter by the common crop name. Exact match.
@@ -53,12 +54,18 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Get the breeding Programs
       tags:
       - Programs
     put:
-      description: Update an existing program.
+      summary: Update an existing Program
+      description: Update the details of an existing breeding Program. 
       parameters:
+      - name: programDbId
+        description: Filter by the common crop name. Exact match.
+        in: path
+        required: true
+        schema:
+          type: string
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
         content:
@@ -104,6 +111,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Get the breeding Programs
       tags:
       - Programs

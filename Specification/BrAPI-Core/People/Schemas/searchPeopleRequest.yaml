@@ -1,0 +1,50 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    searchPeopleRequest:
+      type: object
+      properties:
+        emailAddresses:
+          description: email address for this person
+          type: array
+          items:
+            type: string
+        firstNames:
+          description: Persons first name
+          type: array
+          items:
+            type: string
+        lastNames:
+          description: Persons last name
+          type: array
+          items:
+            type: string
+        mailingAddresses:
+          description: physical address of this person
+          type: array
+          items:
+            type: string
+        middleNames:
+          description: Persons middle name
+          type: array
+          items:
+            type: string
+        personDbIds:
+          description: Unique ID for this person
+          type: array
+          items:
+            type: string
+        phoneNumbers:
+          description: phone number of this person
+          type: array
+          items:
+            type: string
+        userIDs:
+          description: A systems user ID ascociated with this person. Different from personDbId because you could have a person who is not a user of the system.
+          type: array
+          items:
+            type: string

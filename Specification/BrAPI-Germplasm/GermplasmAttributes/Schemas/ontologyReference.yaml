@@ -1,0 +1,36 @@
+components:
+  schemas:
+    ontologyReference:
+      properties:
+        documentationLinks:
+          description: links to various ontology documentation
+          items:
+            properties:
+              URL:
+                format: uri
+                type: string
+              type:
+                enum:
+                - OBO
+                - RDF
+                - WEBPAGE
+                type: string
+            type: object
+          type: array
+        ontologyDbId:
+          description: Ontology database unique identifier
+          type: string
+        ontologyName:
+          description: Ontology name
+          type: string
+        version:
+          description: Ontology version (no specific format)
+          type: string
+      required:
+      - ontologyName
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

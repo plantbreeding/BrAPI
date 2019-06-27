@@ -1,6 +1,6 @@
 components:
   schemas:
-    sample:
+    newSampleRequest:
       properties:
         germplasmDbId:
           description: ' The ID which uniquely identifies a germplasm'
@@ -22,9 +22,6 @@ components:
           type: integer
         plotDbId:
           description: ' The ID which uniquely identifies a plot. Usually ''plotNumber'''
-          type: string
-        sampleDbId:
-          description: The ID which uniquely identifies a sample
           type: string
         sampleTimestamp:
           description: The date and time a sample was collected from the field

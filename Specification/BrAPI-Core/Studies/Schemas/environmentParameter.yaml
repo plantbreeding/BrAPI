@@ -1,6 +1,6 @@
 components:
   schemas:
-    environmentParameters:
+    environmentParameter:
       properties:
         parameterName:
           description: Name of the environment parameter constant within the experiment

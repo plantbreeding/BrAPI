@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /people:
     get:
+      summary: Get the People
       description: Get filtered list of people
       parameters:
       - description: A persons first name
@@ -94,11 +95,11 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Get the People
       tags:
       - People
     post:
-      description: Create a new person
+      summary: Create new People
+      description: Create new People entities. `personDbId` is generated and managed by the server.
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
@@ -171,6 +172,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Create a new Person
       tags:
       - People

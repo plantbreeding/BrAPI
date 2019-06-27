@@ -1,0 +1,44 @@
+components:
+  schemas:
+    searchListRequest:
+      properties:
+        dateCreatedRangeStart:
+          format: date-time
+          type: string
+        dateCreatedRangeEnd:
+          format: date-time
+          type: string
+        dateModifiedRangeStart:
+          format: date-time
+          type: string
+        dateModifiedRangeEnd:
+          format: date-time
+          type: string
+        listDbIds:
+          type: array
+          items:
+            type: string
+        listNames:
+          type: array
+          items:
+            type: string
+        listOwnerNames:
+          type: array
+          items:
+            type: string
+        listOwnerPersonDbIds:
+          type: array
+          items:
+            type: string
+        listSources:
+          type: array
+          items:
+            type: string
+        listType:
+          $ref: '#/components/schemas/listTypes'
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

@@ -3,19 +3,152 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /attributes:
+  /attributes/{attributeDbId}:
     get:
-      description: List available attributes.
+      summary: Get the details for a specific Germplasm Attribute
+      description: Get the details for a specific Germplasm Attribute
       parameters:
-      - description: Unique identifier for the general category for the attribute. very similar to Trait class.
-        in: query
-        name: attributeCategoryDbId
-        required: false
+      - name: attributeDbId
+        description: The unique id for an attribute
+        in: path
+        required: true
         schema:
           type: string
-      - $ref: '#/components/parameters/page'
-      - $ref: '#/components/parameters/pageSize'
       - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          content:
+            application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination: {}
+                  status: []
+                result:
+                  attributeCategoryDbId: '2'
+                  attributeDbId: ATT01
+                  attributeName: Rht-B1b
+                  code: RHT
+                  contextOfUse: []
+                  crop: maize
+                  datatype: Categorical
+                  defaultValue: '10'
+                  description: Allele of marker 11_4769
+                  documentationURL: https://brapi.org
+                  growthStage: '1'
+                  institution: '1'
+                  language: English
+                  method:
+                    class: Numeric
+                    description: Standard rolled measuring tape
+                    formula: a^2 + b^2 = c^2
+                    methodDbId: m1
+                    methodName: Tape Measure
+                    name: Tape Measure
+                    ontologyReference:
+                      documentationLinks:
+                      - URL: https://ontology.org/m1
+                        type: RDF
+                        url: https://ontology.org/m1
+                      ontologyDbId: MO_123
+                      ontologyName: Ontology.org
+                      version: '17'
+                    reference: google.com
+                  name: Rht-B1b
+                  ontologyDbId: MO_123
+                  ontologyName: Ontology.org
+                  ontologyReference:
+                    documentationLinks:
+                    - URL: https://ontology.org
+                      type: WEBPAGE
+                      url: https://ontology.org
+                    ontologyDbId: MO_123
+                    ontologyName: Ontology.org
+                    version: '17'
+                  scale:
+                    dataType: Numerical
+                    decimalPlaces: 1
+                    name: Centimeter
+                    ontologyReference:
+                      documentationLinks:
+                      - URL: https://ontology.org/s1
+                        type: OBO
+                        url: https://ontology.org/s1
+                      ontologyDbId: MO_123
+                      ontologyName: Ontology.org
+                      version: '17'
+                    scaleDbId: s1
+                    scaleName: Centimeter
+                    validValues:
+                      categories: []
+                      max: 99999
+                      min: 0
+                    xref: xref
+                  scientist: Bob
+                  status: active
+                  submissionTimestamp: '2011-06-14T22:12:51-04:00'
+                  synonyms: []
+                  trait:
+                    alternativeAbbreviations: []
+                    attribute: plant height
+                    class: Numeric
+                    description: plant height
+                    entity: entity
+                    mainAbbreviation: H
+                    name: Plant Height
+                    ontologyReference:
+                      documentationLinks:
+                      - URL: https://ontology.org/t1
+                        type: WEBPAGE
+                        url: https://ontology.org/t1
+                      ontologyDbId: MO_123
+                      ontologyName: Ontology.org
+                      version: '17'
+                    status: active
+                    synonyms: []
+                    traitDbId: t1
+                    traitName: Plant Height
+                    xref: xref
+                  uri: http://www.brapi.org/ontology/MO_123:1000001
+                  values: Present
+                  xref: MO_123:100002
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/germplasmAttribute'    
+                required:
+                - metadata
+                - result
+                title: germplasmAttributeDefsResponse
+                type: object
+          description: OK
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Germplasm Attributes
+    post:
+      summary: Create new Germplasm Attributes
+      description: Create new Germplasm Attributes
+      parameters:
+      - name: attributeDbId
+        description: The unique id for an attribute
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/newGermplasmAttributeRequest'
       responses:
         '200':
           content:
@@ -218,7 +351,7 @@ paths:
                     properties:
                       data:
                         items:
-                          $ref: '#/components/schemas/germplasmAttributeDef'
+                          $ref: '#/components/schemas/germplasmAttribute'
                         type: array
                     required:
                     - data
@@ -236,6 +369,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Get the Germplasm Attributes
       tags:
       - Germplasm Attributes

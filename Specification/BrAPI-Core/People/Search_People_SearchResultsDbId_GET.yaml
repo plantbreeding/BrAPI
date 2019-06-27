@@ -3,10 +3,15 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /attributes/categories:
+  /search/people/{searchResultsDbId}:
     get:
-      description: List all available attribute categories.
+      summary: Get the results of a People search request
+      description: |-
+        Advanced searching for the people resource.
+
+        See Search Services for additional implementation details.
       parameters:
+      - $ref: '#/components/parameters/searchResultsDbId'
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
       - $ref: '#/components/parameters/authorizationHeader'
@@ -20,13 +25,29 @@ paths:
                   pagination:
                     currentPage: 0
                     pageSize: 2
-                    totalCount: 0
+                    totalCount: 2
                     totalPages: 1
                   status: []
                 result:
                   data:
-                  - Morphological
-                  - Agronomic
+                  - description: Example Person
+                    emailAddress: bob@bob.com
+                    firstName: Bob
+                    lastName: Robertson
+                    mailingAddress: 123 Road Street, City, State, Country, 98765
+                    middleName: Danger
+                    personDbId: person1
+                    phoneNumber: '+19876543210'
+                    userID: bdr45
+                  - description: Example Person
+                    emailAddress: rob@bob.com
+                    firstName: Rob
+                    lastName: Robertson
+                    mailingAddress: 123 Road Street, City, State, Country, 98765
+                    middleName: Danger
+                    personDbId: person2
+                    phoneNumber: '+19876543210'
+                    userID: rdr45
               schema:
                 properties:
                   metadata:
@@ -34,8 +55,9 @@ paths:
                   result:
                     properties:
                       data:
+                        description: Array of people
                         items:
-                          type: string
+                          $ref: '#/components/schemas/person'
                         type: array
                     required:
                     - data
@@ -43,7 +65,7 @@ paths:
                 required:
                 - metadata
                 - result
-                title: germplasmAttributeCategoriesResponse
+                title: personsResponse
                 type: object
           description: OK
           headers: {}
@@ -53,6 +75,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Get the Categories of Germplasm Attributes
       tags:
-      - Germplasm Attributes
+      - People
