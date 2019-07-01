@@ -1,0 +1,203 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /observationunits/{observationUnitDbId}:
+    get:
+      summary: Get the details of a specific Observation Unit
+      description: Get the details of a specific Observation Unit
+      parameters:
+      - description: The unique ID of the specific Observation Unit
+        in: path
+        name: observationUnitDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          content:
+            application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 2
+                    totalPages: 1
+                  status: []
+                result:
+                  X: '1'
+                  Y: '1'
+                  blockNumber: '1'
+                  entryNumber: '1'
+                  entryType: TEST
+                  germplasmDbId: '1'
+                  germplasmName: Name001
+                  observationLevel: plot
+                  observationLevels: block:1;plot:1
+                  observationUnitDbId: '1'
+                  observationUnitName: Plot 1
+                  observationUnitXref:
+                  - id: SAMEA179865230
+                    source: ebi.biosample
+                  - id: INRA:CoeSt6 _SMH03
+                    source: gnpis.lot
+                  - id: '239865'
+                    source: kernelDB
+                  observations:
+                  - collector: A. Technician
+                    observationDbId: '1'
+                    observationTimeStamp: '2013-06-14T22:03:51-04:00'
+                    observationVariableDbId: MO_123:100002
+                    observationVariableName: Plant height
+                    season:
+                      season: fall
+                      seasonDbId: '1'
+                      year: '2011'
+                    value: '1.2'
+                  - collector: A. Technician
+                    observationDbId: '2'
+                    observationTimeStamp: '2013-06-14T22:04:51-04:00'
+                    observationVariableDbId: MO_123:100006
+                    observationVariableName: Virus severity
+                    season:
+                      season: fall
+                      seasonDbId: '1'
+                      year: '2011'
+                    value: '4.5'
+                  plantNumber: 'null'
+                  plotNumber: '1'
+                  programName: Program 1
+                  replicate: '0'
+                  studyDbId: '1001'
+                  studyLocation: Peru
+                  studyLocationDbId: '1'
+                  studyName: Study 1
+                  treatments:
+                  - factor: water regimen
+                    modality: deficit
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/observationUnit'
+                required:
+                - metadata
+                - result
+                title: observationUnitsResponse
+                type: object
+          description: OK
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Observation Units
+    put:
+      summary: Update an existing Observation Units
+      description: Update an existing Observation Units
+      parameters:
+      - description: The unique ID of the specific Observation Unit
+        in: path
+        name: observationUnitDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/newObservationUnitRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 2
+                    totalPages: 1
+                  status: []
+                result:
+                  X: '1'
+                  Y: '1'
+                  blockNumber: '1'
+                  entryNumber: '1'
+                  entryType: TEST
+                  germplasmDbId: '1'
+                  germplasmName: Name001
+                  observationLevel: plot
+                  observationLevels: block:1;plot:1
+                  observationUnitDbId: '1'
+                  observationUnitName: Plot 1
+                  observationUnitXref:
+                  - id: SAMEA179865230
+                    source: ebi.biosample
+                  - id: INRA:CoeSt6 _SMH03
+                    source: gnpis.lot
+                  - id: '239865'
+                    source: kernelDB
+                  observations:
+                  - collector: A. Technician
+                    observationDbId: '1'
+                    observationTimeStamp: '2013-06-14T22:03:51-04:00'
+                    observationVariableDbId: MO_123:100002
+                    observationVariableName: Plant height
+                    season:
+                      season: fall
+                      seasonDbId: '1'
+                      year: '2011'
+                    value: '1.2'
+                  - collector: A. Technician
+                    observationDbId: '2'
+                    observationTimeStamp: '2013-06-14T22:04:51-04:00'
+                    observationVariableDbId: MO_123:100006
+                    observationVariableName: Virus severity
+                    season:
+                      season: fall
+                      seasonDbId: '1'
+                      year: '2011'
+                    value: '4.5'
+                  plantNumber: 'null'
+                  plotNumber: '1'
+                  programName: Program 1
+                  replicate: '0'
+                  studyDbId: '1001'
+                  studyLocation: Peru
+                  studyLocationDbId: '1'
+                  studyName: Study 1
+                  treatments:
+                  - factor: water regimen
+                    modality: deficit
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/observationUnit'
+                required:
+                - metadata
+                - result
+                title: observationUnitsResponse
+                type: object
+          description: OK
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Observation Units

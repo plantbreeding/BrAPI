@@ -99,23 +99,48 @@ security:
 servers:
 - url: https://test-server.brapi.org/brapi/v1
 tags:
-- description: Information about Observations
+- name: Observations
+  description: Retrieve and edit information about Observations
   externalDocs:
     description: Docs
     url: https://wiki.brapi.org/
-  name: Observations
-- description: API to retrieve list and details of observation variables. An observation variable is composed by the unique combination of one Trait, one Method and one Scale.
+- name: Observation Units
+  description: Retrieve and edit information about Observation Units. An Observation Unit can be anything in a field you might observe as part of a Study
   externalDocs:
     description: Docs
     url: https://wiki.brapi.org/
-  name: Observation Variables
-- description: Information about Phenotypes
+- name: Observation Variables
+  description: Retrieve and edit information about Observation Variables. An Observation Variable is composed by the unique combination of one Trait, one Method and one Scale.
   externalDocs:
     description: Docs
     url: https://wiki.brapi.org/
-  name: Phenotypes
-- description: Create and manipulate image data
+- name: Methods
+  description: Retrieve and edit information about Methods.
   externalDocs:
     description: Docs
     url: https://wiki.brapi.org/
-  name: Images
+- name: Traits
+  description: Retrieve and edit information about Traits.
+  externalDocs:
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Scales
+  description: Retrieve and edit information about Scales.
+  externalDocs:
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Ontologies
+  description: Retrieve and edit information about Ontologies used by a server.
+  externalDocs:
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Images
+  description: Retrieve and edit Images and Image meta-data
+  externalDocs:
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Events
+  description: Retrieve and edit information about Events. Events can be planned like watering or fertalizing, or unplanned like weather or pests.  
+  externalDocs:
+    description: Docs
+    url: https://wiki.brapi.org/

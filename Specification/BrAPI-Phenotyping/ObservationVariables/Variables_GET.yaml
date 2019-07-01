@@ -7,9 +7,6 @@ paths:
     get:
       description: Call to retrieve a list of observationVariables available in the system.
       parameters:
-      - $ref: '#/components/parameters/page'
-      - $ref: '#/components/parameters/pageSize'
-      - $ref: '#/components/parameters/authorizationHeader'
       - description: Variable's unique ID
         in: query
         name: observationVariableDbId
@@ -22,6 +19,15 @@ paths:
         required: false
         schema:
           type: string
+      - description: The unique ID of a studies to filter on
+        in: query
+        name: studyDbId
+        required: false
+        schema:
+          type: string
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
           content:

@@ -229,4 +229,3 @@ paths:
       summary: Get the results of a Observation Variable search request
       tags:
       - Observation Variables
-      - Search Services

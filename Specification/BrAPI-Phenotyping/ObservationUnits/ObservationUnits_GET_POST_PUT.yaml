@@ -1,0 +1,455 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /observationunits:
+    get:
+      summary: Get a filtered set of Observation Units
+      description: Get a filtered set of Observation Units
+      parameters:
+      - description: The unique ID of a germplasm (accession) to filter on
+        in: query
+        name: germplasmDbId
+        required: false
+        schema:
+          type: string
+      - description: The unique ID of an observation variable
+        in: query
+        name: observationVariableDbId
+        required: false
+        schema:
+          type: string
+      - description: The unique ID of a studies to filter on
+        in: query
+        name: studyDbId
+        required: false
+        schema:
+          type: string
+      - description: The unique ID of a location where these observations were collected
+        in: query
+        name: locationDbId
+        required: false
+        schema:
+          type: string
+      - description: The unique ID of a trial to filter on
+        in: query
+        name: trialDbId
+        required: false
+        schema:
+          type: string
+      - description: The unique ID of a program to filter on
+        in: query
+        name: programDbId
+        required: false
+        schema:
+          type: string
+      - description: The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)
+        in: query
+        name: seasonDbId
+        required: false
+        schema:
+          type: string
+      - description: The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnitStructure.
+        in: query
+        name: observationLevel
+        required: false
+        schema:
+          type: string
+      - description: Timestamp range start
+        in: query
+        name: observationTimeStampRangeStart
+        required: false
+        schema:
+          format: date-time
+          type: string
+      - description: Timestamp range end
+        in: query
+        name: observationTimeStampRangeEnd
+        required: false
+        schema:
+          format: date-time
+          type: string
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          content:
+            application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 2
+                    totalPages: 1
+                  status: []
+                result:
+                  data:
+                  - X: '1'
+                    Y: '1'
+                    blockNumber: '1'
+                    entryNumber: '1'
+                    entryType: TEST
+                    germplasmDbId: '1'
+                    germplasmName: Name001
+                    observationLevel: plot
+                    observationLevels: block:1;plot:1
+                    observationUnitDbId: '1'
+                    observationUnitName: Plot 1
+                    observationUnitXref:
+                    - id: SAMEA179865230
+                      source: ebi.biosample
+                    - id: INRA:CoeSt6 _SMH03
+                      source: gnpis.lot
+                    - id: '239865'
+                      source: kernelDB
+                    plantNumber: 'null'
+                    plotNumber: '1'
+                    programName: Program 1
+                    replicate: '0'
+                    studyDbId: '1001'
+                    studyLocation: Peru
+                    studyLocationDbId: '1'
+                    studyName: Study 1
+                    treatments:
+                    - factor: water regimen
+                      modality: deficit
+                  - X: '1'
+                    Y: '1'
+                    blockNumber: '101'
+                    entryNumber: '1'
+                    entryType: FILLER
+                    germplasmDbId: '4'
+                    germplasmName: Name004
+                    observationLevel: plant
+                    observationLevels: block:101;plot:5;plant:5
+                    observationUnitDbId: '10'
+                    observationUnitName: Plant 5
+                    observationUnitXref: []
+                    plantNumber: '5'
+                    plotNumber: '5'
+                    programName: Program 1
+                    replicate: '1'
+                    studyDbId: '1003'
+                    studyLocation: Peru
+                    studyLocationDbId: '2'
+                    studyName: Study 3
+                    treatments: []
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    properties:
+                      data:
+                        items:
+                          $ref: '#/components/schemas/observationUnit'
+                        type: array
+                    required:
+                    - data
+                    type: object
+                required:
+                - metadata
+                - result
+                title: observationUnitsResponse
+                type: object
+          description: OK
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Observation Units
+    post:
+      summary: Add new Observation Units
+      description: Add new Observation Units
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                observationUnits:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/newObservationUnitRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 2
+                    totalPages: 1
+                  status: []
+                result:
+                  data:
+                  - X: '1'
+                    Y: '1'
+                    blockNumber: '1'
+                    entryNumber: '1'
+                    entryType: TEST
+                    germplasmDbId: '1'
+                    germplasmName: Name001
+                    observationLevel: plot
+                    observationLevels: block:1;plot:1
+                    observationUnitDbId: '1'
+                    observationUnitName: Plot 1
+                    observationUnitXref:
+                    - id: SAMEA179865230
+                      source: ebi.biosample
+                    - id: INRA:CoeSt6 _SMH03
+                      source: gnpis.lot
+                    - id: '239865'
+                      source: kernelDB
+                    plantNumber: 'null'
+                    plotNumber: '1'
+                    programName: Program 1
+                    replicate: '0'
+                    studyDbId: '1001'
+                    studyLocation: Peru
+                    studyLocationDbId: '1'
+                    studyName: Study 1
+                    treatments:
+                    - factor: water regimen
+                      modality: deficit
+                  - X: '1'
+                    Y: '1'
+                    blockNumber: '101'
+                    entryNumber: '1'
+                    entryType: FILLER
+                    germplasmDbId: '4'
+                    germplasmName: Name004
+                    observationLevel: plant
+                    observationLevels: block:101;plot:5;plant:5
+                    observationUnitDbId: '10'
+                    observationUnitName: Plant 5
+                    observationUnitXref: []
+                    plantNumber: '5'
+                    plotNumber: '5'
+                    programName: Program 1
+                    replicate: '1'
+                    studyDbId: '1003'
+                    studyLocation: Peru
+                    studyLocationDbId: '2'
+                    studyName: Study 3
+                    treatments: []
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    properties:
+                      data:
+                        items:
+                          $ref: '#/components/schemas/observationUnit'
+                        type: array
+                    required:
+                    - data
+                    type: object
+                required:
+                - metadata
+                - result
+                title: observationUnitsResponse
+                type: object
+          description: OK
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Observation Units
+    put:
+      summary: Update a set of Observation Units
+      description: |-
+        Update a set of Observation Units
+        
+        Note - In strictly typed languages, this structure can be respresented as a Map or Dictionary of objects and parsed directly to JSON.
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties:
+                $ref: '#/components/schemas/newObservationUnitRequest'
+            example: 
+              '<observationUnitDbId_1>':
+                X: '1'
+                Y: '1'
+                blockNumber: '1'
+                entryNumber: '1'
+                entryType: TEST
+                germplasmDbId: '1'
+                germplasmName: Name001
+                observationLevel: plot
+                observationLevels: block:1;plot:1
+                observationUnitDbId: '1'
+                observationUnitName: Plot 1
+                plantNumber: 'null'
+                plotNumber: '1'
+                programName: Program 1
+                replicate: '0'
+                studyDbId: '1001'
+                studyLocation: Peru
+                studyLocationDbId: '1'
+                studyName: Study 1
+                treatments:
+                - factor: water regimen
+                  modality: deficit
+              '<observationUnitDbId_2>':
+                X: '1'
+                Y: '1'
+                blockNumber: '1'
+                entryNumber: '1'
+                entryType: TEST
+                germplasmDbId: '1'
+                germplasmName: Name001
+                observationLevel: plot
+                observationLevels: block:1;plot:1
+                observationUnitDbId: '1'
+                observationUnitName: Plot 1
+                plantNumber: 'null'
+                plotNumber: '1'
+                programName: Program 1
+                replicate: '0'
+                studyDbId: '1001'
+                studyLocation: Peru
+                studyLocationDbId: '1'
+                studyName: Study 1
+                treatments:
+                - factor: water regimen
+                  modality: deficit
+              '<observationUnitDbId_3>':
+                X: '1'
+                Y: '1'
+                blockNumber: '1'
+                entryNumber: '1'
+                entryType: TEST
+                germplasmDbId: '1'
+                germplasmName: Name001
+                observationLevel: plot
+                observationLevels: block:1;plot:1
+                observationUnitDbId: '1'
+                observationUnitName: Plot 1
+                plantNumber: 'null'
+                plotNumber: '1'
+                programName: Program 1
+                replicate: '0'
+                studyDbId: '1001'
+                studyLocation: Peru
+                studyLocationDbId: '1'
+                studyName: Study 1
+                treatments:
+                - factor: water regimen
+                  modality: deficit
+      responses:
+        '200':
+          content:
+            application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 2
+                    totalPages: 1
+                  status: []
+                result:
+                  data:
+                  - X: '1'
+                    Y: '1'
+                    blockNumber: '1'
+                    entryNumber: '1'
+                    entryType: TEST
+                    germplasmDbId: '1'
+                    germplasmName: Name001
+                    observationLevel: plot
+                    observationLevels: block:1;plot:1
+                    observationUnitDbId: '1'
+                    observationUnitName: Plot 1
+                    observationUnitXref:
+                    - id: SAMEA179865230
+                      source: ebi.biosample
+                    - id: INRA:CoeSt6 _SMH03
+                      source: gnpis.lot
+                    - id: '239865'
+                      source: kernelDB
+                    plantNumber: 'null'
+                    plotNumber: '1'
+                    programName: Program 1
+                    replicate: '0'
+                    studyDbId: '1001'
+                    studyLocation: Peru
+                    studyLocationDbId: '1'
+                    studyName: Study 1
+                    treatments:
+                    - factor: water regimen
+                      modality: deficit
+                  - X: '1'
+                    Y: '1'
+                    blockNumber: '101'
+                    entryNumber: '1'
+                    entryType: FILLER
+                    germplasmDbId: '4'
+                    germplasmName: Name004
+                    observationLevel: plant
+                    observationLevels: block:101;plot:5;plant:5
+                    observationUnitDbId: '10'
+                    observationUnitName: Plant 5
+                    observationUnitXref: []
+                    plantNumber: '5'
+                    plotNumber: '5'
+                    programName: Program 1
+                    replicate: '1'
+                    studyDbId: '1003'
+                    studyLocation: Peru
+                    studyLocationDbId: '2'
+                    studyName: Study 3
+                    treatments: []
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    properties:
+                      data:
+                        items:
+                          $ref: '#/components/schemas/observationUnit'
+                        type: array
+                    required:
+                    - data
+                    type: object
+                required:
+                - metadata
+                - result
+                title: observationUnitsResponse
+                type: object
+          description: OK
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Observation Units
+      

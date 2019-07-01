@@ -1,0 +1,72 @@
+components:
+  schemas:
+    observationUnit:
+      properties:
+        additionalInfo:
+          additionalProperties:
+            type: string
+          description: Additional arbitrary info
+          type: object
+        germplasmDbId:
+          description: ' The ID which uniquely identifies a germplasm'
+          type: string
+        germplasmName:
+          description: Name of the germplasm. It can be the prefered name and does not have to be unique.
+          type: string
+        locationDbId:
+          description: The ID which uniquely identifies a location, associated with this study
+          type: string
+        locationName:
+          description: The human readable name of a location associated with this study
+          type: string
+        observationLevel:
+          description: The level of an observation unit. ex. "plot", "plant"
+          type: string
+        observationUnitDbId:
+          description: The ID which uniquely identifies an observation unit
+          type: string
+        observationUnitName:
+          description: A human readable name for an observation unit
+          type: string
+        observationUnitXref:
+          description: A list of external references to this observation unit
+          items:
+            $ref: '#/components/schemas/observationUnitXref'
+          type: array
+        observationUnitPosition:
+          $ref: '#/components/schemas/observationUnitPosition'
+        plantNumber:
+          description: 'The plant number in a field. Applicable for observationLevel: "plant"'
+          type: string
+        plotNumber:
+          description: 'The plot number in a field. Applicable for observationLevel: "plot"'
+          type: string
+        programDbId:
+          description: The ID which uniquely identifies a program
+          type: string
+        programName:
+          description: The human readable name of a program
+          type: string
+        studyDbId:
+          description: The ID which uniquely identifies a study within the given database server
+          type: string
+        studyName:
+          description: The human readable name for a study
+          type: string
+        treatments:
+          description: List of treatments applied to an observation unit.
+          items:
+            $ref: '#/components/schemas/observationTreatment'
+          type: array
+        trialDbId:
+          description: The ID which uniquely identifies a trial
+          type: string
+        trialName:
+          description: The human readable name of a trial
+          type: string
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

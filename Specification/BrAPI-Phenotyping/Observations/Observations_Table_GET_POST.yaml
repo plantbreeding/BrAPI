@@ -1,0 +1,334 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /observations/table:
+    get:
+      summary: Get a list of Observations in a table format
+      description: Retrieve the details of the study required for field data collection. Includes actual trait data.
+      parameters:
+      - description: Identifier of the study. Usually a number, could be alphanumeric.
+        in: query
+        name: studyDbId
+        required: false
+        schema:
+          type: string
+      - description: The format parameter will cause the data to be dumped to a file in the specified format. Currently, tsv and csv are supported.
+        in: query
+        name: format
+        required: false
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          content:
+            application/csv:
+              example: "year,studyDbId,studyName,locationDbId,locationName,germplasmDbId,germplasmName,observationUnitDbId,plotNumber,replicate,blockNumber,observationTimestamp,entryType,X,Y,variable1DbId,variable2DbId,variable3DbId\n2017,stu1,Study Name,loc1,Location Name,CIP1,CIP Name,abc123,1,1,1,2017-06-16T00:53:26Z,Test Entry,1,2,25.3,103.4,50.75 \n2017,stu1,Study Name,loc1,Location Name,CIP1,CIP Name,abc124,1,1,1,2017-06-16T00:54:57Z,Test Entry,2,2,27.9,98.65,45.345\n"
+              schema:
+                type: string
+            application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result:
+                  data:
+                  - - '2011'
+                    - '1001'
+                    - Study 1
+                    - '1'
+                    - Peru
+                    - '1'
+                    - Name001
+                    - '2'
+                    - '1'
+                    - '0'
+                    - '1'
+                    - '2013-06-14T22:05:51-04:00'
+                    - TEST
+                    - '1'
+                    - '1'
+                    - '1.1'
+                    - ''
+                    - ''
+                    - '5.1'
+                  - - '2012'
+                    - '1001'
+                    - Study 1
+                    - '1'
+                    - Peru
+                    - '2'
+                    - Name002
+                    - '3'
+                    - '2'
+                    - '0'
+                    - '1'
+                    - '2013-06-14T22:07:51-04:00'
+                    - TEST
+                    - '1'
+                    - '2'
+                    - ''
+                    - '2.1'
+                    - dark blue
+                    - ''
+                  - - '2012'
+                    - '1001'
+                    - Study 1
+                    - '1'
+                    - Peru
+                    - '2'
+                    - Name002
+                    - '4'
+                    - '2'
+                    - '0'
+                    - '1'
+                    - '2013-06-14T22:09:51-04:00'
+                    - TEST
+                    - '1'
+                    - '2'
+                    - ''
+                    - '1.8'
+                    - blue
+                    - ''
+                  - - '2011'
+                    - '1001'
+                    - Study 1
+                    - '1'
+                    - Peru
+                    - '1'
+                    - Name001
+                    - '1'
+                    - '1'
+                    - '0'
+                    - '0'
+                    - '2013-06-14T22:03:51-04:00'
+                    - CHECK
+                    - '10'
+                    - '12'
+                    - '1.2'
+                    - ''
+                    - ''
+                    - '4.5'
+                  headerRow:
+                  - year
+                  - studyDbId
+                  - studyName
+                  - locationDbId
+                  - locationName
+                  - germplasmDbId
+                  - germplasmName
+                  - observationUnitDbId
+                  - plotNumber
+                  - replicate
+                  - blockNumber
+                  - observationTimestamp
+                  - entryType
+                  - X
+                  - Y
+                  observationVariableDbIds:
+                  - MO_123:100002
+                  - MO_123:100003
+                  - MO_123:100005
+                  - MO_123:100006
+                  observationVariableNames:
+                  - Plant height
+                  - Carotenoid
+                  - Root color
+                  - Virus severity
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/observationsTable'
+                required:
+                - metadata
+                - result
+                title: studyobservationsTableResponse
+                type: object
+            application/tsv:
+              example: "year\tstudyDbId\tstudyName\tlocationDbId\tlocationName\tgermplasmDbId\tgermplasmName\tobservationUnitDbId\tplotNumber\treplicate\tblockNumber\tobservationTimestamp\tentryType\tX\tY\tvariable1DbId\tvariable2DbId\tvariable3DbId\n 2017\tstu1\tStudy Name\tloc1\tLocation Name\tCIP1\tCIP Name\tabc123\t1\t1\t1\t2017-06-16T00:53:26Z\tTest Entry\t1\t2\t25.3\t103.4\t50.75\n 2017\tstu1\tStudy Name\tloc1\tLocation Name\tCIP1\tCIP Name\tabc124\t1\t1\t1\t2017-06-16T00:54:57Z\tTest Entry\t2\t2\t27.9\t98.65\t45.345\n"
+              schema:
+                type: string
+          description: OK
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Observations
+    post:
+      summary: Submit new Observations in a table format
+      description: |-
+        This call can be used to create new observations in bulk.
+        
+        Note - If you need to update any existing observation, please use `PUT /observations`. This call should only be used to create NEW observations.
+        
+        Implementation Guidelines
+        
+        + All observations submitted through this call should create NEW observation records in the database under the given observation unit. 
+        
+        + Each `observationUnitDbId` listed should already exist in the database. If the server can not find a given `observationUnitDbId`, it should report an error. (see Error Handling) 
+      parameters: 
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/newObservationsTableRequest'
+      responses: 
+        '200':
+          content:
+            application/csv:
+              example: "year,studyDbId,studyName,locationDbId,locationName,germplasmDbId,germplasmName,observationUnitDbId,plotNumber,replicate,blockNumber,observationTimestamp,entryType,X,Y,variable1DbId,variable2DbId,variable3DbId\n2017,stu1,Study Name,loc1,Location Name,CIP1,CIP Name,abc123,1,1,1,2017-06-16T00:53:26Z,Test Entry,1,2,25.3,103.4,50.75 \n2017,stu1,Study Name,loc1,Location Name,CIP1,CIP Name,abc124,1,1,1,2017-06-16T00:54:57Z,Test Entry,2,2,27.9,98.65,45.345\n"
+              schema:
+                type: string
+            application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result:
+                  data:
+                  - - '2011'
+                    - '1001'
+                    - Study 1
+                    - '1'
+                    - Peru
+                    - '1'
+                    - Name001
+                    - '2'
+                    - '1'
+                    - '0'
+                    - '1'
+                    - '2013-06-14T22:05:51-04:00'
+                    - TEST
+                    - '1'
+                    - '1'
+                    - '1.1'
+                    - ''
+                    - ''
+                    - '5.1'
+                  - - '2012'
+                    - '1001'
+                    - Study 1
+                    - '1'
+                    - Peru
+                    - '2'
+                    - Name002
+                    - '3'
+                    - '2'
+                    - '0'
+                    - '1'
+                    - '2013-06-14T22:07:51-04:00'
+                    - TEST
+                    - '1'
+                    - '2'
+                    - ''
+                    - '2.1'
+                    - dark blue
+                    - ''
+                  - - '2012'
+                    - '1001'
+                    - Study 1
+                    - '1'
+                    - Peru
+                    - '2'
+                    - Name002
+                    - '4'
+                    - '2'
+                    - '0'
+                    - '1'
+                    - '2013-06-14T22:09:51-04:00'
+                    - TEST
+                    - '1'
+                    - '2'
+                    - ''
+                    - '1.8'
+                    - blue
+                    - ''
+                  - - '2011'
+                    - '1001'
+                    - Study 1
+                    - '1'
+                    - Peru
+                    - '1'
+                    - Name001
+                    - '1'
+                    - '1'
+                    - '0'
+                    - '0'
+                    - '2013-06-14T22:03:51-04:00'
+                    - CHECK
+                    - '10'
+                    - '12'
+                    - '1.2'
+                    - ''
+                    - ''
+                    - '4.5'
+                  headerRow:
+                  - year
+                  - studyDbId
+                  - studyName
+                  - locationDbId
+                  - locationName
+                  - germplasmDbId
+                  - germplasmName
+                  - observationUnitDbId
+                  - plotNumber
+                  - replicate
+                  - blockNumber
+                  - observationTimestamp
+                  - entryType
+                  - X
+                  - Y
+                  observationVariableDbIds:
+                  - MO_123:100002
+                  - MO_123:100003
+                  - MO_123:100005
+                  - MO_123:100006
+                  observationVariableNames:
+                  - Plant height
+                  - Carotenoid
+                  - Root color
+                  - Virus severity
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/observationsTable'
+                required:
+                - metadata
+                - result
+                title: studyobservationsTableResponse
+                type: object
+            application/tsv:
+              example: "year\tstudyDbId\tstudyName\tlocationDbId\tlocationName\tgermplasmDbId\tgermplasmName\tobservationUnitDbId\tplotNumber\treplicate\tblockNumber\tobservationTimestamp\tentryType\tX\tY\tvariable1DbId\tvariable2DbId\tvariable3DbId\n 2017\tstu1\tStudy Name\tloc1\tLocation Name\tCIP1\tCIP Name\tabc123\t1\t1\t1\t2017-06-16T00:53:26Z\tTest Entry\t1\t2\t25.3\t103.4\t50.75\n 2017\tstu1\tStudy Name\tloc1\tLocation Name\tCIP1\tCIP Name\tabc124\t1\t1\t1\t2017-06-16T00:54:57Z\tTest Entry\t2\t2\t27.9\t98.65\t45.345\n"
+              schema:
+                type: string
+          description: OK
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Observations

@@ -3,19 +3,17 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /search/variables:
+  /search/observations:
     post:
-      description: 'Search observation variables.
-
-
-        See Search Services for additional implementation details.'
+      summary: Submit a search request for a table of Observations
+      description: Submit a search request for a table of Observations. Returns an Id which reference the results of this search
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/observationVariableSearchRequest'
+              $ref: '#/components/schemas/searchObservationsRequest'
       responses:
         '200':
           $ref: '#/components/responses/successfulSearchResponse'
@@ -25,6 +23,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Submit a search request for Observation Variables
       tags:
-      - Observation Variables
+      - Observations

@@ -1,0 +1,377 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /observations:
+    get:
+      summary: Get a filtered set of Observations 
+      description: |-
+        Retrieve all observations where there are measurements for the given observation variables.
+
+        observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:ss+hhmm
+      parameters:
+      - description: The unique ID of a germplasm (accession) to filter on
+        in: query
+        name: germplasmDbId
+        required: false
+        schema:
+          type: string
+      - description: The unique ID of an observation variable
+        in: query
+        name: observationVariableDbId
+        required: false
+        schema:
+          type: string
+      - description: The unique ID of a studies to filter on
+        in: query
+        name: studyDbId
+        required: false
+        schema:
+          type: string
+      - description: The unique ID of a location where these observations were collected
+        in: query
+        name: locationDbId
+        required: false
+        schema:
+          type: string
+      - description: The unique ID of a trial to filter on
+        in: query
+        name: trialDbId
+        required: false
+        schema:
+          type: string
+      - description: The unique ID of a program to filter on
+        in: query
+        name: programDbId
+        required: false
+        schema:
+          type: string
+      - description: The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)
+        in: query
+        name: seasonDbId
+        required: false
+        schema:
+          type: string
+      - description: The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnitStructure.
+        in: query
+        name: observationLevel
+        required: false
+        schema:
+          type: string
+      - description: Timestamp range start
+        in: query
+        name: observationTimeStampRangeStart
+        required: false
+        schema:
+          format: date-time
+          type: string
+      - description: Timestamp range end
+        in: query
+        name: observationTimeStampRangeEnd
+        required: false
+        schema:
+          format: date-time
+          type: string
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          content:
+            application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 9
+                    totalPages: 5
+                  status: []
+                result:
+                  data:
+                  - germplasmDbId: '1'
+                    germplasmName: Name001
+                    observationDbId: '1'
+                    observationLevel: plot
+                    observationTimeStamp: '2013-06-14T22:03:51-04:00'
+                    observationUnitDbId: '1'
+                    observationUnitName: Plot 1
+                    observationVariableDbId: MO_123:100002
+                    observationVariableName: Plant height
+                    operator: Bob
+                    season:
+                      season: fall
+                      seasonDbId: '1'
+                      year: '2011'
+                    studyDbId: '1001'
+                    uploadedBy: Bob
+                    value: '1.2'
+                  - germplasmDbId: '1'
+                    germplasmName: Name001
+                    observationDbId: '2'
+                    observationLevel: plot
+                    observationTimeStamp: '2013-06-14T22:04:51-04:00'
+                    observationUnitDbId: '1'
+                    observationUnitName: Plot 1
+                    observationVariableDbId: MO_123:100006
+                    observationVariableName: Virus severity
+                    operator: Bob
+                    season:
+                      season: fall
+                      seasonDbId: '1'
+                      year: '2011'
+                    studyDbId: '1001'
+                    uploadedBy: Bob
+                    value: '4.5'
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    properties:
+                      data:
+                        items:
+                          $ref: '#/components/schemas/observation'
+                        type: array
+                    required:
+                    - data
+                    type: object
+                required:
+                - metadata
+                - result
+                title: observationsResponse
+                type: object
+          description: OK
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Observations
+    post:
+      summary: Add new Observation entities
+      description: |-
+        Add new Observation entities
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                observations:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/newObservationsRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 9
+                    totalPages: 5
+                  status: []
+                result:
+                  data:
+                  - germplasmDbId: '1'
+                    germplasmName: Name001
+                    observationDbId: '1'
+                    observationLevel: plot
+                    observationTimeStamp: '2013-06-14T22:03:51-04:00'
+                    observationUnitDbId: '1'
+                    observationUnitName: Plot 1
+                    observationVariableDbId: MO_123:100002
+                    observationVariableName: Plant height
+                    operator: Bob
+                    season:
+                      season: fall
+                      seasonDbId: '1'
+                      year: '2011'
+                    studyDbId: '1001'
+                    uploadedBy: Bob
+                    value: '1.2'
+                  - germplasmDbId: '1'
+                    germplasmName: Name001
+                    observationDbId: '2'
+                    observationLevel: plot
+                    observationTimeStamp: '2013-06-14T22:04:51-04:00'
+                    observationUnitDbId: '1'
+                    observationUnitName: Plot 1
+                    observationVariableDbId: MO_123:100006
+                    observationVariableName: Virus severity
+                    operator: Bob
+                    season:
+                      season: fall
+                      seasonDbId: '1'
+                      year: '2011'
+                    studyDbId: '1001'
+                    uploadedBy: Bob
+                    value: '4.5'
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    properties:
+                      data:
+                        items:
+                          $ref: '#/components/schemas/observation'
+                        type: array
+                    required:
+                    - data
+                    type: object
+                required:
+                - metadata
+                - result
+                title: observationsResponse
+                type: object
+          description: OK
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Observations
+    put:
+      summary: Update multiple Observation entities 
+      description: |-
+        Update multiple Observation entities simultaniously with a single call
+        
+        Include as many `observationDbIds` in the request as needed.
+        
+        Note - In strictly typed languages, this structure can be respresented as a Map or Dictionary of objects and parsed directly to JSON.
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties:
+                  $ref: '#/components/schemas/newObservationsRequest'
+            example:
+              '<observationDbId_1>':
+                germplasmDbId: string
+                observationLevel: string
+                observationTimeStamp: 2019-06-28T16:49:43.516Z
+                observationUnitDbId: string
+                observationVariableDbId: string
+                operator: string
+                studyDbId: string
+                uploadedBy: string
+                value: string
+              '<observationDbId_2>':
+                germplasmDbId: string
+                observationLevel: string
+                observationTimeStamp: 2019-06-28T16:49:43.516Z
+                observationUnitDbId: string
+                observationVariableDbId: string
+                operator: string
+                studyDbId: string
+                uploadedBy: string
+                value: string
+              '<observationDbId_3>':
+                germplasmDbId: string
+                observationLevel: string
+                observationTimeStamp: 2019-06-28T16:49:43.516Z
+                observationUnitDbId: string
+                observationVariableDbId: string
+                operator: string
+                studyDbId: string
+                uploadedBy: string
+                value: string
+      responses:
+        '200':
+          content:
+            application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 9
+                    totalPages: 5
+                  status: []
+                result:
+                  data:
+                  - germplasmDbId: '1'
+                    germplasmName: Name001
+                    observationDbId: '1'
+                    observationLevel: plot
+                    observationTimeStamp: '2013-06-14T22:03:51-04:00'
+                    observationUnitDbId: '1'
+                    observationUnitName: Plot 1
+                    observationVariableDbId: MO_123:100002
+                    observationVariableName: Plant height
+                    operator: Bob
+                    season:
+                      season: fall
+                      seasonDbId: '1'
+                      year: '2011'
+                    studyDbId: '1001'
+                    uploadedBy: Bob
+                    value: '1.2'
+                  - germplasmDbId: '1'
+                    germplasmName: Name001
+                    observationDbId: '2'
+                    observationLevel: plot
+                    observationTimeStamp: '2013-06-14T22:04:51-04:00'
+                    observationUnitDbId: '1'
+                    observationUnitName: Plot 1
+                    observationVariableDbId: MO_123:100006
+                    observationVariableName: Virus severity
+                    operator: Bob
+                    season:
+                      season: fall
+                      seasonDbId: '1'
+                      year: '2011'
+                    studyDbId: '1001'
+                    uploadedBy: Bob
+                    value: '4.5'
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    properties:
+                      data:
+                        items:
+                          $ref: '#/components/schemas/observation'
+                        type: array
+                    required:
+                    - data
+                    type: object
+                required:
+                - metadata
+                - result
+                title: observationsResponse
+                type: object
+          description: OK
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Observations

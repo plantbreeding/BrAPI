@@ -1,0 +1,149 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /methods:
+    get:
+      description: 'Returns a list of Methods available on a server.
+
+
+        An Observation Variable has 3 critical parts: A Trait being observed, a Method for making the observation, and a Scale on which the observation can be measured and compared with other observations.'
+      parameters:
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          content:
+            application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 2
+                    totalCount: 4
+                    totalPages: 2
+                  status: []
+                result:
+                  data:
+                  - class: Numeric
+                    description: Standard rolled measuring tape
+                    formula: a^2 + b^2 = c^2
+                    methodDbId: m1
+                    methodName: Tape Measure
+                    name: Tape Measure
+                    ontologyReference:
+                      documentationLinks:
+                      - URL: https://ontology.org/m1
+                        type: RDF
+                        url: https://ontology.org/m1
+                      ontologyDbId: MO_123
+                      ontologyName: Ontology.org
+                      version: '17'
+                    reference: google.com
+                  - class: Numeric
+                    description: Dried sample on electric scale
+                    formula: NA
+                    methodDbId: m2
+                    methodName: Dry Electric Scale
+                    name: Dry Electric Scale
+                    ontologyReference:
+                      documentationLinks:
+                      - URL: https://ontology.org/m2
+                        type: WEBPAGE
+                        url: https://ontology.org/m2
+                      ontologyDbId: MO_123
+                      ontologyName: Ontology.org
+                      version: '17'
+                    reference: google.com
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    properties:
+                      data:
+                        items:
+                          $ref: '#/components/schemas/method'
+                        type: array
+                    required:
+                    - data
+                    type: object
+                required:
+                - metadata
+                - result
+                title: MethodsResponse
+                type: object
+          description: OK
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      summary: Get the Methods
+      tags:
+      - Methods
+    post:
+      description: Create a new method object in the database
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/newMethodRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result:
+                  class: string
+                  description: string
+                  formula: string
+                  methodDbId: 8175d7ac-6221-4e1d-8023-91ddb8b30fd8
+                  methodName: string
+                  name: string
+                  ontologyReference:
+                    documentationLinks:
+                    - URL: string
+                      type: OBO
+                      url: string
+                    ontologyDbId: MO_123
+                    ontologyName: Ontology.org
+                    version: '17'
+                  reference: string
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/method'
+                required:
+                - metadata
+                - result
+                title: MethodResponse
+                type: object
+          description: OK
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      summary: Add a new Method
+      tags: 
+      - Methods

@@ -119,4 +119,3 @@ paths:
       summary: Get the results of an Images search request
       tags:
       - Images
-      - Search Services

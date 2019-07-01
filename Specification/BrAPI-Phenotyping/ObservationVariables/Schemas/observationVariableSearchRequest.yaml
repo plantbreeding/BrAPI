@@ -32,12 +32,6 @@ components:
           items:
             type: string
           type: array
-        page:
-          description: Which page of the "data" array to return. The page indexing starts at 0 (page=0 will return the first page). Default is 0.
-          type: integer
-        pageSize:
-          description: The maximum number of items to return per page of the "data" array. Default is 1000.
-          type: integer
         scaleDbIds:
           description: List of scales to filter search results
           items:
@@ -48,6 +42,11 @@ components:
           items:
             type: string
           type: array
+        studyDbId:  
+          description: The unique ID of a studies to filter on
+          type: array
+          items:
+            type: string
         traitClasses:
           description: List of trait classes to filter search results
           items:

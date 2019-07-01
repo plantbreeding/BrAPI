@@ -1,0 +1,140 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /methods/{methodDbId}:
+    get:
+      summary: Get the details for a specific Method
+      description: |-
+        Retrieve details about a specific method
+
+        An Observation Variable has 3 critical parts: A Trait being observed, a Method for making the observation, and a Scale on which the observation can be measured and compared with other observations.
+      parameters:
+      - description: Id of the method to retrieve details of.
+        in: path
+        name: methodDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          content:
+            application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result:
+                  class: Numeric
+                  description: Standard rolled measuring tape
+                  formula: a^2 + b^2 = c^2
+                  methodDbId: m1
+                  methodName: Tape Measure
+                  name: Tape Measure
+                  ontologyReference:
+                    documentationLinks:
+                    - URL: https://ontology.org/m1
+                      type: RDF
+                      url: https://ontology.org/m1
+                    ontologyDbId: MO_123
+                    ontologyName: Ontology.org
+                    version: '17'
+                  reference: google.com
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/method'
+                required:
+                - metadata
+                - result
+                title: MethodResponse
+                type: object
+          description: OK
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Methods
+    put:
+      summary: Update an existing Method
+      description: Update the details of an existing method
+      parameters:
+      - description: Id of the method to retrieve details of.
+        in: path
+        name: methodDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/newMethodRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination:
+                    currentPage: 0
+                    pageSize: 0
+                    totalCount: 0
+                    totalPages: 0
+                  status: []
+                result:
+                  class: string
+                  description: string
+                  formula: string
+                  methodDbId: m1
+                  methodName: string
+                  name: string
+                  ontologyReference:
+                    documentationLinks:
+                    - URL: string
+                      type: OBO
+                      url: string
+                    ontologyDbId: MO_123
+                    ontologyName: Ontology.org
+                    version: '17'
+                  reference: string
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/method'
+                required:
+                - metadata
+                - result
+                title: MethodResponse
+                type: object
+          description: OK
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Methods

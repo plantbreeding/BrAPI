@@ -1,0 +1,38 @@
+components:
+  schemas:
+    searchObservationUnitsRequest: 
+      properties:
+        germplasmDbIds:
+          description: The name or synonym of external genebank accession identifiers
+          items:
+            type: string
+          type: array
+        locationDbIds:
+          description: locations these traits were collected
+          items:
+            type: string
+          type: array
+        observationLevel:
+          description: The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnit Structure.
+          type: string
+        programDbIds:
+          description: list of programs to search across
+          items:
+            type: string
+          type: array
+        studyDbIds:
+          description: The database ID / PK of the studies search parameter
+          items:
+            type: string
+          type: array
+        trialDbIds:
+          description: list of trials to search across
+          items:
+            type: string
+          type: array
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
