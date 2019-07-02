@@ -5,8 +5,9 @@ openapi: 3.0.0
 paths:
   /search/observations/{searchResultsDbId}:
     get:
+      summary: Returns a list of Observations based on search criteria.
       description: |-
-        Returns a list of observationUnit with the observed Phenotypes.
+        Returns a list of Observations based on search criteria.
 
         observationTimeStamp - Iso Standard 8601.
 

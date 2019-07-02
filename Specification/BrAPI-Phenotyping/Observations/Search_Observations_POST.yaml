@@ -5,8 +5,8 @@ openapi: 3.0.0
 paths:
   /search/observations:
     post:
-      summary: Submit a search request for a table of Observations
-      description: Submit a search request for a table of Observations. Returns an Id which reference the results of this search
+      summary: Submit a search request for a set of Observations
+      description: Submit a search request for a set of Observations. Returns an Id which reference the results of this search
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:

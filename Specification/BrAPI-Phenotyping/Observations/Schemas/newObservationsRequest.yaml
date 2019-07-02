@@ -2,11 +2,13 @@ components:
   schemas:
     newObservationsRequest:
       properties:
+        additionalInfo:
+          additionalProperties:
+            type: string
+          description: Additional arbitrary info
+          type: object
         germplasmDbId:
           description: ' The ID which uniquely identifies a germplasm'
-          type: string
-        observationLevel:
-          description: The level of an observation unit. ex. "plot", "plant"
           type: string
         observationTimeStamp:
           description: 'The date and time  when this observation was made '

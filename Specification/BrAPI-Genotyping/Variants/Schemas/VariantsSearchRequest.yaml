@@ -18,12 +18,6 @@ components:
             variants should be returned.
           format: int64
           type: string
-        page:
-          description: Which page of the "data" array to return. The page indexing starts at 0 (page=0 will return the first page). Default is 0.
-          type: integer
-        pageSize:
-          description: The maximum number of items to return per page of the "data" array. Default is 1000.
-          type: integer
         reference_name:
           description: Required. Only return variants on this reference.
           type: string

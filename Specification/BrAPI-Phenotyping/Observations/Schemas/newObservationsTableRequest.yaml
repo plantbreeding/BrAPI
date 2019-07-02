@@ -10,8 +10,26 @@ components:
             type: array
           type: array
         headerRow:
-          description: The header row describing the data matrix. Append 'observationVariableDbIds' for complete header row.
+          description: 'The header row describing observation unit fields. Append ''observationVariableDbIds'' for complete header row of the table.
+
+            This array should contain any or all of the following strings; year, studyDbId, studyName, locationDbId, locationName, germplasmDbId, germplasmName, observationUnitDbId, plotNumber, replicate, blockNumber, entryType, X, Y'
           items:
+            description: valid header fields
+            enum:
+            - year
+            - studyDbId
+            - studyName
+            - locationDbId
+            - locationName
+            - germplasmDbId
+            - germplasmName
+            - observationUnitDbId
+            - plotNumber
+            - replicate
+            - blockNumber
+            - entryType
+            - X
+            - Y
             type: string
           type: array
         observationVariableDbIds:

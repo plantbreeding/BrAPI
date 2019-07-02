@@ -14,12 +14,6 @@ paths:
         required: false
         schema:
           type: string
-      - description: The unique ID of an observation variable
-        in: query
-        name: observationVariableDbId
-        required: false
-        schema:
-          type: string
       - description: The unique ID of a studies to filter on
         in: query
         name: studyDbId

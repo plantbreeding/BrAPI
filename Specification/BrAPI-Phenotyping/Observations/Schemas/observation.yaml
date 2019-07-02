@@ -16,9 +16,6 @@ components:
         observationDbId:
           description: The ID which uniquely identifies an observation
           type: string
-        observationLevel:
-          description: The level of an observation unit. ex. "plot", "plant"
-          type: string
         observationTimeStamp:
           description: 'The date and time  when this observation was made '
           format: date-time
