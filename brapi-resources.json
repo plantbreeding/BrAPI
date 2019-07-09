@@ -124,6 +124,19 @@
         ]
       },
       {
+        "name": "VIB Center For Plant Systems Biology",
+        "description": "BrAPI endpoint to access the publicly available data from PIPPA, an interface for plant phenotype analysis",
+        "logo": "https://www.psb.ugent.be/images/psbgroot.png",
+        "resource": [
+          {
+            "name": "PIPPA - PSB Interface for Plant Phenotype Analysis",
+            "base-url": "https://pippa.psb.ugent.be/BrAPIPPA/brapi/v1/",
+            "logo": "https://www.psb.ugent.be/images/psbgroot.png",
+            "description": "More information about the provided datasets can be found here: https://pippa.psb.ugent.be/"
+          }
+        ]
+      },
+      {
         "name": "BrAPI",
         "description": "The BrAPI Community",
         "logo": "https://brapi.org/assets/images/brapi-logo.svg",
