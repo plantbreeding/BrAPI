@@ -6,8 +6,6 @@ components:
         SNVs, copy number variations, methylation status) together with information
         about the methodology used.
       properties:
-        attributes:
-          $ref: '#/components/schemas/Attributes'
         created:
           description: The time at which this record was created, in ISO 8601 format.
           type: string

@@ -5,6 +5,11 @@ components:
         A VariantSet is a collection of variants and variant calls intended to be
         analyzed together.
       properties:
+        additionalInfo:
+          additionalProperties:
+            type: string
+          description: Additional arbitrary info
+          type: object
         availableFormats:
           description: |-
             When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats. 
@@ -39,21 +44,14 @@ components:
                 description: A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file.
                 type: string
                 format: uri
+        analysis:
+          $ref: '#/components/schemas/Analysis'
         studyDbId:
           description: The ID of the dataset this variant set belongs to.
           type: string
         variantSetDbId:
           description: The variant set ID.
           type: string
-        variantSetMetadata:
-          description: |-
-            Optional metadata associated with this variant set.
-            This array can be used to store information about the variant set, such as
-            information found in VCF header fields, that isn't already available in
-            first class fields such as "name".
-          items:
-            $ref: '#/components/schemas/VariantSetMetadata'
-          type: array
         variantSetName:
           description: The variant set name.
           type: string

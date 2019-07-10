@@ -28,7 +28,7 @@ paths:
                     totalPages: 0
                   status: []
                 result:
-                  active: 'true'
+                  active:  True
                   additionalInfo:
                     studyObjective: Increase yield
                   commonCropName: Tomatillo
@@ -189,7 +189,7 @@ paths:
                     totalPages: 0
                   status: []
                 result:
-                  active: 'true'
+                  active:  True
                   additionalInfo:
                     studyObjective: Increase yield
                   commonCropName: Tomatillo

@@ -4,7 +4,7 @@ components:
       properties:
         active:
           description: Is this study currently active
-          type: string
+          type: boolean
         additionalInfo:
           additionalProperties:
             type: string

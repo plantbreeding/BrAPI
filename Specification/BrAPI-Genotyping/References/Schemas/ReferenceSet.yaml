@@ -11,8 +11,11 @@ components:
             The remaining information is about the source of the sequences
             Public id of this reference set, such as `GRCh37`.
           type: string
-        attributes:
-          $ref: '#/components/schemas/Attributes'
+        additionalInfo:
+          additionalProperties:
+            type: string
+          description: Additional arbitrary info
+          type: object
         description:
           description: Optional free text description of this reference set.
           type: string

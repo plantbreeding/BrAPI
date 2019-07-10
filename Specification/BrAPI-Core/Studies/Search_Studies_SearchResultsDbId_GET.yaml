@@ -32,7 +32,7 @@ paths:
                   status: []
                 result:
                   data:
-                  - active: 'true'
+                  - active: True
                     additionalInfo:
                       studyObjective: Increase yield
                     commonCropName: Tomatillo
@@ -58,7 +58,7 @@ paths:
                     studyTypeName: Yield study
                     trialDbId: '101'
                     trialName: Peru Yield Trial 1
-                  - active: 'true'
+                  - active: True
                     additionalInfo:
                       publications: pmid:23643517318968
                     commonCropName: Tomatillo

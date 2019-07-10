@@ -1,0 +1,76 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /seedlots/{seedLotDbId}/transactions:
+    get:
+      summary: Get all Transactions related to a specific Seed Lot
+      description: Get all Transactions related to a specific Seed Lot
+      parameters:
+      - name: seedLotDbId
+        description: Unique id for a seed lot on this server
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: transactionDbId
+        description: Unique id for a Transaction that has occured
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: transactionDirection
+        description: Filter results to only include transactions directed to the specific Seed Lot (TO), away from the specific Seed Lot (FROM), or both (BOTH). The default value for this parameter is BOTH
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - TO
+          - FROM
+          - BOTH
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          content:
+            application/json:
+              example:
+                metadata:
+                  datafiles: []
+                  pagination: {}
+                  status: []
+                result:
+                  data:
+              schema:
+                properties:
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    properties:
+                      data:
+                        items:
+                          $ref: '#/components/schemas/seedLotTransaction'
+                        type: array
+                    required:
+                    - data
+                    type: object
+                required:
+                - metadata
+                - result
+                title: seedLotTransactionResponse
+                type: object
+          description: OK
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Seed Lots
