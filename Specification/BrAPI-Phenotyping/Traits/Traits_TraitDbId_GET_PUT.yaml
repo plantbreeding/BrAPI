@@ -97,7 +97,7 @@ paths:
                   alternativeAbbreviations:
                   - string
                   attribute: string
-                  class: string
+                  traitClass: string
                   description: string
                   entity: string
                   mainAbbreviation: string

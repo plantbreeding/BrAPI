@@ -28,7 +28,7 @@ paths:
                   status: []
                 result:
                   data:
-                  - class: Numeric
+                  - methodClass: Numeric
                     description: Standard rolled measuring tape
                     formula: a^2 + b^2 = c^2
                     methodDbId: m1
@@ -43,7 +43,7 @@ paths:
                       ontologyName: Ontology.org
                       version: '17'
                     reference: google.com
-                  - class: Numeric
+                  - methodClass: Numeric
                     description: Dried sample on electric scale
                     formula: NA
                     methodDbId: m2
@@ -110,7 +110,7 @@ paths:
                     totalPages: 0
                   status: []
                 result:
-                  class: string
+                  methodClass: string
                   description: string
                   formula: string
                   methodDbId: 8175d7ac-6221-4e1d-8023-91ddb8b30fd8

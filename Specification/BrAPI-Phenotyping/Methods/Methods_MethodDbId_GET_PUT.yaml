@@ -32,7 +32,7 @@ paths:
                     totalPages: 0
                   status: []
                 result:
-                  class: Numeric
+                  methodClass: Numeric
                   description: Standard rolled measuring tape
                   formula: a^2 + b^2 = c^2
                   methodDbId: m1
@@ -100,7 +100,7 @@ paths:
                     totalPages: 0
                   status: []
                 result:
-                  class: string
+                  methodClass: string
                   description: string
                   formula: string
                   methodDbId: m1

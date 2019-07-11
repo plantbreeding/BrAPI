@@ -3,7 +3,7 @@ components:
     newMethodRequest:
       description: new Method request
       properties:
-        class:
+        methodClass:
           description: 'Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)'
           title: className
           type: string

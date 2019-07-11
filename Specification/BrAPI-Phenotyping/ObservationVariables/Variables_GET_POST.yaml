@@ -53,7 +53,7 @@ paths:
                     institution: '1'
                     language: English
                     method:
-                      class: Numeric
+                      methodClass: Numeric
                       description: Standard rolled measuring tape
                       formula: a^2 + b^2 = c^2
                       methodDbId: m1
@@ -107,7 +107,7 @@ paths:
                     trait:
                       alternativeAbbreviations: []
                       attribute: plant height
-                      class: Numeric
+                      traitClass: Numeric
                       description: plant height
                       entity: entity
                       mainAbbreviation: H
@@ -135,7 +135,7 @@ paths:
                     institution: '1'
                     language: English
                     method:
-                      class: Categorical
+                      methodClass: Categorical
                       description: Comparing sample color to standard color palette
                       formula: NA
                       methodDbId: m3
@@ -194,7 +194,7 @@ paths:
                     trait:
                       alternativeAbbreviations: []
                       attribute: leaf color
-                      class: Categorical
+                      traitClass: Categorical
                       description: color of leaf sample
                       entity: entity
                       mainAbbreviation: LC
@@ -280,7 +280,7 @@ paths:
                     institution: '1'
                     language: English
                     method:
-                      class: Numeric
+                      methodClass: Numeric
                       description: Standard rolled measuring tape
                       formula: a^2 + b^2 = c^2
                       methodDbId: m1
@@ -334,7 +334,7 @@ paths:
                     trait:
                       alternativeAbbreviations: []
                       attribute: plant height
-                      class: Numeric
+                      traitClass: Numeric
                       description: plant height
                       entity: entity
                       mainAbbreviation: H
@@ -362,7 +362,7 @@ paths:
                     institution: '1'
                     language: English
                     method:
-                      class: Categorical
+                      methodClass: Categorical
                       description: Comparing sample color to standard color palette
                       formula: NA
                       methodDbId: m3
@@ -421,7 +421,7 @@ paths:
                     trait:
                       alternativeAbbreviations: []
                       attribute: leaf color
-                      class: Categorical
+                      traitClass: Categorical
                       description: color of leaf sample
                       entity: entity
                       mainAbbreviation: LC
