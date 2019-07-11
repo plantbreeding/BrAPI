@@ -55,6 +55,12 @@ components:
         variantSetName:
           description: The variant set name.
           type: string
+        variantCount:
+          description: The number of Variants included in this VariantSet
+          type: integer
+        callSetCount:
+          description: The number of CallSets included in this VariantSet
+          type: integer
         referenceSetDbId:
           description: |-
             The ID of the reference set that describes the sequences used by the
