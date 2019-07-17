@@ -3,10 +3,10 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /maps/{mapDbId}:
+  /maps/{mapDbId}/linkagegroups:
     get:
-      summary: Get the details of a specific Genomic Map
-      description: Provides the number of markers on each linkageGroup and the max position on the linkageGroup
+      summary: Get the Linkage Groups of a specific Genomic Map
+      description: Get the Linkage Groups of a specific Genomic Map
       parameters:
       - description: The internal db id of a selected map
         in: path
@@ -27,18 +27,20 @@ paths:
                   pagination: {}
                   status: []
                 result:
-                  documentationURL: https://brapi.org
-                  mapDbId: gm1
-                  mapName: Genome Map 1
-                  name: Genome Map 1
-                  type: Genetic
-                  unit: cM
+                  data: []
               schema:
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    $ref: '#/components/schemas/genomeMap'
+                    type: object
+                    required:
+                    - data
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/linkageGroup'
                 required:
                 - metadata
                 - result

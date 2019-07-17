@@ -3,7 +3,7 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /search/markerpositions: 
+  /search/markerpositions/{searchResultsDbId}: 
     post:
       summary: Get marker position info
       description: Get marker position information, based on Map, Linkage Group, and Marker ID
@@ -31,7 +31,7 @@ paths:
                     properties:
                       data:
                         items:
-                          $ref: '#/components/schemas/markerPositions'
+                          $ref: '#/components/schemas/markerPosition'
                         type: array
                     required:
                     - data
