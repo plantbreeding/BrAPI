@@ -13,7 +13,7 @@ components:
           type: string
         position: 
           description: The position of a marker within a linkage group
-          type: string
+          type: integer
         markerDbId:
           description: Internal db identifier
           type: string

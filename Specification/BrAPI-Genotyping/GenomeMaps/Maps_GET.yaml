@@ -7,21 +7,42 @@ paths:
     get:
       description: Get list of maps
       parameters:
-      - description: The common name of the crop, found from "GET /commoncropnames"
+      - name: commonCropName
+        description: The common name of the crop, found from "GET /commoncropnames"
         in: query
-        name: commonCropName
         required: false
         schema:
           type: string
-      - description: Full scientific binomial format name. This includes Genus, Species, and Sub-species
+      - name: scientificName
+        description: Full scientific binomial format name. This includes Genus, Species, and Sub-species
         in: query
-        name: scientificName
         required: false
         schema:
           type: string
-      - description: Type of map
+      - name: type
+        description: Type of map
         in: query
-        name: type
+        required: false
+        schema:
+          type: string
+          enum:
+          - physical
+          - genomic
+      - name: programDbId
+        description: Unique Id to filter by Program
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: trialDbId
+        description: Unique Id to filter by Trial
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: studyDbId
+        description: Unique Id to filter by Study
+        in: query
         required: false
         schema:
           type: string
