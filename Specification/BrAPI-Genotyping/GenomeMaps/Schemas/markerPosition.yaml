@@ -1,8 +1,17 @@
 components:
   schemas:
-    markerSummaryLinkageGroup:
+    markerPosition: 
       properties:
-        location:
+        mapDbId:
+          description: The unique ID of the map 
+          type: string
+        mapName:
+          description: The human readbale name of the map
+          type: string
+        linkageGroupName: 
+          description: The Uniquely Identifiable name of this linkage group
+          type: string
+        position: 
           description: The position of a marker within a linkage group
           type: string
         markerDbId:

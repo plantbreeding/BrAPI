@@ -1,24 +1,19 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
 components:
   schemas:
-    variantSetsExtractRequest:
-      description: |-
-        This request maps to the body of `POST /variantsets/extract` as JSON.
+    CallsListResponseResult:
+      type: object
+      required:
+      - data
       properties:
-        callSetDbIds:
-          description: The CallSet to search.
+        data:
           type: array
           items:
-            type: string
-        variantDbIds: 
-          description: The Variant to search.
-          type: array
-          items:
-            type: string
-        variantSetDbIds: 
-          description: The VariantSet to search.
-          type: array
-          items:
-            type: string
+            $ref: '#/components/schemas/Call'
         expandHomozygotes:
           description: Should homozygotes be expanded (true) or collapsed into a single occurence (false)
           type: boolean
@@ -31,9 +26,4 @@ components:
         unknownString:
           description: The string used as a representation for missing data.
           type: string
-      type: object
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}
+        

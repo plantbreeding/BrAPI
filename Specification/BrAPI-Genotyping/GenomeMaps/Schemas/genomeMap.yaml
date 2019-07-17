@@ -1,6 +1,6 @@
 components:
   schemas:
-    genomeMap:
+    genomeMap: 
       properties:
         comments:
           description: Additional comments

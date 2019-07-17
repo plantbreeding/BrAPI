@@ -9,7 +9,15 @@ components:
         values:
           description: Repeated field of dynamically typed values.
           items:
-            $ref: '#/components/schemas/Value'
+            oneOf:
+            - description: Represents a boolean value.
+              format: boolean
+              type: boolean
+            - description: Represents a double value.
+              format: double
+              type: number
+            - description: Represents a string value.
+              type: string
           type: array
       type: object
 info:

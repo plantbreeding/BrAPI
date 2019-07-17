@@ -20,6 +20,30 @@ paths:
           required: true
           schema:
             type: string
+        - name: expandHomozygotes
+          description: Should homozygotes be expanded (true) or collapsed into a single occurence (false)
+          in: query
+          required: false
+          schema:
+            type: boolean
+        - name: unknownString
+          description: The string to use as a representation for missing data
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: sepPhased
+          description: The string to use as a separator for phased allele calls
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: sepUnphased
+          description: The string to use as a separator for unphased allele calls
+          in: query
+          required: false
+          schema:
+            type: string
         - $ref: '#/components/parameters/page'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/authorizationHeader'
@@ -33,15 +57,7 @@ paths:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    properties:
-                      data:
-                        items:
-                          $ref: '#/components/schemas/Call'
-                        type: array
-                    required:
-                    - data
-                    title: callListResponseResult
-                    type: object
+                    $ref: '#/components/schemas/CallsListResponseResult'
                 required:
                 - metadata
                 - result

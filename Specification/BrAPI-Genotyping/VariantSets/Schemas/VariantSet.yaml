@@ -45,11 +45,14 @@ components:
                 type: string
                 format: uri
         analysis:
-          $ref: '#/components/schemas/Analysis'
+          description: Set of Analysis descriptors for this VariantSet 
+          type: array
+          items:
+            $ref: '#/components/schemas/Analysis'
         studyDbId:
           description: The ID of the dataset this variant set belongs to.
           type: string
-        variantSetDbId:
+        variantSetDbId: 
           description: The variant set ID.
           type: string
         variantSetName:

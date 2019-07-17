@@ -3,15 +3,27 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /maps/{mapDbId}:
+  /markerpositions: 
     get:
-      summary: Get the details of a specific Genomic Map
-      description: Provides the number of markers on each linkageGroup and the max position on the linkageGroup
+      summary: Get marker position info
+      description: Get marker position information, based on Map, Linkage Group, and Marker ID
       parameters:
-      - description: The internal db id of a selected map
-        in: path
-        name: mapDbId
-        required: true
+      - name: mapDbId
+        description: unique id of a map
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: linkageGroupName
+        description: The chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: markerDbId
+        description: The unique id for a marker
+        in: query
+        required: false
         schema:
           type: string
       - $ref: '#/components/parameters/page'
@@ -27,22 +39,24 @@ paths:
                   pagination: {}
                   status: []
                 result:
-                  documentationURL: https://brapi.org
-                  mapDbId: gm1
-                  mapName: Genome Map 1
-                  name: Genome Map 1
-                  type: Genetic
-                  unit: cM
+                  data: []
               schema:
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    $ref: '#/components/schemas/genomeMap'
+                    properties:
+                      data:
+                        items:
+                          $ref: '#/components/schemas/markerPositions'
+                        type: array
+                    required:
+                    - data
+                    type: object
                 required:
                 - metadata
                 - result
-                title: mapDetailsResponse
+                title: markerSummaryMapResponse
                 type: object
           description: OK
           headers: {}
@@ -52,7 +66,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-        '404':
-          $ref: '#/components/responses/404NotFound'
       tags:
       - Genome Maps

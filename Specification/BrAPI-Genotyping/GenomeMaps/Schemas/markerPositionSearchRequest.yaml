@@ -1,0 +1,25 @@
+components:
+  schemas:
+    markerPositionSearchRequest: 
+      type: object
+      properties:
+        mapDbIds:
+          description: The unique ID of the map 
+          type: array
+          items: 
+            type: string
+        linkageGroupNames: 
+          description: The Uniquely Identifiable name of this linkage group
+          type: array
+          items: 
+            type: string
+        markerDbIds:
+          description: Internal db identifier
+          type: array
+          items: 
+            type: string
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

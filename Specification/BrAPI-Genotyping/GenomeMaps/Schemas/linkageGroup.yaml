@@ -1,6 +1,13 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
 components:
   schemas:
     linkageGroup:
+      type: object
+      description: a Linkage Group is the BrAPI generic term for a piece of a map. A Linkage Group can represent a Chromosome, Skafold, or Linkage Group. 
       properties:
         linkageGroupName:
           description: The Uniquely Identifiable name of this linkage group
@@ -11,9 +18,3 @@ components:
         maxPosition:
           description: The maximum position of a marker within this linkage group
           type: integer
-      type: object
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}
