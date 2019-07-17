@@ -2,7 +2,12 @@ components:
   schemas:
     searchObservationUnitsRequest: 
       properties:
-        germplasmDbIds:
+        observationUnitDbIds:
+          description: The unique id of an observation unit
+          items:
+            type: string
+          type: array
+        germplasmDbIds: 
           description: The name or synonym of external genebank accession identifiers
           items:
             type: string

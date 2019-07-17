@@ -11,6 +11,12 @@ paths:
 
         observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:ss+hhmm
       parameters:
+      - description: The unique ID of an Observation Unit
+        in: query
+        name: observationUnitDbId
+        required: false
+        schema:
+          type: string
       - description: The unique ID of a germplasm (accession) to filter on
         in: query
         name: germplasmDbId
