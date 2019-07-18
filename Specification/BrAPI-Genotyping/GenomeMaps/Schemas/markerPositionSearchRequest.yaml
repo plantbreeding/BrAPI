@@ -21,7 +21,7 @@ components:
         minPosition:
           description: The minimum position
           type: integer
-        maxPosition:
+        maxPosition: 
           description: The maximum position
           type: integer
 info:

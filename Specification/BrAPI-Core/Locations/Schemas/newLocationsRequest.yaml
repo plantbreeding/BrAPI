@@ -30,18 +30,32 @@ components:
         instituteName:
           description: each institute/laboratory can have several experimental field
           type: string
-        latitude:
-          description: The latitude of this location
-          type: number
         locationName:
           description: A human readable name for this location
           type: string
         locationType:
           description: The type of location this represents (ex. Breeding Location, Storage Location, etc)
           type: string
-        longitude:
-          description: the longitude of this location
-          type: number
+        siteStatus:
+          description: Description of the accessibility of the location (ex. Public, Private)
+          type: string
+        coordinateDescription:
+          description: Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)
+          type: string
+        slope:
+          description: Describes the aproximate slope (height/distance) of the location.
+          type: string
+        exposure:
+          description: Describes the level of protection/exposure for things like sun light and wind.
+          type: string
+        environmentType:
+          description: Describes the general type of environment of the location. (ex. forest, field, nursery, etc)
+          type: string
+        topography:
+          description: Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)
+          type: string
+        coordinates:
+          $ref: '#/components/schemas/geoJSON'
 info:
   title: BrAPI
   version: ''
