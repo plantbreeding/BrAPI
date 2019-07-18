@@ -26,6 +26,18 @@ paths:
         required: false
         schema:
           type: string
+      - name: minPosition
+        description: The minimum position 
+        in: query
+        required: false
+        schema:
+          type: integer
+      - name: maxPosition
+        description: The maximum position 
+        in: query
+        required: false
+        schema:
+          type: integer
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
       - $ref: '#/components/parameters/authorizationHeader'

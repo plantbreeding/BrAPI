@@ -18,6 +18,12 @@ components:
           type: array
           items: 
             type: string
+        minPosition:
+          description: The minimum position
+          type: integer
+        maxPosition:
+          description: The maximum position
+          type: integer
 info:
   title: BrAPI
   version: ''
