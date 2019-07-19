@@ -2,6 +2,11 @@ components:
   schemas:
     newSeedLotRequest:
       properties:
+        additionalInfo:
+          additionalProperties:
+            type: string
+          description: Additional arbitrary info
+          type: object
         seedLotName:
           description: A human readable name for this Seed Lot 
           type: string

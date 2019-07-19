@@ -7,12 +7,6 @@ paths:
     get:
       description: Call to retrieve the list of study types.
       parameters:
-      - description: Filter based on study type unique identifier
-        in: query
-        name: studyTypeDbId
-        required: false
-        schema:
-          type: string
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
       - $ref: '#/components/parameters/authorizationHeader'
@@ -31,14 +25,8 @@ paths:
                   status: []
                 result:
                   data:
-                  - description: Description for Nursery study type
-                    name: Crossing Nursery
-                    studyTypeDbId: '1'
-                    studyTypeName: Crossing Nursery
-                  - description: Description for yield study type
-                    name: Yield study
-                    studyTypeDbId: '2'
-                    studyTypeName: Yield study
+                  - Crossing Nursery
+                  - Yield study
               schema:
                 properties:
                   metadata:
@@ -47,7 +35,7 @@ paths:
                     properties:
                       data:
                         items:
-                          $ref: '#/components/schemas/studyType'
+                          type: string
                         type: array
                     required:
                     - data

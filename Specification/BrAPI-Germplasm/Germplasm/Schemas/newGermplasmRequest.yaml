@@ -2,6 +2,11 @@ components:
   schemas:
     newGermplasmRequest:
       properties:
+        additionalInfo:
+          additionalProperties:
+            type: string
+          description: Additional arbitrary info
+          type: object
         accessionNumber:
           description: This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection
           type: string
@@ -99,6 +104,9 @@ components:
           items:
             $ref: '#/components/schemas/germplasmOrigin'
           type: array
+        xref:
+          description: External reference to another system
+          type: string
       type: object
 info:
   title: BrAPI

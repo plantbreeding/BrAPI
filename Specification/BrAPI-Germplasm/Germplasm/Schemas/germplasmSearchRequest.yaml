@@ -52,6 +52,11 @@ components:
           items:
             type: string
           type: array
+        xrefs: 
+          description: Search for Germplasm by an external refernce
+          items:
+            type: string
+          type: array
       type: object
 info:
   title: BrAPI

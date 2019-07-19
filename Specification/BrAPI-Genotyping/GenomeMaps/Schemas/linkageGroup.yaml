@@ -9,6 +9,11 @@ components:
       type: object
       description: a Linkage Group is the BrAPI generic term for a named section of a map. A Linkage Group can represent a Chromosome, Scaffold, or Linkage Group. 
       properties:
+        additionalInfo:
+          additionalProperties:
+            type: string
+          description: Additional arbitrary info
+          type: object
         linkageGroupName:
           description: The Uniquely Identifiable name of this linkage group
           type: string

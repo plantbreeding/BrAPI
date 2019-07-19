@@ -68,6 +68,12 @@ paths:
         required: false
         schema:
           type: string
+      - name: xref
+        description: Search for Germplasm by an external reference
+        in: query
+        required: false
+        schema:
+          type: string
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
       - $ref: '#/components/parameters/authorizationHeader'

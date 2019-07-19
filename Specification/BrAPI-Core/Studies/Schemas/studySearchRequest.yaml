@@ -48,8 +48,7 @@ components:
           - programDbId
           - locationDbId
           - seasonDbId
-          - studyTypeName
-          - studyTypeDbId
+          - studyType
           - studyName
           - studyLocation
           - programName
@@ -72,13 +71,8 @@ components:
           items:
             type: string
           type: array
-        studyTypeDbIds:
-          description: The unique identifier of the type of study being performed.
-          items:
-            type: string
-          type: array
-        studyTypeNames:
-          description: The name of the type of study being performed. ex. "Yield Trial", etc
+        studyTypes:
+          description: The type of study being performed. ex. "Yield Trial", etc
           items:
             type: string
           type: array

@@ -123,8 +123,6 @@ paths:
                   studyDescription: Field yield phenotyping study
                   studyName: Study 1
                   studyType: Yield study
-                  studyTypeDbId: '2'
-                  studyTypeName: Yield study
                   trialDbId: '101'
                   trialName: Peru Yield Trial 1
                   culturalPractices: Irrigation was applied according needs during summer to prevent water stress.
@@ -284,8 +282,6 @@ paths:
                   studyDescription: Field yield phenotyping study
                   studyName: Study 1
                   studyType: Yield study
-                  studyTypeDbId: '2'
-                  studyTypeName: Yield study
                   trialDbId: '101'
                   trialName: Peru Yield Trial 1
                   culturalPractices: Irrigation was applied according needs during summer to prevent water stress.

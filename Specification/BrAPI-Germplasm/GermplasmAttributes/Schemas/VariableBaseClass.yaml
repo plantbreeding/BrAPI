@@ -2,6 +2,11 @@ components:
   schemas:
     VariableBaseClass:
       properties:
+        additionalInfo:
+          additionalProperties:
+            type: string
+          description: Additional arbitrary info
+          type: object
         contextOfUse:
           description: 'Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])'
           items:

@@ -65,11 +65,8 @@ components:
         studyName:
           description: The human readable name for a study
           type: string
-        studyTypeDbId:
-          description: The unique identifier of the type of study being performed.
-          type: string
-        studyTypeName:
-          description: The name of the type of study being performed. ex. "Yield Trial", etc
+        studyType:
+          description: The type of study being performed. ex. "Yield Trial", etc
           type: string
         trialDbId:
           description: The ID which uniquely identifies a trial

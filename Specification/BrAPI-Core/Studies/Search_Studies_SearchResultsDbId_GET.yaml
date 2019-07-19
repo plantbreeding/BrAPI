@@ -54,8 +54,6 @@ paths:
                     studyDbId: '1001'
                     studyName: Study 1
                     studyType: Yield study
-                    studyTypeDbId: '2'
-                    studyTypeName: Yield study
                     trialDbId: '101'
                     trialName: Peru Yield Trial 1
                   - active: True
@@ -77,8 +75,6 @@ paths:
                     studyDbId: '1002'
                     studyName: Study 2
                     studyType: Yield study
-                    studyTypeDbId: '2'
-                    studyTypeName: Yield study
                     trialDbId: '101'
                     trialName: Peru Yield Trial 1
               schema:
@@ -89,7 +85,7 @@ paths:
                     properties:
                       data:
                         items:
-                          $ref: '#/components/schemas/studySummary'
+                          $ref: '#/components/schemas/study'
                         type: array
                     required:
                     - data
