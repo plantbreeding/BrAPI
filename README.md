@@ -4,8 +4,8 @@ Repository for version control of the BrAPI specification
 ### Versions
 Version | Status | Release Date | Apiary | Notes
 --|--|--|--|--
-[V1.1](https://github.com/plantbreeding/API/tree/master) | In Development | Planned: Jan 26, 2018 | [DEV](https://brapidev.docs.apiary.io/#reference/germplasm/germplasm-pedigree/germplasm-pedigree-by-id) | [Project](https://github.com/plantbreeding/API/projects/1)
-[V1.0](https://github.com/plantbreeding/API/tree/V1.0) | Latest Stable Release | Nov 13, 2017 | [PROD](https://brapidev.docs.apiary.io/#reference/germplasm/germplasm-pedigree/germplasm-pedigree-by-id) | [Release Notes](https://github.com/plantbreeding/API/releases/tag/V1.0)
+[V1.1](https://github.com/plantbreeding/API/tree/V1.1)   | Released | Jan 26, 2018 | [Release](https://brapiarchive11.docs.apiary.io/#) | [Release Notes](https://github.com/plantbreeding/API/releases/tag/V1.1) / [Change File](https://github.com/plantbreeding/API/files/1668289/BrAPI_V1-1_Release_Notes.xlsx)
+[V1.0](https://github.com/plantbreeding/API/tree/V1.0)   | Archived | Nov 13, 2017 | [Archive-1.0](https://brapiarchive10.docs.apiary.io/#) | [Release Notes](https://github.com/plantbreeding/API/releases/tag/V1.0)
 
 ### INTRODUCTION
 
