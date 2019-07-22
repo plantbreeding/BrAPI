@@ -2,11 +2,12 @@
 Repository for version control of the BrAPI specification
 
 ### Versions
-Version | Status | Release Date | Apiary | Notes
---|--|--|--|--
-[V1.2](https://github.com/plantbreeding/API/tree/master) | In Development | Planned: Apr 27, 2018 | [DEV](https://brapidev.docs.apiary.io/#) | [Project](https://github.com/plantbreeding/API/projects/2)
-[V1.1](https://github.com/plantbreeding/API/tree/V1.1) | Latest Stable Release | Jan 26, 2018 | [PROD](https://brapi.docs.apiary.io/#) | [Release Notes](https://github.com/plantbreeding/API/releases/tag/V1.1) / [Change File](https://github.com/plantbreeding/API/files/1668289/BrAPI_V1-1_Release_Notes.xlsx)
-[V1.0](https://github.com/plantbreeding/API/tree/V1.0) | Archived | Nov 13, 2017 | [Archive-1.0](https://brapiarchive10.docs.apiary.io/#) | [Release Notes](https://github.com/plantbreeding/API/releases/tag/V1.0)
+Version | Status | Release Date | SwaggerHub | Apiary | Notes
+--|--|--|--|--|--
+[V1.2](https://github.com/plantbreeding/API/tree/V1.2)   | Released              | Apr 27, 2018          |   [Release](https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI/1.2) |   [Release](https://brapiarchive12.docs.apiary.io/#) | [Release Notes](https://github.com/plantbreeding/API/releases/tag/V1.2) / [Change File](https://github.com/plantbreeding/API/files/1964628/BrAPI_V1-2_Release_Notes.xlsx)
+[V1.1](https://github.com/plantbreeding/API/tree/V1.1)   | Archived              | Jan 26, 2018          |                                                                             |   [Archive-1.1](https://brapiarchive11.docs.apiary.io/#) | [Release Notes](https://github.com/plantbreeding/API/releases/tag/V1.1) / [Change File](https://github.com/plantbreeding/API/files/1668289/BrAPI_V1-1_Release_Notes.xlsx)
+[V1.0](https://github.com/plantbreeding/API/tree/V1.0)   | Archived              | Nov 13, 2017          |                                                                             |   [Archive-1.0](https://brapiarchive10.docs.apiary.io/#) | [Release Notes](https://github.com/plantbreeding/API/releases/tag/V1.0)
+
 
 ### INTRODUCTION
 
