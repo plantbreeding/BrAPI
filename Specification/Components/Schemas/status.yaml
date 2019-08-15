@@ -5,6 +5,7 @@ components:
         message:
           description: A short message concerning the status of this request/response
           type: string
+          example: Request accepted, response successful
         messageType:
           description: The logging level for the attached message
           enum:
@@ -13,6 +14,7 @@ components:
           - WARNING
           - INFO
           type: string
+          example: INFO
       required:
       - message
       - messageType

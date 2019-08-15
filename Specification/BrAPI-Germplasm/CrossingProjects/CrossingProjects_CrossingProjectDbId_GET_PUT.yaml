@@ -1,0 +1,75 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /crossingprojects/{crossingProjectDbId}:
+    get:
+      summary: Get a filtered list of Crossing Projects
+      description: Get a filtered list of Crossing Projects. 
+      parameters:
+      - name: crossingProjectDbId 
+        description: Search for Crossing Projects with this unique id
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/CrossingProjectsSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Crossing Projects
+    put:
+      summary: Update an existing Crossing Project
+      description: Update an existing Crossing Project entity on this server
+      parameters:
+      - name: crossingProjectDbId 
+        description: Search for Crossing Projects with this unique id
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CrossingProjectNewRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/CrossingProjectsSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Crossing Projects
+components:
+  responses:
+    CrossingProjectsSingleResponse:
+      content:
+        application/json:
+          schema:
+            title: CrossingProjectListResponse
+            properties:
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                $ref: '#/components/schemas/CrossingProject'
+            required:
+            - metadata
+            - result
+            type: object
+      description: OK
+      headers: {}

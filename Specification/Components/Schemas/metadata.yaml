@@ -7,17 +7,24 @@ components:
           items:
             type: string
           type: array
+          example: []
         pagination:
           description: The pagination object is applicable only when the payload contains a "data" key. It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. Pages are zero indexed, so the first page will be page 0 (zero).
           properties:
             currentPage:
               type: integer
+              default: 0
+              example: 0
             pageSize:
               type: integer
+              default: 1000
+              example: 1000
             totalCount:
               type: integer
+              example: 1
             totalPages:
               type: integer
+              example: 1
           type: object
         status:
           description: The status field contains a list of informational status messages from the server. If no status is reported, an empty list should be returned. See Error Reporting for more information.

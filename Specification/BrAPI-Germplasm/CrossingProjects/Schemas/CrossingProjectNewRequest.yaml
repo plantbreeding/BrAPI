@@ -1,0 +1,31 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    CrossingProjectNewRequest:
+      type: object
+      properties:
+        crossingProjectName:
+          description: the human readable name for a crossing project
+          type: string
+          example: IbadanCrosses2018
+        corssingProjectDescription:
+          description: the description for a crossing project
+          type: string
+          example: Crosses between germplasm X and germplasm Y in male nursery study X2018 and female nursery study Y2018
+        programDbId:
+          description: the unique identifier for a program
+          type: string
+          example: a088176c
+        programName:
+          description: the human readable name for a program
+          type: string
+          example: IITA Cassava
+        commonCropName:
+          description: the common name of a crop (for multi-crop systems)
+          type: string
+          example: Cassava
+        

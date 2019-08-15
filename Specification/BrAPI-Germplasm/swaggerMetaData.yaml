@@ -109,3 +109,13 @@ tags:
   externalDocs:
     description: Docs
     url: https://wiki.brapi.org/
+- name: Crossing Projects
+  description: Information about Crossing Projects
+  externalDocs:
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Crosses
+  description: Information about Crosses
+  externalDocs:
+    description: Docs
+    url: https://wiki.brapi.org/
