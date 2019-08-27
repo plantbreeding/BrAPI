@@ -17,37 +17,7 @@ paths:
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          description: OK
-          headers: {}
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination: {}
-                  status: []
-                result:
-                  abbreviation: P1
-                  commonCropName: Tomatillo
-                  documentationURL: https://brapi.org
-                  leadPerson: Name Nameson
-                  leadPersonDbId: person1
-                  leadPersonName: Name Nameson
-                  name: Program 1
-                  objective: Global Population Improvement
-                  programDbId: '1'
-                  programName: Program 1
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    $ref: '#/components/schemas/program'
-                required:
-                - metadata
-                - result
-                title: programsResponse
-                type: object
+          $ref: '#/components/responses/ProgramSingleResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -71,40 +41,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/newProgramRequest'
+              $ref: '#/components/schemas/ProgramNewRequest'
       responses:
         '200':
-          description: OK
-          headers: {}
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination: {}
-                  status: []
-                result:
-                  abbreviation: P1
-                  commonCropName: Tomatillo
-                  documentationURL: https://brapi.org
-                  leadPerson: Name Nameson
-                  leadPersonDbId: person1
-                  leadPersonName: Name Nameson
-                  name: Program 1
-                  objective: Global Population Improvement
-                  programDbId: '1'
-                  programName: Program 1
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    $ref: '#/components/schemas/program'
-                required:
-                - metadata
-                - result
-                title: programsResponse
-                type: object
+          $ref: '#/components/responses/ProgramSingleResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -113,3 +53,21 @@ paths:
           $ref: '#/components/responses/403Forbidden'
       tags:
       - Programs
+components:
+  responses:
+    ProgramSingleResponse:
+      content:
+        application/json:
+          schema:
+            title: ProgramSingleResponse
+            properties:
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                $ref: '#/components/schemas/Program'
+            required:
+            - metadata
+            - result
+            type: object
+      description: OK
+      headers: {}

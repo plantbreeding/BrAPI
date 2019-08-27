@@ -1,6 +1,11 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
 components:
   schemas:
-    programsSearchRequest:
+    ProgramSearchRequest:
       properties:
         abbreviations:
           description: An abbreviation of a program to search for
@@ -38,8 +43,3 @@ components:
             type: string
           type: array
       type: object
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}

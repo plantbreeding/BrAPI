@@ -1,34 +1,41 @@
-components:
-  schemas:
-    environmentParameter:
-      properties:
-        parameterName:
-          description: Name of the environment parameter constant within the experiment
-          type: string
-        parameterPUI:
-          description: URI pointing to an ontology class for the parameter
-          type: string
-        description:
-          description: Human-readable value of the environment parameter (defined above) constant within the experiment
-          type: string
-        value:
-          description: Numerical or categorical value
-          type: string
-        valuePUI:
-          description: URI pointing to an ontology class for the parameter value
-          type: string
-        unit:
-          description: Unit of the value for this parameter
-          type: string
-        unitPUI:
-          description: URI pointing to an ontology class for the unit
-          type: string
-      required:
-      - parameterName
-      - description
-      type: object
 info:
   title: BrAPI
   version: ''
 openapi: 3.0.0
 paths: {}
+components:
+  schemas:
+    EnvironmentParameter:
+      properties:
+        parameterName:
+          description: Name of the environment parameter constant within the experiment
+          type: string
+          example: soil type
+        parameterPUI:
+          description: URI pointing to an ontology class for the parameter
+          type: string
+          example: PECO:0007155
+        description:
+          description: Human-readable value of the environment parameter (defined above) constant within the experiment
+          type: string
+          example: the soil type was clay
+        value:
+          description: Numerical or categorical value
+          type: string
+          example: clay soil
+        valuePUI:
+          description: URI pointing to an ontology class for the parameter value
+          type: string
+          example: ENVO:00002262
+        unit:
+          description: Unit of the value for this parameter
+          type: string
+          example: pH
+        unitPUI:
+          description: URI pointing to an ontology class for the unit
+          type: string
+          example: PECO:0007059
+      required:
+      - parameterName
+      - description
+      type: object

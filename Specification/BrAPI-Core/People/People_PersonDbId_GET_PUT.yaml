@@ -5,7 +5,8 @@ openapi: 3.0.0
 paths:
   /people/{personDbId}:
     get:
-      description: Get a specific person
+      summary: Get the details for a specific Person
+      description: Get the details for a specific Person
       parameters:
       - description: The unique ID of a person
         in: path
@@ -16,40 +17,7 @@ paths:
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 0
-                    totalCount: 0
-                    totalPages: 0
-                  status: []
-                result:
-                  description: Example Person
-                  emailAddress: bob@bob.com
-                  firstName: Bob
-                  lastName: Robertson
-                  mailingAddress: 123 Road Street, City, State, Country, 98765
-                  middleName: Danger
-                  personDbId: person1
-                  phoneNumber: '+19876543210'
-                  userID: bdr45
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    $ref: '#/components/schemas/person'
-                required:
-                - metadata
-                - result
-                title: personResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/PersonSingleResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -58,10 +26,10 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Get the details for a specific Person
       tags:
       - People
     put:
+      summary: Update an existing Person
       description: Update an existing Person
       parameters:
       - description: The unique ID of a person
@@ -75,43 +43,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/newPersonRequest'
+              $ref: '#/components/schemas/PersonNewRequest'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 0
-                    totalCount: 0
-                    totalPages: 0
-                  status: []
-                result:
-                  description: string
-                  emailAddress: string
-                  firstName: Name
-                  lastName: Nameson
-                  mailingAddress: string
-                  middleName: string
-                  personDbId: person1
-                  phoneNumber: string
-                  userID: string
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    $ref: '#/components/schemas/person'
-                required:
-                - metadata
-                - result
-                title: personResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/PersonSingleResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -120,6 +55,23 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Update a Person
       tags:
       - People
+components:
+  responses:
+    PersonSingleResponse:
+      content:
+        application/json:
+          schema:
+            title: PersonSingleResponse
+            properties:
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                $ref: '#/components/schemas/Person'
+            required:
+            - metadata
+            - result
+            type: object
+      description: OK
+      headers: {}

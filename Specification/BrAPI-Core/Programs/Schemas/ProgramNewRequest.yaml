@@ -1,10 +1,16 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
 components:
   schemas:
-    program:
+    ProgramNewRequest:
       properties:
         abbreviation:
-          description: An abbreviation which represnts this program
+          description: An abbreviation which represents this program
           type: string
+          example: P1
         additionalInfo:
           additionalProperties:
             type: string
@@ -13,28 +19,27 @@ components:
         commonCropName:
           description: Common name for the crop which this program is for
           type: string
+          example: Tomatillo
         documentationURL:
           description: A URL to the human readable documentation of this object
           format: uri
           type: string
+          example: https://wiki.brapi.org
         leadPersonDbId:
           description: The unique identifier of the program leader
           type: string
+          example: fe6f5c50
         leadPersonName:
           description: The name of the program leader
           type: string
+          example: Bob Robertson
         objective:
           description: The primary objective of the program
           type: string
-        programDbId:
-          description: The ID which uniquely identifies the program
-          type: string
+          example: Make a better tomatillo
         programName:
           description: Human readable name of the program
           type: string
+          example: Tomatillo_Breeding_Program
       type: object
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}
+

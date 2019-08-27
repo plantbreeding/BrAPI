@@ -1,6 +1,11 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
 components:
   schemas:
-    studySearchRequest:
+    StudySearchRequest:
       properties:
         active:
           description: Is this study currently active
@@ -82,8 +87,4 @@ components:
             type: string
           type: array
       type: object
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}
+

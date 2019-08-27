@@ -1,0 +1,19 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    Trial:
+      allOf:
+      - $ref: '#/components/schemas/TrialNewRequest'
+      - type: object
+        required:
+        - trialDbId
+        properties:
+          trialDbId:
+            description: The ID which uniquely identifies a trial
+            type: string
+            example: 1883b402
+

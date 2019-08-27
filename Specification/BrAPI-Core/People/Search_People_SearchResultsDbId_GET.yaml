@@ -17,58 +17,7 @@ paths:
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 2
-                    totalCount: 2
-                    totalPages: 1
-                  status: []
-                result:
-                  data:
-                  - description: Example Person
-                    emailAddress: bob@bob.com
-                    firstName: Bob
-                    lastName: Robertson
-                    mailingAddress: 123 Road Street, City, State, Country, 98765
-                    middleName: Danger
-                    personDbId: person1
-                    phoneNumber: '+19876543210'
-                    userID: bdr45
-                  - description: Example Person
-                    emailAddress: rob@bob.com
-                    firstName: Rob
-                    lastName: Robertson
-                    mailingAddress: 123 Road Street, City, State, Country, 98765
-                    middleName: Danger
-                    personDbId: person2
-                    phoneNumber: '+19876543210'
-                    userID: rdr45
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    properties:
-                      data:
-                        description: Array of people
-                        items:
-                          $ref: '#/components/schemas/person'
-                        type: array
-                    required:
-                    - data
-                    type: object
-                required:
-                - metadata
-                - result
-                title: personsResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/PersonListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':

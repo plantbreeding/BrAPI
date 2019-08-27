@@ -1,0 +1,52 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    ListBaseFields:
+      type: object
+      properties:
+        additionalInfo:
+          additionalProperties:
+            type: string
+          description: Additional arbitrary info
+          type: object
+          example: {}
+        dateCreated:
+          description: Timestamp when the entity was first created
+          format: date-time
+          type: string
+        dateModified:
+          description: Timestamp when the entity was last updated
+          format: date-time
+          type: string
+        listDescription:
+          description: Description of a List
+          type: string
+          example: This is a list of germplasm I would like to investigate next season
+        listName:
+          description: Human readable name of a List
+          type: string
+          example: MyGermplasm_Sept_2020
+        listOwnerName:
+          description: Human readable name of a List Owner. (usually a user or person)
+          type: string
+          example: Bob Robertson
+        listOwnerPersonDbId:
+          description: The unique identifier for a List Owner. (usually a user or person)
+          type: string
+          example: 58db0628
+        listSize:
+          description: The number of elements in a List
+          type: integer
+          example: 53
+        listSource:
+          description: The description of where a List originated from
+          type: string
+          example: GeneBank Repository 1.3
+        listType:
+          $ref: '#/components/schemas/ListTypes'
+      required:
+      - listType

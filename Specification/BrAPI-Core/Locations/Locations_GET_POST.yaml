@@ -22,75 +22,7 @@ paths:
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 2
-                    totalCount: 17
-                    totalPages: 9
-                  status: []
-                result:
-                  data:
-                  - abbreviation: L1
-                    additionalInfo:
-                      adm1: Junin
-                      adm2: Chanchamayo
-                      adm3: San Ramon
-                      annualMeanTemperature: '23'
-                      annualTotalPrecipitation: '360'
-                      cont: South America
-                      creg: LAC
-                      local: San Ramon
-                    altitude: 828
-                    countryCode: PER
-                    countryName: Peru
-                    documentationURL: https://brapi.org
-                    instituteAddress: 71 Pilgrim Avenue Chevy Chase MD 20815
-                    instituteName: Plant Science Institute
-                    latitude: -11.1274995803833
-                    locationDbId: '1'
-                    locationName: Location 1
-                    locationType: Storage location
-                    longitude: -75.35639190673828
-                    name: Location 1
-                  - abbreviation: L2
-                    additionalInfo: {}
-                    altitude: 964
-                    countryCode: PER
-                    countryName: Peru
-                    documentationURL: https://brapi.org
-                    instituteAddress: 71 Pilgrim Avenue Chevy Chase MD 20815
-                    instituteName: Plant Science Institute
-                    latitude: -11.161160469055176
-                    locationDbId: '2'
-                    locationName: Location 2
-                    locationType: Breeding location
-                    longitude: -75.34171295166016
-                    name: Location 2
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    properties:
-                      data:
-                        items:
-                          $ref: '#/components/schemas/location'
-                        type: array
-                    required:
-                    - data
-                    type: object
-                required:
-                - metadata
-                - result
-                title: locationsResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/LocationListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -111,83 +43,12 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                locations:
-                  type: array
-                  items: 
-                    $ref: '#/components/schemas/newLocationsRequest'
+              type: array
+              items: 
+                $ref: '#/components/schemas/LocationNewRequest'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 2
-                    totalCount: 17
-                    totalPages: 9
-                  status: []
-                result:
-                  data:
-                  - abbreviation: L1
-                    additionalInfo:
-                      adm1: Junin
-                      adm2: Chanchamayo
-                      adm3: San Ramon
-                      annualMeanTemperature: '23'
-                      annualTotalPrecipitation: '360'
-                      cont: South America
-                      creg: LAC
-                      local: San Ramon
-                    altitude: 828
-                    countryCode: PER
-                    countryName: Peru
-                    documentationURL: https://brapi.org
-                    instituteAddress: 71 Pilgrim Avenue Chevy Chase MD 20815
-                    instituteName: Plant Science Institute
-                    latitude: -11.1274995803833
-                    locationDbId: '1'
-                    locationName: Location 1
-                    locationType: Storage location
-                    longitude: -75.35639190673828
-                    name: Location 1
-                  - abbreviation: L2
-                    additionalInfo: {}
-                    altitude: 964
-                    countryCode: PER
-                    countryName: Peru
-                    documentationURL: https://brapi.org
-                    instituteAddress: 71 Pilgrim Avenue Chevy Chase MD 20815
-                    instituteName: Plant Science Institute
-                    latitude: -11.161160469055176
-                    locationDbId: '2'
-                    locationName: Location 2
-                    locationType: Breeding location
-                    longitude: -75.34171295166016
-                    name: Location 2
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    properties:
-                      data:
-                        items:
-                          $ref: '#/components/schemas/location'
-                        type: array
-                    required:
-                    - data
-                    type: object
-                required:
-                - metadata
-                - result
-                title: locationsResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/LocationListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -196,3 +57,29 @@ paths:
           $ref: '#/components/responses/403Forbidden'
       tags:
       - Locations
+components:
+  responses:
+    LocationListResponse:
+      content:
+        application/json:
+          schema:
+            title: LocationListResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/components/schemas/Location'
+                    type: array
+                required:
+                - data
+                type: object
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}
+  

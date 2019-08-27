@@ -1,3 +1,8 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
 components:
   schemas:
     contact:
@@ -5,26 +10,28 @@ components:
         contactDbId:
           description: The ID which uniquely identifies this contact
           type: string
+          example: 5f4e5509
         email:
           description: 'The contacts email address '
           type: string
+          example: bob@bob.com
         instituteName:
           description: The name of the institution which this contact is part of
           type: string
+          example: The BrAPI Institute
         name:
           description: The full name of this contact person
           type: string
+          example: Bob Robertson
         orcid:
           description: The Open Researcher and Contributor ID for this contact person (orcid.org)
           type: string
+          example: http://orcid.org/0000-0001-8640-1750
         type:
           description: 'The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)'
           type: string
+          example: PI
       required:
       - contactDbId
       type: object
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}
+

@@ -25,8 +25,6 @@ paths:
                   status: []
                 result:
                   data:
-                  - Crossing Nursery
-                  - Yield study
               schema:
                 properties:
                   metadata:
@@ -37,6 +35,9 @@ paths:
                         items:
                           type: string
                         type: array
+                        example:
+                          - Crossing Nursery
+                          - Yield study
                     required:
                     - data
                     type: object

@@ -1,63 +1,80 @@
-components:
-  schemas:
-    newLocationsRequest: 
-      type: object
-      properties: 
-        abbreviation:
-          description: An abbreviation which represents this location
-          type: string
-        additionalInfo:
-          additionalProperties:
-            type: string
-          description: Additional arbitrary info
-          type: object
-        altitude:
-          description: The altitude of this location
-          type: number
-        countryCode:
-          description: '[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec'
-          type: string
-        countryName:
-          description: The full name of the country where this location is
-          type: string
-        documentationURL:
-          description: A URL to the human readable documentation of this object
-          format: uri
-          type: string
-        instituteAddress:
-          description: The street address of the institute representing this location
-          type: string
-        instituteName:
-          description: each institute/laboratory can have several experimental field
-          type: string
-        locationName:
-          description: A human readable name for this location
-          type: string
-        locationType:
-          description: The type of location this represents (ex. Breeding Location, Storage Location, etc)
-          type: string
-        siteStatus:
-          description: Description of the accessibility of the location (ex. Public, Private)
-          type: string
-        coordinateDescription:
-          description: Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)
-          type: string
-        slope:
-          description: Describes the aproximate slope (height/distance) of the location.
-          type: string
-        exposure:
-          description: Describes the level of protection/exposure for things like sun light and wind.
-          type: string
-        environmentType:
-          description: Describes the general type of environment of the location. (ex. forest, field, nursery, etc)
-          type: string
-        topography:
-          description: Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)
-          type: string
-        coordinates:
-          $ref: '#/components/schemas/geoJSON'
 info:
   title: BrAPI
   version: ''
 openapi: 3.0.0
 paths: {}
+components:
+  schemas:
+    LocationNewRequest: 
+      type: object
+      properties: 
+        abbreviation:
+          description: An abbreviation which represents this location
+          type: string
+          example: L1
+        additionalInfo:
+          additionalProperties:
+            type: string
+          description: Additional arbitrary info
+          type: object
+          example: {}
+        altitude:
+          description: The altitude/elevation of this location (in meters)
+          type: number
+          example: 35.6
+        countryCode:
+          description: '[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec'
+          type: string
+          example: PER
+        countryName:
+          description: The full name of the country where this location is
+          type: string
+          example: Peru
+        documentationURL:
+          description: A URL to the human readable documentation of this object
+          format: uri
+          type: string
+          example: https://brapi.org
+        instituteAddress:
+          description: The street address of the institute representing this location
+          type: string
+          example: 71 Pilgrim Avenue Chevy Chase MD 20815
+        instituteName:
+          description: each institute/laboratory can have several experimental field
+          type: string
+          example: Plant Science Institute
+        locationName:
+          description: A human readable name for this location
+          type: string
+          example: Location 1
+        locationType:
+          description: The type of location this represents (ex. Breeding Location, Storage Location, etc)
+          type: string
+          example: Storage Location
+        siteStatus:
+          description: Description of the accessibility of the location (ex. Public, Private)
+          type: string
+          example: Private
+        coordinateDescription:
+          description: Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)
+          type: string
+          example: North East corner of greenhouse
+        slope:
+          description: Describes the approximate slope (height/distance) of the location.
+          type: string
+          example: 0
+        exposure:
+          description: Describes the level of protection/exposure for things like sun light and wind.
+          type: string
+          example: Structure, no exposure
+        environmentType:
+          description: Describes the general type of environment of the location. (ex. forest, field, nursery, etc)
+          type: string
+          example: Nursery
+        topography:
+          description: Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)
+          type: string
+          example: Valley
+        coordinates:
+          $ref: '#/components/schemas/geoJSON'
+

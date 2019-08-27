@@ -31,59 +31,7 @@ paths:
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 2
-                    totalCount: 2
-                    totalPages: 1
-                  status: []
-                result:
-                  data:
-                  - abbreviation: P1
-                    commonCropName: Tomatillo
-                    documentationURL: https://brapi.org
-                    leadPerson: Name Nameson
-                    leadPersonDbId: person1
-                    leadPersonName: Name Nameson
-                    name: Program 1
-                    objective: Global Population Improvement
-                    programDbId: '1'
-                    programName: Program 1
-                  - abbreviation: P2
-                    commonCropName: Tomatillo
-                    documentationURL: https://brapi.org
-                    leadPerson: Name Nameson
-                    leadPersonDbId: person1
-                    leadPersonName: Name Nameson
-                    name: Program 2
-                    objective: XYZ
-                    programDbId: '2'
-                    programName: Program 2
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    properties:
-                      data:
-                        items:
-                          $ref: '#/components/schemas/program'
-                        type: array
-                    required:
-                    - data
-                    type: object
-                required:
-                - metadata
-                - result
-                title: programsResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/ProgramListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -106,62 +54,10 @@ paths:
                 programs:
                   type: array
                   items: 
-                    $ref: '#/components/schemas/newProgramRequest'
+                    $ref: '#/components/schemas/ProgramNewRequest'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 2
-                    totalCount: 2
-                    totalPages: 1
-                  status: []
-                result:
-                  data:
-                  - abbreviation: P1
-                    commonCropName: Tomatillo
-                    documentationURL: https://brapi.org
-                    leadPerson: Name Nameson
-                    leadPersonDbId: person1
-                    leadPersonName: Name Nameson
-                    name: Program 1
-                    objective: Global Population Improvement
-                    programDbId: '1'
-                    programName: Program 1
-                  - abbreviation: P2
-                    commonCropName: Tomatillo
-                    documentationURL: https://brapi.org
-                    leadPerson: Name Nameson
-                    leadPersonDbId: person1
-                    leadPersonName: Name Nameson
-                    name: Program 2
-                    objective: XYZ
-                    programDbId: '2'
-                    programName: Program 2
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    properties:
-                      data:
-                        items:
-                          $ref: '#/components/schemas/program'
-                        type: array
-                    required:
-                    - data
-                    type: object
-                required:
-                - metadata
-                - result
-                title: programsResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/ProgramListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -170,3 +66,28 @@ paths:
           $ref: '#/components/responses/403Forbidden'
       tags:
       - Programs
+components:
+  responses:
+    ProgramListResponse:
+      content:
+        application/json:
+          schema:
+            title: ProgramListResponse
+            properties:
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/components/schemas/Program'
+                    type: array
+                required:
+                - data
+                type: object
+            required:
+            - metadata
+            - result
+            type: object
+      description: OK
+      headers: {}

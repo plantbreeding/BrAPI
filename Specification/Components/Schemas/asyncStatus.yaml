@@ -1,10 +1,10 @@
 components:
   schemas:
-    asynchStatusMetadata:
+    asyncStatusMetadata:
       properties:
-        asynchStatus:
+        asyncStatus:
           properties:
-            asynchId:
+            asyncId:
               description: The unique ID to poll for asynchronous results
               type: string
             endTime:
@@ -25,7 +25,7 @@ components:
               - ERROR
               type: string
           required:
-          - asynchId
+          - asyncId
       type: object
 info:
   title: BrAPI

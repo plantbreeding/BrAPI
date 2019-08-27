@@ -1,0 +1,11 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components: 
+  schemas:
+    ListDetails:
+      allOf:
+      - $ref: '#/components/schemas/ListSummary'
+      - $ref: '#/components/schemas/ListNewRequest'

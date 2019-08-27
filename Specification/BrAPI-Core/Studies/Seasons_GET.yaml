@@ -5,7 +5,14 @@ openapi: 3.0.0
 paths:
   /seasons:
     get:
-      description: "Call to retrive all seasons in the database.\n\nA season is made of 2 parts\n\n- The primary year \n\n- A term which defines a segment of the year. \nThis could be a traditional season, like \"Spring\" or \"Summer\"; \nthis could be a month, like \"May\" or \"June\"; \nor this could be an arbitrary season name which is meaningful to the breeding program like \"PlantingTime_3\" or \"Season E\""
+      summary: Get the Seasons
+      description: |-
+        Call to retrieve all seasons in the database.
+        
+        A season is made of 2 parts; the primary year and a term which defines a segment of the year. 
+        This could be a traditional season, like "Spring" or "Summer" or this could be a month, like 
+        "May" or "June" or this could be an arbitrary season name which is meaningful to the breeding 
+        program like "PlantingTime_3" or "Season E"
       parameters:
       - description: The unique identifier for a season. For backward compatibility it can be a string like '2012', '1957-2004'
         example: 2012, 2012-2019, 3
@@ -14,7 +21,7 @@ paths:
         required: false
         schema:
           type: string
-      - description: The term to describe a given season. Example "Spring" OR "May" OR "PlantingTime7".
+      - description: The term to describe a given season. Example "Spring" OR "May" OR "Planting_Time_7".
         example: Spring
         in: query
         name: season
@@ -35,23 +42,6 @@ paths:
         '200':
           content:
             application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 2
-                    totalCount: 10
-                    totalPages: 5
-                  status: []
-                result:
-                  data:
-                  - season: fall
-                    seasonDbId: '1'
-                    year: '2011'
-                  - season: winter
-                    seasonDbId: 2012
-                    year: '2012'
               schema:
                 properties:
                   metadata:
@@ -60,7 +50,7 @@ paths:
                     properties:
                       data:
                         items:
-                          $ref: '#/components/schemas/season'
+                          $ref: '#/components/schemas/Season'
                         type: array
                     required:
                     - data
@@ -78,6 +68,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Get the Seasons
       tags:
       - Studies

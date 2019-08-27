@@ -1,0 +1,19 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    Person:
+      allOf:
+      - $ref: '#/components/schemas/PersonNewRequest'
+      - type: object
+        required:
+        - personDbId
+        properties:
+          personDbId:
+            description: Unique ID for a person
+            type: string
+            example: 14340a54
+

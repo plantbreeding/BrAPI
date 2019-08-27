@@ -15,7 +15,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/searchLocationsRequest'
+              $ref: '#/components/schemas/LocationSearchRequest'
       responses:
         '200':
           $ref: '#/components/responses/successfulSearchResponse'

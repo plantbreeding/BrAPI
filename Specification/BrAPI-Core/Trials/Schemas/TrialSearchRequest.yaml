@@ -1,6 +1,11 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
 components:
   schemas:
-    trialSearchRequest:
+    TrialSearchRequest:
       type: object
       properties:
         active:
@@ -44,8 +49,4 @@ components:
           type: array
           items:
             type: string
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}
+

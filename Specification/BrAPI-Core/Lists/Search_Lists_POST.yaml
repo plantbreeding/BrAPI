@@ -15,7 +15,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/searchListRequest'
+              $ref: '#/components/schemas/ListSearchRequest'
       responses:
         '200':
           $ref: '#/components/responses/successfulSearchResponse'

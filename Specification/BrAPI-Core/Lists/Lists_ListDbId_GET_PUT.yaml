@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /lists/{listDbId}:
     get:
+      summary: Get the details of a specific List
       description: Get a specific generic lists
       parameters:
       - description: The unique ID of this generic list
@@ -16,45 +17,7 @@ paths:
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 0
-                    totalCount: 0
-                    totalPages: 0
-                  status: []
-                result:
-                  data:
-                  - '1'
-                  - '2'
-                  - '3'
-                  dateCreated: '2011-06-14T22:12:51-04:00'
-                  dateModified: '2011-06-14T22:12:51-04:00'
-                  description: Example List of germplasm
-                  listDbId: list1
-                  listName: Example List 1
-                  listOwnerName: Bob Robertson
-                  listOwnerPersonDbId: person1
-                  listSize: 3
-                  listSource: User Created
-                  listType: germplasm
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    $ref: '#/components/schemas/listDetails'
-                required:
-                - metadata
-                - result
-                title: listResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/ListsSingleResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -63,10 +26,10 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Get the details of a specific List
       tags:
       - Lists
     put:
+      summary: Update an existing generic list
       description: Update an existing generic list
       parameters:
       - description: The unique ID of this generic list
@@ -80,46 +43,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/newListRequest'
+              $ref: '#/components/schemas/ListNewRequest'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 0
-                    totalCount: 0
-                    totalPages: 0
-                  status: []
-                result:
-                  data:
-                  - string
-                  dateCreated: '2011-06-14T22:12:51-04:00'
-                  dateModified: '2018-12-05T14:36:04-05:00'
-                  description: string
-                  listDbId: list1
-                  listName: string
-                  listOwnerName: string
-                  listOwnerPersonDbId: string
-                  listSize: 1
-                  listSource: string
-                  listType: germplasm
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    $ref: '#/components/schemas/listDetails'
-                required:
-                - metadata
-                - result
-                title: listResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/ListsSingleResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -128,6 +55,23 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Update a specific List
       tags:
       - Lists
+components:
+  responses:
+    ListsSingleResponse:
+      content:
+        application/json:
+          schema:
+            title: ListsSingleResponse
+            properties:
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                $ref: '#/components/schemas/ListDetails'
+            required:
+            - metadata
+            - result
+            type: object
+      description: OK
+      headers: {}

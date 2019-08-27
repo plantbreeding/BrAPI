@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /lists:
     get:
+      summary: Get filtered set of generic lists
       description: Get filtered set of generic lists
       parameters:
       - description: The type of objects contained by this generic list
@@ -12,7 +13,7 @@ paths:
         name: listType
         required: false
         schema:
-          $ref: '#/components/schemas/listTypes'
+          $ref: '#/components/schemas/ListTypes'
       - description: The human readable name of this generic list
         in: query
         name: listName
@@ -36,70 +37,17 @@ paths:
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 2
-                    totalCount: 2
-                    totalPages: 1
-                  status: []
-                result:
-                  data:
-                  - dateCreated: '2011-06-14T22:12:51-04:00'
-                    dateModified: '2011-06-14T22:12:51-04:00'
-                    description: Example List of germplasm
-                    listDbId: list1
-                    listName: Example List 1
-                    listOwnerName: Bob Robertson
-                    listOwnerPersonDbId: person1
-                    listSize: 3
-                    listSource: User Created
-                    listType: germplasm
-                  - dateCreated: '2011-06-14T22:12:51-04:00'
-                    dateModified: '2011-06-14T22:12:51-04:00'
-                    description: Example List of germplasm
-                    listDbId: list2
-                    listName: Example List 2
-                    listOwnerName: Rob Robertson
-                    listOwnerPersonDbId: person2
-                    listSize: 3
-                    listSource: User Created
-                    listType: germplasm
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    properties:
-                      data:
-                        description: Array of generic list summaries
-                        items:
-                          $ref: '#/components/schemas/listSummary'
-                        type: array
-                    required:
-                    - data
-                    type: object
-                required:
-                - metadata
-                - result
-                title: listSummaryResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/ListsListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Get the List Summaries
       tags:
       - Lists
     post:
+      summary: Create a New List
       description: Create a new list
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
@@ -107,52 +55,43 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/newListRequest'
+              type: array
+              items:
+                $ref: '#/components/schemas/ListNewRequest'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 0
-                    totalCount: 0
-                    totalPages: 0
-                  status: []
-                result:
-                  data:
-                  - string
-                  dateCreated: '2018-12-05T14:36:04-05:00'
-                  dateModified: '2018-12-05T14:36:04-05:00'
-                  description: string
-                  listDbId: d93d6bb6-dfc3-4d15-8d2e-654c618ce12e
-                  listName: string
-                  listOwnerName: string
-                  listOwnerPersonDbId: string
-                  listSize: 1
-                  listSource: string
-                  listType: germplasm
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    $ref: '#/components/schemas/listDetails'
-                required:
-                - metadata
-                - result
-                title: listResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/ListsListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Create a New List
       tags:
       - Lists
+components:
+  responses:
+    ListsListResponse:
+      content:
+        application/json:
+          schema:
+            title: ListsListResponse
+            properties:
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ListSummary'
+                required:
+                - data
+            required:
+            - metadata
+            - result
+            type: object
+      description: OK
+      headers: {}
+    

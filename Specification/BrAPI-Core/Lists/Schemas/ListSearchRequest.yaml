@@ -1,6 +1,6 @@
 components:
   schemas:
-    searchListRequest:
+    ListSearchRequest:
       properties:
         dateCreatedRangeStart:
           format: date-time
@@ -35,7 +35,7 @@ components:
           items:
             type: string
         listType:
-          $ref: '#/components/schemas/listTypes'
+          $ref: '#/components/schemas/ListTypes'
       type: object
 info:
   title: BrAPI

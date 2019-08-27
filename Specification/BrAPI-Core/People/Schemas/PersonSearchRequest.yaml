@@ -5,7 +5,7 @@ openapi: 3.0.0
 paths: {}
 components:
   schemas:
-    searchPeopleRequest:
+    PersonSearchRequest:
       type: object
       properties:
         emailAddresses:
@@ -44,7 +44,7 @@ components:
           items:
             type: string
         userIDs:
-          description: A systems user ID ascociated with this person. Different from personDbId because you could have a person who is not a user of the system.
+          description: A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.
           type: array
           items:
             type: string

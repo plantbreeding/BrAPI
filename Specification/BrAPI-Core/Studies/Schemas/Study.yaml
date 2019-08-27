@@ -1,0 +1,18 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    Study:
+      allOf:
+      - $ref: '#/components/schemas/StudyNewRequest'
+      - type: object
+        required:
+        - studyDbId
+        properties:
+          studyDbId:
+            description: The ID which uniquely identifies a study within the given database server
+            type: string
+            example: 175ac75a

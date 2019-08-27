@@ -1,0 +1,19 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    Program:
+      allOf:
+      - $ref: '#/components/schemas/ProgramNewRequest'
+      - type: object
+        required:
+        - programDbId
+        properties:
+          programDbId:
+            description: The ID which uniquely identifies the program
+            type: string
+            example: f60f15b2
+

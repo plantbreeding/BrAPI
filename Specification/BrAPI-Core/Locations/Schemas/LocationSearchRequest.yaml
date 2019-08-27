@@ -1,6 +1,6 @@
 components:
   schemas:
-    searchLocationsRequest:
+    LocationSearchRequest:
       properties:
         abbreviations:
           description: An abbreviation which represents this location

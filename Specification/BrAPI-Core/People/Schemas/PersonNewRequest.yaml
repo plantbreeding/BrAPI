@@ -1,6 +1,11 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
 components:
   schemas:
-    newPersonRequest:
+    PersonNewRequest:
       properties:
         additionalInfo:
           additionalProperties:
@@ -10,30 +15,33 @@ components:
         description:
           description: description of this person
           type: string
+          example: Bob likes pina coladas and getting caught in the rain. 
         emailAddress:
           description: email address for this person
           type: string
+          example: bob@bob.com
         firstName:
           description: Persons first name
           type: string
+          example: Bob
         lastName:
           description: Persons last name
           type: string
+          example: Robertson
         mailingAddress:
           description: physical address of this person
           type: string
+          example: 123 Street Ave, City, State, Country
         middleName:
           description: Persons middle name
           type: string
+          example: Danger
         phoneNumber:
           description: phone number of this person
           type: string
+          example: +1-555-555-5555
         userID:
-          description: A systems user ID ascociated with this person. Different from personDbId because you could have a person who is not a user of the system.
+          description: A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.
           type: string
+          example: bob-23
       type: object
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}

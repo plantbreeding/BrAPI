@@ -1,10 +1,16 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
 components:
   schemas:
-    newTrialRequest:
+    TrialNewRequest:
       properties:
         active:
           description: Is this trail currently active
           type: boolean
+          example: true
         additionalInfo:
           additionalProperties:
             type: string
@@ -13,6 +19,7 @@ components:
         commonCropName:
           description: Common name for the crop associated with this trial
           type: string
+          example: Wheat
         contacts:
           description: List of contact entities associated with this trial
           items:
@@ -24,18 +31,23 @@ components:
             properties:
               datasetPUI:
                 type: string
+                example: doi:10.15454/312953986E3
               license:
                 type: string
+                example: https://CreativeCommons.org/licenses/by/4.0
               submissionDate:
                 type: string
+                format: date
               publicReleaseDate:
                 type: string
+                format: date
             type: object
           type: array
         documentationURL:
           description: A URL to the human readable documentation of this object
           format: uri
           type: string
+          example: https://wiki.brapi.org
         endDate:
           description: The date this trial ends
           format: date
@@ -43,16 +55,20 @@ components:
         programDbId:
           description: A program identifier to search for
           type: string
+          example: 673f378a
         programName:
-          description: The human readable name of a program
+          description: Human readable name of the program
           type: string
+          example: Tomatillo_Breeding_Program
         publications:
           items:
             properties:
               publicationPUI:
                 type: string
+                example: doi:10.15454/312953986E3
               publicationReference:
                 type: string
+                example: Selby, BrAPI — An application programming interface for plant breeding applications, Bioinformatics, https://doi.org/10.1093/bioinformatics/190 
             type: object
           type: array
         startDate:
@@ -62,12 +78,9 @@ components:
         trialName:
           description: The human readable name of a trial
           type: string
+          example: Peru Yield Trial 1
         trialDescription:
           description: The human readable description of a trial
           type: string
+          example: General drought resistance trial initiated in Peru before duplication in Africa
       type: object
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}

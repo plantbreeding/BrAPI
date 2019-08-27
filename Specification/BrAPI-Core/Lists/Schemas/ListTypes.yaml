@@ -1,6 +1,6 @@
 components:
   schemas:
-    listTypes:
+    ListTypes:
       enum:
       - germplasm
       - markers

@@ -1,10 +1,16 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
 components:
   schemas:
-    study:
+    StudyNewRequest:
       properties:
         active:
           description: Is this study currently active
           type: boolean
+          example: true
         additionalInfo:
           additionalProperties:
             type: string
@@ -13,6 +19,7 @@ components:
         commonCropName:
           description: Common name for the crop associated with this study
           type: string
+          example: Grape
         contacts:
           description: List of contact entities associated with this study
           items:
@@ -27,6 +34,7 @@ components:
           description: A URL to the human readable documentation of this object
           format: uri
           type: string
+          example: https://wiki.brapi.org
         endDate:
           description: The date the study ends
           format: date
@@ -38,76 +46,77 @@ components:
           type: array
         lastUpdate:
           description: The date and time when this study was last modified
+          type: object
           properties:
             timestamp:
               format: date-time
               type: string
             version:
               type: string
-          type: object
+              example: 1.2.3
         license:
           description: The usage license associated with the study data
           type: string
+          example: MIT License
         location:
-          $ref: '#/components/schemas/location'
-        programDbId:
-          description: The ID which uniquely identifies a program
-          type: string
-        programName:
-          description: The human readable name of a program
-          type: string
+          $ref: '#/components/schemas/Location'
         seasons:
           description: List of seasons over which this study was performed.
           items:
             type: string
           type: array
+          example: ['Spring_2018']
         startDate:
           description: The date this study started
           format: date
           type: string
-        studyDbId:
-          description: The ID which uniquely identifies a study within the given database server
-          type: string
         studyDescription:
           description: The description of this study
           type: string
+          example: This is a yield study for Spring 2018
         studyName:
           description: The human readable name for a study
           type: string
+          example: Grape_Yield_Spring_2018
         studyType:
           description: The type of study being performed. ex. "Yield Trial", etc
           type: string
+          example: Phenotyping
         trialDbId:
           description: The ID which uniquely identifies a trial
           type: string
+          example: 48b327ea
         trialName:
           description: The human readable name of a trial
           type: string
+          example: Grape_Yield_Trial
         observationUnitsDescription:
           description: The human readable description of the observation units design
           type: string
+          example: Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.
         culturalPractices:
           description: General description of the cultural practices of the study.
           type: string
+          example: Irrigation was applied according needs during summer to prevent water stress.
         experimentalDesign:
-          description: The experimental and statistical design full description plus a category PUI taken from crop research ontology or agro ontology
+          description: The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology
           properties:
             description:
               type: string
+              example: Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information.
             PUI:
               type: string
+              example: CO_715:0000145
           type: object
         growthFacility:
           description: Short description of the facility in which the study was carried out.
           properties:
             description:
               type: string
+              example: field environment condition, greenhouse
             PUI:
               type: string
+              example: CO_715:0000162
           type: object
       type: object
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}
+

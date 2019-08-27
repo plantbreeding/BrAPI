@@ -1,57 +1,74 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
 components:
   schemas:
-    geoJSON:
+    geoJSON: 
+      title: GeoJSON
+      type: object
       description: One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
       properties:
         geometry:
-          oneOf:
-          - description: "Example \n\n    [ -76.506042, 42.417373 ]"
-            properties:
-              coordinates:
-                $ref: '#/components/schemas/position'
-              type:
-                enum:
-                - Point
-                type: string
-            title: Point
-            type: object
-          - description: "Example \n\n    [ \n    \n      [ \n      \n        [ -77.456654, 42.241133 ], \n        \n        [ -75.414133, 41.508282 ],\n      \n        [ -76.506042, 42.417373 ], \n        \n        [ -77.456654, 42.241133 ] \n      \n      ] \n    \n    ]"
-            properties:
-              coordinates:
-                $ref: '#/components/schemas/polygon'
-              type:
-                enum:
-                - Polygon
-                type: string
-            title: Polygon
-            type: object
           title: GeoJSON Geometry
+          oneOf:
+          - $ref: '#/components/schemas/pointGeometry'
+          - $ref: '#/components/schemas/polygonGeometry'
+          discriminator: 
+            propertyName: type
+            mapping:
+              Point: '#/components/schemas/pointGeometry'
+              Polygon: '#/components/schemas/polygonGeometry'
           type: object
+          example: 
+            coordinates: [ -76.506042, 42.417373 ]
+            type: Point
         type:
-          enum:
-          - Feature
           type: string
-      title: GeoJSON
+          default: Feature
+          example: Feature
+          description: Feature
+    pointGeometry:
       type: object
+      description: Array with exactly 2 values representing the Longitude and Latitude of a point
+      properties:
+        coordinates:
+          $ref: '#/components/schemas/position'
+        type:
+          type: string
+          default: Point
+          example: Point
+          description: Point
+    polygonGeometry: 
+      type: object
+      description: An array of Linear Rings. Each Linear Ring is an array of Points. Each Point is an array with exactly 2 values representing the Longitude and Latitude.
+      properties:
+        coordinates:
+          $ref: '#/components/schemas/polygon'
+        type: 
+          type: string
+          default: Polygon
+          example: Polygon
+          description: Polygon
     linearRing:
       description: An array of at least four positions where the first equals the last
       items:
         $ref: '#/components/schemas/position'
       minItems: 4
       type: array
+      example: [ [ -77.456654, 42.241133 ], [ -75.414133, 41.508282 ], [ -76.506042, 42.417373 ], [ -77.456654, 42.241133 ] ]
     polygon:
       description: An array of linear rings
       items:
         $ref: '#/components/schemas/linearRing'
       type: array
+      example: [ [ [ -77.456654, 42.241133 ], [ -75.414133, 41.508282 ], [ -76.506042, 42.417373 ], [ -77.456654, 42.241133 ] ] ]
     position:
       description: A single position
       items:
         type: number
       minItems: 2
       type: array
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}
+      example: [ -76.506042, 42.417373 ]
+
