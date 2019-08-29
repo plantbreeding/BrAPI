@@ -1,6 +1,12 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
 components:
   schemas:
-    germplasmSearchRequest:
+    GermplasmSearchRequest: 
+      type: object
       properties:
         accessionNumbers:
           description: List unique identifiers for accessions within a genebank
@@ -53,13 +59,8 @@ components:
             type: string
           type: array
         xrefs: 
-          description: Search for Germplasm by an external refernce
+          description: Search for Germplasm by an external reference
           items:
             type: string
           type: array
-      type: object
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}
+

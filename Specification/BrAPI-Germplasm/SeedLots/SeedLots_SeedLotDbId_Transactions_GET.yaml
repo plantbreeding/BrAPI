@@ -35,35 +35,7 @@ paths:
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination: {}
-                  status: []
-                result:
-                  data:
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    properties:
-                      data:
-                        items:
-                          $ref: '#/components/schemas/seedLotTransaction'
-                        type: array
-                    required:
-                    - data
-                    type: object
-                required:
-                - metadata
-                - result
-                title: seedLotTransactionResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/SeedLotTransactionListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':

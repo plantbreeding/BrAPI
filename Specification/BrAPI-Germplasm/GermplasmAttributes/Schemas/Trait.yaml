@@ -1,50 +1,61 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
 components:
   schemas:
-    trait:
+    Trait:
+      type: object
       properties:
         alternativeAbbreviations:
           description: Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention
           items:
             type: string
           type: array
+          example: ['H', 'PH', 'H1']
         attribute:
           description: A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"
           type: string
+          example: height
         traitClass:
-          description: 'Trait class. (examples: "morphological trait", "phenological trait", "agronomical trait", "physiological trait", "abiotic stress trait", "biotic stress trait", "biochemical trait", "quality traits trait", "fertility trait", etc.)'
-          title: className
+          description: 'Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)'
           type: string
-        description:
+          example: phenological
+        traitDescription:
           description: The description of a trait
           type: string
+          example: The height of the plant 
         entity:
           description: A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"
           type: string
+          example: Stalk
         mainAbbreviation:
           description: 'Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")'
           type: string
+          example: PH
         ontologyReference:
-          $ref: '#/components/schemas/ontologyReference'
+          $ref: '#/components/schemas/OntologyReference'
         status:
           description: 'Trait status (examples: "recommended", "obsolete", "legacy", etc.)'
           type: string
+          example: recommended
         synonyms:
           description: Other trait names
           items:
             type: string
           type: array
+          example: ['Height', 'Plant Height', 'Stalk Height', 'Canopy Height']
         traitDbId:
           description: The ID which uniquely identifies a trait
           type: string
+          example: 9b2e34f5
         traitName:
           description: The human readable name of a trait
           type: string
+          example: Height
         xref:
           description: Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term
           type: string
-      type: object
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}
+          example: http://purl.obolibrary.org/obo/ro.owl
+

@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /breedingmethods/{breedingMethodDbId}:
     get:
+      summary: Get the details of a specific Breeding Method
       description: Get the details of a specific Breeding Method used to produce Germplasm
       parameters:
       - description: Internal database identifier for a breeding method
@@ -18,32 +19,17 @@ paths:
         '200':
           content:
             application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 0
-                    totalCount: 0
-                    totalPages: 0
-                  status: []
-                result:
-                  abbreviation: MBCR
-                  breedingMethodDbId: bm1
-                  breedingMethodName: Male Backcross
-                  description: Backcross to recover a specific gene.
-                  name: Male Backcross
               schema:
+                title: BreedingMethodSingleResponse
+                type: object
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    $ref: '#/components/schemas/breedingMethod'
+                    $ref: '#/components/schemas/BreedingMethod'
                 required:
                 - metadata
                 - result
-                title: breedingMethodResponse
-                type: object
           description: OK
           headers: {}
         '400':
@@ -54,6 +40,5 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Get the details of a specific Breeding Method
       tags:
       - Germplasm

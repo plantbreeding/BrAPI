@@ -17,67 +17,7 @@ paths:
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 0
-                    totalCount: 0
-                    totalPages: 0
-                  status: []
-                result:
-                  accessionNumber: A000003
-                  acquisitionDate: '2001-01-01'
-                  biologicalStatusOfAccessionCode: 500
-                  breedingMethodDbId: bm1
-                  commonCropName: G000003
-                  countryOfOriginCode: COUNTRY1
-                  defaultDisplayName: G000003
-                  documentationURL: https://brapi.org
-                  donors: []
-                  genus: Fructus
-                  germplasmDbId: '3'
-                  germplasmGenus: Fructus
-                  germplasmName: Name003
-                  germplasmPUI: http://pui.per/accession/A000003
-                  germplasmSpecies: novus
-                  instituteCode: PER001
-                  instituteName: INST1
-                  pedigree: A000001/A000002
-                  seedSource: A000001/A000002
-                  species: novus
-                  speciesAuthority: L
-                  subtaxa: subtaxa
-                  subtaxaAuthority: N
-                  germplasmOrigin:
-                    latitudeDecimal: '+39.067'
-                    longitudeDecimal: '-8,73'
-                  seedSourseDescription: Branches were collected from a 10-year-old tree growing in a progeny trial established in a loamy brown earth soil.
-                  germplasmPreprocessing: 'EO:0007210 - PVY(NTN); transplanted from study http://phenome-fppn.fr/maugio/2013/t2351 observation unit ID: pot:894'
-                  synonyms:
-                  - variety 1
-                  taxonIds:
-                  - sourceName: ncbiTaxon
-                    taxonId: '2340'
-                  - sourceName: ciradTaxon
-                    taxonId: E312
-                  typeOfGermplasmStorageCode: []
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    $ref: '#/components/schemas/germplasm'
-                required:
-                - metadata
-                - result
-                title: germplasmResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/GermplasmSingleResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -106,67 +46,7 @@ paths:
               $ref: '#/components/schemas/newGermplasmRequest'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 0
-                    totalCount: 0
-                    totalPages: 0
-                  status: []
-                result:
-                  accessionNumber: A000003
-                  acquisitionDate: '2001-01-01'
-                  biologicalStatusOfAccessionCode: 500
-                  breedingMethodDbId: bm1
-                  commonCropName: G000003
-                  countryOfOriginCode: COUNTRY1
-                  defaultDisplayName: G000003
-                  documentationURL: https://brapi.org
-                  donors: []
-                  genus: Fructus
-                  germplasmDbId: '3'
-                  germplasmGenus: Fructus
-                  germplasmName: Name003
-                  germplasmPUI: http://pui.per/accession/A000003
-                  germplasmSpecies: novus
-                  instituteCode: PER001
-                  instituteName: INST1
-                  pedigree: A000001/A000002
-                  seedSource: A000001/A000002
-                  species: novus
-                  speciesAuthority: L
-                  subtaxa: subtaxa
-                  subtaxaAuthority: N
-                  germplasmOrigin:
-                    latitudeDecimal: '+39.067'
-                    longitudeDecimal: '-8,73'
-                  seedSourseDescription: Branches were collected from a 10-year-old tree growing in a progeny trial established in a loamy brown earth soil.
-                  germplasmPreprocessing: 'EO:0007210 - PVY(NTN); transplanted from study http://phenome-fppn.fr/maugio/2013/t2351 observation unit ID: pot:894'
-                  synonyms:
-                  - variety 1
-                  taxonIds:
-                  - sourceName: ncbiTaxon
-                    taxonId: '2340'
-                  - sourceName: ciradTaxon
-                    taxonId: E312
-                  typeOfGermplasmStorageCode: []
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    $ref: '#/components/schemas/germplasm'
-                required:
-                - metadata
-                - result
-                title: germplasmResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/GermplasmSingleResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -177,3 +57,22 @@ paths:
           $ref: '#/components/responses/404NotFound'
       tags:
       - Germplasm
+components:
+  responses:
+    GermplasmSingleResponse:
+      content:
+        application/json:
+          schema:
+            title: GermplasmSingleResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                $ref: '#/components/schemas/Germplasm'
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}
+      

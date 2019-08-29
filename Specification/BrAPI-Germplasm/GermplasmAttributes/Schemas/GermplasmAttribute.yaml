@@ -1,0 +1,19 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    GermplasmAttribute: 
+      allOf:
+      - $ref: '#/components/schemas/GermplasmAttributeNewRequest'
+      - properties: 
+          attributeDbId:
+            description: The ID which uniquely identifies this attribute within the given database server
+            type: string
+            example: 2f08b902
+        required: 
+        - attributeDbId
+        type: object
+

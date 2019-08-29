@@ -6,7 +6,14 @@ paths:
   /germplasm:
     get:
       summary: Get a filtered list of Germplasm
-      description: "Addresses these needs\n\n- General germplasm search mechanism that accepts POST for complex queries \n\n- Possibility to search germplasm by more parameters than those allowed by the existing germplasm search \n\n- Possibility to get MCPD details by PUID rather than dbId"
+      description: |-
+        Addresses these needs
+        
+        - General germplasm search mechanism that accepts POST for complex queries 
+        
+        - Possibility to search germplasm by more parameters than those allowed by the existing germplasm search 
+        
+        - Possibility to get MCPD details by PUID rather than dbId
       parameters:
       - name: germplasmPUI
         description: Permanent unique identifier (DOI, URI, etc.)
@@ -79,101 +86,7 @@ paths:
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 2
-                    totalCount: 2
-                    totalPages: 1
-                  status: []
-                result:
-                  data:
-                  - accessionNumber: A000003
-                    acquisitionDate: '2001-01-01'
-                    biologicalStatusOfAccessionCode: 500
-                    breedingMethodDbId: bm1
-                    commonCropName: G000003
-                    countryOfOriginCode: COUNTRY1
-                    defaultDisplayName: G000003
-                    documentationURL: https://brapi.org
-                    donors: []
-                    genus: Fructus
-                    germplasmDbId: '3'
-                    germplasmGenus: Fructus
-                    germplasmName: Name003
-                    germplasmPUI: http://pui.per/accession/A000003
-                    germplasmSpecies: novus
-                    instituteCode: PER001
-                    instituteName: INST1
-                    pedigree: A000001/A000002
-                    seedSource: A000001/A000002
-                    species: novus
-                    speciesAuthority: L
-                    subtaxa: subtaxa
-                    subtaxaAuthority: N
-                    synonyms:
-                    - variety 1
-                    taxonIds:
-                    - sourceName: ncbiTaxon
-                      taxonId: '2340'
-                    - sourceName: ciradTaxon
-                      taxonId: E312
-                    typeOfGermplasmStorageCode: []
-                  - accessionNumber: A000004
-                    acquisitionDate: '2001-01-01'
-                    biologicalStatusOfAccessionCode: 500
-                    breedingMethodDbId: bm1
-                    commonCropName: G000004
-                    countryOfOriginCode: COUNTRY1
-                    defaultDisplayName: G000004
-                    documentationURL: https://brapi.org
-                    donors: []
-                    genus: Fructus
-                    germplasmDbId: '4'
-                    germplasmGenus: Fructus
-                    germplasmName: Name004
-                    germplasmPUI: http://pui.per/accession/A000004
-                    germplasmSpecies: novus
-                    instituteCode: PER001
-                    instituteName: INST1
-                    pedigree: A000001/A000003
-                    seedSource: open pollination
-                    species: novus
-                    speciesAuthority: L
-                    subtaxa: subtaxa
-                    subtaxaAuthority: N
-                    synonyms:
-                    - variety 4
-                    taxonIds:
-                    - sourceName: ncbiTaxon
-                      taxonId: '2340'
-                    - sourceName: ciradTaxon
-                      taxonId: E312
-                    typeOfGermplasmStorageCode: []
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    properties:
-                      data:
-                        items:
-                          $ref: '#/components/schemas/germplasm'
-                        type: array
-                    required:
-                    - data
-                    type: object
-                required:
-                - metadata
-                - result
-                title: germplasmResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/GermplasmListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -184,7 +97,14 @@ paths:
       - Germplasm
     post:
       summary: Create new Germplasm entities on this server
-      description: "Addresses these needs\n\n- General germplasm search mechanism that accepts POST for complex queries \n\n- Possibility to search germplasm by more parameters than those allowed by the existing germplasm search \n\n- Possibility to get MCPD details by PUID rather than dbId"
+      description: |-
+        Addresses these needs
+        
+        - General germplasm search mechanism that accepts POST for complex queries 
+        
+        - Possibility to search germplasm by more parameters than those allowed by the existing germplasm search 
+        
+        - Possibility to get MCPD details by PUID rather than dbId
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
@@ -196,104 +116,10 @@ paths:
                 germplasm:
                   type: array
                   items: 
-                    $ref: '#/components/schemas/newGermplasmRequest'
+                    $ref: '#/components/schemas/GermplasmNewRequest'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 2
-                    totalCount: 2
-                    totalPages: 1
-                  status: []
-                result:
-                  data:
-                  - accessionNumber: A000003
-                    acquisitionDate: '2001-01-01'
-                    biologicalStatusOfAccessionCode: 500
-                    breedingMethodDbId: bm1
-                    commonCropName: G000003
-                    countryOfOriginCode: COUNTRY1
-                    defaultDisplayName: G000003
-                    documentationURL: https://brapi.org
-                    donors: []
-                    genus: Fructus
-                    germplasmDbId: '3'
-                    germplasmGenus: Fructus
-                    germplasmName: Name003
-                    germplasmPUI: http://pui.per/accession/A000003
-                    germplasmSpecies: novus
-                    instituteCode: PER001
-                    instituteName: INST1
-                    pedigree: A000001/A000002
-                    seedSource: A000001/A000002
-                    species: novus
-                    speciesAuthority: L
-                    subtaxa: subtaxa
-                    subtaxaAuthority: N
-                    synonyms:
-                    - variety 1
-                    taxonIds:
-                    - sourceName: ncbiTaxon
-                      taxonId: '2340'
-                    - sourceName: ciradTaxon
-                      taxonId: E312
-                    typeOfGermplasmStorageCode: []
-                  - accessionNumber: A000004
-                    acquisitionDate: '2001-01-01'
-                    biologicalStatusOfAccessionCode: 500
-                    breedingMethodDbId: bm1
-                    commonCropName: G000004
-                    countryOfOriginCode: COUNTRY1
-                    defaultDisplayName: G000004
-                    documentationURL: https://brapi.org
-                    donors: []
-                    genus: Fructus
-                    germplasmDbId: '4'
-                    germplasmGenus: Fructus
-                    germplasmName: Name004
-                    germplasmPUI: http://pui.per/accession/A000004
-                    germplasmSpecies: novus
-                    instituteCode: PER001
-                    instituteName: INST1
-                    pedigree: A000001/A000003
-                    seedSource: open pollination
-                    species: novus
-                    speciesAuthority: L
-                    subtaxa: subtaxa
-                    subtaxaAuthority: N
-                    synonyms:
-                    - variety 4
-                    taxonIds:
-                    - sourceName: ncbiTaxon
-                      taxonId: '2340'
-                    - sourceName: ciradTaxon
-                      taxonId: E312
-                    typeOfGermplasmStorageCode: []
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    properties:
-                      data:
-                        items:
-                          $ref: '#/components/schemas/germplasm'
-                        type: array
-                    required:
-                    - data
-                    type: object
-                required:
-                - metadata
-                - result
-                title: germplasmResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/GermplasmListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -302,3 +128,28 @@ paths:
           $ref: '#/components/responses/403Forbidden'
       tags:
       - Germplasm
+components:
+  responses:
+    GermplasmListResponse:
+      content:
+        application/json:
+          schema:
+            title: GermplasmListResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/components/schemas/Germplasm'
+                    type: array
+                required:
+                - data
+                type: object
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}

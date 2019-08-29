@@ -1,0 +1,18 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    germplasm:
+      allOf:
+      - $ref: '#/components/schemas/GermplasmNewRequest'
+      - type: object
+        required:
+        - germplasmDbId
+        properties: 
+          germplasmDbId:
+            description: The ID which uniquely identifies a germplasm within the given database server
+            type: string
+            example: d4076594

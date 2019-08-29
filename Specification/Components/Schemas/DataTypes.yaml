@@ -1,3 +1,8 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
 components:
   schemas:
     WSMIMEDataTypes:
@@ -7,7 +12,7 @@ components:
       - text/tsv
       - application/flapjack
       type: string
-    traitDataType:
+    TraitDataType:
       description: |-
         <p>Class of the scale, entries can be</p>
         <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p>
@@ -26,8 +31,4 @@ components:
       - Ordinal
       - Text
       type: string
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}
+

@@ -1,28 +1,45 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
 components:
   schemas:
-    pedigree:
+    PedigreeNode:
+      type: object
+      required: 
+      - germplasmDbId
+      - parent1DbId
+      - parent1Type
       properties:
-        crossingPlan:
-          description: The crossing strategy used to generate this germplasm
+        crossingProjectDbId:
+          description: The crossing project used to generate this germplasm
           type: string
+          example: 625e745a
         crossingYear:
           description: The year the parents were originally crossed
-          type: string
+          type: integer
+          example: 2005
         defaultDisplayName:
           description: A human readable name for a germplasm
           type: string
+          example: A0021004
         familyCode:
           description: The code representing the family
           type: string
+          example: F0000203
         germplasmDbId:
-          description: ' The ID which uniquely identifies a germplasm'
+          description: The ID which uniquely identifies a germplasm
           type: string
+          example: 1098ebaf
         parent1DbId:
           description: The germplasm DbId of the first parent of this germplasm
           type: string
+          example: a55847ed
         parent1Name:
           description: the human readable name of the first parent of this germplasm
           type: string
+          example: A0000592
         parent1Type:
           description: The type of parent the first parent is. ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.
           enum:
@@ -31,12 +48,15 @@ components:
           - SELF
           - POPULATION
           type: string
+          example: FEMALE
         parent2DbId:
           description: The germplasm DbId of the second parent of this germplasm
           type: string
+          example: 14c46b32
         parent2Name:
           description: The human readable name of the second parent of this germplasm
           type: string
+          example: A0040035
         parent2Type:
           description: The type of parent the second parent is. ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.
           enum:
@@ -45,9 +65,11 @@ components:
           - SELF
           - POPULATION
           type: string
+          example: MALE
         pedigree:
           description: The string representation of the pedigree.
           type: string
+          example: A0000001/A0000002
         siblings:
           description: 'List of sibling germplasm '
           items:
@@ -58,9 +80,11 @@ components:
                 type: string
             type: object
           type: array
-      type: object
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}
+          example: 
+          - defaultDisplayName: A0021005
+            germplasmDbId: 334f53a3
+          - defaultDisplayName: A0021006
+            germplasmDbId: 7bbbda8c
+          - defaultDisplayName: A0021007
+            germplasmDbId: ab1d9b26
+

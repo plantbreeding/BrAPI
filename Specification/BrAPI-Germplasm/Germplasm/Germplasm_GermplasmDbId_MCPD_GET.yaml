@@ -5,16 +5,15 @@ openapi: 3.0.0
 paths:
   /germplasm/{germplasmDbId}/mcpd:
     get:
-      description: 'Get all MCPD details of a germplasm
-
+      summary: Get the details of a specific Germplasm in MCPD format
+      description: |-
+        Get all MCPD details of a germplasm
 
         <a target="_blank" href="https://www.bioversityinternational.org/fileadmin/user_upload/online_library/publications/pdfs/FAOBIOVERSITY_MULTI-CROP_PASSPORT_DESCRIPTORS_V.2.1_2015_2020.pdf"> MCPD v2.1 spec can be found here </a>
 
-
         Implementation Notes
 
-
-        - When the MCPD spec identifies a field which can have multiple values returned, the JSON response should be an array instead of a semi-colon seperated string.'
+        - When the MCPD spec identifies a field which can have multiple values returned, the JSON response should be an array instead of a semi-colon separated string.
       parameters:
       - description: the internal id of the germplasm
         in: path
@@ -27,80 +26,17 @@ paths:
         '200':
           content:
             application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 0
-                    totalCount: 0
-                    totalPages: 0
-                  status: []
-                result:
-                  accessionNames:
-                  - Name003
-                  accessionNumber: A000003
-                  acquisitionDate: '2001-01-01'
-                  acquisitionSourceCode: '11'
-                  alternateIDs:
-                  - '3'
-                  - http://pui.per/accession/A000003
-                  - A000003
-                  ancestralData: A000001/A000002
-                  biologicalStatusOfAccessionCode: '500'
-                  breedingInstitutes:
-                  - instituteCode: PER001
-                    instituteName: INST1
-                  collectingInfo:
-                    collectingDate: '2001-01-01'
-                    collectingInstitutes:
-                    - instituteAddress: INST1
-                      instituteCode: PER001
-                      instituteName: INST1
-                    collectingMissionIdentifier: '3'
-                    collectingNumber: A000003
-                    collectingSite:
-                      coordinateUncertainty: 20m
-                      elevation: 20m
-                      georeferencingMethod: WGS84
-                      latitudeDecimal: '+42.445295'
-                      latitudeDegrees: 42 26 43.1 N
-                      locationDescription: INST1
-                      longitudeDecimal: '-076.471934'
-                      longitudeDegrees: 76 28 19.0 W
-                      spatialReferenceSystem: WGS84
-                  commonCropName: G000003
-                  countryOfOrigin: COUNTRY1
-                  donorInfo:
-                    donorAccessionNumber: A000003
-                    donorInstitute:
-                      instituteCode: PER001
-                      instituteName: INST1
-                  genus: Fructus
-                  germplasmDbId: '3'
-                  germplasmPUI: http://pui.per/accession/A000003
-                  instituteCode: PER001
-                  mlsStatus: '0'
-                  remarks: G000003
-                  safetyDuplicateInstitues:
-                  - instituteCode: PER001
-                    instituteName: INST1
-                  species: novus
-                  speciesAuthority: L
-                  storageTypeCodes: []
-                  subtaxon: subtaxa
-                  subtaxonAuthority: N
               schema:
+                title: GermplasmMCPDResponse
+                type: object
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    $ref: '#/components/schemas/germplasmMCPD'
+                    $ref: '#/components/schemas/GermplasmMCPD'
                 required:
                 - metadata
                 - result
-                title: germplasmMCPDResponse
-                type: object
           description: OK
           headers: {}
         '400':
@@ -111,6 +47,5 @@ paths:
           $ref: '#/components/responses/403Forbidden'
         '404':
           $ref: '#/components/responses/404NotFound'
-      summary: Get the details of a specifc Germplasm in MCPD format
       tags:
       - Germplasm

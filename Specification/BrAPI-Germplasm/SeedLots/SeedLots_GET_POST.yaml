@@ -25,39 +25,7 @@ paths:
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 2
-                    totalCount: 2
-                    totalPages: 1
-                  status: []
-                result:
-                  data:
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    properties:
-                      data:
-                        items:
-                          $ref: '#/components/schemas/seedLot'
-                        type: array
-                    required:
-                    - data
-                    type: object
-                required:
-                - metadata
-                - result
-                title: seedLotListResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/SeedLotListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -80,42 +48,10 @@ paths:
                 seedLots:
                   type: array
                   items: 
-                    $ref: '#/components/schemas/newSeedLotRequest'
+                    $ref: '#/components/schemas/SeedLotNewRequest'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 2
-                    totalCount: 2
-                    totalPages: 1
-                  status: []
-                result:
-                  data:
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    properties:
-                      data:
-                        items:
-                          $ref: '#/components/schemas/seedLot'
-                        type: array
-                    required:
-                    - data
-                    type: object
-                required:
-                - metadata
-                - result
-                title: seedLotListResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/SeedLotListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -124,3 +60,29 @@ paths:
           $ref: '#/components/responses/403Forbidden'
       tags:
       - Seed Lots
+components:
+  responses:
+    SeedLotListResponse:
+      content:
+        application/json:
+          schema:
+            title: SeedLotListResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/components/schemas/SeedLot'
+                    type: array
+                required:
+                - data
+                type: object
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}
+    

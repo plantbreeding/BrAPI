@@ -1,0 +1,19 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    SeedLot:
+      allOf:
+      - $ref: '#/components/schemas/SeedLotNewRequest'
+      - type: object
+        properties: 
+          seedLotDbId:
+            description: Unique DbId for the Seed Lot
+            type: string
+            example: 261ecb09
+        required:
+        - seedLotDbId
+

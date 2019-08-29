@@ -1,6 +1,15 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
 components:
   schemas:
-    germplasm:
+    GermplasmNewRequest:
+      required:
+      - commonCropName
+      - germplasmName
+      - germplasmPUI
       properties:
         additionalInfo:
           additionalProperties:
@@ -10,82 +19,101 @@ components:
         accessionNumber:
           description: This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection
           type: string
+          example: A0000003
         acquisitionDate:
-          description: The date this germplasm was aquired by the genebank (MCPD)
+          description: The date this germplasm was acquired by the genebank (MCPD)
           format: date
           type: string
         biologicalStatusOfAccessionCode:
           description: The 3 digit code representing the biological status of the accession (MCPD)
           type: integer
+          example: 500
         breedingMethodDbId:
           description: The unique identifier for the breeding method used to create this germplasm
           type: string
+          example: ffcce7ef
         commonCropName:
           description: Common name for the crop (MCPD)
           type: string
+          example: Maize
         countryOfOriginCode:
           description: 3-letter ISO 3166-1 code of the country in which the sample was originally collected (MCPD)
           type: string
+          example: BES
         defaultDisplayName:
           description: Human readable name used for display purposes
           type: string
+          example: A0000003
         documentationURL:
           description: A URL to the human readable documentation of this object
           format: uri
           type: string
+          example: https://wiki.brapi.org
         donors:
           description: List of donor institutes (MCPD)
           items:
             properties:
               donorAccessionNumber:
                 type: string
+                example: A0000123
               donorInstituteCode:
                 type: string
+                example: PER001
               germplasmPUI:
                 type: string
+                example: http://pui.per/accession/A0000003
             type: object
           type: array
-        germplasmDbId:
-          description: The ID which uniquely identifies a germplasm within the given database server
-          type: string
         germplasmGenus:
           description: Genus name for taxon. Initial uppercase letter required. (MCPD)
           type: string
+          example: Aspergillus
         germplasmName:
-          description: Name of the germplasm. It can be the prefered name and does not have to be unique.
+          description: Name of the germplasm. It can be the preferred name and does not have to be unique.
           type: string
+          example: A0000003
         germplasmPUI:
           description: The Permanent Unique Identifier which represents a germplasm
           type: string
+          example: http://pui.per/accession/A0000003
         germplasmSpecies:
           description: Specific epithet portion of the scientific name in lowercase letters. (MCPD)
           type: string
+          example: fructus
         instituteCode:
           description: The code for the Institute that has bred the material. (MCPD)
           type: string
+          example: PER001
         instituteName:
           description: The name of the institution which bred the material (MCPD)
           type: string
+          example: The BrAPI Institute
         pedigree:
           description: The cross name and optional selection history.
           type: string
+          example: A0000001/A0000002
         seedSource:
           description: 'The source of the seed '
           type: string
+          example: A0000001/A0000002
         speciesAuthority:
           description: The authority organization responsible for tracking and maintaining the species name (MCPD)
           type: string
+          example: Smith, 1822
         subtaxa:
           description: Subtaxon can be used to store any additional taxonomic identifier. (MCPD)
           type: string
+          example: Aspergillus fructus A
         subtaxaAuthority:
           description: ' The authority organization responsible for tracking and maintaining the subtaxon information (MCPD)'
           type: string
+          example: Smith, 1822
         synonyms:
           description: List of alternative names or IDs used to reference this germplasm
           items:
             type: string
           type: array
+          example: ['variety_1']
         taxonIds:
           description: The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.
           items:
@@ -96,23 +124,22 @@ components:
           items:
             type: string
           type: array
+          example: ['10', '11']
         germplasmPreprocessing:
-          description: Description of any process or treatment applied uniformely to the germplasm, prior to the study itself. Can be provided as free text or as an accession number from a suitable controlled vocabulary.
+          description: Description of any process or treatment applied uniformly to the germplasm, prior to the study itself. Can be provided as free text or as an accession number from a suitable controlled vocabulary.
           type: string
-        seedSourseDescription:
+          example: 'EO:0007210; transplanted from study 2351 observation unit ID: pot:894'
+        seedSourceDescription:
           description: Description of the material source
           type: string
+          example: Branches were collected from a 10-year-old tree growing in a progeny trial established in a loamy brown earth soil.
         germplasmOrigin:
-          description: Information for In Situ material (orchard, natural sites, ...). Geographic identification of the plants from which seeds or cutting have been taken to produce that germplasm.
+          description: Information for material (orchard, natural sites, ...). Geographic identification of the plants from which seeds or cutting have been taken to produce that germplasm.
           items:
             $ref: '#/components/schemas/germplasmOrigin'
           type: array
         xref:
           description: External reference to another system
           type: string
+          example: http://pui.per/accession/A0000079
       type: object
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}

@@ -1,24 +1,29 @@
-components:
-  schemas:
-    breedingMethod:
-      properties:
-        abbreviation:
-          description: an abbreviation for the name of this breeding method
-          type: string
-        breedingMethodDbId:
-          description: the unique identifier for this breeding method
-          type: string
-        breedingMethodName:
-          description: human readable name of the breeding method
-          type: string
-        description:
-          description: human readable description of the breeding method
-          type: string
-      required:
-      - breedingMethodDbId
-      type: object
 info:
   title: BrAPI
   version: ''
 openapi: 3.0.0
 paths: {}
+components:
+  schemas:
+    BreedingMethod:
+      properties:
+        abbreviation:
+          description: an abbreviation for the name of this breeding method
+          type: string
+          example: MB
+        breedingMethodDbId:
+          description: the unique identifier for this breeding method
+          type: string
+          example: ffcce7ef
+        breedingMethodName:
+          description: human readable name of the breeding method
+          type: string
+          example: Male Backcross
+        description:
+          description: human readable description of the breeding method
+          type: string
+          example: Backcross to recover a specific gene.
+      required:
+      - breedingMethodDbId
+      type: object
+

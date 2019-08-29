@@ -17,28 +17,7 @@ paths:
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination: {}
-                  status: []
-                result:
-                  data:
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    $ref: '#/components/schemas/seedLot'
-                required:
-                - metadata
-                - result
-                title: seedLotResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/SeedLotSingleResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -67,28 +46,7 @@ paths:
               $ref: '#/components/schemas/newSeedLotRequest'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination: {}
-                  status: []
-                result:
-                  data:
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    $ref: '#/components/schemas/seedLot'
-                required:
-                - metadata
-                - result
-                title: seedLotResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/SeedLotSingleResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -99,3 +57,21 @@ paths:
           $ref: '#/components/responses/404NotFound'
       tags:
       - Seed Lots
+components:
+  responses:
+    SeedLotSingleResponse:
+      content:
+        application/json:
+          schema:
+            title: SeedLotSingleResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                $ref: '#/components/schemas/SeedLot'
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}

@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /breedingmethods:
     get:
+      summary: Get the Breeding Methods
       description: Get the list of germplasm breeding methods available in a system.
       parameters:
       - $ref: '#/components/parameters/page'
@@ -14,28 +15,9 @@ paths:
         '200':
           content:
             application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 2
-                    totalCount: 2
-                    totalPages: 1
-                  status: []
-                result:
-                  data:
-                  - abbreviation: MBCR
-                    breedingMethodDbId: bm1
-                    breedingMethodName: Male Backcross
-                    description: Backcross to recover a specific gene.
-                    name: Male Backcross
-                  - abbreviation: FBCR
-                    breedingMethodDbId: bm2
-                    breedingMethodName: Female Backcross
-                    description: Backcross to recover a specific gene.
-                    name: Female Backcross
               schema:
+                title: BreedingMethodListResponse
+                type: object
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
@@ -43,7 +25,7 @@ paths:
                     properties:
                       data:
                         items:
-                          $ref: '#/components/schemas/breedingMethod'
+                          $ref: '#/components/schemas/BreedingMethod'
                         type: array
                     required:
                     - data
@@ -51,8 +33,6 @@ paths:
                 required:
                 - metadata
                 - result
-                title: breedingMethodsResponse
-                type: object
           description: OK
           headers: {}
         '400':
@@ -61,6 +41,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Get the Breeding Methods
       tags:
       - Germplasm
