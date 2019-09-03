@@ -58,7 +58,6 @@ paths:
                     defaultDisplayName: G000003
                     documentationURL: https://brapi.org
                     donors: []
-                    genus: Fructus
                     germplasmDbId: '3'
                     germplasmGenus: Fructus
                     germplasmName: Name003
@@ -68,7 +67,6 @@ paths:
                     instituteName: INST1
                     pedigree: A000001/A000002
                     seedSource: A000001/A000002
-                    species: novus
                     speciesAuthority: L
                     subtaxa: subtaxa
                     subtaxaAuthority: N
@@ -89,7 +87,6 @@ paths:
                     defaultDisplayName: G000004
                     documentationURL: https://brapi.org
                     donors: []
-                    genus: Fructus
                     germplasmDbId: '4'
                     germplasmGenus: Fructus
                     germplasmName: Name004
@@ -99,7 +96,6 @@ paths:
                     instituteName: INST1
                     pedigree: A000001/A000003
                     seedSource: open pollination
-                    species: novus
                     speciesAuthority: L
                     subtaxa: subtaxa
                     subtaxaAuthority: N
