@@ -20,29 +20,16 @@ paths:
         '200':
           content:
             application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 2
-                    totalCount: 11
-                    totalPages: 6
-                  status: []
-                result:
-                  data:
-                  - field
-                  - plot
-                  - subplot
-                  - plant
-                  - sample
               schema:
+                title: ObservationLevelListResponse
+                type: object
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
                     properties:
                       data:
+                        type: array
                         items:
                           description: observation levels available in this database
                           type: string
@@ -52,15 +39,16 @@ paths:
                           - subplot
                           - plant
                           - sample
-                        type: array
+                        example:
+                          - field
+                          - plot
+                          - plant
                     required:
                     - data
                     type: object
                 required:
                 - metadata
                 - result
-                title: observationLevelsResponse
-                type: object
           description: OK
           headers: {}
         '400':

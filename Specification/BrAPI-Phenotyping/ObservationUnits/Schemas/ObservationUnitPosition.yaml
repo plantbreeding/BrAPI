@@ -1,0 +1,98 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    ObservationUnitPosition:
+      description: All positional and layout information related to this Observation Unit
+      type: object
+      properties:
+        blockNumber:
+          description: The block number for an observation unit. Different systems may use different block designs.
+          type: string
+          example: '6'
+        entryNumber:
+          description: The entry number for an observation unit. Different systems may use different entry systems.
+          type: string
+          example: '3'
+        entryType:
+          description: The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"
+          enum:
+          - CHECK
+          - TEST
+          - FILLER
+          type: string
+        positionCoordinateX:
+          description: The X position coordinate for an observation unit. Different systems may use different coordinate systems.
+          type: string
+          example: 74
+        positionCoordinateXType:
+          description: |-
+            The type of positional coordinate used. Must be one of the following values
+            
+            LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details
+            
+            LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details
+            
+            PLANTED_ROW - The physical planted row number 
+            
+            PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row
+            
+            GRID_ROW - The row index number of a square grid overlay
+            
+            GRID_COL - The column index number of a square grid overlay
+            
+            MEASURED_ROW - The distance in meters from a defined 0-th row
+            
+            MEASURED_COL - The distance in meters from a defined 0-th column
+          enum:
+          - LONGITUDE
+          - LATITUDE
+          - PLANTED_ROW
+          - PLANTED_INDIVIDUAL
+          - GRID_ROW
+          - GRID_COL
+          - MEASURED_ROW
+          - MEASURED_COL
+          type: string
+          example: GRID_COL
+        positionCoordinateY:
+          description: The Y position coordinate for an observation unit. Different systems may use different coordinate systems.
+          type: string
+          example: '03'
+        positionCoordinateYType:
+          description: |-
+            The type of positional coordinate used. Must be one of the following values
+            
+            LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details
+            
+            LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details
+            
+            PLANTED_ROW - The physical planted row number 
+            
+            PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row
+            
+            GRID_ROW - The row index number of a square grid overlay
+            
+            GRID_COL - The column index number of a square grid overlay
+            
+            MEASURED_ROW - The distance in meters from a defined 0-th row
+            
+            MEASURED_COL - The distance in meters from a defined 0-th column
+          enum:
+          - LONGITUDE
+          - LATITUDE
+          - PLANTED_ROW
+          - PLANTED_INDIVIDUAL
+          - GRID_ROW
+          - GRID_COL
+          - MEASURED_ROW
+          - MEASURED_COL
+          type: string
+          example: GRID_ROW
+        replicate:
+          description: The replicate number of an observation unit. May be the same as blockNumber.
+          type: string
+          example: '1'

@@ -20,44 +20,7 @@ paths:
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination: {}
-                  status: []
-                result:
-                  germplasmDbId: '1'
-                  germplasmName: Name001
-                  observationDbId: '1'
-                  observationLevel: plot
-                  observationTimeStamp: '2013-06-14T22:03:51-04:00'
-                  observationUnitDbId: '1'
-                  observationUnitName: Plot 1
-                  observationVariableDbId: MO_123:100002
-                  observationVariableName: Plant height
-                  operator: Bob
-                  season:
-                    season: fall
-                    seasonDbId: '1'
-                    year: '2011'
-                  studyDbId: '1001'
-                  uploadedBy: Bob
-                  value: '1.2'
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    $ref: '#/components/schemas/observation'
-                required:
-                - metadata
-                - result
-                title: observationsResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/ObservationSingleResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -83,47 +46,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/newObservationsRequest'
+              $ref: '#/components/schemas/ObservationNewRequest'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination: {}
-                  status: []
-                result:
-                  germplasmDbId: '1'
-                  germplasmName: Name001
-                  observationDbId: '1'
-                  observationLevel: plot
-                  observationTimeStamp: '2013-06-14T22:03:51-04:00'
-                  observationUnitDbId: '1'
-                  observationUnitName: Plot 1
-                  observationVariableDbId: MO_123:100002
-                  observationVariableName: Plant height
-                  operator: Bob
-                  season:
-                    season: fall
-                    seasonDbId: '1'
-                    year: '2011'
-                  studyDbId: '1001'
-                  uploadedBy: Bob
-                  value: '1.2'
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    $ref: '#/components/schemas/observation'
-                required:
-                - metadata
-                - result
-                title: observationsResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/ObservationSingleResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -134,3 +60,21 @@ paths:
           $ref: '#/components/responses/404NotFound'
       tags:
       - Observations
+components:
+  responses:
+    ObservationSingleResponse:
+      content:
+        application/json:
+          schema:
+            title: ObservationSingleResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                $ref: '#/components/schemas/Observation'
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}

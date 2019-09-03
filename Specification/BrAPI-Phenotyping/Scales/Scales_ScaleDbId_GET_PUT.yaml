@@ -20,49 +20,7 @@ paths:
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 0
-                    totalCount: 0
-                    totalPages: 0
-                  status: []
-                result:
-                  dataType: Numerical
-                  decimalPlaces: 1
-                  name: Centimeter
-                  ontologyReference:
-                    documentationLinks:
-                    - URL: https://ontology.org/s1
-                      type: OBO
-                      url: https://ontology.org/s1
-                    ontologyDbId: MO_123
-                    ontologyName: Ontology.org
-                    version: '17'
-                  scaleDbId: s1
-                  scaleName: Centimeter
-                  validValues:
-                    categories: []
-                    max: 99999
-                    min: 0
-                  xref: xref
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    $ref: '#/components/schemas/scale'
-                required:
-                - metadata
-                - result
-                title: ScaleResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/ScaleSingleResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -88,53 +46,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/newScaleRequest'
+              $ref: '#/components/schemas/ScaleNewRequest'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 0
-                    totalCount: 0
-                    totalPages: 0
-                  status: []
-                result:
-                  dataType: Code
-                  decimalPlaces: 0
-                  name: string
-                  ontologyReference:
-                    documentationLinks:
-                    - URL: string
-                      type: OBO
-                      url: string
-                    ontologyDbId: MO_123
-                    ontologyName: Ontology.org
-                    version: '17'
-                  scaleDbId: s1
-                  scaleName: string
-                  validValues:
-                    categories:
-                    - string
-                    max: 0
-                    min: 0
-                  xref: string
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    $ref: '#/components/schemas/scale'
-                required:
-                - metadata
-                - result
-                title: ScaleResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/ScaleSingleResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -145,3 +60,21 @@ paths:
           $ref: '#/components/responses/404NotFound'
       tags:
       - Scales
+components:
+  responses:
+    ScaleSingleResponse:
+      content:
+        application/json:
+          schema:
+            title: ScaleSingleResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                $ref: '#/components/schemas/Scale'
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}

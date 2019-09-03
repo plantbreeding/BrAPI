@@ -1,6 +1,12 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
 components:
   schemas:
-    observationUnit:
+    ObservationUnitNewRequest:
+      type: object
       properties:
         additionalInfo:
           additionalProperties:
@@ -10,63 +16,81 @@ components:
         germplasmDbId:
           description: ' The ID which uniquely identifies a germplasm'
           type: string
+          example: e9d9ed57
         germplasmName:
-          description: Name of the germplasm. It can be the prefered name and does not have to be unique.
+          description: Name of the germplasm. It can be the preferred name and does not have to be unique.
           type: string
+          example: A0000001
         locationDbId:
           description: The ID which uniquely identifies a location, associated with this study
           type: string
+          example: 0e208b20
         locationName:
           description: The human readable name of a location associated with this study
           type: string
+          example: Field Station Alpha
         observationLevel:
           description: The level of an observation unit. ex. "plot", "plant"
           type: string
-        observationUnitDbId:
-          description: The ID which uniquely identifies an observation unit
-          type: string
+          example: plot
         observationUnitName:
           description: A human readable name for an observation unit
           type: string
+          example: Plot 1
         observationUnitXref:
           description: A list of external references to this observation unit
-          items:
-            $ref: '#/components/schemas/observationUnitXref'
           type: array
+          items:
+            type: object
+            properties:
+              id:
+                description: The unique ID in the external reference 'source' system
+                type: string
+              source:
+                description: The system identifier (name, URL, etc) which has an external reference to the observation unit
+                type: string
+          example:
+          - id: SAMEA179865230
+            source: ebi.biosample
+          - id: INRA:CoeSt6 _SMH03
+            source: gnpis.lot
         observationUnitPosition:
-          $ref: '#/components/schemas/observationUnitPosition'
+          $ref: '#/components/schemas/ObservationUnitPosition'
         plantNumber:
           description: 'The plant number in a field. Applicable for observationLevel: "plant"'
           type: string
+          example: '1'
         plotNumber:
           description: 'The plot number in a field. Applicable for observationLevel: "plot"'
           type: string
+          example: '01'
         programDbId:
           description: The ID which uniquely identifies a program
           type: string
+          example: 2d763a7a
         programName:
           description: The human readable name of a program
           type: string
+          example: The Perfect Breeding Program
         studyDbId:
           description: The ID which uniquely identifies a study within the given database server
           type: string
+          example: 9865addc
         studyName:
           description: The human readable name for a study
           type: string
+          example: Purple_Tomato_1
         treatments:
           description: List of treatments applied to an observation unit.
           items:
-            $ref: '#/components/schemas/observationTreatment'
+            $ref: '#/components/schemas/ObservationTreatment'
           type: array
         trialDbId:
           description: The ID which uniquely identifies a trial
           type: string
+          example: 776a609c
         trialName:
           description: The human readable name of a trial
           type: string
-      type: object
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}
+          example: Purple Tomato
+

@@ -1,6 +1,11 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
 components:
   schemas:
-    searchObservationsRequest: 
+    ObservationSearchRequest: 
       properties:
         observationDbIds:
           description: The unique id of an Observation
@@ -59,8 +64,4 @@ components:
             type: string
           type: array
       type: object
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}
+

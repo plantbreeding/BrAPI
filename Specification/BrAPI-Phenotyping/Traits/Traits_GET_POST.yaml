@@ -6,67 +6,17 @@ paths:
   /traits:
     get:
       summary: Get the Traits
-      description: 'Call to retrieve a list of traits available in the system and their associated variables.
+      description: |-
+        Call to retrieve a list of traits available in the system and their associated variables.
 
-
-        An Observation Variable has 3 critical parts: A Trait being observed, a Method for making the observation, and a Scale on which the observation can be measured and compared with other observations.'
+        An Observation Variable has 3 critical parts; A Trait being observed, a Method for making the observation, and a Scale on which the observation can be measured and compared with other observations.'
       parameters:
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 2
-                    totalCount: 5
-                    totalPages: 3
-                  status: []
-                result:
-                  data:
-                  - defaultValue: '0'
-                    description: plant height
-                    name: Plant Height
-                    observationVariables:
-                    - ATT01
-                    - MO_123:100002
-                    traitDbId: t1
-                    traitId: t1
-                    traitName: Plant Height
-                  - defaultValue: '0'
-                    description: root weight
-                    name: Root Weight
-                    observationVariables:
-                    - ATT03
-                    - MO_123:100004
-                    traitDbId: t2
-                    traitId: t2
-                    traitName: Root Weight
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    properties:
-                      data:
-                        items:
-                          $ref: '#/components/schemas/trait'
-                        type: array
-                    required:
-                    - data
-                    type: object
-                required:
-                - metadata
-                - result
-                title: TraitsResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/TraitListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -84,56 +34,12 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/newTraitRequest'
+              type: array
+              items:
+                $ref: '#/components/schemas/TraitNewRequest'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 0
-                    totalCount: 0
-                    totalPages: 0
-                  status: []
-                result:
-                  alternativeAbbreviations:
-                  - string
-                  attribute: string
-                  traitClass: string
-                  description: string
-                  entity: string
-                  mainAbbreviation: string
-                  name: string
-                  ontologyReference:
-                    documentationLinks:
-                    - URL: string
-                      type: OBO
-                      url: string
-                    ontologyDbId: MO_123
-                    ontologyName: Ontology.org
-                    version: '17'
-                  status: string
-                  synonyms:
-                  - string
-                  traitDbId: 2d078dee-3d06-4deb-b0bb-2919c021a538
-                  traitName: string
-                  xref: string
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    $ref: '#/components/schemas/trait'
-                required:
-                - metadata
-                - result
-                title: TraitResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/TraitListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -142,3 +48,28 @@ paths:
           $ref: '#/components/responses/403Forbidden'
       tags:
       - Traits
+components:
+  responses:
+    TraitListResponse:
+      content:
+        application/json:
+          schema:
+            title: TraitListResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/components/schemas/Trait'
+                    type: array
+                required:
+                - data
+                type: object
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}

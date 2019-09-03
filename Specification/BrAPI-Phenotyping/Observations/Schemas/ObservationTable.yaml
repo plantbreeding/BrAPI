@@ -1,0 +1,60 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    ObservationTable:
+      type: object
+      properties:
+        data:
+          description: Matrix of observation data recorded for different observation variables across different observation units
+          items:
+            items:
+              type: string
+            type: array
+          type: array
+          example: 
+          - ['2011', 'f753a83c', 'Study 1', '17d60f8f', 'Field Station Alpha', '67c3cf0c', 'A0000001', 'd64dd058', '1', '1', '1', 'TEST', '1', '1', '1.1', '', '', '5.1']
+          - ['2011', 'f753a83c', 'Study 1', '17d60f8f', 'Field Station Alpha', '67c3cf0c', 'A0000001', 'f9adff3c', '1', '1', '1', 'TEST', '1', '2', '1.2', '', '', '4.5']
+          - ['2011', 'f753a83c', 'Study 1', '17d60f8f', 'Field Station Alpha', '40498c3c', 'A0000002', '67102b8f', '2', '2', '1', 'TEST', '2', '1', '', '2.1', 'dark blue', '']
+          - ['2011', 'f753a83c', 'Study 1', '17d60f8f', 'Field Station Alpha', '40498c3c', 'A0000002', '2869d94a', '2', '2', '1', 'TEST', '2', '2', '', '1.8', 'blue', '']
+        headerRow:
+          description: |-
+            The header row describing observation unit fields. Append ''observationVariableDbIds'' for complete header row of the table.
+
+            This array should contain any or all of the following strings; year, studyDbId, studyName, locationDbId, locationName, germplasmDbId, germplasmName, observationUnitDbId, plotNumber, replicate, blockNumber, entryType, X, Y
+          items:
+            description: valid header fields
+            enum:
+            - year
+            - studyDbId
+            - studyName
+            - locationDbId
+            - locationName
+            - germplasmDbId
+            - germplasmName
+            - observationUnitDbId
+            - plotNumber
+            - replicate
+            - blockNumber
+            - entryType
+            - X
+            - Y
+            type: string
+          type: array
+          example: ['year', 'studyDbId', 'studyName', 'locationDbId', 'locationName', 'germplasmDbId', 'germplasmName', 'observationUnitDbId', 'plotNumber', 'replicate', 'blockNumber', 'entryType', 'X', 'Y']
+        observationVariableDbIds:
+          description: The list of observation variables which have values recorded for them in the data matrix. Append to the 'headerRow' for complete header row.
+          items:
+            type: string
+          type: array
+          example: ['367aa1a9', '2acb934c', '85a21ce1', '46f590e5']
+        observationVariableNames:
+          description: The list of observation variable names which have values recorded for them in the data matrix. Order should match 'observationVariableDbIds'.
+          items:
+            type: string
+          type: array
+          example: ['Plant height', 'Carotenoid', 'Root color', 'Virus severity']
+

@@ -9,7 +9,7 @@ paths:
       description: |-
         Retrieve details about a specific method
 
-        An Observation Variable has 3 critical parts: A Trait being observed, a Method for making the observation, and a Scale on which the observation can be measured and compared with other observations.
+        An Observation Variable has 3 critical parts; A Trait being observed, a Method for making the observation, and a Scale on which the observation can be measured and compared with other observations.
       parameters:
       - description: Id of the method to retrieve details of.
         in: path
@@ -20,46 +20,7 @@ paths:
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 0
-                    totalCount: 0
-                    totalPages: 0
-                  status: []
-                result:
-                  methodClass: Numeric
-                  description: Standard rolled measuring tape
-                  formula: a^2 + b^2 = c^2
-                  methodDbId: m1
-                  methodName: Tape Measure
-                  name: Tape Measure
-                  ontologyReference:
-                    documentationLinks:
-                    - URL: https://ontology.org/m1
-                      type: RDF
-                      url: https://ontology.org/m1
-                    ontologyDbId: MO_123
-                    ontologyName: Ontology.org
-                    version: '17'
-                  reference: google.com
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    $ref: '#/components/schemas/method'
-                required:
-                - metadata
-                - result
-                title: MethodResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/MethodSingleResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -85,49 +46,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/newMethodRequest'
+              $ref: '#/components/schemas/MethodNewRequest'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 0
-                    totalCount: 0
-                    totalPages: 0
-                  status: []
-                result:
-                  methodClass: string
-                  description: string
-                  formula: string
-                  methodDbId: m1
-                  methodName: string
-                  name: string
-                  ontologyReference:
-                    documentationLinks:
-                    - URL: string
-                      type: OBO
-                      url: string
-                    ontologyDbId: MO_123
-                    ontologyName: Ontology.org
-                    version: '17'
-                  reference: string
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    $ref: '#/components/schemas/method'
-                required:
-                - metadata
-                - result
-                title: MethodResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/MethodSingleResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -138,3 +60,21 @@ paths:
           $ref: '#/components/responses/404NotFound'
       tags:
       - Methods
+components:
+  responses:
+    MethodSingleResponse:
+      content:
+        application/json:
+          schema:
+            title: MethodSingleResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                $ref: '#/components/schemas/Method'
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}

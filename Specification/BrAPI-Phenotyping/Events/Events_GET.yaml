@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /events:
     get:
+      summary: Get the Events
       description: Get list of events
       parameters:
       - description: Filter based on study unique identifier in which the events occured
@@ -20,35 +21,6 @@ paths:
         '200':
           content:
             application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 1
-                    totalCount: 1
-                    totalPages: 1
-                  status: []
-                result:
-                  data:
-                  - eventDbId: ID12345,
-                    eventTypeName: Infestation,
-                    eventTypeDbId: https://ontology.org/MO_123_100002,
-                    description: The pest attack lasted 20 minutes",
-                    studyDbId": study123,
-                    observationUnitDbIds: 
-                    - plant_1234
-                    - plant_2345
-                    date: 
-                    - '2017-09-08T12:00:00+01:00'
-                    - '2018-09-08T12:00:00+01:00'
-                    additionalInfo:         
-                    - key: http://www.phenome-fppn.fr/vocabulary/2018#hasContact,
-                      value: http://www.phenome-fppn.fr/diaphen/id/agent/marie_dupond,
-                      valueRdfType: http://xmlns.com/foaf/0.1/Agent,
-                    - key: fertilizer
-                      value: nitrogen
-                      valueRdfType: null
               schema:
                 properties:
                   metadata:
@@ -57,7 +29,7 @@ paths:
                     properties:
                       data:
                         items:
-                          $ref: '#/components/schemas/event'
+                          $ref: '#/components/schemas/Event'
                         type: array
                     required:
                     - data
@@ -75,6 +47,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Get the Events
       tags:
       - Events

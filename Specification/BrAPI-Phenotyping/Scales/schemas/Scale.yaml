@@ -1,0 +1,19 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    Scale:
+      allOf:
+      - $ref: '#/components/schemas/ScaleNewRequest'
+      - type: object
+        description: Scale metadata
+        required:
+        - scaleDbId
+        properties:
+          scaleDbId:
+            description: Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.
+            type: string
+            example: af730171

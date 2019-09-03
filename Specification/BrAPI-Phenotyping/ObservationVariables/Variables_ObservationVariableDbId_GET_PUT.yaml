@@ -17,113 +17,7 @@ paths:
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 0
-                    totalCount: 0
-                    totalPages: 0
-                  status: []
-                result:
-                  contextOfUse: []
-                  crop: maize
-                  date: '2018-12-05'
-                  defaultValue: '10'
-                  documentationURL: https://brapi.org
-                  growthStage: '1'
-                  institution: '1'
-                  language: English
-                  method:
-                    methodClass: Numeric
-                    description: Standard rolled measuring tape
-                    formula: a^2 + b^2 = c^2
-                    methodDbId: m1
-                    methodName: Tape Measure
-                    name: Tape Measure
-                    ontologyReference:
-                      documentationLinks:
-                      - URL: https://ontology.org/m1
-                        type: RDF
-                        url: https://ontology.org/m1
-                      ontologyDbId: MO_123
-                      ontologyName: Ontology.org
-                      version: '17'
-                    reference: google.com
-                  name: Plant height
-                  observationVariableDbId: MO_123:100002
-                  observationVariableName: Plant height
-                  ontologyDbId: MO_123
-                  ontologyName: Ontology.org
-                  ontologyReference:
-                    documentationLinks:
-                    - URL: https://ontology.org
-                      type: WEBPAGE
-                      url: https://ontology.org
-                    ontologyDbId: MO_123
-                    ontologyName: Ontology.org
-                    version: '17'
-                  scale:
-                    dataType: Numerical
-                    decimalPlaces: 1
-                    name: Centimeter
-                    ontologyReference:
-                      documentationLinks:
-                      - URL: https://ontology.org/s1
-                        type: OBO
-                        url: https://ontology.org/s1
-                      ontologyDbId: MO_123
-                      ontologyName: Ontology.org
-                      version: '17'
-                    scaleDbId: s1
-                    scaleName: Centimeter
-                    validValues:
-                      categories: []
-                      max: 99999
-                      min: 0
-                    xref: xref
-                  scientist: Bob
-                  status: active
-                  submissionTimestamp: '2011-06-14T22:12:51-04:00'
-                  synonyms: []
-                  trait:
-                    alternativeAbbreviations: []
-                    attribute: plant height
-                    traitClass: Numeric
-                    description: plant height
-                    entity: entity
-                    mainAbbreviation: H
-                    name: Plant Height
-                    ontologyReference:
-                      documentationLinks:
-                      - URL: https://ontology.org/t1
-                        type: WEBPAGE
-                        url: https://ontology.org/t1
-                      ontologyDbId: MO_123
-                      ontologyName: Ontology.org
-                      version: '17'
-                    status: active
-                    synonyms: []
-                    traitDbId: t1
-                    traitName: Plant Height
-                    xref: xref
-                  xref: MO_123:100002
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    $ref: '#/components/schemas/observationVariable'
-                required:
-                - metadata
-                - result
-                title: observationVariableResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/ObservationVariableSingleResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -147,109 +41,7 @@ paths:
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination: {} 
-                  status: []
-                result:
-                  contextOfUse: []
-                  crop: maize
-                  date: '2018-12-05'
-                  defaultValue: '10'
-                  documentationURL: https://brapi.org
-                  growthStage: '1'
-                  institution: '1'
-                  language: English
-                  method:
-                    methodClass: Numeric
-                    description: Standard rolled measuring tape
-                    formula: a^2 + b^2 = c^2
-                    methodDbId: m1
-                    methodName: Tape Measure
-                    name: Tape Measure
-                    ontologyReference:
-                      documentationLinks:
-                      - URL: https://ontology.org/m1
-                        type: RDF
-                        url: https://ontology.org/m1
-                      ontologyDbId: MO_123
-                      ontologyName: Ontology.org
-                      version: '17'
-                    reference: google.com
-                  name: Plant height
-                  observationVariableDbId: MO_123:100002
-                  observationVariableName: Plant height
-                  ontologyDbId: MO_123
-                  ontologyName: Ontology.org
-                  ontologyReference:
-                    documentationLinks:
-                    - URL: https://ontology.org
-                      type: WEBPAGE
-                      url: https://ontology.org
-                    ontologyDbId: MO_123
-                    ontologyName: Ontology.org
-                    version: '17'
-                  scale:
-                    dataType: Numerical
-                    decimalPlaces: 1
-                    name: Centimeter
-                    ontologyReference:
-                      documentationLinks:
-                      - URL: https://ontology.org/s1
-                        type: OBO
-                        url: https://ontology.org/s1
-                      ontologyDbId: MO_123
-                      ontologyName: Ontology.org
-                      version: '17'
-                    scaleDbId: s1
-                    scaleName: Centimeter
-                    validValues:
-                      categories: []
-                      max: 99999
-                      min: 0
-                    xref: xref
-                  scientist: Bob
-                  status: active
-                  submissionTimestamp: '2011-06-14T22:12:51-04:00'
-                  synonyms: []
-                  trait:
-                    alternativeAbbreviations: []
-                    attribute: plant height
-                    traitClass: Numeric
-                    description: plant height
-                    entity: entity
-                    mainAbbreviation: H
-                    name: Plant Height
-                    ontologyReference:
-                      documentationLinks:
-                      - URL: https://ontology.org/t1
-                        type: WEBPAGE
-                        url: https://ontology.org/t1
-                      ontologyDbId: MO_123
-                      ontologyName: Ontology.org
-                      version: '17'
-                    status: active
-                    synonyms: []
-                    traitDbId: t1
-                    traitName: Plant Height
-                    xref: xref
-                  xref: MO_123:100002
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    $ref: '#/components/schemas/observationVariable'
-                required:
-                - metadata
-                - result
-                title: observationVariableResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/ObservationVariableSingleResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -260,4 +52,22 @@ paths:
           $ref: '#/components/responses/404NotFound'
       tags:
       - Observation Variables
+components:
+  responses:
+    ObservationVariableSingleResponse:
+      content:
+        application/json:
+          schema:
+            title: ObservationVariableSingleResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                $ref: '#/components/schemas/ObservationVariable'
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}
       

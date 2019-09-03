@@ -1,0 +1,47 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    ScaleNewRequest:
+      type: object
+      description: Scale metadata
+      required:
+      - scaleName
+      properties:
+        dataType:
+          $ref: '#/components/schemas/TraitDataType'
+        decimalPlaces:
+          description: For numerical, number of decimal places to be reported
+          type: integer
+          example: 2
+        ontologyReference:
+          $ref: '#/components/schemas/ontologyReference'
+        scaleName:
+          description: Name of the scale
+          type: string
+          example: Meters
+        validValues:
+          type: object
+          properties:
+            categories: 
+              description: 'List of possible values (examples: ["low", "medium", "high"]'
+              items:
+                type: string
+              type: array
+              example: ["low", "medium", "high"]
+            max:
+              description: Maximum value (used for field data capture control).
+              type: integer
+              example: 9999
+            min:
+              description: Minimum value (used for data capture control) for numerical and date scales
+              type: integer
+              example: 2
+        xref:
+          description: Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database
+          type: string
+          example: http://purl.obolibrary.org/obo/ro.owl
+

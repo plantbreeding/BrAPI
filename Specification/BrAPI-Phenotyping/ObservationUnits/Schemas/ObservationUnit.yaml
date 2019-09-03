@@ -1,0 +1,16 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    ObservationUnit:
+      allOf:
+      - $ref: '#/components/schemas/ObservationUnitNewRequest'
+      - type: object
+        properties:
+          observationUnitDbId:
+            description: The ID which uniquely identifies an observation unit
+            type: string
+            example: 8c67503c

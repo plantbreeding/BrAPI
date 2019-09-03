@@ -5,14 +5,36 @@ openapi: 3.0.0
 paths:
   /search/observationunits:
     post:
-      description: "Returns a list of observationUnit with the observed Phenotypes.\n\nSee Search Services for additional implementation details.\n\nUse case - this section allows to get a dataset from multiple studies. It allows to integrate data from several databases.\n\nRefactor note - This call allows to get and integrate portions of multiple phenotyping data matrixes. A proposed evolution allowed to get a list of single observations, this functionality is still possible with this call by specifybing the observation variable, see below.\n\nExample Use cases \n\n- Study a panel of germplasm accross multiple studies\n\n    '{\"germplasmDbIds\": [\"Syrah\", \"34Mtp362\"]}'\n\n- Get all data for a specific study (same as \"/studies/{studyDbId}/observationunits\")\n\n    '{\"studyDbIds\" : [\"383\"]}'\n\n- Get simple atomic phenotyping values \n\n    '{\n\n       \"germplasmDbIds\" : [ \"Syrah\", \"34Mtp362\" ], \n\n       \"observationVariableDbIds\" : [ \"CO_345:0000043\"]\n\n     }'\n\n- Study Locations for adaptation to climate change\n\n    '{\n\n       \"locationDbIds\" : [\"383838\", \"MONTPELLIER\"], \n\n       \"germplasmDbIds\" : [ \"14Mtp361\", \"24Mtp362\", \"34Mtp363\", \"44Mtp364\"]\n\n     }'\n\n- Find phenotypes that are from after a certain timestamp\n\n    '{\n\n       \"observationTimeStampRangeStart\" : \"2013-06-14T23:59:59-04:00\", \n\n       \"observationTimeStampRangeEnd\" : \"2013-06-15T23:59:59-04:00\"\n\n     }'\n     \nobservationTimeStampRangeStart and observationTimeStampRangeEnd use Iso Standard 8601.\n\nobservationValue data type inferred from the ontology"
+      summary: Submit a search request for Observation Units
+      description: |-
+        Returns a list of observationUnit with the observed Phenotypes.
+        
+        See Search Services for additional implementation details.
+        
+        Use case - this section allows to get a dataset from multiple studies. It allows to integrate data from several databases.
+        
+        Example Use cases 
+        
+        - Study a panel of germplasm across multiple studies
+        
+        - Get all data for a specific study 
+        
+        - Get simple atomic phenotyping values 
+
+        - Study Locations for adaptation to climate change
+        
+        - Find phenotypes that are from after a certain timestamp
+        
+        observationTimeStampRangeStart and observationTimeStampRangeEnd use Iso Standard 8601.
+        
+        observationValue data type inferred from the ontology
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/searchObservationUnitsRequest'
+              $ref: '#/components/schemas/ObservationUnitSearchRequest'
       responses:
         '200':
           $ref: '#/components/responses/successfulSearchResponse'
@@ -22,6 +44,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Submit a search request for Observation Units
       tags:
       - Observation Units

@@ -1,0 +1,17 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    Trait:
+      allOf:
+      - $ref: '#/components/schemas/TraitNewRequest'
+      - type: object
+        properties:
+          traitDbId:
+            description: The ID which uniquely identifies a trait
+            type: string
+            example: 9b2e34f5
+

@@ -1,0 +1,19 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    ObservationTreatment:
+      type: object
+      properties:
+        factor:
+          description: The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc
+          type: string
+          example: fertilizer
+        modality:
+          description: The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc
+          type: string
+          example: low fertilizer
+

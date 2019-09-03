@@ -1,0 +1,18 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    ObservationVariableNewRequest:
+      allOf:
+      - $ref: '#/components/schemas/VariableBaseClass'
+      - type: object
+        properties:
+          observationVariableName:
+            description: Variable name (usually a short name)
+            type: string
+            example: Variable Name
+        required:
+        - observationVariableName

@@ -1,6 +1,11 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
 components:
   schemas:
-    observationVariableSearchRequest:
+    ObservationVariableSearchRequest:
       properties:
         dataTypes:
           description: List of scale data types to filter search results
@@ -63,8 +68,4 @@ components:
             type: string
           type: array
       type: object
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}
+

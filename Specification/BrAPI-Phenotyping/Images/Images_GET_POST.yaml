@@ -5,16 +5,15 @@ openapi: 3.0.0
 paths:
   /images:
     get:
-      description: 'Get filtered set of image meta data
-
+      summary: Get the image meta data summaries
+      description: |-
+        Get filtered set of image meta data
 
         Implementation Notes
 
+        - ''imageURL'' should be a complete URL describing the location of the image. There is no BrAPI call for retrieving the image content, so it could be on a different path, or a different host.
 
-        - ''imageURL'' should be a complete URL decribing the location of the image. There is no BrAPI call for retireiving the image content, so it could be on a different path, or a different host.
-
-
-        - ''descriptiveOntologyTerm'' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI''s.  '
+        - ''descriptiveOntologyTerm'' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI''s.
       parameters:
       - description: The unique identifier for a image
         in: query
@@ -34,7 +33,7 @@ paths:
         required: false
         schema:
           type: string
-      - description: The unique identifier of the observation an image is accosiated with
+      - description: The unique identifier of the observation an image is associated with
         in: query
         name: observationDbId
         required: false
@@ -51,119 +50,29 @@ paths:
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 2
-                    totalCount: 2
-                    totalPages: 1
-                  status: []
-                result:
-                  data:
-                  - additionalInfo: {}
-                    copyright: Copyright 2018
-                    description: BrAPI Logo
-                    descriptiveOntologyTerms:
-                    - brapi
-                    - logo
-                    imageDbId: img1
-                    imageFileName: brapi-logo.svg
-                    imageFileSize: 3676
-                    imageHeight: 56
-                    imageLocation:
-                      geometry:
-                        coordinates:
-                        - -110.11301
-                        - 50.010082
-                        type: Point
-                      type: Feature
-                    imageName: brapiLogo
-                    imageTimeStamp: '2011-06-14'
-                    imageURL: https://brapi.org/assets/images/brapi-logo.svg
-                    imageWidth: 258
-                    mimeType: image/svg
-                    observationDbIds:
-                    - '1'
-                    - '2'
-                    observationUnitDbId: '1'
-                  - additionalInfo: {}
-                    copyright: Copyright 2018
-                    description: BrAPI Logo
-                    descriptiveOntologyTerms:
-                    - brapi
-                    - logo
-                    imageDbId: img2
-                    imageFileName: brapi-logo.svg
-                    imageFileSize: 3676
-                    imageHeight: 56
-                    imageLocation:
-                      geometry:
-                        coordinates:
-                        - -110.11301
-                        - 50.010082
-                        type: Point
-                      type: Feature
-                    imageName: brapiLogo
-                    imageTimeStamp: '2011-06-14'
-                    imageURL: https://brapi.org/assets/images/brapi-logo.svg
-                    imageWidth: 258
-                    mimeType: image/svg
-                    observationDbIds:
-                    - '1'
-                    - '2'
-                    observationUnitDbId: '1'
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    properties:
-                      data:
-                        description: Array of image meta data
-                        items:
-                          $ref: '#/components/schemas/image'
-                        type: array
-                    required:
-                    - data
-                    type: object
-                required:
-                - metadata
-                - result
-                title: imagesResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/ImageListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Get the image meta data summaries
       tags:
       - Images
     post:
-      description: 'Create a new image meta data object
-
+      summary: Create a new image meta data object
+      description: |-
+        Create a new image meta data object
 
         Implementation Notes
 
-
-        - ''imageURL'' should be a complete URL decribing the location of the image. There is no BrAPI call for retireiving the image content, so it could be on a different path, or a different host.
-
+        - ''imageURL'' should be a complete URL describing the location of the image. There is no BrAPI call for retrieving the image content, so it could be on a different path, or a different host.
 
         - ''descriptiveOntologyTerm'' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI''s.
 
-
-        - The `/images` calls support a GeoJSON object structure for describing their location. The BrAPI spec for GeoJSON only supports two of the possible geometries: Points and Polygons.
-
+        - The '/images' calls support a GeoJSON object structure for describing their location. The BrAPI spec for GeoJSON only supports two of the possible geometries: Points and Polygons.
 
         - With most images, the Point geometry should be used, and it should indicate the longitude and latitude of the camera.
-
 
         - For top down images (ie from drones, cranes, etc), the Point geometry may be used to indicate the longitude and latitude of the centroid of the image content, and the Polygon geometry may be used to indicate the border of the image content. '
       parameters:
@@ -172,66 +81,44 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/newImageRequest'
+              type: array
+              items:
+                $ref: '#/components/schemas/ImageNewRequest'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 0
-                    totalCount: 0
-                    totalPages: 0
-                  status: []
-                result:
-                  additionalInfo: {}
-                  copyright: Copyright 2019
-                  description: BrAPI Logo
-                  descriptiveOntologyTerms:
-                  - brapi
-                  - logo
-                  imageDbId: ce15937e-093e-4624-8950-00dab3172e4c
-                  imageFileName: brapi-logo.svg
-                  imageFileSize: 3676
-                  imageHeight: 56
-                  imageLocation:
-                    geometry:
-                      coordinates:
-                      - -110.11301
-                      - 50.010082
-                      type: Point
-                    type: Feature
-                  imageName: brapiLogo
-                  imageTimeStamp: '1969-12-31'
-                  imageURL: ''
-                  imageWidth: 258
-                  mimeType: image/svg
-                  observationDbIds:
-                  - '1'
-                  - '2'
-                  observationUnitDbId: '11'
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    $ref: '#/components/schemas/image'
-                required:
-                - metadata
-                - result
-                title: imageResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/ImageListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Create a new image meta data object
       tags:
       - Images
+components:
+  responses:
+    ImageListResponse:
+      content:
+        application/json:
+          schema:
+            title: ImageListResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                type: object
+                properties:
+                  data:
+                    description: Array of image meta data
+                    items:
+                      $ref: '#/components/schemas/Image'
+                    type: array
+                required:
+                - data
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}
+      

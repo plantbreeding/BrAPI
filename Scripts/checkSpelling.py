@@ -53,7 +53,7 @@ spell = SpellChecker()
 spell.word_frequency.load_words([
     #tech
     'brapi',
-    'json', 'csv', 'tsv', 'flapjack',
+    'json', 'csv', 'tsv', 'flapjack', 'jpg', 'svg', 
     'http', 'https', 'url', 'href', 'html', 'webpage',
     'openapi', 'apiary', 'github',
     'enum', 'wsmime', 'date-time', 'timestamp',
@@ -61,7 +61,7 @@ spell.word_frequency.load_words([
     'wiki', 'wikipedia',
     'uppercase', 'lowercase',
     'xref', 'xrefs',
-    'preprocessing','debug', 'async', 'upload', 
+    'preprocessing','debug', 'async', 'upload', 'uploaded',
     #plant
     'germplasm', 'genebank',
     'multi-crop',
@@ -72,7 +72,7 @@ spell.word_frequency.load_words([
     'centimeter', 'centimeters',
     'mcpd', 'ncbi',
     'subtaxa', 'subtaxon', 'fructus',
-    'obo', 'rdf', 'obolibrary',
+    'obo', 'rdf', 'obolibrary', 'ontologies',
     'carotenoid',
     #fun
     'tomatillo',

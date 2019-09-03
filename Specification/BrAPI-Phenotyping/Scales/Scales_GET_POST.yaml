@@ -5,95 +5,28 @@ openapi: 3.0.0
 paths:
   /scales:
     get:
-      description: 'Returns a list of Scales available on a server.
+      summary: Get the Scales
+      description: |-
+        Returns a list of Scales available on a server.
 
-
-        An Observation Variable has 3 critical parts: A Trait being observed, a Method for making the observation, and a Scale on which the observation can be measured and compared with other observations.'
+        An Observation Variable has 3 critical parts; A Trait being observed, a Method for making the observation, and a Scale on which the observation can be measured and compared with other observations.
       parameters:
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 2
-                    totalCount: 4
-                    totalPages: 2
-                  status: []
-                result:
-                  data:
-                  - dataType: Numerical
-                    decimalPlaces: 1
-                    name: Centimeter
-                    ontologyReference:
-                      documentationLinks:
-                      - URL: https://ontology.org/s1
-                        type: OBO
-                        url: https://ontology.org/s1
-                      ontologyDbId: MO_123
-                      ontologyName: Ontology.org
-                      version: '17'
-                    scaleDbId: s1
-                    scaleName: Centimeter
-                    validValues:
-                      categories: []
-                      max: 99999
-                      min: 0
-                    xref: xref
-                  - dataType: Numerical
-                    decimalPlaces: 3
-                    name: Kilogram
-                    ontologyReference:
-                      documentationLinks:
-                      - URL: https://ontology.org/s2
-                        type: RDF
-                        url: https://ontology.org/s2
-                      ontologyDbId: MO_123
-                      ontologyName: Ontology.org
-                      version: '17'
-                    scaleDbId: s2
-                    scaleName: Kilogram
-                    validValues:
-                      categories: []
-                      max: 99999
-                      min: 0
-                    xref: xref
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    properties:
-                      data:
-                        items:
-                          $ref: '#/components/schemas/scale'
-                        type: array
-                    required:
-                    - data
-                    type: object
-                required:
-                - metadata
-                - result
-                title: ScalesResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/ScaleListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Get the Scales
       tags:
       - Scales
     post:
+      summary: Add a new Scale
       description: Create a new scale object in the database
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
@@ -101,59 +34,42 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/newScaleRequest'
+              type: array
+              items:
+                $ref: '#/components/schemas/ScaleNewRequest'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 0
-                    totalCount: 0
-                    totalPages: 0
-                  status: []
-                result:
-                  dataType: Code
-                  decimalPlaces: 0
-                  name: string
-                  ontologyReference:
-                    documentationLinks:
-                    - URL: string
-                      type: OBO
-                      url: string
-                    ontologyDbId: MO_123
-                    ontologyName: Ontology.org
-                    version: '17'
-                  scaleDbId: 90fdedbc-6412-47ac-877b-81dd466fe6d2
-                  scaleName: string
-                  validValues:
-                    categories:
-                    - string
-                    max: 0
-                    min: 0
-                  xref: string
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    $ref: '#/components/schemas/scale'
-                required:
-                - metadata
-                - result
-                title: ScaleResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/ScaleListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Add a new Scale
       tags:
       - Scales
+components:
+  responses:
+    ScaleListResponse:
+      content:
+        application/json:
+          schema:
+            title: ScaleListResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/components/schemas/Scale'
+                    type: array
+                required:
+                - data
+                type: object
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}

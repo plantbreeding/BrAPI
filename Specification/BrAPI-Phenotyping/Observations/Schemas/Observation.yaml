@@ -1,0 +1,17 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    Observation:
+      allOf:
+      - $ref: '#/components/schemas/ObservationNewRequest'
+      - type: object
+        properties:
+          observationDbId:
+            description: The ID which uniquely identifies an observation
+            type: string
+            example: ef24b615
+

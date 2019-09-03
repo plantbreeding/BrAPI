@@ -55,89 +55,7 @@ paths:
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 2
-                    totalCount: 2
-                    totalPages: 1
-                  status: []
-                result:
-                  data:
-                  - X: '1'
-                    Y: '1'
-                    blockNumber: '1'
-                    entryNumber: '1'
-                    entryType: TEST
-                    germplasmDbId: '1'
-                    germplasmName: Name001
-                    observationLevel: plot
-                    observationLevels: block:1;plot:1
-                    observationUnitDbId: '1'
-                    observationUnitName: Plot 1
-                    observationUnitXref:
-                    - id: SAMEA179865230
-                      source: ebi.biosample
-                    - id: INRA:CoeSt6 _SMH03
-                      source: gnpis.lot
-                    - id: '239865'
-                      source: kernelDB
-                    plantNumber: 'null'
-                    plotNumber: '1'
-                    programName: Program 1
-                    replicate: '0'
-                    studyDbId: '1001'
-                    studyLocation: Peru
-                    studyLocationDbId: '1'
-                    studyName: Study 1
-                    treatments:
-                    - factor: water regimen
-                      modality: deficit
-                  - X: '1'
-                    Y: '1'
-                    blockNumber: '101'
-                    entryNumber: '1'
-                    entryType: FILLER
-                    germplasmDbId: '4'
-                    germplasmName: Name004
-                    observationLevel: plant
-                    observationLevels: block:101;plot:5;plant:5
-                    observationUnitDbId: '10'
-                    observationUnitName: Plant 5
-                    observationUnitXref: []
-                    plantNumber: '5'
-                    plotNumber: '5'
-                    programName: Program 1
-                    replicate: '1'
-                    studyDbId: '1003'
-                    studyLocation: Peru
-                    studyLocationDbId: '2'
-                    studyName: Study 3
-                    treatments: []
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    properties:
-                      data:
-                        items:
-                          $ref: '#/components/schemas/observationUnit'
-                        type: array
-                    required:
-                    - data
-                    type: object
-                required:
-                - metadata
-                - result
-                title: observationUnitsResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/ObservationUnitListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -160,92 +78,10 @@ paths:
                 observationUnits:
                   type: array
                   items:
-                    $ref: '#/components/schemas/newObservationUnitRequest'
+                    $ref: '#/components/schemas/ObservationUnitNewRequest'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 2
-                    totalCount: 2
-                    totalPages: 1
-                  status: []
-                result:
-                  data:
-                  - X: '1'
-                    Y: '1'
-                    blockNumber: '1'
-                    entryNumber: '1'
-                    entryType: TEST
-                    germplasmDbId: '1'
-                    germplasmName: Name001
-                    observationLevel: plot
-                    observationLevels: block:1;plot:1
-                    observationUnitDbId: '1'
-                    observationUnitName: Plot 1
-                    observationUnitXref:
-                    - id: SAMEA179865230
-                      source: ebi.biosample
-                    - id: INRA:CoeSt6 _SMH03
-                      source: gnpis.lot
-                    - id: '239865'
-                      source: kernelDB
-                    plantNumber: 'null'
-                    plotNumber: '1'
-                    programName: Program 1
-                    replicate: '0'
-                    studyDbId: '1001'
-                    studyLocation: Peru
-                    studyLocationDbId: '1'
-                    studyName: Study 1
-                    treatments:
-                    - factor: water regimen
-                      modality: deficit
-                  - X: '1'
-                    Y: '1'
-                    blockNumber: '101'
-                    entryNumber: '1'
-                    entryType: FILLER
-                    germplasmDbId: '4'
-                    germplasmName: Name004
-                    observationLevel: plant
-                    observationLevels: block:101;plot:5;plant:5
-                    observationUnitDbId: '10'
-                    observationUnitName: Plant 5
-                    observationUnitXref: []
-                    plantNumber: '5'
-                    plotNumber: '5'
-                    programName: Program 1
-                    replicate: '1'
-                    studyDbId: '1003'
-                    studyLocation: Peru
-                    studyLocationDbId: '2'
-                    studyName: Study 3
-                    treatments: []
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    properties:
-                      data:
-                        items:
-                          $ref: '#/components/schemas/observationUnit'
-                        type: array
-                    required:
-                    - data
-                    type: object
-                required:
-                - metadata
-                - result
-                title: observationUnitsResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/ObservationUnitListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -259,7 +95,7 @@ paths:
       description: |-
         Update a set of Observation Units
         
-        Note - In strictly typed languages, this structure can be respresented as a Map or Dictionary of objects and parsed directly to JSON.
+        Note - In strictly typed languages, this structure can be represented as a Map or Dictionary of objects and parsed directly to JSON.
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
@@ -268,162 +104,10 @@ paths:
             schema:
               type: object
               additionalProperties:
-                $ref: '#/components/schemas/newObservationUnitRequest'
-            example: 
-              '<observationUnitDbId_1>':
-                X: '1'
-                Y: '1'
-                blockNumber: '1'
-                entryNumber: '1'
-                entryType: TEST
-                germplasmDbId: '1'
-                germplasmName: Name001
-                observationLevel: plot
-                observationLevels: block:1;plot:1
-                observationUnitDbId: '1'
-                observationUnitName: Plot 1
-                plantNumber: 'null'
-                plotNumber: '1'
-                programName: Program 1
-                replicate: '0'
-                studyDbId: '1001'
-                studyLocation: Peru
-                studyLocationDbId: '1'
-                studyName: Study 1
-                treatments:
-                - factor: water regimen
-                  modality: deficit
-              '<observationUnitDbId_2>':
-                X: '1'
-                Y: '1'
-                blockNumber: '1'
-                entryNumber: '1'
-                entryType: TEST
-                germplasmDbId: '1'
-                germplasmName: Name001
-                observationLevel: plot
-                observationLevels: block:1;plot:1
-                observationUnitDbId: '1'
-                observationUnitName: Plot 1
-                plantNumber: 'null'
-                plotNumber: '1'
-                programName: Program 1
-                replicate: '0'
-                studyDbId: '1001'
-                studyLocation: Peru
-                studyLocationDbId: '1'
-                studyName: Study 1
-                treatments:
-                - factor: water regimen
-                  modality: deficit
-              '<observationUnitDbId_3>':
-                X: '1'
-                Y: '1'
-                blockNumber: '1'
-                entryNumber: '1'
-                entryType: TEST
-                germplasmDbId: '1'
-                germplasmName: Name001
-                observationLevel: plot
-                observationLevels: block:1;plot:1
-                observationUnitDbId: '1'
-                observationUnitName: Plot 1
-                plantNumber: 'null'
-                plotNumber: '1'
-                programName: Program 1
-                replicate: '0'
-                studyDbId: '1001'
-                studyLocation: Peru
-                studyLocationDbId: '1'
-                studyName: Study 1
-                treatments:
-                - factor: water regimen
-                  modality: deficit
+                $ref: '#/components/schemas/ObservationUnitNewRequest'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 2
-                    totalCount: 2
-                    totalPages: 1
-                  status: []
-                result:
-                  data:
-                  - X: '1'
-                    Y: '1'
-                    blockNumber: '1'
-                    entryNumber: '1'
-                    entryType: TEST
-                    germplasmDbId: '1'
-                    germplasmName: Name001
-                    observationLevel: plot
-                    observationLevels: block:1;plot:1
-                    observationUnitDbId: '1'
-                    observationUnitName: Plot 1
-                    observationUnitXref:
-                    - id: SAMEA179865230
-                      source: ebi.biosample
-                    - id: INRA:CoeSt6 _SMH03
-                      source: gnpis.lot
-                    - id: '239865'
-                      source: kernelDB
-                    plantNumber: 'null'
-                    plotNumber: '1'
-                    programName: Program 1
-                    replicate: '0'
-                    studyDbId: '1001'
-                    studyLocation: Peru
-                    studyLocationDbId: '1'
-                    studyName: Study 1
-                    treatments:
-                    - factor: water regimen
-                      modality: deficit
-                  - X: '1'
-                    Y: '1'
-                    blockNumber: '101'
-                    entryNumber: '1'
-                    entryType: FILLER
-                    germplasmDbId: '4'
-                    germplasmName: Name004
-                    observationLevel: plant
-                    observationLevels: block:101;plot:5;plant:5
-                    observationUnitDbId: '10'
-                    observationUnitName: Plant 5
-                    observationUnitXref: []
-                    plantNumber: '5'
-                    plotNumber: '5'
-                    programName: Program 1
-                    replicate: '1'
-                    studyDbId: '1003'
-                    studyLocation: Peru
-                    studyLocationDbId: '2'
-                    studyName: Study 3
-                    treatments: []
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    properties:
-                      data:
-                        items:
-                          $ref: '#/components/schemas/observationUnit'
-                        type: array
-                    required:
-                    - data
-                    type: object
-                required:
-                - metadata
-                - result
-                title: observationUnitsResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/ObservationUnitListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -432,4 +116,30 @@ paths:
           $ref: '#/components/responses/403Forbidden'
       tags:
       - Observation Units
+components:
+  responses:
+    ObservationUnitListResponse:
+      content:
+        application/json:
+          schema:
+            title: ObservationUnitListResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/components/schemas/ObservationUnit'
+                    type: array
+                required:
+                - data
+                type: object
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}
+    
       

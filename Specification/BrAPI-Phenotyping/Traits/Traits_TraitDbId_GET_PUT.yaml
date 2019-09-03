@@ -20,40 +20,7 @@ paths:
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 0
-                    totalCount: 0
-                    totalPages: 0
-                  status: []
-                result:
-                  defaultValue: '0'
-                  description: plant height
-                  name: Plant Height
-                  observationVariables:
-                  - ATT01
-                  - MO_123:100002
-                  traitDbId: t1
-                  traitId: t1
-                  traitName: Plant Height
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    $ref: '#/components/schemas/trait'
-                required:
-                - metadata
-                - result
-                title: TraitSummaryResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/TraitSingleResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -79,56 +46,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/newTraitRequest'
+              $ref: '#/components/schemas/TraitNewRequest'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 0
-                    totalCount: 0
-                    totalPages: 0
-                  status: []
-                result:
-                  alternativeAbbreviations:
-                  - string
-                  attribute: string
-                  traitClass: string
-                  description: string
-                  entity: string
-                  mainAbbreviation: string
-                  name: string
-                  ontologyReference:
-                    documentationLinks:
-                    - URL: string
-                      type: OBO
-                      url: string
-                    ontologyDbId: MO_123
-                    ontologyName: Ontology.org
-                    version: '17'
-                  status: string
-                  synonyms:
-                  - string
-                  traitDbId: t1
-                  traitName: string
-                  xref: string
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    $ref: '#/components/schemas/trait'
-                required:
-                - metadata
-                - result
-                title: TraitResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/TraitSingleResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -139,3 +60,21 @@ paths:
           $ref: '#/components/responses/404NotFound'
       tags:
       - Traits
+components:
+  responses:
+    TraitSingleResponse:
+      content:
+        application/json:
+          schema:
+            title: TraitSingleResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                $ref: '#/components/schemas/Trait'
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}

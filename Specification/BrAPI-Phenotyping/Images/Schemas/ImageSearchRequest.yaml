@@ -1,6 +1,6 @@
 components:
   schemas:
-    imagesSearchRequest:
+    ImageSearchRequest:
       properties:
         descriptiveOntologyTerms:
           description: A list of terms to formally describe the image to search for. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.

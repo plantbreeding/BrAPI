@@ -1,0 +1,17 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    Method:
+      allOf:
+      - $ref: '#/components/schemas/MethodNewRequest'
+      - type: object
+        properties:
+          methodDbId:
+            description: Method unique identifier
+            type: string
+            example: 0adb2764
+

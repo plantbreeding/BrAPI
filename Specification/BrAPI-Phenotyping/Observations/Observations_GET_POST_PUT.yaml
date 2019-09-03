@@ -84,73 +84,7 @@ paths:
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 2
-                    totalCount: 9
-                    totalPages: 5
-                  status: []
-                result:
-                  data:
-                  - germplasmDbId: '1'
-                    germplasmName: Name001
-                    observationDbId: '1'
-                    observationLevel: plot
-                    observationTimeStamp: '2013-06-14T22:03:51-04:00'
-                    observationUnitDbId: '1'
-                    observationUnitName: Plot 1
-                    observationVariableDbId: MO_123:100002
-                    observationVariableName: Plant height
-                    operator: Bob
-                    season:
-                      season: fall
-                      seasonDbId: '1'
-                      year: '2011'
-                    studyDbId: '1001'
-                    uploadedBy: Bob
-                    value: '1.2'
-                  - germplasmDbId: '1'
-                    germplasmName: Name001
-                    observationDbId: '2'
-                    observationLevel: plot
-                    observationTimeStamp: '2013-06-14T22:04:51-04:00'
-                    observationUnitDbId: '1'
-                    observationUnitName: Plot 1
-                    observationVariableDbId: MO_123:100006
-                    observationVariableName: Virus severity
-                    operator: Bob
-                    season:
-                      season: fall
-                      seasonDbId: '1'
-                      year: '2011'
-                    studyDbId: '1001'
-                    uploadedBy: Bob
-                    value: '4.5'
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    properties:
-                      data:
-                        items:
-                          $ref: '#/components/schemas/observation'
-                        type: array
-                    required:
-                    - data
-                    type: object
-                required:
-                - metadata
-                - result
-                title: observationsResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/ObservationListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -174,76 +108,10 @@ paths:
                 observations:
                   type: array
                   items:
-                    $ref: '#/components/schemas/newObservationsRequest'
+                    $ref: '#/components/schemas/ObservationNewRequest'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 2
-                    totalCount: 9
-                    totalPages: 5
-                  status: []
-                result:
-                  data:
-                  - germplasmDbId: '1'
-                    germplasmName: Name001
-                    observationDbId: '1'
-                    observationLevel: plot
-                    observationTimeStamp: '2013-06-14T22:03:51-04:00'
-                    observationUnitDbId: '1'
-                    observationUnitName: Plot 1
-                    observationVariableDbId: MO_123:100002
-                    observationVariableName: Plant height
-                    operator: Bob
-                    season:
-                      season: fall
-                      seasonDbId: '1'
-                      year: '2011'
-                    studyDbId: '1001'
-                    uploadedBy: Bob
-                    value: '1.2'
-                  - germplasmDbId: '1'
-                    germplasmName: Name001
-                    observationDbId: '2'
-                    observationLevel: plot
-                    observationTimeStamp: '2013-06-14T22:04:51-04:00'
-                    observationUnitDbId: '1'
-                    observationUnitName: Plot 1
-                    observationVariableDbId: MO_123:100006
-                    observationVariableName: Virus severity
-                    operator: Bob
-                    season:
-                      season: fall
-                      seasonDbId: '1'
-                      year: '2011'
-                    studyDbId: '1001'
-                    uploadedBy: Bob
-                    value: '4.5'
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    properties:
-                      data:
-                        items:
-                          $ref: '#/components/schemas/observation'
-                        type: array
-                    required:
-                    - data
-                    type: object
-                required:
-                - metadata
-                - result
-                title: observationsResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/ObservationListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -257,11 +125,11 @@ paths:
     put:
       summary: Update multiple Observation entities 
       description: |-
-        Update multiple Observation entities simultaniously with a single call
+        Update multiple Observation entities simultaneously with a single call
         
         Include as many `observationDbIds` in the request as needed.
         
-        Note - In strictly typed languages, this structure can be respresented as a Map or Dictionary of objects and parsed directly to JSON.
+        Note - In strictly typed languages, this structure can be represented as a Map or Dictionary of objects and parsed directly from JSON.
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
@@ -270,107 +138,35 @@ paths:
             schema:
               type: object
               additionalProperties:
-                  $ref: '#/components/schemas/newObservationsRequest'
+                  $ref: '#/components/schemas/ObservationNewRequest'
             example:
               '<observationDbId_1>':
-                germplasmDbId: string
-                observationLevel: string
+                germplasmDbId: 2408ab11
+                germplasmName: A0000001
                 observationTimeStamp: 2019-06-28T16:49:43.516Z
-                observationUnitDbId: string
-                observationVariableDbId: string
-                operator: string
-                studyDbId: string
-                uploadedBy: string
-                value: string
+                observationUnitDbId: 598111d4
+                observationUnitName: Plot 1
+                observationVariableDbId: c403d107
+                observationVariableName: Plant Height in meters
+                collector: 917d3ae0
+                studyDbId: ef2829db
+                uploadedBy: a2f7f60b
+                value: '2.3'
               '<observationDbId_2>':
-                germplasmDbId: string
-                observationLevel: string
+                germplasmDbId: 69310ca4
+                germplasmName: A0000438
                 observationTimeStamp: 2019-06-28T16:49:43.516Z
-                observationUnitDbId: string
-                observationVariableDbId: string
-                operator: string
-                studyDbId: string
-                uploadedBy: string
-                value: string
-              '<observationDbId_3>':
-                germplasmDbId: string
-                observationLevel: string
-                observationTimeStamp: 2019-06-28T16:49:43.516Z
-                observationUnitDbId: string
-                observationVariableDbId: string
-                operator: string
-                studyDbId: string
-                uploadedBy: string
-                value: string
+                observationUnitDbId: 1177a714
+                observationUnitName: Plot 13
+                observationVariableDbId: e4f8ba8c
+                observationVariableName: Carotenoid
+                collector: 03ba8c2c
+                studyDbId: 6f9e267d
+                uploadedBy: 182c72ad
+                value: '2.5'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 2
-                    totalCount: 9
-                    totalPages: 5
-                  status: []
-                result:
-                  data:
-                  - germplasmDbId: '1'
-                    germplasmName: Name001
-                    observationDbId: '1'
-                    observationLevel: plot
-                    observationTimeStamp: '2013-06-14T22:03:51-04:00'
-                    observationUnitDbId: '1'
-                    observationUnitName: Plot 1
-                    observationVariableDbId: MO_123:100002
-                    observationVariableName: Plant height
-                    operator: Bob
-                    season:
-                      season: fall
-                      seasonDbId: '1'
-                      year: '2011'
-                    studyDbId: '1001'
-                    uploadedBy: Bob
-                    value: '1.2'
-                  - germplasmDbId: '1'
-                    germplasmName: Name001
-                    observationDbId: '2'
-                    observationLevel: plot
-                    observationTimeStamp: '2013-06-14T22:04:51-04:00'
-                    observationUnitDbId: '1'
-                    observationUnitName: Plot 1
-                    observationVariableDbId: MO_123:100006
-                    observationVariableName: Virus severity
-                    operator: Bob
-                    season:
-                      season: fall
-                      seasonDbId: '1'
-                      year: '2011'
-                    studyDbId: '1001'
-                    uploadedBy: Bob
-                    value: '4.5'
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    properties:
-                      data:
-                        items:
-                          $ref: '#/components/schemas/observation'
-                        type: array
-                    required:
-                    - data
-                    type: object
-                required:
-                - metadata
-                - result
-                title: observationsResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/ObservationListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -381,3 +177,29 @@ paths:
           $ref: '#/components/responses/404NotFound'
       tags:
       - Observations
+components:
+  responses:
+    ObservationListResponse:
+      content:
+        application/json:
+          schema:
+            title: ObservationListResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/components/schemas/Observation'
+                    type: array
+                required:
+                - data
+                type: object
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}
+      
