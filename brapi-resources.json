@@ -153,18 +153,23 @@
         "name": "Crop Ontology",
         "description": "The Crop Ontology project website.",
         "logo": "http://www.cropontology.org/images/Crop_Ontology_logo.png",
-        "resource": {
-          "name": "Crop Ontology BrAPI implementation",
-          "base-url": "http://www.cropontology.org/brapi/v1/"
+        "resource": [
+          {
+            "name": "Crop Ontology BrAPI implementation",
+            "base-url": "http://www.cropontology.org/brapi/v1/"
+          }
+         ]
        },
        {
         "name": "TERRA-REF",
         "description": "TERRA Reference phenotyping platform.",
         "logo": "https://terraref.org/sites/terraref.org/files/site-logo.png",
-        "resource": {
-          "name": "TERRA-REF BrAPI implementation",
-          "base-url": "https://brapi.workbench.terraref.org/brapi/v1/"
-        }
+        "resource": [
+          {
+            "name": "TERRA-REF BrAPI implementation",
+            "base-url": "https://brapi.workbench.terraref.org/brapi/v1/"
+          }
+        ]
       }
     ]
   }
