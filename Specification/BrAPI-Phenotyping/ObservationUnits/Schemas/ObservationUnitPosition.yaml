@@ -96,3 +96,5 @@ components:
           description: The replicate number of an observation unit. May be the same as blockNumber.
           type: string
           example: '1'
+        geoCoordinates:
+          $ref: '#/components/schemas/geoJSON'
