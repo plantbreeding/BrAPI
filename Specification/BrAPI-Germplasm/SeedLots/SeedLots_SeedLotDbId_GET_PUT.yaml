@@ -43,7 +43,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/newSeedLotRequest'
+              $ref: '#/components/schemas/SeedLotNewRequest'
       responses:
         '200':
           $ref: '#/components/responses/SeedLotSingleResponse'

@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /samples:
     get:
+      summary: Get the Samples
       description: Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
       parameters:
       - description: the internal DB id for a sample
@@ -36,72 +37,13 @@ paths:
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 2
-                    totalCount: 2
-                    totalPages: 1
-                  status: []
-                result:
-                  data:
-                  - germplasmDbId: '1'
-                    notes: Example Sample
-                    observationUnitDbId: '1'
-                    plantDbId: 'null'
-                    plateDbId: pl1
-                    plateIndex: 0
-                    plotDbId: '1'
-                    sampleDbId: sam00
-                    sampleTimestamp: '2018-01-01T00:00:00-05:00'
-                    sampleType: DNA
-                    studyDbId: '1001'
-                    takenBy: Bob
-                    tissueType: Leaf
-                  - germplasmDbId: '1'
-                    notes: Example Sample
-                    observationUnitDbId: '2'
-                    plantDbId: '1'
-                    plateDbId: pl1
-                    plateIndex: 1
-                    plotDbId: '1'
-                    sampleDbId: sam01
-                    sampleTimestamp: '2018-01-01T00:00:00-05:00'
-                    sampleType: DNA
-                    studyDbId: '1001'
-                    takenBy: Bob
-                    tissueType: Leaf
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    properties:
-                      data:
-                        items:
-                          $ref: '#/components/schemas/sample'
-                        type: array
-                    required:
-                    - data
-                    type: object
-                required:
-                - metadata
-                - result
-                title: samplesResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/SampleListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Get the Samples
       tags:
       - Samples
     post:
@@ -113,76 +55,12 @@ paths:
         content:
           application/json:
             schema:
-              required:
-              - samples
-              title: newSamplesRequest
-              type: object
-              properties:
-                samples:
-                  type: array
-                  items:
-                    $ref: '#/components/schemas/newSampleRequest'
+              type: array
+              items:
+                $ref: '#/components/schemas/SampleNewRequest'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 2
-                    totalCount: 2
-                    totalPages: 1
-                  status: []
-                result:
-                  data:
-                  - germplasmDbId: '1'
-                    notes: Example Sample
-                    observationUnitDbId: '1'
-                    plantDbId: 'null'
-                    plateDbId: pl1
-                    plateIndex: 0
-                    plotDbId: '1'
-                    sampleDbId: sam00
-                    sampleTimestamp: '2018-01-01T00:00:00-05:00'
-                    sampleType: DNA
-                    studyDbId: '1001'
-                    takenBy: Bob
-                    tissueType: Leaf
-                  - germplasmDbId: '1'
-                    notes: Example Sample
-                    observationUnitDbId: '2'
-                    plantDbId: '1'
-                    plateDbId: pl1
-                    plateIndex: 1
-                    plotDbId: '1'
-                    sampleDbId: sam01
-                    sampleTimestamp: '2018-01-01T00:00:00-05:00'
-                    sampleType: DNA
-                    studyDbId: '1001'
-                    takenBy: Bob
-                    tissueType: Leaf
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    properties:
-                      data:
-                        items:
-                          $ref: '#/components/schemas/sample'
-                        type: array
-                    required:
-                    - data
-                    type: object
-                required:
-                - metadata
-                - result
-                title: samplesResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/SampleListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -191,3 +69,29 @@ paths:
           $ref: '#/components/responses/403Forbidden'
       tags:
       - Samples
+components:
+  responses:
+    SampleListResponse:
+      content:
+        application/json:
+          schema:
+            title: SampleListResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/components/schemas/Sample'
+                    type: array
+                required:
+                - data
+                type: object
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}
+      

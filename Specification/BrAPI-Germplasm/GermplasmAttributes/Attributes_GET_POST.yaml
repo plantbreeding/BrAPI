@@ -55,12 +55,9 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                germplasmAttributes:
-                  type: array
-                  items: 
-                    $ref: '#/components/schemas/GermplasmAttributeNewRequest'
+              type: array
+              items: 
+                $ref: '#/components/schemas/GermplasmAttributeNewRequest'
       responses:
         '200':
           $ref: '#/components/responses/GermplasmAttributeListResponse'
@@ -87,7 +84,7 @@ components:
                 properties:
                   data:
                     items:
-                      $ref: '#/components/schemas/germplasmAttribute'
+                      $ref: '#/components/schemas/GermplasmAttribute'
                     type: array
                 required:
                 - data

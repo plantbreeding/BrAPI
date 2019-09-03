@@ -17,44 +17,7 @@ paths:
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 0
-                    totalCount: 0
-                    totalPages: 0
-                  status: []
-                result:
-                  germplasmDbId: '1'
-                  notes: Example Sample
-                  observationUnitDbId: '2'
-                  plantDbId: '1'
-                  plateDbId: pl1
-                  plateIndex: 1
-                  plotDbId: '1'
-                  sampleDbId: sam01
-                  sampleTimestamp: '2018-01-01T00:00:00-05:00'
-                  sampleType: DNA
-                  studyDbId: '1001'
-                  takenBy: Bob
-                  tissueType: Leaf
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    $ref: '#/components/schemas/sample'
-                required:
-                - metadata
-                - result
-                title: sampleResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/SampleSingleResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -80,47 +43,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/newSampleRequest'
+              $ref: '#/components/schemas/SampleNewRequest'
       responses:
         '200':
-          content:
-            application/json:
-              example:
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 0
-                    totalCount: 0
-                    totalPages: 0
-                  status: []
-                result:
-                  germplasmDbId: '1'
-                  notes: Example Sample
-                  observationUnitDbId: '2'
-                  plantDbId: '1'
-                  plateDbId: pl1
-                  plateIndex: 1
-                  plotDbId: '1'
-                  sampleDbId: sam01
-                  sampleTimestamp: '2018-01-01T00:00:00-05:00'
-                  sampleType: DNA
-                  studyDbId: '1001'
-                  takenBy: Bob
-                  tissueType: Leaf
-              schema:
-                properties:
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    $ref: '#/components/schemas/sample'
-                required:
-                - metadata
-                - result
-                title: sampleResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/SampleSingleResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -131,3 +57,21 @@ paths:
           $ref: '#/components/responses/404NotFound'
       tags:
       - Samples
+components:
+  responses:
+    SampleSingleResponse:
+      content:
+        application/json:
+          schema:
+            title: SampleSingleResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                $ref: '#/components/schemas/Sample'
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}

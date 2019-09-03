@@ -49,12 +49,9 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                programs:
-                  type: array
-                  items: 
-                    $ref: '#/components/schemas/ProgramNewRequest'
+              type: array
+              items: 
+                $ref: '#/components/schemas/ProgramNewRequest'
       responses:
         '200':
           $ref: '#/components/responses/ProgramListResponse'

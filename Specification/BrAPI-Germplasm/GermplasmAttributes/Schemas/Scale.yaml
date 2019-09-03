@@ -19,7 +19,7 @@ components:
           type: integer
           example: 2
         ontologyReference:
-          $ref: '#/components/schemas/ontologyReference'
+          $ref: '#/components/schemas/OntologyReference'
         scaleDbId:
           description: Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.
           type: string

@@ -5,7 +5,7 @@ openapi: 3.0.0
 paths: {}
 components:
   schemas:
-    germplasm:
+    Germplasm:
       allOf:
       - $ref: '#/components/schemas/GermplasmNewRequest'
       - type: object

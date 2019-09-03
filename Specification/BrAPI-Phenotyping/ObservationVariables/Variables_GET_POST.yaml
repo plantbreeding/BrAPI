@@ -49,12 +49,9 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                observationUnits:
-                  type: array
-                  items:
-                    $ref: '#/components/schemas/ObservationVariableNewRequest'
+              type: array
+              items:
+                $ref: '#/components/schemas/ObservationVariableNewRequest'
       responses:
         '200':
           $ref: '#/components/responses/ObservationVariableListResponse'

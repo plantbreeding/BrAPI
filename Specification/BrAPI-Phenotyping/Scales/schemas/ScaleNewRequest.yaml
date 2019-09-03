@@ -18,7 +18,7 @@ components:
           type: integer
           example: 2
         ontologyReference:
-          $ref: '#/components/schemas/ontologyReference'
+          $ref: '#/components/schemas/OntologyReference'
         scaleName:
           description: Name of the scale
           type: string

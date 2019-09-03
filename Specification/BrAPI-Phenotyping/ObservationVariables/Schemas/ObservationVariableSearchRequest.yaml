@@ -10,7 +10,7 @@ components:
         dataTypes:
           description: List of scale data types to filter search results
           items:
-            $ref: '#/components/schemas/traitDataType'
+            $ref: '#/components/schemas/TraitDataType'
           type: array
         methodDbIds:
           description: List of methods to filter search results

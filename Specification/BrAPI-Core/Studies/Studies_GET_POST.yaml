@@ -116,12 +116,9 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                trials:
-                  type: array
-                  items: 
-                    $ref: '#/components/schemas/StudyNewRequest'
+              type: array
+              items: 
+                $ref: '#/components/schemas/StudyNewRequest'
       responses:
         '200':
           $ref: '#/components/responses/StudyListResponse'

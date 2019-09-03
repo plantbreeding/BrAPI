@@ -5,7 +5,7 @@ openapi: 3.0.0
 paths: {}
 components:
   schemas:
-    method:
+    Method:
       type: object
       description: Method metadata
       properties:
@@ -30,7 +30,7 @@ components:
           type: string
           example: Tape Measure
         ontologyReference:
-          $ref: '#/components/schemas/ontologyReference'
+          $ref: '#/components/schemas/OntologyReference'
         reference:
           description: Bibliographical reference describing the method.
           type: string

@@ -1,6 +1,11 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
 components:
   schemas:
-    taxonID:
+    TaxonID:
       properties:
         sourceName:
           description: The human readable name of the taxonomy provider
@@ -12,8 +17,4 @@ components:
       - sourceName
       - taxonId
       type: object
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}
+

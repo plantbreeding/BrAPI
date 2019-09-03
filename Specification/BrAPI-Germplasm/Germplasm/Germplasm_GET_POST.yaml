@@ -111,12 +111,9 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                germplasm:
-                  type: array
-                  items: 
-                    $ref: '#/components/schemas/GermplasmNewRequest'
+              type: array
+              items: 
+                $ref: '#/components/schemas/GermplasmNewRequest'
       responses:
         '200':
           $ref: '#/components/responses/GermplasmListResponse'

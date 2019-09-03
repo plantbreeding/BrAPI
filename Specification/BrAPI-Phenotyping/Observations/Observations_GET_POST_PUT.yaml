@@ -103,12 +103,9 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                observations:
-                  type: array
-                  items:
-                    $ref: '#/components/schemas/ObservationNewRequest'
+              type: array
+              items:
+                $ref: '#/components/schemas/ObservationNewRequest'
       responses:
         '200':
           $ref: '#/components/responses/ObservationListResponse'

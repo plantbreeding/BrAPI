@@ -23,7 +23,7 @@ components:
         contacts:
           description: List of contact entities associated with this trial
           items:
-            $ref: '#/components/schemas/contact'
+            $ref: '#/components/schemas/Contact'
           type: array
         datasetAuthorships:
           description: License and citation information for the data in this trial

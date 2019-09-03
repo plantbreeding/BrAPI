@@ -55,12 +55,9 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                people:
-                  type: array
-                  items: 
-                    $ref: '#/components/schemas/PersonNewRequest'
+              type: array
+              items: 
+                $ref: '#/components/schemas/PersonNewRequest'
       responses:
         '200':
           $ref: '#/components/responses/PersonListResponse'

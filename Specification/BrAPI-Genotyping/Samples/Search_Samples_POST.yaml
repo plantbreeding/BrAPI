@@ -5,16 +5,18 @@ openapi: 3.0.0
 paths:
   /search/samples:
     post:
-      description: 'Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
+      summary: Submit a search request for Samples
+      description: |-
+        Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
 
-        See Search Services for additional implementation details.'
+        See Search Services for additional implementation details.
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/sampleSearchRequest'
+              $ref: '#/components/schemas/SampleSearchRequest'
       responses:
         '200':
           $ref: '#/components/responses/successfulSearchResponse'
@@ -24,6 +26,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Submit a search request for Samples
       tags:
       - Samples

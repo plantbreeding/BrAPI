@@ -80,12 +80,9 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                trials:
-                  type: array
-                  items: 
-                    $ref: '#/components/schemas/TrialNewRequest'
+              type: array
+              items: 
+                $ref: '#/components/schemas/TrialNewRequest'
       responses:
         '200':
           $ref: '#/components/responses/TrialListResponse'

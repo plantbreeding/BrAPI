@@ -30,7 +30,7 @@ components:
           type: string
           example: Measuring Tape
         ontologyReference:
-          $ref: '#/components/schemas/ontologyReference'
+          $ref: '#/components/schemas/OntologyReference'
         reference:
           description: Bibliographical reference describing the method.
           type: string
