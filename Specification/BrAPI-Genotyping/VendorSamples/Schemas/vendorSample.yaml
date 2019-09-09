@@ -1,45 +1,71 @@
-components:
-  schemas:
-    vendorSample:
-      properties:
-        clientSampleBarCode:
-          description: (Optional) The value of the bar code attached to this sample
-          type: string
-        clientSampleId:
-          description: The ID which uniquely identifies this sample to the client making the request
-          type: string
-        column:
-          description: The Column identifier for this samples location in the plate
-          type: string
-        comments:
-          description: Generic comments about this sample for the vendor
-          type: string
-        concentration:
-          $ref: '#/components/schemas/measurement'
-        organismName:
-          description: Scientific organism name
-          type: string
-        row:
-          description: The Row identifier for this samples location in the plate
-          type: string
-        speciesName:
-          description: Scientific species name
-          type: string
-        taxonomyOntologyReference:
-          $ref: '#/components/schemas/vendorOntologyReference'
-        tissueType:
-          description: The type of tissue in this sample. List of accepted tissue types can be found in the Vendor Specs.
-          type: string
-        tissueTypeOntologyReference:
-          $ref: '#/components/schemas/vendorOntologyReference'
-        volume:
-          $ref: '#/components/schemas/measurement'
-        well:
-          description: The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column.
-          type: string
-      type: object
 info:
   title: BrAPI
   version: ''
 openapi: 3.0.0
 paths: {}
+components:
+  schemas:
+    VendorSample:
+      type: object
+      required:
+      - clientSampleId
+      properties:
+        clientSampleBarCode:
+          description: (Optional) The value of the bar code attached to this sample
+          type: string
+          example: 7c07e527
+        clientSampleId:
+          description: The ID which uniquely identifies this sample to the client making the request
+          type: string
+          example: bd96bd69
+        column:
+          description: The Column identifier for this samples location in the plate
+          type: integer
+          minimum: 1
+          maximum: 12
+          example: 6
+        comments:
+          description: Generic comments about this sample for the vendor
+          type: string
+          example: This is my favorite sample, please be extra careful with it.
+        concentration:
+          $ref: '#/components/schemas/Measurement'
+        organismName:
+          description: Scientific organism name
+          type: string
+          example: Aspergillus fructus
+        row:
+          description: The Row identifier for this samples location in the plate
+          type: string
+          example: B
+        speciesName:
+          description: Scientific species name
+          type: string
+          example: Aspergillus fructus
+        taxonomyOntologyReference:
+          $ref: '#/components/schemas/OntologyReference'
+        tissueType:
+          description: The type of tissue in this sample. List of accepted tissue types can be found in the Vendor Specs.
+          type: string
+          example: Root
+        tissueTypeOntologyReference:
+          $ref: '#/components/schemas/OntologyReference'
+        volume: 
+          $ref: '#/components/schemas/Measurement'
+        well:
+          description: The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.
+          type: string
+          example: B6
+    Measurement: 
+      type: object
+      description: A value with units
+      properties:
+        units:
+          description: 'Units (example: "ng/ul")'
+          type: string
+          example: ng/ul
+        value:
+          description: 'Value (example: "2.3")'
+          type: number
+          example: 2.3
+

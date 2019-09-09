@@ -5,6 +5,7 @@ openapi: 3.0.0
 paths:
   /vendor/orders:
     get:
+      summary: List current available orders
       description: List current available orders
       parameters:
       - description: The order id returned by the vendor when the order was successfully submitted. From response of "POST /vendor/orders"
@@ -23,6 +24,8 @@ paths:
           content:
             application/json:
               schema:
+                title: VendorOrderListResponse
+                type: object
                 properties:
                   metadata:
                     $ref: '#/components/schemas/metadata'
@@ -30,7 +33,7 @@ paths:
                     properties:
                       data:
                         items:
-                          $ref: '#/components/schemas/vendorOrder'
+                          $ref: '#/components/schemas/VendorOrder'
                         type: array
                     required:
                     - data
@@ -38,8 +41,6 @@ paths:
                 required:
                 - metadata
                 - result
-                title: vendorOrdersResponse
-                type: object
           description: OK
         '400':
           $ref: '#/components/responses/400BadRequest'
@@ -47,10 +48,10 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: List current available orders
       tags:
       - Vendor
     post:
+      summary: Submit New Order
       description: Submit a new order to a vendor
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
@@ -58,14 +59,19 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/vendorOrderRequest'
+              $ref: '#/components/schemas/VendorOrderSubmissionRequest'
       responses:
         '200':
           content:
             application/json:
-              example: {}
               schema:
-                $ref: '#/components/schemas/vendorOrderResponse'
+                title: VendorOrderSubmissionSingleResponse
+                type: object
+                properties: 
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/VendorOrderSubmission'
           description: OK
           headers: {}
         '400':
@@ -74,6 +80,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Submit New Order
       tags:
       - Vendor

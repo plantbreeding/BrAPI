@@ -1,39 +1,102 @@
-components:
-  schemas:
-    metadata:
-      properties:
-        datafiles:
-          description: The datafiles key contains a list of file paths, which can be relative or complete URLs. These files contain additional information related to the returned object and can be retrieved by a subsequent call. The empty list should be returned if no additional data files are present.
-          items:
-            type: string
-          type: array
-          example: []
-        pagination:
-          description: The pagination object is applicable only when the payload contains a "data" key. It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. Pages are zero indexed, so the first page will be page 0 (zero).
-          properties:
-            currentPage:
-              type: integer
-              default: 0
-              example: 0
-            pageSize:
-              type: integer
-              default: 1000
-              example: 1000
-            totalCount:
-              type: integer
-              example: 1
-            totalPages:
-              type: integer
-              example: 1
-          type: object
-        status:
-          description: The status field contains a list of informational status messages from the server. If no status is reported, an empty list should be returned. See Error Reporting for more information.
-          items:
-            $ref: '#/components/schemas/status'
-          type: array
-      type: object
 info:
   title: BrAPI
   version: ''
 openapi: 3.0.0
 paths: {}
+components:
+  schemas:
+    metadata:
+      type: object
+      properties:
+        datafiles:
+          description: |-
+            The datafiles contains a list of file URLs and metadata. 
+            These files contain additional information related to the returned object and can be retrieved by a subsequent call. 
+            This could be a suplementary data file, an informational file, the uploaded file where the data originated from, a generated file representing the whole dataset in a particular format, or any other related file. 
+          items:
+            $ref: '#/components/schemas/dataFile'
+          type: array
+        pagination:
+          $ref: '#/components/schemas/pagination'
+        status:
+          description: |-
+            The status field contains a list of informational status messages from the server. 
+            If no status is reported, an empty list should be returned. See Error Reporting for more information.
+          items:
+            $ref: '#/components/schemas/status'
+          type: array
+    dataFile:
+      type: object
+      description: A dataFile contains a URL and the relevent file metadata to represent a file
+      required:
+      - fileURL
+      properties:
+        fileURL:
+          description: The absolute URL where the file is located
+          type: string
+          format: uri
+          example: https://wiki.brapi.org/examples/datafile.xslx
+        fileName:
+          description: The name of the file
+          type: string
+          example: datafile.xslx
+        fileSize:
+          description: The size of the file in bytes
+          type: integer
+          example: 4398
+        fileDescription:
+          description: A human readable description of the file contents
+          type: string
+          example: This is an Excel data file
+        fileType:
+          description: The type or format of the file. Preferably MIME Type.
+          type: string
+          example:  application/vnd.ms-excel
+        fileMD5Hash:
+          description: The MD5 Hash of the file contents to be used as a check sum
+          type: string
+          example: c2365e900c81a89cf74d83dab60df146
+    pagination:
+      type: object
+      description: |-
+        The pagination object is applicable only when the payload contains a "data" key. 
+        It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. 
+        Pages are zero indexed, so the first page will be page 0 (zero).
+      required:
+      - currentPage
+      - pageSize
+      properties:
+        currentPage:
+          type: integer
+          default: 0
+          example: 0
+        pageSize:
+          type: integer
+          default: 1000
+          example: 1000
+        totalCount:
+          type: integer
+          example: 1
+        totalPages:
+          type: integer
+          example: 1
+    status:
+      properties:
+        message:
+          description: A short message concerning the status of this request/response
+          type: string
+          example: Request accepted, response successful
+        messageType:
+          description: The logging level for the attached message
+          enum:
+          - DEBUG
+          - ERROR
+          - WARNING
+          - INFO
+          type: string
+          example: INFO
+      required:
+      - message
+      - messageType
+      type: object
+

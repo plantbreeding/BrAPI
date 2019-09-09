@@ -1,0 +1,35 @@
+info: 
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    VendorOrderSubmissionRequest:
+      allOf:
+      - $ref: '#/components/schemas/VendorPlatesSubmissionRequest'
+      - description: Request object structure to submit plate data to a vendor
+        type: object
+        required:
+        - serviceIds
+        properties:
+          requiredServiceInfo: 
+            additionalProperties:
+              type: string
+            description: A map of additional data required by the requested service. This includes things like Volume and Concentration.
+            type: object
+            example:
+              genus: Aedes
+              species: vexans
+              volumePerWell: 2.3 ml
+              extractDNA: true
+          serviceIds:
+            description: |-
+              A list of unique, alpha-numeric ID which identify the requested services to be applied to this order. 
+              A Vendor Service defines what platform, technology, and markers will be used. 
+              A list of available service IDs can be retrieved from the Vendor Specs.
+            items:
+              type: string
+            type: array
+            example: ['e8f60f64', '05bd925a', 'b698fb5e']
+

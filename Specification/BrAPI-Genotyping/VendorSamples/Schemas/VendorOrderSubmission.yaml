@@ -1,0 +1,40 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    VendorOrderSubmission: 
+      type: object
+      description: Response to an order request
+      required: 
+      - orderId
+      properties: 
+        orderId:
+          description: A unique, alpha-numeric ID which identifies the order
+          type: string
+          example: b5144468
+        shipmentForms: 
+          description: Array of paper forms which need to be printed and included with the physical shipment
+          type: array
+          items: 
+            type: object
+            title: ShipmentForm
+            required:
+            - fileURL
+            properties: 
+              fileDescription:
+                description: The human readable long description for this form
+                type: string
+                example: This is a shipment manifest form 
+              fileName: 
+                description: The human readable name for this form
+                type: string
+                example: Shipment Manifest
+              fileURL: 
+                description: The URL to download this form
+                type: string
+                format: uri
+                example: https://vendor.org/forms/manifest.pdf
+
