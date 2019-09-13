@@ -4110,7 +4110,7 @@ This call has been deprecated in V1.1. Use instead: "PUT /studies/{studyDbId}/ob
 |result|object||
 |commit|string|Should these changes be commited|
 |data|array[object]|Required array of marker-name/score pairs|
-|observatioUnitDbId|string||
+|observationUnitDbId|string||
 |observations|array[object]||
 |collector|string||
 |observationDbId|string||
@@ -4157,7 +4157,7 @@ This call has been deprecated in V1.1. Use instead: "PUT /studies/{studyDbId}/ob
         "commit": "commit0",
         "data": [
             {
-                "observatioUnitDbId": "observatioUnitDbId0",
+                "observationUnitDbId": "observationUnitDbId0",
                 "observations": [
                     {
                         "collector": "collector0",

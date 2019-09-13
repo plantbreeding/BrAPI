@@ -1057,7 +1057,7 @@ Images can be optionally be uploaded using this call by providing a zipfile of a
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]|Matrix of observation data recorded for different observation variables across different observation units|
-|observatioUnitDbId|string||
+|observationUnitDbId|string||
 |observations|array[object]||
 |collector|string|The name or identifier of the entity which collected the observation|
 |observationDbId|string|The ID which uniquely identifies an observation|
@@ -1094,7 +1094,7 @@ Images can be optionally be uploaded using this call by providing a zipfile of a
 {
     "data": [
         {
-            "observatioUnitDbId": "observatioUnitDbId0",
+            "observationUnitDbId": "observationUnitDbId0",
             "observations": [
                 {
                     "collector": "collector0",
@@ -1118,7 +1118,7 @@ Images can be optionally be uploaded using this call by providing a zipfile of a
             "studyDbId": "studyDbId0"
         },
         {
-            "observatioUnitDbId": "observatioUnitDbId1",
+            "observationUnitDbId": "observationUnitDbId1",
             "observations": [
                 {
                     "collector": "collector0",
