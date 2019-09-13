@@ -22,7 +22,7 @@ components:
           type: string
           example: A0000003
         observationTimeStamp:
-          description: 'The date and time  when this observation was made '
+          description: The date and time when this observation was made
           format: date-time
           type: string
         observationUnitDbId:

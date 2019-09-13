@@ -10,16 +10,20 @@ components:
       properties:
         data:
           description: Matrix of observation data recorded for different observation variables across different observation units
+          type: array
           items:
+            type: array
             items:
               type: string
-            type: array
-          type: array
           example: 
-          - ['2011', 'f753a83c', 'Study 1', '17d60f8f', 'Field Station Alpha', '67c3cf0c', 'A0000001', 'd64dd058', '1', '1', '1', 'TEST', '1', '1', '1.1', '', '', '5.1']
-          - ['2011', 'f753a83c', 'Study 1', '17d60f8f', 'Field Station Alpha', '67c3cf0c', 'A0000001', 'f9adff3c', '1', '1', '1', 'TEST', '1', '2', '1.2', '', '', '4.5']
-          - ['2011', 'f753a83c', 'Study 1', '17d60f8f', 'Field Station Alpha', '40498c3c', 'A0000002', '67102b8f', '2', '2', '1', 'TEST', '2', '1', '', '2.1', 'dark blue', '']
-          - ['2011', 'f753a83c', 'Study 1', '17d60f8f', 'Field Station Alpha', '40498c3c', 'A0000002', '2869d94a', '2', '2', '1', 'TEST', '2', '2', '', '1.8', 'blue', '']
+          - ['2019-09-10T18:13:27.223Z', 'f753a83c', 'Study 1', '67c3cf0c', 'A0000001', 'd64dd058', 'Plant alpha',   '1', '1', '1', '1', '1', '1.1', '',    '', '']
+          - ['2019-09-10T18:14:54.868Z', 'f753a83c', 'Study 1', '67c3cf0c', 'A0000001', 'f9adff3c', 'Plant beta',    '2', '2', '1', '1', '2', '1.9', '',    '', '']
+          - ['2019-09-10T18:15:34.433Z', 'f753a83c', 'Study 1', '40498c3c', 'A0000002', '67102b8f', 'Plant gamma',   '1', '3', '1', '2', '1', '1.4', '',    '', '']
+          - ['2019-09-10T18:16:15.629Z', 'f753a83c', 'Study 1', '40498c3c', 'A0000002', '2869d94a', 'Plant epsilon', '2', '4', '1', '2', '2', '1.5', '',    '', '']
+          - ['2019-09-10T18:17:27.223Z', 'f753a83c', 'Study 1', '67c3cf0c', 'A0000001', 'd64dd058', 'Plant alpha',   '1', '1', '1', '1', '1', '',    '2.6', '', '']
+          - ['2019-09-10T18:18:54.868Z', 'f753a83c', 'Study 1', '67c3cf0c', 'A0000001', 'f9adff3c', 'Plant beta',    '2', '2', '1', '1', '2', '',    '2.3', '', '']
+          - ['2019-09-10T18:19:34.433Z', 'f753a83c', 'Study 1', '40498c3c', 'A0000002', '67102b8f', 'Plant gamma',   '1', '3', '1', '2', '1', '',    '3.1', '', '']
+          - ['2019-09-10T18:20:15.629Z', 'f753a83c', 'Study 1', '40498c3c', 'A0000002', '2869d94a', 'Plant epsilon', '2', '4', '1', '2', '2', '',    '3.2', '', '']
         headerRow:
           description: |-
             The header row describing observation unit fields. Append ''observationVariableDbIds'' for complete header row of the table.
@@ -28,23 +32,37 @@ components:
           items:
             description: valid header fields
             enum:
-            - year
+            - observationTimeStamp
             - studyDbId
             - studyName
-            - locationDbId
-            - locationName
             - germplasmDbId
             - germplasmName
             - observationUnitDbId
+            - observationUnitName
             - plotNumber
-            - replicate
+            - plantNumber
             - blockNumber
-            - entryType
-            - X
-            - Y
+            - entryNumber
+            - replicate
+            - positionCoordinateX
+            - positionCoordinateY
             type: string
           type: array
-          example: ['year', 'studyDbId', 'studyName', 'locationDbId', 'locationName', 'germplasmDbId', 'germplasmName', 'observationUnitDbId', 'plotNumber', 'replicate', 'blockNumber', 'entryType', 'X', 'Y']
+          example: 
+          - observationTimeStamp
+          - studyDbId
+          - studyName
+          - germplasmDbId
+          - germplasmName
+          - observationUnitDbId
+          - observationUnitName
+          - plotNumber
+          - plantNumber
+          - blockNumber
+          - entryNumber
+          - replicate
+          - positionCoordinateX
+          - positionCoordinateY
         observationVariableDbIds:
           description: The list of observation variables which have values recorded for them in the data matrix. Append to the 'headerRow' for complete header row.
           items:
