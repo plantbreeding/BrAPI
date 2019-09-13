@@ -11,7 +11,7 @@ components:
             array of marker-name/score pairs'
           items:
             properties:
-              observatioUnitDbId:
+              observationUnitDbId:
                 type: string
               observations:
                 items:

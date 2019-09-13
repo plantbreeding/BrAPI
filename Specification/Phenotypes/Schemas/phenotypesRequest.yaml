@@ -7,7 +7,7 @@ components:
           items:
             description: new phenotypes
             properties:
-              observatioUnitDbId:
+              observationUnitDbId:
                 type: string
               observations:
                 items:
@@ -16,7 +16,7 @@ components:
               studyDbId:
                 type: string
             required:
-            - observatioUnitDbId
+            - observationUnitDbId
             - studyDbId
             - observations
             type: object
