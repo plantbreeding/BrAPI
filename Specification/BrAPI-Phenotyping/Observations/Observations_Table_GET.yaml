@@ -1,0 +1,174 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /observations/table:
+    get:
+      summary: Get a list of Observations in a table format
+      description: |-
+        <p>This service is designed to retrieve a table of time dependant observation values as a matrix of Observation Units and Observation Variables.
+        This is also sometimes called a Time Series. This service takes the "Sparse Table" approach for representing this time dependant data.</p>
+        <p>The table may be represented by JSON, CSV, or TSV. The "Accept" HTTP header is used for the client to request different return formats. 
+        By default, if the "Accept" header is not included in the request, the server should return JSON as described below.</p>
+        <p>The table is REQUIRED to have the following columns</p>
+        <ul>
+          <li>observationUnitDbId - Each row is related to one Observation Unit</li>
+          <li>observationTimeStamp</li>
+          <li>At least one column with an observationVariableDbId</li>
+        </ul>
+        <p>The table may have any or all of the following OPTIONAL columns. Included columns are decided by the server developer</p>
+        <ul>
+          <li>observationUnitName</li>
+          <li>studyDbId</li>
+          <li>studyName</li>
+          <li>germplasmDbId</li>
+          <li>germplasmName</li>
+          <li>plotNumber</li>
+          <li>plantNumber</li>
+          <li>blockNumber</li>
+          <li>entryNumber</li>
+          <li>replicate</li>
+          <li>positionCoordinateX</li>
+          <li>positionCoordinateY</li>
+        </ul>
+        <p>The JSON representation provides a pair of extra arrays for defining the headers of the table. 
+        The first array "headerRow" will always contain "observationUnitDbId" and any or all of the OPTIONAL column header names. 
+        The second array "observationVariables" contains the names and DbIds for the Observation Variables represented in the table. 
+        By appending the two arrays, you can construct the complete header row of the table. </p>
+        <p>For CSV and TSV representations of the table, an extra header row is needed to describe both the Observation Variable DbId and the Observation Variable Name for each data column. 
+        See the example responses below</p> 
+      parameters:
+      - description: The unique ID of an Observation Unit
+        in: query
+        name: observationUnitDbId
+        required: false
+        schema:
+          type: string
+      - description: The unique ID of a germplasm (accession) to filter on
+        in: query
+        name: germplasmDbId
+        required: false
+        schema:
+          type: string
+      - description: The unique ID of an observation variable
+        in: query
+        name: observationVariableDbId
+        required: false
+        schema:
+          type: string
+      - description: The unique ID of a studies to filter on
+        in: query
+        name: studyDbId
+        required: false
+        schema:
+          type: string
+      - description: The unique ID of a location where these observations were collected
+        in: query
+        name: locationDbId
+        required: false
+        schema:
+          type: string
+      - description: The unique ID of a trial to filter on
+        in: query
+        name: trialDbId
+        required: false
+        schema:
+          type: string
+      - description: The unique ID of a program to filter on
+        in: query
+        name: programDbId
+        required: false
+        schema:
+          type: string
+      - description: The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)
+        in: query
+        name: seasonDbId
+        required: false
+        schema:
+          type: string
+      - description: The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnitStructure.
+        in: query
+        name: observationLevel
+        required: false
+        schema:
+          type: string
+      - description: Permanent unique identifier which references the search results
+        in: query
+        name: searchResultsDbId
+        required: false
+        schema:
+          type: string
+      - description: Timestamp range start
+        in: query
+        name: observationTimeStampRangeStart
+        required: false
+        schema:
+          format: date-time
+          type: string
+      - description: Timestamp range end
+        in: query
+        name: observationTimeStampRangeEnd
+        required: false
+        schema:
+          format: date-time
+          type: string
+      - $ref: '#/components/parameters/acceptHeader'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/ObservationTableResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Observations
+components:
+  responses:
+    ObservationTableResponse:
+      content:
+        application/json:
+          schema:
+            title: ObservationTableResponse
+            type: object
+            properties:
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                $ref: '#/components/schemas/ObservationTable'
+            required:
+            - metadata
+            - result
+        application/csv:
+          example: |-
+            "observationTimeStamp","studyDbId","studyName","germplasmDbId","germplasmName","observationUnitDbId","observationUnitName","plotNumber","plantNumber","blockNumber","entryNumber","replicate","positionCoordinateX","positionCoordinateY","2d599b04","a0e84c5c","35c5670a","0144dea8"
+            "","","","","","","","","","","","","","","Plant height","Carotenoid","Root color","Virus severity"
+            "2019-09-10T18:13:27.223Z", "f753a83c", "Study 1", "67c3cf0c", "A0000001", "d64dd058", "Plant alpha",   "1", "1", "1", "1", "1","76.50106681","42.44409301", "1.1", "",    "", ""
+            "2019-09-10T18:14:54.868Z", "f753a83c", "Study 1", "67c3cf0c", "A0000001", "f9adff3c", "Plant beta",    "2", "2", "1", "1", "2","76.50106683","42.44409301", "1.9", "",    "", ""
+            "2019-09-10T18:15:34.433Z", "f753a83c", "Study 1", "40498c3c", "A0000002", "67102b8f", "Plant gamma",   "1", "3", "1", "2", "1","76.50106685","42.44409301", "1.4", "",    "", ""
+            "2019-09-10T18:16:15.629Z", "f753a83c", "Study 1", "40498c3c", "A0000002", "2869d94a", "Plant epsilon", "2", "4", "1", "2", "2","76.50106687","42.44409301", "1.5", "",    "", ""
+            "2019-09-10T18:17:27.223Z", "f753a83c", "Study 1", "67c3cf0c", "A0000001", "d64dd058", "Plant alpha",   "1", "1", "1", "1", "1","76.50106681","42.44409301", "",    "2.6", "", ""
+            "2019-09-10T18:18:54.868Z", "f753a83c", "Study 1", "67c3cf0c", "A0000001", "f9adff3c", "Plant beta",    "2", "2", "1", "1", "2","76.50106683","42.44409301", "",    "2.3", "", ""
+            "2019-09-10T18:19:34.433Z", "f753a83c", "Study 1", "40498c3c", "A0000002", "67102b8f", "Plant gamma",   "1", "3", "1", "2", "1","76.50106685","42.44409301", "",    "3.1", "", ""
+            "2019-09-10T18:20:15.629Z", "f753a83c", "Study 1", "40498c3c", "A0000002", "2869d94a", "Plant epsilon", "2", "4", "1", "2", "2","76.50106687","42.44409301", "",    "3.2", "", ""
+          schema:
+            type: string
+        application/tsv:
+          example: |-
+            "observationTimeStamp"	"studyDbId"	"studyName"	"germplasmDbId"	"germplasmName"	"observationUnitDbId"	"observationUnitName"	"plotNumber"	"plantNumber"	"blockNumber"	"entryNumber"	"replicate"	"positionCoordinateX"	"positionCoordinateY"	"2d599b04"	"a0e84c5c"	"35c5670a"	"0144dea8"
+            ""	""	""	""	""	""	""	""	""	""	""	""	""	""	"Plant height"	"Carotenoid"	"Root color"	"Virus severity"
+            "2019-09-10T18:13:27.223Z"	"f753a83c"	"Study 1"	"67c3cf0c"	"A0000001"	"d64dd058"	"Plant alpha"	"1"	"1"	"1"	"1"	"1"	"76.50106681"	"42.44409301"	"1.1"	""	""	""
+            "2019-09-10T18:14:54.868Z"	"f753a83c"	"Study 1"	"67c3cf0c"	"A0000001"	"f9adff3c"	"Plant beta"	"2"	"2"	"1"	"1"	"2"	"76.50106683"	"42.44409301"	"1.9"	""	""	""
+            "2019-09-10T18:15:34.433Z"	"f753a83c"	"Study 1"	"40498c3c"	"A0000002"	"67102b8f"	"Plant gamma"	"1"	"3"	"1"	"2"	"1"	"76.50106685"	"42.44409301"	"1.4"	""	""	""
+            "2019-09-10T18:16:15.629Z"	"f753a83c"	"Study 1"	"40498c3c"	"A0000002"	"2869d94a"	"Plant epsilon"	"2"	"4"	"1"	"2"	"2"	"76.50106687"	"42.44409301"	"1.5"	""	""	""
+            "2019-09-10T18:17:27.223Z"	"f753a83c"	"Study 1"	"67c3cf0c"	"A0000001"	"d64dd058"	"Plant alpha"	"1"	"1"	"1"	"1"	"1"	"76.50106681"	"42.44409301"	""	"2.6"	""	""
+            "2019-09-10T18:18:54.868Z"	"f753a83c"	"Study 1"	"67c3cf0c"	"A0000001"	"f9adff3c"	"Plant beta"	"2"	"2"	"1"	"1"	"2"	"76.50106683"	"42.44409301"	""	"2.3"	""	""
+            "2019-09-10T18:19:34.433Z"	"f753a83c"	"Study 1"	"40498c3c"	"A0000002"	"67102b8f"	"Plant gamma"	"1"	"3"	"1"	"2"	"1"	"76.50106685"	"42.44409301"	""	"3.1"	""	""
+            "2019-09-10T18:20:15.629Z"	"f753a83c"	"Study 1"	"40498c3c"	"A0000002"	"2869d94a"	"Plant epsilon"	"2"	"4"	"1"	"2"	"2"	"76.50106687"	"42.44409301"	""	"3.2"	""	""
+          schema:
+            type: string
+      description: OK
+      headers: {}

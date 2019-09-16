@@ -36,13 +36,14 @@ def go():
 
 def parseLine(line):
     words = splitPattern.split(line)
+    #print(words)
     words = list(filter(
         lambda x: len(x) > 2, words
     ))
     output = []
     for word in words:
         output.extend(camel_case_split(word))
-    #print(words)
+    #print(output)
     return(output)
 
 def camel_case_split(identifier):
@@ -65,7 +66,7 @@ spell.word_frequency.load_words([
     #plant
     'germplasm', 'genebank',
     'multi-crop',
-    'pui', 'peco', 'envo', 'puid', 'r001',
+    'pui', 'peco', 'envo', 'puid', 'r001', 'geodetic', 's84', 't18',
     'phenotyping', 'genotyping', 'agronomy', 'phenological', 'agronomical',
     'authorships', 'orcid',
     'bioinformatics', 'plantbreeding',
@@ -77,5 +78,5 @@ spell.word_frequency.load_words([
     #fun
     'tomatillo',
     'coladas'])
-splitPattern = re.compile('[\s\'\.\-\\"\*`:;/,_=^@<>{}()\[\]]+')  
+splitPattern = re.compile("(?:\\\\n|[\s\'\.\-\\\"\*`:;/,_=^@<>{}()\[\]])+")  
 go()

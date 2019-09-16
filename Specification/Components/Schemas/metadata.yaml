@@ -12,7 +12,7 @@ components:
           description: |-
             The datafiles contains a list of file URLs and metadata. 
             These files contain additional information related to the returned object and can be retrieved by a subsequent call. 
-            This could be a suplementary data file, an informational file, the uploaded file where the data originated from, a generated file representing the whole dataset in a particular format, or any other related file. 
+            This could be a supplementary data file, an informational file, the uploaded file where the data originated from, a generated file representing the whole dataset in a particular format, or any other related file. 
           items:
             $ref: '#/components/schemas/dataFile'
           type: array
@@ -27,7 +27,7 @@ components:
           type: array
     dataFile:
       type: object
-      description: A dataFile contains a URL and the relevent file metadata to represent a file
+      description: A dataFile contains a URL and the relevant file metadata to represent a file
       required:
       - fileURL
       properties:

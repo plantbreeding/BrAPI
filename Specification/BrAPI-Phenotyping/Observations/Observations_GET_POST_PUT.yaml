@@ -140,7 +140,7 @@ paths:
               '<observationDbId_1>':
                 germplasmDbId: 2408ab11
                 germplasmName: A0000001
-                observationTimeStamp: 2019-06-28T16:49:43.516Z
+                observationTimeStamp: 2019-06-28T18:49:43.516Z
                 observationUnitDbId: 598111d4
                 observationUnitName: Plot 1
                 observationVariableDbId: c403d107
@@ -152,7 +152,7 @@ paths:
               '<observationDbId_2>':
                 germplasmDbId: 69310ca4
                 germplasmName: A0000438
-                observationTimeStamp: 2019-06-28T16:49:43.516Z
+                observationTimeStamp: 2019-06-28T18:49:43.516Z
                 observationUnitDbId: 1177a714
                 observationUnitName: Plot 13
                 observationVariableDbId: e4f8ba8c

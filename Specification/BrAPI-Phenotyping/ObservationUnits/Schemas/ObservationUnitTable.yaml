@@ -1,0 +1,109 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    ObservationUnitTable:
+      type: object
+      properties:
+        data:
+          description: |-
+            Matrix of observation data recorded for different observation variables across different observation units
+          type: array
+          items:
+            type: array
+            items:
+              type: string
+          example: 
+          - ["f3a8a3db","Plant Alpha",  "0fe3e48b","2017 Plant Study","06307ec0","A0043001","1","1","1","1","1","76.50106681","42.44409301","2017","25.3","3","50.75"]
+          - ["05d1b011","Plant Beta",   "0fe3e48b","2017 Plant Study","59d435cd","A0043002","1","2","1","1","2","76.50106683","42.44409301","2017","27.9","1","45.345"]
+          - ["67e2d87c","Plant Gamma",  "0fe3e48b","2017 Plant Study","06307ec0","A0043001","2","3","2","1","1","76.50106681","42.44409356","2017","25.5","3","50.76"]
+          - ["d98d0d4c","Plant Epsilon","0fe3e48b","2017 Plant Study","59d435cd","A0043002","2","4","2","1","2","76.50106683","42.44409356","2017","28.9","0","46.5"]
+        headerRow:
+          description: |-
+            <p>The table is REQUIRED to have the following columns</p>
+            <ul>
+              <li>observationUnitDbId - Each row is related to one Observation Unit</li>
+              <li>At least one column with an observationVariableDbId</li>
+            </ul>
+            <p>The table may have any or all of the following OPTIONAL columns. Included columns are decided by the server developer</p>
+            <ul>
+              <li>observationUnitName</li>
+              <li>studyDbId</li>
+              <li>studyName</li>
+              <li>germplasmDbId</li>
+              <li>germplasmName</li>
+              <li>plotNumber</li>
+              <li>plantNumber</li>
+              <li>blockNumber</li>
+              <li>entryNumber</li>
+              <li>replicate</li>
+              <li>positionCoordinateX</li>
+              <li>positionCoordinateY</li>
+              <li>year</li>
+            </ul>
+            <p>The JSON representation provides a pair of extra arrays for defining the headers of the table. 
+            The first array "headerRow" will always contain "observationUnitDbId" and any or all of the OPTIONAL column header names. 
+            The second array "observationVariables" contains the names and DbIds for the Observation Variables represented in the table. 
+            By appending the two arrays, you can construct the complete header row of the table. </p>
+          type: array
+          items:
+            description: valid header fields
+            type: string
+            enum:
+            - observationUnitDbId
+            - observationUnitName
+            - studyDbId
+            - studyName
+            - germplasmDbId
+            - germplasmName
+            - plotNumber
+            - plantNumber
+            - blockNumber
+            - entryNumber
+            - replicate
+            - positionCoordinateX
+            - positionCoordinateY
+            - year
+          example: 
+            - observationUnitDbId
+            - observationUnitName
+            - studyDbId
+            - studyName
+            - germplasmDbId
+            - germplasmName
+            - plotNumber
+            - plantNumber
+            - blockNumber
+            - entryNumber
+            - replicate
+            - positionCoordinateX
+            - positionCoordinateY
+            - year
+        observationVariables:
+          description: The list of observation variables which have values recorded for them in the data matrix. Append to the 'headerRow' for complete header row of the table.
+          type: array
+          items:
+            type: object
+            properties:
+              observationVariableDbId:
+                description: Variable unique identifier
+                type: string
+                example: 367aa1a9
+              observationVariableName:
+                description: Variable name (usually a short name)
+                type: string
+                example: Plant height
+          example: 
+          - observationVariableDbId: 367aa1a9 
+            observationVariableName: Plant height
+          - observationVariableDbId: 2acb934c 
+            observationVariableName: Carotenoid
+          - observationVariableDbId: 85a21ce1 
+            observationVariableName: Root color
+          - observationVariableDbId: 46f590e5 
+            observationVariableName: Virus severity
+        
+

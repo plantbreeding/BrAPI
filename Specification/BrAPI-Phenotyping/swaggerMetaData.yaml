@@ -16,15 +16,14 @@ info:
     <div><a href="https://github.com/plantbreeding/API/blob/master/Specification/GeneralInfo/Location_Encoding.md">Location Encoding</a></div>
     <div><a href="https://github.com/plantbreeding/API/blob/master/Specification/GeneralInfo/Error_Handling.md">Error Handling</a></div>
     <div><a href="https://github.com/plantbreeding/API/blob/master/Specification/GeneralInfo/Search_Services.md">Search Services</a></div>
-    <div><a href="https://github.com/plantbreeding/API/blob/master/Specification/GeneralInfo/Asychronous_Processing.md">Asynchronous Processing</a></div>
     </div>
 
     <div class="brapi-section">
     <div class="brapi-section-title">BrAPI Core</div>
     <div class="brapi-section-description">The BrAPI Core module contains high level entities used for organization and management. This includes Programs, Trials, Studies, Locations, People, and Lists</div>
     <div class="version-number">V2.0</div>
-    <div class="link-btn"><a href="">GitHub</a></div>
-    <div class="link-btn"><a href="">SwaggerHub</a></div>
+    <div class="link-btn"><a href="https://github.com/plantbreeding/API/tree/brapi-v2-dev/Specification/BrAPI-Core">GitHub</a></div>
+    <div class="link-btn"><a href="https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI-Core">SwaggerHub</a></div>
     <div class="link-btn"><a href="">Apiary</a></div>
     <div class="stop-float"></div>
     </div>
@@ -140,7 +139,7 @@ tags:
     description: Docs
     url: https://wiki.brapi.org/
 - name: Events
-  description: Retrieve and edit information about Events. Events can be planned like watering or fertalizing, or unplanned like weather or pests.  
+  description: Retrieve and edit information about Events. Events can be planned like watering or fertilizing, or unplanned like weather or pests.  
   externalDocs:
     description: Docs
     url: https://wiki.brapi.org/
