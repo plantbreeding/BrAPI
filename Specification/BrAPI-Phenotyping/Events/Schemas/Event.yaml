@@ -48,6 +48,7 @@ components:
             format: date
             type: string
           type: array
+          example: ['2018-10-08T18:15:11Z', '2018-11-09T18:16:12Z']
         eventParameters: 
           description: A list of objects describing additional event parameters. Each of the following accepts a human-readable value or URI
           type: array 

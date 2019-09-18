@@ -19,17 +19,18 @@ Get filtered set of generic lists
 
 |Field|Type|Description|
 |---|---|---| 
-|data|array[object]|Array of generic list summaries|
-|dateCreated|string (date-time)||
-|dateModified|string (date-time)||
-|description|string||
-|listDbId|string||
-|listName|string||
-|listOwnerName|string||
-|listOwnerPersonDbId|string||
-|listSize|integer||
-|listSource|string||
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|dateCreated|string (date-time)|Timestamp when the entity was first created|
+|dateModified|string (date-time)|Timestamp when the entity was last updated|
+|listDescription|string|Description of a List|
+|listName|string|Human readable name of a List|
+|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
+|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
+|listSize|integer|The number of elements in a List|
+|listSource|string|The description of where a List originated from|
 |listType|string||
+|listDbId|string|The unique identifier for a List|
 
 
  
@@ -41,9 +42,7 @@ Get filtered set of generic lists
     + listSource (Optional, ) ... The source tag of this generic list
     + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -52,40 +51,53 @@ Get filtered set of generic lists
 ```
 {
     "metadata": {
-        "datafiles": [],
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 2,
-            "totalCount": 2,
+            "pageSize": 1000,
+            "totalCount": 1,
             "totalPages": 1
         },
-        "status": []
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
     },
     "result": {
         "data": [
             {
-                "dateCreated": "2011-06-14T22:12:51-04:00",
-                "dateModified": "2011-06-14T22:12:51-04:00",
-                "description": "Example List of germplasm",
-                "listDbId": "list1",
-                "listName": "Example List 1",
+                "additionalInfo": {},
+                "dateCreated": "2018-01-01T14:47:23-0600",
+                "dateModified": "2018-01-01T14:47:23-0600",
+                "listDbId": "6f621cfa",
+                "listDescription": "This is a list of germplasm I would like to investigate next season",
+                "listName": "MyGermplasm_Sept_2020",
                 "listOwnerName": "Bob Robertson",
-                "listOwnerPersonDbId": "person1",
-                "listSize": 3,
-                "listSource": "User Created",
-                "listType": "germplasm"
-            },
-            {
-                "dateCreated": "2011-06-14T22:12:51-04:00",
-                "dateModified": "2011-06-14T22:12:51-04:00",
-                "description": "Example List of germplasm",
-                "listDbId": "list2",
-                "listName": "Example List 2",
-                "listOwnerName": "Rob Robertson",
-                "listOwnerPersonDbId": "person2",
-                "listSize": 3,
-                "listSource": "User Created",
-                "listType": "germplasm"
+                "listOwnerPersonDbId": "58db0628",
+                "listSize": 53,
+                "listSource": "GeneBank Repository 1.3",
+                "listType": [
+                    "germplasm",
+                    "markers",
+                    "programs",
+                    "trials",
+                    "studies",
+                    "observationUnits",
+                    "observations",
+                    "observationVariables",
+                    "samples"
+                ]
             }
         ]
     }
@@ -94,17 +106,17 @@ Get filtered set of generic lists
 
 + Response 400 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
 ```
 
 + Response 401 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
 ```
 
 + Response 403 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
 
 
@@ -119,57 +131,74 @@ Create a new list
 
 |Field|Type|Description|
 |---|---|---| 
-|data|array[string]||
-|description|string||
-|listName|string||
-|listOwnerName|string||
-|listOwnerPersonDbId|string||
-|listSize|integer||
-|listSource|string||
+|additionalInfo|object|Additional arbitrary info|
+|dateCreated|string (date-time)|Timestamp when the entity was first created|
+|dateModified|string (date-time)|Timestamp when the entity was last updated|
+|listDescription|string|Description of a List|
+|listName|string|Human readable name of a List|
+|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
+|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
+|listSize|integer|The number of elements in a List|
+|listSource|string|The description of where a List originated from|
 |listType|string||
+|data|array[string]|The list of DbIds contained in this list|
 
 
 **Response Fields** 
 
 |Field|Type|Description|
 |---|---|---| 
-|dateCreated|string (date-time)||
-|dateModified|string (date-time)||
-|description|string||
-|listDbId|string||
-|listName|string||
-|listOwnerName|string||
-|listOwnerPersonDbId|string||
-|listSize|integer||
-|listSource|string||
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|dateCreated|string (date-time)|Timestamp when the entity was first created|
+|dateModified|string (date-time)|Timestamp when the entity was last updated|
+|listDescription|string|Description of a List|
+|listName|string|Human readable name of a List|
+|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
+|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
+|listSize|integer|The number of elements in a List|
+|listSource|string|The description of where a List originated from|
 |listType|string||
-|data|array[string]||
+|listDbId|string|The unique identifier for a List|
 
 
  
 
 + Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
  
 + Request (application/json)
 ```
-{
-    "data": [
-        "data0",
-        "data1"
-    ],
-    "description": "description0",
-    "listName": "listName0",
-    "listOwnerName": "listOwnerName0",
-    "listOwnerPersonDbId": "listOwnerPersonDbId0",
-    "listSize": 0,
-    "listSource": "listSource0",
-    "listType": "germplasm"
-}
+[
+    {
+        "additionalInfo": {},
+        "data": [
+            "758a78c0",
+            "2c78f9ee"
+        ],
+        "dateCreated": "2018-01-01T14:47:23-0600",
+        "dateModified": "2018-01-01T14:47:23-0600",
+        "listDescription": "This is a list of germplasm I would like to investigate next season",
+        "listName": "MyGermplasm_Sept_2020",
+        "listOwnerName": "Bob Robertson",
+        "listOwnerPersonDbId": "58db0628",
+        "listSize": 53,
+        "listSource": "GeneBank Repository 1.3",
+        "listType": [
+            "germplasm",
+            "markers",
+            "programs",
+            "trials",
+            "studies",
+            "observationUnits",
+            "observations",
+            "observationVariables",
+            "samples"
+        ]
+    }
+]
 ```
 
 
@@ -178,46 +207,72 @@ Create a new list
 ```
 {
     "metadata": {
-        "datafiles": [],
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 0,
-            "totalCount": 0,
-            "totalPages": 0
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
         },
-        "status": []
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
     },
     "result": {
         "data": [
-            "string"
-        ],
-        "dateCreated": "2018-12-05T14:36:04-05:00",
-        "dateModified": "2018-12-05T14:36:04-05:00",
-        "description": "string",
-        "listDbId": "d93d6bb6-dfc3-4d15-8d2e-654c618ce12e",
-        "listName": "string",
-        "listOwnerName": "string",
-        "listOwnerPersonDbId": "string",
-        "listSize": 1,
-        "listSource": "string",
-        "listType": "germplasm"
+            {
+                "additionalInfo": {},
+                "dateCreated": "2018-01-01T14:47:23-0600",
+                "dateModified": "2018-01-01T14:47:23-0600",
+                "listDbId": "6f621cfa",
+                "listDescription": "This is a list of germplasm I would like to investigate next season",
+                "listName": "MyGermplasm_Sept_2020",
+                "listOwnerName": "Bob Robertson",
+                "listOwnerPersonDbId": "58db0628",
+                "listSize": 53,
+                "listSource": "GeneBank Repository 1.3",
+                "listType": [
+                    "germplasm",
+                    "markers",
+                    "programs",
+                    "trials",
+                    "studies",
+                    "observationUnits",
+                    "observations",
+                    "observationVariables",
+                    "samples"
+                ]
+            }
+        ]
     }
 }
 ```
 
 + Response 400 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
 ```
 
 + Response 401 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
 ```
 
 + Response 403 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
 
 
@@ -234,26 +289,25 @@ Get a specific generic lists
 
 |Field|Type|Description|
 |---|---|---| 
-|dateCreated|string (date-time)||
-|dateModified|string (date-time)||
-|description|string||
-|listDbId|string||
-|listName|string||
-|listOwnerName|string||
-|listOwnerPersonDbId|string||
-|listSize|integer||
-|listSource|string||
+|additionalInfo|object|Additional arbitrary info|
+|dateCreated|string (date-time)|Timestamp when the entity was first created|
+|dateModified|string (date-time)|Timestamp when the entity was last updated|
+|listDescription|string|Description of a List|
+|listName|string|Human readable name of a List|
+|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
+|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
+|listSize|integer|The number of elements in a List|
+|listSource|string|The description of where a List originated from|
 |listType|string||
-|data|array[string]||
+|listDbId|string|The unique identifier for a List|
+|data|array[string]|The list of DbIds contained in this list|
 
 
  
 
 + Parameters
     + listDbId (Required, ) ... The unique ID of this generic list
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -262,53 +316,77 @@ Get a specific generic lists
 ```
 {
     "metadata": {
-        "datafiles": [],
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 0,
-            "totalCount": 0,
-            "totalPages": 0
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
         },
-        "status": []
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
     },
     "result": {
+        "additionalInfo": {},
         "data": [
-            "1",
-            "2",
-            "3"
+            "758a78c0",
+            "2c78f9ee"
         ],
-        "dateCreated": "2011-06-14T22:12:51-04:00",
-        "dateModified": "2011-06-14T22:12:51-04:00",
-        "description": "Example List of germplasm",
-        "listDbId": "list1",
-        "listName": "Example List 1",
+        "dateCreated": "2018-01-01T14:47:23-0600",
+        "dateModified": "2018-01-01T14:47:23-0600",
+        "listDbId": "6f621cfa",
+        "listDescription": "This is a list of germplasm I would like to investigate next season",
+        "listName": "MyGermplasm_Sept_2020",
         "listOwnerName": "Bob Robertson",
-        "listOwnerPersonDbId": "person1",
-        "listSize": 3,
-        "listSource": "User Created",
-        "listType": "germplasm"
+        "listOwnerPersonDbId": "58db0628",
+        "listSize": 53,
+        "listSource": "GeneBank Repository 1.3",
+        "listType": [
+            "germplasm",
+            "markers",
+            "programs",
+            "trials",
+            "studies",
+            "observationUnits",
+            "observations",
+            "observationVariables",
+            "samples"
+        ]
     }
 }
 ```
 
 + Response 400 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
 ```
 
 + Response 401 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
 ```
 
 + Response 403 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
 
 + Response 404 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
 ```
 
 
@@ -323,57 +401,72 @@ Update an existing generic list
 
 |Field|Type|Description|
 |---|---|---| 
-|data|array[string]||
-|description|string||
-|listName|string||
-|listOwnerName|string||
-|listOwnerPersonDbId|string||
-|listSize|integer||
-|listSource|string||
+|additionalInfo|object|Additional arbitrary info|
+|dateCreated|string (date-time)|Timestamp when the entity was first created|
+|dateModified|string (date-time)|Timestamp when the entity was last updated|
+|listDescription|string|Description of a List|
+|listName|string|Human readable name of a List|
+|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
+|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
+|listSize|integer|The number of elements in a List|
+|listSource|string|The description of where a List originated from|
 |listType|string||
+|data|array[string]|The list of DbIds contained in this list|
 
 
 **Response Fields** 
 
 |Field|Type|Description|
 |---|---|---| 
-|dateCreated|string (date-time)||
-|dateModified|string (date-time)||
-|description|string||
-|listDbId|string||
-|listName|string||
-|listOwnerName|string||
-|listOwnerPersonDbId|string||
-|listSize|integer||
-|listSource|string||
+|additionalInfo|object|Additional arbitrary info|
+|dateCreated|string (date-time)|Timestamp when the entity was first created|
+|dateModified|string (date-time)|Timestamp when the entity was last updated|
+|listDescription|string|Description of a List|
+|listName|string|Human readable name of a List|
+|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
+|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
+|listSize|integer|The number of elements in a List|
+|listSource|string|The description of where a List originated from|
 |listType|string||
-|data|array[string]||
+|listDbId|string|The unique identifier for a List|
+|data|array[string]|The list of DbIds contained in this list|
 
 
  
 
 + Parameters
     + listDbId (Required, ) ... The unique ID of this generic list
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
  
 + Request (application/json)
 ```
 {
+    "additionalInfo": {},
     "data": [
-        "data0",
-        "data1"
+        "758a78c0",
+        "2c78f9ee"
     ],
-    "description": "description0",
-    "listName": "listName0",
-    "listOwnerName": "listOwnerName0",
-    "listOwnerPersonDbId": "listOwnerPersonDbId0",
-    "listSize": 0,
-    "listSource": "listSource0",
-    "listType": "germplasm"
+    "dateCreated": "2018-01-01T14:47:23-0600",
+    "dateModified": "2018-01-01T14:47:23-0600",
+    "listDescription": "This is a list of germplasm I would like to investigate next season",
+    "listName": "MyGermplasm_Sept_2020",
+    "listOwnerName": "Bob Robertson",
+    "listOwnerPersonDbId": "58db0628",
+    "listSize": 53,
+    "listSource": "GeneBank Repository 1.3",
+    "listType": [
+        "germplasm",
+        "markers",
+        "programs",
+        "trials",
+        "studies",
+        "observationUnits",
+        "observations",
+        "observationVariables",
+        "samples"
+    ]
 }
 ```
 
@@ -383,51 +476,77 @@ Update an existing generic list
 ```
 {
     "metadata": {
-        "datafiles": [],
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 0,
-            "totalCount": 0,
-            "totalPages": 0
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
         },
-        "status": []
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
     },
     "result": {
+        "additionalInfo": {},
         "data": [
-            "string"
+            "758a78c0",
+            "2c78f9ee"
         ],
-        "dateCreated": "2011-06-14T22:12:51-04:00",
-        "dateModified": "2018-12-05T14:36:04-05:00",
-        "description": "string",
-        "listDbId": "list1",
-        "listName": "string",
-        "listOwnerName": "string",
-        "listOwnerPersonDbId": "string",
-        "listSize": 1,
-        "listSource": "string",
-        "listType": "germplasm"
+        "dateCreated": "2018-01-01T14:47:23-0600",
+        "dateModified": "2018-01-01T14:47:23-0600",
+        "listDbId": "6f621cfa",
+        "listDescription": "This is a list of germplasm I would like to investigate next season",
+        "listName": "MyGermplasm_Sept_2020",
+        "listOwnerName": "Bob Robertson",
+        "listOwnerPersonDbId": "58db0628",
+        "listSize": 53,
+        "listSource": "GeneBank Repository 1.3",
+        "listType": [
+            "germplasm",
+            "markers",
+            "programs",
+            "trials",
+            "studies",
+            "observationUnits",
+            "observations",
+            "observationVariables",
+            "samples"
+        ]
     }
 }
 ```
 
 + Response 400 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
 ```
 
 + Response 401 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
 ```
 
 + Response 403 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
 
 + Response 404 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
 ```
 
 
@@ -448,32 +567,34 @@ Add new data to a specific generic lists
 
 |Field|Type|Description|
 |---|---|---| 
-|dateCreated|string (date-time)||
-|dateModified|string (date-time)||
-|description|string||
-|listDbId|string||
-|listName|string||
-|listOwnerName|string||
-|listOwnerPersonDbId|string||
-|listSize|integer||
-|listSource|string||
+|additionalInfo|object|Additional arbitrary info|
+|dateCreated|string (date-time)|Timestamp when the entity was first created|
+|dateModified|string (date-time)|Timestamp when the entity was last updated|
+|listDescription|string|Description of a List|
+|listName|string|Human readable name of a List|
+|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
+|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
+|listSize|integer|The number of elements in a List|
+|listSource|string|The description of where a List originated from|
 |listType|string||
-|data|array[string]||
+|listDbId|string|The unique identifier for a List|
+|data|array[string]|The list of DbIds contained in this list|
 
 
  
 
 + Parameters
     + listDbId (Required, ) ... The unique ID of this generic list
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
  
 + Request (application/json)
 ```
-{}
+[
+    "758a78c0",
+    "2c78f9ee"
+]
 ```
 
 
@@ -482,52 +603,322 @@ Add new data to a specific generic lists
 ```
 {
     "metadata": {
-        "datafiles": [],
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 0,
-            "totalCount": 0,
-            "totalPages": 0
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
         },
-        "status": []
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
     },
     "result": {
+        "additionalInfo": {},
         "data": [
-            "1",
-            "2",
-            "3"
+            "758a78c0",
+            "2c78f9ee"
         ],
-        "dateCreated": "2011-06-14T22:12:51-04:00",
-        "dateModified": "2018-12-05T14:36:04-05:00",
-        "description": "string",
-        "listDbId": "list1",
-        "listName": "string",
-        "listOwnerName": "string",
-        "listOwnerPersonDbId": "string",
-        "listSize": 3,
-        "listSource": "string",
-        "listType": "germplasm"
+        "dateCreated": "2018-01-01T14:47:23-0600",
+        "dateModified": "2018-01-01T14:47:23-0600",
+        "listDbId": "6f621cfa",
+        "listDescription": "This is a list of germplasm I would like to investigate next season",
+        "listName": "MyGermplasm_Sept_2020",
+        "listOwnerName": "Bob Robertson",
+        "listOwnerPersonDbId": "58db0628",
+        "listSize": 53,
+        "listSource": "GeneBank Repository 1.3",
+        "listType": [
+            "germplasm",
+            "markers",
+            "programs",
+            "trials",
+            "studies",
+            "observationUnits",
+            "observations",
+            "observationVariables",
+            "samples"
+        ]
     }
 }
 ```
 
 + Response 400 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
 ```
 
 + Response 401 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
 ```
 
 + Response 403 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
 
 + Response 404 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
+```
+
+
+
+## Search [/brapi/v1/search] 
+
+
+
+
+### Post Search Lists  [POST /brapi/v1/search/lists]
+
+Advanced searching for the list resource.
+See Search Services for additional implementation details.
+
+**Request Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|dateCreatedRangeEnd|string (date-time)||
+|dateCreatedRangeStart|string (date-time)||
+|dateModifiedRangeEnd|string (date-time)||
+|dateModifiedRangeStart|string (date-time)||
+|listDbIds|array[string]||
+|listNames|array[string]||
+|listOwnerNames|array[string]||
+|listOwnerPersonDbIds|array[string]||
+|listSources|array[string]||
+|listType|string||
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|searchResultDbId|string||
+
+
+ 
+
++ Parameters
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+ 
++ Request (application/json)
+```
+{
+    "dateCreatedRangeEnd": "2018-01-01T14:47:23-0600",
+    "dateCreatedRangeStart": "2018-01-01T14:47:23-0600",
+    "dateModifiedRangeEnd": "2018-01-01T14:47:23-0600",
+    "dateModifiedRangeStart": "2018-01-01T14:47:23-0600",
+    "listDbIds": [
+        "55f20cf6",
+        "3193ca3d"
+    ],
+    "listNames": [
+        "Planing List 1",
+        "Bobs List"
+    ],
+    "listOwnerNames": [
+        "Bob Robertson",
+        "Rob Bobertson"
+    ],
+    "listOwnerPersonDbIds": [
+        "bob@bob.com",
+        "rob@bob.com"
+    ],
+    "listSources": [
+        "USER",
+        "SYSTEM",
+        "EXTERNAL"
+    ],
+    "listType": [
+        "germplasm",
+        "markers",
+        "programs",
+        "trials",
+        "studies",
+        "observationUnits",
+        "observations",
+        "observationVariables",
+        "samples"
+    ]
+}
+```
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultDbId": "551ae08c"
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+
+
+
+### Get Search Lists by searchResultsDbId  [GET /brapi/v1/search/lists/{searchResultsDbId}{?page}{?pageSize}]
+
+Advanced searching for the list resource.
+See Search Services for additional implementation details.
+
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|dateCreated|string (date-time)|Timestamp when the entity was first created|
+|dateModified|string (date-time)|Timestamp when the entity was last updated|
+|listDescription|string|Description of a List|
+|listName|string|Human readable name of a List|
+|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
+|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
+|listSize|integer|The number of elements in a List|
+|listSource|string|The description of where a List originated from|
+|listType|string||
+|listDbId|string|The unique identifier for a List|
+
+
+ 
+
++ Parameters
+    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "dateCreated": "2018-01-01T14:47:23-0600",
+                "dateModified": "2018-01-01T14:47:23-0600",
+                "listDbId": "6f621cfa",
+                "listDescription": "This is a list of germplasm I would like to investigate next season",
+                "listName": "MyGermplasm_Sept_2020",
+                "listOwnerName": "Bob Robertson",
+                "listOwnerPersonDbId": "58db0628",
+                "listSize": 53,
+                "listSource": "GeneBank Repository 1.3",
+                "listType": [
+                    "germplasm",
+                    "markers",
+                    "programs",
+                    "trials",
+                    "studies",
+                    "observationUnits",
+                    "observations",
+                    "observationVariables",
+                    "samples"
+                ]
+            }
+        ]
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
 

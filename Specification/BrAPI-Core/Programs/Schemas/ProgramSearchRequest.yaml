@@ -6,40 +6,47 @@ paths: {}
 components:
   schemas:
     ProgramSearchRequest:
+      type: object
       properties:
         abbreviations:
           description: An abbreviation of a program to search for
           items:
             type: string
           type: array
+          example: ['P1', 'P2']
         commonCropNames:
           description: Common name for the crop which this program is for
           items:
             type: string
           type: array
+          example: ['Tomatillo', 'Paw Paw']
         leadPersonDbIds:
           description: The person DbIds of the program leader to search for
           items:
             type: string
           type: array
+          example: ['d8bd96c7', 'a2b9c8e7']
         leadPersonNames:
           description: The names of the program leader to search for
           items:
             type: string
           type: array
+          example: ['Bob Robertson', 'Rob Robertson']
         objectives:
           description: A program objective to search for
           items:
             type: string
           type: array
+          example: ['Objective Code One', 'This is a longer objective search query']
         programDbIds:
           description: A program identifier to search for
           items:
             type: string
           type: array
+          example: ['8f5de35b', '0e2d4a13']
         programNames:
           description: A name of a program to search for
           items:
             type: string
           type: array
-      type: object
+          example: ['Better Breeding Program', 'Best Breeding Program']

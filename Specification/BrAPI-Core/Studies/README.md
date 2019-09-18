@@ -8,16 +8,1791 @@ Note that dates should be provided in extended ISO 8601 format (for example, "YY
 
 
 
-## Observationlevels [/brapi/v1/observationlevels] 
+## Search [/brapi/v1/search] 
 
 
 
 
-### Get Observationlevels  [GET /brapi/v1/observationlevels{?page}{?pageSize}]
+### Post Search Studies  [POST /brapi/v1/search/studies]
 
-Call to retrieve the list of supported observation levels. 
-Observation levels indicate the granularity level at which the measurements are taken. 
-The values are used to supply the `observationLevel` parameter in the observation unit details call.
+Get list of studies
+StartDate and endDate should be ISO-8601 format for dates
+See Search Services for additional implementation details.
+
+**Request Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|active|boolean|Is this study currently active|
+|commonCropNames|array[string]|Common names for the crop associated with this study|
+|germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm|
+|locationDbIds|array[string]|List of location names to filter search results|
+|observationVariableDbIds|array[string]|List of observation variable IDs to search for|
+|programDbIds|array[string]|List of program identifiers to filter search results|
+|programNames|array[string]|List of program names to filter search results|
+|seasonDbIds|array[string]|The ID which uniquely identifies a season|
+|sortBy|string|Name of one of the fields within the study object on which results can be sorted|
+|sortOrder|string|Order results should be sorted. ex. "ASC" or "DESC"|
+|studyDbIds|array[string]|List of study identifiers to search for|
+|studyNames|array[string]|List of study names to filter search results|
+|studyTypes|array[string]|The type of study being performed. ex. "Yield Trial", etc|
+|trialDbIds|array[string]|List of trial identifiers to filter search results|
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|searchResultDbId|string||
+
+
+ 
+
++ Parameters
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+ 
++ Request (application/json)
+```
+{
+    "active": true,
+    "commonCropNames": [
+        "Tomatillo",
+        "Paw Paw"
+    ],
+    "germplasmDbIds": [
+        "fa4ad588",
+        "5731ebe2"
+    ],
+    "locationDbIds": [
+        "d6e7c6a9",
+        "8f9f6916"
+    ],
+    "observationVariableDbIds": [
+        "819e508f",
+        "f540b703"
+    ],
+    "programDbIds": [
+        "9a855886",
+        "51697c22"
+    ],
+    "programNames": [
+        "Better Breeding Program",
+        "Best Breeding Program"
+    ],
+    "seasonDbIds": [
+        "Harvest Two 2017",
+        "Summer 2018"
+    ],
+    "sortBy": [
+        "studyDbId",
+        "trialDbId",
+        "programDbId",
+        "locationDbId",
+        "seasonDbId",
+        "studyType",
+        "studyName",
+        "studyLocation",
+        "programName",
+        "germplasmDbId",
+        "observationVariableDbId"
+    ],
+    "sortOrder": [
+        "ASC",
+        "DESC"
+    ],
+    "studyDbIds": [
+        "cf6c4bd4",
+        "691e69d6"
+    ],
+    "studyNames": [
+        "The First Bob Study 2017",
+        "Wheat Yield Trial 246"
+    ],
+    "studyTypes": [
+        "Yield Trial",
+        "Disease Resistance Trial"
+    ],
+    "trialDbIds": [
+        "29f375a1",
+        "753d882b"
+    ]
+}
+```
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultDbId": "551ae08c"
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+
+
+
+### Get Search Studies by searchResultsDbId  [GET /brapi/v1/search/studies/{searchResultsDbId}{?page}{?pageSize}]
+
+Get list of studies
+
+StartDate and endDate should be ISO-8601 format for dates
+
+See Search Services for additional implementation details.
+
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|active|boolean|Is this study currently active|
+|additionalInfo|object|Additional arbitrary info|
+|commonCropName|string|Common name for the crop associated with this study|
+|contacts|array[object]|List of contact entities associated with this study|
+|contactDbId|string|The ID which uniquely identifies this contact|
+|email|string|The contacts email address |
+|instituteName|string|The name of the institution which this contact is part of|
+|name|string|The full name of this contact person|
+|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
+|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
+|culturalPractices|string|General description of the cultural practices of the study.|
+|dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
+|dataLinkName|string|The name of the external data link|
+|type|string|The type of external data link|
+|url|string (uri)|The URL which links to external data|
+|version|string|The version number of the data set.|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|endDate|string (date)|The date the study ends|
+|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
+|description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
+|parameterName|string|Name of the environment parameter constant within the experiment|
+|parameterPUI|string|URI pointing to an ontology class for the parameter|
+|unit|string|Unit of the value for this parameter|
+|unitPUI|string|URI pointing to an ontology class for the unit|
+|value|string|Numerical or categorical value|
+|valuePUI|string|URI pointing to an ontology class for the parameter value|
+|experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
+|PUI|string||
+|description|string||
+|growthFacility|object|Short description of the facility in which the study was carried out.|
+|PUI|string||
+|description|string||
+|lastUpdate|object|The date and time when this study was last modified|
+|timestamp|string (date-time)||
+|version|string||
+|license|string|The usage license associated with the study data|
+|location|object||
+|abbreviation|string|An abbreviation which represents this location|
+|additionalInfo|object|Additional arbitrary info|
+|altitude|number|The altitude/elevation of this location (in meters)|
+|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
+|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geometry|object||
+|type|string|Feature|
+|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
+|countryName|string|The full name of the country where this location is|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
+|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|instituteAddress|string|The street address of the institute representing this location|
+|instituteName|string|each institute/laboratory can have several experimental field|
+|locationName|string|A human readable name for this location|
+|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
+|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
+|slope|string|Describes the approximate slope (height/distance) of the location.|
+|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
+|locationDbId|string|The unique identifier for a Location|
+|observationUnitsDescription|string|The human readable description of the observation units design|
+|seasons|array[string]|List of seasons over which this study was performed.|
+|startDate|string (date)|The date this study started|
+|studyDescription|string|The description of this study|
+|studyName|string|The human readable name for a study|
+|studyType|string|The type of study being performed. ex. "Yield Trial", etc|
+|trialDbId|string|The ID which uniquely identifies a trial|
+|trialName|string|The human readable name of a trial|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+
+
+ 
+
++ Parameters
+    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "active": true,
+                "additionalInfo": {},
+                "commonCropName": "Grape",
+                "contacts": [
+                    {
+                        "contactDbId": "5f4e5509",
+                        "email": "bob@bob.com",
+                        "instituteName": "The BrAPI Institute",
+                        "name": "Bob Robertson",
+                        "orcid": "http://orcid.org/0000-0001-8640-1750",
+                        "type": "PI"
+                    }
+                ],
+                "culturalPractices": "Irrigation was applied according needs during summer to prevent water stress.",
+                "dataLinks": [
+                    {
+                        "dataLinkName": "image-archive.zip",
+                        "type": "Image Archive",
+                        "url": "https://brapi.org/image-archive.zip",
+                        "version": "1.0.0"
+                    }
+                ],
+                "documentationURL": "https://wiki.brapi.org",
+                "endDate": "2018-01-01",
+                "environmentParameters": [
+                    {
+                        "description": "the soil type was clay",
+                        "parameterName": "soil type",
+                        "parameterPUI": "PECO:0007155",
+                        "unit": "pH",
+                        "unitPUI": "PECO:0007059",
+                        "value": "clay soil",
+                        "valuePUI": "ENVO:00002262"
+                    }
+                ],
+                "experimentalDesign": {
+                    "PUI": "CO_715:0000145",
+                    "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information."
+                },
+                "growthFacility": {
+                    "PUI": "CO_715:0000162",
+                    "description": "field environment condition, greenhouse"
+                },
+                "lastUpdate": {
+                    "timestamp": "2018-01-01T14:47:23-0600",
+                    "version": "1.2.3"
+                },
+                "license": "MIT License",
+                "location": {
+                    "abbreviation": "L1",
+                    "additionalInfo": {},
+                    "altitude": 35.6,
+                    "coordinateDescription": "North East corner of greenhouse",
+                    "coordinates": {
+                        "geometry": {
+                            "coordinates": [
+                                -76.506042,
+                                42.417373
+                            ],
+                            "type": "Point"
+                        },
+                        "type": "Feature"
+                    },
+                    "countryCode": "PER",
+                    "countryName": "Peru",
+                    "documentationURL": "https://brapi.org",
+                    "environmentType": "Nursery",
+                    "exposure": "Structure, no exposure",
+                    "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
+                    "instituteName": "Plant Science Institute",
+                    "locationDbId": "3cfdd67d",
+                    "locationName": "Location 1",
+                    "locationType": "Storage Location",
+                    "siteStatus": "Private",
+                    "slope": 0,
+                    "topography": "Valley"
+                },
+                "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
+                "seasons": [
+                    "Spring_2018"
+                ],
+                "startDate": "2018-01-01",
+                "studyDbId": "175ac75a",
+                "studyDescription": "This is a yield study for Spring 2018",
+                "studyName": "Grape_Yield_Spring_2018",
+                "studyType": "Phenotyping",
+                "trialDbId": "48b327ea",
+                "trialName": "Grape_Yield_Trial"
+            }
+        ]
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
+```
+
+
+
+## Seasons [/brapi/v1/seasons] 
+
+
+
+
+### Get Seasons  [GET /brapi/v1/seasons{?seasonDbId}{?season}{?year}{?page}{?pageSize}]
+
+Call to retrieve all seasons in the database.
+
+A season is made of 2 parts; the primary year and a term which defines a segment of the year. 
+This could be a traditional season, like "Spring" or "Summer" or this could be a month, like 
+"May" or "June" or this could be an arbitrary season name which is meaningful to the breeding 
+program like "PlantingTime_3" or "Season E"
+
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|year|integer|The 4 digit year of the season.|
+
+
+ 
+
++ Parameters
+    + seasonDbId (Optional, ) ... The unique identifier for a season. For backward compatibility it can be a string like '2012', '1957-2004'
+    + season (Optional, ) ... The term to describe a given season. Example "Spring" OR "May" OR "Planting_Time_7".
+    + year (Optional, ) ... The 4 digit year of a season. Example "2017"
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "season": "Spring",
+                "seasonDbId": "Spring_2018",
+                "year": 2018
+            }
+        ]
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+
+## Studies [/brapi/v1/studies] 
+
+
+
+
+### Get Studies  [GET /brapi/v1/studies{?commonCropName}{?studyType}{?programDbId}{?locationDbId}{?seasonDbId}{?trialDbId}{?studyDbId}{?active}{?sortBy}{?sortOrder}{?page}{?pageSize}]
+
+Get list of studies
+
+StartDate and endDate should be ISO-8601 format for dates
+
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|active|boolean|Is this study currently active|
+|additionalInfo|object|Additional arbitrary info|
+|commonCropName|string|Common name for the crop associated with this study|
+|contacts|array[object]|List of contact entities associated with this study|
+|contactDbId|string|The ID which uniquely identifies this contact|
+|email|string|The contacts email address |
+|instituteName|string|The name of the institution which this contact is part of|
+|name|string|The full name of this contact person|
+|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
+|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
+|culturalPractices|string|General description of the cultural practices of the study.|
+|dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
+|dataLinkName|string|The name of the external data link|
+|type|string|The type of external data link|
+|url|string (uri)|The URL which links to external data|
+|version|string|The version number of the data set.|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|endDate|string (date)|The date the study ends|
+|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
+|description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
+|parameterName|string|Name of the environment parameter constant within the experiment|
+|parameterPUI|string|URI pointing to an ontology class for the parameter|
+|unit|string|Unit of the value for this parameter|
+|unitPUI|string|URI pointing to an ontology class for the unit|
+|value|string|Numerical or categorical value|
+|valuePUI|string|URI pointing to an ontology class for the parameter value|
+|experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
+|PUI|string||
+|description|string||
+|growthFacility|object|Short description of the facility in which the study was carried out.|
+|PUI|string||
+|description|string||
+|lastUpdate|object|The date and time when this study was last modified|
+|timestamp|string (date-time)||
+|version|string||
+|license|string|The usage license associated with the study data|
+|location|object||
+|abbreviation|string|An abbreviation which represents this location|
+|additionalInfo|object|Additional arbitrary info|
+|altitude|number|The altitude/elevation of this location (in meters)|
+|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
+|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geometry|object||
+|type|string|Feature|
+|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
+|countryName|string|The full name of the country where this location is|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
+|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|instituteAddress|string|The street address of the institute representing this location|
+|instituteName|string|each institute/laboratory can have several experimental field|
+|locationName|string|A human readable name for this location|
+|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
+|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
+|slope|string|Describes the approximate slope (height/distance) of the location.|
+|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
+|locationDbId|string|The unique identifier for a Location|
+|observationUnitsDescription|string|The human readable description of the observation units design|
+|seasons|array[string]|List of seasons over which this study was performed.|
+|startDate|string (date)|The date this study started|
+|studyDescription|string|The description of this study|
+|studyName|string|The human readable name for a study|
+|studyType|string|The type of study being performed. ex. "Yield Trial", etc|
+|trialDbId|string|The ID which uniquely identifies a trial|
+|trialName|string|The human readable name of a trial|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+
+
+ 
+
++ Parameters
+    + commonCropName (Optional, ) ... Common name for the crop associated with this study
+    + studyType (Optional, ) ... Filter based on study type unique identifier
+    + programDbId (Optional, ) ... Program filter to only return studies associated with given program id.
+    + locationDbId (Optional, ) ... Filter by location
+    + seasonDbId (Optional, ) ... Filter by season or year
+    + trialDbId (Optional, ) ... Filter by trial
+    + studyDbId (Optional, ) ... Filter by study DbId
+    + active (Optional, ) ... Filter active status true/false.
+    + sortBy (Optional, ) ... Name of the field to sort by.
+    + sortOrder (Optional, ) ... Sort order direction. Ascending/Descending.
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "active": true,
+                "additionalInfo": {},
+                "commonCropName": "Grape",
+                "contacts": [
+                    {
+                        "contactDbId": "5f4e5509",
+                        "email": "bob@bob.com",
+                        "instituteName": "The BrAPI Institute",
+                        "name": "Bob Robertson",
+                        "orcid": "http://orcid.org/0000-0001-8640-1750",
+                        "type": "PI"
+                    }
+                ],
+                "culturalPractices": "Irrigation was applied according needs during summer to prevent water stress.",
+                "dataLinks": [
+                    {
+                        "dataLinkName": "image-archive.zip",
+                        "type": "Image Archive",
+                        "url": "https://brapi.org/image-archive.zip",
+                        "version": "1.0.0"
+                    }
+                ],
+                "documentationURL": "https://wiki.brapi.org",
+                "endDate": "2018-01-01",
+                "environmentParameters": [
+                    {
+                        "description": "the soil type was clay",
+                        "parameterName": "soil type",
+                        "parameterPUI": "PECO:0007155",
+                        "unit": "pH",
+                        "unitPUI": "PECO:0007059",
+                        "value": "clay soil",
+                        "valuePUI": "ENVO:00002262"
+                    }
+                ],
+                "experimentalDesign": {
+                    "PUI": "CO_715:0000145",
+                    "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information."
+                },
+                "growthFacility": {
+                    "PUI": "CO_715:0000162",
+                    "description": "field environment condition, greenhouse"
+                },
+                "lastUpdate": {
+                    "timestamp": "2018-01-01T14:47:23-0600",
+                    "version": "1.2.3"
+                },
+                "license": "MIT License",
+                "location": {
+                    "abbreviation": "L1",
+                    "additionalInfo": {},
+                    "altitude": 35.6,
+                    "coordinateDescription": "North East corner of greenhouse",
+                    "coordinates": {
+                        "geometry": {
+                            "coordinates": [
+                                -76.506042,
+                                42.417373
+                            ],
+                            "type": "Point"
+                        },
+                        "type": "Feature"
+                    },
+                    "countryCode": "PER",
+                    "countryName": "Peru",
+                    "documentationURL": "https://brapi.org",
+                    "environmentType": "Nursery",
+                    "exposure": "Structure, no exposure",
+                    "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
+                    "instituteName": "Plant Science Institute",
+                    "locationDbId": "3cfdd67d",
+                    "locationName": "Location 1",
+                    "locationType": "Storage Location",
+                    "siteStatus": "Private",
+                    "slope": 0,
+                    "topography": "Valley"
+                },
+                "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
+                "seasons": [
+                    "Spring_2018"
+                ],
+                "startDate": "2018-01-01",
+                "studyDbId": "175ac75a",
+                "studyDescription": "This is a yield study for Spring 2018",
+                "studyName": "Grape_Yield_Spring_2018",
+                "studyType": "Phenotyping",
+                "trialDbId": "48b327ea",
+                "trialName": "Grape_Yield_Trial"
+            }
+        ]
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+
+
+
+### Post Studies  [POST /brapi/v1/studies]
+
+Create new studies
+
+Implementation Notes
+
+StartDate and endDate should be ISO-8601 format for dates
+
+`studDbId` is generated by the server.
+
+**Request Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|active|boolean|Is this study currently active|
+|additionalInfo|object|Additional arbitrary info|
+|commonCropName|string|Common name for the crop associated with this study|
+|contacts|array[object]|List of contact entities associated with this study|
+|contactDbId|string|The ID which uniquely identifies this contact|
+|email|string|The contacts email address |
+|instituteName|string|The name of the institution which this contact is part of|
+|name|string|The full name of this contact person|
+|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
+|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
+|culturalPractices|string|General description of the cultural practices of the study.|
+|dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
+|dataLinkName|string|The name of the external data link|
+|type|string|The type of external data link|
+|url|string (uri)|The URL which links to external data|
+|version|string|The version number of the data set.|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|endDate|string (date)|The date the study ends|
+|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
+|description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
+|parameterName|string|Name of the environment parameter constant within the experiment|
+|parameterPUI|string|URI pointing to an ontology class for the parameter|
+|unit|string|Unit of the value for this parameter|
+|unitPUI|string|URI pointing to an ontology class for the unit|
+|value|string|Numerical or categorical value|
+|valuePUI|string|URI pointing to an ontology class for the parameter value|
+|experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
+|PUI|string||
+|description|string||
+|growthFacility|object|Short description of the facility in which the study was carried out.|
+|PUI|string||
+|description|string||
+|lastUpdate|object|The date and time when this study was last modified|
+|timestamp|string (date-time)||
+|version|string||
+|license|string|The usage license associated with the study data|
+|location|object||
+|abbreviation|string|An abbreviation which represents this location|
+|additionalInfo|object|Additional arbitrary info|
+|altitude|number|The altitude/elevation of this location (in meters)|
+|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
+|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geometry|object||
+|type|string|Feature|
+|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
+|countryName|string|The full name of the country where this location is|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
+|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|instituteAddress|string|The street address of the institute representing this location|
+|instituteName|string|each institute/laboratory can have several experimental field|
+|locationName|string|A human readable name for this location|
+|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
+|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
+|slope|string|Describes the approximate slope (height/distance) of the location.|
+|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
+|locationDbId|string|The unique identifier for a Location|
+|observationUnitsDescription|string|The human readable description of the observation units design|
+|seasons|array[string]|List of seasons over which this study was performed.|
+|startDate|string (date)|The date this study started|
+|studyDescription|string|The description of this study|
+|studyName|string|The human readable name for a study|
+|studyType|string|The type of study being performed. ex. "Yield Trial", etc|
+|trialDbId|string|The ID which uniquely identifies a trial|
+|trialName|string|The human readable name of a trial|
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|active|boolean|Is this study currently active|
+|additionalInfo|object|Additional arbitrary info|
+|commonCropName|string|Common name for the crop associated with this study|
+|contacts|array[object]|List of contact entities associated with this study|
+|contactDbId|string|The ID which uniquely identifies this contact|
+|email|string|The contacts email address |
+|instituteName|string|The name of the institution which this contact is part of|
+|name|string|The full name of this contact person|
+|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
+|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
+|culturalPractices|string|General description of the cultural practices of the study.|
+|dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
+|dataLinkName|string|The name of the external data link|
+|type|string|The type of external data link|
+|url|string (uri)|The URL which links to external data|
+|version|string|The version number of the data set.|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|endDate|string (date)|The date the study ends|
+|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
+|description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
+|parameterName|string|Name of the environment parameter constant within the experiment|
+|parameterPUI|string|URI pointing to an ontology class for the parameter|
+|unit|string|Unit of the value for this parameter|
+|unitPUI|string|URI pointing to an ontology class for the unit|
+|value|string|Numerical or categorical value|
+|valuePUI|string|URI pointing to an ontology class for the parameter value|
+|experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
+|PUI|string||
+|description|string||
+|growthFacility|object|Short description of the facility in which the study was carried out.|
+|PUI|string||
+|description|string||
+|lastUpdate|object|The date and time when this study was last modified|
+|timestamp|string (date-time)||
+|version|string||
+|license|string|The usage license associated with the study data|
+|location|object||
+|abbreviation|string|An abbreviation which represents this location|
+|additionalInfo|object|Additional arbitrary info|
+|altitude|number|The altitude/elevation of this location (in meters)|
+|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
+|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geometry|object||
+|type|string|Feature|
+|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
+|countryName|string|The full name of the country where this location is|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
+|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|instituteAddress|string|The street address of the institute representing this location|
+|instituteName|string|each institute/laboratory can have several experimental field|
+|locationName|string|A human readable name for this location|
+|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
+|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
+|slope|string|Describes the approximate slope (height/distance) of the location.|
+|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
+|locationDbId|string|The unique identifier for a Location|
+|observationUnitsDescription|string|The human readable description of the observation units design|
+|seasons|array[string]|List of seasons over which this study was performed.|
+|startDate|string (date)|The date this study started|
+|studyDescription|string|The description of this study|
+|studyName|string|The human readable name for a study|
+|studyType|string|The type of study being performed. ex. "Yield Trial", etc|
+|trialDbId|string|The ID which uniquely identifies a trial|
+|trialName|string|The human readable name of a trial|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+
+
+ 
+
++ Parameters
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+ 
++ Request (application/json)
+```
+[
+    {
+        "active": true,
+        "additionalInfo": {},
+        "commonCropName": "Grape",
+        "contacts": [
+            {
+                "contactDbId": "5f4e5509",
+                "email": "bob@bob.com",
+                "instituteName": "The BrAPI Institute",
+                "name": "Bob Robertson",
+                "orcid": "http://orcid.org/0000-0001-8640-1750",
+                "type": "PI"
+            }
+        ],
+        "culturalPractices": "Irrigation was applied according needs during summer to prevent water stress.",
+        "dataLinks": [
+            {
+                "dataLinkName": "image-archive.zip",
+                "type": "Image Archive",
+                "url": "https://brapi.org/image-archive.zip",
+                "version": "1.0.0"
+            }
+        ],
+        "documentationURL": "https://wiki.brapi.org",
+        "endDate": "2018-01-01",
+        "environmentParameters": [
+            {
+                "description": "the soil type was clay",
+                "parameterName": "soil type",
+                "parameterPUI": "PECO:0007155",
+                "unit": "pH",
+                "unitPUI": "PECO:0007059",
+                "value": "clay soil",
+                "valuePUI": "ENVO:00002262"
+            }
+        ],
+        "experimentalDesign": {
+            "PUI": "CO_715:0000145",
+            "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information."
+        },
+        "growthFacility": {
+            "PUI": "CO_715:0000162",
+            "description": "field environment condition, greenhouse"
+        },
+        "lastUpdate": {
+            "timestamp": "2018-01-01T14:47:23-0600",
+            "version": "1.2.3"
+        },
+        "license": "MIT License",
+        "location": {
+            "abbreviation": "L1",
+            "additionalInfo": {},
+            "altitude": 35.6,
+            "coordinateDescription": "North East corner of greenhouse",
+            "coordinates": {
+                "geometry": {
+                    "coordinates": [
+                        -76.506042,
+                        42.417373
+                    ],
+                    "type": "Point"
+                },
+                "type": "Feature"
+            },
+            "countryCode": "PER",
+            "countryName": "Peru",
+            "documentationURL": "https://brapi.org",
+            "environmentType": "Nursery",
+            "exposure": "Structure, no exposure",
+            "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
+            "instituteName": "Plant Science Institute",
+            "locationDbId": "3cfdd67d",
+            "locationName": "Location 1",
+            "locationType": "Storage Location",
+            "siteStatus": "Private",
+            "slope": 0,
+            "topography": "Valley"
+        },
+        "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
+        "seasons": [
+            "Spring_2018"
+        ],
+        "startDate": "2018-01-01",
+        "studyDescription": "This is a yield study for Spring 2018",
+        "studyName": "Grape_Yield_Spring_2018",
+        "studyType": "Phenotyping",
+        "trialDbId": "48b327ea",
+        "trialName": "Grape_Yield_Trial"
+    }
+]
+```
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "active": true,
+                "additionalInfo": {},
+                "commonCropName": "Grape",
+                "contacts": [
+                    {
+                        "contactDbId": "5f4e5509",
+                        "email": "bob@bob.com",
+                        "instituteName": "The BrAPI Institute",
+                        "name": "Bob Robertson",
+                        "orcid": "http://orcid.org/0000-0001-8640-1750",
+                        "type": "PI"
+                    }
+                ],
+                "culturalPractices": "Irrigation was applied according needs during summer to prevent water stress.",
+                "dataLinks": [
+                    {
+                        "dataLinkName": "image-archive.zip",
+                        "type": "Image Archive",
+                        "url": "https://brapi.org/image-archive.zip",
+                        "version": "1.0.0"
+                    }
+                ],
+                "documentationURL": "https://wiki.brapi.org",
+                "endDate": "2018-01-01",
+                "environmentParameters": [
+                    {
+                        "description": "the soil type was clay",
+                        "parameterName": "soil type",
+                        "parameterPUI": "PECO:0007155",
+                        "unit": "pH",
+                        "unitPUI": "PECO:0007059",
+                        "value": "clay soil",
+                        "valuePUI": "ENVO:00002262"
+                    }
+                ],
+                "experimentalDesign": {
+                    "PUI": "CO_715:0000145",
+                    "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information."
+                },
+                "growthFacility": {
+                    "PUI": "CO_715:0000162",
+                    "description": "field environment condition, greenhouse"
+                },
+                "lastUpdate": {
+                    "timestamp": "2018-01-01T14:47:23-0600",
+                    "version": "1.2.3"
+                },
+                "license": "MIT License",
+                "location": {
+                    "abbreviation": "L1",
+                    "additionalInfo": {},
+                    "altitude": 35.6,
+                    "coordinateDescription": "North East corner of greenhouse",
+                    "coordinates": {
+                        "geometry": {
+                            "coordinates": [
+                                -76.506042,
+                                42.417373
+                            ],
+                            "type": "Point"
+                        },
+                        "type": "Feature"
+                    },
+                    "countryCode": "PER",
+                    "countryName": "Peru",
+                    "documentationURL": "https://brapi.org",
+                    "environmentType": "Nursery",
+                    "exposure": "Structure, no exposure",
+                    "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
+                    "instituteName": "Plant Science Institute",
+                    "locationDbId": "3cfdd67d",
+                    "locationName": "Location 1",
+                    "locationType": "Storage Location",
+                    "siteStatus": "Private",
+                    "slope": 0,
+                    "topography": "Valley"
+                },
+                "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
+                "seasons": [
+                    "Spring_2018"
+                ],
+                "startDate": "2018-01-01",
+                "studyDbId": "175ac75a",
+                "studyDescription": "This is a yield study for Spring 2018",
+                "studyName": "Grape_Yield_Spring_2018",
+                "studyType": "Phenotyping",
+                "trialDbId": "48b327ea",
+                "trialName": "Grape_Yield_Trial"
+            }
+        ]
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+
+
+
+### Get Studies by studyDbId  [GET /brapi/v1/studies/{studyDbId}]
+
+Retrieve the information of the study required for field data collection
+
+An additionalInfo field was added to provide a controlled vocabulary for less common data fields.
+
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|active|boolean|Is this study currently active|
+|additionalInfo|object|Additional arbitrary info|
+|commonCropName|string|Common name for the crop associated with this study|
+|contacts|array[object]|List of contact entities associated with this study|
+|contactDbId|string|The ID which uniquely identifies this contact|
+|email|string|The contacts email address |
+|instituteName|string|The name of the institution which this contact is part of|
+|name|string|The full name of this contact person|
+|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
+|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
+|culturalPractices|string|General description of the cultural practices of the study.|
+|dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
+|dataLinkName|string|The name of the external data link|
+|type|string|The type of external data link|
+|url|string (uri)|The URL which links to external data|
+|version|string|The version number of the data set.|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|endDate|string (date)|The date the study ends|
+|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
+|description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
+|parameterName|string|Name of the environment parameter constant within the experiment|
+|parameterPUI|string|URI pointing to an ontology class for the parameter|
+|unit|string|Unit of the value for this parameter|
+|unitPUI|string|URI pointing to an ontology class for the unit|
+|value|string|Numerical or categorical value|
+|valuePUI|string|URI pointing to an ontology class for the parameter value|
+|experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
+|PUI|string||
+|description|string||
+|growthFacility|object|Short description of the facility in which the study was carried out.|
+|PUI|string||
+|description|string||
+|lastUpdate|object|The date and time when this study was last modified|
+|timestamp|string (date-time)||
+|version|string||
+|license|string|The usage license associated with the study data|
+|location|object||
+|abbreviation|string|An abbreviation which represents this location|
+|additionalInfo|object|Additional arbitrary info|
+|altitude|number|The altitude/elevation of this location (in meters)|
+|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
+|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geometry|object||
+|type|string|Feature|
+|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
+|countryName|string|The full name of the country where this location is|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
+|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|instituteAddress|string|The street address of the institute representing this location|
+|instituteName|string|each institute/laboratory can have several experimental field|
+|locationName|string|A human readable name for this location|
+|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
+|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
+|slope|string|Describes the approximate slope (height/distance) of the location.|
+|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
+|locationDbId|string|The unique identifier for a Location|
+|observationUnitsDescription|string|The human readable description of the observation units design|
+|seasons|array[string]|List of seasons over which this study was performed.|
+|startDate|string (date)|The date this study started|
+|studyDescription|string|The description of this study|
+|studyName|string|The human readable name for a study|
+|studyType|string|The type of study being performed. ex. "Yield Trial", etc|
+|trialDbId|string|The ID which uniquely identifies a trial|
+|trialName|string|The human readable name of a trial|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+
+
+ 
+
++ Parameters
+    + studyDbId (Required, ) ... Identifier of the study. Usually a number, could be alphanumeric.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "active": true,
+        "additionalInfo": {},
+        "commonCropName": "Grape",
+        "contacts": [
+            {
+                "contactDbId": "5f4e5509",
+                "email": "bob@bob.com",
+                "instituteName": "The BrAPI Institute",
+                "name": "Bob Robertson",
+                "orcid": "http://orcid.org/0000-0001-8640-1750",
+                "type": "PI"
+            }
+        ],
+        "culturalPractices": "Irrigation was applied according needs during summer to prevent water stress.",
+        "dataLinks": [
+            {
+                "dataLinkName": "image-archive.zip",
+                "type": "Image Archive",
+                "url": "https://brapi.org/image-archive.zip",
+                "version": "1.0.0"
+            }
+        ],
+        "documentationURL": "https://wiki.brapi.org",
+        "endDate": "2018-01-01",
+        "environmentParameters": [
+            {
+                "description": "the soil type was clay",
+                "parameterName": "soil type",
+                "parameterPUI": "PECO:0007155",
+                "unit": "pH",
+                "unitPUI": "PECO:0007059",
+                "value": "clay soil",
+                "valuePUI": "ENVO:00002262"
+            }
+        ],
+        "experimentalDesign": {
+            "PUI": "CO_715:0000145",
+            "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information."
+        },
+        "growthFacility": {
+            "PUI": "CO_715:0000162",
+            "description": "field environment condition, greenhouse"
+        },
+        "lastUpdate": {
+            "timestamp": "2018-01-01T14:47:23-0600",
+            "version": "1.2.3"
+        },
+        "license": "MIT License",
+        "location": {
+            "abbreviation": "L1",
+            "additionalInfo": {},
+            "altitude": 35.6,
+            "coordinateDescription": "North East corner of greenhouse",
+            "coordinates": {
+                "geometry": {
+                    "coordinates": [
+                        -76.506042,
+                        42.417373
+                    ],
+                    "type": "Point"
+                },
+                "type": "Feature"
+            },
+            "countryCode": "PER",
+            "countryName": "Peru",
+            "documentationURL": "https://brapi.org",
+            "environmentType": "Nursery",
+            "exposure": "Structure, no exposure",
+            "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
+            "instituteName": "Plant Science Institute",
+            "locationDbId": "3cfdd67d",
+            "locationName": "Location 1",
+            "locationType": "Storage Location",
+            "siteStatus": "Private",
+            "slope": 0,
+            "topography": "Valley"
+        },
+        "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
+        "seasons": [
+            "Spring_2018"
+        ],
+        "startDate": "2018-01-01",
+        "studyDbId": "175ac75a",
+        "studyDescription": "This is a yield study for Spring 2018",
+        "studyName": "Grape_Yield_Spring_2018",
+        "studyType": "Phenotyping",
+        "trialDbId": "48b327ea",
+        "trialName": "Grape_Yield_Trial"
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
+```
+
+
+
+
+
+### Put Studies by studyDbId  [PUT /brapi/v1/studies/{studyDbId}]
+
+Update an existing Study with new data
+
+**Request Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|active|boolean|Is this study currently active|
+|additionalInfo|object|Additional arbitrary info|
+|commonCropName|string|Common name for the crop associated with this study|
+|contacts|array[object]|List of contact entities associated with this study|
+|contactDbId|string|The ID which uniquely identifies this contact|
+|email|string|The contacts email address |
+|instituteName|string|The name of the institution which this contact is part of|
+|name|string|The full name of this contact person|
+|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
+|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
+|culturalPractices|string|General description of the cultural practices of the study.|
+|dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
+|dataLinkName|string|The name of the external data link|
+|type|string|The type of external data link|
+|url|string (uri)|The URL which links to external data|
+|version|string|The version number of the data set.|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|endDate|string (date)|The date the study ends|
+|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
+|description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
+|parameterName|string|Name of the environment parameter constant within the experiment|
+|parameterPUI|string|URI pointing to an ontology class for the parameter|
+|unit|string|Unit of the value for this parameter|
+|unitPUI|string|URI pointing to an ontology class for the unit|
+|value|string|Numerical or categorical value|
+|valuePUI|string|URI pointing to an ontology class for the parameter value|
+|experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
+|PUI|string||
+|description|string||
+|growthFacility|object|Short description of the facility in which the study was carried out.|
+|PUI|string||
+|description|string||
+|lastUpdate|object|The date and time when this study was last modified|
+|timestamp|string (date-time)||
+|version|string||
+|license|string|The usage license associated with the study data|
+|location|object||
+|abbreviation|string|An abbreviation which represents this location|
+|additionalInfo|object|Additional arbitrary info|
+|altitude|number|The altitude/elevation of this location (in meters)|
+|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
+|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geometry|object||
+|type|string|Feature|
+|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
+|countryName|string|The full name of the country where this location is|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
+|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|instituteAddress|string|The street address of the institute representing this location|
+|instituteName|string|each institute/laboratory can have several experimental field|
+|locationName|string|A human readable name for this location|
+|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
+|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
+|slope|string|Describes the approximate slope (height/distance) of the location.|
+|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
+|locationDbId|string|The unique identifier for a Location|
+|observationUnitsDescription|string|The human readable description of the observation units design|
+|seasons|array[string]|List of seasons over which this study was performed.|
+|startDate|string (date)|The date this study started|
+|studyDescription|string|The description of this study|
+|studyName|string|The human readable name for a study|
+|studyType|string|The type of study being performed. ex. "Yield Trial", etc|
+|trialDbId|string|The ID which uniquely identifies a trial|
+|trialName|string|The human readable name of a trial|
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|active|boolean|Is this study currently active|
+|additionalInfo|object|Additional arbitrary info|
+|commonCropName|string|Common name for the crop associated with this study|
+|contacts|array[object]|List of contact entities associated with this study|
+|contactDbId|string|The ID which uniquely identifies this contact|
+|email|string|The contacts email address |
+|instituteName|string|The name of the institution which this contact is part of|
+|name|string|The full name of this contact person|
+|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
+|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
+|culturalPractices|string|General description of the cultural practices of the study.|
+|dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
+|dataLinkName|string|The name of the external data link|
+|type|string|The type of external data link|
+|url|string (uri)|The URL which links to external data|
+|version|string|The version number of the data set.|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|endDate|string (date)|The date the study ends|
+|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
+|description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
+|parameterName|string|Name of the environment parameter constant within the experiment|
+|parameterPUI|string|URI pointing to an ontology class for the parameter|
+|unit|string|Unit of the value for this parameter|
+|unitPUI|string|URI pointing to an ontology class for the unit|
+|value|string|Numerical or categorical value|
+|valuePUI|string|URI pointing to an ontology class for the parameter value|
+|experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
+|PUI|string||
+|description|string||
+|growthFacility|object|Short description of the facility in which the study was carried out.|
+|PUI|string||
+|description|string||
+|lastUpdate|object|The date and time when this study was last modified|
+|timestamp|string (date-time)||
+|version|string||
+|license|string|The usage license associated with the study data|
+|location|object||
+|abbreviation|string|An abbreviation which represents this location|
+|additionalInfo|object|Additional arbitrary info|
+|altitude|number|The altitude/elevation of this location (in meters)|
+|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
+|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geometry|object||
+|type|string|Feature|
+|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
+|countryName|string|The full name of the country where this location is|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
+|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|instituteAddress|string|The street address of the institute representing this location|
+|instituteName|string|each institute/laboratory can have several experimental field|
+|locationName|string|A human readable name for this location|
+|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
+|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
+|slope|string|Describes the approximate slope (height/distance) of the location.|
+|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
+|locationDbId|string|The unique identifier for a Location|
+|observationUnitsDescription|string|The human readable description of the observation units design|
+|seasons|array[string]|List of seasons over which this study was performed.|
+|startDate|string (date)|The date this study started|
+|studyDescription|string|The description of this study|
+|studyName|string|The human readable name for a study|
+|studyType|string|The type of study being performed. ex. "Yield Trial", etc|
+|trialDbId|string|The ID which uniquely identifies a trial|
+|trialName|string|The human readable name of a trial|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+
+
+ 
+
++ Parameters
+    + studyDbId (Required, ) ... Identifier of the study. Usually a number, could be alphanumeric.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+ 
++ Request (application/json)
+```
+{
+    "active": true,
+    "additionalInfo": {},
+    "commonCropName": "Grape",
+    "contacts": [
+        {
+            "contactDbId": "5f4e5509",
+            "email": "bob@bob.com",
+            "instituteName": "The BrAPI Institute",
+            "name": "Bob Robertson",
+            "orcid": "http://orcid.org/0000-0001-8640-1750",
+            "type": "PI"
+        }
+    ],
+    "culturalPractices": "Irrigation was applied according needs during summer to prevent water stress.",
+    "dataLinks": [
+        {
+            "dataLinkName": "image-archive.zip",
+            "type": "Image Archive",
+            "url": "https://brapi.org/image-archive.zip",
+            "version": "1.0.0"
+        }
+    ],
+    "documentationURL": "https://wiki.brapi.org",
+    "endDate": "2018-01-01",
+    "environmentParameters": [
+        {
+            "description": "the soil type was clay",
+            "parameterName": "soil type",
+            "parameterPUI": "PECO:0007155",
+            "unit": "pH",
+            "unitPUI": "PECO:0007059",
+            "value": "clay soil",
+            "valuePUI": "ENVO:00002262"
+        }
+    ],
+    "experimentalDesign": {
+        "PUI": "CO_715:0000145",
+        "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information."
+    },
+    "growthFacility": {
+        "PUI": "CO_715:0000162",
+        "description": "field environment condition, greenhouse"
+    },
+    "lastUpdate": {
+        "timestamp": "2018-01-01T14:47:23-0600",
+        "version": "1.2.3"
+    },
+    "license": "MIT License",
+    "location": {
+        "abbreviation": "L1",
+        "additionalInfo": {},
+        "altitude": 35.6,
+        "coordinateDescription": "North East corner of greenhouse",
+        "coordinates": {
+            "geometry": {
+                "coordinates": [
+                    -76.506042,
+                    42.417373
+                ],
+                "type": "Point"
+            },
+            "type": "Feature"
+        },
+        "countryCode": "PER",
+        "countryName": "Peru",
+        "documentationURL": "https://brapi.org",
+        "environmentType": "Nursery",
+        "exposure": "Structure, no exposure",
+        "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
+        "instituteName": "Plant Science Institute",
+        "locationDbId": "3cfdd67d",
+        "locationName": "Location 1",
+        "locationType": "Storage Location",
+        "siteStatus": "Private",
+        "slope": 0,
+        "topography": "Valley"
+    },
+    "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
+    "seasons": [
+        "Spring_2018"
+    ],
+    "startDate": "2018-01-01",
+    "studyDescription": "This is a yield study for Spring 2018",
+    "studyName": "Grape_Yield_Spring_2018",
+    "studyType": "Phenotyping",
+    "trialDbId": "48b327ea",
+    "trialName": "Grape_Yield_Trial"
+}
+```
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "active": true,
+        "additionalInfo": {},
+        "commonCropName": "Grape",
+        "contacts": [
+            {
+                "contactDbId": "5f4e5509",
+                "email": "bob@bob.com",
+                "instituteName": "The BrAPI Institute",
+                "name": "Bob Robertson",
+                "orcid": "http://orcid.org/0000-0001-8640-1750",
+                "type": "PI"
+            }
+        ],
+        "culturalPractices": "Irrigation was applied according needs during summer to prevent water stress.",
+        "dataLinks": [
+            {
+                "dataLinkName": "image-archive.zip",
+                "type": "Image Archive",
+                "url": "https://brapi.org/image-archive.zip",
+                "version": "1.0.0"
+            }
+        ],
+        "documentationURL": "https://wiki.brapi.org",
+        "endDate": "2018-01-01",
+        "environmentParameters": [
+            {
+                "description": "the soil type was clay",
+                "parameterName": "soil type",
+                "parameterPUI": "PECO:0007155",
+                "unit": "pH",
+                "unitPUI": "PECO:0007059",
+                "value": "clay soil",
+                "valuePUI": "ENVO:00002262"
+            }
+        ],
+        "experimentalDesign": {
+            "PUI": "CO_715:0000145",
+            "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information."
+        },
+        "growthFacility": {
+            "PUI": "CO_715:0000162",
+            "description": "field environment condition, greenhouse"
+        },
+        "lastUpdate": {
+            "timestamp": "2018-01-01T14:47:23-0600",
+            "version": "1.2.3"
+        },
+        "license": "MIT License",
+        "location": {
+            "abbreviation": "L1",
+            "additionalInfo": {},
+            "altitude": 35.6,
+            "coordinateDescription": "North East corner of greenhouse",
+            "coordinates": {
+                "geometry": {
+                    "coordinates": [
+                        -76.506042,
+                        42.417373
+                    ],
+                    "type": "Point"
+                },
+                "type": "Feature"
+            },
+            "countryCode": "PER",
+            "countryName": "Peru",
+            "documentationURL": "https://brapi.org",
+            "environmentType": "Nursery",
+            "exposure": "Structure, no exposure",
+            "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
+            "instituteName": "Plant Science Institute",
+            "locationDbId": "3cfdd67d",
+            "locationName": "Location 1",
+            "locationType": "Storage Location",
+            "siteStatus": "Private",
+            "slope": 0,
+            "topography": "Valley"
+        },
+        "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
+        "seasons": [
+            "Spring_2018"
+        ],
+        "startDate": "2018-01-01",
+        "studyDbId": "175ac75a",
+        "studyDescription": "This is a yield study for Spring 2018",
+        "studyName": "Grape_Yield_Spring_2018",
+        "studyType": "Phenotyping",
+        "trialDbId": "48b327ea",
+        "trialName": "Grape_Yield_Trial"
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
+```
+
+
+
+## Studytypes [/brapi/v1/studytypes] 
+
+
+
+
+### Get Studytypes  [GET /brapi/v1/studytypes{?page}{?pageSize}]
+
+Call to retrieve the list of study types.
 
 
 
@@ -33,2790 +1808,7 @@ The values are used to supply the `observationLevel` parameter in the observatio
 + Parameters
     + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 2,
-            "totalCount": 11,
-            "totalPages": 6
-        },
-        "status": []
-    },
-    "result": {
-        "data": [
-            "plot",
-            "plant"
-        ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
-```
-
-
-
-## Search [/brapi/v1/search] 
-
-
-
-
-### Post Search Studies  [POST /brapi/v1/search/studies]
-
-Get list of studies
-StartDate and endDate should be ISO8601 format for dates
-See Search Services for additional implementation details.
-
-**Request Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|active|boolean|Is this study currently active|
-|commonCropNames|array[string]|Common names for the crop associated with this study|
-|germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm|
-|locationDbIds|array[string]|List of location names to filter search results|
-|observationVariableDbIds|array[string]|List of observation variable IDs to search for|
-|page|integer|Which page of the "data" array to return. The page indexing starts at 0 (page=0 will return the first page). Default is 0.|
-|pageSize|integer|The maximum number of items to return per page of the "data" array. Default is 1000.|
-|programDbIds|array[string]|List of program identifiers to filter search results|
-|programNames|array[string]|List of program names to filter search results|
-|seasonDbIds|array[string]|The ID which uniquely identifies a season|
-|sortBy|string|Name of one of the fields within the study object on which results can be sorted|
-|sortOrder|string|Order results should be sorted. ex. "ASC" or "DESC"|
-|studyDbIds|array[string]|List of study identifiers to search for|
-|studyNames|array[string]|List of study names to filter search results|
-|studyTypeDbIds|array[string]|The unique identifier of the type of study being performed.|
-|studyTypeNames|array[string]|The name of the type of study being performed. ex. "Yield Trial", etc|
-|trialDbIds|array[string]|List of trial identifiers to filter search results|
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|searchResultDbId|string||
-
-
- 
-
-+ Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
-
-
- 
-+ Request (application/json)
-```
-{
-    "commonCropNames": [
-        "commonCropNames0",
-        "commonCropNames1"
-    ],
-    "germplasmDbIds": [
-        "germplasmDbIds0",
-        "germplasmDbIds1"
-    ],
-    "locationDbIds": [
-        "locationDbIds0",
-        "locationDbIds1"
-    ],
-    "observationVariableDbIds": [
-        "observationVariableDbIds0",
-        "observationVariableDbIds1"
-    ],
-    "page": 0,
-    "pageSize": 0,
-    "programDbIds": [
-        "programDbIds0",
-        "programDbIds1"
-    ],
-    "programNames": [
-        "programNames0",
-        "programNames1"
-    ],
-    "seasonDbIds": [
-        "seasonDbIds0",
-        "seasonDbIds1"
-    ],
-    "sortBy": "studyDbId",
-    "sortOrder": "ASC",
-    "studyDbIds": [
-        "studyDbIds0",
-        "studyDbIds1"
-    ],
-    "studyNames": [
-        "studyNames0",
-        "studyNames1"
-    ],
-    "studyTypeDbIds": [
-        "studyTypeDbIds0",
-        "studyTypeDbIds1"
-    ],
-    "studyTypeNames": [
-        "studyTypeNames0",
-        "studyTypeNames1"
-    ],
-    "trialDbIds": [
-        "trialDbIds0",
-        "trialDbIds1"
-    ]
-}
-```
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 0,
-            "totalCount": 0,
-            "totalPages": 0
-        },
-        "status": []
-    },
-    "result": {
-        "searchResultDbId": "551ae08c-4548-4bde-ad70-f23beb25e2ea"
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
-```
-
-
-
-
-
-### Get Search Studies by searchResultsDbId  [GET /brapi/v1/search/studies/{searchResultsDbId}{?page}{?pageSize}]
-
-Get list of studies
-
-StartDate and endDate should be ISO8601 format for dates
-
-See Search Services for additional implementation details.
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|active|string|Is this study currently active|
-|additionalInfo|object|Additional arbitrary info|
-|commonCropName|string|Common name for the crop associated with this study|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|endDate|string (date)|The date the study ends|
-|locationDbId|string|The ID which uniquely identifies a location|
-|locationName|string|The human readable name for a location|
-|programDbId|string|The ID which uniquely identifies a program within the given database server|
-|programName|string|The humane readable name of a program|
-|seasons|array[object]|List of seasons over which this study was performed.|
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
-|seasonDbId|string|The ID which uniquely identifies a season|
-|year|string|The 4 digit year of the season.|
-|startDate|string (date)|The date this study started|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|studyName|string|The humane readable name of a study|
-|studyTypeDbId|string|The unique identifier of the type of study being performed.|
-|studyTypeName|string|The name of the type of study being performed. ex. "Yield Trial", etc|
-|trialDbId|string|The ID which uniquely identifies a trial|
-|trialName|string|The human readable name of a trial|
-
-
- 
-
-+ Parameters
-    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 2,
-            "totalCount": 2,
-            "totalPages": 1
-        },
-        "status": []
-    },
-    "result": {
-        "data": [
-            {
-                "active": "true",
-                "additionalInfo": {
-                    "studyObjective": "Increase yield"
-                },
-                "commonCropName": "Tomatillo",
-                "documentationURL": "https://brapi.org",
-                "endDate": "2014-01-01",
-                "locationDbId": "1",
-                "locationName": "Location 1",
-                "name": "Study 1",
-                "programDbId": "1",
-                "programName": "Program 1",
-                "seasons": [
-                    {
-                        "season": "fall",
-                        "seasonDbId": "1",
-                        "year": "2011"
-                    },
-                    {
-                        "season": "winter",
-                        "seasonDbId": "2",
-                        "year": "2012"
-                    }
-                ],
-                "startDate": "2013-01-01",
-                "studyDbId": "1001",
-                "studyName": "Study 1",
-                "studyType": "Yield study",
-                "studyTypeDbId": "2",
-                "studyTypeName": "Yield study",
-                "trialDbId": "101",
-                "trialName": "Peru Yield Trial 1"
-            },
-            {
-                "active": "true",
-                "additionalInfo": {
-                    "publications": "pmid:23643517318968"
-                },
-                "commonCropName": "Tomatillo",
-                "documentationURL": "https://brapi.org",
-                "endDate": "2015-01-01",
-                "locationDbId": "1",
-                "locationName": "Location 1",
-                "name": "Study 2",
-                "programDbId": "1",
-                "programName": "Program 1",
-                "seasons": [
-                    {
-                        "season": "winter",
-                        "seasonDbId": "2",
-                        "year": "2012"
-                    }
-                ],
-                "startDate": "2014-01-01",
-                "studyDbId": "1002",
-                "studyName": "Study 2",
-                "studyType": "Yield study",
-                "studyTypeDbId": "2",
-                "studyTypeName": "Yield study",
-                "trialDbId": "101",
-                "trialName": "Peru Yield Trial 1"
-            }
-        ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
-```
-
-+ Response 404 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
-```
-
-
-
-## Seasons [/brapi/v1/seasons] 
-
-
-
-
-### Get Seasons  [GET /brapi/v1/seasons{?seasonDbId}{?season}{?year}{?page}{?pageSize}]
-
-Call to retrive all seasons in the database.
-
-A season is made of 2 parts
-
-- The primary year 
-
-- A term which defines a segment of the year. 
-This could be a traditional season, like "Spring" or "Summer"; 
-this could be a month, like "May" or "June"; 
-or this could be an arbitrary season name which is meaningful to the breeding program like "PlantingTime_3" or "Season E"
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
-|seasonDbId|string|The ID which uniquely identifies a season|
-|year|string|The 4 digit year of the season.|
-
-
- 
-
-+ Parameters
-    + seasonDbId (Optional, ) ... The unique identifier for a season
-    + season (Optional, ) ... The term to describe a given season. Example "Spring" OR "May" OR "PlantingTime7"
-    + year (Optional, ) ... The 4 digit year of a season. Example "2017"
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 2,
-            "totalCount": 10,
-            "totalPages": 5
-        },
-        "status": []
-    },
-    "result": {
-        "data": [
-            {
-                "season": "fall",
-                "seasonDbId": "1",
-                "year": "2011"
-            },
-            {
-                "season": "winter",
-                "seasonDbId": "2",
-                "year": "2012"
-            }
-        ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
-```
-
-
-
-## Studies [/brapi/v1/studies] 
-
-
-
-
-### Get Studies  [GET /brapi/v1/studies{?commonCropName}{?studyTypeDbId}{?programDbId}{?locationDbId}{?seasonDbId}{?trialDbId}{?studyDbId}{?active}{?sortBy}{?sortOrder}{?page}{?pageSize}]
-
-Get list of studies
-
-Implementation Notes
-
-StartDate and endDate should be ISO8601 format for dates
-
-See Search Services for additional implementation details.
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|active|string|Is this study currently active|
-|additionalInfo|object|Additional arbitrary info|
-|commonCropName|string|Common name for the crop associated with this study|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|endDate|string (date)|The date the study ends|
-|locationDbId|string|The ID which uniquely identifies a location|
-|locationName|string|The human readable name for a location|
-|programDbId|string|The ID which uniquely identifies a program within the given database server|
-|programName|string|The humane readable name of a program|
-|seasons|array[object]|List of seasons over which this study was performed.|
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
-|seasonDbId|string|The ID which uniquely identifies a season|
-|year|string|The 4 digit year of the season.|
-|startDate|string (date)|The date this study started|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|studyName|string|The humane readable name of a study|
-|studyTypeDbId|string|The unique identifier of the type of study being performed.|
-|studyTypeName|string|The name of the type of study being performed. ex. "Yield Trial", etc|
-|trialDbId|string|The ID which uniquely identifies a trial|
-|trialName|string|The human readable name of a trial|
-
-
- 
-
-+ Parameters
-    + commonCropName (Optional, ) ... Common name for the crop associated with this study
-    + studyTypeDbId (Optional, ) ... Filter based on study type unique identifier
-    + programDbId (Optional, ) ... Program filter to only return studies associated with given program id.
-    + locationDbId (Optional, ) ... Filter by location
-    + seasonDbId (Optional, ) ... Filter by season or year
-    + trialDbId (Optional, ) ... Filter by trial
-    + studyDbId (Optional, ) ... Filter by study DbId
-    + active (Optional, ) ... Filter active status true/false.
-    + sortBy (Optional, ) ... Name of the field to sort by.
-    + sortOrder (Optional, ) ... Sort order direction. Ascending/Descending.
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 2,
-            "totalCount": 2,
-            "totalPages": 1
-        },
-        "status": []
-    },
-    "result": {
-        "data": [
-            {
-                "active": "true",
-                "additionalInfo": {
-                    "studyObjective": "Increase yield"
-                },
-                "commonCropName": "Tomatillo",
-                "documentationURL": "https://brapi.org",
-                "endDate": "2014-01-01",
-                "locationDbId": "1",
-                "locationName": "Location 1",
-                "name": "Study 1",
-                "programDbId": "1",
-                "programName": "Program 1",
-                "seasons": [
-                    {
-                        "season": "fall",
-                        "seasonDbId": "1",
-                        "year": "2011"
-                    },
-                    {
-                        "season": "winter",
-                        "seasonDbId": "2",
-                        "year": "2012"
-                    }
-                ],
-                "startDate": "2013-01-01",
-                "studyDbId": "1001",
-                "studyName": "Study 1",
-                "studyType": "Yield study",
-                "studyTypeDbId": "2",
-                "studyTypeName": "Yield study",
-                "trialDbId": "101",
-                "trialName": "Peru Yield Trial 1"
-            },
-            {
-                "active": "true",
-                "additionalInfo": {
-                    "publications": "pmid:23643517318968"
-                },
-                "commonCropName": "Tomatillo",
-                "documentationURL": "https://brapi.org",
-                "endDate": "2015-01-01",
-                "locationDbId": "1",
-                "locationName": "Location 1",
-                "name": "Study 2",
-                "programDbId": "1",
-                "programName": "Program 1",
-                "seasons": [
-                    {
-                        "season": "winter",
-                        "seasonDbId": "2",
-                        "year": "2012"
-                    }
-                ],
-                "startDate": "2014-01-01",
-                "studyDbId": "1002",
-                "studyName": "Study 2",
-                "studyType": "Yield study",
-                "studyTypeDbId": "2",
-                "studyTypeName": "Yield study",
-                "trialDbId": "101",
-                "trialName": "Peru Yield Trial 1"
-            }
-        ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
-```
-
-
-
-
-
-### Get Studies by studyDbId  [GET /brapi/v1/studies/{studyDbId}]
-
-Retrieve the information of the study required for field data collection
-
-An additionalInfo field was added to provide a controlled vocabulary for less common data fields.
-
-Linked data
-
-- Observation Variables: ```/brapi/v1/studies/{studyDbId}/observationvariables``` 
-
-- Germplasm: ```/brapi/v1/studies/{studyDbId}/germplasm``` 
-
-- Observation Units: ```/brapi/v1/studies/{studyDbId}/observationunits``` 
-
-- Layout: ```brapi/v1/studies/{studyDbId}/layout```
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|active|string|Is this study currently active|
-|additionalInfo|object|Additional arbitrary info|
-|commonCropName|string|Common name for the crop associated with this study|
-|contacts|array[object]|List of contact entities associated with this study|
-|contactDbId|string|The ID which uniquely identifies this contact|
-|email|string|The contacts email address |
-|instituteName|string|The name of the institution which this contact is part of|
-|name|string|The full name of this contact person|
-|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
-|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
-|dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
-|dataLinkName|string|The name of the external data link|
-|type|string|The type of external data link|
-|url|string|The URL which links to external data|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|endDate|string (date)|The date the study ends|
-|lastUpdate|object|The date and time when this study was last modified|
-|timestamp|string (date-time)||
-|version|string||
-|license|string|The usage license associated with the study data|
-|location|object||
-|abbreviation|string|An abbreviation which represents this location|
-|additionalInfo|object|Additional arbitrary info|
-|altitude|number|The altitude of this location|
-|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
-|countryName|string|The full name of the country where this location is|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|instituteAddress|string|The street address of the institute representing this location|
-|instituteName|string|each institute/laboratory can have several experimental field|
-|latitude|number|The latitude of this location|
-|locationDbId|string|string identifier|
-|locationName|string|A human readable name for this location|
-|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
-|longitude|number|the longitude of this location|
-|seasons|array[string]|List of seasons over which this study was performed.|
-|startDate|string (date)|The date this study started|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|studyDescription|string|The description of this study|
-|studyName|string|The human readable name for a study|
-|studyTypeDbId|string|The unique identifier of the type of study being performed.|
-|studyTypeName|string|The name of the type of study being performed. ex. "Yield Trial", etc|
-|trialDbId|string|The ID which uniquely identifies a trial|
-|trialName|string|The human readable name of a trial|
-
-
- 
-
-+ Parameters
-    + studyDbId (Required, ) ... Identifier of the study. Usually a number, could be alphanumeric.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 0,
-            "totalCount": 0,
-            "totalPages": 0
-        },
-        "status": []
-    },
-    "result": {
-        "active": "true",
-        "additionalInfo": {
-            "studyObjective": "Increase yield"
-        },
-        "commonCropName": "Tomatillo",
-        "contacts": [
-            {
-                "contactDbId": "1",
-                "email": "a.breeder@brapi.org",
-                "instituteName": "Plant Science Institute",
-                "name": "A. Breeder",
-                "orcid": "0000-0002-0607-8728",
-                "type": "Breeder"
-            },
-            {
-                "contactDbId": "2",
-                "email": "b.breeder@brapi.org",
-                "instituteName": "Plant Science Institute",
-                "name": "B. Breeder",
-                "orcid": "0000-0002-0607-8729",
-                "type": "Breeder"
-            }
-        ],
-        "dataLinks": [
-            {
-                "dataLinkName": "image-archive12.zip",
-                "name": "image-archive12.zip",
-                "type": "Image archive",
-                "url": "http://data.inra.fr/archive/multi-spect-flowering.zip"
-            },
-            {
-                "dataLinkName": "image-archive13.zip",
-                "name": "image-archive13.zip",
-                "type": "Image archive",
-                "url": "http://data.inra.fr/archive/biomass-img.zip"
-            }
-        ],
-        "documentationURL": "https://brapi.org",
-        "endDate": "2014-01-01",
-        "lastUpdate": {
-            "timestamp": "2015-01-01T00:00:00-05:00",
-            "version": "1.1"
-        },
-        "license": "https://creativecommons.org/licenses/by/4.0",
-        "location": {
-            "abbreviation": "L1",
-            "abreviation": "L1",
-            "additionalInfo": {
-                "adm1": "Junin",
-                "adm2": "Chanchamayo",
-                "adm3": "San Ramon",
-                "annualMeanTemperature": "23",
-                "annualTotalPrecipitation": "360",
-                "cont": "South America",
-                "creg": "LAC",
-                "local": "San Ramon"
-            },
-            "altitude": 828,
-            "countryCode": "PER",
-            "countryName": "Peru",
-            "documentationURL": "https://brapi.org",
-            "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
-            "instituteAdress": "71 Pilgrim Avenue Chevy Chase MD 20815",
-            "instituteName": "Plant Science Institute",
-            "latitude": -11.1274995803833,
-            "locationDbId": "1",
-            "locationName": "Location 1",
-            "locationType": "Storage location",
-            "longitude": -75.35639190673828,
-            "name": "Location 1"
-        },
-        "seasons": [
-            "fall 2011",
-            "winter 2012"
-        ],
-        "startDate": "2013-01-01",
-        "studyDbId": "1001",
-        "studyDescription": "Field yield phenotyping study",
-        "studyName": "Study 1",
-        "studyType": "Yield study",
-        "studyTypeDbId": "2",
-        "studyTypeName": "Yield study",
-        "trialDbId": "101",
-        "trialName": "Peru Yield Trial 1"
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
-```
-
-+ Response 404 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
-```
-
-
-
-
-
-### Get Studies Germplasm by studyDbId  [GET /brapi/v1/studies/{studyDbId}/germplasm{?page}{?pageSize}]
-
-Get the available Germplasm which are associated with this study
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]|List of germplasm associated with a given trial and study|
-|accessionNumber|string|This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection|
-|acquisitionDate|string (date)|The date this germplasm was aquired by the genebank (MCPD)|
-|biologicalStatusOfAccessionCode|integer|The 3 digit code representing the biological status of the accession (MCPD)|
-|breedingMethodDbId|string|The unique identifier for the breeding method used to create this germplasm|
-|commonCropName|string|Common name for the crop (MCPD)|
-|countryOfOriginCode|string|3-letter ISO 3166-1 code of the country in which the sample was originally collected (MCPD)|
-|defaultDisplayName|string|Human readable name used for display purposes|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|donors|array[object]|List of donor institutes (MCPD)|
-|donorAccessionNumber|string||
-|donorInstituteCode|string||
-|germplasmPUI|string||
-|genus|string|Genus name for taxon. Initial uppercase letter required. (MCPD)|
-|germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server|
-|germplasmName|string|Name of the germplasm. It can be the prefered name and does not have to be unique.|
-|germplasmPUI|string|The Permanent Unique Identifier which represents a germplasm|
-|instituteCode|string|The code for the Institute that has bred the material. (MCPD)|
-|instituteName|string|The name of the institution which bred the material (MCPD)|
-|pedigree|string|The cross name and optional selection history.|
-|seedSource|string|The source of the seed |
-|species|string|Specific epithet portion of the scientific name in lowercase letters. (MCPD)|
-|speciesAuthority|string|The authority organization responsible for tracking and maintaining the species name (MCPD)|
-|subtaxa|string|Subtaxon can be used to store any additional taxonomic identifier. (MCPD)|
-|subtaxaAuthority|string| The authority organization responsible for tracking and maintaining the subtaxon information (MCPD)|
-|synonyms|array[string]|List of alternative names or IDs used to reference this germplasm|
-|taxonIds|array[object]|The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.|
-|sourceName|string|The human readable name of the taxonomy provider|
-|taxonId|string|The identifier (name, ID, URI) of a particular taxonomy within the source provider|
-|typeOfGermplasmStorageCode|array[string]|The 2 digit code representing the type of storage this germplasm is kept in at a genebank. (MCPD)|
-
-
- 
-
-+ Parameters
-    + studyDbId (Required, ) ... Identifier of the study. Usually a number, could be alphanumeric.
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 2,
-            "totalCount": 4,
-            "totalPages": 2
-        },
-        "status": []
-    },
-    "result": {
-        "data": [
-            {
-                "accessionNumber": "A000001",
-                "acquisitionDate": "1984-01-01",
-                "biologicalStatusOfAccessionCode": 300,
-                "breedingMethodDbId": "bm1",
-                "commonCropName": "G000001",
-                "countryOfOriginCode": "COUNTRY1",
-                "defaultDisplayName": "G000001",
-                "documentationURL": "https://brapi.org",
-                "donors": [
-                    {
-                        "donorAccessionNumber": "A001230",
-                        "donorInstituteCode": "INRA",
-                        "germplasmPUI": "https://doi.org/10.1109/5.771073"
-                    },
-                    {
-                        "donorAccessionNumber": "A004560",
-                        "donorInstituteCode": "INRA",
-                        "germplasmPUI": "https://doi.org/10.1109/5.231123"
-                    }
-                ],
-                "entryNumber": "2",
-                "genus": "Fructus",
-                "germplasmDbId": "1",
-                "germplasmName": "Name001",
-                "germplasmPUI": "http://pui.per/accession/A000001",
-                "instituteCode": "PER001",
-                "instituteName": "INST1",
-                "pedigree": "A000001",
-                "seedSource": "open pollination",
-                "species": "novus",
-                "speciesAuthority": "L",
-                "subtaxa": "subtaxa",
-                "subtaxaAuthority": "N",
-                "synonyms": [
-                    "landrace 1"
-                ],
-                "taxonIds": [
-                    {
-                        "sourceName": "ncbiTaxon",
-                        "taxonId": "2340"
-                    },
-                    {
-                        "sourceName": "ciradTaxon",
-                        "taxonId": "E312"
-                    }
-                ],
-                "typeOfGermplasmStorageCode": []
-            },
-            {
-                "accessionNumber": "A000001",
-                "acquisitionDate": "1984-01-01",
-                "biologicalStatusOfAccessionCode": 300,
-                "breedingMethodDbId": "bm1",
-                "commonCropName": "G000001",
-                "countryOfOriginCode": "COUNTRY1",
-                "defaultDisplayName": "G000001",
-                "documentationURL": "https://brapi.org",
-                "donors": [
-                    {
-                        "donorAccessionNumber": "A001230",
-                        "donorInstituteCode": "INRA",
-                        "germplasmPUI": "https://doi.org/10.1109/5.771073"
-                    },
-                    {
-                        "donorAccessionNumber": "A004560",
-                        "donorInstituteCode": "INRA",
-                        "germplasmPUI": "https://doi.org/10.1109/5.231123"
-                    }
-                ],
-                "entryNumber": "2",
-                "genus": "Fructus",
-                "germplasmDbId": "1",
-                "germplasmName": "Name001",
-                "germplasmPUI": "http://pui.per/accession/A000001",
-                "instituteCode": "PER001",
-                "instituteName": "INST1",
-                "pedigree": "A000001",
-                "seedSource": "open pollination",
-                "species": "novus",
-                "speciesAuthority": "L",
-                "subtaxa": "subtaxa",
-                "subtaxaAuthority": "N",
-                "synonyms": [
-                    "landrace 1"
-                ],
-                "taxonIds": [
-                    {
-                        "sourceName": "ncbiTaxon",
-                        "taxonId": "2340"
-                    },
-                    {
-                        "sourceName": "ciradTaxon",
-                        "taxonId": "E312"
-                    }
-                ],
-                "typeOfGermplasmStorageCode": []
-            }
-        ],
-        "studyDbId": "1001",
-        "trialName": "Peru Yield Trial 1"
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
-```
-
-+ Response 404 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
-```
-
-
-
-
-
-### Get Studies Layouts by studyDbId  [GET /brapi/v1/studies/{studyDbId}/layouts{?page}{?pageSize}]
-
-Retrive the layout details for a study. Returns an array of observation unit position data which describes where each unit and germplasm is located within the study layout
-
-Retrieve the plot layout of the study with id {id}.
-
-For each observationUnit within a study, return the `block`, `replicate`, and `entryType` values as well as the `X` and `Y` coordinates. `entryType` can be "check", "test", or "filler".
-
-Also return some human readable meta data about the observationUnit and germplasm.
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
-|entryType|string|The type of entry for this observation unit. ex. "check", "test", "filler"|
-|germplasmDbId|string| The ID which uniquely identifies a germplasm|
-|germplasmName|string|Name of the germplasm. It can be the prefered name and does not have to be unique.|
-|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
-|observationUnitName|string|A human readable name for an observation unit|
-|positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
-|positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details PLANTED_ROW - The physical planted row number  PLANTED_INDIVIDUAl - The physical counted number, could be independant or within a planted row GRID_ROW - The row index number of a square grid overlay GRID_COL - The column index number of a square grid overlay MEASURED_ROW - The distance in meters from a defined 0th row MEASURED_COL - The distance in meters from a defined 0th column |
-|positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
-|positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details PLANTED_ROW - The physical planted row number  PLANTED_INDIVIDUAl - The physical counted number, could be independant or within a planted row GRID_ROW - The row index number of a square grid overlay GRID_COL - The column index number of a square grid overlay MEASURED_ROW - The distance in meters from a defined 0th row MEASURED_COL - The distance in meters from a defined 0th column |
-|replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-
-
- 
-
-+ Parameters
-    + studyDbId (Required, ) ... Identifier of the study. Usually a number, could be alphanumeric.
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 2,
-            "totalCount": 4,
-            "totalPages": 2
-        },
-        "status": []
-    },
-    "result": {
-        "data": [
-            {
-                "X": "1",
-                "Y": "1",
-                "additionalInfo": {},
-                "blockNumber": "1",
-                "entryType": "TEST",
-                "germplasmDbId": "1",
-                "germplasmName": "Name001",
-                "observationLevel": "plot",
-                "observationUnitDbId": "1",
-                "observationUnitName": "Plot 1",
-                "replicate": "0",
-                "studyDbId": "1001"
-            },
-            {
-                "X": "1",
-                "Y": "1",
-                "additionalInfo": {},
-                "blockNumber": "1",
-                "entryType": "TEST",
-                "germplasmDbId": "1",
-                "germplasmName": "Name001",
-                "observationLevel": "plant",
-                "observationUnitDbId": "2",
-                "observationUnitName": "Plant 1",
-                "replicate": "0",
-                "studyDbId": "1001"
-            }
-        ],
-        "documentationURL": "https://brapi.org",
-        "endDate": "2014-01-01",
-        "environmentParameters": [
-            {
-                "parameterName": "soil type",
-                "parameterPUI": "http://purl.obolibrary.org/obo/PECO_0007155",
-                "description": "the soil type was clay",
-                "value": "clay soil",
-                "valuePUI": "http://purl.obolibrary.org/obo/ENVO_00002262",
-                "unit": "",
-                "unitPUI": ""
-            },
-            {
-                "parameterName": "fertilizer type",
-                "parameterPUI": "",
-                "description": "Nitrogen, productID foo from company ACME",
-                "value": "",
-                "valuePUI": "",
-                "unit": "",
-                "unitPUI": ""
-            },
-            {
-                "parameterName": "sowing density",
-                "parameterPUI": "http://purl.obolibrary.org/obo/AGRO_00000202",
-                "description": "300 seeds per m2",
-                "value": "300",
-                "valuePUI": "",
-                "unit": "seeds/m2",
-                "unitPUI": ""
-            },
-            {
-                "parameterName": "rooting medium composition",
-                "parameterPUI": "",
-                "description": "Clay 50% plus sand",
-                "value": "",
-                "valuePUI": "",
-                "unit": "",
-                "unitPUI": ""
-            }
-        ],
-        "lastUpdate": {
-            "timestamp": "2015-01-01T00:00:00-05:00",
-            "version": "1.1"
-        },
-        "license": "https://creativecommons.org/licenses/by/4.0",
-        "location": {
-            "abbreviation": "L1",
-            "abreviation": "L1",
-            "additionalInfo": {
-                "adm1": "Junin",
-                "adm2": "Chanchamayo",
-                "adm3": "San Ramon",
-                "annualMeanTemperature": "23",
-                "annualTotalPrecipitation": "360",
-                "cont": "South America",
-                "creg": "LAC",
-                "local": "San Ramon"
-            },
-            "altitude": 828,
-            "countryCode": "PER",
-            "countryName": "Peru",
-            "documentationURL": "https://brapi.org",
-            "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
-            "instituteAdress": "71 Pilgrim Avenue Chevy Chase MD 20815",
-            "instituteName": "Plant Science Institute",
-            "latitude": -11.1274995803833,
-            "locationDbId": "1",
-            "locationName": "Location 1",
-            "locationType": "Storage location",
-            "longitude": -75.35639190673828,
-            "name": "Location 1"
-        },
-        "seasons": [
-            "fall 2011",
-            "winter 2012"
-        ],
-        "startDate": "2013-01-01",
-        "studyDbId": "1001",
-        "studyDescription": "Field yield phenotyping study",
-        "studyName": "Study 1",
-        "studyType": "Yield study",
-        "studyTypeDbId": "2",
-        "studyTypeName": "Yield study",
-        "trialDbId": "101",
-        "trialName": "Peru Yield Trial 1"
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
-```
-
-+ Response 404 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
-```
-
-
-
-
-
-### Put Studies Layouts by studyDbId  [PUT /brapi/v1/studies/{studyDbId}/layouts]
-
-Modify a study layout
-
-Update the layout data for a set of observation units within a study. Each layout object is a subset of fields within an observationUnit, so it doesnt make sense to create a new layout object by itself.
-
-Implementation Notes:
-
-+ If any of the fields in the request object is missing, that piece of data will not be updated. 
-
-+ If an observationUnitDbId can not be found within the given study, an error will be returned. 
-
-+ `entryType` can have the values "check", "test", or "filler". 
-
-+ The response should match the structure of the response from `GET studies/{studyDbId}/layout`, but it should only contain the layout objects which have been updated by the PUT request. Also, pagination is not available in the response.
-
-**Request Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|layout|array[object]|List of observation unit position data entities which need to be updated|
-|blockNumber|integer||
-|entryType|string||
-|observationUnitDbId|string||
-|positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
-|positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details PLANTED_ROW - The physical planted row number  PLANTED_INDIVIDUAl - The physical counted number, could be independant or within a planted row GRID_ROW - The row index number of a square grid overlay GRID_COL - The column index number of a square grid overlay MEASURED_ROW - The distance in meters from a defined 0th row MEASURED_COL - The distance in meters from a defined 0th column |
-|positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
-|positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details PLANTED_ROW - The physical planted row number  PLANTED_INDIVIDUAl - The physical counted number, could be independant or within a planted row GRID_ROW - The row index number of a square grid overlay GRID_COL - The column index number of a square grid overlay MEASURED_ROW - The distance in meters from a defined 0th row MEASURED_COL - The distance in meters from a defined 0th column |
-|replicate|integer||
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
-|entryType|string|The type of entry for this observation unit. ex. "check", "test", "filler"|
-|germplasmDbId|string| The ID which uniquely identifies a germplasm|
-|germplasmName|string|Name of the germplasm. It can be the prefered name and does not have to be unique.|
-|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
-|observationUnitName|string|A human readable name for an observation unit|
-|positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
-|positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details PLANTED_ROW - The physical planted row number  PLANTED_INDIVIDUAl - The physical counted number, could be independant or within a planted row GRID_ROW - The row index number of a square grid overlay GRID_COL - The column index number of a square grid overlay MEASURED_ROW - The distance in meters from a defined 0th row MEASURED_COL - The distance in meters from a defined 0th column |
-|positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
-|positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details PLANTED_ROW - The physical planted row number  PLANTED_INDIVIDUAl - The physical counted number, could be independant or within a planted row GRID_ROW - The row index number of a square grid overlay GRID_COL - The column index number of a square grid overlay MEASURED_ROW - The distance in meters from a defined 0th row MEASURED_COL - The distance in meters from a defined 0th column |
-|replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-
-
- 
-
-+ Parameters
-    + studyDbId (Required, ) ... Identifier of the study. Usually a number, could be alphanumeric.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
-
-
- 
-+ Request (application/json)
-```
-{
-    "layout": [
-        {
-            "blockNumber": 0,
-            "entryType": "CHECK",
-            "observationUnitDbId": "observationUnitDbId0",
-            "positionCoordinateX": "positionCoordinateX0",
-            "positionCoordinateXType": "LONGITUDE",
-            "positionCoordinateY": "positionCoordinateY0",
-            "positionCoordinateYType": "LONGITUDE",
-            "replicate": 0
-        },
-        {
-            "blockNumber": 0,
-            "entryType": "TEST",
-            "observationUnitDbId": "observationUnitDbId1",
-            "positionCoordinateX": "positionCoordinateX1",
-            "positionCoordinateXType": "LATITUDE",
-            "positionCoordinateY": "positionCoordinateY1",
-            "positionCoordinateYType": "LATITUDE",
-            "replicate": 0
-        }
-    ]
-}
-```
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 0,
-            "totalCount": 0,
-            "totalPages": 0
-        },
-        "status": []
-    },
-    "result": {
-        "data": [
-            {
-                "X": "1",
-                "Y": "1",
-                "additionalInfo": {},
-                "blockNumber": "0",
-                "entryType": "CHECK",
-                "germplasmDbId": "2",
-                "germplasmName": "Name002",
-                "observationLevel": "plot",
-                "observationUnitDbId": "11",
-                "observationUnitName": "Plot 6",
-                "replicate": "0",
-                "studyDbId": "1003"
-            }
-        ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
-```
-
-+ Response 404 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
-```
-
-
-
-
-
-### Post Studies Observationunits Zip by studyDbId  [POST /brapi/v1/studies/{studyDbId}/observationunits/zip]
-
-If ''observationUnitDbId'' or ''observationDbId'' is populated, they should be considered updates to existing records. 
-
-If an existing record of that DbId is not found, the document should be treated as new records and assigned new DbIds. 
-
-If ''observationUnitDbId'' or ''observationDbId'' is un-populated (empty string or null) the document should be treated as new records and assigned new DbIds.
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|observationUnitDbIds|array[string]|List of observation unit references which have been created or updated|
-
-
- 
-
-+ Parameters
-    + studyDbId (Required, ) ... The study these observation units are related to.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {},
-        "status": []
-    },
-    "result": {
-        "observationUnitDbIds": [
-            "observationUnitDbIds0",
-            "observationUnitDbIds1"
-        ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
-```
-
-+ Response 404 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
-```
-
-
-
-
-
-### Get Studies Observationvariables by studyDbId  [GET /brapi/v1/studies/{studyDbId}/observationvariables{?page}{?pageSize}]
-
-List all the observation variables measured in the study.
-
-Refer to the data type definition of variables in `/Specification/ObservationVariables/README.md`.
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array||
-|contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
-|crop|string|Crop name (examples: "Maize", "Wheat")|
-|defaultValue|string|Variable default value. (examples: "red", "2.3", etc.)|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|growthStage|string|Growth stage at which measurement is made (examples: "flowering")|
-|institution|string|Name of institution submitting the variable|
-|language|string|2 letter ISO code for the language of submission of the variable.|
-|method|object|Method metadata|
-|class|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.|
-|description|string|Method description.|
-|formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
-|methodDbId|string|Method unique identifier|
-|methodName|string|Human readable name for the method|
-|ontologyReference|object||
-|documentationLinks|array[object]|links to various ontology documentation|
-|URL|string (uri)||
-|type|string||
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|version|string|Ontology version (no specific format)|
-|reference|string|Bibliographical reference describing the method.|
-|ontologyReference|object||
-|documentationLinks|array[object]|links to various ontology documentation|
-|URL|string (uri)||
-|type|string||
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|version|string|Ontology version (no specific format)|
-|scale|object|Scale metadata|
-|dataType|string|Class of the scale, entries can be     "Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal             scale that combines the expressions of the different traits composing the complex             trait. For exemple a severity trait might be expressed by a 2 digit and 2 character             code. The first 2 digits are the percentage of the plant covered by a fungus and the 2             characters refer to the delay in development, e.g. "75VD" means "75%" of the plant is              Crop Ontology & Integrated Breeding Platform  Curation Guidelines  5/6/2016 9             infected and the plant is very delayed.      "Date" - The date class is for events expressed in a time format, e.g. yyyymmddThh:mm:ssZ or dd/mm/yy      "Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months      "Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories      "Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectar, branches      "Ordinal" - Ordinal scales are scales composed of ordered categories      "Text" - A free text is used to express the trait.   |
-|decimalPlaces|integer|For numerical, number of decimal places to be reported|
-|ontologyReference|object||
-|documentationLinks|array[object]|links to various ontology documentation|
-|URL|string (uri)||
-|type|string||
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|version|string|Ontology version (no specific format)|
-|scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
-|scaleName|string|Name of the scale|
-|validValues|object||
-|categories|array[string]|List of possible values and their meaning (examples: ["0=low", "1=medium", "2=high"]|
-|max|integer|Maximum value (used for field data capture control).|
-|min|integer|Minimum value (used for data capture control) for numerical and date scales|
-|xref|string|Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database|
-|scientist|string|Name of scientist submitting the variable.|
-|status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
-|submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
-|synonyms|array[string]|Other variable names|
-|trait|object||
-|alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
-|attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
-|class|string|Trait class. (examples: "morphological trait", "phenological trait", "agronomical trait", "physiological trait", "abiotic stress trait", "biotic stress trait", "biochemical trait", "quality traits trait", "fertility trait", etc.)|
-|description|string|The description of a trait|
-|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
-|mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
-|ontologyReference|object||
-|documentationLinks|array[object]|links to various ontology documentation|
-|URL|string (uri)||
-|type|string||
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|version|string|Ontology version (no specific format)|
-|status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
-|synonyms|array[string]|Other trait names|
-|traitDbId|string|The ID which uniquely identifies a trait|
-|traitName|string|The human readable name of a trait|
-|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
-|xref|string|Cross reference of the variable term to a term from an external ontology or to a database of a major system.|
-|observationVariableDbId|string|Variable unique identifier|
-|observationVariableName|string|Variable name (usually a short name)|
-|studyDbId|string||
-|trialName|string||
-
-
- 
-
-+ Parameters
-    + studyDbId (Required, ) ... string database unique identifier
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 2,
-            "totalCount": 5,
-            "totalPages": 3
-        },
-        "status": []
-    },
-    "result": {
-        "data": [
-            {
-                "contextOfUse": [],
-                "crop": "maize",
-                "date": "2018-12-05",
-                "defaultValue": "10",
-                "documentationURL": "https://brapi.org",
-                "growthStage": "1",
-                "institution": "1",
-                "language": "English",
-                "method": {
-                    "class": "string",
-                    "description": "string",
-                    "formula": "string",
-                    "methodDbId": "m1",
-                    "methodName": "string",
-                    "name": "string",
-                    "ontologyReference": {
-                        "documentationLinks": [
-                            {
-                                "URL": "string",
-                                "type": "OBO",
-                                "url": "string"
-                            }
-                        ],
-                        "ontologyDbId": "MO_123",
-                        "ontologyName": "Ontology.org",
-                        "version": "17"
-                    },
-                    "reference": "string"
-                },
-                "name": "Plant height",
-                "observationVariableDbId": "MO_123:100002",
-                "observationVariableName": "Plant height",
-                "ontologyDbId": "MO_123",
-                "ontologyName": "Ontology.org",
-                "ontologyReference": {
-                    "documentationLinks": [
-                        {
-                            "URL": "https://ontology.org",
-                            "type": "WEBPAGE",
-                            "url": "https://ontology.org"
-                        }
-                    ],
-                    "ontologyDbId": "MO_123",
-                    "ontologyName": "Ontology.org",
-                    "version": "17"
-                },
-                "scale": {
-                    "dataType": "Code",
-                    "decimalPlaces": 0,
-                    "name": "string",
-                    "ontologyReference": {
-                        "documentationLinks": [
-                            {
-                                "URL": "string",
-                                "type": "OBO",
-                                "url": "string"
-                            }
-                        ],
-                        "ontologyDbId": "MO_123",
-                        "ontologyName": "Ontology.org",
-                        "version": "17"
-                    },
-                    "scaleDbId": "s1",
-                    "scaleName": "string",
-                    "validValues": {
-                        "categories": [
-                            "string"
-                        ],
-                        "max": 0,
-                        "min": 0
-                    },
-                    "xref": "string"
-                },
-                "scientist": "Bob",
-                "status": "active",
-                "submissionTimestamp": "2011-06-14T22:12:51-04:00",
-                "synonyms": [],
-                "trait": {
-                    "alternativeAbbreviations": [
-                        "string"
-                    ],
-                    "attribute": "string",
-                    "class": "string",
-                    "description": "string",
-                    "entity": "string",
-                    "mainAbbreviation": "string",
-                    "name": "string",
-                    "ontologyReference": {
-                        "documentationLinks": [
-                            {
-                                "URL": "string",
-                                "type": "OBO",
-                                "url": "string"
-                            }
-                        ],
-                        "ontologyDbId": "MO_123",
-                        "ontologyName": "Ontology.org",
-                        "version": "17"
-                    },
-                    "status": "string",
-                    "synonyms": [
-                        "string"
-                    ],
-                    "traitDbId": "t1",
-                    "traitName": "string",
-                    "xref": "string"
-                },
-                "xref": "MO_123:100002"
-            },
-            {
-                "contextOfUse": [],
-                "crop": "maize",
-                "date": "2018-12-05",
-                "defaultValue": "10",
-                "documentationURL": "https://brapi.org",
-                "growthStage": "1",
-                "institution": "1",
-                "language": "English",
-                "method": {
-                    "class": "Categorical",
-                    "description": "Comparing sample color to standard color palette",
-                    "formula": "NA",
-                    "methodDbId": "m3",
-                    "methodName": "Standard Color Palette",
-                    "name": "Standard Color Palette",
-                    "ontologyReference": {
-                        "documentationLinks": [
-                            {
-                                "URL": "https://ontology.org/m3",
-                                "type": "OBO",
-                                "url": "https://ontology.org/m3"
-                            }
-                        ],
-                        "ontologyDbId": "MO_123",
-                        "ontologyName": "Ontology.org",
-                        "version": "17"
-                    },
-                    "reference": "google.com"
-                },
-                "name": "Carotenoid",
-                "observationVariableDbId": "MO_123:100003",
-                "observationVariableName": "Carotenoid",
-                "ontologyDbId": "MO_123",
-                "ontologyName": "Ontology.org",
-                "ontologyReference": {
-                    "documentationLinks": [
-                        {
-                            "URL": "https://ontology.org",
-                            "type": "WEBPAGE",
-                            "url": "https://ontology.org"
-                        }
-                    ],
-                    "ontologyDbId": "MO_123",
-                    "ontologyName": "Ontology.org",
-                    "version": "17"
-                },
-                "scale": {
-                    "dataType": "Nominal",
-                    "decimalPlaces": 0,
-                    "name": "Color",
-                    "ontologyReference": {
-                        "documentationLinks": [
-                            {
-                                "URL": "https://ontology.org/s3",
-                                "type": "WEBPAGE",
-                                "url": "https://ontology.org/s3"
-                            }
-                        ],
-                        "ontologyDbId": "MO_123",
-                        "ontologyName": "Ontology.org",
-                        "version": "17"
-                    },
-                    "scaleDbId": "s3",
-                    "scaleName": "Color",
-                    "validValues": {
-                        "categories": [
-                            "dark red",
-                            "red",
-                            "dark blue",
-                            "blue",
-                            "black"
-                        ],
-                        "max": 0,
-                        "min": 0
-                    },
-                    "xref": "xref"
-                },
-                "scientist": "Bob",
-                "status": "active",
-                "submissionTimestamp": "2011-06-14T22:12:51-04:00",
-                "synonyms": [],
-                "trait": {
-                    "alternativeAbbreviations": [],
-                    "attribute": "leaf color",
-                    "class": "Categorical",
-                    "description": "color of leaf sample",
-                    "entity": "entity",
-                    "mainAbbreviation": "LC",
-                    "name": "Leaf Color",
-                    "ontologyReference": {
-                        "documentationLinks": [
-                            {
-                                "URL": "https://ontology.org/t3",
-                                "type": "RDF",
-                                "url": "https://ontology.org/t3"
-                            }
-                        ],
-                        "ontologyDbId": "MO_123",
-                        "ontologyName": "Ontology.org",
-                        "version": "17"
-                    },
-                    "status": "active",
-                    "synonyms": [],
-                    "traitDbId": "t3",
-                    "traitName": "Leaf Color",
-                    "xref": "xref"
-                },
-                "xref": "MO_123:100003"
-            }
-        ],
-        "studyDbId": "1001",
-        "trialName": "Peru Yield Trial 1"
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
-```
-
-+ Response 404 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
-```
-
-
-
-
-
-### Get Studies Observations by studyDbId  [GET /brapi/v1/studies/{studyDbId}/observations{?observationVariableDbIds}{?page}{?pageSize}]
-
-Retrieve all observations where there are measurements for the given observation variables.
-
-observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:ss+hhmm
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|germplasmDbId|string| The ID which uniquely identifies a germplasm|
-|germplasmName|string|Name of the germplasm. It can be the prefered name and does not have to be unique.|
-|observationDbId|string|The ID which uniquely identifies an observation|
-|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
-|observationTimeStamp|string (date-time)|The date and time  when this observation was made |
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
-|observationUnitName|string|A human readable name for an observation unit|
-|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
-|observationVariableName|string|A human readable name for an observation variable|
-|operator|string|The name or identifier of the entity which collected the observation|
-|season|object||
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
-|seasonDbId|string|The ID which uniquely identifies a season|
-|year|string|The 4 digit year of the season.|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
-|value|string|The value of the data collected as an observation|
-
-
- 
-
-+ Parameters
-    + 
-    + 
-    +  (Required, ) ... Identifier of the study. Usually a number, could be alphanumeric.
-    + observationVariableDbIds (Optional, ) ... Numeric `id` of that variable (combination of trait, unit and method)
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 2,
-            "totalCount": 9,
-            "totalPages": 5
-        },
-        "status": []
-    },
-    "result": {
-        "data": [
-            {
-                "germplasmDbId": "1",
-                "germplasmName": "Name001",
-                "observationDbId": "1",
-                "observationLevel": "plot",
-                "observationTimeStamp": "2013-06-14T22:03:51-04:00",
-                "observationUnitDbId": "1",
-                "observationUnitName": "Plot 1",
-                "observationVariableDbId": "MO_123:100002",
-                "observationVariableName": "Plant height",
-                "operator": "Bob",
-                "season": {
-                    "season": "fall",
-                    "seasonDbId": "1",
-                    "year": "2011"
-                },
-                "studyDbId": "1001",
-                "uploadedBy": "Bob",
-                "value": "1.2"
-            },
-            {
-                "germplasmDbId": "1",
-                "germplasmName": "Name001",
-                "observationDbId": "2",
-                "observationLevel": "plot",
-                "observationTimeStamp": "2013-06-14T22:04:51-04:00",
-                "observationUnitDbId": "1",
-                "observationUnitName": "Plot 1",
-                "observationVariableDbId": "MO_123:100006",
-                "observationVariableName": "Virus severity",
-                "operator": "Bob",
-                "season": {
-                    "season": "fall",
-                    "seasonDbId": "1",
-                    "year": "2011"
-                },
-                "studyDbId": "1001",
-                "uploadedBy": "Bob",
-                "value": "4.5"
-            }
-        ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
-```
-
-+ Response 404 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
-```
-
-
-
-
-
-### Put Studies Observations by studyDbId  [PUT /brapi/v1/studies/{studyDbId}/observations]
-
-Implementation Guidelines: 
-
-+ If an `observationDbId` is "null" or an empty string in the request, a NEW observation should be created for the given study and observationUnit 
-
-+ If an `observationDbId` is populated but not found in the database, a NEW observation should be created for the given study and observationUnit AND an NEW `observationDbId` should be assigned to it. A warning should be returned to the client. 
-
-+ If an `observationDbId` is populated and found in the database, but the existing entry is not associated with the given study or observationUnit, a NEW observation should be created for the given study and observationUnit AND an NEW `observationDbId` should be assigned to it. A warning should be returned to the client. 
-
-+ If an `observationDbId` is populated and found in the database and is associated with the given study and observationUnit, then it should be updated with the new data given.
-
-**Request Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|observations|array[object]|List of observation references to be created or updated|
-|collector|string||
-|observationDbId|string||
-|observationTimeStamp|string (date-time)||
-|observationUnitDbId|string||
-|observationVariableDbId|string||
-|value|string||
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|observations|array[object]|List of observation references which have been created or updated|
-|observationDbId|string||
-|observationUnitDbId|string||
-|observationVariableDbId|string||
-
-
- 
-
-+ Parameters
-    + studyDbId (Required, ) ... Identifier of the study. Usually a number, could be alphanumeric.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
-
-
- 
-+ Request (application/json)
-```
-{
-    "observations": [
-        {
-            "collector": "collector0",
-            "observationDbId": "observationDbId0",
-            "observationTimeStamp": "2018-01-01T14:47:23-0600",
-            "observationUnitDbId": "observationUnitDbId0",
-            "observationVariableDbId": "observationVariableDbId0",
-            "value": "value0"
-        },
-        {
-            "collector": "collector1",
-            "observationDbId": "observationDbId1",
-            "observationTimeStamp": "2018-01-01T14:47:23-0600",
-            "observationUnitDbId": "observationUnitDbId1",
-            "observationVariableDbId": "observationVariableDbId1",
-            "value": "value1"
-        }
-    ]
-}
-```
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 0,
-            "totalCount": 0,
-            "totalPages": 0
-        },
-        "status": []
-    },
-    "result": {
-        "observations": [
-            {
-                "observationDbId": "19",
-                "observationUnitDbId": "11",
-                "observationVariableDbId": "MO_123:100002"
-            },
-            {
-                "observationDbId": "20",
-                "observationUnitDbId": "11",
-                "observationVariableDbId": "MO_123:100003"
-            },
-            {
-                "observationDbId": "21",
-                "observationUnitDbId": "11",
-                "observationVariableDbId": "MO_123:100005"
-            },
-            {
-                "observationDbId": "22",
-                "observationUnitDbId": "11",
-                "observationVariableDbId": "MO_123:100004"
-            },
-            {
-                "observationDbId": "1f55443e-c7e1-4b71-bc9c-02ddbca9ab7d",
-                "observationUnitDbId": "11",
-                "observationVariableDbId": "MO_123:100002"
-            }
-        ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
-```
-
-+ Response 404 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
-```
-
-
-
-
-
-### Get Studies Observationunits by studyDbId  [GET /brapi/v1/studies/{studyDbId}/observationunits{?observationLevel}{?page}{?pageSize}]
-
-The main API call for field data collection, to retrieve all the observation units within a study.
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
-|entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
-|entryType|string|The type of entry for this observation unit. ex. "check", "test", "filler"|
-|germplasmDbId|string| The ID which uniquely identifies a germplasm|
-|germplasmName|string|Name of the germplasm. It can be the prefered name and does not have to be unique.|
-|locationDbId|string|The ID which uniquely identifies a location, associated with this study|
-|locationName|string|The human readable name of a location associated with this study|
-|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
-|observationLevels|string|Concatenation of the levels of this observationUnit. Used to handle non canonical level structures. Format levelType:levelID,levelType:levelID|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
-|observationUnitName|string|A human readable name for an observation unit|
-|observationUnitXref|array[object]|A list of external references to this observation unit|
-|id|string|The unique ID in the external reference 'source' system|
-|source|string|The system identifier (name, URL, etc) which has an external reference to the observation unit|
-|observations|array[object]|List of observations associated with this observation unit|
-|collector|string|The name or identifier of the entity which collected the observation|
-|observationDbId|string|The ID which uniquely identifies an observation|
-|observationTimeStamp|string (date-time)|The date and time  when this observation was made |
-|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
-|observationVariableName|string|A human readable name for an observation variable|
-|season|object||
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
-|seasonDbId|string|The ID which uniquely identifies a season|
-|year|string|The 4 digit year of the season.|
-|value|string|The value of the data collected as an observation|
-|pedigree|string|The string representation of the pedigree of this observation unit|
-|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
-|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
-|positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
-|positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details PLANTED_ROW - The physical planted row number  PLANTED_INDIVIDUAl - The physical counted number, could be independant or within a planted row GRID_ROW - The row index number of a square grid overlay GRID_COL - The column index number of a square grid overlay MEASURED_ROW - The distance in meters from a defined 0th row MEASURED_COL - The distance in meters from a defined 0th column |
-|positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
-|positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details PLANTED_ROW - The physical planted row number  PLANTED_INDIVIDUAl - The physical counted number, could be independant or within a planted row GRID_ROW - The row index number of a square grid overlay GRID_COL - The column index number of a square grid overlay MEASURED_ROW - The distance in meters from a defined 0th row MEASURED_COL - The distance in meters from a defined 0th column |
-|programDbId|string|The ID which uniquely identifies a program|
-|programName|string|The human readable name of a program|
-|replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|studyName|string|The human readable name for a study|
-|treatments|array[object]|List of treatments applied to an observation unit.|
-|factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc|
-|modality|string|The treatment/factor descritpion. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc|
-|trialDbId|string|The ID which uniquely identifies a trial|
-|trialName|string|The human readable name of a trial|
-
-
- 
-
-+ Parameters
-    + studyDbId (Required, ) ... The study these observation units are related to.
-    + observationLevel (Optional, ) ... The granularity level of observation units. Either `plotNumber` or `plantNumber` fields will be relavant depending on whether granularity is plot or plant respectively.
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 2,
-            "totalCount": 4,
-            "totalPages": 2
-        },
-        "status": []
-    },
-    "result": {
-        "data": [
-            {
-                "X": "1",
-                "Y": "1",
-                "blockNumber": "1",
-                "entryNumber": "1",
-                "entryType": "TEST",
-                "germplasmDbId": "1",
-                "germplasmName": "Name001",
-                "observationUnitDbId": "1",
-                "observationUnitName": "Plot 1",
-                "observationUnitXref": [
-                    {
-                        "id": "SAMEA179865230",
-                        "source": "ebi.biosample"
-                    },
-                    {
-                        "id": "INRA:CoeSt6 _SMH03",
-                        "source": "gnpis.lot"
-                    },
-                    {
-                        "id": "239865",
-                        "source": "kernelDB"
-                    }
-                ],
-                "observations": [
-                    {
-                        "collector": "A. Technician",
-                        "observationDbId": "1",
-                        "observationTimeStamp": "2013-06-14T22:03:51-04:00",
-                        "observationVariableDbId": "MO_123:100002",
-                        "observationVariableName": "Plant height",
-                        "season": {
-                            "season": "fall",
-                            "seasonDbId": "1",
-                            "year": "2011"
-                        },
-                        "value": "1.2"
-                    },
-                    {
-                        "collector": "A. Technician",
-                        "observationDbId": "2",
-                        "observationTimeStamp": "2013-06-14T22:04:51-04:00",
-                        "observationVariableDbId": "MO_123:100006",
-                        "observationVariableName": "Virus severity",
-                        "season": {
-                            "season": "fall",
-                            "seasonDbId": "1",
-                            "year": "2011"
-                        },
-                        "value": "4.5"
-                    },
-                    {
-                        "collector": "string",
-                        "observationDbId": "bb989815-86bf-430b-9d87-054df8919767",
-                        "observationTimeStamp": "1970-01-18T14:02:52-05:00",
-                        "observationVariableDbId": "MO_123:100002",
-                        "observationVariableName": "Plant height",
-                        "season": {
-                            "season": "fall",
-                            "seasonDbId": "1",
-                            "year": "2011"
-                        },
-                        "value": "string"
-                    }
-                ],
-                "pedigree": "A000001/A000002",
-                "plantNumber": "0",
-                "plotNumber": "1",
-                "replicate": "0"
-            },
-            {
-                "X": "1",
-                "Y": "1",
-                "blockNumber": "1",
-                "entryNumber": "2",
-                "entryType": "TEST",
-                "germplasmDbId": "1",
-                "germplasmName": "Name001",
-                "observationUnitDbId": "2",
-                "observationUnitName": "Plant 1",
-                "observationUnitXref": [
-                    {
-                        "id": "SAMEA179865815",
-                        "source": "ebi.biosample"
-                    },
-                    {
-                        "id": "INRA:CoeSt6 _SMH13",
-                        "source": "gnpis.lot"
-                    },
-                    {
-                        "id": "239167",
-                        "source": "kernelDB"
-                    }
-                ],
-                "observations": [
-                    {
-                        "collector": "A. Technician",
-                        "observationDbId": "3",
-                        "observationTimeStamp": "2013-06-14T22:05:51-04:00",
-                        "observationVariableDbId": "MO_123:100002",
-                        "observationVariableName": "Plant height",
-                        "season": {
-                            "season": "fall",
-                            "seasonDbId": "1",
-                            "year": "2011"
-                        },
-                        "value": "1.1"
-                    },
-                    {
-                        "collector": "A. Technician",
-                        "observationDbId": "4",
-                        "observationTimeStamp": "2013-06-14T22:06:51-04:00",
-                        "observationVariableDbId": "MO_123:100006",
-                        "observationVariableName": "Virus severity",
-                        "season": {
-                            "season": "fall",
-                            "seasonDbId": "1",
-                            "year": "2011"
-                        },
-                        "value": "5.1"
-                    }
-                ],
-                "pedigree": "A000001/A000002",
-                "plantNumber": "1",
-                "plotNumber": "1",
-                "replicate": "0"
-            }
-        ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
-```
-
-+ Response 404 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
-```
-
-
-
-
-
-### Put Studies Observationunits by studyDbId  [PUT /brapi/v1/studies/{studyDbId}/observationunits]
-
-Use this call for uploading new Observations as JSON to a system.
-
-Note: If ''observationUnitDbId'' or ''observationDbId'' is populated, they should be considered updates to existing records. 
-If an existing record of that DbId is not found, the document should be treated as new records and assigned new DbIds. 
-If ''observationUnitDbId'' or ''observationDbId'' is un-populated (empty string or null) the document should be treated as new records and assigned new DbIds.
-
-**Request Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
-|entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
-|entryType|string|The type of entry for this observation unit. ex. "check", "test", "filler"|
-|germplasmDbId|string| The ID which uniquely identifies a germplasm|
-|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
-|observationUnitName|string|A human readable name for an observation unit|
-|observationUnitXref|array[object]|A list of external references to this observation unit|
-|id|string|The unique ID in the external reference 'source' system|
-|source|string|The system identifier (name, URL, etc) which has an external reference to the observation unit|
-|observations|array[object]|List of observations associated with this observation unit|
-|germplasmDbId|string| The ID which uniquely identifies a germplasm|
-|germplasmName|string|Name of the germplasm. It can be the prefered name and does not have to be unique.|
-|observationDbId|string|The ID which uniquely identifies an observation|
-|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
-|observationTimeStamp|string (date-time)|The date and time  when this observation was made |
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
-|observationUnitName|string|A human readable name for an observation unit|
-|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
-|observationVariableName|string|A human readable name for an observation variable|
-|operator|string|The name or identifier of the entity which collected the observation|
-|season|object||
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
-|seasonDbId|string|The ID which uniquely identifies a season|
-|year|string|The 4 digit year of the season.|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
-|value|string|The value of the data collected as an observation|
-|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
-|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
-|positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
-|positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details PLANTED_ROW - The physical planted row number  PLANTED_INDIVIDUAl - The physical counted number, could be independant or within a planted row GRID_ROW - The row index number of a square grid overlay GRID_COL - The column index number of a square grid overlay MEASURED_ROW - The distance in meters from a defined 0th row MEASURED_COL - The distance in meters from a defined 0th column |
-|positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
-|positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See "Location Coordinate Encoding" for details PLANTED_ROW - The physical planted row number  PLANTED_INDIVIDUAl - The physical counted number, could be independant or within a planted row GRID_ROW - The row index number of a square grid overlay GRID_COL - The column index number of a square grid overlay MEASURED_ROW - The distance in meters from a defined 0th row MEASURED_COL - The distance in meters from a defined 0th column |
-|replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|treatments|array[object]|List of treatments applied to an observation unit.|
-|factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc|
-|modality|string|The treatment/factor descritpion. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc|
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|observationUnitDbIds|array[string]|List of observation unit references which have been created or updated|
-
-
- 
-
-+ Parameters
-    + studyDbId (Required, ) ... The study these observation units are related to.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
-
-
- 
-+ Request (application/json)
-```
-{}
-```
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 0,
-            "totalCount": 0,
-            "totalPages": 0
-        },
-        "status": [
-            {
-                "code": "200",
-                "message": "Upload Successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "observationUnitDbIds": [
-            "11"
-        ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
-```
-
-+ Response 404 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
-```
-
-
-
-
-
-### Get Studies Table by studyDbId  [GET /brapi/v1/studies/{studyDbId}/table{?format}]
-
-Retrieve the details of the study required for field data collection. Includes actual trait data.
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[array]|Matrix of observation data recorded for different observation variables across different observation units|
-|headerRow|array[string]|The header row describing observation unit fields. Append 'observationVariableDbIds' for complete header row of the table. This array should contain any or all of the following strings; year, studyDbId, studyName, locationDbId, locationName, germplasmDbId, germplasmName, observationUnitDbId, plotNumber, replicate, blockNumber, entryType, X, Y|
-|observationVariableDbIds|array[string]|The list of observation variables which have values recorded for them in the data matrix. Append to the 'headerRow' for comlete header row.|
-|observationVariableNames|array[string]|The list of observation variable names which have values recorded for them in the data matrix. Order should match 'observationVariableDbIds'.|
-
-
- 
-
-+ Parameters
-    + studyDbId (Required, ) ... Identifier of the study. Usually a number, could be alphanumeric.
-    + format (Optional, ) ... The format parameter will cause the data to be dumped to a file in the specified format. Currently, tsv and csv are supported.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/csv)
-```
-"year,studyDbId,studyName,locationDbId,locationName,germplasmDbId,germplasmName,observationUnitDbId,plotNumber,replicate,blockNumber,observationTimestamp,entryType,X,Y,variable1DbId,variable2DbId,variable3DbId\n2017,stu1,Study Name,loc1,Location Name,CIP1,CIP Name,abc123,1,1,1,2017-06-16T00:53:26Z,Test Entry,1,2,25.3,103.4,50.75 \n2017,stu1,Study Name,loc1,Location Name,CIP1,CIP Name,abc124,1,1,1,2017-06-16T00:54:57Z,Test Entry,2,2,27.9,98.65,45.345\n"
-```
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 0,
-            "totalCount": 0,
-            "totalPages": 0
-        },
-        "status": []
-    },
-    "result": {
-        "data": [
-            [
-                "2011",
-                "1001",
-                "Study 1",
-                "1",
-                "Peru",
-                "1",
-                "Name001",
-                "2",
-                "1",
-                "0",
-                "1",
-                "2013-06-14T22:05:51-04:00",
-                "TEST",
-                "1",
-                "1",
-                "1.1",
-                "",
-                "",
-                "5.1"
-            ],
-            [
-                "2012",
-                "1001",
-                "Study 1",
-                "1",
-                "Peru",
-                "2",
-                "Name002",
-                "3",
-                "2",
-                "0",
-                "1",
-                "2013-06-14T22:07:51-04:00",
-                "TEST",
-                "1",
-                "2",
-                "",
-                "2.1",
-                "dark blue",
-                ""
-            ],
-            [
-                "2012",
-                "1001",
-                "Study 1",
-                "1",
-                "Peru",
-                "2",
-                "Name002",
-                "4",
-                "2",
-                "0",
-                "1",
-                "2013-06-14T22:09:51-04:00",
-                "TEST",
-                "1",
-                "2",
-                "",
-                "1.8",
-                "blue",
-                ""
-            ],
-            [
-                "2011",
-                "1001",
-                "Study 1",
-                "1",
-                "Peru",
-                "1",
-                "Name001",
-                "1",
-                "1",
-                "0",
-                "0",
-                "2013-06-14T22:03:51-04:00",
-                "CHECK",
-                "10",
-                "12",
-                "1.2",
-                "",
-                "",
-                "4.5"
-            ]
-        ],
-        "headerRow": [
-            "year",
-            "studyDbId",
-            "studyName",
-            "locationDbId",
-            "locationName",
-            "germplasmDbId",
-            "germplasmName",
-            "observationUnitDbId",
-            "plotNumber",
-            "replicate",
-            "blockNumber",
-            "observationTimestamp",
-            "entryType",
-            "X",
-            "Y"
-        ],
-        "observationVariableDbIds": [
-            "MO_123:100002",
-            "MO_123:100003",
-            "MO_123:100005",
-            "MO_123:100006"
-        ],
-        "observationVariableNames": [
-            "Plant height",
-            "Carotenoid",
-            "Root color",
-            "Virus severity"
-        ]
-    }
-}
-```
-
-+ Response 200 (application/tsv)
-```
-"year\tstudyDbId\tstudyName\tlocationDbId\tlocationName\tgermplasmDbId\tgermplasmName\tobservationUnitDbId\tplotNumber\treplicate\tblockNumber\tobservationTimestamp\tentryType\tX\tY\tvariable1DbId\tvariable2DbId\tvariable3DbId\n 2017\tstu1\tStudy Name\tloc1\tLocation Name\tCIP1\tCIP Name\tabc123\t1\t1\t1\t2017-06-16T00:53:26Z\tTest Entry\t1\t2\t25.3\t103.4\t50.75\n 2017\tstu1\tStudy Name\tloc1\tLocation Name\tCIP1\tCIP Name\tabc124\t1\t1\t1\t2017-06-16T00:54:57Z\tTest Entry\t2\t2\t27.9\t98.65\t45.345\n"
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
-```
-
-+ Response 404 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
-```
-
-
-
-
-
-### Post Studies Table by studyDbId  [POST /brapi/v1/studies/{studyDbId}/table]
-
-This call can be used to create new observations in bulk.
-
-Note: If you need to update any existing observation, please use `PUT /studies/{studyDbId}/observations`. This call should only be used to create NEW observations.
-
-Implementation Guidelines:
-
-+ All observations submitted through this call should create NEW observation records in the database under the given observation unit. 
-
-+ Each "observationUnitDbId" listed should already exist in the database. If the server can not find a given "observationUnitDbId", it should report an error. (see Error Handling) 
-
-+ The response of this call should be the set of "observationDbIds" created from this call, along with the associated "observationUnitDbId" and "observationVariableDbId" that each observation is associated with.
-
-+ Images can optionally be saved using this call by providing a zipped file of all images in the datafiles. The physical zipped file should be transferred as well in the mulit-part form data.
-
-**Request Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[array]|Matrix of observation data recorded for different observation variables across different observation units|
-|headerRow|array[string]|The header row describing the data matrix. Append 'observationVariableDbIds' for complete header row.|
-|observationVariableDbIds|array[string]|The list of observation variables which have values recorded for them in the data matrix. Append to the 'headerRow' for comlete header row.|
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|observations|array[object]|List of observation references which have been created or updated|
-|observationDbId|string||
-|observationUnitDbId|string||
-|observationVariableDbId|string||
-
-
- 
-
-+ Parameters
-    + studyDbId (Required, ) ... Identifier of the study. Usually a number, could be alphanumeric.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
-
-
- 
-+ Request (application/json)
-```
-{
-    "data": [
-        [
-            "data0",
-            "data1"
-        ],
-        [
-            "data0",
-            "data1"
-        ]
-    ],
-    "headerRow": [
-        "headerRow0",
-        "headerRow1"
-    ],
-    "observationVariableDbIds": [
-        "observationVariableDbIds0",
-        "observationVariableDbIds1"
-    ]
-}
-```
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": []
-    },
-    "result": {
-        "observations": [
-            {
-                "observationDbId": "f439cdc6-768f-4d11-b66c-489d980b3d3b",
-                "observationUnitDbId": "ee89a58d-b104-437b-9cb4-7b500eaafa11",
-                "observationVariableDbId": "MO_123:100002"
-            }
-        ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
-```
-
-+ Response 404 (application/json)
-```
-"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
-```
-
-
-
-## Studytypes [/brapi/v1/studytypes] 
-
-
-
-
-### Get Studytypes  [GET /brapi/v1/studytypes{?studyTypeDbId}{?page}{?pageSize}]
-
-Call to retrieve the list of study types.
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|description|string|The description of this study type|
-|studyTypeDbId|string|The unique identifier of a study type|
-|studyTypeName|string|The human readable name of a study type|
-
-
- 
-
-+ Parameters
-    + studyTypeDbId (Optional, ) ... Filter based on study type unique identifier
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -2835,36 +1827,23 @@ Call to retrieve the list of study types.
         "status": []
     },
     "result": {
-        "data": [
-            {
-                "description": "Description for Nursery study type",
-                "name": "Crossing Nursery",
-                "studyTypeDbId": "1",
-                "studyTypeName": "Crossing Nursery"
-            },
-            {
-                "description": "Description for yield study type",
-                "name": "Yield study",
-                "studyTypeDbId": "2",
-                "studyTypeName": "Yield study"
-            }
-        ]
+        "data": null
     }
 }
 ```
 
 + Response 400 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
 ```
 
 + Response 401 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
 ```
 
 + Response 403 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
 

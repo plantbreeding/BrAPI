@@ -5,69 +5,69 @@ import glob
 import sys
 import json
 import dereferenceAll
+import re
 
-def buildMetaData(includePagination):
-	example = {'datafiles': [], 'status': [], 'pagination': {}}
-	if includePagination :
-		example['pagination'] = {'currentPage': 0, 'pageSize': 1000, 'totalCount': 2, 'totalPages': 1}
-	return example
-
-def buildStringExample(fieldName, strSchema, index = 0):
-	strExample = fieldName + str(index)
+def buildStringExample(fieldName, strSchema):
+	strExample = ''
 	if('enum' in strSchema):
-		strExample = strSchema['enum'][index]
+		strExample = strSchema['enum']
 	elif('format' in strSchema):
 		if 'date' == strSchema['format']:
 			strExample = '2018-01-01'
 		elif 'date-time' == strSchema['format']:
 			strExample = '2018-01-01T14:47:23-0600'
+	else:
+		strExample = fieldName
+		print('WARNING: generic String example generated, example missing from spec in ' + fieldName)
+		
 	return strExample
 
-def buildIntExample(fieldName):
-	return 0
-
-def buildArrayExample(fieldName, itemSchema):
+def buildArrayExample(fieldName, schema):
 	arr = []
 	
-	if ('type' in itemSchema):
-		if (itemSchema['type'] == 'string'):
-			arr.append(buildStringExample(fieldName, itemSchema, 0))
-			arr.append(buildStringExample(fieldName, itemSchema, 1))
-		elif (itemSchema['type'] == 'int'):
-			arr = [1, 2]
-		elif (itemSchema['type'] == 'array'):
-			arr.append(buildArrayExample(fieldName, itemSchema['items']))
-			arr.append(buildArrayExample(fieldName, itemSchema['items']))
-		elif (itemSchema['type'] == 'object'):
-			arr.append(buildObjectExample(itemSchema, 0))
-			arr.append(buildObjectExample(itemSchema, 1))
-	elif ('properties' in itemSchema):
-		arr.append(buildObjectExample(itemSchema, 0))
-		arr.append(buildObjectExample(itemSchema, 1))
+	if 'example' in schema:
+		arr = schema['example']
+	elif 'items' in schema:
+		itemSchema = schema['items']
+		if ('type' in itemSchema):
+			if (itemSchema['type'] == 'string'):
+				print('WARNING: generic String List example generated, example missing from spec in ' + fieldName)
+				arr = [fieldName + '1', fieldName + '2']
+			elif (itemSchema['type'] == 'int'):
+				print('WARNING: generic Int List example generated, example missing from spec in ' + fieldName)
+				arr = [1, 2]
+			elif (itemSchema['type'] == 'array'):
+				arr.append(buildArrayExample(fieldName, itemSchema))
+			elif (itemSchema['type'] == 'object'):
+				arr.append(buildObjectExample(itemSchema))
+		elif ('properties' in itemSchema):
+			arr.append(buildObjectExample(itemSchema))
 		
 	return arr
 
-def buildObjectExample(schema, index = 0):
+def buildObjectExample(schema):
 	example = {}
 	
-	if ('properties' in schema):
+	if ('example' in schema):
+		example = schema['example']
+	elif ('properties' in schema):
 		for fieldName in schema['properties']:
-			if(fieldName == 'metadata'):
-				example['metadata'] = buildMetaData('data' in schema['properties']['result']['properties'])
-			else:
-				fieldObj = schema['properties'][fieldName]
-				
-				if ('type' in fieldObj):
-					if (fieldObj['type'] == 'string'):
-						example[fieldName] = buildStringExample(fieldName, fieldObj, index)
-					elif (fieldObj['type'] == 'integer'):
-						example[fieldName] = buildIntExample(fieldName)
-					elif (fieldObj['type'] == 'array'):
-						example[fieldName] = buildArrayExample(fieldName, fieldObj['items'])
-					elif (fieldObj['type'] == 'object'):
-						example[fieldName] = buildObjectExample(fieldObj)
-				elif ('properties' in fieldObj):
+			fieldObj = schema['properties'][fieldName]
+			
+			if ('example' in fieldObj):
+				example[fieldName] = fieldObj['example']
+			elif ('type' in fieldObj):
+				if (fieldObj['type'] == 'string'):
+					example[fieldName] = buildStringExample(fieldName, fieldObj)
+				elif (fieldObj['type'] == 'integer'):
+					example[fieldName] = 0
+					print('WARNING: generic Int example generated, example missing from spec in ' + fieldName)
+				elif (fieldObj['type'] == 'array'):
+					example[fieldName] = buildArrayExample(fieldName, fieldObj)
+				elif (fieldObj['type'] == 'object'):
 					example[fieldName] = buildObjectExample(fieldObj)
+			elif ('properties' in fieldObj):
+				example[fieldName] = buildObjectExample(fieldObj)
 			
 	return example
 
@@ -117,7 +117,7 @@ def buildParametersList(params):
 			parametersStr += ' (Optional, '
 		
 		parametersStr += param['type'] + ') ... ' if 'type' in param else ') ... '
-		parametersStr += param['description'] if 'description' in param else ''
+		parametersStr += re.sub(r'\n', '', param['description']) if 'description' in param else ''
 		parametersStr += '\n'
 	
 	return parametersStr
@@ -129,7 +129,13 @@ def buildRequestBody(requestBody):
 		if 'application/json' in requestBody['content']:
 			if 'schema' in requestBody['content']['application/json']:
 				schema = requestBody['content']['application/json']['schema']
-				example = buildObjectExample(schema)
+				example = ''
+				
+				if 'type' in schema:
+					if 'object' == schema['type']:
+						example = buildObjectExample(schema)
+					elif 'array' == schema['type']:
+						example = buildArrayExample('request', schema)
 		
 				requestBodyStr += ' \n+ Request (application/json)\n```\n' 
 				requestBodyStr += json.dumps(example, indent=4, separators=(',', ': '), default=str, sort_keys=True) 
@@ -229,7 +235,7 @@ def buildReadMe(dir, fullBrAPI):
 		
 	callsStrings = {}
 	for filename in sorted(glob.iglob(dir + '/**/*.yaml', recursive=True)):
-		#print(filename)
+		print(filename)
 		fileObj = {}	
 		with open(filename, "r") as stream:
 			try:
@@ -300,7 +306,7 @@ def buildReadMe(dir, fullBrAPI):
 def buildReadMes(rootPath, specificPath):
 	fullBrAPI = dereferenceAll.dereferenceBrAPI(filePath = rootPath + '/brapi_openapi.yaml')
 	
-	for dir in glob.iglob(rootPath + '/Specification/' + specificPath + '/', recursive=False):
+	for dir in glob.iglob(rootPath + specificPath + '/', recursive=False):
 		readMeStr = buildReadMe(dir, fullBrAPI)
 		fileName = dir + '/README.md'
 		with open(fileName, 'w') as outfile:
@@ -337,5 +343,5 @@ if len(sys.argv) > 2 :
 
 #buildOpenAPI.go(rootPath)
 buildReadMes(rootPath, specificPath)
-buildGitHubReadMe(rootPath)
+#buildGitHubReadMe(rootPath)
 	

@@ -39,6 +39,6 @@ components:
                 $ref: '#/components/schemas/PlateFormat'
               samples:
                 items:
-                  $ref: '#/components/schemas/vendorSample'
+                  $ref: '#/components/schemas/VendorSample'
                 type: array
 

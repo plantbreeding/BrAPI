@@ -28,7 +28,7 @@ List current available orders
 |numberOfSamples|integer|The total number of samples contained in this request. Used for billing and basic validation of the request.|
 |orderId|string|The order id returned by the vendor when the order was successfully submitted.|
 |requiredServiceInfo|object|A map of additional data required by the requested service. This includes things like Volume and Concentration.|
-|serviceId|string|A unique, alpha-numeric ID which identifies the requested service to be used for this order. The service defines what platform, technology, and markers will be used. A list of service IDs can be retrieved from the Vendor Specs.|
+|serviceIds|array[string]|A list of unique, alpha-numeric ID which identify the requested services to be applied to this order.  A Vendor Service defines what platform, technology, and markers will be used.  A list of available service IDs can be retrieved from the Vendor Specs.|
 
 
  
@@ -36,9 +36,7 @@ List current available orders
 + Parameters
     + orderId (Optional, ) ... The order id returned by the vendor when the order was successfully submitted. From response of "POST /vendor/orders"
     + submissionId (Optional, ) ... The submission id returned by the vendor when a set of plates was successfully submitted. From response of "POST /vendor/plates"
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -47,30 +45,46 @@ List current available orders
 ```
 {
     "metadata": {
-        "datafiles": [],
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 2,
+            "totalCount": 1,
             "totalPages": 1
         },
-        "status": []
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
     },
     "result": {
         "data": [
             {
-                "clientId": "clientId0",
-                "numberOfSamples": 0,
-                "orderId": "orderId0",
-                "requiredServiceInfo": {},
-                "serviceId": "serviceId0"
-            },
-            {
-                "clientId": "clientId1",
-                "numberOfSamples": 0,
-                "orderId": "orderId1",
-                "requiredServiceInfo": {},
-                "serviceId": "serviceId1"
+                "clientId": "7b51ad15",
+                "numberOfSamples": 180,
+                "orderId": "96ba0ca3",
+                "requiredServiceInfo": {
+                    "extractDNA": true,
+                    "genus": "Aedes",
+                    "species": "vexans",
+                    "volumePerWell": "2.3 ml"
+                },
+                "serviceIds": [
+                    "e8f60f64",
+                    "05bd925a",
+                    "b698fb5e"
+                ]
             }
         ]
     }
@@ -79,17 +93,17 @@ List current available orders
 
 + Response 400 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
 ```
 
 + Response 401 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
 ```
 
 + Response 403 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
 
 
@@ -113,7 +127,7 @@ Submit a new order to a vendor
 |samples|array[object]||
 |clientSampleBarCode|string|(Optional) The value of the bar code attached to this sample|
 |clientSampleId|string|The ID which uniquely identifies this sample to the client making the request|
-|column|string|The Column identifier for this samples location in the plate|
+|column|integer|The Column identifier for this samples location in the plate|
 |comments|string|Generic comments about this sample for the vendor|
 |concentration|object|A value with units|
 |units|string|Units (example: "ng/ul")|
@@ -121,178 +135,122 @@ Submit a new order to a vendor
 |organismName|string|Scientific organism name|
 |row|string|The Row identifier for this samples location in the plate|
 |speciesName|string|Scientific species name|
-|taxonomyOntologyReference|object|Ontology reference details|
-|ontologyID|string|Ontology unique ID (example: "0025034" or "4577")|
-|ontologyPrefix|string|Ontology identifier prefix (example: "PO" or "NCBITaxon")|
-|ontologyTerm|string|Ontology term string (example: "leaf" or "Zea mays")|
+|taxonomyOntologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|version|string|Ontology version (no specific format)|
 |tissueType|string|The type of tissue in this sample. List of accepted tissue types can be found in the Vendor Specs.|
-|tissueTypeOntologyReference|object|Ontology reference details|
-|ontologyID|string|Ontology unique ID (example: "0025034" or "4577")|
-|ontologyPrefix|string|Ontology identifier prefix (example: "PO" or "NCBITaxon")|
-|ontologyTerm|string|Ontology term string (example: "leaf" or "Zea mays")|
+|tissueTypeOntologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|version|string|Ontology version (no specific format)|
 |volume|object|A value with units|
 |units|string|Units (example: "ng/ul")|
 |value|number|Value (example: "2.3")|
-|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column.|
-|requiredServiceInfo|object|A map of additional data required by the requested service. This includes things like Volume and Concentration.|
+|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
 |sampleType|string|The type of Samples being submitted|
-|serviceIds|array[string]|A list of unique, alpha-numeric ID which identify the requested services to be applied to this order. A Vendor Service defines what platform, technology, and markers will be used. A list of service IDs can be retrieved from the Vendor Specs.|
+|requiredServiceInfo|object|A map of additional data required by the requested service. This includes things like Volume and Concentration.|
+|serviceIds|array[string]|A list of unique, alpha-numeric ID which identify the requested services to be applied to this order.  A Vendor Service defines what platform, technology, and markers will be used.  A list of available service IDs can be retrieved from the Vendor Specs.|
 
 
 **Response Fields** 
 
 |Field|Type|Description|
 |---|---|---| 
-|orderId|string|A unique, alpha-numeric ID which identifies the order .|
+|orderId|string|A unique, alpha-numeric ID which identifies the order|
 |shipmentForms|array[object]|Array of paper forms which need to be printed and included with the physical shipment|
 |fileDescription|string|The human readable long description for this form|
 |fileName|string|The human readable name for this form|
-|fileURL|string|The URL to download this form|
+|fileURL|string (uri)|The URL to download this form|
 
 
  
 
 + Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
  
 + Request (application/json)
 ```
 {
-    "clientId": "clientId0",
-    "numberOfSamples": 0,
+    "clientId": "b8aac350",
+    "numberOfSamples": 180,
     "plates": [
         {
-            "clientPlateBarcode": "clientPlateBarcode0",
-            "clientPlateId": "clientPlateId0",
+            "clientPlateBarcode": "6ebf3f25",
+            "clientPlateId": "02a8d6f0",
             "sampleSubmissionFormat": "PLATE_96",
             "samples": [
                 {
-                    "clientSampleBarCode": "clientSampleBarCode0",
-                    "clientSampleId": "clientSampleId0",
-                    "column": "column0",
-                    "comments": "comments0",
+                    "clientSampleBarCode": "7c07e527",
+                    "clientSampleId": "bd96bd69",
+                    "column": 6,
+                    "comments": "This is my favorite sample, please be extra careful with it.",
                     "concentration": {
-                        "units": "units0"
+                        "units": "ng/ul",
+                        "value": 2.3
                     },
-                    "organismName": "organismName0",
-                    "row": "row0",
-                    "speciesName": "speciesName0",
+                    "organismName": "Aspergillus fructus",
+                    "row": "B",
+                    "speciesName": "Aspergillus fructus",
                     "taxonomyOntologyReference": {
-                        "ontologyID": "ontologyID0",
-                        "ontologyPrefix": "ontologyPrefix0",
-                        "ontologyTerm": "ontologyTerm0"
+                        "documentationLinks": [
+                            {
+                                "URL": "http://purl.obolibrary.org/obo/ro.owl",
+                                "type": [
+                                    "OBO",
+                                    "RDF",
+                                    "WEBPAGE"
+                                ]
+                            }
+                        ],
+                        "ontologyDbId": "6b071868",
+                        "ontologyName": "The Crop Ontology",
+                        "version": "7.2.3"
                     },
-                    "tissueType": "tissueType0",
+                    "tissueType": "Root",
                     "tissueTypeOntologyReference": {
-                        "ontologyID": "ontologyID0",
-                        "ontologyPrefix": "ontologyPrefix0",
-                        "ontologyTerm": "ontologyTerm0"
+                        "documentationLinks": [
+                            {
+                                "URL": "http://purl.obolibrary.org/obo/ro.owl",
+                                "type": [
+                                    "OBO",
+                                    "RDF",
+                                    "WEBPAGE"
+                                ]
+                            }
+                        ],
+                        "ontologyDbId": "6b071868",
+                        "ontologyName": "The Crop Ontology",
+                        "version": "7.2.3"
                     },
                     "volume": {
-                        "units": "units0"
+                        "units": "ng/ul",
+                        "value": 2.3
                     },
-                    "well": "well0"
-                },
-                {
-                    "clientSampleBarCode": "clientSampleBarCode1",
-                    "clientSampleId": "clientSampleId1",
-                    "column": "column1",
-                    "comments": "comments1",
-                    "concentration": {
-                        "units": "units0"
-                    },
-                    "organismName": "organismName1",
-                    "row": "row1",
-                    "speciesName": "speciesName1",
-                    "taxonomyOntologyReference": {
-                        "ontologyID": "ontologyID0",
-                        "ontologyPrefix": "ontologyPrefix0",
-                        "ontologyTerm": "ontologyTerm0"
-                    },
-                    "tissueType": "tissueType1",
-                    "tissueTypeOntologyReference": {
-                        "ontologyID": "ontologyID0",
-                        "ontologyPrefix": "ontologyPrefix0",
-                        "ontologyTerm": "ontologyTerm0"
-                    },
-                    "volume": {
-                        "units": "units0"
-                    },
-                    "well": "well1"
-                }
-            ]
-        },
-        {
-            "clientPlateBarcode": "clientPlateBarcode1",
-            "clientPlateId": "clientPlateId1",
-            "sampleSubmissionFormat": "TUBES",
-            "samples": [
-                {
-                    "clientSampleBarCode": "clientSampleBarCode0",
-                    "clientSampleId": "clientSampleId0",
-                    "column": "column0",
-                    "comments": "comments0",
-                    "concentration": {
-                        "units": "units0"
-                    },
-                    "organismName": "organismName0",
-                    "row": "row0",
-                    "speciesName": "speciesName0",
-                    "taxonomyOntologyReference": {
-                        "ontologyID": "ontologyID0",
-                        "ontologyPrefix": "ontologyPrefix0",
-                        "ontologyTerm": "ontologyTerm0"
-                    },
-                    "tissueType": "tissueType0",
-                    "tissueTypeOntologyReference": {
-                        "ontologyID": "ontologyID0",
-                        "ontologyPrefix": "ontologyPrefix0",
-                        "ontologyTerm": "ontologyTerm0"
-                    },
-                    "volume": {
-                        "units": "units0"
-                    },
-                    "well": "well0"
-                },
-                {
-                    "clientSampleBarCode": "clientSampleBarCode1",
-                    "clientSampleId": "clientSampleId1",
-                    "column": "column1",
-                    "comments": "comments1",
-                    "concentration": {
-                        "units": "units0"
-                    },
-                    "organismName": "organismName1",
-                    "row": "row1",
-                    "speciesName": "speciesName1",
-                    "taxonomyOntologyReference": {
-                        "ontologyID": "ontologyID0",
-                        "ontologyPrefix": "ontologyPrefix0",
-                        "ontologyTerm": "ontologyTerm0"
-                    },
-                    "tissueType": "tissueType1",
-                    "tissueTypeOntologyReference": {
-                        "ontologyID": "ontologyID0",
-                        "ontologyPrefix": "ontologyPrefix0",
-                        "ontologyTerm": "ontologyTerm0"
-                    },
-                    "volume": {
-                        "units": "units0"
-                    },
-                    "well": "well1"
+                    "well": "B6"
                 }
             ]
         }
     ],
-    "requiredServiceInfo": {},
-    "sampleType": "DNA",
+    "requiredServiceInfo": {
+        "extractDNA": true,
+        "genus": "Aedes",
+        "species": "vexans",
+        "volumePerWell": "2.3 ml"
+    },
+    "sampleType": "Tissue",
     "serviceIds": [
-        "serviceIds0",
-        "serviceIds1"
+        "e8f60f64",
+        "05bd925a",
+        "b698fb5e"
     ]
 }
 ```
@@ -301,22 +259,57 @@ Submit a new order to a vendor
 
 + Response 200 (application/json)
 ```
-{}
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "orderId": "b5144468",
+        "shipmentForms": [
+            {
+                "fileDescription": "This is a shipment manifest form",
+                "fileName": "Shipment Manifest",
+                "fileURL": "https://vendor.org/forms/manifest.pdf"
+            }
+        ]
+    }
+}
 ```
 
 + Response 400 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
 ```
 
 + Response 401 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
 ```
 
 + Response 403 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
 
 
@@ -340,7 +333,7 @@ Retrieve the plate and sample details of an order being processed
 |samples|array[object]||
 |clientSampleBarCode|string|(Optional) The value of the bar code attached to this sample|
 |clientSampleId|string|The ID which uniquely identifies this sample to the client making the request|
-|column|string|The Column identifier for this samples location in the plate|
+|column|integer|The Column identifier for this samples location in the plate|
 |comments|string|Generic comments about this sample for the vendor|
 |concentration|object|A value with units|
 |units|string|Units (example: "ng/ul")|
@@ -348,28 +341,32 @@ Retrieve the plate and sample details of an order being processed
 |organismName|string|Scientific organism name|
 |row|string|The Row identifier for this samples location in the plate|
 |speciesName|string|Scientific species name|
-|taxonomyOntologyReference|object|Ontology reference details|
-|ontologyID|string|Ontology unique ID (example: "0025034" or "4577")|
-|ontologyPrefix|string|Ontology identifier prefix (example: "PO" or "NCBITaxon")|
-|ontologyTerm|string|Ontology term string (example: "leaf" or "Zea mays")|
+|taxonomyOntologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|version|string|Ontology version (no specific format)|
 |tissueType|string|The type of tissue in this sample. List of accepted tissue types can be found in the Vendor Specs.|
-|tissueTypeOntologyReference|object|Ontology reference details|
-|ontologyID|string|Ontology unique ID (example: "0025034" or "4577")|
-|ontologyPrefix|string|Ontology identifier prefix (example: "PO" or "NCBITaxon")|
-|ontologyTerm|string|Ontology term string (example: "leaf" or "Zea mays")|
+|tissueTypeOntologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|version|string|Ontology version (no specific format)|
 |volume|object|A value with units|
 |units|string|Units (example: "ng/ul")|
 |value|number|Value (example: "2.3")|
-|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column.|
+|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
 
 
  
 
 + Parameters
     + orderId (Required, ) ... The order id returned by the vendor when the order was successfully submitted.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -378,136 +375,84 @@ Retrieve the plate and sample details of an order being processed
 ```
 {
     "metadata": {
-        "datafiles": [],
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 2,
+            "totalCount": 1,
             "totalPages": 1
         },
-        "status": []
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
     },
     "result": {
         "data": [
             {
-                "clientPlateBarcode": "clientPlateBarcode0",
-                "clientPlateId": "clientPlateId0",
+                "clientPlateBarcode": "31dd5787",
+                "clientPlateId": "0ad6c0ef",
                 "sampleSubmissionFormat": "PLATE_96",
                 "samples": [
                     {
-                        "clientSampleBarCode": "clientSampleBarCode0",
-                        "clientSampleId": "clientSampleId0",
-                        "column": "column0",
-                        "comments": "comments0",
+                        "clientSampleBarCode": "7c07e527",
+                        "clientSampleId": "bd96bd69",
+                        "column": 6,
+                        "comments": "This is my favorite sample, please be extra careful with it.",
                         "concentration": {
-                            "units": "units0"
+                            "units": "ng/ul",
+                            "value": 2.3
                         },
-                        "organismName": "organismName0",
-                        "row": "row0",
-                        "speciesName": "speciesName0",
+                        "organismName": "Aspergillus fructus",
+                        "row": "B",
+                        "speciesName": "Aspergillus fructus",
                         "taxonomyOntologyReference": {
-                            "ontologyID": "ontologyID0",
-                            "ontologyPrefix": "ontologyPrefix0",
-                            "ontologyTerm": "ontologyTerm0"
+                            "documentationLinks": [
+                                {
+                                    "URL": "http://purl.obolibrary.org/obo/ro.owl",
+                                    "type": [
+                                        "OBO",
+                                        "RDF",
+                                        "WEBPAGE"
+                                    ]
+                                }
+                            ],
+                            "ontologyDbId": "6b071868",
+                            "ontologyName": "The Crop Ontology",
+                            "version": "7.2.3"
                         },
-                        "tissueType": "tissueType0",
+                        "tissueType": "Root",
                         "tissueTypeOntologyReference": {
-                            "ontologyID": "ontologyID0",
-                            "ontologyPrefix": "ontologyPrefix0",
-                            "ontologyTerm": "ontologyTerm0"
+                            "documentationLinks": [
+                                {
+                                    "URL": "http://purl.obolibrary.org/obo/ro.owl",
+                                    "type": [
+                                        "OBO",
+                                        "RDF",
+                                        "WEBPAGE"
+                                    ]
+                                }
+                            ],
+                            "ontologyDbId": "6b071868",
+                            "ontologyName": "The Crop Ontology",
+                            "version": "7.2.3"
                         },
                         "volume": {
-                            "units": "units0"
+                            "units": "ng/ul",
+                            "value": 2.3
                         },
-                        "well": "well0"
-                    },
-                    {
-                        "clientSampleBarCode": "clientSampleBarCode1",
-                        "clientSampleId": "clientSampleId1",
-                        "column": "column1",
-                        "comments": "comments1",
-                        "concentration": {
-                            "units": "units0"
-                        },
-                        "organismName": "organismName1",
-                        "row": "row1",
-                        "speciesName": "speciesName1",
-                        "taxonomyOntologyReference": {
-                            "ontologyID": "ontologyID0",
-                            "ontologyPrefix": "ontologyPrefix0",
-                            "ontologyTerm": "ontologyTerm0"
-                        },
-                        "tissueType": "tissueType1",
-                        "tissueTypeOntologyReference": {
-                            "ontologyID": "ontologyID0",
-                            "ontologyPrefix": "ontologyPrefix0",
-                            "ontologyTerm": "ontologyTerm0"
-                        },
-                        "volume": {
-                            "units": "units0"
-                        },
-                        "well": "well1"
-                    }
-                ]
-            },
-            {
-                "clientPlateBarcode": "clientPlateBarcode1",
-                "clientPlateId": "clientPlateId1",
-                "sampleSubmissionFormat": "TUBES",
-                "samples": [
-                    {
-                        "clientSampleBarCode": "clientSampleBarCode0",
-                        "clientSampleId": "clientSampleId0",
-                        "column": "column0",
-                        "comments": "comments0",
-                        "concentration": {
-                            "units": "units0"
-                        },
-                        "organismName": "organismName0",
-                        "row": "row0",
-                        "speciesName": "speciesName0",
-                        "taxonomyOntologyReference": {
-                            "ontologyID": "ontologyID0",
-                            "ontologyPrefix": "ontologyPrefix0",
-                            "ontologyTerm": "ontologyTerm0"
-                        },
-                        "tissueType": "tissueType0",
-                        "tissueTypeOntologyReference": {
-                            "ontologyID": "ontologyID0",
-                            "ontologyPrefix": "ontologyPrefix0",
-                            "ontologyTerm": "ontologyTerm0"
-                        },
-                        "volume": {
-                            "units": "units0"
-                        },
-                        "well": "well0"
-                    },
-                    {
-                        "clientSampleBarCode": "clientSampleBarCode1",
-                        "clientSampleId": "clientSampleId1",
-                        "column": "column1",
-                        "comments": "comments1",
-                        "concentration": {
-                            "units": "units0"
-                        },
-                        "organismName": "organismName1",
-                        "row": "row1",
-                        "speciesName": "speciesName1",
-                        "taxonomyOntologyReference": {
-                            "ontologyID": "ontologyID0",
-                            "ontologyPrefix": "ontologyPrefix0",
-                            "ontologyTerm": "ontologyTerm0"
-                        },
-                        "tissueType": "tissueType1",
-                        "tissueTypeOntologyReference": {
-                            "ontologyID": "ontologyID0",
-                            "ontologyPrefix": "ontologyPrefix0",
-                            "ontologyTerm": "ontologyTerm0"
-                        },
-                        "volume": {
-                            "units": "units0"
-                        },
-                        "well": "well1"
+                        "well": "B6"
                     }
                 ]
             }
@@ -518,22 +463,22 @@ Retrieve the plate and sample details of an order being processed
 
 + Response 400 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
 ```
 
 + Response 401 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
 ```
 
 + Response 403 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
 
 + Response 404 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
 ```
 
 
@@ -555,7 +500,7 @@ Retrieve the data files generated by the vendors analysis
 |clientSampleIds|array[string]|The list of sampleDbIds included in the file|
 |fileName|string|Name of the file|
 |fileType|string|Format of the file|
-|fileURL|string|The URL to a file with the results of a vendor analysis|
+|fileURL|string (uri)|The URL to a file with the results of a vendor analysis|
 |md5sum|string|MD5 Hash Check Sum for the file to confirm download without error|
 
 
@@ -563,9 +508,7 @@ Retrieve the data files generated by the vendors analysis
 
 + Parameters
     + orderId (Required, ) ... The order id returned by the vendor when the order was successfully submitted.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -574,38 +517,42 @@ Retrieve the data files generated by the vendors analysis
 ```
 {
     "metadata": {
-        "datafiles": [],
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 2,
+            "totalCount": 1,
             "totalPages": 1
         },
-        "status": []
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
     },
     "result": {
         "data": [
             {
                 "additionalInfo": {},
                 "clientSampleIds": [
-                    "clientSampleIds0",
-                    "clientSampleIds1"
+                    "3968733e",
+                    "e0de6391",
+                    "66854172"
                 ],
-                "fileName": "fileName0",
-                "fileType": "fileType0",
-                "fileURL": "fileURL0",
-                "md5sum": "md5sum0"
-            },
-            {
-                "additionalInfo": {},
-                "clientSampleIds": [
-                    "clientSampleIds0",
-                    "clientSampleIds1"
-                ],
-                "fileName": "fileName1",
-                "fileType": "fileType1",
-                "fileURL": "fileURL1",
-                "md5sum": "md5sum1"
+                "fileName": "sequence_data_ce640bd3.csv",
+                "fileType": "text/csv",
+                "fileURL": "https://vendor.org/data/sequence_data_ce640bd3.csv",
+                "md5sum": "c2365e900c81a89cf74d83dab60df146"
             }
         ]
     }
@@ -614,22 +561,22 @@ Retrieve the data files generated by the vendors analysis
 
 + Response 400 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
 ```
 
 + Response 401 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
 ```
 
 + Response 403 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
 
 + Response 404 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
 ```
 
 
@@ -653,9 +600,7 @@ Retrieve the current status of an order being processed
 
 + Parameters
     + orderId (Required, ) ... The order id returned by the vendor when the order was successfully submitted.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -664,34 +609,59 @@ Retrieve the current status of an order being processed
 ```
 {
     "metadata": {
-        "datafiles": [],
-        "pagination": {},
-        "status": []
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
     },
     "result": {
-        "status": "registered"
+        "status": [
+            "registered",
+            "received",
+            "inProgress",
+            "completed",
+            "rejected"
+        ]
     }
 }
 ```
 
 + Response 400 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
 ```
 
 + Response 401 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
 ```
 
 + Response 403 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
 
 + Response 404 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
 ```
 
 
@@ -715,7 +685,7 @@ Submit a new set of Sample data
 |samples|array[object]||
 |clientSampleBarCode|string|(Optional) The value of the bar code attached to this sample|
 |clientSampleId|string|The ID which uniquely identifies this sample to the client making the request|
-|column|string|The Column identifier for this samples location in the plate|
+|column|integer|The Column identifier for this samples location in the plate|
 |comments|string|Generic comments about this sample for the vendor|
 |concentration|object|A value with units|
 |units|string|Units (example: "ng/ul")|
@@ -723,19 +693,25 @@ Submit a new set of Sample data
 |organismName|string|Scientific organism name|
 |row|string|The Row identifier for this samples location in the plate|
 |speciesName|string|Scientific species name|
-|taxonomyOntologyReference|object|Ontology reference details|
-|ontologyID|string|Ontology unique ID (example: "0025034" or "4577")|
-|ontologyPrefix|string|Ontology identifier prefix (example: "PO" or "NCBITaxon")|
-|ontologyTerm|string|Ontology term string (example: "leaf" or "Zea mays")|
+|taxonomyOntologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|version|string|Ontology version (no specific format)|
 |tissueType|string|The type of tissue in this sample. List of accepted tissue types can be found in the Vendor Specs.|
-|tissueTypeOntologyReference|object|Ontology reference details|
-|ontologyID|string|Ontology unique ID (example: "0025034" or "4577")|
-|ontologyPrefix|string|Ontology identifier prefix (example: "PO" or "NCBITaxon")|
-|ontologyTerm|string|Ontology term string (example: "leaf" or "Zea mays")|
+|tissueTypeOntologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|version|string|Ontology version (no specific format)|
 |volume|object|A value with units|
 |units|string|Units (example: "ng/ul")|
 |value|number|Value (example: "2.3")|
-|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column.|
+|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
 |sampleType|string|The type of Samples being submitted|
 
 
@@ -749,142 +725,74 @@ Submit a new set of Sample data
  
 
 + Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
  
 + Request (application/json)
 ```
 {
-    "clientId": "clientId0",
-    "numberOfSamples": 0,
+    "clientId": "b8aac350",
+    "numberOfSamples": 180,
     "plates": [
         {
-            "clientPlateBarcode": "clientPlateBarcode0",
-            "clientPlateId": "clientPlateId0",
+            "clientPlateBarcode": "6ebf3f25",
+            "clientPlateId": "02a8d6f0",
             "sampleSubmissionFormat": "PLATE_96",
             "samples": [
                 {
-                    "clientSampleBarCode": "clientSampleBarCode0",
-                    "clientSampleId": "clientSampleId0",
-                    "column": "column0",
-                    "comments": "comments0",
+                    "clientSampleBarCode": "7c07e527",
+                    "clientSampleId": "bd96bd69",
+                    "column": 6,
+                    "comments": "This is my favorite sample, please be extra careful with it.",
                     "concentration": {
-                        "units": "units0"
+                        "units": "ng/ul",
+                        "value": 2.3
                     },
-                    "organismName": "organismName0",
-                    "row": "row0",
-                    "speciesName": "speciesName0",
+                    "organismName": "Aspergillus fructus",
+                    "row": "B",
+                    "speciesName": "Aspergillus fructus",
                     "taxonomyOntologyReference": {
-                        "ontologyID": "ontologyID0",
-                        "ontologyPrefix": "ontologyPrefix0",
-                        "ontologyTerm": "ontologyTerm0"
+                        "documentationLinks": [
+                            {
+                                "URL": "http://purl.obolibrary.org/obo/ro.owl",
+                                "type": [
+                                    "OBO",
+                                    "RDF",
+                                    "WEBPAGE"
+                                ]
+                            }
+                        ],
+                        "ontologyDbId": "6b071868",
+                        "ontologyName": "The Crop Ontology",
+                        "version": "7.2.3"
                     },
-                    "tissueType": "tissueType0",
+                    "tissueType": "Root",
                     "tissueTypeOntologyReference": {
-                        "ontologyID": "ontologyID0",
-                        "ontologyPrefix": "ontologyPrefix0",
-                        "ontologyTerm": "ontologyTerm0"
+                        "documentationLinks": [
+                            {
+                                "URL": "http://purl.obolibrary.org/obo/ro.owl",
+                                "type": [
+                                    "OBO",
+                                    "RDF",
+                                    "WEBPAGE"
+                                ]
+                            }
+                        ],
+                        "ontologyDbId": "6b071868",
+                        "ontologyName": "The Crop Ontology",
+                        "version": "7.2.3"
                     },
                     "volume": {
-                        "units": "units0"
+                        "units": "ng/ul",
+                        "value": 2.3
                     },
-                    "well": "well0"
-                },
-                {
-                    "clientSampleBarCode": "clientSampleBarCode1",
-                    "clientSampleId": "clientSampleId1",
-                    "column": "column1",
-                    "comments": "comments1",
-                    "concentration": {
-                        "units": "units0"
-                    },
-                    "organismName": "organismName1",
-                    "row": "row1",
-                    "speciesName": "speciesName1",
-                    "taxonomyOntologyReference": {
-                        "ontologyID": "ontologyID0",
-                        "ontologyPrefix": "ontologyPrefix0",
-                        "ontologyTerm": "ontologyTerm0"
-                    },
-                    "tissueType": "tissueType1",
-                    "tissueTypeOntologyReference": {
-                        "ontologyID": "ontologyID0",
-                        "ontologyPrefix": "ontologyPrefix0",
-                        "ontologyTerm": "ontologyTerm0"
-                    },
-                    "volume": {
-                        "units": "units0"
-                    },
-                    "well": "well1"
-                }
-            ]
-        },
-        {
-            "clientPlateBarcode": "clientPlateBarcode1",
-            "clientPlateId": "clientPlateId1",
-            "sampleSubmissionFormat": "TUBES",
-            "samples": [
-                {
-                    "clientSampleBarCode": "clientSampleBarCode0",
-                    "clientSampleId": "clientSampleId0",
-                    "column": "column0",
-                    "comments": "comments0",
-                    "concentration": {
-                        "units": "units0"
-                    },
-                    "organismName": "organismName0",
-                    "row": "row0",
-                    "speciesName": "speciesName0",
-                    "taxonomyOntologyReference": {
-                        "ontologyID": "ontologyID0",
-                        "ontologyPrefix": "ontologyPrefix0",
-                        "ontologyTerm": "ontologyTerm0"
-                    },
-                    "tissueType": "tissueType0",
-                    "tissueTypeOntologyReference": {
-                        "ontologyID": "ontologyID0",
-                        "ontologyPrefix": "ontologyPrefix0",
-                        "ontologyTerm": "ontologyTerm0"
-                    },
-                    "volume": {
-                        "units": "units0"
-                    },
-                    "well": "well0"
-                },
-                {
-                    "clientSampleBarCode": "clientSampleBarCode1",
-                    "clientSampleId": "clientSampleId1",
-                    "column": "column1",
-                    "comments": "comments1",
-                    "concentration": {
-                        "units": "units0"
-                    },
-                    "organismName": "organismName1",
-                    "row": "row1",
-                    "speciesName": "speciesName1",
-                    "taxonomyOntologyReference": {
-                        "ontologyID": "ontologyID0",
-                        "ontologyPrefix": "ontologyPrefix0",
-                        "ontologyTerm": "ontologyTerm0"
-                    },
-                    "tissueType": "tissueType1",
-                    "tissueTypeOntologyReference": {
-                        "ontologyID": "ontologyID0",
-                        "ontologyPrefix": "ontologyPrefix0",
-                        "ontologyTerm": "ontologyTerm0"
-                    },
-                    "volume": {
-                        "units": "units0"
-                    },
-                    "well": "well1"
+                    "well": "B6"
                 }
             ]
         }
     ],
-    "sampleType": "DNA"
+    "sampleType": "Tissue"
 }
 ```
 
@@ -892,22 +800,50 @@ Submit a new set of Sample data
 
 + Response 200 (application/json)
 ```
-{}
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "submissionId": "f8f409e0"
+    }
+}
 ```
 
 + Response 400 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
 ```
 
 + Response 401 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
 ```
 
 + Response 403 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
 
 
@@ -933,7 +869,7 @@ Get data for a submitted set of plates
 |samples|array[object]||
 |clientSampleBarCode|string|(Optional) The value of the bar code attached to this sample|
 |clientSampleId|string|The ID which uniquely identifies this sample to the client making the request|
-|column|string|The Column identifier for this samples location in the plate|
+|column|integer|The Column identifier for this samples location in the plate|
 |comments|string|Generic comments about this sample for the vendor|
 |concentration|object|A value with units|
 |units|string|Units (example: "ng/ul")|
@@ -941,19 +877,25 @@ Get data for a submitted set of plates
 |organismName|string|Scientific organism name|
 |row|string|The Row identifier for this samples location in the plate|
 |speciesName|string|Scientific species name|
-|taxonomyOntologyReference|object|Ontology reference details|
-|ontologyID|string|Ontology unique ID (example: "0025034" or "4577")|
-|ontologyPrefix|string|Ontology identifier prefix (example: "PO" or "NCBITaxon")|
-|ontologyTerm|string|Ontology term string (example: "leaf" or "Zea mays")|
+|taxonomyOntologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|version|string|Ontology version (no specific format)|
 |tissueType|string|The type of tissue in this sample. List of accepted tissue types can be found in the Vendor Specs.|
-|tissueTypeOntologyReference|object|Ontology reference details|
-|ontologyID|string|Ontology unique ID (example: "0025034" or "4577")|
-|ontologyPrefix|string|Ontology identifier prefix (example: "PO" or "NCBITaxon")|
-|ontologyTerm|string|Ontology term string (example: "leaf" or "Zea mays")|
+|tissueTypeOntologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|version|string|Ontology version (no specific format)|
 |volume|object|A value with units|
 |units|string|Units (example: "ng/ul")|
 |value|number|Value (example: "2.3")|
-|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column.|
+|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
 
 
  
@@ -968,37 +910,112 @@ Get data for a submitted set of plates
 ```
 {
     "metadata": {
-        "datafiles": [],
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 0,
-            "totalCount": 0,
-            "totalPages": 0
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
         },
-        "status": []
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
     },
-    "result": null
+    "result": {
+        "clientId": "e470ae0d",
+        "numberOfSamples": 180,
+        "plates": [
+            {
+                "clientPlateBarcode": "bfb33593",
+                "clientPlateId": "dae8f49d",
+                "sampleSubmissionFormat": "PLATE_96",
+                "samples": [
+                    {
+                        "clientSampleBarCode": "7c07e527",
+                        "clientSampleId": "bd96bd69",
+                        "column": 6,
+                        "comments": "This is my favorite sample, please be extra careful with it.",
+                        "concentration": {
+                            "units": "ng/ul",
+                            "value": 2.3
+                        },
+                        "organismName": "Aspergillus fructus",
+                        "row": "B",
+                        "speciesName": "Aspergillus fructus",
+                        "taxonomyOntologyReference": {
+                            "documentationLinks": [
+                                {
+                                    "URL": "http://purl.obolibrary.org/obo/ro.owl",
+                                    "type": [
+                                        "OBO",
+                                        "RDF",
+                                        "WEBPAGE"
+                                    ]
+                                }
+                            ],
+                            "ontologyDbId": "6b071868",
+                            "ontologyName": "The Crop Ontology",
+                            "version": "7.2.3"
+                        },
+                        "tissueType": "Root",
+                        "tissueTypeOntologyReference": {
+                            "documentationLinks": [
+                                {
+                                    "URL": "http://purl.obolibrary.org/obo/ro.owl",
+                                    "type": [
+                                        "OBO",
+                                        "RDF",
+                                        "WEBPAGE"
+                                    ]
+                                }
+                            ],
+                            "ontologyDbId": "6b071868",
+                            "ontologyName": "The Crop Ontology",
+                            "version": "7.2.3"
+                        },
+                        "volume": {
+                            "units": "ng/ul",
+                            "value": 2.3
+                        },
+                        "well": "B6"
+                    }
+                ]
+            }
+        ]
+    }
 }
 ```
 
 + Response 400 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
 ```
 
 + Response 401 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
 ```
 
 + Response 403 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
 
 + Response 404 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
 ```
 
 
@@ -1022,7 +1039,9 @@ Defines the plate format specification for the vendor.
 |serviceName|string|The human readable name of a platform|
 |servicePlatformMarkerType|string|The type of markers used in this services platform|
 |servicePlatformName|string|The technology platform used by this service|
-|specificRequirements|object|Additional arbitrary requirements for a particular platform|
+|specificRequirements|array[object]|Additional arbitrary requirements for a particular platform|
+|description|string||
+|key|string||
 |vendorContact|object||
 |vendorAddress|string|The street address of the vendor|
 |vendorCity|string|The name of the city where the vendor is located|
@@ -1038,9 +1057,7 @@ Defines the plate format specification for the vendor.
  
 
 + Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -1049,40 +1066,68 @@ Defines the plate format specification for the vendor.
 ```
 {
     "metadata": {
-        "datafiles": [],
-        "pagination": {},
-        "status": []
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
     },
     "result": {
         "additionalInfo": {},
         "services": [
             {
-                "serviceDescription": "serviceDescription0",
-                "serviceId": "serviceId0",
-                "serviceName": "serviceName0",
+                "serviceDescription": "A combined DNA extract and Sequencing process using technology and science. Lots of automated pipet machines.",
+                "serviceId": "085d298f",
+                "serviceName": "The Deluxe Service",
                 "servicePlatformMarkerType": "FIXED",
-                "servicePlatformName": "servicePlatformName0",
-                "specificRequirements": {}
-            },
-            {
-                "serviceDescription": "serviceDescription1",
-                "serviceId": "serviceId1",
-                "serviceName": "serviceName1",
-                "servicePlatformMarkerType": "DISCOVERABLE",
-                "servicePlatformName": "servicePlatformName1",
-                "specificRequirements": {}
+                "servicePlatformName": "RNA-seq",
+                "specificRequirements": [
+                    {
+                        "description": "The genus of the samples (ex Aedes)",
+                        "key": "genus"
+                    },
+                    {
+                        "description": "The species of the samples (ex vexans)",
+                        "key": "species"
+                    },
+                    {
+                        "description": "Aproximate volume of each sample (ex 2.3 ml)",
+                        "key": "volumePerWell"
+                    },
+                    {
+                        "description": "Does DNA extraction need to happen before sequencing (ex true)",
+                        "key": "extractDNA"
+                    }
+                ]
             }
         ],
         "vendorContact": {
-            "vendorAddress": "vendorAddress0",
-            "vendorCity": "vendorCity0",
-            "vendorContactName": "vendorContactName0",
-            "vendorCountry": "vendorCountry0",
-            "vendorDescription": "vendorDescription0",
-            "vendorEmail": "vendorEmail0",
-            "vendorName": "vendorName0",
-            "vendorPhone": "vendorPhone0",
-            "vendorURL": "vendorURL0"
+            "vendorAddress": "123 Main Street",
+            "vendorCity": "Townsville",
+            "vendorContactName": "Bob Robertson",
+            "vendorCountry": "USA",
+            "vendorDescription": "This is a sequencing vendor. Sequencing happens here.",
+            "vendorEmail": "bob@bob.org",
+            "vendorName": "The Example Vendor Lab",
+            "vendorPhone": "+1-800-555-5555",
+            "vendorURL": "https://sequencing.org/vendor"
         }
     }
 }

@@ -63,17 +63,12 @@ def go(rootPath, metaFilePath = './swaggerMetaData.yaml'):
     
     with open(outFilePath, 'w') as outfile:
         print(outFilePath)
-        yaml.dump(out, outfile, default_flow_style=False, width=float("inf"))
+        yaml.dump(out, outfile, default_flow_style=False, width=float("inf"), Dumper=noalias_dumper)
     
-    with open(outFilePath + '.deref', 'w') as outfileDeref:
-        print(outFilePath + '.deref')
-        deref = dereferenceBrAPI(outFilePath)
-        yaml.dump(deref, outfileDeref, default_flow_style=False, width=float("inf"))
-    
-    
-
-
 yaml.add_representer(str, str_presenter)
+noalias_dumper = yaml.dumper.SafeDumper
+noalias_dumper.ignore_aliases = lambda self, data: True
+
 rootPath = '.'
 if len(sys.argv) > 1 :
     rootPath = sys.argv[1]

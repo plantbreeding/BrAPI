@@ -7,7 +7,7 @@ components:
   schemas:
     VendorOrderSubmissionRequest:
       allOf:
-      - $ref: '#/components/schemas/VendorPlatesSubmissionRequest'
+      - $ref: '#/components/schemas/VendorPlateSubmissionRequest'
       - description: Request object structure to submit plate data to a vendor
         type: object
         required:

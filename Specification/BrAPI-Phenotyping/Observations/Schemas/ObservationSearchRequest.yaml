@@ -6,30 +6,36 @@ paths: {}
 components:
   schemas:
     ObservationSearchRequest: 
+      type: object
       properties:
         observationDbIds:
           description: The unique id of an Observation
           items:
             type: string
           type: array
+          example: ['6a4a59d8', '3ff067e0']
         observationUnitDbIds: 
           description: The unique id of an Observation Unit
           items:
             type: string
           type: array
+          example: ['76f559b5', '066bc5d3']
         germplasmDbIds:
           description: The name or synonym of external genebank accession identifiers
           items:
             type: string
           type: array
+          example: ['fc55fa61', '7f5b77be']
         locationDbIds:
           description: locations these traits were collected
           items:
             type: string
           type: array
+          example: ['071d09d3', '6e3fc921']
         observationLevel:
           description: The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnit Structure.
           type: string
+          example: plot
         observationTimeStampRangeEnd:
           description: Timestamp range end
           format: date-time
@@ -43,25 +49,29 @@ components:
           items:
             type: string
           type: array
+          example: ['a646187d', '6d23513b']
         programDbIds:
           description: list of programs to search across
           items:
             type: string
           type: array
+          example: ['d8ca7076', 'd56b0b68']
         seasonDbIds:
           description: The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)
           items:
             type: string
           type: array
+          example: ['Spring 2018', 'Season A']
         studyDbIds:
           description: The database ID / PK of the studies search parameter
           items:
             type: string
           type: array
+          example: ['222e0bc3', '8b24d5aa']
         trialDbIds:
           description: list of trials to search across
           items:
             type: string
           type: array
-      type: object
+          example: ['918c52f8', '378f58e6']
 

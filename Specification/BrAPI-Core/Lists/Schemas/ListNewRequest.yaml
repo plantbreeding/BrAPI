@@ -11,6 +11,7 @@ components:
       - type: object
         properties: 
           data:
+            description: The list of DbIds contained in this list
             type: array
             items:
               type: string

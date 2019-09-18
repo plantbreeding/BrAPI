@@ -4,100 +4,105 @@ An event is discrete occurrence at a particular time in the experiment (which ca
 [also see the [MIAPPE](https://www.miappe.org/) definition]
 
 
+
 ## Events [/brapi/v1/events] 
 
 
-### Get events by study [GET /brapi/v1/events{?studyDbId}{?page}{?pageSize}]
 
+
+### Get Events  [GET /brapi/v1/events{?studyDbId}{?page}{?pageSize}]
+
+Get list of events
+
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|date|array[string]|A list of dates when the event occured|
+|description|string|A detailed, human-readable description of this event|
+|eventDbId|string|Internal database identifier|
+|eventParameters|array[object]|A list of objects describing additional event parameters. Each of the following accepts a human-readable value or URI|
+|key|string|Specifies the relationship between the event and the given property. E.g. fertilizer, operator|
+|rdfValue|string|The type of the value given above, e.g. http://xmlns.com/foaf/0.1/Agent|
+|value|string|The value of the property for this event. E.g. nitrogen, John Doe|
+|eventType|string|General category for this event (e.g. Sowing, Watering, Rain). Each eventType should correspond to exactly one eventTypeDbId, if provided.|
+|eventTypeDbId|string|An identifier for this event type, in the form of an ontology class reference|
+|observationUnitDbIds|array[string]|A list of the affected observation units. If this parameter is not given, it is understood that the event affected all units in the study|
+|studyDbId|string|The study in which the event occurred|
+
+
+ 
 
 + Parameters
-    + eventDbId ... Internal database identifier
-    + eventTypeName ... General category for this event (e.g. Sowing, Watering, Rain). Each eventType should correspond to exactly one eventTypeDbId, if provided.
-    + eventTypeDbId (Optional, ) ... An identifier for this event type, in the form of an ontology class reference.
-    + date ... A list of datetimes at which this event occurred. 
-    + description (Optional, ) ... A detailed, human-readable description of this event.
-    + studyDbId ... The study in which the event occurred.
-    + observationUnitDbId (Optional, ) ... A list of the affected observation units. If this parameter is not given, it is understood that the event affected all units in the study.
-    + additionalInfo (Optional, ) ... A list of objects describing additional event parameters. Each of the following accepts a human-readable value or URI.
-	    + key ... Specifies the relationship between the event and the given property. E.g. fertilizer, operator
-	    + value ... The value of the property for this event. E.g. nitrogen, John Doe
-	    + valueRdfType (Optional, ) ... The type of the value given above, e.g. http://xmlns.com/foaf/0.1/Agent
+    + studyDbId (Required, ) ... Filter based on study unique identifier in which the events occured
     + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
-<strong>Bearer {token_string} </strong>
 
 
 
 + Response 200 (application/json)
-
 ```
 {
     "metadata": {
-        "datafiles": [],
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 2,
-            "totalCount": 2,
+            "pageSize": 1000,
+            "totalCount": 1,
             "totalPages": 1
         },
-        "status": []
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
     },
     "result": {
         "data": [
             {
-                "eventDbId": "ID12345",
-                "eventTypeName": "Planting",
-                "eventTypeDbId": "CO_715:0000007",
-                "description": "Sowing using seed drill",
-                "studyDbId": "studyX",
-                "observationUnitDbId": [
-                    "obsUnit1",
-                    "obsUnit2"
-                ],
+                "additionalInfo": {},
                 "date": [
-                    "2017-09-08T12:00:00+01:00"
+                    "2018-10-08T18:15:11Z",
+                    "2018-11-09T18:16:12Z"
                 ],
-                "additionalInfo": [
+                "description": "A set of plots was watered",
+                "eventDbId": "8566d4cb",
+                "eventParameters": [
                     {
-                        "key": "sowing method",
-                        "value": "seed drill",
-                        "valueRdfType": null
-                    }
-                ]
-            },
-            {
-                "eventDbId": "ID12346",
-                "eventTypeName": "Fertilizing",
-                "eventTypeDbId": "http://www.cropontology.org/rdf/CO_715:0000011",
-                "description": "Fertilizer application: Ammonium nitrate at 3 kg/m2",
-                "studyDbId": "studyY",
-                "observationUnitDbId": [],
-                "date": [
-                    "2017-09-09T12:00:00+01:00"
-                ],
-                "additionalInfo": [
+                        "key": "http://www.phenome-fppn.fr/vocabulary/2018#hasContact,",
+                        "value": "http://www.phenome-fppn.fr/diaphen/id/agent/marie_dupond,",
+                        "valueRdfType": "http://xmlns.com/foaf/0.1/Agent,"
+                    },
                     {
                         "key": "fertilizer",
-                        "value": "ammonium nitrate",
+                        "value": "nitrogen",
                         "valueRdfType": null
-                    },
-                    {
-                        "key": "amount",
-                        "value": "3",
-                        "valueRdfType": null
-                    },
-                    {
-                        "key": "unit",
-                        "value": "kg/m2"
-                    },
-                    {
-                        "key": "http://www.phenome-fppn.fr/vocabulary/2018#hasContact",
-                        "value": "http://www.phenome-fppn.fr/diaphen/id/agent/marie_dupond",
-                        "valueRdfType": "http://xmlns.com/foaf/0.1/Agent"
                     }
-                ]
+                ],
+                "eventType": "Watering",
+                "eventTypeDbId": "4e7d691e",
+                "observationUnitDbIds": [
+                    "8439eaff",
+                    "d7682e7a",
+                    "305ae51c"
+                ],
+                "studyDbId": "2cc2001f"
             }
         ]
     }
@@ -106,17 +111,16 @@ An event is discrete occurrence at a particular time in the experiment (which ca
 
 + Response 400 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
 ```
 
 + Response 401 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
 ```
 
 + Response 403 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
-
 

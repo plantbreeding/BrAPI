@@ -21,9 +21,9 @@ Get filtered set of image meta data
 
 Implementation Notes
 
-- 'imageURL' should be a complete URL decribing the location of the image. There is no BrAPI call for retireiving the image content, so it could be on a different path, or a different host.
+- ''imageURL'' should be a complete URL describing the location of the image. There is no BrAPI call for retrieving the image content, so it could be on a different path, or a different host.
 
-- 'descriptiveOntologyTerm' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI's.  
+- ''descriptiveOntologyTerm'' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI''s.
 
 
 
@@ -36,20 +36,20 @@ Implementation Notes
 |copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
 |description|string|The human readable description of an image.|
 |descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
-|imageDbId|string|The unique identifier of an image|
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
 |imageFileSize|integer|The size of the image in Bytes.|
 |imageHeight|integer|The height of the image in Pixels.|
 |imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
-|type|string||
+|type|string|Feature|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
 |imageTimeStamp|string (date)|The date and time the image was taken|
 |imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
 |imageWidth|integer|The width of the image in Pixels.|
 |mimeType|string|The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc|
 |observationDbIds|array[string]|A list of observation Ids this image is associated with, if applicable.|
-|observationUnitDbId|string|The related observation unit identifier, if relevent.|
+|observationUnitDbId|string|The related observation unit identifier, if relevant.|
+|imageDbId|string|The unique identifier of an image|
 
 
  
@@ -58,13 +58,11 @@ Implementation Notes
     + imageDbId (Optional, ) ... The unique identifier for a image
     + imageName (Optional, ) ... The human readable name of an image
     + observationUnitDbId (Optional, ) ... The unique identifier of the observation unit an image is portraying
-    + observationDbId (Optional, ) ... The unique identifier of the observation an image is accosiated with
+    + observationDbId (Optional, ) ... The unique identifier of the observation an image is associated with
     + descriptiveOntologyTerm (Optional, ) ... A descriptive term associated with an image
     + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -73,82 +71,65 @@ Implementation Notes
 ```
 {
     "metadata": {
-        "datafiles": [],
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 2,
-            "totalCount": 2,
+            "pageSize": 1000,
+            "totalCount": 1,
             "totalPages": 1
         },
-        "status": []
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
     },
     "result": {
         "data": [
             {
                 "additionalInfo": {},
-                "copyright": "Copyright 2018",
-                "description": "BrAPI Logo",
+                "copyright": "Copyright 2018 Bob Robertson",
+                "description": "This is a picture of a tomato",
                 "descriptiveOntologyTerms": [
-                    "brapi",
-                    "logo"
+                    "doi:10.1002/0470841559",
+                    "Red",
+                    "ncbi:0300294"
                 ],
-                "imageDbId": "img1",
-                "imageFileName": "brapi-logo.svg",
-                "imageFileSize": 3676,
-                "imageHeight": 56,
+                "imageDbId": "a55efb9c",
+                "imageFileName": "image_0000231.jpg",
+                "imageFileSize": 50000,
+                "imageHeight": 550,
                 "imageLocation": {
                     "geometry": {
                         "coordinates": [
-                            -110.11301,
-                            50.010082
+                            -76.506042,
+                            42.417373
                         ],
                         "type": "Point"
                     },
                     "type": "Feature"
                 },
-                "imageName": "brapiLogo",
-                "imageTimeStamp": "2011-06-14",
-                "imageURL": "https://brapi.org/assets/images/brapi-logo.svg",
-                "imageWidth": 258,
-                "mimeType": "image/svg",
+                "imageName": "Tomato Image 1",
+                "imageTimeStamp": "2018-01-01",
+                "imageURL": "https://wiki.brapi.org/images/tomato",
+                "imageWidth": 700,
+                "mimeType": "image/jpeg",
                 "observationDbIds": [
-                    "1",
-                    "2"
+                    "d05dd235",
+                    "8875177d",
+                    "c08e81b6"
                 ],
-                "observationUnitDbId": "1"
-            },
-            {
-                "additionalInfo": {},
-                "copyright": "Copyright 2018",
-                "description": "BrAPI Logo",
-                "descriptiveOntologyTerms": [
-                    "brapi",
-                    "logo"
-                ],
-                "imageDbId": "img2",
-                "imageFileName": "brapi-logo.svg",
-                "imageFileSize": 3676,
-                "imageHeight": 56,
-                "imageLocation": {
-                    "geometry": {
-                        "coordinates": [
-                            -110.11301,
-                            50.010082
-                        ],
-                        "type": "Point"
-                    },
-                    "type": "Feature"
-                },
-                "imageName": "brapiLogo",
-                "imageTimeStamp": "2011-06-14",
-                "imageURL": "https://brapi.org/assets/images/brapi-logo.svg",
-                "imageWidth": 258,
-                "mimeType": "image/svg",
-                "observationDbIds": [
-                    "1",
-                    "2"
-                ],
-                "observationUnitDbId": "1"
+                "observationUnitDbId": "b7e690b6"
             }
         ]
     }
@@ -157,17 +138,17 @@ Implementation Notes
 
 + Response 400 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
 ```
 
 + Response 401 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
 ```
 
 + Response 403 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
 
 
@@ -180,15 +161,15 @@ Create a new image meta data object
 
 Implementation Notes
 
-- 'imageURL' should be a complete URL decribing the location of the image. There is no BrAPI call for retireiving the image content, so it could be on a different path, or a different host.
+- ''imageURL'' should be a complete URL describing the location of the image. There is no BrAPI call for retrieving the image content, so it could be on a different path, or a different host.
 
-- 'descriptiveOntologyTerm' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI's.
+- ''descriptiveOntologyTerm'' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI''s.
 
-- The `/images` calls support a GeoJSON object structure for describing their location. The BrAPI spec for GeoJSON only supports two of the possible geometries: Points and Polygons.
+- The '/images' calls support a GeoJSON object structure for describing their location. The BrAPI spec for GeoJSON only supports two of the possible geometries: Points and Polygons.
 
 - With most images, the Point geometry should be used, and it should indicate the longitude and latitude of the camera.
 
-- For top down images (ie from drones, cranes, etc), the Point geometry may be used to indicate the longitude and latitude of the centroid of the image content, and the Polygon geometry may be used to indicate the border of the image content. 
+- For top down images (ie from drones, cranes, etc), the Point geometry may be used to indicate the longitude and latitude of the centroid of the image content, and the Polygon geometry may be used to indicate the border of the image content. '
 
 **Request Fields** 
 
@@ -203,75 +184,86 @@ Implementation Notes
 |imageHeight|integer|The height of the image in Pixels.|
 |imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
-|type|string||
-|imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
-|imageTimeStamp|string (date)|The date and time the image was taken|
-|imageWidth|integer|The width of the image in Pixels.|
-|mimeType|string|The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc|
-|observationDbIds|array[string]|A list of observation Ids this image is associated with, if applicable.|
-|observationUnitDbId|string|The related observation unit identifier, if relevent.|
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object||
-|copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
-|description|string|The human readable description of an image.|
-|descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
-|imageDbId|string|The unique identifier of an image|
-|imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
-|imageFileSize|integer|The size of the image in Bytes.|
-|imageHeight|integer|The height of the image in Pixels.|
-|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|geometry|object||
-|type|string||
+|type|string|Feature|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
 |imageTimeStamp|string (date)|The date and time the image was taken|
 |imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
 |imageWidth|integer|The width of the image in Pixels.|
 |mimeType|string|The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc|
 |observationDbIds|array[string]|A list of observation Ids this image is associated with, if applicable.|
-|observationUnitDbId|string|The related observation unit identifier, if relevent.|
+|observationUnitDbId|string|The related observation unit identifier, if relevant.|
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[object]|Array of image meta data|
+|additionalInfo|object||
+|copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
+|description|string|The human readable description of an image.|
+|descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
+|imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
+|imageFileSize|integer|The size of the image in Bytes.|
+|imageHeight|integer|The height of the image in Pixels.|
+|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geometry|object||
+|type|string|Feature|
+|imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
+|imageTimeStamp|string (date)|The date and time the image was taken|
+|imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
+|imageWidth|integer|The width of the image in Pixels.|
+|mimeType|string|The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc|
+|observationDbIds|array[string]|A list of observation Ids this image is associated with, if applicable.|
+|observationUnitDbId|string|The related observation unit identifier, if relevant.|
+|imageDbId|string|The unique identifier of an image|
 
 
  
 
 + Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
  
 + Request (application/json)
 ```
-{
-    "additionalInfo": {},
-    "copyright": "copyright0",
-    "description": "description0",
-    "descriptiveOntologyTerms": [
-        "descriptiveOntologyTerms0",
-        "descriptiveOntologyTerms1"
-    ],
-    "imageFileName": "imageFileName0",
-    "imageFileSize": 0,
-    "imageHeight": 0,
-    "imageLocation": {
-        "geometry": {},
-        "type": "Feature"
-    },
-    "imageName": "imageName0",
-    "imageTimeStamp": "2018-01-01",
-    "imageWidth": 0,
-    "mimeType": "mimeType0",
-    "observationDbIds": [
-        "observationDbIds0",
-        "observationDbIds1"
-    ],
-    "observationUnitDbId": "observationUnitDbId0"
-}
+[
+    {
+        "additionalInfo": {},
+        "copyright": "Copyright 2018 Bob Robertson",
+        "description": "This is a picture of a tomato",
+        "descriptiveOntologyTerms": [
+            "doi:10.1002/0470841559",
+            "Red",
+            "ncbi:0300294"
+        ],
+        "imageFileName": "image_0000231.jpg",
+        "imageFileSize": 50000,
+        "imageHeight": 550,
+        "imageLocation": {
+            "geometry": {
+                "coordinates": [
+                    -76.506042,
+                    42.417373
+                ],
+                "type": "Point"
+            },
+            "type": "Feature"
+        },
+        "imageName": "Tomato Image 1",
+        "imageTimeStamp": "2018-01-01",
+        "imageURL": "https://wiki.brapi.org/images/tomato",
+        "imageWidth": 700,
+        "mimeType": "image/jpeg",
+        "observationDbIds": [
+            "d05dd235",
+            "8875177d",
+            "c08e81b6"
+        ],
+        "observationUnitDbId": "b7e690b6"
+    }
+]
 ```
 
 
@@ -280,64 +272,84 @@ Implementation Notes
 ```
 {
     "metadata": {
-        "datafiles": [],
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 0,
-            "totalCount": 0,
-            "totalPages": 0
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
         },
-        "status": []
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
     },
     "result": {
-        "additionalInfo": {},
-        "copyright": "Copyright 2019",
-        "description": "BrAPI Logo",
-        "descriptiveOntologyTerms": [
-            "brapi",
-            "logo"
-        ],
-        "imageDbId": "ce15937e-093e-4624-8950-00dab3172e4c",
-        "imageFileName": "brapi-logo.svg",
-        "imageFileSize": 3676,
-        "imageHeight": 56,
-        "imageLocation": {
-            "geometry": {
-                "coordinates": [
-                    -110.11301,
-                    50.010082
+        "data": [
+            {
+                "additionalInfo": {},
+                "copyright": "Copyright 2018 Bob Robertson",
+                "description": "This is a picture of a tomato",
+                "descriptiveOntologyTerms": [
+                    "doi:10.1002/0470841559",
+                    "Red",
+                    "ncbi:0300294"
                 ],
-                "type": "Point"
-            },
-            "type": "Feature"
-        },
-        "imageName": "brapiLogo",
-        "imageTimeStamp": "1969-12-31",
-        "imageURL": "",
-        "imageWidth": 258,
-        "mimeType": "image/svg",
-        "observationDbIds": [
-            "1",
-            "2"
-        ],
-        "observationUnitDbId": "11"
+                "imageDbId": "a55efb9c",
+                "imageFileName": "image_0000231.jpg",
+                "imageFileSize": 50000,
+                "imageHeight": 550,
+                "imageLocation": {
+                    "geometry": {
+                        "coordinates": [
+                            -76.506042,
+                            42.417373
+                        ],
+                        "type": "Point"
+                    },
+                    "type": "Feature"
+                },
+                "imageName": "Tomato Image 1",
+                "imageTimeStamp": "2018-01-01",
+                "imageURL": "https://wiki.brapi.org/images/tomato",
+                "imageWidth": 700,
+                "mimeType": "image/jpeg",
+                "observationDbIds": [
+                    "d05dd235",
+                    "8875177d",
+                    "c08e81b6"
+                ],
+                "observationUnitDbId": "b7e690b6"
+            }
+        ]
     }
 }
 ```
 
 + Response 400 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
 ```
 
 + Response 401 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
 ```
 
 + Response 403 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
 
 
@@ -350,9 +362,9 @@ Get one image meta data object
 
 Implementation Notes
 
-- 'imageURL' should be a complete URL decribing the location of the image. There is no BrAPI call for retireiving the image content, so it could be on a different path, or a different host.
+- ''imageURL'' should be a complete URL describing the location of the image. There is no BrAPI call for retrieving the image content, so it could be on a different path, or a different host.
 
-- 'descriptiveOntologyTerm' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI's. 
+- ''descriptiveOntologyTerm'' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI''s.
 
 
 
@@ -364,29 +376,27 @@ Implementation Notes
 |copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
 |description|string|The human readable description of an image.|
 |descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
-|imageDbId|string|The unique identifier of an image|
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
 |imageFileSize|integer|The size of the image in Bytes.|
 |imageHeight|integer|The height of the image in Pixels.|
 |imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
-|type|string||
+|type|string|Feature|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
 |imageTimeStamp|string (date)|The date and time the image was taken|
 |imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
 |imageWidth|integer|The width of the image in Pixels.|
 |mimeType|string|The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc|
 |observationDbIds|array[string]|A list of observation Ids this image is associated with, if applicable.|
-|observationUnitDbId|string|The related observation unit identifier, if relevent.|
+|observationUnitDbId|string|The related observation unit identifier, if relevant.|
+|imageDbId|string|The unique identifier of an image|
 
 
  
 
 + Parameters
     + imageDbId (Required, ) ... The unique identifier for a image
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -395,69 +405,85 @@ Implementation Notes
 ```
 {
     "metadata": {
-        "datafiles": [],
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 0,
-            "totalCount": 0,
-            "totalPages": 0
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
         },
-        "status": []
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
     },
     "result": {
         "additionalInfo": {},
-        "copyright": "Copyright 2018",
-        "description": "BrAPI Logo",
+        "copyright": "Copyright 2018 Bob Robertson",
+        "description": "This is a picture of a tomato",
         "descriptiveOntologyTerms": [
-            "brapi",
-            "logo"
+            "doi:10.1002/0470841559",
+            "Red",
+            "ncbi:0300294"
         ],
-        "imageDbId": "img1",
-        "imageFileName": "brapi-logo.svg",
-        "imageFileSize": 3676,
-        "imageHeight": 56,
+        "imageDbId": "a55efb9c",
+        "imageFileName": "image_0000231.jpg",
+        "imageFileSize": 50000,
+        "imageHeight": 550,
         "imageLocation": {
             "geometry": {
                 "coordinates": [
-                    -110.11301,
-                    50.010082
+                    -76.506042,
+                    42.417373
                 ],
                 "type": "Point"
             },
             "type": "Feature"
         },
-        "imageName": "brapiLogo",
-        "imageTimeStamp": "2011-06-14",
-        "imageURL": "https://brapi.org/assets/images/brapi-logo.svg",
-        "imageWidth": 258,
-        "mimeType": "image/svg",
+        "imageName": "Tomato Image 1",
+        "imageTimeStamp": "2018-01-01",
+        "imageURL": "https://wiki.brapi.org/images/tomato",
+        "imageWidth": 700,
+        "mimeType": "image/jpeg",
         "observationDbIds": [
-            "1",
-            "2"
+            "d05dd235",
+            "8875177d",
+            "c08e81b6"
         ],
-        "observationUnitDbId": "1"
+        "observationUnitDbId": "b7e690b6"
     }
 }
 ```
 
 + Response 400 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
 ```
 
 + Response 401 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
 ```
 
 + Response 403 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
 
 + Response 404 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
 ```
 
 
@@ -474,15 +500,15 @@ Implementation Notes
 
 - A server may choose to modify the image meta data object based on the actually image which has been uploaded. 
 
-- Image data may be stored in a database or file system. Servers should generate and provide the \"imageURL\" as an absolute path for retrieving the image, wherever it happens to live. 
+- Image data may be stored in a database or file system. Servers should generate and provide the "imageURL" as an absolute path for retrieving the image, wherever it happens to live. 
 
 - 'descriptiveOntologyTerm' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI's. 
 
-- The `/images` calls support a GeoJSON object structure for describing their location. The BrAPI spec for GeoJSON only supports two of the possible geometries: Points and Polygons. 
-        
+- The '/images' calls support a GeoJSON object structure for describing their location. The BrAPI spec for GeoJSON only supports two of the possible geometries: Points and Polygons. 
+
 - With most images, the Point geometry should be used, and it should indicate the longitude and latitude of the camera. 
-        
-- For top down images (ie from drones, cranes, etc), the Point geometry may be used to indicate the longitude and latitude of the centroid of the image content, and the Polygon geometry may be used to indicate the border of the image content. '
+
+- For top down images (ie from drones, cranes, etc), the Point geometry may be used to indicate the longitude and latitude of the centroid of the image content, and the Polygon geometry may be used to indicate the border of the image content.
 
 **Request Fields** 
 
@@ -497,13 +523,14 @@ Implementation Notes
 |imageHeight|integer|The height of the image in Pixels.|
 |imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
-|type|string||
+|type|string|Feature|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
 |imageTimeStamp|string (date)|The date and time the image was taken|
+|imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
 |imageWidth|integer|The width of the image in Pixels.|
 |mimeType|string|The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc|
 |observationDbIds|array[string]|A list of observation Ids this image is associated with, if applicable.|
-|observationUnitDbId|string|The related observation unit identifier, if relevent.|
+|observationUnitDbId|string|The related observation unit identifier, if relevant.|
 
 
 **Response Fields** 
@@ -514,29 +541,27 @@ Implementation Notes
 |copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
 |description|string|The human readable description of an image.|
 |descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
-|imageDbId|string|The unique identifier of an image|
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
 |imageFileSize|integer|The size of the image in Bytes.|
 |imageHeight|integer|The height of the image in Pixels.|
 |imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
-|type|string||
+|type|string|Feature|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
 |imageTimeStamp|string (date)|The date and time the image was taken|
 |imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
 |imageWidth|integer|The width of the image in Pixels.|
 |mimeType|string|The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc|
 |observationDbIds|array[string]|A list of observation Ids this image is associated with, if applicable.|
-|observationUnitDbId|string|The related observation unit identifier, if relevent.|
+|observationUnitDbId|string|The related observation unit identifier, if relevant.|
+|imageDbId|string|The unique identifier of an image|
 
 
  
 
 + Parameters
     + imageDbId (Required, ) ... The unique identifier for a image
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
  
@@ -544,28 +569,37 @@ Implementation Notes
 ```
 {
     "additionalInfo": {},
-    "copyright": "copyright0",
-    "description": "description0",
+    "copyright": "Copyright 2018 Bob Robertson",
+    "description": "This is a picture of a tomato",
     "descriptiveOntologyTerms": [
-        "descriptiveOntologyTerms0",
-        "descriptiveOntologyTerms1"
+        "doi:10.1002/0470841559",
+        "Red",
+        "ncbi:0300294"
     ],
-    "imageFileName": "imageFileName0",
-    "imageFileSize": 0,
-    "imageHeight": 0,
+    "imageFileName": "image_0000231.jpg",
+    "imageFileSize": 50000,
+    "imageHeight": 550,
     "imageLocation": {
-        "geometry": {},
+        "geometry": {
+            "coordinates": [
+                -76.506042,
+                42.417373
+            ],
+            "type": "Point"
+        },
         "type": "Feature"
     },
-    "imageName": "imageName0",
+    "imageName": "Tomato Image 1",
     "imageTimeStamp": "2018-01-01",
-    "imageWidth": 0,
-    "mimeType": "mimeType0",
+    "imageURL": "https://wiki.brapi.org/images/tomato",
+    "imageWidth": 700,
+    "mimeType": "image/jpeg",
     "observationDbIds": [
-        "observationDbIds0",
-        "observationDbIds1"
+        "d05dd235",
+        "8875177d",
+        "c08e81b6"
     ],
-    "observationUnitDbId": "observationUnitDbId0"
+    "observationUnitDbId": "b7e690b6"
 }
 ```
 
@@ -575,69 +609,85 @@ Implementation Notes
 ```
 {
     "metadata": {
-        "datafiles": [],
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 0,
-            "totalCount": 0,
-            "totalPages": 0
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
         },
-        "status": []
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
     },
     "result": {
         "additionalInfo": {},
-        "copyright": "Copyright 2019",
-        "description": "BrAPI Logo",
+        "copyright": "Copyright 2018 Bob Robertson",
+        "description": "This is a picture of a tomato",
         "descriptiveOntologyTerms": [
-            "brapi",
-            "logo"
+            "doi:10.1002/0470841559",
+            "Red",
+            "ncbi:0300294"
         ],
-        "imageDbId": "img1",
-        "imageFileName": "brapi-logo.svg",
-        "imageFileSize": 3676,
-        "imageHeight": 56,
+        "imageDbId": "a55efb9c",
+        "imageFileName": "image_0000231.jpg",
+        "imageFileSize": 50000,
+        "imageHeight": 550,
         "imageLocation": {
             "geometry": {
                 "coordinates": [
-                    -110.11301,
-                    50.010082
+                    -76.506042,
+                    42.417373
                 ],
                 "type": "Point"
             },
             "type": "Feature"
         },
-        "imageName": "brapiLogo",
-        "imageTimeStamp": "1969-12-31",
-        "imageURL": "",
-        "imageWidth": 258,
-        "mimeType": "image/svg",
+        "imageName": "Tomato Image 1",
+        "imageTimeStamp": "2018-01-01",
+        "imageURL": "https://wiki.brapi.org/images/tomato",
+        "imageWidth": 700,
+        "mimeType": "image/jpeg",
         "observationDbIds": [
-            "1",
-            "2"
+            "d05dd235",
+            "8875177d",
+            "c08e81b6"
         ],
-        "observationUnitDbId": "11"
+        "observationUnitDbId": "b7e690b6"
     }
 }
 ```
 
 + Response 400 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
 ```
 
 + Response 401 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
 ```
 
 + Response 403 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
 
 + Response 404 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
 ```
 
 
@@ -654,7 +704,7 @@ Implementation Notes
 
 - A server may choose to modify the image meta data object based on the actually image which has been uploaded. 
 
-- Image data may be stored in a database or file system. Servers should generate and provide the "imageURL" for retrieving the image, wherever it happens to live.  
+- Image data may be stored in a database or file system. Servers should generate and provide the "imageURL" for retrieving the image, wherever it happens to live.
 
 
 
@@ -666,29 +716,27 @@ Implementation Notes
 |copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
 |description|string|The human readable description of an image.|
 |descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
-|imageDbId|string|The unique identifier of an image|
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
 |imageFileSize|integer|The size of the image in Bytes.|
 |imageHeight|integer|The height of the image in Pixels.|
 |imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
-|type|string||
+|type|string|Feature|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
 |imageTimeStamp|string (date)|The date and time the image was taken|
 |imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
 |imageWidth|integer|The width of the image in Pixels.|
 |mimeType|string|The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc|
 |observationDbIds|array[string]|A list of observation Ids this image is associated with, if applicable.|
-|observationUnitDbId|string|The related observation unit identifier, if relevent.|
+|observationUnitDbId|string|The related observation unit identifier, if relevant.|
+|imageDbId|string|The unique identifier of an image|
 
 
  
 
 + Parameters
     + imageDbId (Required, ) ... The unique identifier for a image
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -697,69 +745,85 @@ Implementation Notes
 ```
 {
     "metadata": {
-        "datafiles": [],
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 0,
-            "totalCount": 0,
-            "totalPages": 0
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
         },
-        "status": []
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
     },
     "result": {
         "additionalInfo": {},
-        "copyright": "Copyright 2019",
-        "description": "BrAPI Logo",
+        "copyright": "Copyright 2018 Bob Robertson",
+        "description": "This is a picture of a tomato",
         "descriptiveOntologyTerms": [
-            "brapi",
-            "logo"
+            "doi:10.1002/0470841559",
+            "Red",
+            "ncbi:0300294"
         ],
-        "imageDbId": "img1",
-        "imageFileName": "brapi-logo.svg",
-        "imageFileSize": 3676,
-        "imageHeight": 56,
+        "imageDbId": "a55efb9c",
+        "imageFileName": "image_0000231.jpg",
+        "imageFileSize": 50000,
+        "imageHeight": 550,
         "imageLocation": {
             "geometry": {
                 "coordinates": [
-                    -110.11301,
-                    50.010082
+                    -76.506042,
+                    42.417373
                 ],
                 "type": "Point"
             },
             "type": "Feature"
         },
-        "imageName": "brapiLogo",
-        "imageTimeStamp": "1969-12-31",
-        "imageURL": "http://localhost:8080/brapi/v1/images/img1/brapi-logo.svg",
-        "imageWidth": 258,
-        "mimeType": "image/svg",
+        "imageName": "Tomato Image 1",
+        "imageTimeStamp": "2018-01-01",
+        "imageURL": "https://wiki.brapi.org/images/tomato",
+        "imageWidth": 700,
+        "mimeType": "image/jpeg",
         "observationDbIds": [
-            "1",
-            "2"
+            "d05dd235",
+            "8875177d",
+            "c08e81b6"
         ],
-        "observationUnitDbId": "11"
+        "observationUnitDbId": "b7e690b6"
     }
 }
 ```
 
 + Response 400 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
 ```
 
 + Response 401 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
 ```
 
 + Response 403 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
 
 + Response 404 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
 ```
 
 
@@ -775,9 +839,9 @@ Get filtered set of image meta data
 
 Implementation Notes
 
-- 'imageURL' should be a complete URL decribing the location of the image. There is no BrAPI call for retireiving the image content, so it could be on a different path, or a different host.
+- ''imageURL'' should be a complete URL describing the location of the image. There is no BrAPI call for retrieving the image content, so it could be on a different path, or a different host.
 
-- 'descriptiveOntologyTerm' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI's.  
+- 'descriptiveOntologyTerm' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI's.
 
 See Search Services for additional implementation details.
 
@@ -793,7 +857,7 @@ See Search Services for additional implementation details.
 |imageHeightMin|integer|A minimum image height to search for.|
 |imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
-|type|string||
+|type|string|Feature|
 |imageNames|array[string]|Human readable names to search for.|
 |imageTimeStampRangeEnd|string (date)|The latest timestamp to search for.|
 |imageTimeStampRangeStart|string (date)|The earliest timestamp to search for.|
@@ -814,9 +878,7 @@ See Search Services for additional implementation details.
  
 
 + Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
  
@@ -824,40 +886,48 @@ See Search Services for additional implementation details.
 ```
 {
     "descriptiveOntologyTerms": [
-        "descriptiveOntologyTerms0",
-        "descriptiveOntologyTerms1"
+        "doi:10.1002/0470841559",
+        "Red",
+        "ncbi:0300294"
     ],
     "imageFileNames": [
-        "imageFileNames0",
-        "imageFileNames1"
+        "image_01032019.jpg",
+        "picture_field_1234.jpg"
     ],
-    "imageFileSizeMax": 0,
-    "imageFileSizeMin": 0,
-    "imageHeightMax": 0,
-    "imageHeightMin": 0,
+    "imageFileSizeMax": 20000000,
+    "imageFileSizeMin": 1000,
+    "imageHeightMax": 1080,
+    "imageHeightMin": 720,
     "imageLocation": {
-        "geometry": {},
+        "geometry": {
+            "coordinates": [
+                -76.506042,
+                42.417373
+            ],
+            "type": "Point"
+        },
         "type": "Feature"
     },
     "imageNames": [
-        "imageNames0",
-        "imageNames1"
+        "Image 43",
+        "Tractor in field"
     ],
     "imageTimeStampRangeEnd": "2018-01-01",
     "imageTimeStampRangeStart": "2018-01-01",
-    "imageWidthMax": 0,
-    "imageWidthMin": 0,
+    "imageWidthMax": 1920,
+    "imageWidthMin": 1280,
     "mimeTypes": [
-        "mimeTypes0",
-        "mimeTypes1"
+        "image/jpg",
+        "image/jpeg",
+        "image/gif"
     ],
     "observationDbIds": [
-        "observationDbIds0",
-        "observationDbIds1"
+        "47326456",
+        "fc9823ac"
     ],
     "observationUnitDbIds": [
-        "observationUnitDbIds0",
-        "observationUnitDbIds1"
+        "f5e4b273",
+        "328c9424"
     ]
 }
 ```
@@ -868,34 +938,48 @@ See Search Services for additional implementation details.
 ```
 {
     "metadata": {
-        "datafiles": [],
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 0,
-            "totalCount": 0,
-            "totalPages": 0
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
         },
-        "status": []
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
     },
     "result": {
-        "searchResultDbId": "551ae08c-4548-4bde-ad70-f23beb25e2ea"
+        "searchResultDbId": "551ae08c"
     }
 }
 ```
 
 + Response 400 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
 ```
 
 + Response 401 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
 ```
 
 + Response 403 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
 
 
@@ -908,9 +992,9 @@ Get filtered set of image meta data
 
 Implementation Notes
 
-- 'imageURL' should be a complete URL decribing the location of the image. There is no BrAPI call for retireiving the image content, so it could be on a different path, or a different host.
+- ''imageURL'' should be a complete URL describing the location of the image. There is no BrAPI call for retrieving the image content, so it could be on a different path, or a different host.
 
-- 'descriptiveOntologyTerm' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI's.  
+- ''descriptiveOntologyTerm'' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI''s.
 
 
 
@@ -923,20 +1007,20 @@ Implementation Notes
 |copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
 |description|string|The human readable description of an image.|
 |descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
-|imageDbId|string|The unique identifier of an image|
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
 |imageFileSize|integer|The size of the image in Bytes.|
 |imageHeight|integer|The height of the image in Pixels.|
 |imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
-|type|string||
+|type|string|Feature|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
 |imageTimeStamp|string (date)|The date and time the image was taken|
 |imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
 |imageWidth|integer|The width of the image in Pixels.|
 |mimeType|string|The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc|
 |observationDbIds|array[string]|A list of observation Ids this image is associated with, if applicable.|
-|observationUnitDbId|string|The related observation unit identifier, if relevent.|
+|observationUnitDbId|string|The related observation unit identifier, if relevant.|
+|imageDbId|string|The unique identifier of an image|
 
 
  
@@ -945,9 +1029,7 @@ Implementation Notes
     + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
     + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization 
-
-<strong>Bearer {token_string} </strong>
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -956,82 +1038,65 @@ Implementation Notes
 ```
 {
     "metadata": {
-        "datafiles": [],
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 2,
-            "totalCount": 2,
+            "pageSize": 1000,
+            "totalCount": 1,
             "totalPages": 1
         },
-        "status": []
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
     },
     "result": {
         "data": [
             {
                 "additionalInfo": {},
-                "copyright": "Copyright 2018",
-                "description": "BrAPI Logo",
+                "copyright": "Copyright 2018 Bob Robertson",
+                "description": "This is a picture of a tomato",
                 "descriptiveOntologyTerms": [
-                    "brapi",
-                    "logo"
+                    "doi:10.1002/0470841559",
+                    "Red",
+                    "ncbi:0300294"
                 ],
-                "imageDbId": "img2",
-                "imageFileName": "brapi-logo.svg",
-                "imageFileSize": 3676,
-                "imageHeight": 56,
+                "imageDbId": "a55efb9c",
+                "imageFileName": "image_0000231.jpg",
+                "imageFileSize": 50000,
+                "imageHeight": 550,
                 "imageLocation": {
                     "geometry": {
                         "coordinates": [
-                            -110.11301,
-                            50.010082
+                            -76.506042,
+                            42.417373
                         ],
                         "type": "Point"
                     },
                     "type": "Feature"
                 },
-                "imageName": "brapiLogo",
-                "imageTimeStamp": "2011-06-14",
-                "imageURL": "https://brapi.org/assets/images/brapi-logo.svg",
-                "imageWidth": 258,
-                "mimeType": "image/svg",
+                "imageName": "Tomato Image 1",
+                "imageTimeStamp": "2018-01-01",
+                "imageURL": "https://wiki.brapi.org/images/tomato",
+                "imageWidth": 700,
+                "mimeType": "image/jpeg",
                 "observationDbIds": [
-                    "1",
-                    "2"
+                    "d05dd235",
+                    "8875177d",
+                    "c08e81b6"
                 ],
-                "observationUnitDbId": "1"
-            },
-            {
-                "additionalInfo": {},
-                "copyright": "Copyright 2019",
-                "description": "BrAPI Logo",
-                "descriptiveOntologyTerms": [
-                    "brapi",
-                    "logo"
-                ],
-                "imageDbId": "ce15937e-093e-4624-8950-00dab3172e4c",
-                "imageFileName": "brapi-logo.svg",
-                "imageFileSize": 3676,
-                "imageHeight": 56,
-                "imageLocation": {
-                    "geometry": {
-                        "coordinates": [
-                            -110.11301,
-                            50.010082
-                        ],
-                        "type": "Point"
-                    },
-                    "type": "Feature"
-                },
-                "imageName": "brapiLogo",
-                "imageTimeStamp": "1969-12-31",
-                "imageURL": "",
-                "imageWidth": 258,
-                "mimeType": "image/svg",
-                "observationDbIds": [
-                    "1",
-                    "2"
-                ],
-                "observationUnitDbId": "11"
+                "observationUnitDbId": "b7e690b6"
             }
         ]
     }
@@ -1040,21 +1105,21 @@ Implementation Notes
 
 + Response 400 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Malformed JSON Request Object\nERROR - 2018-10-08T20:15:11Z - Invalid query parameter\nERROR - 2018-10-08T20:15:11Z - Required parameter is missing"
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
 ```
 
 + Response 401 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token"
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
 ```
 
 + Response 403 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - User does not have permission to perform this action"
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
 
 + Response 404 (application/json)
 ```
-"ERROR - 2018-10-08T20:15:11Z - The requested object DbId is not found"
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
 ```
 
