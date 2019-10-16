@@ -27,7 +27,7 @@ components:
         positionCoordinateX:
           description: The X position coordinate for an observation unit. Different systems may use different coordinate systems.
           type: string
-          example: 74
+          example: '74'
         positionCoordinateXType:
           description: |-
             The type of positional coordinate used. Must be one of the following values

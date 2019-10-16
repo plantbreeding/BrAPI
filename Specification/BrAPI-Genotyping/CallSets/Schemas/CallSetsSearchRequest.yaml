@@ -1,16 +1,32 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
 components:
   schemas:
-    callSetsSearchRequest:
+    callSetsSearchRequest: 
       description: |-
         ******************  /callsets  *********************
         This request maps to the body of `POST /search/callsets` as JSON.
+      type: object
       properties:
         germplasmDbIds:
           description: Return only call sets generated from the Sample of this germplasm
           type: array
           items:
             type: string
+        germplasmNames:
+          description: Return only call sets generated from the Sample of this germplasm
+          type: array
+          items:
+            type: string
         sampleDbIds:
+          description: Return only call sets generated from the provided Biosample ID.
+          type: array
+          items:
+            type: string
+        sampleNames:
           description: Return only call sets generated from the provided Biosample ID.
           type: array
           items:
@@ -30,9 +46,3 @@ components:
           type: array
           items:
             type: string
-      type: object
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}

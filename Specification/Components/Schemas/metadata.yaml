@@ -71,7 +71,7 @@ components:
           default: 0
           example: 0
         pageSize:
-          type: integer
+          type: string
           default: 1000
           example: 1000
         totalCount:

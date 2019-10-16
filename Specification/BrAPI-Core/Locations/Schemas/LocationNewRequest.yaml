@@ -62,7 +62,7 @@ components:
         slope:
           description: Describes the approximate slope (height/distance) of the location.
           type: string
-          example: 0
+          example: '0'
         exposure:
           description: Describes the level of protection/exposure for things like sun light and wind.
           type: string

@@ -53,6 +53,18 @@ paths:
         required: false
         schema:
           type: string
+      - description: Filter by germplasm DbId
+        in: query
+        name: germplasmDbId
+        required: false
+        schema:
+          type: string
+      - description: Filter by observation variable DbId
+        in: query
+        name: observationVariableDbId
+        required: false
+        schema:
+          type: string
       - description: Filter active status true/false.
         in: query
         name: active
