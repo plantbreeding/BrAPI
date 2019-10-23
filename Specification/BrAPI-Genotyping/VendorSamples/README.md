@@ -24,8 +24,8 @@ List current available orders
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|clientId|string|A unique, alpha-numeric ID which identifies the client to the vendor. Used to connect the order to the correct billing and contact info.|
 |serviceIds|array[string]|A list of unique, alpha-numeric ID which identify the requested services to be applied to this order.  A Vendor Service defines what platform, technology, and markers will be used.  A list of available service IDs can be retrieved from the Vendor Specs.|
+|clientId|string|A unique, alpha-numeric ID which identifies the client to the vendor. Used to connect the order to the correct billing and contact info.|
 |numberOfSamples|integer|The total number of samples contained in this request. Used for billing and basic validation of the request.|
 |orderId|string|The order id returned by the vendor when the order was successfully submitted.|
 |requiredServiceInfo|object|A map of additional data required by the requested service. This includes things like Volume and Concentration.|
@@ -118,45 +118,45 @@ Submit a new order to a vendor
 
 |Field|Type|Description|
 |---|---|---| 
-|clientId|string|A unique, alpha-numeric ID which identifies the client to the vendor. Used to connect the order to the contract, billing, and contact info.|
+|sampleType|string|The type of Samples being submitted|
 |numberOfSamples|integer|The total number of samples contained in this request. Used for billing and basic validation of the request.|
+|requiredServiceInfo|object|A map of additional data required by the requested service. This includes things like Volume and Concentration.|
+|serviceIds|array[string]|A list of unique, alpha-numeric ID which identify the requested services to be applied to this order.  A Vendor Service defines what platform, technology, and markers will be used.  A list of available service IDs can be retrieved from the Vendor Specs.|
 |plates|array[object]|Array of new plates to be submitted to a vendor|
-|clientPlateId|string|The ID which uniquely identifies this plate to the client making the request|
 |clientPlateBarcode|string|(Optional) The value of the bar code attached to this plate|
 |sampleSubmissionFormat|string|Enum for plate formats, usually "PLATE_96" for a 96 well plate or "TUBES" for plateless format|
 |samples|array[object]||
 |volume|object|A value with units|
-|value|number|Value (example: "2.3")|
 |units|string|Units (example: "ng/ul")|
-|clientSampleId|string|The ID which uniquely identifies this sample to the client making the request|
-|tissueTypeOntologyReference|object||
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
-|URL|string (uri)||
-|version|string|Ontology version (no specific format)|
-|organismName|string|Scientific organism name|
+|value|number|Value (example: "2.3")|
 |comments|string|Generic comments about this sample for the vendor|
+|clientSampleId|string|The ID which uniquely identifies this sample to the client making the request|
 |taxonomyOntologyReference|object||
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
 |URL|string (uri)||
+|type|string||
 |version|string|Ontology version (no specific format)|
-|tissueType|string|The type of tissue in this sample. List of accepted tissue types can be found in the Vendor Specs.|
-|clientSampleBarCode|string|(Optional) The value of the bar code attached to this sample|
 |column|integer|The Column identifier for this samples location in the plate|
+|organismName|string|Scientific organism name|
+|tissueType|string|The type of tissue in this sample. List of accepted tissue types can be found in the Vendor Specs.|
 |row|string|The Row identifier for this samples location in the plate|
 |concentration|object|A value with units|
-|value|number|Value (example: "2.3")|
 |units|string|Units (example: "ng/ul")|
+|value|number|Value (example: "2.3")|
 |well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
+|clientSampleBarCode|string|(Optional) The value of the bar code attached to this sample|
+|tissueTypeOntologyReference|object||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
+|version|string|Ontology version (no specific format)|
 |speciesName|string|Scientific species name|
-|sampleType|string|The type of Samples being submitted|
-|serviceIds|array[string]|A list of unique, alpha-numeric ID which identify the requested services to be applied to this order.  A Vendor Service defines what platform, technology, and markers will be used.  A list of available service IDs can be retrieved from the Vendor Specs.|
-|requiredServiceInfo|object|A map of additional data required by the requested service. This includes things like Volume and Concentration.|
+|clientPlateId|string|The ID which uniquely identifies this plate to the client making the request|
+|clientId|string|A unique, alpha-numeric ID which identifies the client to the vendor. Used to connect the order to the contract, billing, and contact info.|
 
 
 **Response Fields** 
@@ -164,9 +164,9 @@ Submit a new order to a vendor
 |Field|Type|Description|
 |---|---|---| 
 |shipmentForms|array[object]|Array of paper forms which need to be printed and included with the physical shipment|
-|fileDescription|string|The human readable long description for this form|
-|fileName|string|The human readable name for this form|
 |fileURL|string (uri)|The URL to download this form|
+|fileName|string|The human readable name for this form|
+|fileDescription|string|The human readable long description for this form|
 |orderId|string|A unique, alpha-numeric ID which identifies the order|
 
 
@@ -327,39 +327,39 @@ Retrieve the plate and sample details of an order being processed
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|clientPlateId|string|The ID which uniquely identifies this plate to the client making the request|
 |clientPlateBarcode|string|(Optional) The value of the bar code attached to this plate|
 |sampleSubmissionFormat|string|Enum for plate formats, usually "PLATE_96" for a 96 well plate or "TUBES" for plateless format|
 |samples|array[object]||
 |volume|object|A value with units|
-|value|number|Value (example: "2.3")|
 |units|string|Units (example: "ng/ul")|
-|clientSampleId|string|The ID which uniquely identifies this sample to the client making the request|
-|tissueTypeOntologyReference|object||
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
-|URL|string (uri)||
-|version|string|Ontology version (no specific format)|
-|organismName|string|Scientific organism name|
+|value|number|Value (example: "2.3")|
 |comments|string|Generic comments about this sample for the vendor|
+|clientSampleId|string|The ID which uniquely identifies this sample to the client making the request|
 |taxonomyOntologyReference|object||
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
 |URL|string (uri)||
+|type|string||
 |version|string|Ontology version (no specific format)|
-|tissueType|string|The type of tissue in this sample. List of accepted tissue types can be found in the Vendor Specs.|
-|clientSampleBarCode|string|(Optional) The value of the bar code attached to this sample|
 |column|integer|The Column identifier for this samples location in the plate|
+|organismName|string|Scientific organism name|
+|tissueType|string|The type of tissue in this sample. List of accepted tissue types can be found in the Vendor Specs.|
 |row|string|The Row identifier for this samples location in the plate|
 |concentration|object|A value with units|
-|value|number|Value (example: "2.3")|
 |units|string|Units (example: "ng/ul")|
+|value|number|Value (example: "2.3")|
 |well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
+|clientSampleBarCode|string|(Optional) The value of the bar code attached to this sample|
+|tissueTypeOntologyReference|object||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
+|version|string|Ontology version (no specific format)|
 |speciesName|string|Scientific species name|
+|clientPlateId|string|The ID which uniquely identifies this plate to the client making the request|
 
 
  
@@ -496,12 +496,12 @@ Retrieve the data files generated by the vendors analysis
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
+|fileURL|string (uri)|The URL to a file with the results of a vendor analysis|
+|md5sum|string|MD5 Hash Check Sum for the file to confirm download without error|
 |additionalInfo|object|Additional arbitrary info|
 |clientSampleIds|array[string]|The list of sampleDbIds included in the file|
 |fileType|string|Format of the file|
 |fileName|string|Name of the file|
-|fileURL|string (uri)|The URL to a file with the results of a vendor analysis|
-|md5sum|string|MD5 Hash Check Sum for the file to confirm download without error|
 
 
  
@@ -676,43 +676,43 @@ Submit a new set of Sample data
 
 |Field|Type|Description|
 |---|---|---| 
-|clientId|string|A unique, alpha-numeric ID which identifies the client to the vendor. Used to connect the order to the contract, billing, and contact info.|
-|numberOfSamples|integer|The total number of samples contained in this request. Used for billing and basic validation of the request.|
 |plates|array[object]|Array of new plates to be submitted to a vendor|
-|clientPlateId|string|The ID which uniquely identifies this plate to the client making the request|
 |clientPlateBarcode|string|(Optional) The value of the bar code attached to this plate|
 |sampleSubmissionFormat|string|Enum for plate formats, usually "PLATE_96" for a 96 well plate or "TUBES" for plateless format|
 |samples|array[object]||
 |volume|object|A value with units|
-|value|number|Value (example: "2.3")|
 |units|string|Units (example: "ng/ul")|
-|clientSampleId|string|The ID which uniquely identifies this sample to the client making the request|
-|tissueTypeOntologyReference|object||
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
-|URL|string (uri)||
-|version|string|Ontology version (no specific format)|
-|organismName|string|Scientific organism name|
+|value|number|Value (example: "2.3")|
 |comments|string|Generic comments about this sample for the vendor|
+|clientSampleId|string|The ID which uniquely identifies this sample to the client making the request|
 |taxonomyOntologyReference|object||
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
 |URL|string (uri)||
+|type|string||
 |version|string|Ontology version (no specific format)|
-|tissueType|string|The type of tissue in this sample. List of accepted tissue types can be found in the Vendor Specs.|
-|clientSampleBarCode|string|(Optional) The value of the bar code attached to this sample|
 |column|integer|The Column identifier for this samples location in the plate|
+|organismName|string|Scientific organism name|
+|tissueType|string|The type of tissue in this sample. List of accepted tissue types can be found in the Vendor Specs.|
 |row|string|The Row identifier for this samples location in the plate|
 |concentration|object|A value with units|
-|value|number|Value (example: "2.3")|
 |units|string|Units (example: "ng/ul")|
+|value|number|Value (example: "2.3")|
 |well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
+|clientSampleBarCode|string|(Optional) The value of the bar code attached to this sample|
+|tissueTypeOntologyReference|object||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
+|version|string|Ontology version (no specific format)|
 |speciesName|string|Scientific species name|
+|clientPlateId|string|The ID which uniquely identifies this plate to the client making the request|
 |sampleType|string|The type of Samples being submitted|
+|clientId|string|A unique, alpha-numeric ID which identifies the client to the vendor. Used to connect the order to the contract, billing, and contact info.|
+|numberOfSamples|integer|The total number of samples contained in this request. Used for billing and basic validation of the request.|
 
 
 **Response Fields** 
@@ -860,42 +860,42 @@ Get data for a submitted set of plates
 
 |Field|Type|Description|
 |---|---|---| 
-|clientId|string|A unique, alpha-numeric ID which identifies the client to the vendor. Used to connect the order to the contract, billing, and contact info.|
-|numberOfSamples|integer|The total number of samples contained in this request. Used for billing and basic validation of the request.|
 |plates|array[object]|Array of new plates to be submitted to a vendor|
-|clientPlateId|string|The ID which uniquely identifies this plate to the client making the request|
 |clientPlateBarcode|string|(Optional) The value of the bar code attached to this plate|
 |sampleSubmissionFormat|string|Enum for plate formats, usually "PLATE_96" for a 96 well plate or "TUBES" for plateless format|
 |samples|array[object]||
 |volume|object|A value with units|
-|value|number|Value (example: "2.3")|
 |units|string|Units (example: "ng/ul")|
-|clientSampleId|string|The ID which uniquely identifies this sample to the client making the request|
-|tissueTypeOntologyReference|object||
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
-|URL|string (uri)||
-|version|string|Ontology version (no specific format)|
-|organismName|string|Scientific organism name|
+|value|number|Value (example: "2.3")|
 |comments|string|Generic comments about this sample for the vendor|
+|clientSampleId|string|The ID which uniquely identifies this sample to the client making the request|
 |taxonomyOntologyReference|object||
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
 |URL|string (uri)||
+|type|string||
 |version|string|Ontology version (no specific format)|
-|tissueType|string|The type of tissue in this sample. List of accepted tissue types can be found in the Vendor Specs.|
-|clientSampleBarCode|string|(Optional) The value of the bar code attached to this sample|
 |column|integer|The Column identifier for this samples location in the plate|
+|organismName|string|Scientific organism name|
+|tissueType|string|The type of tissue in this sample. List of accepted tissue types can be found in the Vendor Specs.|
 |row|string|The Row identifier for this samples location in the plate|
 |concentration|object|A value with units|
-|value|number|Value (example: "2.3")|
 |units|string|Units (example: "ng/ul")|
+|value|number|Value (example: "2.3")|
 |well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
+|clientSampleBarCode|string|(Optional) The value of the bar code attached to this sample|
+|tissueTypeOntologyReference|object||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
+|version|string|Ontology version (no specific format)|
 |speciesName|string|Scientific species name|
+|clientPlateId|string|The ID which uniquely identifies this plate to the client making the request|
+|clientId|string|A unique, alpha-numeric ID which identifies the client to the vendor. Used to connect the order to the contract, billing, and contact info.|
+|numberOfSamples|integer|The total number of samples contained in this request. Used for billing and basic validation of the request.|
 
 
  
@@ -1033,25 +1033,25 @@ Defines the plate format specification for the vendor.
 |Field|Type|Description|
 |---|---|---| 
 |vendorContact|object||
-|vendorAddress|string|The street address of the vendor|
 |vendorCountry|string|The name of the country where the vendor is located|
 |vendorCity|string|The name of the city where the vendor is located|
-|vendorContactName|string|The name or identifier of the primary vendor contact|
-|vendorDescription|string|A description of the vendor|
-|vendorEmail|string|The primary email address used to contact the vendor|
-|vendorPhone|string|The primary phone number used to contact the vendor|
+|vendorAddress|string|The street address of the vendor|
 |vendorURL|string|The primary URL for the vendor|
 |vendorName|string|The human readable name of the vendor|
+|vendorPhone|string|The primary phone number used to contact the vendor|
+|vendorContactName|string|The name or identifier of the primary vendor contact|
+|vendorEmail|string|The primary email address used to contact the vendor|
+|vendorDescription|string|A description of the vendor|
 |additionalInfo|object|Additional arbitrary information specific to a particular Vendor. Look for the Vedors specific API documentation for more details|
 |services|array[object]|List of platform specifications available at the vendor|
-|serviceName|string|The human readable name of a platform|
-|servicePlatformMarkerType|string|The type of markers used in this services platform|
-|serviceDescription|string|Description of the vendor platform|
-|servicePlatformName|string|The technology platform used by this service|
 |specificRequirements|array[object]|Additional arbitrary requirements for a particular platform|
 |description|string||
 |key|string||
+|servicePlatformName|string|The technology platform used by this service|
+|serviceDescription|string|Description of the vendor platform|
+|servicePlatformMarkerType|string|The type of markers used in this services platform|
 |serviceId|string|Unique identifier for this service|
+|serviceName|string|The human readable name of a platform|
 
 
  
