@@ -198,7 +198,7 @@ def buildResponseDefTable(responses):
 def buildObjectTableRow(schema, parentPrefix = ''):
 	row = ''
 	if 'properties' in schema:
-		for prop in schema['properties']:
+		for prop in sorted(schema['properties'].keys()):
 			#print(prop)
 			#print(schema['properties'][prop].keys())
 			
@@ -245,7 +245,7 @@ def buildReadMe(dir, fullBrAPI):
 				print(exc)
 		
 		if 'paths' in fileObj:
-			for callPath in fileObj['paths'].keys():
+			for callPath in sorted(fileObj['paths'].keys()):
 				groupTitle = buildGroupTitle(callPath, callsStrings)
 				
 				methods = fullBrAPI['paths'][callPath]

@@ -22,80 +22,80 @@ Get the details for a specific Germplasm Attribute
 
 |Field|Type|Description|
 |---|---|---| 
+|additionalInfo|object|Additional arbitrary info|
+|attributeCategory|string|General category for the attribute. very similar to Trait class.|
+|attributeDbId|string|The ID which uniquely identifies this attribute within the given database server|
+|attributeDescription|string|A human readable description of this attribute|
+|attributeName|string|A human readable name for this attribute|
+|commonCropName|string|Crop name (examples: "Maize", "Wheat")|
+|contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
+|defaultValue|string|Variable default value. (examples: "red", "2.3", etc.)|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|growthStage|string|Growth stage at which measurement is made (examples: "flowering")|
+|institution|string|Name of institution submitting the variable|
+|language|string|2 letter ISO 639-1 code for the language of submission of the variable.|
 |method|object|Method metadata|
-|reference|string|Bibliographical reference describing the method.|
-|methodDescription|string|Method description.|
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
-|methodDbId|string|Method unique identifier|
 |methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.|
+|methodDbId|string|Method unique identifier|
+|methodDescription|string|Method description.|
+|methodName|string|Human readable name for the method|
 |ontologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
+|reference|string|Bibliographical reference describing the method.|
+|ontologyReference|object||
 |documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
 |URL|string (uri)||
-|methodName|string|Human readable name for the method|
-|growthStage|string|Growth stage at which measurement is made (examples: "flowering")|
-|contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
-|status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
-|scientist|string|Name of scientist submitting the variable.|
-|attributeDescription|string|A human readable description of this attribute|
-|submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
-|additionalInfo|object|Additional arbitrary info|
-|defaultValue|string|Variable default value. (examples: "red", "2.3", etc.)|
-|language|string|2 letter ISO 639-1 code for the language of submission of the variable.|
-|attributeCategory|string|General category for the attribute. very similar to Trait class.|
-|xref|string|Cross reference of the variable term to a term from an external ontology or to a database of a major system.|
-|attributeDbId|string|The ID which uniquely identifies this attribute within the given database server|
-|institution|string|Name of institution submitting the variable|
-|synonyms|array[string]|Other variable names|
+|type|string||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|version|string|Ontology version (no specific format)|
 |scale|object|Scale metadata|
-|scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
+|dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
+|ontologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|version|string|Ontology version (no specific format)|
+|scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
 |scaleName|string|Name of the scale|
 |validValues|object||
 |categories|array[string]|List of possible values (examples: ["low", "medium", "high"]|
-|min|integer|Minimum value (used for data capture control) for numerical and date scales|
 |max|integer|Maximum value (used for field data capture control).|
-|ontologyReference|object||
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|version|string|Ontology version (no specific format)|
-|documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
-|URL|string (uri)||
+|min|integer|Minimum value (used for data capture control) for numerical and date scales|
 |xref|string|Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database|
-|dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
-|attributeName|string|A human readable name for this attribute|
-|ontologyReference|object||
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|version|string|Ontology version (no specific format)|
-|documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
-|URL|string (uri)||
-|commonCropName|string|Crop name (examples: "Maize", "Wheat")|
+|scientist|string|Name of scientist submitting the variable.|
+|status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
+|submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
+|synonyms|array[string]|Other variable names|
 |trait|object||
-|traitName|string|The human readable name of a trait|
+|alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
+|attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
+|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
 |ontologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
-|URL|string (uri)||
-|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
-|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
-|alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
-|synonyms|array[string]|Other trait names|
 |status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
-|mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
+|synonyms|array[string]|Other trait names|
 |traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
-|attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |traitDbId|string|The ID which uniquely identifies a trait|
 |traitDescription|string|The description of a trait|
+|traitName|string|The human readable name of a trait|
+|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
+|xref|string|Cross reference of the variable term to a term from an external ontology or to a database of a major system.|
 
 
  
@@ -304,159 +304,159 @@ Create new Germplasm Attributes
 
 |Field|Type|Description|
 |---|---|---| 
+|additionalInfo|object|Additional arbitrary info|
+|attributeCategory|string|General category for the attribute. very similar to Trait class.|
+|attributeDescription|string|A human readable description of this attribute|
+|attributeName|string|A human readable name for this attribute|
+|commonCropName|string|Crop name (examples: "Maize", "Wheat")|
+|contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
+|defaultValue|string|Variable default value. (examples: "red", "2.3", etc.)|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|growthStage|string|Growth stage at which measurement is made (examples: "flowering")|
+|institution|string|Name of institution submitting the variable|
+|language|string|2 letter ISO 639-1 code for the language of submission of the variable.|
 |method|object|Method metadata|
-|reference|string|Bibliographical reference describing the method.|
-|methodDescription|string|Method description.|
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
-|methodDbId|string|Method unique identifier|
 |methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.|
+|methodDbId|string|Method unique identifier|
+|methodDescription|string|Method description.|
+|methodName|string|Human readable name for the method|
 |ontologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
+|reference|string|Bibliographical reference describing the method.|
+|ontologyReference|object||
 |documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
 |URL|string (uri)||
-|methodName|string|Human readable name for the method|
-|growthStage|string|Growth stage at which measurement is made (examples: "flowering")|
-|contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
-|status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
-|scientist|string|Name of scientist submitting the variable.|
-|attributeDescription|string|A human readable description of this attribute|
-|submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
-|additionalInfo|object|Additional arbitrary info|
-|defaultValue|string|Variable default value. (examples: "red", "2.3", etc.)|
-|language|string|2 letter ISO 639-1 code for the language of submission of the variable.|
-|attributeCategory|string|General category for the attribute. very similar to Trait class.|
-|xref|string|Cross reference of the variable term to a term from an external ontology or to a database of a major system.|
-|institution|string|Name of institution submitting the variable|
-|synonyms|array[string]|Other variable names|
+|type|string||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|version|string|Ontology version (no specific format)|
 |scale|object|Scale metadata|
-|scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
+|dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
+|ontologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|version|string|Ontology version (no specific format)|
+|scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
 |scaleName|string|Name of the scale|
 |validValues|object||
 |categories|array[string]|List of possible values (examples: ["low", "medium", "high"]|
-|min|integer|Minimum value (used for data capture control) for numerical and date scales|
 |max|integer|Maximum value (used for field data capture control).|
-|ontologyReference|object||
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|version|string|Ontology version (no specific format)|
-|documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
-|URL|string (uri)||
+|min|integer|Minimum value (used for data capture control) for numerical and date scales|
 |xref|string|Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database|
-|dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
-|attributeName|string|A human readable name for this attribute|
-|ontologyReference|object||
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|version|string|Ontology version (no specific format)|
-|documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
-|URL|string (uri)||
-|commonCropName|string|Crop name (examples: "Maize", "Wheat")|
+|scientist|string|Name of scientist submitting the variable.|
+|status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
+|submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
+|synonyms|array[string]|Other variable names|
 |trait|object||
-|traitName|string|The human readable name of a trait|
+|alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
+|attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
+|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
 |ontologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
-|URL|string (uri)||
-|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
-|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
-|alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
-|synonyms|array[string]|Other trait names|
 |status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
-|mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
+|synonyms|array[string]|Other trait names|
 |traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
-|attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |traitDbId|string|The ID which uniquely identifies a trait|
 |traitDescription|string|The description of a trait|
+|traitName|string|The human readable name of a trait|
+|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
+|xref|string|Cross reference of the variable term to a term from an external ontology or to a database of a major system.|
 
 
 **Response Fields** 
 
 |Field|Type|Description|
 |---|---|---| 
+|additionalInfo|object|Additional arbitrary info|
+|attributeCategory|string|General category for the attribute. very similar to Trait class.|
+|attributeDbId|string|The ID which uniquely identifies this attribute within the given database server|
+|attributeDescription|string|A human readable description of this attribute|
+|attributeName|string|A human readable name for this attribute|
+|commonCropName|string|Crop name (examples: "Maize", "Wheat")|
+|contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
+|defaultValue|string|Variable default value. (examples: "red", "2.3", etc.)|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|growthStage|string|Growth stage at which measurement is made (examples: "flowering")|
+|institution|string|Name of institution submitting the variable|
+|language|string|2 letter ISO 639-1 code for the language of submission of the variable.|
 |method|object|Method metadata|
-|reference|string|Bibliographical reference describing the method.|
-|methodDescription|string|Method description.|
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
-|methodDbId|string|Method unique identifier|
 |methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.|
+|methodDbId|string|Method unique identifier|
+|methodDescription|string|Method description.|
+|methodName|string|Human readable name for the method|
 |ontologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
+|reference|string|Bibliographical reference describing the method.|
+|ontologyReference|object||
 |documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
 |URL|string (uri)||
-|methodName|string|Human readable name for the method|
-|growthStage|string|Growth stage at which measurement is made (examples: "flowering")|
-|contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
-|status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
-|scientist|string|Name of scientist submitting the variable.|
-|attributeDescription|string|A human readable description of this attribute|
-|submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
-|additionalInfo|object|Additional arbitrary info|
-|defaultValue|string|Variable default value. (examples: "red", "2.3", etc.)|
-|language|string|2 letter ISO 639-1 code for the language of submission of the variable.|
-|attributeCategory|string|General category for the attribute. very similar to Trait class.|
-|xref|string|Cross reference of the variable term to a term from an external ontology or to a database of a major system.|
-|attributeDbId|string|The ID which uniquely identifies this attribute within the given database server|
-|institution|string|Name of institution submitting the variable|
-|synonyms|array[string]|Other variable names|
+|type|string||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|version|string|Ontology version (no specific format)|
 |scale|object|Scale metadata|
-|scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
+|dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
+|ontologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|version|string|Ontology version (no specific format)|
+|scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
 |scaleName|string|Name of the scale|
 |validValues|object||
 |categories|array[string]|List of possible values (examples: ["low", "medium", "high"]|
-|min|integer|Minimum value (used for data capture control) for numerical and date scales|
 |max|integer|Maximum value (used for field data capture control).|
-|ontologyReference|object||
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|version|string|Ontology version (no specific format)|
-|documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
-|URL|string (uri)||
+|min|integer|Minimum value (used for data capture control) for numerical and date scales|
 |xref|string|Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database|
-|dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
-|attributeName|string|A human readable name for this attribute|
-|ontologyReference|object||
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|version|string|Ontology version (no specific format)|
-|documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
-|URL|string (uri)||
-|commonCropName|string|Crop name (examples: "Maize", "Wheat")|
+|scientist|string|Name of scientist submitting the variable.|
+|status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
+|submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
+|synonyms|array[string]|Other variable names|
 |trait|object||
-|traitName|string|The human readable name of a trait|
+|alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
+|attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
+|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
 |ontologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
-|URL|string (uri)||
-|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
-|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
-|alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
-|synonyms|array[string]|Other trait names|
 |status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
-|mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
+|synonyms|array[string]|Other trait names|
 |traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
-|attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |traitDbId|string|The ID which uniquely identifies a trait|
 |traitDescription|string|The description of a trait|
+|traitName|string|The human readable name of a trait|
+|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
+|xref|string|Cross reference of the variable term to a term from an external ontology or to a database of a major system.|
 
 
  
@@ -890,80 +890,80 @@ List available attributes.
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|attributeCategory|string|General category for the attribute. very similar to Trait class.|
+|attributeDbId|string|The ID which uniquely identifies this attribute within the given database server|
+|attributeDescription|string|A human readable description of this attribute|
+|attributeName|string|A human readable name for this attribute|
+|commonCropName|string|Crop name (examples: "Maize", "Wheat")|
+|contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
+|defaultValue|string|Variable default value. (examples: "red", "2.3", etc.)|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|growthStage|string|Growth stage at which measurement is made (examples: "flowering")|
+|institution|string|Name of institution submitting the variable|
+|language|string|2 letter ISO 639-1 code for the language of submission of the variable.|
 |method|object|Method metadata|
-|reference|string|Bibliographical reference describing the method.|
-|methodDescription|string|Method description.|
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
-|methodDbId|string|Method unique identifier|
 |methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.|
+|methodDbId|string|Method unique identifier|
+|methodDescription|string|Method description.|
+|methodName|string|Human readable name for the method|
 |ontologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
+|reference|string|Bibliographical reference describing the method.|
+|ontologyReference|object||
 |documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
 |URL|string (uri)||
-|methodName|string|Human readable name for the method|
-|growthStage|string|Growth stage at which measurement is made (examples: "flowering")|
-|contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
-|status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
-|scientist|string|Name of scientist submitting the variable.|
-|attributeDescription|string|A human readable description of this attribute|
-|submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
-|additionalInfo|object|Additional arbitrary info|
-|defaultValue|string|Variable default value. (examples: "red", "2.3", etc.)|
-|language|string|2 letter ISO 639-1 code for the language of submission of the variable.|
-|attributeCategory|string|General category for the attribute. very similar to Trait class.|
-|xref|string|Cross reference of the variable term to a term from an external ontology or to a database of a major system.|
-|attributeDbId|string|The ID which uniquely identifies this attribute within the given database server|
-|institution|string|Name of institution submitting the variable|
-|synonyms|array[string]|Other variable names|
+|type|string||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|version|string|Ontology version (no specific format)|
 |scale|object|Scale metadata|
-|scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
+|dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
+|ontologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|version|string|Ontology version (no specific format)|
+|scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
 |scaleName|string|Name of the scale|
 |validValues|object||
 |categories|array[string]|List of possible values (examples: ["low", "medium", "high"]|
-|min|integer|Minimum value (used for data capture control) for numerical and date scales|
 |max|integer|Maximum value (used for field data capture control).|
-|ontologyReference|object||
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|version|string|Ontology version (no specific format)|
-|documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
-|URL|string (uri)||
+|min|integer|Minimum value (used for data capture control) for numerical and date scales|
 |xref|string|Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database|
-|dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
-|attributeName|string|A human readable name for this attribute|
-|ontologyReference|object||
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|version|string|Ontology version (no specific format)|
-|documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
-|URL|string (uri)||
-|commonCropName|string|Crop name (examples: "Maize", "Wheat")|
+|scientist|string|Name of scientist submitting the variable.|
+|status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
+|submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
+|synonyms|array[string]|Other variable names|
 |trait|object||
-|traitName|string|The human readable name of a trait|
+|alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
+|attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
+|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
 |ontologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
-|URL|string (uri)||
-|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
-|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
-|alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
-|synonyms|array[string]|Other trait names|
 |status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
-|mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
+|synonyms|array[string]|Other trait names|
 |traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
-|attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |traitDbId|string|The ID which uniquely identifies a trait|
 |traitDescription|string|The description of a trait|
+|traitName|string|The human readable name of a trait|
+|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
+|xref|string|Cross reference of the variable term to a term from an external ontology or to a database of a major system.|
 
 
  
@@ -1181,79 +1181,79 @@ Create new Germplasm Attributes
 
 |Field|Type|Description|
 |---|---|---| 
+|additionalInfo|object|Additional arbitrary info|
+|attributeCategory|string|General category for the attribute. very similar to Trait class.|
+|attributeDescription|string|A human readable description of this attribute|
+|attributeName|string|A human readable name for this attribute|
+|commonCropName|string|Crop name (examples: "Maize", "Wheat")|
+|contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
+|defaultValue|string|Variable default value. (examples: "red", "2.3", etc.)|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|growthStage|string|Growth stage at which measurement is made (examples: "flowering")|
+|institution|string|Name of institution submitting the variable|
+|language|string|2 letter ISO 639-1 code for the language of submission of the variable.|
 |method|object|Method metadata|
-|reference|string|Bibliographical reference describing the method.|
-|methodDescription|string|Method description.|
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
-|methodDbId|string|Method unique identifier|
 |methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.|
+|methodDbId|string|Method unique identifier|
+|methodDescription|string|Method description.|
+|methodName|string|Human readable name for the method|
 |ontologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
+|reference|string|Bibliographical reference describing the method.|
+|ontologyReference|object||
 |documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
 |URL|string (uri)||
-|methodName|string|Human readable name for the method|
-|growthStage|string|Growth stage at which measurement is made (examples: "flowering")|
-|contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
-|status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
-|scientist|string|Name of scientist submitting the variable.|
-|attributeDescription|string|A human readable description of this attribute|
-|submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
-|additionalInfo|object|Additional arbitrary info|
-|defaultValue|string|Variable default value. (examples: "red", "2.3", etc.)|
-|language|string|2 letter ISO 639-1 code for the language of submission of the variable.|
-|attributeCategory|string|General category for the attribute. very similar to Trait class.|
-|xref|string|Cross reference of the variable term to a term from an external ontology or to a database of a major system.|
-|institution|string|Name of institution submitting the variable|
-|synonyms|array[string]|Other variable names|
+|type|string||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|version|string|Ontology version (no specific format)|
 |scale|object|Scale metadata|
-|scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
+|dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
+|ontologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|version|string|Ontology version (no specific format)|
+|scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
 |scaleName|string|Name of the scale|
 |validValues|object||
 |categories|array[string]|List of possible values (examples: ["low", "medium", "high"]|
-|min|integer|Minimum value (used for data capture control) for numerical and date scales|
 |max|integer|Maximum value (used for field data capture control).|
-|ontologyReference|object||
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|version|string|Ontology version (no specific format)|
-|documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
-|URL|string (uri)||
+|min|integer|Minimum value (used for data capture control) for numerical and date scales|
 |xref|string|Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database|
-|dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
-|attributeName|string|A human readable name for this attribute|
-|ontologyReference|object||
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|version|string|Ontology version (no specific format)|
-|documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
-|URL|string (uri)||
-|commonCropName|string|Crop name (examples: "Maize", "Wheat")|
+|scientist|string|Name of scientist submitting the variable.|
+|status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
+|submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
+|synonyms|array[string]|Other variable names|
 |trait|object||
-|traitName|string|The human readable name of a trait|
+|alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
+|attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
+|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
 |ontologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
-|URL|string (uri)||
-|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
-|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
-|alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
-|synonyms|array[string]|Other trait names|
 |status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
-|mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
+|synonyms|array[string]|Other trait names|
 |traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
-|attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |traitDbId|string|The ID which uniquely identifies a trait|
 |traitDescription|string|The description of a trait|
+|traitName|string|The human readable name of a trait|
+|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
+|xref|string|Cross reference of the variable term to a term from an external ontology or to a database of a major system.|
 
 
 **Response Fields** 
@@ -1261,80 +1261,80 @@ Create new Germplasm Attributes
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|attributeCategory|string|General category for the attribute. very similar to Trait class.|
+|attributeDbId|string|The ID which uniquely identifies this attribute within the given database server|
+|attributeDescription|string|A human readable description of this attribute|
+|attributeName|string|A human readable name for this attribute|
+|commonCropName|string|Crop name (examples: "Maize", "Wheat")|
+|contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
+|defaultValue|string|Variable default value. (examples: "red", "2.3", etc.)|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|growthStage|string|Growth stage at which measurement is made (examples: "flowering")|
+|institution|string|Name of institution submitting the variable|
+|language|string|2 letter ISO 639-1 code for the language of submission of the variable.|
 |method|object|Method metadata|
-|reference|string|Bibliographical reference describing the method.|
-|methodDescription|string|Method description.|
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
-|methodDbId|string|Method unique identifier|
 |methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.|
+|methodDbId|string|Method unique identifier|
+|methodDescription|string|Method description.|
+|methodName|string|Human readable name for the method|
 |ontologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
+|reference|string|Bibliographical reference describing the method.|
+|ontologyReference|object||
 |documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
 |URL|string (uri)||
-|methodName|string|Human readable name for the method|
-|growthStage|string|Growth stage at which measurement is made (examples: "flowering")|
-|contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
-|status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
-|scientist|string|Name of scientist submitting the variable.|
-|attributeDescription|string|A human readable description of this attribute|
-|submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
-|additionalInfo|object|Additional arbitrary info|
-|defaultValue|string|Variable default value. (examples: "red", "2.3", etc.)|
-|language|string|2 letter ISO 639-1 code for the language of submission of the variable.|
-|attributeCategory|string|General category for the attribute. very similar to Trait class.|
-|xref|string|Cross reference of the variable term to a term from an external ontology or to a database of a major system.|
-|attributeDbId|string|The ID which uniquely identifies this attribute within the given database server|
-|institution|string|Name of institution submitting the variable|
-|synonyms|array[string]|Other variable names|
+|type|string||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|version|string|Ontology version (no specific format)|
 |scale|object|Scale metadata|
-|scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
+|dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
+|ontologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|version|string|Ontology version (no specific format)|
+|scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
 |scaleName|string|Name of the scale|
 |validValues|object||
 |categories|array[string]|List of possible values (examples: ["low", "medium", "high"]|
-|min|integer|Minimum value (used for data capture control) for numerical and date scales|
 |max|integer|Maximum value (used for field data capture control).|
-|ontologyReference|object||
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|version|string|Ontology version (no specific format)|
-|documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
-|URL|string (uri)||
+|min|integer|Minimum value (used for data capture control) for numerical and date scales|
 |xref|string|Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database|
-|dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
-|attributeName|string|A human readable name for this attribute|
-|ontologyReference|object||
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|version|string|Ontology version (no specific format)|
-|documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
-|URL|string (uri)||
-|commonCropName|string|Crop name (examples: "Maize", "Wheat")|
+|scientist|string|Name of scientist submitting the variable.|
+|status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
+|submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
+|synonyms|array[string]|Other variable names|
 |trait|object||
-|traitName|string|The human readable name of a trait|
+|alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
+|attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
+|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
 |ontologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
-|URL|string (uri)||
-|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
-|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
-|alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
-|synonyms|array[string]|Other trait names|
 |status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
-|mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
+|synonyms|array[string]|Other trait names|
 |traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
-|attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |traitDbId|string|The ID which uniquely identifies a trait|
 |traitDescription|string|The description of a trait|
+|traitName|string|The human readable name of a trait|
+|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
+|xref|string|Cross reference of the variable term to a term from an external ontology or to a database of a major system.|
 
 
  
