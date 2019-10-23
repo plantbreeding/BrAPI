@@ -19,17 +19,17 @@
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|isDerived|boolean (boolean)|A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.|
-|additionalInfo|object|Additional arbitrary info|
-|referenceName|string|The unique name of this reference within the Reference Set (e.g. '22').|
 |sourceURI|string|The URI from which the sequence was obtained. Specifies a FASTA format file/string with one name, sequence pair. In most cases, clients should call the `getReferenceBases()` method to obtain sequence bases for a `Reference` instead of attempting to retrieve this URI.|
-|sourceDivergence|number (float)|The `sourceDivergence` is the fraction of non-indel bases that do not match the reference this message was derived from.|
-|length|string (int64)|The length of this reference's sequence.|
-|species|object||
-|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
-|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
-|referenceDbId|string|The reference ID. Unique within the repository.|
+|isDerived|boolean (boolean)|A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.|
 |sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.|
+|referenceDbId|string|The reference ID. Unique within the repository.|
+|length|string (int64)|The length of this reference's sequence.|
+|referenceName|string|The unique name of this reference within the Reference Set (e.g. '22').|
+|additionalInfo|object|Additional arbitrary info|
+|species|object||
+|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
+|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
+|sourceDivergence|number (float)|The `sourceDivergence` is the fraction of non-indel bases that do not match the reference this message was derived from.|
 |md5checksum|string|The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).|
 
 
@@ -130,9 +130,9 @@
 
 |Field|Type|Description|
 |---|---|---| 
-|sequence|string|A substring of the bases that make up this reference. Bases are represented as IUPAC-IUB codes; this string matches the regexp `[ACGTMRWSYKVHDBN]*`.|
-|offset|string (int64)|The offset position (0-based) of the given sequence from the start of this `Reference`. This value will differ for each page in a paginated request.|
 |nextPageToken|string|The continuation token, which is used to page through large result sets. Provide this value in a subsequent request to return the next page of results. This field will be empty if there aren't any additional results.|
+|offset|string (int64)|The offset position (0-based) of the given sequence from the start of this `Reference`. This value will differ for each page in a paginated request.|
+|sequence|string|A substring of the bases that make up this reference. Bases are represented as IUPAC-IUB codes; this string matches the regexp `[ACGTMRWSYKVHDBN]*`.|
 
 
  
@@ -217,17 +217,17 @@
 
 |Field|Type|Description|
 |---|---|---| 
-|isDerived|boolean (boolean)|A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.|
-|additionalInfo|object|Additional arbitrary info|
-|referenceName|string|The unique name of this reference within the Reference Set (e.g. '22').|
 |sourceURI|string|The URI from which the sequence was obtained. Specifies a FASTA format file/string with one name, sequence pair. In most cases, clients should call the `getReferenceBases()` method to obtain sequence bases for a `Reference` instead of attempting to retrieve this URI.|
-|sourceDivergence|number (float)|The `sourceDivergence` is the fraction of non-indel bases that do not match the reference this message was derived from.|
-|length|string (int64)|The length of this reference's sequence.|
-|species|object||
-|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
-|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
-|referenceDbId|string|The reference ID. Unique within the repository.|
+|isDerived|boolean (boolean)|A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.|
 |sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.|
+|referenceDbId|string|The reference ID. Unique within the repository.|
+|length|string (int64)|The length of this reference's sequence.|
+|referenceName|string|The unique name of this reference within the Reference Set (e.g. '22').|
+|additionalInfo|object|Additional arbitrary info|
+|species|object||
+|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
+|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
+|sourceDivergence|number (float)|The `sourceDivergence` is the fraction of non-indel bases that do not match the reference this message was derived from.|
 |md5checksum|string|The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).|
 
 
@@ -322,11 +322,11 @@ version of `SearchReferenceSetsResponse`.
 
 |Field|Type|Description|
 |---|---|---| 
-|assemblyPUI|string|If unset, return the reference sets for which the `assemblyId` matches this string (case-sensitive, exact match).|
-|page_size|integer (int32)|Specifies the maximum number of results to return in a single page. If unspecified, a system default will be used.|
-|page_token|string|The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of `next_page_token` from the previous response.|
-|md5checksum|string|If unset, return the reference sets for which the `md5checksum` matches this string (case-sensitive, exact match). See `ReferenceSet::md5checksum` for details.|
 |accession|string|If unset, return the reference sets for which the `accession` matches this string (case-sensitive, exact match).|
+|assemblyPUI|string|If unset, return the reference sets for which the `assemblyId` matches this string (case-sensitive, exact match).|
+|page_token|string|The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of `next_page_token` from the previous response.|
+|page_size|integer (int32)|Specifies the maximum number of results to return in a single page. If unspecified, a system default will be used.|
+|md5checksum|string|If unset, return the reference sets for which the `md5checksum` matches this string (case-sensitive, exact match). See `ReferenceSet::md5checksum` for details.|
 
 
 **Response Fields** 
@@ -421,17 +421,17 @@ version of `SearchReferenceSetsResponse`.
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|assemblyPUI|string|The remaining information is about the source of the sequences Public id of this reference set, such as `GRCh37`.|
-|additionalInfo|object|Additional arbitrary info|
 |sourceURI|string|Specifies a FASTA format file/string.|
 |isDerived|boolean (boolean)|A reference set may be derived from a source if it contains additional sequences, or some of the sequences within it are derived (see the definition of `isDerived` in `Reference`).|
-|referenceSetName|string|The reference set name.|
-|species|object||
-|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
-|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
 |sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.|
-|referenceSetDbId|string|The reference set ID. Unique in the repository.|
 |description|string|Optional free text description of this reference set.|
+|referenceSetName|string|The reference set name.|
+|additionalInfo|object|Additional arbitrary info|
+|referenceSetDbId|string|The reference set ID. Unique in the repository.|
+|species|object||
+|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
+|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
+|assemblyPUI|string|The remaining information is about the source of the sequences Public id of this reference set, such as `GRCh37`.|
 |md5checksum|string|Order-independent MD5 checksum which identifies this `ReferenceSet`.  To compute this checksum, make a list of `Reference.md5checksum` for all `Reference` s in this set. Then sort that list, and take the MD5 hash of all the strings concatenated together. Express the hash as a lower-case hexadecimal string.|
 
 
@@ -526,11 +526,11 @@ version of `SearchReferencesResponse`.
 
 |Field|Type|Description|
 |---|---|---| 
-|referenceSetDbId|string|The `ReferenceSet` to search.|
-|page_size|integer (int32)|Specifies the maximum number of results to return in a single page. If unspecified, a system default will be used.|
-|page_token|string|The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of `next_page_token` from the previous response.|
-|md5checksum|string|If specified, return the references for which the `md5checksum` matches this string (case-sensitive, exact match). See `ReferenceSet::md5checksum` for details.|
 |accession|string|If specified, return the references for which the `accession` matches this string (case-sensitive, exact match).|
+|page_token|string|The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of `next_page_token` from the previous response.|
+|page_size|integer (int32)|Specifies the maximum number of results to return in a single page. If unspecified, a system default will be used.|
+|referenceSetDbId|string|The `ReferenceSet` to search.|
+|md5checksum|string|If specified, return the references for which the `md5checksum` matches this string (case-sensitive, exact match). See `ReferenceSet::md5checksum` for details.|
 
 
 **Response Fields** 
@@ -625,17 +625,17 @@ version of `SearchReferencesResponse`.
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|isDerived|boolean (boolean)|A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.|
-|additionalInfo|object|Additional arbitrary info|
-|referenceName|string|The unique name of this reference within the Reference Set (e.g. '22').|
 |sourceURI|string|The URI from which the sequence was obtained. Specifies a FASTA format file/string with one name, sequence pair. In most cases, clients should call the `getReferenceBases()` method to obtain sequence bases for a `Reference` instead of attempting to retrieve this URI.|
-|sourceDivergence|number (float)|The `sourceDivergence` is the fraction of non-indel bases that do not match the reference this message was derived from.|
-|length|string (int64)|The length of this reference's sequence.|
-|species|object||
-|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
-|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
-|referenceDbId|string|The reference ID. Unique within the repository.|
+|isDerived|boolean (boolean)|A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.|
 |sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.|
+|referenceDbId|string|The reference ID. Unique within the repository.|
+|length|string (int64)|The length of this reference's sequence.|
+|referenceName|string|The unique name of this reference within the Reference Set (e.g. '22').|
+|additionalInfo|object|Additional arbitrary info|
+|species|object||
+|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
+|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
+|sourceDivergence|number (float)|The `sourceDivergence` is the fraction of non-indel bases that do not match the reference this message was derived from.|
 |md5checksum|string|The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).|
 
 
@@ -734,17 +734,17 @@ version of `SearchReferencesResponse`.
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|assemblyPUI|string|The remaining information is about the source of the sequences Public id of this reference set, such as `GRCh37`.|
-|additionalInfo|object|Additional arbitrary info|
 |sourceURI|string|Specifies a FASTA format file/string.|
 |isDerived|boolean (boolean)|A reference set may be derived from a source if it contains additional sequences, or some of the sequences within it are derived (see the definition of `isDerived` in `Reference`).|
-|referenceSetName|string|The reference set name.|
-|species|object||
-|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
-|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
 |sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.|
-|referenceSetDbId|string|The reference set ID. Unique in the repository.|
 |description|string|Optional free text description of this reference set.|
+|referenceSetName|string|The reference set name.|
+|additionalInfo|object|Additional arbitrary info|
+|referenceSetDbId|string|The reference set ID. Unique in the repository.|
+|species|object||
+|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
+|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
+|assemblyPUI|string|The remaining information is about the source of the sequences Public id of this reference set, such as `GRCh37`.|
 |md5checksum|string|Order-independent MD5 checksum which identifies this `ReferenceSet`.  To compute this checksum, make a list of `Reference.md5checksum` for all `Reference` s in this set. Then sort that list, and take the MD5 hash of all the strings concatenated together. Express the hash as a lower-case hexadecimal string.|
 
 
