@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 # Param 1: compiled OpenAPI file (default "$HOME/brapi_blueprint.apib")
 
 if [ -z "$1" ]; then
