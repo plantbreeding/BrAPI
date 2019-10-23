@@ -11,6 +11,176 @@ Retrieving genetic or physical maps
 
 
 
+## Search [/brapi/v1/search] 
+
+
+
+
+### Post Search Markerpositions  [POST /brapi/v1/search/markerpositions]
+
+Get marker position information, based on Map, Linkage Group, and Marker ID
+
+**Request Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|maxPosition|integer|The maximum position|
+|mapDbIds|array[string]|The unique ID of the map|
+|linkageGroupNames|array[string]|The Uniquely Identifiable name of this linkage group|
+|markerDbIds|array[string]|Internal db identifier|
+|minPosition|integer|The minimum position|
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|searchResultDbId|string||
+
+
+ 
+
++ Parameters
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+ 
++ Request (application/json)
+```
+{
+    "linkageGroupNames": [
+        "linkageGroupNames1",
+        "linkageGroupNames2"
+    ],
+    "mapDbIds": [
+        "mapDbIds1",
+        "mapDbIds2"
+    ],
+    "markerDbIds": [
+        "markerDbIds1",
+        "markerDbIds2"
+    ],
+    "maxPosition": 0,
+    "minPosition": 0
+}
+```
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultDbId": "551ae08c"
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+
+
+
+### Post Search Markerpositions by searchResultsDbId  [POST /brapi/v1/search/markerpositions/{searchResultsDbId}{?page}{?pageSize}]
+
+Get marker position information, based on Map, Linkage Group, and Marker ID
+
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|linkageGroupName|string|The Uniquely Identifiable name of this linkage group|
+|mapName|string|The human readbale name of the map|
+|additionalInfo|object|Additional arbitrary info|
+|markerDbId|string|Internal db identifier|
+|mapDbId|string|The unique ID of the map|
+|markerName|string|The human readable name for a marker|
+|position|integer|The position of a marker within a linkage group|
+
+
+ 
+
++ Parameters
+    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [],
+        "pagination": {},
+        "status": []
+    },
+    "result": {
+        "data": []
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+
 ## Maps [/brapi/v1/maps] 
 
 
@@ -27,18 +197,18 @@ Get list of maps
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|type|string|The type of map this represents, ussually "Genetic"|
-|mapDbId|string|The ID which uniquely identifies this genome map|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|unit|string|The units used to describe the data in this map|
-|commonCropName|string|The common name of the crop, found from "GET /commoncropnames"|
-|comments|string|Additional comments|
-|linkageGroupCount|integer (int32)|The number of linkage groups present in this genome map|
-|publishedDate|string (date)|The date this genome was published|
-|scientificName|string|Full scientific binomial format name. This includes Genus, Species, and Sub-species|
 |markerCount|integer (int32)|The number of markers present in this genome map|
 |mapName|string|A human readable name for this genome map|
 |additionalInfo|object|Additional arbitrary info|
+|mapDbId|string|The ID which uniquely identifies this genome map|
+|unit|string|The units used to describe the data in this map|
+|linkageGroupCount|integer (int32)|The number of linkage groups present in this genome map|
+|commonCropName|string|The common name of the crop, found from "GET /commoncropnames"|
+|comments|string|Additional comments|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|publishedDate|string (date)|The date this genome was published|
+|type|string|The type of map this represents, ussually "Genetic"|
+|scientificName|string|Full scientific binomial format name. This includes Genus, Species, and Sub-species|
 
 
  
@@ -136,18 +306,18 @@ Provides the number of markers on each linkageGroup and the max position on the 
 
 |Field|Type|Description|
 |---|---|---| 
-|type|string|The type of map this represents, ussually "Genetic"|
-|mapDbId|string|The ID which uniquely identifies this genome map|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|unit|string|The units used to describe the data in this map|
-|commonCropName|string|The common name of the crop, found from "GET /commoncropnames"|
-|comments|string|Additional comments|
-|linkageGroupCount|integer (int32)|The number of linkage groups present in this genome map|
-|publishedDate|string (date)|The date this genome was published|
-|scientificName|string|Full scientific binomial format name. This includes Genus, Species, and Sub-species|
 |markerCount|integer (int32)|The number of markers present in this genome map|
 |mapName|string|A human readable name for this genome map|
 |additionalInfo|object|Additional arbitrary info|
+|mapDbId|string|The ID which uniquely identifies this genome map|
+|unit|string|The units used to describe the data in this map|
+|linkageGroupCount|integer (int32)|The number of linkage groups present in this genome map|
+|commonCropName|string|The common name of the crop, found from "GET /commoncropnames"|
+|comments|string|Additional comments|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|publishedDate|string (date)|The date this genome was published|
+|type|string|The type of map this represents, ussually "Genetic"|
+|scientificName|string|Full scientific binomial format name. This includes Genus, Species, and Sub-species|
 
 
  
@@ -268,176 +438,6 @@ Get the Linkage Groups of a specific Genomic Map. A Linkage Group is the BrAPI g
 
 
 
-## Search [/brapi/v1/search] 
-
-
-
-
-### Post Search Markerpositions  [POST /brapi/v1/search/markerpositions]
-
-Get marker position information, based on Map, Linkage Group, and Marker ID
-
-**Request Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|maxPosition|integer|The maximum position|
-|markerDbIds|array[string]|Internal db identifier|
-|mapDbIds|array[string]|The unique ID of the map|
-|minPosition|integer|The minimum position|
-|linkageGroupNames|array[string]|The Uniquely Identifiable name of this linkage group|
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|searchResultDbId|string||
-
-
- 
-
-+ Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
- 
-+ Request (application/json)
-```
-{
-    "linkageGroupNames": [
-        "linkageGroupNames1",
-        "linkageGroupNames2"
-    ],
-    "mapDbIds": [
-        "mapDbIds1",
-        "mapDbIds2"
-    ],
-    "markerDbIds": [
-        "markerDbIds1",
-        "markerDbIds2"
-    ],
-    "maxPosition": 0,
-    "minPosition": 0
-}
-```
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "searchResultDbId": "551ae08c"
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-
-
-
-### Post Search Markerpositions by searchResultsDbId  [POST /brapi/v1/search/markerpositions/{searchResultsDbId}{?page}{?pageSize}]
-
-Get marker position information, based on Map, Linkage Group, and Marker ID
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|mapDbId|string|The unique ID of the map|
-|position|integer|The position of a marker within a linkage group|
-|markerDbId|string|Internal db identifier|
-|mapName|string|The human readbale name of the map|
-|linkageGroupName|string|The Uniquely Identifiable name of this linkage group|
-|additionalInfo|object|Additional arbitrary info|
-|markerName|string|The human readable name for a marker|
-
-
- 
-
-+ Parameters
-    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {},
-        "status": []
-    },
-    "result": {
-        "data": []
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-
 ## Markerpositions [/brapi/v1/markerpositions] 
 
 
@@ -454,13 +454,13 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|mapDbId|string|The unique ID of the map|
-|position|integer|The position of a marker within a linkage group|
-|markerDbId|string|Internal db identifier|
-|mapName|string|The human readbale name of the map|
 |linkageGroupName|string|The Uniquely Identifiable name of this linkage group|
+|mapName|string|The human readbale name of the map|
 |additionalInfo|object|Additional arbitrary info|
+|markerDbId|string|Internal db identifier|
+|mapDbId|string|The unique ID of the map|
 |markerName|string|The human readable name for a marker|
+|position|integer|The position of a marker within a linkage group|
 
 
  
