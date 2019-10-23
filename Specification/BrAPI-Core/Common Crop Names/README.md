@@ -16,7 +16,7 @@ List the common crop names for the crops available in a database server.
 
 This call is ** required ** for multi-crop systems where data from multiple 
 crops may be stored in the same database server. A distinct database server 
-is defined by everything in the URL before "/brapi/v1", including host 
+is defined by everything in the URL before "/brapi/v2", including host 
 name and base path.
 
 This call is recommended for single crop systems to be compatible with 

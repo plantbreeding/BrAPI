@@ -25,34 +25,64 @@ components:
           description: The ID which uniquely identifies an observation unit
           type: string
           example: 073a3ce5
-        plantDbId:
-          description: The ID which uniquely identifies a plant. Usually 'plantNumber'
-          type: string
-          example: 05570f2b
         plateDbId:
           description: The ID which uniquely identifies a plate of samples
           type: string
           example: 2dce16d1
-        plateIndex:
-          description: The index number of this sample on a plate
-          type: integer
-          example: 3
-        plotDbId:
-          description: The ID which uniquely identifies a plot. Usually 'plotNumber'
+        plateName:
+          description: The human readable name of a plate
           type: string
-          example: 940bd544
+          example: Plate_alpha_20191022
         sampleTimestamp:
           description: The date and time a sample was collected from the field
           format: date-time
           type: string
+        sampleName:
+          description: The name of the sample
+          type: string
+          example: Sample_alpha_20191022
+        samplePUI:
+          description: A permanent unique identifier for the sample (DOI, URL, UUID, etc) 
+          type: string
+          example: doi:10.15454/312953986E3
+        sampleBarcode:
+          description: A unique identifier physically attached to the sample
+          type: string
+          example: 3a027b59
         sampleType:
           description: The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc
           type: string
           example: Tissue
+        column:
+          description: The Column identifier for this samples location in the plate
+          type: integer
+          minimum: 1
+          maximum: 12
+          example: 6
+        row:
+          description: The Row identifier for this samples location in the plate
+          type: string
+          example: B
+        well:
+          description: The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.
+          type: string
+          example: B6
         studyDbId:
           description: The ID which uniquely identifies a study within the given database server
           type: string
           example: 64bd6bf9
+        trialDbId: 
+          description: The ID which uniquely identifies a trial within the given database server
+          type: string
+          example: d34c5349
+        programDbId: 
+          description: The ID which uniquely identifies a program within the given database server
+          type: string
+          example: bd748e00
+        sampleGroupDbId: 
+          description: The ID which uniquely identifies a group of samples
+          type: string
+          example: 8524b436
         takenBy:
           description: The name or identifier of the entity which took the sample from the field
           type: string

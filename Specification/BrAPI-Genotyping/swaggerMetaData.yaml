@@ -96,7 +96,7 @@ paths: {}
 security:
 - AuthorizationToken: []
 servers:
-- url: https://test-server.brapi.org/brapi/v1
+- url: https://test-server.brapi.org/brapi/v2
 tags:
 - name: Calls
   description: Individual genotype allele calls

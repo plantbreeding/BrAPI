@@ -335,7 +335,9 @@ Also See:
 |callSetDbIds|array[string]|Only return call sets with these DbIds (case-sensitive, exact match).|
 |callSetNames|array[string]|Only return call sets with these names (case-sensitive, exact match).|
 |germplasmDbIds|array[string]|Return only call sets generated from the Sample of this germplasm|
+|germplasmNames|array[string]|Return only call sets generated from the Sample of this germplasm|
 |sampleDbIds|array[string]|Return only call sets generated from the provided Biosample ID.|
+|sampleNames|array[string]|Return only call sets generated from the provided Biosample ID.|
 |variantSetDbIds|array[string]|The VariantSet to search.|
 
 
@@ -368,9 +370,17 @@ Also See:
         "germplasmDbIds1",
         "germplasmDbIds2"
     ],
+    "germplasmNames": [
+        "germplasmNames1",
+        "germplasmNames2"
+    ],
     "sampleDbIds": [
         "sampleDbIds1",
         "sampleDbIds2"
+    ],
+    "sampleNames": [
+        "sampleNames1",
+        "sampleNames2"
     ],
     "variantSetDbIds": [
         "variantSetDbIds1",

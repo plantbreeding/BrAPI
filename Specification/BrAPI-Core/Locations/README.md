@@ -112,7 +112,7 @@ Get a list of locations.
                 "locationName": "Location 1",
                 "locationType": "Storage Location",
                 "siteStatus": "Private",
-                "slope": 0,
+                "slope": "0",
                 "topography": "Valley"
             }
         ]
@@ -232,7 +232,7 @@ Add new locations to database
         "locationName": "Location 1",
         "locationType": "Storage Location",
         "siteStatus": "Private",
-        "slope": 0,
+        "slope": "0",
         "topography": "Valley"
     }
 ]
@@ -295,7 +295,7 @@ Add new locations to database
                 "locationName": "Location 1",
                 "locationType": "Storage Location",
                 "siteStatus": "Private",
-                "slope": 0,
+                "slope": "0",
                 "topography": "Valley"
             }
         ]
@@ -418,7 +418,7 @@ Get details for a location.
         "locationName": "Location 1",
         "locationType": "Storage Location",
         "siteStatus": "Private",
-        "slope": 0,
+        "slope": "0",
         "topography": "Valley"
     }
 }
@@ -540,7 +540,7 @@ Update the details for an existing location.
     "locationName": "Location 1",
     "locationType": "Storage Location",
     "siteStatus": "Private",
-    "slope": 0,
+    "slope": "0",
     "topography": "Valley"
 }
 ```
@@ -600,7 +600,7 @@ Update the details for an existing location.
         "locationName": "Location 1",
         "locationType": "Storage Location",
         "siteStatus": "Private",
-        "slope": 0,
+        "slope": "0",
         "topography": "Valley"
     }
 }
@@ -875,7 +875,7 @@ See Search Services for additional implementation details.
                 "locationName": "Location 1",
                 "locationType": "Storage Location",
                 "siteStatus": "Private",
-                "slope": 0,
+                "slope": "0",
                 "topography": "Valley"
             }
         ]

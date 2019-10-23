@@ -96,7 +96,7 @@ paths: {}
 security:
 - AuthorizationToken: []
 servers:
-- url: https://test-server.brapi.org/brapi/v1
+- url: https://test-server.brapi.org/brapi/v2
 tags:
 - name: Observations
   description: Retrieve and edit information about Observations

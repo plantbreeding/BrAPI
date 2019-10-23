@@ -1,0 +1,32 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    ServerInfo: 
+      properties:
+        contactEmail:
+          description: A contact email address for this server management
+          type: string
+        documentationURL:
+          description: A URL to the human readable documentation of this object
+          type: string
+        organizationURL:
+          description: The URL of the organiation that manages this server and data
+          type: string
+        organizationName:
+          description: The name of the organiation that manages this server and data
+          type: string
+        location:
+          description: Physical location of this server (ie. City, Country)
+          type: string
+        services:
+          description: Array of available calls on this server
+          items:
+            $ref: '#/components/schemas/Service'
+          type: array
+      required:
+      - services
+      type: object

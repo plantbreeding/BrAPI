@@ -241,7 +241,7 @@ See Search Services for additional implementation details.
                 "publications": [
                     {
                         "publicationPUI": "doi:10.15454/312953986E3",
-                        "publicationReference": "Selby, BrAPI \u2014 An application programming interface for plant breeding applications, Bioinformatics, https://doi.org/10.1093/bioinformatics/190"
+                        "publicationReference": "Selby, BrAPI - An application programming interface for plant breeding applications, Bioinformatics, https://doi.org/10.1093/bioinformatics/190"
                     }
                 ],
                 "startDate": "2018-01-01",
@@ -394,7 +394,7 @@ Retrieve a filtered list of breeding Trials. A Trial is a collection of Studies
                 "publications": [
                     {
                         "publicationPUI": "doi:10.15454/312953986E3",
-                        "publicationReference": "Selby, BrAPI \u2014 An application programming interface for plant breeding applications, Bioinformatics, https://doi.org/10.1093/bioinformatics/190"
+                        "publicationReference": "Selby, BrAPI - An application programming interface for plant breeding applications, Bioinformatics, https://doi.org/10.1093/bioinformatics/190"
                     }
                 ],
                 "startDate": "2018-01-01",
@@ -533,7 +533,7 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
         "publications": [
             {
                 "publicationPUI": "doi:10.15454/312953986E3",
-                "publicationReference": "Selby, BrAPI \u2014 An application programming interface for plant breeding applications, Bioinformatics, https://doi.org/10.1093/bioinformatics/190"
+                "publicationReference": "Selby, BrAPI - An application programming interface for plant breeding applications, Bioinformatics, https://doi.org/10.1093/bioinformatics/190"
             }
         ],
         "startDate": "2018-01-01",
@@ -603,7 +603,7 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
                 "publications": [
                     {
                         "publicationPUI": "doi:10.15454/312953986E3",
-                        "publicationReference": "Selby, BrAPI \u2014 An application programming interface for plant breeding applications, Bioinformatics, https://doi.org/10.1093/bioinformatics/190"
+                        "publicationReference": "Selby, BrAPI - An application programming interface for plant breeding applications, Bioinformatics, https://doi.org/10.1093/bioinformatics/190"
                     }
                 ],
                 "startDate": "2018-01-01",
@@ -824,7 +824,7 @@ Get the details of a specific Trial
             "locationName": "Location 1",
             "locationType": "Storage Location",
             "siteStatus": "Private",
-            "slope": 0,
+            "slope": "0",
             "topography": "Valley"
         },
         "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
@@ -1012,7 +1012,7 @@ Update the details of an existing Trial
     "publications": [
         {
             "publicationPUI": "doi:10.15454/312953986E3",
-            "publicationReference": "Selby, BrAPI \u2014 An application programming interface for plant breeding applications, Bioinformatics, https://doi.org/10.1093/bioinformatics/190"
+            "publicationReference": "Selby, BrAPI - An application programming interface for plant breeding applications, Bioinformatics, https://doi.org/10.1093/bioinformatics/190"
         }
     ],
     "startDate": "2018-01-01",
@@ -1125,7 +1125,7 @@ Update the details of an existing Trial
             "locationName": "Location 1",
             "locationType": "Storage Location",
             "siteStatus": "Private",
-            "slope": 0,
+            "slope": "0",
             "topography": "Valley"
         },
         "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",

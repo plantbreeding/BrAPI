@@ -1,5 +1,5 @@
 
-# Group Phenotypes
+# Group Observation Units
 
 API to retrieve and submit data (phenotypes, environment variables) from studies. While the study calls focus on one study, calls in this section are for cross-study phenotypic data retrieval and submission.
 
@@ -217,7 +217,7 @@ Get a filtered set of Observation Units
                         },
                         "type": "Feature"
                     },
-                    "positionCoordinateX": 74,
+                    "positionCoordinateX": "74",
                     "positionCoordinateXType": "GRID_COL",
                     "positionCoordinateY": "03",
                     "positionCoordinateYType": "GRID_ROW",
@@ -392,7 +392,7 @@ Add new Observation Units
                 },
                 "type": "Feature"
             },
-            "positionCoordinateX": 74,
+            "positionCoordinateX": "74",
             "positionCoordinateXType": "GRID_COL",
             "positionCoordinateY": "03",
             "positionCoordinateYType": "GRID_ROW",
@@ -484,7 +484,7 @@ Add new Observation Units
                         },
                         "type": "Feature"
                     },
-                    "positionCoordinateX": 74,
+                    "positionCoordinateX": "74",
                     "positionCoordinateXType": "GRID_COL",
                     "positionCoordinateY": "03",
                     "positionCoordinateYType": "GRID_ROW",
@@ -662,7 +662,7 @@ Note - In strictly typed languages, this structure can be represented as a Map o
                         },
                         "type": "Feature"
                     },
-                    "positionCoordinateX": 74,
+                    "positionCoordinateX": "74",
                     "positionCoordinateXType": "GRID_COL",
                     "positionCoordinateY": "03",
                     "positionCoordinateYType": "GRID_ROW",
@@ -826,7 +826,7 @@ Get the details of a specific Observation Unit
                 },
                 "type": "Feature"
             },
-            "positionCoordinateX": 74,
+            "positionCoordinateX": "74",
             "positionCoordinateXType": "GRID_COL",
             "positionCoordinateY": "03",
             "positionCoordinateYType": "GRID_ROW",
@@ -998,7 +998,7 @@ Update an existing Observation Units
             },
             "type": "Feature"
         },
-        "positionCoordinateX": 74,
+        "positionCoordinateX": "74",
         "positionCoordinateXType": "GRID_COL",
         "positionCoordinateY": "03",
         "positionCoordinateYType": "GRID_ROW",
@@ -1087,7 +1087,7 @@ Update an existing Observation Units
                 },
                 "type": "Feature"
             },
-            "positionCoordinateX": 74,
+            "positionCoordinateX": "74",
             "positionCoordinateXType": "GRID_COL",
             "positionCoordinateY": "03",
             "positionCoordinateYType": "GRID_ROW",
@@ -1693,7 +1693,7 @@ See Search Services for additional implementation details.
                         },
                         "type": "Feature"
                     },
-                    "positionCoordinateX": 74,
+                    "positionCoordinateX": "74",
                     "positionCoordinateXType": "GRID_COL",
                     "positionCoordinateY": "03",
                     "positionCoordinateYType": "GRID_ROW",

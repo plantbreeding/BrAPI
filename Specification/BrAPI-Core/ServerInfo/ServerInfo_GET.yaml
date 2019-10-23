@@ -3,7 +3,7 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /calls:
+  /serverinfo:
     get:
       description: |-
         Implementation Notes
@@ -32,7 +32,7 @@ paths:
         
         BAD    "call": "germplasm/{germplasmdbid}/pedigree" 
         
-        BAD    "call": "brapi/v1/germplasm/{germplasmDbId}/pedigree" 
+        BAD    "call": "brapi/v2/germplasm/{germplasmDbId}/pedigree" 
         
         BAD    "call": "/germplasm/{germplasmDbId}/pedigree/" 
         
@@ -44,8 +44,6 @@ paths:
         required: false
         schema:
           $ref: '#/components/schemas/WSMIMEDataTypes'
-      - $ref: '#/components/parameters/page'
-      - $ref: '#/components/parameters/pageSize'
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
@@ -56,15 +54,7 @@ paths:
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:
-                    properties:
-                      data:
-                        description: Array of available calls on this server
-                        items:
-                          $ref: '#/components/schemas/Call'
-                        type: array
-                    required:
-                    - data
-                    type: object
+                    $ref: '#/components/schemas/ServerInfo'
                 required:
                 - metadata
                 - result

@@ -373,7 +373,7 @@ See Search Services for additional implementation details.
                     "locationName": "Location 1",
                     "locationType": "Storage Location",
                     "siteStatus": "Private",
-                    "slope": 0,
+                    "slope": "0",
                     "topography": "Valley"
                 },
                 "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
@@ -515,7 +515,7 @@ program like "PlantingTime_3" or "Season E"
 
 
 
-### Get Studies  [GET /brapi/v1/studies{?commonCropName}{?studyType}{?programDbId}{?locationDbId}{?seasonDbId}{?trialDbId}{?studyDbId}{?active}{?sortBy}{?sortOrder}{?page}{?pageSize}]
+### Get Studies  [GET /brapi/v1/studies{?commonCropName}{?studyType}{?programDbId}{?locationDbId}{?seasonDbId}{?trialDbId}{?studyDbId}{?germplasmDbId}{?observationVariableDbId}{?active}{?sortBy}{?sortOrder}{?page}{?pageSize}]
 
 Get list of studies
 
@@ -606,6 +606,8 @@ StartDate and endDate should be ISO-8601 format for dates
     + seasonDbId (Optional, ) ... Filter by season or year
     + trialDbId (Optional, ) ... Filter by trial
     + studyDbId (Optional, ) ... Filter by study DbId
+    + germplasmDbId (Optional, ) ... Filter by germplasm DbId
+    + observationVariableDbId (Optional, ) ... Filter by observation variable DbId
     + active (Optional, ) ... Filter active status true/false.
     + sortBy (Optional, ) ... Name of the field to sort by.
     + sortOrder (Optional, ) ... Sort order direction. Ascending/Descending.
@@ -720,7 +722,7 @@ StartDate and endDate should be ISO-8601 format for dates
                     "locationName": "Location 1",
                     "locationType": "Storage Location",
                     "siteStatus": "Private",
-                    "slope": 0,
+                    "slope": "0",
                     "topography": "Valley"
                 },
                 "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
@@ -998,7 +1000,7 @@ StartDate and endDate should be ISO-8601 format for dates
             "locationName": "Location 1",
             "locationType": "Storage Location",
             "siteStatus": "Private",
-            "slope": 0,
+            "slope": "0",
             "topography": "Valley"
         },
         "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
@@ -1121,7 +1123,7 @@ StartDate and endDate should be ISO-8601 format for dates
                     "locationName": "Location 1",
                     "locationType": "Storage Location",
                     "siteStatus": "Private",
-                    "slope": 0,
+                    "slope": "0",
                     "topography": "Valley"
                 },
                 "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
@@ -1351,7 +1353,7 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
             "locationName": "Location 1",
             "locationType": "Storage Location",
             "siteStatus": "Private",
-            "slope": 0,
+            "slope": "0",
             "topography": "Valley"
         },
         "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
@@ -1625,7 +1627,7 @@ Update an existing Study with new data
         "locationName": "Location 1",
         "locationType": "Storage Location",
         "siteStatus": "Private",
-        "slope": 0,
+        "slope": "0",
         "topography": "Valley"
     },
     "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
@@ -1745,7 +1747,7 @@ Update an existing Study with new data
             "locationName": "Location 1",
             "locationType": "Storage Location",
             "siteStatus": "Private",
-            "slope": 0,
+            "slope": "0",
             "topography": "Valley"
         },
         "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",

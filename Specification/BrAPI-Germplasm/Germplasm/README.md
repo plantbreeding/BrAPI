@@ -204,7 +204,7 @@ Addresses these needs
 |accessionNumber|string|This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection|
 |acquisitionDate|string (date)|The date this germplasm was acquired by the genebank (MCPD)|
 |additionalInfo|object|Additional arbitrary info|
-|biologicalStatusOfAccessionCode|integer|The 3 digit code representing the biological status of the accession (MCPD)|
+|biologicalStatusOfAccessionCode|string|MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes (in boldface) such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc. 100) Wild 110) Natural 120) Semi-natural/wild 130) Semi-natural/sown 200) Weedy 300) Traditional cultivar/landrace 400) Breeding/research material 410) Breeders line 411) Synthetic population 412) Hybrid 413) Founder stock/base population 414) Inbred line (parent of hybrid cultivar) 415) Segregating population 416) Clonal selection 420) Genetic stock 421) Mutant (e.g. induced/insertion mutants, tilling populations) 422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids) 423) Other genetic stocks (e.g. mapping populations) 500) Advanced or improved cultivar (conventional breeding methods) 600) GMO (by genetic engineering) 999) Other (Elaborate in REMARKS field)|
 |breedingMethodDbId|string|The unique identifier for the breeding method used to create this germplasm|
 |commonCropName|string|Common name for the crop (MCPD)|
 |countryOfOriginCode|string|3-letter ISO 3166-1 code of the country in which the sample was originally collected (MCPD)|
@@ -297,7 +297,7 @@ Addresses these needs
                 "accessionNumber": "A0000003",
                 "acquisitionDate": "2018-01-01",
                 "additionalInfo": {},
-                "biologicalStatusOfAccessionCode": 500,
+                "biologicalStatusOfAccessionCode": "421",
                 "breedingMethodDbId": "ffcce7ef",
                 "commonCropName": "Maize",
                 "countryOfOriginCode": "BES",
@@ -315,11 +315,11 @@ Addresses these needs
                 "germplasmName": "A0000003",
                 "germplasmOrigin": [
                     {
-                        "altitude": 35,
-                        "coordinateUncertainty": 20,
-                        "latitudeDecimal": -44.6975,
+                        "altitude": "35",
+                        "coordinateUncertainty": "20",
+                        "latitudeDecimal": "-44.6975",
                         "latitudeDegrees": "103020S",
-                        "longitudeDecimal": 120.9123,
+                        "longitudeDecimal": "+120.9123",
                         "longitudeDegrees": "0762510W"
                     }
                 ],
@@ -390,7 +390,7 @@ Addresses these needs
 |accessionNumber|string|This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection|
 |acquisitionDate|string (date)|The date this germplasm was acquired by the genebank (MCPD)|
 |additionalInfo|object|Additional arbitrary info|
-|biologicalStatusOfAccessionCode|integer|The 3 digit code representing the biological status of the accession (MCPD)|
+|biologicalStatusOfAccessionCode|string|MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes (in boldface) such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc. 100) Wild 110) Natural 120) Semi-natural/wild 130) Semi-natural/sown 200) Weedy 300) Traditional cultivar/landrace 400) Breeding/research material 410) Breeders line 411) Synthetic population 412) Hybrid 413) Founder stock/base population 414) Inbred line (parent of hybrid cultivar) 415) Segregating population 416) Clonal selection 420) Genetic stock 421) Mutant (e.g. induced/insertion mutants, tilling populations) 422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids) 423) Other genetic stocks (e.g. mapping populations) 500) Advanced or improved cultivar (conventional breeding methods) 600) GMO (by genetic engineering) 999) Other (Elaborate in REMARKS field)|
 |breedingMethodDbId|string|The unique identifier for the breeding method used to create this germplasm|
 |commonCropName|string|Common name for the crop (MCPD)|
 |countryOfOriginCode|string|3-letter ISO 3166-1 code of the country in which the sample was originally collected (MCPD)|
@@ -436,7 +436,7 @@ Addresses these needs
 |accessionNumber|string|This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection|
 |acquisitionDate|string (date)|The date this germplasm was acquired by the genebank (MCPD)|
 |additionalInfo|object|Additional arbitrary info|
-|biologicalStatusOfAccessionCode|integer|The 3 digit code representing the biological status of the accession (MCPD)|
+|biologicalStatusOfAccessionCode|string|MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes (in boldface) such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc. 100) Wild 110) Natural 120) Semi-natural/wild 130) Semi-natural/sown 200) Weedy 300) Traditional cultivar/landrace 400) Breeding/research material 410) Breeders line 411) Synthetic population 412) Hybrid 413) Founder stock/base population 414) Inbred line (parent of hybrid cultivar) 415) Segregating population 416) Clonal selection 420) Genetic stock 421) Mutant (e.g. induced/insertion mutants, tilling populations) 422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids) 423) Other genetic stocks (e.g. mapping populations) 500) Advanced or improved cultivar (conventional breeding methods) 600) GMO (by genetic engineering) 999) Other (Elaborate in REMARKS field)|
 |breedingMethodDbId|string|The unique identifier for the breeding method used to create this germplasm|
 |commonCropName|string|Common name for the crop (MCPD)|
 |countryOfOriginCode|string|3-letter ISO 3166-1 code of the country in which the sample was originally collected (MCPD)|
@@ -489,7 +489,7 @@ Addresses these needs
         "accessionNumber": "A0000003",
         "acquisitionDate": "2018-01-01",
         "additionalInfo": {},
-        "biologicalStatusOfAccessionCode": 500,
+        "biologicalStatusOfAccessionCode": "421",
         "breedingMethodDbId": "ffcce7ef",
         "commonCropName": "Maize",
         "countryOfOriginCode": "BES",
@@ -506,11 +506,11 @@ Addresses these needs
         "germplasmName": "A0000003",
         "germplasmOrigin": [
             {
-                "altitude": 35,
-                "coordinateUncertainty": 20,
-                "latitudeDecimal": -44.6975,
+                "altitude": "35",
+                "coordinateUncertainty": "20",
+                "latitudeDecimal": "-44.6975",
                 "latitudeDegrees": "103020S",
-                "longitudeDecimal": 120.9123,
+                "longitudeDecimal": "+120.9123",
                 "longitudeDegrees": "0762510W"
             }
         ],
@@ -578,7 +578,7 @@ Addresses these needs
                 "accessionNumber": "A0000003",
                 "acquisitionDate": "2018-01-01",
                 "additionalInfo": {},
-                "biologicalStatusOfAccessionCode": 500,
+                "biologicalStatusOfAccessionCode": "421",
                 "breedingMethodDbId": "ffcce7ef",
                 "commonCropName": "Maize",
                 "countryOfOriginCode": "BES",
@@ -596,11 +596,11 @@ Addresses these needs
                 "germplasmName": "A0000003",
                 "germplasmOrigin": [
                     {
-                        "altitude": 35,
-                        "coordinateUncertainty": 20,
-                        "latitudeDecimal": -44.6975,
+                        "altitude": "35",
+                        "coordinateUncertainty": "20",
+                        "latitudeDecimal": "-44.6975",
                         "latitudeDegrees": "103020S",
-                        "longitudeDecimal": 120.9123,
+                        "longitudeDecimal": "+120.9123",
                         "longitudeDegrees": "0762510W"
                     }
                 ],
@@ -667,7 +667,7 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 |accessionNumber|string|This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection|
 |acquisitionDate|string (date)|The date this germplasm was acquired by the genebank (MCPD)|
 |additionalInfo|object|Additional arbitrary info|
-|biologicalStatusOfAccessionCode|integer|The 3 digit code representing the biological status of the accession (MCPD)|
+|biologicalStatusOfAccessionCode|string|MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes (in boldface) such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc. 100) Wild 110) Natural 120) Semi-natural/wild 130) Semi-natural/sown 200) Weedy 300) Traditional cultivar/landrace 400) Breeding/research material 410) Breeders line 411) Synthetic population 412) Hybrid 413) Founder stock/base population 414) Inbred line (parent of hybrid cultivar) 415) Segregating population 416) Clonal selection 420) Genetic stock 421) Mutant (e.g. induced/insertion mutants, tilling populations) 422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids) 423) Other genetic stocks (e.g. mapping populations) 500) Advanced or improved cultivar (conventional breeding methods) 600) GMO (by genetic engineering) 999) Other (Elaborate in REMARKS field)|
 |breedingMethodDbId|string|The unique identifier for the breeding method used to create this germplasm|
 |commonCropName|string|Common name for the crop (MCPD)|
 |countryOfOriginCode|string|3-letter ISO 3166-1 code of the country in which the sample was originally collected (MCPD)|
@@ -746,7 +746,7 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
         "accessionNumber": "A0000003",
         "acquisitionDate": "2018-01-01",
         "additionalInfo": {},
-        "biologicalStatusOfAccessionCode": 500,
+        "biologicalStatusOfAccessionCode": "421",
         "breedingMethodDbId": "ffcce7ef",
         "commonCropName": "Maize",
         "countryOfOriginCode": "BES",
@@ -764,11 +764,11 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
         "germplasmName": "A0000003",
         "germplasmOrigin": [
             {
-                "altitude": 35,
-                "coordinateUncertainty": 20,
-                "latitudeDecimal": -44.6975,
+                "altitude": "35",
+                "coordinateUncertainty": "20",
+                "latitudeDecimal": "-44.6975",
                 "latitudeDegrees": "103020S",
-                "longitudeDecimal": 120.9123,
+                "longitudeDecimal": "+120.9123",
                 "longitudeDegrees": "0762510W"
             }
         ],
@@ -836,7 +836,7 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 |accessionNumber|string|This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection|
 |acquisitionDate|string (date)|The date this germplasm was acquired by the genebank (MCPD)|
 |additionalInfo|object|Additional arbitrary info|
-|biologicalStatusOfAccessionCode|integer|The 3 digit code representing the biological status of the accession (MCPD)|
+|biologicalStatusOfAccessionCode|string|MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes (in boldface) such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc. 100) Wild 110) Natural 120) Semi-natural/wild 130) Semi-natural/sown 200) Weedy 300) Traditional cultivar/landrace 400) Breeding/research material 410) Breeders line 411) Synthetic population 412) Hybrid 413) Founder stock/base population 414) Inbred line (parent of hybrid cultivar) 415) Segregating population 416) Clonal selection 420) Genetic stock 421) Mutant (e.g. induced/insertion mutants, tilling populations) 422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids) 423) Other genetic stocks (e.g. mapping populations) 500) Advanced or improved cultivar (conventional breeding methods) 600) GMO (by genetic engineering) 999) Other (Elaborate in REMARKS field)|
 |breedingMethodDbId|string|The unique identifier for the breeding method used to create this germplasm|
 |commonCropName|string|Common name for the crop (MCPD)|
 |countryOfOriginCode|string|3-letter ISO 3166-1 code of the country in which the sample was originally collected (MCPD)|
@@ -881,7 +881,7 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 |accessionNumber|string|This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection|
 |acquisitionDate|string (date)|The date this germplasm was acquired by the genebank (MCPD)|
 |additionalInfo|object|Additional arbitrary info|
-|biologicalStatusOfAccessionCode|integer|The 3 digit code representing the biological status of the accession (MCPD)|
+|biologicalStatusOfAccessionCode|string|MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes (in boldface) such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc. 100) Wild 110) Natural 120) Semi-natural/wild 130) Semi-natural/sown 200) Weedy 300) Traditional cultivar/landrace 400) Breeding/research material 410) Breeders line 411) Synthetic population 412) Hybrid 413) Founder stock/base population 414) Inbred line (parent of hybrid cultivar) 415) Segregating population 416) Clonal selection 420) Genetic stock 421) Mutant (e.g. induced/insertion mutants, tilling populations) 422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids) 423) Other genetic stocks (e.g. mapping populations) 500) Advanced or improved cultivar (conventional breeding methods) 600) GMO (by genetic engineering) 999) Other (Elaborate in REMARKS field)|
 |breedingMethodDbId|string|The unique identifier for the breeding method used to create this germplasm|
 |commonCropName|string|Common name for the crop (MCPD)|
 |countryOfOriginCode|string|3-letter ISO 3166-1 code of the country in which the sample was originally collected (MCPD)|
@@ -934,7 +934,7 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
     "accessionNumber": "A0000003",
     "acquisitionDate": "2018-01-01",
     "additionalInfo": {},
-    "biologicalStatusOfAccessionCode": 500,
+    "biologicalStatusOfAccessionCode": "421",
     "breedingMethodDbId": "ffcce7ef",
     "commonCropName": "Maize",
     "countryOfOriginCode": "BES",
@@ -951,11 +951,11 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
     "germplasmName": "A0000003",
     "germplasmOrigin": [
         {
-            "altitude": 35,
-            "coordinateUncertainty": 20,
-            "latitudeDecimal": -44.6975,
+            "altitude": "35",
+            "coordinateUncertainty": "20",
+            "latitudeDecimal": "-44.6975",
             "latitudeDegrees": "103020S",
-            "longitudeDecimal": 120.9123,
+            "longitudeDecimal": "+120.9123",
             "longitudeDegrees": "0762510W"
         }
     ],
@@ -1020,7 +1020,7 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
         "accessionNumber": "A0000003",
         "acquisitionDate": "2018-01-01",
         "additionalInfo": {},
-        "biologicalStatusOfAccessionCode": 500,
+        "biologicalStatusOfAccessionCode": "421",
         "breedingMethodDbId": "ffcce7ef",
         "commonCropName": "Maize",
         "countryOfOriginCode": "BES",
@@ -1038,11 +1038,11 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
         "germplasmName": "A0000003",
         "germplasmOrigin": [
             {
-                "altitude": 35,
-                "coordinateUncertainty": 20,
-                "latitudeDecimal": -44.6975,
+                "altitude": "35",
+                "coordinateUncertainty": "20",
+                "latitudeDecimal": "-44.6975",
                 "latitudeDegrees": "103020S",
-                "longitudeDecimal": 120.9123,
+                "longitudeDecimal": "+120.9123",
                 "longitudeDegrees": "0762510W"
             }
         ],
@@ -1237,8 +1237,8 @@ Implementation Notes
             "collectingMissionIdentifier": "CIATFOR052",
             "collectingNumber": "AB009909",
             "collectingSite": {
-                "coordinateUncertainty": 20,
-                "elevation": 35,
+                "coordinateUncertainty": "20",
+                "elevation": "35",
                 "georeferencingMethod": "WGS84",
                 "latitudeDecimal": "+42.445295",
                 "latitudeDegrees": "42 26 43.1 N",
@@ -1706,7 +1706,7 @@ Addresses these needs:
 |accessionNumber|string|This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection|
 |acquisitionDate|string (date)|The date this germplasm was acquired by the genebank (MCPD)|
 |additionalInfo|object|Additional arbitrary info|
-|biologicalStatusOfAccessionCode|integer|The 3 digit code representing the biological status of the accession (MCPD)|
+|biologicalStatusOfAccessionCode|string|MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes (in boldface) such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc. 100) Wild 110) Natural 120) Semi-natural/wild 130) Semi-natural/sown 200) Weedy 300) Traditional cultivar/landrace 400) Breeding/research material 410) Breeders line 411) Synthetic population 412) Hybrid 413) Founder stock/base population 414) Inbred line (parent of hybrid cultivar) 415) Segregating population 416) Clonal selection 420) Genetic stock 421) Mutant (e.g. induced/insertion mutants, tilling populations) 422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids) 423) Other genetic stocks (e.g. mapping populations) 500) Advanced or improved cultivar (conventional breeding methods) 600) GMO (by genetic engineering) 999) Other (Elaborate in REMARKS field)|
 |breedingMethodDbId|string|The unique identifier for the breeding method used to create this germplasm|
 |commonCropName|string|Common name for the crop (MCPD)|
 |countryOfOriginCode|string|3-letter ISO 3166-1 code of the country in which the sample was originally collected (MCPD)|
@@ -1789,7 +1789,7 @@ Addresses these needs:
                 "accessionNumber": "A0000003",
                 "acquisitionDate": "2018-01-01",
                 "additionalInfo": {},
-                "biologicalStatusOfAccessionCode": 500,
+                "biologicalStatusOfAccessionCode": "421",
                 "breedingMethodDbId": "ffcce7ef",
                 "commonCropName": "Maize",
                 "countryOfOriginCode": "BES",
@@ -1807,11 +1807,11 @@ Addresses these needs:
                 "germplasmName": "A0000003",
                 "germplasmOrigin": [
                     {
-                        "altitude": 35,
-                        "coordinateUncertainty": 20,
-                        "latitudeDecimal": -44.6975,
+                        "altitude": "35",
+                        "coordinateUncertainty": "20",
+                        "latitudeDecimal": "-44.6975",
                         "latitudeDegrees": "103020S",
-                        "longitudeDecimal": 120.9123,
+                        "longitudeDecimal": "+120.9123",
                         "longitudeDegrees": "0762510W"
                     }
                 ],

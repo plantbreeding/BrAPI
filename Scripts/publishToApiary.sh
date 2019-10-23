@@ -7,11 +7,17 @@ if [ -f "$1" ]; then
 else
 	BRAPI_FILE=${HOME}/brapi_blueprint.apib;
 fi
-
 if [ -z "$2" ]; then
-	APINAME=brapidev
+	echo "usage: 'publishToApiary <blueprint file> <apiary name> <apiary key>"
+	exit 1
 else
 	APINAME=${2}
+fi
+if [ -z "$3" ]; then
+	echo "usage: 'publishToApiary <blueprint file> <apiary name> <apiary key>"
+	exit 1
+else
+	APIARY_TOKEN=${3}
 fi
 
 

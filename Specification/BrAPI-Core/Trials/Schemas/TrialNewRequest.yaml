@@ -68,7 +68,7 @@ components:
                 example: doi:10.15454/312953986E3
               publicationReference:
                 type: string
-                example: Selby, BrAPI — An application programming interface for plant breeding applications, Bioinformatics, https://doi.org/10.1093/bioinformatics/190 
+                example: Selby, BrAPI - An application programming interface for plant breeding applications, Bioinformatics, https://doi.org/10.1093/bioinformatics/190 
             type: object
           type: array
         startDate:
