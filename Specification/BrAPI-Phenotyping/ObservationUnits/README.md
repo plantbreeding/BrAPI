@@ -6,92 +6,6 @@ API to retrieve and submit data (phenotypes, environment variables) from studies
 
 
 
-## Observationlevels [/brapi/v1/observationlevels] 
-
-
-
-
-### Get Observationlevels  [GET /brapi/v1/observationlevels{?page}{?pageSize}]
-
-Call to retrieve the list of supported observation levels. 
-
-Observation levels indicate the granularity level at which the measurements are taken. 
-
-The values are used to supply the `observationLevel` parameter in the observation unit details call.
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[string]||
-
-
- 
-
-+ Parameters
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "data": [
-            "field",
-            "plot",
-            "plant"
-        ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-
 ## Observationunits [/brapi/v1/observationunits] 
 
 
@@ -108,40 +22,40 @@ Get a filtered set of Observation Units
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|locationName|string|The human readable name of a location associated with this study|
-|locationDbId|string|The ID which uniquely identifies a location, associated with this study|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
-|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
-|additionalInfo|object|Additional arbitrary info|
-|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
-|programName|string|The human readable name of a program|
-|germplasmDbId|string| The ID which uniquely identifies a germplasm|
-|programDbId|string|The ID which uniquely identifies a program|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |treatments|array[object]|List of treatments applied to an observation unit.|
-|factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc|
 |modality|string|The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc|
-|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
-|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
-|trialName|string|The human readable name of a trial|
+|factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
 |studyName|string|The human readable name for a study|
-|observationUnitName|string|A human readable name for an observation unit|
+|programDbId|string|The ID which uniquely identifies a program|
+|additionalInfo|object|Additional arbitrary info|
+|programName|string|The human readable name of a program|
 |observationUnitPosition|object|All positional and layout information related to this Observation Unit|
+|entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
+|positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
-|positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
-|entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
-|positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
+|positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
 |type|string|Feature|
-|positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
+|positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|trialDbId|string|The ID which uniquely identifies a trial|
+|locationDbId|string|The ID which uniquely identifies a location, associated with this study|
+|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |observationUnitXref|array[object]|A list of external references to this observation unit|
 |id|string|The unique ID in the external reference 'source' system|
 |source|string|The system identifier (name, URL, etc) which has an external reference to the observation unit|
+|locationName|string|The human readable name of a location associated with this study|
+|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
+|trialDbId|string|The ID which uniquely identifies a trial|
+|trialName|string|The human readable name of a trial|
+|observationUnitName|string|A human readable name for an observation unit|
+|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
+|germplasmDbId|string| The ID which uniquely identifies a germplasm|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 
 
  
@@ -280,39 +194,39 @@ Add new Observation Units
 
 |Field|Type|Description|
 |---|---|---| 
-|locationName|string|The human readable name of a location associated with this study|
-|locationDbId|string|The ID which uniquely identifies a location, associated with this study|
-|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
-|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
-|additionalInfo|object|Additional arbitrary info|
-|trialName|string|The human readable name of a trial|
-|programName|string|The human readable name of a program|
-|germplasmDbId|string| The ID which uniquely identifies a germplasm|
-|programDbId|string|The ID which uniquely identifies a program|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |treatments|array[object]|List of treatments applied to an observation unit.|
-|factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc|
 |modality|string|The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc|
-|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
-|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
-|observationUnitXref|array[object]|A list of external references to this observation unit|
-|id|string|The unique ID in the external reference 'source' system|
-|source|string|The system identifier (name, URL, etc) which has an external reference to the observation unit|
+|factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc|
 |studyName|string|The human readable name for a study|
-|observationUnitName|string|A human readable name for an observation unit|
+|programDbId|string|The ID which uniquely identifies a program|
+|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
+|additionalInfo|object|Additional arbitrary info|
+|programName|string|The human readable name of a program|
 |observationUnitPosition|object|All positional and layout information related to this Observation Unit|
+|entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
+|positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
-|positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
-|entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
-|positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
+|positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
 |type|string|Feature|
-|positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
+|positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
+|locationDbId|string|The ID which uniquely identifies a location, associated with this study|
+|observationUnitXref|array[object]|A list of external references to this observation unit|
+|id|string|The unique ID in the external reference 'source' system|
+|source|string|The system identifier (name, URL, etc) which has an external reference to the observation unit|
+|locationName|string|The human readable name of a location associated with this study|
+|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
 |trialDbId|string|The ID which uniquely identifies a trial|
+|trialName|string|The human readable name of a trial|
+|observationUnitName|string|A human readable name for an observation unit|
+|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
+|germplasmDbId|string| The ID which uniquely identifies a germplasm|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 
 
 **Response Fields** 
@@ -320,40 +234,40 @@ Add new Observation Units
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|locationName|string|The human readable name of a location associated with this study|
-|locationDbId|string|The ID which uniquely identifies a location, associated with this study|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
-|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
-|additionalInfo|object|Additional arbitrary info|
-|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
-|programName|string|The human readable name of a program|
-|germplasmDbId|string| The ID which uniquely identifies a germplasm|
-|programDbId|string|The ID which uniquely identifies a program|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |treatments|array[object]|List of treatments applied to an observation unit.|
-|factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc|
 |modality|string|The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc|
-|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
-|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
-|trialName|string|The human readable name of a trial|
+|factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
 |studyName|string|The human readable name for a study|
-|observationUnitName|string|A human readable name for an observation unit|
+|programDbId|string|The ID which uniquely identifies a program|
+|additionalInfo|object|Additional arbitrary info|
+|programName|string|The human readable name of a program|
 |observationUnitPosition|object|All positional and layout information related to this Observation Unit|
+|entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
+|positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
-|positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
-|entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
-|positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
+|positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
 |type|string|Feature|
-|positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
+|positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|trialDbId|string|The ID which uniquely identifies a trial|
+|locationDbId|string|The ID which uniquely identifies a location, associated with this study|
+|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |observationUnitXref|array[object]|A list of external references to this observation unit|
 |id|string|The unique ID in the external reference 'source' system|
 |source|string|The system identifier (name, URL, etc) which has an external reference to the observation unit|
+|locationName|string|The human readable name of a location associated with this study|
+|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
+|trialDbId|string|The ID which uniquely identifies a trial|
+|trialName|string|The human readable name of a trial|
+|observationUnitName|string|A human readable name for an observation unit|
+|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
+|germplasmDbId|string| The ID which uniquely identifies a germplasm|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 
 
  
@@ -556,40 +470,40 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|locationName|string|The human readable name of a location associated with this study|
-|locationDbId|string|The ID which uniquely identifies a location, associated with this study|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
-|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
-|additionalInfo|object|Additional arbitrary info|
-|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
-|programName|string|The human readable name of a program|
-|germplasmDbId|string| The ID which uniquely identifies a germplasm|
-|programDbId|string|The ID which uniquely identifies a program|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |treatments|array[object]|List of treatments applied to an observation unit.|
-|factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc|
 |modality|string|The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc|
-|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
-|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
-|trialName|string|The human readable name of a trial|
+|factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
 |studyName|string|The human readable name for a study|
-|observationUnitName|string|A human readable name for an observation unit|
+|programDbId|string|The ID which uniquely identifies a program|
+|additionalInfo|object|Additional arbitrary info|
+|programName|string|The human readable name of a program|
 |observationUnitPosition|object|All positional and layout information related to this Observation Unit|
+|entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
+|positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
-|positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
-|entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
-|positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
+|positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
 |type|string|Feature|
-|positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
+|positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|trialDbId|string|The ID which uniquely identifies a trial|
+|locationDbId|string|The ID which uniquely identifies a location, associated with this study|
+|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |observationUnitXref|array[object]|A list of external references to this observation unit|
 |id|string|The unique ID in the external reference 'source' system|
 |source|string|The system identifier (name, URL, etc) which has an external reference to the observation unit|
+|locationName|string|The human readable name of a location associated with this study|
+|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
+|trialDbId|string|The ID which uniquely identifies a trial|
+|trialName|string|The human readable name of a trial|
+|observationUnitName|string|A human readable name for an observation unit|
+|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
+|germplasmDbId|string| The ID which uniquely identifies a germplasm|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 
 
  
@@ -727,40 +641,40 @@ Get the details of a specific Observation Unit
 
 |Field|Type|Description|
 |---|---|---| 
-|locationName|string|The human readable name of a location associated with this study|
-|locationDbId|string|The ID which uniquely identifies a location, associated with this study|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
-|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
-|additionalInfo|object|Additional arbitrary info|
-|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
-|programName|string|The human readable name of a program|
-|germplasmDbId|string| The ID which uniquely identifies a germplasm|
-|programDbId|string|The ID which uniquely identifies a program|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |treatments|array[object]|List of treatments applied to an observation unit.|
-|factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc|
 |modality|string|The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc|
-|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
-|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
-|trialName|string|The human readable name of a trial|
+|factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
 |studyName|string|The human readable name for a study|
-|observationUnitName|string|A human readable name for an observation unit|
+|programDbId|string|The ID which uniquely identifies a program|
+|additionalInfo|object|Additional arbitrary info|
+|programName|string|The human readable name of a program|
 |observationUnitPosition|object|All positional and layout information related to this Observation Unit|
+|entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
+|positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
-|positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
-|entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
-|positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
+|positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
 |type|string|Feature|
-|positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
+|positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|trialDbId|string|The ID which uniquely identifies a trial|
+|locationDbId|string|The ID which uniquely identifies a location, associated with this study|
+|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |observationUnitXref|array[object]|A list of external references to this observation unit|
 |id|string|The unique ID in the external reference 'source' system|
 |source|string|The system identifier (name, URL, etc) which has an external reference to the observation unit|
+|locationName|string|The human readable name of a location associated with this study|
+|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
+|trialDbId|string|The ID which uniquely identifies a trial|
+|trialName|string|The human readable name of a trial|
+|observationUnitName|string|A human readable name for an observation unit|
+|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
+|germplasmDbId|string| The ID which uniquely identifies a germplasm|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 
 
  
@@ -887,79 +801,79 @@ Update an existing Observation Units
 
 |Field|Type|Description|
 |---|---|---| 
-|locationName|string|The human readable name of a location associated with this study|
-|locationDbId|string|The ID which uniquely identifies a location, associated with this study|
-|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
-|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
-|additionalInfo|object|Additional arbitrary info|
-|trialName|string|The human readable name of a trial|
-|programName|string|The human readable name of a program|
-|germplasmDbId|string| The ID which uniquely identifies a germplasm|
-|programDbId|string|The ID which uniquely identifies a program|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |treatments|array[object]|List of treatments applied to an observation unit.|
-|factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc|
 |modality|string|The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc|
-|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
-|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
-|observationUnitXref|array[object]|A list of external references to this observation unit|
-|id|string|The unique ID in the external reference 'source' system|
-|source|string|The system identifier (name, URL, etc) which has an external reference to the observation unit|
+|factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc|
 |studyName|string|The human readable name for a study|
-|observationUnitName|string|A human readable name for an observation unit|
+|programDbId|string|The ID which uniquely identifies a program|
+|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
+|additionalInfo|object|Additional arbitrary info|
+|programName|string|The human readable name of a program|
 |observationUnitPosition|object|All positional and layout information related to this Observation Unit|
+|entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
+|positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
-|positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
-|entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
-|positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
+|positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
 |type|string|Feature|
-|positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
+|positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
+|locationDbId|string|The ID which uniquely identifies a location, associated with this study|
+|observationUnitXref|array[object]|A list of external references to this observation unit|
+|id|string|The unique ID in the external reference 'source' system|
+|source|string|The system identifier (name, URL, etc) which has an external reference to the observation unit|
+|locationName|string|The human readable name of a location associated with this study|
+|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
 |trialDbId|string|The ID which uniquely identifies a trial|
+|trialName|string|The human readable name of a trial|
+|observationUnitName|string|A human readable name for an observation unit|
+|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
+|germplasmDbId|string| The ID which uniquely identifies a germplasm|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 
 
 **Response Fields** 
 
 |Field|Type|Description|
 |---|---|---| 
-|locationName|string|The human readable name of a location associated with this study|
-|locationDbId|string|The ID which uniquely identifies a location, associated with this study|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
-|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
-|additionalInfo|object|Additional arbitrary info|
-|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
-|programName|string|The human readable name of a program|
-|germplasmDbId|string| The ID which uniquely identifies a germplasm|
-|programDbId|string|The ID which uniquely identifies a program|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |treatments|array[object]|List of treatments applied to an observation unit.|
-|factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc|
 |modality|string|The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc|
-|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
-|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
-|trialName|string|The human readable name of a trial|
+|factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
 |studyName|string|The human readable name for a study|
-|observationUnitName|string|A human readable name for an observation unit|
+|programDbId|string|The ID which uniquely identifies a program|
+|additionalInfo|object|Additional arbitrary info|
+|programName|string|The human readable name of a program|
 |observationUnitPosition|object|All positional and layout information related to this Observation Unit|
+|entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
+|positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
-|positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
-|entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
-|positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
+|positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
 |type|string|Feature|
-|positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
+|positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|trialDbId|string|The ID which uniquely identifies a trial|
+|locationDbId|string|The ID which uniquely identifies a location, associated with this study|
+|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |observationUnitXref|array[object]|A list of external references to this observation unit|
 |id|string|The unique ID in the external reference 'source' system|
 |source|string|The system identifier (name, URL, etc) which has an external reference to the observation unit|
+|locationName|string|The human readable name of a location associated with this study|
+|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
+|trialDbId|string|The ID which uniquely identifies a trial|
+|trialName|string|The human readable name of a trial|
+|observationUnitName|string|A human readable name for an observation unit|
+|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
+|germplasmDbId|string| The ID which uniquely identifies a germplasm|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 
 
  
@@ -1179,10 +1093,10 @@ See the example responses below</p>
 
 |Field|Type|Description|
 |---|---|---| 
-|headerRow|array[string]|The header row describing observation unit fields. Append "observationVariableDbIds" for complete header row of the table.  This array should contain any or all of the following strings; year, studyDbId, studyName, locationDbId, locationName, germplasmDbId, germplasmName, observationUnitDbId, plotNumber, replicate, blockNumber, entryType, X, Y|
 |data|array[array]|Matrix of observation data recorded for different observation variables across different observation units|
-|observationVariableDbIds|array[string]|The list of observation variables which have values recorded for them in the data matrix. Append to the "headerRow" for complete header row.|
 |observationVariableNames|array[string]|The list of observation variable names which have values recorded for them in the data matrix. Order should match "observationVariableDbIds".|
+|observationVariableDbIds|array[string]|The list of observation variables which have values recorded for them in the data matrix. Append to the "headerRow" for complete header row.|
+|headerRow|array[string]|The header row describing observation unit fields. Append "observationVariableDbIds" for complete header row of the table.  This array should contain any or all of the following strings; year, studyDbId, studyName, locationDbId, locationName, germplasmDbId, germplasmName, observationUnitDbId, plotNumber, replicate, blockNumber, entryType, X, Y|
 
 
  
@@ -1436,6 +1350,92 @@ See the example responses below</p>
 
 
 
+## Observationlevels [/brapi/v1/observationlevels] 
+
+
+
+
+### Get Observationlevels  [GET /brapi/v1/observationlevels{?page}{?pageSize}]
+
+Call to retrieve the list of supported observation levels. 
+
+Observation levels indicate the granularity level at which the measurements are taken. 
+
+The values are used to supply the `observationLevel` parameter in the observation unit details call.
+
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[string]||
+
+
+ 
+
++ Parameters
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            "field",
+            "plot",
+            "plant"
+        ]
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+
 ## Search [/brapi/v1/search] 
 
 
@@ -1469,13 +1469,13 @@ observationValue data type inferred from the ontology
 
 |Field|Type|Description|
 |---|---|---| 
-|studyDbIds|array[string]|The database ID / PK of the studies search parameter|
-|locationDbIds|array[string]|locations these traits were collected|
-|observationUnitDbIds|array[string]|The unique id of an observation unit|
-|trialDbIds|array[string]|list of trials to search across|
-|germplasmDbIds|array[string]|The name or synonym of external genebank accession identifiers|
 |observationLevel|string|The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnit Structure.|
+|locationDbIds|array[string]|locations these traits were collected|
+|studyDbIds|array[string]|The database ID / PK of the studies search parameter|
 |programDbIds|array[string]|list of programs to search across|
+|trialDbIds|array[string]|list of trials to search across|
+|observationUnitDbIds|array[string]|The unique id of an observation unit|
+|germplasmDbIds|array[string]|The name or synonym of external genebank accession identifiers|
 
 
 **Response Fields** 
@@ -1590,40 +1590,40 @@ See Search Services for additional implementation details.
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|locationName|string|The human readable name of a location associated with this study|
-|locationDbId|string|The ID which uniquely identifies a location, associated with this study|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
-|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
-|additionalInfo|object|Additional arbitrary info|
-|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
-|programName|string|The human readable name of a program|
-|germplasmDbId|string| The ID which uniquely identifies a germplasm|
-|programDbId|string|The ID which uniquely identifies a program|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |treatments|array[object]|List of treatments applied to an observation unit.|
-|factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc|
 |modality|string|The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc|
-|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
-|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
-|trialName|string|The human readable name of a trial|
+|factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
 |studyName|string|The human readable name for a study|
-|observationUnitName|string|A human readable name for an observation unit|
+|programDbId|string|The ID which uniquely identifies a program|
+|additionalInfo|object|Additional arbitrary info|
+|programName|string|The human readable name of a program|
 |observationUnitPosition|object|All positional and layout information related to this Observation Unit|
+|entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
+|positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
-|positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
-|entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
-|positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
+|positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
 |type|string|Feature|
-|positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
+|positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|trialDbId|string|The ID which uniquely identifies a trial|
+|locationDbId|string|The ID which uniquely identifies a location, associated with this study|
+|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |observationUnitXref|array[object]|A list of external references to this observation unit|
 |id|string|The unique ID in the external reference 'source' system|
 |source|string|The system identifier (name, URL, etc) which has an external reference to the observation unit|
+|locationName|string|The human readable name of a location associated with this study|
+|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
+|trialDbId|string|The ID which uniquely identifies a trial|
+|trialName|string|The human readable name of a trial|
+|observationUnitName|string|A human readable name for an observation unit|
+|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
+|germplasmDbId|string| The ID which uniquely identifies a germplasm|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 
 
  
