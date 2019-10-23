@@ -17,38 +17,38 @@ The results of the search will be used to create a new `VariantSet` on the serve
 
 |Field|Type|Description|
 |---|---|---| 
+|callSetDbIds|array[string]|The CallSet to search.|
+|variantDbIds|array[string]|The Variant to search.|
+|sepUnphased|string|The string used as a separator for unphased allele calls.|
+|expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurence (false)|
 |sepPhased|string|The string used as a separator for phased allele calls.|
 |variantSetDbIds|array[string]|The VariantSet to search.|
 |unknownString|string|The string used as a representation for missing data.|
-|expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurence (false)|
-|callSetDbIds|array[string]|The CallSet to search.|
-|sepUnphased|string|The string used as a separator for unphased allele calls.|
-|variantDbIds|array[string]|The Variant to search.|
 
 
 **Response Fields** 
 
 |Field|Type|Description|
 |---|---|---| 
-|studyDbId|string|The ID of the dataset this variant set belongs to.|
+|callSetCount|integer|The number of CallSets included in this VariantSet|
+|variantSetName|string|The variant set name.|
+|additionalInfo|object|Additional arbitrary info|
 |variantSetDbId|string|The variant set ID.|
+|analysis|array[object]|Set of Analysis descriptors for this VariantSet|
+|software|array[string]|The software run to generate this analysis.|
+|description|string||
+|analysisDbId|string|Formats of id  name  description  accessions are described in the documentation on general attributes and formats.|
+|updated|string|The time at which this record was last updated, in ISO 8601 format.|
+|analysisName|string||
+|created|string|The time at which this record was created, in ISO 8601 format.|
+|type|string|The type of analysis.|
+|referenceSetDbId|string|The ID of the reference set that describes the sequences used by the variants in this set.|
+|studyDbId|string|The ID of the dataset this variant set belongs to.|
 |availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.   dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)  fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevent request and response.|
 |dataFormat|string|dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)|
 |fileURL|string (uri)|A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file.|
 |fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevent request and response.|
-|additionalInfo|object|Additional arbitrary info|
 |variantCount|integer|The number of Variants included in this VariantSet|
-|variantSetName|string|The variant set name.|
-|callSetCount|integer|The number of CallSets included in this VariantSet|
-|analysis|array[object]|Set of Analysis descriptors for this VariantSet|
-|analysisDbId|string|Formats of id  name  description  accessions are described in the documentation on general attributes and formats.|
-|analysisName|string||
-|created|string|The time at which this record was created, in ISO 8601 format.|
-|software|array[string]|The software run to generate this analysis.|
-|updated|string|The time at which this record was last updated, in ISO 8601 format.|
-|description|string||
-|type|string|The type of analysis.|
-|referenceSetDbId|string|The ID of the reference set that describes the sequences used by the variants in this set.|
 
 
  
@@ -188,25 +188,25 @@ The results of the search will be used to create a new `VariantSet` on the serve
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|studyDbId|string|The ID of the dataset this variant set belongs to.|
+|callSetCount|integer|The number of CallSets included in this VariantSet|
+|variantSetName|string|The variant set name.|
+|additionalInfo|object|Additional arbitrary info|
 |variantSetDbId|string|The variant set ID.|
+|analysis|array[object]|Set of Analysis descriptors for this VariantSet|
+|software|array[string]|The software run to generate this analysis.|
+|description|string||
+|analysisDbId|string|Formats of id  name  description  accessions are described in the documentation on general attributes and formats.|
+|updated|string|The time at which this record was last updated, in ISO 8601 format.|
+|analysisName|string||
+|created|string|The time at which this record was created, in ISO 8601 format.|
+|type|string|The type of analysis.|
+|referenceSetDbId|string|The ID of the reference set that describes the sequences used by the variants in this set.|
+|studyDbId|string|The ID of the dataset this variant set belongs to.|
 |availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.   dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)  fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevent request and response.|
 |dataFormat|string|dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)|
 |fileURL|string (uri)|A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file.|
 |fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevent request and response.|
-|additionalInfo|object|Additional arbitrary info|
 |variantCount|integer|The number of Variants included in this VariantSet|
-|variantSetName|string|The variant set name.|
-|callSetCount|integer|The number of CallSets included in this VariantSet|
-|analysis|array[object]|Set of Analysis descriptors for this VariantSet|
-|analysisDbId|string|Formats of id  name  description  accessions are described in the documentation on general attributes and formats.|
-|analysisName|string||
-|created|string|The time at which this record was created, in ISO 8601 format.|
-|software|array[string]|The software run to generate this analysis.|
-|updated|string|The time at which this record was last updated, in ISO 8601 format.|
-|description|string||
-|type|string|The type of analysis.|
-|referenceSetDbId|string|The ID of the reference set that describes the sequences used by the variants in this set.|
 
 
  
@@ -328,14 +328,14 @@ Also See:
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|callSetName|string|The call set name.|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|sampleDbId|string|The Biosample entity the call set data was generated from.|
-|callSetDbId|string|The call set ID.|
 |additionalInfo|object|Additional arbitrary info|
-|variantSetIds|array[string]|The IDs of the variant sets this call set has calls in.|
-|updated|string (int64)|The time at which this call set was last updated in milliseconds from the epoch.|
+|callSetName|string|The call set name.|
 |created|string (int64)|The date this call set was created in milliseconds from the epoch.|
+|callSetDbId|string|The call set ID.|
+|variantSetIds|array[string]|The IDs of the variant sets this call set has calls in.|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|updated|string (int64)|The time at which this call set was last updated in milliseconds from the epoch.|
+|sampleDbId|string|The Biosample entity the call set data was generated from.|
 
 
  
@@ -430,19 +430,19 @@ Also See:
 |Field|Type|Description|
 |---|---|---| 
 |expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurence (false)|
+|unknownString|string|The string used as a representation for missing data.|
+|sepPhased|string|The string used as a separator for phased allele calls.|
 |data|array[object]||
+|genotype_likelihood|array[number]|The genotype likelihoods for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.|
+|phaseset|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phaseset string.|
+|genotype|object|`ListValue` is a wrapper around a repeated field of values.  The JSON representation for `ListValue` is JSON array.|
+|values|array|Repeated field of dynamically typed values.|
 |variantDbId|string|The ID of the variant this call belongs to.|
 |variantName|string|The name of the variant this call belongs to.|
 |callSetName|string|The name of the call set this variant call belongs to. If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
-|phaseset|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phaseset string.|
-|genotype_likelihood|array[number]|The genotype likelihoods for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.|
-|genotype|object|`ListValue` is a wrapper around a repeated field of values.  The JSON representation for `ListValue` is JSON array.|
-|values|array|Repeated field of dynamically typed values.|
-|callSetDbId|string|The ID of the call set this variant call belongs to.  If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
 |additionalInfo|object|Additional arbitrary info|
-|sepPhased|string|The string used as a separator for phased allele calls.|
+|callSetDbId|string|The ID of the call set this variant call belongs to.  If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
 |sepUnphased|string|The string used as a separator for unphased allele calls.|
-|unknownString|string|The string used as a representation for missing data.|
 
 
  
@@ -539,25 +539,25 @@ Also See:
 
 |Field|Type|Description|
 |---|---|---| 
-|studyDbId|string|The ID of the dataset this variant set belongs to.|
+|callSetCount|integer|The number of CallSets included in this VariantSet|
+|variantSetName|string|The variant set name.|
+|additionalInfo|object|Additional arbitrary info|
 |variantSetDbId|string|The variant set ID.|
+|analysis|array[object]|Set of Analysis descriptors for this VariantSet|
+|software|array[string]|The software run to generate this analysis.|
+|description|string||
+|analysisDbId|string|Formats of id  name  description  accessions are described in the documentation on general attributes and formats.|
+|updated|string|The time at which this record was last updated, in ISO 8601 format.|
+|analysisName|string||
+|created|string|The time at which this record was created, in ISO 8601 format.|
+|type|string|The type of analysis.|
+|referenceSetDbId|string|The ID of the reference set that describes the sequences used by the variants in this set.|
+|studyDbId|string|The ID of the dataset this variant set belongs to.|
 |availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.   dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)  fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevent request and response.|
 |dataFormat|string|dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)|
 |fileURL|string (uri)|A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file.|
 |fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevent request and response.|
-|additionalInfo|object|Additional arbitrary info|
 |variantCount|integer|The number of Variants included in this VariantSet|
-|variantSetName|string|The variant set name.|
-|callSetCount|integer|The number of CallSets included in this VariantSet|
-|analysis|array[object]|Set of Analysis descriptors for this VariantSet|
-|analysisDbId|string|Formats of id  name  description  accessions are described in the documentation on general attributes and formats.|
-|analysisName|string||
-|created|string|The time at which this record was created, in ISO 8601 format.|
-|software|array[string]|The software run to generate this analysis.|
-|updated|string|The time at which this record was last updated, in ISO 8601 format.|
-|description|string||
-|type|string|The type of analysis.|
-|referenceSetDbId|string|The ID of the reference set that describes the sequences used by the variants in this set.|
 
 
  
@@ -677,24 +677,24 @@ Also See:
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|variantDbId|string|The variant ID.|
-|variantType|string||
-|referenceName|string||
-|referenceBases|string|The reference bases for this variant. They start at the given start position.|
-|svlen|string (int64)||
-|additionalInfo|object|Additional arbitrary info|
-|ciend|array[integer]||
-|filtersApplied|boolean (boolean)|True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.|
-|filtersFailed|array[string]|Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.|
-|start|string (int64)|The start position at which this variant occurs (0-based). This corresponds to the first base of the string of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning the join of circular genomes are represented as two variants one on each side of the join (position 0).|
-|filtersPassed|boolean (boolean)|True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.|
-|variantSetDbId|string|The ID of the `VariantSet` this variant belongs to. This transitively defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
-|cipos|array[integer]||
 |end|string (int64)|The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated by `start + referenceBases.length`.|
+|filtersFailed|array[string]|Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.|
+|ciend|array[integer]||
+|referenceName|string||
+|created|string (int64)|The date this variant was created in milliseconds from the epoch.|
+|start|string (int64)|The start position at which this variant occurs (0-based). This corresponds to the first base of the string of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning the join of circular genomes are represented as two variants one on each side of the join (position 0).|
+|svlen|string (int64)||
+|referenceBases|string|The reference bases for this variant. They start at the given start position.|
+|variantDbId|string|The variant ID.|
+|cipos|array[integer]||
 |variantNames|array[string]|Names for the variant, for example a RefSNP ID.|
 |updated|string (int64)|The time at which this variant was last updated in milliseconds from the epoch.|
 |alternate_bases|array[string]|The bases that appear instead of the reference bases. Multiple alternate alleles are possible.|
-|created|string (int64)|The date this variant was created in milliseconds from the epoch.|
+|filtersPassed|boolean (boolean)|True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.|
+|filtersApplied|boolean (boolean)|True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.|
+|additionalInfo|object|Additional arbitrary info|
+|variantSetDbId|string|The ID of the `VariantSet` this variant belongs to. This transitively defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
+|variantType|string||
 
 
  
@@ -802,8 +802,8 @@ of `SearchVariantSetsResponse`.
 
 |Field|Type|Description|
 |---|---|---| 
-|studyDbIds|array[string]|The `Dataset` to search.|
 |variantSetDbIds|array[string]|The VariantSet to search.|
+|studyDbIds|array[string]|The `Dataset` to search.|
 
 
 **Response Fields** 
@@ -901,25 +901,25 @@ of `SearchVariantSetsResponse`.
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|studyDbId|string|The ID of the dataset this variant set belongs to.|
+|callSetCount|integer|The number of CallSets included in this VariantSet|
+|variantSetName|string|The variant set name.|
+|additionalInfo|object|Additional arbitrary info|
 |variantSetDbId|string|The variant set ID.|
+|analysis|array[object]|Set of Analysis descriptors for this VariantSet|
+|software|array[string]|The software run to generate this analysis.|
+|description|string||
+|analysisDbId|string|Formats of id  name  description  accessions are described in the documentation on general attributes and formats.|
+|updated|string|The time at which this record was last updated, in ISO 8601 format.|
+|analysisName|string||
+|created|string|The time at which this record was created, in ISO 8601 format.|
+|type|string|The type of analysis.|
+|referenceSetDbId|string|The ID of the reference set that describes the sequences used by the variants in this set.|
+|studyDbId|string|The ID of the dataset this variant set belongs to.|
 |availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.   dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)  fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevent request and response.|
 |dataFormat|string|dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)|
 |fileURL|string (uri)|A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file.|
 |fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevent request and response.|
-|additionalInfo|object|Additional arbitrary info|
 |variantCount|integer|The number of Variants included in this VariantSet|
-|variantSetName|string|The variant set name.|
-|callSetCount|integer|The number of CallSets included in this VariantSet|
-|analysis|array[object]|Set of Analysis descriptors for this VariantSet|
-|analysisDbId|string|Formats of id  name  description  accessions are described in the documentation on general attributes and formats.|
-|analysisName|string||
-|created|string|The time at which this record was created, in ISO 8601 format.|
-|software|array[string]|The software run to generate this analysis.|
-|updated|string|The time at which this record was last updated, in ISO 8601 format.|
-|description|string||
-|type|string|The type of analysis.|
-|referenceSetDbId|string|The ID of the reference set that describes the sequences used by the variants in this set.|
 
 
  

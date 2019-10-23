@@ -20,17 +20,17 @@ Get filtered set of generic lists
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|listType|string||
-|listName|string|Human readable name of a List|
-|listSource|string|The description of where a List originated from|
-|listDescription|string|Description of a List|
-|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
-|dateModified|string (date-time)|Timestamp when the entity was last updated|
-|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
-|dateCreated|string (date-time)|Timestamp when the entity was first created|
-|listSize|integer|The number of elements in a List|
 |listDbId|string|The unique identifier for a List|
+|dateModified|string (date-time)|Timestamp when the entity was last updated|
+|listSize|integer|The number of elements in a List|
+|listName|string|Human readable name of a List|
+|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
+|listSource|string|The description of where a List originated from|
+|additionalInfo|object|Additional arbitrary info|
+|dateCreated|string (date-time)|Timestamp when the entity was first created|
+|listType|string||
+|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
+|listDescription|string|Description of a List|
 
 
  
@@ -131,17 +131,17 @@ Create a new list
 
 |Field|Type|Description|
 |---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|listType|string||
-|listName|string|Human readable name of a List|
-|listSource|string|The description of where a List originated from|
-|listDescription|string|Description of a List|
-|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
-|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
-|dateCreated|string (date-time)|Timestamp when the entity was first created|
 |listSize|integer|The number of elements in a List|
+|listName|string|Human readable name of a List|
+|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
+|listSource|string|The description of where a List originated from|
+|additionalInfo|object|Additional arbitrary info|
+|dateCreated|string (date-time)|Timestamp when the entity was first created|
 |data|array[string]|The list of DbIds contained in this list|
+|listType|string||
+|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
+|listDescription|string|Description of a List|
 
 
 **Response Fields** 
@@ -149,17 +149,17 @@ Create a new list
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|listType|string||
-|listName|string|Human readable name of a List|
-|listSource|string|The description of where a List originated from|
-|listDescription|string|Description of a List|
-|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
-|dateModified|string (date-time)|Timestamp when the entity was last updated|
-|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
-|dateCreated|string (date-time)|Timestamp when the entity was first created|
-|listSize|integer|The number of elements in a List|
 |listDbId|string|The unique identifier for a List|
+|dateModified|string (date-time)|Timestamp when the entity was last updated|
+|listSize|integer|The number of elements in a List|
+|listName|string|Human readable name of a List|
+|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
+|listSource|string|The description of where a List originated from|
+|additionalInfo|object|Additional arbitrary info|
+|dateCreated|string (date-time)|Timestamp when the entity was first created|
+|listType|string||
+|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
+|listDescription|string|Description of a List|
 
 
  
@@ -289,18 +289,18 @@ Get a specific generic lists
 
 |Field|Type|Description|
 |---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|listType|string||
-|listName|string|Human readable name of a List|
-|listSource|string|The description of where a List originated from|
-|listDescription|string|Description of a List|
-|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
-|dateModified|string (date-time)|Timestamp when the entity was last updated|
-|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
-|dateCreated|string (date-time)|Timestamp when the entity was first created|
-|listSize|integer|The number of elements in a List|
 |listDbId|string|The unique identifier for a List|
+|dateModified|string (date-time)|Timestamp when the entity was last updated|
+|listSize|integer|The number of elements in a List|
+|listName|string|Human readable name of a List|
+|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
+|listSource|string|The description of where a List originated from|
+|additionalInfo|object|Additional arbitrary info|
+|dateCreated|string (date-time)|Timestamp when the entity was first created|
 |data|array[string]|The list of DbIds contained in this list|
+|listType|string||
+|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
+|listDescription|string|Description of a List|
 
 
  
@@ -401,35 +401,35 @@ Update an existing generic list
 
 |Field|Type|Description|
 |---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|listType|string||
-|listName|string|Human readable name of a List|
-|listSource|string|The description of where a List originated from|
-|listDescription|string|Description of a List|
-|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
-|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
-|dateCreated|string (date-time)|Timestamp when the entity was first created|
 |listSize|integer|The number of elements in a List|
+|listName|string|Human readable name of a List|
+|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
+|listSource|string|The description of where a List originated from|
+|additionalInfo|object|Additional arbitrary info|
+|dateCreated|string (date-time)|Timestamp when the entity was first created|
 |data|array[string]|The list of DbIds contained in this list|
+|listType|string||
+|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
+|listDescription|string|Description of a List|
 
 
 **Response Fields** 
 
 |Field|Type|Description|
 |---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|listType|string||
-|listName|string|Human readable name of a List|
-|listSource|string|The description of where a List originated from|
-|listDescription|string|Description of a List|
-|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
-|dateModified|string (date-time)|Timestamp when the entity was last updated|
-|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
-|dateCreated|string (date-time)|Timestamp when the entity was first created|
-|listSize|integer|The number of elements in a List|
 |listDbId|string|The unique identifier for a List|
+|dateModified|string (date-time)|Timestamp when the entity was last updated|
+|listSize|integer|The number of elements in a List|
+|listName|string|Human readable name of a List|
+|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
+|listSource|string|The description of where a List originated from|
+|additionalInfo|object|Additional arbitrary info|
+|dateCreated|string (date-time)|Timestamp when the entity was first created|
 |data|array[string]|The list of DbIds contained in this list|
+|listType|string||
+|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
+|listDescription|string|Description of a List|
 
 
  
@@ -567,18 +567,18 @@ Add new data to a specific generic lists
 
 |Field|Type|Description|
 |---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|listType|string||
-|listName|string|Human readable name of a List|
-|listSource|string|The description of where a List originated from|
-|listDescription|string|Description of a List|
-|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
-|dateModified|string (date-time)|Timestamp when the entity was last updated|
-|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
-|dateCreated|string (date-time)|Timestamp when the entity was first created|
-|listSize|integer|The number of elements in a List|
 |listDbId|string|The unique identifier for a List|
+|dateModified|string (date-time)|Timestamp when the entity was last updated|
+|listSize|integer|The number of elements in a List|
+|listName|string|Human readable name of a List|
+|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
+|listSource|string|The description of where a List originated from|
+|additionalInfo|object|Additional arbitrary info|
+|dateCreated|string (date-time)|Timestamp when the entity was first created|
 |data|array[string]|The list of DbIds contained in this list|
+|listType|string||
+|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
+|listDescription|string|Description of a List|
 
 
  
@@ -692,16 +692,16 @@ See Search Services for additional implementation details.
 
 |Field|Type|Description|
 |---|---|---| 
-|dateCreatedRangeStart|string (date-time)||
-|listNames|array[string]||
-|listSources|array[string]||
-|listType|string||
-|listOwnerPersonDbIds|array[string]||
-|listDbIds|array[string]||
 |dateModifiedRangeEnd|string (date-time)||
-|listOwnerNames|array[string]||
-|dateModifiedRangeStart|string (date-time)||
+|listNames|array[string]||
 |dateCreatedRangeEnd|string (date-time)||
+|listSources|array[string]||
+|listDbIds|array[string]||
+|listType|string||
+|dateModifiedRangeStart|string (date-time)||
+|dateCreatedRangeStart|string (date-time)||
+|listOwnerPersonDbIds|array[string]||
+|listOwnerNames|array[string]||
 
 
 **Response Fields** 
@@ -826,17 +826,17 @@ See Search Services for additional implementation details.
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|listType|string||
-|listName|string|Human readable name of a List|
-|listSource|string|The description of where a List originated from|
-|listDescription|string|Description of a List|
-|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
-|dateModified|string (date-time)|Timestamp when the entity was last updated|
-|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
-|dateCreated|string (date-time)|Timestamp when the entity was first created|
-|listSize|integer|The number of elements in a List|
 |listDbId|string|The unique identifier for a List|
+|dateModified|string (date-time)|Timestamp when the entity was last updated|
+|listSize|integer|The number of elements in a List|
+|listName|string|Human readable name of a List|
+|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
+|listSource|string|The description of where a List originated from|
+|additionalInfo|object|Additional arbitrary info|
+|dateCreated|string (date-time)|Timestamp when the entity was first created|
+|listType|string||
+|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
+|listDescription|string|Description of a List|
 
 
  

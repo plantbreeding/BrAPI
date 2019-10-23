@@ -25,20 +25,20 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|description|string|Method description.|
-|methodDbId|string|Method unique identifier|
-|methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |additionalInfo|object|Additional arbitrary info|
-|reference|string|Bibliographical reference describing the method.|
-|methodName|string|Human readable name for the method|
-|formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 |ontologyReference|object||
-|ontologyDbId|string|Ontology database unique identifier|
 |version|string|Ontology version (no specific format)|
+|ontologyName|string|Ontology name|
+|ontologyDbId|string|Ontology database unique identifier|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
 |type|string||
-|ontologyName|string|Ontology name|
+|methodDbId|string|Method unique identifier|
+|methodName|string|Human readable name for the method|
+|reference|string|Bibliographical reference describing the method.|
+|description|string|Method description.|
+|methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
+|formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 
 
  
@@ -136,19 +136,19 @@ Create a new method object in the database
 
 |Field|Type|Description|
 |---|---|---| 
-|description|string|Method description.|
-|methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |additionalInfo|object|Additional arbitrary info|
-|reference|string|Bibliographical reference describing the method.|
-|methodName|string|Human readable name for the method|
-|formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 |ontologyReference|object||
-|ontologyDbId|string|Ontology database unique identifier|
 |version|string|Ontology version (no specific format)|
+|ontologyName|string|Ontology name|
+|ontologyDbId|string|Ontology database unique identifier|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
 |type|string||
-|ontologyName|string|Ontology name|
+|methodName|string|Human readable name for the method|
+|reference|string|Bibliographical reference describing the method.|
+|description|string|Method description.|
+|methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
+|formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 
 
 **Response Fields** 
@@ -156,20 +156,20 @@ Create a new method object in the database
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|description|string|Method description.|
-|methodDbId|string|Method unique identifier|
-|methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |additionalInfo|object|Additional arbitrary info|
-|reference|string|Bibliographical reference describing the method.|
-|methodName|string|Human readable name for the method|
-|formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 |ontologyReference|object||
-|ontologyDbId|string|Ontology database unique identifier|
 |version|string|Ontology version (no specific format)|
+|ontologyName|string|Ontology name|
+|ontologyDbId|string|Ontology database unique identifier|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
 |type|string||
-|ontologyName|string|Ontology name|
+|methodDbId|string|Method unique identifier|
+|methodName|string|Human readable name for the method|
+|reference|string|Bibliographical reference describing the method.|
+|description|string|Method description.|
+|methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
+|formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 
 
  
@@ -299,20 +299,20 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 
 |Field|Type|Description|
 |---|---|---| 
-|description|string|Method description.|
-|methodDbId|string|Method unique identifier|
-|methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |additionalInfo|object|Additional arbitrary info|
-|reference|string|Bibliographical reference describing the method.|
-|methodName|string|Human readable name for the method|
-|formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 |ontologyReference|object||
-|ontologyDbId|string|Ontology database unique identifier|
 |version|string|Ontology version (no specific format)|
+|ontologyName|string|Ontology name|
+|ontologyDbId|string|Ontology database unique identifier|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
 |type|string||
-|ontologyName|string|Ontology name|
+|methodDbId|string|Method unique identifier|
+|methodName|string|Human readable name for the method|
+|reference|string|Bibliographical reference describing the method.|
+|description|string|Method description.|
+|methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
+|formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 
 
  
@@ -410,39 +410,39 @@ Update the details of an existing method
 
 |Field|Type|Description|
 |---|---|---| 
-|description|string|Method description.|
-|methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |additionalInfo|object|Additional arbitrary info|
-|reference|string|Bibliographical reference describing the method.|
-|methodName|string|Human readable name for the method|
-|formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 |ontologyReference|object||
-|ontologyDbId|string|Ontology database unique identifier|
 |version|string|Ontology version (no specific format)|
+|ontologyName|string|Ontology name|
+|ontologyDbId|string|Ontology database unique identifier|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
 |type|string||
-|ontologyName|string|Ontology name|
+|methodName|string|Human readable name for the method|
+|reference|string|Bibliographical reference describing the method.|
+|description|string|Method description.|
+|methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
+|formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 
 
 **Response Fields** 
 
 |Field|Type|Description|
 |---|---|---| 
-|description|string|Method description.|
-|methodDbId|string|Method unique identifier|
-|methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |additionalInfo|object|Additional arbitrary info|
-|reference|string|Bibliographical reference describing the method.|
-|methodName|string|Human readable name for the method|
-|formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 |ontologyReference|object||
-|ontologyDbId|string|Ontology database unique identifier|
 |version|string|Ontology version (no specific format)|
+|ontologyName|string|Ontology name|
+|ontologyDbId|string|Ontology database unique identifier|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
 |type|string||
-|ontologyName|string|Ontology name|
+|methodDbId|string|Method unique identifier|
+|methodName|string|Human readable name for the method|
+|reference|string|Bibliographical reference describing the method.|
+|description|string|Method description.|
+|methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
+|formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 
 
  

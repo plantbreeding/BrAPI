@@ -20,24 +20,24 @@ Get a filtered list of Planned Cross entities.
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|crossingProjectName|string|the human readable name for a crossing project|
-|crossingProjectDbId|string|the unique identifier for a crossing project|
-|additionalInfo|object|Additional arbitrary info|
 |plannedCrossName|string|the human readable name for a cross|
+|plannedCrossDbId|string|the unique identifier for a cross|
+|additionalInfo|object|Additional arbitrary info|
 |parent2|object||
-|observationUnitDbId|string|the unique identifier for an observation unit|
-|germplasmDbId|string|the unique identifier for a germplasm|
-|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
 |observationUnitName|string|the human readable name for an observation unit|
+|germplasmDbId|string|the unique identifier for a germplasm|
+|observationUnitDbId|string|the unique identifier for an observation unit|
+|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
+|germplasmName|string|the human readable name for a germplasm|
+|crossingProjectDbId|string|the unique identifier for a crossing project|
+|parent1|object||
+|observationUnitName|string|the human readable name for an observation unit|
+|germplasmDbId|string|the unique identifier for a germplasm|
+|observationUnitDbId|string|the unique identifier for an observation unit|
+|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
 |germplasmName|string|the human readable name for a germplasm|
 |crossType|string|the type of cross|
-|plannedCrossDbId|string|the unique identifier for a cross|
-|parent1|object||
-|observationUnitDbId|string|the unique identifier for an observation unit|
-|germplasmDbId|string|the unique identifier for a germplasm|
-|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
-|observationUnitName|string|the human readable name for an observation unit|
-|germplasmName|string|the human readable name for a germplasm|
+|crossingProjectName|string|the human readable name for a crossing project|
 
 
  
@@ -144,23 +144,23 @@ Create new Planned Cross entities on this server
 
 |Field|Type|Description|
 |---|---|---| 
-|crossingProjectName|string|the human readable name for a crossing project|
-|crossingProjectDbId|string|the unique identifier for a crossing project|
-|additionalInfo|object|Additional arbitrary info|
-|plannedCrossName|string|the human readable name for a cross|
-|parent2|object||
-|observationUnitDbId|string|the unique identifier for an observation unit|
-|germplasmDbId|string|the unique identifier for a germplasm|
-|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
-|observationUnitName|string|the human readable name for an observation unit|
-|germplasmName|string|the human readable name for a germplasm|
 |crossType|string|the type of cross|
-|parent1|object||
-|observationUnitDbId|string|the unique identifier for an observation unit|
-|germplasmDbId|string|the unique identifier for a germplasm|
-|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
+|additionalInfo|object|Additional arbitrary info|
+|parent2|object||
 |observationUnitName|string|the human readable name for an observation unit|
+|germplasmDbId|string|the unique identifier for a germplasm|
+|observationUnitDbId|string|the unique identifier for an observation unit|
+|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
 |germplasmName|string|the human readable name for a germplasm|
+|plannedCrossName|string|the human readable name for a cross|
+|crossingProjectDbId|string|the unique identifier for a crossing project|
+|parent1|object||
+|observationUnitName|string|the human readable name for an observation unit|
+|germplasmDbId|string|the unique identifier for a germplasm|
+|observationUnitDbId|string|the unique identifier for an observation unit|
+|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
+|germplasmName|string|the human readable name for a germplasm|
+|crossingProjectName|string|the human readable name for a crossing project|
 
 
 **Response Fields** 
@@ -168,24 +168,24 @@ Create new Planned Cross entities on this server
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|crossingProjectName|string|the human readable name for a crossing project|
-|crossingProjectDbId|string|the unique identifier for a crossing project|
-|additionalInfo|object|Additional arbitrary info|
 |plannedCrossName|string|the human readable name for a cross|
+|plannedCrossDbId|string|the unique identifier for a cross|
+|additionalInfo|object|Additional arbitrary info|
 |parent2|object||
-|observationUnitDbId|string|the unique identifier for an observation unit|
-|germplasmDbId|string|the unique identifier for a germplasm|
-|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
 |observationUnitName|string|the human readable name for an observation unit|
+|germplasmDbId|string|the unique identifier for a germplasm|
+|observationUnitDbId|string|the unique identifier for an observation unit|
+|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
+|germplasmName|string|the human readable name for a germplasm|
+|crossingProjectDbId|string|the unique identifier for a crossing project|
+|parent1|object||
+|observationUnitName|string|the human readable name for an observation unit|
+|germplasmDbId|string|the unique identifier for a germplasm|
+|observationUnitDbId|string|the unique identifier for an observation unit|
+|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
 |germplasmName|string|the human readable name for a germplasm|
 |crossType|string|the type of cross|
-|plannedCrossDbId|string|the unique identifier for a cross|
-|parent1|object||
-|observationUnitDbId|string|the unique identifier for an observation unit|
-|germplasmDbId|string|the unique identifier for a germplasm|
-|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
-|observationUnitName|string|the human readable name for an observation unit|
-|germplasmName|string|the human readable name for a germplasm|
+|crossingProjectName|string|the human readable name for a crossing project|
 
 
  
@@ -334,24 +334,24 @@ Update existing Planned Cross entities on this server
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|crossingProjectName|string|the human readable name for a crossing project|
-|crossingProjectDbId|string|the unique identifier for a crossing project|
-|additionalInfo|object|Additional arbitrary info|
 |plannedCrossName|string|the human readable name for a cross|
+|plannedCrossDbId|string|the unique identifier for a cross|
+|additionalInfo|object|Additional arbitrary info|
 |parent2|object||
-|observationUnitDbId|string|the unique identifier for an observation unit|
-|germplasmDbId|string|the unique identifier for a germplasm|
-|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
 |observationUnitName|string|the human readable name for an observation unit|
+|germplasmDbId|string|the unique identifier for a germplasm|
+|observationUnitDbId|string|the unique identifier for an observation unit|
+|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
+|germplasmName|string|the human readable name for a germplasm|
+|crossingProjectDbId|string|the unique identifier for a crossing project|
+|parent1|object||
+|observationUnitName|string|the human readable name for an observation unit|
+|germplasmDbId|string|the unique identifier for a germplasm|
+|observationUnitDbId|string|the unique identifier for an observation unit|
+|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
 |germplasmName|string|the human readable name for a germplasm|
 |crossType|string|the type of cross|
-|plannedCrossDbId|string|the unique identifier for a cross|
-|parent1|object||
-|observationUnitDbId|string|the unique identifier for an observation unit|
-|germplasmDbId|string|the unique identifier for a germplasm|
-|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
-|observationUnitName|string|the human readable name for an observation unit|
-|germplasmName|string|the human readable name for a germplasm|
+|crossingProjectName|string|the human readable name for a crossing project|
 
 
  
