@@ -22,27 +22,27 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|notes|string|Additional notes about a sample|
-|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
-|programDbId|string|The ID which uniquely identifies a program within the given database server|
-|sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
-|takenBy|string|The name or identifier of the entity which took the sample from the field|
-|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
-|sampleName|string|The name of the sample|
-|sampleBarcode|string|A unique identifier physically attached to the sample|
 |plateName|string|The human readable name of a plate|
-|trialDbId|string|The ID which uniquely identifies a trial within the given database server|
-|sampleDbId|string|The ID which uniquely identifies a sample|
-|row|string|The Row identifier for this samples location in the plate|
-|additionalInfo|object|Additional arbitrary info|
-|column|integer|The Column identifier for this samples location in the plate|
-|plateDbId|string|The ID which uniquely identifies a plate of samples|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
 |samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
+|row|string|The Row identifier for this samples location in the plate|
+|takenBy|string|The name or identifier of the entity which took the sample from the field|
+|additionalInfo|object|Additional arbitrary info|
+|programDbId|string|The ID which uniquely identifies a program within the given database server|
+|sampleBarcode|string|A unique identifier physically attached to the sample|
+|notes|string|Additional notes about a sample|
+|sampleName|string|The name of the sample|
+|plateDbId|string|The ID which uniquely identifies a plate of samples|
+|sampleDbId|string|The ID which uniquely identifies a sample|
 |tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.|
+|column|integer|The Column identifier for this samples location in the plate|
+|trialDbId|string|The ID which uniquely identifies a trial within the given database server|
+|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
+|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
 
 
  
@@ -143,26 +143,26 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
 
 |Field|Type|Description|
 |---|---|---| 
-|notes|string|Additional notes about a sample|
-|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
-|programDbId|string|The ID which uniquely identifies a program within the given database server|
-|sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
-|takenBy|string|The name or identifier of the entity which took the sample from the field|
-|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
-|sampleName|string|The name of the sample|
-|sampleBarcode|string|A unique identifier physically attached to the sample|
 |plateName|string|The human readable name of a plate|
-|trialDbId|string|The ID which uniquely identifies a trial within the given database server|
-|row|string|The Row identifier for this samples location in the plate|
-|additionalInfo|object|Additional arbitrary info|
-|column|integer|The Column identifier for this samples location in the plate|
-|plateDbId|string|The ID which uniquely identifies a plate of samples|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
 |samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
+|row|string|The Row identifier for this samples location in the plate|
+|takenBy|string|The name or identifier of the entity which took the sample from the field|
+|additionalInfo|object|Additional arbitrary info|
+|programDbId|string|The ID which uniquely identifies a program within the given database server|
+|sampleBarcode|string|A unique identifier physically attached to the sample|
+|notes|string|Additional notes about a sample|
+|sampleName|string|The name of the sample|
+|plateDbId|string|The ID which uniquely identifies a plate of samples|
 |tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.|
+|column|integer|The Column identifier for this samples location in the plate|
+|trialDbId|string|The ID which uniquely identifies a trial within the given database server|
+|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
+|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
 
 
 **Response Fields** 
@@ -170,27 +170,27 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|notes|string|Additional notes about a sample|
-|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
-|programDbId|string|The ID which uniquely identifies a program within the given database server|
-|sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
-|takenBy|string|The name or identifier of the entity which took the sample from the field|
-|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
-|sampleName|string|The name of the sample|
-|sampleBarcode|string|A unique identifier physically attached to the sample|
 |plateName|string|The human readable name of a plate|
-|trialDbId|string|The ID which uniquely identifies a trial within the given database server|
-|sampleDbId|string|The ID which uniquely identifies a sample|
-|row|string|The Row identifier for this samples location in the plate|
-|additionalInfo|object|Additional arbitrary info|
-|column|integer|The Column identifier for this samples location in the plate|
-|plateDbId|string|The ID which uniquely identifies a plate of samples|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
 |samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
+|row|string|The Row identifier for this samples location in the plate|
+|takenBy|string|The name or identifier of the entity which took the sample from the field|
+|additionalInfo|object|Additional arbitrary info|
+|programDbId|string|The ID which uniquely identifies a program within the given database server|
+|sampleBarcode|string|A unique identifier physically attached to the sample|
+|notes|string|Additional notes about a sample|
+|sampleName|string|The name of the sample|
+|plateDbId|string|The ID which uniquely identifies a plate of samples|
+|sampleDbId|string|The ID which uniquely identifies a sample|
 |tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.|
+|column|integer|The Column identifier for this samples location in the plate|
+|trialDbId|string|The ID which uniquely identifies a trial within the given database server|
+|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
+|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
 
 
  
@@ -316,27 +316,27 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
 
 |Field|Type|Description|
 |---|---|---| 
-|notes|string|Additional notes about a sample|
-|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
-|programDbId|string|The ID which uniquely identifies a program within the given database server|
-|sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
-|takenBy|string|The name or identifier of the entity which took the sample from the field|
-|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
-|sampleName|string|The name of the sample|
-|sampleBarcode|string|A unique identifier physically attached to the sample|
 |plateName|string|The human readable name of a plate|
-|trialDbId|string|The ID which uniquely identifies a trial within the given database server|
-|sampleDbId|string|The ID which uniquely identifies a sample|
-|row|string|The Row identifier for this samples location in the plate|
-|additionalInfo|object|Additional arbitrary info|
-|column|integer|The Column identifier for this samples location in the plate|
-|plateDbId|string|The ID which uniquely identifies a plate of samples|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
 |samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
+|row|string|The Row identifier for this samples location in the plate|
+|takenBy|string|The name or identifier of the entity which took the sample from the field|
+|additionalInfo|object|Additional arbitrary info|
+|programDbId|string|The ID which uniquely identifies a program within the given database server|
+|sampleBarcode|string|A unique identifier physically attached to the sample|
+|notes|string|Additional notes about a sample|
+|sampleName|string|The name of the sample|
+|plateDbId|string|The ID which uniquely identifies a plate of samples|
+|sampleDbId|string|The ID which uniquely identifies a sample|
 |tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.|
+|column|integer|The Column identifier for this samples location in the plate|
+|trialDbId|string|The ID which uniquely identifies a trial within the given database server|
+|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
+|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
 
 
  
@@ -433,53 +433,53 @@ Update the details of an existing Sample
 
 |Field|Type|Description|
 |---|---|---| 
-|notes|string|Additional notes about a sample|
-|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
-|programDbId|string|The ID which uniquely identifies a program within the given database server|
-|sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
-|takenBy|string|The name or identifier of the entity which took the sample from the field|
-|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
-|sampleName|string|The name of the sample|
-|sampleBarcode|string|A unique identifier physically attached to the sample|
 |plateName|string|The human readable name of a plate|
-|trialDbId|string|The ID which uniquely identifies a trial within the given database server|
-|row|string|The Row identifier for this samples location in the plate|
-|additionalInfo|object|Additional arbitrary info|
-|column|integer|The Column identifier for this samples location in the plate|
-|plateDbId|string|The ID which uniquely identifies a plate of samples|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
 |samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
+|row|string|The Row identifier for this samples location in the plate|
+|takenBy|string|The name or identifier of the entity which took the sample from the field|
+|additionalInfo|object|Additional arbitrary info|
+|programDbId|string|The ID which uniquely identifies a program within the given database server|
+|sampleBarcode|string|A unique identifier physically attached to the sample|
+|notes|string|Additional notes about a sample|
+|sampleName|string|The name of the sample|
+|plateDbId|string|The ID which uniquely identifies a plate of samples|
 |tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.|
+|column|integer|The Column identifier for this samples location in the plate|
+|trialDbId|string|The ID which uniquely identifies a trial within the given database server|
+|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
+|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
 
 
 **Response Fields** 
 
 |Field|Type|Description|
 |---|---|---| 
-|notes|string|Additional notes about a sample|
-|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
-|programDbId|string|The ID which uniquely identifies a program within the given database server|
-|sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
-|takenBy|string|The name or identifier of the entity which took the sample from the field|
-|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
-|sampleName|string|The name of the sample|
-|sampleBarcode|string|A unique identifier physically attached to the sample|
 |plateName|string|The human readable name of a plate|
-|trialDbId|string|The ID which uniquely identifies a trial within the given database server|
-|sampleDbId|string|The ID which uniquely identifies a sample|
-|row|string|The Row identifier for this samples location in the plate|
-|additionalInfo|object|Additional arbitrary info|
-|column|integer|The Column identifier for this samples location in the plate|
-|plateDbId|string|The ID which uniquely identifies a plate of samples|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
 |samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
+|row|string|The Row identifier for this samples location in the plate|
+|takenBy|string|The name or identifier of the entity which took the sample from the field|
+|additionalInfo|object|Additional arbitrary info|
+|programDbId|string|The ID which uniquely identifies a program within the given database server|
+|sampleBarcode|string|A unique identifier physically attached to the sample|
+|notes|string|Additional notes about a sample|
+|sampleName|string|The name of the sample|
+|plateDbId|string|The ID which uniquely identifies a plate of samples|
+|sampleDbId|string|The ID which uniquely identifies a sample|
 |tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.|
+|column|integer|The Column identifier for this samples location in the plate|
+|trialDbId|string|The ID which uniquely identifies a trial within the given database server|
+|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
+|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
 
 
  
@@ -717,27 +717,27 @@ See Search Services for additional implementation details.
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|notes|string|Additional notes about a sample|
-|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
-|programDbId|string|The ID which uniquely identifies a program within the given database server|
-|sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
-|takenBy|string|The name or identifier of the entity which took the sample from the field|
-|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
-|sampleName|string|The name of the sample|
-|sampleBarcode|string|A unique identifier physically attached to the sample|
 |plateName|string|The human readable name of a plate|
-|trialDbId|string|The ID which uniquely identifies a trial within the given database server|
-|sampleDbId|string|The ID which uniquely identifies a sample|
-|row|string|The Row identifier for this samples location in the plate|
-|additionalInfo|object|Additional arbitrary info|
-|column|integer|The Column identifier for this samples location in the plate|
-|plateDbId|string|The ID which uniquely identifies a plate of samples|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
 |samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
+|row|string|The Row identifier for this samples location in the plate|
+|takenBy|string|The name or identifier of the entity which took the sample from the field|
+|additionalInfo|object|Additional arbitrary info|
+|programDbId|string|The ID which uniquely identifies a program within the given database server|
+|sampleBarcode|string|A unique identifier physically attached to the sample|
+|notes|string|Additional notes about a sample|
+|sampleName|string|The name of the sample|
+|plateDbId|string|The ID which uniquely identifies a plate of samples|
+|sampleDbId|string|The ID which uniquely identifies a sample|
 |tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.|
+|column|integer|The Column identifier for this samples location in the plate|
+|trialDbId|string|The ID which uniquely identifies a trial within the given database server|
+|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
+|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
 
 
  

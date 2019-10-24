@@ -21,18 +21,18 @@ Get list of events
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|date|array[string]|A list of dates when the event occured|
 |studyDbId|string|The study in which the event occurred|
-|eventType|string|General category for this event (e.g. Sowing, Watering, Rain). Each eventType should correspond to exactly one eventTypeDbId, if provided.|
-|eventParameters|array[object]|A list of objects describing additional event parameters. Each of the following accepts a human-readable value or URI|
-|key|string|Specifies the relationship between the event and the given property. E.g. fertilizer, operator|
-|rdfValue|string|The type of the value given above, e.g. http://xmlns.com/foaf/0.1/Agent|
-|value|string|The value of the property for this event. E.g. nitrogen, John Doe|
-|eventTypeDbId|string|An identifier for this event type, in the form of an ontology class reference|
-|description|string|A detailed, human-readable description of this event|
-|eventDbId|string|Internal database identifier|
 |observationUnitDbIds|array[string]|A list of the affected observation units. If this parameter is not given, it is understood that the event affected all units in the study|
+|date|array[string]|A list of dates when the event occured|
+|eventType|string|General category for this event (e.g. Sowing, Watering, Rain). Each eventType should correspond to exactly one eventTypeDbId, if provided.|
+|eventDbId|string|Internal database identifier|
+|additionalInfo|object|Additional arbitrary info|
+|eventParameters|array[object]|A list of objects describing additional event parameters. Each of the following accepts a human-readable value or URI|
+|rdfValue|string|The type of the value given above, e.g. http://xmlns.com/foaf/0.1/Agent|
+|key|string|Specifies the relationship between the event and the given property. E.g. fertilizer, operator|
+|value|string|The value of the property for this event. E.g. nitrogen, John Doe|
+|description|string|A detailed, human-readable description of this event|
+|eventTypeDbId|string|An identifier for this event type, in the form of an ontology class reference|
 
 
  

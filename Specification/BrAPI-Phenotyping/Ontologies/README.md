@@ -23,15 +23,15 @@ Call to retrieve a list of observation variable ontologies available in the syst
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
+|ontologyName|string|Ontology name|
 |copyright|string|Ontology copyright|
+|ontologyDbId|string|Ontology database unique identifier|
 |authors|string|Ontology's list of authors (no specific format)|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|additionalInfo|object|Additional arbitrary info|
+|licence|string|Ontology licence|
 |version|string|Ontology version (no specific format)|
 |description|string|Human readable description of Ontology|
-|ontologyName|string|Ontology name|
-|ontologyDbId|string|Ontology database unique identifier|
-|licence|string|Ontology licence|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
 
 
  

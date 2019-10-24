@@ -20,16 +20,16 @@ Get filtered list of people
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]|Array of people|
-|lastName|string|Persons last name|
-|personDbId|string|Unique ID for a person|
-|additionalInfo|object|Additional arbitrary info|
-|userID|string|A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.|
-|emailAddress|string|email address for this person|
-|middleName|string|Persons middle name|
-|description|string|description of this person|
-|mailingAddress|string|physical address of this person|
-|phoneNumber|string|phone number of this person|
 |firstName|string|Persons first name|
+|lastName|string|Persons last name|
+|userID|string|A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.|
+|additionalInfo|object|Additional arbitrary info|
+|middleName|string|Persons middle name|
+|phoneNumber|string|phone number of this person|
+|emailAddress|string|email address for this person|
+|description|string|description of this person|
+|personDbId|string|Unique ID for a person|
+|mailingAddress|string|physical address of this person|
 
 
  
@@ -119,15 +119,15 @@ Create new People entities. `personDbId` is generated and managed by the server.
 
 |Field|Type|Description|
 |---|---|---| 
-|lastName|string|Persons last name|
-|additionalInfo|object|Additional arbitrary info|
-|userID|string|A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.|
-|emailAddress|string|email address for this person|
+|firstName|string|Persons first name|
 |middleName|string|Persons middle name|
+|lastName|string|Persons last name|
+|userID|string|A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.|
+|additionalInfo|object|Additional arbitrary info|
+|emailAddress|string|email address for this person|
+|phoneNumber|string|phone number of this person|
 |description|string|description of this person|
 |mailingAddress|string|physical address of this person|
-|phoneNumber|string|phone number of this person|
-|firstName|string|Persons first name|
 
 
 **Response Fields** 
@@ -135,16 +135,16 @@ Create new People entities. `personDbId` is generated and managed by the server.
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]|Array of people|
-|lastName|string|Persons last name|
-|personDbId|string|Unique ID for a person|
-|additionalInfo|object|Additional arbitrary info|
-|userID|string|A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.|
-|emailAddress|string|email address for this person|
-|middleName|string|Persons middle name|
-|description|string|description of this person|
-|mailingAddress|string|physical address of this person|
-|phoneNumber|string|phone number of this person|
 |firstName|string|Persons first name|
+|lastName|string|Persons last name|
+|userID|string|A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.|
+|additionalInfo|object|Additional arbitrary info|
+|middleName|string|Persons middle name|
+|phoneNumber|string|phone number of this person|
+|emailAddress|string|email address for this person|
+|description|string|description of this person|
+|personDbId|string|Unique ID for a person|
+|mailingAddress|string|physical address of this person|
 
 
  
@@ -248,16 +248,16 @@ Get the details for a specific Person
 
 |Field|Type|Description|
 |---|---|---| 
-|lastName|string|Persons last name|
-|personDbId|string|Unique ID for a person|
-|additionalInfo|object|Additional arbitrary info|
-|userID|string|A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.|
-|emailAddress|string|email address for this person|
-|middleName|string|Persons middle name|
-|description|string|description of this person|
-|mailingAddress|string|physical address of this person|
-|phoneNumber|string|phone number of this person|
 |firstName|string|Persons first name|
+|lastName|string|Persons last name|
+|userID|string|A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.|
+|additionalInfo|object|Additional arbitrary info|
+|middleName|string|Persons middle name|
+|phoneNumber|string|phone number of this person|
+|emailAddress|string|email address for this person|
+|description|string|description of this person|
+|personDbId|string|Unique ID for a person|
+|mailingAddress|string|physical address of this person|
 
 
  
@@ -343,31 +343,31 @@ Update an existing Person
 
 |Field|Type|Description|
 |---|---|---| 
-|lastName|string|Persons last name|
-|additionalInfo|object|Additional arbitrary info|
-|userID|string|A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.|
-|emailAddress|string|email address for this person|
+|firstName|string|Persons first name|
 |middleName|string|Persons middle name|
+|lastName|string|Persons last name|
+|userID|string|A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.|
+|additionalInfo|object|Additional arbitrary info|
+|emailAddress|string|email address for this person|
+|phoneNumber|string|phone number of this person|
 |description|string|description of this person|
 |mailingAddress|string|physical address of this person|
-|phoneNumber|string|phone number of this person|
-|firstName|string|Persons first name|
 
 
 **Response Fields** 
 
 |Field|Type|Description|
 |---|---|---| 
-|lastName|string|Persons last name|
-|personDbId|string|Unique ID for a person|
-|additionalInfo|object|Additional arbitrary info|
-|userID|string|A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.|
-|emailAddress|string|email address for this person|
-|middleName|string|Persons middle name|
-|description|string|description of this person|
-|mailingAddress|string|physical address of this person|
-|phoneNumber|string|phone number of this person|
 |firstName|string|Persons first name|
+|lastName|string|Persons last name|
+|userID|string|A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.|
+|additionalInfo|object|Additional arbitrary info|
+|middleName|string|Persons middle name|
+|phoneNumber|string|phone number of this person|
+|emailAddress|string|email address for this person|
+|description|string|description of this person|
+|personDbId|string|Unique ID for a person|
+|mailingAddress|string|physical address of this person|
 
 
  
@@ -474,14 +474,14 @@ See Search Services for additional implementation details.
 
 |Field|Type|Description|
 |---|---|---| 
-|phoneNumbers|array[string]|phone number of this person|
-|userIDs|array[string]|A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.|
+|lastNames|array[string]|Persons last name|
 |mailingAddresses|array[string]|physical address of this person|
 |personDbIds|array[string]|Unique ID for this person|
+|userIDs|array[string]|A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.|
 |firstNames|array[string]|Persons first name|
-|emailAddresses|array[string]|email address for this person|
-|lastNames|array[string]|Persons last name|
 |middleNames|array[string]|Persons middle name|
+|emailAddresses|array[string]|email address for this person|
+|phoneNumbers|array[string]|phone number of this person|
 
 
 **Response Fields** 
@@ -603,16 +603,16 @@ See Search Services for additional implementation details.
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]|Array of people|
-|lastName|string|Persons last name|
-|personDbId|string|Unique ID for a person|
-|additionalInfo|object|Additional arbitrary info|
-|userID|string|A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.|
-|emailAddress|string|email address for this person|
-|middleName|string|Persons middle name|
-|description|string|description of this person|
-|mailingAddress|string|physical address of this person|
-|phoneNumber|string|phone number of this person|
 |firstName|string|Persons first name|
+|lastName|string|Persons last name|
+|userID|string|A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.|
+|additionalInfo|object|Additional arbitrary info|
+|middleName|string|Persons middle name|
+|phoneNumber|string|phone number of this person|
+|emailAddress|string|email address for this person|
+|description|string|description of this person|
+|personDbId|string|Unique ID for a person|
+|mailingAddress|string|physical address of this person|
 
 
  
