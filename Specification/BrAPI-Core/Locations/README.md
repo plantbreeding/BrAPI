@@ -24,26 +24,26 @@ Get a list of locations.
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
-|locationName|string|A human readable name for this location|
-|instituteName|string|each institute/laboratory can have several experimental field|
-|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
-|altitude|number|The altitude/elevation of this location (in meters)|
-|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
-|countryName|string|The full name of the country where this location is|
-|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
-|instituteAddress|string|The street address of the institute representing this location|
-|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
-|slope|string|Describes the approximate slope (height/distance) of the location.|
-|additionalInfo|object|Additional arbitrary info|
-|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
-|locationDbId|string|The unique identifier for a Location|
 |abbreviation|string|An abbreviation which represents this location|
+|additionalInfo|object|Additional arbitrary info|
+|altitude|number|The altitude/elevation of this location (in meters)|
+|countryName|string|The full name of the country where this location is|
+|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
+|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
+|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
 |coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |type|string|Feature|
 |geometry|object||
+|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|slope|string|Describes the approximate slope (height/distance) of the location.|
+|instituteName|string|each institute/laboratory can have several experimental field|
+|instituteAddress|string|The street address of the institute representing this location|
+|locationDbId|string|The unique identifier for a Location|
+|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
+|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
+|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|locationName|string|A human readable name for this location|
 
 
  
@@ -149,25 +149,25 @@ Add new locations to database
 
 |Field|Type|Description|
 |---|---|---| 
-|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
-|locationName|string|A human readable name for this location|
-|instituteName|string|each institute/laboratory can have several experimental field|
-|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
-|altitude|number|The altitude/elevation of this location (in meters)|
-|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
-|countryName|string|The full name of the country where this location is|
-|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
-|instituteAddress|string|The street address of the institute representing this location|
-|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
-|slope|string|Describes the approximate slope (height/distance) of the location.|
-|additionalInfo|object|Additional arbitrary info|
-|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
 |abbreviation|string|An abbreviation which represents this location|
+|additionalInfo|object|Additional arbitrary info|
+|altitude|number|The altitude/elevation of this location (in meters)|
+|countryName|string|The full name of the country where this location is|
+|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
+|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
+|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
 |coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |type|string|Feature|
 |geometry|object||
+|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|slope|string|Describes the approximate slope (height/distance) of the location.|
+|instituteName|string|each institute/laboratory can have several experimental field|
+|instituteAddress|string|The street address of the institute representing this location|
+|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
+|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
+|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|locationName|string|A human readable name for this location|
 
 
 **Response Fields** 
@@ -175,26 +175,26 @@ Add new locations to database
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
-|locationName|string|A human readable name for this location|
-|instituteName|string|each institute/laboratory can have several experimental field|
-|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
-|altitude|number|The altitude/elevation of this location (in meters)|
-|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
-|countryName|string|The full name of the country where this location is|
-|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
-|instituteAddress|string|The street address of the institute representing this location|
-|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
-|slope|string|Describes the approximate slope (height/distance) of the location.|
-|additionalInfo|object|Additional arbitrary info|
-|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
-|locationDbId|string|The unique identifier for a Location|
 |abbreviation|string|An abbreviation which represents this location|
+|additionalInfo|object|Additional arbitrary info|
+|altitude|number|The altitude/elevation of this location (in meters)|
+|countryName|string|The full name of the country where this location is|
+|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
+|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
+|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
 |coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |type|string|Feature|
 |geometry|object||
+|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|slope|string|Describes the approximate slope (height/distance) of the location.|
+|instituteName|string|each institute/laboratory can have several experimental field|
+|instituteAddress|string|The street address of the institute representing this location|
+|locationDbId|string|The unique identifier for a Location|
+|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
+|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
+|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|locationName|string|A human readable name for this location|
 
 
  
@@ -334,26 +334,26 @@ Get details for a location.
 
 |Field|Type|Description|
 |---|---|---| 
-|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
-|locationName|string|A human readable name for this location|
-|instituteName|string|each institute/laboratory can have several experimental field|
-|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
-|altitude|number|The altitude/elevation of this location (in meters)|
-|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
-|countryName|string|The full name of the country where this location is|
-|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
-|instituteAddress|string|The street address of the institute representing this location|
-|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
-|slope|string|Describes the approximate slope (height/distance) of the location.|
-|additionalInfo|object|Additional arbitrary info|
-|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
-|locationDbId|string|The unique identifier for a Location|
 |abbreviation|string|An abbreviation which represents this location|
+|additionalInfo|object|Additional arbitrary info|
+|altitude|number|The altitude/elevation of this location (in meters)|
+|countryName|string|The full name of the country where this location is|
+|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
+|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
+|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
 |coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |type|string|Feature|
 |geometry|object||
+|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|slope|string|Describes the approximate slope (height/distance) of the location.|
+|instituteName|string|each institute/laboratory can have several experimental field|
+|instituteAddress|string|The street address of the institute representing this location|
+|locationDbId|string|The unique identifier for a Location|
+|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
+|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
+|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|locationName|string|A human readable name for this location|
 
 
  
@@ -458,51 +458,51 @@ Update the details for an existing location.
 
 |Field|Type|Description|
 |---|---|---| 
-|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
-|locationName|string|A human readable name for this location|
-|instituteName|string|each institute/laboratory can have several experimental field|
-|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
-|altitude|number|The altitude/elevation of this location (in meters)|
-|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
-|countryName|string|The full name of the country where this location is|
-|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
-|instituteAddress|string|The street address of the institute representing this location|
-|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
-|slope|string|Describes the approximate slope (height/distance) of the location.|
-|additionalInfo|object|Additional arbitrary info|
-|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
 |abbreviation|string|An abbreviation which represents this location|
+|additionalInfo|object|Additional arbitrary info|
+|altitude|number|The altitude/elevation of this location (in meters)|
+|countryName|string|The full name of the country where this location is|
+|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
+|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
+|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
 |coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |type|string|Feature|
 |geometry|object||
+|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|slope|string|Describes the approximate slope (height/distance) of the location.|
+|instituteName|string|each institute/laboratory can have several experimental field|
+|instituteAddress|string|The street address of the institute representing this location|
+|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
+|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
+|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|locationName|string|A human readable name for this location|
 
 
 **Response Fields** 
 
 |Field|Type|Description|
 |---|---|---| 
-|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
-|locationName|string|A human readable name for this location|
-|instituteName|string|each institute/laboratory can have several experimental field|
-|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
-|altitude|number|The altitude/elevation of this location (in meters)|
-|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
-|countryName|string|The full name of the country where this location is|
-|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
-|instituteAddress|string|The street address of the institute representing this location|
-|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
-|slope|string|Describes the approximate slope (height/distance) of the location.|
-|additionalInfo|object|Additional arbitrary info|
-|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
-|locationDbId|string|The unique identifier for a Location|
 |abbreviation|string|An abbreviation which represents this location|
+|additionalInfo|object|Additional arbitrary info|
+|altitude|number|The altitude/elevation of this location (in meters)|
+|countryName|string|The full name of the country where this location is|
+|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
+|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
+|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
 |coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |type|string|Feature|
 |geometry|object||
+|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|slope|string|Describes the approximate slope (height/distance) of the location.|
+|instituteName|string|each institute/laboratory can have several experimental field|
+|instituteAddress|string|The street address of the institute representing this location|
+|locationDbId|string|The unique identifier for a Location|
+|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
+|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
+|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|locationName|string|A human readable name for this location|
 
 
  
@@ -642,19 +642,19 @@ See Search Services for additional implementation details.
 
 |Field|Type|Description|
 |---|---|---| 
-|instituteAddresses|array[string]|The street address of the institute to search for|
+|countryCodes|array[string]|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
+|locationTypes|array[string]|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
+|altitudeMax|number|The maximum altitude to search for|
+|altitudeMin|number|The minimum altitude to search for|
+|locationDbIds|array[string]|The location ids to search for|
+|instituteNames|array[string]|The name of the institute to search for|
+|countryNames|array[string]|The full name of the country to search for|
 |locationNames|array[string]|A human readable names to search for|
 |coordinatesArea|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |type|string|Feature|
 |geometry|object||
-|altitudeMin|number|The minimum altitude to search for|
-|countryCodes|array[string]|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
-|locationDbIds|array[string]|The location ids to search for|
-|countryNames|array[string]|The full name of the country to search for|
-|locationTypes|array[string]|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
 |abbreviations|array[string]|An abbreviation which represents this location|
-|altitudeMax|number|The maximum altitude to search for|
-|instituteNames|array[string]|The name of the institute to search for|
+|instituteAddresses|array[string]|The street address of the institute to search for|
 
 
 **Response Fields** 
@@ -787,26 +787,26 @@ See Search Services for additional implementation details.
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
-|locationName|string|A human readable name for this location|
-|instituteName|string|each institute/laboratory can have several experimental field|
-|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
-|altitude|number|The altitude/elevation of this location (in meters)|
-|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
-|countryName|string|The full name of the country where this location is|
-|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
-|instituteAddress|string|The street address of the institute representing this location|
-|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
-|slope|string|Describes the approximate slope (height/distance) of the location.|
-|additionalInfo|object|Additional arbitrary info|
-|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
-|locationDbId|string|The unique identifier for a Location|
 |abbreviation|string|An abbreviation which represents this location|
+|additionalInfo|object|Additional arbitrary info|
+|altitude|number|The altitude/elevation of this location (in meters)|
+|countryName|string|The full name of the country where this location is|
+|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
+|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
+|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
 |coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |type|string|Feature|
 |geometry|object||
+|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|slope|string|Describes the approximate slope (height/distance) of the location.|
+|instituteName|string|each institute/laboratory can have several experimental field|
+|instituteAddress|string|The street address of the institute representing this location|
+|locationDbId|string|The unique identifier for a Location|
+|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
+|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
+|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|locationName|string|A human readable name for this location|
 
 
  

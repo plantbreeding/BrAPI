@@ -20,28 +20,28 @@ Get a filtered list of Cross entities.
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|crossingProjectName|string|the human readable name for a crossing project|
-|crossAttributes|array[object]|Set of custom attributes associated with a cross|
-|crossAttributeValue|string|the value of a cross attribute|
-|crossAttributeName|string|the human readable name of a cross attribute|
-|parent1|object||
-|observationUnitDbId|string|the unique identifier for an observation unit|
-|germplasmName|string|the human readable name for a germplasm|
-|germplasmDbId|string|the unique identifier for a germplasm|
-|observationUnitName|string|the human readable name for an observation unit|
-|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
 |crossDbId|string|the unique identifier for a cross|
+|crossingProjectName|string|the human readable name for a crossing project|
 |parent2|object||
-|observationUnitDbId|string|the unique identifier for an observation unit|
+|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
 |germplasmName|string|the human readable name for a germplasm|
 |germplasmDbId|string|the unique identifier for a germplasm|
+|observationUnitDbId|string|the unique identifier for an observation unit|
 |observationUnitName|string|the human readable name for an observation unit|
-|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
-|crossingProjectDbId|string|the unique identifier for a crossing project|
 |crossType|string|the type of cross|
+|additionalInfo|object|Additional arbitrary info|
+|parent1|object||
+|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
+|germplasmName|string|the human readable name for a germplasm|
+|germplasmDbId|string|the unique identifier for a germplasm|
+|observationUnitDbId|string|the unique identifier for an observation unit|
+|observationUnitName|string|the human readable name for an observation unit|
 |pollinationTimeStamp|string (date-time)|the timestamp when the polination took place|
+|crossAttributes|array[object]|Set of custom attributes associated with a cross|
+|crossAttributeName|string|the human readable name of a cross attribute|
+|crossAttributeValue|string|the value of a cross attribute|
 |crossName|string|the human readable name for a cross|
+|crossingProjectDbId|string|the unique identifier for a crossing project|
 
 
  
@@ -155,27 +155,27 @@ Create new Cross entities on this server
 
 |Field|Type|Description|
 |---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
 |crossingProjectName|string|the human readable name for a crossing project|
-|crossType|string|the type of cross|
-|crossAttributes|array[object]|Set of custom attributes associated with a cross|
-|crossAttributeValue|string|the value of a cross attribute|
-|crossAttributeName|string|the human readable name of a cross attribute|
-|parent1|object||
-|observationUnitDbId|string|the unique identifier for an observation unit|
-|germplasmName|string|the human readable name for a germplasm|
-|germplasmDbId|string|the unique identifier for a germplasm|
-|observationUnitName|string|the human readable name for an observation unit|
-|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
 |parent2|object||
-|observationUnitDbId|string|the unique identifier for an observation unit|
+|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
 |germplasmName|string|the human readable name for a germplasm|
 |germplasmDbId|string|the unique identifier for a germplasm|
+|observationUnitDbId|string|the unique identifier for an observation unit|
 |observationUnitName|string|the human readable name for an observation unit|
+|crossType|string|the type of cross|
+|additionalInfo|object|Additional arbitrary info|
+|parent1|object||
 |parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
-|crossingProjectDbId|string|the unique identifier for a crossing project|
+|germplasmName|string|the human readable name for a germplasm|
+|germplasmDbId|string|the unique identifier for a germplasm|
+|observationUnitDbId|string|the unique identifier for an observation unit|
+|observationUnitName|string|the human readable name for an observation unit|
 |pollinationTimeStamp|string (date-time)|the timestamp when the polination took place|
+|crossAttributes|array[object]|Set of custom attributes associated with a cross|
+|crossAttributeName|string|the human readable name of a cross attribute|
+|crossAttributeValue|string|the value of a cross attribute|
 |crossName|string|the human readable name for a cross|
+|crossingProjectDbId|string|the unique identifier for a crossing project|
 
 
 **Response Fields** 
@@ -183,28 +183,28 @@ Create new Cross entities on this server
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|crossingProjectName|string|the human readable name for a crossing project|
-|crossAttributes|array[object]|Set of custom attributes associated with a cross|
-|crossAttributeValue|string|the value of a cross attribute|
-|crossAttributeName|string|the human readable name of a cross attribute|
-|parent1|object||
-|observationUnitDbId|string|the unique identifier for an observation unit|
-|germplasmName|string|the human readable name for a germplasm|
-|germplasmDbId|string|the unique identifier for a germplasm|
-|observationUnitName|string|the human readable name for an observation unit|
-|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
 |crossDbId|string|the unique identifier for a cross|
+|crossingProjectName|string|the human readable name for a crossing project|
 |parent2|object||
-|observationUnitDbId|string|the unique identifier for an observation unit|
+|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
 |germplasmName|string|the human readable name for a germplasm|
 |germplasmDbId|string|the unique identifier for a germplasm|
+|observationUnitDbId|string|the unique identifier for an observation unit|
 |observationUnitName|string|the human readable name for an observation unit|
-|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
-|crossingProjectDbId|string|the unique identifier for a crossing project|
 |crossType|string|the type of cross|
+|additionalInfo|object|Additional arbitrary info|
+|parent1|object||
+|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
+|germplasmName|string|the human readable name for a germplasm|
+|germplasmDbId|string|the unique identifier for a germplasm|
+|observationUnitDbId|string|the unique identifier for an observation unit|
+|observationUnitName|string|the human readable name for an observation unit|
 |pollinationTimeStamp|string (date-time)|the timestamp when the polination took place|
+|crossAttributes|array[object]|Set of custom attributes associated with a cross|
+|crossAttributeName|string|the human readable name of a cross attribute|
+|crossAttributeValue|string|the value of a cross attribute|
 |crossName|string|the human readable name for a cross|
+|crossingProjectDbId|string|the unique identifier for a crossing project|
 
 
  
@@ -367,28 +367,28 @@ Update existing Cross entities on this server
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|crossingProjectName|string|the human readable name for a crossing project|
-|crossAttributes|array[object]|Set of custom attributes associated with a cross|
-|crossAttributeValue|string|the value of a cross attribute|
-|crossAttributeName|string|the human readable name of a cross attribute|
-|parent1|object||
-|observationUnitDbId|string|the unique identifier for an observation unit|
-|germplasmName|string|the human readable name for a germplasm|
-|germplasmDbId|string|the unique identifier for a germplasm|
-|observationUnitName|string|the human readable name for an observation unit|
-|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
 |crossDbId|string|the unique identifier for a cross|
+|crossingProjectName|string|the human readable name for a crossing project|
 |parent2|object||
-|observationUnitDbId|string|the unique identifier for an observation unit|
+|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
 |germplasmName|string|the human readable name for a germplasm|
 |germplasmDbId|string|the unique identifier for a germplasm|
+|observationUnitDbId|string|the unique identifier for an observation unit|
 |observationUnitName|string|the human readable name for an observation unit|
-|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
-|crossingProjectDbId|string|the unique identifier for a crossing project|
 |crossType|string|the type of cross|
+|additionalInfo|object|Additional arbitrary info|
+|parent1|object||
+|parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
+|germplasmName|string|the human readable name for a germplasm|
+|germplasmDbId|string|the unique identifier for a germplasm|
+|observationUnitDbId|string|the unique identifier for an observation unit|
+|observationUnitName|string|the human readable name for an observation unit|
 |pollinationTimeStamp|string (date-time)|the timestamp when the polination took place|
+|crossAttributes|array[object]|Set of custom attributes associated with a cross|
+|crossAttributeName|string|the human readable name of a cross attribute|
+|crossAttributeValue|string|the value of a cross attribute|
 |crossName|string|the human readable name for a cross|
+|crossingProjectDbId|string|the unique identifier for a crossing project|
 
 
  

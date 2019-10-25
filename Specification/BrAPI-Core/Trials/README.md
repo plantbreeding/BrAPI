@@ -22,32 +22,32 @@ Retrieve a filtered list of breeding Trials. A Trial is a collection of Studies
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
+|startDate|string (date)|The date this trial started|
 |programName|string|Human readable name of the program|
-|trialDbId|string|The ID which uniquely identifies a trial|
-|trialDescription|string|The human readable description of a trial|
-|active|boolean|Is this trail currently active|
-|publications|array[object]||
-|publicationPUI|string||
-|publicationReference|string||
+|additionalInfo|object|Additional arbitrary info|
 |contacts|array[object]|List of contact entities associated with this trial|
-|email|string|The contacts email address |
 |contactDbId|string|The ID which uniquely identifies this contact|
-|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
-|name|string|The full name of this contact person|
-|instituteName|string|The name of the institution which this contact is part of|
 |orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
-|endDate|string (date)|The date this trial ends|
+|name|string|The full name of this contact person|
+|email|string|The contacts email address |
+|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
+|instituteName|string|The name of the institution which this contact is part of|
 |programDbId|string|A program identifier to search for|
+|trialDescription|string|The human readable description of a trial|
+|publications|array[object]||
+|publicationReference|string||
+|publicationPUI|string||
+|commonCropName|string|Common name for the crop associated with this trial|
+|active|boolean|Is this trail currently active|
+|endDate|string (date)|The date this trial ends|
+|trialDbId|string|The ID which uniquely identifies a trial|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |datasetAuthorships|array[object]|License and citation information for the data in this trial|
 |datasetPUI|string||
-|license|string||
 |submissionDate|string (date)||
+|license|string||
 |publicReleaseDate|string (date)||
 |trialName|string|The human readable name of a trial|
-|additionalInfo|object|Additional arbitrary info|
-|commonCropName|string|Common name for the crop associated with this trial|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|startDate|string (date)|The date this trial started|
 
 
  
@@ -164,31 +164,31 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
 
 |Field|Type|Description|
 |---|---|---| 
+|startDate|string (date)|The date this trial started|
 |programName|string|Human readable name of the program|
-|trialDescription|string|The human readable description of a trial|
-|active|boolean|Is this trail currently active|
-|publications|array[object]||
-|publicationPUI|string||
-|publicationReference|string||
+|additionalInfo|object|Additional arbitrary info|
 |contacts|array[object]|List of contact entities associated with this trial|
-|email|string|The contacts email address |
 |contactDbId|string|The ID which uniquely identifies this contact|
-|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
-|name|string|The full name of this contact person|
-|instituteName|string|The name of the institution which this contact is part of|
 |orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
-|endDate|string (date)|The date this trial ends|
+|name|string|The full name of this contact person|
+|email|string|The contacts email address |
+|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
+|instituteName|string|The name of the institution which this contact is part of|
 |programDbId|string|A program identifier to search for|
+|trialDescription|string|The human readable description of a trial|
+|publications|array[object]||
+|publicationReference|string||
+|publicationPUI|string||
+|commonCropName|string|Common name for the crop associated with this trial|
+|active|boolean|Is this trail currently active|
+|endDate|string (date)|The date this trial ends|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |datasetAuthorships|array[object]|License and citation information for the data in this trial|
 |datasetPUI|string||
-|license|string||
 |submissionDate|string (date)||
+|license|string||
 |publicReleaseDate|string (date)||
 |trialName|string|The human readable name of a trial|
-|additionalInfo|object|Additional arbitrary info|
-|commonCropName|string|Common name for the crop associated with this trial|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|startDate|string (date)|The date this trial started|
 
 
 **Response Fields** 
@@ -196,32 +196,32 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
+|startDate|string (date)|The date this trial started|
 |programName|string|Human readable name of the program|
-|trialDbId|string|The ID which uniquely identifies a trial|
-|trialDescription|string|The human readable description of a trial|
-|active|boolean|Is this trail currently active|
-|publications|array[object]||
-|publicationPUI|string||
-|publicationReference|string||
+|additionalInfo|object|Additional arbitrary info|
 |contacts|array[object]|List of contact entities associated with this trial|
-|email|string|The contacts email address |
 |contactDbId|string|The ID which uniquely identifies this contact|
-|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
-|name|string|The full name of this contact person|
-|instituteName|string|The name of the institution which this contact is part of|
 |orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
-|endDate|string (date)|The date this trial ends|
+|name|string|The full name of this contact person|
+|email|string|The contacts email address |
+|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
+|instituteName|string|The name of the institution which this contact is part of|
 |programDbId|string|A program identifier to search for|
+|trialDescription|string|The human readable description of a trial|
+|publications|array[object]||
+|publicationReference|string||
+|publicationPUI|string||
+|commonCropName|string|Common name for the crop associated with this trial|
+|active|boolean|Is this trail currently active|
+|endDate|string (date)|The date this trial ends|
+|trialDbId|string|The ID which uniquely identifies a trial|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |datasetAuthorships|array[object]|License and citation information for the data in this trial|
 |datasetPUI|string||
-|license|string||
 |submissionDate|string (date)||
+|license|string||
 |publicReleaseDate|string (date)||
 |trialName|string|The human readable name of a trial|
-|additionalInfo|object|Additional arbitrary info|
-|commonCropName|string|Common name for the crop associated with this trial|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|startDate|string (date)|The date this trial started|
 
 
  
@@ -375,72 +375,72 @@ Get the details of a specific Trial
 
 |Field|Type|Description|
 |---|---|---| 
-|seasons|array[string]|List of seasons over which this study was performed.|
-|trialDbId|string|The ID which uniquely identifies a trial|
-|experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
-|description|string||
-|PUI|string||
-|studyDescription|string|The description of this study|
-|active|boolean|Is this study currently active|
-|contacts|array[object]|List of contact entities associated with this study|
-|email|string|The contacts email address |
-|contactDbId|string|The ID which uniquely identifies this contact|
-|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
-|name|string|The full name of this contact person|
-|instituteName|string|The name of the institution which this contact is part of|
-|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
-|studyName|string|The human readable name for a study|
-|endDate|string (date)|The date the study ends|
-|culturalPractices|string|General description of the cultural practices of the study.|
-|trialName|string|The human readable name of a trial|
-|studyType|string|The type of study being performed. ex. "Yield Trial", etc|
-|location|object||
-|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
-|locationName|string|A human readable name for this location|
-|instituteName|string|each institute/laboratory can have several experimental field|
-|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
-|altitude|number|The altitude/elevation of this location (in meters)|
-|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
-|countryName|string|The full name of the country where this location is|
-|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
-|instituteAddress|string|The street address of the institute representing this location|
-|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
-|slope|string|Describes the approximate slope (height/distance) of the location.|
+|startDate|string (date)|The date this study started|
+|observationUnitsDescription|string|The human readable description of the observation units design|
 |additionalInfo|object|Additional arbitrary info|
-|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
-|locationDbId|string|The unique identifier for a Location|
+|lastUpdate|object|The date and time when this study was last modified|
+|version|string||
+|timestamp|string (date-time)||
+|growthFacility|object|Short description of the facility in which the study was carried out.|
+|PUI|string||
+|description|string||
+|studyType|string|The type of study being performed. ex. "Yield Trial", etc|
+|studyName|string|The human readable name for a study|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|commonCropName|string|Common name for the crop associated with this study|
+|active|boolean|Is this study currently active|
+|license|string|The usage license associated with the study data|
+|studyDescription|string|The description of this study|
+|culturalPractices|string|General description of the cultural practices of the study.|
+|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
+|value|string|Numerical or categorical value|
+|unit|string|Unit of the value for this parameter|
+|parameterName|string|Name of the environment parameter constant within the experiment|
+|parameterPUI|string|URI pointing to an ontology class for the parameter|
+|unitPUI|string|URI pointing to an ontology class for the unit|
+|description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
+|valuePUI|string|URI pointing to an ontology class for the parameter value|
+|contacts|array[object]|List of contact entities associated with this study|
+|contactDbId|string|The ID which uniquely identifies this contact|
+|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
+|name|string|The full name of this contact person|
+|email|string|The contacts email address |
+|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
+|instituteName|string|The name of the institution which this contact is part of|
+|location|object||
 |abbreviation|string|An abbreviation which represents this location|
+|additionalInfo|object|Additional arbitrary info|
+|altitude|number|The altitude/elevation of this location (in meters)|
+|countryName|string|The full name of the country where this location is|
+|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
+|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
+|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
 |coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |type|string|Feature|
 |geometry|object||
+|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|slope|string|Describes the approximate slope (height/distance) of the location.|
+|instituteName|string|each institute/laboratory can have several experimental field|
+|instituteAddress|string|The street address of the institute representing this location|
+|locationDbId|string|The unique identifier for a Location|
+|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
+|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
+|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|startDate|string (date)|The date this study started|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|locationName|string|A human readable name for this location|
+|seasons|array[string]|List of seasons over which this study was performed.|
 |dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
-|url|string (uri)|The URL which links to external data|
 |type|string|The type of external data link|
-|dataLinkName|string|The name of the external data link|
 |version|string|The version number of the data set.|
-|lastUpdate|object|The date and time when this study was last modified|
-|timestamp|string (date-time)||
-|version|string||
-|license|string|The usage license associated with the study data|
-|additionalInfo|object|Additional arbitrary info|
-|commonCropName|string|Common name for the crop associated with this study|
-|observationUnitsDescription|string|The human readable description of the observation units design|
-|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
-|description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
-|parameterPUI|string|URI pointing to an ontology class for the parameter|
-|parameterName|string|Name of the environment parameter constant within the experiment|
-|unit|string|Unit of the value for this parameter|
-|valuePUI|string|URI pointing to an ontology class for the parameter value|
-|unitPUI|string|URI pointing to an ontology class for the unit|
-|value|string|Numerical or categorical value|
-|growthFacility|object|Short description of the facility in which the study was carried out.|
-|description|string||
+|dataLinkName|string|The name of the external data link|
+|url|string (uri)|The URL which links to external data|
+|endDate|string (date)|The date the study ends|
+|experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
 |PUI|string||
+|description|string||
+|trialDbId|string|The ID which uniquely identifies a trial|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|trialName|string|The human readable name of a trial|
 
 
  
@@ -604,103 +604,103 @@ Update the details of an existing Trial
 
 |Field|Type|Description|
 |---|---|---| 
+|startDate|string (date)|The date this trial started|
 |programName|string|Human readable name of the program|
-|trialDescription|string|The human readable description of a trial|
-|active|boolean|Is this trail currently active|
-|publications|array[object]||
-|publicationPUI|string||
-|publicationReference|string||
+|additionalInfo|object|Additional arbitrary info|
 |contacts|array[object]|List of contact entities associated with this trial|
-|email|string|The contacts email address |
 |contactDbId|string|The ID which uniquely identifies this contact|
-|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
-|name|string|The full name of this contact person|
-|instituteName|string|The name of the institution which this contact is part of|
 |orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
-|endDate|string (date)|The date this trial ends|
+|name|string|The full name of this contact person|
+|email|string|The contacts email address |
+|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
+|instituteName|string|The name of the institution which this contact is part of|
 |programDbId|string|A program identifier to search for|
+|trialDescription|string|The human readable description of a trial|
+|publications|array[object]||
+|publicationReference|string||
+|publicationPUI|string||
+|commonCropName|string|Common name for the crop associated with this trial|
+|active|boolean|Is this trail currently active|
+|endDate|string (date)|The date this trial ends|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |datasetAuthorships|array[object]|License and citation information for the data in this trial|
 |datasetPUI|string||
-|license|string||
 |submissionDate|string (date)||
+|license|string||
 |publicReleaseDate|string (date)||
 |trialName|string|The human readable name of a trial|
-|additionalInfo|object|Additional arbitrary info|
-|commonCropName|string|Common name for the crop associated with this trial|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|startDate|string (date)|The date this trial started|
 
 
 **Response Fields** 
 
 |Field|Type|Description|
 |---|---|---| 
-|seasons|array[string]|List of seasons over which this study was performed.|
-|trialDbId|string|The ID which uniquely identifies a trial|
-|experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
-|description|string||
-|PUI|string||
-|studyDescription|string|The description of this study|
-|active|boolean|Is this study currently active|
-|contacts|array[object]|List of contact entities associated with this study|
-|email|string|The contacts email address |
-|contactDbId|string|The ID which uniquely identifies this contact|
-|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
-|name|string|The full name of this contact person|
-|instituteName|string|The name of the institution which this contact is part of|
-|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
-|studyName|string|The human readable name for a study|
-|endDate|string (date)|The date the study ends|
-|culturalPractices|string|General description of the cultural practices of the study.|
-|trialName|string|The human readable name of a trial|
-|studyType|string|The type of study being performed. ex. "Yield Trial", etc|
-|location|object||
-|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
-|locationName|string|A human readable name for this location|
-|instituteName|string|each institute/laboratory can have several experimental field|
-|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
-|altitude|number|The altitude/elevation of this location (in meters)|
-|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
-|countryName|string|The full name of the country where this location is|
-|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
-|instituteAddress|string|The street address of the institute representing this location|
-|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
-|slope|string|Describes the approximate slope (height/distance) of the location.|
+|startDate|string (date)|The date this study started|
+|observationUnitsDescription|string|The human readable description of the observation units design|
 |additionalInfo|object|Additional arbitrary info|
-|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
-|locationDbId|string|The unique identifier for a Location|
+|lastUpdate|object|The date and time when this study was last modified|
+|version|string||
+|timestamp|string (date-time)||
+|growthFacility|object|Short description of the facility in which the study was carried out.|
+|PUI|string||
+|description|string||
+|studyType|string|The type of study being performed. ex. "Yield Trial", etc|
+|studyName|string|The human readable name for a study|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|commonCropName|string|Common name for the crop associated with this study|
+|active|boolean|Is this study currently active|
+|license|string|The usage license associated with the study data|
+|studyDescription|string|The description of this study|
+|culturalPractices|string|General description of the cultural practices of the study.|
+|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
+|value|string|Numerical or categorical value|
+|unit|string|Unit of the value for this parameter|
+|parameterName|string|Name of the environment parameter constant within the experiment|
+|parameterPUI|string|URI pointing to an ontology class for the parameter|
+|unitPUI|string|URI pointing to an ontology class for the unit|
+|description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
+|valuePUI|string|URI pointing to an ontology class for the parameter value|
+|contacts|array[object]|List of contact entities associated with this study|
+|contactDbId|string|The ID which uniquely identifies this contact|
+|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
+|name|string|The full name of this contact person|
+|email|string|The contacts email address |
+|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
+|instituteName|string|The name of the institution which this contact is part of|
+|location|object||
 |abbreviation|string|An abbreviation which represents this location|
+|additionalInfo|object|Additional arbitrary info|
+|altitude|number|The altitude/elevation of this location (in meters)|
+|countryName|string|The full name of the country where this location is|
+|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
+|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
+|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
 |coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |type|string|Feature|
 |geometry|object||
+|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|slope|string|Describes the approximate slope (height/distance) of the location.|
+|instituteName|string|each institute/laboratory can have several experimental field|
+|instituteAddress|string|The street address of the institute representing this location|
+|locationDbId|string|The unique identifier for a Location|
+|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
+|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
+|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|startDate|string (date)|The date this study started|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|locationName|string|A human readable name for this location|
+|seasons|array[string]|List of seasons over which this study was performed.|
 |dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
-|url|string (uri)|The URL which links to external data|
 |type|string|The type of external data link|
-|dataLinkName|string|The name of the external data link|
 |version|string|The version number of the data set.|
-|lastUpdate|object|The date and time when this study was last modified|
-|timestamp|string (date-time)||
-|version|string||
-|license|string|The usage license associated with the study data|
-|additionalInfo|object|Additional arbitrary info|
-|commonCropName|string|Common name for the crop associated with this study|
-|observationUnitsDescription|string|The human readable description of the observation units design|
-|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
-|description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
-|parameterPUI|string|URI pointing to an ontology class for the parameter|
-|parameterName|string|Name of the environment parameter constant within the experiment|
-|unit|string|Unit of the value for this parameter|
-|valuePUI|string|URI pointing to an ontology class for the parameter value|
-|unitPUI|string|URI pointing to an ontology class for the unit|
-|value|string|Numerical or categorical value|
-|growthFacility|object|Short description of the facility in which the study was carried out.|
-|description|string||
+|dataLinkName|string|The name of the external data link|
+|url|string (uri)|The URL which links to external data|
+|endDate|string (date)|The date the study ends|
+|experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
 |PUI|string||
+|description|string||
+|trialDbId|string|The ID which uniquely identifies a trial|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|trialName|string|The human readable name of a trial|
 
 
  
@@ -909,14 +909,14 @@ See Search Services for additional implementation details.
 
 |Field|Type|Description|
 |---|---|---| 
-|contactDbIds|array[string]|List of contact entities associated with this trial|
-|studyDbIds|array[string]|The ID which uniquely identifies a study|
 |searchDateRangeEnd|string (date)|The end of the overlapping search date range|
-|active|boolean|Is this trail currently active|
-|trialNames|array[string]|The human readable name of a trial|
-|programDbIds|array[string]|A program identifier to search for|
+|studyDbIds|array[string]|The ID which uniquely identifies a study|
 |searchDateRangeStart|string (date)|The start of the overlapping search date range|
+|trialNames|array[string]|The human readable name of a trial|
 |commonCropNames|array[string]|Common name for the crop associated with this trial|
+|active|boolean|Is this trail currently active|
+|contactDbIds|array[string]|List of contact entities associated with this trial|
+|programDbIds|array[string]|A program identifier to search for|
 |trialDbIds|array[string]|The ID which uniquely identifies a trial|
 
 
@@ -1033,32 +1033,32 @@ See Search Services for additional implementation details.
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
+|startDate|string (date)|The date this trial started|
 |programName|string|Human readable name of the program|
-|trialDbId|string|The ID which uniquely identifies a trial|
-|trialDescription|string|The human readable description of a trial|
-|active|boolean|Is this trail currently active|
-|publications|array[object]||
-|publicationPUI|string||
-|publicationReference|string||
+|additionalInfo|object|Additional arbitrary info|
 |contacts|array[object]|List of contact entities associated with this trial|
-|email|string|The contacts email address |
 |contactDbId|string|The ID which uniquely identifies this contact|
-|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
-|name|string|The full name of this contact person|
-|instituteName|string|The name of the institution which this contact is part of|
 |orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
-|endDate|string (date)|The date this trial ends|
+|name|string|The full name of this contact person|
+|email|string|The contacts email address |
+|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
+|instituteName|string|The name of the institution which this contact is part of|
 |programDbId|string|A program identifier to search for|
+|trialDescription|string|The human readable description of a trial|
+|publications|array[object]||
+|publicationReference|string||
+|publicationPUI|string||
+|commonCropName|string|Common name for the crop associated with this trial|
+|active|boolean|Is this trail currently active|
+|endDate|string (date)|The date this trial ends|
+|trialDbId|string|The ID which uniquely identifies a trial|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |datasetAuthorships|array[object]|License and citation information for the data in this trial|
 |datasetPUI|string||
-|license|string||
 |submissionDate|string (date)||
+|license|string||
 |publicReleaseDate|string (date)||
 |trialName|string|The human readable name of a trial|
-|additionalInfo|object|Additional arbitrary info|
-|commonCropName|string|Common name for the crop associated with this trial|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|startDate|string (date)|The date this trial started|
 
 
  
