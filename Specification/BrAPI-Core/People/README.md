@@ -4,461 +4,6 @@ Calls for maintaining information about people
 
 
 
-## People [/brapi/v1/people] 
-
-
-
-
-### Get People  [GET /brapi/v1/people{?firstName}{?lastName}{?personDbId}{?userID}{?page}{?pageSize}]
-
-Get filtered list of people
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]|Array of people|
-|additionalInfo|object|Additional arbitrary info|
-|personDbId|string|Unique ID for a person|
-|phoneNumber|string|phone number of this person|
-|mailingAddress|string|physical address of this person|
-|firstName|string|Persons first name|
-|lastName|string|Persons last name|
-|middleName|string|Persons middle name|
-|userID|string|A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.|
-|description|string|description of this person|
-|emailAddress|string|email address for this person|
-
-
- 
-
-+ Parameters
-    + firstName (Optional, ) ... A persons first name
-    + lastName (Optional, ) ... A persons last name
-    + personDbId (Optional, ) ... The unique ID of a person
-    + userID (Optional, ) ... A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "data": [
-            {
-                "additionalInfo": {},
-                "description": "Bob likes pina coladas and getting caught in the rain.",
-                "emailAddress": "bob@bob.com",
-                "firstName": "Bob",
-                "lastName": "Robertson",
-                "mailingAddress": "123 Street Ave, City, State, Country",
-                "middleName": "Danger",
-                "personDbId": "14340a54",
-                "phoneNumber": "+1-555-555-5555",
-                "userID": "bob-23"
-            }
-        ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-
-
-
-### Post People  [POST /brapi/v1/people]
-
-Create new People entities. `personDbId` is generated and managed by the server.
-
-**Request Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|phoneNumber|string|phone number of this person|
-|mailingAddress|string|physical address of this person|
-|firstName|string|Persons first name|
-|lastName|string|Persons last name|
-|middleName|string|Persons middle name|
-|userID|string|A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.|
-|description|string|description of this person|
-|emailAddress|string|email address for this person|
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]|Array of people|
-|additionalInfo|object|Additional arbitrary info|
-|personDbId|string|Unique ID for a person|
-|phoneNumber|string|phone number of this person|
-|mailingAddress|string|physical address of this person|
-|firstName|string|Persons first name|
-|lastName|string|Persons last name|
-|middleName|string|Persons middle name|
-|userID|string|A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.|
-|description|string|description of this person|
-|emailAddress|string|email address for this person|
-
-
- 
-
-+ Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
- 
-+ Request (application/json)
-```
-[
-    {
-        "additionalInfo": {},
-        "description": "Bob likes pina coladas and getting caught in the rain.",
-        "emailAddress": "bob@bob.com",
-        "firstName": "Bob",
-        "lastName": "Robertson",
-        "mailingAddress": "123 Street Ave, City, State, Country",
-        "middleName": "Danger",
-        "phoneNumber": "+1-555-555-5555",
-        "userID": "bob-23"
-    }
-]
-```
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "data": [
-            {
-                "additionalInfo": {},
-                "description": "Bob likes pina coladas and getting caught in the rain.",
-                "emailAddress": "bob@bob.com",
-                "firstName": "Bob",
-                "lastName": "Robertson",
-                "mailingAddress": "123 Street Ave, City, State, Country",
-                "middleName": "Danger",
-                "personDbId": "14340a54",
-                "phoneNumber": "+1-555-555-5555",
-                "userID": "bob-23"
-            }
-        ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-
-
-
-### Get People by personDbId  [GET /brapi/v1/people/{personDbId}]
-
-Get the details for a specific Person
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|personDbId|string|Unique ID for a person|
-|phoneNumber|string|phone number of this person|
-|mailingAddress|string|physical address of this person|
-|firstName|string|Persons first name|
-|lastName|string|Persons last name|
-|middleName|string|Persons middle name|
-|userID|string|A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.|
-|description|string|description of this person|
-|emailAddress|string|email address for this person|
-
-
- 
-
-+ Parameters
-    + personDbId (Required, ) ... The unique ID of a person
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "additionalInfo": {},
-        "description": "Bob likes pina coladas and getting caught in the rain.",
-        "emailAddress": "bob@bob.com",
-        "firstName": "Bob",
-        "lastName": "Robertson",
-        "mailingAddress": "123 Street Ave, City, State, Country",
-        "middleName": "Danger",
-        "personDbId": "14340a54",
-        "phoneNumber": "+1-555-555-5555",
-        "userID": "bob-23"
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-+ Response 404 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
-```
-
-
-
-
-
-### Put People by personDbId  [PUT /brapi/v1/people/{personDbId}]
-
-Update an existing Person
-
-**Request Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|phoneNumber|string|phone number of this person|
-|mailingAddress|string|physical address of this person|
-|firstName|string|Persons first name|
-|lastName|string|Persons last name|
-|middleName|string|Persons middle name|
-|userID|string|A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.|
-|description|string|description of this person|
-|emailAddress|string|email address for this person|
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|personDbId|string|Unique ID for a person|
-|phoneNumber|string|phone number of this person|
-|mailingAddress|string|physical address of this person|
-|firstName|string|Persons first name|
-|lastName|string|Persons last name|
-|middleName|string|Persons middle name|
-|userID|string|A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.|
-|description|string|description of this person|
-|emailAddress|string|email address for this person|
-
-
- 
-
-+ Parameters
-    + personDbId (Required, ) ... The unique ID of a person
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
- 
-+ Request (application/json)
-```
-{
-    "additionalInfo": {},
-    "description": "Bob likes pina coladas and getting caught in the rain.",
-    "emailAddress": "bob@bob.com",
-    "firstName": "Bob",
-    "lastName": "Robertson",
-    "mailingAddress": "123 Street Ave, City, State, Country",
-    "middleName": "Danger",
-    "phoneNumber": "+1-555-555-5555",
-    "userID": "bob-23"
-}
-```
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "additionalInfo": {},
-        "description": "Bob likes pina coladas and getting caught in the rain.",
-        "emailAddress": "bob@bob.com",
-        "firstName": "Bob",
-        "lastName": "Robertson",
-        "mailingAddress": "123 Street Ave, City, State, Country",
-        "middleName": "Danger",
-        "personDbId": "14340a54",
-        "phoneNumber": "+1-555-555-5555",
-        "userID": "bob-23"
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-+ Response 404 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
-```
-
-
-
 ## Search [/brapi/v1/search] 
 
 
@@ -474,13 +19,13 @@ See Search Services for additional implementation details.
 
 |Field|Type|Description|
 |---|---|---| 
-|lastNames|array[string]|Persons last name|
-|userIDs|array[string]|A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.|
-|personDbIds|array[string]|Unique ID for this person|
-|firstNames|array[string]|Persons first name|
 |emailAddresses|array[string]|email address for this person|
+|lastNames|array[string]|Persons last name|
+|firstNames|array[string]|Persons first name|
+|personDbIds|array[string]|Unique ID for this person|
 |phoneNumbers|array[string]|phone number of this person|
 |middleNames|array[string]|Persons middle name|
+|userIDs|array[string]|A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.|
 |mailingAddresses|array[string]|physical address of this person|
 
 
@@ -603,16 +148,16 @@ See Search Services for additional implementation details.
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]|Array of people|
-|additionalInfo|object|Additional arbitrary info|
-|personDbId|string|Unique ID for a person|
-|phoneNumber|string|phone number of this person|
-|mailingAddress|string|physical address of this person|
-|firstName|string|Persons first name|
-|lastName|string|Persons last name|
-|middleName|string|Persons middle name|
-|userID|string|A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.|
 |description|string|description of this person|
+|middleName|string|Persons middle name|
+|firstName|string|Persons first name|
+|mailingAddress|string|physical address of this person|
+|lastName|string|Persons last name|
+|additionalInfo|object|Additional arbitrary info|
 |emailAddress|string|email address for this person|
+|phoneNumber|string|phone number of this person|
+|userID|string|A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.|
+|personDbId|string|Unique ID for a person|
 
 
  
@@ -685,5 +230,460 @@ See Search Services for additional implementation details.
 + Response 403 (application/json)
 ```
 "ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+
+## People [/brapi/v1/people] 
+
+
+
+
+### Get People  [GET /brapi/v1/people{?firstName}{?lastName}{?personDbId}{?userID}{?page}{?pageSize}]
+
+Get filtered list of people
+
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[object]|Array of people|
+|description|string|description of this person|
+|middleName|string|Persons middle name|
+|firstName|string|Persons first name|
+|mailingAddress|string|physical address of this person|
+|lastName|string|Persons last name|
+|additionalInfo|object|Additional arbitrary info|
+|emailAddress|string|email address for this person|
+|phoneNumber|string|phone number of this person|
+|userID|string|A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.|
+|personDbId|string|Unique ID for a person|
+
+
+ 
+
++ Parameters
+    + firstName (Optional, ) ... A persons first name
+    + lastName (Optional, ) ... A persons last name
+    + personDbId (Optional, ) ... The unique ID of a person
+    + userID (Optional, ) ... A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "description": "Bob likes pina coladas and getting caught in the rain.",
+                "emailAddress": "bob@bob.com",
+                "firstName": "Bob",
+                "lastName": "Robertson",
+                "mailingAddress": "123 Street Ave, City, State, Country",
+                "middleName": "Danger",
+                "personDbId": "14340a54",
+                "phoneNumber": "+1-555-555-5555",
+                "userID": "bob-23"
+            }
+        ]
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+
+
+
+### Post People  [POST /brapi/v1/people]
+
+Create new People entities. `personDbId` is generated and managed by the server.
+
+**Request Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|description|string|description of this person|
+|middleName|string|Persons middle name|
+|firstName|string|Persons first name|
+|mailingAddress|string|physical address of this person|
+|lastName|string|Persons last name|
+|additionalInfo|object|Additional arbitrary info|
+|emailAddress|string|email address for this person|
+|phoneNumber|string|phone number of this person|
+|userID|string|A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.|
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[object]|Array of people|
+|description|string|description of this person|
+|middleName|string|Persons middle name|
+|firstName|string|Persons first name|
+|mailingAddress|string|physical address of this person|
+|lastName|string|Persons last name|
+|additionalInfo|object|Additional arbitrary info|
+|emailAddress|string|email address for this person|
+|phoneNumber|string|phone number of this person|
+|userID|string|A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.|
+|personDbId|string|Unique ID for a person|
+
+
+ 
+
++ Parameters
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+ 
++ Request (application/json)
+```
+[
+    {
+        "additionalInfo": {},
+        "description": "Bob likes pina coladas and getting caught in the rain.",
+        "emailAddress": "bob@bob.com",
+        "firstName": "Bob",
+        "lastName": "Robertson",
+        "mailingAddress": "123 Street Ave, City, State, Country",
+        "middleName": "Danger",
+        "phoneNumber": "+1-555-555-5555",
+        "userID": "bob-23"
+    }
+]
+```
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "description": "Bob likes pina coladas and getting caught in the rain.",
+                "emailAddress": "bob@bob.com",
+                "firstName": "Bob",
+                "lastName": "Robertson",
+                "mailingAddress": "123 Street Ave, City, State, Country",
+                "middleName": "Danger",
+                "personDbId": "14340a54",
+                "phoneNumber": "+1-555-555-5555",
+                "userID": "bob-23"
+            }
+        ]
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+
+
+
+### Get People by personDbId  [GET /brapi/v1/people/{personDbId}]
+
+Get the details for a specific Person
+
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|description|string|description of this person|
+|middleName|string|Persons middle name|
+|firstName|string|Persons first name|
+|mailingAddress|string|physical address of this person|
+|lastName|string|Persons last name|
+|additionalInfo|object|Additional arbitrary info|
+|emailAddress|string|email address for this person|
+|phoneNumber|string|phone number of this person|
+|userID|string|A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.|
+|personDbId|string|Unique ID for a person|
+
+
+ 
+
++ Parameters
+    + personDbId (Required, ) ... The unique ID of a person
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "additionalInfo": {},
+        "description": "Bob likes pina coladas and getting caught in the rain.",
+        "emailAddress": "bob@bob.com",
+        "firstName": "Bob",
+        "lastName": "Robertson",
+        "mailingAddress": "123 Street Ave, City, State, Country",
+        "middleName": "Danger",
+        "personDbId": "14340a54",
+        "phoneNumber": "+1-555-555-5555",
+        "userID": "bob-23"
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
+```
+
+
+
+
+
+### Put People by personDbId  [PUT /brapi/v1/people/{personDbId}]
+
+Update an existing Person
+
+**Request Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|description|string|description of this person|
+|middleName|string|Persons middle name|
+|firstName|string|Persons first name|
+|mailingAddress|string|physical address of this person|
+|lastName|string|Persons last name|
+|additionalInfo|object|Additional arbitrary info|
+|emailAddress|string|email address for this person|
+|phoneNumber|string|phone number of this person|
+|userID|string|A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.|
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|description|string|description of this person|
+|middleName|string|Persons middle name|
+|firstName|string|Persons first name|
+|mailingAddress|string|physical address of this person|
+|lastName|string|Persons last name|
+|additionalInfo|object|Additional arbitrary info|
+|emailAddress|string|email address for this person|
+|phoneNumber|string|phone number of this person|
+|userID|string|A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.|
+|personDbId|string|Unique ID for a person|
+
+
+ 
+
++ Parameters
+    + personDbId (Required, ) ... The unique ID of a person
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+ 
++ Request (application/json)
+```
+{
+    "additionalInfo": {},
+    "description": "Bob likes pina coladas and getting caught in the rain.",
+    "emailAddress": "bob@bob.com",
+    "firstName": "Bob",
+    "lastName": "Robertson",
+    "mailingAddress": "123 Street Ave, City, State, Country",
+    "middleName": "Danger",
+    "phoneNumber": "+1-555-555-5555",
+    "userID": "bob-23"
+}
+```
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "additionalInfo": {},
+        "description": "Bob likes pina coladas and getting caught in the rain.",
+        "emailAddress": "bob@bob.com",
+        "firstName": "Bob",
+        "lastName": "Robertson",
+        "mailingAddress": "123 Street Ave, City, State, Country",
+        "middleName": "Danger",
+        "personDbId": "14340a54",
+        "phoneNumber": "+1-555-555-5555",
+        "userID": "bob-23"
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
 ```
 

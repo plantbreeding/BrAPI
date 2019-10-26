@@ -3,112 +3,15 @@
 
 
 
-## Search [/brapi/v1/search] 
+## Referencesets [/brapi/v1/referencesets] 
 
 
 
 
-### Post Search Referencesets  [POST /brapi/v1/search/referencesets]
+### Get Referencesets  [GET /brapi/v1/referencesets{?referenceSetDbId}{?accession}{?assemblyPUI}{?md5checksum}{?page}{?pageSize}]
 
-`POST /referencesets/search` must accept a JSON version of
-`SearchReferenceSetsRequest` as the post body and will return a JSON
-version of `SearchReferenceSetsResponse`.
-
-**Request Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|assemblyPUI|string|If unset, return the reference sets for which the `assemblyId` matches this string (case-sensitive, exact match).|
-|page_size|integer (int32)|Specifies the maximum number of results to return in a single page. If unspecified, a system default will be used.|
-|md5checksum|string|If unset, return the reference sets for which the `md5checksum` matches this string (case-sensitive, exact match). See `ReferenceSet::md5checksum` for details.|
-|page_token|string|The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of `next_page_token` from the previous response.|
-|accession|string|If unset, return the reference sets for which the `accession` matches this string (case-sensitive, exact match).|
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|searchResultDbId|string||
-
-
- 
-
-+ Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
- 
-+ Request (application/json)
-```
-{
-    "accession": "accession",
-    "assemblyPUI": "assemblyPUI",
-    "md5checksum": "md5checksum",
-    "page_size": 0,
-    "page_token": "page_token"
-}
-```
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "searchResultDbId": "551ae08c"
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-
-
-
-### Get Search Referencesets by searchResultsDbId  [GET /brapi/v1/search/referencesets/{searchResultsDbId}{?page}{?pageSize}]
-
-`POST /referencesets/search` must accept a JSON version of
-`SearchReferenceSetsRequest` as the post body and will return a JSON
-version of `SearchReferenceSetsResponse`.
+`GET /referencesets/{reference_set_id}` will return a JSON version of
+`ReferenceSet`.
 
 
 
@@ -117,24 +20,27 @@ version of `SearchReferenceSetsResponse`.
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|assemblyPUI|string|The remaining information is about the source of the sequences Public id of this reference set, such as `GRCh37`.|
 |description|string|Optional free text description of this reference set.|
-|isDerived|boolean (boolean)|A reference set may be derived from a source if it contains additional sequences, or some of the sequences within it are derived (see the definition of `isDerived` in `Reference`).|
-|md5checksum|string|Order-independent MD5 checksum which identifies this `ReferenceSet`.  To compute this checksum, make a list of `Reference.md5checksum` for all `Reference` s in this set. Then sort that list, and take the MD5 hash of all the strings concatenated together. Express the hash as a lower-case hexadecimal string.|
-|additionalInfo|object|Additional arbitrary info|
 |sourceURI|string|Specifies a FASTA format file/string.|
-|referenceSetDbId|string|The reference set ID. Unique in the repository.|
-|species|object||
-|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
-|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
+|additionalInfo|object|Additional arbitrary info|
 |referenceSetName|string|The reference set name.|
 |sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.|
+|assemblyPUI|string|The remaining information is about the source of the sequences Public id of this reference set, such as `GRCh37`.|
+|isDerived|boolean (boolean)|A reference set may be derived from a source if it contains additional sequences, or some of the sequences within it are derived (see the definition of `isDerived` in `Reference`).|
+|species|object||
+|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
+|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
+|referenceSetDbId|string|The reference set ID. Unique in the repository.|
+|md5checksum|string|Order-independent MD5 checksum which identifies this `ReferenceSet`.  To compute this checksum, make a list of `Reference.md5checksum` for all `Reference` s in this set. Then sort that list, and take the MD5 hash of all the strings concatenated together. Express the hash as a lower-case hexadecimal string.|
 
 
  
 
 + Parameters
-    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
+    + referenceSetDbId (Optional, ) ... The ID of the `ReferenceSet` to be retrieved.
+    + accession (Optional, ) ... If unset, return the reference sets for which the `accession`matches this string (case-sensitive, exact match).
+    + assemblyPUI (Optional, ) ... If unset, return the reference sets for which the `assemblyId`matches this string (case-sensitive, exact match).
+    + md5checksum (Optional, ) ... If unset, return the reference sets for which the`md5checksum` matches this string (case-sensitive, exact match).See `ReferenceSet::md5checksum` for details.
     + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -212,203 +118,42 @@ version of `SearchReferenceSetsResponse`.
 
 
 
-### Post Search References  [POST /brapi/v1/search/references]
+### Get Referencesets by referenceSetDbId  [GET /brapi/v1/referencesets/{referenceSetDbId}]
 
-`POST /references/search` must accept a JSON version of
-`SearchReferencesRequest` as the post body and will return a JSON
-version of `SearchReferencesResponse`.
-
-**Request Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|accession|string|If specified, return the references for which the `accession` matches this string (case-sensitive, exact match).|
-|page_size|integer (int32)|Specifies the maximum number of results to return in a single page. If unspecified, a system default will be used.|
-|md5checksum|string|If specified, return the references for which the `md5checksum` matches this string (case-sensitive, exact match). See `ReferenceSet::md5checksum` for details.|
-|referenceSetDbId|string|The `ReferenceSet` to search.|
-|page_token|string|The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of `next_page_token` from the previous response.|
+`GET /referencesets/{reference_set_id}` will return a JSON version of
+`ReferenceSet`.
 
 
-**Response Fields** 
 
-|Field|Type|Description|
-|---|---|---| 
-|searchResultDbId|string||
 
 
  
 
 + Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + referenceSetDbId (Required, ) ... The ID of the `ReferenceSet` to be retrieved.
 
 
- 
-+ Request (application/json)
+
+
++ Response 200 (application/json)
 ```
 {
-    "accession": "accession",
+    "additionalInfo": {},
+    "assemblyPUI": "assemblyPUI",
+    "description": "description",
     "md5checksum": "md5checksum",
-    "page_size": 0,
-    "page_token": "page_token",
-    "referenceSetDbId": "referenceSetDbId"
-}
-```
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "searchResultDbId": "551ae08c"
+    "referenceSetDbId": "referenceSetDbId",
+    "referenceSetName": "referenceSetName",
+    "sourceAccessions": [
+        "sourceAccessions1",
+        "sourceAccessions2"
+    ],
+    "sourceURI": "sourceURI",
+    "species": {
+        "term": "term",
+        "termURI": "termURI"
     }
 }
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-
-
-
-### Get Search References by searchResultsDbId  [GET /brapi/v1/search/references/{searchResultsDbId}{?page}{?pageSize}]
-
-`POST /references/search` must accept a JSON version of
-`SearchReferencesRequest` as the post body and will return a JSON
-version of `SearchReferencesResponse`.
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|referenceDbId|string|The reference ID. Unique within the repository.|
-|isDerived|boolean (boolean)|A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.|
-|sourceDivergence|number (float)|The `sourceDivergence` is the fraction of non-indel bases that do not match the reference this message was derived from.|
-|md5checksum|string|The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).|
-|additionalInfo|object|Additional arbitrary info|
-|sourceURI|string|The URI from which the sequence was obtained. Specifies a FASTA format file/string with one name, sequence pair. In most cases, clients should call the `getReferenceBases()` method to obtain sequence bases for a `Reference` instead of attempting to retrieve this URI.|
-|species|object||
-|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
-|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
-|length|string (int64)|The length of this reference's sequence.|
-|referenceName|string|The unique name of this reference within the Reference Set (e.g. '22').|
-|sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.|
-
-
- 
-
-+ Parameters
-    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "data": [
-            {
-                "additionalInfo": {},
-                "length": "",
-                "md5checksum": "md5checksum",
-                "referenceDbId": "referenceDbId",
-                "referenceName": "referenceName",
-                "sourceAccessions": [
-                    "sourceAccessions1",
-                    "sourceAccessions2"
-                ],
-                "sourceURI": "sourceURI",
-                "species": {
-                    "term": "term",
-                    "termURI": "termURI"
-                }
-            }
-        ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
 
 
@@ -429,18 +174,18 @@ version of `SearchReferencesResponse`.
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|referenceDbId|string|The reference ID. Unique within the repository.|
-|isDerived|boolean (boolean)|A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.|
-|sourceDivergence|number (float)|The `sourceDivergence` is the fraction of non-indel bases that do not match the reference this message was derived from.|
-|md5checksum|string|The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).|
-|additionalInfo|object|Additional arbitrary info|
 |sourceURI|string|The URI from which the sequence was obtained. Specifies a FASTA format file/string with one name, sequence pair. In most cases, clients should call the `getReferenceBases()` method to obtain sequence bases for a `Reference` instead of attempting to retrieve this URI.|
-|species|object||
-|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
-|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
-|length|string (int64)|The length of this reference's sequence.|
-|referenceName|string|The unique name of this reference within the Reference Set (e.g. '22').|
+|additionalInfo|object|Additional arbitrary info|
+|referenceDbId|string|The reference ID. Unique within the repository.|
 |sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.|
+|sourceDivergence|number (float)|The `sourceDivergence` is the fraction of non-indel bases that do not match the reference this message was derived from.|
+|isDerived|boolean (boolean)|A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.|
+|referenceName|string|The unique name of this reference within the Reference Set (e.g. '22').|
+|species|object||
+|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
+|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
+|length|string (int64)|The length of this reference's sequence.|
+|md5checksum|string|The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).|
 
 
  
@@ -627,18 +372,18 @@ version of `SearchReferencesResponse`.
 
 |Field|Type|Description|
 |---|---|---| 
-|referenceDbId|string|The reference ID. Unique within the repository.|
-|isDerived|boolean (boolean)|A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.|
-|sourceDivergence|number (float)|The `sourceDivergence` is the fraction of non-indel bases that do not match the reference this message was derived from.|
-|md5checksum|string|The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).|
-|additionalInfo|object|Additional arbitrary info|
 |sourceURI|string|The URI from which the sequence was obtained. Specifies a FASTA format file/string with one name, sequence pair. In most cases, clients should call the `getReferenceBases()` method to obtain sequence bases for a `Reference` instead of attempting to retrieve this URI.|
-|species|object||
-|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
-|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
-|length|string (int64)|The length of this reference's sequence.|
-|referenceName|string|The unique name of this reference within the Reference Set (e.g. '22').|
+|additionalInfo|object|Additional arbitrary info|
+|referenceDbId|string|The reference ID. Unique within the repository.|
 |sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.|
+|sourceDivergence|number (float)|The `sourceDivergence` is the fraction of non-indel bases that do not match the reference this message was derived from.|
+|isDerived|boolean (boolean)|A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.|
+|referenceName|string|The unique name of this reference within the Reference Set (e.g. '22').|
+|species|object||
+|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
+|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
+|length|string (int64)|The length of this reference's sequence.|
+|md5checksum|string|The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).|
 
 
  
@@ -717,15 +462,112 @@ version of `SearchReferencesResponse`.
 
 
 
-## Referencesets [/brapi/v1/referencesets] 
+## Search [/brapi/v1/search] 
 
 
 
 
-### Get Referencesets  [GET /brapi/v1/referencesets{?referenceSetDbId}{?accession}{?assemblyPUI}{?md5checksum}{?page}{?pageSize}]
+### Post Search Referencesets  [POST /brapi/v1/search/referencesets]
 
-`GET /referencesets/{reference_set_id}` will return a JSON version of
-`ReferenceSet`.
+`POST /referencesets/search` must accept a JSON version of
+`SearchReferenceSetsRequest` as the post body and will return a JSON
+version of `SearchReferenceSetsResponse`.
+
+**Request Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|accession|string|If unset, return the reference sets for which the `accession` matches this string (case-sensitive, exact match).|
+|assemblyPUI|string|If unset, return the reference sets for which the `assemblyId` matches this string (case-sensitive, exact match).|
+|md5checksum|string|If unset, return the reference sets for which the `md5checksum` matches this string (case-sensitive, exact match). See `ReferenceSet::md5checksum` for details.|
+|page_size|integer (int32)|Specifies the maximum number of results to return in a single page. If unspecified, a system default will be used.|
+|page_token|string|The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of `next_page_token` from the previous response.|
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|searchResultDbId|string||
+
+
+ 
+
++ Parameters
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+ 
++ Request (application/json)
+```
+{
+    "accession": "accession",
+    "assemblyPUI": "assemblyPUI",
+    "md5checksum": "md5checksum",
+    "page_size": 0,
+    "page_token": "page_token"
+}
+```
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultDbId": "551ae08c"
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+
+
+
+### Get Search Referencesets by searchResultsDbId  [GET /brapi/v1/search/referencesets/{searchResultsDbId}{?page}{?pageSize}]
+
+`POST /referencesets/search` must accept a JSON version of
+`SearchReferenceSetsRequest` as the post body and will return a JSON
+version of `SearchReferenceSetsResponse`.
 
 
 
@@ -734,27 +576,24 @@ version of `SearchReferencesResponse`.
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|assemblyPUI|string|The remaining information is about the source of the sequences Public id of this reference set, such as `GRCh37`.|
 |description|string|Optional free text description of this reference set.|
-|isDerived|boolean (boolean)|A reference set may be derived from a source if it contains additional sequences, or some of the sequences within it are derived (see the definition of `isDerived` in `Reference`).|
-|md5checksum|string|Order-independent MD5 checksum which identifies this `ReferenceSet`.  To compute this checksum, make a list of `Reference.md5checksum` for all `Reference` s in this set. Then sort that list, and take the MD5 hash of all the strings concatenated together. Express the hash as a lower-case hexadecimal string.|
-|additionalInfo|object|Additional arbitrary info|
 |sourceURI|string|Specifies a FASTA format file/string.|
-|referenceSetDbId|string|The reference set ID. Unique in the repository.|
-|species|object||
-|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
-|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
+|additionalInfo|object|Additional arbitrary info|
 |referenceSetName|string|The reference set name.|
 |sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.|
+|assemblyPUI|string|The remaining information is about the source of the sequences Public id of this reference set, such as `GRCh37`.|
+|isDerived|boolean (boolean)|A reference set may be derived from a source if it contains additional sequences, or some of the sequences within it are derived (see the definition of `isDerived` in `Reference`).|
+|species|object||
+|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
+|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
+|referenceSetDbId|string|The reference set ID. Unique in the repository.|
+|md5checksum|string|Order-independent MD5 checksum which identifies this `ReferenceSet`.  To compute this checksum, make a list of `Reference.md5checksum` for all `Reference` s in this set. Then sort that list, and take the MD5 hash of all the strings concatenated together. Express the hash as a lower-case hexadecimal string.|
 
 
  
 
 + Parameters
-    + referenceSetDbId (Optional, ) ... The ID of the `ReferenceSet` to be retrieved.
-    + accession (Optional, ) ... If unset, return the reference sets for which the `accession`matches this string (case-sensitive, exact match).
-    + assemblyPUI (Optional, ) ... If unset, return the reference sets for which the `assemblyId`matches this string (case-sensitive, exact match).
-    + md5checksum (Optional, ) ... If unset, return the reference sets for which the`md5checksum` matches this string (case-sensitive, exact match).See `ReferenceSet::md5checksum` for details.
+    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
     + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -832,19 +671,136 @@ version of `SearchReferencesResponse`.
 
 
 
-### Get Referencesets by referenceSetDbId  [GET /brapi/v1/referencesets/{referenceSetDbId}]
+### Post Search References  [POST /brapi/v1/search/references]
 
-`GET /referencesets/{reference_set_id}` will return a JSON version of
-`ReferenceSet`.
+`POST /references/search` must accept a JSON version of
+`SearchReferencesRequest` as the post body and will return a JSON
+version of `SearchReferencesResponse`.
+
+**Request Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|accession|string|If specified, return the references for which the `accession` matches this string (case-sensitive, exact match).|
+|md5checksum|string|If specified, return the references for which the `md5checksum` matches this string (case-sensitive, exact match). See `ReferenceSet::md5checksum` for details.|
+|page_size|integer (int32)|Specifies the maximum number of results to return in a single page. If unspecified, a system default will be used.|
+|referenceSetDbId|string|The `ReferenceSet` to search.|
+|page_token|string|The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of `next_page_token` from the previous response.|
 
 
+**Response Fields** 
 
+|Field|Type|Description|
+|---|---|---| 
+|searchResultDbId|string||
 
 
  
 
 + Parameters
-    + referenceSetDbId (Required, ) ... The ID of the `ReferenceSet` to be retrieved.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+ 
++ Request (application/json)
+```
+{
+    "accession": "accession",
+    "md5checksum": "md5checksum",
+    "page_size": 0,
+    "page_token": "page_token",
+    "referenceSetDbId": "referenceSetDbId"
+}
+```
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultDbId": "551ae08c"
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+
+
+
+### Get Search References by searchResultsDbId  [GET /brapi/v1/search/references/{searchResultsDbId}{?page}{?pageSize}]
+
+`POST /references/search` must accept a JSON version of
+`SearchReferencesRequest` as the post body and will return a JSON
+version of `SearchReferencesResponse`.
+
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|sourceURI|string|The URI from which the sequence was obtained. Specifies a FASTA format file/string with one name, sequence pair. In most cases, clients should call the `getReferenceBases()` method to obtain sequence bases for a `Reference` instead of attempting to retrieve this URI.|
+|additionalInfo|object|Additional arbitrary info|
+|referenceDbId|string|The reference ID. Unique within the repository.|
+|sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.|
+|sourceDivergence|number (float)|The `sourceDivergence` is the fraction of non-indel bases that do not match the reference this message was derived from.|
+|isDerived|boolean (boolean)|A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.|
+|referenceName|string|The unique name of this reference within the Reference Set (e.g. '22').|
+|species|object||
+|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
+|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
+|length|string (int64)|The length of this reference's sequence.|
+|md5checksum|string|The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).|
+
+
+ 
+
++ Parameters
+    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -852,21 +808,65 @@ version of `SearchReferencesResponse`.
 + Response 200 (application/json)
 ```
 {
-    "additionalInfo": {},
-    "assemblyPUI": "assemblyPUI",
-    "description": "description",
-    "md5checksum": "md5checksum",
-    "referenceSetDbId": "referenceSetDbId",
-    "referenceSetName": "referenceSetName",
-    "sourceAccessions": [
-        "sourceAccessions1",
-        "sourceAccessions2"
-    ],
-    "sourceURI": "sourceURI",
-    "species": {
-        "term": "term",
-        "termURI": "termURI"
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "length": "",
+                "md5checksum": "md5checksum",
+                "referenceDbId": "referenceDbId",
+                "referenceName": "referenceName",
+                "sourceAccessions": [
+                    "sourceAccessions1",
+                    "sourceAccessions2"
+                ],
+                "sourceURI": "sourceURI",
+                "species": {
+                    "term": "term",
+                    "termURI": "termURI"
+                }
+            }
+        ]
     }
 }
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
 

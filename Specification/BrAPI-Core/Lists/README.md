@@ -4,6 +4,252 @@ Calls for manipulating generic lists of item IDs
 
 
 
+## Search [/brapi/v1/search] 
+
+
+
+
+### Post Search Lists  [POST /brapi/v1/search/lists]
+
+Advanced searching for the list resource.
+See Search Services for additional implementation details.
+
+**Request Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|listOwnerNames|array[string]||
+|listNames|array[string]||
+|listOwnerPersonDbIds|array[string]||
+|listSources|array[string]||
+|listType|string||
+|listDbIds|array[string]||
+|dateCreatedRangeEnd|string (date-time)||
+|dateModifiedRangeEnd|string (date-time)||
+|dateModifiedRangeStart|string (date-time)||
+|dateCreatedRangeStart|string (date-time)||
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|searchResultDbId|string||
+
+
+ 
+
++ Parameters
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+ 
++ Request (application/json)
+```
+{
+    "dateCreatedRangeEnd": "2018-01-01T14:47:23-0600",
+    "dateCreatedRangeStart": "2018-01-01T14:47:23-0600",
+    "dateModifiedRangeEnd": "2018-01-01T14:47:23-0600",
+    "dateModifiedRangeStart": "2018-01-01T14:47:23-0600",
+    "listDbIds": [
+        "55f20cf6",
+        "3193ca3d"
+    ],
+    "listNames": [
+        "Planing List 1",
+        "Bobs List"
+    ],
+    "listOwnerNames": [
+        "Bob Robertson",
+        "Rob Bobertson"
+    ],
+    "listOwnerPersonDbIds": [
+        "bob@bob.com",
+        "rob@bob.com"
+    ],
+    "listSources": [
+        "USER",
+        "SYSTEM",
+        "EXTERNAL"
+    ],
+    "listType": [
+        "germplasm",
+        "markers",
+        "programs",
+        "trials",
+        "studies",
+        "observationUnits",
+        "observations",
+        "observationVariables",
+        "samples"
+    ]
+}
+```
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultDbId": "551ae08c"
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+
+
+
+### Get Search Lists by searchResultsDbId  [GET /brapi/v1/search/lists/{searchResultsDbId}{?page}{?pageSize}]
+
+Advanced searching for the list resource.
+See Search Services for additional implementation details.
+
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|dateCreated|string (date-time)|Timestamp when the entity was first created|
+|listSize|integer|The number of elements in a List|
+|listName|string|Human readable name of a List|
+|listType|string||
+|additionalInfo|object|Additional arbitrary info|
+|listDescription|string|Description of a List|
+|dateModified|string (date-time)|Timestamp when the entity was last updated|
+|listSource|string|The description of where a List originated from|
+|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
+|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
+|listDbId|string|The unique identifier for a List|
+
+
+ 
+
++ Parameters
+    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "dateCreated": "2018-01-01T14:47:23-0600",
+                "dateModified": "2018-01-01T14:47:23-0600",
+                "listDbId": "6f621cfa",
+                "listDescription": "This is a list of germplasm I would like to investigate next season",
+                "listName": "MyGermplasm_Sept_2020",
+                "listOwnerName": "Bob Robertson",
+                "listOwnerPersonDbId": "58db0628",
+                "listSize": 53,
+                "listSource": "GeneBank Repository 1.3",
+                "listType": [
+                    "germplasm",
+                    "markers",
+                    "programs",
+                    "trials",
+                    "studies",
+                    "observationUnits",
+                    "observations",
+                    "observationVariables",
+                    "samples"
+                ]
+            }
+        ]
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+
 ## Lists [/brapi/v1/lists] 
 
 
@@ -20,17 +266,17 @@ Get filtered set of generic lists
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|listDescription|string|Description of a List|
-|additionalInfo|object|Additional arbitrary info|
-|listSize|integer|The number of elements in a List|
-|listType|string||
-|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
-|dateModified|string (date-time)|Timestamp when the entity was last updated|
-|listDbId|string|The unique identifier for a List|
+|listSize|integer|The number of elements in a List|
 |listName|string|Human readable name of a List|
-|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
+|listType|string||
+|additionalInfo|object|Additional arbitrary info|
+|listDescription|string|Description of a List|
+|dateModified|string (date-time)|Timestamp when the entity was last updated|
 |listSource|string|The description of where a List originated from|
+|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
+|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
+|listDbId|string|The unique identifier for a List|
 
 
  
@@ -131,17 +377,17 @@ Create a new list
 
 |Field|Type|Description|
 |---|---|---| 
-|listDescription|string|Description of a List|
-|additionalInfo|object|Additional arbitrary info|
-|listSize|integer|The number of elements in a List|
-|data|array[string]|The list of DbIds contained in this list|
-|listType|string||
-|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
-|dateModified|string (date-time)|Timestamp when the entity was last updated|
+|listSize|integer|The number of elements in a List|
 |listName|string|Human readable name of a List|
-|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
+|listType|string||
+|data|array[string]|The list of DbIds contained in this list|
+|additionalInfo|object|Additional arbitrary info|
+|listDescription|string|Description of a List|
+|dateModified|string (date-time)|Timestamp when the entity was last updated|
 |listSource|string|The description of where a List originated from|
+|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
+|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
 
 
 **Response Fields** 
@@ -149,17 +395,17 @@ Create a new list
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|listDescription|string|Description of a List|
-|additionalInfo|object|Additional arbitrary info|
-|listSize|integer|The number of elements in a List|
-|listType|string||
-|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
-|dateModified|string (date-time)|Timestamp when the entity was last updated|
-|listDbId|string|The unique identifier for a List|
+|listSize|integer|The number of elements in a List|
 |listName|string|Human readable name of a List|
-|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
+|listType|string||
+|additionalInfo|object|Additional arbitrary info|
+|listDescription|string|Description of a List|
+|dateModified|string (date-time)|Timestamp when the entity was last updated|
 |listSource|string|The description of where a List originated from|
+|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
+|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
+|listDbId|string|The unique identifier for a List|
 
 
  
@@ -289,18 +535,18 @@ Get a specific generic lists
 
 |Field|Type|Description|
 |---|---|---| 
-|listDescription|string|Description of a List|
-|additionalInfo|object|Additional arbitrary info|
-|listSize|integer|The number of elements in a List|
-|data|array[string]|The list of DbIds contained in this list|
-|listType|string||
-|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
-|dateModified|string (date-time)|Timestamp when the entity was last updated|
-|listDbId|string|The unique identifier for a List|
+|listSize|integer|The number of elements in a List|
 |listName|string|Human readable name of a List|
-|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
+|listType|string||
+|data|array[string]|The list of DbIds contained in this list|
+|additionalInfo|object|Additional arbitrary info|
+|listDescription|string|Description of a List|
+|dateModified|string (date-time)|Timestamp when the entity was last updated|
 |listSource|string|The description of where a List originated from|
+|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
+|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
+|listDbId|string|The unique identifier for a List|
 
 
  
@@ -401,35 +647,35 @@ Update an existing generic list
 
 |Field|Type|Description|
 |---|---|---| 
-|listDescription|string|Description of a List|
-|additionalInfo|object|Additional arbitrary info|
-|listSize|integer|The number of elements in a List|
-|data|array[string]|The list of DbIds contained in this list|
-|listType|string||
-|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
-|dateModified|string (date-time)|Timestamp when the entity was last updated|
+|listSize|integer|The number of elements in a List|
 |listName|string|Human readable name of a List|
-|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
+|listType|string||
+|data|array[string]|The list of DbIds contained in this list|
+|additionalInfo|object|Additional arbitrary info|
+|listDescription|string|Description of a List|
+|dateModified|string (date-time)|Timestamp when the entity was last updated|
 |listSource|string|The description of where a List originated from|
+|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
+|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
 
 
 **Response Fields** 
 
 |Field|Type|Description|
 |---|---|---| 
-|listDescription|string|Description of a List|
-|additionalInfo|object|Additional arbitrary info|
-|listSize|integer|The number of elements in a List|
-|data|array[string]|The list of DbIds contained in this list|
-|listType|string||
-|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
-|dateModified|string (date-time)|Timestamp when the entity was last updated|
-|listDbId|string|The unique identifier for a List|
+|listSize|integer|The number of elements in a List|
 |listName|string|Human readable name of a List|
-|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
+|listType|string||
+|data|array[string]|The list of DbIds contained in this list|
+|additionalInfo|object|Additional arbitrary info|
+|listDescription|string|Description of a List|
+|dateModified|string (date-time)|Timestamp when the entity was last updated|
 |listSource|string|The description of where a List originated from|
+|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
+|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
+|listDbId|string|The unique identifier for a List|
 
 
  
@@ -567,18 +813,18 @@ Add new data to a specific generic lists
 
 |Field|Type|Description|
 |---|---|---| 
-|listDescription|string|Description of a List|
-|additionalInfo|object|Additional arbitrary info|
-|listSize|integer|The number of elements in a List|
-|data|array[string]|The list of DbIds contained in this list|
-|listType|string||
-|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
-|dateModified|string (date-time)|Timestamp when the entity was last updated|
-|listDbId|string|The unique identifier for a List|
+|listSize|integer|The number of elements in a List|
 |listName|string|Human readable name of a List|
-|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
+|listType|string||
+|data|array[string]|The list of DbIds contained in this list|
+|additionalInfo|object|Additional arbitrary info|
+|listDescription|string|Description of a List|
+|dateModified|string (date-time)|Timestamp when the entity was last updated|
 |listSource|string|The description of where a List originated from|
+|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
+|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
+|listDbId|string|The unique identifier for a List|
 
 
  
@@ -674,251 +920,5 @@ Add new data to a specific generic lists
 + Response 404 (application/json)
 ```
 "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
-```
-
-
-
-## Search [/brapi/v1/search] 
-
-
-
-
-### Post Search Lists  [POST /brapi/v1/search/lists]
-
-Advanced searching for the list resource.
-See Search Services for additional implementation details.
-
-**Request Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|dateCreatedRangeStart|string (date-time)||
-|listOwnerNames|array[string]||
-|dateModifiedRangeStart|string (date-time)||
-|listSources|array[string]||
-|listType|string||
-|dateCreatedRangeEnd|string (date-time)||
-|listOwnerPersonDbIds|array[string]||
-|dateModifiedRangeEnd|string (date-time)||
-|listNames|array[string]||
-|listDbIds|array[string]||
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|searchResultDbId|string||
-
-
- 
-
-+ Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
- 
-+ Request (application/json)
-```
-{
-    "dateCreatedRangeEnd": "2018-01-01T14:47:23-0600",
-    "dateCreatedRangeStart": "2018-01-01T14:47:23-0600",
-    "dateModifiedRangeEnd": "2018-01-01T14:47:23-0600",
-    "dateModifiedRangeStart": "2018-01-01T14:47:23-0600",
-    "listDbIds": [
-        "55f20cf6",
-        "3193ca3d"
-    ],
-    "listNames": [
-        "Planing List 1",
-        "Bobs List"
-    ],
-    "listOwnerNames": [
-        "Bob Robertson",
-        "Rob Bobertson"
-    ],
-    "listOwnerPersonDbIds": [
-        "bob@bob.com",
-        "rob@bob.com"
-    ],
-    "listSources": [
-        "USER",
-        "SYSTEM",
-        "EXTERNAL"
-    ],
-    "listType": [
-        "germplasm",
-        "markers",
-        "programs",
-        "trials",
-        "studies",
-        "observationUnits",
-        "observations",
-        "observationVariables",
-        "samples"
-    ]
-}
-```
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "searchResultDbId": "551ae08c"
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-
-
-
-### Get Search Lists by searchResultsDbId  [GET /brapi/v1/search/lists/{searchResultsDbId}{?page}{?pageSize}]
-
-Advanced searching for the list resource.
-See Search Services for additional implementation details.
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|listDescription|string|Description of a List|
-|additionalInfo|object|Additional arbitrary info|
-|listSize|integer|The number of elements in a List|
-|listType|string||
-|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
-|dateCreated|string (date-time)|Timestamp when the entity was first created|
-|dateModified|string (date-time)|Timestamp when the entity was last updated|
-|listDbId|string|The unique identifier for a List|
-|listName|string|Human readable name of a List|
-|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
-|listSource|string|The description of where a List originated from|
-
-
- 
-
-+ Parameters
-    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "data": [
-            {
-                "additionalInfo": {},
-                "dateCreated": "2018-01-01T14:47:23-0600",
-                "dateModified": "2018-01-01T14:47:23-0600",
-                "listDbId": "6f621cfa",
-                "listDescription": "This is a list of germplasm I would like to investigate next season",
-                "listName": "MyGermplasm_Sept_2020",
-                "listOwnerName": "Bob Robertson",
-                "listOwnerPersonDbId": "58db0628",
-                "listSize": 53,
-                "listSource": "GeneBank Repository 1.3",
-                "listType": [
-                    "germplasm",
-                    "markers",
-                    "programs",
-                    "trials",
-                    "studies",
-                    "observationUnits",
-                    "observations",
-                    "observationVariables",
-                    "samples"
-                ]
-            }
-        ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
 

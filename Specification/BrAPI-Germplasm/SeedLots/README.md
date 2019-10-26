@@ -20,19 +20,19 @@ Get a filtered list of Seed Lot descriptions available in a system.
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
-|seedLotName|string|A human readable name for this Seed Lot|
-|sourceCollection|string|The description of the source where this material was originally collected (wild, nursery, etc)|
-|seedLotDbId|string|Unique DbId for the Seed Lot|
-|seedLotDescription|string|A general description of this Seed Lot|
-|programDbId|string|Unique DbId of the breeding Program this Seed Lot belongs to|
-|additionalInfo|object|Additional arbitrary info|
-|germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
-|count|integer|Current balance of seeds in this lot|
-|units|string|Description of the things being counted in this Seed Lot (seeds, bulbs, stock, tree, etc)|
-|createdDate|string (date-time)|The time stamp for when this seed lot was created|
 |storageLocation|string|Description the storage location|
+|programDbId|string|Unique DbId of the breeding Program this Seed Lot belongs to|
 |locationDbId|string|DbId of the storage location|
+|additionalInfo|object|Additional arbitrary info|
+|units|string|Description of the things being counted in this Seed Lot (seeds, bulbs, stock, tree, etc)|
+|seedLotDescription|string|A general description of this Seed Lot|
+|createdDate|string (date-time)|The time stamp for when this seed lot was created|
+|seedLotDbId|string|Unique DbId for the Seed Lot|
+|germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
+|sourceCollection|string|The description of the source where this material was originally collected (wild, nursery, etc)|
+|seedLotName|string|A human readable name for this Seed Lot|
+|lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
+|count|integer|Current balance of seeds in this lot|
 
 
  
@@ -123,18 +123,18 @@ Add new Seed Lot descriptions to a server
 
 |Field|Type|Description|
 |---|---|---| 
-|lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
-|seedLotName|string|A human readable name for this Seed Lot|
-|sourceCollection|string|The description of the source where this material was originally collected (wild, nursery, etc)|
-|seedLotDescription|string|A general description of this Seed Lot|
-|programDbId|string|Unique DbId of the breeding Program this Seed Lot belongs to|
-|additionalInfo|object|Additional arbitrary info|
-|germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
-|count|integer|Current balance of seeds in this lot|
-|units|string|Description of the things being counted in this Seed Lot (seeds, bulbs, stock, tree, etc)|
-|createdDate|string (date-time)|The time stamp for when this seed lot was created|
 |storageLocation|string|Description the storage location|
+|programDbId|string|Unique DbId of the breeding Program this Seed Lot belongs to|
 |locationDbId|string|DbId of the storage location|
+|additionalInfo|object|Additional arbitrary info|
+|units|string|Description of the things being counted in this Seed Lot (seeds, bulbs, stock, tree, etc)|
+|seedLotDescription|string|A general description of this Seed Lot|
+|createdDate|string (date-time)|The time stamp for when this seed lot was created|
+|germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
+|sourceCollection|string|The description of the source where this material was originally collected (wild, nursery, etc)|
+|seedLotName|string|A human readable name for this Seed Lot|
+|lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
+|count|integer|Current balance of seeds in this lot|
 
 
 **Response Fields** 
@@ -142,19 +142,19 @@ Add new Seed Lot descriptions to a server
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
-|seedLotName|string|A human readable name for this Seed Lot|
-|sourceCollection|string|The description of the source where this material was originally collected (wild, nursery, etc)|
-|seedLotDbId|string|Unique DbId for the Seed Lot|
-|seedLotDescription|string|A general description of this Seed Lot|
-|programDbId|string|Unique DbId of the breeding Program this Seed Lot belongs to|
-|additionalInfo|object|Additional arbitrary info|
-|germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
-|count|integer|Current balance of seeds in this lot|
-|units|string|Description of the things being counted in this Seed Lot (seeds, bulbs, stock, tree, etc)|
-|createdDate|string (date-time)|The time stamp for when this seed lot was created|
 |storageLocation|string|Description the storage location|
+|programDbId|string|Unique DbId of the breeding Program this Seed Lot belongs to|
 |locationDbId|string|DbId of the storage location|
+|additionalInfo|object|Additional arbitrary info|
+|units|string|Description of the things being counted in this Seed Lot (seeds, bulbs, stock, tree, etc)|
+|seedLotDescription|string|A general description of this Seed Lot|
+|createdDate|string (date-time)|The time stamp for when this seed lot was created|
+|seedLotDbId|string|Unique DbId for the Seed Lot|
+|germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
+|sourceCollection|string|The description of the source where this material was originally collected (wild, nursery, etc)|
+|seedLotName|string|A human readable name for this Seed Lot|
+|lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
+|count|integer|Current balance of seeds in this lot|
 
 
  
@@ -264,19 +264,19 @@ Get a specific Seed Lot by seedLotDbId
 
 |Field|Type|Description|
 |---|---|---| 
-|lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
-|seedLotName|string|A human readable name for this Seed Lot|
-|sourceCollection|string|The description of the source where this material was originally collected (wild, nursery, etc)|
-|seedLotDbId|string|Unique DbId for the Seed Lot|
-|seedLotDescription|string|A general description of this Seed Lot|
-|programDbId|string|Unique DbId of the breeding Program this Seed Lot belongs to|
-|additionalInfo|object|Additional arbitrary info|
-|germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
-|count|integer|Current balance of seeds in this lot|
-|units|string|Description of the things being counted in this Seed Lot (seeds, bulbs, stock, tree, etc)|
-|createdDate|string (date-time)|The time stamp for when this seed lot was created|
 |storageLocation|string|Description the storage location|
+|programDbId|string|Unique DbId of the breeding Program this Seed Lot belongs to|
 |locationDbId|string|DbId of the storage location|
+|additionalInfo|object|Additional arbitrary info|
+|units|string|Description of the things being counted in this Seed Lot (seeds, bulbs, stock, tree, etc)|
+|seedLotDescription|string|A general description of this Seed Lot|
+|createdDate|string (date-time)|The time stamp for when this seed lot was created|
+|seedLotDbId|string|Unique DbId for the Seed Lot|
+|germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
+|sourceCollection|string|The description of the source where this material was originally collected (wild, nursery, etc)|
+|seedLotName|string|A human readable name for this Seed Lot|
+|lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
+|count|integer|Current balance of seeds in this lot|
 
 
  
@@ -365,37 +365,37 @@ Update an existing Seed Lot
 
 |Field|Type|Description|
 |---|---|---| 
-|lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
-|seedLotName|string|A human readable name for this Seed Lot|
-|sourceCollection|string|The description of the source where this material was originally collected (wild, nursery, etc)|
-|seedLotDescription|string|A general description of this Seed Lot|
-|programDbId|string|Unique DbId of the breeding Program this Seed Lot belongs to|
-|additionalInfo|object|Additional arbitrary info|
-|germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
-|count|integer|Current balance of seeds in this lot|
-|units|string|Description of the things being counted in this Seed Lot (seeds, bulbs, stock, tree, etc)|
-|createdDate|string (date-time)|The time stamp for when this seed lot was created|
 |storageLocation|string|Description the storage location|
+|programDbId|string|Unique DbId of the breeding Program this Seed Lot belongs to|
 |locationDbId|string|DbId of the storage location|
+|additionalInfo|object|Additional arbitrary info|
+|units|string|Description of the things being counted in this Seed Lot (seeds, bulbs, stock, tree, etc)|
+|seedLotDescription|string|A general description of this Seed Lot|
+|createdDate|string (date-time)|The time stamp for when this seed lot was created|
+|germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
+|sourceCollection|string|The description of the source where this material was originally collected (wild, nursery, etc)|
+|seedLotName|string|A human readable name for this Seed Lot|
+|lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
+|count|integer|Current balance of seeds in this lot|
 
 
 **Response Fields** 
 
 |Field|Type|Description|
 |---|---|---| 
-|lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
-|seedLotName|string|A human readable name for this Seed Lot|
-|sourceCollection|string|The description of the source where this material was originally collected (wild, nursery, etc)|
-|seedLotDbId|string|Unique DbId for the Seed Lot|
-|seedLotDescription|string|A general description of this Seed Lot|
-|programDbId|string|Unique DbId of the breeding Program this Seed Lot belongs to|
-|additionalInfo|object|Additional arbitrary info|
-|germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
-|count|integer|Current balance of seeds in this lot|
-|units|string|Description of the things being counted in this Seed Lot (seeds, bulbs, stock, tree, etc)|
-|createdDate|string (date-time)|The time stamp for when this seed lot was created|
 |storageLocation|string|Description the storage location|
+|programDbId|string|Unique DbId of the breeding Program this Seed Lot belongs to|
 |locationDbId|string|DbId of the storage location|
+|additionalInfo|object|Additional arbitrary info|
+|units|string|Description of the things being counted in this Seed Lot (seeds, bulbs, stock, tree, etc)|
+|seedLotDescription|string|A general description of this Seed Lot|
+|createdDate|string (date-time)|The time stamp for when this seed lot was created|
+|seedLotDbId|string|Unique DbId for the Seed Lot|
+|germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
+|sourceCollection|string|The description of the source where this material was originally collected (wild, nursery, etc)|
+|seedLotName|string|A human readable name for this Seed Lot|
+|lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
+|count|integer|Current balance of seeds in this lot|
 
 
  
@@ -506,13 +506,13 @@ Get all Transactions related to a specific Seed Lot
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|fromSeedLotDbId|string|The identifier for the Seed Lot being transfered out of|
-|additionalInfo|object|Additional arbitrary info|
 |transactionTimestamp|string (date-time)|The time stamp for when the transaction occured|
+|additionalInfo|object|Additional arbitrary info|
+|transactionDescription|string|A general description of this Seed Lot Transaction|
+|fromSeedLotDbId|string|The identifier for the Seed Lot being transfered out of|
+|units|string|Description of the things being transfered in this transaction (seeds, bulbs, stock, etc)|
 |toSeedLotDbId|string|The identifier for the Seed Lot being transfered into|
 |count|integer|The amount of units being transfered|
-|units|string|Description of the things being transfered in this transaction (seeds, bulbs, stock, etc)|
-|transactionDescription|string|A general description of this Seed Lot Transaction|
 |transactionDbId|string|Unique DbId for the Seed Lot Transaction|
 
 
@@ -608,13 +608,13 @@ Get a filtered list of Seed Lot Transactions
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|fromSeedLotDbId|string|The identifier for the Seed Lot being transfered out of|
-|additionalInfo|object|Additional arbitrary info|
 |transactionTimestamp|string (date-time)|The time stamp for when the transaction occured|
+|additionalInfo|object|Additional arbitrary info|
+|transactionDescription|string|A general description of this Seed Lot Transaction|
+|fromSeedLotDbId|string|The identifier for the Seed Lot being transfered out of|
+|units|string|Description of the things being transfered in this transaction (seeds, bulbs, stock, etc)|
 |toSeedLotDbId|string|The identifier for the Seed Lot being transfered into|
 |count|integer|The amount of units being transfered|
-|units|string|Description of the things being transfered in this transaction (seeds, bulbs, stock, etc)|
-|transactionDescription|string|A general description of this Seed Lot Transaction|
 |transactionDbId|string|Unique DbId for the Seed Lot Transaction|
 
 
@@ -703,13 +703,13 @@ Add new Seed Lot Transaction to be recorded
 |Field|Type|Description|
 |---|---|---| 
 |seedLots|array[object]||
-|fromSeedLotDbId|string|The identifier for the Seed Lot being transfered out of|
-|additionalInfo|object|Additional arbitrary info|
 |transactionTimestamp|string (date-time)|The time stamp for when the transaction occured|
+|additionalInfo|object|Additional arbitrary info|
+|transactionDescription|string|A general description of this Seed Lot Transaction|
+|fromSeedLotDbId|string|The identifier for the Seed Lot being transfered out of|
+|units|string|Description of the things being transfered in this transaction (seeds, bulbs, stock, etc)|
 |toSeedLotDbId|string|The identifier for the Seed Lot being transfered into|
 |count|integer|The amount of units being transfered|
-|units|string|Description of the things being transfered in this transaction (seeds, bulbs, stock, etc)|
-|transactionDescription|string|A general description of this Seed Lot Transaction|
 
 
 **Response Fields** 
@@ -717,13 +717,13 @@ Add new Seed Lot Transaction to be recorded
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|fromSeedLotDbId|string|The identifier for the Seed Lot being transfered out of|
-|additionalInfo|object|Additional arbitrary info|
 |transactionTimestamp|string (date-time)|The time stamp for when the transaction occured|
+|additionalInfo|object|Additional arbitrary info|
+|transactionDescription|string|A general description of this Seed Lot Transaction|
+|fromSeedLotDbId|string|The identifier for the Seed Lot being transfered out of|
+|units|string|Description of the things being transfered in this transaction (seeds, bulbs, stock, etc)|
 |toSeedLotDbId|string|The identifier for the Seed Lot being transfered into|
 |count|integer|The amount of units being transfered|
-|units|string|Description of the things being transfered in this transaction (seeds, bulbs, stock, etc)|
-|transactionDescription|string|A general description of this Seed Lot Transaction|
 |transactionDbId|string|Unique DbId for the Seed Lot Transaction|
 
 
