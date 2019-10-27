@@ -23,20 +23,20 @@ See Search Services for additional implementation details.
 
 |Field|Type|Description|
 |---|---|---| 
-|trialDbIds|array[string]|List of trial identifiers to filter search results|
-|studyTypes|array[string]|The type of study being performed. ex. "Yield Trial", etc|
-|locationDbIds|array[string]|List of location names to filter search results|
-|seasonDbIds|array[string]|The ID which uniquely identifies a season|
-|sortOrder|string|Order results should be sorted. ex. "ASC" or "DESC"|
-|programDbIds|array[string]|List of program identifiers to filter search results|
-|sortBy|string|Name of one of the fields within the study object on which results can be sorted|
-|programNames|array[string]|List of program names to filter search results|
-|observationVariableDbIds|array[string]|List of observation variable IDs to search for|
 |germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm|
+|seasonDbIds|array[string]|The ID which uniquely identifies a season|
+|locationDbIds|array[string]|List of location names to filter search results|
+|trialDbIds|array[string]|List of trial identifiers to filter search results|
+|programDbIds|array[string]|List of program identifiers to filter search results|
 |commonCropNames|array[string]|Common names for the crop associated with this study|
-|studyNames|array[string]|List of study names to filter search results|
-|studyDbIds|array[string]|List of study identifiers to search for|
 |active|boolean|Is this study currently active|
+|studyTypes|array[string]|The type of study being performed. ex. "Yield Trial", etc|
+|studyDbIds|array[string]|List of study identifiers to search for|
+|studyNames|array[string]|List of study names to filter search results|
+|observationVariableDbIds|array[string]|List of observation variable IDs to search for|
+|programNames|array[string]|List of program names to filter search results|
+|sortBy|string|Name of one of the fields within the study object on which results can be sorted|
+|sortOrder|string|Order results should be sorted. ex. "ASC" or "DESC"|
 
 
 **Response Fields** 
@@ -190,72 +190,72 @@ See Search Services for additional implementation details.
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
-|parameterName|string|Name of the environment parameter constant within the experiment|
-|description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
-|unitPUI|string|URI pointing to an ontology class for the unit|
-|unit|string|Unit of the value for this parameter|
-|parameterPUI|string|URI pointing to an ontology class for the parameter|
-|valuePUI|string|URI pointing to an ontology class for the parameter value|
-|value|string|Numerical or categorical value|
-|experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
-|PUI|string||
-|description|string||
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|trialDbId|string|The ID which uniquely identifies a trial|
-|observationUnitsDescription|string|The human readable description of the observation units design|
-|dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
-|dataLinkName|string|The name of the external data link|
-|version|string|The version number of the data set.|
-|url|string (uri)|The URL which links to external data|
-|type|string|The type of external data link|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|culturalPractices|string|General description of the cultural practices of the study.|
-|trialName|string|The human readable name of a trial|
 |startDate|string (date)|The date this study started|
+|contacts|array[object]|List of contact entities associated with this study|
+|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
+|name|string|The full name of this contact person|
+|email|string|The contacts email address |
+|contactDbId|string|The ID which uniquely identifies this contact|
+|instituteName|string|The name of the institution which this contact is part of|
+|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
+|active|boolean|Is this study currently active|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|license|string|The usage license associated with the study data|
+|studyDescription|string|The description of this study|
 |studyType|string|The type of study being performed. ex. "Yield Trial", etc|
+|studyName|string|The human readable name for a study|
+|location|object||
+|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geometry|object||
+|type|string|Feature|
+|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
+|locationDbId|string|The unique identifier for a Location|
+|additionalInfo|object|Additional arbitrary info|
+|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
+|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
+|slope|string|Describes the approximate slope (height/distance) of the location.|
+|altitude|number|The altitude/elevation of this location (in meters)|
+|countryName|string|The full name of the country where this location is|
+|locationName|string|A human readable name for this location|
+|instituteAddress|string|The street address of the institute representing this location|
+|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
+|abbreviation|string|An abbreviation which represents this location|
+|instituteName|string|each institute/laboratory can have several experimental field|
+|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
+|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
+|trialDbId|string|The ID which uniquely identifies a trial|
+|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
+|valuePUI|string|URI pointing to an ontology class for the parameter value|
+|parameterName|string|Name of the environment parameter constant within the experiment|
+|value|string|Numerical or categorical value|
+|unit|string|Unit of the value for this parameter|
+|unitPUI|string|URI pointing to an ontology class for the unit|
+|parameterPUI|string|URI pointing to an ontology class for the parameter|
+|description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
+|seasons|array[string]|List of seasons over which this study was performed.|
+|commonCropName|string|Common name for the crop associated with this study|
+|observationUnitsDescription|string|The human readable description of the observation units design|
 |lastUpdate|object|The date and time when this study was last modified|
 |version|string||
 |timestamp|string (date-time)||
-|commonCropName|string|Common name for the crop associated with this study|
-|license|string|The usage license associated with the study data|
-|location|object||
-|instituteName|string|each institute/laboratory can have several experimental field|
-|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
-|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
-|instituteAddress|string|The street address of the institute representing this location|
-|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
-|altitude|number|The altitude/elevation of this location (in meters)|
-|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|type|string|Feature|
-|geometry|object||
-|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|locationDbId|string|The unique identifier for a Location|
-|locationName|string|A human readable name for this location|
-|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
-|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
-|slope|string|Describes the approximate slope (height/distance) of the location.|
-|abbreviation|string|An abbreviation which represents this location|
 |additionalInfo|object|Additional arbitrary info|
-|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
-|countryName|string|The full name of the country where this location is|
-|studyDescription|string|The description of this study|
+|dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
+|version|string|The version number of the data set.|
+|type|string|The type of external data link|
+|dataLinkName|string|The name of the external data link|
+|url|string (uri)|The URL which links to external data|
+|culturalPractices|string|General description of the cultural practices of the study.|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string||
 |description|string||
-|seasons|array[string]|List of seasons over which this study was performed.|
-|additionalInfo|object|Additional arbitrary info|
+|trialName|string|The human readable name of a trial|
+|experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
+|PUI|string||
+|description|string||
 |endDate|string (date)|The date the study ends|
-|contacts|array[object]|List of contact entities associated with this study|
-|instituteName|string|The name of the institution which this contact is part of|
-|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
-|name|string|The full name of this contact person|
-|contactDbId|string|The ID which uniquely identifies this contact|
-|email|string|The contacts email address |
-|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
-|studyName|string|The human readable name for a study|
-|active|boolean|Is this study currently active|
 
 
  
@@ -415,6 +415,70 @@ See Search Services for additional implementation details.
 
 
 
+## Studytypes [/brapi/v1/studytypes] 
+
+
+
+
+### Get Studytypes  [GET /brapi/v1/studytypes{?page}{?pageSize}]
+
+Call to retrieve the list of study types.
+
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[string]||
+
+
+ 
+
++ Parameters
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 2,
+            "totalCount": 3,
+            "totalPages": 2
+        },
+        "status": []
+    },
+    "result": {
+        "data": null
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+
 ## Seasons [/brapi/v1/seasons] 
 
 
@@ -437,8 +501,8 @@ program like "PlantingTime_3" or "Season E"
 |---|---|---| 
 |data|array[object]||
 |year|integer|The 4 digit year of the season.|
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 |seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
 
 
  
@@ -528,72 +592,72 @@ StartDate and endDate should be ISO-8601 format for dates
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
-|parameterName|string|Name of the environment parameter constant within the experiment|
-|description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
-|unitPUI|string|URI pointing to an ontology class for the unit|
-|unit|string|Unit of the value for this parameter|
-|parameterPUI|string|URI pointing to an ontology class for the parameter|
-|valuePUI|string|URI pointing to an ontology class for the parameter value|
-|value|string|Numerical or categorical value|
-|experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
-|PUI|string||
-|description|string||
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|trialDbId|string|The ID which uniquely identifies a trial|
-|observationUnitsDescription|string|The human readable description of the observation units design|
-|dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
-|dataLinkName|string|The name of the external data link|
-|version|string|The version number of the data set.|
-|url|string (uri)|The URL which links to external data|
-|type|string|The type of external data link|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|culturalPractices|string|General description of the cultural practices of the study.|
-|trialName|string|The human readable name of a trial|
 |startDate|string (date)|The date this study started|
+|contacts|array[object]|List of contact entities associated with this study|
+|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
+|name|string|The full name of this contact person|
+|email|string|The contacts email address |
+|contactDbId|string|The ID which uniquely identifies this contact|
+|instituteName|string|The name of the institution which this contact is part of|
+|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
+|active|boolean|Is this study currently active|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|license|string|The usage license associated with the study data|
+|studyDescription|string|The description of this study|
 |studyType|string|The type of study being performed. ex. "Yield Trial", etc|
+|studyName|string|The human readable name for a study|
+|location|object||
+|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geometry|object||
+|type|string|Feature|
+|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
+|locationDbId|string|The unique identifier for a Location|
+|additionalInfo|object|Additional arbitrary info|
+|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
+|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
+|slope|string|Describes the approximate slope (height/distance) of the location.|
+|altitude|number|The altitude/elevation of this location (in meters)|
+|countryName|string|The full name of the country where this location is|
+|locationName|string|A human readable name for this location|
+|instituteAddress|string|The street address of the institute representing this location|
+|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
+|abbreviation|string|An abbreviation which represents this location|
+|instituteName|string|each institute/laboratory can have several experimental field|
+|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
+|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
+|trialDbId|string|The ID which uniquely identifies a trial|
+|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
+|valuePUI|string|URI pointing to an ontology class for the parameter value|
+|parameterName|string|Name of the environment parameter constant within the experiment|
+|value|string|Numerical or categorical value|
+|unit|string|Unit of the value for this parameter|
+|unitPUI|string|URI pointing to an ontology class for the unit|
+|parameterPUI|string|URI pointing to an ontology class for the parameter|
+|description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
+|seasons|array[string]|List of seasons over which this study was performed.|
+|commonCropName|string|Common name for the crop associated with this study|
+|observationUnitsDescription|string|The human readable description of the observation units design|
 |lastUpdate|object|The date and time when this study was last modified|
 |version|string||
 |timestamp|string (date-time)||
-|commonCropName|string|Common name for the crop associated with this study|
-|license|string|The usage license associated with the study data|
-|location|object||
-|instituteName|string|each institute/laboratory can have several experimental field|
-|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
-|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
-|instituteAddress|string|The street address of the institute representing this location|
-|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
-|altitude|number|The altitude/elevation of this location (in meters)|
-|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|type|string|Feature|
-|geometry|object||
-|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|locationDbId|string|The unique identifier for a Location|
-|locationName|string|A human readable name for this location|
-|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
-|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
-|slope|string|Describes the approximate slope (height/distance) of the location.|
-|abbreviation|string|An abbreviation which represents this location|
 |additionalInfo|object|Additional arbitrary info|
-|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
-|countryName|string|The full name of the country where this location is|
-|studyDescription|string|The description of this study|
+|dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
+|version|string|The version number of the data set.|
+|type|string|The type of external data link|
+|dataLinkName|string|The name of the external data link|
+|url|string (uri)|The URL which links to external data|
+|culturalPractices|string|General description of the cultural practices of the study.|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string||
 |description|string||
-|seasons|array[string]|List of seasons over which this study was performed.|
-|additionalInfo|object|Additional arbitrary info|
+|trialName|string|The human readable name of a trial|
+|experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
+|PUI|string||
+|description|string||
 |endDate|string (date)|The date the study ends|
-|contacts|array[object]|List of contact entities associated with this study|
-|instituteName|string|The name of the institution which this contact is part of|
-|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
-|name|string|The full name of this contact person|
-|contactDbId|string|The ID which uniquely identifies this contact|
-|email|string|The contacts email address |
-|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
-|studyName|string|The human readable name for a study|
-|active|boolean|Is this study currently active|
 
 
  
@@ -775,71 +839,71 @@ StartDate and endDate should be ISO-8601 format for dates
 
 |Field|Type|Description|
 |---|---|---| 
-|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
-|parameterName|string|Name of the environment parameter constant within the experiment|
-|description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
-|unitPUI|string|URI pointing to an ontology class for the unit|
-|unit|string|Unit of the value for this parameter|
-|parameterPUI|string|URI pointing to an ontology class for the parameter|
-|valuePUI|string|URI pointing to an ontology class for the parameter value|
-|value|string|Numerical or categorical value|
-|experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
-|PUI|string||
-|description|string||
-|trialDbId|string|The ID which uniquely identifies a trial|
-|observationUnitsDescription|string|The human readable description of the observation units design|
-|dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
-|dataLinkName|string|The name of the external data link|
-|version|string|The version number of the data set.|
-|url|string (uri)|The URL which links to external data|
-|type|string|The type of external data link|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|culturalPractices|string|General description of the cultural practices of the study.|
-|trialName|string|The human readable name of a trial|
 |startDate|string (date)|The date this study started|
+|contacts|array[object]|List of contact entities associated with this study|
+|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
+|name|string|The full name of this contact person|
+|email|string|The contacts email address |
+|contactDbId|string|The ID which uniquely identifies this contact|
+|instituteName|string|The name of the institution which this contact is part of|
+|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
+|active|boolean|Is this study currently active|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|license|string|The usage license associated with the study data|
+|studyDescription|string|The description of this study|
 |studyType|string|The type of study being performed. ex. "Yield Trial", etc|
+|studyName|string|The human readable name for a study|
+|location|object||
+|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geometry|object||
+|type|string|Feature|
+|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
+|locationDbId|string|The unique identifier for a Location|
+|additionalInfo|object|Additional arbitrary info|
+|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
+|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
+|slope|string|Describes the approximate slope (height/distance) of the location.|
+|altitude|number|The altitude/elevation of this location (in meters)|
+|countryName|string|The full name of the country where this location is|
+|locationName|string|A human readable name for this location|
+|instituteAddress|string|The street address of the institute representing this location|
+|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
+|abbreviation|string|An abbreviation which represents this location|
+|instituteName|string|each institute/laboratory can have several experimental field|
+|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
+|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
+|trialDbId|string|The ID which uniquely identifies a trial|
+|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
+|valuePUI|string|URI pointing to an ontology class for the parameter value|
+|parameterName|string|Name of the environment parameter constant within the experiment|
+|value|string|Numerical or categorical value|
+|unit|string|Unit of the value for this parameter|
+|unitPUI|string|URI pointing to an ontology class for the unit|
+|parameterPUI|string|URI pointing to an ontology class for the parameter|
+|description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
+|seasons|array[string]|List of seasons over which this study was performed.|
+|commonCropName|string|Common name for the crop associated with this study|
+|observationUnitsDescription|string|The human readable description of the observation units design|
 |lastUpdate|object|The date and time when this study was last modified|
 |version|string||
 |timestamp|string (date-time)||
-|commonCropName|string|Common name for the crop associated with this study|
-|license|string|The usage license associated with the study data|
-|location|object||
-|instituteName|string|each institute/laboratory can have several experimental field|
-|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
-|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
-|instituteAddress|string|The street address of the institute representing this location|
-|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
-|altitude|number|The altitude/elevation of this location (in meters)|
-|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|type|string|Feature|
-|geometry|object||
-|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|locationDbId|string|The unique identifier for a Location|
-|locationName|string|A human readable name for this location|
-|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
-|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
-|slope|string|Describes the approximate slope (height/distance) of the location.|
-|abbreviation|string|An abbreviation which represents this location|
 |additionalInfo|object|Additional arbitrary info|
-|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
-|countryName|string|The full name of the country where this location is|
-|studyDescription|string|The description of this study|
+|dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
+|version|string|The version number of the data set.|
+|type|string|The type of external data link|
+|dataLinkName|string|The name of the external data link|
+|url|string (uri)|The URL which links to external data|
+|culturalPractices|string|General description of the cultural practices of the study.|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string||
 |description|string||
-|seasons|array[string]|List of seasons over which this study was performed.|
-|additionalInfo|object|Additional arbitrary info|
+|trialName|string|The human readable name of a trial|
+|experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
+|PUI|string||
+|description|string||
 |endDate|string (date)|The date the study ends|
-|contacts|array[object]|List of contact entities associated with this study|
-|instituteName|string|The name of the institution which this contact is part of|
-|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
-|name|string|The full name of this contact person|
-|contactDbId|string|The ID which uniquely identifies this contact|
-|email|string|The contacts email address |
-|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
-|studyName|string|The human readable name for a study|
-|active|boolean|Is this study currently active|
 
 
 **Response Fields** 
@@ -847,72 +911,72 @@ StartDate and endDate should be ISO-8601 format for dates
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
-|parameterName|string|Name of the environment parameter constant within the experiment|
-|description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
-|unitPUI|string|URI pointing to an ontology class for the unit|
-|unit|string|Unit of the value for this parameter|
-|parameterPUI|string|URI pointing to an ontology class for the parameter|
-|valuePUI|string|URI pointing to an ontology class for the parameter value|
-|value|string|Numerical or categorical value|
-|experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
-|PUI|string||
-|description|string||
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|trialDbId|string|The ID which uniquely identifies a trial|
-|observationUnitsDescription|string|The human readable description of the observation units design|
-|dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
-|dataLinkName|string|The name of the external data link|
-|version|string|The version number of the data set.|
-|url|string (uri)|The URL which links to external data|
-|type|string|The type of external data link|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|culturalPractices|string|General description of the cultural practices of the study.|
-|trialName|string|The human readable name of a trial|
 |startDate|string (date)|The date this study started|
+|contacts|array[object]|List of contact entities associated with this study|
+|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
+|name|string|The full name of this contact person|
+|email|string|The contacts email address |
+|contactDbId|string|The ID which uniquely identifies this contact|
+|instituteName|string|The name of the institution which this contact is part of|
+|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
+|active|boolean|Is this study currently active|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|license|string|The usage license associated with the study data|
+|studyDescription|string|The description of this study|
 |studyType|string|The type of study being performed. ex. "Yield Trial", etc|
+|studyName|string|The human readable name for a study|
+|location|object||
+|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geometry|object||
+|type|string|Feature|
+|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
+|locationDbId|string|The unique identifier for a Location|
+|additionalInfo|object|Additional arbitrary info|
+|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
+|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
+|slope|string|Describes the approximate slope (height/distance) of the location.|
+|altitude|number|The altitude/elevation of this location (in meters)|
+|countryName|string|The full name of the country where this location is|
+|locationName|string|A human readable name for this location|
+|instituteAddress|string|The street address of the institute representing this location|
+|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
+|abbreviation|string|An abbreviation which represents this location|
+|instituteName|string|each institute/laboratory can have several experimental field|
+|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
+|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
+|trialDbId|string|The ID which uniquely identifies a trial|
+|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
+|valuePUI|string|URI pointing to an ontology class for the parameter value|
+|parameterName|string|Name of the environment parameter constant within the experiment|
+|value|string|Numerical or categorical value|
+|unit|string|Unit of the value for this parameter|
+|unitPUI|string|URI pointing to an ontology class for the unit|
+|parameterPUI|string|URI pointing to an ontology class for the parameter|
+|description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
+|seasons|array[string]|List of seasons over which this study was performed.|
+|commonCropName|string|Common name for the crop associated with this study|
+|observationUnitsDescription|string|The human readable description of the observation units design|
 |lastUpdate|object|The date and time when this study was last modified|
 |version|string||
 |timestamp|string (date-time)||
-|commonCropName|string|Common name for the crop associated with this study|
-|license|string|The usage license associated with the study data|
-|location|object||
-|instituteName|string|each institute/laboratory can have several experimental field|
-|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
-|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
-|instituteAddress|string|The street address of the institute representing this location|
-|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
-|altitude|number|The altitude/elevation of this location (in meters)|
-|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|type|string|Feature|
-|geometry|object||
-|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|locationDbId|string|The unique identifier for a Location|
-|locationName|string|A human readable name for this location|
-|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
-|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
-|slope|string|Describes the approximate slope (height/distance) of the location.|
-|abbreviation|string|An abbreviation which represents this location|
 |additionalInfo|object|Additional arbitrary info|
-|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
-|countryName|string|The full name of the country where this location is|
-|studyDescription|string|The description of this study|
+|dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
+|version|string|The version number of the data set.|
+|type|string|The type of external data link|
+|dataLinkName|string|The name of the external data link|
+|url|string (uri)|The URL which links to external data|
+|culturalPractices|string|General description of the cultural practices of the study.|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string||
 |description|string||
-|seasons|array[string]|List of seasons over which this study was performed.|
-|additionalInfo|object|Additional arbitrary info|
+|trialName|string|The human readable name of a trial|
+|experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
+|PUI|string||
+|description|string||
 |endDate|string (date)|The date the study ends|
-|contacts|array[object]|List of contact entities associated with this study|
-|instituteName|string|The name of the institution which this contact is part of|
-|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
-|name|string|The full name of this contact person|
-|contactDbId|string|The ID which uniquely identifies this contact|
-|email|string|The contacts email address |
-|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
-|studyName|string|The human readable name for a study|
-|active|boolean|Is this study currently active|
 
 
  
@@ -1174,72 +1238,72 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
 
 |Field|Type|Description|
 |---|---|---| 
-|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
-|parameterName|string|Name of the environment parameter constant within the experiment|
-|description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
-|unitPUI|string|URI pointing to an ontology class for the unit|
-|unit|string|Unit of the value for this parameter|
-|parameterPUI|string|URI pointing to an ontology class for the parameter|
-|valuePUI|string|URI pointing to an ontology class for the parameter value|
-|value|string|Numerical or categorical value|
-|experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
-|PUI|string||
-|description|string||
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|trialDbId|string|The ID which uniquely identifies a trial|
-|observationUnitsDescription|string|The human readable description of the observation units design|
-|dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
-|dataLinkName|string|The name of the external data link|
-|version|string|The version number of the data set.|
-|url|string (uri)|The URL which links to external data|
-|type|string|The type of external data link|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|culturalPractices|string|General description of the cultural practices of the study.|
-|trialName|string|The human readable name of a trial|
 |startDate|string (date)|The date this study started|
+|contacts|array[object]|List of contact entities associated with this study|
+|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
+|name|string|The full name of this contact person|
+|email|string|The contacts email address |
+|contactDbId|string|The ID which uniquely identifies this contact|
+|instituteName|string|The name of the institution which this contact is part of|
+|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
+|active|boolean|Is this study currently active|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|license|string|The usage license associated with the study data|
+|studyDescription|string|The description of this study|
 |studyType|string|The type of study being performed. ex. "Yield Trial", etc|
+|studyName|string|The human readable name for a study|
+|location|object||
+|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geometry|object||
+|type|string|Feature|
+|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
+|locationDbId|string|The unique identifier for a Location|
+|additionalInfo|object|Additional arbitrary info|
+|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
+|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
+|slope|string|Describes the approximate slope (height/distance) of the location.|
+|altitude|number|The altitude/elevation of this location (in meters)|
+|countryName|string|The full name of the country where this location is|
+|locationName|string|A human readable name for this location|
+|instituteAddress|string|The street address of the institute representing this location|
+|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
+|abbreviation|string|An abbreviation which represents this location|
+|instituteName|string|each institute/laboratory can have several experimental field|
+|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
+|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
+|trialDbId|string|The ID which uniquely identifies a trial|
+|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
+|valuePUI|string|URI pointing to an ontology class for the parameter value|
+|parameterName|string|Name of the environment parameter constant within the experiment|
+|value|string|Numerical or categorical value|
+|unit|string|Unit of the value for this parameter|
+|unitPUI|string|URI pointing to an ontology class for the unit|
+|parameterPUI|string|URI pointing to an ontology class for the parameter|
+|description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
+|seasons|array[string]|List of seasons over which this study was performed.|
+|commonCropName|string|Common name for the crop associated with this study|
+|observationUnitsDescription|string|The human readable description of the observation units design|
 |lastUpdate|object|The date and time when this study was last modified|
 |version|string||
 |timestamp|string (date-time)||
-|commonCropName|string|Common name for the crop associated with this study|
-|license|string|The usage license associated with the study data|
-|location|object||
-|instituteName|string|each institute/laboratory can have several experimental field|
-|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
-|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
-|instituteAddress|string|The street address of the institute representing this location|
-|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
-|altitude|number|The altitude/elevation of this location (in meters)|
-|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|type|string|Feature|
-|geometry|object||
-|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|locationDbId|string|The unique identifier for a Location|
-|locationName|string|A human readable name for this location|
-|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
-|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
-|slope|string|Describes the approximate slope (height/distance) of the location.|
-|abbreviation|string|An abbreviation which represents this location|
 |additionalInfo|object|Additional arbitrary info|
-|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
-|countryName|string|The full name of the country where this location is|
-|studyDescription|string|The description of this study|
+|dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
+|version|string|The version number of the data set.|
+|type|string|The type of external data link|
+|dataLinkName|string|The name of the external data link|
+|url|string (uri)|The URL which links to external data|
+|culturalPractices|string|General description of the cultural practices of the study.|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string||
 |description|string||
-|seasons|array[string]|List of seasons over which this study was performed.|
-|additionalInfo|object|Additional arbitrary info|
+|trialName|string|The human readable name of a trial|
+|experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
+|PUI|string||
+|description|string||
 |endDate|string (date)|The date the study ends|
-|contacts|array[object]|List of contact entities associated with this study|
-|instituteName|string|The name of the institution which this contact is part of|
-|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
-|name|string|The full name of this contact person|
-|contactDbId|string|The ID which uniquely identifies this contact|
-|email|string|The contacts email address |
-|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
-|studyName|string|The human readable name for a study|
-|active|boolean|Is this study currently active|
 
 
  
@@ -1403,143 +1467,143 @@ Update an existing Study with new data
 
 |Field|Type|Description|
 |---|---|---| 
-|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
-|parameterName|string|Name of the environment parameter constant within the experiment|
-|description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
-|unitPUI|string|URI pointing to an ontology class for the unit|
-|unit|string|Unit of the value for this parameter|
-|parameterPUI|string|URI pointing to an ontology class for the parameter|
-|valuePUI|string|URI pointing to an ontology class for the parameter value|
-|value|string|Numerical or categorical value|
-|experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
-|PUI|string||
-|description|string||
-|trialDbId|string|The ID which uniquely identifies a trial|
-|observationUnitsDescription|string|The human readable description of the observation units design|
-|dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
-|dataLinkName|string|The name of the external data link|
-|version|string|The version number of the data set.|
-|url|string (uri)|The URL which links to external data|
-|type|string|The type of external data link|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|culturalPractices|string|General description of the cultural practices of the study.|
-|trialName|string|The human readable name of a trial|
 |startDate|string (date)|The date this study started|
+|contacts|array[object]|List of contact entities associated with this study|
+|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
+|name|string|The full name of this contact person|
+|email|string|The contacts email address |
+|contactDbId|string|The ID which uniquely identifies this contact|
+|instituteName|string|The name of the institution which this contact is part of|
+|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
+|active|boolean|Is this study currently active|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|license|string|The usage license associated with the study data|
+|studyDescription|string|The description of this study|
 |studyType|string|The type of study being performed. ex. "Yield Trial", etc|
+|studyName|string|The human readable name for a study|
+|location|object||
+|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geometry|object||
+|type|string|Feature|
+|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
+|locationDbId|string|The unique identifier for a Location|
+|additionalInfo|object|Additional arbitrary info|
+|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
+|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
+|slope|string|Describes the approximate slope (height/distance) of the location.|
+|altitude|number|The altitude/elevation of this location (in meters)|
+|countryName|string|The full name of the country where this location is|
+|locationName|string|A human readable name for this location|
+|instituteAddress|string|The street address of the institute representing this location|
+|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
+|abbreviation|string|An abbreviation which represents this location|
+|instituteName|string|each institute/laboratory can have several experimental field|
+|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
+|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
+|trialDbId|string|The ID which uniquely identifies a trial|
+|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
+|valuePUI|string|URI pointing to an ontology class for the parameter value|
+|parameterName|string|Name of the environment parameter constant within the experiment|
+|value|string|Numerical or categorical value|
+|unit|string|Unit of the value for this parameter|
+|unitPUI|string|URI pointing to an ontology class for the unit|
+|parameterPUI|string|URI pointing to an ontology class for the parameter|
+|description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
+|seasons|array[string]|List of seasons over which this study was performed.|
+|commonCropName|string|Common name for the crop associated with this study|
+|observationUnitsDescription|string|The human readable description of the observation units design|
 |lastUpdate|object|The date and time when this study was last modified|
 |version|string||
 |timestamp|string (date-time)||
-|commonCropName|string|Common name for the crop associated with this study|
-|license|string|The usage license associated with the study data|
-|location|object||
-|instituteName|string|each institute/laboratory can have several experimental field|
-|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
-|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
-|instituteAddress|string|The street address of the institute representing this location|
-|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
-|altitude|number|The altitude/elevation of this location (in meters)|
-|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|type|string|Feature|
-|geometry|object||
-|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|locationDbId|string|The unique identifier for a Location|
-|locationName|string|A human readable name for this location|
-|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
-|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
-|slope|string|Describes the approximate slope (height/distance) of the location.|
-|abbreviation|string|An abbreviation which represents this location|
 |additionalInfo|object|Additional arbitrary info|
-|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
-|countryName|string|The full name of the country where this location is|
-|studyDescription|string|The description of this study|
+|dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
+|version|string|The version number of the data set.|
+|type|string|The type of external data link|
+|dataLinkName|string|The name of the external data link|
+|url|string (uri)|The URL which links to external data|
+|culturalPractices|string|General description of the cultural practices of the study.|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string||
 |description|string||
-|seasons|array[string]|List of seasons over which this study was performed.|
-|additionalInfo|object|Additional arbitrary info|
+|trialName|string|The human readable name of a trial|
+|experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
+|PUI|string||
+|description|string||
 |endDate|string (date)|The date the study ends|
-|contacts|array[object]|List of contact entities associated with this study|
-|instituteName|string|The name of the institution which this contact is part of|
-|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
-|name|string|The full name of this contact person|
-|contactDbId|string|The ID which uniquely identifies this contact|
-|email|string|The contacts email address |
-|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
-|studyName|string|The human readable name for a study|
-|active|boolean|Is this study currently active|
 
 
 **Response Fields** 
 
 |Field|Type|Description|
 |---|---|---| 
-|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
-|parameterName|string|Name of the environment parameter constant within the experiment|
-|description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
-|unitPUI|string|URI pointing to an ontology class for the unit|
-|unit|string|Unit of the value for this parameter|
-|parameterPUI|string|URI pointing to an ontology class for the parameter|
-|valuePUI|string|URI pointing to an ontology class for the parameter value|
-|value|string|Numerical or categorical value|
-|experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
-|PUI|string||
-|description|string||
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|trialDbId|string|The ID which uniquely identifies a trial|
-|observationUnitsDescription|string|The human readable description of the observation units design|
-|dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
-|dataLinkName|string|The name of the external data link|
-|version|string|The version number of the data set.|
-|url|string (uri)|The URL which links to external data|
-|type|string|The type of external data link|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|culturalPractices|string|General description of the cultural practices of the study.|
-|trialName|string|The human readable name of a trial|
 |startDate|string (date)|The date this study started|
+|contacts|array[object]|List of contact entities associated with this study|
+|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
+|name|string|The full name of this contact person|
+|email|string|The contacts email address |
+|contactDbId|string|The ID which uniquely identifies this contact|
+|instituteName|string|The name of the institution which this contact is part of|
+|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
+|active|boolean|Is this study currently active|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|license|string|The usage license associated with the study data|
+|studyDescription|string|The description of this study|
 |studyType|string|The type of study being performed. ex. "Yield Trial", etc|
+|studyName|string|The human readable name for a study|
+|location|object||
+|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geometry|object||
+|type|string|Feature|
+|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
+|locationDbId|string|The unique identifier for a Location|
+|additionalInfo|object|Additional arbitrary info|
+|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
+|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
+|slope|string|Describes the approximate slope (height/distance) of the location.|
+|altitude|number|The altitude/elevation of this location (in meters)|
+|countryName|string|The full name of the country where this location is|
+|locationName|string|A human readable name for this location|
+|instituteAddress|string|The street address of the institute representing this location|
+|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
+|abbreviation|string|An abbreviation which represents this location|
+|instituteName|string|each institute/laboratory can have several experimental field|
+|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
+|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
+|trialDbId|string|The ID which uniquely identifies a trial|
+|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
+|valuePUI|string|URI pointing to an ontology class for the parameter value|
+|parameterName|string|Name of the environment parameter constant within the experiment|
+|value|string|Numerical or categorical value|
+|unit|string|Unit of the value for this parameter|
+|unitPUI|string|URI pointing to an ontology class for the unit|
+|parameterPUI|string|URI pointing to an ontology class for the parameter|
+|description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
+|seasons|array[string]|List of seasons over which this study was performed.|
+|commonCropName|string|Common name for the crop associated with this study|
+|observationUnitsDescription|string|The human readable description of the observation units design|
 |lastUpdate|object|The date and time when this study was last modified|
 |version|string||
 |timestamp|string (date-time)||
-|commonCropName|string|Common name for the crop associated with this study|
-|license|string|The usage license associated with the study data|
-|location|object||
-|instituteName|string|each institute/laboratory can have several experimental field|
-|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
-|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
-|instituteAddress|string|The street address of the institute representing this location|
-|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
-|altitude|number|The altitude/elevation of this location (in meters)|
-|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|type|string|Feature|
-|geometry|object||
-|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|locationDbId|string|The unique identifier for a Location|
-|locationName|string|A human readable name for this location|
-|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
-|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
-|slope|string|Describes the approximate slope (height/distance) of the location.|
-|abbreviation|string|An abbreviation which represents this location|
 |additionalInfo|object|Additional arbitrary info|
-|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
-|countryName|string|The full name of the country where this location is|
-|studyDescription|string|The description of this study|
+|dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
+|version|string|The version number of the data set.|
+|type|string|The type of external data link|
+|dataLinkName|string|The name of the external data link|
+|url|string (uri)|The URL which links to external data|
+|culturalPractices|string|General description of the cultural practices of the study.|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string||
 |description|string||
-|seasons|array[string]|List of seasons over which this study was performed.|
-|additionalInfo|object|Additional arbitrary info|
+|trialName|string|The human readable name of a trial|
+|experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
+|PUI|string||
+|description|string||
 |endDate|string (date)|The date the study ends|
-|contacts|array[object]|List of contact entities associated with this study|
-|instituteName|string|The name of the institution which this contact is part of|
-|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
-|name|string|The full name of this contact person|
-|contactDbId|string|The ID which uniquely identifies this contact|
-|email|string|The contacts email address |
-|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
-|studyName|string|The human readable name for a study|
-|active|boolean|Is this study currently active|
 
 
  
@@ -1783,69 +1847,5 @@ Update an existing Study with new data
 + Response 404 (application/json)
 ```
 "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
-```
-
-
-
-## Studytypes [/brapi/v1/studytypes] 
-
-
-
-
-### Get Studytypes  [GET /brapi/v1/studytypes{?page}{?pageSize}]
-
-Call to retrieve the list of study types.
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[string]||
-
-
- 
-
-+ Parameters
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 2,
-            "totalCount": 3,
-            "totalPages": 2
-        },
-        "status": []
-    },
-    "result": {
-        "data": null
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
 
