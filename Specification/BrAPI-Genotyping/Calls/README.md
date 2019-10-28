@@ -22,20 +22,20 @@ Also See:
 
 |Field|Type|Description|
 |---|---|---| 
-|expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurence (false)|
-|sepPhased|string|The string used as a separator for phased allele calls.|
-|unknownString|string|The string used as a representation for missing data.|
 |sepUnphased|string|The string used as a separator for unphased allele calls.|
+|sepPhased|string|The string used as a separator for phased allele calls.|
+|expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurence (false)|
 |data|array[object]||
-|phaseset|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phaseset string.|
-|genotype_likelihood|array[number]|The genotype likelihoods for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.|
-|additionalInfo|object|Additional arbitrary info|
+|variantDbId|string|The ID of the variant this call belongs to.|
+|callSetDbId|string|The ID of the call set this variant call belongs to.  If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
 |callSetName|string|The name of the call set this variant call belongs to. If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
+|additionalInfo|object|Additional arbitrary info|
+|phaseset|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phaseset string.|
 |genotype|object|`ListValue` is a wrapper around a repeated field of values.  The JSON representation for `ListValue` is JSON array.|
 |values|array|Repeated field of dynamically typed values.|
-|callSetDbId|string|The ID of the call set this variant call belongs to.  If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
-|variantDbId|string|The ID of the variant this call belongs to.|
+|genotype_likelihood|array[number]|The genotype likelihoods for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.|
 |variantName|string|The name of the variant this call belongs to.|
+|unknownString|string|The string used as a representation for missing data.|
 
 
  
@@ -135,11 +135,11 @@ Also See:
 |Field|Type|Description|
 |---|---|---| 
 |callSetDbIds|array[string]|The CallSet to search.|
-|sepUnphased|string|The string used as a separator for unphased allele calls.|
-|expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurence (false)|
+|variantSetDbIds|array[string]|The VariantSet to search.|
 |sepPhased|string|The string used as a separator for phased allele calls.|
 |unknownString|string|The string used as a representation for missing data.|
-|variantSetDbIds|array[string]|The VariantSet to search.|
+|sepUnphased|string|The string used as a separator for unphased allele calls.|
+|expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurence (false)|
 |variantDbIds|array[string]|The Variant to search.|
 
 
@@ -243,20 +243,20 @@ See Search Services for additional implementation details.
 
 |Field|Type|Description|
 |---|---|---| 
-|expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurence (false)|
-|sepPhased|string|The string used as a separator for phased allele calls.|
-|unknownString|string|The string used as a representation for missing data.|
 |sepUnphased|string|The string used as a separator for unphased allele calls.|
+|sepPhased|string|The string used as a separator for phased allele calls.|
+|expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurence (false)|
 |data|array[object]||
-|phaseset|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phaseset string.|
-|genotype_likelihood|array[number]|The genotype likelihoods for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.|
-|additionalInfo|object|Additional arbitrary info|
+|variantDbId|string|The ID of the variant this call belongs to.|
+|callSetDbId|string|The ID of the call set this variant call belongs to.  If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
 |callSetName|string|The name of the call set this variant call belongs to. If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
+|additionalInfo|object|Additional arbitrary info|
+|phaseset|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phaseset string.|
 |genotype|object|`ListValue` is a wrapper around a repeated field of values.  The JSON representation for `ListValue` is JSON array.|
 |values|array|Repeated field of dynamically typed values.|
-|callSetDbId|string|The ID of the call set this variant call belongs to.  If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
-|variantDbId|string|The ID of the variant this call belongs to.|
+|genotype_likelihood|array[number]|The genotype likelihoods for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.|
 |variantName|string|The name of the variant this call belongs to.|
+|unknownString|string|The string used as a representation for missing data.|
 
 
  

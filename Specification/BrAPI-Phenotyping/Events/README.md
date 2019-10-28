@@ -21,18 +21,18 @@ Get list of events
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|eventType|string|General category for this event (e.g. Sowing, Watering, Rain). Each eventType should correspond to exactly one eventTypeDbId, if provided.|
-|studyDbId|string|The study in which the event occurred|
-|date|array[string]|A list of dates when the event occured|
-|additionalInfo|object|Additional arbitrary info|
-|eventDbId|string|Internal database identifier|
-|eventTypeDbId|string|An identifier for this event type, in the form of an ontology class reference|
-|observationUnitDbIds|array[string]|A list of the affected observation units. If this parameter is not given, it is understood that the event affected all units in the study|
 |eventParameters|array[object]|A list of objects describing additional event parameters. Each of the following accepts a human-readable value or URI|
-|value|string|The value of the property for this event. E.g. nitrogen, John Doe|
 |rdfValue|string|The type of the value given above, e.g. http://xmlns.com/foaf/0.1/Agent|
 |key|string|Specifies the relationship between the event and the given property. E.g. fertilizer, operator|
+|value|string|The value of the property for this event. E.g. nitrogen, John Doe|
+|date|array[string]|A list of dates when the event occured|
+|additionalInfo|object|Additional arbitrary info|
 |description|string|A detailed, human-readable description of this event|
+|observationUnitDbIds|array[string]|A list of the affected observation units. If this parameter is not given, it is understood that the event affected all units in the study|
+|eventDbId|string|Internal database identifier|
+|eventTypeDbId|string|An identifier for this event type, in the form of an ontology class reference|
+|eventType|string|General category for this event (e.g. Sowing, Watering, Rain). Each eventType should correspond to exactly one eventTypeDbId, if provided.|
+|studyDbId|string|The study in which the event occurred|
 
 
  
