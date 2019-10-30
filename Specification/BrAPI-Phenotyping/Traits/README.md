@@ -25,9 +25,7 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
-|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
-|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
+|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
 |ontologyReference|object||
 |documentationLinks|array[object]|links to various ontology documentation|
 |type|string||
@@ -35,14 +33,16 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 |ontologyName|string|Ontology name|
 |ontologyDbId|string|Ontology database unique identifier|
 |version|string|Ontology version (no specific format)|
-|traitName|string|The human readable name of a trait|
-|attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
-|synonyms|array[string]|Other trait names|
-|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
-|traitDescription|string|The description of a trait|
 |traitDbId|string|The ID which uniquely identifies a trait|
 |mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
+|attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
+|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
+|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
+|traitName|string|The human readable name of a trait|
+|status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
+|traitDescription|string|The description of a trait|
+|synonyms|array[string]|Other trait names|
 
 
  
@@ -153,9 +153,7 @@ Create a new trait object in the database
 
 |Field|Type|Description|
 |---|---|---| 
-|status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
-|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
-|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
+|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
 |ontologyReference|object||
 |documentationLinks|array[object]|links to various ontology documentation|
 |type|string||
@@ -163,13 +161,15 @@ Create a new trait object in the database
 |ontologyName|string|Ontology name|
 |ontologyDbId|string|Ontology database unique identifier|
 |version|string|Ontology version (no specific format)|
-|traitName|string|The human readable name of a trait|
-|attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
-|synonyms|array[string]|Other trait names|
-|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
-|traitDescription|string|The description of a trait|
 |mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
+|attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
+|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
+|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
+|traitName|string|The human readable name of a trait|
+|status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
+|traitDescription|string|The description of a trait|
+|synonyms|array[string]|Other trait names|
 
 
 **Response Fields** 
@@ -177,9 +177,7 @@ Create a new trait object in the database
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
-|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
-|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
+|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
 |ontologyReference|object||
 |documentationLinks|array[object]|links to various ontology documentation|
 |type|string||
@@ -187,14 +185,16 @@ Create a new trait object in the database
 |ontologyName|string|Ontology name|
 |ontologyDbId|string|Ontology database unique identifier|
 |version|string|Ontology version (no specific format)|
-|traitName|string|The human readable name of a trait|
-|attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
-|synonyms|array[string]|Other trait names|
-|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
-|traitDescription|string|The description of a trait|
 |traitDbId|string|The ID which uniquely identifies a trait|
 |mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
+|attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
+|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
+|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
+|traitName|string|The human readable name of a trait|
+|status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
+|traitDescription|string|The description of a trait|
+|synonyms|array[string]|Other trait names|
 
 
  
@@ -350,9 +350,7 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
 
 |Field|Type|Description|
 |---|---|---| 
-|status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
-|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
-|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
+|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
 |ontologyReference|object||
 |documentationLinks|array[object]|links to various ontology documentation|
 |type|string||
@@ -360,14 +358,16 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
 |ontologyName|string|Ontology name|
 |ontologyDbId|string|Ontology database unique identifier|
 |version|string|Ontology version (no specific format)|
-|traitName|string|The human readable name of a trait|
-|attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
-|synonyms|array[string]|Other trait names|
-|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
-|traitDescription|string|The description of a trait|
 |traitDbId|string|The ID which uniquely identifies a trait|
 |mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
+|attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
+|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
+|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
+|traitName|string|The human readable name of a trait|
+|status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
+|traitDescription|string|The description of a trait|
+|synonyms|array[string]|Other trait names|
 
 
  
@@ -478,9 +478,7 @@ Update an existing trait
 
 |Field|Type|Description|
 |---|---|---| 
-|status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
-|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
-|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
+|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
 |ontologyReference|object||
 |documentationLinks|array[object]|links to various ontology documentation|
 |type|string||
@@ -488,22 +486,22 @@ Update an existing trait
 |ontologyName|string|Ontology name|
 |ontologyDbId|string|Ontology database unique identifier|
 |version|string|Ontology version (no specific format)|
-|traitName|string|The human readable name of a trait|
-|attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
-|synonyms|array[string]|Other trait names|
-|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
-|traitDescription|string|The description of a trait|
 |mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
+|attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
+|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
+|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
+|traitName|string|The human readable name of a trait|
+|status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
+|traitDescription|string|The description of a trait|
+|synonyms|array[string]|Other trait names|
 
 
 **Response Fields** 
 
 |Field|Type|Description|
 |---|---|---| 
-|status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
-|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
-|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
+|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
 |ontologyReference|object||
 |documentationLinks|array[object]|links to various ontology documentation|
 |type|string||
@@ -511,14 +509,16 @@ Update an existing trait
 |ontologyName|string|Ontology name|
 |ontologyDbId|string|Ontology database unique identifier|
 |version|string|Ontology version (no specific format)|
-|traitName|string|The human readable name of a trait|
-|attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
-|synonyms|array[string]|Other trait names|
-|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
-|traitDescription|string|The description of a trait|
 |traitDbId|string|The ID which uniquely identifies a trait|
 |mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
+|attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
+|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
+|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
+|traitName|string|The human readable name of a trait|
+|status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
+|traitDescription|string|The description of a trait|
+|synonyms|array[string]|Other trait names|
 
 
  
