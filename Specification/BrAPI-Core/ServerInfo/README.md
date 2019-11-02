@@ -50,15 +50,15 @@ BAD    "call": "germplasm/<germplasmDbId>/pedigree"
 |Field|Type|Description|
 |---|---|---| 
 |contactEmail|string|A contact email address for this server management|
-|services|array[object]|Array of available calls on this server|
-|methods|array[string]|The possible HTTP Methods to be used with the available call|
-|dataTypes|array[string]|The possible data formats returned by the available call|
-|service|string|The name of the available call as recorded in the documentation|
-|versions|array[string]|The supported versions of a particular call|
-|location|string|Physical location of this server (ie. City, Country)|
 |documentationURL|string|A URL to the human readable documentation of this object|
-|organizationURL|string|The URL of the organiation that manages this server and data|
+|location|string|Physical location of this server (ie. City, Country)|
 |organizationName|string|The name of the organiation that manages this server and data|
+|organizationURL|string|The URL of the organiation that manages this server and data|
+|services|array[object]|Array of available calls on this server|
+|versions|array[string]|The supported versions of a particular call|
+|dataTypes|array[string]|The possible data formats returned by the available call|
+|methods|array[string]|The possible HTTP Methods to be used with the available call|
+|service|string|The name of the available call as recorded in the documentation|
 
 
  

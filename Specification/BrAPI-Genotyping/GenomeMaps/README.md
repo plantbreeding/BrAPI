@@ -11,77 +11,6 @@ Retrieving genetic or physical maps
 
 
 
-## Markerpositions [/brapi/v1/markerpositions] 
-
-
-
-
-### Get Markerpositions  [GET /brapi/v1/markerpositions{?mapDbId}{?linkageGroupName}{?markerDbId}{?minPosition}{?maxPosition}{?page}{?pageSize}]
-
-Get marker position information, based on Map, Linkage Group, and Marker ID
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|mapName|string|The human readbale name of the map|
-|additionalInfo|object|Additional arbitrary info|
-|linkageGroupName|string|The Uniquely Identifiable name of this linkage group|
-|mapDbId|string|The unique ID of the map|
-|position|integer|The position of a marker within a linkage group|
-|markerDbId|string|Internal db identifier|
-|markerName|string|The human readable name for a marker|
-
-
- 
-
-+ Parameters
-    + mapDbId (Optional, ) ... unique id of a map
-    + linkageGroupName (Optional, ) ... The chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.
-    + markerDbId (Optional, ) ... The unique id for a marker
-    + minPosition (Optional, ) ... The minimum position
-    + maxPosition (Optional, ) ... The maximum position
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {},
-        "status": []
-    },
-    "result": {
-        "data": []
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-
 ## Search [/brapi/v1/search] 
 
 
@@ -95,11 +24,11 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 
 |Field|Type|Description|
 |---|---|---| 
-|maxPosition|integer|The maximum position|
 |mapDbIds|array[string]|The unique ID of the map|
 |linkageGroupNames|array[string]|The Uniquely Identifiable name of this linkage group|
 |markerDbIds|array[string]|Internal db identifier|
 |minPosition|integer|The minimum position|
+|maxPosition|integer|The maximum position|
 
 
 **Response Fields** 
@@ -201,13 +130,13 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|mapName|string|The human readbale name of the map|
-|additionalInfo|object|Additional arbitrary info|
 |linkageGroupName|string|The Uniquely Identifiable name of this linkage group|
-|mapDbId|string|The unique ID of the map|
+|additionalInfo|object|Additional arbitrary info|
 |position|integer|The position of a marker within a linkage group|
-|markerDbId|string|Internal db identifier|
 |markerName|string|The human readable name for a marker|
+|mapName|string|The human readbale name of the map|
+|mapDbId|string|The unique ID of the map|
+|markerDbId|string|Internal db identifier|
 
 
  
@@ -269,17 +198,17 @@ Get list of maps
 |---|---|---| 
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
-|comments|string|Additional comments|
-|linkageGroupCount|integer (int32)|The number of linkage groups present in this genome map|
-|markerCount|integer (int32)|The number of markers present in this genome map|
-|publishedDate|string (date)|The date this genome was published|
-|mapDbId|string|The ID which uniquely identifies this genome map|
 |scientificName|string|Full scientific binomial format name. This includes Genus, Species, and Sub-species|
 |type|string|The type of map this represents, ussually "Genetic"|
-|mapName|string|A human readable name for this genome map|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|unit|string|The units used to describe the data in this map|
 |commonCropName|string|The common name of the crop, found from "GET /commoncropnames"|
+|comments|string|Additional comments|
+|mapName|string|A human readable name for this genome map|
+|mapDbId|string|The ID which uniquely identifies this genome map|
+|unit|string|The units used to describe the data in this map|
+|markerCount|integer (int32)|The number of markers present in this genome map|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|linkageGroupCount|integer (int32)|The number of linkage groups present in this genome map|
+|publishedDate|string (date)|The date this genome was published|
 
 
  
@@ -378,17 +307,17 @@ Provides the number of markers on each linkageGroup and the max position on the 
 |Field|Type|Description|
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
-|comments|string|Additional comments|
-|linkageGroupCount|integer (int32)|The number of linkage groups present in this genome map|
-|markerCount|integer (int32)|The number of markers present in this genome map|
-|publishedDate|string (date)|The date this genome was published|
-|mapDbId|string|The ID which uniquely identifies this genome map|
 |scientificName|string|Full scientific binomial format name. This includes Genus, Species, and Sub-species|
 |type|string|The type of map this represents, ussually "Genetic"|
-|mapName|string|A human readable name for this genome map|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|unit|string|The units used to describe the data in this map|
 |commonCropName|string|The common name of the crop, found from "GET /commoncropnames"|
+|comments|string|Additional comments|
+|mapName|string|A human readable name for this genome map|
+|mapDbId|string|The ID which uniquely identifies this genome map|
+|unit|string|The units used to describe the data in this map|
+|markerCount|integer (int32)|The number of markers present in this genome map|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|linkageGroupCount|integer (int32)|The number of linkage groups present in this genome map|
+|publishedDate|string (date)|The date this genome was published|
 
 
  
@@ -456,10 +385,10 @@ Get the Linkage Groups of a specific Genomic Map. A Linkage Group is the BrAPI g
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|markerCount|integer|The number of markers associated with this linkage group|
-|additionalInfo|object|Additional arbitrary info|
 |linkageGroupName|string|The Uniquely Identifiable name of this linkage group|
+|additionalInfo|object|Additional arbitrary info|
 |maxPosition|integer|The maximum position of a marker within this linkage group|
+|markerCount|integer|The number of markers associated with this linkage group|
 
 
  
@@ -505,5 +434,76 @@ Get the Linkage Groups of a specific Genomic Map. A Linkage Group is the BrAPI g
 + Response 404 (application/json)
 ```
 "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
+```
+
+
+
+## Markerpositions [/brapi/v1/markerpositions] 
+
+
+
+
+### Get Markerpositions  [GET /brapi/v1/markerpositions{?mapDbId}{?linkageGroupName}{?markerDbId}{?minPosition}{?maxPosition}{?page}{?pageSize}]
+
+Get marker position information, based on Map, Linkage Group, and Marker ID
+
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|linkageGroupName|string|The Uniquely Identifiable name of this linkage group|
+|additionalInfo|object|Additional arbitrary info|
+|position|integer|The position of a marker within a linkage group|
+|markerName|string|The human readable name for a marker|
+|mapName|string|The human readbale name of the map|
+|mapDbId|string|The unique ID of the map|
+|markerDbId|string|Internal db identifier|
+
+
+ 
+
++ Parameters
+    + mapDbId (Optional, ) ... unique id of a map
+    + linkageGroupName (Optional, ) ... The chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.
+    + markerDbId (Optional, ) ... The unique id for a marker
+    + minPosition (Optional, ) ... The minimum position
+    + maxPosition (Optional, ) ... The maximum position
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [],
+        "pagination": {},
+        "status": []
+    },
+    "result": {
+        "data": []
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
 
