@@ -25,23 +25,23 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|value|string|The value of the data collected as an observation|
-|observationUnitName|string|A human readable name for an observation unit|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |observationVariableName|string|A human readable name for an observation variable|
-|additionalInfo|object|Additional arbitrary info|
-|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
+|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
+|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
+|value|string|The value of the data collected as an observation|
+|collector|string|The name or identifier of the entity which collected the observation|
 |season|object||
-|year|integer|The 4 digit year of the season.|
 |seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
 |season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
-|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
-|observationTimeStamp|string (date-time)|The date and time when this observation was made|
-|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
-|germplasmDbId|string|The ID which uniquely identifies a germplasm|
+|year|integer|The 4 digit year of the season.|
+|additionalInfo|object|Additional arbitrary info|
 |observationDbId|string|The ID which uniquely identifies an observation|
-|collector|string|The name or identifier of the entity which collected the observation|
+|observationTimeStamp|string (date-time)|The date and time when this observation was made|
+|germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|observationUnitName|string|A human readable name for an observation unit|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
 
 
  
@@ -146,22 +146,22 @@ Add new Observation entities
 
 |Field|Type|Description|
 |---|---|---| 
-|value|string|The value of the data collected as an observation|
-|observationUnitName|string|A human readable name for an observation unit|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |observationVariableName|string|A human readable name for an observation variable|
-|additionalInfo|object|Additional arbitrary info|
-|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
+|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
+|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
+|value|string|The value of the data collected as an observation|
+|collector|string|The name or identifier of the entity which collected the observation|
 |season|object||
-|year|integer|The 4 digit year of the season.|
 |seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
 |season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
-|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
+|year|integer|The 4 digit year of the season.|
+|additionalInfo|object|Additional arbitrary info|
 |observationTimeStamp|string (date-time)|The date and time when this observation was made|
-|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
-|collector|string|The name or identifier of the entity which collected the observation|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|observationUnitName|string|A human readable name for an observation unit|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
 
 
 **Response Fields** 
@@ -169,23 +169,23 @@ Add new Observation entities
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|value|string|The value of the data collected as an observation|
-|observationUnitName|string|A human readable name for an observation unit|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |observationVariableName|string|A human readable name for an observation variable|
-|additionalInfo|object|Additional arbitrary info|
-|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
+|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
+|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
+|value|string|The value of the data collected as an observation|
+|collector|string|The name or identifier of the entity which collected the observation|
 |season|object||
-|year|integer|The 4 digit year of the season.|
 |seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
 |season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
-|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
-|observationTimeStamp|string (date-time)|The date and time when this observation was made|
-|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
-|germplasmDbId|string|The ID which uniquely identifies a germplasm|
+|year|integer|The 4 digit year of the season.|
+|additionalInfo|object|Additional arbitrary info|
 |observationDbId|string|The ID which uniquely identifies an observation|
-|collector|string|The name or identifier of the entity which collected the observation|
+|observationTimeStamp|string (date-time)|The date and time when this observation was made|
+|germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|observationUnitName|string|A human readable name for an observation unit|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
 
 
  
@@ -319,23 +319,23 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|value|string|The value of the data collected as an observation|
-|observationUnitName|string|A human readable name for an observation unit|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |observationVariableName|string|A human readable name for an observation variable|
-|additionalInfo|object|Additional arbitrary info|
-|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
+|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
+|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
+|value|string|The value of the data collected as an observation|
+|collector|string|The name or identifier of the entity which collected the observation|
 |season|object||
-|year|integer|The 4 digit year of the season.|
 |seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
 |season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
-|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
-|observationTimeStamp|string (date-time)|The date and time when this observation was made|
-|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
-|germplasmDbId|string|The ID which uniquely identifies a germplasm|
+|year|integer|The 4 digit year of the season.|
+|additionalInfo|object|Additional arbitrary info|
 |observationDbId|string|The ID which uniquely identifies an observation|
-|collector|string|The name or identifier of the entity which collected the observation|
+|observationTimeStamp|string (date-time)|The date and time when this observation was made|
+|germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|observationUnitName|string|A human readable name for an observation unit|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
 
 
  
@@ -442,23 +442,23 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
 
 |Field|Type|Description|
 |---|---|---| 
-|value|string|The value of the data collected as an observation|
-|observationUnitName|string|A human readable name for an observation unit|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |observationVariableName|string|A human readable name for an observation variable|
-|additionalInfo|object|Additional arbitrary info|
-|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
+|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
+|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
+|value|string|The value of the data collected as an observation|
+|collector|string|The name or identifier of the entity which collected the observation|
 |season|object||
-|year|integer|The 4 digit year of the season.|
 |seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
 |season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
-|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
-|observationTimeStamp|string (date-time)|The date and time when this observation was made|
-|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
-|germplasmDbId|string|The ID which uniquely identifies a germplasm|
+|year|integer|The 4 digit year of the season.|
+|additionalInfo|object|Additional arbitrary info|
 |observationDbId|string|The ID which uniquely identifies an observation|
-|collector|string|The name or identifier of the entity which collected the observation|
+|observationTimeStamp|string (date-time)|The date and time when this observation was made|
+|germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|observationUnitName|string|A human readable name for an observation unit|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
 
 
  
@@ -552,45 +552,45 @@ Update an existing Observation
 
 |Field|Type|Description|
 |---|---|---| 
-|value|string|The value of the data collected as an observation|
-|observationUnitName|string|A human readable name for an observation unit|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |observationVariableName|string|A human readable name for an observation variable|
-|additionalInfo|object|Additional arbitrary info|
-|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
+|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
+|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
+|value|string|The value of the data collected as an observation|
+|collector|string|The name or identifier of the entity which collected the observation|
 |season|object||
-|year|integer|The 4 digit year of the season.|
 |seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
 |season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
-|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
+|year|integer|The 4 digit year of the season.|
+|additionalInfo|object|Additional arbitrary info|
 |observationTimeStamp|string (date-time)|The date and time when this observation was made|
-|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
-|collector|string|The name or identifier of the entity which collected the observation|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|observationUnitName|string|A human readable name for an observation unit|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
 
 
 **Response Fields** 
 
 |Field|Type|Description|
 |---|---|---| 
-|value|string|The value of the data collected as an observation|
-|observationUnitName|string|A human readable name for an observation unit|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |observationVariableName|string|A human readable name for an observation variable|
-|additionalInfo|object|Additional arbitrary info|
-|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
+|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
+|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
+|value|string|The value of the data collected as an observation|
+|collector|string|The name or identifier of the entity which collected the observation|
 |season|object||
-|year|integer|The 4 digit year of the season.|
 |seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
 |season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
-|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
-|observationTimeStamp|string (date-time)|The date and time when this observation was made|
-|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
-|germplasmDbId|string|The ID which uniquely identifies a germplasm|
+|year|integer|The 4 digit year of the season.|
+|additionalInfo|object|Additional arbitrary info|
 |observationDbId|string|The ID which uniquely identifies an observation|
-|collector|string|The name or identifier of the entity which collected the observation|
+|observationTimeStamp|string (date-time)|The date and time when this observation was made|
+|germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|observationUnitName|string|A human readable name for an observation unit|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
 
 
  
@@ -740,10 +740,10 @@ See the example responses below</p>
 
 |Field|Type|Description|
 |---|---|---| 
-|observationVariableNames|array[string]|The list of observation variable names which have values recorded for them in the data matrix. Order should match "observationVariableDbIds".|
-|observationVariableDbIds|array[string]|The list of observation variables which have values recorded for them in the data matrix. Append to the "headerRow" for complete header row.|
 |data|array[array]|Matrix of observation data recorded for different observation variables across different observation units|
 |headerRow|array[string]|The header row describing observation unit fields. Append "observationVariableDbIds" for complete header row of the table.  This array should contain any or all of the following strings; year, studyDbId, studyName, locationDbId, locationName, germplasmDbId, germplasmName, observationUnitDbId, plotNumber, replicate, blockNumber, entryType, X, Y|
+|observationVariableDbIds|array[string]|The list of observation variables which have values recorded for them in the data matrix. Append to the "headerRow" for complete header row.|
+|observationVariableNames|array[string]|The list of observation variable names which have values recorded for them in the data matrix. Order should match "observationVariableDbIds".|
 
 
  
@@ -1013,18 +1013,18 @@ Submit a search request for a set of Observations. Returns an Id which reference
 
 |Field|Type|Description|
 |---|---|---| 
-|observationDbIds|array[string]|The unique id of an Observation|
-|germplasmDbIds|array[string]|The name or synonym of external genebank accession identifiers|
-|observationUnitDbIds|array[string]|The unique id of an Observation Unit|
-|locationDbIds|array[string]|locations these traits were collected|
-|observationTimeStampRangeEnd|string (date-time)|Timestamp range end|
-|observationTimeStampRangeStart|string (date-time)|Timestamp range start|
-|observationLevel|string|The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnit Structure.|
-|trialDbIds|array[string]|list of trials to search across|
-|seasonDbIds|array[string]|The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)|
-|studyDbIds|array[string]|The database ID / PK of the studies search parameter|
-|observationVariableDbIds|array[string]|The IDs of traits, could be ontology ID, database ID or PUI|
 |programDbIds|array[string]|list of programs to search across|
+|germplasmDbIds|array[string]|The name or synonym of external genebank accession identifiers|
+|seasonDbIds|array[string]|The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)|
+|observationVariableDbIds|array[string]|The IDs of traits, could be ontology ID, database ID or PUI|
+|observationUnitDbIds|array[string]|The unique id of an Observation Unit|
+|trialDbIds|array[string]|list of trials to search across|
+|observationTimeStampRangeStart|string (date-time)|Timestamp range start|
+|observationTimeStampRangeEnd|string (date-time)|Timestamp range end|
+|observationDbIds|array[string]|The unique id of an Observation|
+|locationDbIds|array[string]|locations these traits were collected|
+|studyDbIds|array[string]|The database ID / PK of the studies search parameter|
+|observationLevel|string|The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnit Structure.|
 
 
 **Response Fields** 
@@ -1155,23 +1155,23 @@ observationValue data type inferred from the ontology
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|value|string|The value of the data collected as an observation|
-|observationUnitName|string|A human readable name for an observation unit|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |observationVariableName|string|A human readable name for an observation variable|
-|additionalInfo|object|Additional arbitrary info|
-|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
+|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
+|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
+|value|string|The value of the data collected as an observation|
+|collector|string|The name or identifier of the entity which collected the observation|
 |season|object||
-|year|integer|The 4 digit year of the season.|
 |seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
 |season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
-|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
-|observationTimeStamp|string (date-time)|The date and time when this observation was made|
-|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
-|germplasmDbId|string|The ID which uniquely identifies a germplasm|
+|year|integer|The 4 digit year of the season.|
+|additionalInfo|object|Additional arbitrary info|
 |observationDbId|string|The ID which uniquely identifies an observation|
-|collector|string|The name or identifier of the entity which collected the observation|
+|observationTimeStamp|string (date-time)|The date and time when this observation was made|
+|germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|observationUnitName|string|A human readable name for an observation unit|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
 
 
  
