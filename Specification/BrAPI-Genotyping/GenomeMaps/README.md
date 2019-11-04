@@ -11,6 +11,263 @@ Retrieving genetic or physical maps
 
 
 
+## Maps [/brapi/v1/maps] 
+
+
+
+
+### Get Maps  [GET /brapi/v1/maps{?commonCropName}{?scientificName}{?type}{?programDbId}{?trialDbId}{?studyDbId}{?page}{?pageSize}]
+
+Get list of maps
+
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|linkageGroupCount|integer (int32)|The number of linkage groups present in this genome map|
+|scientificName|string|Full scientific binomial format name. This includes Genus, Species, and Sub-species|
+|publishedDate|string (date)|The date this genome was published|
+|commonCropName|string|The common name of the crop, found from "GET /commoncropnames"|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|markerCount|integer (int32)|The number of markers present in this genome map|
+|mapName|string|A human readable name for this genome map|
+|type|string|The type of map this represents, ussually "Genetic"|
+|comments|string|Additional comments|
+|additionalInfo|object|Additional arbitrary info|
+|mapDbId|string|The ID which uniquely identifies this genome map|
+|unit|string|The units used to describe the data in this map|
+
+
+ 
+
++ Parameters
+    + commonCropName (Optional, ) ... The common name of the crop, found from "GET /commoncropnames"
+    + scientificName (Optional, ) ... Full scientific binomial format name. This includes Genus, Species, and Sub-species
+    + type (Optional, ) ... Type of map
+    + programDbId (Optional, ) ... Unique Id to filter by Program
+    + trialDbId (Optional, ) ... Unique Id to filter by Trial
+    + studyDbId (Optional, ) ... Unique Id to filter by Study
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 2,
+            "totalCount": 2,
+            "totalPages": 1
+        },
+        "status": []
+    },
+    "result": {
+        "data": [
+            {
+                "comments": "comments",
+                "commonCropName": "Paw Paw",
+                "documentationURL": "https://brapi.org",
+                "linkageGroupCount": 1,
+                "mapDbId": "gm1",
+                "mapName": "Genome Map 1",
+                "markerCount": 11,
+                "name": "Genome Map 1",
+                "publishedDate": "2018-01-01",
+                "scientificName": "Asimina triloba",
+                "species": "triloba",
+                "type": "Genetic",
+                "unit": "cM"
+            },
+            {
+                "comments": "comments",
+                "commonCropName": "Paw Paw",
+                "documentationURL": "https://brapi.org",
+                "linkageGroupCount": 2,
+                "mapDbId": "gm2",
+                "mapName": "Genome Map 2",
+                "markerCount": 11,
+                "name": "Genome Map 2",
+                "publishedDate": "2018-01-01",
+                "scientificName": "Asimina triloba",
+                "species": "triloba",
+                "type": "Genetic",
+                "unit": "cM"
+            }
+        ]
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+
+
+
+### Get Maps by mapDbId  [GET /brapi/v1/maps/{mapDbId}{?page}{?pageSize}]
+
+Provides the number of markers on each linkageGroup and the max position on the linkageGroup
+
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|linkageGroupCount|integer (int32)|The number of linkage groups present in this genome map|
+|scientificName|string|Full scientific binomial format name. This includes Genus, Species, and Sub-species|
+|publishedDate|string (date)|The date this genome was published|
+|commonCropName|string|The common name of the crop, found from "GET /commoncropnames"|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|markerCount|integer (int32)|The number of markers present in this genome map|
+|mapName|string|A human readable name for this genome map|
+|type|string|The type of map this represents, ussually "Genetic"|
+|comments|string|Additional comments|
+|additionalInfo|object|Additional arbitrary info|
+|mapDbId|string|The ID which uniquely identifies this genome map|
+|unit|string|The units used to describe the data in this map|
+
+
+ 
+
++ Parameters
+    + mapDbId (Required, ) ... The internal db id of a selected map
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [],
+        "pagination": {},
+        "status": []
+    },
+    "result": {
+        "documentationURL": "https://brapi.org",
+        "mapDbId": "gm1",
+        "mapName": "Genome Map 1",
+        "name": "Genome Map 1",
+        "type": "Genetic",
+        "unit": "cM"
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
+```
+
+
+
+
+
+### Get Maps Linkagegroups by mapDbId  [GET /brapi/v1/maps/{mapDbId}/linkagegroups{?page}{?pageSize}]
+
+Get the Linkage Groups of a specific Genomic Map. A Linkage Group is the BrAPI generic term for a named section of a map. A Linkage Group can represent a Chromosome, Scaffold, or Linkage Group.
+
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|maxPosition|integer|The maximum position of a marker within this linkage group|
+|linkageGroupName|string|The Uniquely Identifiable name of this linkage group|
+|additionalInfo|object|Additional arbitrary info|
+|markerCount|integer|The number of markers associated with this linkage group|
+
+
+ 
+
++ Parameters
+    + mapDbId (Required, ) ... The internal db id of a selected map
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [],
+        "pagination": {},
+        "status": []
+    },
+    "result": {
+        "data": []
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
+```
+
+
+
 ## Search [/brapi/v1/search] 
 
 
@@ -24,9 +281,9 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 
 |Field|Type|Description|
 |---|---|---| 
-|mapDbIds|array[string]|The unique ID of the map|
 |markerDbIds|array[string]|Internal db identifier|
 |linkageGroupNames|array[string]|The Uniquely Identifiable name of this linkage group|
+|mapDbIds|array[string]|The unique ID of the map|
 |minPosition|integer|The minimum position|
 |maxPosition|integer|The maximum position|
 
@@ -130,13 +387,13 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|mapDbId|string|The unique ID of the map|
 |position|integer|The position of a marker within a linkage group|
 |linkageGroupName|string|The Uniquely Identifiable name of this linkage group|
-|markerDbId|string|Internal db identifier|
-|mapName|string|The human readbale name of the map|
 |markerName|string|The human readable name for a marker|
+|mapDbId|string|The unique ID of the map|
+|mapName|string|The human readbale name of the map|
 |additionalInfo|object|Additional arbitrary info|
+|markerDbId|string|Internal db identifier|
 
 
  
@@ -197,13 +454,13 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|mapDbId|string|The unique ID of the map|
 |position|integer|The position of a marker within a linkage group|
 |linkageGroupName|string|The Uniquely Identifiable name of this linkage group|
-|markerDbId|string|Internal db identifier|
-|mapName|string|The human readbale name of the map|
 |markerName|string|The human readable name for a marker|
+|mapDbId|string|The unique ID of the map|
+|mapName|string|The human readbale name of the map|
 |additionalInfo|object|Additional arbitrary info|
+|markerDbId|string|Internal db identifier|
 
 
  
@@ -248,262 +505,5 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 + Response 403 (application/json)
 ```
 "ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-
-## Maps [/brapi/v1/maps] 
-
-
-
-
-### Get Maps  [GET /brapi/v1/maps{?commonCropName}{?scientificName}{?type}{?programDbId}{?trialDbId}{?studyDbId}{?page}{?pageSize}]
-
-Get list of maps
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|mapDbId|string|The ID which uniquely identifies this genome map|
-|unit|string|The units used to describe the data in this map|
-|mapName|string|A human readable name for this genome map|
-|markerCount|integer (int32)|The number of markers present in this genome map|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|commonCropName|string|The common name of the crop, found from "GET /commoncropnames"|
-|comments|string|Additional comments|
-|scientificName|string|Full scientific binomial format name. This includes Genus, Species, and Sub-species|
-|linkageGroupCount|integer (int32)|The number of linkage groups present in this genome map|
-|type|string|The type of map this represents, ussually "Genetic"|
-|additionalInfo|object|Additional arbitrary info|
-|publishedDate|string (date)|The date this genome was published|
-
-
- 
-
-+ Parameters
-    + commonCropName (Optional, ) ... The common name of the crop, found from "GET /commoncropnames"
-    + scientificName (Optional, ) ... Full scientific binomial format name. This includes Genus, Species, and Sub-species
-    + type (Optional, ) ... Type of map
-    + programDbId (Optional, ) ... Unique Id to filter by Program
-    + trialDbId (Optional, ) ... Unique Id to filter by Trial
-    + studyDbId (Optional, ) ... Unique Id to filter by Study
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 2,
-            "totalCount": 2,
-            "totalPages": 1
-        },
-        "status": []
-    },
-    "result": {
-        "data": [
-            {
-                "comments": "comments",
-                "commonCropName": "Paw Paw",
-                "documentationURL": "https://brapi.org",
-                "linkageGroupCount": 1,
-                "mapDbId": "gm1",
-                "mapName": "Genome Map 1",
-                "markerCount": 11,
-                "name": "Genome Map 1",
-                "publishedDate": "2018-01-01",
-                "scientificName": "Asimina triloba",
-                "species": "triloba",
-                "type": "Genetic",
-                "unit": "cM"
-            },
-            {
-                "comments": "comments",
-                "commonCropName": "Paw Paw",
-                "documentationURL": "https://brapi.org",
-                "linkageGroupCount": 2,
-                "mapDbId": "gm2",
-                "mapName": "Genome Map 2",
-                "markerCount": 11,
-                "name": "Genome Map 2",
-                "publishedDate": "2018-01-01",
-                "scientificName": "Asimina triloba",
-                "species": "triloba",
-                "type": "Genetic",
-                "unit": "cM"
-            }
-        ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-
-
-
-### Get Maps by mapDbId  [GET /brapi/v1/maps/{mapDbId}{?page}{?pageSize}]
-
-Provides the number of markers on each linkageGroup and the max position on the linkageGroup
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|mapDbId|string|The ID which uniquely identifies this genome map|
-|unit|string|The units used to describe the data in this map|
-|mapName|string|A human readable name for this genome map|
-|markerCount|integer (int32)|The number of markers present in this genome map|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|commonCropName|string|The common name of the crop, found from "GET /commoncropnames"|
-|comments|string|Additional comments|
-|scientificName|string|Full scientific binomial format name. This includes Genus, Species, and Sub-species|
-|linkageGroupCount|integer (int32)|The number of linkage groups present in this genome map|
-|type|string|The type of map this represents, ussually "Genetic"|
-|additionalInfo|object|Additional arbitrary info|
-|publishedDate|string (date)|The date this genome was published|
-
-
- 
-
-+ Parameters
-    + mapDbId (Required, ) ... The internal db id of a selected map
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {},
-        "status": []
-    },
-    "result": {
-        "documentationURL": "https://brapi.org",
-        "mapDbId": "gm1",
-        "mapName": "Genome Map 1",
-        "name": "Genome Map 1",
-        "type": "Genetic",
-        "unit": "cM"
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-+ Response 404 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
-```
-
-
-
-
-
-### Get Maps Linkagegroups by mapDbId  [GET /brapi/v1/maps/{mapDbId}/linkagegroups{?page}{?pageSize}]
-
-Get the Linkage Groups of a specific Genomic Map. A Linkage Group is the BrAPI generic term for a named section of a map. A Linkage Group can represent a Chromosome, Scaffold, or Linkage Group.
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|linkageGroupName|string|The Uniquely Identifiable name of this linkage group|
-|markerCount|integer|The number of markers associated with this linkage group|
-|additionalInfo|object|Additional arbitrary info|
-|maxPosition|integer|The maximum position of a marker within this linkage group|
-
-
- 
-
-+ Parameters
-    + mapDbId (Required, ) ... The internal db id of a selected map
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {},
-        "status": []
-    },
-    "result": {
-        "data": []
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-+ Response 404 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
 ```
 

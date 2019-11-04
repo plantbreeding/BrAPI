@@ -6,243 +6,6 @@ API methods for tracking/managing plant samples and related meta-data. A 'Sample
 
 
 
-## Search [/brapi/v1/search] 
-
-
-
-
-### Post Search Samples  [POST /brapi/v1/search/samples]
-
-Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
-
-See Search Services for additional implementation details.
-
-**Request Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|observationUnitDbIds|array[string]|The ID which uniquely identifies an observation unit|
-|sampleDbIds|array[string]|The ID which uniquely identifies a sample|
-|plateDbIds|array[string]|The ID which uniquely identifies a plate of samples|
-|germplasmDbIds|array[string]| The ID which uniquely identifies a germplasm|
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|searchResultDbId|string||
-
-
- 
-
-+ Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
- 
-+ Request (application/json)
-```
-{
-    "germplasmDbIds": [
-        "germplasmDbIds1",
-        "germplasmDbIds2"
-    ],
-    "observationUnitDbIds": [
-        "observationUnitDbIds1",
-        "observationUnitDbIds2"
-    ],
-    "plateDbIds": [
-        "plateDbIds1",
-        "plateDbIds2"
-    ],
-    "sampleDbIds": [
-        "sampleDbIds1",
-        "sampleDbIds2"
-    ]
-}
-```
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "searchResultDbId": "551ae08c"
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-
-
-
-### Get Search Samples by searchResultsDbId  [GET /brapi/v1/search/samples/{searchResultsDbId}{?page}{?pageSize}]
-
-Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
-
-See Search Services for additional implementation details.
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|row|string|The Row identifier for this samples location in the plate|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
-|takenBy|string|The name or identifier of the entity which took the sample from the field|
-|column|integer|The Column identifier for this samples location in the plate|
-|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
-|notes|string|Additional notes about a sample|
-|sampleDbId|string|The ID which uniquely identifies a sample|
-|sampleBarcode|string|A unique identifier physically attached to the sample|
-|trialDbId|string|The ID which uniquely identifies a trial within the given database server|
-|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
-|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
-|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.|
-|sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|sampleName|string|The name of the sample|
-|plateDbId|string|The ID which uniquely identifies a plate of samples|
-|samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)|
-|plateName|string|The human readable name of a plate|
-|programDbId|string|The ID which uniquely identifies a program within the given database server|
-|germplasmDbId|string|The ID which uniquely identifies a germplasm|
-|additionalInfo|object|Additional arbitrary info|
-
-
- 
-
-+ Parameters
-    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "data": [
-            {
-                "additionalInfo": {},
-                "column": 6,
-                "germplasmDbId": "7e08d538",
-                "notes": "This sample was taken from the root of a tree",
-                "observationUnitDbId": "073a3ce5",
-                "plateDbId": "2dce16d1",
-                "plateName": "Plate_alpha_20191022",
-                "programDbId": "bd748e00",
-                "row": "B",
-                "sampleBarcode": "3a027b59",
-                "sampleDbId": "cd06a61d",
-                "sampleGroupDbId": "8524b436",
-                "sampleName": "Sample_alpha_20191022",
-                "samplePUI": "doi:10.15454/312953986E3",
-                "sampleTimestamp": "2018-01-01T14:47:23-0600",
-                "sampleType": "Tissue",
-                "studyDbId": "64bd6bf9",
-                "takenBy": "Bob",
-                "tissueType": "Root",
-                "trialDbId": "d34c5349",
-                "well": "B6"
-            }
-        ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-+ Response 404 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
-```
-
-
-
 ## Samples [/brapi/v1/samples] 
 
 
@@ -259,27 +22,27 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
+|notes|string|Additional notes about a sample|
+|sampleName|string|The name of the sample|
 |row|string|The Row identifier for this samples location in the plate|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|additionalInfo|object|Additional arbitrary info|
 |takenBy|string|The name or identifier of the entity which took the sample from the field|
+|samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)|
+|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
 |column|integer|The Column identifier for this samples location in the plate|
 |sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
-|notes|string|Additional notes about a sample|
-|sampleDbId|string|The ID which uniquely identifies a sample|
-|sampleBarcode|string|A unique identifier physically attached to the sample|
-|trialDbId|string|The ID which uniquely identifies a trial within the given database server|
-|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
-|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
-|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.|
-|sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|sampleName|string|The name of the sample|
-|plateDbId|string|The ID which uniquely identifies a plate of samples|
-|samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)|
-|plateName|string|The human readable name of a plate|
 |programDbId|string|The ID which uniquely identifies a program within the given database server|
+|sampleDbId|string|The ID which uniquely identifies a sample|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
-|additionalInfo|object|Additional arbitrary info|
+|plateName|string|The human readable name of a plate|
+|sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
+|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
+|sampleBarcode|string|A unique identifier physically attached to the sample|
+|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.|
+|trialDbId|string|The ID which uniquely identifies a trial within the given database server|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|plateDbId|string|The ID which uniquely identifies a plate of samples|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
 
 
  
@@ -380,26 +143,26 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
 
 |Field|Type|Description|
 |---|---|---| 
-|row|string|The Row identifier for this samples location in the plate|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
-|takenBy|string|The name or identifier of the entity which took the sample from the field|
-|column|integer|The Column identifier for this samples location in the plate|
-|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
 |notes|string|Additional notes about a sample|
-|sampleBarcode|string|A unique identifier physically attached to the sample|
-|trialDbId|string|The ID which uniquely identifies a trial within the given database server|
-|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
-|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
-|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.|
-|sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |sampleName|string|The name of the sample|
-|plateDbId|string|The ID which uniquely identifies a plate of samples|
-|samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)|
-|plateName|string|The human readable name of a plate|
-|programDbId|string|The ID which uniquely identifies a program within the given database server|
-|germplasmDbId|string|The ID which uniquely identifies a germplasm|
+|row|string|The Row identifier for this samples location in the plate|
 |additionalInfo|object|Additional arbitrary info|
+|column|integer|The Column identifier for this samples location in the plate|
+|samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)|
+|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
+|trialDbId|string|The ID which uniquely identifies a trial within the given database server|
+|germplasmDbId|string|The ID which uniquely identifies a germplasm|
+|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
+|programDbId|string|The ID which uniquely identifies a program within the given database server|
+|plateName|string|The human readable name of a plate|
+|sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
+|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
+|sampleBarcode|string|A unique identifier physically attached to the sample|
+|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.|
+|takenBy|string|The name or identifier of the entity which took the sample from the field|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|plateDbId|string|The ID which uniquely identifies a plate of samples|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
 
 
 **Response Fields** 
@@ -407,27 +170,27 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
+|notes|string|Additional notes about a sample|
+|sampleName|string|The name of the sample|
 |row|string|The Row identifier for this samples location in the plate|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|additionalInfo|object|Additional arbitrary info|
 |takenBy|string|The name or identifier of the entity which took the sample from the field|
+|samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)|
+|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
 |column|integer|The Column identifier for this samples location in the plate|
 |sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
-|notes|string|Additional notes about a sample|
-|sampleDbId|string|The ID which uniquely identifies a sample|
-|sampleBarcode|string|A unique identifier physically attached to the sample|
-|trialDbId|string|The ID which uniquely identifies a trial within the given database server|
-|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
-|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
-|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.|
-|sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|sampleName|string|The name of the sample|
-|plateDbId|string|The ID which uniquely identifies a plate of samples|
-|samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)|
-|plateName|string|The human readable name of a plate|
 |programDbId|string|The ID which uniquely identifies a program within the given database server|
+|sampleDbId|string|The ID which uniquely identifies a sample|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
-|additionalInfo|object|Additional arbitrary info|
+|plateName|string|The human readable name of a plate|
+|sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
+|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
+|sampleBarcode|string|A unique identifier physically attached to the sample|
+|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.|
+|trialDbId|string|The ID which uniquely identifies a trial within the given database server|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|plateDbId|string|The ID which uniquely identifies a plate of samples|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
 
 
  
@@ -553,27 +316,27 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
 
 |Field|Type|Description|
 |---|---|---| 
+|notes|string|Additional notes about a sample|
+|sampleName|string|The name of the sample|
 |row|string|The Row identifier for this samples location in the plate|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|additionalInfo|object|Additional arbitrary info|
 |takenBy|string|The name or identifier of the entity which took the sample from the field|
+|samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)|
+|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
 |column|integer|The Column identifier for this samples location in the plate|
 |sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
-|notes|string|Additional notes about a sample|
-|sampleDbId|string|The ID which uniquely identifies a sample|
-|sampleBarcode|string|A unique identifier physically attached to the sample|
-|trialDbId|string|The ID which uniquely identifies a trial within the given database server|
-|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
-|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
-|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.|
-|sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|sampleName|string|The name of the sample|
-|plateDbId|string|The ID which uniquely identifies a plate of samples|
-|samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)|
-|plateName|string|The human readable name of a plate|
 |programDbId|string|The ID which uniquely identifies a program within the given database server|
+|sampleDbId|string|The ID which uniquely identifies a sample|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
-|additionalInfo|object|Additional arbitrary info|
+|plateName|string|The human readable name of a plate|
+|sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
+|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
+|sampleBarcode|string|A unique identifier physically attached to the sample|
+|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.|
+|trialDbId|string|The ID which uniquely identifies a trial within the given database server|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|plateDbId|string|The ID which uniquely identifies a plate of samples|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
 
 
  
@@ -670,53 +433,53 @@ Update the details of an existing Sample
 
 |Field|Type|Description|
 |---|---|---| 
-|row|string|The Row identifier for this samples location in the plate|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
-|takenBy|string|The name or identifier of the entity which took the sample from the field|
-|column|integer|The Column identifier for this samples location in the plate|
-|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
 |notes|string|Additional notes about a sample|
-|sampleBarcode|string|A unique identifier physically attached to the sample|
-|trialDbId|string|The ID which uniquely identifies a trial within the given database server|
-|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
-|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
-|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.|
-|sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |sampleName|string|The name of the sample|
-|plateDbId|string|The ID which uniquely identifies a plate of samples|
-|samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)|
-|plateName|string|The human readable name of a plate|
-|programDbId|string|The ID which uniquely identifies a program within the given database server|
-|germplasmDbId|string|The ID which uniquely identifies a germplasm|
+|row|string|The Row identifier for this samples location in the plate|
 |additionalInfo|object|Additional arbitrary info|
+|column|integer|The Column identifier for this samples location in the plate|
+|samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)|
+|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
+|trialDbId|string|The ID which uniquely identifies a trial within the given database server|
+|germplasmDbId|string|The ID which uniquely identifies a germplasm|
+|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
+|programDbId|string|The ID which uniquely identifies a program within the given database server|
+|plateName|string|The human readable name of a plate|
+|sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
+|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
+|sampleBarcode|string|A unique identifier physically attached to the sample|
+|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.|
+|takenBy|string|The name or identifier of the entity which took the sample from the field|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|plateDbId|string|The ID which uniquely identifies a plate of samples|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
 
 
 **Response Fields** 
 
 |Field|Type|Description|
 |---|---|---| 
+|notes|string|Additional notes about a sample|
+|sampleName|string|The name of the sample|
 |row|string|The Row identifier for this samples location in the plate|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|additionalInfo|object|Additional arbitrary info|
 |takenBy|string|The name or identifier of the entity which took the sample from the field|
+|samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)|
+|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
 |column|integer|The Column identifier for this samples location in the plate|
 |sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
-|notes|string|Additional notes about a sample|
-|sampleDbId|string|The ID which uniquely identifies a sample|
-|sampleBarcode|string|A unique identifier physically attached to the sample|
-|trialDbId|string|The ID which uniquely identifies a trial within the given database server|
-|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
-|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
-|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.|
-|sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|sampleName|string|The name of the sample|
-|plateDbId|string|The ID which uniquely identifies a plate of samples|
-|samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)|
-|plateName|string|The human readable name of a plate|
 |programDbId|string|The ID which uniquely identifies a program within the given database server|
+|sampleDbId|string|The ID which uniquely identifies a sample|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
-|additionalInfo|object|Additional arbitrary info|
+|plateName|string|The human readable name of a plate|
+|sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
+|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
+|sampleBarcode|string|A unique identifier physically attached to the sample|
+|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.|
+|trialDbId|string|The ID which uniquely identifies a trial within the given database server|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|plateDbId|string|The ID which uniquely identifies a plate of samples|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
 
 
  
@@ -804,6 +567,243 @@ Update the details of an existing Sample
         "tissueType": "Root",
         "trialDbId": "d34c5349",
         "well": "B6"
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
+```
+
+
+
+## Search [/brapi/v1/search] 
+
+
+
+
+### Post Search Samples  [POST /brapi/v1/search/samples]
+
+Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
+
+See Search Services for additional implementation details.
+
+**Request Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|sampleDbIds|array[string]|The ID which uniquely identifies a sample|
+|observationUnitDbIds|array[string]|The ID which uniquely identifies an observation unit|
+|germplasmDbIds|array[string]| The ID which uniquely identifies a germplasm|
+|plateDbIds|array[string]|The ID which uniquely identifies a plate of samples|
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|searchResultDbId|string||
+
+
+ 
+
++ Parameters
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+ 
++ Request (application/json)
+```
+{
+    "germplasmDbIds": [
+        "germplasmDbIds1",
+        "germplasmDbIds2"
+    ],
+    "observationUnitDbIds": [
+        "observationUnitDbIds1",
+        "observationUnitDbIds2"
+    ],
+    "plateDbIds": [
+        "plateDbIds1",
+        "plateDbIds2"
+    ],
+    "sampleDbIds": [
+        "sampleDbIds1",
+        "sampleDbIds2"
+    ]
+}
+```
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultDbId": "551ae08c"
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+
+
+
+### Get Search Samples by searchResultsDbId  [GET /brapi/v1/search/samples/{searchResultsDbId}{?page}{?pageSize}]
+
+Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
+
+See Search Services for additional implementation details.
+
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|notes|string|Additional notes about a sample|
+|sampleName|string|The name of the sample|
+|row|string|The Row identifier for this samples location in the plate|
+|additionalInfo|object|Additional arbitrary info|
+|takenBy|string|The name or identifier of the entity which took the sample from the field|
+|samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)|
+|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
+|column|integer|The Column identifier for this samples location in the plate|
+|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
+|programDbId|string|The ID which uniquely identifies a program within the given database server|
+|sampleDbId|string|The ID which uniquely identifies a sample|
+|germplasmDbId|string|The ID which uniquely identifies a germplasm|
+|plateName|string|The human readable name of a plate|
+|sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
+|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
+|sampleBarcode|string|A unique identifier physically attached to the sample|
+|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.|
+|trialDbId|string|The ID which uniquely identifies a trial within the given database server|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|plateDbId|string|The ID which uniquely identifies a plate of samples|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+
+
+ 
+
++ Parameters
+    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "column": 6,
+                "germplasmDbId": "7e08d538",
+                "notes": "This sample was taken from the root of a tree",
+                "observationUnitDbId": "073a3ce5",
+                "plateDbId": "2dce16d1",
+                "plateName": "Plate_alpha_20191022",
+                "programDbId": "bd748e00",
+                "row": "B",
+                "sampleBarcode": "3a027b59",
+                "sampleDbId": "cd06a61d",
+                "sampleGroupDbId": "8524b436",
+                "sampleName": "Sample_alpha_20191022",
+                "samplePUI": "doi:10.15454/312953986E3",
+                "sampleTimestamp": "2018-01-01T14:47:23-0600",
+                "sampleType": "Tissue",
+                "studyDbId": "64bd6bf9",
+                "takenBy": "Bob",
+                "tissueType": "Root",
+                "trialDbId": "d34c5349",
+                "well": "B6"
+            }
+        ]
     }
 }
 ```

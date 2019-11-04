@@ -18,11 +18,11 @@
 
 |Field|Type|Description|
 |---|---|---| 
-|variantSetDbIds|array[string]|The `VariantSet` to search.|
 |callSetDbIds|array[string]|Only return variant calls which belong to call sets with these IDs. If unspecified, return all variants and no variant call objects.|
-|end|string (int64)|Required. The end of the window (0-based, exclusive) for which overlapping variants should be returned.|
-|start|string (int64)|Required. The beginning of the window (0-based, inclusive) for which overlapping variants should be returned. Genomic positions are non-negative integers less than reference length. Requests spanning the join of circular genomes are represented as two requests one on each side of the join (position 0).|
 |reference_name|string|Required. Only return variants on this reference.|
+|end|string (int64)|Required. The end of the window (0-based, exclusive) for which overlapping variants should be returned.|
+|variantSetDbIds|array[string]|The `VariantSet` to search.|
+|start|string (int64)|Required. The beginning of the window (0-based, inclusive) for which overlapping variants should be returned. Genomic positions are non-negative integers less than reference length. Requests spanning the join of circular genomes are represented as two requests one on each side of the join (position 0).|
 
 
 **Response Fields** 
@@ -123,24 +123,24 @@
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|alternate_bases|array[string]|The bases that appear instead of the reference bases. Multiple alternate alleles are possible.|
-|ciend|array[integer]||
-|cipos|array[integer]||
-|variantDbId|string|The variant ID.|
 |referenceName|string||
-|variantNames|array[string]|Names for the variant, for example a RefSNP ID.|
-|created|string (int64)|The date this variant was created in milliseconds from the epoch.|
-|filtersFailed|array[string]|Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.|
-|filtersApplied|boolean (boolean)|True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.|
 |end|string (int64)|The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated by `start + referenceBases.length`.|
-|variantSetDbId|string|The ID of the `VariantSet` this variant belongs to. This transitively defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
-|referenceBases|string|The reference bases for this variant. They start at the given start position.|
 |svlen|string (int64)||
-|start|string (int64)|The start position at which this variant occurs (0-based). This corresponds to the first base of the string of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning the join of circular genomes are represented as two variants one on each side of the join (position 0).|
-|filtersPassed|boolean (boolean)|True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.|
-|updated|string (int64)|The time at which this variant was last updated in milliseconds from the epoch.|
-|variantType|string||
 |additionalInfo|object|Additional arbitrary info|
+|alternate_bases|array[string]|The bases that appear instead of the reference bases. Multiple alternate alleles are possible.|
+|updated|string (int64)|The time at which this variant was last updated in milliseconds from the epoch.|
+|referenceBases|string|The reference bases for this variant. They start at the given start position.|
+|filtersApplied|boolean (boolean)|True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.|
+|ciend|array[integer]||
+|created|string (int64)|The date this variant was created in milliseconds from the epoch.|
+|variantNames|array[string]|Names for the variant, for example a RefSNP ID.|
+|variantType|string||
+|start|string (int64)|The start position at which this variant occurs (0-based). This corresponds to the first base of the string of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning the join of circular genomes are represented as two variants one on each side of the join (position 0).|
+|cipos|array[integer]||
+|filtersPassed|boolean (boolean)|True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.|
+|variantSetDbId|string|The ID of the `VariantSet` this variant belongs to. This transitively defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
+|variantDbId|string|The variant ID.|
+|filtersFailed|array[string]|Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.|
 
 
  
@@ -248,24 +248,24 @@
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|alternate_bases|array[string]|The bases that appear instead of the reference bases. Multiple alternate alleles are possible.|
-|ciend|array[integer]||
-|cipos|array[integer]||
-|variantDbId|string|The variant ID.|
 |referenceName|string||
-|variantNames|array[string]|Names for the variant, for example a RefSNP ID.|
-|created|string (int64)|The date this variant was created in milliseconds from the epoch.|
-|filtersFailed|array[string]|Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.|
-|filtersApplied|boolean (boolean)|True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.|
 |end|string (int64)|The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated by `start + referenceBases.length`.|
-|variantSetDbId|string|The ID of the `VariantSet` this variant belongs to. This transitively defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
-|referenceBases|string|The reference bases for this variant. They start at the given start position.|
 |svlen|string (int64)||
-|start|string (int64)|The start position at which this variant occurs (0-based). This corresponds to the first base of the string of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning the join of circular genomes are represented as two variants one on each side of the join (position 0).|
-|filtersPassed|boolean (boolean)|True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.|
-|updated|string (int64)|The time at which this variant was last updated in milliseconds from the epoch.|
-|variantType|string||
 |additionalInfo|object|Additional arbitrary info|
+|alternate_bases|array[string]|The bases that appear instead of the reference bases. Multiple alternate alleles are possible.|
+|updated|string (int64)|The time at which this variant was last updated in milliseconds from the epoch.|
+|referenceBases|string|The reference bases for this variant. They start at the given start position.|
+|filtersApplied|boolean (boolean)|True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.|
+|ciend|array[integer]||
+|created|string (int64)|The date this variant was created in milliseconds from the epoch.|
+|variantNames|array[string]|Names for the variant, for example a RefSNP ID.|
+|variantType|string||
+|start|string (int64)|The start position at which this variant occurs (0-based). This corresponds to the first base of the string of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning the join of circular genomes are represented as two variants one on each side of the join (position 0).|
+|cipos|array[integer]||
+|filtersPassed|boolean (boolean)|True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.|
+|variantSetDbId|string|The ID of the `VariantSet` this variant belongs to. This transitively defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
+|variantDbId|string|The variant ID.|
+|filtersFailed|array[string]|Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.|
 
 
  
@@ -373,19 +373,19 @@ Also See:
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|variantName|string|The name of the variant this call belongs to.|
-|phaseset|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phaseset string.|
+|callSetDbId|string|The ID of the call set this variant call belongs to.  If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
 |genotype|object|`ListValue` is a wrapper around a repeated field of values.  The JSON representation for `ListValue` is JSON array.|
 |values|array|Repeated field of dynamically typed values.|
 |callSetName|string|The name of the call set this variant call belongs to. If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
-|genotype_likelihood|array[number]|The genotype likelihoods for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.|
-|variantDbId|string|The ID of the variant this call belongs to.|
-|callSetDbId|string|The ID of the call set this variant call belongs to.  If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
 |additionalInfo|object|Additional arbitrary info|
+|variantDbId|string|The ID of the variant this call belongs to.|
+|genotype_likelihood|array[number]|The genotype likelihoods for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.|
+|phaseset|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phaseset string.|
+|variantName|string|The name of the variant this call belongs to.|
+|sepUnphased|string|The string used as a separator for unphased allele calls.|
 |unknownString|string|The string used as a representation for missing data.|
 |sepPhased|string|The string used as a separator for phased allele calls.|
 |expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurence (false)|
-|sepUnphased|string|The string used as a separator for unphased allele calls.|
 
 
  
@@ -481,24 +481,24 @@ Also See:
 
 |Field|Type|Description|
 |---|---|---| 
-|alternate_bases|array[string]|The bases that appear instead of the reference bases. Multiple alternate alleles are possible.|
-|ciend|array[integer]||
-|cipos|array[integer]||
-|variantDbId|string|The variant ID.|
 |referenceName|string||
-|variantNames|array[string]|Names for the variant, for example a RefSNP ID.|
-|created|string (int64)|The date this variant was created in milliseconds from the epoch.|
-|filtersFailed|array[string]|Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.|
-|filtersApplied|boolean (boolean)|True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.|
 |end|string (int64)|The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated by `start + referenceBases.length`.|
-|variantSetDbId|string|The ID of the `VariantSet` this variant belongs to. This transitively defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
-|referenceBases|string|The reference bases for this variant. They start at the given start position.|
 |svlen|string (int64)||
-|start|string (int64)|The start position at which this variant occurs (0-based). This corresponds to the first base of the string of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning the join of circular genomes are represented as two variants one on each side of the join (position 0).|
-|filtersPassed|boolean (boolean)|True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.|
-|updated|string (int64)|The time at which this variant was last updated in milliseconds from the epoch.|
-|variantType|string||
 |additionalInfo|object|Additional arbitrary info|
+|alternate_bases|array[string]|The bases that appear instead of the reference bases. Multiple alternate alleles are possible.|
+|updated|string (int64)|The time at which this variant was last updated in milliseconds from the epoch.|
+|referenceBases|string|The reference bases for this variant. They start at the given start position.|
+|filtersApplied|boolean (boolean)|True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.|
+|ciend|array[integer]||
+|created|string (int64)|The date this variant was created in milliseconds from the epoch.|
+|variantNames|array[string]|Names for the variant, for example a RefSNP ID.|
+|variantType|string||
+|start|string (int64)|The start position at which this variant occurs (0-based). This corresponds to the first base of the string of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning the join of circular genomes are represented as two variants one on each side of the join (position 0).|
+|cipos|array[integer]||
+|filtersPassed|boolean (boolean)|True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.|
+|variantSetDbId|string|The ID of the `VariantSet` this variant belongs to. This transitively defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
+|variantDbId|string|The variant ID.|
+|filtersFailed|array[string]|Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.|
 
 
  

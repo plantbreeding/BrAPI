@@ -25,24 +25,24 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
-|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
-|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
-|mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
-|traitName|string|The human readable name of a trait|
+|traitDbId|string|The ID which uniquely identifies a trait|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
+|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|traitDescription|string|The description of a trait|
+|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
+|traitName|string|The human readable name of a trait|
 |status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
-|traitDbId|string|The ID which uniquely identifies a trait|
 |synonyms|array[string]|Other trait names|
-|traitDescription|string|The description of a trait|
+|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
+|mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
 |ontologyReference|object||
 |ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
+|ontologyName|string|Ontology name|
 |documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
 |URL|string (uri)||
+|type|string||
 
 
  
@@ -153,23 +153,23 @@ Create a new trait object in the database
 
 |Field|Type|Description|
 |---|---|---| 
-|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
-|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
-|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
-|mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
-|traitName|string|The human readable name of a trait|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
-|status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
-|alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
-|synonyms|array[string]|Other trait names|
+|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
 |traitDescription|string|The description of a trait|
+|alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
+|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
+|traitName|string|The human readable name of a trait|
+|status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
+|synonyms|array[string]|Other trait names|
+|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
+|mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
 |ontologyReference|object||
 |ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
+|ontologyName|string|Ontology name|
 |documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
 |URL|string (uri)||
+|type|string||
 
 
 **Response Fields** 
@@ -177,24 +177,24 @@ Create a new trait object in the database
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
-|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
-|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
-|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
-|mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
-|traitName|string|The human readable name of a trait|
+|traitDbId|string|The ID which uniquely identifies a trait|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
+|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|traitDescription|string|The description of a trait|
+|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
+|traitName|string|The human readable name of a trait|
 |status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
-|traitDbId|string|The ID which uniquely identifies a trait|
 |synonyms|array[string]|Other trait names|
-|traitDescription|string|The description of a trait|
+|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
+|mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
 |ontologyReference|object||
 |ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
+|ontologyName|string|Ontology name|
 |documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
 |URL|string (uri)||
+|type|string||
 
 
  
@@ -350,24 +350,24 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
 
 |Field|Type|Description|
 |---|---|---| 
-|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
-|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
-|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
-|mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
-|traitName|string|The human readable name of a trait|
+|traitDbId|string|The ID which uniquely identifies a trait|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
+|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|traitDescription|string|The description of a trait|
+|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
+|traitName|string|The human readable name of a trait|
 |status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
-|traitDbId|string|The ID which uniquely identifies a trait|
 |synonyms|array[string]|Other trait names|
-|traitDescription|string|The description of a trait|
+|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
+|mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
 |ontologyReference|object||
 |ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
+|ontologyName|string|Ontology name|
 |documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
 |URL|string (uri)||
+|type|string||
 
 
  
@@ -478,47 +478,47 @@ Update an existing trait
 
 |Field|Type|Description|
 |---|---|---| 
-|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
-|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
-|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
-|mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
-|traitName|string|The human readable name of a trait|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
-|status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
-|alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
-|synonyms|array[string]|Other trait names|
+|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
 |traitDescription|string|The description of a trait|
+|alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
+|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
+|traitName|string|The human readable name of a trait|
+|status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
+|synonyms|array[string]|Other trait names|
+|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
+|mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
 |ontologyReference|object||
 |ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
+|ontologyName|string|Ontology name|
 |documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
 |URL|string (uri)||
+|type|string||
 
 
 **Response Fields** 
 
 |Field|Type|Description|
 |---|---|---| 
-|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
-|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
-|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
-|mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
-|traitName|string|The human readable name of a trait|
+|traitDbId|string|The ID which uniquely identifies a trait|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
+|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|traitDescription|string|The description of a trait|
+|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
+|traitName|string|The human readable name of a trait|
 |status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
-|traitDbId|string|The ID which uniquely identifies a trait|
 |synonyms|array[string]|Other trait names|
-|traitDescription|string|The description of a trait|
+|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
+|mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
 |ontologyReference|object||
 |ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
+|ontologyName|string|Ontology name|
 |documentationLinks|array[object]|links to various ontology documentation|
-|type|string||
 |URL|string (uri)||
+|type|string||
 
 
  
