@@ -19,12 +19,12 @@ See Search Services for additional implementation details.
 
 |Field|Type|Description|
 |---|---|---| 
-|leadPersonNames|array[string]|The names of the program leader to search for|
-|commonCropNames|array[string]|Common name for the crop which this program is for|
-|leadPersonDbIds|array[string]|The person DbIds of the program leader to search for|
-|programNames|array[string]|A name of a program to search for|
-|programDbIds|array[string]|A program identifier to search for|
 |objectives|array[string]|A program objective to search for|
+|programDbIds|array[string]|A program identifier to search for|
+|leadPersonDbIds|array[string]|The person DbIds of the program leader to search for|
+|commonCropNames|array[string]|Common name for the crop which this program is for|
+|leadPersonNames|array[string]|The names of the program leader to search for|
+|programNames|array[string]|A name of a program to search for|
 |abbreviations|array[string]|An abbreviation of a program to search for|
 
 
@@ -143,14 +143,14 @@ See Search Services for additional implementation details.
 |---|---|---| 
 |data|array[object]||
 |leadPersonName|string|The name of the program leader|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|commonCropName|string|Common name for the crop which this program is for|
-|leadPersonDbId|string|The unique identifier of the program leader|
-|programDbId|string|The ID which uniquely identifies the program|
-|abbreviation|string|An abbreviation which represents this program|
-|additionalInfo|object|Additional arbitrary info|
-|programName|string|Human readable name of the program|
 |objective|string|The primary objective of the program|
+|programName|string|Human readable name of the program|
+|additionalInfo|object|Additional arbitrary info|
+|commonCropName|string|Common name for the crop which this program is for|
+|abbreviation|string|An abbreviation which represents this program|
+|leadPersonDbId|string|The unique identifier of the program leader|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|programDbId|string|The ID which uniquely identifies the program|
 
 
  
@@ -248,14 +248,14 @@ Get a filtered list of breeding Programs. This list can be filtered by common cr
 |---|---|---| 
 |data|array[object]||
 |leadPersonName|string|The name of the program leader|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|commonCropName|string|Common name for the crop which this program is for|
-|leadPersonDbId|string|The unique identifier of the program leader|
-|programDbId|string|The ID which uniquely identifies the program|
-|abbreviation|string|An abbreviation which represents this program|
-|additionalInfo|object|Additional arbitrary info|
-|programName|string|Human readable name of the program|
 |objective|string|The primary objective of the program|
+|programName|string|Human readable name of the program|
+|additionalInfo|object|Additional arbitrary info|
+|commonCropName|string|Common name for the crop which this program is for|
+|abbreviation|string|An abbreviation which represents this program|
+|leadPersonDbId|string|The unique identifier of the program leader|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|programDbId|string|The ID which uniquely identifies the program|
 
 
  
@@ -344,13 +344,13 @@ Add new breeding Programs to the database. The `programDbId` is set by the serve
 |Field|Type|Description|
 |---|---|---| 
 |leadPersonName|string|The name of the program leader|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|commonCropName|string|Common name for the crop which this program is for|
-|leadPersonDbId|string|The unique identifier of the program leader|
-|abbreviation|string|An abbreviation which represents this program|
-|additionalInfo|object|Additional arbitrary info|
-|programName|string|Human readable name of the program|
 |objective|string|The primary objective of the program|
+|programName|string|Human readable name of the program|
+|additionalInfo|object|Additional arbitrary info|
+|commonCropName|string|Common name for the crop which this program is for|
+|abbreviation|string|An abbreviation which represents this program|
+|leadPersonDbId|string|The unique identifier of the program leader|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
 
 
 **Response Fields** 
@@ -359,14 +359,14 @@ Add new breeding Programs to the database. The `programDbId` is set by the serve
 |---|---|---| 
 |data|array[object]||
 |leadPersonName|string|The name of the program leader|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|commonCropName|string|Common name for the crop which this program is for|
-|leadPersonDbId|string|The unique identifier of the program leader|
-|programDbId|string|The ID which uniquely identifies the program|
-|abbreviation|string|An abbreviation which represents this program|
-|additionalInfo|object|Additional arbitrary info|
-|programName|string|Human readable name of the program|
 |objective|string|The primary objective of the program|
+|programName|string|Human readable name of the program|
+|additionalInfo|object|Additional arbitrary info|
+|commonCropName|string|Common name for the crop which this program is for|
+|abbreviation|string|An abbreviation which represents this program|
+|leadPersonDbId|string|The unique identifier of the program leader|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|programDbId|string|The ID which uniquely identifies the program|
 
 
  
@@ -469,14 +469,14 @@ Get a single breeding Program by Id. This can be used to quickly get the details
 |Field|Type|Description|
 |---|---|---| 
 |leadPersonName|string|The name of the program leader|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|commonCropName|string|Common name for the crop which this program is for|
-|leadPersonDbId|string|The unique identifier of the program leader|
-|programDbId|string|The ID which uniquely identifies the program|
-|abbreviation|string|An abbreviation which represents this program|
-|additionalInfo|object|Additional arbitrary info|
-|programName|string|Human readable name of the program|
 |objective|string|The primary objective of the program|
+|programName|string|Human readable name of the program|
+|additionalInfo|object|Additional arbitrary info|
+|commonCropName|string|Common name for the crop which this program is for|
+|abbreviation|string|An abbreviation which represents this program|
+|leadPersonDbId|string|The unique identifier of the program leader|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|programDbId|string|The ID which uniquely identifies the program|
 
 
  
@@ -557,13 +557,13 @@ Update the details of an existing breeding Program.
 |Field|Type|Description|
 |---|---|---| 
 |leadPersonName|string|The name of the program leader|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|commonCropName|string|Common name for the crop which this program is for|
-|leadPersonDbId|string|The unique identifier of the program leader|
-|abbreviation|string|An abbreviation which represents this program|
-|additionalInfo|object|Additional arbitrary info|
-|programName|string|Human readable name of the program|
 |objective|string|The primary objective of the program|
+|programName|string|Human readable name of the program|
+|additionalInfo|object|Additional arbitrary info|
+|commonCropName|string|Common name for the crop which this program is for|
+|abbreviation|string|An abbreviation which represents this program|
+|leadPersonDbId|string|The unique identifier of the program leader|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
 
 
 **Response Fields** 
@@ -571,14 +571,14 @@ Update the details of an existing breeding Program.
 |Field|Type|Description|
 |---|---|---| 
 |leadPersonName|string|The name of the program leader|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|commonCropName|string|Common name for the crop which this program is for|
-|leadPersonDbId|string|The unique identifier of the program leader|
-|programDbId|string|The ID which uniquely identifies the program|
-|abbreviation|string|An abbreviation which represents this program|
-|additionalInfo|object|Additional arbitrary info|
-|programName|string|Human readable name of the program|
 |objective|string|The primary objective of the program|
+|programName|string|Human readable name of the program|
+|additionalInfo|object|Additional arbitrary info|
+|commonCropName|string|Common name for the crop which this program is for|
+|abbreviation|string|An abbreviation which represents this program|
+|leadPersonDbId|string|The unique identifier of the program leader|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|programDbId|string|The ID which uniquely identifies the program|
 
 
  

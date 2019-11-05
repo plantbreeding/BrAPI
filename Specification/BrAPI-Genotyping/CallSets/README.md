@@ -20,19 +20,19 @@ Also See:
 
 |Field|Type|Description|
 |---|---|---| 
+|sepPhased|string|The string used as a separator for phased allele calls.|
+|unknownString|string|The string used as a representation for missing data.|
+|sepUnphased|string|The string used as a separator for unphased allele calls.|
 |data|array[object]||
+|phaseset|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phaseset string.|
+|genotype_likelihood|array[number]|The genotype likelihoods for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.|
+|additionalInfo|object|Additional arbitrary info|
+|callSetName|string|The name of the call set this variant call belongs to. If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
+|variantDbId|string|The ID of the variant this call belongs to.|
 |callSetDbId|string|The ID of the call set this variant call belongs to.  If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
 |genotype|object|`ListValue` is a wrapper around a repeated field of values.  The JSON representation for `ListValue` is JSON array.|
 |values|array|Repeated field of dynamically typed values.|
-|callSetName|string|The name of the call set this variant call belongs to. If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
-|additionalInfo|object|Additional arbitrary info|
-|variantDbId|string|The ID of the variant this call belongs to.|
-|genotype_likelihood|array[number]|The genotype likelihoods for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.|
-|phaseset|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phaseset string.|
 |variantName|string|The name of the variant this call belongs to.|
-|sepUnphased|string|The string used as a separator for unphased allele calls.|
-|unknownString|string|The string used as a representation for missing data.|
-|sepPhased|string|The string used as a separator for phased allele calls.|
 |expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurence (false)|
 
 
@@ -129,14 +129,14 @@ Also See:
 
 |Field|Type|Description|
 |---|---|---| 
+|sampleDbId|string|The Biosample entity the call set data was generated from.|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|callSetName|string|The call set name.|
+|variantSetIds|array[string]|The IDs of the variant sets this call set has calls in.|
 |callSetDbId|string|The call set ID.|
 |created|string (int64)|The date this call set was created in milliseconds from the epoch.|
-|updated|string (int64)|The time at which this call set was last updated in milliseconds from the epoch.|
 |additionalInfo|object|Additional arbitrary info|
-|sampleDbId|string|The Biosample entity the call set data was generated from.|
-|callSetName|string|The call set name.|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|variantSetIds|array[string]|The IDs of the variant sets this call set has calls in.|
+|updated|string (int64)|The time at which this call set was last updated in milliseconds from the epoch.|
 
 
  
@@ -228,14 +228,14 @@ Also See:
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
+|sampleDbId|string|The Biosample entity the call set data was generated from.|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|callSetName|string|The call set name.|
+|variantSetIds|array[string]|The IDs of the variant sets this call set has calls in.|
 |callSetDbId|string|The call set ID.|
 |created|string (int64)|The date this call set was created in milliseconds from the epoch.|
-|updated|string (int64)|The time at which this call set was last updated in milliseconds from the epoch.|
 |additionalInfo|object|Additional arbitrary info|
-|sampleDbId|string|The Biosample entity the call set data was generated from.|
-|callSetName|string|The call set name.|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|variantSetIds|array[string]|The IDs of the variant sets this call set has calls in.|
+|updated|string (int64)|The time at which this call set was last updated in milliseconds from the epoch.|
 
 
  
@@ -332,13 +332,13 @@ Also See:
 
 |Field|Type|Description|
 |---|---|---| 
-|variantSetDbIds|array[string]|The VariantSet to search.|
-|sampleDbIds|array[string]|Return only call sets generated from the provided Biosample ID.|
-|germplasmDbIds|array[string]|Return only call sets generated from the Sample of this germplasm|
-|sampleNames|array[string]|Return only call sets generated from the provided Biosample ID.|
 |callSetDbIds|array[string]|Only return call sets with these DbIds (case-sensitive, exact match).|
-|callSetNames|array[string]|Only return call sets with these names (case-sensitive, exact match).|
+|variantSetDbIds|array[string]|The VariantSet to search.|
 |germplasmNames|array[string]|Return only call sets generated from the Sample of this germplasm|
+|germplasmDbIds|array[string]|Return only call sets generated from the Sample of this germplasm|
+|sampleDbIds|array[string]|Return only call sets generated from the provided Biosample ID.|
+|sampleNames|array[string]|Return only call sets generated from the provided Biosample ID.|
+|callSetNames|array[string]|Only return call sets with these names (case-sensitive, exact match).|
 
 
 **Response Fields** 
@@ -456,14 +456,14 @@ Also See:
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
+|sampleDbId|string|The Biosample entity the call set data was generated from.|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|callSetName|string|The call set name.|
+|variantSetIds|array[string]|The IDs of the variant sets this call set has calls in.|
 |callSetDbId|string|The call set ID.|
 |created|string (int64)|The date this call set was created in milliseconds from the epoch.|
-|updated|string (int64)|The time at which this call set was last updated in milliseconds from the epoch.|
 |additionalInfo|object|Additional arbitrary info|
-|sampleDbId|string|The Biosample entity the call set data was generated from.|
-|callSetName|string|The call set name.|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|variantSetIds|array[string]|The IDs of the variant sets this call set has calls in.|
+|updated|string (int64)|The time at which this call set was last updated in milliseconds from the epoch.|
 
 
  
