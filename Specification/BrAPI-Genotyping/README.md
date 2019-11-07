@@ -928,247 +928,6 @@ Retrieving genetic or physical maps
 
 
 
-## Search [/brapi/v1/search] 
-
-
-
-
-### Post Search Markerpositions  [POST /brapi/v1/search/markerpositions]
-
-Get marker position information, based on Map, Linkage Group, and Marker ID
-
-**Request Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|linkageGroupNames|array[string]|The Uniquely Identifiable name of this linkage group|
-|mapDbIds|array[string]|The unique ID of the map|
-|markerDbIds|array[string]|Internal db identifier|
-|maxPosition|integer|The maximum position|
-|minPosition|integer|The minimum position|
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|searchResultDbId|string||
-
-
- 
-
-+ Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
- 
-+ Request (application/json)
-```
-{
-    "linkageGroupNames": [
-        "linkageGroupNames1",
-        "linkageGroupNames2"
-    ],
-    "mapDbIds": [
-        "mapDbIds1",
-        "mapDbIds2"
-    ],
-    "markerDbIds": [
-        "markerDbIds1",
-        "markerDbIds2"
-    ],
-    "maxPosition": 0,
-    "minPosition": 0
-}
-```
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "searchResultDbId": "551ae08c"
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-
-
-
-### Post Search Markerpositions by searchResultsDbId  [POST /brapi/v1/search/markerpositions/{searchResultsDbId}{?page}{?pageSize}]
-
-Get marker position information, based on Map, Linkage Group, and Marker ID
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|linkageGroupName|string|The Uniquely Identifiable name of this linkage group|
-|mapDbId|string|The unique ID of the map|
-|mapName|string|The human readbale name of the map|
-|markerDbId|string|Internal db identifier|
-|markerName|string|The human readable name for a marker|
-|position|integer|The position of a marker within a linkage group|
-
-
- 
-
-+ Parameters
-    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {},
-        "status": []
-    },
-    "result": {
-        "data": []
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-
-## Markerpositions [/brapi/v1/markerpositions] 
-
-
-
-
-### Get Markerpositions  [GET /brapi/v1/markerpositions{?mapDbId}{?linkageGroupName}{?markerDbId}{?minPosition}{?maxPosition}{?page}{?pageSize}]
-
-Get marker position information, based on Map, Linkage Group, and Marker ID
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|linkageGroupName|string|The Uniquely Identifiable name of this linkage group|
-|mapDbId|string|The unique ID of the map|
-|mapName|string|The human readbale name of the map|
-|markerDbId|string|Internal db identifier|
-|markerName|string|The human readable name for a marker|
-|position|integer|The position of a marker within a linkage group|
-
-
- 
-
-+ Parameters
-    + mapDbId (Optional, ) ... unique id of a map
-    + linkageGroupName (Optional, ) ... The chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.
-    + markerDbId (Optional, ) ... The unique id for a marker
-    + minPosition (Optional, ) ... The minimum position
-    + maxPosition (Optional, ) ... The maximum position
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {},
-        "status": []
-    },
-    "result": {
-        "data": []
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-
 ## Maps [/brapi/v1/maps] 
 
 
@@ -1424,20 +1183,16 @@ Get the Linkage Groups of a specific Genomic Map. A Linkage Group is the BrAPI g
 "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
 ```
 
-# Group References
+
+
+## Markerpositions [/brapi/v1/markerpositions] 
 
 
 
 
-## Referencesets [/brapi/v1/referencesets] 
+### Get Markerpositions  [GET /brapi/v1/markerpositions{?mapDbId}{?linkageGroupName}{?markerDbId}{?minPosition}{?maxPosition}{?page}{?pageSize}]
 
-
-
-
-### Get Referencesets  [GET /brapi/v1/referencesets{?referenceSetDbId}{?accession}{?assemblyPUI}{?md5checksum}{?page}{?pageSize}]
-
-`GET /referencesets/{reference_set_id}` will return a JSON version of
-`ReferenceSet`.
+Get marker position information, based on Map, Linkage Group, and Marker ID
 
 
 
@@ -1447,30 +1202,113 @@ Get the Linkage Groups of a specific Genomic Map. A Linkage Group is the BrAPI g
 |---|---|---| 
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
-|assemblyPUI|string|The remaining information is about the source of the sequences Public id of this reference set, such as `GRCh37`.|
-|description|string|Optional free text description of this reference set.|
-|isDerived|boolean (boolean)|A reference set may be derived from a source if it contains additional sequences, or some of the sequences within it are derived (see the definition of `isDerived` in `Reference`).|
-|md5checksum|string|Order-independent MD5 checksum which identifies this `ReferenceSet`.  To compute this checksum, make a list of `Reference.md5checksum` for all `Reference` s in this set. Then sort that list, and take the MD5 hash of all the strings concatenated together. Express the hash as a lower-case hexadecimal string.|
-|referenceSetDbId|string|The reference set ID. Unique in the repository.|
-|referenceSetName|string|The reference set name.|
-|sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.|
-|sourceURI|string|Specifies a FASTA format file/string.|
-|species|object||
-|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
-|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
+|linkageGroupName|string|The Uniquely Identifiable name of this linkage group|
+|mapDbId|string|The unique ID of the map|
+|mapName|string|The human readbale name of the map|
+|markerDbId|string|Internal db identifier|
+|markerName|string|The human readable name for a marker|
+|position|integer|The position of a marker within a linkage group|
 
 
  
 
 + Parameters
-    + referenceSetDbId (Optional, ) ... The ID of the `ReferenceSet` to be retrieved.
-    + accession (Optional, ) ... If unset, return the reference sets for which the `accession`matches this string (case-sensitive, exact match).
-    + assemblyPUI (Optional, ) ... If unset, return the reference sets for which the `assemblyId`matches this string (case-sensitive, exact match).
-    + md5checksum (Optional, ) ... If unset, return the reference sets for which the`md5checksum` matches this string (case-sensitive, exact match).See `ReferenceSet::md5checksum` for details.
+    + mapDbId (Optional, ) ... unique id of a map
+    + linkageGroupName (Optional, ) ... The chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.
+    + markerDbId (Optional, ) ... The unique id for a marker
+    + minPosition (Optional, ) ... The minimum position
+    + maxPosition (Optional, ) ... The maximum position
     + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [],
+        "pagination": {},
+        "status": []
+    },
+    "result": {
+        "data": []
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+
+## Search [/brapi/v1/search] 
+
+
+
+
+### Post Search Markerpositions  [POST /brapi/v1/search/markerpositions]
+
+Get marker position information, based on Map, Linkage Group, and Marker ID
+
+**Request Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|linkageGroupNames|array[string]|The Uniquely Identifiable name of this linkage group|
+|mapDbIds|array[string]|The unique ID of the map|
+|markerDbIds|array[string]|Internal db identifier|
+|maxPosition|integer|The maximum position|
+|minPosition|integer|The minimum position|
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|searchResultDbId|string||
+
+
+ 
+
++ Parameters
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+ 
++ Request (application/json)
+```
+{
+    "linkageGroupNames": [
+        "linkageGroupNames1",
+        "linkageGroupNames2"
+    ],
+    "mapDbIds": [
+        "mapDbIds1",
+        "mapDbIds2"
+    ],
+    "markerDbIds": [
+        "markerDbIds1",
+        "markerDbIds2"
+    ],
+    "maxPosition": 0,
+    "minPosition": 0
+}
+```
 
 
 
@@ -1502,25 +1340,7 @@ Get the Linkage Groups of a specific Genomic Map. A Linkage Group is the BrAPI g
         ]
     },
     "result": {
-        "data": [
-            {
-                "additionalInfo": {},
-                "assemblyPUI": "assemblyPUI",
-                "description": "description",
-                "md5checksum": "md5checksum",
-                "referenceSetDbId": "referenceSetDbId",
-                "referenceSetName": "referenceSetName",
-                "sourceAccessions": [
-                    "sourceAccessions1",
-                    "sourceAccessions2"
-                ],
-                "sourceURI": "sourceURI",
-                "species": {
-                    "term": "term",
-                    "termURI": "termURI"
-                }
-            }
-        ]
+        "searchResultDbId": "551ae08c"
     }
 }
 ```
@@ -1544,19 +1364,33 @@ Get the Linkage Groups of a specific Genomic Map. A Linkage Group is the BrAPI g
 
 
 
-### Get Referencesets by referenceSetDbId  [GET /brapi/v1/referencesets/{referenceSetDbId}]
+### Post Search Markerpositions by searchResultsDbId  [POST /brapi/v1/search/markerpositions/{searchResultsDbId}{?page}{?pageSize}]
 
-`GET /referencesets/{reference_set_id}` will return a JSON version of
-`ReferenceSet`.
-
+Get marker position information, based on Map, Linkage Group, and Marker ID
 
 
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|linkageGroupName|string|The Uniquely Identifiable name of this linkage group|
+|mapDbId|string|The unique ID of the map|
+|mapName|string|The human readbale name of the map|
+|markerDbId|string|Internal db identifier|
+|markerName|string|The human readable name for a marker|
+|position|integer|The position of a marker within a linkage group|
 
 
  
 
 + Parameters
-    + referenceSetDbId (Required, ) ... The ID of the `ReferenceSet` to be retrieved.
+    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -1564,23 +1398,34 @@ Get the Linkage Groups of a specific Genomic Map. A Linkage Group is the BrAPI g
 + Response 200 (application/json)
 ```
 {
-    "additionalInfo": {},
-    "assemblyPUI": "assemblyPUI",
-    "description": "description",
-    "md5checksum": "md5checksum",
-    "referenceSetDbId": "referenceSetDbId",
-    "referenceSetName": "referenceSetName",
-    "sourceAccessions": [
-        "sourceAccessions1",
-        "sourceAccessions2"
-    ],
-    "sourceURI": "sourceURI",
-    "species": {
-        "term": "term",
-        "termURI": "termURI"
+    "metadata": {
+        "datafiles": [],
+        "pagination": {},
+        "status": []
+    },
+    "result": {
+        "data": []
     }
 }
 ```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+# Group References
+
 
 
 
@@ -1884,6 +1729,161 @@ Get the Linkage Groups of a specific Genomic Map. A Linkage Group is the BrAPI g
 + Response 404 (application/json)
 ```
 "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
+```
+
+
+
+## Referencesets [/brapi/v1/referencesets] 
+
+
+
+
+### Get Referencesets  [GET /brapi/v1/referencesets{?referenceSetDbId}{?accession}{?assemblyPUI}{?md5checksum}{?page}{?pageSize}]
+
+`GET /referencesets/{reference_set_id}` will return a JSON version of
+`ReferenceSet`.
+
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|assemblyPUI|string|The remaining information is about the source of the sequences Public id of this reference set, such as `GRCh37`.|
+|description|string|Optional free text description of this reference set.|
+|isDerived|boolean (boolean)|A reference set may be derived from a source if it contains additional sequences, or some of the sequences within it are derived (see the definition of `isDerived` in `Reference`).|
+|md5checksum|string|Order-independent MD5 checksum which identifies this `ReferenceSet`.  To compute this checksum, make a list of `Reference.md5checksum` for all `Reference` s in this set. Then sort that list, and take the MD5 hash of all the strings concatenated together. Express the hash as a lower-case hexadecimal string.|
+|referenceSetDbId|string|The reference set ID. Unique in the repository.|
+|referenceSetName|string|The reference set name.|
+|sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.|
+|sourceURI|string|Specifies a FASTA format file/string.|
+|species|object||
+|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
+|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
+
+
+ 
+
++ Parameters
+    + referenceSetDbId (Optional, ) ... The ID of the `ReferenceSet` to be retrieved.
+    + accession (Optional, ) ... If unset, return the reference sets for which the `accession`matches this string (case-sensitive, exact match).
+    + assemblyPUI (Optional, ) ... If unset, return the reference sets for which the `assemblyId`matches this string (case-sensitive, exact match).
+    + md5checksum (Optional, ) ... If unset, return the reference sets for which the`md5checksum` matches this string (case-sensitive, exact match).See `ReferenceSet::md5checksum` for details.
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "assemblyPUI": "assemblyPUI",
+                "description": "description",
+                "md5checksum": "md5checksum",
+                "referenceSetDbId": "referenceSetDbId",
+                "referenceSetName": "referenceSetName",
+                "sourceAccessions": [
+                    "sourceAccessions1",
+                    "sourceAccessions2"
+                ],
+                "sourceURI": "sourceURI",
+                "species": {
+                    "term": "term",
+                    "termURI": "termURI"
+                }
+            }
+        ]
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+
+
+
+### Get Referencesets by referenceSetDbId  [GET /brapi/v1/referencesets/{referenceSetDbId}]
+
+`GET /referencesets/{reference_set_id}` will return a JSON version of
+`ReferenceSet`.
+
+
+
+
+
+ 
+
++ Parameters
+    + referenceSetDbId (Required, ) ... The ID of the `ReferenceSet` to be retrieved.
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "additionalInfo": {},
+    "assemblyPUI": "assemblyPUI",
+    "description": "description",
+    "md5checksum": "md5checksum",
+    "referenceSetDbId": "referenceSetDbId",
+    "referenceSetName": "referenceSetName",
+    "sourceAccessions": [
+        "sourceAccessions1",
+        "sourceAccessions2"
+    ],
+    "sourceURI": "sourceURI",
+    "species": {
+        "term": "term",
+        "termURI": "termURI"
+    }
+}
 ```
 
 
@@ -2301,6 +2301,243 @@ version of `SearchReferencesResponse`.
 
 API methods for tracking/managing plant samples and related meta-data. A 'Sample' in the context of BrAPI, is defined as the actual biological plant material collected from the field.
 
+
+
+
+## Search [/brapi/v1/search] 
+
+
+
+
+### Post Search Samples  [POST /brapi/v1/search/samples]
+
+Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
+
+See Search Services for additional implementation details.
+
+**Request Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|germplasmDbIds|array[string]| The ID which uniquely identifies a germplasm|
+|observationUnitDbIds|array[string]|The ID which uniquely identifies an observation unit|
+|plateDbIds|array[string]|The ID which uniquely identifies a plate of samples|
+|sampleDbIds|array[string]|The ID which uniquely identifies a sample|
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|searchResultDbId|string||
+
+
+ 
+
++ Parameters
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+ 
++ Request (application/json)
+```
+{
+    "germplasmDbIds": [
+        "germplasmDbIds1",
+        "germplasmDbIds2"
+    ],
+    "observationUnitDbIds": [
+        "observationUnitDbIds1",
+        "observationUnitDbIds2"
+    ],
+    "plateDbIds": [
+        "plateDbIds1",
+        "plateDbIds2"
+    ],
+    "sampleDbIds": [
+        "sampleDbIds1",
+        "sampleDbIds2"
+    ]
+}
+```
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultDbId": "551ae08c"
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+
+
+
+### Get Search Samples by searchResultsDbId  [GET /brapi/v1/search/samples/{searchResultsDbId}{?page}{?pageSize}]
+
+Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
+
+See Search Services for additional implementation details.
+
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|column|integer|The Column identifier for this samples location in the plate|
+|germplasmDbId|string|The ID which uniquely identifies a germplasm|
+|notes|string|Additional notes about a sample|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|plateDbId|string|The ID which uniquely identifies a plate of samples|
+|plateName|string|The human readable name of a plate|
+|programDbId|string|The ID which uniquely identifies a program within the given database server|
+|row|string|The Row identifier for this samples location in the plate|
+|sampleBarcode|string|A unique identifier physically attached to the sample|
+|sampleDbId|string|The ID which uniquely identifies a sample|
+|sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
+|sampleName|string|The name of the sample|
+|samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)|
+|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
+|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|takenBy|string|The name or identifier of the entity which took the sample from the field|
+|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.|
+|trialDbId|string|The ID which uniquely identifies a trial within the given database server|
+|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
+
+
+ 
+
++ Parameters
+    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "column": 6,
+                "germplasmDbId": "7e08d538",
+                "notes": "This sample was taken from the root of a tree",
+                "observationUnitDbId": "073a3ce5",
+                "plateDbId": "2dce16d1",
+                "plateName": "Plate_alpha_20191022",
+                "programDbId": "bd748e00",
+                "row": "B",
+                "sampleBarcode": "3a027b59",
+                "sampleDbId": "cd06a61d",
+                "sampleGroupDbId": "8524b436",
+                "sampleName": "Sample_alpha_20191022",
+                "samplePUI": "doi:10.15454/312953986E3",
+                "sampleTimestamp": "2018-01-01T14:47:23-0600",
+                "sampleType": "Tissue",
+                "studyDbId": "64bd6bf9",
+                "takenBy": "Bob",
+                "tissueType": "Root",
+                "trialDbId": "d34c5349",
+                "well": "B6"
+            }
+        ]
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
+```
 
 
 
@@ -2865,243 +3102,6 @@ Update the details of an existing Sample
         "tissueType": "Root",
         "trialDbId": "d34c5349",
         "well": "B6"
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-+ Response 404 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
-```
-
-
-
-## Search [/brapi/v1/search] 
-
-
-
-
-### Post Search Samples  [POST /brapi/v1/search/samples]
-
-Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
-
-See Search Services for additional implementation details.
-
-**Request Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|germplasmDbIds|array[string]| The ID which uniquely identifies a germplasm|
-|observationUnitDbIds|array[string]|The ID which uniquely identifies an observation unit|
-|plateDbIds|array[string]|The ID which uniquely identifies a plate of samples|
-|sampleDbIds|array[string]|The ID which uniquely identifies a sample|
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|searchResultDbId|string||
-
-
- 
-
-+ Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
- 
-+ Request (application/json)
-```
-{
-    "germplasmDbIds": [
-        "germplasmDbIds1",
-        "germplasmDbIds2"
-    ],
-    "observationUnitDbIds": [
-        "observationUnitDbIds1",
-        "observationUnitDbIds2"
-    ],
-    "plateDbIds": [
-        "plateDbIds1",
-        "plateDbIds2"
-    ],
-    "sampleDbIds": [
-        "sampleDbIds1",
-        "sampleDbIds2"
-    ]
-}
-```
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "searchResultDbId": "551ae08c"
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-
-
-
-### Get Search Samples by searchResultsDbId  [GET /brapi/v1/search/samples/{searchResultsDbId}{?page}{?pageSize}]
-
-Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
-
-See Search Services for additional implementation details.
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|column|integer|The Column identifier for this samples location in the plate|
-|germplasmDbId|string|The ID which uniquely identifies a germplasm|
-|notes|string|Additional notes about a sample|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
-|plateDbId|string|The ID which uniquely identifies a plate of samples|
-|plateName|string|The human readable name of a plate|
-|programDbId|string|The ID which uniquely identifies a program within the given database server|
-|row|string|The Row identifier for this samples location in the plate|
-|sampleBarcode|string|A unique identifier physically attached to the sample|
-|sampleDbId|string|The ID which uniquely identifies a sample|
-|sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
-|sampleName|string|The name of the sample|
-|samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)|
-|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
-|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|takenBy|string|The name or identifier of the entity which took the sample from the field|
-|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.|
-|trialDbId|string|The ID which uniquely identifies a trial within the given database server|
-|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
-
-
- 
-
-+ Parameters
-    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "data": [
-            {
-                "additionalInfo": {},
-                "column": 6,
-                "germplasmDbId": "7e08d538",
-                "notes": "This sample was taken from the root of a tree",
-                "observationUnitDbId": "073a3ce5",
-                "plateDbId": "2dce16d1",
-                "plateName": "Plate_alpha_20191022",
-                "programDbId": "bd748e00",
-                "row": "B",
-                "sampleBarcode": "3a027b59",
-                "sampleDbId": "cd06a61d",
-                "sampleGroupDbId": "8524b436",
-                "sampleName": "Sample_alpha_20191022",
-                "samplePUI": "doi:10.15454/312953986E3",
-                "sampleTimestamp": "2018-01-01T14:47:23-0600",
-                "sampleType": "Tissue",
-                "studyDbId": "64bd6bf9",
-                "takenBy": "Bob",
-                "tissueType": "Root",
-                "trialDbId": "d34c5349",
-                "well": "B6"
-            }
-        ]
     }
 }
 ```
