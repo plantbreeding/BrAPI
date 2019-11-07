@@ -55,6 +55,8 @@ components:
               crossAttributeName:
                 description: the human readable name of a cross attribute
                 type: string
+                example: Humidity
               crossAttributeValue: 
                 description: the value of a cross attribute
                 type: string
+                example: 45%

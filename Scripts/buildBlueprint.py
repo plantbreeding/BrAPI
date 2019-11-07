@@ -36,6 +36,7 @@ def go():
 
 	fullText = headerHTML
 	for source in sources:
+		print(source)
 		with open(source, "r") as inFile:
 			fullText += inFile.read()
 	
