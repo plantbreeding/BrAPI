@@ -3605,453 +3605,6 @@ API to retrieve list and details of observation variables. An observation variab
 
 
 
-## Search [/brapi/v1/search] 
-
-
-
-
-### Post Search Variables  [POST /brapi/v1/search/variables]
-
-Search observation variables.
-
-See Search Services for additional implementation details.
-
-**Request Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|dataTypes|array[string]|List of scale data types to filter search results|
-|methodDbIds|array[string]|List of methods to filter search results|
-|observationVariableDbIds|array[string]|List of observation variable IDs to search for|
-|observationVariableNames|array[string]|List of human readable observation variable names to search for|
-|observationVariableXrefs|array[string]|List of cross references for the observation variable to search for|
-|ontologyDbIds|array[string]|List of ontology IDs to search for|
-|scaleDbIds|array[string]|List of scales to filter search results|
-|scaleXrefs|array[string]|List of cross references for the scale to search for|
-|studyDbId|array[string]|The unique ID of a studies to filter on|
-|traitClasses|array[string]|List of trait classes to filter search results|
-|traitDbIds|array[string]|List of trait unique ID to filter search results|
-|traitXrefs|array[string]|List of cross references for the trait to search for|
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|searchResultDbId|string||
-
-
- 
-
-+ Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
- 
-+ Request (application/json)
-```
-{
-    "dataTypes": [
-        "Numerical",
-        "Ordinal",
-        "Text"
-    ],
-    "methodDbIds": [
-        "07e34f83",
-        "d3d5517a"
-    ],
-    "observationVariableDbIds": [
-        "2ef15c9f",
-        "318e7f7d"
-    ],
-    "observationVariableNames": [
-        "Plant Height 1",
-        "Root Color"
-    ],
-    "observationVariableXrefs": [
-        " http://purl.obolibrary.org/obo/ro.owl",
-        " http://purl.obolibrary.org/obo/ro.owl"
-    ],
-    "ontologyDbIds": [
-        "f44f7b23",
-        "a26b576e"
-    ],
-    "scaleDbIds": [
-        "a13ecffa",
-        "7e1afe4f"
-    ],
-    "scaleXrefs": [
-        " http://purl.obolibrary.org/obo/ro.owl",
-        " http://purl.obolibrary.org/obo/ro.owl"
-    ],
-    "studyDbId": [
-        "5bcac0ae",
-        "7f48e22d"
-    ],
-    "traitClasses": [
-        "morphological",
-        "phenological",
-        "agronomical"
-    ],
-    "traitDbIds": [
-        "ef81147b",
-        "78d82fad"
-    ],
-    "traitXrefs": [
-        " http://purl.obolibrary.org/obo/ro.owl",
-        " http://purl.obolibrary.org/obo/ro.owl"
-    ]
-}
-```
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "searchResultDbId": "551ae08c"
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-
-
-
-### Get Search Variables by searchResultsDbId  [GET /brapi/v1/search/variables/{searchResultsDbId}{?page}{?pageSize}]
-
-Search observation variables.
-
-See Search Services for additional implementation details.
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|commonCropName|string|Crop name (examples: "Maize", "Wheat")|
-|contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
-|defaultValue|string|Variable default value. (examples: "red", "2.3", etc.)|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|growthStage|string|Growth stage at which measurement is made (examples: "flowering")|
-|institution|string|Name of institution submitting the variable|
-|language|string|2 letter ISO 639-1 code for the language of submission of the variable.|
-|method|object||
-|additionalInfo|object|Additional arbitrary info|
-|description|string|Method description.|
-|formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
-|methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
-|methodDbId|string|Method unique identifier|
-|methodName|string|Human readable name for the method|
-|ontologyReference|object||
-|documentationLinks|array[object]|links to various ontology documentation|
-|URL|string (uri)||
-|type|string||
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|version|string|Ontology version (no specific format)|
-|reference|string|Bibliographical reference describing the method.|
-|observationVariableDbId|string|Variable unique identifier|
-|observationVariableName|string|Variable name (usually a short name)|
-|ontologyReference|object||
-|documentationLinks|array[object]|links to various ontology documentation|
-|URL|string (uri)||
-|type|string||
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|version|string|Ontology version (no specific format)|
-|scale|object||
-|dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
-|decimalPlaces|integer|For numerical, number of decimal places to be reported|
-|ontologyReference|object||
-|documentationLinks|array[object]|links to various ontology documentation|
-|URL|string (uri)||
-|type|string||
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|version|string|Ontology version (no specific format)|
-|scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
-|scaleName|string|Name of the scale|
-|validValues|object||
-|categories|array[string]|List of possible values (examples: ["low", "medium", "high"]|
-|max|integer|Maximum value (used for field data capture control).|
-|min|integer|Minimum value (used for data capture control) for numerical and date scales|
-|xref|string|Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database|
-|scientist|string|Name of scientist submitting the variable.|
-|status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
-|submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
-|synonyms|array[string]|Other variable names|
-|trait|object||
-|alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
-|attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
-|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
-|mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
-|ontologyReference|object||
-|documentationLinks|array[object]|links to various ontology documentation|
-|URL|string (uri)||
-|type|string||
-|ontologyDbId|string|Ontology database unique identifier|
-|ontologyName|string|Ontology name|
-|version|string|Ontology version (no specific format)|
-|status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
-|synonyms|array[string]|Other trait names|
-|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
-|traitDbId|string|The ID which uniquely identifies a trait|
-|traitDescription|string|The description of a trait|
-|traitName|string|The human readable name of a trait|
-|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
-|xref|string|Cross reference of the variable term to a term from an external ontology or to a database of a major system.|
-
-
- 
-
-+ Parameters
-    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "data": [
-            {
-                "additionalInfo": {},
-                "commonCropName": "Maize",
-                "contextOfUse": [
-                    "Trial evaluation",
-                    "Nursery evaluation"
-                ],
-                "defaultValue": 2.0,
-                "documentationURL": "https://wiki.brapi.org/documentation.html",
-                "growthStage": "flowering",
-                "institution": "The BrAPI Institute",
-                "language": "en",
-                "method": {
-                    "additionalInfo": {},
-                    "description": "A measuring tape was used",
-                    "formula": "a^2 + b^2 = c^2",
-                    "methodClass": "Measurement",
-                    "methodDbId": "0adb2764",
-                    "methodName": "Measuring Tape",
-                    "ontologyReference": {
-                        "documentationLinks": [
-                            {
-                                "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                                "type": [
-                                    "OBO",
-                                    "RDF",
-                                    "WEBPAGE"
-                                ]
-                            }
-                        ],
-                        "ontologyDbId": "6b071868",
-                        "ontologyName": "The Crop Ontology",
-                        "version": "7.2.3"
-                    },
-                    "reference": "Smith, 1893, Really Cool Paper, Popular Journal"
-                },
-                "observationVariableDbId": "b9b7edd1",
-                "observationVariableName": "Variable Name",
-                "ontologyReference": {
-                    "documentationLinks": [
-                        {
-                            "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                            "type": [
-                                "OBO",
-                                "RDF",
-                                "WEBPAGE"
-                            ]
-                        }
-                    ],
-                    "ontologyDbId": "6b071868",
-                    "ontologyName": "The Crop Ontology",
-                    "version": "7.2.3"
-                },
-                "scale": {
-                    "dataType": [
-                        "Code",
-                        "Date",
-                        "Duration",
-                        "Nominal",
-                        "Numerical",
-                        "Ordinal",
-                        "Text"
-                    ],
-                    "decimalPlaces": 2,
-                    "ontologyReference": {
-                        "documentationLinks": [
-                            {
-                                "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                                "type": [
-                                    "OBO",
-                                    "RDF",
-                                    "WEBPAGE"
-                                ]
-                            }
-                        ],
-                        "ontologyDbId": "6b071868",
-                        "ontologyName": "The Crop Ontology",
-                        "version": "7.2.3"
-                    },
-                    "scaleDbId": "af730171",
-                    "scaleName": "Meters",
-                    "validValues": {
-                        "categories": [
-                            "low",
-                            "medium",
-                            "high"
-                        ],
-                        "max": 9999,
-                        "min": 2
-                    },
-                    "xref": "http://purl.obolibrary.org/obo/ro.owl"
-                },
-                "scientist": "Dr. Bob Robertson",
-                "status": "recommended",
-                "submissionTimestamp": "2018-01-01T14:47:23-0600",
-                "synonyms": [
-                    "Maize Height",
-                    "Stalk Height",
-                    "Corn Height"
-                ],
-                "trait": {
-                    "alternativeAbbreviations": [
-                        "H",
-                        "PH",
-                        "H1"
-                    ],
-                    "attribute": "height",
-                    "entity": "Stalk",
-                    "mainAbbreviation": "PH",
-                    "ontologyReference": {
-                        "documentationLinks": [
-                            {
-                                "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                                "type": [
-                                    "OBO",
-                                    "RDF",
-                                    "WEBPAGE"
-                                ]
-                            }
-                        ],
-                        "ontologyDbId": "6b071868",
-                        "ontologyName": "The Crop Ontology",
-                        "version": "7.2.3"
-                    },
-                    "status": "recommended",
-                    "synonyms": [
-                        "Height",
-                        "Plant Height",
-                        "Stalk Height",
-                        "Canopy Height"
-                    ],
-                    "traitClass": "phenological",
-                    "traitDbId": "9b2e34f5",
-                    "traitDescription": "The height of the plant",
-                    "traitName": "Height",
-                    "xref": "http://purl.obolibrary.org/obo/ro.owl"
-                },
-                "xref": "http://purl.obolibrary.org/obo/ro.owl"
-            }
-        ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-+ Response 404 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
-```
-
-
-
 ## Variables [/brapi/v1/variables] 
 
 
@@ -5426,11 +4979,715 @@ Update an existing Observation Variable
 ```
 
 
+
+## Search [/brapi/v1/search] 
+
+
+
+
+### Post Search Variables  [POST /brapi/v1/search/variables]
+
+Search observation variables.
+
+See Search Services for additional implementation details.
+
+**Request Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|dataTypes|array[string]|List of scale data types to filter search results|
+|methodDbIds|array[string]|List of methods to filter search results|
+|observationVariableDbIds|array[string]|List of observation variable IDs to search for|
+|observationVariableNames|array[string]|List of human readable observation variable names to search for|
+|observationVariableXrefs|array[string]|List of cross references for the observation variable to search for|
+|ontologyDbIds|array[string]|List of ontology IDs to search for|
+|scaleDbIds|array[string]|List of scales to filter search results|
+|scaleXrefs|array[string]|List of cross references for the scale to search for|
+|studyDbId|array[string]|The unique ID of a studies to filter on|
+|traitClasses|array[string]|List of trait classes to filter search results|
+|traitDbIds|array[string]|List of trait unique ID to filter search results|
+|traitXrefs|array[string]|List of cross references for the trait to search for|
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|searchResultDbId|string||
+
+
+ 
+
++ Parameters
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+ 
++ Request (application/json)
+```
+{
+    "dataTypes": [
+        "Numerical",
+        "Ordinal",
+        "Text"
+    ],
+    "methodDbIds": [
+        "07e34f83",
+        "d3d5517a"
+    ],
+    "observationVariableDbIds": [
+        "2ef15c9f",
+        "318e7f7d"
+    ],
+    "observationVariableNames": [
+        "Plant Height 1",
+        "Root Color"
+    ],
+    "observationVariableXrefs": [
+        " http://purl.obolibrary.org/obo/ro.owl",
+        " http://purl.obolibrary.org/obo/ro.owl"
+    ],
+    "ontologyDbIds": [
+        "f44f7b23",
+        "a26b576e"
+    ],
+    "scaleDbIds": [
+        "a13ecffa",
+        "7e1afe4f"
+    ],
+    "scaleXrefs": [
+        " http://purl.obolibrary.org/obo/ro.owl",
+        " http://purl.obolibrary.org/obo/ro.owl"
+    ],
+    "studyDbId": [
+        "5bcac0ae",
+        "7f48e22d"
+    ],
+    "traitClasses": [
+        "morphological",
+        "phenological",
+        "agronomical"
+    ],
+    "traitDbIds": [
+        "ef81147b",
+        "78d82fad"
+    ],
+    "traitXrefs": [
+        " http://purl.obolibrary.org/obo/ro.owl",
+        " http://purl.obolibrary.org/obo/ro.owl"
+    ]
+}
+```
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultDbId": "551ae08c"
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+
+
+
+### Get Search Variables by searchResultsDbId  [GET /brapi/v1/search/variables/{searchResultsDbId}{?page}{?pageSize}]
+
+Search observation variables.
+
+See Search Services for additional implementation details.
+
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|commonCropName|string|Crop name (examples: "Maize", "Wheat")|
+|contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
+|defaultValue|string|Variable default value. (examples: "red", "2.3", etc.)|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|growthStage|string|Growth stage at which measurement is made (examples: "flowering")|
+|institution|string|Name of institution submitting the variable|
+|language|string|2 letter ISO 639-1 code for the language of submission of the variable.|
+|method|object||
+|additionalInfo|object|Additional arbitrary info|
+|description|string|Method description.|
+|formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
+|methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
+|methodDbId|string|Method unique identifier|
+|methodName|string|Human readable name for the method|
+|ontologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|version|string|Ontology version (no specific format)|
+|reference|string|Bibliographical reference describing the method.|
+|observationVariableDbId|string|Variable unique identifier|
+|observationVariableName|string|Variable name (usually a short name)|
+|ontologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|version|string|Ontology version (no specific format)|
+|scale|object||
+|dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
+|decimalPlaces|integer|For numerical, number of decimal places to be reported|
+|ontologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|version|string|Ontology version (no specific format)|
+|scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
+|scaleName|string|Name of the scale|
+|validValues|object||
+|categories|array[string]|List of possible values (examples: ["low", "medium", "high"]|
+|max|integer|Maximum value (used for field data capture control).|
+|min|integer|Minimum value (used for data capture control) for numerical and date scales|
+|xref|string|Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database|
+|scientist|string|Name of scientist submitting the variable.|
+|status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
+|submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
+|synonyms|array[string]|Other variable names|
+|trait|object||
+|alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
+|attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
+|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
+|ontologyReference|object||
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|version|string|Ontology version (no specific format)|
+|status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
+|synonyms|array[string]|Other trait names|
+|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
+|traitDbId|string|The ID which uniquely identifies a trait|
+|traitDescription|string|The description of a trait|
+|traitName|string|The human readable name of a trait|
+|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
+|xref|string|Cross reference of the variable term to a term from an external ontology or to a database of a major system.|
+
+
+ 
+
++ Parameters
+    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "commonCropName": "Maize",
+                "contextOfUse": [
+                    "Trial evaluation",
+                    "Nursery evaluation"
+                ],
+                "defaultValue": 2.0,
+                "documentationURL": "https://wiki.brapi.org/documentation.html",
+                "growthStage": "flowering",
+                "institution": "The BrAPI Institute",
+                "language": "en",
+                "method": {
+                    "additionalInfo": {},
+                    "description": "A measuring tape was used",
+                    "formula": "a^2 + b^2 = c^2",
+                    "methodClass": "Measurement",
+                    "methodDbId": "0adb2764",
+                    "methodName": "Measuring Tape",
+                    "ontologyReference": {
+                        "documentationLinks": [
+                            {
+                                "URL": "http://purl.obolibrary.org/obo/ro.owl",
+                                "type": [
+                                    "OBO",
+                                    "RDF",
+                                    "WEBPAGE"
+                                ]
+                            }
+                        ],
+                        "ontologyDbId": "6b071868",
+                        "ontologyName": "The Crop Ontology",
+                        "version": "7.2.3"
+                    },
+                    "reference": "Smith, 1893, Really Cool Paper, Popular Journal"
+                },
+                "observationVariableDbId": "b9b7edd1",
+                "observationVariableName": "Variable Name",
+                "ontologyReference": {
+                    "documentationLinks": [
+                        {
+                            "URL": "http://purl.obolibrary.org/obo/ro.owl",
+                            "type": [
+                                "OBO",
+                                "RDF",
+                                "WEBPAGE"
+                            ]
+                        }
+                    ],
+                    "ontologyDbId": "6b071868",
+                    "ontologyName": "The Crop Ontology",
+                    "version": "7.2.3"
+                },
+                "scale": {
+                    "dataType": [
+                        "Code",
+                        "Date",
+                        "Duration",
+                        "Nominal",
+                        "Numerical",
+                        "Ordinal",
+                        "Text"
+                    ],
+                    "decimalPlaces": 2,
+                    "ontologyReference": {
+                        "documentationLinks": [
+                            {
+                                "URL": "http://purl.obolibrary.org/obo/ro.owl",
+                                "type": [
+                                    "OBO",
+                                    "RDF",
+                                    "WEBPAGE"
+                                ]
+                            }
+                        ],
+                        "ontologyDbId": "6b071868",
+                        "ontologyName": "The Crop Ontology",
+                        "version": "7.2.3"
+                    },
+                    "scaleDbId": "af730171",
+                    "scaleName": "Meters",
+                    "validValues": {
+                        "categories": [
+                            "low",
+                            "medium",
+                            "high"
+                        ],
+                        "max": 9999,
+                        "min": 2
+                    },
+                    "xref": "http://purl.obolibrary.org/obo/ro.owl"
+                },
+                "scientist": "Dr. Bob Robertson",
+                "status": "recommended",
+                "submissionTimestamp": "2018-01-01T14:47:23-0600",
+                "synonyms": [
+                    "Maize Height",
+                    "Stalk Height",
+                    "Corn Height"
+                ],
+                "trait": {
+                    "alternativeAbbreviations": [
+                        "H",
+                        "PH",
+                        "H1"
+                    ],
+                    "attribute": "height",
+                    "entity": "Stalk",
+                    "mainAbbreviation": "PH",
+                    "ontologyReference": {
+                        "documentationLinks": [
+                            {
+                                "URL": "http://purl.obolibrary.org/obo/ro.owl",
+                                "type": [
+                                    "OBO",
+                                    "RDF",
+                                    "WEBPAGE"
+                                ]
+                            }
+                        ],
+                        "ontologyDbId": "6b071868",
+                        "ontologyName": "The Crop Ontology",
+                        "version": "7.2.3"
+                    },
+                    "status": "recommended",
+                    "synonyms": [
+                        "Height",
+                        "Plant Height",
+                        "Stalk Height",
+                        "Canopy Height"
+                    ],
+                    "traitClass": "phenological",
+                    "traitDbId": "9b2e34f5",
+                    "traitDescription": "The height of the plant",
+                    "traitName": "Height",
+                    "xref": "http://purl.obolibrary.org/obo/ro.owl"
+                },
+                "xref": "http://purl.obolibrary.org/obo/ro.owl"
+            }
+        ]
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
+```
+
+
 # Group Observations
 
 API to manage the details of observation variable Traits. An observation variable is composed by the unique combination of one Trait, one Method and one Scale. A Trait describes what property is being observed. For example, an Observation Variable might be defined with a Trait of "plant height", a Scale of "meters", and a Method of "tape measure". This Variable would be distinct from a Variable with the Trait "Leaf length" or "Flower height". 
 
 
+
+
+
+## Search [/brapi/v1/search] 
+
+
+
+
+### Post Search Observations  [POST /brapi/v1/search/observations]
+
+Submit a search request for a set of Observations. Returns an Id which reference the results of this search
+
+**Request Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|germplasmDbIds|array[string]|The name or synonym of external genebank accession identifiers|
+|locationDbIds|array[string]|locations these traits were collected|
+|observationDbIds|array[string]|The unique id of an Observation|
+|observationLevel|string|The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnit Structure.|
+|observationTimeStampRangeEnd|string (date-time)|Timestamp range end|
+|observationTimeStampRangeStart|string (date-time)|Timestamp range start|
+|observationUnitDbIds|array[string]|The unique id of an Observation Unit|
+|observationVariableDbIds|array[string]|The IDs of traits, could be ontology ID, database ID or PUI|
+|programDbIds|array[string]|list of programs to search across|
+|seasonDbIds|array[string]|The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)|
+|studyDbIds|array[string]|The database ID / PK of the studies search parameter|
+|trialDbIds|array[string]|list of trials to search across|
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|searchResultDbId|string||
+
+
+ 
+
++ Parameters
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+ 
++ Request (application/json)
+```
+{
+    "germplasmDbIds": [
+        "fc55fa61",
+        "7f5b77be"
+    ],
+    "locationDbIds": [
+        "071d09d3",
+        "6e3fc921"
+    ],
+    "observationDbIds": [
+        "6a4a59d8",
+        "3ff067e0"
+    ],
+    "observationLevel": "plot",
+    "observationTimeStampRangeEnd": "2018-01-01T14:47:23-0600",
+    "observationTimeStampRangeStart": "2018-01-01T14:47:23-0600",
+    "observationUnitDbIds": [
+        "76f559b5",
+        "066bc5d3"
+    ],
+    "observationVariableDbIds": [
+        "a646187d",
+        "6d23513b"
+    ],
+    "programDbIds": [
+        "d8ca7076",
+        "d56b0b68"
+    ],
+    "seasonDbIds": [
+        "Spring 2018",
+        "Season A"
+    ],
+    "studyDbIds": [
+        "222e0bc3",
+        "8b24d5aa"
+    ],
+    "trialDbIds": [
+        "918c52f8",
+        "378f58e6"
+    ]
+}
+```
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultDbId": "551ae08c"
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+
+
+
+### Get Search Observations by searchResultsDbId  [GET /brapi/v1/search/observations/{searchResultsDbId}{?page}{?pageSize}]
+
+Returns a list of Observations based on search criteria.
+
+observationTimeStamp - Iso Standard 8601.
+
+observationValue data type inferred from the ontology
+
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|collector|string|The name or identifier of the entity which collected the observation|
+|germplasmDbId|string|The ID which uniquely identifies a germplasm|
+|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
+|observationDbId|string|The ID which uniquely identifies an observation|
+|observationTimeStamp|string (date-time)|The date and time when this observation was made|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|observationUnitName|string|A human readable name for an observation unit|
+|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
+|observationVariableName|string|A human readable name for an observation variable|
+|season|object||
+|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|year|integer|The 4 digit year of the season.|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
+|value|string|The value of the data collected as an observation|
+
+
+ 
+
++ Parameters
+    + Accept (Required, ) ... The requested content type which should be returned by the server
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "collector": "917d3ae0",
+                "germplasmDbId": "2408ab11",
+                "germplasmName": "A0000003",
+                "observationDbId": "ef24b615",
+                "observationTimeStamp": "2018-01-01T14:47:23-0600",
+                "observationUnitDbId": "598111d4",
+                "observationUnitName": "Plot 1",
+                "observationVariableDbId": "c403d107",
+                "observationVariableName": "Plant Height in meters",
+                "season": {
+                    "season": "Spring",
+                    "seasonDbId": "Spring_2018",
+                    "year": 2018
+                },
+                "studyDbId": "ef2829db",
+                "uploadedBy": "a2f7f60b",
+                "value": "2.3"
+            }
+        ]
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
 
 
 
@@ -6408,263 +6665,6 @@ See the example responses below</p>
 + Response 200 (application/tsv)
 ```
 "\"observationTimeStamp\"\t\"studyDbId\"\t\"studyName\"\t\"germplasmDbId\"\t\"germplasmName\"\t\"observationUnitDbId\"\t\"observationUnitName\"\t\"plotNumber\"\t\"plantNumber\"\t\"blockNumber\"\t\"entryNumber\"\t\"replicate\"\t\"positionCoordinateX\"\t\"positionCoordinateY\"\t\"2d599b04\"\t\"a0e84c5c\"\t\"35c5670a\"\t\"0144dea8\"\n\"\"\t\"\"\t\"\"\t\"\"\t\"\"\t\"\"\t\"\"\t\"\"\t\"\"\t\"\"\t\"\"\t\"\"\t\"\"\t\"\"\t\"Plant height\"\t\"Carotenoid\"\t\"Root color\"\t\"Virus severity\"\n\"2019-09-10T18:13:27.223Z\"\t\"f753a83c\"\t\"Study 1\"\t\"67c3cf0c\"\t\"A0000001\"\t\"d64dd058\"\t\"Plant alpha\"\t\"1\"\t\"1\"\t\"1\"\t\"1\"\t\"1\"\t\"76.50106681\"\t\"42.44409301\"\t\"1.1\"\t\"\"\t\"\"\t\"\"\n\"2019-09-10T18:14:54.868Z\"\t\"f753a83c\"\t\"Study 1\"\t\"67c3cf0c\"\t\"A0000001\"\t\"f9adff3c\"\t\"Plant beta\"\t\"2\"\t\"2\"\t\"1\"\t\"1\"\t\"2\"\t\"76.50106683\"\t\"42.44409301\"\t\"1.9\"\t\"\"\t\"\"\t\"\"\n\"2019-09-10T18:15:34.433Z\"\t\"f753a83c\"\t\"Study 1\"\t\"40498c3c\"\t\"A0000002\"\t\"67102b8f\"\t\"Plant gamma\"\t\"1\"\t\"3\"\t\"1\"\t\"2\"\t\"1\"\t\"76.50106685\"\t\"42.44409301\"\t\"1.4\"\t\"\"\t\"\"\t\"\"\n\"2019-09-10T18:16:15.629Z\"\t\"f753a83c\"\t\"Study 1\"\t\"40498c3c\"\t\"A0000002\"\t\"2869d94a\"\t\"Plant epsilon\"\t\"2\"\t\"4\"\t\"1\"\t\"2\"\t\"2\"\t\"76.50106687\"\t\"42.44409301\"\t\"1.5\"\t\"\"\t\"\"\t\"\"\n\"2019-09-10T18:17:27.223Z\"\t\"f753a83c\"\t\"Study 1\"\t\"67c3cf0c\"\t\"A0000001\"\t\"d64dd058\"\t\"Plant alpha\"\t\"1\"\t\"1\"\t\"1\"\t\"1\"\t\"1\"\t\"76.50106681\"\t\"42.44409301\"\t\"\"\t\"2.6\"\t\"\"\t\"\"\n\"2019-09-10T18:18:54.868Z\"\t\"f753a83c\"\t\"Study 1\"\t\"67c3cf0c\"\t\"A0000001\"\t\"f9adff3c\"\t\"Plant beta\"\t\"2\"\t\"2\"\t\"1\"\t\"1\"\t\"2\"\t\"76.50106683\"\t\"42.44409301\"\t\"\"\t\"2.3\"\t\"\"\t\"\"\n\"2019-09-10T18:19:34.433Z\"\t\"f753a83c\"\t\"Study 1\"\t\"40498c3c\"\t\"A0000002\"\t\"67102b8f\"\t\"Plant gamma\"\t\"1\"\t\"3\"\t\"1\"\t\"2\"\t\"1\"\t\"76.50106685\"\t\"42.44409301\"\t\"\"\t\"3.1\"\t\"\"\t\"\"\n\"2019-09-10T18:20:15.629Z\"\t\"f753a83c\"\t\"Study 1\"\t\"40498c3c\"\t\"A0000002\"\t\"2869d94a\"\t\"Plant epsilon\"\t\"2\"\t\"4\"\t\"1\"\t\"2\"\t\"2\"\t\"76.50106687\"\t\"42.44409301\"\t\"\"\t\"3.2\"\t\"\"\t\"\""
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-
-## Search [/brapi/v1/search] 
-
-
-
-
-### Post Search Observations  [POST /brapi/v1/search/observations]
-
-Submit a search request for a set of Observations. Returns an Id which reference the results of this search
-
-**Request Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|germplasmDbIds|array[string]|The name or synonym of external genebank accession identifiers|
-|locationDbIds|array[string]|locations these traits were collected|
-|observationDbIds|array[string]|The unique id of an Observation|
-|observationLevel|string|The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnit Structure.|
-|observationTimeStampRangeEnd|string (date-time)|Timestamp range end|
-|observationTimeStampRangeStart|string (date-time)|Timestamp range start|
-|observationUnitDbIds|array[string]|The unique id of an Observation Unit|
-|observationVariableDbIds|array[string]|The IDs of traits, could be ontology ID, database ID or PUI|
-|programDbIds|array[string]|list of programs to search across|
-|seasonDbIds|array[string]|The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)|
-|studyDbIds|array[string]|The database ID / PK of the studies search parameter|
-|trialDbIds|array[string]|list of trials to search across|
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|searchResultDbId|string||
-
-
- 
-
-+ Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
- 
-+ Request (application/json)
-```
-{
-    "germplasmDbIds": [
-        "fc55fa61",
-        "7f5b77be"
-    ],
-    "locationDbIds": [
-        "071d09d3",
-        "6e3fc921"
-    ],
-    "observationDbIds": [
-        "6a4a59d8",
-        "3ff067e0"
-    ],
-    "observationLevel": "plot",
-    "observationTimeStampRangeEnd": "2018-01-01T14:47:23-0600",
-    "observationTimeStampRangeStart": "2018-01-01T14:47:23-0600",
-    "observationUnitDbIds": [
-        "76f559b5",
-        "066bc5d3"
-    ],
-    "observationVariableDbIds": [
-        "a646187d",
-        "6d23513b"
-    ],
-    "programDbIds": [
-        "d8ca7076",
-        "d56b0b68"
-    ],
-    "seasonDbIds": [
-        "Spring 2018",
-        "Season A"
-    ],
-    "studyDbIds": [
-        "222e0bc3",
-        "8b24d5aa"
-    ],
-    "trialDbIds": [
-        "918c52f8",
-        "378f58e6"
-    ]
-}
-```
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "searchResultDbId": "551ae08c"
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-
-
-
-### Get Search Observations by searchResultsDbId  [GET /brapi/v1/search/observations/{searchResultsDbId}{?page}{?pageSize}]
-
-Returns a list of Observations based on search criteria.
-
-observationTimeStamp - Iso Standard 8601.
-
-observationValue data type inferred from the ontology
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|collector|string|The name or identifier of the entity which collected the observation|
-|germplasmDbId|string|The ID which uniquely identifies a germplasm|
-|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
-|observationDbId|string|The ID which uniquely identifies an observation|
-|observationTimeStamp|string (date-time)|The date and time when this observation was made|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
-|observationUnitName|string|A human readable name for an observation unit|
-|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
-|observationVariableName|string|A human readable name for an observation variable|
-|season|object||
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
-|seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
-|year|integer|The 4 digit year of the season.|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
-|value|string|The value of the data collected as an observation|
-
-
- 
-
-+ Parameters
-    + Accept (Required, ) ... The requested content type which should be returned by the server
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "data": [
-            {
-                "additionalInfo": {},
-                "collector": "917d3ae0",
-                "germplasmDbId": "2408ab11",
-                "germplasmName": "A0000003",
-                "observationDbId": "ef24b615",
-                "observationTimeStamp": "2018-01-01T14:47:23-0600",
-                "observationUnitDbId": "598111d4",
-                "observationUnitName": "Plot 1",
-                "observationVariableDbId": "c403d107",
-                "observationVariableName": "Plant Height in meters",
-                "season": {
-                    "season": "Spring",
-                    "seasonDbId": "Spring_2018",
-                    "year": 2018
-                },
-                "studyDbId": "ef2829db",
-                "uploadedBy": "a2f7f60b",
-                "value": "2.3"
-            }
-        ]
-    }
-}
 ```
 
 + Response 400 (application/json)
