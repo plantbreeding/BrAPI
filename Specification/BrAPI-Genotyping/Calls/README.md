@@ -118,113 +118,6 @@ Also See:
 ```
 
 
-## Post - /search/calls [/brapi/v1//search/calls] 
-
-
-
-### /search/calls [POST /brapi/v1/search/calls]
-
-`GET /callsets/{id}` will return a JSON version of `CallSet`.
-
-**Request Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|callSetDbIds|array[string]|The CallSet to search.|
-|expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurence (false)|
-|sepPhased|string|The string used as a separator for phased allele calls.|
-|sepUnphased|string|The string used as a separator for unphased allele calls.|
-|unknownString|string|The string used as a representation for missing data.|
-|variantDbIds|array[string]|The Variant to search.|
-|variantSetDbIds|array[string]|The VariantSet to search.|
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|searchResultDbId|string||
-
-
- 
-
-+ Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
- 
-+ Request (application/json)
-```
-{
-    "callSetDbIds": [
-        "callSetDbIds1",
-        "callSetDbIds2"
-    ],
-    "sepPhased": "sepPhased",
-    "sepUnphased": "sepUnphased",
-    "unknownString": "unknownString",
-    "variantDbIds": [
-        "variantDbIds1",
-        "variantDbIds2"
-    ],
-    "variantSetDbIds": [
-        "variantSetDbIds1",
-        "variantSetDbIds2"
-    ]
-}
-```
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "searchResultDbId": "551ae08c"
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
 ## Get - /search/calls/{ID} [/brapi/v1//search/calls/{searchResultsDbId}] 
 
 
@@ -312,6 +205,113 @@ See Search Services for additional implementation details.
         "sepPhased": "sepPhased",
         "sepUnphased": "sepUnphased",
         "unknownString": "unknownString"
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+## Post - /search/calls [/brapi/v1//search/calls] 
+
+
+
+### /search/calls [POST /brapi/v1/search/calls]
+
+`GET /callsets/{id}` will return a JSON version of `CallSet`.
+
+**Request Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|callSetDbIds|array[string]|The CallSet to search.|
+|expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurence (false)|
+|sepPhased|string|The string used as a separator for phased allele calls.|
+|sepUnphased|string|The string used as a separator for unphased allele calls.|
+|unknownString|string|The string used as a representation for missing data.|
+|variantDbIds|array[string]|The Variant to search.|
+|variantSetDbIds|array[string]|The VariantSet to search.|
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|searchResultDbId|string||
+
+
+ 
+
++ Parameters
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+ 
++ Request (application/json)
+```
+{
+    "callSetDbIds": [
+        "callSetDbIds1",
+        "callSetDbIds2"
+    ],
+    "sepPhased": "sepPhased",
+    "sepUnphased": "sepUnphased",
+    "unknownString": "unknownString",
+    "variantDbIds": [
+        "variantDbIds1",
+        "variantDbIds2"
+    ],
+    "variantSetDbIds": [
+        "variantSetDbIds1",
+        "variantSetDbIds2"
+    ]
+}
+```
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultDbId": "551ae08c"
     }
 }
 ```

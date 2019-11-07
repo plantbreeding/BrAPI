@@ -230,6 +230,127 @@
 ```
 
 
+## Get - /variants/{ID} [/brapi/v1//variants/{variantDbId}] 
+
+
+
+### /variants/{variantDbId} [GET /brapi/v1/variants/{variantDbId}]
+
+`GET /variants/{id}` will return a JSON version of `Variant`.
+
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|additionalInfo|object|Additional arbitrary info|
+|alternate_bases|array[string]|The bases that appear instead of the reference bases. Multiple alternate alleles are possible.|
+|ciend|array[integer]||
+|cipos|array[integer]||
+|created|string (int64)|The date this variant was created in milliseconds from the epoch.|
+|end|string (int64)|The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated by `start + referenceBases.length`.|
+|filtersApplied|boolean (boolean)|True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.|
+|filtersFailed|array[string]|Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.|
+|filtersPassed|boolean (boolean)|True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.|
+|referenceBases|string|The reference bases for this variant. They start at the given start position.|
+|referenceName|string||
+|start|string (int64)|The start position at which this variant occurs (0-based). This corresponds to the first base of the string of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning the join of circular genomes are represented as two variants one on each side of the join (position 0).|
+|svlen|string (int64)||
+|updated|string (int64)|The time at which this variant was last updated in milliseconds from the epoch.|
+|variantDbId|string|The variant ID.|
+|variantNames|array[string]|Names for the variant, for example a RefSNP ID.|
+|variantSetDbId|string|The ID of the `VariantSet` this variant belongs to. This transitively defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
+|variantType|string||
+
+
+ 
+
++ Parameters
+    + variantDbId (Required, ) ... The ID of the `Variant` to be retrieved.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "additionalInfo": {},
+        "alternate_bases": [
+            "alternate_bases1",
+            "alternate_bases2"
+        ],
+        "ciend": [],
+        "cipos": [],
+        "created": "",
+        "end": "",
+        "filtersFailed": [
+            "filtersFailed1",
+            "filtersFailed2"
+        ],
+        "referenceBases": "referenceBases",
+        "referenceName": "referenceName",
+        "start": "",
+        "svlen": "",
+        "updated": "",
+        "variantDbId": "variantDbId",
+        "variantNames": [
+            "variantNames1",
+            "variantNames2"
+        ],
+        "variantSetDbId": "variantSetDbId",
+        "variantType": "variantType"
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
+```
+
+
 ## Get - /variants [/brapi/v1//variants] 
 
 
@@ -463,126 +584,5 @@ Also See:
 + Response 403 (application/json)
 ```
 "ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-## Get - /variants/{ID} [/brapi/v1//variants/{variantDbId}] 
-
-
-
-### /variants/{variantDbId} [GET /brapi/v1/variants/{variantDbId}]
-
-`GET /variants/{id}` will return a JSON version of `Variant`.
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|alternate_bases|array[string]|The bases that appear instead of the reference bases. Multiple alternate alleles are possible.|
-|ciend|array[integer]||
-|cipos|array[integer]||
-|created|string (int64)|The date this variant was created in milliseconds from the epoch.|
-|end|string (int64)|The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated by `start + referenceBases.length`.|
-|filtersApplied|boolean (boolean)|True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.|
-|filtersFailed|array[string]|Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.|
-|filtersPassed|boolean (boolean)|True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.|
-|referenceBases|string|The reference bases for this variant. They start at the given start position.|
-|referenceName|string||
-|start|string (int64)|The start position at which this variant occurs (0-based). This corresponds to the first base of the string of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning the join of circular genomes are represented as two variants one on each side of the join (position 0).|
-|svlen|string (int64)||
-|updated|string (int64)|The time at which this variant was last updated in milliseconds from the epoch.|
-|variantDbId|string|The variant ID.|
-|variantNames|array[string]|Names for the variant, for example a RefSNP ID.|
-|variantSetDbId|string|The ID of the `VariantSet` this variant belongs to. This transitively defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
-|variantType|string||
-
-
- 
-
-+ Parameters
-    + variantDbId (Required, ) ... The ID of the `Variant` to be retrieved.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "additionalInfo": {},
-        "alternate_bases": [
-            "alternate_bases1",
-            "alternate_bases2"
-        ],
-        "ciend": [],
-        "cipos": [],
-        "created": "",
-        "end": "",
-        "filtersFailed": [
-            "filtersFailed1",
-            "filtersFailed2"
-        ],
-        "referenceBases": "referenceBases",
-        "referenceName": "referenceName",
-        "start": "",
-        "svlen": "",
-        "updated": "",
-        "variantDbId": "variantDbId",
-        "variantNames": [
-            "variantNames1",
-            "variantNames2"
-        ],
-        "variantSetDbId": "variantSetDbId",
-        "variantType": "variantType"
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-+ Response 404 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
 ```
 

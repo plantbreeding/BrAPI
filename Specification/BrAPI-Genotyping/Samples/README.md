@@ -5,13 +5,122 @@ API methods for tracking/managing plant samples and related meta-data. A 'Sample
 
 
 
-## Get - /samples [/brapi/v1//samples] 
+## Post - /search/samples [/brapi/v1//search/samples] 
 
 
 
-### /samples [GET /brapi/v1/samples{?sampleDbId}{?observationUnitDbId}{?plateDbId}{?germplasmDbId}{?page}{?pageSize}]
+### /search/samples [POST /brapi/v1/search/samples]
 
 Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
+
+See Search Services for additional implementation details.
+
+**Request Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|germplasmDbIds|array[string]| The ID which uniquely identifies a germplasm|
+|observationUnitDbIds|array[string]|The ID which uniquely identifies an observation unit|
+|plateDbIds|array[string]|The ID which uniquely identifies a plate of samples|
+|sampleDbIds|array[string]|The ID which uniquely identifies a sample|
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|searchResultDbId|string||
+
+
+ 
+
++ Parameters
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+ 
++ Request (application/json)
+```
+{
+    "germplasmDbIds": [
+        "germplasmDbIds1",
+        "germplasmDbIds2"
+    ],
+    "observationUnitDbIds": [
+        "observationUnitDbIds1",
+        "observationUnitDbIds2"
+    ],
+    "plateDbIds": [
+        "plateDbIds1",
+        "plateDbIds2"
+    ],
+    "sampleDbIds": [
+        "sampleDbIds1",
+        "sampleDbIds2"
+    ]
+}
+```
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultDbId": "551ae08c"
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+## Get - /search/samples/{ID} [/brapi/v1//search/samples/{searchResultsDbId}] 
+
+
+
+### /search/samples/{searchResultsDbId} [GET /brapi/v1/search/samples/{searchResultsDbId}{?page}{?pageSize}]
+
+Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
+
+See Search Services for additional implementation details.
 
 
 
@@ -46,10 +155,7 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
  
 
 + Parameters
-    + sampleDbId (Optional, ) ... the internal DB id for a sample
-    + observationUnitDbId (Optional, ) ... the internal DB id for an observation unit where a sample was taken from
-    + plateDbId (Optional, ) ... the internal DB id for a plate of samples
-    + germplasmDbId (Optional, ) ... the internal DB id for a germplasm
+    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
     + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -127,6 +233,11 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
 + Response 403 (application/json)
 ```
 "ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
 ```
 
 
@@ -593,122 +704,13 @@ Update the details of an existing Sample
 ```
 
 
-## Post - /search/samples [/brapi/v1//search/samples] 
+## Get - /samples [/brapi/v1//samples] 
 
 
 
-### /search/samples [POST /brapi/v1/search/samples]
-
-Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
-
-See Search Services for additional implementation details.
-
-**Request Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|germplasmDbIds|array[string]| The ID which uniquely identifies a germplasm|
-|observationUnitDbIds|array[string]|The ID which uniquely identifies an observation unit|
-|plateDbIds|array[string]|The ID which uniquely identifies a plate of samples|
-|sampleDbIds|array[string]|The ID which uniquely identifies a sample|
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|searchResultDbId|string||
-
-
- 
-
-+ Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
- 
-+ Request (application/json)
-```
-{
-    "germplasmDbIds": [
-        "germplasmDbIds1",
-        "germplasmDbIds2"
-    ],
-    "observationUnitDbIds": [
-        "observationUnitDbIds1",
-        "observationUnitDbIds2"
-    ],
-    "plateDbIds": [
-        "plateDbIds1",
-        "plateDbIds2"
-    ],
-    "sampleDbIds": [
-        "sampleDbIds1",
-        "sampleDbIds2"
-    ]
-}
-```
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "searchResultDbId": "551ae08c"
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-## Get - /search/samples/{ID} [/brapi/v1//search/samples/{searchResultsDbId}] 
-
-
-
-### /search/samples/{searchResultsDbId} [GET /brapi/v1/search/samples/{searchResultsDbId}{?page}{?pageSize}]
+### /samples [GET /brapi/v1/samples{?sampleDbId}{?observationUnitDbId}{?plateDbId}{?germplasmDbId}{?page}{?pageSize}]
 
 Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
-
-See Search Services for additional implementation details.
 
 
 
@@ -743,7 +745,10 @@ See Search Services for additional implementation details.
  
 
 + Parameters
-    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
+    + sampleDbId (Optional, ) ... the internal DB id for a sample
+    + observationUnitDbId (Optional, ) ... the internal DB id for an observation unit where a sample was taken from
+    + plateDbId (Optional, ) ... the internal DB id for a plate of samples
+    + germplasmDbId (Optional, ) ... the internal DB id for a germplasm
     + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -821,10 +826,5 @@ See Search Services for additional implementation details.
 + Response 403 (application/json)
 ```
 "ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-+ Response 404 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
 ```
 

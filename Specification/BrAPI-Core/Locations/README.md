@@ -5,6 +5,134 @@ Location calls.
 
 
 
+## Get - /search/locations/{ID} [/brapi/v1//search/locations/{searchResultsDbId}] 
+
+
+
+### /search/locations/{searchResultsDbId} [GET /brapi/v1/search/locations/{searchResultsDbId}{?page}{?pageSize}]
+
+Advanced searching for the locations resource.
+See Search Services for additional implementation details.
+
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|abbreviation|string|An abbreviation which represents this location|
+|additionalInfo|object|Additional arbitrary info|
+|altitude|number|The altitude/elevation of this location (in meters)|
+|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
+|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geometry|object||
+|type|string|Feature|
+|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
+|countryName|string|The full name of the country where this location is|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
+|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|instituteAddress|string|The street address of the institute representing this location|
+|instituteName|string|each institute/laboratory can have several experimental field|
+|locationDbId|string|The unique identifier for a Location|
+|locationName|string|A human readable name for this location|
+|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
+|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
+|slope|string|Describes the approximate slope (height/distance) of the location.|
+|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
+
+
+ 
+
++ Parameters
+    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "abbreviation": "L1",
+                "additionalInfo": {},
+                "altitude": 35.6,
+                "coordinateDescription": "North East corner of greenhouse",
+                "coordinates": {
+                    "geometry": {
+                        "coordinates": [
+                            -76.506042,
+                            42.417373
+                        ],
+                        "type": "Point"
+                    },
+                    "type": "Feature"
+                },
+                "countryCode": "PER",
+                "countryName": "Peru",
+                "documentationURL": "https://brapi.org",
+                "environmentType": "Nursery",
+                "exposure": "Structure, no exposure",
+                "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
+                "instituteName": "Plant Science Institute",
+                "locationDbId": "3cfdd67d",
+                "locationName": "Location 1",
+                "locationType": "Storage Location",
+                "siteStatus": "Private",
+                "slope": "0",
+                "topography": "Valley"
+            }
+        ]
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
 ## Get - /locations [/brapi/v1//locations] 
 
 
@@ -131,317 +259,6 @@ Get a list of locations.
 + Response 403 (application/json)
 ```
 "ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-## Post - /locations [/brapi/v1//locations] 
-
-
-
-### /locations [POST /brapi/v1/locations]
-
-Add new locations to database
-* The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
-* `altitude` is in meters.
-
-**Request Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|abbreviation|string|An abbreviation which represents this location|
-|additionalInfo|object|Additional arbitrary info|
-|altitude|number|The altitude/elevation of this location (in meters)|
-|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
-|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|geometry|object||
-|type|string|Feature|
-|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
-|countryName|string|The full name of the country where this location is|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
-|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
-|instituteAddress|string|The street address of the institute representing this location|
-|instituteName|string|each institute/laboratory can have several experimental field|
-|locationName|string|A human readable name for this location|
-|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
-|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
-|slope|string|Describes the approximate slope (height/distance) of the location.|
-|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|abbreviation|string|An abbreviation which represents this location|
-|additionalInfo|object|Additional arbitrary info|
-|altitude|number|The altitude/elevation of this location (in meters)|
-|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
-|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|geometry|object||
-|type|string|Feature|
-|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
-|countryName|string|The full name of the country where this location is|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
-|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
-|instituteAddress|string|The street address of the institute representing this location|
-|instituteName|string|each institute/laboratory can have several experimental field|
-|locationDbId|string|The unique identifier for a Location|
-|locationName|string|A human readable name for this location|
-|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
-|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
-|slope|string|Describes the approximate slope (height/distance) of the location.|
-|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
-
-
- 
-
-+ Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
- 
-+ Request (application/json)
-```
-[
-    {
-        "abbreviation": "L1",
-        "additionalInfo": {},
-        "altitude": 35.6,
-        "coordinateDescription": "North East corner of greenhouse",
-        "coordinates": {
-            "geometry": {
-                "coordinates": [
-                    -76.506042,
-                    42.417373
-                ],
-                "type": "Point"
-            },
-            "type": "Feature"
-        },
-        "countryCode": "PER",
-        "countryName": "Peru",
-        "documentationURL": "https://brapi.org",
-        "environmentType": "Nursery",
-        "exposure": "Structure, no exposure",
-        "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
-        "instituteName": "Plant Science Institute",
-        "locationName": "Location 1",
-        "locationType": "Storage Location",
-        "siteStatus": "Private",
-        "slope": "0",
-        "topography": "Valley"
-    }
-]
-```
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "data": [
-            {
-                "abbreviation": "L1",
-                "additionalInfo": {},
-                "altitude": 35.6,
-                "coordinateDescription": "North East corner of greenhouse",
-                "coordinates": {
-                    "geometry": {
-                        "coordinates": [
-                            -76.506042,
-                            42.417373
-                        ],
-                        "type": "Point"
-                    },
-                    "type": "Feature"
-                },
-                "countryCode": "PER",
-                "countryName": "Peru",
-                "documentationURL": "https://brapi.org",
-                "environmentType": "Nursery",
-                "exposure": "Structure, no exposure",
-                "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
-                "instituteName": "Plant Science Institute",
-                "locationDbId": "3cfdd67d",
-                "locationName": "Location 1",
-                "locationType": "Storage Location",
-                "siteStatus": "Private",
-                "slope": "0",
-                "topography": "Valley"
-            }
-        ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-## Get - /locations/{ID} [/brapi/v1//locations/{locationDbId}] 
-
-
-
-### /locations/{locationDbId} [GET /brapi/v1/locations/{locationDbId}]
-
-Get details for a location.
-- The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
-- `altitude` is in meters.'
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|abbreviation|string|An abbreviation which represents this location|
-|additionalInfo|object|Additional arbitrary info|
-|altitude|number|The altitude/elevation of this location (in meters)|
-|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
-|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|geometry|object||
-|type|string|Feature|
-|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
-|countryName|string|The full name of the country where this location is|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
-|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
-|instituteAddress|string|The street address of the institute representing this location|
-|instituteName|string|each institute/laboratory can have several experimental field|
-|locationDbId|string|The unique identifier for a Location|
-|locationName|string|A human readable name for this location|
-|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
-|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
-|slope|string|Describes the approximate slope (height/distance) of the location.|
-|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
-
-
- 
-
-+ Parameters
-    + locationDbId (Required, ) ... The internal DB id for a location
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "abbreviation": "L1",
-        "additionalInfo": {},
-        "altitude": 35.6,
-        "coordinateDescription": "North East corner of greenhouse",
-        "coordinates": {
-            "geometry": {
-                "coordinates": [
-                    -76.506042,
-                    42.417373
-                ],
-                "type": "Point"
-            },
-            "type": "Feature"
-        },
-        "countryCode": "PER",
-        "countryName": "Peru",
-        "documentationURL": "https://brapi.org",
-        "environmentType": "Nursery",
-        "exposure": "Structure, no exposure",
-        "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
-        "instituteName": "Plant Science Institute",
-        "locationDbId": "3cfdd67d",
-        "locationName": "Location 1",
-        "locationType": "Storage Location",
-        "siteStatus": "Private",
-        "slope": "0",
-        "topography": "Valley"
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-+ Response 404 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
 ```
 
 
@@ -771,15 +588,39 @@ See Search Services for additional implementation details.
 ```
 
 
-## Get - /search/locations/{ID} [/brapi/v1//search/locations/{searchResultsDbId}] 
+## Post - /locations [/brapi/v1//locations] 
 
 
 
-### /search/locations/{searchResultsDbId} [GET /brapi/v1/search/locations/{searchResultsDbId}{?page}{?pageSize}]
+### /locations [POST /brapi/v1/locations]
 
-Advanced searching for the locations resource.
-See Search Services for additional implementation details.
+Add new locations to database
+* The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
+* `altitude` is in meters.
 
+**Request Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|abbreviation|string|An abbreviation which represents this location|
+|additionalInfo|object|Additional arbitrary info|
+|altitude|number|The altitude/elevation of this location (in meters)|
+|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
+|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geometry|object||
+|type|string|Feature|
+|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
+|countryName|string|The full name of the country where this location is|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
+|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|instituteAddress|string|The street address of the institute representing this location|
+|instituteName|string|each institute/laboratory can have several experimental field|
+|locationName|string|A human readable name for this location|
+|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
+|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
+|slope|string|Describes the approximate slope (height/distance) of the location.|
+|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
 
 
 **Response Fields** 
@@ -812,11 +653,43 @@ See Search Services for additional implementation details.
  
 
 + Parameters
-    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
+
+ 
++ Request (application/json)
+```
+[
+    {
+        "abbreviation": "L1",
+        "additionalInfo": {},
+        "altitude": 35.6,
+        "coordinateDescription": "North East corner of greenhouse",
+        "coordinates": {
+            "geometry": {
+                "coordinates": [
+                    -76.506042,
+                    42.417373
+                ],
+                "type": "Point"
+            },
+            "type": "Feature"
+        },
+        "countryCode": "PER",
+        "countryName": "Peru",
+        "documentationURL": "https://brapi.org",
+        "environmentType": "Nursery",
+        "exposure": "Structure, no exposure",
+        "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
+        "instituteName": "Plant Science Institute",
+        "locationName": "Location 1",
+        "locationType": "Storage Location",
+        "siteStatus": "Private",
+        "slope": "0",
+        "topography": "Valley"
+    }
+]
+```
 
 
 
@@ -896,5 +769,132 @@ See Search Services for additional implementation details.
 + Response 403 (application/json)
 ```
 "ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+## Get - /locations/{ID} [/brapi/v1//locations/{locationDbId}] 
+
+
+
+### /locations/{locationDbId} [GET /brapi/v1/locations/{locationDbId}]
+
+Get details for a location.
+- The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
+- `altitude` is in meters.'
+
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|abbreviation|string|An abbreviation which represents this location|
+|additionalInfo|object|Additional arbitrary info|
+|altitude|number|The altitude/elevation of this location (in meters)|
+|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
+|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geometry|object||
+|type|string|Feature|
+|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
+|countryName|string|The full name of the country where this location is|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
+|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|instituteAddress|string|The street address of the institute representing this location|
+|instituteName|string|each institute/laboratory can have several experimental field|
+|locationDbId|string|The unique identifier for a Location|
+|locationName|string|A human readable name for this location|
+|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
+|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
+|slope|string|Describes the approximate slope (height/distance) of the location.|
+|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
+
+
+ 
+
++ Parameters
+    + locationDbId (Required, ) ... The internal DB id for a location
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "abbreviation": "L1",
+        "additionalInfo": {},
+        "altitude": 35.6,
+        "coordinateDescription": "North East corner of greenhouse",
+        "coordinates": {
+            "geometry": {
+                "coordinates": [
+                    -76.506042,
+                    42.417373
+                ],
+                "type": "Point"
+            },
+            "type": "Feature"
+        },
+        "countryCode": "PER",
+        "countryName": "Peru",
+        "documentationURL": "https://brapi.org",
+        "environmentType": "Nursery",
+        "exposure": "Structure, no exposure",
+        "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
+        "instituteName": "Plant Science Institute",
+        "locationDbId": "3cfdd67d",
+        "locationName": "Location 1",
+        "locationType": "Storage Location",
+        "siteStatus": "Private",
+        "slope": "0",
+        "topography": "Valley"
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
 ```
 

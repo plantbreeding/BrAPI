@@ -114,208 +114,6 @@ Also See:
 ```
 
 
-## Get - /callsets/{ID} [/brapi/v1//callsets/{callSetDbId}] 
-
-
-
-### /callsets/{callSetDbId} [GET /brapi/v1/callsets/{callSetDbId}]
-
-`GET /callsets/{id}` will return a JSON version of `CallSet`.
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|callSetDbId|string|The call set ID.|
-|callSetName|string|The call set name.|
-|created|string (int64)|The date this call set was created in milliseconds from the epoch.|
-|sampleDbId|string|The Biosample entity the call set data was generated from.|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|updated|string (int64)|The time at which this call set was last updated in milliseconds from the epoch.|
-|variantSetIds|array[string]|The IDs of the variant sets this call set has calls in.|
-
-
- 
-
-+ Parameters
-    + callSetDbId (Required, ) ... The ID of the `CallSet` to be retrieved.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "additionalInfo": {},
-        "callSetDbId": "callSetDbId",
-        "callSetName": "callSetName",
-        "created": "",
-        "sampleDbId": "sampleDbId",
-        "studyDbId": "studyDbId",
-        "updated": "",
-        "variantSetIds": [
-            "variantSetIds1",
-            "variantSetIds2"
-        ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-+ Response 404 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
-```
-
-
-## Get - /callsets [/brapi/v1//callsets] 
-
-
-
-### /callsets [GET /brapi/v1/callsets{?callSetDbId}{?callSetName}{?variantSetDbId}{?sampleDbId}{?germplasmDbId}{?page}{?pageSize}]
-
- Gets a filtered list of `CallSet` JSON objects.
-Also See:
-`GET /variantsets/{variantsetsDbId}/callsets` 
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|callSetDbId|string|The call set ID.|
-|callSetName|string|The call set name.|
-|created|string (int64)|The date this call set was created in milliseconds from the epoch.|
-|sampleDbId|string|The Biosample entity the call set data was generated from.|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|updated|string (int64)|The time at which this call set was last updated in milliseconds from the epoch.|
-|variantSetIds|array[string]|The IDs of the variant sets this call set has calls in.|
-
-
- 
-
-+ Parameters
-    + callSetDbId (Optional, ) ... The ID of the `CallSet` to be retrieved.
-    + callSetName (Optional, ) ... The human readbale name of the `CallSet` to be retrieved.
-    + variantSetDbId (Optional, ) ... The ID of the `VariantSet` to be retrieved.
-    + sampleDbId (Optional, ) ... The ID of the `VariantSet` to be retrieved.
-    + germplasmDbId (Optional, ) ... Return only call sets generated from the Sample of this Germplasm
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "data": [
-            {
-                "additionalInfo": {},
-                "callSetDbId": "callSetDbId",
-                "callSetName": "callSetName",
-                "created": "",
-                "sampleDbId": "sampleDbId",
-                "studyDbId": "studyDbId",
-                "updated": "",
-                "variantSetIds": [
-                    "variantSetIds1",
-                    "variantSetIds2"
-                ]
-            }
-        ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
 ## Post - /search/callsets [/brapi/v1//search/callsets] 
 
 
@@ -438,6 +236,111 @@ Also See:
 ```
 
 
+## Get - /callsets [/brapi/v1//callsets] 
+
+
+
+### /callsets [GET /brapi/v1/callsets{?callSetDbId}{?callSetName}{?variantSetDbId}{?sampleDbId}{?germplasmDbId}{?page}{?pageSize}]
+
+ Gets a filtered list of `CallSet` JSON objects.
+Also See:
+`GET /variantsets/{variantsetsDbId}/callsets` 
+
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|callSetDbId|string|The call set ID.|
+|callSetName|string|The call set name.|
+|created|string (int64)|The date this call set was created in milliseconds from the epoch.|
+|sampleDbId|string|The Biosample entity the call set data was generated from.|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|updated|string (int64)|The time at which this call set was last updated in milliseconds from the epoch.|
+|variantSetIds|array[string]|The IDs of the variant sets this call set has calls in.|
+
+
+ 
+
++ Parameters
+    + callSetDbId (Optional, ) ... The ID of the `CallSet` to be retrieved.
+    + callSetName (Optional, ) ... The human readbale name of the `CallSet` to be retrieved.
+    + variantSetDbId (Optional, ) ... The ID of the `VariantSet` to be retrieved.
+    + sampleDbId (Optional, ) ... The ID of the `VariantSet` to be retrieved.
+    + germplasmDbId (Optional, ) ... Return only call sets generated from the Sample of this Germplasm
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "callSetDbId": "callSetDbId",
+                "callSetName": "callSetName",
+                "created": "",
+                "sampleDbId": "sampleDbId",
+                "studyDbId": "studyDbId",
+                "updated": "",
+                "variantSetIds": [
+                    "variantSetIds1",
+                    "variantSetIds2"
+                ]
+            }
+        ]
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
 ## Get - /search/callsets/{ID} [/brapi/v1//search/callsets/{searchResultsDbId}] 
 
 
@@ -536,5 +439,102 @@ Also See:
 + Response 403 (application/json)
 ```
 "ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+## Get - /callsets/{ID} [/brapi/v1//callsets/{callSetDbId}] 
+
+
+
+### /callsets/{callSetDbId} [GET /brapi/v1/callsets/{callSetDbId}]
+
+`GET /callsets/{id}` will return a JSON version of `CallSet`.
+
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|additionalInfo|object|Additional arbitrary info|
+|callSetDbId|string|The call set ID.|
+|callSetName|string|The call set name.|
+|created|string (int64)|The date this call set was created in milliseconds from the epoch.|
+|sampleDbId|string|The Biosample entity the call set data was generated from.|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|updated|string (int64)|The time at which this call set was last updated in milliseconds from the epoch.|
+|variantSetIds|array[string]|The IDs of the variant sets this call set has calls in.|
+
+
+ 
+
++ Parameters
+    + callSetDbId (Required, ) ... The ID of the `CallSet` to be retrieved.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "additionalInfo": {},
+        "callSetDbId": "callSetDbId",
+        "callSetName": "callSetName",
+        "created": "",
+        "sampleDbId": "sampleDbId",
+        "studyDbId": "studyDbId",
+        "updated": "",
+        "variantSetIds": [
+            "variantSetIds1",
+            "variantSetIds2"
+        ]
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
 ```
 
