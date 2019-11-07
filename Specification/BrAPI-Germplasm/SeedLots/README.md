@@ -3,13 +3,11 @@
 
 
 
-
-## Seedlots [/brapi/v1/seedlots] 
-
+## Get - /seedlots [/brapi/v1//seedlots] 
 
 
 
-### Get Seedlots  [GET /brapi/v1/seedlots{?seedLotDbId}{?germplasmDbId}{?page}{?pageSize}]
+### /seedlots [GET /brapi/v1/seedlots{?seedLotDbId}{?germplasmDbId}{?page}{?pageSize}]
 
 Get a filtered list of Seed Lot descriptions available in a system.
 
@@ -112,10 +110,11 @@ Get a filtered list of Seed Lot descriptions available in a system.
 ```
 
 
+## Post - /seedlots [/brapi/v1//seedlots] 
 
 
 
-### Post Seedlots  [POST /brapi/v1/seedlots]
+### /seedlots [POST /brapi/v1/seedlots]
 
 Add new Seed Lot descriptions to a server
 
@@ -251,10 +250,11 @@ Add new Seed Lot descriptions to a server
 ```
 
 
+## Get - /seedlots/{ID} [/brapi/v1//seedlots/{seedLotDbId}] 
 
 
 
-### Get Seedlots by seedLotDbId  [GET /brapi/v1/seedlots/{seedLotDbId}]
+### /seedlots/{seedLotDbId} [GET /brapi/v1/seedlots/{seedLotDbId}]
 
 Get a specific Seed Lot by seedLotDbId
 
@@ -354,10 +354,11 @@ Get a specific Seed Lot by seedLotDbId
 ```
 
 
+## Put - /seedlots/{ID} [/brapi/v1//seedlots/{seedLotDbId}] 
 
 
 
-### Put Seedlots by seedLotDbId  [PUT /brapi/v1/seedlots/{seedLotDbId}]
+### /seedlots/{seedLotDbId} [PUT /brapi/v1/seedlots/{seedLotDbId}]
 
 Update an existing Seed Lot
 
@@ -492,10 +493,11 @@ Update an existing Seed Lot
 ```
 
 
+## Get - /seedlots/{ID}/transactions [/brapi/v1//seedlots/{seedLotDbId}/transactions] 
 
 
 
-### Get Seedlots Transactions by seedLotDbId  [GET /brapi/v1/seedlots/{seedLotDbId}/transactions{?transactionDbId}{?transactionDirection}{?page}{?pageSize}]
+### /seedlots/{seedLotDbId}/transactions [GET /brapi/v1/seedlots/{seedLotDbId}/transactions{?transactionDbId}{?transactionDirection}{?page}{?pageSize}]
 
 Get all Transactions related to a specific Seed Lot
 
@@ -594,10 +596,11 @@ Get all Transactions related to a specific Seed Lot
 ```
 
 
+## Get - /seedlots/transactions [/brapi/v1//seedlots/transactions] 
 
 
 
-### Get Seedlots Transactions  [GET /brapi/v1/seedlots/transactions{?transactionDbId}{?seedLotDbId}{?germplasmDbId}{?page}{?pageSize}]
+### /seedlots/transactions [GET /brapi/v1/seedlots/transactions{?transactionDbId}{?seedLotDbId}{?germplasmDbId}{?page}{?pageSize}]
 
 Get a filtered list of Seed Lot Transactions
 
@@ -691,10 +694,11 @@ Get a filtered list of Seed Lot Transactions
 ```
 
 
+## Post - /seedlots/transactions [/brapi/v1//seedlots/transactions] 
 
 
 
-### Post Seedlots Transactions  [POST /brapi/v1/seedlots/transactions]
+### /seedlots/transactions [POST /brapi/v1/seedlots/transactions]
 
 Add new Seed Lot Transaction to be recorded
 

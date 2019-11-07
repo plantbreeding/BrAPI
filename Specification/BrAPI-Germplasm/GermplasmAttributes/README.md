@@ -6,13 +6,11 @@ hardness.  They are often evaluated by genotyping for diagnostic markers.
 
 
 
-
-## Attributes [/brapi/v1/attributes] 
-
+## Get - /attributes/{ID} [/brapi/v1//attributes/{attributeDbId}] 
 
 
 
-### Get Attributes by attributeDbId  [GET /brapi/v1/attributes/{attributeDbId}]
+### /attributes/{attributeDbId} [GET /brapi/v1/attributes/{attributeDbId}]
 
 Get the details for a specific Germplasm Attribute
 
@@ -293,10 +291,11 @@ Get the details for a specific Germplasm Attribute
 ```
 
 
+## Post - /attributes/{ID} [/brapi/v1//attributes/{attributeDbId}] 
 
 
 
-### Post Attributes by attributeDbId  [POST /brapi/v1/attributes/{attributeDbId}]
+### /attributes/{attributeDbId} [POST /brapi/v1/attributes/{attributeDbId}]
 
 Create new Germplasm Attributes
 
@@ -798,10 +797,11 @@ Create new Germplasm Attributes
 ```
 
 
+## Get - /attributes/categories [/brapi/v1//attributes/categories] 
 
 
 
-### Get Attributes Categories  [GET /brapi/v1/attributes/categories{?page}{?pageSize}]
+### /attributes/categories [GET /brapi/v1/attributes/categories{?page}{?pageSize}]
 
 List all available attribute categories.
 
@@ -876,10 +876,11 @@ List all available attribute categories.
 ```
 
 
+## Get - /attributes [/brapi/v1//attributes] 
 
 
 
-### Get Attributes  [GET /brapi/v1/attributes{?attributeCategory}{?attributeDbId}{?attributeName}{?germplasmDbId}{?page}{?pageSize}]
+### /attributes [GET /brapi/v1/attributes{?attributeCategory}{?attributeDbId}{?attributeName}{?germplasmDbId}{?page}{?pageSize}]
 
 List available attributes.
 
@@ -1170,10 +1171,11 @@ List available attributes.
 ```
 
 
+## Post - /attributes [/brapi/v1//attributes] 
 
 
 
-### Post Attributes  [POST /brapi/v1/attributes]
+### /attributes [POST /brapi/v1/attributes]
 
 Create new Germplasm Attributes
 

@@ -3,13 +3,11 @@
 
 
 
-
-## Crossingprojects [/brapi/v1/crossingprojects] 
-
+## Get - /crossingprojects/{ID} [/brapi/v1//crossingprojects/{crossingProjectDbId}] 
 
 
 
-### Get Crossingprojects by crossingProjectDbId  [GET /brapi/v1/crossingprojects/{crossingProjectDbId}{?page}{?pageSize}]
+### /crossingprojects/{crossingProjectDbId} [GET /brapi/v1/crossingprojects/{crossingProjectDbId}{?page}{?pageSize}]
 
 Get a filtered list of Crossing Projects.
 
@@ -92,10 +90,11 @@ Get a filtered list of Crossing Projects.
 ```
 
 
+## Put - /crossingprojects/{ID} [/brapi/v1//crossingprojects/{crossingProjectDbId}] 
 
 
 
-### Put Crossingprojects by crossingProjectDbId  [PUT /brapi/v1/crossingprojects/{crossingProjectDbId}]
+### /crossingprojects/{crossingProjectDbId} [PUT /brapi/v1/crossingprojects/{crossingProjectDbId}]
 
 Update an existing Crossing Project entity on this server
 
@@ -197,10 +196,11 @@ Update an existing Crossing Project entity on this server
 ```
 
 
+## Get - /crossingprojects [/brapi/v1//crossingprojects] 
 
 
 
-### Get Crossingprojects  [GET /brapi/v1/crossingprojects{?crossingProjectDbId}{?page}{?pageSize}]
+### /crossingprojects [GET /brapi/v1/crossingprojects{?crossingProjectDbId}{?page}{?pageSize}]
 
 Get a filtered list of Crossing Projects.
 
@@ -288,10 +288,11 @@ Get a filtered list of Crossing Projects.
 ```
 
 
+## Post - /crossingprojects [/brapi/v1//crossingprojects] 
 
 
 
-### Post Crossingprojects  [POST /brapi/v1/crossingprojects]
+### /crossingprojects [POST /brapi/v1/crossingprojects]
 
 Create new Crossing Project entities on this server
 

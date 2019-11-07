@@ -9,13 +9,11 @@ The `/images` calls support a GeoJSON object structure for describing their loca
  + For top down images (ie from drones, cranes, etc), the Point geometry may be used to indicate the longitude and latitude of the centroid of the image content, and the Polygon geometry may be used to indicate the border of the image content. 
 
 
-
-## Images [/brapi/v1/images] 
-
+## Get - /images [/brapi/v1//images] 
 
 
 
-### Get Images  [GET /brapi/v1/images{?imageDbId}{?imageName}{?observationUnitDbId}{?observationDbId}{?descriptiveOntologyTerm}{?page}{?pageSize}]
+### /images [GET /brapi/v1/images{?imageDbId}{?imageName}{?observationUnitDbId}{?observationDbId}{?descriptiveOntologyTerm}{?page}{?pageSize}]
 
 Get filtered set of image meta data
 
@@ -152,10 +150,11 @@ Implementation Notes
 ```
 
 
+## Post - /images [/brapi/v1//images] 
 
 
 
-### Post Images  [POST /brapi/v1/images]
+### /images [POST /brapi/v1/images]
 
 Create a new image meta data object
 
@@ -353,10 +352,11 @@ Implementation Notes
 ```
 
 
+## Get - /images/{ID} [/brapi/v1//images/{imageDbId}] 
 
 
 
-### Get Images by imageDbId  [GET /brapi/v1/images/{imageDbId}]
+### /images/{imageDbId} [GET /brapi/v1/images/{imageDbId}]
 
 Get one image meta data object
 
@@ -487,10 +487,11 @@ Implementation Notes
 ```
 
 
+## Put - /images/{ID} [/brapi/v1//images/{imageDbId}] 
 
 
 
-### Put Images by imageDbId  [PUT /brapi/v1/images/{imageDbId}]
+### /images/{imageDbId} [PUT /brapi/v1/images/{imageDbId}]
 
 Update an image meta data object
 
@@ -691,10 +692,11 @@ Implementation Notes
 ```
 
 
+## Put - /images/{ID}/imagecontent [/brapi/v1//images/{imageDbId}/imagecontent] 
 
 
 
-### Put Images Imagecontent by imageDbId  [PUT /brapi/v1/images/{imageDbId}/imagecontent]
+### /images/{imageDbId}/imagecontent [PUT /brapi/v1/images/{imageDbId}/imagecontent]
 
 Update an image with the image file content
 
@@ -827,13 +829,11 @@ Implementation Notes
 ```
 
 
-
-## Search [/brapi/v1/search] 
-
+## Post - /search/images [/brapi/v1//search/images] 
 
 
 
-### Post Search Images  [POST /brapi/v1/search/images]
+### /search/images [POST /brapi/v1/search/images]
 
 Get filtered set of image meta data
 
@@ -983,10 +983,11 @@ See Search Services for additional implementation details.
 ```
 
 
+## Get - /search/images/{ID} [/brapi/v1//search/images/{searchResultsDbId}] 
 
 
 
-### Get Search Images by searchResultsDbId  [GET /brapi/v1/search/images/{searchResultsDbId}{?page}{?pageSize}]
+### /search/images/{searchResultsDbId} [GET /brapi/v1/search/images/{searchResultsDbId}{?page}{?pageSize}]
 
 Get filtered set of image meta data
 

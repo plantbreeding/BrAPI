@@ -3,13 +3,11 @@
 
 
 
-
-## Plannedcrosses [/brapi/v1/plannedcrosses] 
-
+## Get - /plannedcrosses [/brapi/v1//plannedcrosses] 
 
 
 
-### Get Plannedcrosses  [GET /brapi/v1/plannedcrosses{?crossingProjectDbId}{?page}{?pageSize}]
+### /plannedcrosses [GET /brapi/v1/plannedcrosses{?crossingProjectDbId}{?page}{?pageSize}]
 
 Get a filtered list of Planned Cross entities.
 
@@ -133,10 +131,11 @@ Get a filtered list of Planned Cross entities.
 ```
 
 
+## Post - /plannedcrosses [/brapi/v1//plannedcrosses] 
 
 
 
-### Post Plannedcrosses  [POST /brapi/v1/plannedcrosses]
+### /plannedcrosses [POST /brapi/v1/plannedcrosses]
 
 Create new Planned Cross entities on this server
 
@@ -316,10 +315,11 @@ Create new Planned Cross entities on this server
 ```
 
 
+## Put - /plannedcrosses [/brapi/v1//plannedcrosses] 
 
 
 
-### Put Plannedcrosses  [PUT /brapi/v1/plannedcrosses]
+### /plannedcrosses [PUT /brapi/v1/plannedcrosses]
 
 Update existing Planned Cross entities on this server
 

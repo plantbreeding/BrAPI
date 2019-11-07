@@ -1,15 +1,13 @@
-# Group Calls
-The '/calls' call is used to find the available BrAPI calls on a particular server. 
+# Group Server Info
+The '/serverinfo' call is used to find the available BrAPI calls on a particular server. 
 
 
 
-
-## Serverinfo [/brapi/v1/serverinfo] 
-
+## Get - /serverinfo [/brapi/v1//serverinfo] 
 
 
 
-### Get Serverinfo  [GET /brapi/v1/serverinfo{?dataType}]
+### /serverinfo [GET /brapi/v1/serverinfo{?dataType}]
 
 Implementation Notes
 
@@ -98,11 +96,11 @@ BAD    "call": "germplasm/<germplasmDbId>/pedigree"
         ]
     },
     "result": {
-        "contactEmail": "contactEmail",
-        "documentationURL": "documentationURL",
-        "location": "location",
-        "organizationName": "organizationName",
-        "organizationURL": "organizationURL",
+        "contactEmail": "contact@institute.org",
+        "documentationURL": "institute.org/server",
+        "location": "USA",
+        "organizationName": "The Institute",
+        "organizationURL": "institute.org/home",
         "services": [
             {
                 "dataTypes": [

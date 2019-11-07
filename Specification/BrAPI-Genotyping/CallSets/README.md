@@ -2,13 +2,11 @@
 
 
 
-
-## Callsets [/brapi/v1/callsets] 
-
+## Get - /callsets/{ID}/calls [/brapi/v1//callsets/{callSetDbId}/calls] 
 
 
 
-### Get Callsets Calls by callSetDbId  [GET /brapi/v1/callsets/{callSetDbId}/calls{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?page}{?pageSize}]
+### /callsets/{callSetDbId}/calls [GET /brapi/v1/callsets/{callSetDbId}/calls{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?page}{?pageSize}]
 
  Gets a list of `Calls` associated with a `CallSet`.
 Also See:
@@ -116,10 +114,11 @@ Also See:
 ```
 
 
+## Get - /callsets/{ID} [/brapi/v1//callsets/{callSetDbId}] 
 
 
 
-### Get Callsets by callSetDbId  [GET /brapi/v1/callsets/{callSetDbId}]
+### /callsets/{callSetDbId} [GET /brapi/v1/callsets/{callSetDbId}]
 
 `GET /callsets/{id}` will return a JSON version of `CallSet`.
 
@@ -212,10 +211,11 @@ Also See:
 ```
 
 
+## Get - /callsets [/brapi/v1//callsets] 
 
 
 
-### Get Callsets  [GET /brapi/v1/callsets{?callSetDbId}{?callSetName}{?variantSetDbId}{?sampleDbId}{?germplasmDbId}{?page}{?pageSize}]
+### /callsets [GET /brapi/v1/callsets{?callSetDbId}{?callSetName}{?variantSetDbId}{?sampleDbId}{?germplasmDbId}{?page}{?pageSize}]
 
  Gets a filtered list of `CallSet` JSON objects.
 Also See:
@@ -316,13 +316,11 @@ Also See:
 ```
 
 
-
-## Search [/brapi/v1/search] 
-
+## Post - /search/callsets [/brapi/v1//search/callsets] 
 
 
 
-### Post Search Callsets  [POST /brapi/v1/search/callsets]
+### /search/callsets [POST /brapi/v1/search/callsets]
 
 `POST /callsets/search` must accept a JSON version of
 `SearchCallSetsRequest` as the post body and will return a JSON version of
@@ -440,10 +438,11 @@ Also See:
 ```
 
 
+## Get - /search/callsets/{ID} [/brapi/v1//search/callsets/{searchResultsDbId}] 
 
 
 
-### Get Search Callsets by searchResultsDbId  [GET /brapi/v1/search/callsets/{searchResultsDbId}{?page}{?pageSize}]
+### /search/callsets/{searchResultsDbId} [GET /brapi/v1/search/callsets/{searchResultsDbId}{?page}{?pageSize}]
 
 `POST /callsets/search` must accept a JSON version of
 `SearchCallSetsRequest` as the post body and will return a JSON version of

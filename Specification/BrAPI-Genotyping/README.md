@@ -42,13 +42,11 @@ V2.0 - [GitHub](https://github.com/plantbreeding/API/tree/brapi-v2-dev/Specifica
 
 
 
-
-## Callsets [/brapi/v1/callsets] 
-
+## Get - /callsets/{ID}/calls [/brapi/v1//callsets/{callSetDbId}/calls] 
 
 
 
-### Get Callsets Calls by callSetDbId  [GET /brapi/v1/callsets/{callSetDbId}/calls{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?page}{?pageSize}]
+### /callsets/{callSetDbId}/calls [GET /brapi/v1/callsets/{callSetDbId}/calls{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?page}{?pageSize}]
 
  Gets a list of `Calls` associated with a `CallSet`.
 Also See:
@@ -156,10 +154,11 @@ Also See:
 ```
 
 
+## Get - /callsets/{ID} [/brapi/v1//callsets/{callSetDbId}] 
 
 
 
-### Get Callsets by callSetDbId  [GET /brapi/v1/callsets/{callSetDbId}]
+### /callsets/{callSetDbId} [GET /brapi/v1/callsets/{callSetDbId}]
 
 `GET /callsets/{id}` will return a JSON version of `CallSet`.
 
@@ -252,10 +251,11 @@ Also See:
 ```
 
 
+## Get - /callsets [/brapi/v1//callsets] 
 
 
 
-### Get Callsets  [GET /brapi/v1/callsets{?callSetDbId}{?callSetName}{?variantSetDbId}{?sampleDbId}{?germplasmDbId}{?page}{?pageSize}]
+### /callsets [GET /brapi/v1/callsets{?callSetDbId}{?callSetName}{?variantSetDbId}{?sampleDbId}{?germplasmDbId}{?page}{?pageSize}]
 
  Gets a filtered list of `CallSet` JSON objects.
 Also See:
@@ -356,13 +356,11 @@ Also See:
 ```
 
 
-
-## Search [/brapi/v1/search] 
-
+## Post - /search/callsets [/brapi/v1//search/callsets] 
 
 
 
-### Post Search Callsets  [POST /brapi/v1/search/callsets]
+### /search/callsets [POST /brapi/v1/search/callsets]
 
 `POST /callsets/search` must accept a JSON version of
 `SearchCallSetsRequest` as the post body and will return a JSON version of
@@ -480,10 +478,11 @@ Also See:
 ```
 
 
+## Get - /search/callsets/{ID} [/brapi/v1//search/callsets/{searchResultsDbId}] 
 
 
 
-### Get Search Callsets by searchResultsDbId  [GET /brapi/v1/search/callsets/{searchResultsDbId}{?page}{?pageSize}]
+### /search/callsets/{searchResultsDbId} [GET /brapi/v1/search/callsets/{searchResultsDbId}{?page}{?pageSize}]
 
 `POST /callsets/search` must accept a JSON version of
 `SearchCallSetsRequest` as the post body and will return a JSON version of
@@ -583,13 +582,11 @@ Also See:
 
 
 
-
-## Calls [/brapi/v1/calls] 
-
+## Get - /calls [/brapi/v1//calls] 
 
 
 
-### Get Calls  [GET /brapi/v1/calls{?callSetDbId}{?variantDbId}{?variantSetDbId}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?page}{?pageSize}]
+### /calls [GET /brapi/v1/calls{?callSetDbId}{?variantDbId}{?variantSetDbId}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?page}{?pageSize}]
 
  `GET /call` will return a filtered list of `Call` JSON objects.
 Also See:
@@ -701,13 +698,11 @@ Also See:
 ```
 
 
-
-## Search [/brapi/v1/search] 
-
+## Post - /search/calls [/brapi/v1//search/calls] 
 
 
 
-### Post Search Calls  [POST /brapi/v1/search/calls]
+### /search/calls [POST /brapi/v1/search/calls]
 
 `GET /callsets/{id}` will return a JSON version of `CallSet`.
 
@@ -810,10 +805,11 @@ Also See:
 ```
 
 
+## Get - /search/calls/{ID} [/brapi/v1//search/calls/{searchResultsDbId}] 
 
 
 
-### Get Search Calls by searchResultsDbId  [GET /brapi/v1/search/calls/{searchResultsDbId}{?page}{?pageSize}]
+### /search/calls/{searchResultsDbId} [GET /brapi/v1/search/calls/{searchResultsDbId}{?page}{?pageSize}]
 
 Returns a filtered list of `Call` JSON objects.
 See Search Services for additional implementation details.
@@ -927,254 +923,11 @@ Retrieving genetic or physical maps
 
 
 
+## Get - /maps [/brapi/v1//maps] 
 
-## Search [/brapi/v1/search] 
 
 
-
-
-### Post Search Markerpositions  [POST /brapi/v1/search/markerpositions]
-
-Get marker position information, based on Map, Linkage Group, and Marker ID
-
-**Request Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|linkageGroupNames|array[string]|The Uniquely Identifiable name of this linkage group|
-|mapDbIds|array[string]|The unique ID of the map|
-|markerDbIds|array[string]|Internal db identifier|
-|maxPosition|integer|The maximum position|
-|minPosition|integer|The minimum position|
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|searchResultDbId|string||
-
-
- 
-
-+ Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
- 
-+ Request (application/json)
-```
-{
-    "linkageGroupNames": [
-        "linkageGroupNames1",
-        "linkageGroupNames2"
-    ],
-    "mapDbIds": [
-        "mapDbIds1",
-        "mapDbIds2"
-    ],
-    "markerDbIds": [
-        "markerDbIds1",
-        "markerDbIds2"
-    ],
-    "maxPosition": 0,
-    "minPosition": 0
-}
-```
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "searchResultDbId": "551ae08c"
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-
-
-
-### Post Search Markerpositions by searchResultsDbId  [POST /brapi/v1/search/markerpositions/{searchResultsDbId}{?page}{?pageSize}]
-
-Get marker position information, based on Map, Linkage Group, and Marker ID
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|linkageGroupName|string|The Uniquely Identifiable name of this linkage group|
-|mapDbId|string|The unique ID of the map|
-|mapName|string|The human readbale name of the map|
-|markerDbId|string|Internal db identifier|
-|markerName|string|The human readable name for a marker|
-|position|integer|The position of a marker within a linkage group|
-
-
- 
-
-+ Parameters
-    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {},
-        "status": []
-    },
-    "result": {
-        "data": []
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-
-## Markerpositions [/brapi/v1/markerpositions] 
-
-
-
-
-### Get Markerpositions  [GET /brapi/v1/markerpositions{?mapDbId}{?linkageGroupName}{?markerDbId}{?minPosition}{?maxPosition}{?page}{?pageSize}]
-
-Get marker position information, based on Map, Linkage Group, and Marker ID
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|linkageGroupName|string|The Uniquely Identifiable name of this linkage group|
-|mapDbId|string|The unique ID of the map|
-|mapName|string|The human readbale name of the map|
-|markerDbId|string|Internal db identifier|
-|markerName|string|The human readable name for a marker|
-|position|integer|The position of a marker within a linkage group|
-
-
- 
-
-+ Parameters
-    + mapDbId (Optional, ) ... unique id of a map
-    + linkageGroupName (Optional, ) ... The chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.
-    + markerDbId (Optional, ) ... The unique id for a marker
-    + minPosition (Optional, ) ... The minimum position
-    + maxPosition (Optional, ) ... The maximum position
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [],
-        "pagination": {},
-        "status": []
-    },
-    "result": {
-        "data": []
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-
-## Maps [/brapi/v1/maps] 
-
-
-
-
-### Get Maps  [GET /brapi/v1/maps{?commonCropName}{?scientificName}{?type}{?programDbId}{?trialDbId}{?studyDbId}{?page}{?pageSize}]
+### /maps [GET /brapi/v1/maps{?commonCropName}{?scientificName}{?type}{?programDbId}{?trialDbId}{?studyDbId}{?page}{?pageSize}]
 
 Get list of maps
 
@@ -1281,10 +1034,11 @@ Get list of maps
 ```
 
 
+## Get - /maps/{ID} [/brapi/v1//maps/{mapDbId}] 
 
 
 
-### Get Maps by mapDbId  [GET /brapi/v1/maps/{mapDbId}{?page}{?pageSize}]
+### /maps/{mapDbId} [GET /brapi/v1/maps/{mapDbId}{?page}{?pageSize}]
 
 Provides the number of markers on each linkageGroup and the max position on the linkageGroup
 
@@ -1359,10 +1113,11 @@ Provides the number of markers on each linkageGroup and the max position on the 
 ```
 
 
+## Get - /maps/{ID}/linkagegroups [/brapi/v1//maps/{mapDbId}/linkagegroups] 
 
 
 
-### Get Maps Linkagegroups by mapDbId  [GET /brapi/v1/maps/{mapDbId}/linkagegroups{?page}{?pageSize}]
+### /maps/{mapDbId}/linkagegroups [GET /brapi/v1/maps/{mapDbId}/linkagegroups{?page}{?pageSize}]
 
 Get the Linkage Groups of a specific Genomic Map. A Linkage Group is the BrAPI generic term for a named section of a map. A Linkage Group can represent a Chromosome, Scaffold, or Linkage Group.
 
@@ -1424,17 +1179,253 @@ Get the Linkage Groups of a specific Genomic Map. A Linkage Group is the BrAPI g
 "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
 ```
 
+
+## Get - /markerpositions [/brapi/v1//markerpositions] 
+
+
+
+### /markerpositions [GET /brapi/v1/markerpositions{?mapDbId}{?linkageGroupName}{?markerDbId}{?minPosition}{?maxPosition}{?page}{?pageSize}]
+
+Get marker position information, based on Map, Linkage Group, and Marker ID
+
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|linkageGroupName|string|The Uniquely Identifiable name of this linkage group|
+|mapDbId|string|The unique ID of the map|
+|mapName|string|The human readbale name of the map|
+|markerDbId|string|Internal db identifier|
+|markerName|string|The human readable name for a marker|
+|position|integer|The position of a marker within a linkage group|
+
+
+ 
+
++ Parameters
+    + mapDbId (Optional, ) ... unique id of a map
+    + linkageGroupName (Optional, ) ... The chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.
+    + markerDbId (Optional, ) ... The unique id for a marker
+    + minPosition (Optional, ) ... The minimum position
+    + maxPosition (Optional, ) ... The maximum position
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [],
+        "pagination": {},
+        "status": []
+    },
+    "result": {
+        "data": []
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+## Post - /search/markerpositions [/brapi/v1//search/markerpositions] 
+
+
+
+### /search/markerpositions [POST /brapi/v1/search/markerpositions]
+
+Get marker position information, based on Map, Linkage Group, and Marker ID
+
+**Request Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|linkageGroupNames|array[string]|The Uniquely Identifiable name of this linkage group|
+|mapDbIds|array[string]|The unique ID of the map|
+|markerDbIds|array[string]|Internal db identifier|
+|maxPosition|integer|The maximum position|
+|minPosition|integer|The minimum position|
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|searchResultDbId|string||
+
+
+ 
+
++ Parameters
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+ 
++ Request (application/json)
+```
+{
+    "linkageGroupNames": [
+        "linkageGroupNames1",
+        "linkageGroupNames2"
+    ],
+    "mapDbIds": [
+        "mapDbIds1",
+        "mapDbIds2"
+    ],
+    "markerDbIds": [
+        "markerDbIds1",
+        "markerDbIds2"
+    ],
+    "maxPosition": 0,
+    "minPosition": 0
+}
+```
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultDbId": "551ae08c"
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+## Post - /search/markerpositions/{ID} [/brapi/v1//search/markerpositions/{searchResultsDbId}] 
+
+
+
+### /search/markerpositions/{searchResultsDbId} [POST /brapi/v1/search/markerpositions/{searchResultsDbId}{?page}{?pageSize}]
+
+Get marker position information, based on Map, Linkage Group, and Marker ID
+
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|linkageGroupName|string|The Uniquely Identifiable name of this linkage group|
+|mapDbId|string|The unique ID of the map|
+|mapName|string|The human readbale name of the map|
+|markerDbId|string|Internal db identifier|
+|markerName|string|The human readable name for a marker|
+|position|integer|The position of a marker within a linkage group|
+
+
+ 
+
++ Parameters
+    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [],
+        "pagination": {},
+        "status": []
+    },
+    "result": {
+        "data": []
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
 # Group References
 
 
 
-
-## Referencesets [/brapi/v1/referencesets] 
-
+## Get - /referencesets [/brapi/v1//referencesets] 
 
 
 
-### Get Referencesets  [GET /brapi/v1/referencesets{?referenceSetDbId}{?accession}{?assemblyPUI}{?md5checksum}{?page}{?pageSize}]
+### /referencesets [GET /brapi/v1/referencesets{?referenceSetDbId}{?accession}{?assemblyPUI}{?md5checksum}{?page}{?pageSize}]
 
 `GET /referencesets/{reference_set_id}` will return a JSON version of
 `ReferenceSet`.
@@ -1541,10 +1532,11 @@ Get the Linkage Groups of a specific Genomic Map. A Linkage Group is the BrAPI g
 ```
 
 
+## Get - /referencesets/{ID} [/brapi/v1//referencesets/{referenceSetDbId}] 
 
 
 
-### Get Referencesets by referenceSetDbId  [GET /brapi/v1/referencesets/{referenceSetDbId}]
+### /referencesets/{referenceSetDbId} [GET /brapi/v1/referencesets/{referenceSetDbId}]
 
 `GET /referencesets/{reference_set_id}` will return a JSON version of
 `ReferenceSet`.
@@ -1583,13 +1575,11 @@ Get the Linkage Groups of a specific Genomic Map. A Linkage Group is the BrAPI g
 ```
 
 
-
-## References [/brapi/v1/references] 
-
+## Get - /references [/brapi/v1//references] 
 
 
 
-### Get References  [GET /brapi/v1/references{?referenceDbId}{?referenceSetDbId}{?accession}{?md5checksum}{?isDerived}{?minLength}{?maxLength}{?page}{?pageSize}]
+### /references [GET /brapi/v1/references{?referenceDbId}{?referenceSetDbId}{?accession}{?md5checksum}{?isDerived}{?minLength}{?maxLength}{?page}{?pageSize}]
 
 `GET /references` will return a filtered list of `Reference` JSON objects.
 
@@ -1697,10 +1687,11 @@ Get the Linkage Groups of a specific Genomic Map. A Linkage Group is the BrAPI g
 ```
 
 
+## Get - /references/{ID}/bases [/brapi/v1//references/{referenceDbId}/bases] 
 
 
 
-### Get References Bases by referenceDbId  [GET /brapi/v1/references/{referenceDbId}/bases{?start}{?end}{?pageToken}]
+### /references/{referenceDbId}/bases [GET /brapi/v1/references/{referenceDbId}/bases{?start}{?end}{?pageToken}]
 
 `POST /listreferencebases` will return a JSON version of
 `ListReferenceBasesResponse`.
@@ -1784,10 +1775,11 @@ Get the Linkage Groups of a specific Genomic Map. A Linkage Group is the BrAPI g
 ```
 
 
+## Get - /references/{ID} [/brapi/v1//references/{referenceDbId}] 
 
 
 
-### Get References by referenceDbId  [GET /brapi/v1/references/{referenceDbId}]
+### /references/{referenceDbId} [GET /brapi/v1/references/{referenceDbId}]
 
 `GET /references/{reference_id}` will return a JSON version of
 `Reference`.
@@ -1887,13 +1879,11 @@ Get the Linkage Groups of a specific Genomic Map. A Linkage Group is the BrAPI g
 ```
 
 
-
-## Search [/brapi/v1/search] 
-
+## Post - /search/referencesets [/brapi/v1//search/referencesets] 
 
 
 
-### Post Search Referencesets  [POST /brapi/v1/search/referencesets]
+### /search/referencesets [POST /brapi/v1/search/referencesets]
 
 `POST /referencesets/search` must accept a JSON version of
 `SearchReferenceSetsRequest` as the post body and will return a JSON
@@ -1986,10 +1976,11 @@ version of `SearchReferenceSetsResponse`.
 ```
 
 
+## Get - /search/referencesets/{ID} [/brapi/v1//search/referencesets/{searchResultsDbId}] 
 
 
 
-### Get Search Referencesets by searchResultsDbId  [GET /brapi/v1/search/referencesets/{searchResultsDbId}{?page}{?pageSize}]
+### /search/referencesets/{searchResultsDbId} [GET /brapi/v1/search/referencesets/{searchResultsDbId}{?page}{?pageSize}]
 
 `POST /referencesets/search` must accept a JSON version of
 `SearchReferenceSetsRequest` as the post body and will return a JSON
@@ -2094,10 +2085,11 @@ version of `SearchReferenceSetsResponse`.
 ```
 
 
+## Post - /search/references [/brapi/v1//search/references] 
 
 
 
-### Post Search References  [POST /brapi/v1/search/references]
+### /search/references [POST /brapi/v1/search/references]
 
 `POST /references/search` must accept a JSON version of
 `SearchReferencesRequest` as the post body and will return a JSON
@@ -2190,10 +2182,11 @@ version of `SearchReferencesResponse`.
 ```
 
 
+## Get - /search/references/{ID} [/brapi/v1//search/references/{searchResultsDbId}] 
 
 
 
-### Get Search References by searchResultsDbId  [GET /brapi/v1/search/references/{searchResultsDbId}{?page}{?pageSize}]
+### /search/references/{searchResultsDbId} [GET /brapi/v1/search/references/{searchResultsDbId}{?page}{?pageSize}]
 
 `POST /references/search` must accept a JSON version of
 `SearchReferencesRequest` as the post body and will return a JSON
@@ -2303,13 +2296,11 @@ API methods for tracking/managing plant samples and related meta-data. A 'Sample
 
 
 
-
-## Samples [/brapi/v1/samples] 
-
+## Get - /samples [/brapi/v1//samples] 
 
 
 
-### Get Samples  [GET /brapi/v1/samples{?sampleDbId}{?observationUnitDbId}{?plateDbId}{?germplasmDbId}{?page}{?pageSize}]
+### /samples [GET /brapi/v1/samples{?sampleDbId}{?observationUnitDbId}{?plateDbId}{?germplasmDbId}{?page}{?pageSize}]
 
 Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
 
@@ -2430,10 +2421,11 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
 ```
 
 
+## Post - /samples [/brapi/v1//samples] 
 
 
 
-### Post Samples  [POST /brapi/v1/samples]
+### /samples [POST /brapi/v1/samples]
 
 Call to register the event of a sample being taken. Sample ID is assigned as a result of the operation and returned in response.
 
@@ -2601,10 +2593,11 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
 ```
 
 
+## Get - /samples/{ID} [/brapi/v1//samples/{sampleDbId}] 
 
 
 
-### Get Samples by sampleDbId  [GET /brapi/v1/samples/{sampleDbId}]
+### /samples/{sampleDbId} [GET /brapi/v1/samples/{sampleDbId}]
 
 Used to retrieve the details of a single Sample from a Sample Tracking system.
 
@@ -2720,10 +2713,11 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
 ```
 
 
+## Put - /samples/{ID} [/brapi/v1//samples/{sampleDbId}] 
 
 
 
-### Put Samples by sampleDbId  [PUT /brapi/v1/samples/{sampleDbId}]
+### /samples/{sampleDbId} [PUT /brapi/v1/samples/{sampleDbId}]
 
 Update the details of an existing Sample
 
@@ -2890,13 +2884,11 @@ Update the details of an existing Sample
 ```
 
 
-
-## Search [/brapi/v1/search] 
-
+## Post - /search/samples [/brapi/v1//search/samples] 
 
 
 
-### Post Search Samples  [POST /brapi/v1/search/samples]
+### /search/samples [POST /brapi/v1/search/samples]
 
 Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
 
@@ -2999,10 +2991,11 @@ See Search Services for additional implementation details.
 ```
 
 
+## Get - /search/samples/{ID} [/brapi/v1//search/samples/{searchResultsDbId}] 
 
 
 
-### Get Search Samples by searchResultsDbId  [GET /brapi/v1/search/samples/{searchResultsDbId}{?page}{?pageSize}]
+### /search/samples/{searchResultsDbId} [GET /brapi/v1/search/samples/{searchResultsDbId}{?page}{?pageSize}]
 
 Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
 
@@ -3130,13 +3123,11 @@ See Search Services for additional implementation details.
 
 
 
-
-## Search [/brapi/v1/search] 
-
+## Post - /search/variantsets [/brapi/v1//search/variantsets] 
 
 
 
-### Post Search Variantsets  [POST /brapi/v1/search/variantsets]
+### /search/variantsets [POST /brapi/v1/search/variantsets]
 
 `POST /variantsets/search` must accept a JSON version of
 `SearchVariantSetsRequest` as the post body and will return a JSON version
@@ -3229,10 +3220,11 @@ of `SearchVariantSetsResponse`.
 ```
 
 
+## Get - /search/variantsets/{ID} [/brapi/v1//search/variantsets/{searchResultsDbId}] 
 
 
 
-### Get Search Variantsets by searchResultsDbId  [GET /brapi/v1/search/variantsets/{searchResultsDbId}{?page}{?pageSize}]
+### /search/variantsets/{searchResultsDbId} [GET /brapi/v1/search/variantsets/{searchResultsDbId}{?page}{?pageSize}]
 
 `POST /variantsets/search` must accept a JSON version of
 `SearchVariantSetsRequest` as the post body and will return a JSON version
@@ -3369,13 +3361,11 @@ of `SearchVariantSetsResponse`.
 ```
 
 
-
-## Variantsets [/brapi/v1/variantsets] 
-
+## Post - /variantsets/extract [/brapi/v1//variantsets/extract] 
 
 
 
-### Post Variantsets Extract  [POST /brapi/v1/variantsets/extract]
+### /variantsets/extract [POST /brapi/v1/variantsets/extract]
 
 `POST /variantsets/extract` will perform a search for `Calls` which match the search criteria in `variantSetsExtractRequest`
 The results of the search will be used to create a new `VariantSet` on the server. The new `VariantSet` will be returned.
@@ -3541,10 +3531,11 @@ The results of the search will be used to create a new `VariantSet` on the serve
 ```
 
 
+## Get - /variantsets [/brapi/v1//variantsets] 
 
 
 
-### Get Variantsets  [GET /brapi/v1/variantsets{?variantSetDbId}{?page}{?pageSize}]
+### /variantsets [GET /brapi/v1/variantsets{?variantSetDbId}{?page}{?pageSize}]
 
 `GET /variantsets` will return a filtered list of `VariantSet`.
 
@@ -3679,10 +3670,11 @@ The results of the search will be used to create a new `VariantSet` on the serve
 ```
 
 
+## Get - /variantsets/{ID}/callsets [/brapi/v1//variantsets/{variantSetDbId}/callsets] 
 
 
 
-### Get Variantsets Callsets by variantSetDbId  [GET /brapi/v1/variantsets/{variantSetDbId}/callsets{?callSetDbId}{?callSetName}{?page}{?pageSize}]
+### /variantsets/{variantSetDbId}/callsets [GET /brapi/v1/variantsets/{variantSetDbId}/callsets{?callSetDbId}{?callSetName}{?page}{?pageSize}]
 
  Gets a list of `CallSets` associated with a `VariantSet`.
 Also See:
@@ -3781,10 +3773,11 @@ Also See:
 ```
 
 
+## Get - /variantsets/{ID}/calls [/brapi/v1//variantsets/{variantSetDbId}/calls] 
 
 
 
-### Get Variantsets Calls by variantSetDbId  [GET /brapi/v1/variantsets/{variantSetDbId}/calls{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?page}{?pageSize}]
+### /variantsets/{variantSetDbId}/calls [GET /brapi/v1/variantsets/{variantSetDbId}/calls{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?page}{?pageSize}]
 
  Gets a list of `Calls` associated with a `VariantSet`.
 Also See:
@@ -3892,10 +3885,11 @@ Also See:
 ```
 
 
+## Get - /variantsets/{ID} [/brapi/v1//variantsets/{variantSetDbId}] 
 
 
 
-### Get Variantsets by variantSetDbId  [GET /brapi/v1/variantsets/{variantSetDbId}]
+### /variantsets/{variantSetDbId} [GET /brapi/v1/variantsets/{variantSetDbId}]
 
 `GET /variantsets/{variantSetDbId}` will return a JSON version of
 `VariantSet`.
@@ -4029,10 +4023,11 @@ Also See:
 ```
 
 
+## Get - /variantsets/{ID}/variants [/brapi/v1//variantsets/{variantSetDbId}/variants] 
 
 
 
-### Get Variantsets Variants by variantSetDbId  [GET /brapi/v1/variantsets/{variantSetDbId}/variants{?variantDbId}{?page}{?pageSize}]
+### /variantsets/{variantSetDbId}/variants [GET /brapi/v1/variantsets/{variantSetDbId}/variants{?variantDbId}{?page}{?pageSize}]
 
 `GET /variantsets/{variant_set_id}` will return a JSON version of
 `VariantSet`.
@@ -4156,370 +4151,11 @@ Also See:
 
 
 
+## Post - /search/variants [/brapi/v1//search/variants] 
 
-## Variants [/brapi/v1/variants] 
 
 
-
-
-### Get Variants  [GET /brapi/v1/variants{?variantDbId}{?variantSetDbId}{?page}{?pageSize}]
-
-`GET /variants` will return a filtered list of `Variants`.
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|alternate_bases|array[string]|The bases that appear instead of the reference bases. Multiple alternate alleles are possible.|
-|ciend|array[integer]||
-|cipos|array[integer]||
-|created|string (int64)|The date this variant was created in milliseconds from the epoch.|
-|end|string (int64)|The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated by `start + referenceBases.length`.|
-|filtersApplied|boolean (boolean)|True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.|
-|filtersFailed|array[string]|Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.|
-|filtersPassed|boolean (boolean)|True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.|
-|referenceBases|string|The reference bases for this variant. They start at the given start position.|
-|referenceName|string||
-|start|string (int64)|The start position at which this variant occurs (0-based). This corresponds to the first base of the string of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning the join of circular genomes are represented as two variants one on each side of the join (position 0).|
-|svlen|string (int64)||
-|updated|string (int64)|The time at which this variant was last updated in milliseconds from the epoch.|
-|variantDbId|string|The variant ID.|
-|variantNames|array[string]|Names for the variant, for example a RefSNP ID.|
-|variantSetDbId|string|The ID of the `VariantSet` this variant belongs to. This transitively defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
-|variantType|string||
-
-
- 
-
-+ Parameters
-    + variantDbId (Optional, ) ... The ID of the `Variant` to be retrieved.
-    + variantSetDbId (Optional, ) ... The ID of the `VariantSet` to be retrieved.
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "data": [
-            {
-                "additionalInfo": {},
-                "alternate_bases": [
-                    "alternate_bases1",
-                    "alternate_bases2"
-                ],
-                "ciend": [],
-                "cipos": [],
-                "created": "",
-                "end": "",
-                "filtersFailed": [
-                    "filtersFailed1",
-                    "filtersFailed2"
-                ],
-                "referenceBases": "referenceBases",
-                "referenceName": "referenceName",
-                "start": "",
-                "svlen": "",
-                "updated": "",
-                "variantDbId": "variantDbId",
-                "variantNames": [
-                    "variantNames1",
-                    "variantNames2"
-                ],
-                "variantSetDbId": "variantSetDbId",
-                "variantType": "variantType"
-            }
-        ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-
-
-
-### Get Variants Calls by variantDbId  [GET /brapi/v1/variants/{variantDbId}/calls{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?page}{?pageSize}]
-
- The variant calls for this particular variant. Each one represents the determination of genotype with respect to this variant. `Call`s in this array are implicitly associated with this `Variant`.
-Also See:
-`GET /calls?variantDbId={variantDbId}` 
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|callSetDbId|string|The ID of the call set this variant call belongs to.  If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
-|callSetName|string|The name of the call set this variant call belongs to. If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
-|genotype|object|`ListValue` is a wrapper around a repeated field of values.  The JSON representation for `ListValue` is JSON array.|
-|values|array|Repeated field of dynamically typed values.|
-|genotype_likelihood|array[number]|The genotype likelihoods for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.|
-|phaseset|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phaseset string.|
-|variantDbId|string|The ID of the variant this call belongs to.|
-|variantName|string|The name of the variant this call belongs to.|
-|expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurence (false)|
-|sepPhased|string|The string used as a separator for phased allele calls.|
-|sepUnphased|string|The string used as a separator for unphased allele calls.|
-|unknownString|string|The string used as a representation for missing data.|
-
-
- 
-
-+ Parameters
-    + variantDbId (Required, ) ... The ID of the `Variant` to be retrieved.
-    + expandHomozygotes (Optional, ) ... Should homozygotes be expanded (true) or collapsed into a single occurence (false)
-    + unknownString (Optional, ) ... The string to use as a representation for missing data
-    + sepPhased (Optional, ) ... The string to use as a separator for phased allele calls
-    + sepUnphased (Optional, ) ... The string to use as a separator for unphased allele calls
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "data": [
-            {
-                "additionalInfo": {},
-                "callSetDbId": "callSetDbId",
-                "callSetName": "callSetName",
-                "genotype": {
-                    "values": []
-                },
-                "genotype_likelihood": [],
-                "phaseset": "phaseset",
-                "variantDbId": "variantDbId",
-                "variantName": "variantName"
-            }
-        ],
-        "sepPhased": "sepPhased",
-        "sepUnphased": "sepUnphased",
-        "unknownString": "unknownString"
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-
-
-
-### Get Variants by variantDbId  [GET /brapi/v1/variants/{variantDbId}]
-
-`GET /variants/{id}` will return a JSON version of `Variant`.
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|alternate_bases|array[string]|The bases that appear instead of the reference bases. Multiple alternate alleles are possible.|
-|ciend|array[integer]||
-|cipos|array[integer]||
-|created|string (int64)|The date this variant was created in milliseconds from the epoch.|
-|end|string (int64)|The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated by `start + referenceBases.length`.|
-|filtersApplied|boolean (boolean)|True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.|
-|filtersFailed|array[string]|Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.|
-|filtersPassed|boolean (boolean)|True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.|
-|referenceBases|string|The reference bases for this variant. They start at the given start position.|
-|referenceName|string||
-|start|string (int64)|The start position at which this variant occurs (0-based). This corresponds to the first base of the string of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning the join of circular genomes are represented as two variants one on each side of the join (position 0).|
-|svlen|string (int64)||
-|updated|string (int64)|The time at which this variant was last updated in milliseconds from the epoch.|
-|variantDbId|string|The variant ID.|
-|variantNames|array[string]|Names for the variant, for example a RefSNP ID.|
-|variantSetDbId|string|The ID of the `VariantSet` this variant belongs to. This transitively defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
-|variantType|string||
-
-
- 
-
-+ Parameters
-    + variantDbId (Required, ) ... The ID of the `Variant` to be retrieved.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "additionalInfo": {},
-        "alternate_bases": [
-            "alternate_bases1",
-            "alternate_bases2"
-        ],
-        "ciend": [],
-        "cipos": [],
-        "created": "",
-        "end": "",
-        "filtersFailed": [
-            "filtersFailed1",
-            "filtersFailed2"
-        ],
-        "referenceBases": "referenceBases",
-        "referenceName": "referenceName",
-        "start": "",
-        "svlen": "",
-        "updated": "",
-        "variantDbId": "variantDbId",
-        "variantNames": [
-            "variantNames1",
-            "variantNames2"
-        ],
-        "variantSetDbId": "variantSetDbId",
-        "variantType": "variantType"
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-+ Response 404 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
-```
-
-
-
-## Search [/brapi/v1/search] 
-
-
-
-
-### Post Search Variants  [POST /brapi/v1/search/variants]
+### /search/variants [POST /brapi/v1/search/variants]
 
 `POST /variants/search` must accept a JSON version of
 `SearchVariantsRequest` as the post body and will return a JSON version of
@@ -4618,10 +4254,11 @@ Also See:
 ```
 
 
+## Get - /search/variants/{ID} [/brapi/v1//search/variants/{searchResultsDbId}] 
 
 
 
-### Get Search Variants by searchResultsDbId  [GET /brapi/v1/search/variants/{searchResultsDbId}{?page}{?pageSize}]
+### /search/variants/{searchResultsDbId} [GET /brapi/v1/search/variants/{searchResultsDbId}{?page}{?pageSize}]
 
 `POST /variants/search` must accept a JSON version of
 `SearchVariantsRequest` as the post body and will return a JSON version of
@@ -4742,6 +4379,363 @@ Also See:
 ```
 
 
+## Get - /variants [/brapi/v1//variants] 
+
+
+
+### /variants [GET /brapi/v1/variants{?variantDbId}{?variantSetDbId}{?page}{?pageSize}]
+
+`GET /variants` will return a filtered list of `Variants`.
+
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|alternate_bases|array[string]|The bases that appear instead of the reference bases. Multiple alternate alleles are possible.|
+|ciend|array[integer]||
+|cipos|array[integer]||
+|created|string (int64)|The date this variant was created in milliseconds from the epoch.|
+|end|string (int64)|The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated by `start + referenceBases.length`.|
+|filtersApplied|boolean (boolean)|True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.|
+|filtersFailed|array[string]|Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.|
+|filtersPassed|boolean (boolean)|True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.|
+|referenceBases|string|The reference bases for this variant. They start at the given start position.|
+|referenceName|string||
+|start|string (int64)|The start position at which this variant occurs (0-based). This corresponds to the first base of the string of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning the join of circular genomes are represented as two variants one on each side of the join (position 0).|
+|svlen|string (int64)||
+|updated|string (int64)|The time at which this variant was last updated in milliseconds from the epoch.|
+|variantDbId|string|The variant ID.|
+|variantNames|array[string]|Names for the variant, for example a RefSNP ID.|
+|variantSetDbId|string|The ID of the `VariantSet` this variant belongs to. This transitively defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
+|variantType|string||
+
+
+ 
+
++ Parameters
+    + variantDbId (Optional, ) ... The ID of the `Variant` to be retrieved.
+    + variantSetDbId (Optional, ) ... The ID of the `VariantSet` to be retrieved.
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "alternate_bases": [
+                    "alternate_bases1",
+                    "alternate_bases2"
+                ],
+                "ciend": [],
+                "cipos": [],
+                "created": "",
+                "end": "",
+                "filtersFailed": [
+                    "filtersFailed1",
+                    "filtersFailed2"
+                ],
+                "referenceBases": "referenceBases",
+                "referenceName": "referenceName",
+                "start": "",
+                "svlen": "",
+                "updated": "",
+                "variantDbId": "variantDbId",
+                "variantNames": [
+                    "variantNames1",
+                    "variantNames2"
+                ],
+                "variantSetDbId": "variantSetDbId",
+                "variantType": "variantType"
+            }
+        ]
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+## Get - /variants/{ID}/calls [/brapi/v1//variants/{variantDbId}/calls] 
+
+
+
+### /variants/{variantDbId}/calls [GET /brapi/v1/variants/{variantDbId}/calls{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?page}{?pageSize}]
+
+ The variant calls for this particular variant. Each one represents the determination of genotype with respect to this variant. `Call`s in this array are implicitly associated with this `Variant`.
+Also See:
+`GET /calls?variantDbId={variantDbId}` 
+
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|callSetDbId|string|The ID of the call set this variant call belongs to.  If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
+|callSetName|string|The name of the call set this variant call belongs to. If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
+|genotype|object|`ListValue` is a wrapper around a repeated field of values.  The JSON representation for `ListValue` is JSON array.|
+|values|array|Repeated field of dynamically typed values.|
+|genotype_likelihood|array[number]|The genotype likelihoods for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.|
+|phaseset|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phaseset string.|
+|variantDbId|string|The ID of the variant this call belongs to.|
+|variantName|string|The name of the variant this call belongs to.|
+|expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurence (false)|
+|sepPhased|string|The string used as a separator for phased allele calls.|
+|sepUnphased|string|The string used as a separator for unphased allele calls.|
+|unknownString|string|The string used as a representation for missing data.|
+
+
+ 
+
++ Parameters
+    + variantDbId (Required, ) ... The ID of the `Variant` to be retrieved.
+    + expandHomozygotes (Optional, ) ... Should homozygotes be expanded (true) or collapsed into a single occurence (false)
+    + unknownString (Optional, ) ... The string to use as a representation for missing data
+    + sepPhased (Optional, ) ... The string to use as a separator for phased allele calls
+    + sepUnphased (Optional, ) ... The string to use as a separator for unphased allele calls
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "callSetDbId": "callSetDbId",
+                "callSetName": "callSetName",
+                "genotype": {
+                    "values": []
+                },
+                "genotype_likelihood": [],
+                "phaseset": "phaseset",
+                "variantDbId": "variantDbId",
+                "variantName": "variantName"
+            }
+        ],
+        "sepPhased": "sepPhased",
+        "sepUnphased": "sepUnphased",
+        "unknownString": "unknownString"
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+## Get - /variants/{ID} [/brapi/v1//variants/{variantDbId}] 
+
+
+
+### /variants/{variantDbId} [GET /brapi/v1/variants/{variantDbId}]
+
+`GET /variants/{id}` will return a JSON version of `Variant`.
+
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|additionalInfo|object|Additional arbitrary info|
+|alternate_bases|array[string]|The bases that appear instead of the reference bases. Multiple alternate alleles are possible.|
+|ciend|array[integer]||
+|cipos|array[integer]||
+|created|string (int64)|The date this variant was created in milliseconds from the epoch.|
+|end|string (int64)|The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated by `start + referenceBases.length`.|
+|filtersApplied|boolean (boolean)|True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.|
+|filtersFailed|array[string]|Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.|
+|filtersPassed|boolean (boolean)|True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.|
+|referenceBases|string|The reference bases for this variant. They start at the given start position.|
+|referenceName|string||
+|start|string (int64)|The start position at which this variant occurs (0-based). This corresponds to the first base of the string of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning the join of circular genomes are represented as two variants one on each side of the join (position 0).|
+|svlen|string (int64)||
+|updated|string (int64)|The time at which this variant was last updated in milliseconds from the epoch.|
+|variantDbId|string|The variant ID.|
+|variantNames|array[string]|Names for the variant, for example a RefSNP ID.|
+|variantSetDbId|string|The ID of the `VariantSet` this variant belongs to. This transitively defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
+|variantType|string||
+
+
+ 
+
++ Parameters
+    + variantDbId (Required, ) ... The ID of the `Variant` to be retrieved.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "additionalInfo": {},
+        "alternate_bases": [
+            "alternate_bases1",
+            "alternate_bases2"
+        ],
+        "ciend": [],
+        "cipos": [],
+        "created": "",
+        "end": "",
+        "filtersFailed": [
+            "filtersFailed1",
+            "filtersFailed2"
+        ],
+        "referenceBases": "referenceBases",
+        "referenceName": "referenceName",
+        "start": "",
+        "svlen": "",
+        "updated": "",
+        "variantDbId": "variantDbId",
+        "variantNames": [
+            "variantNames1",
+            "variantNames2"
+        ],
+        "variantSetDbId": "variantSetDbId",
+        "variantType": "variantType"
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
+```
+
+
 # Group Vendor Samples
 
 This interface is specific to facilities that performs an external analysis, such as genotyping facilities. The interface should be implemented by that facility's server. The breeding database is the client of this interface.
@@ -4750,13 +4744,11 @@ Note that to use these calls, you likely have to use the authentication call pri
 
 
 
-
-## Vendor [/brapi/v1/vendor] 
-
+## Get - /vendor/orders [/brapi/v1//vendor/orders] 
 
 
 
-### Get Vendor Orders  [GET /brapi/v1/vendor/orders{?orderId}{?submissionId}]
+### /vendor/orders [GET /brapi/v1/vendor/orders{?orderId}{?submissionId}]
 
 List current available orders
 
@@ -4850,10 +4842,11 @@ List current available orders
 ```
 
 
+## Post - /vendor/orders [/brapi/v1//vendor/orders] 
 
 
 
-### Post Vendor Orders  [POST /brapi/v1/vendor/orders]
+### /vendor/orders [POST /brapi/v1/vendor/orders]
 
 Submit a new order to a vendor
 
@@ -5056,10 +5049,11 @@ Submit a new order to a vendor
 ```
 
 
+## Get - /vendor/orders/{ID}/plates [/brapi/v1//vendor/orders/{orderId}/plates] 
 
 
 
-### Get Vendor Orders Plates by orderId  [GET /brapi/v1/vendor/orders/{orderId}/plates]
+### /vendor/orders/{orderId}/plates [GET /brapi/v1/vendor/orders/{orderId}/plates]
 
 Retrieve the plate and sample details of an order being processed
 
@@ -5225,10 +5219,11 @@ Retrieve the plate and sample details of an order being processed
 ```
 
 
+## Get - /vendor/orders/{ID}/results [/brapi/v1//vendor/orders/{orderId}/results] 
 
 
 
-### Get Vendor Orders Results by orderId  [GET /brapi/v1/vendor/orders/{orderId}/results]
+### /vendor/orders/{orderId}/results [GET /brapi/v1/vendor/orders/{orderId}/results]
 
 Retrieve the data files generated by the vendors analysis
 
@@ -5323,10 +5318,11 @@ Retrieve the data files generated by the vendors analysis
 ```
 
 
+## Get - /vendor/orders/{ID}/status [/brapi/v1//vendor/orders/{orderId}/status] 
 
 
 
-### Get Vendor Orders Status by orderId  [GET /brapi/v1/vendor/orders/{orderId}/status]
+### /vendor/orders/{orderId}/status [GET /brapi/v1/vendor/orders/{orderId}/status]
 
 Retrieve the current status of an order being processed
 
@@ -5408,10 +5404,11 @@ Retrieve the current status of an order being processed
 ```
 
 
+## Post - /vendor/plates [/brapi/v1//vendor/plates] 
 
 
 
-### Post Vendor Plates  [POST /brapi/v1/vendor/plates]
+### /vendor/plates [POST /brapi/v1/vendor/plates]
 
 Submit a new set of Sample data
 
@@ -5590,10 +5587,11 @@ Submit a new set of Sample data
 ```
 
 
+## Get - /vendor/plates/{ID} [/brapi/v1//vendor/plates/{submissionId}] 
 
 
 
-### Get Vendor Plates by submissionId  [GET /brapi/v1/vendor/plates/{submissionId}]
+### /vendor/plates/{submissionId} [GET /brapi/v1/vendor/plates/{submissionId}]
 
 Get data for a submitted set of plates
 
@@ -5762,10 +5760,11 @@ Get data for a submitted set of plates
 ```
 
 
+## Get - /vendor/specifications [/brapi/v1//vendor/specifications] 
 
 
 
-### Get Vendor Specifications  [GET /brapi/v1/vendor/specifications]
+### /vendor/specifications [GET /brapi/v1/vendor/specifications]
 
 Defines the plate format specification for the vendor.
 

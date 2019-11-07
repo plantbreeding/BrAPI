@@ -3,13 +3,11 @@ Calls for maintaining information about people
 
 
 
-
-## People [/brapi/v1/people] 
-
+## Get - /people [/brapi/v1//people] 
 
 
 
-### Get People  [GET /brapi/v1/people{?firstName}{?lastName}{?personDbId}{?userID}{?page}{?pageSize}]
+### /people [GET /brapi/v1/people{?firstName}{?lastName}{?personDbId}{?userID}{?page}{?pageSize}]
 
 Get filtered list of people
 
@@ -108,10 +106,11 @@ Get filtered list of people
 ```
 
 
+## Post - /people [/brapi/v1//people] 
 
 
 
-### Post People  [POST /brapi/v1/people]
+### /people [POST /brapi/v1/people]
 
 Create new People entities. `personDbId` is generated and managed by the server.
 
@@ -235,10 +234,11 @@ Create new People entities. `personDbId` is generated and managed by the server.
 ```
 
 
+## Get - /people/{ID} [/brapi/v1//people/{personDbId}] 
 
 
 
-### Get People by personDbId  [GET /brapi/v1/people/{personDbId}]
+### /people/{personDbId} [GET /brapi/v1/people/{personDbId}]
 
 Get the details for a specific Person
 
@@ -332,10 +332,11 @@ Get the details for a specific Person
 ```
 
 
+## Put - /people/{ID} [/brapi/v1//people/{personDbId}] 
 
 
 
-### Put People by personDbId  [PUT /brapi/v1/people/{personDbId}]
+### /people/{personDbId} [PUT /brapi/v1/people/{personDbId}]
 
 Update an existing Person
 
@@ -458,13 +459,11 @@ Update an existing Person
 ```
 
 
-
-## Search [/brapi/v1/search] 
-
+## Post - /search/people [/brapi/v1//search/people] 
 
 
 
-### Post Search People  [POST /brapi/v1/search/people]
+### /search/people [POST /brapi/v1/search/people]
 
 Advanced searching for the programs resource.
 
@@ -587,10 +586,11 @@ See Search Services for additional implementation details.
 ```
 
 
+## Get - /search/people/{ID} [/brapi/v1//search/people/{searchResultsDbId}] 
 
 
 
-### Get Search People by searchResultsDbId  [GET /brapi/v1/search/people/{searchResultsDbId}{?page}{?pageSize}]
+### /search/people/{searchResultsDbId} [GET /brapi/v1/search/people/{searchResultsDbId}{?page}{?pageSize}]
 
 Advanced searching for the people resource.
 

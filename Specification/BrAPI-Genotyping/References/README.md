@@ -2,13 +2,11 @@
 
 
 
-
-## Referencesets [/brapi/v1/referencesets] 
-
+## Get - /referencesets [/brapi/v1//referencesets] 
 
 
 
-### Get Referencesets  [GET /brapi/v1/referencesets{?referenceSetDbId}{?accession}{?assemblyPUI}{?md5checksum}{?page}{?pageSize}]
+### /referencesets [GET /brapi/v1/referencesets{?referenceSetDbId}{?accession}{?assemblyPUI}{?md5checksum}{?page}{?pageSize}]
 
 `GET /referencesets/{reference_set_id}` will return a JSON version of
 `ReferenceSet`.
@@ -115,10 +113,11 @@
 ```
 
 
+## Get - /referencesets/{ID} [/brapi/v1//referencesets/{referenceSetDbId}] 
 
 
 
-### Get Referencesets by referenceSetDbId  [GET /brapi/v1/referencesets/{referenceSetDbId}]
+### /referencesets/{referenceSetDbId} [GET /brapi/v1/referencesets/{referenceSetDbId}]
 
 `GET /referencesets/{reference_set_id}` will return a JSON version of
 `ReferenceSet`.
@@ -157,13 +156,11 @@
 ```
 
 
-
-## References [/brapi/v1/references] 
-
+## Get - /references [/brapi/v1//references] 
 
 
 
-### Get References  [GET /brapi/v1/references{?referenceDbId}{?referenceSetDbId}{?accession}{?md5checksum}{?isDerived}{?minLength}{?maxLength}{?page}{?pageSize}]
+### /references [GET /brapi/v1/references{?referenceDbId}{?referenceSetDbId}{?accession}{?md5checksum}{?isDerived}{?minLength}{?maxLength}{?page}{?pageSize}]
 
 `GET /references` will return a filtered list of `Reference` JSON objects.
 
@@ -271,10 +268,11 @@
 ```
 
 
+## Get - /references/{ID}/bases [/brapi/v1//references/{referenceDbId}/bases] 
 
 
 
-### Get References Bases by referenceDbId  [GET /brapi/v1/references/{referenceDbId}/bases{?start}{?end}{?pageToken}]
+### /references/{referenceDbId}/bases [GET /brapi/v1/references/{referenceDbId}/bases{?start}{?end}{?pageToken}]
 
 `POST /listreferencebases` will return a JSON version of
 `ListReferenceBasesResponse`.
@@ -358,10 +356,11 @@
 ```
 
 
+## Get - /references/{ID} [/brapi/v1//references/{referenceDbId}] 
 
 
 
-### Get References by referenceDbId  [GET /brapi/v1/references/{referenceDbId}]
+### /references/{referenceDbId} [GET /brapi/v1/references/{referenceDbId}]
 
 `GET /references/{reference_id}` will return a JSON version of
 `Reference`.
@@ -461,13 +460,11 @@
 ```
 
 
-
-## Search [/brapi/v1/search] 
-
+## Post - /search/referencesets [/brapi/v1//search/referencesets] 
 
 
 
-### Post Search Referencesets  [POST /brapi/v1/search/referencesets]
+### /search/referencesets [POST /brapi/v1/search/referencesets]
 
 `POST /referencesets/search` must accept a JSON version of
 `SearchReferenceSetsRequest` as the post body and will return a JSON
@@ -560,10 +557,11 @@ version of `SearchReferenceSetsResponse`.
 ```
 
 
+## Get - /search/referencesets/{ID} [/brapi/v1//search/referencesets/{searchResultsDbId}] 
 
 
 
-### Get Search Referencesets by searchResultsDbId  [GET /brapi/v1/search/referencesets/{searchResultsDbId}{?page}{?pageSize}]
+### /search/referencesets/{searchResultsDbId} [GET /brapi/v1/search/referencesets/{searchResultsDbId}{?page}{?pageSize}]
 
 `POST /referencesets/search` must accept a JSON version of
 `SearchReferenceSetsRequest` as the post body and will return a JSON
@@ -668,10 +666,11 @@ version of `SearchReferenceSetsResponse`.
 ```
 
 
+## Post - /search/references [/brapi/v1//search/references] 
 
 
 
-### Post Search References  [POST /brapi/v1/search/references]
+### /search/references [POST /brapi/v1/search/references]
 
 `POST /references/search` must accept a JSON version of
 `SearchReferencesRequest` as the post body and will return a JSON
@@ -764,10 +763,11 @@ version of `SearchReferencesResponse`.
 ```
 
 
+## Get - /search/references/{ID} [/brapi/v1//search/references/{searchResultsDbId}] 
 
 
 
-### Get Search References by searchResultsDbId  [GET /brapi/v1/search/references/{searchResultsDbId}{?page}{?pageSize}]
+### /search/references/{searchResultsDbId} [GET /brapi/v1/search/references/{searchResultsDbId}{?page}{?pageSize}]
 
 `POST /references/search` must accept a JSON version of
 `SearchReferencesRequest` as the post body and will return a JSON

@@ -71,29 +71,25 @@ def buildObjectExample(schema):
 			
 	return example
 
+def buildGroupTitle(callPath, method, callsStrings):
+	groupTitles = callsStrings.keys()
+	groupTitle = method + '_' + callPath
+	if groupTitle not in groupTitles:
+		groupTitleStr = '\n## '
+		groupTitleStr += method.capitalize() + ' - ' + re.sub('{.*}', '{ID}', callPath)
+		groupTitleStr += ' [/brapi/v1/' + callPath + '] \n'
+		
+		callsStrings[groupTitle] = {'titleStr': groupTitleStr, 'depReadMeStrings': [], 'readMeStrings': []}
+	
+	return groupTitle
+
 def buildTitleStr(path, method = 'GET', params = [], deprecated = False):
 
-	titleStr = '\n\n### ' 
+	titleStr = '\n### ' 
 	if deprecated:
 		titleStr += '**Deprecated** '
-	titleStr += method.capitalize() + ' '
 		
-	pathPieces = path.split('/')
-	objects = ''
-	keys = ''
-	for piece in pathPieces[1:]:
-		if piece[0] == '{' :
-			word = ''
-			if keys == '':
-				word += 'by '
-			else:
-				word += 'and '
-			word += piece[1:-1] + ' '
-			keys += word
-		else:
-			objects += piece[0].upper() + piece[1:] + ' '
-	titleStr += objects
-	titleStr += keys
+	titleStr += path
 	
 	titleStr += ' [' + method.upper() + ' /brapi/v1' + path
 	
@@ -161,16 +157,6 @@ def buildExamples(responses):
 				readMeStr += '\n```\n\n'
 	
 	return readMeStr
-
-def buildGroupTitle(callPath, callsStrings):
-	groupTitles = callsStrings.keys()
-	groupTitleStr = ''
-	groupTitle = callPath.split('/')[1].lower()
-	if groupTitle not in groupTitles:
-		groupTitleStr += '\n\n## ' + groupTitle.capitalize() + ' [/brapi/v1/' + groupTitle + '] \n'
-		callsStrings[groupTitle] = {'titleStr': groupTitleStr, 'depReadMeStrings': [], 'readMeStrings': []}
-	
-	return groupTitle
 
 def buildRequestDefTable(obj):
 	table = ''
@@ -244,9 +230,7 @@ def buildReadMe(dir, fullBrAPI):
 				print(exc)
 		
 		if 'paths' in fileObj:
-			for callPath in sorted(fileObj['paths'].keys()):
-				groupTitle = buildGroupTitle(callPath, callsStrings)
-				
+			for callPath in sorted(fileObj['paths'].keys()):				
 				methods = fullBrAPI['paths'][callPath]
 				methodKeys = sorted(fullBrAPI['paths'][callPath].keys())
 				for methodKey in methodKeys:
@@ -287,6 +271,7 @@ def buildReadMe(dir, fullBrAPI):
 					methodStr += '\n\n'
 					methodStr += buildExamples(responses)
 					
+					groupTitle = buildGroupTitle(callPath, methodKey, callsStrings)
 					if deprecated:
 						callsStrings[groupTitle]['depReadMeStrings'].append(methodStr)
 					else:

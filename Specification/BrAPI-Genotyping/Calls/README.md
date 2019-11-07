@@ -2,13 +2,11 @@
 
 
 
-
-## Calls [/brapi/v1/calls] 
-
+## Get - /calls [/brapi/v1//calls] 
 
 
 
-### Get Calls  [GET /brapi/v1/calls{?callSetDbId}{?variantDbId}{?variantSetDbId}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?page}{?pageSize}]
+### /calls [GET /brapi/v1/calls{?callSetDbId}{?variantDbId}{?variantSetDbId}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?page}{?pageSize}]
 
  `GET /call` will return a filtered list of `Call` JSON objects.
 Also See:
@@ -120,13 +118,11 @@ Also See:
 ```
 
 
-
-## Search [/brapi/v1/search] 
-
+## Post - /search/calls [/brapi/v1//search/calls] 
 
 
 
-### Post Search Calls  [POST /brapi/v1/search/calls]
+### /search/calls [POST /brapi/v1/search/calls]
 
 `GET /callsets/{id}` will return a JSON version of `CallSet`.
 
@@ -229,10 +225,11 @@ Also See:
 ```
 
 
+## Get - /search/calls/{ID} [/brapi/v1//search/calls/{searchResultsDbId}] 
 
 
 
-### Get Search Calls by searchResultsDbId  [GET /brapi/v1/search/calls/{searchResultsDbId}{?page}{?pageSize}]
+### /search/calls/{searchResultsDbId} [GET /brapi/v1/search/calls/{searchResultsDbId}{?page}{?pageSize}]
 
 Returns a filtered list of `Call` JSON objects.
 See Search Services for additional implementation details.

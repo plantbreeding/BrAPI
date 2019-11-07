@@ -4,13 +4,184 @@ Fun Fact: The plural of germplasm is germplasm (no "s").
 
 
 
-
-## Germplasm [/brapi/v1/germplasm] 
-
+## Get - /breedingmethods/{ID} [/brapi/v1//breedingmethods/{breedingMethodDbId}] 
 
 
 
-### Get Germplasm  [GET /brapi/v1/germplasm{?germplasmPUI}{?germplasmDbId}{?germplasmName}{?commonCropName}{?accessionNumber}{?germplasmGenus}{?germplasmSpecies}{?studyDbIds}{?parentDbId}{?progenyDbId}{?xref}{?page}{?pageSize}]
+### /breedingmethods/{breedingMethodDbId} [GET /brapi/v1/breedingmethods/{breedingMethodDbId}]
+
+Get the details of a specific Breeding Method used to produce Germplasm
+
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|abbreviation|string|an abbreviation for the name of this breeding method|
+|breedingMethodDbId|string|the unique identifier for this breeding method|
+|breedingMethodName|string|human readable name of the breeding method|
+|description|string|human readable description of the breeding method|
+
+
+ 
+
++ Parameters
+    + breedingMethodDbId (Required, ) ... Internal database identifier for a breeding method
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "abbreviation": "MB",
+        "breedingMethodDbId": "ffcce7ef",
+        "breedingMethodName": "Male Backcross",
+        "description": "Backcross to recover a specific gene."
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
+```
+
+
+## Get - /breedingmethods [/brapi/v1//breedingmethods] 
+
+
+
+### /breedingmethods [GET /brapi/v1/breedingmethods{?page}{?pageSize}]
+
+Get the list of germplasm breeding methods available in a system.
+
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|abbreviation|string|an abbreviation for the name of this breeding method|
+|breedingMethodDbId|string|the unique identifier for this breeding method|
+|breedingMethodName|string|human readable name of the breeding method|
+|description|string|human readable description of the breeding method|
+
+
+ 
+
++ Parameters
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "abbreviation": "MB",
+                "breedingMethodDbId": "ffcce7ef",
+                "breedingMethodName": "Male Backcross",
+                "description": "Backcross to recover a specific gene."
+            }
+        ]
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+## Get - /germplasm [/brapi/v1//germplasm] 
+
+
+
+### /germplasm [GET /brapi/v1/germplasm{?germplasmPUI}{?germplasmDbId}{?germplasmName}{?commonCropName}{?accessionNumber}{?germplasmGenus}{?germplasmSpecies}{?studyDbIds}{?parentDbId}{?progenyDbId}{?xref}{?page}{?pageSize}]
 
 Addresses these needs
 
@@ -196,10 +367,11 @@ Addresses these needs
 ```
 
 
+## Post - /germplasm [/brapi/v1//germplasm] 
 
 
 
-### Post Germplasm  [POST /brapi/v1/germplasm]
+### /germplasm [POST /brapi/v1/germplasm]
 
 Addresses these needs
 
@@ -477,10 +649,11 @@ Addresses these needs
 ```
 
 
+## Get - /germplasm/{ID} [/brapi/v1//germplasm/{germplasmDbId}] 
 
 
 
-### Get Germplasm by germplasmDbId  [GET /brapi/v1/germplasm/{germplasmDbId}]
+### /germplasm/{germplasmDbId} [GET /brapi/v1/germplasm/{germplasmDbId}]
 
 Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport Data. The MCPD fields are optional and marked with the prefix [MCPD].
 
@@ -648,10 +821,11 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 ```
 
 
+## Put - /germplasm/{ID} [/brapi/v1//germplasm/{germplasmDbId}] 
 
 
 
-### Put Germplasm by germplasmDbId  [PUT /brapi/v1/germplasm/{germplasmDbId}]
+### /germplasm/{germplasmDbId} [PUT /brapi/v1/germplasm/{germplasmDbId}]
 
 Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport Data. The MCPD fields are optional and marked with the prefix [MCPD].
 
@@ -922,10 +1096,11 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 ```
 
 
+## Get - /germplasm/{ID}/mcpd [/brapi/v1//germplasm/{germplasmDbId}/mcpd] 
 
 
 
-### Get Germplasm Mcpd by germplasmDbId  [GET /brapi/v1/germplasm/{germplasmDbId}/mcpd]
+### /germplasm/{germplasmDbId}/mcpd [GET /brapi/v1/germplasm/{germplasmDbId}/mcpd]
 
 Get all MCPD details of a germplasm
 
@@ -1129,10 +1304,11 @@ Implementation Notes
 ```
 
 
+## Get - /germplasm/{ID}/pedigree [/brapi/v1//germplasm/{germplasmDbId}/pedigree] 
 
 
 
-### Get Germplasm Pedigree by germplasmDbId  [GET /brapi/v1/germplasm/{germplasmDbId}/pedigree{?notation}{?includeSiblings}]
+### /germplasm/{germplasmDbId}/pedigree [GET /brapi/v1/germplasm/{germplasmDbId}/pedigree{?notation}{?includeSiblings}]
 
 Get the parentage information of a specific Germplasm
 
@@ -1249,10 +1425,11 @@ Get the parentage information of a specific Germplasm
 ```
 
 
+## Get - /germplasm/{ID}/progeny [/brapi/v1//germplasm/{germplasmDbId}/progeny] 
 
 
 
-### Get Germplasm Progeny by germplasmDbId  [GET /brapi/v1/germplasm/{germplasmDbId}/progeny]
+### /germplasm/{germplasmDbId}/progeny [GET /brapi/v1/germplasm/{germplasmDbId}/progeny]
 
 Get the germplasmDbIds for all the Progeny of a particular germplasm.
 
@@ -1355,187 +1532,11 @@ Implementation Notes
 ```
 
 
-
-## Breedingmethods [/brapi/v1/breedingmethods] 
-
+## Post - /search/germplasm [/brapi/v1//search/germplasm] 
 
 
 
-### Get Breedingmethods by breedingMethodDbId  [GET /brapi/v1/breedingmethods/{breedingMethodDbId}]
-
-Get the details of a specific Breeding Method used to produce Germplasm
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|abbreviation|string|an abbreviation for the name of this breeding method|
-|breedingMethodDbId|string|the unique identifier for this breeding method|
-|breedingMethodName|string|human readable name of the breeding method|
-|description|string|human readable description of the breeding method|
-
-
- 
-
-+ Parameters
-    + breedingMethodDbId (Required, ) ... Internal database identifier for a breeding method
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "abbreviation": "MB",
-        "breedingMethodDbId": "ffcce7ef",
-        "breedingMethodName": "Male Backcross",
-        "description": "Backcross to recover a specific gene."
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-+ Response 404 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
-```
-
-
-
-
-
-### Get Breedingmethods  [GET /brapi/v1/breedingmethods{?page}{?pageSize}]
-
-Get the list of germplasm breeding methods available in a system.
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|abbreviation|string|an abbreviation for the name of this breeding method|
-|breedingMethodDbId|string|the unique identifier for this breeding method|
-|breedingMethodName|string|human readable name of the breeding method|
-|description|string|human readable description of the breeding method|
-
-
- 
-
-+ Parameters
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "data": [
-            {
-                "abbreviation": "MB",
-                "breedingMethodDbId": "ffcce7ef",
-                "breedingMethodName": "Male Backcross",
-                "description": "Backcross to recover a specific gene."
-            }
-        ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-
-## Search [/brapi/v1/search] 
-
-
-
-
-### Post Search Germplasm  [POST /brapi/v1/search/germplasm]
+### /search/germplasm [POST /brapi/v1/search/germplasm]
 
 Search for a set of germplasm based on some criteria
 
@@ -1681,10 +1682,11 @@ See Search Services for additional implementation details.
 ```
 
 
+## Get - /search/germplasm/{ID} [/brapi/v1//search/germplasm/{searchResultsDbId}] 
 
 
 
-### Get Search Germplasm by searchResultsDbId  [GET /brapi/v1/search/germplasm/{searchResultsDbId}{?page}{?pageSize}]
+### /search/germplasm/{searchResultsDbId} [GET /brapi/v1/search/germplasm/{searchResultsDbId}{?page}{?pageSize}]
 
 See Search Services for additional implementation details.
 
