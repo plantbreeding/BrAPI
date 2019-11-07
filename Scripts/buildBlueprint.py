@@ -32,10 +32,12 @@ def go():
 	if os.path.exists(outREADMEFilePath):
 		os.remove(outREADMEFilePath)
 	
-	sources = sorted(glob.glob(rootPath + '**/README.md', recursive=True))
-
+	sources = glob.glob(rootPath + '**/README.md', recursive=True)
+	sources = sorted(sources)
+		
 	fullText = headerHTML
 	for source in sources:
+		source = source.replace('\\', '/')
 		print(source)
 		with open(source, "r") as inFile:
 			fullText += inFile.read()
