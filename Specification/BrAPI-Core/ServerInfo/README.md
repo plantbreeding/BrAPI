@@ -3,11 +3,9 @@ The '/serverinfo' call is used to find the available BrAPI calls on a particular
 
 
 
-## Get - /serverinfo [/brapi/v1//serverinfo] 
 
 
-
-### /serverinfo [GET /brapi/v1/serverinfo{?dataType}]
+### Get - /serverinfo [GET /brapi/v1/serverinfo{?dataType}]
 
 Implementation Notes
 

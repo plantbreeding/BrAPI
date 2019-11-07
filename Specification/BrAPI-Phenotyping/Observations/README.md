@@ -6,11 +6,9 @@ API to manage the details of observation variable Traits. An observation variabl
 
 
 
-## Get - /observations [/brapi/v1//observations] 
 
 
-
-### /observations [GET /brapi/v1/observations{?observationUnitDbId}{?germplasmDbId}{?observationVariableDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}{?page}{?pageSize}]
+### Get - /observations [GET /brapi/v1/observations{?observationUnitDbId}{?germplasmDbId}{?observationVariableDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}{?page}{?pageSize}]
 
 Retrieve all observations where there are measurements for the given observation variables.
 
@@ -133,11 +131,299 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
 ```
 
 
-## Get - /observations/table [/brapi/v1//observations/table] 
+
+
+### Post - /observations [POST /brapi/v1/observations]
+
+Add new Observation entities
+
+**Request Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|additionalInfo|object|Additional arbitrary info|
+|collector|string|The name or identifier of the entity which collected the observation|
+|germplasmDbId|string|The ID which uniquely identifies a germplasm|
+|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
+|observationTimeStamp|string (date-time)|The date and time when this observation was made|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|observationUnitName|string|A human readable name for an observation unit|
+|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
+|observationVariableName|string|A human readable name for an observation variable|
+|season|object||
+|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|year|integer|The 4 digit year of the season.|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
+|value|string|The value of the data collected as an observation|
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|collector|string|The name or identifier of the entity which collected the observation|
+|germplasmDbId|string|The ID which uniquely identifies a germplasm|
+|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
+|observationDbId|string|The ID which uniquely identifies an observation|
+|observationTimeStamp|string (date-time)|The date and time when this observation was made|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|observationUnitName|string|A human readable name for an observation unit|
+|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
+|observationVariableName|string|A human readable name for an observation variable|
+|season|object||
+|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|year|integer|The 4 digit year of the season.|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
+|value|string|The value of the data collected as an observation|
+
+
+ 
+
++ Parameters
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+ 
++ Request (application/json)
+```
+[
+    {
+        "additionalInfo": {},
+        "collector": "917d3ae0",
+        "germplasmDbId": "2408ab11",
+        "germplasmName": "A0000003",
+        "observationTimeStamp": "2018-01-01T14:47:23-0600",
+        "observationUnitDbId": "598111d4",
+        "observationUnitName": "Plot 1",
+        "observationVariableDbId": "c403d107",
+        "observationVariableName": "Plant Height in meters",
+        "season": {
+            "season": "Spring",
+            "seasonDbId": "Spring_2018",
+            "year": 2018
+        },
+        "studyDbId": "ef2829db",
+        "uploadedBy": "a2f7f60b",
+        "value": "2.3"
+    }
+]
+```
 
 
 
-### /observations/table [GET /brapi/v1/observations/table{?observationUnitDbId}{?germplasmDbId}{?observationVariableDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}{?searchResultsDbId}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}]
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "collector": "917d3ae0",
+                "germplasmDbId": "2408ab11",
+                "germplasmName": "A0000003",
+                "observationDbId": "ef24b615",
+                "observationTimeStamp": "2018-01-01T14:47:23-0600",
+                "observationUnitDbId": "598111d4",
+                "observationUnitName": "Plot 1",
+                "observationVariableDbId": "c403d107",
+                "observationVariableName": "Plant Height in meters",
+                "season": {
+                    "season": "Spring",
+                    "seasonDbId": "Spring_2018",
+                    "year": 2018
+                },
+                "studyDbId": "ef2829db",
+                "uploadedBy": "a2f7f60b",
+                "value": "2.3"
+            }
+        ]
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
+```
+
+
+
+
+### Put - /observations [PUT /brapi/v1/observations]
+
+Update multiple Observation entities simultaneously with a single call
+
+Include as many `observationDbIds` in the request as needed.
+
+Note - In strictly typed languages, this structure can be represented as a Map or Dictionary of objects and parsed directly from JSON.
+
+**Request Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|collector|string|The name or identifier of the entity which collected the observation|
+|germplasmDbId|string|The ID which uniquely identifies a germplasm|
+|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
+|observationDbId|string|The ID which uniquely identifies an observation|
+|observationTimeStamp|string (date-time)|The date and time when this observation was made|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|observationUnitName|string|A human readable name for an observation unit|
+|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
+|observationVariableName|string|A human readable name for an observation variable|
+|season|object||
+|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|year|integer|The 4 digit year of the season.|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
+|value|string|The value of the data collected as an observation|
+
+
+ 
+
++ Parameters
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+ 
++ Request (application/json)
+```
+{}
+```
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "collector": "917d3ae0",
+                "germplasmDbId": "2408ab11",
+                "germplasmName": "A0000003",
+                "observationDbId": "ef24b615",
+                "observationTimeStamp": "2018-01-01T14:47:23-0600",
+                "observationUnitDbId": "598111d4",
+                "observationUnitName": "Plot 1",
+                "observationVariableDbId": "c403d107",
+                "observationVariableName": "Plant Height in meters",
+                "season": {
+                    "season": "Spring",
+                    "seasonDbId": "Spring_2018",
+                    "year": 2018
+                },
+                "studyDbId": "ef2829db",
+                "uploadedBy": "a2f7f60b",
+                "value": "2.3"
+            }
+        ]
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
+```
+
+
+
+
+### Get - /observations/table [GET /brapi/v1/observations/table{?observationUnitDbId}{?germplasmDbId}{?observationVariableDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}{?searchResultsDbId}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}]
 
 <p>This service is designed to retrieve a table of time dependant observation values as a matrix of Observation Units and Observation Variables.
 This is also sometimes called a Time Series. This service takes the "Sparse Table" approach for representing this time dependant data.</p>
@@ -436,11 +722,9 @@ See the example responses below</p>
 ```
 
 
-## Get - /observations/{ID} [/brapi/v1//observations/{observationDbId}] 
 
 
-
-### /observations/{observationDbId} [GET /brapi/v1/observations/{observationDbId}]
+### Get - /observations/{observationDbId} [GET /brapi/v1/observations/{observationDbId}]
 
 Get the details of a specific Observations
 
@@ -551,561 +835,9 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
 ```
 
 
-## Get - /search/observations/{ID} [/brapi/v1//search/observations/{searchResultsDbId}] 
 
 
-
-### /search/observations/{searchResultsDbId} [GET /brapi/v1/search/observations/{searchResultsDbId}{?page}{?pageSize}]
-
-Returns a list of Observations based on search criteria.
-
-observationTimeStamp - Iso Standard 8601.
-
-observationValue data type inferred from the ontology
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|collector|string|The name or identifier of the entity which collected the observation|
-|germplasmDbId|string|The ID which uniquely identifies a germplasm|
-|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
-|observationDbId|string|The ID which uniquely identifies an observation|
-|observationTimeStamp|string (date-time)|The date and time when this observation was made|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
-|observationUnitName|string|A human readable name for an observation unit|
-|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
-|observationVariableName|string|A human readable name for an observation variable|
-|season|object||
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
-|seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
-|year|integer|The 4 digit year of the season.|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
-|value|string|The value of the data collected as an observation|
-
-
- 
-
-+ Parameters
-    + Accept (Required, ) ... The requested content type which should be returned by the server
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "data": [
-            {
-                "additionalInfo": {},
-                "collector": "917d3ae0",
-                "germplasmDbId": "2408ab11",
-                "germplasmName": "A0000003",
-                "observationDbId": "ef24b615",
-                "observationTimeStamp": "2018-01-01T14:47:23-0600",
-                "observationUnitDbId": "598111d4",
-                "observationUnitName": "Plot 1",
-                "observationVariableDbId": "c403d107",
-                "observationVariableName": "Plant Height in meters",
-                "season": {
-                    "season": "Spring",
-                    "seasonDbId": "Spring_2018",
-                    "year": 2018
-                },
-                "studyDbId": "ef2829db",
-                "uploadedBy": "a2f7f60b",
-                "value": "2.3"
-            }
-        ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-## Post - /observations [/brapi/v1//observations] 
-
-
-
-### /observations [POST /brapi/v1/observations]
-
-Add new Observation entities
-
-**Request Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|collector|string|The name or identifier of the entity which collected the observation|
-|germplasmDbId|string|The ID which uniquely identifies a germplasm|
-|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
-|observationTimeStamp|string (date-time)|The date and time when this observation was made|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
-|observationUnitName|string|A human readable name for an observation unit|
-|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
-|observationVariableName|string|A human readable name for an observation variable|
-|season|object||
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
-|seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
-|year|integer|The 4 digit year of the season.|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
-|value|string|The value of the data collected as an observation|
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|collector|string|The name or identifier of the entity which collected the observation|
-|germplasmDbId|string|The ID which uniquely identifies a germplasm|
-|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
-|observationDbId|string|The ID which uniquely identifies an observation|
-|observationTimeStamp|string (date-time)|The date and time when this observation was made|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
-|observationUnitName|string|A human readable name for an observation unit|
-|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
-|observationVariableName|string|A human readable name for an observation variable|
-|season|object||
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
-|seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
-|year|integer|The 4 digit year of the season.|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
-|value|string|The value of the data collected as an observation|
-
-
- 
-
-+ Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
- 
-+ Request (application/json)
-```
-[
-    {
-        "additionalInfo": {},
-        "collector": "917d3ae0",
-        "germplasmDbId": "2408ab11",
-        "germplasmName": "A0000003",
-        "observationTimeStamp": "2018-01-01T14:47:23-0600",
-        "observationUnitDbId": "598111d4",
-        "observationUnitName": "Plot 1",
-        "observationVariableDbId": "c403d107",
-        "observationVariableName": "Plant Height in meters",
-        "season": {
-            "season": "Spring",
-            "seasonDbId": "Spring_2018",
-            "year": 2018
-        },
-        "studyDbId": "ef2829db",
-        "uploadedBy": "a2f7f60b",
-        "value": "2.3"
-    }
-]
-```
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "data": [
-            {
-                "additionalInfo": {},
-                "collector": "917d3ae0",
-                "germplasmDbId": "2408ab11",
-                "germplasmName": "A0000003",
-                "observationDbId": "ef24b615",
-                "observationTimeStamp": "2018-01-01T14:47:23-0600",
-                "observationUnitDbId": "598111d4",
-                "observationUnitName": "Plot 1",
-                "observationVariableDbId": "c403d107",
-                "observationVariableName": "Plant Height in meters",
-                "season": {
-                    "season": "Spring",
-                    "seasonDbId": "Spring_2018",
-                    "year": 2018
-                },
-                "studyDbId": "ef2829db",
-                "uploadedBy": "a2f7f60b",
-                "value": "2.3"
-            }
-        ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-+ Response 404 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
-```
-
-
-## Post - /search/observations [/brapi/v1//search/observations] 
-
-
-
-### /search/observations [POST /brapi/v1/search/observations]
-
-Submit a search request for a set of Observations. Returns an Id which reference the results of this search
-
-**Request Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|germplasmDbIds|array[string]|The name or synonym of external genebank accession identifiers|
-|locationDbIds|array[string]|locations these traits were collected|
-|observationDbIds|array[string]|The unique id of an Observation|
-|observationLevel|string|The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnit Structure.|
-|observationTimeStampRangeEnd|string (date-time)|Timestamp range end|
-|observationTimeStampRangeStart|string (date-time)|Timestamp range start|
-|observationUnitDbIds|array[string]|The unique id of an Observation Unit|
-|observationVariableDbIds|array[string]|The IDs of traits, could be ontology ID, database ID or PUI|
-|programDbIds|array[string]|list of programs to search across|
-|seasonDbIds|array[string]|The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)|
-|studyDbIds|array[string]|The database ID / PK of the studies search parameter|
-|trialDbIds|array[string]|list of trials to search across|
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|searchResultDbId|string||
-
-
- 
-
-+ Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
- 
-+ Request (application/json)
-```
-{
-    "germplasmDbIds": [
-        "fc55fa61",
-        "7f5b77be"
-    ],
-    "locationDbIds": [
-        "071d09d3",
-        "6e3fc921"
-    ],
-    "observationDbIds": [
-        "6a4a59d8",
-        "3ff067e0"
-    ],
-    "observationLevel": "plot",
-    "observationTimeStampRangeEnd": "2018-01-01T14:47:23-0600",
-    "observationTimeStampRangeStart": "2018-01-01T14:47:23-0600",
-    "observationUnitDbIds": [
-        "76f559b5",
-        "066bc5d3"
-    ],
-    "observationVariableDbIds": [
-        "a646187d",
-        "6d23513b"
-    ],
-    "programDbIds": [
-        "d8ca7076",
-        "d56b0b68"
-    ],
-    "seasonDbIds": [
-        "Spring 2018",
-        "Season A"
-    ],
-    "studyDbIds": [
-        "222e0bc3",
-        "8b24d5aa"
-    ],
-    "trialDbIds": [
-        "918c52f8",
-        "378f58e6"
-    ]
-}
-```
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "searchResultDbId": "551ae08c"
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-## Put - /observations [/brapi/v1//observations] 
-
-
-
-### /observations [PUT /brapi/v1/observations]
-
-Update multiple Observation entities simultaneously with a single call
-
-Include as many `observationDbIds` in the request as needed.
-
-Note - In strictly typed languages, this structure can be represented as a Map or Dictionary of objects and parsed directly from JSON.
-
-**Request Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|collector|string|The name or identifier of the entity which collected the observation|
-|germplasmDbId|string|The ID which uniquely identifies a germplasm|
-|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
-|observationDbId|string|The ID which uniquely identifies an observation|
-|observationTimeStamp|string (date-time)|The date and time when this observation was made|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
-|observationUnitName|string|A human readable name for an observation unit|
-|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
-|observationVariableName|string|A human readable name for an observation variable|
-|season|object||
-|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
-|seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
-|year|integer|The 4 digit year of the season.|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
-|value|string|The value of the data collected as an observation|
-
-
- 
-
-+ Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
- 
-+ Request (application/json)
-```
-{}
-```
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "data": [
-            {
-                "additionalInfo": {},
-                "collector": "917d3ae0",
-                "germplasmDbId": "2408ab11",
-                "germplasmName": "A0000003",
-                "observationDbId": "ef24b615",
-                "observationTimeStamp": "2018-01-01T14:47:23-0600",
-                "observationUnitDbId": "598111d4",
-                "observationUnitName": "Plot 1",
-                "observationVariableDbId": "c403d107",
-                "observationVariableName": "Plant Height in meters",
-                "season": {
-                    "season": "Spring",
-                    "seasonDbId": "Spring_2018",
-                    "year": 2018
-                },
-                "studyDbId": "ef2829db",
-                "uploadedBy": "a2f7f60b",
-                "value": "2.3"
-            }
-        ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-+ Response 404 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
-```
-
-
-## Put - /observations/{ID} [/brapi/v1//observations/{observationDbId}] 
-
-
-
-### /observations/{observationDbId} [PUT /brapi/v1/observations/{observationDbId}]
+### Put - /observations/{observationDbId} [PUT /brapi/v1/observations/{observationDbId}]
 
 Update an existing Observation
 
@@ -1255,5 +987,257 @@ Update an existing Observation
 + Response 404 (application/json)
 ```
 "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
+```
+
+
+
+
+### Post - /search/observations [POST /brapi/v1/search/observations]
+
+Submit a search request for a set of Observations. Returns an Id which reference the results of this search
+
+**Request Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|germplasmDbIds|array[string]|The name or synonym of external genebank accession identifiers|
+|locationDbIds|array[string]|locations these traits were collected|
+|observationDbIds|array[string]|The unique id of an Observation|
+|observationLevel|string|The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnit Structure.|
+|observationTimeStampRangeEnd|string (date-time)|Timestamp range end|
+|observationTimeStampRangeStart|string (date-time)|Timestamp range start|
+|observationUnitDbIds|array[string]|The unique id of an Observation Unit|
+|observationVariableDbIds|array[string]|The IDs of traits, could be ontology ID, database ID or PUI|
+|programDbIds|array[string]|list of programs to search across|
+|seasonDbIds|array[string]|The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)|
+|studyDbIds|array[string]|The database ID / PK of the studies search parameter|
+|trialDbIds|array[string]|list of trials to search across|
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|searchResultDbId|string||
+
+
+ 
+
++ Parameters
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+ 
++ Request (application/json)
+```
+{
+    "germplasmDbIds": [
+        "fc55fa61",
+        "7f5b77be"
+    ],
+    "locationDbIds": [
+        "071d09d3",
+        "6e3fc921"
+    ],
+    "observationDbIds": [
+        "6a4a59d8",
+        "3ff067e0"
+    ],
+    "observationLevel": "plot",
+    "observationTimeStampRangeEnd": "2018-01-01T14:47:23-0600",
+    "observationTimeStampRangeStart": "2018-01-01T14:47:23-0600",
+    "observationUnitDbIds": [
+        "76f559b5",
+        "066bc5d3"
+    ],
+    "observationVariableDbIds": [
+        "a646187d",
+        "6d23513b"
+    ],
+    "programDbIds": [
+        "d8ca7076",
+        "d56b0b68"
+    ],
+    "seasonDbIds": [
+        "Spring 2018",
+        "Season A"
+    ],
+    "studyDbIds": [
+        "222e0bc3",
+        "8b24d5aa"
+    ],
+    "trialDbIds": [
+        "918c52f8",
+        "378f58e6"
+    ]
+}
+```
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultDbId": "551ae08c"
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+
+
+### Get - /search/observations/{searchResultsDbId} [GET /brapi/v1/search/observations/{searchResultsDbId}{?page}{?pageSize}]
+
+Returns a list of Observations based on search criteria.
+
+observationTimeStamp - Iso Standard 8601.
+
+observationValue data type inferred from the ontology
+
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|collector|string|The name or identifier of the entity which collected the observation|
+|germplasmDbId|string|The ID which uniquely identifies a germplasm|
+|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
+|observationDbId|string|The ID which uniquely identifies an observation|
+|observationTimeStamp|string (date-time)|The date and time when this observation was made|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|observationUnitName|string|A human readable name for an observation unit|
+|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
+|observationVariableName|string|A human readable name for an observation variable|
+|season|object||
+|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|year|integer|The 4 digit year of the season.|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
+|value|string|The value of the data collected as an observation|
+
+
+ 
+
++ Parameters
+    + Accept (Required, ) ... The requested content type which should be returned by the server
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "collector": "917d3ae0",
+                "germplasmDbId": "2408ab11",
+                "germplasmName": "A0000003",
+                "observationDbId": "ef24b615",
+                "observationTimeStamp": "2018-01-01T14:47:23-0600",
+                "observationUnitDbId": "598111d4",
+                "observationUnitName": "Plot 1",
+                "observationVariableDbId": "c403d107",
+                "observationVariableName": "Plant Height in meters",
+                "season": {
+                    "season": "Spring",
+                    "seasonDbId": "Spring_2018",
+                    "year": 2018
+                },
+                "studyDbId": "ef2829db",
+                "uploadedBy": "a2f7f60b",
+                "value": "2.3"
+            }
+        ]
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
 

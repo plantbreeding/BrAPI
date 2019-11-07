@@ -2,11 +2,9 @@
 
 
 
-## Get - /callsets [/brapi/v1//callsets] 
 
 
-
-### /callsets [GET /brapi/v1/callsets{?callSetDbId}{?callSetName}{?variantSetDbId}{?sampleDbId}{?germplasmDbId}{?page}{?pageSize}]
+### Get - /callsets [GET /brapi/v1/callsets{?callSetDbId}{?callSetName}{?variantSetDbId}{?sampleDbId}{?germplasmDbId}{?page}{?pageSize}]
 
  Gets a filtered list of `CallSet` JSON objects.
 Also See:
@@ -107,11 +105,9 @@ Also See:
 ```
 
 
-## Get - /callsets/{ID} [/brapi/v1//callsets/{callSetDbId}] 
 
 
-
-### /callsets/{callSetDbId} [GET /brapi/v1/callsets/{callSetDbId}]
+### Get - /callsets/{callSetDbId} [GET /brapi/v1/callsets/{callSetDbId}]
 
 `GET /callsets/{id}` will return a JSON version of `CallSet`.
 
@@ -204,11 +200,9 @@ Also See:
 ```
 
 
-## Get - /callsets/{ID}/calls [/brapi/v1//callsets/{callSetDbId}/calls] 
 
 
-
-### /callsets/{callSetDbId}/calls [GET /brapi/v1/callsets/{callSetDbId}/calls{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?page}{?pageSize}]
+### Get - /callsets/{callSetDbId}/calls [GET /brapi/v1/callsets/{callSetDbId}/calls{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?page}{?pageSize}]
 
  Gets a list of `Calls` associated with a `CallSet`.
 Also See:
@@ -316,112 +310,9 @@ Also See:
 ```
 
 
-## Get - /search/callsets/{ID} [/brapi/v1//search/callsets/{searchResultsDbId}] 
 
 
-
-### /search/callsets/{searchResultsDbId} [GET /brapi/v1/search/callsets/{searchResultsDbId}{?page}{?pageSize}]
-
-`POST /callsets/search` must accept a JSON version of
-`SearchCallSetsRequest` as the post body and will return a JSON version of
-`SearchCallSetsResponse`.
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|callSetDbId|string|The call set ID.|
-|callSetName|string|The call set name.|
-|created|string (int64)|The date this call set was created in milliseconds from the epoch.|
-|sampleDbId|string|The Biosample entity the call set data was generated from.|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|updated|string (int64)|The time at which this call set was last updated in milliseconds from the epoch.|
-|variantSetIds|array[string]|The IDs of the variant sets this call set has calls in.|
-
-
- 
-
-+ Parameters
-    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "data": [
-            {
-                "additionalInfo": {},
-                "callSetDbId": "callSetDbId",
-                "callSetName": "callSetName",
-                "created": "",
-                "sampleDbId": "sampleDbId",
-                "studyDbId": "studyDbId",
-                "updated": "",
-                "variantSetIds": [
-                    "variantSetIds1",
-                    "variantSetIds2"
-                ]
-            }
-        ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-## Post - /search/callsets [/brapi/v1//search/callsets] 
-
-
-
-### /search/callsets [POST /brapi/v1/search/callsets]
+### Post - /search/callsets [POST /brapi/v1/search/callsets]
 
 `POST /callsets/search` must accept a JSON version of
 `SearchCallSetsRequest` as the post body and will return a JSON version of
@@ -519,6 +410,105 @@ Also See:
     },
     "result": {
         "searchResultDbId": "551ae08c"
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+
+
+### Get - /search/callsets/{searchResultsDbId} [GET /brapi/v1/search/callsets/{searchResultsDbId}{?page}{?pageSize}]
+
+`POST /callsets/search` must accept a JSON version of
+`SearchCallSetsRequest` as the post body and will return a JSON version of
+`SearchCallSetsResponse`.
+
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|callSetDbId|string|The call set ID.|
+|callSetName|string|The call set name.|
+|created|string (int64)|The date this call set was created in milliseconds from the epoch.|
+|sampleDbId|string|The Biosample entity the call set data was generated from.|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|updated|string (int64)|The time at which this call set was last updated in milliseconds from the epoch.|
+|variantSetIds|array[string]|The IDs of the variant sets this call set has calls in.|
+
+
+ 
+
++ Parameters
+    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "callSetDbId": "callSetDbId",
+                "callSetName": "callSetName",
+                "created": "",
+                "sampleDbId": "sampleDbId",
+                "studyDbId": "studyDbId",
+                "updated": "",
+                "variantSetIds": [
+                    "variantSetIds1",
+                    "variantSetIds2"
+                ]
+            }
+        ]
     }
 }
 ```

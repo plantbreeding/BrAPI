@@ -73,23 +73,23 @@ def buildObjectExample(schema):
 
 def buildGroupTitle(callPath, method, callsStrings):
 	groupTitles = callsStrings.keys()
-	groupTitle = method + '_' + callPath
+	groupTitle = callPath + ' ' + method
 	if groupTitle not in groupTitles:
 		groupTitleStr = '\n## '
 		groupTitleStr += method.capitalize() + ' - ' + re.sub('{.*}', '{ID}', callPath)
 		groupTitleStr += ' [/brapi/v1/' + callPath + '] \n'
 		
-		callsStrings[groupTitle] = {'titleStr': groupTitleStr, 'depReadMeStrings': [], 'readMeStrings': []}
+		callsStrings[groupTitle] = {'titleStr': '', 'depReadMeStrings': [], 'readMeStrings': []}
 	
 	return groupTitle
 
-def buildTitleStr(path, method = 'GET', params = [], deprecated = False):
+def buildTitleStr(path, method, params = [], deprecated = False):
 
 	titleStr = '\n### ' 
 	if deprecated:
 		titleStr += '**Deprecated** '
 		
-	titleStr += path
+	titleStr += method.capitalize() + ' - ' + path
 	
 	titleStr += ' [' + method.upper() + ' /brapi/v1' + path
 	

@@ -4,11 +4,9 @@ An event is discrete occurrence at a particular time in the experiment (which ca
 [also see the [MIAPPE](https://www.miappe.org/) definition]
 
 
-## Get - /events [/brapi/v1//events] 
 
 
-
-### /events [GET /brapi/v1/events{?studyDbId}{?page}{?pageSize}]
+### Get - /events [GET /brapi/v1/events{?studyDbId}{?page}{?pageSize}]
 
 Get list of events
 

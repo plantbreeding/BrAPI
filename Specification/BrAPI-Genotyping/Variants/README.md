@@ -2,11 +2,110 @@
 
 
 
-## Get - /search/variants/{ID} [/brapi/v1//search/variants/{searchResultsDbId}] 
+
+
+### Post - /search/variants [POST /brapi/v1/search/variants]
+
+`POST /variants/search` must accept a JSON version of
+`SearchVariantsRequest` as the post body and will return a JSON version of
+`SearchVariantsResponse`.
+
+**Request Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|callSetDbIds|array[string]|Only return variant calls which belong to call sets with these IDs. If unspecified, return all variants and no variant call objects.|
+|end|string (int64)|Required. The end of the window (0-based, exclusive) for which overlapping variants should be returned.|
+|reference_name|string|Required. Only return variants on this reference.|
+|start|string (int64)|Required. The beginning of the window (0-based, inclusive) for which overlapping variants should be returned. Genomic positions are non-negative integers less than reference length. Requests spanning the join of circular genomes are represented as two requests one on each side of the join (position 0).|
+|variantSetDbIds|array[string]|The `VariantSet` to search.|
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|searchResultDbId|string||
+
+
+ 
+
++ Parameters
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+ 
++ Request (application/json)
+```
+{
+    "callSetDbIds": [
+        "callSetDbIds1",
+        "callSetDbIds2"
+    ],
+    "end": "",
+    "reference_name": "reference_name",
+    "start": "",
+    "variantSetDbIds": [
+        "variantSetDbIds1",
+        "variantSetDbIds2"
+    ]
+}
+```
 
 
 
-### /search/variants/{searchResultsDbId} [GET /brapi/v1/search/variants/{searchResultsDbId}{?page}{?pageSize}]
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultDbId": "551ae08c"
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+
+
+### Get - /search/variants/{searchResultsDbId} [GET /brapi/v1/search/variants/{searchResultsDbId}{?page}{?pageSize}]
 
 `POST /variants/search` must accept a JSON version of
 `SearchVariantsRequest` as the post body and will return a JSON version of
@@ -127,11 +226,9 @@
 ```
 
 
-## Get - /variants [/brapi/v1//variants] 
 
 
-
-### /variants [GET /brapi/v1/variants{?variantDbId}{?variantSetDbId}{?page}{?pageSize}]
+### Get - /variants [GET /brapi/v1/variants{?variantDbId}{?variantSetDbId}{?page}{?pageSize}]
 
 `GET /variants` will return a filtered list of `Variants`.
 
@@ -251,11 +348,9 @@
 ```
 
 
-## Get - /variants/{ID} [/brapi/v1//variants/{variantDbId}] 
 
 
-
-### /variants/{variantDbId} [GET /brapi/v1/variants/{variantDbId}]
+### Get - /variants/{variantDbId} [GET /brapi/v1/variants/{variantDbId}]
 
 `GET /variants/{id}` will return a JSON version of `Variant`.
 
@@ -372,11 +467,9 @@
 ```
 
 
-## Get - /variants/{ID}/calls [/brapi/v1//variants/{variantDbId}/calls] 
 
 
-
-### /variants/{variantDbId}/calls [GET /brapi/v1/variants/{variantDbId}/calls{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?page}{?pageSize}]
+### Get - /variants/{variantDbId}/calls [GET /brapi/v1/variants/{variantDbId}/calls{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?page}{?pageSize}]
 
  The variant calls for this particular variant. Each one represents the determination of genotype with respect to this variant. `Call`s in this array are implicitly associated with this `Variant`.
 Also See:
@@ -464,109 +557,6 @@ Also See:
         "sepPhased": "sepPhased",
         "sepUnphased": "sepUnphased",
         "unknownString": "unknownString"
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-## Post - /search/variants [/brapi/v1//search/variants] 
-
-
-
-### /search/variants [POST /brapi/v1/search/variants]
-
-`POST /variants/search` must accept a JSON version of
-`SearchVariantsRequest` as the post body and will return a JSON version of
-`SearchVariantsResponse`.
-
-**Request Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|callSetDbIds|array[string]|Only return variant calls which belong to call sets with these IDs. If unspecified, return all variants and no variant call objects.|
-|end|string (int64)|Required. The end of the window (0-based, exclusive) for which overlapping variants should be returned.|
-|reference_name|string|Required. Only return variants on this reference.|
-|start|string (int64)|Required. The beginning of the window (0-based, inclusive) for which overlapping variants should be returned. Genomic positions are non-negative integers less than reference length. Requests spanning the join of circular genomes are represented as two requests one on each side of the join (position 0).|
-|variantSetDbIds|array[string]|The `VariantSet` to search.|
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|searchResultDbId|string||
-
-
- 
-
-+ Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
- 
-+ Request (application/json)
-```
-{
-    "callSetDbIds": [
-        "callSetDbIds1",
-        "callSetDbIds2"
-    ],
-    "end": "",
-    "reference_name": "reference_name",
-    "start": "",
-    "variantSetDbIds": [
-        "variantSetDbIds1",
-        "variantSetDbIds2"
-    ]
-}
-```
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "searchResultDbId": "551ae08c"
     }
 }
 ```

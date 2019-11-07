@@ -2,11 +2,9 @@
 
 
 
-## Get - /references [/brapi/v1//references] 
 
 
-
-### /references [GET /brapi/v1/references{?referenceDbId}{?referenceSetDbId}{?accession}{?md5checksum}{?isDerived}{?minLength}{?maxLength}{?page}{?pageSize}]
+### Get - /references [GET /brapi/v1/references{?referenceDbId}{?referenceSetDbId}{?accession}{?md5checksum}{?isDerived}{?minLength}{?maxLength}{?page}{?pageSize}]
 
 `GET /references` will return a filtered list of `Reference` JSON objects.
 
@@ -114,11 +112,9 @@
 ```
 
 
-## Get - /references/{ID} [/brapi/v1//references/{referenceDbId}] 
 
 
-
-### /references/{referenceDbId} [GET /brapi/v1/references/{referenceDbId}]
+### Get - /references/{referenceDbId} [GET /brapi/v1/references/{referenceDbId}]
 
 `GET /references/{reference_id}` will return a JSON version of
 `Reference`.
@@ -218,11 +214,9 @@
 ```
 
 
-## Get - /references/{ID}/bases [/brapi/v1//references/{referenceDbId}/bases] 
 
 
-
-### /references/{referenceDbId}/bases [GET /brapi/v1/references/{referenceDbId}/bases{?start}{?end}{?pageToken}]
+### Get - /references/{referenceDbId}/bases [GET /brapi/v1/references/{referenceDbId}/bases{?start}{?end}{?pageToken}]
 
 `POST /listreferencebases` will return a JSON version of
 `ListReferenceBasesResponse`.
@@ -306,11 +300,9 @@
 ```
 
 
-## Get - /referencesets [/brapi/v1//referencesets] 
 
 
-
-### /referencesets [GET /brapi/v1/referencesets{?referenceSetDbId}{?accession}{?assemblyPUI}{?md5checksum}{?page}{?pageSize}]
+### Get - /referencesets [GET /brapi/v1/referencesets{?referenceSetDbId}{?accession}{?assemblyPUI}{?md5checksum}{?page}{?pageSize}]
 
 `GET /referencesets/{reference_set_id}` will return a JSON version of
 `ReferenceSet`.
@@ -417,11 +409,9 @@
 ```
 
 
-## Get - /referencesets/{ID} [/brapi/v1//referencesets/{referenceSetDbId}] 
 
 
-
-### /referencesets/{referenceSetDbId} [GET /brapi/v1/referencesets/{referenceSetDbId}]
+### Get - /referencesets/{referenceSetDbId} [GET /brapi/v1/referencesets/{referenceSetDbId}]
 
 `GET /referencesets/{reference_set_id}` will return a JSON version of
 `ReferenceSet`.
@@ -460,11 +450,104 @@
 ```
 
 
-## Get - /search/references/{ID} [/brapi/v1//search/references/{searchResultsDbId}] 
+
+
+### Post - /search/references [POST /brapi/v1/search/references]
+
+`POST /references/search` must accept a JSON version of
+`SearchReferencesRequest` as the post body and will return a JSON
+version of `SearchReferencesResponse`.
+
+**Request Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|accession|string|If specified, return the references for which the `accession` matches this string (case-sensitive, exact match).|
+|md5checksum|string|If specified, return the references for which the `md5checksum` matches this string (case-sensitive, exact match). See `ReferenceSet::md5checksum` for details.|
+|page_size|integer (int32)|Specifies the maximum number of results to return in a single page. If unspecified, a system default will be used.|
+|page_token|string|The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of `next_page_token` from the previous response.|
+|referenceSetDbId|string|The `ReferenceSet` to search.|
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|searchResultDbId|string||
+
+
+ 
+
++ Parameters
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+ 
++ Request (application/json)
+```
+{
+    "accession": "accession",
+    "md5checksum": "md5checksum",
+    "page_size": 0,
+    "page_token": "page_token",
+    "referenceSetDbId": "referenceSetDbId"
+}
+```
 
 
 
-### /search/references/{searchResultsDbId} [GET /brapi/v1/search/references/{searchResultsDbId}{?page}{?pageSize}]
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultDbId": "551ae08c"
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+
+
+### Get - /search/references/{searchResultsDbId} [GET /brapi/v1/search/references/{searchResultsDbId}{?page}{?pageSize}]
 
 `POST /references/search` must accept a JSON version of
 `SearchReferencesRequest` as the post body and will return a JSON
@@ -568,11 +651,104 @@ version of `SearchReferencesResponse`.
 ```
 
 
-## Get - /search/referencesets/{ID} [/brapi/v1//search/referencesets/{searchResultsDbId}] 
+
+
+### Post - /search/referencesets [POST /brapi/v1/search/referencesets]
+
+`POST /referencesets/search` must accept a JSON version of
+`SearchReferenceSetsRequest` as the post body and will return a JSON
+version of `SearchReferenceSetsResponse`.
+
+**Request Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|accession|string|If unset, return the reference sets for which the `accession` matches this string (case-sensitive, exact match).|
+|assemblyPUI|string|If unset, return the reference sets for which the `assemblyId` matches this string (case-sensitive, exact match).|
+|md5checksum|string|If unset, return the reference sets for which the `md5checksum` matches this string (case-sensitive, exact match). See `ReferenceSet::md5checksum` for details.|
+|page_size|integer (int32)|Specifies the maximum number of results to return in a single page. If unspecified, a system default will be used.|
+|page_token|string|The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of `next_page_token` from the previous response.|
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|searchResultDbId|string||
+
+
+ 
+
++ Parameters
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+ 
++ Request (application/json)
+```
+{
+    "accession": "accession",
+    "assemblyPUI": "assemblyPUI",
+    "md5checksum": "md5checksum",
+    "page_size": 0,
+    "page_token": "page_token"
+}
+```
 
 
 
-### /search/referencesets/{searchResultsDbId} [GET /brapi/v1/search/referencesets/{searchResultsDbId}{?page}{?pageSize}]
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultDbId": "551ae08c"
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+
+
+### Get - /search/referencesets/{searchResultsDbId} [GET /brapi/v1/search/referencesets/{searchResultsDbId}{?page}{?pageSize}]
 
 `POST /referencesets/search` must accept a JSON version of
 `SearchReferenceSetsRequest` as the post body and will return a JSON
@@ -657,200 +833,6 @@ version of `SearchReferenceSetsResponse`.
                 }
             }
         ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-## Post - /search/references [/brapi/v1//search/references] 
-
-
-
-### /search/references [POST /brapi/v1/search/references]
-
-`POST /references/search` must accept a JSON version of
-`SearchReferencesRequest` as the post body and will return a JSON
-version of `SearchReferencesResponse`.
-
-**Request Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|accession|string|If specified, return the references for which the `accession` matches this string (case-sensitive, exact match).|
-|md5checksum|string|If specified, return the references for which the `md5checksum` matches this string (case-sensitive, exact match). See `ReferenceSet::md5checksum` for details.|
-|page_size|integer (int32)|Specifies the maximum number of results to return in a single page. If unspecified, a system default will be used.|
-|page_token|string|The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of `next_page_token` from the previous response.|
-|referenceSetDbId|string|The `ReferenceSet` to search.|
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|searchResultDbId|string||
-
-
- 
-
-+ Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
- 
-+ Request (application/json)
-```
-{
-    "accession": "accession",
-    "md5checksum": "md5checksum",
-    "page_size": 0,
-    "page_token": "page_token",
-    "referenceSetDbId": "referenceSetDbId"
-}
-```
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "searchResultDbId": "551ae08c"
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-## Post - /search/referencesets [/brapi/v1//search/referencesets] 
-
-
-
-### /search/referencesets [POST /brapi/v1/search/referencesets]
-
-`POST /referencesets/search` must accept a JSON version of
-`SearchReferenceSetsRequest` as the post body and will return a JSON
-version of `SearchReferenceSetsResponse`.
-
-**Request Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|accession|string|If unset, return the reference sets for which the `accession` matches this string (case-sensitive, exact match).|
-|assemblyPUI|string|If unset, return the reference sets for which the `assemblyId` matches this string (case-sensitive, exact match).|
-|md5checksum|string|If unset, return the reference sets for which the `md5checksum` matches this string (case-sensitive, exact match). See `ReferenceSet::md5checksum` for details.|
-|page_size|integer (int32)|Specifies the maximum number of results to return in a single page. If unspecified, a system default will be used.|
-|page_token|string|The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of `next_page_token` from the previous response.|
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|searchResultDbId|string||
-
-
- 
-
-+ Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
- 
-+ Request (application/json)
-```
-{
-    "accession": "accession",
-    "assemblyPUI": "assemblyPUI",
-    "md5checksum": "md5checksum",
-    "page_size": 0,
-    "page_token": "page_token"
-}
-```
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "searchResultDbId": "551ae08c"
     }
 }
 ```

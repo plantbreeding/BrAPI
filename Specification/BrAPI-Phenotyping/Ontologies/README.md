@@ -6,11 +6,9 @@ API to manage the details of stored Ontologies. This could be a reference a loca
 
 
 
-## Get - /ontologies [/brapi/v1//ontologies] 
 
 
-
-### /ontologies [GET /brapi/v1/ontologies{?page}{?pageSize}]
+### Get - /ontologies [GET /brapi/v1/ontologies{?page}{?pageSize}]
 
 Call to retrieve a list of observation variable ontologies available in the system.
 
