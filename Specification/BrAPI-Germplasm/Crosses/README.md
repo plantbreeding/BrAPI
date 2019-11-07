@@ -3,18 +3,14 @@
 
 
 
-## Put - /crosses [/brapi/v1//crosses] 
+## Get - /crosses [/brapi/v1//crosses] 
 
 
 
-### /crosses [PUT /brapi/v1/crosses]
+### /crosses [GET /brapi/v1/crosses{?crossingProjectDbId}{?page}{?pageSize}]
 
-Update existing Cross entities on this server
+Get a filtered list of Cross entities.
 
-**Request Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
 
 
 **Response Fields** 
@@ -49,47 +45,11 @@ Update existing Cross entities on this server
  
 
 + Parameters
+    + crossingProjectDbId (Optional, ) ... Search for Crossing Projects with this unique id
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
-
- 
-+ Request (application/json)
-```
-{
-    "d105fd6f": {
-        "additionalInfo": {
-            "additionalProp1": "string",
-            "additionalProp2": "string",
-            "additionalProp3": "string"
-        },
-        "crossAttributes": [
-            {
-                "crossAttributeName": "string",
-                "crossAttributeValue": "string"
-            }
-        ],
-        "crossName": "myIbadanCrosses2018_01",
-        "crossType": "BIPARENTAL",
-        "crossingProjectDbId": "696d7c92",
-        "crossingProjectName": "myIbadanCrosses2018",
-        "parent1": {
-            "germplasmDbId": "d34b10c3",
-            "germplasmName": "TME419",
-            "observationUnitDbId": "2e1926a7",
-            "observationUnitName": "myIbadanPlot9001",
-            "parentType": "MALE"
-        },
-        "parent2": {
-            "germplasmDbId": "d34b10c3",
-            "germplasmName": "TME419",
-            "observationUnitDbId": "2e1926a7",
-            "observationUnitName": "myIbadanPlot9001",
-            "parentType": "MALE"
-        },
-        "pollinationTimeStamp": "2019-08-15T15:49:00.327Z"
-    }
-}
-```
 
 
 
@@ -388,14 +348,18 @@ Create new Cross entities on this server
 ```
 
 
-## Get - /crosses [/brapi/v1//crosses] 
+## Put - /crosses [/brapi/v1//crosses] 
 
 
 
-### /crosses [GET /brapi/v1/crosses{?crossingProjectDbId}{?page}{?pageSize}]
+### /crosses [PUT /brapi/v1/crosses]
 
-Get a filtered list of Cross entities.
+Update existing Cross entities on this server
 
+**Request Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
 
 
 **Response Fields** 
@@ -430,11 +394,47 @@ Get a filtered list of Cross entities.
  
 
 + Parameters
-    + crossingProjectDbId (Optional, ) ... Search for Crossing Projects with this unique id
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
+
+ 
++ Request (application/json)
+```
+{
+    "d105fd6f": {
+        "additionalInfo": {
+            "additionalProp1": "string",
+            "additionalProp2": "string",
+            "additionalProp3": "string"
+        },
+        "crossAttributes": [
+            {
+                "crossAttributeName": "string",
+                "crossAttributeValue": "string"
+            }
+        ],
+        "crossName": "myIbadanCrosses2018_01",
+        "crossType": "BIPARENTAL",
+        "crossingProjectDbId": "696d7c92",
+        "crossingProjectName": "myIbadanCrosses2018",
+        "parent1": {
+            "germplasmDbId": "d34b10c3",
+            "germplasmName": "TME419",
+            "observationUnitDbId": "2e1926a7",
+            "observationUnitName": "myIbadanPlot9001",
+            "parentType": "MALE"
+        },
+        "parent2": {
+            "germplasmDbId": "d34b10c3",
+            "germplasmName": "TME419",
+            "observationUnitDbId": "2e1926a7",
+            "observationUnitName": "myIbadanPlot9001",
+            "parentType": "MALE"
+        },
+        "pollinationTimeStamp": "2019-08-15T15:49:00.327Z"
+    }
+}
+```
 
 
 

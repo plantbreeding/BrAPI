@@ -5,18 +5,22 @@ Services related to trials. Trials comprise of multiple studies. The trial conce
 
 
 
-## Put - /trials/{ID} [/brapi/v1//trials/{trialDbId}] 
+## Get - /search/trials/{ID} [/brapi/v1//search/trials/{searchResultsDbId}] 
 
 
 
-### /trials/{trialDbId} [PUT /brapi/v1/trials/{trialDbId}]
+### /search/trials/{searchResultsDbId} [GET /brapi/v1/search/trials/{searchResultsDbId}{?page}{?pageSize}]
 
-Update the details of an existing Trial
+Advanced searching for the trials resource.
+See Search Services for additional implementation details.
 
-**Request Fields** 
+
+
+**Response Fields** 
 
 |Field|Type|Description|
 |---|---|---| 
+|data|array[object]||
 |active|boolean|Is this trail currently active|
 |additionalInfo|object|Additional arbitrary info|
 |commonCropName|string|Common name for the crop associated with this trial|
@@ -40,8 +44,268 @@ Update the details of an existing Trial
 |publicationPUI|string||
 |publicationReference|string||
 |startDate|string (date)|The date this trial started|
+|trialDbId|string|The ID which uniquely identifies a trial|
 |trialDescription|string|The human readable description of a trial|
 |trialName|string|The human readable name of a trial|
+
+
+ 
+
++ Parameters
+    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "active": true,
+                "additionalInfo": {},
+                "commonCropName": "Wheat",
+                "contacts": [
+                    {
+                        "contactDbId": "5f4e5509",
+                        "email": "bob@bob.com",
+                        "instituteName": "The BrAPI Institute",
+                        "name": "Bob Robertson",
+                        "orcid": "http://orcid.org/0000-0001-8640-1750",
+                        "type": "PI"
+                    }
+                ],
+                "datasetAuthorships": [
+                    {
+                        "datasetPUI": "doi:10.15454/312953986E3",
+                        "license": "https://CreativeCommons.org/licenses/by/4.0",
+                        "publicReleaseDate": "2018-01-01",
+                        "submissionDate": "2018-01-01"
+                    }
+                ],
+                "documentationURL": "https://wiki.brapi.org",
+                "endDate": "2018-01-01",
+                "programDbId": "673f378a",
+                "programName": "Tomatillo_Breeding_Program",
+                "publications": [
+                    {
+                        "publicationPUI": "doi:10.15454/312953986E3",
+                        "publicationReference": "Selby, BrAPI - An application programming interface for plant breeding applications, Bioinformatics, https://doi.org/10.1093/bioinformatics/190"
+                    }
+                ],
+                "startDate": "2018-01-01",
+                "trialDbId": "1883b402",
+                "trialDescription": "General drought resistance trial initiated in Peru before duplication in Africa",
+                "trialName": "Peru Yield Trial 1"
+            }
+        ]
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
+```
+
+
+## Get - /trials [/brapi/v1//trials] 
+
+
+
+### /trials [GET /brapi/v1/trials{?commonCropName}{?programDbId}{?locationDbId}{?active}{?sortBy}{?sortOrder}{?page}{?pageSize}]
+
+Retrieve a filtered list of breeding Trials. A Trial is a collection of Studies
+
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|active|boolean|Is this trail currently active|
+|additionalInfo|object|Additional arbitrary info|
+|commonCropName|string|Common name for the crop associated with this trial|
+|contacts|array[object]|List of contact entities associated with this trial|
+|contactDbId|string|The ID which uniquely identifies this contact|
+|email|string|The contacts email address |
+|instituteName|string|The name of the institution which this contact is part of|
+|name|string|The full name of this contact person|
+|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
+|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
+|datasetAuthorships|array[object]|License and citation information for the data in this trial|
+|datasetPUI|string||
+|license|string||
+|publicReleaseDate|string (date)||
+|submissionDate|string (date)||
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|endDate|string (date)|The date this trial ends|
+|programDbId|string|A program identifier to search for|
+|programName|string|Human readable name of the program|
+|publications|array[object]||
+|publicationPUI|string||
+|publicationReference|string||
+|startDate|string (date)|The date this trial started|
+|trialDbId|string|The ID which uniquely identifies a trial|
+|trialDescription|string|The human readable description of a trial|
+|trialName|string|The human readable name of a trial|
+
+
+ 
+
++ Parameters
+    + commonCropName (Optional, ) ... Common name for the crop associated with this trial
+    + programDbId (Optional, ) ... Program filter to only return trials associated with given program id.
+    + locationDbId (Optional, ) ... Filter by location
+    + active (Optional, ) ... Filter active status true/false.
+    + sortBy (Optional, ) ... Sort order. Name of the field to sort by.
+    + sortOrder (Optional, ) ... Sort order direction: asc/desc
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "active": true,
+                "additionalInfo": {},
+                "commonCropName": "Wheat",
+                "contacts": [
+                    {
+                        "contactDbId": "5f4e5509",
+                        "email": "bob@bob.com",
+                        "instituteName": "The BrAPI Institute",
+                        "name": "Bob Robertson",
+                        "orcid": "http://orcid.org/0000-0001-8640-1750",
+                        "type": "PI"
+                    }
+                ],
+                "datasetAuthorships": [
+                    {
+                        "datasetPUI": "doi:10.15454/312953986E3",
+                        "license": "https://CreativeCommons.org/licenses/by/4.0",
+                        "publicReleaseDate": "2018-01-01",
+                        "submissionDate": "2018-01-01"
+                    }
+                ],
+                "documentationURL": "https://wiki.brapi.org",
+                "endDate": "2018-01-01",
+                "programDbId": "673f378a",
+                "programName": "Tomatillo_Breeding_Program",
+                "publications": [
+                    {
+                        "publicationPUI": "doi:10.15454/312953986E3",
+                        "publicationReference": "Selby, BrAPI - An application programming interface for plant breeding applications, Bioinformatics, https://doi.org/10.1093/bioinformatics/190"
+                    }
+                ],
+                "startDate": "2018-01-01",
+                "trialDbId": "1883b402",
+                "trialDescription": "General drought resistance trial initiated in Peru before duplication in Africa",
+                "trialName": "Peru Yield Trial 1"
+            }
+        ]
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+## Get - /trials/{ID} [/brapi/v1//trials/{trialDbId}] 
+
+
+
+### /trials/{trialDbId} [GET /brapi/v1/trials/{trialDbId}]
+
+Get the details of a specific Trial
+
 
 
 **Response Fields** 
@@ -122,47 +386,6 @@ Update the details of an existing Trial
     + trialDbId (Required, ) ... The internal trialDbId
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
-
- 
-+ Request (application/json)
-```
-{
-    "active": true,
-    "additionalInfo": {},
-    "commonCropName": "Wheat",
-    "contacts": [
-        {
-            "contactDbId": "5f4e5509",
-            "email": "bob@bob.com",
-            "instituteName": "The BrAPI Institute",
-            "name": "Bob Robertson",
-            "orcid": "http://orcid.org/0000-0001-8640-1750",
-            "type": "PI"
-        }
-    ],
-    "datasetAuthorships": [
-        {
-            "datasetPUI": "doi:10.15454/312953986E3",
-            "license": "https://CreativeCommons.org/licenses/by/4.0",
-            "publicReleaseDate": "2018-01-01",
-            "submissionDate": "2018-01-01"
-        }
-    ],
-    "documentationURL": "https://wiki.brapi.org",
-    "endDate": "2018-01-01",
-    "programDbId": "673f378a",
-    "programName": "Tomatillo_Breeding_Program",
-    "publications": [
-        {
-            "publicationPUI": "doi:10.15454/312953986E3",
-            "publicationReference": "Selby, BrAPI - An application programming interface for plant breeding applications, Bioinformatics, https://doi.org/10.1093/bioinformatics/190"
-        }
-    ],
-    "startDate": "2018-01-01",
-    "trialDescription": "General drought resistance trial initiated in Peru before duplication in Africa",
-    "trialName": "Peru Yield Trial 1"
-}
-```
 
 
 
@@ -639,22 +862,18 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
 ```
 
 
-## Get - /search/trials/{ID} [/brapi/v1//search/trials/{searchResultsDbId}] 
+## Put - /trials/{ID} [/brapi/v1//trials/{trialDbId}] 
 
 
 
-### /search/trials/{searchResultsDbId} [GET /brapi/v1/search/trials/{searchResultsDbId}{?page}{?pageSize}]
+### /trials/{trialDbId} [PUT /brapi/v1/trials/{trialDbId}]
 
-Advanced searching for the trials resource.
-See Search Services for additional implementation details.
+Update the details of an existing Trial
 
-
-
-**Response Fields** 
+**Request Fields** 
 
 |Field|Type|Description|
 |---|---|---| 
-|data|array[object]||
 |active|boolean|Is this trail currently active|
 |additionalInfo|object|Additional arbitrary info|
 |commonCropName|string|Common name for the crop associated with this trial|
@@ -678,268 +897,8 @@ See Search Services for additional implementation details.
 |publicationPUI|string||
 |publicationReference|string||
 |startDate|string (date)|The date this trial started|
-|trialDbId|string|The ID which uniquely identifies a trial|
 |trialDescription|string|The human readable description of a trial|
 |trialName|string|The human readable name of a trial|
-
-
- 
-
-+ Parameters
-    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "data": [
-            {
-                "active": true,
-                "additionalInfo": {},
-                "commonCropName": "Wheat",
-                "contacts": [
-                    {
-                        "contactDbId": "5f4e5509",
-                        "email": "bob@bob.com",
-                        "instituteName": "The BrAPI Institute",
-                        "name": "Bob Robertson",
-                        "orcid": "http://orcid.org/0000-0001-8640-1750",
-                        "type": "PI"
-                    }
-                ],
-                "datasetAuthorships": [
-                    {
-                        "datasetPUI": "doi:10.15454/312953986E3",
-                        "license": "https://CreativeCommons.org/licenses/by/4.0",
-                        "publicReleaseDate": "2018-01-01",
-                        "submissionDate": "2018-01-01"
-                    }
-                ],
-                "documentationURL": "https://wiki.brapi.org",
-                "endDate": "2018-01-01",
-                "programDbId": "673f378a",
-                "programName": "Tomatillo_Breeding_Program",
-                "publications": [
-                    {
-                        "publicationPUI": "doi:10.15454/312953986E3",
-                        "publicationReference": "Selby, BrAPI - An application programming interface for plant breeding applications, Bioinformatics, https://doi.org/10.1093/bioinformatics/190"
-                    }
-                ],
-                "startDate": "2018-01-01",
-                "trialDbId": "1883b402",
-                "trialDescription": "General drought resistance trial initiated in Peru before duplication in Africa",
-                "trialName": "Peru Yield Trial 1"
-            }
-        ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-+ Response 404 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
-```
-
-
-## Get - /trials [/brapi/v1//trials] 
-
-
-
-### /trials [GET /brapi/v1/trials{?commonCropName}{?programDbId}{?locationDbId}{?active}{?sortBy}{?sortOrder}{?page}{?pageSize}]
-
-Retrieve a filtered list of breeding Trials. A Trial is a collection of Studies
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|active|boolean|Is this trail currently active|
-|additionalInfo|object|Additional arbitrary info|
-|commonCropName|string|Common name for the crop associated with this trial|
-|contacts|array[object]|List of contact entities associated with this trial|
-|contactDbId|string|The ID which uniquely identifies this contact|
-|email|string|The contacts email address |
-|instituteName|string|The name of the institution which this contact is part of|
-|name|string|The full name of this contact person|
-|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
-|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
-|datasetAuthorships|array[object]|License and citation information for the data in this trial|
-|datasetPUI|string||
-|license|string||
-|publicReleaseDate|string (date)||
-|submissionDate|string (date)||
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|endDate|string (date)|The date this trial ends|
-|programDbId|string|A program identifier to search for|
-|programName|string|Human readable name of the program|
-|publications|array[object]||
-|publicationPUI|string||
-|publicationReference|string||
-|startDate|string (date)|The date this trial started|
-|trialDbId|string|The ID which uniquely identifies a trial|
-|trialDescription|string|The human readable description of a trial|
-|trialName|string|The human readable name of a trial|
-
-
- 
-
-+ Parameters
-    + commonCropName (Optional, ) ... Common name for the crop associated with this trial
-    + programDbId (Optional, ) ... Program filter to only return trials associated with given program id.
-    + locationDbId (Optional, ) ... Filter by location
-    + active (Optional, ) ... Filter active status true/false.
-    + sortBy (Optional, ) ... Sort order. Name of the field to sort by.
-    + sortOrder (Optional, ) ... Sort order direction: asc/desc
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "data": [
-            {
-                "active": true,
-                "additionalInfo": {},
-                "commonCropName": "Wheat",
-                "contacts": [
-                    {
-                        "contactDbId": "5f4e5509",
-                        "email": "bob@bob.com",
-                        "instituteName": "The BrAPI Institute",
-                        "name": "Bob Robertson",
-                        "orcid": "http://orcid.org/0000-0001-8640-1750",
-                        "type": "PI"
-                    }
-                ],
-                "datasetAuthorships": [
-                    {
-                        "datasetPUI": "doi:10.15454/312953986E3",
-                        "license": "https://CreativeCommons.org/licenses/by/4.0",
-                        "publicReleaseDate": "2018-01-01",
-                        "submissionDate": "2018-01-01"
-                    }
-                ],
-                "documentationURL": "https://wiki.brapi.org",
-                "endDate": "2018-01-01",
-                "programDbId": "673f378a",
-                "programName": "Tomatillo_Breeding_Program",
-                "publications": [
-                    {
-                        "publicationPUI": "doi:10.15454/312953986E3",
-                        "publicationReference": "Selby, BrAPI - An application programming interface for plant breeding applications, Bioinformatics, https://doi.org/10.1093/bioinformatics/190"
-                    }
-                ],
-                "startDate": "2018-01-01",
-                "trialDbId": "1883b402",
-                "trialDescription": "General drought resistance trial initiated in Peru before duplication in Africa",
-                "trialName": "Peru Yield Trial 1"
-            }
-        ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-## Get - /trials/{ID} [/brapi/v1//trials/{trialDbId}] 
-
-
-
-### /trials/{trialDbId} [GET /brapi/v1/trials/{trialDbId}]
-
-Get the details of a specific Trial
-
 
 
 **Response Fields** 
@@ -1020,6 +979,47 @@ Get the details of a specific Trial
     + trialDbId (Required, ) ... The internal trialDbId
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
+
+ 
++ Request (application/json)
+```
+{
+    "active": true,
+    "additionalInfo": {},
+    "commonCropName": "Wheat",
+    "contacts": [
+        {
+            "contactDbId": "5f4e5509",
+            "email": "bob@bob.com",
+            "instituteName": "The BrAPI Institute",
+            "name": "Bob Robertson",
+            "orcid": "http://orcid.org/0000-0001-8640-1750",
+            "type": "PI"
+        }
+    ],
+    "datasetAuthorships": [
+        {
+            "datasetPUI": "doi:10.15454/312953986E3",
+            "license": "https://CreativeCommons.org/licenses/by/4.0",
+            "publicReleaseDate": "2018-01-01",
+            "submissionDate": "2018-01-01"
+        }
+    ],
+    "documentationURL": "https://wiki.brapi.org",
+    "endDate": "2018-01-01",
+    "programDbId": "673f378a",
+    "programName": "Tomatillo_Breeding_Program",
+    "publications": [
+        {
+            "publicationPUI": "doi:10.15454/312953986E3",
+            "publicationReference": "Selby, BrAPI - An application programming interface for plant breeding applications, Bioinformatics, https://doi.org/10.1093/bioinformatics/190"
+        }
+    ],
+    "startDate": "2018-01-01",
+    "trialDescription": "General drought resistance trial initiated in Peru before duplication in Africa",
+    "trialName": "Peru Yield Trial 1"
+}
+```
 
 
 

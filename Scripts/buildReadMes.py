@@ -277,7 +277,7 @@ def buildReadMe(dir, fullBrAPI):
 					else:
 						callsStrings[groupTitle]['readMeStrings'].append(methodStr)
 				
-	for title in callsStrings:
+	for title in sorted(callsStrings.keys()):
 		readMeStr += callsStrings[title]['titleStr']
 		for callDoc in callsStrings[title]['readMeStrings']:
 			readMeStr += callDoc

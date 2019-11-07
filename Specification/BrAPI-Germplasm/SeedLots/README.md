@@ -3,134 +3,14 @@
 
 
 
-## Get - /seedlots/{ID} [/brapi/v1//seedlots/{seedLotDbId}] 
+## Get - /seedlots [/brapi/v1//seedlots] 
 
 
 
-### /seedlots/{seedLotDbId} [GET /brapi/v1/seedlots/{seedLotDbId}]
+### /seedlots [GET /brapi/v1/seedlots{?seedLotDbId}{?germplasmDbId}{?page}{?pageSize}]
 
-Get a specific Seed Lot by seedLotDbId
+Get a filtered list of Seed Lot descriptions available in a system.
 
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|count|integer|Current balance of seeds in this lot|
-|createdDate|string (date-time)|The time stamp for when this seed lot was created|
-|germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
-|lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
-|locationDbId|string|DbId of the storage location|
-|programDbId|string|Unique DbId of the breeding Program this Seed Lot belongs to|
-|seedLotDbId|string|Unique DbId for the Seed Lot|
-|seedLotDescription|string|A general description of this Seed Lot|
-|seedLotName|string|A human readable name for this Seed Lot|
-|sourceCollection|string|The description of the source where this material was originally collected (wild, nursery, etc)|
-|storageLocation|string|Description the storage location|
-|units|string|Description of the things being counted in this Seed Lot (seeds, bulbs, stock, tree, etc)|
-
-
- 
-
-+ Parameters
-    + seedLotDbId (Required, ) ... Unique id for a seed lot on this server
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "additionalInfo": {},
-        "count": 561,
-        "createdDate": "2018-01-01T14:47:23-0600",
-        "germplasmDbId": "029d705d",
-        "lastUpdated": "2018-01-01T14:47:23-0600",
-        "locationDbId": "7989c44c",
-        "programDbId": "e972d569",
-        "seedLotDbId": "261ecb09",
-        "seedLotDescription": "This is a description of a seed lot",
-        "seedLotName": "Seed Lot Alpha",
-        "sourceCollection": "nursery",
-        "storageLocation": "The storage location is an massive, underground, bunker.",
-        "units": "seeds"
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-+ Response 404 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
-```
-
-
-## Post - /seedlots [/brapi/v1//seedlots] 
-
-
-
-### /seedlots [POST /brapi/v1/seedlots]
-
-Add new Seed Lot descriptions to a server
-
-**Request Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|count|integer|Current balance of seeds in this lot|
-|createdDate|string (date-time)|The time stamp for when this seed lot was created|
-|germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
-|lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
-|locationDbId|string|DbId of the storage location|
-|programDbId|string|Unique DbId of the breeding Program this Seed Lot belongs to|
-|seedLotDescription|string|A general description of this Seed Lot|
-|seedLotName|string|A human readable name for this Seed Lot|
-|sourceCollection|string|The description of the source where this material was originally collected (wild, nursery, etc)|
-|storageLocation|string|Description the storage location|
-|units|string|Description of the things being counted in this Seed Lot (seeds, bulbs, stock, tree, etc)|
 
 
 **Response Fields** 
@@ -156,29 +36,12 @@ Add new Seed Lot descriptions to a server
  
 
 + Parameters
+    + seedLotDbId (Optional, ) ... Unique id for a seed lot on this server
+    + germplasmDbId (Optional, ) ... The internal id of the germplasm
+    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
-
- 
-+ Request (application/json)
-```
-[
-    {
-        "additionalInfo": {},
-        "count": 561,
-        "createdDate": "2018-01-01T14:47:23-0600",
-        "germplasmDbId": "029d705d",
-        "lastUpdated": "2018-01-01T14:47:23-0600",
-        "locationDbId": "7989c44c",
-        "programDbId": "e972d569",
-        "seedLotDescription": "This is a description of a seed lot",
-        "seedLotName": "Seed Lot Alpha",
-        "sourceCollection": "nursery",
-        "storageLocation": "The storage location is an massive, underground, bunker.",
-        "units": "seeds"
-    }
-]
-```
 
 
 
@@ -345,13 +208,13 @@ Get a filtered list of Seed Lot Transactions
 ```
 
 
-## Get - /seedlots [/brapi/v1//seedlots] 
+## Get - /seedlots/{ID} [/brapi/v1//seedlots/{seedLotDbId}] 
 
 
 
-### /seedlots [GET /brapi/v1/seedlots{?seedLotDbId}{?germplasmDbId}{?page}{?pageSize}]
+### /seedlots/{seedLotDbId} [GET /brapi/v1/seedlots/{seedLotDbId}]
 
-Get a filtered list of Seed Lot descriptions available in a system.
+Get a specific Seed Lot by seedLotDbId
 
 
 
@@ -359,7 +222,6 @@ Get a filtered list of Seed Lot descriptions available in a system.
 
 |Field|Type|Description|
 |---|---|---| 
-|data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |count|integer|Current balance of seeds in this lot|
 |createdDate|string (date-time)|The time stamp for when this seed lot was created|
@@ -378,10 +240,7 @@ Get a filtered list of Seed Lot descriptions available in a system.
  
 
 + Parameters
-    + seedLotDbId (Optional, ) ... Unique id for a seed lot on this server
-    + germplasmDbId (Optional, ) ... The internal id of the germplasm
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
+    + seedLotDbId (Required, ) ... Unique id for a seed lot on this server
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
@@ -415,23 +274,19 @@ Get a filtered list of Seed Lot descriptions available in a system.
         ]
     },
     "result": {
-        "data": [
-            {
-                "additionalInfo": {},
-                "count": 561,
-                "createdDate": "2018-01-01T14:47:23-0600",
-                "germplasmDbId": "029d705d",
-                "lastUpdated": "2018-01-01T14:47:23-0600",
-                "locationDbId": "7989c44c",
-                "programDbId": "e972d569",
-                "seedLotDbId": "261ecb09",
-                "seedLotDescription": "This is a description of a seed lot",
-                "seedLotName": "Seed Lot Alpha",
-                "sourceCollection": "nursery",
-                "storageLocation": "The storage location is an massive, underground, bunker.",
-                "units": "seeds"
-            }
-        ]
+        "additionalInfo": {},
+        "count": 561,
+        "createdDate": "2018-01-01T14:47:23-0600",
+        "germplasmDbId": "029d705d",
+        "lastUpdated": "2018-01-01T14:47:23-0600",
+        "locationDbId": "7989c44c",
+        "programDbId": "e972d569",
+        "seedLotDbId": "261ecb09",
+        "seedLotDescription": "This is a description of a seed lot",
+        "seedLotName": "Seed Lot Alpha",
+        "sourceCollection": "nursery",
+        "storageLocation": "The storage location is an massive, underground, bunker.",
+        "units": "seeds"
     }
 }
 ```
@@ -449,6 +304,11 @@ Get a filtered list of Seed Lot descriptions available in a system.
 + Response 403 (application/json)
 ```
 "ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
++ Response 404 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
 ```
 
 
@@ -552,6 +412,269 @@ Get all Transactions related to a specific Seed Lot
 + Response 404 (application/json)
 ```
 "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
+```
+
+
+## Post - /seedlots [/brapi/v1//seedlots] 
+
+
+
+### /seedlots [POST /brapi/v1/seedlots]
+
+Add new Seed Lot descriptions to a server
+
+**Request Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|additionalInfo|object|Additional arbitrary info|
+|count|integer|Current balance of seeds in this lot|
+|createdDate|string (date-time)|The time stamp for when this seed lot was created|
+|germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
+|lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
+|locationDbId|string|DbId of the storage location|
+|programDbId|string|Unique DbId of the breeding Program this Seed Lot belongs to|
+|seedLotDescription|string|A general description of this Seed Lot|
+|seedLotName|string|A human readable name for this Seed Lot|
+|sourceCollection|string|The description of the source where this material was originally collected (wild, nursery, etc)|
+|storageLocation|string|Description the storage location|
+|units|string|Description of the things being counted in this Seed Lot (seeds, bulbs, stock, tree, etc)|
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|count|integer|Current balance of seeds in this lot|
+|createdDate|string (date-time)|The time stamp for when this seed lot was created|
+|germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
+|lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
+|locationDbId|string|DbId of the storage location|
+|programDbId|string|Unique DbId of the breeding Program this Seed Lot belongs to|
+|seedLotDbId|string|Unique DbId for the Seed Lot|
+|seedLotDescription|string|A general description of this Seed Lot|
+|seedLotName|string|A human readable name for this Seed Lot|
+|sourceCollection|string|The description of the source where this material was originally collected (wild, nursery, etc)|
+|storageLocation|string|Description the storage location|
+|units|string|Description of the things being counted in this Seed Lot (seeds, bulbs, stock, tree, etc)|
+
+
+ 
+
++ Parameters
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+ 
++ Request (application/json)
+```
+[
+    {
+        "additionalInfo": {},
+        "count": 561,
+        "createdDate": "2018-01-01T14:47:23-0600",
+        "germplasmDbId": "029d705d",
+        "lastUpdated": "2018-01-01T14:47:23-0600",
+        "locationDbId": "7989c44c",
+        "programDbId": "e972d569",
+        "seedLotDescription": "This is a description of a seed lot",
+        "seedLotName": "Seed Lot Alpha",
+        "sourceCollection": "nursery",
+        "storageLocation": "The storage location is an massive, underground, bunker.",
+        "units": "seeds"
+    }
+]
+```
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "count": 561,
+                "createdDate": "2018-01-01T14:47:23-0600",
+                "germplasmDbId": "029d705d",
+                "lastUpdated": "2018-01-01T14:47:23-0600",
+                "locationDbId": "7989c44c",
+                "programDbId": "e972d569",
+                "seedLotDbId": "261ecb09",
+                "seedLotDescription": "This is a description of a seed lot",
+                "seedLotName": "Seed Lot Alpha",
+                "sourceCollection": "nursery",
+                "storageLocation": "The storage location is an massive, underground, bunker.",
+                "units": "seeds"
+            }
+        ]
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
+```
+
+
+## Post - /seedlots/transactions [/brapi/v1//seedlots/transactions] 
+
+
+
+### /seedlots/transactions [POST /brapi/v1/seedlots/transactions]
+
+Add new Seed Lot Transaction to be recorded
+
+**Request Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|seedLots|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|count|integer|The amount of units being transfered|
+|fromSeedLotDbId|string|The identifier for the Seed Lot being transfered out of|
+|toSeedLotDbId|string|The identifier for the Seed Lot being transfered into|
+|transactionDescription|string|A general description of this Seed Lot Transaction|
+|transactionTimestamp|string (date-time)|The time stamp for when the transaction occured|
+|units|string|Description of the things being transfered in this transaction (seeds, bulbs, stock, etc)|
+
+
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|count|integer|The amount of units being transfered|
+|fromSeedLotDbId|string|The identifier for the Seed Lot being transfered out of|
+|toSeedLotDbId|string|The identifier for the Seed Lot being transfered into|
+|transactionDbId|string|Unique DbId for the Seed Lot Transaction|
+|transactionDescription|string|A general description of this Seed Lot Transaction|
+|transactionTimestamp|string (date-time)|The time stamp for when the transaction occured|
+|units|string|Description of the things being transfered in this transaction (seeds, bulbs, stock, etc)|
+
+
+ 
+
++ Parameters
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
+
+
+ 
++ Request (application/json)
+```
+{
+    "seedLots": [
+        {
+            "additionalInfo": {},
+            "count": 45,
+            "fromSeedLotDbId": "11eef13b",
+            "toSeedLotDbId": "59339b90",
+            "transactionDescription": "f9cd88d2",
+            "transactionTimestamp": "2018-01-01T14:47:23-0600",
+            "units": "seeds"
+        }
+    ]
+}
+```
+
+
+
++ Response 200 (application/json)
+```
+{
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "count": 45,
+                "fromSeedLotDbId": "11eef13b",
+                "toSeedLotDbId": "59339b90",
+                "transactionDbId": "28e46db9",
+                "transactionDescription": "f9cd88d2",
+                "transactionTimestamp": "2018-01-01T14:47:23-0600",
+                "units": "seeds"
+            }
+        ]
+    }
+}
+```
+
++ Response 400 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
+```
+
++ Response 401 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
+```
+
++ Response 403 (application/json)
+```
+"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
 
 
@@ -691,128 +814,5 @@ Update an existing Seed Lot
 + Response 404 (application/json)
 ```
 "ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
-```
-
-
-## Post - /seedlots/transactions [/brapi/v1//seedlots/transactions] 
-
-
-
-### /seedlots/transactions [POST /brapi/v1/seedlots/transactions]
-
-Add new Seed Lot Transaction to be recorded
-
-**Request Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|seedLots|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|count|integer|The amount of units being transfered|
-|fromSeedLotDbId|string|The identifier for the Seed Lot being transfered out of|
-|toSeedLotDbId|string|The identifier for the Seed Lot being transfered into|
-|transactionDescription|string|A general description of this Seed Lot Transaction|
-|transactionTimestamp|string (date-time)|The time stamp for when the transaction occured|
-|units|string|Description of the things being transfered in this transaction (seeds, bulbs, stock, etc)|
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|count|integer|The amount of units being transfered|
-|fromSeedLotDbId|string|The identifier for the Seed Lot being transfered out of|
-|toSeedLotDbId|string|The identifier for the Seed Lot being transfered into|
-|transactionDbId|string|Unique DbId for the Seed Lot Transaction|
-|transactionDescription|string|A general description of this Seed Lot Transaction|
-|transactionTimestamp|string (date-time)|The time stamp for when the transaction occured|
-|units|string|Description of the things being transfered in this transaction (seeds, bulbs, stock, etc)|
-
-
- 
-
-+ Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
- 
-+ Request (application/json)
-```
-{
-    "seedLots": [
-        {
-            "additionalInfo": {},
-            "count": 45,
-            "fromSeedLotDbId": "11eef13b",
-            "toSeedLotDbId": "59339b90",
-            "transactionDescription": "f9cd88d2",
-            "transactionTimestamp": "2018-01-01T14:47:23-0600",
-            "units": "seeds"
-        }
-    ]
-}
-```
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "data": [
-            {
-                "additionalInfo": {},
-                "count": 45,
-                "fromSeedLotDbId": "11eef13b",
-                "toSeedLotDbId": "59339b90",
-                "transactionDbId": "28e46db9",
-                "transactionDescription": "f9cd88d2",
-                "transactionTimestamp": "2018-01-01T14:47:23-0600",
-                "units": "seeds"
-            }
-        ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
 
