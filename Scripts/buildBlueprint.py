@@ -5,6 +5,7 @@ import json
 import glob
 import yaml
 import re
+import os
 
 def go():
 		
@@ -32,17 +33,24 @@ def go():
 		with open(source, "r") as inFile:
 			fullText += inFile.read()
 	
+	
 	outFilePath = rootPath + '/brapi_blueprint.apib'
+	if os.path.exists(outFilePath):
+		os.remove(outFilePath)
 	with open(outFilePath, "w") as outFile:
 		outFile.write(fullText)
 		print(outFilePath)
 		
 	outREADMEFilePath = rootPath + '/README.md'
+	if os.path.exists(outREADMEFilePath):
+		os.remove(outREADMEFilePath)
 	with open(outREADMEFilePath, "w") as outRMFile:
 		outRMFile.write(fullText)
 		print(outREADMEFilePath)
 		
 	outFileJsonPath = rootPath + '/brapi_blueprint.apib.json'
+	if os.path.exists(outFileJsonPath):
+		os.remove(outFileJsonPath)
 	with open(outFileJsonPath, "w") as outFileJson:
 		jsonWrapper = {'code': fullText}
 		json.dump(jsonWrapper, outFileJson)

@@ -235,7 +235,6 @@ def buildReadMe(dir, fullBrAPI):
 		
 	callsStrings = {}
 	for filename in sorted(glob.iglob(dir + '/**/*.yaml', recursive=True)):
-		print(filename)
 		fileObj = {}	
 		with open(filename, "r") as stream:
 			try:
@@ -307,11 +306,12 @@ def buildReadMes(rootPath, specificPath):
 	fullBrAPI = dereferenceAll.dereferenceBrAPI(filePath = rootPath + '/brapi_openapi.yaml')
 	
 	for dir in glob.iglob(rootPath + specificPath + '/', recursive=False):
+		print("dir - " + dir)
 		readMeStr = buildReadMe(dir, fullBrAPI)
 		fileName = dir + '/README.md'
 		with open(fileName, 'w') as outfile:
 			outfile.write(readMeStr)
-			print(fileName)
+			print("fileName - " + fileName)
 			
 def buildGitHubReadMe(rootPath):
 	sources=[  "GeneralInfo/Intro.md",
@@ -331,7 +331,7 @@ def buildGitHubReadMe(rootPath):
 			with open(filename, "r") as inFile:
 				outFile.write(inFile.read())
 	
-		print(outFilePath)
+		print("outFilePath - " + outFilePath)
 
 
 rootPath = '.'

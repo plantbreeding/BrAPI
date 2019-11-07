@@ -41,14 +41,16 @@ def dereferenceAll(obj, parent):
     return obj
 
 
-def dereferenceBrAPI(filePath = './brapi_openapi.yaml'):    
+def dereferenceBrAPI(filePath = './brapi_openapi.yaml', verbose = False):    
     fileObj = {}
-    print(filePath)
+    if verbose :
+        print(filePath)
     with open(filePath, "r") as stream:
         try:
             fileObj = yaml.load(stream)
         except yaml.YAMLError as exc:
-            print(exc)
+            if verbose :
+                print(exc)
     
     fileObj = dereferenceAll(fileObj, fileObj)
     return fileObj;
