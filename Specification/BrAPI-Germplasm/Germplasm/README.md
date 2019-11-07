@@ -330,8 +330,8 @@ Addresses these needs
                 ],
                 "taxonIds": [
                     {
-                        "sourceName": "sourceName",
-                        "taxonId": "taxonId"
+                        "sourceName": "NCBI",
+                        "taxonId": "2026747"
                     }
                 ],
                 "typeOfGermplasmStorageCode": [
@@ -520,8 +520,8 @@ Addresses these needs
         ],
         "taxonIds": [
             {
-                "sourceName": "sourceName",
-                "taxonId": "taxonId"
+                "sourceName": "NCBI",
+                "taxonId": "2026747"
             }
         ],
         "typeOfGermplasmStorageCode": [
@@ -610,8 +610,8 @@ Addresses these needs
                 ],
                 "taxonIds": [
                     {
-                        "sourceName": "sourceName",
-                        "taxonId": "taxonId"
+                        "sourceName": "NCBI",
+                        "taxonId": "2026747"
                     }
                 ],
                 "typeOfGermplasmStorageCode": [
@@ -777,8 +777,8 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
         ],
         "taxonIds": [
             {
-                "sourceName": "sourceName",
-                "taxonId": "taxonId"
+                "sourceName": "NCBI",
+                "taxonId": "2026747"
             }
         ],
         "typeOfGermplasmStorageCode": [
@@ -963,8 +963,8 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
     ],
     "taxonIds": [
         {
-            "sourceName": "sourceName",
-            "taxonId": "taxonId"
+            "sourceName": "NCBI",
+            "taxonId": "2026747"
         }
     ],
     "typeOfGermplasmStorageCode": [
@@ -1050,8 +1050,8 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
         ],
         "taxonIds": [
             {
-                "sourceName": "sourceName",
-                "taxonId": "taxonId"
+                "sourceName": "NCBI",
+                "taxonId": "2026747"
             }
         ],
         "typeOfGermplasmStorageCode": [
@@ -1565,48 +1565,48 @@ See Search Services for additional implementation details.
 ```
 {
     "accessionNumbers": [
-        "accessionNumbers1",
-        "accessionNumbers2"
+        "A0000003",
+        "A0000477"
     ],
     "commonCropNames": [
-        "commonCropNames1",
-        "commonCropNames2"
+        "Tomatillo",
+        "Paw Paw"
     ],
     "germplasmDbIds": [
-        "germplasmDbIds1",
-        "germplasmDbIds2"
+        "e9c6edd7",
+        "1b1df4a6"
     ],
     "germplasmGenus": [
-        "germplasmGenus1",
-        "germplasmGenus2"
+        "Aspergillus",
+        "Byssochlamys"
     ],
     "germplasmNames": [
-        "germplasmNames1",
-        "germplasmNames2"
+        "A0000003",
+        "A0000477"
     ],
     "germplasmPUIs": [
-        "germplasmPUIs1",
-        "germplasmPUIs2"
+        "http://pui.per/accession/A0000003",
+        "http://pui.per/accession/A0000477"
     ],
     "germplasmSpecies": [
-        "germplasmSpecies1",
-        "germplasmSpecies2"
+        "fructus",
+        "fulva"
     ],
     "parentDbIds": [
-        "parentDbIds1",
-        "parentDbIds2"
+        "72c1001f",
+        "7346c553"
     ],
     "progenyDbIds": [
-        "progenyDbIds1",
-        "progenyDbIds2"
+        "16e16a7e",
+        "ce06cf9e"
     ],
     "studyDbIds": [
-        "studyDbIds1",
-        "studyDbIds2"
+        "4a5f9742",
+        "07a6229c"
     ],
     "xrefs": [
-        "xrefs1",
-        "xrefs2"
+        "http://pui.per/accession/A0008766",
+        "4cda72fe"
     ]
 }
 ```
@@ -1811,8 +1811,8 @@ Addresses these needs:
                 ],
                 "taxonIds": [
                     {
-                        "sourceName": "sourceName",
-                        "taxonId": "taxonId"
+                        "sourceName": "NCBI",
+                        "taxonId": "2026747"
                     }
                 ],
                 "typeOfGermplasmStorageCode": [

@@ -84,8 +84,8 @@ Get a filtered list of Cross entities.
                 "additionalInfo": {},
                 "crossAttributes": [
                     {
-                        "crossAttributeName": "crossAttributeName",
-                        "crossAttributeValue": "crossAttributeValue"
+                        "crossAttributeName": "Humidity",
+                        "crossAttributeValue": "45%"
                     }
                 ],
                 "crossDbId": "d105fd6f",
@@ -216,8 +216,8 @@ Create new Cross entities on this server
         "additionalInfo": {},
         "crossAttributes": [
             {
-                "crossAttributeName": "crossAttributeName",
-                "crossAttributeValue": "crossAttributeValue"
+                "crossAttributeName": "Humidity",
+                "crossAttributeValue": "45%"
             }
         ],
         "crossName": "myIbadanCrosses2018_01",
@@ -288,8 +288,8 @@ Create new Cross entities on this server
                 "additionalInfo": {},
                 "crossAttributes": [
                     {
-                        "crossAttributeName": "crossAttributeName",
-                        "crossAttributeValue": "crossAttributeValue"
+                        "crossAttributeName": "Humidity",
+                        "crossAttributeValue": "45%"
                     }
                 ],
                 "crossDbId": "d105fd6f",
@@ -465,8 +465,8 @@ Update existing Cross entities on this server
                 "additionalInfo": {},
                 "crossAttributes": [
                     {
-                        "crossAttributeName": "crossAttributeName",
-                        "crossAttributeValue": "crossAttributeValue"
+                        "crossAttributeName": "Humidity",
+                        "crossAttributeValue": "45%"
                     }
                 ],
                 "crossDbId": "d105fd6f",
