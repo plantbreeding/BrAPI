@@ -45,7 +45,7 @@ components:
         date:
           description: A list of dates when the event occured
           items:
-            format: date
+            format: date-time
             type: string
           type: array
           example: ['2018-10-08T18:15:11Z', '2018-11-09T18:16:12Z']

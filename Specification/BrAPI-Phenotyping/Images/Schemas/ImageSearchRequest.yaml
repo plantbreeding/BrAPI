@@ -46,11 +46,11 @@ components:
           example: ['Image 43', 'Tractor in field']
         imageTimeStampRangeEnd:
           description: The latest timestamp to search for.
-          format: date
+          format: date-time
           type: string
         imageTimeStampRangeStart:
           description: The earliest timestamp to search for.
-          format: date
+          format: date-time
           type: string
         imageWidthMax:
           description: A maximum image width to search for.

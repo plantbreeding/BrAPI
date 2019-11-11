@@ -46,7 +46,7 @@ components:
           example: Tomato Image 1
         imageTimeStamp:
           description: The date and time the image was taken
-          format: date
+          format: date-time
           type: string
         imageURL:
           description: The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.
