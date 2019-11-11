@@ -33,7 +33,7 @@ components:
           type: string
         imageTimeStamp:
           description: The date and time the image was taken
-          format: date
+          format: date-time
           type: string
         imageWidth:
           description: The width of the image in Pixels.
