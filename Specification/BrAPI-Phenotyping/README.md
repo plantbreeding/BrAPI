@@ -202,7 +202,7 @@ Implementation Notes
 |geometry|object||
 |type|string|Feature|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
-|imageTimeStamp|string (date)|The date and time the image was taken|
+|imageTimeStamp|string (date-time)|The date and time the image was taken|
 |imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
 |imageWidth|integer|The width of the image in Pixels.|
 |mimeType|string|The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc|
@@ -278,7 +278,7 @@ Implementation Notes
                     "type": "Feature"
                 },
                 "imageName": "Tomato Image 1",
-                "imageTimeStamp": "2018-01-01",
+                "imageTimeStamp": "2018-01-01T14:47:23-0600",
                 "imageURL": "https://wiki.brapi.org/images/tomato",
                 "imageWidth": 700,
                 "mimeType": "image/jpeg",
@@ -343,7 +343,7 @@ Implementation Notes
 |geometry|object||
 |type|string|Feature|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
-|imageTimeStamp|string (date)|The date and time the image was taken|
+|imageTimeStamp|string (date-time)|The date and time the image was taken|
 |imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
 |imageWidth|integer|The width of the image in Pixels.|
 |mimeType|string|The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc|
@@ -368,7 +368,7 @@ Implementation Notes
 |geometry|object||
 |type|string|Feature|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
-|imageTimeStamp|string (date)|The date and time the image was taken|
+|imageTimeStamp|string (date-time)|The date and time the image was taken|
 |imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
 |imageWidth|integer|The width of the image in Pixels.|
 |mimeType|string|The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc|
@@ -409,7 +409,7 @@ Implementation Notes
             "type": "Feature"
         },
         "imageName": "Tomato Image 1",
-        "imageTimeStamp": "2018-01-01",
+        "imageTimeStamp": "2018-01-01T14:47:23-0600",
         "imageURL": "https://wiki.brapi.org/images/tomato",
         "imageWidth": 700,
         "mimeType": "image/jpeg",
@@ -478,7 +478,7 @@ Implementation Notes
                     "type": "Feature"
                 },
                 "imageName": "Tomato Image 1",
-                "imageTimeStamp": "2018-01-01",
+                "imageTimeStamp": "2018-01-01T14:47:23-0600",
                 "imageURL": "https://wiki.brapi.org/images/tomato",
                 "imageWidth": 700,
                 "mimeType": "image/jpeg",
@@ -540,7 +540,7 @@ Implementation Notes
 |geometry|object||
 |type|string|Feature|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
-|imageTimeStamp|string (date)|The date and time the image was taken|
+|imageTimeStamp|string (date-time)|The date and time the image was taken|
 |imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
 |imageWidth|integer|The width of the image in Pixels.|
 |mimeType|string|The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc|
@@ -608,7 +608,7 @@ Implementation Notes
             "type": "Feature"
         },
         "imageName": "Tomato Image 1",
-        "imageTimeStamp": "2018-01-01",
+        "imageTimeStamp": "2018-01-01T14:47:23-0600",
         "imageURL": "https://wiki.brapi.org/images/tomato",
         "imageWidth": 700,
         "mimeType": "image/jpeg",
@@ -680,7 +680,7 @@ Implementation Notes
 |geometry|object||
 |type|string|Feature|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
-|imageTimeStamp|string (date)|The date and time the image was taken|
+|imageTimeStamp|string (date-time)|The date and time the image was taken|
 |imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
 |imageWidth|integer|The width of the image in Pixels.|
 |mimeType|string|The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc|
@@ -704,7 +704,7 @@ Implementation Notes
 |geometry|object||
 |type|string|Feature|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
-|imageTimeStamp|string (date)|The date and time the image was taken|
+|imageTimeStamp|string (date-time)|The date and time the image was taken|
 |imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
 |imageWidth|integer|The width of the image in Pixels.|
 |mimeType|string|The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc|
@@ -745,7 +745,7 @@ Implementation Notes
         "type": "Feature"
     },
     "imageName": "Tomato Image 1",
-    "imageTimeStamp": "2018-01-01",
+    "imageTimeStamp": "2018-01-01T14:47:23-0600",
     "imageURL": "https://wiki.brapi.org/images/tomato",
     "imageWidth": 700,
     "mimeType": "image/jpeg",
@@ -811,7 +811,7 @@ Implementation Notes
             "type": "Feature"
         },
         "imageName": "Tomato Image 1",
-        "imageTimeStamp": "2018-01-01",
+        "imageTimeStamp": "2018-01-01T14:47:23-0600",
         "imageURL": "https://wiki.brapi.org/images/tomato",
         "imageWidth": 700,
         "mimeType": "image/jpeg",
@@ -878,7 +878,7 @@ Implementation Notes
 |geometry|object||
 |type|string|Feature|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
-|imageTimeStamp|string (date)|The date and time the image was taken|
+|imageTimeStamp|string (date-time)|The date and time the image was taken|
 |imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
 |imageWidth|integer|The width of the image in Pixels.|
 |mimeType|string|The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc|
@@ -946,7 +946,7 @@ Implementation Notes
             "type": "Feature"
         },
         "imageName": "Tomato Image 1",
-        "imageTimeStamp": "2018-01-01",
+        "imageTimeStamp": "2018-01-01T14:47:23-0600",
         "imageURL": "https://wiki.brapi.org/images/tomato",
         "imageWidth": 700,
         "mimeType": "image/jpeg",
@@ -1009,8 +1009,8 @@ See Search Services for additional implementation details.
 |geometry|object||
 |type|string|Feature|
 |imageNames|array[string]|Human readable names to search for.|
-|imageTimeStampRangeEnd|string (date)|The latest timestamp to search for.|
-|imageTimeStampRangeStart|string (date)|The earliest timestamp to search for.|
+|imageTimeStampRangeEnd|string (date-time)|The latest timestamp to search for.|
+|imageTimeStampRangeStart|string (date-time)|The earliest timestamp to search for.|
 |imageWidthMax|integer|A maximum image width to search for.|
 |imageWidthMin|integer|A minimum image width to search for.|
 |mimeTypes|array[string]|A set of image file types to search for.|
@@ -1062,8 +1062,8 @@ See Search Services for additional implementation details.
         "Image 43",
         "Tractor in field"
     ],
-    "imageTimeStampRangeEnd": "2018-01-01",
-    "imageTimeStampRangeStart": "2018-01-01",
+    "imageTimeStampRangeEnd": "2018-01-01T14:47:23-0600",
+    "imageTimeStampRangeStart": "2018-01-01T14:47:23-0600",
     "imageWidthMax": 1920,
     "imageWidthMin": 1280,
     "mimeTypes": [
@@ -1164,7 +1164,7 @@ Implementation Notes
 |geometry|object||
 |type|string|Feature|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
-|imageTimeStamp|string (date)|The date and time the image was taken|
+|imageTimeStamp|string (date-time)|The date and time the image was taken|
 |imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
 |imageWidth|integer|The width of the image in Pixels.|
 |mimeType|string|The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc|
@@ -1236,7 +1236,7 @@ Implementation Notes
                     "type": "Feature"
                 },
                 "imageName": "Tomato Image 1",
-                "imageTimeStamp": "2018-01-01",
+                "imageTimeStamp": "2018-01-01T14:47:23-0600",
                 "imageURL": "https://wiki.brapi.org/images/tomato",
                 "imageWidth": 700,
                 "mimeType": "image/jpeg",
