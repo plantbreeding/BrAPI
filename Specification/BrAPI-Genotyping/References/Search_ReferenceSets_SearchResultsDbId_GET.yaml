@@ -22,6 +22,8 @@ paths:
             application/json:
               schema:
                 properties:
+                  '@context':
+                    $ref: '#/components/schemas/Context'
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:

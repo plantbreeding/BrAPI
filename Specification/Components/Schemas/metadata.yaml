@@ -5,6 +5,8 @@ openapi: 3.0.0
 paths: {}
 components:
   schemas:
+    '@context':
+      $ref: '#/components/schemas/Context'
     metadata:
       type: object
       properties:

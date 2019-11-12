@@ -17,6 +17,8 @@ paths:
           content:
             application/json:
               example:
+                '@context':
+                  $ref: '#/components/schemas/Context'
                 metadata:
                   datafiles: []
                   pagination: {}
@@ -25,6 +27,8 @@ paths:
                   data: []
               schema:
                 properties:
+                  '@context':
+                    $ref: '#/components/schemas/Context'
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:

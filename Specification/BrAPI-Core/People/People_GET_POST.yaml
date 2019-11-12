@@ -77,6 +77,8 @@ components:
           schema:
             title: PersonListResponse
             properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
               metadata:
                 $ref: '#/components/schemas/metadata'
               result:

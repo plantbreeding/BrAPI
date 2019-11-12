@@ -30,6 +30,8 @@ paths:
                 title: GermplasmMCPDResponse
                 type: object
                 properties:
+                  '@context':
+                    $ref: '#/components/schemas/Context'
                   metadata:
                     $ref: '#/components/schemas/metadata'
                   result:

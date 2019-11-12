@@ -103,6 +103,8 @@ components:
           schema:
             title: TrialListResponse
             properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
               metadata:
                 $ref: '#/components/schemas/metadata'
               result:
