@@ -68,6 +68,12 @@ components:
             type: string
           type: array
           example: ['4a5f9742', '07a6229c']
+        synonyms:
+          description: List of alternative names or IDs used to reference this germplasm
+          items:
+            type: string
+          type: array
+          example: ['variety_1', '2c38f9b6']
         xrefs: 
           description: Search for Germplasm by an external reference
           items:

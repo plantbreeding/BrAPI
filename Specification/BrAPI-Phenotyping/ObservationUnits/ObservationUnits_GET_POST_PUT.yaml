@@ -102,6 +102,85 @@ paths:
               type: object
               additionalProperties:
                 $ref: '#/components/schemas/ObservationUnitNewRequest'
+            example: 
+              '<observationUnitDbId_1>': 
+                additionalInfo: 
+                  additionalProp1: string
+                  additionalProp2: string
+                  additionalProp3: string
+                germplasmDbId: e9d9ed57
+                germplasmName: A0000001
+                locationDbId: 0e208b20
+                locationName: "Field Station Alpha"
+                observationLevel: plot
+                observationUnitName: "Plot 1"
+                observationUnitPosition: 
+                  blockNumber: 6
+                  entryNumber: 3
+                  entryType: CHECK
+                  geoCoordinates: 
+                    geometry: 
+                      coordinates: [ -76.506042, 42.417373 ]
+                      type: Point                    
+                    type: Feature                  
+                  positionCoordinateX: 74
+                  positionCoordinateXType: GRID_COL
+                  positionCoordinateY: 03
+                  positionCoordinateYType: GRID_ROW
+                  replicate: 1                
+                observationUnitXref: 
+                  - id: SAMEA179865230
+                    source: "ebi.biosample"
+                plantNumber: 1
+                plotNumber: 01
+                programDbId: 2d763a7a
+                programName: "The Perfect Breeding Program"
+                studyDbId: 9865addc
+                studyName: Purple_Tomato_1
+                treatments: 
+                  - factor: fertilizer
+                    modality: "low fertilizer"
+                trialDbId: 776a609c
+                trialName: "Purple Tomato"
+              '<observationUnitDbId_2>': 
+                additionalInfo: 
+                  additionalProp1: string
+                  additionalProp2: string
+                  additionalProp3: string
+                germplasmDbId: e9d9ed57
+                germplasmName: A0000001
+                locationDbId: 0e208b20
+                locationName: "Field Station Alpha"
+                observationLevel: plot
+                observationUnitName: "Plot 1"
+                observationUnitPosition: 
+                  blockNumber: 6
+                  entryNumber: 3
+                  entryType: CHECK
+                  geoCoordinates: 
+                    geometry: 
+                      coordinates: [ -76.506042, 42.417373 ]
+                      type: Point
+                    type: Feature
+                  positionCoordinateX: 74
+                  positionCoordinateXType: GRID_COL
+                  positionCoordinateY: 03
+                  positionCoordinateYType: GRID_ROW
+                  replicate: 1
+                observationUnitXref: 
+                  - id: SAMEA179865230
+                    source: "ebi.biosample"
+                plantNumber: 1
+                plotNumber: 01
+                programDbId: 2d763a7a
+                programName: "The Perfect Breeding Program"
+                studyDbId: 9865addc
+                studyName: Purple_Tomato_1
+                treatments: 
+                  - factor: fertilizer
+                    modality: "low fertilizer"
+                trialDbId: 776a609c
+                trialName: "Purple Tomato"
       responses:
         '200':
           $ref: '#/components/responses/ObservationUnitListResponse'

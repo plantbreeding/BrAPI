@@ -63,6 +63,12 @@ paths:
         required: false
         schema:
           type: string
+      - name: synonym 
+        description: Alternative name or ID used to reference this germplasm
+        in: query
+        required: false
+        schema:
+          type: string
       - name: parentDbId
         description: Search for Germplasm with this parent
         in: query
