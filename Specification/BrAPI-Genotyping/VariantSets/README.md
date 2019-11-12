@@ -22,7 +22,7 @@ of `SearchVariantSetsResponse`.
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultDbId|string||
+|searchResultsDbId|string||
 
 
  
@@ -76,7 +76,7 @@ of `SearchVariantSetsResponse`.
         ]
     },
     "result": {
-        "searchResultDbId": "551ae08c"
+        "searchResultsDbId": "551ae08c"
     }
 }
 ```

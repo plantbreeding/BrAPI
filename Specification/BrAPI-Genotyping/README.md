@@ -375,7 +375,7 @@ Also See:
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultDbId|string||
+|searchResultsDbId|string||
 
 
  
@@ -449,7 +449,7 @@ Also See:
         ]
     },
     "result": {
-        "searchResultDbId": "551ae08c"
+        "searchResultsDbId": "551ae08c"
     }
 }
 ```
@@ -709,7 +709,7 @@ Also See:
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultDbId|string||
+|searchResultsDbId|string||
 
 
  
@@ -770,7 +770,7 @@ Also See:
         ]
     },
     "result": {
-        "searchResultDbId": "551ae08c"
+        "searchResultsDbId": "551ae08c"
     }
 }
 ```
@@ -1246,7 +1246,7 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultDbId|string||
+|searchResultsDbId|string||
 
 
  
@@ -1306,7 +1306,7 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
         ]
     },
     "result": {
-        "searchResultDbId": "551ae08c"
+        "searchResultsDbId": "551ae08c"
     }
 }
 ```
@@ -1864,7 +1864,7 @@ version of `SearchReferencesResponse`.
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultDbId|string||
+|searchResultsDbId|string||
 
 
  
@@ -1915,7 +1915,7 @@ version of `SearchReferencesResponse`.
         ]
     },
     "result": {
-        "searchResultDbId": "551ae08c"
+        "searchResultsDbId": "551ae08c"
     }
 }
 ```
@@ -2065,7 +2065,7 @@ version of `SearchReferenceSetsResponse`.
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultDbId|string||
+|searchResultsDbId|string||
 
 
  
@@ -2116,7 +2116,7 @@ version of `SearchReferenceSetsResponse`.
         ]
     },
     "result": {
-        "searchResultDbId": "551ae08c"
+        "searchResultsDbId": "551ae08c"
     }
 }
 ```
@@ -2852,7 +2852,7 @@ See Search Services for additional implementation details.
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultDbId|string||
+|searchResultsDbId|string||
 
 
  
@@ -2914,7 +2914,7 @@ See Search Services for additional implementation details.
         ]
     },
     "result": {
-        "searchResultDbId": "551ae08c"
+        "searchResultsDbId": "551ae08c"
     }
 }
 ```
@@ -3085,7 +3085,7 @@ of `SearchVariantSetsResponse`.
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultDbId|string||
+|searchResultsDbId|string||
 
 
  
@@ -3139,7 +3139,7 @@ of `SearchVariantSetsResponse`.
         ]
     },
     "result": {
-        "searchResultDbId": "551ae08c"
+        "searchResultsDbId": "551ae08c"
     }
 }
 ```
@@ -4100,7 +4100,7 @@ Also See:
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultDbId|string||
+|searchResultsDbId|string||
 
 
  
@@ -4157,7 +4157,7 @@ Also See:
         ]
     },
     "result": {
-        "searchResultDbId": "551ae08c"
+        "searchResultsDbId": "551ae08c"
     }
 }
 ```

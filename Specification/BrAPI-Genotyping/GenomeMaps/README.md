@@ -349,7 +349,7 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultDbId|string||
+|searchResultsDbId|string||
 
 
  
@@ -409,7 +409,7 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
         ]
     },
     "result": {
-        "searchResultDbId": "551ae08c"
+        "searchResultsDbId": "551ae08c"
     }
 }
 ```

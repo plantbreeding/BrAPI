@@ -25,7 +25,7 @@
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultDbId|string||
+|searchResultsDbId|string||
 
 
  
@@ -82,7 +82,7 @@
         ]
     },
     "result": {
-        "searchResultDbId": "551ae08c"
+        "searchResultsDbId": "551ae08c"
     }
 }
 ```

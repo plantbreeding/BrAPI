@@ -1130,7 +1130,7 @@ Get the details of a specific Breeding Method used to produce Germplasm
 
 
 
-### Get - /germplasm [GET /brapi/v1/germplasm{?germplasmPUI}{?germplasmDbId}{?germplasmName}{?commonCropName}{?accessionNumber}{?germplasmGenus}{?germplasmSpecies}{?studyDbIds}{?parentDbId}{?progenyDbId}{?xref}{?page}{?pageSize}]
+### Get - /germplasm [GET /brapi/v1/germplasm{?germplasmPUI}{?germplasmDbId}{?germplasmName}{?commonCropName}{?accessionNumber}{?germplasmGenus}{?germplasmSpecies}{?studyDbIds}{?synonym}{?parentDbId}{?progenyDbId}{?xref}{?page}{?pageSize}]
 
 Addresses these needs
 
@@ -1200,6 +1200,7 @@ Addresses these needs
     + germplasmGenus (Optional, ) ... Genus name to identify germplasm
     + germplasmSpecies (Optional, ) ... Species name to identify germplasm
     + studyDbIds (Optional, ) ... Search for Germplasm that are associated with a particular Study
+    + synonym (Optional, ) ... Alternative name or ID used to reference this germplasm
     + parentDbId (Optional, ) ... Search for Germplasm with this parent
     + progenyDbId (Optional, ) ... Search for Germplasm with this child
     + xref (Optional, ) ... Search for Germplasm by an external reference
@@ -2499,6 +2500,7 @@ See Search Services for additional implementation details.
 |parentDbIds|array[string]|Search for Germplasm with these parents|
 |progenyDbIds|array[string]|Search for Germplasm with these children|
 |studyDbIds|array[string]|Search for Germplasm that are associated with a particular Study|
+|synonyms|array[string]|List of alternative names or IDs used to reference this germplasm|
 |xrefs|array[string]|Search for Germplasm by an external reference|
 
 
@@ -2506,7 +2508,7 @@ See Search Services for additional implementation details.
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultDbId|string||
+|searchResultsDbId|string||
 
 
  
@@ -2559,6 +2561,10 @@ See Search Services for additional implementation details.
         "4a5f9742",
         "07a6229c"
     ],
+    "synonyms": [
+        "variety_1",
+        "2c38f9b6"
+    ],
     "xrefs": [
         "http://pui.per/accession/A0008766",
         "4cda72fe"
@@ -2596,7 +2602,7 @@ See Search Services for additional implementation details.
         ]
     },
     "result": {
-        "searchResultDbId": "551ae08c"
+        "searchResultsDbId": "551ae08c"
     }
 }
 ```

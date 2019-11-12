@@ -1018,7 +1018,7 @@ Submit a search request for a set of Observations. Returns an Id which reference
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultDbId|string||
+|searchResultsDbId|string||
 
 
  
@@ -1103,7 +1103,7 @@ Submit a search request for a set of Observations. Returns an Id which reference
         ]
     },
     "result": {
-        "searchResultDbId": "551ae08c"
+        "searchResultsDbId": "551ae08c"
     }
 }
 ```

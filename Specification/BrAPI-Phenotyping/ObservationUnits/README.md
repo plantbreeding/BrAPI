@@ -1465,7 +1465,7 @@ observationValue data type inferred from the ontology
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultDbId|string||
+|searchResultsDbId|string||
 
 
  
@@ -1536,7 +1536,7 @@ observationValue data type inferred from the ontology
         ]
     },
     "result": {
-        "searchResultDbId": "551ae08c"
+        "searchResultsDbId": "551ae08c"
     }
 }
 ```
