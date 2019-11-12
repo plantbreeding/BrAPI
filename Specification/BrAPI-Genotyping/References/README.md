@@ -49,6 +49,9 @@
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -150,6 +153,9 @@
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -247,6 +253,9 @@
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -345,6 +354,9 @@
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -499,6 +511,9 @@ version of `SearchReferencesResponse`.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -588,6 +603,9 @@ version of `SearchReferencesResponse`.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -700,6 +718,9 @@ version of `SearchReferenceSetsResponse`.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -789,6 +810,9 @@ version of `SearchReferenceSetsResponse`.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {

@@ -84,6 +84,9 @@ Studies, and Germplasm.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -180,6 +183,9 @@ Get filtered set of generic lists
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -335,6 +341,9 @@ Create a new list
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -443,6 +452,9 @@ Get a specific generic lists
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -602,6 +614,9 @@ Update an existing generic list
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -728,6 +743,9 @@ Add new data to a specific generic lists
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -887,6 +905,9 @@ See Search Services for additional implementation details.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -974,6 +995,9 @@ See Search Services for additional implementation details.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -1101,6 +1125,9 @@ Get a list of locations.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -1283,6 +1310,9 @@ Add new locations to database
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -1407,6 +1437,9 @@ Get details for a location.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -1588,6 +1621,9 @@ Update the details for an existing location.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -1760,6 +1796,9 @@ See Search Services for additional implementation details.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -1856,6 +1895,9 @@ See Search Services for additional implementation details.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -1978,6 +2020,9 @@ Get filtered list of people
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -2104,6 +2149,9 @@ Create new People entities. `personDbId` is generated and managed by the server.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -2199,6 +2247,9 @@ Get the details for a specific Person
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -2324,6 +2375,9 @@ Update an existing Person
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -2463,6 +2517,9 @@ See Search Services for additional implementation details.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -2550,6 +2607,9 @@ See Search Services for additional implementation details.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -2654,6 +2714,9 @@ Get a filtered list of breeding Programs. This list can be filtered by common cr
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -2776,6 +2839,9 @@ Add new breeding Programs to the database. The `programDbId` is set by the serve
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -2869,6 +2935,9 @@ Get a single breeding Program by Id. This can be used to quickly get the details
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -2985,6 +3054,9 @@ Update the details of an existing breeding Program.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -3112,6 +3184,9 @@ See Search Services for additional implementation details.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -3197,6 +3272,9 @@ See Search Services for additional implementation details.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -3330,6 +3408,9 @@ BAD    "call": "germplasm/<germplasmDbId>/pedigree"
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -3519,6 +3600,9 @@ See Search Services for additional implementation details.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -3664,6 +3748,9 @@ See Search Services for additional implementation details.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -3845,6 +3932,9 @@ program like "PlantingTime_3" or "Season E"
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -4005,6 +4095,9 @@ StartDate and endDate should be ISO-8601 format for dates
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -4405,6 +4498,9 @@ StartDate and endDate should be ISO-8601 format for dates
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -4636,6 +4732,9 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -5029,6 +5128,9 @@ Update an existing Study with new data
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -5195,6 +5297,18 @@ Call to retrieve the list of study types.
 + Response 200 (application/json)
 ```
 {
+    "@context": {
+        "description": "The JSON-LD Context is used to provide JSON-LD definitions to each field in a JSON object. By providing an array of context file urls, a BrAPI response object becomes JSON-LD compatible.  \n\nFor more information, see https://w3c.github.io/json-ld-syntax/#the-context",
+        "example": [
+            "https://brapi.org/jsonld/context/metadata.jsonld"
+        ],
+        "items": {
+            "format": "uri",
+            "type": "string"
+        },
+        "title": "context",
+        "type": "array"
+    },
     "metadata": {
         "datafiles": [],
         "pagination": {
@@ -5307,6 +5421,9 @@ See Search Services for additional implementation details.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -5409,6 +5526,9 @@ See Search Services for additional implementation details.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -5558,6 +5678,9 @@ Retrieve a filtered list of breeding Trials. A Trial is a collection of Studies
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -5766,6 +5889,9 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -5942,6 +6068,9 @@ Get the details of a specific Trial
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -6242,6 +6371,9 @@ Update the details of an existing Trial
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {

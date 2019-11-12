@@ -85,6 +85,9 @@ Also See:
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -179,6 +182,9 @@ Also See:
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -288,6 +294,9 @@ Also See:
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -424,6 +433,9 @@ Also See:
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -509,6 +521,9 @@ Also See:
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -624,6 +639,9 @@ Also See:
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -745,6 +763,9 @@ Also See:
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -834,6 +855,9 @@ See Search Services for additional implementation details.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -953,6 +977,18 @@ Get list of maps
 + Response 200 (application/json)
 ```
 {
+    "@context": {
+        "description": "The JSON-LD Context is used to provide JSON-LD definitions to each field in a JSON object. By providing an array of context file urls, a BrAPI response object becomes JSON-LD compatible.  \n\nFor more information, see https://w3c.github.io/json-ld-syntax/#the-context",
+        "example": [
+            "https://brapi.org/jsonld/context/metadata.jsonld"
+        ],
+        "items": {
+            "format": "uri",
+            "type": "string"
+        },
+        "title": "context",
+        "type": "array"
+    },
     "metadata": {
         "datafiles": [],
         "pagination": {
@@ -1056,6 +1092,18 @@ Provides the number of markers on each linkageGroup and the max position on the 
 + Response 200 (application/json)
 ```
 {
+    "@context": {
+        "description": "The JSON-LD Context is used to provide JSON-LD definitions to each field in a JSON object. By providing an array of context file urls, a BrAPI response object becomes JSON-LD compatible.  \n\nFor more information, see https://w3c.github.io/json-ld-syntax/#the-context",
+        "example": [
+            "https://brapi.org/jsonld/context/metadata.jsonld"
+        ],
+        "items": {
+            "format": "uri",
+            "type": "string"
+        },
+        "title": "context",
+        "type": "array"
+    },
     "metadata": {
         "datafiles": [],
         "pagination": {},
@@ -1126,6 +1174,18 @@ Get the Linkage Groups of a specific Genomic Map. A Linkage Group is the BrAPI g
 + Response 200 (application/json)
 ```
 {
+    "@context": {
+        "description": "The JSON-LD Context is used to provide JSON-LD definitions to each field in a JSON object. By providing an array of context file urls, a BrAPI response object becomes JSON-LD compatible.  \n\nFor more information, see https://w3c.github.io/json-ld-syntax/#the-context",
+        "example": [
+            "https://brapi.org/jsonld/context/metadata.jsonld"
+        ],
+        "items": {
+            "format": "uri",
+            "type": "string"
+        },
+        "title": "context",
+        "type": "array"
+    },
     "metadata": {
         "datafiles": [],
         "pagination": {},
@@ -1198,6 +1258,18 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 + Response 200 (application/json)
 ```
 {
+    "@context": {
+        "description": "The JSON-LD Context is used to provide JSON-LD definitions to each field in a JSON object. By providing an array of context file urls, a BrAPI response object becomes JSON-LD compatible.  \n\nFor more information, see https://w3c.github.io/json-ld-syntax/#the-context",
+        "example": [
+            "https://brapi.org/jsonld/context/metadata.jsonld"
+        ],
+        "items": {
+            "format": "uri",
+            "type": "string"
+        },
+        "title": "context",
+        "type": "array"
+    },
     "metadata": {
         "datafiles": [],
         "pagination": {},
@@ -1281,6 +1353,9 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -1363,6 +1438,18 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 + Response 200 (application/json)
 ```
 {
+    "@context": {
+        "description": "The JSON-LD Context is used to provide JSON-LD definitions to each field in a JSON object. By providing an array of context file urls, a BrAPI response object becomes JSON-LD compatible.  \n\nFor more information, see https://w3c.github.io/json-ld-syntax/#the-context",
+        "example": [
+            "https://brapi.org/jsonld/context/metadata.jsonld"
+        ],
+        "items": {
+            "format": "uri",
+            "type": "string"
+        },
+        "title": "context",
+        "type": "array"
+    },
     "metadata": {
         "datafiles": [],
         "pagination": {},
@@ -1440,6 +1527,9 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -1541,6 +1631,9 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -1638,6 +1731,9 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -1736,6 +1832,9 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -1890,6 +1989,9 @@ version of `SearchReferencesResponse`.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -1979,6 +2081,9 @@ version of `SearchReferencesResponse`.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -2091,6 +2196,9 @@ version of `SearchReferenceSetsResponse`.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -2180,6 +2288,9 @@ version of `SearchReferenceSetsResponse`.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -2303,6 +2414,9 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -2473,6 +2587,9 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -2590,6 +2707,9 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -2759,6 +2879,9 @@ Update the details of an existing Sample
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -2889,6 +3012,9 @@ See Search Services for additional implementation details.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -2987,6 +3113,9 @@ See Search Services for additional implementation details.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -3114,6 +3243,9 @@ of `SearchVariantSetsResponse`.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -3210,6 +3342,9 @@ of `SearchVariantSetsResponse`.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -3347,6 +3482,9 @@ of `SearchVariantSetsResponse`.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -3514,6 +3652,9 @@ The results of the search will be used to create a new `VariantSet` on the serve
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -3650,6 +3791,9 @@ The results of the search will be used to create a new `VariantSet` on the serve
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -3788,6 +3932,9 @@ Also See:
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -3891,6 +4038,9 @@ Also See:
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -4000,6 +4150,9 @@ Also See:
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -4132,6 +4285,9 @@ Also See:
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -4227,6 +4383,9 @@ Also See:
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -4349,6 +4508,9 @@ Also See:
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -4467,6 +4629,9 @@ Also See:
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -4590,6 +4755,9 @@ Also See:
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -4693,6 +4861,9 @@ List current available orders
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -4908,6 +5079,9 @@ Submit a new order to a vendor
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -5021,6 +5195,9 @@ Retrieve the plate and sample details of an order being processed
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -5162,6 +5339,9 @@ Retrieve the data files generated by the vendors analysis
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -5253,6 +5433,9 @@ Retrieve the current status of an order being processed
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -5445,6 +5628,9 @@ Submit a new set of Sample data
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -5552,6 +5738,9 @@ Get data for a submitted set of plates
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -5707,6 +5896,9 @@ Defines the plate format specification for the vendor.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {

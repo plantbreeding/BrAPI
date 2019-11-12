@@ -94,6 +94,9 @@ Get a filtered list of Cross entities.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -298,6 +301,9 @@ Create new Cross entities on this server
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -475,6 +481,9 @@ Update existing Cross entities on this server
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -600,6 +609,9 @@ Get a filtered list of Crossing Projects.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -710,6 +722,9 @@ Create new Crossing Project entities on this server
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -799,6 +814,9 @@ Get a filtered list of Crossing Projects.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -903,6 +921,9 @@ Update an existing Crossing Project entity on this server
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -991,6 +1012,9 @@ Get the list of germplasm breeding methods available in a system.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -1074,6 +1098,9 @@ Get the details of a specific Breeding Method used to produce Germplasm
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -1214,6 +1241,9 @@ Addresses these needs
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -1494,6 +1524,9 @@ Addresses these needs
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -1663,6 +1696,9 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -1936,6 +1972,9 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -2122,6 +2161,9 @@ Implementation Notes
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -2289,6 +2331,9 @@ Get the parentage information of a specific Germplasm
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -2401,6 +2446,9 @@ Implementation Notes
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -2577,6 +2625,9 @@ See Search Services for additional implementation details.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -2700,6 +2751,9 @@ Addresses these needs:
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -2921,6 +2975,9 @@ List available attributes.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -3431,6 +3488,9 @@ Create new Germplasm Attributes
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -3646,6 +3706,9 @@ List all available attribute categories.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -3795,6 +3858,9 @@ Get the details for a specific Germplasm Attribute
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -4299,6 +4365,9 @@ Create new Germplasm Attributes
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -4533,6 +4602,9 @@ Get a filtered list of Planned Cross entities.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -4715,6 +4787,9 @@ Create new Planned Cross entities on this server
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -4880,6 +4955,9 @@ Update existing Planned Cross entities on this server
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -5006,6 +5084,9 @@ Get a filtered list of Seed Lot descriptions available in a system.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -5144,6 +5225,9 @@ Add new Seed Lot descriptions to a server
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -5245,6 +5329,9 @@ Get a filtered list of Seed Lot Transactions
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -5366,6 +5453,9 @@ Add new Seed Lot Transaction to be recorded
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -5462,6 +5552,9 @@ Get a specific Seed Lot by seedLotDbId
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -5599,6 +5692,9 @@ Update an existing Seed Lot
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -5701,6 +5797,9 @@ Get all Transactions related to a specific Seed Lot
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {

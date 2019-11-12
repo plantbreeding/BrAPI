@@ -50,6 +50,9 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -208,6 +211,9 @@ Create a new method object in the database
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -321,6 +327,9 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -478,6 +487,9 @@ Update the details of an existing method
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {

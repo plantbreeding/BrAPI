@@ -69,6 +69,9 @@ BAD    "call": "germplasm/<germplasmDbId>/pedigree"
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {

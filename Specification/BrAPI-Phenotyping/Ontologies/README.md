@@ -43,6 +43,9 @@ Call to retrieve a list of observation variable ontologies available in the syst
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {

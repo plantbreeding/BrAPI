@@ -122,6 +122,9 @@ See Search Services for additional implementation details.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -267,6 +270,9 @@ See Search Services for additional implementation details.
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -448,6 +454,9 @@ program like "PlantingTime_3" or "Season E"
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -608,6 +617,9 @@ StartDate and endDate should be ISO-8601 format for dates
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -1008,6 +1020,9 @@ StartDate and endDate should be ISO-8601 format for dates
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -1239,6 +1254,9 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -1632,6 +1650,9 @@ Update an existing Study with new data
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -1798,6 +1819,18 @@ Call to retrieve the list of study types.
 + Response 200 (application/json)
 ```
 {
+    "@context": {
+        "description": "The JSON-LD Context is used to provide JSON-LD definitions to each field in a JSON object. By providing an array of context file urls, a BrAPI response object becomes JSON-LD compatible.  \n\nFor more information, see https://w3c.github.io/json-ld-syntax/#the-context",
+        "example": [
+            "https://brapi.org/jsonld/context/metadata.jsonld"
+        ],
+        "items": {
+            "format": "uri",
+            "type": "string"
+        },
+        "title": "context",
+        "type": "array"
+    },
     "metadata": {
         "datafiles": [],
         "pagination": {

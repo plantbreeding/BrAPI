@@ -56,6 +56,18 @@ Get list of maps
 + Response 200 (application/json)
 ```
 {
+    "@context": {
+        "description": "The JSON-LD Context is used to provide JSON-LD definitions to each field in a JSON object. By providing an array of context file urls, a BrAPI response object becomes JSON-LD compatible.  \n\nFor more information, see https://w3c.github.io/json-ld-syntax/#the-context",
+        "example": [
+            "https://brapi.org/jsonld/context/metadata.jsonld"
+        ],
+        "items": {
+            "format": "uri",
+            "type": "string"
+        },
+        "title": "context",
+        "type": "array"
+    },
     "metadata": {
         "datafiles": [],
         "pagination": {
@@ -159,6 +171,18 @@ Provides the number of markers on each linkageGroup and the max position on the 
 + Response 200 (application/json)
 ```
 {
+    "@context": {
+        "description": "The JSON-LD Context is used to provide JSON-LD definitions to each field in a JSON object. By providing an array of context file urls, a BrAPI response object becomes JSON-LD compatible.  \n\nFor more information, see https://w3c.github.io/json-ld-syntax/#the-context",
+        "example": [
+            "https://brapi.org/jsonld/context/metadata.jsonld"
+        ],
+        "items": {
+            "format": "uri",
+            "type": "string"
+        },
+        "title": "context",
+        "type": "array"
+    },
     "metadata": {
         "datafiles": [],
         "pagination": {},
@@ -229,6 +253,18 @@ Get the Linkage Groups of a specific Genomic Map. A Linkage Group is the BrAPI g
 + Response 200 (application/json)
 ```
 {
+    "@context": {
+        "description": "The JSON-LD Context is used to provide JSON-LD definitions to each field in a JSON object. By providing an array of context file urls, a BrAPI response object becomes JSON-LD compatible.  \n\nFor more information, see https://w3c.github.io/json-ld-syntax/#the-context",
+        "example": [
+            "https://brapi.org/jsonld/context/metadata.jsonld"
+        ],
+        "items": {
+            "format": "uri",
+            "type": "string"
+        },
+        "title": "context",
+        "type": "array"
+    },
     "metadata": {
         "datafiles": [],
         "pagination": {},
@@ -301,6 +337,18 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 + Response 200 (application/json)
 ```
 {
+    "@context": {
+        "description": "The JSON-LD Context is used to provide JSON-LD definitions to each field in a JSON object. By providing an array of context file urls, a BrAPI response object becomes JSON-LD compatible.  \n\nFor more information, see https://w3c.github.io/json-ld-syntax/#the-context",
+        "example": [
+            "https://brapi.org/jsonld/context/metadata.jsonld"
+        ],
+        "items": {
+            "format": "uri",
+            "type": "string"
+        },
+        "title": "context",
+        "type": "array"
+    },
     "metadata": {
         "datafiles": [],
         "pagination": {},
@@ -384,6 +432,9 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 + Response 200 (application/json)
 ```
 {
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
         "datafiles": [
             {
@@ -466,6 +517,18 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 + Response 200 (application/json)
 ```
 {
+    "@context": {
+        "description": "The JSON-LD Context is used to provide JSON-LD definitions to each field in a JSON object. By providing an array of context file urls, a BrAPI response object becomes JSON-LD compatible.  \n\nFor more information, see https://w3c.github.io/json-ld-syntax/#the-context",
+        "example": [
+            "https://brapi.org/jsonld/context/metadata.jsonld"
+        ],
+        "items": {
+            "format": "uri",
+            "type": "string"
+        },
+        "title": "context",
+        "type": "array"
+    },
     "metadata": {
         "datafiles": [],
         "pagination": {},
