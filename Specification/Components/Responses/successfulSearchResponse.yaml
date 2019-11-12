@@ -16,7 +16,7 @@ components:
                 $ref: '#/components/schemas/metadata'
               result:
                 properties:
-                  searchResultDbId:
+                  searchResultsDbId:
                     type: string
                     example: 551ae08c
                 type: object
