@@ -607,7 +607,7 @@ See Search Services for additional implementation details.
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultDbId|string||
+|searchResultsDbId|string||
 
 
  
@@ -669,7 +669,7 @@ See Search Services for additional implementation details.
         ]
     },
     "result": {
-        "searchResultDbId": "551ae08c"
+        "searchResultsDbId": "551ae08c"
     }
 }
 ```
