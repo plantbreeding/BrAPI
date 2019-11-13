@@ -4182,8 +4182,7 @@ Also See:
             {
                 "additionalInfo": {},
                 "alternate_bases": [
-                    "alternate_bases1",
-                    "alternate_bases2"
+                    "TAGGATTGAGCTCTATAT"
                 ],
                 "ciend": [
                     -1000,
@@ -4193,25 +4192,27 @@ Also See:
                     -12000,
                     1000
                 ],
-                "created": "",
-                "end": "",
+                "created": "1573671122",
+                "end": "518",
+                "filtersApplied": true,
                 "filtersFailed": [
-                    "filtersFailed1",
-                    "filtersFailed2"
+                    "d629a669",
+                    "3f14f578"
                 ],
-                "referenceBases": "referenceBases",
+                "filtersPassed": true,
+                "referenceBases": "ATCGATTGAGCTCTAGCG",
                 "referenceName": "chr20",
-                "start": "",
-                "svlen": "",
-                "updated": "",
-                "variantDbId": "variantDbId",
+                "start": "500",
+                "svlen": "1500",
+                "updated": "1573672019",
+                "variantDbId": "628e89c5",
                 "variantNames": [
-                    "variantNames1",
-                    "variantNames2"
+                    "RefSNP_ID_1",
+                    "06ea312e"
                 ],
                 "variantSetDbId": [
-                    "variantSetDbId1",
-                    "variantSetDbId2"
+                    "c8ae400b",
+                    "ef2c204b"
                 ],
                 "variantType": "DUP"
             }
@@ -4424,8 +4425,7 @@ Also See:
             {
                 "additionalInfo": {},
                 "alternate_bases": [
-                    "alternate_bases1",
-                    "alternate_bases2"
+                    "TAGGATTGAGCTCTATAT"
                 ],
                 "ciend": [
                     -1000,
@@ -4435,25 +4435,27 @@ Also See:
                     -12000,
                     1000
                 ],
-                "created": "",
-                "end": "",
+                "created": "1573671122",
+                "end": "518",
+                "filtersApplied": true,
                 "filtersFailed": [
-                    "filtersFailed1",
-                    "filtersFailed2"
+                    "d629a669",
+                    "3f14f578"
                 ],
-                "referenceBases": "referenceBases",
+                "filtersPassed": true,
+                "referenceBases": "ATCGATTGAGCTCTAGCG",
                 "referenceName": "chr20",
-                "start": "",
-                "svlen": "",
-                "updated": "",
-                "variantDbId": "variantDbId",
+                "start": "500",
+                "svlen": "1500",
+                "updated": "1573672019",
+                "variantDbId": "628e89c5",
                 "variantNames": [
-                    "variantNames1",
-                    "variantNames2"
+                    "RefSNP_ID_1",
+                    "06ea312e"
                 ],
                 "variantSetDbId": [
-                    "variantSetDbId1",
-                    "variantSetDbId2"
+                    "c8ae400b",
+                    "ef2c204b"
                 ],
                 "variantType": "DUP"
             }
@@ -4558,8 +4560,7 @@ Also See:
             {
                 "additionalInfo": {},
                 "alternate_bases": [
-                    "alternate_bases1",
-                    "alternate_bases2"
+                    "TAGGATTGAGCTCTATAT"
                 ],
                 "ciend": [
                     -1000,
@@ -4569,25 +4570,27 @@ Also See:
                     -12000,
                     1000
                 ],
-                "created": "",
-                "end": "",
+                "created": "1573671122",
+                "end": "518",
+                "filtersApplied": true,
                 "filtersFailed": [
-                    "filtersFailed1",
-                    "filtersFailed2"
+                    "d629a669",
+                    "3f14f578"
                 ],
-                "referenceBases": "referenceBases",
+                "filtersPassed": true,
+                "referenceBases": "ATCGATTGAGCTCTAGCG",
                 "referenceName": "chr20",
-                "start": "",
-                "svlen": "",
-                "updated": "",
-                "variantDbId": "variantDbId",
+                "start": "500",
+                "svlen": "1500",
+                "updated": "1573672019",
+                "variantDbId": "628e89c5",
                 "variantNames": [
-                    "variantNames1",
-                    "variantNames2"
+                    "RefSNP_ID_1",
+                    "06ea312e"
                 ],
                 "variantSetDbId": [
-                    "variantSetDbId1",
-                    "variantSetDbId2"
+                    "c8ae400b",
+                    "ef2c204b"
                 ],
                 "variantType": "DUP"
             }
@@ -4686,8 +4689,7 @@ Also See:
     "result": {
         "additionalInfo": {},
         "alternate_bases": [
-            "alternate_bases1",
-            "alternate_bases2"
+            "TAGGATTGAGCTCTATAT"
         ],
         "ciend": [
             -1000,
@@ -4697,25 +4699,27 @@ Also See:
             -12000,
             1000
         ],
-        "created": "",
-        "end": "",
+        "created": "1573671122",
+        "end": "518",
+        "filtersApplied": true,
         "filtersFailed": [
-            "filtersFailed1",
-            "filtersFailed2"
+            "d629a669",
+            "3f14f578"
         ],
-        "referenceBases": "referenceBases",
+        "filtersPassed": true,
+        "referenceBases": "ATCGATTGAGCTCTAGCG",
         "referenceName": "chr20",
-        "start": "",
-        "svlen": "",
-        "updated": "",
-        "variantDbId": "variantDbId",
+        "start": "500",
+        "svlen": "1500",
+        "updated": "1573672019",
+        "variantDbId": "628e89c5",
         "variantNames": [
-            "variantNames1",
-            "variantNames2"
+            "RefSNP_ID_1",
+            "06ea312e"
         ],
         "variantSetDbId": [
-            "variantSetDbId1",
-            "variantSetDbId2"
+            "c8ae400b",
+            "ef2c204b"
         ],
         "variantType": "DUP"
     }
