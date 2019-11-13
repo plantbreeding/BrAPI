@@ -12,7 +12,7 @@ Retrieving genetic or physical maps
 
 
 
-### Get - /maps [GET /brapi/v1/maps{?commonCropName}{?scientificName}{?type}{?programDbId}{?trialDbId}{?studyDbId}{?page}{?pageSize}]
+### Get - /maps [GET /brapi/v1/maps{?commonCropName}{?mapPUI}{?scientificName}{?type}{?programDbId}{?trialDbId}{?studyDbId}{?page}{?pageSize}]
 
 Get list of maps
 
@@ -27,11 +27,12 @@ Get list of maps
 |comments|string|Additional comments|
 |commonCropName|string|The common name of the crop, found from "GET /commoncropnames"|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|linkageGroupCount|integer (int32)|The number of linkage groups present in this genome map|
-|mapDbId|string|The ID which uniquely identifies this genome map|
-|mapName|string|A human readable name for this genome map|
-|markerCount|integer (int32)|The number of markers present in this genome map|
-|publishedDate|string (date)|The date this genome was published|
+|linkageGroupCount|integer (int32)|The number of linkage groups present in this genomic map|
+|mapDbId|string|The ID which uniquely identifies this genomic map|
+|mapName|string|A human readable name for this genomic map|
+|mapPUI|string|The DOI or other permanent identifier for this genomic map|
+|markerCount|integer (int32)|The number of markers present in this genomic map|
+|publishedDate|string (date-time)|The date this genome was published|
 |scientificName|string|Full scientific binomial format name. This includes Genus, Species, and Sub-species|
 |type|string|The type of map this represents, ussually "Genetic"|
 |unit|string|The units used to describe the data in this map|
@@ -41,6 +42,7 @@ Get list of maps
 
 + Parameters
     + commonCropName (Optional, ) ... The common name of the crop, found from "GET /commoncropnames"
+    + mapPUI (Optional, ) ... The DOI or other permanent identifier for this genomic map
     + scientificName (Optional, ) ... Full scientific binomial format name. This includes Genus, Species, and Sub-species
     + type (Optional, ) ... Type of map
     + programDbId (Optional, ) ... Unique Id to filter by Program
@@ -56,57 +58,47 @@ Get list of maps
 + Response 200 (application/json)
 ```
 {
-    "@context": {
-        "description": "The JSON-LD Context is used to provide JSON-LD definitions to each field in a JSON object. By providing an array of context file urls, a BrAPI response object becomes JSON-LD compatible.  \n\nFor more information, see https://w3c.github.io/json-ld-syntax/#the-context",
-        "example": [
-            "https://brapi.org/jsonld/context/metadata.jsonld"
-        ],
-        "items": {
-            "format": "uri",
-            "type": "string"
-        },
-        "title": "context",
-        "type": "array"
-    },
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
-        "datafiles": [],
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 2,
-            "totalCount": 2,
+            "pageSize": 1000,
+            "totalCount": 1,
             "totalPages": 1
         },
-        "status": []
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
     },
     "result": {
         "data": [
             {
-                "comments": "comments",
+                "additionalInfo": {},
+                "comments": "Comments about this map",
                 "commonCropName": "Paw Paw",
                 "documentationURL": "https://brapi.org",
-                "linkageGroupCount": 1,
-                "mapDbId": "gm1",
+                "linkageGroupCount": 5,
+                "mapDbId": "142cffd5",
                 "mapName": "Genome Map 1",
-                "markerCount": 11,
-                "name": "Genome Map 1",
-                "publishedDate": "2018-01-01",
+                "mapPUI": "doi:10.3207/2959859860",
+                "markerCount": 1100,
+                "publishedDate": "2018-01-01T14:47:23-0600",
                 "scientificName": "Asimina triloba",
-                "species": "triloba",
-                "type": "Genetic",
-                "unit": "cM"
-            },
-            {
-                "comments": "comments",
-                "commonCropName": "Paw Paw",
-                "documentationURL": "https://brapi.org",
-                "linkageGroupCount": 2,
-                "mapDbId": "gm2",
-                "mapName": "Genome Map 2",
-                "markerCount": 11,
-                "name": "Genome Map 2",
-                "publishedDate": "2018-01-01",
-                "scientificName": "Asimina triloba",
-                "species": "triloba",
                 "type": "Genetic",
                 "unit": "cM"
             }
@@ -147,11 +139,12 @@ Provides the number of markers on each linkageGroup and the max position on the 
 |comments|string|Additional comments|
 |commonCropName|string|The common name of the crop, found from "GET /commoncropnames"|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|linkageGroupCount|integer (int32)|The number of linkage groups present in this genome map|
-|mapDbId|string|The ID which uniquely identifies this genome map|
-|mapName|string|A human readable name for this genome map|
-|markerCount|integer (int32)|The number of markers present in this genome map|
-|publishedDate|string (date)|The date this genome was published|
+|linkageGroupCount|integer (int32)|The number of linkage groups present in this genomic map|
+|mapDbId|string|The ID which uniquely identifies this genomic map|
+|mapName|string|A human readable name for this genomic map|
+|mapPUI|string|The DOI or other permanent identifier for this genomic map|
+|markerCount|integer (int32)|The number of markers present in this genomic map|
+|publishedDate|string (date-time)|The date this genome was published|
 |scientificName|string|Full scientific binomial format name. This includes Genus, Species, and Sub-species|
 |type|string|The type of map this represents, ussually "Genetic"|
 |unit|string|The units used to describe the data in this map|
@@ -171,28 +164,45 @@ Provides the number of markers on each linkageGroup and the max position on the 
 + Response 200 (application/json)
 ```
 {
-    "@context": {
-        "description": "The JSON-LD Context is used to provide JSON-LD definitions to each field in a JSON object. By providing an array of context file urls, a BrAPI response object becomes JSON-LD compatible.  \n\nFor more information, see https://w3c.github.io/json-ld-syntax/#the-context",
-        "example": [
-            "https://brapi.org/jsonld/context/metadata.jsonld"
-        ],
-        "items": {
-            "format": "uri",
-            "type": "string"
-        },
-        "title": "context",
-        "type": "array"
-    },
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
-        "datafiles": [],
-        "pagination": {},
-        "status": []
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
     },
     "result": {
+        "additionalInfo": {},
+        "comments": "Comments about this map",
+        "commonCropName": "Paw Paw",
         "documentationURL": "https://brapi.org",
-        "mapDbId": "gm1",
+        "linkageGroupCount": 5,
+        "mapDbId": "142cffd5",
         "mapName": "Genome Map 1",
-        "name": "Genome Map 1",
+        "mapPUI": "doi:10.3207/2959859860",
+        "markerCount": 1100,
+        "publishedDate": "2018-01-01T14:47:23-0600",
+        "scientificName": "Asimina triloba",
         "type": "Genetic",
         "unit": "cM"
     }
@@ -253,25 +263,42 @@ Get the Linkage Groups of a specific Genomic Map. A Linkage Group is the BrAPI g
 + Response 200 (application/json)
 ```
 {
-    "@context": {
-        "description": "The JSON-LD Context is used to provide JSON-LD definitions to each field in a JSON object. By providing an array of context file urls, a BrAPI response object becomes JSON-LD compatible.  \n\nFor more information, see https://w3c.github.io/json-ld-syntax/#the-context",
-        "example": [
-            "https://brapi.org/jsonld/context/metadata.jsonld"
-        ],
-        "items": {
-            "format": "uri",
-            "type": "string"
-        },
-        "title": "context",
-        "type": "array"
-    },
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
-        "datafiles": [],
-        "pagination": {},
-        "status": []
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
     },
     "result": {
-        "data": []
+        "data": [
+            {
+                "additionalInfo": {},
+                "linkageGroupName": "Chromosome 3",
+                "markerCount": 150,
+                "maxPosition": 2500
+            }
+        ]
     }
 }
 ```
@@ -337,25 +364,45 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 + Response 200 (application/json)
 ```
 {
-    "@context": {
-        "description": "The JSON-LD Context is used to provide JSON-LD definitions to each field in a JSON object. By providing an array of context file urls, a BrAPI response object becomes JSON-LD compatible.  \n\nFor more information, see https://w3c.github.io/json-ld-syntax/#the-context",
-        "example": [
-            "https://brapi.org/jsonld/context/metadata.jsonld"
-        ],
-        "items": {
-            "format": "uri",
-            "type": "string"
-        },
-        "title": "context",
-        "type": "array"
-    },
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
-        "datafiles": [],
-        "pagination": {},
-        "status": []
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
     },
     "result": {
-        "data": []
+        "data": [
+            {
+                "additionalInfo": {},
+                "linkageGroupName": "Chromosome 3",
+                "mapDbId": "3d52bdf3",
+                "mapName": "Genome Map 1",
+                "markerDbId": "a1eb250a",
+                "markerName": "Marker_2390",
+                "position": 2390
+            }
+        ]
     }
 }
 ```
@@ -411,19 +458,19 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 ```
 {
     "linkageGroupNames": [
-        "linkageGroupNames1",
-        "linkageGroupNames2"
+        "Chromosome 2",
+        "Chromosome 3"
     ],
     "mapDbIds": [
-        "mapDbIds1",
-        "mapDbIds2"
+        "7e6fa8aa",
+        "bedc418c"
     ],
     "markerDbIds": [
-        "markerDbIds1",
-        "markerDbIds2"
+        "a0caa928",
+        "f8894a26"
     ],
-    "maxPosition": 0,
-    "minPosition": 0
+    "maxPosition": 4000,
+    "minPosition": 250
 }
 ```
 
@@ -517,25 +564,45 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 + Response 200 (application/json)
 ```
 {
-    "@context": {
-        "description": "The JSON-LD Context is used to provide JSON-LD definitions to each field in a JSON object. By providing an array of context file urls, a BrAPI response object becomes JSON-LD compatible.  \n\nFor more information, see https://w3c.github.io/json-ld-syntax/#the-context",
-        "example": [
-            "https://brapi.org/jsonld/context/metadata.jsonld"
-        ],
-        "items": {
-            "format": "uri",
-            "type": "string"
-        },
-        "title": "context",
-        "type": "array"
-    },
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
-        "datafiles": [],
-        "pagination": {},
-        "status": []
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 1,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
     },
     "result": {
-        "data": []
+        "data": [
+            {
+                "additionalInfo": {},
+                "linkageGroupName": "Chromosome 3",
+                "mapDbId": "3d52bdf3",
+                "mapName": "Genome Map 1",
+                "markerDbId": "a1eb250a",
+                "markerName": "Marker_2390",
+                "position": 2390
+            }
+        ]
     }
 }
 ```

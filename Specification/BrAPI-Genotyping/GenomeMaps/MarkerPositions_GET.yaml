@@ -43,7 +43,7 @@ paths:
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          $ref: '#/components/schemas/MarkerPositionListResponse'
+          $ref: '#/components/responses/MarkerPositionListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
