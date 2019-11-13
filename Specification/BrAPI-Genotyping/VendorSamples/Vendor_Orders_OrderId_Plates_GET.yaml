@@ -14,6 +14,8 @@ paths:
         required: true
         schema:
           type: string
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
