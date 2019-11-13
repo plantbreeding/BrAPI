@@ -6,7 +6,7 @@ An event is discrete occurrence at a particular time in the experiment (which ca
 
 
 
-### Get - /events [GET /brapi/v1/events{?studyDbId}{?page}{?pageSize}]
+### Get - /events [GET /brapi/v1/events{?studyDbId}{?observationUnitDbId}{?eventType}{?dateRangeStart}{?dateRangeEnd}{?page}{?pageSize}]
 
 Get list of events
 
@@ -34,7 +34,11 @@ Get list of events
  
 
 + Parameters
-    + studyDbId (Required, ) ... Filter based on study unique identifier in which the events occured
+    + studyDbId (Optional, ) ... Filter based on study unique identifier in which the events occured
+    + observationUnitDbId (Optional, ) ... Filter based on an ObservationUnit unique identifier in which the events occured
+    + eventType (Optional, ) ... Filter based on an Event Type
+    + dateRangeStart (Optional, ) ... Filter based on an Date Range
+    + dateRangeEnd (Optional, ) ... Filter based on an Date Range
     + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
