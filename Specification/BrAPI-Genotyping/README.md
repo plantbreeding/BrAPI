@@ -4117,22 +4117,22 @@ Also See:
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |alternate_bases|array[string]|The bases that appear instead of the reference bases. Multiple alternate alleles are possible.|
-|ciend|array[integer]||
-|cipos|array[integer]||
+|ciend|array[integer]|Similar to "cipos", but for the variant's end position (which is derived from start + svlen).|
+|cipos|array[integer]|In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCFv4.2|
 |created|string (int64)|The date this variant was created in milliseconds from the epoch.|
 |end|string (int64)|The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated by `start + referenceBases.length`.|
 |filtersApplied|boolean (boolean)|True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.|
 |filtersFailed|array[string]|Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.|
 |filtersPassed|boolean (boolean)|True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.|
 |referenceBases|string|The reference bases for this variant. They start at the given start position.|
-|referenceName|string||
+|referenceName|string|The reference on which this variant occurs. (e.g. `chr20` or `X`)|
 |start|string (int64)|The start position at which this variant occurs (0-based). This corresponds to the first base of the string of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning the join of circular genomes are represented as two variants one on each side of the join (position 0).|
-|svlen|string (int64)||
+|svlen|string (int64)|Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCFv4.2|
 |updated|string (int64)|The time at which this variant was last updated in milliseconds from the epoch.|
 |variantDbId|string|The variant ID.|
 |variantNames|array[string]|Names for the variant, for example a RefSNP ID.|
-|variantSetDbId|string|The ID of the `VariantSet` this variant belongs to. This transitively defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
-|variantType|string||
+|variantSetDbId|array[string]|An array of `VariantSet` IDs this variant belongs to. This transitively defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
+|variantType|string|The "variant_type" is used to denote e.g. structural variants. Examples:   DUP  : duplication of sequence following "start"; not necessarily in situ   DEL  : deletion of sequence following "start"|
 
 
  
@@ -4185,8 +4185,14 @@ Also See:
                     "alternate_bases1",
                     "alternate_bases2"
                 ],
-                "ciend": [],
-                "cipos": [],
+                "ciend": [
+                    -1000,
+                    0
+                ],
+                "cipos": [
+                    -12000,
+                    1000
+                ],
                 "created": "",
                 "end": "",
                 "filtersFailed": [
@@ -4194,7 +4200,7 @@ Also See:
                     "filtersFailed2"
                 ],
                 "referenceBases": "referenceBases",
-                "referenceName": "referenceName",
+                "referenceName": "chr20",
                 "start": "",
                 "svlen": "",
                 "updated": "",
@@ -4203,8 +4209,11 @@ Also See:
                     "variantNames1",
                     "variantNames2"
                 ],
-                "variantSetDbId": "variantSetDbId",
-                "variantType": "variantType"
+                "variantSetDbId": [
+                    "variantSetDbId1",
+                    "variantSetDbId2"
+                ],
+                "variantType": "DUP"
             }
         ]
     }
@@ -4351,22 +4360,22 @@ Also See:
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |alternate_bases|array[string]|The bases that appear instead of the reference bases. Multiple alternate alleles are possible.|
-|ciend|array[integer]||
-|cipos|array[integer]||
+|ciend|array[integer]|Similar to "cipos", but for the variant's end position (which is derived from start + svlen).|
+|cipos|array[integer]|In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCFv4.2|
 |created|string (int64)|The date this variant was created in milliseconds from the epoch.|
 |end|string (int64)|The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated by `start + referenceBases.length`.|
 |filtersApplied|boolean (boolean)|True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.|
 |filtersFailed|array[string]|Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.|
 |filtersPassed|boolean (boolean)|True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.|
 |referenceBases|string|The reference bases for this variant. They start at the given start position.|
-|referenceName|string||
+|referenceName|string|The reference on which this variant occurs. (e.g. `chr20` or `X`)|
 |start|string (int64)|The start position at which this variant occurs (0-based). This corresponds to the first base of the string of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning the join of circular genomes are represented as two variants one on each side of the join (position 0).|
-|svlen|string (int64)||
+|svlen|string (int64)|Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCFv4.2|
 |updated|string (int64)|The time at which this variant was last updated in milliseconds from the epoch.|
 |variantDbId|string|The variant ID.|
 |variantNames|array[string]|Names for the variant, for example a RefSNP ID.|
-|variantSetDbId|string|The ID of the `VariantSet` this variant belongs to. This transitively defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
-|variantType|string||
+|variantSetDbId|array[string]|An array of `VariantSet` IDs this variant belongs to. This transitively defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
+|variantType|string|The "variant_type" is used to denote e.g. structural variants. Examples:   DUP  : duplication of sequence following "start"; not necessarily in situ   DEL  : deletion of sequence following "start"|
 
 
  
@@ -4418,8 +4427,14 @@ Also See:
                     "alternate_bases1",
                     "alternate_bases2"
                 ],
-                "ciend": [],
-                "cipos": [],
+                "ciend": [
+                    -1000,
+                    0
+                ],
+                "cipos": [
+                    -12000,
+                    1000
+                ],
                 "created": "",
                 "end": "",
                 "filtersFailed": [
@@ -4427,7 +4442,7 @@ Also See:
                     "filtersFailed2"
                 ],
                 "referenceBases": "referenceBases",
-                "referenceName": "referenceName",
+                "referenceName": "chr20",
                 "start": "",
                 "svlen": "",
                 "updated": "",
@@ -4436,8 +4451,11 @@ Also See:
                     "variantNames1",
                     "variantNames2"
                 ],
-                "variantSetDbId": "variantSetDbId",
-                "variantType": "variantType"
+                "variantSetDbId": [
+                    "variantSetDbId1",
+                    "variantSetDbId2"
+                ],
+                "variantType": "DUP"
             }
         ]
     }
@@ -4475,22 +4493,22 @@ Also See:
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |alternate_bases|array[string]|The bases that appear instead of the reference bases. Multiple alternate alleles are possible.|
-|ciend|array[integer]||
-|cipos|array[integer]||
+|ciend|array[integer]|Similar to "cipos", but for the variant's end position (which is derived from start + svlen).|
+|cipos|array[integer]|In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCFv4.2|
 |created|string (int64)|The date this variant was created in milliseconds from the epoch.|
 |end|string (int64)|The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated by `start + referenceBases.length`.|
 |filtersApplied|boolean (boolean)|True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.|
 |filtersFailed|array[string]|Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.|
 |filtersPassed|boolean (boolean)|True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.|
 |referenceBases|string|The reference bases for this variant. They start at the given start position.|
-|referenceName|string||
+|referenceName|string|The reference on which this variant occurs. (e.g. `chr20` or `X`)|
 |start|string (int64)|The start position at which this variant occurs (0-based). This corresponds to the first base of the string of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning the join of circular genomes are represented as two variants one on each side of the join (position 0).|
-|svlen|string (int64)||
+|svlen|string (int64)|Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCFv4.2|
 |updated|string (int64)|The time at which this variant was last updated in milliseconds from the epoch.|
 |variantDbId|string|The variant ID.|
 |variantNames|array[string]|Names for the variant, for example a RefSNP ID.|
-|variantSetDbId|string|The ID of the `VariantSet` this variant belongs to. This transitively defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
-|variantType|string||
+|variantSetDbId|array[string]|An array of `VariantSet` IDs this variant belongs to. This transitively defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
+|variantType|string|The "variant_type" is used to denote e.g. structural variants. Examples:   DUP  : duplication of sequence following "start"; not necessarily in situ   DEL  : deletion of sequence following "start"|
 
 
  
@@ -4543,8 +4561,14 @@ Also See:
                     "alternate_bases1",
                     "alternate_bases2"
                 ],
-                "ciend": [],
-                "cipos": [],
+                "ciend": [
+                    -1000,
+                    0
+                ],
+                "cipos": [
+                    -12000,
+                    1000
+                ],
                 "created": "",
                 "end": "",
                 "filtersFailed": [
@@ -4552,7 +4576,7 @@ Also See:
                     "filtersFailed2"
                 ],
                 "referenceBases": "referenceBases",
-                "referenceName": "referenceName",
+                "referenceName": "chr20",
                 "start": "",
                 "svlen": "",
                 "updated": "",
@@ -4561,8 +4585,11 @@ Also See:
                     "variantNames1",
                     "variantNames2"
                 ],
-                "variantSetDbId": "variantSetDbId",
-                "variantType": "variantType"
+                "variantSetDbId": [
+                    "variantSetDbId1",
+                    "variantSetDbId2"
+                ],
+                "variantType": "DUP"
             }
         ]
     }
@@ -4599,22 +4626,22 @@ Also See:
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
 |alternate_bases|array[string]|The bases that appear instead of the reference bases. Multiple alternate alleles are possible.|
-|ciend|array[integer]||
-|cipos|array[integer]||
+|ciend|array[integer]|Similar to "cipos", but for the variant's end position (which is derived from start + svlen).|
+|cipos|array[integer]|In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCFv4.2|
 |created|string (int64)|The date this variant was created in milliseconds from the epoch.|
 |end|string (int64)|The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated by `start + referenceBases.length`.|
 |filtersApplied|boolean (boolean)|True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.|
 |filtersFailed|array[string]|Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.|
 |filtersPassed|boolean (boolean)|True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.|
 |referenceBases|string|The reference bases for this variant. They start at the given start position.|
-|referenceName|string||
+|referenceName|string|The reference on which this variant occurs. (e.g. `chr20` or `X`)|
 |start|string (int64)|The start position at which this variant occurs (0-based). This corresponds to the first base of the string of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning the join of circular genomes are represented as two variants one on each side of the join (position 0).|
-|svlen|string (int64)||
+|svlen|string (int64)|Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCFv4.2|
 |updated|string (int64)|The time at which this variant was last updated in milliseconds from the epoch.|
 |variantDbId|string|The variant ID.|
 |variantNames|array[string]|Names for the variant, for example a RefSNP ID.|
-|variantSetDbId|string|The ID of the `VariantSet` this variant belongs to. This transitively defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
-|variantType|string||
+|variantSetDbId|array[string]|An array of `VariantSet` IDs this variant belongs to. This transitively defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
+|variantType|string|The "variant_type" is used to denote e.g. structural variants. Examples:   DUP  : duplication of sequence following "start"; not necessarily in situ   DEL  : deletion of sequence following "start"|
 
 
  
@@ -4662,8 +4689,14 @@ Also See:
             "alternate_bases1",
             "alternate_bases2"
         ],
-        "ciend": [],
-        "cipos": [],
+        "ciend": [
+            -1000,
+            0
+        ],
+        "cipos": [
+            -12000,
+            1000
+        ],
         "created": "",
         "end": "",
         "filtersFailed": [
@@ -4671,7 +4704,7 @@ Also See:
             "filtersFailed2"
         ],
         "referenceBases": "referenceBases",
-        "referenceName": "referenceName",
+        "referenceName": "chr20",
         "start": "",
         "svlen": "",
         "updated": "",
@@ -4680,8 +4713,11 @@ Also See:
             "variantNames1",
             "variantNames2"
         ],
-        "variantSetDbId": "variantSetDbId",
-        "variantType": "variantType"
+        "variantSetDbId": [
+            "variantSetDbId1",
+            "variantSetDbId2"
+        ],
+        "variantType": "DUP"
     }
 }
 ```
