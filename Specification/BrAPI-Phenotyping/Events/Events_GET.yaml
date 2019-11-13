@@ -11,9 +11,35 @@ paths:
       - description: Filter based on study unique identifier in which the events occured
         in: query
         name: studyDbId
-        required: true
+        required: false
         schema:
           type: string
+      - description: Filter based on an ObservationUnit unique identifier in which the events occured
+        in: query
+        name: observationUnitDbId
+        required: false
+        schema:
+          type: string
+      - description: Filter based on an Event Type
+        in: query
+        name: eventType
+        required: false
+        schema:
+          type: string
+      - description: Filter based on an Date Range
+        in: query
+        name: dateRangeStart
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - description: Filter based on an Date Range
+        in: query
+        name: dateRangeEnd
+        required: false
+        schema:
+          type: string
+          format: date-time
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
       - $ref: '#/components/parameters/authorizationHeader'
