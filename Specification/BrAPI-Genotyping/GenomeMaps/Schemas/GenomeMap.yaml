@@ -1,6 +1,16 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
 components:
   schemas:
-    genomeMap: 
+    GenomeMap: 
+      type: object
+      required:
+      - mapDbId
+      - commonCropName
+      - type
       properties:
         additionalInfo:
           additionalProperties:
@@ -10,47 +20,52 @@ components:
         comments:
           description: Additional comments
           type: string
+          example: Comments about this map
         commonCropName:
           description: The common name of the crop, found from "GET /commoncropnames"
           type: string
+          example: Paw Paw
         documentationURL:
           description: A URL to the human readable documentation of this object
           format: uri
           type: string
+          example: https://brapi.org
         linkageGroupCount:
-          description: The number of linkage groups present in this genome map
+          description: The number of linkage groups present in this genomic map
           format: int32
           type: integer
+          example: 5
         mapDbId:
-          description: The ID which uniquely identifies this genome map
+          description: The ID which uniquely identifies this genomic map
           type: string
+          example: 142cffd5
+        mapPUI:
+          description: The DOI or other permanent identifier for this genomic map
+          type: string
+          example: doi:10.3207/2959859860
         mapName:
-          description: A human readable name for this genome map
+          description: A human readable name for this genomic map
           type: string
+          example: Genome Map 1
         markerCount:
-          description: The number of markers present in this genome map
+          description: The number of markers present in this genomic map
           format: int32
           type: integer
+          example: 1100
         publishedDate:
           description: The date this genome was published
-          format: date
+          format: date-time
           type: string
         scientificName:
           description: Full scientific binomial format name. This includes Genus, Species, and Sub-species
           type: string
+          example: Asimina triloba
         type:
           description: The type of map this represents, ussually "Genetic"
           type: string
+          example: Genetic
         unit:
           description: The units used to describe the data in this map
           type: string
-      required:
-      - mapDbId
-      - commonCropName
-      - type
-      type: object
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}
+          example: cM
+

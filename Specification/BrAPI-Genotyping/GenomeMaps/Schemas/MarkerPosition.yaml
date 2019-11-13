@@ -1,6 +1,12 @@
-components:
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components: 
   schemas:
-    markerPosition: 
+    MarkerPosition: 
+      type: object 
       properties:
         additionalInfo:
           additionalProperties:
@@ -10,24 +16,25 @@ components:
         mapDbId:
           description: The unique ID of the map 
           type: string
-        mapName:
+          example: 3d52bdf3
+        mapName: 
           description: The human readbale name of the map
           type: string
+          example: Genome Map 1
         linkageGroupName: 
           description: The Uniquely Identifiable name of this linkage group
           type: string
+          example: Chromosome 3 
         position: 
           description: The position of a marker within a linkage group
           type: integer
-        markerDbId:
+          example: 2390
+        markerDbId: 
           description: Internal db identifier
           type: string
-        markerName:
+          example: a1eb250a
+        markerName: 
           description: The human readable name for a marker
           type: string
-      type: object
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}
+          example: Marker_2390
+

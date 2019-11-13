@@ -5,10 +5,17 @@ openapi: 3.0.0
 paths:
   /maps:
     get:
+      summary: Get the Genomic Maps
       description: Get list of maps
       parameters:
       - name: commonCropName
         description: The common name of the crop, found from "GET /commoncropnames"
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: mapPUI
+        description: The DOI or other permanent identifier for this genomic map
         in: query
         required: false
         schema:
@@ -53,46 +60,12 @@ paths:
         '200':
           content:
             application/json:
-              example:
-                '@context':
-                  $ref: '#/components/schemas/Context'
-                metadata:
-                  datafiles: []
-                  pagination:
-                    currentPage: 0
-                    pageSize: 2
-                    totalCount: 2
-                    totalPages: 1
-                  status: []
-                result:
-                  data:
-                  - comments: comments
-                    commonCropName: Paw Paw
-                    documentationURL: https://brapi.org
-                    linkageGroupCount: 1
-                    mapDbId: gm1
-                    mapName: Genome Map 1
-                    markerCount: 11
-                    name: Genome Map 1
-                    publishedDate: '2018-01-01'
-                    scientificName: Asimina triloba
-                    species: triloba
-                    type: Genetic
-                    unit: cM
-                  - comments: comments
-                    commonCropName: Paw Paw
-                    documentationURL: https://brapi.org
-                    linkageGroupCount: 2
-                    mapDbId: gm2
-                    mapName: Genome Map 2
-                    markerCount: 11
-                    name: Genome Map 2
-                    publishedDate: '2018-01-01'
-                    scientificName: Asimina triloba
-                    species: triloba
-                    type: Genetic
-                    unit: cM
               schema:
+                title: GenomeMapListResponse
+                type: object
+                required:
+                - metadata
+                - result
                 properties:
                   '@context':
                     $ref: '#/components/schemas/Context'
@@ -102,16 +75,11 @@ paths:
                     properties:
                       data:
                         items:
-                          $ref: '#/components/schemas/genomeMap'
+                          $ref: '#/components/schemas/GenomeMap'
                         type: array
                     required:
                     - data
                     type: object
-                required:
-                - metadata
-                - result
-                title: genomeMapsResponse
-                type: object
           description: OK
           headers: {}
         '400':
@@ -120,6 +88,5 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
-      summary: Get the Genomic Maps
       tags:
       - Genome Maps
