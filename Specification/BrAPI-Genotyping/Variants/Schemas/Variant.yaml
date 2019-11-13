@@ -18,6 +18,7 @@ components:
           items:
             type: string
           type: array
+          example: ['TAGGATTGAGCTCTATAT']
         additionalInfo:
           additionalProperties:
             type: string
@@ -46,34 +47,42 @@ components:
           description: The date this variant was created in milliseconds from the epoch.
           format: int64
           type: string
+          example: '1573671122'
         end:
           description: The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated by `start + referenceBases.length`.
           format: int64
           type: string
+          example: '518'
         filtersApplied:
           description: True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.
           format: boolean
           type: boolean
+          example: True
         filtersFailed:
           description: Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.
           items:
             type: string
           type: array
+          example: ['d629a669', '3f14f578']
         filtersPassed:
           description: True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.
           format: boolean
           type: boolean
+          example: True
         variantDbId:
           description: The variant ID.
           type: string
+          example: 628e89c5
         variantNames:
           description: Names for the variant, for example a RefSNP ID.
           items:
             type: string
           type: array
+          example: ['RefSNP_ID_1', '06ea312e']
         referenceBases:
           description: The reference bases for this variant. They start at the given start position.
           type: string
+          example: ATCGATTGAGCTCTAGCG
         referenceName:
           description: The reference on which this variant occurs. (e.g. `chr20` or `X`)
           type: string
@@ -87,19 +96,23 @@ components:
             two variants one on each side of the join (position 0).
           format: int64
           type: string
+          example: '500'
         svlen:
           format: int64
           description: Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCFv4.2
           type: string
+          example: '1500'
         updated:
           description: The time at which this variant was last updated in milliseconds from the epoch.
           format: int64
           type: string
+          example: '1573672019'
         variantSetDbId:
           description: An array of `VariantSet` IDs this variant belongs to. This transitively defines the `ReferenceSet` against which the `Variant` is to be interpreted.
           type: array
           items: 
             type: string
+          example: ['c8ae400b', 'ef2c204b']
         variantType:
           description: |-
             The "variant_type" is used to denote e.g. structural variants.
