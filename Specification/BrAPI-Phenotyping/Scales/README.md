@@ -33,7 +33,9 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 |scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
 |scaleName|string|Name of the scale|
 |validValues|object||
-|categories|array[string]|List of possible values (examples: ["low", "medium", "high"]|
+|categories|array[object]|List of possible values with optional labels|
+|label|string|A text label for a category|
+|value|string|The actual value for a category|
 |max|integer|Maximum value (used for field data capture control).|
 |min|integer|Minimum value (used for data capture control) for numerical and date scales|
 |xref|string|Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database|
@@ -111,9 +113,18 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
                 "scaleName": "Meters",
                 "validValues": {
                     "categories": [
-                        "low",
-                        "medium",
-                        "high"
+                        {
+                            "label": "low",
+                            "value": "0"
+                        },
+                        {
+                            "label": "medium",
+                            "value": "5"
+                        },
+                        {
+                            "label": "high",
+                            "value": "10"
+                        }
                     ],
                     "max": 9999,
                     "min": 2
@@ -162,7 +173,9 @@ Create a new scale object in the database
 |version|string|Ontology version (no specific format)|
 |scaleName|string|Name of the scale|
 |validValues|object||
-|categories|array[string]|List of possible values (examples: ["low", "medium", "high"]|
+|categories|array[object]|List of possible values with optional labels|
+|label|string|A text label for a category|
+|value|string|The actual value for a category|
 |max|integer|Maximum value (used for field data capture control).|
 |min|integer|Minimum value (used for data capture control) for numerical and date scales|
 |xref|string|Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database|
@@ -185,7 +198,9 @@ Create a new scale object in the database
 |scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
 |scaleName|string|Name of the scale|
 |validValues|object||
-|categories|array[string]|List of possible values (examples: ["low", "medium", "high"]|
+|categories|array[object]|List of possible values with optional labels|
+|label|string|A text label for a category|
+|value|string|The actual value for a category|
 |max|integer|Maximum value (used for field data capture control).|
 |min|integer|Minimum value (used for data capture control) for numerical and date scales|
 |xref|string|Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database|
@@ -230,9 +245,18 @@ Create a new scale object in the database
         "scaleName": "Meters",
         "validValues": {
             "categories": [
-                "low",
-                "medium",
-                "high"
+                {
+                    "label": "low",
+                    "value": "0"
+                },
+                {
+                    "label": "medium",
+                    "value": "5"
+                },
+                {
+                    "label": "high",
+                    "value": "10"
+                }
             ],
             "max": 9999,
             "min": 2
@@ -306,9 +330,18 @@ Create a new scale object in the database
                 "scaleName": "Meters",
                 "validValues": {
                     "categories": [
-                        "low",
-                        "medium",
-                        "high"
+                        {
+                            "label": "low",
+                            "value": "0"
+                        },
+                        {
+                            "label": "medium",
+                            "value": "5"
+                        },
+                        {
+                            "label": "high",
+                            "value": "10"
+                        }
                     ],
                     "max": 9999,
                     "min": 2
@@ -362,7 +395,9 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
 |scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
 |scaleName|string|Name of the scale|
 |validValues|object||
-|categories|array[string]|List of possible values (examples: ["low", "medium", "high"]|
+|categories|array[object]|List of possible values with optional labels|
+|label|string|A text label for a category|
+|value|string|The actual value for a category|
 |max|integer|Maximum value (used for field data capture control).|
 |min|integer|Minimum value (used for data capture control) for numerical and date scales|
 |xref|string|Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database|
@@ -437,9 +472,18 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
         "scaleName": "Meters",
         "validValues": {
             "categories": [
-                "low",
-                "medium",
-                "high"
+                {
+                    "label": "low",
+                    "value": "0"
+                },
+                {
+                    "label": "medium",
+                    "value": "5"
+                },
+                {
+                    "label": "high",
+                    "value": "10"
+                }
             ],
             "max": 9999,
             "min": 2
@@ -491,7 +535,9 @@ Update the details of an existing scale
 |version|string|Ontology version (no specific format)|
 |scaleName|string|Name of the scale|
 |validValues|object||
-|categories|array[string]|List of possible values (examples: ["low", "medium", "high"]|
+|categories|array[object]|List of possible values with optional labels|
+|label|string|A text label for a category|
+|value|string|The actual value for a category|
 |max|integer|Maximum value (used for field data capture control).|
 |min|integer|Minimum value (used for data capture control) for numerical and date scales|
 |xref|string|Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database|
@@ -513,7 +559,9 @@ Update the details of an existing scale
 |scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
 |scaleName|string|Name of the scale|
 |validValues|object||
-|categories|array[string]|List of possible values (examples: ["low", "medium", "high"]|
+|categories|array[object]|List of possible values with optional labels|
+|label|string|A text label for a category|
+|value|string|The actual value for a category|
 |max|integer|Maximum value (used for field data capture control).|
 |min|integer|Minimum value (used for data capture control) for numerical and date scales|
 |xref|string|Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database|
@@ -558,9 +606,18 @@ Update the details of an existing scale
     "scaleName": "Meters",
     "validValues": {
         "categories": [
-            "low",
-            "medium",
-            "high"
+            {
+                "label": "low",
+                "value": "0"
+            },
+            {
+                "label": "medium",
+                "value": "5"
+            },
+            {
+                "label": "high",
+                "value": "10"
+            }
         ],
         "max": 9999,
         "min": 2
@@ -631,9 +688,18 @@ Update the details of an existing scale
         "scaleName": "Meters",
         "validValues": {
             "categories": [
-                "low",
-                "medium",
-                "high"
+                {
+                    "label": "low",
+                    "value": "0"
+                },
+                {
+                    "label": "medium",
+                    "value": "5"
+                },
+                {
+                    "label": "high",
+                    "value": "10"
+                }
             ],
             "max": 9999,
             "min": 2
