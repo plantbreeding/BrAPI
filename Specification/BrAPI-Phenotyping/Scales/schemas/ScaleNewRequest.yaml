@@ -27,11 +27,24 @@ components:
           type: object
           properties:
             categories: 
-              description: 'List of possible values (examples: ["low", "medium", "high"]'
+              description: List of possible values with optional labels
               items:
-                type: string
+                type: object
+                properties:
+                  label:
+                    type: string 
+                    description: A text label for a category
+                  value:
+                    type: string
+                    description: The actual value for a category
               type: array
-              example: ["low", "medium", "high"]
+              example: 
+                - value: "0"
+                  label: "low"
+                - value: "5"
+                  label: "medium"
+                - value: "10"
+                  label: "high"
             max:
               description: Maximum value (used for field data capture control).
               type: integer
