@@ -6,6 +6,9 @@ paths: {}
 components:
   schemas:
     ServerInfo: 
+      type: object
+      required:
+      - calls
       properties:
         contactEmail:
           description: A contact email address for this server management
@@ -23,15 +26,24 @@ components:
           description: The name of the organiation that manages this server and data
           type: string
           example: The Institute
+        serverName:
+          description: The name of this server
+          type: string
+          example: The BrAPI Test Server
+        serverDescription:
+          description: A description of this server
+          type: string
+          example: |-
+            The BrAPI Test Server
+            Web Server - Apache Tomcat 7.0.32
+            Database - Postgres 10
+            Base BrAPI Version - V2.0
         location:
           description: Physical location of this server (ie. City, Country)
           type: string
           example: USA
-        services:
+        calls:
           description: Array of available calls on this server
           items:
             $ref: '#/components/schemas/Service'
           type: array
-      required:
-      - services
-      type: object
