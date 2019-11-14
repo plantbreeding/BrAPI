@@ -37,7 +37,7 @@ components:
             The BrAPI Test Server
             Web Server - Apache Tomcat 7.0.32
             Database - Postgres 10
-            Base BrAPI Version - V2.0
+            Supported BrAPI Version - V2.0
         location:
           description: Physical location of this server (ie. City, Country)
           type: string

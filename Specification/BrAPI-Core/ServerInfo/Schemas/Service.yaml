@@ -9,7 +9,7 @@ components:
       type: object
       required:
       - call
-      - dataTypes
+      - versions
       - methods
       properties:
         service:
@@ -37,10 +37,9 @@ components:
           description: The supported versions of a particular call
           items:
             enum:
-            - '1.0'
-            - '1.1'
-            - '1.2'
-            - '1.3'
+            - '2.0'
+            - '2.1'
+            - '2.2'
             type: string
           type: array
-          example: ['1.2', '1.3']
+          example: ['2.0', '2.1']
