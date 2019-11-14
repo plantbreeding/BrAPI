@@ -45,16 +45,18 @@ BAD    "call": "germplasm/<germplasmDbId>/pedigree"
 
 |Field|Type|Description|
 |---|---|---| 
+|calls|array[object]|Array of available calls on this server|
+|dataTypes|array[string]|The possible data formats returned by the available call|
+|methods|array[string]|The possible HTTP Methods to be used with the available call|
+|service|string|The name of the available call as recorded in the documentation|
+|versions|array[string]|The supported versions of a particular call|
 |contactEmail|string|A contact email address for this server management|
 |documentationURL|string|A URL to the human readable documentation of this object|
 |location|string|Physical location of this server (ie. City, Country)|
 |organizationName|string|The name of the organiation that manages this server and data|
 |organizationURL|string|The URL of the organiation that manages this server and data|
-|services|array[object]|Array of available calls on this server|
-|dataTypes|array[string]|The possible data formats returned by the available call|
-|methods|array[string]|The possible HTTP Methods to be used with the available call|
-|service|string|The name of the available call as recorded in the documentation|
-|versions|array[string]|The supported versions of a particular call|
+|serverDescription|string|A description of this server|
+|serverName|string|The name of this server|
 
 
  
@@ -97,12 +99,7 @@ BAD    "call": "germplasm/<germplasmDbId>/pedigree"
         ]
     },
     "result": {
-        "contactEmail": "contact@institute.org",
-        "documentationURL": "institute.org/server",
-        "location": "USA",
-        "organizationName": "The Institute",
-        "organizationURL": "institute.org/home",
-        "services": [
+        "calls": [
             {
                 "dataTypes": [
                     "application/json"
@@ -113,11 +110,18 @@ BAD    "call": "germplasm/<germplasmDbId>/pedigree"
                 ],
                 "service": "germplasm",
                 "versions": [
-                    "1.2",
-                    "1.3"
+                    "2.0",
+                    "2.1"
                 ]
             }
-        ]
+        ],
+        "contactEmail": "contact@institute.org",
+        "documentationURL": "institute.org/server",
+        "location": "USA",
+        "organizationName": "The Institute",
+        "organizationURL": "institute.org/home",
+        "serverDescription": "The BrAPI Test Server\nWeb Server - Apache Tomcat 7.0.32\nDatabase - Postgres 10\nSupported BrAPI Version - V2.0",
+        "serverName": "The BrAPI Test Server"
     }
 }
 ```
