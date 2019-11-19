@@ -108,10 +108,11 @@ Get a filtered set of Observation Units
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |locationDbId|string|The ID which uniquely identifies a location, associated with this study|
 |locationName|string|The human readable name of a location associated with this study|
-|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|observationLevel|string|The level of an observation unit. ex. "plot", "plant"  MIAPPE V1.1 DM-71 Observation unit type "Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended.  The observation unit type cannot be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables). Alternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead."|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit  MIAPPE V1.1 (DM-70) Observation unit ID - Identifier used to identify the observation unit in data files containing the values observed or measured on that unit. Must be locally unique. |
 |observationUnitName|string|A human readable name for an observation unit|
-|observationUnitPosition|object|All positional and layout information related to this Observation Unit|
+|observationUnitPUI|string|A Permanent Unique Identifier for an observation unit  MIAPPE V1.1 (DM-72) External ID - Identifier for the observation unit in a persistent repository, comprises the name of the repository and the identifier of the observation unit therein. The EBI Biosamples repository can be used. URI are recommended when possible.|
+|observationUnitPosition|object|All positional and layout information related to this Observation Unit  MIAPPE V1.1 (DM-73) Spatial distribution - Type and value of a spatial coordinate (georeference or relative) or level of observation (plot 45, subblock 7, block 2) provided as a key-value pair of the form type:value. Levels of observation must be consistent with those listed in the Study section.|
 |blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
 |entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
@@ -132,9 +133,9 @@ Get a filtered set of Observation Units
 |programName|string|The human readable name of a program|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |studyName|string|The human readable name for a study|
-|treatments|array[object]|List of treatments applied to an observation unit.|
-|factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc|
-|modality|string|The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc|
+|treatments|array[object]|List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.|
+|factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.|
+|modality|string|The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planification and protocol planned for all the plants targeted by a given experimental factor. |
 |trialDbId|string|The ID which uniquely identifies a trial|
 |trialName|string|The human readable name of a trial|
 
@@ -197,6 +198,7 @@ Get a filtered set of Observation Units
                 "observationLevel": "plot",
                 "observationUnitDbId": "8c67503c",
                 "observationUnitName": "Plot 1",
+                "observationUnitPUI": "http://pui.per/plot/1a9afc14",
                 "observationUnitPosition": {
                     "blockNumber": "6",
                     "entryNumber": "3",
@@ -282,9 +284,10 @@ Add new Observation Units
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |locationDbId|string|The ID which uniquely identifies a location, associated with this study|
 |locationName|string|The human readable name of a location associated with this study|
-|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
+|observationLevel|string|The level of an observation unit. ex. "plot", "plant"  MIAPPE V1.1 DM-71 Observation unit type "Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended.  The observation unit type cannot be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables). Alternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead."|
 |observationUnitName|string|A human readable name for an observation unit|
-|observationUnitPosition|object|All positional and layout information related to this Observation Unit|
+|observationUnitPUI|string|A Permanent Unique Identifier for an observation unit  MIAPPE V1.1 (DM-72) External ID - Identifier for the observation unit in a persistent repository, comprises the name of the repository and the identifier of the observation unit therein. The EBI Biosamples repository can be used. URI are recommended when possible.|
+|observationUnitPosition|object|All positional and layout information related to this Observation Unit  MIAPPE V1.1 (DM-73) Spatial distribution - Type and value of a spatial coordinate (georeference or relative) or level of observation (plot 45, subblock 7, block 2) provided as a key-value pair of the form type:value. Levels of observation must be consistent with those listed in the Study section.|
 |blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
 |entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
@@ -305,9 +308,9 @@ Add new Observation Units
 |programName|string|The human readable name of a program|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |studyName|string|The human readable name for a study|
-|treatments|array[object]|List of treatments applied to an observation unit.|
-|factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc|
-|modality|string|The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc|
+|treatments|array[object]|List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.|
+|factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.|
+|modality|string|The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planification and protocol planned for all the plants targeted by a given experimental factor. |
 |trialDbId|string|The ID which uniquely identifies a trial|
 |trialName|string|The human readable name of a trial|
 
@@ -322,10 +325,11 @@ Add new Observation Units
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |locationDbId|string|The ID which uniquely identifies a location, associated with this study|
 |locationName|string|The human readable name of a location associated with this study|
-|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|observationLevel|string|The level of an observation unit. ex. "plot", "plant"  MIAPPE V1.1 DM-71 Observation unit type "Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended.  The observation unit type cannot be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables). Alternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead."|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit  MIAPPE V1.1 (DM-70) Observation unit ID - Identifier used to identify the observation unit in data files containing the values observed or measured on that unit. Must be locally unique. |
 |observationUnitName|string|A human readable name for an observation unit|
-|observationUnitPosition|object|All positional and layout information related to this Observation Unit|
+|observationUnitPUI|string|A Permanent Unique Identifier for an observation unit  MIAPPE V1.1 (DM-72) External ID - Identifier for the observation unit in a persistent repository, comprises the name of the repository and the identifier of the observation unit therein. The EBI Biosamples repository can be used. URI are recommended when possible.|
+|observationUnitPosition|object|All positional and layout information related to this Observation Unit  MIAPPE V1.1 (DM-73) Spatial distribution - Type and value of a spatial coordinate (georeference or relative) or level of observation (plot 45, subblock 7, block 2) provided as a key-value pair of the form type:value. Levels of observation must be consistent with those listed in the Study section.|
 |blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
 |entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
@@ -346,9 +350,9 @@ Add new Observation Units
 |programName|string|The human readable name of a program|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |studyName|string|The human readable name for a study|
-|treatments|array[object]|List of treatments applied to an observation unit.|
-|factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc|
-|modality|string|The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc|
+|treatments|array[object]|List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.|
+|factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.|
+|modality|string|The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planification and protocol planned for all the plants targeted by a given experimental factor. |
 |trialDbId|string|The ID which uniquely identifies a trial|
 |trialName|string|The human readable name of a trial|
 
@@ -371,6 +375,7 @@ Add new Observation Units
         "locationName": "Field Station Alpha",
         "observationLevel": "plot",
         "observationUnitName": "Plot 1",
+        "observationUnitPUI": "http://pui.per/plot/1a9afc14",
         "observationUnitPosition": {
             "blockNumber": "6",
             "entryNumber": "3",
@@ -466,6 +471,7 @@ Add new Observation Units
                 "observationLevel": "plot",
                 "observationUnitDbId": "8c67503c",
                 "observationUnitName": "Plot 1",
+                "observationUnitPUI": "http://pui.per/plot/1a9afc14",
                 "observationUnitPosition": {
                     "blockNumber": "6",
                     "entryNumber": "3",
@@ -560,10 +566,11 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |locationDbId|string|The ID which uniquely identifies a location, associated with this study|
 |locationName|string|The human readable name of a location associated with this study|
-|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|observationLevel|string|The level of an observation unit. ex. "plot", "plant"  MIAPPE V1.1 DM-71 Observation unit type "Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended.  The observation unit type cannot be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables). Alternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead."|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit  MIAPPE V1.1 (DM-70) Observation unit ID - Identifier used to identify the observation unit in data files containing the values observed or measured on that unit. Must be locally unique. |
 |observationUnitName|string|A human readable name for an observation unit|
-|observationUnitPosition|object|All positional and layout information related to this Observation Unit|
+|observationUnitPUI|string|A Permanent Unique Identifier for an observation unit  MIAPPE V1.1 (DM-72) External ID - Identifier for the observation unit in a persistent repository, comprises the name of the repository and the identifier of the observation unit therein. The EBI Biosamples repository can be used. URI are recommended when possible.|
+|observationUnitPosition|object|All positional and layout information related to this Observation Unit  MIAPPE V1.1 (DM-73) Spatial distribution - Type and value of a spatial coordinate (georeference or relative) or level of observation (plot 45, subblock 7, block 2) provided as a key-value pair of the form type:value. Levels of observation must be consistent with those listed in the Study section.|
 |blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
 |entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
@@ -584,9 +591,9 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 |programName|string|The human readable name of a program|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |studyName|string|The human readable name for a study|
-|treatments|array[object]|List of treatments applied to an observation unit.|
-|factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc|
-|modality|string|The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc|
+|treatments|array[object]|List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.|
+|factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.|
+|modality|string|The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planification and protocol planned for all the plants targeted by a given experimental factor. |
 |trialDbId|string|The ID which uniquely identifies a trial|
 |trialName|string|The human readable name of a trial|
 
@@ -646,6 +653,7 @@ Note - In strictly typed languages, this structure can be represented as a Map o
                 "observationLevel": "plot",
                 "observationUnitDbId": "8c67503c",
                 "observationUnitName": "Plot 1",
+                "observationUnitPUI": "http://pui.per/plot/1a9afc14",
                 "observationUnitPosition": {
                     "blockNumber": "6",
                     "entryNumber": "3",
@@ -1033,10 +1041,11 @@ Get the details of a specific Observation Unit
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |locationDbId|string|The ID which uniquely identifies a location, associated with this study|
 |locationName|string|The human readable name of a location associated with this study|
-|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|observationLevel|string|The level of an observation unit. ex. "plot", "plant"  MIAPPE V1.1 DM-71 Observation unit type "Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended.  The observation unit type cannot be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables). Alternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead."|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit  MIAPPE V1.1 (DM-70) Observation unit ID - Identifier used to identify the observation unit in data files containing the values observed or measured on that unit. Must be locally unique. |
 |observationUnitName|string|A human readable name for an observation unit|
-|observationUnitPosition|object|All positional and layout information related to this Observation Unit|
+|observationUnitPUI|string|A Permanent Unique Identifier for an observation unit  MIAPPE V1.1 (DM-72) External ID - Identifier for the observation unit in a persistent repository, comprises the name of the repository and the identifier of the observation unit therein. The EBI Biosamples repository can be used. URI are recommended when possible.|
+|observationUnitPosition|object|All positional and layout information related to this Observation Unit  MIAPPE V1.1 (DM-73) Spatial distribution - Type and value of a spatial coordinate (georeference or relative) or level of observation (plot 45, subblock 7, block 2) provided as a key-value pair of the form type:value. Levels of observation must be consistent with those listed in the Study section.|
 |blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
 |entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
@@ -1057,9 +1066,9 @@ Get the details of a specific Observation Unit
 |programName|string|The human readable name of a program|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |studyName|string|The human readable name for a study|
-|treatments|array[object]|List of treatments applied to an observation unit.|
-|factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc|
-|modality|string|The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc|
+|treatments|array[object]|List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.|
+|factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.|
+|modality|string|The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planification and protocol planned for all the plants targeted by a given experimental factor. |
 |trialDbId|string|The ID which uniquely identifies a trial|
 |trialName|string|The human readable name of a trial|
 
@@ -1112,6 +1121,7 @@ Get the details of a specific Observation Unit
         "observationLevel": "plot",
         "observationUnitDbId": "8c67503c",
         "observationUnitName": "Plot 1",
+        "observationUnitPUI": "http://pui.per/plot/1a9afc14",
         "observationUnitPosition": {
             "blockNumber": "6",
             "entryNumber": "3",
@@ -1195,9 +1205,10 @@ Update an existing Observation Units
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |locationDbId|string|The ID which uniquely identifies a location, associated with this study|
 |locationName|string|The human readable name of a location associated with this study|
-|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
+|observationLevel|string|The level of an observation unit. ex. "plot", "plant"  MIAPPE V1.1 DM-71 Observation unit type "Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended.  The observation unit type cannot be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables). Alternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead."|
 |observationUnitName|string|A human readable name for an observation unit|
-|observationUnitPosition|object|All positional and layout information related to this Observation Unit|
+|observationUnitPUI|string|A Permanent Unique Identifier for an observation unit  MIAPPE V1.1 (DM-72) External ID - Identifier for the observation unit in a persistent repository, comprises the name of the repository and the identifier of the observation unit therein. The EBI Biosamples repository can be used. URI are recommended when possible.|
+|observationUnitPosition|object|All positional and layout information related to this Observation Unit  MIAPPE V1.1 (DM-73) Spatial distribution - Type and value of a spatial coordinate (georeference or relative) or level of observation (plot 45, subblock 7, block 2) provided as a key-value pair of the form type:value. Levels of observation must be consistent with those listed in the Study section.|
 |blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
 |entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
@@ -1218,9 +1229,9 @@ Update an existing Observation Units
 |programName|string|The human readable name of a program|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |studyName|string|The human readable name for a study|
-|treatments|array[object]|List of treatments applied to an observation unit.|
-|factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc|
-|modality|string|The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc|
+|treatments|array[object]|List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.|
+|factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.|
+|modality|string|The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planification and protocol planned for all the plants targeted by a given experimental factor. |
 |trialDbId|string|The ID which uniquely identifies a trial|
 |trialName|string|The human readable name of a trial|
 
@@ -1234,10 +1245,11 @@ Update an existing Observation Units
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |locationDbId|string|The ID which uniquely identifies a location, associated with this study|
 |locationName|string|The human readable name of a location associated with this study|
-|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|observationLevel|string|The level of an observation unit. ex. "plot", "plant"  MIAPPE V1.1 DM-71 Observation unit type "Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended.  The observation unit type cannot be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables). Alternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead."|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit  MIAPPE V1.1 (DM-70) Observation unit ID - Identifier used to identify the observation unit in data files containing the values observed or measured on that unit. Must be locally unique. |
 |observationUnitName|string|A human readable name for an observation unit|
-|observationUnitPosition|object|All positional and layout information related to this Observation Unit|
+|observationUnitPUI|string|A Permanent Unique Identifier for an observation unit  MIAPPE V1.1 (DM-72) External ID - Identifier for the observation unit in a persistent repository, comprises the name of the repository and the identifier of the observation unit therein. The EBI Biosamples repository can be used. URI are recommended when possible.|
+|observationUnitPosition|object|All positional and layout information related to this Observation Unit  MIAPPE V1.1 (DM-73) Spatial distribution - Type and value of a spatial coordinate (georeference or relative) or level of observation (plot 45, subblock 7, block 2) provided as a key-value pair of the form type:value. Levels of observation must be consistent with those listed in the Study section.|
 |blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
 |entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
@@ -1258,9 +1270,9 @@ Update an existing Observation Units
 |programName|string|The human readable name of a program|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |studyName|string|The human readable name for a study|
-|treatments|array[object]|List of treatments applied to an observation unit.|
-|factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc|
-|modality|string|The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc|
+|treatments|array[object]|List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.|
+|factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.|
+|modality|string|The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planification and protocol planned for all the plants targeted by a given experimental factor. |
 |trialDbId|string|The ID which uniquely identifies a trial|
 |trialName|string|The human readable name of a trial|
 
@@ -1283,6 +1295,7 @@ Update an existing Observation Units
     "locationName": "Field Station Alpha",
     "observationLevel": "plot",
     "observationUnitName": "Plot 1",
+    "observationUnitPUI": "http://pui.per/plot/1a9afc14",
     "observationUnitPosition": {
         "blockNumber": "6",
         "entryNumber": "3",
@@ -1375,6 +1388,7 @@ Update an existing Observation Units
         "observationLevel": "plot",
         "observationUnitDbId": "8c67503c",
         "observationUnitName": "Plot 1",
+        "observationUnitPUI": "http://pui.per/plot/1a9afc14",
         "observationUnitPosition": {
             "blockNumber": "6",
             "entryNumber": "3",
@@ -1601,10 +1615,11 @@ See Search Services for additional implementation details.
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |locationDbId|string|The ID which uniquely identifies a location, associated with this study|
 |locationName|string|The human readable name of a location associated with this study|
-|observationLevel|string|The level of an observation unit. ex. "plot", "plant"|
-|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|observationLevel|string|The level of an observation unit. ex. "plot", "plant"  MIAPPE V1.1 DM-71 Observation unit type "Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended.  The observation unit type cannot be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables). Alternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead."|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit  MIAPPE V1.1 (DM-70) Observation unit ID - Identifier used to identify the observation unit in data files containing the values observed or measured on that unit. Must be locally unique. |
 |observationUnitName|string|A human readable name for an observation unit|
-|observationUnitPosition|object|All positional and layout information related to this Observation Unit|
+|observationUnitPUI|string|A Permanent Unique Identifier for an observation unit  MIAPPE V1.1 (DM-72) External ID - Identifier for the observation unit in a persistent repository, comprises the name of the repository and the identifier of the observation unit therein. The EBI Biosamples repository can be used. URI are recommended when possible.|
+|observationUnitPosition|object|All positional and layout information related to this Observation Unit  MIAPPE V1.1 (DM-73) Spatial distribution - Type and value of a spatial coordinate (georeference or relative) or level of observation (plot 45, subblock 7, block 2) provided as a key-value pair of the form type:value. Levels of observation must be consistent with those listed in the Study section.|
 |blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
 |entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
@@ -1625,9 +1640,9 @@ See Search Services for additional implementation details.
 |programName|string|The human readable name of a program|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |studyName|string|The human readable name for a study|
-|treatments|array[object]|List of treatments applied to an observation unit.|
-|factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc|
-|modality|string|The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc|
+|treatments|array[object]|List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.|
+|factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.|
+|modality|string|The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planification and protocol planned for all the plants targeted by a given experimental factor. |
 |trialDbId|string|The ID which uniquely identifies a trial|
 |trialName|string|The human readable name of a trial|
 
@@ -1684,6 +1699,7 @@ See Search Services for additional implementation details.
                 "observationLevel": "plot",
                 "observationUnitDbId": "8c67503c",
                 "observationUnitName": "Plot 1",
+                "observationUnitPUI": "http://pui.per/plot/1a9afc14",
                 "observationUnitPosition": {
                     "blockNumber": "6",
                     "entryNumber": "3",

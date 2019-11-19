@@ -135,7 +135,7 @@ Submit a new order to a vendor
 |organismName|string|Scientific organism name|
 |row|string|The Row identifier for this samples location in the plate|
 |speciesName|string|Scientific species name|
-|taxonomyOntologyReference|object||
+|taxonomyOntologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
 |type|string||
@@ -143,7 +143,7 @@ Submit a new order to a vendor
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
 |tissueType|string|The type of tissue in this sample. List of accepted tissue types can be found in the Vendor Specs.|
-|tissueTypeOntologyReference|object||
+|tissueTypeOntologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
 |type|string||
@@ -343,7 +343,7 @@ Retrieve the plate and sample details of an order being processed
 |organismName|string|Scientific organism name|
 |row|string|The Row identifier for this samples location in the plate|
 |speciesName|string|Scientific species name|
-|taxonomyOntologyReference|object||
+|taxonomyOntologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
 |type|string||
@@ -351,7 +351,7 @@ Retrieve the plate and sample details of an order being processed
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
 |tissueType|string|The type of tissue in this sample. List of accepted tissue types can be found in the Vendor Specs.|
-|tissueTypeOntologyReference|object||
+|tissueTypeOntologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
 |type|string||
@@ -705,7 +705,7 @@ Submit a new set of Sample data
 |organismName|string|Scientific organism name|
 |row|string|The Row identifier for this samples location in the plate|
 |speciesName|string|Scientific species name|
-|taxonomyOntologyReference|object||
+|taxonomyOntologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
 |type|string||
@@ -713,7 +713,7 @@ Submit a new set of Sample data
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
 |tissueType|string|The type of tissue in this sample. List of accepted tissue types can be found in the Vendor Specs.|
-|tissueTypeOntologyReference|object||
+|tissueTypeOntologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
 |type|string||
@@ -891,7 +891,7 @@ Get data for a submitted set of plates
 |organismName|string|Scientific organism name|
 |row|string|The Row identifier for this samples location in the plate|
 |speciesName|string|Scientific species name|
-|taxonomyOntologyReference|object||
+|taxonomyOntologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
 |type|string||
@@ -899,7 +899,7 @@ Get data for a submitted set of plates
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
 |tissueType|string|The type of tissue in this sample. List of accepted tissue types can be found in the Vendor Specs.|
-|tissueTypeOntologyReference|object||
+|tissueTypeOntologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
 |type|string||

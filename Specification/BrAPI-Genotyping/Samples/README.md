@@ -21,22 +21,22 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
-|notes|string|Additional notes about a sample|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
 |plateDbId|string|The ID which uniquely identifies a plate of samples|
 |plateName|string|The human readable name of a plate|
 |programDbId|string|The ID which uniquely identifies a program within the given database server|
 |row|string|The Row identifier for this samples location in the plate|
 |sampleBarcode|string|A unique identifier physically attached to the sample|
-|sampleDbId|string|The ID which uniquely identifies a sample|
+|sampleDbId|string|The ID which uniquely identifies a sample  MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.|
+|sampleDescription|string|Description of a sample  MIAPPE V1.1 (DM-79) Sample description - Any information not captured by the other sample fields, including quantification, sample treatments and processing.|
 |sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
 |sampleName|string|The name of the sample|
-|samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)|
-|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
+|samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)  MIAPPE V1.1 (DM-81) External ID - An identifier for the sample in a persistent repository, comprising the name of the repository and the accession number of the observation unit therein. Submission to the EBI Biosamples repository is recommended. URI are recommended when possible. |
+|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field  MIAPPE V1.1 (DM-80) Collection date - The date and time when the sample was collected / harvested|
 |sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |takenBy|string|The name or identifier of the entity which took the sample from the field|
-|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.|
+|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.  MIAPPE V1.1 (DM-78) Plant anatomical entity - A description of  the plant part (e.g. leaf) or the plant product (e.g. resin) from which the sample was taken, in the form of an accession number to a suitable controlled vocabulary (Plant Ontology).|
 |trialDbId|string|The ID which uniquely identifies a trial within the given database server|
 |well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
 
@@ -91,7 +91,6 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
                 "additionalInfo": {},
                 "column": 6,
                 "germplasmDbId": "7e08d538",
-                "notes": "This sample was taken from the root of a tree",
                 "observationUnitDbId": "073a3ce5",
                 "plateDbId": "2dce16d1",
                 "plateName": "Plate_alpha_20191022",
@@ -99,6 +98,7 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
                 "row": "B",
                 "sampleBarcode": "3a027b59",
                 "sampleDbId": "cd06a61d",
+                "sampleDescription": "This sample was taken from the root of a tree",
                 "sampleGroupDbId": "8524b436",
                 "sampleName": "Sample_alpha_20191022",
                 "samplePUI": "doi:10.15454/312953986E3",
@@ -144,21 +144,21 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
-|notes|string|Additional notes about a sample|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
 |plateDbId|string|The ID which uniquely identifies a plate of samples|
 |plateName|string|The human readable name of a plate|
 |programDbId|string|The ID which uniquely identifies a program within the given database server|
 |row|string|The Row identifier for this samples location in the plate|
 |sampleBarcode|string|A unique identifier physically attached to the sample|
+|sampleDescription|string|Description of a sample  MIAPPE V1.1 (DM-79) Sample description - Any information not captured by the other sample fields, including quantification, sample treatments and processing.|
 |sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
 |sampleName|string|The name of the sample|
-|samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)|
-|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
+|samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)  MIAPPE V1.1 (DM-81) External ID - An identifier for the sample in a persistent repository, comprising the name of the repository and the accession number of the observation unit therein. Submission to the EBI Biosamples repository is recommended. URI are recommended when possible. |
+|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field  MIAPPE V1.1 (DM-80) Collection date - The date and time when the sample was collected / harvested|
 |sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |takenBy|string|The name or identifier of the entity which took the sample from the field|
-|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.|
+|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.  MIAPPE V1.1 (DM-78) Plant anatomical entity - A description of  the plant part (e.g. leaf) or the plant product (e.g. resin) from which the sample was taken, in the form of an accession number to a suitable controlled vocabulary (Plant Ontology).|
 |trialDbId|string|The ID which uniquely identifies a trial within the given database server|
 |well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
 
@@ -171,22 +171,22 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
-|notes|string|Additional notes about a sample|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
 |plateDbId|string|The ID which uniquely identifies a plate of samples|
 |plateName|string|The human readable name of a plate|
 |programDbId|string|The ID which uniquely identifies a program within the given database server|
 |row|string|The Row identifier for this samples location in the plate|
 |sampleBarcode|string|A unique identifier physically attached to the sample|
-|sampleDbId|string|The ID which uniquely identifies a sample|
+|sampleDbId|string|The ID which uniquely identifies a sample  MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.|
+|sampleDescription|string|Description of a sample  MIAPPE V1.1 (DM-79) Sample description - Any information not captured by the other sample fields, including quantification, sample treatments and processing.|
 |sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
 |sampleName|string|The name of the sample|
-|samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)|
-|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
+|samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)  MIAPPE V1.1 (DM-81) External ID - An identifier for the sample in a persistent repository, comprising the name of the repository and the accession number of the observation unit therein. Submission to the EBI Biosamples repository is recommended. URI are recommended when possible. |
+|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field  MIAPPE V1.1 (DM-80) Collection date - The date and time when the sample was collected / harvested|
 |sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |takenBy|string|The name or identifier of the entity which took the sample from the field|
-|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.|
+|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.  MIAPPE V1.1 (DM-78) Plant anatomical entity - A description of  the plant part (e.g. leaf) or the plant product (e.g. resin) from which the sample was taken, in the form of an accession number to a suitable controlled vocabulary (Plant Ontology).|
 |trialDbId|string|The ID which uniquely identifies a trial within the given database server|
 |well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
 
@@ -205,13 +205,13 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
         "additionalInfo": {},
         "column": 6,
         "germplasmDbId": "7e08d538",
-        "notes": "This sample was taken from the root of a tree",
         "observationUnitDbId": "073a3ce5",
         "plateDbId": "2dce16d1",
         "plateName": "Plate_alpha_20191022",
         "programDbId": "bd748e00",
         "row": "B",
         "sampleBarcode": "3a027b59",
+        "sampleDescription": "This sample was taken from the root of a tree",
         "sampleGroupDbId": "8524b436",
         "sampleName": "Sample_alpha_20191022",
         "samplePUI": "doi:10.15454/312953986E3",
@@ -264,7 +264,6 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
                 "additionalInfo": {},
                 "column": 6,
                 "germplasmDbId": "7e08d538",
-                "notes": "This sample was taken from the root of a tree",
                 "observationUnitDbId": "073a3ce5",
                 "plateDbId": "2dce16d1",
                 "plateName": "Plate_alpha_20191022",
@@ -272,6 +271,7 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
                 "row": "B",
                 "sampleBarcode": "3a027b59",
                 "sampleDbId": "cd06a61d",
+                "sampleDescription": "This sample was taken from the root of a tree",
                 "sampleGroupDbId": "8524b436",
                 "sampleName": "Sample_alpha_20191022",
                 "samplePUI": "doi:10.15454/312953986E3",
@@ -319,22 +319,22 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
-|notes|string|Additional notes about a sample|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
 |plateDbId|string|The ID which uniquely identifies a plate of samples|
 |plateName|string|The human readable name of a plate|
 |programDbId|string|The ID which uniquely identifies a program within the given database server|
 |row|string|The Row identifier for this samples location in the plate|
 |sampleBarcode|string|A unique identifier physically attached to the sample|
-|sampleDbId|string|The ID which uniquely identifies a sample|
+|sampleDbId|string|The ID which uniquely identifies a sample  MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.|
+|sampleDescription|string|Description of a sample  MIAPPE V1.1 (DM-79) Sample description - Any information not captured by the other sample fields, including quantification, sample treatments and processing.|
 |sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
 |sampleName|string|The name of the sample|
-|samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)|
-|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
+|samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)  MIAPPE V1.1 (DM-81) External ID - An identifier for the sample in a persistent repository, comprising the name of the repository and the accession number of the observation unit therein. Submission to the EBI Biosamples repository is recommended. URI are recommended when possible. |
+|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field  MIAPPE V1.1 (DM-80) Collection date - The date and time when the sample was collected / harvested|
 |sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |takenBy|string|The name or identifier of the entity which took the sample from the field|
-|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.|
+|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.  MIAPPE V1.1 (DM-78) Plant anatomical entity - A description of  the plant part (e.g. leaf) or the plant product (e.g. resin) from which the sample was taken, in the form of an accession number to a suitable controlled vocabulary (Plant Ontology).|
 |trialDbId|string|The ID which uniquely identifies a trial within the given database server|
 |well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
 
@@ -382,7 +382,6 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
         "additionalInfo": {},
         "column": 6,
         "germplasmDbId": "7e08d538",
-        "notes": "This sample was taken from the root of a tree",
         "observationUnitDbId": "073a3ce5",
         "plateDbId": "2dce16d1",
         "plateName": "Plate_alpha_20191022",
@@ -390,6 +389,7 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
         "row": "B",
         "sampleBarcode": "3a027b59",
         "sampleDbId": "cd06a61d",
+        "sampleDescription": "This sample was taken from the root of a tree",
         "sampleGroupDbId": "8524b436",
         "sampleName": "Sample_alpha_20191022",
         "samplePUI": "doi:10.15454/312953986E3",
@@ -438,21 +438,21 @@ Update the details of an existing Sample
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
-|notes|string|Additional notes about a sample|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
 |plateDbId|string|The ID which uniquely identifies a plate of samples|
 |plateName|string|The human readable name of a plate|
 |programDbId|string|The ID which uniquely identifies a program within the given database server|
 |row|string|The Row identifier for this samples location in the plate|
 |sampleBarcode|string|A unique identifier physically attached to the sample|
+|sampleDescription|string|Description of a sample  MIAPPE V1.1 (DM-79) Sample description - Any information not captured by the other sample fields, including quantification, sample treatments and processing.|
 |sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
 |sampleName|string|The name of the sample|
-|samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)|
-|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
+|samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)  MIAPPE V1.1 (DM-81) External ID - An identifier for the sample in a persistent repository, comprising the name of the repository and the accession number of the observation unit therein. Submission to the EBI Biosamples repository is recommended. URI are recommended when possible. |
+|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field  MIAPPE V1.1 (DM-80) Collection date - The date and time when the sample was collected / harvested|
 |sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |takenBy|string|The name or identifier of the entity which took the sample from the field|
-|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.|
+|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.  MIAPPE V1.1 (DM-78) Plant anatomical entity - A description of  the plant part (e.g. leaf) or the plant product (e.g. resin) from which the sample was taken, in the form of an accession number to a suitable controlled vocabulary (Plant Ontology).|
 |trialDbId|string|The ID which uniquely identifies a trial within the given database server|
 |well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
 
@@ -464,22 +464,22 @@ Update the details of an existing Sample
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
-|notes|string|Additional notes about a sample|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
 |plateDbId|string|The ID which uniquely identifies a plate of samples|
 |plateName|string|The human readable name of a plate|
 |programDbId|string|The ID which uniquely identifies a program within the given database server|
 |row|string|The Row identifier for this samples location in the plate|
 |sampleBarcode|string|A unique identifier physically attached to the sample|
-|sampleDbId|string|The ID which uniquely identifies a sample|
+|sampleDbId|string|The ID which uniquely identifies a sample  MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.|
+|sampleDescription|string|Description of a sample  MIAPPE V1.1 (DM-79) Sample description - Any information not captured by the other sample fields, including quantification, sample treatments and processing.|
 |sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
 |sampleName|string|The name of the sample|
-|samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)|
-|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
+|samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)  MIAPPE V1.1 (DM-81) External ID - An identifier for the sample in a persistent repository, comprising the name of the repository and the accession number of the observation unit therein. Submission to the EBI Biosamples repository is recommended. URI are recommended when possible. |
+|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field  MIAPPE V1.1 (DM-80) Collection date - The date and time when the sample was collected / harvested|
 |sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |takenBy|string|The name or identifier of the entity which took the sample from the field|
-|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.|
+|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.  MIAPPE V1.1 (DM-78) Plant anatomical entity - A description of  the plant part (e.g. leaf) or the plant product (e.g. resin) from which the sample was taken, in the form of an accession number to a suitable controlled vocabulary (Plant Ontology).|
 |trialDbId|string|The ID which uniquely identifies a trial within the given database server|
 |well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
 
@@ -498,13 +498,13 @@ Update the details of an existing Sample
     "additionalInfo": {},
     "column": 6,
     "germplasmDbId": "7e08d538",
-    "notes": "This sample was taken from the root of a tree",
     "observationUnitDbId": "073a3ce5",
     "plateDbId": "2dce16d1",
     "plateName": "Plate_alpha_20191022",
     "programDbId": "bd748e00",
     "row": "B",
     "sampleBarcode": "3a027b59",
+    "sampleDescription": "This sample was taken from the root of a tree",
     "sampleGroupDbId": "8524b436",
     "sampleName": "Sample_alpha_20191022",
     "samplePUI": "doi:10.15454/312953986E3",
@@ -554,7 +554,6 @@ Update the details of an existing Sample
         "additionalInfo": {},
         "column": 6,
         "germplasmDbId": "7e08d538",
-        "notes": "This sample was taken from the root of a tree",
         "observationUnitDbId": "073a3ce5",
         "plateDbId": "2dce16d1",
         "plateName": "Plate_alpha_20191022",
@@ -562,6 +561,7 @@ Update the details of an existing Sample
         "row": "B",
         "sampleBarcode": "3a027b59",
         "sampleDbId": "cd06a61d",
+        "sampleDescription": "This sample was taken from the root of a tree",
         "sampleGroupDbId": "8524b436",
         "sampleName": "Sample_alpha_20191022",
         "samplePUI": "doi:10.15454/312953986E3",
@@ -723,22 +723,22 @@ See Search Services for additional implementation details.
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
-|notes|string|Additional notes about a sample|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
 |plateDbId|string|The ID which uniquely identifies a plate of samples|
 |plateName|string|The human readable name of a plate|
 |programDbId|string|The ID which uniquely identifies a program within the given database server|
 |row|string|The Row identifier for this samples location in the plate|
 |sampleBarcode|string|A unique identifier physically attached to the sample|
-|sampleDbId|string|The ID which uniquely identifies a sample|
+|sampleDbId|string|The ID which uniquely identifies a sample  MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.|
+|sampleDescription|string|Description of a sample  MIAPPE V1.1 (DM-79) Sample description - Any information not captured by the other sample fields, including quantification, sample treatments and processing.|
 |sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
 |sampleName|string|The name of the sample|
-|samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)|
-|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field|
+|samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)  MIAPPE V1.1 (DM-81) External ID - An identifier for the sample in a persistent repository, comprising the name of the repository and the accession number of the observation unit therein. Submission to the EBI Biosamples repository is recommended. URI are recommended when possible. |
+|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field  MIAPPE V1.1 (DM-80) Collection date - The date and time when the sample was collected / harvested|
 |sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |takenBy|string|The name or identifier of the entity which took the sample from the field|
-|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.|
+|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.  MIAPPE V1.1 (DM-78) Plant anatomical entity - A description of  the plant part (e.g. leaf) or the plant product (e.g. resin) from which the sample was taken, in the form of an accession number to a suitable controlled vocabulary (Plant Ontology).|
 |trialDbId|string|The ID which uniquely identifies a trial within the given database server|
 |well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
 
@@ -790,7 +790,6 @@ See Search Services for additional implementation details.
                 "additionalInfo": {},
                 "column": 6,
                 "germplasmDbId": "7e08d538",
-                "notes": "This sample was taken from the root of a tree",
                 "observationUnitDbId": "073a3ce5",
                 "plateDbId": "2dce16d1",
                 "plateName": "Plate_alpha_20191022",
@@ -798,6 +797,7 @@ See Search Services for additional implementation details.
                 "row": "B",
                 "sampleBarcode": "3a027b59",
                 "sampleDbId": "cd06a61d",
+                "sampleDescription": "This sample was taken from the root of a tree",
                 "sampleGroupDbId": "8524b436",
                 "sampleName": "Sample_alpha_20191022",
                 "samplePUI": "doi:10.15454/312953986E3",

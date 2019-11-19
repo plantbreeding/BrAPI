@@ -5,6 +5,8 @@ Study is defined as a phenotyping experiment conducted at a single geographic lo
 
 Note that dates should be provided in extended ISO 8601 format (for example, "YYYY-MM-DD").
 
+A "study" in BrAPI represents an "study" in MIAPPE (Minimal Information about a Plant Phenotyping Experiment).
+
 
 
 
@@ -192,20 +194,20 @@ See Search Services for additional implementation details.
 |additionalInfo|object|Additional arbitrary info|
 |commonCropName|string|Common name for the crop associated with this study|
 |contacts|array[object]|List of contact entities associated with this study|
-|contactDbId|string|The ID which uniquely identifies this contact|
-|email|string|The contacts email address |
-|instituteName|string|The name of the institution which this contact is part of|
-|name|string|The full name of this contact person|
-|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
-|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
-|culturalPractices|string|General description of the cultural practices of the study.|
+|contactDbId|string|The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.|
+|email|string|The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.|
+|instituteName|string|The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to|
+|name|string|The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)|
+|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.|
+|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation|
+|culturalPractices|string|MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.|
 |dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
-|dataLinkName|string|The name of the external data link|
+|dataLinkName|string|The name of the external data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
 |type|string|The type of external data link|
-|url|string (uri)|The URL which links to external data|
-|version|string|The version number of the data set.|
+|url|string (uri)|MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.|
+|version|string|MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|endDate|string (date)|The date the study ends|
+|endDate|string (date-time)|The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended|
 |environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
 |description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
 |parameterName|string|Name of the environment parameter constant within the experiment|
@@ -215,11 +217,11 @@ See Search Services for additional implementation details.
 |value|string|Numerical or categorical value|
 |valuePUI|string|URI pointing to an ontology class for the parameter value|
 |experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
-|PUI|string||
-|description|string||
+|PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
+|description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
-|PUI|string||
-|description|string||
+|PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
+|description|string|MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.|
 |lastUpdate|object|The date and time when this study was last modified|
 |timestamp|string (date-time)||
 |version|string||
@@ -227,30 +229,30 @@ See Search Services for additional implementation details.
 |location|object||
 |abbreviation|string|An abbreviation which represents this location|
 |additionalInfo|object|Additional arbitrary info|
-|altitude|number|The altitude/elevation of this location (in meters)|
+|altitude|number|The altitude/elevation of this location (in meters)  MIAPP V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
 |coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
 |coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
 |type|string|Feature|
-|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
-|countryName|string|The full name of the country where this location is|
+|countryCode|string| [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.|
+|countryName|string|The full name of the country where this location is  MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
-|instituteAddress|string|The street address of the institute representing this location|
-|instituteName|string|each institute/laboratory can have several experimental field|
+|instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
+|instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
-|locationName|string|A human readable name for this location|
+|locationName|string|A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.|
 |locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
 |siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
 |slope|string|Describes the approximate slope (height/distance) of the location.|
 |topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
-|observationUnitsDescription|string|The human readable description of the observation units design|
+|observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
 |seasons|array[string]|List of seasons over which this study was performed.|
-|startDate|string (date)|The date this study started|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|studyDescription|string|The description of this study|
-|studyName|string|The human readable name for a study|
+|startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.|
+|studyDescription|string|The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study|
+|studyName|string|The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study|
 |studyType|string|The type of study being performed. ex. "Yield Trial", etc|
 |trialDbId|string|The ID which uniquely identifies a trial|
 |trialName|string|The human readable name of a trial|
@@ -323,7 +325,7 @@ See Search Services for additional implementation details.
                     }
                 ],
                 "documentationURL": "https://wiki.brapi.org",
-                "endDate": "2018-01-01",
+                "endDate": "2018-01-01T14:47:23-0600",
                 "environmentParameters": [
                     {
                         "description": "the soil type was clay",
@@ -381,7 +383,7 @@ See Search Services for additional implementation details.
                 "seasons": [
                     "Spring_2018"
                 ],
-                "startDate": "2018-01-01",
+                "startDate": "2018-01-01T14:47:23-0600",
                 "studyDbId": "175ac75a",
                 "studyDescription": "This is a yield study for Spring 2018",
                 "studyName": "Grape_Yield_Spring_2018",
@@ -528,20 +530,20 @@ StartDate and endDate should be ISO-8601 format for dates
 |additionalInfo|object|Additional arbitrary info|
 |commonCropName|string|Common name for the crop associated with this study|
 |contacts|array[object]|List of contact entities associated with this study|
-|contactDbId|string|The ID which uniquely identifies this contact|
-|email|string|The contacts email address |
-|instituteName|string|The name of the institution which this contact is part of|
-|name|string|The full name of this contact person|
-|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
-|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
-|culturalPractices|string|General description of the cultural practices of the study.|
+|contactDbId|string|The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.|
+|email|string|The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.|
+|instituteName|string|The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to|
+|name|string|The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)|
+|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.|
+|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation|
+|culturalPractices|string|MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.|
 |dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
-|dataLinkName|string|The name of the external data link|
+|dataLinkName|string|The name of the external data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
 |type|string|The type of external data link|
-|url|string (uri)|The URL which links to external data|
-|version|string|The version number of the data set.|
+|url|string (uri)|MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.|
+|version|string|MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|endDate|string (date)|The date the study ends|
+|endDate|string (date-time)|The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended|
 |environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
 |description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
 |parameterName|string|Name of the environment parameter constant within the experiment|
@@ -551,11 +553,11 @@ StartDate and endDate should be ISO-8601 format for dates
 |value|string|Numerical or categorical value|
 |valuePUI|string|URI pointing to an ontology class for the parameter value|
 |experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
-|PUI|string||
-|description|string||
+|PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
+|description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
-|PUI|string||
-|description|string||
+|PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
+|description|string|MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.|
 |lastUpdate|object|The date and time when this study was last modified|
 |timestamp|string (date-time)||
 |version|string||
@@ -563,30 +565,30 @@ StartDate and endDate should be ISO-8601 format for dates
 |location|object||
 |abbreviation|string|An abbreviation which represents this location|
 |additionalInfo|object|Additional arbitrary info|
-|altitude|number|The altitude/elevation of this location (in meters)|
+|altitude|number|The altitude/elevation of this location (in meters)  MIAPP V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
 |coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
 |coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
 |type|string|Feature|
-|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
-|countryName|string|The full name of the country where this location is|
+|countryCode|string| [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.|
+|countryName|string|The full name of the country where this location is  MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
-|instituteAddress|string|The street address of the institute representing this location|
-|instituteName|string|each institute/laboratory can have several experimental field|
+|instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
+|instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
-|locationName|string|A human readable name for this location|
+|locationName|string|A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.|
 |locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
 |siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
 |slope|string|Describes the approximate slope (height/distance) of the location.|
 |topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
-|observationUnitsDescription|string|The human readable description of the observation units design|
+|observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
 |seasons|array[string]|List of seasons over which this study was performed.|
-|startDate|string (date)|The date this study started|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|studyDescription|string|The description of this study|
-|studyName|string|The human readable name for a study|
+|startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.|
+|studyDescription|string|The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study|
+|studyName|string|The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study|
 |studyType|string|The type of study being performed. ex. "Yield Trial", etc|
 |trialDbId|string|The ID which uniquely identifies a trial|
 |trialName|string|The human readable name of a trial|
@@ -670,7 +672,7 @@ StartDate and endDate should be ISO-8601 format for dates
                     }
                 ],
                 "documentationURL": "https://wiki.brapi.org",
-                "endDate": "2018-01-01",
+                "endDate": "2018-01-01T14:47:23-0600",
                 "environmentParameters": [
                     {
                         "description": "the soil type was clay",
@@ -728,7 +730,7 @@ StartDate and endDate should be ISO-8601 format for dates
                 "seasons": [
                     "Spring_2018"
                 ],
-                "startDate": "2018-01-01",
+                "startDate": "2018-01-01T14:47:23-0600",
                 "studyDbId": "175ac75a",
                 "studyDescription": "This is a yield study for Spring 2018",
                 "studyName": "Grape_Yield_Spring_2018",
@@ -777,20 +779,20 @@ StartDate and endDate should be ISO-8601 format for dates
 |additionalInfo|object|Additional arbitrary info|
 |commonCropName|string|Common name for the crop associated with this study|
 |contacts|array[object]|List of contact entities associated with this study|
-|contactDbId|string|The ID which uniquely identifies this contact|
-|email|string|The contacts email address |
-|instituteName|string|The name of the institution which this contact is part of|
-|name|string|The full name of this contact person|
-|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
-|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
-|culturalPractices|string|General description of the cultural practices of the study.|
+|contactDbId|string|The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.|
+|email|string|The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.|
+|instituteName|string|The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to|
+|name|string|The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)|
+|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.|
+|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation|
+|culturalPractices|string|MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.|
 |dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
-|dataLinkName|string|The name of the external data link|
+|dataLinkName|string|The name of the external data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
 |type|string|The type of external data link|
-|url|string (uri)|The URL which links to external data|
-|version|string|The version number of the data set.|
+|url|string (uri)|MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.|
+|version|string|MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|endDate|string (date)|The date the study ends|
+|endDate|string (date-time)|The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended|
 |environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
 |description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
 |parameterName|string|Name of the environment parameter constant within the experiment|
@@ -800,11 +802,11 @@ StartDate and endDate should be ISO-8601 format for dates
 |value|string|Numerical or categorical value|
 |valuePUI|string|URI pointing to an ontology class for the parameter value|
 |experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
-|PUI|string||
-|description|string||
+|PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
+|description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
-|PUI|string||
-|description|string||
+|PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
+|description|string|MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.|
 |lastUpdate|object|The date and time when this study was last modified|
 |timestamp|string (date-time)||
 |version|string||
@@ -812,29 +814,29 @@ StartDate and endDate should be ISO-8601 format for dates
 |location|object||
 |abbreviation|string|An abbreviation which represents this location|
 |additionalInfo|object|Additional arbitrary info|
-|altitude|number|The altitude/elevation of this location (in meters)|
+|altitude|number|The altitude/elevation of this location (in meters)  MIAPP V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
 |coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
 |coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
 |type|string|Feature|
-|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
-|countryName|string|The full name of the country where this location is|
+|countryCode|string| [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.|
+|countryName|string|The full name of the country where this location is  MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
-|instituteAddress|string|The street address of the institute representing this location|
-|instituteName|string|each institute/laboratory can have several experimental field|
+|instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
+|instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
-|locationName|string|A human readable name for this location|
+|locationName|string|A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.|
 |locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
 |siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
 |slope|string|Describes the approximate slope (height/distance) of the location.|
 |topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
-|observationUnitsDescription|string|The human readable description of the observation units design|
+|observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
 |seasons|array[string]|List of seasons over which this study was performed.|
-|startDate|string (date)|The date this study started|
-|studyDescription|string|The description of this study|
-|studyName|string|The human readable name for a study|
+|startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
+|studyDescription|string|The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study|
+|studyName|string|The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study|
 |studyType|string|The type of study being performed. ex. "Yield Trial", etc|
 |trialDbId|string|The ID which uniquely identifies a trial|
 |trialName|string|The human readable name of a trial|
@@ -849,20 +851,20 @@ StartDate and endDate should be ISO-8601 format for dates
 |additionalInfo|object|Additional arbitrary info|
 |commonCropName|string|Common name for the crop associated with this study|
 |contacts|array[object]|List of contact entities associated with this study|
-|contactDbId|string|The ID which uniquely identifies this contact|
-|email|string|The contacts email address |
-|instituteName|string|The name of the institution which this contact is part of|
-|name|string|The full name of this contact person|
-|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
-|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
-|culturalPractices|string|General description of the cultural practices of the study.|
+|contactDbId|string|The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.|
+|email|string|The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.|
+|instituteName|string|The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to|
+|name|string|The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)|
+|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.|
+|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation|
+|culturalPractices|string|MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.|
 |dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
-|dataLinkName|string|The name of the external data link|
+|dataLinkName|string|The name of the external data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
 |type|string|The type of external data link|
-|url|string (uri)|The URL which links to external data|
-|version|string|The version number of the data set.|
+|url|string (uri)|MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.|
+|version|string|MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|endDate|string (date)|The date the study ends|
+|endDate|string (date-time)|The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended|
 |environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
 |description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
 |parameterName|string|Name of the environment parameter constant within the experiment|
@@ -872,11 +874,11 @@ StartDate and endDate should be ISO-8601 format for dates
 |value|string|Numerical or categorical value|
 |valuePUI|string|URI pointing to an ontology class for the parameter value|
 |experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
-|PUI|string||
-|description|string||
+|PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
+|description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
-|PUI|string||
-|description|string||
+|PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
+|description|string|MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.|
 |lastUpdate|object|The date and time when this study was last modified|
 |timestamp|string (date-time)||
 |version|string||
@@ -884,30 +886,30 @@ StartDate and endDate should be ISO-8601 format for dates
 |location|object||
 |abbreviation|string|An abbreviation which represents this location|
 |additionalInfo|object|Additional arbitrary info|
-|altitude|number|The altitude/elevation of this location (in meters)|
+|altitude|number|The altitude/elevation of this location (in meters)  MIAPP V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
 |coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
 |coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
 |type|string|Feature|
-|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
-|countryName|string|The full name of the country where this location is|
+|countryCode|string| [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.|
+|countryName|string|The full name of the country where this location is  MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
-|instituteAddress|string|The street address of the institute representing this location|
-|instituteName|string|each institute/laboratory can have several experimental field|
+|instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
+|instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
-|locationName|string|A human readable name for this location|
+|locationName|string|A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.|
 |locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
 |siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
 |slope|string|Describes the approximate slope (height/distance) of the location.|
 |topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
-|observationUnitsDescription|string|The human readable description of the observation units design|
+|observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
 |seasons|array[string]|List of seasons over which this study was performed.|
-|startDate|string (date)|The date this study started|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|studyDescription|string|The description of this study|
-|studyName|string|The human readable name for a study|
+|startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.|
+|studyDescription|string|The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study|
+|studyName|string|The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study|
 |studyType|string|The type of study being performed. ex. "Yield Trial", etc|
 |trialDbId|string|The ID which uniquely identifies a trial|
 |trialName|string|The human readable name of a trial|
@@ -947,7 +949,7 @@ StartDate and endDate should be ISO-8601 format for dates
             }
         ],
         "documentationURL": "https://wiki.brapi.org",
-        "endDate": "2018-01-01",
+        "endDate": "2018-01-01T14:47:23-0600",
         "environmentParameters": [
             {
                 "description": "the soil type was clay",
@@ -1005,7 +1007,7 @@ StartDate and endDate should be ISO-8601 format for dates
         "seasons": [
             "Spring_2018"
         ],
-        "startDate": "2018-01-01",
+        "startDate": "2018-01-01T14:47:23-0600",
         "studyDescription": "This is a yield study for Spring 2018",
         "studyName": "Grape_Yield_Spring_2018",
         "studyType": "Phenotyping",
@@ -1073,7 +1075,7 @@ StartDate and endDate should be ISO-8601 format for dates
                     }
                 ],
                 "documentationURL": "https://wiki.brapi.org",
-                "endDate": "2018-01-01",
+                "endDate": "2018-01-01T14:47:23-0600",
                 "environmentParameters": [
                     {
                         "description": "the soil type was clay",
@@ -1131,7 +1133,7 @@ StartDate and endDate should be ISO-8601 format for dates
                 "seasons": [
                     "Spring_2018"
                 ],
-                "startDate": "2018-01-01",
+                "startDate": "2018-01-01T14:47:23-0600",
                 "studyDbId": "175ac75a",
                 "studyDescription": "This is a yield study for Spring 2018",
                 "studyName": "Grape_Yield_Spring_2018",
@@ -1178,20 +1180,20 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
 |additionalInfo|object|Additional arbitrary info|
 |commonCropName|string|Common name for the crop associated with this study|
 |contacts|array[object]|List of contact entities associated with this study|
-|contactDbId|string|The ID which uniquely identifies this contact|
-|email|string|The contacts email address |
-|instituteName|string|The name of the institution which this contact is part of|
-|name|string|The full name of this contact person|
-|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
-|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
-|culturalPractices|string|General description of the cultural practices of the study.|
+|contactDbId|string|The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.|
+|email|string|The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.|
+|instituteName|string|The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to|
+|name|string|The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)|
+|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.|
+|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation|
+|culturalPractices|string|MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.|
 |dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
-|dataLinkName|string|The name of the external data link|
+|dataLinkName|string|The name of the external data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
 |type|string|The type of external data link|
-|url|string (uri)|The URL which links to external data|
-|version|string|The version number of the data set.|
+|url|string (uri)|MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.|
+|version|string|MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|endDate|string (date)|The date the study ends|
+|endDate|string (date-time)|The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended|
 |environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
 |description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
 |parameterName|string|Name of the environment parameter constant within the experiment|
@@ -1201,11 +1203,11 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
 |value|string|Numerical or categorical value|
 |valuePUI|string|URI pointing to an ontology class for the parameter value|
 |experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
-|PUI|string||
-|description|string||
+|PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
+|description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
-|PUI|string||
-|description|string||
+|PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
+|description|string|MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.|
 |lastUpdate|object|The date and time when this study was last modified|
 |timestamp|string (date-time)||
 |version|string||
@@ -1213,30 +1215,30 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
 |location|object||
 |abbreviation|string|An abbreviation which represents this location|
 |additionalInfo|object|Additional arbitrary info|
-|altitude|number|The altitude/elevation of this location (in meters)|
+|altitude|number|The altitude/elevation of this location (in meters)  MIAPP V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
 |coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
 |coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
 |type|string|Feature|
-|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
-|countryName|string|The full name of the country where this location is|
+|countryCode|string| [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.|
+|countryName|string|The full name of the country where this location is  MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
-|instituteAddress|string|The street address of the institute representing this location|
-|instituteName|string|each institute/laboratory can have several experimental field|
+|instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
+|instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
-|locationName|string|A human readable name for this location|
+|locationName|string|A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.|
 |locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
 |siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
 |slope|string|Describes the approximate slope (height/distance) of the location.|
 |topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
-|observationUnitsDescription|string|The human readable description of the observation units design|
+|observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
 |seasons|array[string]|List of seasons over which this study was performed.|
-|startDate|string (date)|The date this study started|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|studyDescription|string|The description of this study|
-|studyName|string|The human readable name for a study|
+|startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.|
+|studyDescription|string|The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study|
+|studyName|string|The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study|
 |studyType|string|The type of study being performed. ex. "Yield Trial", etc|
 |trialDbId|string|The ID which uniquely identifies a trial|
 |trialName|string|The human readable name of a trial|
@@ -1305,7 +1307,7 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
             }
         ],
         "documentationURL": "https://wiki.brapi.org",
-        "endDate": "2018-01-01",
+        "endDate": "2018-01-01T14:47:23-0600",
         "environmentParameters": [
             {
                 "description": "the soil type was clay",
@@ -1363,7 +1365,7 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
         "seasons": [
             "Spring_2018"
         ],
-        "startDate": "2018-01-01",
+        "startDate": "2018-01-01T14:47:23-0600",
         "studyDbId": "175ac75a",
         "studyDescription": "This is a yield study for Spring 2018",
         "studyName": "Grape_Yield_Spring_2018",
@@ -1409,20 +1411,20 @@ Update an existing Study with new data
 |additionalInfo|object|Additional arbitrary info|
 |commonCropName|string|Common name for the crop associated with this study|
 |contacts|array[object]|List of contact entities associated with this study|
-|contactDbId|string|The ID which uniquely identifies this contact|
-|email|string|The contacts email address |
-|instituteName|string|The name of the institution which this contact is part of|
-|name|string|The full name of this contact person|
-|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
-|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
-|culturalPractices|string|General description of the cultural practices of the study.|
+|contactDbId|string|The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.|
+|email|string|The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.|
+|instituteName|string|The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to|
+|name|string|The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)|
+|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.|
+|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation|
+|culturalPractices|string|MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.|
 |dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
-|dataLinkName|string|The name of the external data link|
+|dataLinkName|string|The name of the external data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
 |type|string|The type of external data link|
-|url|string (uri)|The URL which links to external data|
-|version|string|The version number of the data set.|
+|url|string (uri)|MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.|
+|version|string|MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|endDate|string (date)|The date the study ends|
+|endDate|string (date-time)|The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended|
 |environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
 |description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
 |parameterName|string|Name of the environment parameter constant within the experiment|
@@ -1432,11 +1434,11 @@ Update an existing Study with new data
 |value|string|Numerical or categorical value|
 |valuePUI|string|URI pointing to an ontology class for the parameter value|
 |experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
-|PUI|string||
-|description|string||
+|PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
+|description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
-|PUI|string||
-|description|string||
+|PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
+|description|string|MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.|
 |lastUpdate|object|The date and time when this study was last modified|
 |timestamp|string (date-time)||
 |version|string||
@@ -1444,29 +1446,29 @@ Update an existing Study with new data
 |location|object||
 |abbreviation|string|An abbreviation which represents this location|
 |additionalInfo|object|Additional arbitrary info|
-|altitude|number|The altitude/elevation of this location (in meters)|
+|altitude|number|The altitude/elevation of this location (in meters)  MIAPP V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
 |coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
 |coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
 |type|string|Feature|
-|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
-|countryName|string|The full name of the country where this location is|
+|countryCode|string| [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.|
+|countryName|string|The full name of the country where this location is  MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
-|instituteAddress|string|The street address of the institute representing this location|
-|instituteName|string|each institute/laboratory can have several experimental field|
+|instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
+|instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
-|locationName|string|A human readable name for this location|
+|locationName|string|A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.|
 |locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
 |siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
 |slope|string|Describes the approximate slope (height/distance) of the location.|
 |topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
-|observationUnitsDescription|string|The human readable description of the observation units design|
+|observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
 |seasons|array[string]|List of seasons over which this study was performed.|
-|startDate|string (date)|The date this study started|
-|studyDescription|string|The description of this study|
-|studyName|string|The human readable name for a study|
+|startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
+|studyDescription|string|The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study|
+|studyName|string|The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study|
 |studyType|string|The type of study being performed. ex. "Yield Trial", etc|
 |trialDbId|string|The ID which uniquely identifies a trial|
 |trialName|string|The human readable name of a trial|
@@ -1480,20 +1482,20 @@ Update an existing Study with new data
 |additionalInfo|object|Additional arbitrary info|
 |commonCropName|string|Common name for the crop associated with this study|
 |contacts|array[object]|List of contact entities associated with this study|
-|contactDbId|string|The ID which uniquely identifies this contact|
-|email|string|The contacts email address |
-|instituteName|string|The name of the institution which this contact is part of|
-|name|string|The full name of this contact person|
-|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)|
-|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)|
-|culturalPractices|string|General description of the cultural practices of the study.|
+|contactDbId|string|The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.|
+|email|string|The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.|
+|instituteName|string|The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to|
+|name|string|The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)|
+|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.|
+|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation|
+|culturalPractices|string|MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.|
 |dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
-|dataLinkName|string|The name of the external data link|
+|dataLinkName|string|The name of the external data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
 |type|string|The type of external data link|
-|url|string (uri)|The URL which links to external data|
-|version|string|The version number of the data set.|
+|url|string (uri)|MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.|
+|version|string|MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|endDate|string (date)|The date the study ends|
+|endDate|string (date-time)|The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended|
 |environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
 |description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
 |parameterName|string|Name of the environment parameter constant within the experiment|
@@ -1503,11 +1505,11 @@ Update an existing Study with new data
 |value|string|Numerical or categorical value|
 |valuePUI|string|URI pointing to an ontology class for the parameter value|
 |experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
-|PUI|string||
-|description|string||
+|PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
+|description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
-|PUI|string||
-|description|string||
+|PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
+|description|string|MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.|
 |lastUpdate|object|The date and time when this study was last modified|
 |timestamp|string (date-time)||
 |version|string||
@@ -1515,30 +1517,30 @@ Update an existing Study with new data
 |location|object||
 |abbreviation|string|An abbreviation which represents this location|
 |additionalInfo|object|Additional arbitrary info|
-|altitude|number|The altitude/elevation of this location (in meters)|
+|altitude|number|The altitude/elevation of this location (in meters)  MIAPP V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
 |coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
 |coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
 |type|string|Feature|
-|countryCode|string|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
-|countryName|string|The full name of the country where this location is|
+|countryCode|string| [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.|
+|countryName|string|The full name of the country where this location is  MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
-|instituteAddress|string|The street address of the institute representing this location|
-|instituteName|string|each institute/laboratory can have several experimental field|
+|instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
+|instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
-|locationName|string|A human readable name for this location|
+|locationName|string|A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.|
 |locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
 |siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
 |slope|string|Describes the approximate slope (height/distance) of the location.|
 |topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
-|observationUnitsDescription|string|The human readable description of the observation units design|
+|observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
 |seasons|array[string]|List of seasons over which this study was performed.|
-|startDate|string (date)|The date this study started|
-|studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|studyDescription|string|The description of this study|
-|studyName|string|The human readable name for a study|
+|startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.|
+|studyDescription|string|The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study|
+|studyName|string|The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study|
 |studyType|string|The type of study being performed. ex. "Yield Trial", etc|
 |trialDbId|string|The ID which uniquely identifies a trial|
 |trialName|string|The human readable name of a trial|
@@ -1578,7 +1580,7 @@ Update an existing Study with new data
         }
     ],
     "documentationURL": "https://wiki.brapi.org",
-    "endDate": "2018-01-01",
+    "endDate": "2018-01-01T14:47:23-0600",
     "environmentParameters": [
         {
             "description": "the soil type was clay",
@@ -1636,7 +1638,7 @@ Update an existing Study with new data
     "seasons": [
         "Spring_2018"
     ],
-    "startDate": "2018-01-01",
+    "startDate": "2018-01-01T14:47:23-0600",
     "studyDescription": "This is a yield study for Spring 2018",
     "studyName": "Grape_Yield_Spring_2018",
     "studyType": "Phenotyping",
@@ -1701,7 +1703,7 @@ Update an existing Study with new data
             }
         ],
         "documentationURL": "https://wiki.brapi.org",
-        "endDate": "2018-01-01",
+        "endDate": "2018-01-01T14:47:23-0600",
         "environmentParameters": [
             {
                 "description": "the soil type was clay",
@@ -1759,7 +1761,7 @@ Update an existing Study with new data
         "seasons": [
             "Spring_2018"
         ],
-        "startDate": "2018-01-01",
+        "startDate": "2018-01-01T14:47:23-0600",
         "studyDbId": "175ac75a",
         "studyDescription": "This is a yield study for Spring 2018",
         "studyName": "Grape_Yield_Spring_2018",

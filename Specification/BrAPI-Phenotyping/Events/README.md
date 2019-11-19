@@ -18,15 +18,15 @@ Get list of events
 |---|---|---| 
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
-|date|array[string]|A list of dates when the event occured|
-|description|string|A detailed, human-readable description of this event|
+|date|array[string]|A list of dates when the event occured  MIAPPE V1.1 (DM-68) Event date - Date and time of the event.|
 |eventDbId|string|Internal database identifier|
+|eventDescription|string|A detailed, human-readable description of this event  MIAPEE V1.1 (DM-67) Event description - Description of the event, including details such as amount applied and possibly duration of the event. |
 |eventParameters|array[object]|A list of objects describing additional event parameters. Each of the following accepts a human-readable value or URI|
 |key|string|Specifies the relationship between the event and the given property. E.g. fertilizer, operator|
 |rdfValue|string|The type of the value given above, e.g. http://xmlns.com/foaf/0.1/Agent|
 |value|string|The value of the property for this event. E.g. nitrogen, John Doe|
-|eventType|string|General category for this event (e.g. Sowing, Watering, Rain). Each eventType should correspond to exactly one eventTypeDbId, if provided.|
-|eventTypeDbId|string|An identifier for this event type, in the form of an ontology class reference|
+|eventType|string|General category for this event (e.g. Sowing, Watering, Rain). Each eventType should correspond to exactly one eventTypeDbId, if provided.  MIAPPE V1.1 (DM-65) Event type - Short name of the event.|
+|eventTypeDbId|string|An identifier for this event type, in the form of an ontology class reference  MIAPPE V1.1 (DM-66) Event accession number - Accession number of the event type in a suitable controlled vocabulary (Crop Ontology).|
 |observationUnitDbIds|array[string]|A list of the affected observation units. If this parameter is not given, it is understood that the event affected all units in the study|
 |studyDbId|string|The study in which the event occurred|
 
@@ -84,8 +84,8 @@ Get list of events
                     "2018-10-08T18:15:11Z",
                     "2018-11-09T18:16:12Z"
                 ],
-                "description": "A set of plots was watered",
                 "eventDbId": "8566d4cb",
+                "eventDescription": "A set of plots was watered",
                 "eventParameters": [
                     {
                         "key": "http://www.phenome-fppn.fr/vocabulary/2018#hasContact,",
