@@ -21,15 +21,24 @@ components:
           type: string
           example: 8566d4cb
         eventType:
-          description: General category for this event (e.g. Sowing, Watering, Rain). Each eventType should correspond to exactly one eventTypeDbId, if provided.
+          description: |-
+            General category for this event (e.g. Sowing, Watering, Rain). Each eventType should correspond to exactly one eventTypeDbId, if provided.
+            
+            MIAPPE V1.1 (DM-65) Event type - Short name of the event.
           type: string
           example: Watering
         eventTypeDbId:
-          description: An identifier for this event type, in the form of an ontology class reference
+          description: |-
+            An identifier for this event type, in the form of an ontology class reference
+            
+            MIAPPE V1.1 (DM-66) Event accession number - Accession number of the event type in a suitable controlled vocabulary (Crop Ontology).
           type: string
           example: 4e7d691e
-        description: 
-          description: A detailed, human-readable description of this event
+        eventDescription: 
+          description: |-
+            A detailed, human-readable description of this event
+            
+            MIAPEE V1.1 (DM-67) Event description - Description of the event, including details such as amount applied and possibly duration of the event. 
           type: string
           example: A set of plots was watered
         studyDbId: 
@@ -43,7 +52,10 @@ components:
           type: array
           example: ['8439eaff', 'd7682e7a', '305ae51c']
         date:
-          description: A list of dates when the event occured
+          description: |-
+            A list of dates when the event occured
+            
+            MIAPPE V1.1 (DM-68) Event date - Date and time of the event.
           items:
             format: date-time
             type: string

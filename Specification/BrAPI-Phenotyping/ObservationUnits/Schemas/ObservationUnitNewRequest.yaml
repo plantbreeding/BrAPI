@@ -30,13 +30,25 @@ components:
           type: string
           example: Field Station Alpha
         observationLevel:
-          description: The level of an observation unit. ex. "plot", "plant"
+          description: |-
+            The level of an observation unit. ex. "plot", "plant"
+            
+            MIAPPE V1.1 DM-71 Observation unit type "Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended. 
+            The observation unit type cannot be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables).
+            Alternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead."
           type: string
           example: plot
         observationUnitName:
           description: A human readable name for an observation unit
           type: string
           example: Plot 1
+        observationUnitPUI:
+          description: |-
+            A Permanent Unique Identifier for an observation unit
+            
+            MIAPPE V1.1 (DM-72) External ID - Identifier for the observation unit in a persistent repository, comprises the name of the repository and the identifier of the observation unit therein. The EBI Biosamples repository can be used. URI are recommended when possible.
+          type: string
+          example: http://pui.per/plot/1a9afc14
         observationUnitXref:
           description: A list of external references to this observation unit
           type: array
@@ -81,7 +93,10 @@ components:
           type: string
           example: Purple_Tomato_1
         treatments:
-          description: List of treatments applied to an observation unit.
+          description: |-
+            List of treatments applied to an observation unit.
+            
+            MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.
           items:
             $ref: '#/components/schemas/ObservationTreatment'
           type: array

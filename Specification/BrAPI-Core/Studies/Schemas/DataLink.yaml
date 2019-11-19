@@ -6,9 +6,13 @@ paths: {}
 components:
   schemas:
     DataLink:
+      type: object
       properties:
         dataLinkName:
-          description: The name of the external data link
+          description: |-
+            The name of the external data link
+            
+            MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.
           type: string
           example: image-archive.zip
         type:
@@ -16,13 +20,12 @@ components:
           type: string
           example: Image Archive
         url:
-          description: The URL which links to external data
+          description: MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.
           type: string
           format: uri
           example: https://brapi.org/image-archive.zip
         version:
-          description: The version number of the data set.
+          description: MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).
           type: string
           example: 1.0.0
-      type: object
 

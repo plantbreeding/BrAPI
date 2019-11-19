@@ -17,8 +17,11 @@ components:
           description: The ID which uniquely identifies a germplasm
           type: string
           example: 7e08d538
-        notes:
-          description: Additional notes about a sample
+        sampleDescription:
+          description: |-
+            Description of a sample
+            
+            MIAPPE V1.1 (DM-79) Sample description - Any information not captured by the other sample fields, including quantification, sample treatments and processing.
           type: string
           example: This sample was taken from the root of a tree
         observationUnitDbId:
@@ -34,7 +37,10 @@ components:
           type: string
           example: Plate_alpha_20191022
         sampleTimestamp:
-          description: The date and time a sample was collected from the field
+          description: |-
+            The date and time a sample was collected from the field
+            
+            MIAPPE V1.1 (DM-80) Collection date - The date and time when the sample was collected / harvested
           format: date-time
           type: string
         sampleName:
@@ -42,7 +48,10 @@ components:
           type: string
           example: Sample_alpha_20191022
         samplePUI:
-          description: A permanent unique identifier for the sample (DOI, URL, UUID, etc) 
+          description: |-
+            A permanent unique identifier for the sample (DOI, URL, UUID, etc)
+            
+            MIAPPE V1.1 (DM-81) External ID - An identifier for the sample in a persistent repository, comprising the name of the repository and the accession number of the observation unit therein. Submission to the EBI Biosamples repository is recommended. URI are recommended when possible. 
           type: string
           example: doi:10.15454/312953986E3
         sampleBarcode:
@@ -88,7 +97,10 @@ components:
           type: string
           example: Bob
         tissueType:
-          description: The type of tissue sampled. ex. 'Leaf', 'Root', etc.
+          description: |-
+            The type of tissue sampled. ex. 'Leaf', 'Root', etc.
+            
+            MIAPPE V1.1 (DM-78) Plant anatomical entity - A description of  the plant part (e.g. leaf) or the plant product (e.g. resin) from which the sample was taken, in the form of an accession number to a suitable controlled vocabulary (Plant Ontology).
           type: string
           example: Root
 

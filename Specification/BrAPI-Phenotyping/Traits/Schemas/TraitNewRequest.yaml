@@ -47,7 +47,10 @@ components:
           type: array
           example: ['Height', 'Plant Height', 'Stalk Height', 'Canopy Height']
         traitName:
-          description: The human readable name of a trait
+          description: |-
+            The human readable name of a trait
+            
+            MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation
           type: string
           example: Height
         xref:

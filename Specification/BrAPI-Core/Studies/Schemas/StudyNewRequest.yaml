@@ -6,6 +6,7 @@ paths: {}
 components:
   schemas:
     StudyNewRequest:
+      type: object
       properties:
         active:
           description: Is this study currently active
@@ -36,8 +37,11 @@ components:
           type: string
           example: https://wiki.brapi.org
         endDate:
-          description: The date the study ends
-          format: date
+          description: |-
+            The date the study ends
+            
+            MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended
+          format: date-time
           type: string
         environmentParameters:
           description: Environmental parameters that were kept constant throughout the study and did not change between observation units.
@@ -67,15 +71,24 @@ components:
           type: array
           example: ['Spring_2018']
         startDate:
-          description: The date this study started
-          format: date
+          description: |-
+            The date this study started
+            
+            MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started
+          format: date-time
           type: string
         studyDescription:
-          description: The description of this study
+          description: |-
+            The description of this study
+            
+            MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study
           type: string
           example: This is a yield study for Spring 2018
         studyName:
-          description: The human readable name for a study
+          description: |-
+            The human readable name for a study
+            
+            MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study
           type: string
           example: Grape_Yield_Spring_2018
         studyType:
@@ -91,20 +104,22 @@ components:
           type: string
           example: Grape_Yield_Trial
         observationUnitsDescription:
-          description: The human readable description of the observation units design
+          description: MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.
           type: string
           example: Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.
         culturalPractices:
-          description: General description of the cultural practices of the study.
+          description: MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.
           type: string
           example: Irrigation was applied according needs during summer to prevent water stress.
         experimentalDesign:
           description: The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology
           properties:
             description:
+              description: MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.
               type: string
               example: Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information.
             PUI:
+              description: MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.
               type: string
               example: CO_715:0000145
           type: object
@@ -112,11 +127,12 @@ components:
           description: Short description of the facility in which the study was carried out.
           properties:
             description:
+              description: MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.
               type: string
               example: field environment condition, greenhouse
             PUI:
+              description: MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.
               type: string
               example: CO_715:0000162
           type: object
-      type: object
 

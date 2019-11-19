@@ -10,11 +10,17 @@ components:
       - $ref: '#/components/schemas/VariableBaseClass'
       - properties:
           observationVariableDbId:
-            description: Variable unique identifier
+            description: |-
+              Variable unique identifier
+              
+              MIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation.
             type: string
             example: b9b7edd1
           observationVariableName:
-            description: Variable name (usually a short name)
+            description: |-
+              Variable name (usually a short name)
+              
+              MIAPPE V1.1 (DM-84) Variable name - Name of the variable.
             type: string
             example: Variable Name
         required:

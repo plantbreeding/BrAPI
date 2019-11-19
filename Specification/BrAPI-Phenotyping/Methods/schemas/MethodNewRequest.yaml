@@ -18,7 +18,10 @@ components:
           type: string
           example: Measurement
         description:
-          description: Method description.
+          description: |-
+            Method description
+            
+            MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)
           type: string
           example: A measuring tape was used
         formula:
@@ -26,13 +29,19 @@ components:
           type: string
           example: a^2 + b^2 = c^2
         methodName:
-          description: Human readable name for the method
+          description: |-
+            Human readable name for the method
+            
+            MIAPPE V1.1 (DM-88) Method  Name of the method of observation
           type: string
           example: Measuring Tape
         ontologyReference:
           $ref: '#/components/schemas/OntologyReference'
         reference:
-          description: Bibliographical reference describing the method.
+          description: |-
+            Bibliographical reference describing the method.
+            
+            MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.
           type: string
           example: Smith, 1893, Really Cool Paper, Popular Journal
 

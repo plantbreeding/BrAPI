@@ -19,15 +19,24 @@ components:
           type: object
           example: {}
         altitude:
-          description: The altitude/elevation of this location (in meters)
+          description: |-
+            The altitude/elevation of this location (in meters)
+            
+            MIAPP V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).
           type: number
           example: 35.6
         countryCode:
-          description: '[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec'
+          description: '
+            [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec
+            
+            MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.'
           type: string
           example: PER
         countryName:
-          description: The full name of the country where this location is
+          description: |-
+            The full name of the country where this location is
+            
+            MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.
           type: string
           example: Peru
         documentationURL:
@@ -36,15 +45,24 @@ components:
           type: string
           example: https://brapi.org
         instituteAddress:
-          description: The street address of the institute representing this location
+          description: |-
+            The street address of the institute representing this location
+            
+            MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.
           type: string
           example: 71 Pilgrim Avenue Chevy Chase MD 20815
         instituteName:
-          description: each institute/laboratory can have several experimental field
+          description: |-
+            Each institute/laboratory can have several experimental field
+            
+            MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.
           type: string
           example: Plant Science Institute
         locationName:
-          description: A human readable name for this location
+          description: |-
+            A human readable name for this location
+            
+            MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.
           type: string
           example: Location 1
         locationType:

@@ -11,6 +11,9 @@ components:
       - type: object
         properties:
           observationUnitDbId:
-            description: The ID which uniquely identifies an observation unit
+            description: |-
+              The ID which uniquely identifies an observation unit
+              
+              MIAPPE V1.1 (DM-70) Observation unit ID - Identifier used to identify the observation unit in data files containing the values observed or measured on that unit. Must be locally unique. 
             type: string
             example: 8c67503c

@@ -20,7 +20,10 @@ components:
         ontologyReference:
           $ref: '#/components/schemas/OntologyReference'
         scaleName:
-          description: Name of the scale
+          description: |- 
+            Name of the scale
+            
+            MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable
           type: string
           example: Meters
         validValues:

@@ -9,11 +9,17 @@ components:
       type: object
       properties:
         factor:
-          description: The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc
+          description: |-
+            The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc
+            
+            MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.
           type: string
           example: fertilizer
         modality:
-          description: The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc
+          description: |-
+            The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc
+            
+            MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planification and protocol planned for all the plants targeted by a given experimental factor. 
           type: string
           example: low fertilizer
 
