@@ -73,16 +73,21 @@ components:
           default: 0
           example: 0
         pageSize:
-          type: string
+          type: integer
           default: 1000
           example: 1000
         totalCount:
           type: integer
-          example: 1
+          example: 10
         totalPages:
           type: integer
           example: 1
     status:
+      description: An array of status messages to convey technical logging information from the server to the client. 
+      required:
+      - message
+      - messageType
+      type: object
       properties:
         message:
           description: A short message concerning the status of this request/response
@@ -97,8 +102,4 @@ components:
           - INFO
           type: string
           example: INFO
-      required:
-      - message
-      - messageType
-      type: object
 

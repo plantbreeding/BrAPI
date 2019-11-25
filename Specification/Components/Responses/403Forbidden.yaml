@@ -1,15 +1,16 @@
-components:
-  responses:
-    403Forbidden:
-      content:
-        application/json:
-          example: ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action
-          schema:
-            type: string
-      description: Forbidden
-      headers: {}
 info:
   title: BrAPI
   version: ''
 openapi: 3.0.0
 paths: {}
+components:
+  responses:
+    403Forbidden:
+      description: Forbidden
+      headers: {}
+      content:
+        application/json:
+          example: ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action
+          schema:
+            type: string
+

@@ -19,6 +19,8 @@ paths:
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
       responses:
+        '102': 
+          $ref: '#/components/responses/102ProcessingSearchResponse' 
         '200':
           $ref: '#/components/responses/ObservationListResponse'
         '400':

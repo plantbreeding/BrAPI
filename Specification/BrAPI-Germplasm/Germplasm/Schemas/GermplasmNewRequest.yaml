@@ -81,7 +81,7 @@ components:
           description: |-
             The Permanent Unique Identifier which represents a germplasm
             
-            MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc… This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.
+            MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.
           type: string
           example: http://pui.per/accession/A0000003
         germplasmSpecies:
@@ -115,7 +115,7 @@ components:
           description: |-
             Subtaxon can be used to store any additional taxonomic identifier. (MCPD)
             
-            MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: ‘subsp.’ (subspecies); ‘convar.’ (convariety); ‘var.’ (variety); ‘f.’ (form); ‘Group’ (cultivar group).
+            MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).
           type: string
           example: Aspergillus fructus A
         subtaxaAuthority:
@@ -139,9 +139,19 @@ components:
         typeOfGermplasmStorageCode:
           description: The 2 digit code representing the type of storage this germplasm is kept in at a genebank. (MCPD)
           items:
+            enum:
+            - '10'
+            - '11'
+            - '12'
+            - '13'
+            - '20'
+            - '30'
+            - '40'
+            - '50'
+            - '99'
             type: string
           type: array
-          example: ['10', '11']
+          example: ['11', 13']
         germplasmPreprocessing:
           description: Description of any process or treatment applied uniformly to the germplasm, prior to the study itself. Can be provided as free text or as an accession number from a suitable controlled vocabulary.
           type: string

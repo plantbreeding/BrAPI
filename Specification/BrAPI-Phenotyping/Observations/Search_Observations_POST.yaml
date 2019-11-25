@@ -16,7 +16,9 @@ paths:
               $ref: '#/components/schemas/ObservationSearchRequest'
       responses:
         '200':
-          $ref: '#/components/responses/successfulSearchResponse'
+          $ref: '#/components/responses/ObservationListResponse'
+        '202':
+          $ref: '#/components/responses/202AcceptedSearchResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':

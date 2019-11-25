@@ -37,31 +37,7 @@ paths:
         - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          description: A successful response.
-          content:
-            application/json:
-              schema:
-                properties:
-                  '@context':
-                    $ref: '#/components/schemas/Context'
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    properties:
-                      data:
-                        items:
-                          $ref: '#/components/schemas/CallSet'
-                        type: array
-                    required:
-                    - data
-                    title: callSetsListResponseResult
-                    type: object
-                required:
-                - metadata
-                - result
-                title: callSetsListResponse
-                type: object
-          headers: {}
+          $ref: '#/components/responses/CallSetsListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':

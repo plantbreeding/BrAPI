@@ -5,11 +5,13 @@ openapi: 3.0.0
 paths: {}
 components:
   responses:
-    successfulSearchResponse:
+    202AcceptedSearchResponse: 
+      description: Accepted
+      headers: {}
       content:
         application/json: 
           schema:
-            title: successfulSearchResponse
+            title: 202AcceptedSearchResponse
             type: object
             properties:
               '@context':
@@ -17,10 +19,8 @@ components:
               metadata:
                 $ref: '#/components/schemas/metadata'
               result:
+                type: object
                 properties:
                   searchResultsDbId:
                     type: string
                     example: 551ae08c
-                type: object
-      description: OK
-      headers: {}

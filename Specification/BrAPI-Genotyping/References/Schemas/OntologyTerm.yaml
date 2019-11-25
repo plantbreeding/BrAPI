@@ -1,6 +1,13 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
 components:
   schemas:
     OntologyTerm:
+      description: An ontology term describing an attribute. (e.g. the phenotype attribute 'polydactyly' from HPO)
+      type: object
       properties:
         term:
           description: Ontology term - the label of the ontology term the termId is pointing to.
@@ -12,12 +19,4 @@ components:
             in that it is a CURIE pointing to an information resource outside of the
             scope of the schema or its resource implementation.
           type: string
-      title: |-
-        An ontology term describing an attribute. (e.g. the phenotype attribute
-        'polydactyly' from HPO)
-      type: object
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}
+

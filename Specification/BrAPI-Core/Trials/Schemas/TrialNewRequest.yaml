@@ -6,6 +6,7 @@ paths: {}
 components:
   schemas:
     TrialNewRequest:
+      type: object
       properties:
         active:
           description: Is this trail currently active
@@ -93,4 +94,7 @@ components:
             MIAPPE V1.1 (DM-4) Investigation description - Human-readable text describing the investigation in more detail.
           type: string
           example: General drought resistance trial initiated in Peru before duplication in Africa
-      type: object
+        trialPUI:
+          description: A permanent identifier for a trial. Could be DOI or other URI formatted identifier.
+          type: string
+          example: https://doi.org/101093190

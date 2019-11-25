@@ -1,15 +1,16 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
 components:
   schemas:
     ReferenceSet:
-      description: |-
-        A `ReferenceSet` is a set of `Reference` s which typically comprise a
-        reference assembly, such as `GRCh38`. A `ReferenceSet` defines a common
-        coordinate space for comparing reference-aligned experimental data.
+      description: A `ReferenceSet` is a set of `Reference` s which typically comprise a reference assembly, such as `GRCh38`. A `ReferenceSet` defines a common coordinate space for comparing reference-aligned experimental data.
+      type: object
       properties:
         assemblyPUI:
-          description: |-
-            The remaining information is about the source of the sequences
-            Public id of this reference set, such as `GRCh37`.
+          description: The remaining information is about the source of the sequences Public id of this reference set, such as `GRCh37`.
           type: string
         additionalInfo:
           additionalProperties:
@@ -23,10 +24,7 @@ components:
           description: The reference set ID. Unique in the repository.
           type: string
         isDerived:
-          description: |-
-            A reference set may be derived from a source if it contains
-            additional sequences, or some of the sequences within it are derived
-            (see the definition of `isDerived` in `Reference`).
+          description: A reference set may be derived from a source if it contains additional sequences, or some of the sequences within it are derived (see the definition of `isDerived` in `Reference`).
           format: boolean
           type: boolean
         md5checksum:
@@ -42,9 +40,7 @@ components:
           description: The reference set name.
           type: string
         sourceAccessions:
-          description: |-
-            All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally
-            with a version number, e.g. `NC_000001.11`.
+          description: All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.
           items:
             type: string
           type: array
@@ -53,9 +49,4 @@ components:
           type: string
         species:
           $ref: '#/components/schemas/OntologyTerm'
-      type: object
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}
+

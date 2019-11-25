@@ -8,33 +8,99 @@ paths:
       summary: Get a filtered list of Trials
       description: Retrieve a filtered list of breeding Trials. A Trial is a collection of Studies
       parameters:
-      - description: Common name for the crop associated with this trial
+      - name: active
+        description: Filter active status true/false.
         in: query
-        name: commonCropName
-        required: false
-        schema:
-          type: string
-      - description: Program filter to only return trials associated with given program id.
-        in: query
-        name: programDbId
-        required: false
-        schema:
-          type: string
-      - description: Filter by location
-        in: query
-        name: locationDbId
-        required: false
-        schema:
-          type: string
-      - description: Filter active status true/false.
-        in: query
-        name: active
         required: false
         schema:
           type: boolean
-      - description: Sort order. Name of the field to sort by.
+      - name: commonCropName
+        description: Common name for the crop associated with this trial
         in: query
-        name: sortBy
+        required: false
+        schema:
+          type: string
+      - name: contactDbId
+        description: Contact entities associated with this trial
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: programDbId
+        description: Program filter to only return trials associated with given program id.
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: locationDbId
+        description: Filter by location
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: searchDateRangeStart
+        description: |-
+            The start of the overlapping search date range. `searchDateRangeStart` must be before `searchDateRangeEnd`.
+            
+            Return a Trial entity if any of the following cases are true
+            
+            - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is null 
+            
+            - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`
+            
+            - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is null
+            
+            - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is before `trial.endDate`
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date
+      - name: searchDateRangeEnd
+        description: |-
+            The start of the overlapping search date range. `searchDateRangeStart` must be before `searchDateRangeEnd`.
+            
+            Return a Trial entity if any of the following cases are true
+            
+            - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is null 
+            
+            - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`
+            
+            - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is null
+            
+            - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is before `trial.endDate`
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date
+      - name: studyDbId
+        description: Filter by connected studyDbId
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: trialDbId
+        description: Filter by trialDbId
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: trialName
+        description: Filter by trial name
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: trialPUI
+        description: Filter by trial PUI
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: sortBy
+        description: Sort order. Name of the field to sort by.
+        in: query
         required: false
         schema:
           enum:
@@ -46,9 +112,9 @@ paths:
           - startDate
           - endDate
           type: string
-      - description: 'Sort order direction: asc/desc'
+      - name: sortOrder
+        description: 'Sort order direction: asc/desc'
         in: query
-        name: sortOrder
         required: false
         schema:
           enum:

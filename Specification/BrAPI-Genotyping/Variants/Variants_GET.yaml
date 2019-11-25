@@ -25,31 +25,7 @@ paths:
         - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          description: A successful response.
-          content:
-            application/json:
-              schema:
-                properties:
-                  '@context':
-                    $ref: '#/components/schemas/Context'
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    properties:
-                      data:
-                        items:
-                          $ref: '#/components/schemas/Variant'
-                        type: array
-                    required:
-                    - data
-                    title: variantListResponseResult
-                    type: object
-                required:
-                - metadata
-                - result
-                title: variantListResponse
-                type: object
-          headers: {}
+          $ref: '#/components/responses/VariantsListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':

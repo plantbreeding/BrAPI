@@ -18,7 +18,9 @@ paths:
               $ref: '#/components/schemas/TrialSearchRequest'
       responses:
         '200':
-          $ref: '#/components/responses/successfulSearchResponse'
+          $ref: '#/components/responses/TrialListResponse'
+        '202':
+          $ref: '#/components/responses/202AcceptedSearchResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':

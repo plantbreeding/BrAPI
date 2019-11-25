@@ -30,12 +30,40 @@ components:
           items:
             type: string
           example: ['7e54bd46', 'e54a7703']
+        locationDbIds:
+          description: A location identifier to search for (could be in connected study)
+          type: array
+          items:
+            type: string
+          example: ['8fe061c3', '6eafd31e']
         searchDateRangeStart:
-          description: The start of the overlapping search date range
+          description: |-
+            The start of the overlapping search date range. `searchDateRangeStart` must be before `searchDateRangeEnd`.
+            
+            Return a Trial entity if any of the following cases are true
+            
+            - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is null 
+            
+            - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`
+            
+            - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is null
+            
+            - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is before `trial.endDate`
           format: date
           type: string
         searchDateRangeEnd:
-          description: The end of the overlapping search date range
+          description: |-
+            The end of the overlapping search date range. `searchDateRangeStart` must be before `searchDateRangeEnd`.
+            
+            Return a Trial entity if any of the following cases are true
+            
+            - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is null 
+            
+            - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`
+            
+            - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is null
+            
+            - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is before `trial.endDate`
           format: date
           type: string
         studyDbIds:
@@ -50,6 +78,12 @@ components:
           items:
             type: string
           example: ['d2593dc2', '9431a731']
+        trialPUIs:
+          description: A permanent identifier for a trial. Could be DOI or other URI formatted identifier.
+          type: array
+          items:
+            type: string
+          example: ['https://doi.org/01093190', 'https://doi.org/11192409']
         trialNames:
           description: The human readable name of a trial
           type: array

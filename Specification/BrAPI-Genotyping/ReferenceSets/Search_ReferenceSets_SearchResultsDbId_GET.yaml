@@ -16,32 +16,10 @@ paths:
       - $ref: '#/components/parameters/pageSize'
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
+        '102': 
+          $ref: '#/components/responses/102ProcessingSearchResponse' 
         '200':
-          description: A successful response.
-          content:
-            application/json:
-              schema:
-                properties:
-                  '@context':
-                    $ref: '#/components/schemas/Context'
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    properties:
-                      data:
-                        items:
-                          $ref: '#/components/schemas/ReferenceSet'
-                        type: array
-                    required:
-                    - data
-                    title: referenceListResponseResult
-                    type: object
-                required:
-                - metadata
-                - result
-                title: referenceListResponse
-                type: object
-          headers: {}
+          $ref: '#/components/responses/ReferenceSetsListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':

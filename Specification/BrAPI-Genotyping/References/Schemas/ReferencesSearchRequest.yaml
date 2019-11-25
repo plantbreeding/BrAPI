@@ -1,23 +1,24 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
 components:
   schemas:
-    SearchReferenceSetsRequest:
+    ReferencesSearchRequest: 
       description: |-
-        ****************  /referencesets  *******************
-        This request maps to the body of `POST /referencesets/search` as JSON.
+        ****************  /references  *******************
+        This request maps to the body of `POST /references/search` as JSON.
+      type: object
       properties:
         accession:
           description: |-
-            If unset, return the reference sets for which the `accession`
-            matches this string (case-sensitive, exact match).
-          type: string
-        assemblyPUI:
-          description: |-
-            If unset, return the reference sets for which the `assemblyId`
+            If specified, return the references for which the `accession`
             matches this string (case-sensitive, exact match).
           type: string
         md5checksum:
           description: |-
-            If unset, return the reference sets for which the
+            If specified, return the references for which the
             `md5checksum` matches this string (case-sensitive, exact match).
             See `ReferenceSet::md5checksum` for details.
           type: string
@@ -33,9 +34,7 @@ components:
             To get the next page of results, set this parameter to the value of
             `next_page_token` from the previous response.
           type: string
-      type: object
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}
+        referenceSetDbId:
+          description: The `ReferenceSet` to search.
+          type: string
+

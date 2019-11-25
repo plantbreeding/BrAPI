@@ -16,6 +16,8 @@ paths:
       - $ref: '#/components/parameters/pageSize'
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
+        '102': 
+          $ref: '#/components/responses/102ProcessingSearchResponse' 
         '200':
           $ref: '#/components/responses/PersonListResponse'
         '400':

@@ -20,7 +20,9 @@ paths:
         required: true
       responses:
         '200':
-          $ref: '#/components/responses/successfulSearchResponse'
+          $ref: '#/components/responses/ReferenceSetsListResponse'
+        '202':
+          $ref: '#/components/responses/202AcceptedSearchResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':

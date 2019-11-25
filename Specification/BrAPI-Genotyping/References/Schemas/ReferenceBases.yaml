@@ -1,7 +1,13 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
 components:
   schemas:
     ReferenceBases: 
       description: The response from `POST /listreferencebases` expressed as JSON.
+      type: object
       properties:
         nextPageToken:
           description: |-
@@ -20,9 +26,4 @@ components:
             A substring of the bases that make up this reference. Bases are represented
             as IUPAC-IUB codes; this string matches the regexp `[ACGTMRWSYKVHDBN]*`.
           type: string
-      type: object
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}
+

@@ -61,31 +61,7 @@ paths:
         - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          description: A successful response.
-          content:
-            application/json:
-              schema:
-                properties:
-                  '@context':
-                    $ref: '#/components/schemas/Context'
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    properties:
-                      data:
-                        items:
-                          $ref: '#/components/schemas/Reference'
-                        type: array
-                    required:
-                    - data
-                    title: referenceListResponseResult
-                    type: object
-                required:
-                - metadata
-                - result
-                title: referenceListResponse
-                type: object
-          headers: {}
+          $ref: '#/components/responses/ReferencesListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -94,3 +70,31 @@ paths:
           $ref: '#/components/responses/403Forbidden'
       tags:
         - References
+components:
+  responses:
+    ReferencesListResponse:
+      description: OK
+      headers: {}
+      content:
+        application/json:
+          schema:
+            title: ReferencesListResponse
+            type: object
+            required:
+            - metadata
+            - result
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                title: ReferencesListResponseResult
+                type: object
+                required:
+                - data
+                properties:
+                  data:
+                    items:
+                      $ref: '#/components/schemas/Reference'
+                    type: array

@@ -1,6 +1,13 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
 components:
   responses:
     400BadRequest:
+      description: Bad Request
+      headers: {}
       content:
         application/json:
           example: |-
@@ -11,10 +18,3 @@ components:
             ERROR - 2018-10-08T18:15:11Z - Required parameter is missing
           schema:
             type: string
-      description: Bad Request
-      headers: {}
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}

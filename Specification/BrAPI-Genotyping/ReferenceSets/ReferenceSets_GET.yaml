@@ -9,39 +9,6 @@ paths:
       description: |-
         `GET /referencesets/{reference_set_id}` will return a JSON version of
         `ReferenceSet`.
-      responses:
-        '200':
-          description: A successful response.
-          content:
-            application/json:
-              schema:
-                properties:
-                  '@context':
-                    $ref: '#/components/schemas/Context'
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    properties:
-                      data:
-                        items:
-                          $ref: '#/components/schemas/ReferenceSet'
-                        type: array
-                    required:
-                    - data
-                    title: referenceListResponseResult
-                    type: object
-                required:
-                - metadata
-                - result
-                title: referenceListResponse
-                type: object
-          headers: {}
-        '400':
-          $ref: '#/components/responses/400BadRequest'
-        '401':
-          $ref: '#/components/responses/401Unauthorized'
-        '403':
-          $ref: '#/components/responses/403Forbidden'
       parameters:
         - name: referenceSetDbId
           description: The ID of the `ReferenceSet` to be retrieved.
@@ -73,5 +40,42 @@ paths:
         - $ref: '#/components/parameters/page'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/ReferenceSetsListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
       tags:
         - Reference Sets
+components:
+  responses:
+    ReferenceSetsListResponse:
+      description: OK
+      headers: {}
+      content:
+        application/json:
+          schema:
+            title: ReferenceSetsListResponse
+            type: object
+            required:
+            - metadata
+            - result
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                title: ReferenceSetsListResponseResult
+                type: object
+                required:
+                - data
+                properties:
+                  data:
+                    items:
+                      $ref: '#/components/schemas/ReferenceSet'
+                    type: array
