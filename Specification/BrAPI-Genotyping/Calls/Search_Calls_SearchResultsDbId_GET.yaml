@@ -18,7 +18,7 @@ paths:
         '102': 
           $ref: '#/components/responses/102ProcessingSearchResponse' 
         '200':
-          $ref: '#/components/schemas/CallsListResponse'
+          $ref: '#/components/responses/CallsListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':

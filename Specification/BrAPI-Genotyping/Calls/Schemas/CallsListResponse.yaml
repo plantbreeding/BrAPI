@@ -5,7 +5,7 @@ openapi: 3.0.0
 paths: {}
 components:
   responses:
-    CallsListResponse:
+    CallsListResponse: 
       description: OK
       headers: {}
       content:

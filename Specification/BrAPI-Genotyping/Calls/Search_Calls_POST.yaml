@@ -17,7 +17,7 @@ paths:
         description: Study Search request
       responses:
         '200':
-          $ref: '#/components/schemas/CallsListResponse'
+          $ref: '#/components/responses/CallsListResponse'
         '202':
           $ref: '#/components/responses/202AcceptedSearchResponse'
         '400':
