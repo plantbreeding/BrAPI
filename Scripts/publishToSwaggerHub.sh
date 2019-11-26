@@ -24,9 +24,10 @@ fi
 
 # Publish to apiary
 echo
+echo
 echo $BRAPI_FILE
 echo
-curl -si \
+curl -i -s \
   --request POST \
   --header "Authorization:Bearer $SWAGGERHUB_TOKEN" \
   --header "content-type:application/yaml; charset=utf-8" \

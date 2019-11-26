@@ -23,11 +23,12 @@ fi
 
 # Publish to apiary
 echo
+echo
 echo $BRAPI_FILE
 echo $APINAME
 echo
 
-curl -si \
+curl -i -s \
   --request POST \
   --header "Authentication:Token $APIARY_TOKEN" \
   --header "content-type:application/json; charset=utf-8" \
