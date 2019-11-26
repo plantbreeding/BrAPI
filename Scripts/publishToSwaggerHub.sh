@@ -23,9 +23,10 @@ else
 fi
 
 # Publish to apiary
+echo
 echo $BRAPI_FILE
-
-curl -i \
+echo
+curl -si \
   --request POST \
   --header "Authorization:Bearer $SWAGGERHUB_TOKEN" \
   --header "content-type:application/yaml; charset=utf-8" \
@@ -33,6 +34,7 @@ curl -i \
   https://api.swaggerhub.com/apis/PlantBreedingAPI/$APINAME
 
 if [ $? -ne 0 ]; then
+	echo
 	echo "ERROR: SwaggerHub rejected the file"
 	exit 1
 fi

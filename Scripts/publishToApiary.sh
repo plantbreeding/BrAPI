@@ -22,10 +22,12 @@ fi
 
 
 # Publish to apiary
+echo
 echo $BRAPI_FILE
 echo $APINAME
+echo
 
-curl -i \
+curl -si \
   --request POST \
   --header "Authentication:Token $APIARY_TOKEN" \
   --header "content-type:application/json; charset=utf-8" \
@@ -33,6 +35,7 @@ curl -i \
   https://api.apiary.io/blueprint/publish/$APINAME 
 
 if [ $? -ne 0 ]; then
+	echo
 	echo "ERROR: Apiary rejected the file"
 	exit 1
 fi
