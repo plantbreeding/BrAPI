@@ -81,7 +81,7 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -240,7 +240,7 @@ Add new Observation entities
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -372,7 +372,7 @@ Note - In strictly typed languages, this structure can be represented as a Map o
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -524,7 +524,7 @@ See the example responses below</p>
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -796,7 +796,7 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -954,7 +954,7 @@ Update an existing Observation
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -1026,6 +1026,8 @@ Submit a search request for a set of Observations. Returns an Id which reference
 |observationTimeStampRangeStart|string (date-time)|Timestamp range start|
 |observationUnitDbIds|array[string]|The unique id of an Observation Unit|
 |observationVariableDbIds|array[string]|The IDs of traits, could be ontology ID, database ID or PUI|
+|page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
+|pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |programDbIds|array[string]|list of programs to search across|
 |seasonDbIds|array[string]|The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)|
 |studyDbIds|array[string]|The database ID / PK of the studies search parameter|
@@ -1036,7 +1038,24 @@ Submit a search request for a set of Observations. Returns an Id which reference
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultsDbId|string||
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|collector|string|The name or identifier of the entity which collected the observation|
+|germplasmDbId|string|The ID which uniquely identifies a germplasm|
+|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
+|observationDbId|string|The ID which uniquely identifies an observation|
+|observationTimeStamp|string (date-time)|The date and time when this observation was made|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|observationUnitName|string|A human readable name for an observation unit|
+|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
+|observationVariableName|string|A human readable name for an observation variable|
+|season|object||
+|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|year|integer|The 4 digit year of the season.|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
+|value|string|The value of the data collected as an observation|
 
 
  
@@ -1072,6 +1091,8 @@ Submit a search request for a set of Observations. Returns an Id which reference
         "a646187d",
         "6d23513b"
     ],
+    "page": 0,
+    "pageSize": 1000,
     "programDbIds": [
         "d8ca7076",
         "d56b0b68"
@@ -1113,7 +1134,64 @@ Submit a search request for a set of Observations. Returns an Id which reference
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "collector": "917d3ae0",
+                "germplasmDbId": "2408ab11",
+                "germplasmName": "A0000003",
+                "observationDbId": "ef24b615",
+                "observationTimeStamp": "2018-01-01T14:47:23-0600",
+                "observationUnitDbId": "598111d4",
+                "observationUnitName": "Plot 1",
+                "observationVariableDbId": "c403d107",
+                "observationVariableName": "Plant Height in meters",
+                "season": {
+                    "season": "Spring",
+                    "seasonDbId": "Spring_2018",
+                    "year": 2018
+                },
+                "studyDbId": "ef2829db",
+                "uploadedBy": "a2f7f60b",
+                "value": "2.3"
+            }
+        ]
+    }
+}
+```
+
++ Response 202 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -1193,6 +1271,42 @@ observationValue data type inferred from the ontology
 
 
 
++ Response 102 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultsDbId": "551ae08c"
+    }
+}
+```
+
 + Response 200 (application/json)
 ```
 {
@@ -1213,7 +1327,7 @@ observationValue data type inferred from the ontology
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [

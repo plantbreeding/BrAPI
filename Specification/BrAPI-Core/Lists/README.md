@@ -63,7 +63,7 @@ Get filtered set of generic lists
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -221,7 +221,7 @@ Create a new list
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -332,7 +332,7 @@ Get a specific generic lists
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -494,7 +494,7 @@ Update an existing generic list
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -623,7 +623,7 @@ Add new data to a specific generic lists
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -705,13 +705,26 @@ See Search Services for additional implementation details.
 |listOwnerPersonDbIds|array[string]||
 |listSources|array[string]||
 |listType|string||
+|page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
+|pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 
 
 **Response Fields** 
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultsDbId|string||
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|dateCreated|string (date-time)|Timestamp when the entity was first created|
+|dateModified|string (date-time)|Timestamp when the entity was last updated|
+|listDbId|string|The unique identifier for a List|
+|listDescription|string|Description of a List|
+|listName|string|Human readable name of a List|
+|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
+|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
+|listSize|integer|The number of elements in a List|
+|listSource|string|The description of where a List originated from|
+|listType|string||
 
 
  
@@ -759,7 +772,9 @@ See Search Services for additional implementation details.
         "observations",
         "observationVariables",
         "samples"
-    ]
+    ],
+    "page": 0,
+    "pageSize": 1000
 }
 ```
 
@@ -785,7 +800,67 @@ See Search Services for additional implementation details.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "dateCreated": "2018-01-01T14:47:23-0600",
+                "dateModified": "2018-01-01T14:47:23-0600",
+                "listDbId": "6f621cfa",
+                "listDescription": "This is a list of germplasm I would like to investigate next season",
+                "listName": "MyGermplasm_Sept_2020",
+                "listOwnerName": "Bob Robertson",
+                "listOwnerPersonDbId": "58db0628",
+                "listSize": 53,
+                "listSource": "GeneBank Repository 1.3",
+                "listType": [
+                    "germplasm",
+                    "markers",
+                    "programs",
+                    "trials",
+                    "studies",
+                    "observationUnits",
+                    "observations",
+                    "observationVariables",
+                    "samples"
+                ]
+            }
+        ]
+    }
+}
+```
+
++ Response 202 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -855,6 +930,42 @@ See Search Services for additional implementation details.
 
 
 
++ Response 102 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultsDbId": "551ae08c"
+    }
+}
+```
+
 + Response 200 (application/json)
 ```
 {
@@ -875,7 +986,7 @@ See Search Services for additional implementation details.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [

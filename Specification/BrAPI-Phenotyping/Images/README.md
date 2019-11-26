@@ -83,7 +83,7 @@ Implementation Notes
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -286,7 +286,7 @@ Implementation Notes
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -421,7 +421,7 @@ Implementation Notes
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -627,7 +627,7 @@ Implementation Notes
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -765,7 +765,7 @@ Implementation Notes
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -869,13 +869,33 @@ See Search Services for additional implementation details.
 |mimeTypes|array[string]|A set of image file types to search for.|
 |observationDbIds|array[string]|A list of observation Ids this image is associated with to search for|
 |observationUnitDbIds|array[string]|A set of observation unit identifiers to search for.|
+|page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
+|pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 
 
 **Response Fields** 
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultsDbId|string||
+|data|array[object]|Array of image meta data|
+|additionalInfo|object||
+|copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
+|description|string|The human readable description of an image.|
+|descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
+|imageDbId|string|The unique identifier of an image|
+|imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
+|imageFileSize|integer|The size of the image in Bytes.|
+|imageHeight|integer|The height of the image in Pixels.|
+|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geometry|object||
+|type|string|Feature|
+|imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
+|imageTimeStamp|string (date-time)|The date and time the image was taken|
+|imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
+|imageWidth|integer|The width of the image in Pixels.|
+|mimeType|string|The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc|
+|observationDbIds|array[string]|A list of observation Ids this image is associated with, if applicable.|
+|observationUnitDbId|string|The related observation unit identifier, if relevant.|
 
 
  
@@ -931,7 +951,9 @@ See Search Services for additional implementation details.
     "observationUnitDbIds": [
         "f5e4b273",
         "328c9424"
-    ]
+    ],
+    "page": 0,
+    "pageSize": 1000
 }
 ```
 
@@ -957,7 +979,79 @@ See Search Services for additional implementation details.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "copyright": "Copyright 2018 Bob Robertson",
+                "description": "This is a picture of a tomato",
+                "descriptiveOntologyTerms": [
+                    "doi:10.1002/0470841559",
+                    "Red",
+                    "ncbi:0300294"
+                ],
+                "imageDbId": "a55efb9c",
+                "imageFileName": "image_0000231.jpg",
+                "imageFileSize": 50000,
+                "imageHeight": 550,
+                "imageLocation": {
+                    "geometry": {
+                        "coordinates": [
+                            -76.506042,
+                            42.417373
+                        ],
+                        "type": "Point"
+                    },
+                    "type": "Feature"
+                },
+                "imageName": "Tomato Image 1",
+                "imageTimeStamp": "2018-01-01T14:47:23-0600",
+                "imageURL": "https://wiki.brapi.org/images/tomato",
+                "imageWidth": 700,
+                "mimeType": "image/jpeg",
+                "observationDbIds": [
+                    "d05dd235",
+                    "8875177d",
+                    "c08e81b6"
+                ],
+                "observationUnitDbId": "b7e690b6"
+            }
+        ]
+    }
+}
+```
+
++ Response 202 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -1039,6 +1133,42 @@ Implementation Notes
 
 
 
++ Response 102 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultsDbId": "551ae08c"
+    }
+}
+```
+
 + Response 200 (application/json)
 ```
 {
@@ -1059,7 +1189,7 @@ Implementation Notes
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [

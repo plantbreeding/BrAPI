@@ -26,6 +26,8 @@ See Search Services for additional implementation details.
 |germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm|
 |locationDbIds|array[string]|List of location names to filter search results|
 |observationVariableDbIds|array[string]|List of observation variable IDs to search for|
+|page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
+|pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |programDbIds|array[string]|List of program identifiers to filter search results|
 |programNames|array[string]|List of program names to filter search results|
 |seasonDbIds|array[string]|The ID which uniquely identifies a season|
@@ -71,6 +73,8 @@ See Search Services for additional implementation details.
         "819e508f",
         "f540b703"
     ],
+    "page": 0,
+    "pageSize": 1000,
     "programDbIds": [
         "9a855886",
         "51697c22"
@@ -141,7 +145,7 @@ See Search Services for additional implementation details.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -269,6 +273,42 @@ See Search Services for additional implementation details.
 
 
 
++ Response 102 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultsDbId": "551ae08c"
+    }
+}
+```
+
 + Response 200 (application/json)
 ```
 {
@@ -289,7 +329,7 @@ See Search Services for additional implementation details.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -473,7 +513,7 @@ program like "PlantingTime_3" or "Season E"
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -636,7 +676,7 @@ StartDate and endDate should be ISO-8601 format for dates
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -1039,7 +1079,7 @@ StartDate and endDate should be ISO-8601 format for dates
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -1273,7 +1313,7 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -1669,7 +1709,7 @@ Update an existing Study with new data
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -1821,30 +1861,38 @@ Call to retrieve the list of study types.
 + Response 200 (application/json)
 ```
 {
-    "@context": {
-        "description": "The JSON-LD Context is used to provide JSON-LD definitions to each field in a JSON object. By providing an array of context file urls, a BrAPI response object becomes JSON-LD compatible.  \n\nFor more information, see https://w3c.github.io/json-ld-syntax/#the-context",
-        "example": [
-            "https://brapi.org/jsonld/context/metadata.jsonld"
-        ],
-        "items": {
-            "format": "uri",
-            "type": "string"
-        },
-        "title": "context",
-        "type": "array"
-    },
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
-        "datafiles": [],
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 2,
-            "totalCount": 3,
-            "totalPages": 2
+            "pageSize": 1000,
+            "totalCount": 10,
+            "totalPages": 1
         },
-        "status": []
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
     },
     "result": {
-        "data": null
+        "data": [
+            "Crossing Nursery",
+            "Yield study"
+        ]
     }
 }
 ```

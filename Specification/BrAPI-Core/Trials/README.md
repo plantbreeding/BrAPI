@@ -21,19 +21,50 @@ See Search Services for additional implementation details.
 |active|boolean|Is this trail currently active|
 |commonCropNames|array[string]|Common name for the crop associated with this trial|
 |contactDbIds|array[string]|List of contact entities associated with this trial|
+|locationDbIds|array[string]|A location identifier to search for (could be in connected study)|
+|page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
+|pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |programDbIds|array[string]|A program identifier to search for|
-|searchDateRangeEnd|string (date)|The end of the overlapping search date range|
-|searchDateRangeStart|string (date)|The start of the overlapping search date range|
+|searchDateRangeEnd|string (date)|The end of the overlapping search date range. `searchDateRangeStart` must be before `searchDateRangeEnd`.  Return a Trial entity if any of the following cases are true  - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is null   - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`  - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is null  - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is before `trial.endDate`|
+|searchDateRangeStart|string (date)|The start of the overlapping search date range. `searchDateRangeStart` must be before `searchDateRangeEnd`.  Return a Trial entity if any of the following cases are true  - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is null   - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`  - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is null  - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is before `trial.endDate`|
 |studyDbIds|array[string]|The ID which uniquely identifies a study|
 |trialDbIds|array[string]|The ID which uniquely identifies a trial|
 |trialNames|array[string]|The human readable name of a trial|
+|trialPUIs|array[string]|A permanent identifier for a trial. Could be DOI or other URI formatted identifier.|
 
 
 **Response Fields** 
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultsDbId|string||
+|data|array[object]||
+|active|boolean|Is this trail currently active|
+|additionalInfo|object|Additional arbitrary info|
+|commonCropName|string|Common name for the crop associated with this trial|
+|contacts|array[object]|List of contact entities associated with this trial|
+|contactDbId|string|The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.|
+|email|string|The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.|
+|instituteName|string|The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to|
+|name|string|The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)|
+|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.|
+|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation|
+|datasetAuthorships|array[object]|License and citation information for the data in this trial|
+|datasetPUI|string||
+|license|string|MIAPPE V1.1 (DM-7) License - License for the reuse of the data associated with this investigation. The Creative Commons licenses cover most use cases and are recommended.|
+|publicReleaseDate|string (date)|MIAPPE V1.1 (DM-6) Public release date - Date of first public release of the dataset presently being described.|
+|submissionDate|string (date)|MIAPPE V1.1 (DM-5) Submission date - Date of submission of the dataset presently being described to a host repository.|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|endDate|string (date)|The date this trial ends|
+|programDbId|string|A program identifier to search for|
+|programName|string|Human readable name of the program|
+|publications|array[object]|MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.|
+|publicationPUI|string||
+|publicationReference|string||
+|startDate|string (date)|The date this trial started|
+|trialDbId|string|The ID which uniquely identifies a trial  MIAPPE V1.1 (DM-2) Investigation unique ID - Identifier comprising the unique name of the institution/database hosting the submission of the investigation data, and the accession number of the investigation in that institution.|
+|trialDescription|string|The human readable description of a trial  MIAPPE V1.1 (DM-4) Investigation description - Human-readable text describing the investigation in more detail.|
+|trialName|string|The human readable name of a trial  MIAPPE V1.1 (DM-3) Investigation title - Human-readable string summarising the investigation.|
+|trialPUI|string|A permanent identifier for a trial. Could be DOI or other URI formatted identifier.|
 
 
  
@@ -55,6 +86,12 @@ See Search Services for additional implementation details.
         "e0f70c2a",
         "b82f0967"
     ],
+    "locationDbIds": [
+        "8fe061c3",
+        "6eafd31e"
+    ],
+    "page": 0,
+    "pageSize": 1000,
     "programDbIds": [
         "7e54bd46",
         "e54a7703"
@@ -72,6 +109,10 @@ See Search Services for additional implementation details.
     "trialNames": [
         "All Yield Trials 2016",
         "Disease Resistance Study Comparison Group"
+    ],
+    "trialPUIs": [
+        "https://doi.org/01093190",
+        "https://doi.org/11192409"
     ]
 }
 ```
@@ -98,7 +139,82 @@ See Search Services for additional implementation details.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "active": true,
+                "additionalInfo": {},
+                "commonCropName": "Wheat",
+                "contacts": [
+                    {
+                        "contactDbId": "5f4e5509",
+                        "email": "bob@bob.com",
+                        "instituteName": "The BrAPI Institute",
+                        "name": "Bob Robertson",
+                        "orcid": "http://orcid.org/0000-0001-8640-1750",
+                        "type": "PI"
+                    }
+                ],
+                "datasetAuthorships": [
+                    {
+                        "datasetPUI": "doi:10.15454/312953986E3",
+                        "license": "https://CreativeCommons.org/licenses/by/4.0",
+                        "publicReleaseDate": "2018-01-01",
+                        "submissionDate": "2018-01-01"
+                    }
+                ],
+                "documentationURL": "https://wiki.brapi.org",
+                "endDate": "2018-01-01",
+                "programDbId": "673f378a",
+                "programName": "Tomatillo_Breeding_Program",
+                "publications": [
+                    {
+                        "publicationPUI": "doi:10.15454/312953986E3",
+                        "publicationReference": "Selby, BrAPI - An application programming interface for plant breeding applications, Bioinformatics, https://doi.org/10.1093/bioinformatics/190"
+                    }
+                ],
+                "startDate": "2018-01-01",
+                "trialDbId": "1883b402",
+                "trialDescription": "General drought resistance trial initiated in Peru before duplication in Africa",
+                "trialName": "Peru Yield Trial 1",
+                "trialPUI": "https://doi.org/101093190"
+            }
+        ]
+    }
+}
+```
+
++ Response 202 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -170,6 +286,7 @@ See Search Services for additional implementation details.
 |trialDbId|string|The ID which uniquely identifies a trial  MIAPPE V1.1 (DM-2) Investigation unique ID - Identifier comprising the unique name of the institution/database hosting the submission of the investigation data, and the accession number of the investigation in that institution.|
 |trialDescription|string|The human readable description of a trial  MIAPPE V1.1 (DM-4) Investigation description - Human-readable text describing the investigation in more detail.|
 |trialName|string|The human readable name of a trial  MIAPPE V1.1 (DM-3) Investigation title - Human-readable string summarising the investigation.|
+|trialPUI|string|A permanent identifier for a trial. Could be DOI or other URI formatted identifier.|
 
 
  
@@ -182,6 +299,42 @@ See Search Services for additional implementation details.
 
 
 
+
++ Response 102 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultsDbId": "551ae08c"
+    }
+}
+```
 
 + Response 200 (application/json)
 ```
@@ -203,7 +356,7 @@ See Search Services for additional implementation details.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -250,7 +403,8 @@ See Search Services for additional implementation details.
                 "startDate": "2018-01-01",
                 "trialDbId": "1883b402",
                 "trialDescription": "General drought resistance trial initiated in Peru before duplication in Africa",
-                "trialName": "Peru Yield Trial 1"
+                "trialName": "Peru Yield Trial 1",
+                "trialPUI": "https://doi.org/101093190"
             }
         ]
     }
@@ -280,7 +434,7 @@ See Search Services for additional implementation details.
 
 
 
-### Get - /trials [GET /brapi/v1/trials{?commonCropName}{?programDbId}{?locationDbId}{?active}{?sortBy}{?sortOrder}{?page}{?pageSize}]
+### Get - /trials [GET /brapi/v1/trials{?active}{?commonCropName}{?contactDbId}{?programDbId}{?locationDbId}{?searchDateRangeStart}{?searchDateRangeEnd}{?studyDbId}{?trialDbId}{?trialName}{?trialPUI}{?sortBy}{?sortOrder}{?page}{?pageSize}]
 
 Retrieve a filtered list of breeding Trials. A Trial is a collection of Studies
 
@@ -317,15 +471,23 @@ Retrieve a filtered list of breeding Trials. A Trial is a collection of Studies
 |trialDbId|string|The ID which uniquely identifies a trial  MIAPPE V1.1 (DM-2) Investigation unique ID - Identifier comprising the unique name of the institution/database hosting the submission of the investigation data, and the accession number of the investigation in that institution.|
 |trialDescription|string|The human readable description of a trial  MIAPPE V1.1 (DM-4) Investigation description - Human-readable text describing the investigation in more detail.|
 |trialName|string|The human readable name of a trial  MIAPPE V1.1 (DM-3) Investigation title - Human-readable string summarising the investigation.|
+|trialPUI|string|A permanent identifier for a trial. Could be DOI or other URI formatted identifier.|
 
 
  
 
 + Parameters
+    + active (Optional, ) ... Filter active status true/false.
     + commonCropName (Optional, ) ... Common name for the crop associated with this trial
+    + contactDbId (Optional, ) ... Contact entities associated with this trial
     + programDbId (Optional, ) ... Program filter to only return trials associated with given program id.
     + locationDbId (Optional, ) ... Filter by location
-    + active (Optional, ) ... Filter active status true/false.
+    + searchDateRangeStart (Optional, ) ... The start of the overlapping search date range. `searchDateRangeStart` must be before `searchDateRangeEnd`.Return a Trial entity if any of the following cases are true- `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is null - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is null- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is before `trial.endDate`
+    + searchDateRangeEnd (Optional, ) ... The start of the overlapping search date range. `searchDateRangeStart` must be before `searchDateRangeEnd`.Return a Trial entity if any of the following cases are true- `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is null - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is null- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is before `trial.endDate`
+    + studyDbId (Optional, ) ... Filter by connected studyDbId
+    + trialDbId (Optional, ) ... Filter by trialDbId
+    + trialName (Optional, ) ... Filter by trial name
+    + trialPUI (Optional, ) ... Filter by trial PUI
     + sortBy (Optional, ) ... Sort order. Name of the field to sort by.
     + sortOrder (Optional, ) ... Sort order direction: asc/desc
     + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
@@ -355,7 +517,7 @@ Retrieve a filtered list of breeding Trials. A Trial is a collection of Studies
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -402,7 +564,8 @@ Retrieve a filtered list of breeding Trials. A Trial is a collection of Studies
                 "startDate": "2018-01-01",
                 "trialDbId": "1883b402",
                 "trialDescription": "General drought resistance trial initiated in Peru before duplication in Africa",
-                "trialName": "Peru Yield Trial 1"
+                "trialName": "Peru Yield Trial 1",
+                "trialPUI": "https://doi.org/101093190"
             }
         ]
     }
@@ -460,6 +623,7 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
 |startDate|string (date)|The date this trial started|
 |trialDescription|string|The human readable description of a trial  MIAPPE V1.1 (DM-4) Investigation description - Human-readable text describing the investigation in more detail.|
 |trialName|string|The human readable name of a trial  MIAPPE V1.1 (DM-3) Investigation title - Human-readable string summarising the investigation.|
+|trialPUI|string|A permanent identifier for a trial. Could be DOI or other URI formatted identifier.|
 
 
 **Response Fields** 
@@ -493,6 +657,7 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
 |trialDbId|string|The ID which uniquely identifies a trial  MIAPPE V1.1 (DM-2) Investigation unique ID - Identifier comprising the unique name of the institution/database hosting the submission of the investigation data, and the accession number of the investigation in that institution.|
 |trialDescription|string|The human readable description of a trial  MIAPPE V1.1 (DM-4) Investigation description - Human-readable text describing the investigation in more detail.|
 |trialName|string|The human readable name of a trial  MIAPPE V1.1 (DM-3) Investigation title - Human-readable string summarising the investigation.|
+|trialPUI|string|A permanent identifier for a trial. Could be DOI or other URI formatted identifier.|
 
 
  
@@ -539,7 +704,8 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
         ],
         "startDate": "2018-01-01",
         "trialDescription": "General drought resistance trial initiated in Peru before duplication in Africa",
-        "trialName": "Peru Yield Trial 1"
+        "trialName": "Peru Yield Trial 1",
+        "trialPUI": "https://doi.org/101093190"
     }
 ]
 ```
@@ -566,7 +732,7 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -613,7 +779,8 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
                 "startDate": "2018-01-01",
                 "trialDbId": "1883b402",
                 "trialDescription": "General drought resistance trial initiated in Peru before duplication in Africa",
-                "trialName": "Peru Yield Trial 1"
+                "trialName": "Peru Yield Trial 1",
+                "trialPUI": "https://doi.org/101093190"
             }
         ]
     }
@@ -745,7 +912,7 @@ Get the details of a specific Trial
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -904,6 +1071,7 @@ Update the details of an existing Trial
 |startDate|string (date)|The date this trial started|
 |trialDescription|string|The human readable description of a trial  MIAPPE V1.1 (DM-4) Investigation description - Human-readable text describing the investigation in more detail.|
 |trialName|string|The human readable name of a trial  MIAPPE V1.1 (DM-3) Investigation title - Human-readable string summarising the investigation.|
+|trialPUI|string|A permanent identifier for a trial. Could be DOI or other URI formatted identifier.|
 
 
 **Response Fields** 
@@ -1022,7 +1190,8 @@ Update the details of an existing Trial
     ],
     "startDate": "2018-01-01",
     "trialDescription": "General drought resistance trial initiated in Peru before duplication in Africa",
-    "trialName": "Peru Yield Trial 1"
+    "trialName": "Peru Yield Trial 1",
+    "trialPUI": "https://doi.org/101093190"
 }
 ```
 
@@ -1048,7 +1217,7 @@ Update the details of an existing Trial
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [

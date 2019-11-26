@@ -62,7 +62,7 @@ Get filtered list of people
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -191,7 +191,7 @@ Create new People entities. `personDbId` is generated and managed by the server.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -289,7 +289,7 @@ Get the details for a specific Person
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -417,7 +417,7 @@ Update an existing Person
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -480,6 +480,8 @@ See Search Services for additional implementation details.
 |lastNames|array[string]|Persons last name|
 |mailingAddresses|array[string]|physical address of this person|
 |middleNames|array[string]|Persons middle name|
+|page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
+|pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |personDbIds|array[string]|Unique ID for this person|
 |phoneNumbers|array[string]|phone number of this person|
 |userIDs|array[string]|A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.|
@@ -489,7 +491,17 @@ See Search Services for additional implementation details.
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultsDbId|string||
+|data|array[object]|Array of people|
+|additionalInfo|object|Additional arbitrary info|
+|description|string|description of this person|
+|emailAddress|string|email address for this person|
+|firstName|string|Persons first name|
+|lastName|string|Persons last name|
+|mailingAddress|string|physical address of this person|
+|middleName|string|Persons middle name|
+|personDbId|string|Unique ID for a person|
+|phoneNumber|string|phone number of this person|
+|userID|string|A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.|
 
 
  
@@ -522,6 +534,8 @@ See Search Services for additional implementation details.
         "Danger",
         "Fight"
     ],
+    "page": 0,
+    "pageSize": 1000,
     "personDbIds": [
         "1e7731ab",
         "bc28cff8"
@@ -559,7 +573,56 @@ See Search Services for additional implementation details.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "description": "Bob likes pina coladas and getting caught in the rain.",
+                "emailAddress": "bob@bob.com",
+                "firstName": "Bob",
+                "lastName": "Robertson",
+                "mailingAddress": "123 Street Ave, City, State, Country",
+                "middleName": "Danger",
+                "personDbId": "14340a54",
+                "phoneNumber": "+1-555-555-5555",
+                "userID": "bob-23"
+            }
+        ]
+    }
+}
+```
+
++ Response 202 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -629,6 +692,42 @@ See Search Services for additional implementation details.
 
 
 
++ Response 102 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultsDbId": "551ae08c"
+    }
+}
+```
+
 + Response 200 (application/json)
 ```
 {
@@ -649,7 +748,7 @@ See Search Services for additional implementation details.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [

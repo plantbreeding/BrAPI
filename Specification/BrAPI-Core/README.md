@@ -101,7 +101,7 @@ Studies, and Germplasm.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -200,7 +200,7 @@ Get filtered set of generic lists
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -358,7 +358,7 @@ Create a new list
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -469,7 +469,7 @@ Get a specific generic lists
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -631,7 +631,7 @@ Update an existing generic list
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -760,7 +760,7 @@ Add new data to a specific generic lists
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -842,13 +842,26 @@ See Search Services for additional implementation details.
 |listOwnerPersonDbIds|array[string]||
 |listSources|array[string]||
 |listType|string||
+|page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
+|pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 
 
 **Response Fields** 
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultsDbId|string||
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|dateCreated|string (date-time)|Timestamp when the entity was first created|
+|dateModified|string (date-time)|Timestamp when the entity was last updated|
+|listDbId|string|The unique identifier for a List|
+|listDescription|string|Description of a List|
+|listName|string|Human readable name of a List|
+|listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
+|listOwnerPersonDbId|string|The unique identifier for a List Owner. (usually a user or person)|
+|listSize|integer|The number of elements in a List|
+|listSource|string|The description of where a List originated from|
+|listType|string||
 
 
  
@@ -896,7 +909,9 @@ See Search Services for additional implementation details.
         "observations",
         "observationVariables",
         "samples"
-    ]
+    ],
+    "page": 0,
+    "pageSize": 1000
 }
 ```
 
@@ -922,7 +937,67 @@ See Search Services for additional implementation details.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "dateCreated": "2018-01-01T14:47:23-0600",
+                "dateModified": "2018-01-01T14:47:23-0600",
+                "listDbId": "6f621cfa",
+                "listDescription": "This is a list of germplasm I would like to investigate next season",
+                "listName": "MyGermplasm_Sept_2020",
+                "listOwnerName": "Bob Robertson",
+                "listOwnerPersonDbId": "58db0628",
+                "listSize": 53,
+                "listSource": "GeneBank Repository 1.3",
+                "listType": [
+                    "germplasm",
+                    "markers",
+                    "programs",
+                    "trials",
+                    "studies",
+                    "observationUnits",
+                    "observations",
+                    "observationVariables",
+                    "samples"
+                ]
+            }
+        ]
+    }
+}
+```
+
++ Response 202 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -992,6 +1067,42 @@ See Search Services for additional implementation details.
 
 
 
++ Response 102 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultsDbId": "551ae08c"
+    }
+}
+```
+
 + Response 200 (application/json)
 ```
 {
@@ -1012,7 +1123,7 @@ See Search Services for additional implementation details.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -1142,7 +1253,7 @@ Get a list of locations.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -1327,7 +1438,7 @@ Add new locations to database
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -1454,7 +1565,7 @@ Get details for a location.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -1638,7 +1749,7 @@ Update the details for an existing location.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -1725,13 +1836,35 @@ See Search Services for additional implementation details.
 |locationDbIds|array[string]|The location ids to search for|
 |locationNames|array[string]|A human readable names to search for|
 |locationTypes|array[string]|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
+|page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
+|pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 
 
 **Response Fields** 
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultsDbId|string||
+|data|array[object]||
+|abbreviation|string|An abbreviation which represents this location|
+|additionalInfo|object|Additional arbitrary info|
+|altitude|number|The altitude/elevation of this location (in meters)  MIAPP V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
+|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
+|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geometry|object||
+|type|string|Feature|
+|countryCode|string| [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.|
+|countryName|string|The full name of the country where this location is  MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
+|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
+|instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
+|locationDbId|string|The unique identifier for a Location|
+|locationName|string|A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.|
+|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
+|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
+|slope|string|Describes the approximate slope (height/distance) of the location.|
+|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
 
 
  
@@ -1787,7 +1920,9 @@ See Search Services for additional implementation details.
     "locationTypes": [
         "Nursery",
         "Storage Location"
-    ]
+    ],
+    "page": 0,
+    "pageSize": 1000
 }
 ```
 
@@ -1813,7 +1948,73 @@ See Search Services for additional implementation details.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "abbreviation": "L1",
+                "additionalInfo": {},
+                "altitude": 35.6,
+                "coordinateDescription": "North East corner of greenhouse",
+                "coordinates": {
+                    "geometry": {
+                        "coordinates": [
+                            -76.506042,
+                            42.417373
+                        ],
+                        "type": "Point"
+                    },
+                    "type": "Feature"
+                },
+                "countryCode": "PER",
+                "countryName": "Peru",
+                "documentationURL": "https://brapi.org",
+                "environmentType": "Nursery",
+                "exposure": "Structure, no exposure",
+                "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
+                "instituteName": "Plant Science Institute",
+                "locationDbId": "3cfdd67d",
+                "locationName": "Location 1",
+                "locationType": "Storage Location",
+                "siteStatus": "Private",
+                "slope": "0",
+                "topography": "Valley"
+            }
+        ]
+    }
+}
+```
+
++ Response 202 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -1892,6 +2093,42 @@ See Search Services for additional implementation details.
 
 
 
++ Response 102 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultsDbId": "551ae08c"
+    }
+}
+```
+
 + Response 200 (application/json)
 ```
 {
@@ -1912,7 +2149,7 @@ See Search Services for additional implementation details.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -2037,7 +2274,7 @@ Get filtered list of people
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -2166,7 +2403,7 @@ Create new People entities. `personDbId` is generated and managed by the server.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -2264,7 +2501,7 @@ Get the details for a specific Person
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -2392,7 +2629,7 @@ Update an existing Person
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -2455,6 +2692,8 @@ See Search Services for additional implementation details.
 |lastNames|array[string]|Persons last name|
 |mailingAddresses|array[string]|physical address of this person|
 |middleNames|array[string]|Persons middle name|
+|page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
+|pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |personDbIds|array[string]|Unique ID for this person|
 |phoneNumbers|array[string]|phone number of this person|
 |userIDs|array[string]|A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.|
@@ -2464,7 +2703,17 @@ See Search Services for additional implementation details.
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultsDbId|string||
+|data|array[object]|Array of people|
+|additionalInfo|object|Additional arbitrary info|
+|description|string|description of this person|
+|emailAddress|string|email address for this person|
+|firstName|string|Persons first name|
+|lastName|string|Persons last name|
+|mailingAddress|string|physical address of this person|
+|middleName|string|Persons middle name|
+|personDbId|string|Unique ID for a person|
+|phoneNumber|string|phone number of this person|
+|userID|string|A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.|
 
 
  
@@ -2497,6 +2746,8 @@ See Search Services for additional implementation details.
         "Danger",
         "Fight"
     ],
+    "page": 0,
+    "pageSize": 1000,
     "personDbIds": [
         "1e7731ab",
         "bc28cff8"
@@ -2534,7 +2785,56 @@ See Search Services for additional implementation details.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "description": "Bob likes pina coladas and getting caught in the rain.",
+                "emailAddress": "bob@bob.com",
+                "firstName": "Bob",
+                "lastName": "Robertson",
+                "mailingAddress": "123 Street Ave, City, State, Country",
+                "middleName": "Danger",
+                "personDbId": "14340a54",
+                "phoneNumber": "+1-555-555-5555",
+                "userID": "bob-23"
+            }
+        ]
+    }
+}
+```
+
++ Response 202 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -2604,6 +2904,42 @@ See Search Services for additional implementation details.
 
 
 
++ Response 102 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultsDbId": "551ae08c"
+    }
+}
+```
+
 + Response 200 (application/json)
 ```
 {
@@ -2624,7 +2960,7 @@ See Search Services for additional implementation details.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -2731,7 +3067,7 @@ Get a filtered list of breeding Programs. This list can be filtered by common cr
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -2856,7 +3192,7 @@ Add new breeding Programs to the database. The `programDbId` is set by the serve
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -2952,7 +3288,7 @@ Get a single breeding Program by Id. This can be used to quickly get the details
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -3071,7 +3407,7 @@ Update the details of an existing breeding Program.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -3127,6 +3463,8 @@ See Search Services for additional implementation details.
 |leadPersonDbIds|array[string]|The person DbIds of the program leader to search for|
 |leadPersonNames|array[string]|The names of the program leader to search for|
 |objectives|array[string]|A program objective to search for|
+|page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
+|pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |programDbIds|array[string]|A program identifier to search for|
 |programNames|array[string]|A name of a program to search for|
 
@@ -3135,7 +3473,16 @@ See Search Services for additional implementation details.
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultsDbId|string||
+|data|array[object]||
+|abbreviation|string|An abbreviation which represents this program|
+|additionalInfo|object|Additional arbitrary info|
+|commonCropName|string|Common name for the crop which this program is for|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|leadPersonDbId|string|The unique identifier of the program leader|
+|leadPersonName|string|The name of the program leader|
+|objective|string|The primary objective of the program|
+|programDbId|string|The ID which uniquely identifies the program|
+|programName|string|Human readable name of the program|
 
 
  
@@ -3168,6 +3515,8 @@ See Search Services for additional implementation details.
         "Objective Code One",
         "This is a longer objective search query"
     ],
+    "page": 0,
+    "pageSize": 1000,
     "programDbIds": [
         "8f5de35b",
         "0e2d4a13"
@@ -3201,7 +3550,55 @@ See Search Services for additional implementation details.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "abbreviation": "P1",
+                "additionalInfo": {},
+                "commonCropName": "Tomatillo",
+                "documentationURL": "https://wiki.brapi.org",
+                "leadPersonDbId": "fe6f5c50",
+                "leadPersonName": "Bob Robertson",
+                "objective": "Make a better tomatillo",
+                "programDbId": "f60f15b2",
+                "programName": "Tomatillo_Breeding_Program"
+            }
+        ]
+    }
+}
+```
+
++ Response 202 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -3269,6 +3666,42 @@ See Search Services for additional implementation details.
 
 
 
++ Response 102 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultsDbId": "551ae08c"
+    }
+}
+```
+
 + Response 200 (application/json)
 ```
 {
@@ -3289,7 +3722,7 @@ See Search Services for additional implementation details.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -3427,7 +3860,7 @@ BAD    "call": "germplasm/<germplasmDbId>/pedigree"
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -3508,6 +3941,8 @@ See Search Services for additional implementation details.
 |germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm|
 |locationDbIds|array[string]|List of location names to filter search results|
 |observationVariableDbIds|array[string]|List of observation variable IDs to search for|
+|page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
+|pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |programDbIds|array[string]|List of program identifiers to filter search results|
 |programNames|array[string]|List of program names to filter search results|
 |seasonDbIds|array[string]|The ID which uniquely identifies a season|
@@ -3553,6 +3988,8 @@ See Search Services for additional implementation details.
         "819e508f",
         "f540b703"
     ],
+    "page": 0,
+    "pageSize": 1000,
     "programDbIds": [
         "9a855886",
         "51697c22"
@@ -3623,7 +4060,7 @@ See Search Services for additional implementation details.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -3751,6 +4188,42 @@ See Search Services for additional implementation details.
 
 
 
++ Response 102 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultsDbId": "551ae08c"
+    }
+}
+```
+
 + Response 200 (application/json)
 ```
 {
@@ -3771,7 +4244,7 @@ See Search Services for additional implementation details.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -3955,7 +4428,7 @@ program like "PlantingTime_3" or "Season E"
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -4118,7 +4591,7 @@ StartDate and endDate should be ISO-8601 format for dates
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -4521,7 +4994,7 @@ StartDate and endDate should be ISO-8601 format for dates
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -4755,7 +5228,7 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -5151,7 +5624,7 @@ Update an existing Study with new data
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -5303,30 +5776,38 @@ Call to retrieve the list of study types.
 + Response 200 (application/json)
 ```
 {
-    "@context": {
-        "description": "The JSON-LD Context is used to provide JSON-LD definitions to each field in a JSON object. By providing an array of context file urls, a BrAPI response object becomes JSON-LD compatible.  \n\nFor more information, see https://w3c.github.io/json-ld-syntax/#the-context",
-        "example": [
-            "https://brapi.org/jsonld/context/metadata.jsonld"
-        ],
-        "items": {
-            "format": "uri",
-            "type": "string"
-        },
-        "title": "context",
-        "type": "array"
-    },
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
     "metadata": {
-        "datafiles": [],
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
         "pagination": {
             "currentPage": 0,
-            "pageSize": 2,
-            "totalCount": 3,
-            "totalPages": 2
+            "pageSize": 1000,
+            "totalCount": 10,
+            "totalPages": 1
         },
-        "status": []
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
     },
     "result": {
-        "data": null
+        "data": [
+            "Crossing Nursery",
+            "Yield study"
+        ]
     }
 }
 ```
@@ -5369,19 +5850,50 @@ See Search Services for additional implementation details.
 |active|boolean|Is this trail currently active|
 |commonCropNames|array[string]|Common name for the crop associated with this trial|
 |contactDbIds|array[string]|List of contact entities associated with this trial|
+|locationDbIds|array[string]|A location identifier to search for (could be in connected study)|
+|page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
+|pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |programDbIds|array[string]|A program identifier to search for|
-|searchDateRangeEnd|string (date)|The end of the overlapping search date range|
-|searchDateRangeStart|string (date)|The start of the overlapping search date range|
+|searchDateRangeEnd|string (date)|The end of the overlapping search date range. `searchDateRangeStart` must be before `searchDateRangeEnd`.  Return a Trial entity if any of the following cases are true  - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is null   - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`  - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is null  - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is before `trial.endDate`|
+|searchDateRangeStart|string (date)|The start of the overlapping search date range. `searchDateRangeStart` must be before `searchDateRangeEnd`.  Return a Trial entity if any of the following cases are true  - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is null   - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`  - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is null  - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is before `trial.endDate`|
 |studyDbIds|array[string]|The ID which uniquely identifies a study|
 |trialDbIds|array[string]|The ID which uniquely identifies a trial|
 |trialNames|array[string]|The human readable name of a trial|
+|trialPUIs|array[string]|A permanent identifier for a trial. Could be DOI or other URI formatted identifier.|
 
 
 **Response Fields** 
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultsDbId|string||
+|data|array[object]||
+|active|boolean|Is this trail currently active|
+|additionalInfo|object|Additional arbitrary info|
+|commonCropName|string|Common name for the crop associated with this trial|
+|contacts|array[object]|List of contact entities associated with this trial|
+|contactDbId|string|The ID which uniquely identifies this contact  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.|
+|email|string|The contacts email address  MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.|
+|instituteName|string|The name of the institution which this contact is part of  MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to|
+|name|string|The full name of this contact person  MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)|
+|orcid|string|The Open Researcher and Contributor ID for this contact person (orcid.org)  MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.|
+|type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation|
+|datasetAuthorships|array[object]|License and citation information for the data in this trial|
+|datasetPUI|string||
+|license|string|MIAPPE V1.1 (DM-7) License - License for the reuse of the data associated with this investigation. The Creative Commons licenses cover most use cases and are recommended.|
+|publicReleaseDate|string (date)|MIAPPE V1.1 (DM-6) Public release date - Date of first public release of the dataset presently being described.|
+|submissionDate|string (date)|MIAPPE V1.1 (DM-5) Submission date - Date of submission of the dataset presently being described to a host repository.|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|endDate|string (date)|The date this trial ends|
+|programDbId|string|A program identifier to search for|
+|programName|string|Human readable name of the program|
+|publications|array[object]|MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.|
+|publicationPUI|string||
+|publicationReference|string||
+|startDate|string (date)|The date this trial started|
+|trialDbId|string|The ID which uniquely identifies a trial  MIAPPE V1.1 (DM-2) Investigation unique ID - Identifier comprising the unique name of the institution/database hosting the submission of the investigation data, and the accession number of the investigation in that institution.|
+|trialDescription|string|The human readable description of a trial  MIAPPE V1.1 (DM-4) Investigation description - Human-readable text describing the investigation in more detail.|
+|trialName|string|The human readable name of a trial  MIAPPE V1.1 (DM-3) Investigation title - Human-readable string summarising the investigation.|
+|trialPUI|string|A permanent identifier for a trial. Could be DOI or other URI formatted identifier.|
 
 
  
@@ -5403,6 +5915,12 @@ See Search Services for additional implementation details.
         "e0f70c2a",
         "b82f0967"
     ],
+    "locationDbIds": [
+        "8fe061c3",
+        "6eafd31e"
+    ],
+    "page": 0,
+    "pageSize": 1000,
     "programDbIds": [
         "7e54bd46",
         "e54a7703"
@@ -5420,6 +5938,10 @@ See Search Services for additional implementation details.
     "trialNames": [
         "All Yield Trials 2016",
         "Disease Resistance Study Comparison Group"
+    ],
+    "trialPUIs": [
+        "https://doi.org/01093190",
+        "https://doi.org/11192409"
     ]
 }
 ```
@@ -5446,7 +5968,82 @@ See Search Services for additional implementation details.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "active": true,
+                "additionalInfo": {},
+                "commonCropName": "Wheat",
+                "contacts": [
+                    {
+                        "contactDbId": "5f4e5509",
+                        "email": "bob@bob.com",
+                        "instituteName": "The BrAPI Institute",
+                        "name": "Bob Robertson",
+                        "orcid": "http://orcid.org/0000-0001-8640-1750",
+                        "type": "PI"
+                    }
+                ],
+                "datasetAuthorships": [
+                    {
+                        "datasetPUI": "doi:10.15454/312953986E3",
+                        "license": "https://CreativeCommons.org/licenses/by/4.0",
+                        "publicReleaseDate": "2018-01-01",
+                        "submissionDate": "2018-01-01"
+                    }
+                ],
+                "documentationURL": "https://wiki.brapi.org",
+                "endDate": "2018-01-01",
+                "programDbId": "673f378a",
+                "programName": "Tomatillo_Breeding_Program",
+                "publications": [
+                    {
+                        "publicationPUI": "doi:10.15454/312953986E3",
+                        "publicationReference": "Selby, BrAPI - An application programming interface for plant breeding applications, Bioinformatics, https://doi.org/10.1093/bioinformatics/190"
+                    }
+                ],
+                "startDate": "2018-01-01",
+                "trialDbId": "1883b402",
+                "trialDescription": "General drought resistance trial initiated in Peru before duplication in Africa",
+                "trialName": "Peru Yield Trial 1",
+                "trialPUI": "https://doi.org/101093190"
+            }
+        ]
+    }
+}
+```
+
++ Response 202 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -5518,6 +6115,7 @@ See Search Services for additional implementation details.
 |trialDbId|string|The ID which uniquely identifies a trial  MIAPPE V1.1 (DM-2) Investigation unique ID - Identifier comprising the unique name of the institution/database hosting the submission of the investigation data, and the accession number of the investigation in that institution.|
 |trialDescription|string|The human readable description of a trial  MIAPPE V1.1 (DM-4) Investigation description - Human-readable text describing the investigation in more detail.|
 |trialName|string|The human readable name of a trial  MIAPPE V1.1 (DM-3) Investigation title - Human-readable string summarising the investigation.|
+|trialPUI|string|A permanent identifier for a trial. Could be DOI or other URI formatted identifier.|
 
 
  
@@ -5530,6 +6128,42 @@ See Search Services for additional implementation details.
 
 
 
+
++ Response 102 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultsDbId": "551ae08c"
+    }
+}
+```
 
 + Response 200 (application/json)
 ```
@@ -5551,7 +6185,7 @@ See Search Services for additional implementation details.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -5598,7 +6232,8 @@ See Search Services for additional implementation details.
                 "startDate": "2018-01-01",
                 "trialDbId": "1883b402",
                 "trialDescription": "General drought resistance trial initiated in Peru before duplication in Africa",
-                "trialName": "Peru Yield Trial 1"
+                "trialName": "Peru Yield Trial 1",
+                "trialPUI": "https://doi.org/101093190"
             }
         ]
     }
@@ -5628,7 +6263,7 @@ See Search Services for additional implementation details.
 
 
 
-### Get - /trials [GET /brapi/v1/trials{?commonCropName}{?programDbId}{?locationDbId}{?active}{?sortBy}{?sortOrder}{?page}{?pageSize}]
+### Get - /trials [GET /brapi/v1/trials{?active}{?commonCropName}{?contactDbId}{?programDbId}{?locationDbId}{?searchDateRangeStart}{?searchDateRangeEnd}{?studyDbId}{?trialDbId}{?trialName}{?trialPUI}{?sortBy}{?sortOrder}{?page}{?pageSize}]
 
 Retrieve a filtered list of breeding Trials. A Trial is a collection of Studies
 
@@ -5665,15 +6300,23 @@ Retrieve a filtered list of breeding Trials. A Trial is a collection of Studies
 |trialDbId|string|The ID which uniquely identifies a trial  MIAPPE V1.1 (DM-2) Investigation unique ID - Identifier comprising the unique name of the institution/database hosting the submission of the investigation data, and the accession number of the investigation in that institution.|
 |trialDescription|string|The human readable description of a trial  MIAPPE V1.1 (DM-4) Investigation description - Human-readable text describing the investigation in more detail.|
 |trialName|string|The human readable name of a trial  MIAPPE V1.1 (DM-3) Investigation title - Human-readable string summarising the investigation.|
+|trialPUI|string|A permanent identifier for a trial. Could be DOI or other URI formatted identifier.|
 
 
  
 
 + Parameters
+    + active (Optional, ) ... Filter active status true/false.
     + commonCropName (Optional, ) ... Common name for the crop associated with this trial
+    + contactDbId (Optional, ) ... Contact entities associated with this trial
     + programDbId (Optional, ) ... Program filter to only return trials associated with given program id.
     + locationDbId (Optional, ) ... Filter by location
-    + active (Optional, ) ... Filter active status true/false.
+    + searchDateRangeStart (Optional, ) ... The start of the overlapping search date range. `searchDateRangeStart` must be before `searchDateRangeEnd`.Return a Trial entity if any of the following cases are true- `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is null - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is null- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is before `trial.endDate`
+    + searchDateRangeEnd (Optional, ) ... The start of the overlapping search date range. `searchDateRangeStart` must be before `searchDateRangeEnd`.Return a Trial entity if any of the following cases are true- `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is null - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is null- `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is before `trial.endDate`
+    + studyDbId (Optional, ) ... Filter by connected studyDbId
+    + trialDbId (Optional, ) ... Filter by trialDbId
+    + trialName (Optional, ) ... Filter by trial name
+    + trialPUI (Optional, ) ... Filter by trial PUI
     + sortBy (Optional, ) ... Sort order. Name of the field to sort by.
     + sortOrder (Optional, ) ... Sort order direction: asc/desc
     + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
@@ -5703,7 +6346,7 @@ Retrieve a filtered list of breeding Trials. A Trial is a collection of Studies
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -5750,7 +6393,8 @@ Retrieve a filtered list of breeding Trials. A Trial is a collection of Studies
                 "startDate": "2018-01-01",
                 "trialDbId": "1883b402",
                 "trialDescription": "General drought resistance trial initiated in Peru before duplication in Africa",
-                "trialName": "Peru Yield Trial 1"
+                "trialName": "Peru Yield Trial 1",
+                "trialPUI": "https://doi.org/101093190"
             }
         ]
     }
@@ -5808,6 +6452,7 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
 |startDate|string (date)|The date this trial started|
 |trialDescription|string|The human readable description of a trial  MIAPPE V1.1 (DM-4) Investigation description - Human-readable text describing the investigation in more detail.|
 |trialName|string|The human readable name of a trial  MIAPPE V1.1 (DM-3) Investigation title - Human-readable string summarising the investigation.|
+|trialPUI|string|A permanent identifier for a trial. Could be DOI or other URI formatted identifier.|
 
 
 **Response Fields** 
@@ -5841,6 +6486,7 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
 |trialDbId|string|The ID which uniquely identifies a trial  MIAPPE V1.1 (DM-2) Investigation unique ID - Identifier comprising the unique name of the institution/database hosting the submission of the investigation data, and the accession number of the investigation in that institution.|
 |trialDescription|string|The human readable description of a trial  MIAPPE V1.1 (DM-4) Investigation description - Human-readable text describing the investigation in more detail.|
 |trialName|string|The human readable name of a trial  MIAPPE V1.1 (DM-3) Investigation title - Human-readable string summarising the investigation.|
+|trialPUI|string|A permanent identifier for a trial. Could be DOI or other URI formatted identifier.|
 
 
  
@@ -5887,7 +6533,8 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
         ],
         "startDate": "2018-01-01",
         "trialDescription": "General drought resistance trial initiated in Peru before duplication in Africa",
-        "trialName": "Peru Yield Trial 1"
+        "trialName": "Peru Yield Trial 1",
+        "trialPUI": "https://doi.org/101093190"
     }
 ]
 ```
@@ -5914,7 +6561,7 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -5961,7 +6608,8 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
                 "startDate": "2018-01-01",
                 "trialDbId": "1883b402",
                 "trialDescription": "General drought resistance trial initiated in Peru before duplication in Africa",
-                "trialName": "Peru Yield Trial 1"
+                "trialName": "Peru Yield Trial 1",
+                "trialPUI": "https://doi.org/101093190"
             }
         ]
     }
@@ -6093,7 +6741,7 @@ Get the details of a specific Trial
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -6252,6 +6900,7 @@ Update the details of an existing Trial
 |startDate|string (date)|The date this trial started|
 |trialDescription|string|The human readable description of a trial  MIAPPE V1.1 (DM-4) Investigation description - Human-readable text describing the investigation in more detail.|
 |trialName|string|The human readable name of a trial  MIAPPE V1.1 (DM-3) Investigation title - Human-readable string summarising the investigation.|
+|trialPUI|string|A permanent identifier for a trial. Could be DOI or other URI formatted identifier.|
 
 
 **Response Fields** 
@@ -6370,7 +7019,8 @@ Update the details of an existing Trial
     ],
     "startDate": "2018-01-01",
     "trialDescription": "General drought resistance trial initiated in Peru before duplication in Africa",
-    "trialName": "Peru Yield Trial 1"
+    "trialName": "Peru Yield Trial 1",
+    "trialPUI": "https://doi.org/101093190"
 }
 ```
 
@@ -6396,7 +7046,7 @@ Update the details of an existing Trial
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
