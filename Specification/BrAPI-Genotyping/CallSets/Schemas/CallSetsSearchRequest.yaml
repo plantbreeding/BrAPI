@@ -11,6 +11,14 @@ components:
         This request maps to the body of `POST /search/callsets` as JSON.
       type: object
       properties:
+        page:
+          description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+          type: integer
+          example: 0
+        pageSize:
+          description: The size of the pages to be returned. Default is `1000`.
+          example: 1000
+          type: integer
         germplasmDbIds:
           description: Return only call sets generated from the Sample of this germplasm
           type: array
