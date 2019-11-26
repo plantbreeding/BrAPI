@@ -67,7 +67,7 @@ Get a filtered list of Planned Cross entities.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -83,12 +83,12 @@ Get a filtered list of Planned Cross entities.
                 "additionalInfo": {},
                 "crossType": "BIPARENTAL",
                 "crossingProjectDbId": "696d7c92",
-                "crossingProjectName": "myIbadanCrosses2018",
+                "crossingProjectName": "my_Ibadan_Crosses_2018",
                 "parent1": {
                     "germplasmDbId": "d34b10c3",
-                    "germplasmName": "TME419",
+                    "germplasmName": "TME_419",
                     "observationUnitDbId": "2e1926a7",
-                    "observationUnitName": "myIbadanPlot9001",
+                    "observationUnitName": "my_Ibadan_Plot_9001",
                     "parentType": [
                         "MALE",
                         "FEMALE",
@@ -98,9 +98,9 @@ Get a filtered list of Planned Cross entities.
                 },
                 "parent2": {
                     "germplasmDbId": "d34b10c3",
-                    "germplasmName": "TME419",
+                    "germplasmName": "TME_419",
                     "observationUnitDbId": "2e1926a7",
-                    "observationUnitName": "myIbadanPlot9001",
+                    "observationUnitName": "my_Ibadan_Plot_9001",
                     "parentType": [
                         "MALE",
                         "FEMALE",
@@ -109,7 +109,7 @@ Get a filtered list of Planned Cross entities.
                     ]
                 },
                 "plannedCrossDbId": "c8905568",
-                "plannedCrossName": "myIbadanCrosses2018_01"
+                "plannedCrossName": "my_Ibadan_Crosses_2018_01"
             }
         ]
     }
@@ -200,12 +200,12 @@ Create new Planned Cross entities on this server
         "additionalInfo": {},
         "crossType": "BIPARENTAL",
         "crossingProjectDbId": "696d7c92",
-        "crossingProjectName": "myIbadanCrosses2018",
+        "crossingProjectName": "my_Ibadan_Crosses_2018",
         "parent1": {
             "germplasmDbId": "d34b10c3",
-            "germplasmName": "TME419",
+            "germplasmName": "TME_419",
             "observationUnitDbId": "2e1926a7",
-            "observationUnitName": "myIbadanPlot9001",
+            "observationUnitName": "my_Ibadan_Plot_9001",
             "parentType": [
                 "MALE",
                 "FEMALE",
@@ -215,9 +215,9 @@ Create new Planned Cross entities on this server
         },
         "parent2": {
             "germplasmDbId": "d34b10c3",
-            "germplasmName": "TME419",
+            "germplasmName": "TME_419",
             "observationUnitDbId": "2e1926a7",
-            "observationUnitName": "myIbadanPlot9001",
+            "observationUnitName": "my_Ibadan_Plot_9001",
             "parentType": [
                 "MALE",
                 "FEMALE",
@@ -225,7 +225,7 @@ Create new Planned Cross entities on this server
                 "POPULATION"
             ]
         },
-        "plannedCrossName": "myIbadanCrosses2018_01"
+        "plannedCrossName": "my_Ibadan_Crosses_2018_01"
     }
 ]
 ```
@@ -252,7 +252,7 @@ Create new Planned Cross entities on this server
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -268,12 +268,12 @@ Create new Planned Cross entities on this server
                 "additionalInfo": {},
                 "crossType": "BIPARENTAL",
                 "crossingProjectDbId": "696d7c92",
-                "crossingProjectName": "myIbadanCrosses2018",
+                "crossingProjectName": "my_Ibadan_Crosses_2018",
                 "parent1": {
                     "germplasmDbId": "d34b10c3",
-                    "germplasmName": "TME419",
+                    "germplasmName": "TME_419",
                     "observationUnitDbId": "2e1926a7",
-                    "observationUnitName": "myIbadanPlot9001",
+                    "observationUnitName": "my_Ibadan_Plot_9001",
                     "parentType": [
                         "MALE",
                         "FEMALE",
@@ -283,9 +283,9 @@ Create new Planned Cross entities on this server
                 },
                 "parent2": {
                     "germplasmDbId": "d34b10c3",
-                    "germplasmName": "TME419",
+                    "germplasmName": "TME_419",
                     "observationUnitDbId": "2e1926a7",
-                    "observationUnitName": "myIbadanPlot9001",
+                    "observationUnitName": "my_Ibadan_Plot_9001",
                     "parentType": [
                         "MALE",
                         "FEMALE",
@@ -294,7 +294,7 @@ Create new Planned Cross entities on this server
                     ]
                 },
                 "plannedCrossDbId": "c8905568",
-                "plannedCrossName": "myIbadanCrosses2018_01"
+                "plannedCrossName": "my_Ibadan_Crosses_2018_01"
             }
         ]
     }
@@ -365,34 +365,30 @@ Update existing Planned Cross entities on this server
 ```
 {
     "c8905568": {
-        "additionalInfo": {
-            "additionalProp1": "string",
-            "additionalProp2": "string",
-            "additionalProp3": "string"
-        },
+        "additionalInfo": {},
         "crossAttributes": [
             {
                 "crossAttributeName": "string",
                 "crossAttributeValue": "string"
             }
         ],
-        "crossName": "myIbadanCrosses2018_01",
+        "crossName": "my_Ibadan_Crosses_2018_01",
         "crossType": "BIPARENTAL",
         "crossingProjectDbId": "696d7c92",
-        "crossingProjectName": "myIbadanCrosses2018",
+        "crossingProjectName": "my_Ibadan_Crosses_2018",
         "parent1": {
             "germplasmDbId": "d34b10c3",
-            "germplasmName": "TME419",
+            "germplasmName": "TME_419",
             "observationUnitDbId": "2e1926a7",
-            "observationUnitName": "myIbadanPlot9001",
+            "observationUnitName": "my_Ibadan_Plot_9001",
             "parentType": "MALE"
         },
         "parent2": {
-            "germplasmDbId": "d34b10c3",
-            "germplasmName": "TME419",
-            "observationUnitDbId": "2e1926a7",
-            "observationUnitName": "myIbadanPlot9001",
-            "parentType": "MALE"
+            "germplasmDbId": "843fb211",
+            "germplasmName": "TME_419",
+            "observationUnitDbId": "f05e955f",
+            "observationUnitName": "my_Ibadan_Plot_9002",
+            "parentType": "FEMALE"
         }
     }
 }
@@ -420,7 +416,7 @@ Update existing Planned Cross entities on this server
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -436,12 +432,12 @@ Update existing Planned Cross entities on this server
                 "additionalInfo": {},
                 "crossType": "BIPARENTAL",
                 "crossingProjectDbId": "696d7c92",
-                "crossingProjectName": "myIbadanCrosses2018",
+                "crossingProjectName": "my_Ibadan_Crosses_2018",
                 "parent1": {
                     "germplasmDbId": "d34b10c3",
-                    "germplasmName": "TME419",
+                    "germplasmName": "TME_419",
                     "observationUnitDbId": "2e1926a7",
-                    "observationUnitName": "myIbadanPlot9001",
+                    "observationUnitName": "my_Ibadan_Plot_9001",
                     "parentType": [
                         "MALE",
                         "FEMALE",
@@ -451,9 +447,9 @@ Update existing Planned Cross entities on this server
                 },
                 "parent2": {
                     "germplasmDbId": "d34b10c3",
-                    "germplasmName": "TME419",
+                    "germplasmName": "TME_419",
                     "observationUnitDbId": "2e1926a7",
-                    "observationUnitName": "myIbadanPlot9001",
+                    "observationUnitName": "my_Ibadan_Plot_9001",
                     "parentType": [
                         "MALE",
                         "FEMALE",
@@ -462,7 +458,7 @@ Update existing Planned Cross entities on this server
                     ]
                 },
                 "plannedCrossDbId": "c8905568",
-                "plannedCrossName": "myIbadanCrosses2018_01"
+                "plannedCrossName": "my_Ibadan_Crosses_2018_01"
             }
         ]
     }

@@ -751,7 +751,7 @@ See Search Services for additional implementation details.
     ],
     "listOwnerNames": [
         "Bob Robertson",
-        "Rob Bobertson"
+        "Rob Robertson"
     ],
     "listOwnerPersonDbIds": [
         "bob@bob.com",

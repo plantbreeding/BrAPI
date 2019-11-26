@@ -31,7 +31,7 @@ GOOD   "call": "germplasm/{germplasmDbId}/pedigree"
 
 BAD    "call": "germplasm/{id}/pedigree"
 
-BAD    "call": "germplasm/{germplasmdbid}/pedigree" 
+BAD    "call": "germplasm/{germplasmDBid}/pedigree" 
 
 BAD    "call": "brapi/v2/germplasm/{germplasmDbId}/pedigree" 
 
@@ -53,8 +53,8 @@ BAD    "call": "germplasm/<germplasmDbId>/pedigree"
 |contactEmail|string|A contact email address for this server management|
 |documentationURL|string|A URL to the human readable documentation of this object|
 |location|string|Physical location of this server (ie. City, Country)|
-|organizationName|string|The name of the organiation that manages this server and data|
-|organizationURL|string|The URL of the organiation that manages this server and data|
+|organizationName|string|The name of the organization that manages this server and data|
+|organizationURL|string|The URL of the organization that manages this server and data|
 |serverDescription|string|A description of this server|
 |serverName|string|The name of this server|
 

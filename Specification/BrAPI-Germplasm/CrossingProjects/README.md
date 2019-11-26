@@ -17,8 +17,8 @@ Get a filtered list of Crossing Projects.
 |---|---|---| 
 |data|array[object]||
 |commonCropName|string|the common name of a crop (for multi-crop systems)|
-|corssingProjectDescription|string|the description for a crossing project|
 |crossingProjectDbId|string|the unique identifier for a crossing project|
+|crossingProjectDescription|string|the description for a crossing project|
 |crossingProjectName|string|the human readable name for a crossing project|
 |programDbId|string|the unique identifier for a program|
 |programName|string|the human readable name for a program|
@@ -55,7 +55,7 @@ Get a filtered list of Crossing Projects.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -69,9 +69,9 @@ Get a filtered list of Crossing Projects.
         "data": [
             {
                 "commonCropName": "Cassava",
-                "corssingProjectDescription": "Crosses between germplasm X and germplasm Y in male nursery study X2018 and female nursery study Y2018",
                 "crossingProjectDbId": "ce0e1c29",
-                "crossingProjectName": "IbadanCrosses2018",
+                "crossingProjectDescription": "Crosses between germplasm X and germplasm Y in male nursery study X_2018 and female nursery study Y_2018",
+                "crossingProjectName": "Ibadan_Crosses_2018",
                 "programDbId": "a088176c",
                 "programName": "IITA Cassava"
             }
@@ -107,7 +107,7 @@ Create new Crossing Project entities on this server
 |Field|Type|Description|
 |---|---|---| 
 |commonCropName|string|the common name of a crop (for multi-crop systems)|
-|corssingProjectDescription|string|the description for a crossing project|
+|crossingProjectDescription|string|the description for a crossing project|
 |crossingProjectName|string|the human readable name for a crossing project|
 |programDbId|string|the unique identifier for a program|
 |programName|string|the human readable name for a program|
@@ -119,8 +119,8 @@ Create new Crossing Project entities on this server
 |---|---|---| 
 |data|array[object]||
 |commonCropName|string|the common name of a crop (for multi-crop systems)|
-|corssingProjectDescription|string|the description for a crossing project|
 |crossingProjectDbId|string|the unique identifier for a crossing project|
+|crossingProjectDescription|string|the description for a crossing project|
 |crossingProjectName|string|the human readable name for a crossing project|
 |programDbId|string|the unique identifier for a program|
 |programName|string|the human readable name for a program|
@@ -138,8 +138,8 @@ Create new Crossing Project entities on this server
 [
     {
         "commonCropName": "Cassava",
-        "corssingProjectDescription": "Crosses between germplasm X and germplasm Y in male nursery study X2018 and female nursery study Y2018",
-        "crossingProjectName": "IbadanCrosses2018",
+        "crossingProjectDescription": "Crosses between germplasm X and germplasm Y in male nursery study X_2018 and female nursery study Y_2018",
+        "crossingProjectName": "Ibadan_Crosses_2018",
         "programDbId": "a088176c",
         "programName": "IITA Cassava"
     }
@@ -168,7 +168,7 @@ Create new Crossing Project entities on this server
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -182,9 +182,9 @@ Create new Crossing Project entities on this server
         "data": [
             {
                 "commonCropName": "Cassava",
-                "corssingProjectDescription": "Crosses between germplasm X and germplasm Y in male nursery study X2018 and female nursery study Y2018",
                 "crossingProjectDbId": "ce0e1c29",
-                "crossingProjectName": "IbadanCrosses2018",
+                "crossingProjectDescription": "Crosses between germplasm X and germplasm Y in male nursery study X_2018 and female nursery study Y_2018",
+                "crossingProjectName": "Ibadan_Crosses_2018",
                 "programDbId": "a088176c",
                 "programName": "IITA Cassava"
             }
@@ -222,8 +222,8 @@ Get a filtered list of Crossing Projects.
 |Field|Type|Description|
 |---|---|---| 
 |commonCropName|string|the common name of a crop (for multi-crop systems)|
-|corssingProjectDescription|string|the description for a crossing project|
 |crossingProjectDbId|string|the unique identifier for a crossing project|
+|crossingProjectDescription|string|the description for a crossing project|
 |crossingProjectName|string|the human readable name for a crossing project|
 |programDbId|string|the unique identifier for a program|
 |programName|string|the human readable name for a program|
@@ -260,7 +260,7 @@ Get a filtered list of Crossing Projects.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -272,9 +272,9 @@ Get a filtered list of Crossing Projects.
     },
     "result": {
         "commonCropName": "Cassava",
-        "corssingProjectDescription": "Crosses between germplasm X and germplasm Y in male nursery study X2018 and female nursery study Y2018",
         "crossingProjectDbId": "ce0e1c29",
-        "crossingProjectName": "IbadanCrosses2018",
+        "crossingProjectDescription": "Crosses between germplasm X and germplasm Y in male nursery study X_2018 and female nursery study Y_2018",
+        "crossingProjectName": "Ibadan_Crosses_2018",
         "programDbId": "a088176c",
         "programName": "IITA Cassava"
     }
@@ -308,7 +308,7 @@ Update an existing Crossing Project entity on this server
 |Field|Type|Description|
 |---|---|---| 
 |commonCropName|string|the common name of a crop (for multi-crop systems)|
-|corssingProjectDescription|string|the description for a crossing project|
+|crossingProjectDescription|string|the description for a crossing project|
 |crossingProjectName|string|the human readable name for a crossing project|
 |programDbId|string|the unique identifier for a program|
 |programName|string|the human readable name for a program|
@@ -319,8 +319,8 @@ Update an existing Crossing Project entity on this server
 |Field|Type|Description|
 |---|---|---| 
 |commonCropName|string|the common name of a crop (for multi-crop systems)|
-|corssingProjectDescription|string|the description for a crossing project|
 |crossingProjectDbId|string|the unique identifier for a crossing project|
+|crossingProjectDescription|string|the description for a crossing project|
 |crossingProjectName|string|the human readable name for a crossing project|
 |programDbId|string|the unique identifier for a program|
 |programName|string|the human readable name for a program|
@@ -338,8 +338,8 @@ Update an existing Crossing Project entity on this server
 ```
 {
     "commonCropName": "Cassava",
-    "corssingProjectDescription": "Crosses between germplasm X and germplasm Y in male nursery study X2018 and female nursery study Y2018",
-    "crossingProjectName": "IbadanCrosses2018",
+    "crossingProjectDescription": "Crosses between germplasm X and germplasm Y in male nursery study X_2018 and female nursery study Y_2018",
+    "crossingProjectName": "Ibadan_Crosses_2018",
     "programDbId": "a088176c",
     "programName": "IITA Cassava"
 }
@@ -367,7 +367,7 @@ Update an existing Crossing Project entity on this server
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -379,9 +379,9 @@ Update an existing Crossing Project entity on this server
     },
     "result": {
         "commonCropName": "Cassava",
-        "corssingProjectDescription": "Crosses between germplasm X and germplasm Y in male nursery study X2018 and female nursery study Y2018",
         "crossingProjectDbId": "ce0e1c29",
-        "crossingProjectName": "IbadanCrosses2018",
+        "crossingProjectDescription": "Crosses between germplasm X and germplasm Y in male nursery study X_2018 and female nursery study Y_2018",
+        "crossingProjectName": "Ibadan_Crosses_2018",
         "programDbId": "a088176c",
         "programName": "IITA Cassava"
     }
