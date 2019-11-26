@@ -14,7 +14,8 @@ def go():
         exitOnFail = sys.argv[2] == '-f';
     if(rootPath[-1] == '/'):
         rootPath = rootPath + '**/*.yaml'
-        
+    
+    print('Spell checking ' + rootPath)
     for filename in glob.iglob(rootPath, recursive=True):
         lineNumber = 0
         errorLines = []
@@ -39,9 +40,6 @@ def go():
                 print(errorLine)
             if(exitOnFail):
                 exit(1)
-        else:
-            if(exitOnFail):
-                print('No spelling errors detected in ' + filename)
 
 def parseLine(line):
     words = splitPattern.split(line)
