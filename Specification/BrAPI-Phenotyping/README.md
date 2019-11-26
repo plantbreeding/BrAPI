@@ -106,7 +106,7 @@ Get list of events
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -252,7 +252,7 @@ Implementation Notes
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -455,7 +455,7 @@ Implementation Notes
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -590,7 +590,7 @@ Implementation Notes
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -796,7 +796,7 @@ Implementation Notes
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -934,7 +934,7 @@ Implementation Notes
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -1038,13 +1038,33 @@ See Search Services for additional implementation details.
 |mimeTypes|array[string]|A set of image file types to search for.|
 |observationDbIds|array[string]|A list of observation Ids this image is associated with to search for|
 |observationUnitDbIds|array[string]|A set of observation unit identifiers to search for.|
+|page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
+|pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 
 
 **Response Fields** 
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultsDbId|string||
+|data|array[object]|Array of image meta data|
+|additionalInfo|object||
+|copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
+|description|string|The human readable description of an image.|
+|descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
+|imageDbId|string|The unique identifier of an image|
+|imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
+|imageFileSize|integer|The size of the image in Bytes.|
+|imageHeight|integer|The height of the image in Pixels.|
+|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geometry|object||
+|type|string|Feature|
+|imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
+|imageTimeStamp|string (date-time)|The date and time the image was taken|
+|imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
+|imageWidth|integer|The width of the image in Pixels.|
+|mimeType|string|The file type of the image. Examples 'image/jpeg', 'image/png', 'image/svg', etc|
+|observationDbIds|array[string]|A list of observation Ids this image is associated with, if applicable.|
+|observationUnitDbId|string|The related observation unit identifier, if relevant.|
 
 
  
@@ -1100,7 +1120,9 @@ See Search Services for additional implementation details.
     "observationUnitDbIds": [
         "f5e4b273",
         "328c9424"
-    ]
+    ],
+    "page": 0,
+    "pageSize": 1000
 }
 ```
 
@@ -1126,7 +1148,79 @@ See Search Services for additional implementation details.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "copyright": "Copyright 2018 Bob Robertson",
+                "description": "This is a picture of a tomato",
+                "descriptiveOntologyTerms": [
+                    "doi:10.1002/0470841559",
+                    "Red",
+                    "ncbi:0300294"
+                ],
+                "imageDbId": "a55efb9c",
+                "imageFileName": "image_0000231.jpg",
+                "imageFileSize": 50000,
+                "imageHeight": 550,
+                "imageLocation": {
+                    "geometry": {
+                        "coordinates": [
+                            -76.506042,
+                            42.417373
+                        ],
+                        "type": "Point"
+                    },
+                    "type": "Feature"
+                },
+                "imageName": "Tomato Image 1",
+                "imageTimeStamp": "2018-01-01T14:47:23-0600",
+                "imageURL": "https://wiki.brapi.org/images/tomato",
+                "imageWidth": 700,
+                "mimeType": "image/jpeg",
+                "observationDbIds": [
+                    "d05dd235",
+                    "8875177d",
+                    "c08e81b6"
+                ],
+                "observationUnitDbId": "b7e690b6"
+            }
+        ]
+    }
+}
+```
+
++ Response 202 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -1208,6 +1302,42 @@ Implementation Notes
 
 
 
++ Response 102 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultsDbId": "551ae08c"
+    }
+}
+```
+
 + Response 200 (application/json)
 ```
 {
@@ -1228,7 +1358,7 @@ Implementation Notes
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -1369,7 +1499,7 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -1530,7 +1660,7 @@ Create a new method object in the database
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -1646,7 +1776,7 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -1806,7 +1936,7 @@ Update the details of an existing method
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -1919,7 +2049,7 @@ The values are used to supply the `observationLevel` parameter in the observatio
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -2042,7 +2172,7 @@ Get a filtered set of Observation Units
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -2315,7 +2445,7 @@ Add new Observation Units
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -2497,7 +2627,7 @@ Note - In strictly typed languages, this structure can be represented as a Map o
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -2679,7 +2809,7 @@ See the example responses below</p>
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -2967,7 +3097,7 @@ Get the details of a specific Observation Unit
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -3234,7 +3364,7 @@ Update an existing Observation Units
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -3356,6 +3486,8 @@ observationValue data type inferred from the ontology
 |locationDbIds|array[string]|locations these traits were collected|
 |observationLevel|string|The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnit Structure.|
 |observationUnitDbIds|array[string]|The unique id of an observation unit|
+|page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
+|pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |programDbIds|array[string]|list of programs to search across|
 |studyDbIds|array[string]|The database ID / PK of the studies search parameter|
 |trialDbIds|array[string]|list of trials to search across|
@@ -3365,7 +3497,42 @@ observationValue data type inferred from the ontology
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultsDbId|string||
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|germplasmDbId|string| The ID which uniquely identifies a germplasm|
+|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
+|locationDbId|string|The ID which uniquely identifies a location, associated with this study|
+|locationName|string|The human readable name of a location associated with this study|
+|observationLevel|string|The level of an observation unit. ex. "plot", "plant"  MIAPPE V1.1 DM-71 Observation unit type "Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended.  The observation unit type cannot be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables). Alternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead."|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit  MIAPPE V1.1 (DM-70) Observation unit ID - Identifier used to identify the observation unit in data files containing the values observed or measured on that unit. Must be locally unique. |
+|observationUnitName|string|A human readable name for an observation unit|
+|observationUnitPUI|string|A Permanent Unique Identifier for an observation unit  MIAPPE V1.1 (DM-72) External ID - Identifier for the observation unit in a persistent repository, comprises the name of the repository and the identifier of the observation unit therein. The EBI Biosamples repository can be used. URI are recommended when possible.|
+|observationUnitPosition|object|All positional and layout information related to this Observation Unit  MIAPPE V1.1 (DM-73) Spatial distribution - Type and value of a spatial coordinate (georeference or relative) or level of observation (plot 45, subblock 7, block 2) provided as a key-value pair of the form type:value. Levels of observation must be consistent with those listed in the Study section.|
+|blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
+|entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
+|entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
+|geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geometry|object||
+|type|string|Feature|
+|positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
+|positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
+|positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
+|positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
+|replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
+|observationUnitXref|array[object]|A list of external references to this observation unit|
+|id|string|The unique ID in the external reference 'source' system|
+|source|string|The system identifier (name, URL, etc) which has an external reference to the observation unit|
+|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
+|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
+|programDbId|string|The ID which uniquely identifies a program|
+|programName|string|The human readable name of a program|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|studyName|string|The human readable name for a study|
+|treatments|array[object]|List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.|
+|factor|string|The type of treatment/factor. ex. 'fertilizer', 'inoculation', 'irrigation', etc  MIAPPE V1.1 (DM-61) Experimental Factor type - Name/Acronym of the experimental factor.|
+|modality|string|The treatment/factor description. ex. 'low fertilizer', 'yellow rust inoculation', 'high water', etc  MIAPPE V1.1 (DM-62) Experimental Factor description - Free text description of the experimental factor. This includes all relevant treatments planification and protocol planned for all the plants targeted by a given experimental factor. |
+|trialDbId|string|The ID which uniquely identifies a trial|
+|trialName|string|The human readable name of a trial|
 
 
  
@@ -3391,6 +3558,8 @@ observationValue data type inferred from the ontology
         "66bab7e3",
         "0e5e7f99"
     ],
+    "page": 0,
+    "pageSize": 1000,
     "programDbIds": [
         "ea41cd20",
         "f03f211a"
@@ -3428,7 +3597,103 @@ observationValue data type inferred from the ontology
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "germplasmDbId": "e9d9ed57",
+                "germplasmName": "A0000001",
+                "locationDbId": "0e208b20",
+                "locationName": "Field Station Alpha",
+                "observationLevel": "plot",
+                "observationUnitDbId": "8c67503c",
+                "observationUnitName": "Plot 1",
+                "observationUnitPUI": "http://pui.per/plot/1a9afc14",
+                "observationUnitPosition": {
+                    "blockNumber": "6",
+                    "entryNumber": "3",
+                    "entryType": [
+                        "CHECK",
+                        "TEST",
+                        "FILLER"
+                    ],
+                    "geoCoordinates": {
+                        "geometry": {
+                            "coordinates": [
+                                -76.506042,
+                                42.417373
+                            ],
+                            "type": "Point"
+                        },
+                        "type": "Feature"
+                    },
+                    "positionCoordinateX": "74",
+                    "positionCoordinateXType": "GRID_COL",
+                    "positionCoordinateY": "03",
+                    "positionCoordinateYType": "GRID_ROW",
+                    "replicate": "1"
+                },
+                "observationUnitXref": [
+                    {
+                        "id": "SAMEA179865230",
+                        "source": "ebi.biosample"
+                    },
+                    {
+                        "id": "INRA:CoeSt6 _SMH03",
+                        "source": "gnpis.lot"
+                    }
+                ],
+                "plantNumber": "1",
+                "plotNumber": "01",
+                "programDbId": "2d763a7a",
+                "programName": "The Perfect Breeding Program",
+                "studyDbId": "9865addc",
+                "studyName": "Purple_Tomato_1",
+                "treatments": [
+                    {
+                        "factor": "fertilizer",
+                        "modality": "low fertilizer"
+                    }
+                ],
+                "trialDbId": "776a609c",
+                "trialName": "Purple Tomato"
+            }
+        ]
+    }
+}
+```
+
++ Response 202 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -3523,6 +3788,42 @@ See Search Services for additional implementation details.
 
 
 
++ Response 102 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultsDbId": "551ae08c"
+    }
+}
+```
+
 + Response 200 (application/json)
 ```
 {
@@ -3543,7 +3844,7 @@ See Search Services for additional implementation details.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -3663,6 +3964,8 @@ See Search Services for additional implementation details.
 |observationVariableNames|array[string]|List of human readable observation variable names to search for|
 |observationVariableXrefs|array[string]|List of cross references for the observation variable to search for|
 |ontologyDbIds|array[string]|List of ontology IDs to search for|
+|page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
+|pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |scaleDbIds|array[string]|List of scales to filter search results|
 |scaleXrefs|array[string]|List of cross references for the scale to search for|
 |studyDbId|array[string]|The unique ID of a studies to filter on|
@@ -3675,7 +3978,82 @@ See Search Services for additional implementation details.
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultsDbId|string||
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|commonCropName|string|Crop name (examples: "Maize", "Wheat")|
+|contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
+|defaultValue|string|Variable default value. (examples: "red", "2.3", etc.)|
+|documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|growthStage|string|Growth stage at which measurement is made (examples: "flowering")|
+|institution|string|Name of institution submitting the variable|
+|language|string|2 letter ISO 639-1 code for the language of submission of the variable.|
+|method|object||
+|additionalInfo|object|Additional arbitrary info|
+|description|string|Method description  MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
+|formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
+|methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
+|methodDbId|string|Method unique identifier|
+|methodName|string|Human readable name for the method  MIAPPE V1.1 (DM-88) Method  Name of the method of observation|
+|ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|version|string|Ontology version (no specific format)|
+|reference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
+|observationVariableDbId|string|Variable unique identifier  MIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation.|
+|observationVariableName|string|Variable name (usually a short name)  MIAPPE V1.1 (DM-84) Variable name - Name of the variable.|
+|ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|version|string|Ontology version (no specific format)|
+|scale|object||
+|dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
+|decimalPlaces|integer|For numerical, number of decimal places to be reported|
+|ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|version|string|Ontology version (no specific format)|
+|scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
+|scaleName|string|Name of the scale  MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
+|validValues|object||
+|categories|array[object]|List of possible values with optional labels|
+|label|string|A text label for a category|
+|value|string|The actual value for a category|
+|max|integer|Maximum value (used for field data capture control).|
+|min|integer|Minimum value (used for data capture control) for numerical and date scales|
+|xref|string|Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database|
+|scientist|string|Name of scientist submitting the variable.|
+|status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
+|submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
+|synonyms|array[string]|Other variable names|
+|trait|object||
+|alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
+|attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
+|entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
+|ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
+|documentationLinks|array[object]|links to various ontology documentation|
+|URL|string (uri)||
+|type|string||
+|ontologyDbId|string|Ontology database unique identifier|
+|ontologyName|string|Ontology name|
+|version|string|Ontology version (no specific format)|
+|status|string|Trait status (examples: "recommended", "obsolete", "legacy", etc.)|
+|synonyms|array[string]|Other trait names|
+|traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
+|traitDbId|string|The ID which uniquely identifies a trait|
+|traitDescription|string|The description of a trait|
+|traitName|string|The human readable name of a trait  MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
+|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
+|xref|string|Cross reference of the variable term to a term from an external ontology or to a database of a major system.|
 
 
  
@@ -3713,6 +4091,8 @@ See Search Services for additional implementation details.
         "f44f7b23",
         "a26b576e"
     ],
+    "page": 0,
+    "pageSize": 1000,
     "scaleDbIds": [
         "a13ecffa",
         "7e1afe4f"
@@ -3763,7 +4143,192 @@ See Search Services for additional implementation details.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "commonCropName": "Maize",
+                "contextOfUse": [
+                    "Trial evaluation",
+                    "Nursery evaluation"
+                ],
+                "defaultValue": 2.0,
+                "documentationURL": "https://wiki.brapi.org/documentation.html",
+                "growthStage": "flowering",
+                "institution": "The BrAPI Institute",
+                "language": "en",
+                "method": {
+                    "additionalInfo": {},
+                    "description": "A measuring tape was used",
+                    "formula": "a^2 + b^2 = c^2",
+                    "methodClass": "Measurement",
+                    "methodDbId": "0adb2764",
+                    "methodName": "Measuring Tape",
+                    "ontologyReference": {
+                        "documentationLinks": [
+                            {
+                                "URL": "http://purl.obolibrary.org/obo/ro.owl",
+                                "type": [
+                                    "OBO",
+                                    "RDF",
+                                    "WEBPAGE"
+                                ]
+                            }
+                        ],
+                        "ontologyDbId": "6b071868",
+                        "ontologyName": "The Crop Ontology",
+                        "version": "7.2.3"
+                    },
+                    "reference": "Smith, 1893, Really Cool Paper, Popular Journal"
+                },
+                "observationVariableDbId": "b9b7edd1",
+                "observationVariableName": "Variable Name",
+                "ontologyReference": {
+                    "documentationLinks": [
+                        {
+                            "URL": "http://purl.obolibrary.org/obo/ro.owl",
+                            "type": [
+                                "OBO",
+                                "RDF",
+                                "WEBPAGE"
+                            ]
+                        }
+                    ],
+                    "ontologyDbId": "6b071868",
+                    "ontologyName": "The Crop Ontology",
+                    "version": "7.2.3"
+                },
+                "scale": {
+                    "dataType": [
+                        "Code",
+                        "Date",
+                        "Duration",
+                        "Nominal",
+                        "Numerical",
+                        "Ordinal",
+                        "Text"
+                    ],
+                    "decimalPlaces": 2,
+                    "ontologyReference": {
+                        "documentationLinks": [
+                            {
+                                "URL": "http://purl.obolibrary.org/obo/ro.owl",
+                                "type": [
+                                    "OBO",
+                                    "RDF",
+                                    "WEBPAGE"
+                                ]
+                            }
+                        ],
+                        "ontologyDbId": "6b071868",
+                        "ontologyName": "The Crop Ontology",
+                        "version": "7.2.3"
+                    },
+                    "scaleDbId": "af730171",
+                    "scaleName": "Meters",
+                    "validValues": {
+                        "categories": [
+                            {
+                                "label": "low",
+                                "value": "0"
+                            },
+                            {
+                                "label": "medium",
+                                "value": "5"
+                            },
+                            {
+                                "label": "high",
+                                "value": "10"
+                            }
+                        ],
+                        "max": 9999,
+                        "min": 2
+                    },
+                    "xref": "http://purl.obolibrary.org/obo/ro.owl"
+                },
+                "scientist": "Dr. Bob Robertson",
+                "status": "recommended",
+                "submissionTimestamp": "2018-01-01T14:47:23-0600",
+                "synonyms": [
+                    "Maize Height",
+                    "Stalk Height",
+                    "Corn Height"
+                ],
+                "trait": {
+                    "alternativeAbbreviations": [
+                        "H",
+                        "PH",
+                        "H1"
+                    ],
+                    "attribute": "height",
+                    "entity": "Stalk",
+                    "mainAbbreviation": "PH",
+                    "ontologyReference": {
+                        "documentationLinks": [
+                            {
+                                "URL": "http://purl.obolibrary.org/obo/ro.owl",
+                                "type": [
+                                    "OBO",
+                                    "RDF",
+                                    "WEBPAGE"
+                                ]
+                            }
+                        ],
+                        "ontologyDbId": "6b071868",
+                        "ontologyName": "The Crop Ontology",
+                        "version": "7.2.3"
+                    },
+                    "status": "recommended",
+                    "synonyms": [
+                        "Height",
+                        "Plant Height",
+                        "Stalk Height",
+                        "Canopy Height"
+                    ],
+                    "traitClass": "phenological",
+                    "traitDbId": "9b2e34f5",
+                    "traitDescription": "The height of the plant",
+                    "traitName": "Height",
+                    "xref": "http://purl.obolibrary.org/obo/ro.owl"
+                },
+                "xref": "http://purl.obolibrary.org/obo/ro.owl"
+            }
+        ]
+    }
+}
+```
+
++ Response 202 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -3898,6 +4463,42 @@ See Search Services for additional implementation details.
 
 
 
++ Response 102 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultsDbId": "551ae08c"
+    }
+}
+```
+
 + Response 200 (application/json)
 ```
 {
@@ -3918,7 +4519,7 @@ See Search Services for additional implementation details.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -4227,7 +4828,7 @@ Call to retrieve a list of observationVariables available in the system.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -4758,7 +5359,7 @@ Add new Observation Variables to the system.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -5057,7 +5658,7 @@ Retrieve variable details
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -5357,7 +5958,7 @@ Update an existing Observation Variable
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -5621,7 +6222,7 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -5780,7 +6381,7 @@ Add new Observation entities
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -5912,7 +6513,7 @@ Note - In strictly typed languages, this structure can be represented as a Map o
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -6064,7 +6665,7 @@ See the example responses below</p>
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -6336,7 +6937,7 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -6494,7 +7095,7 @@ Update an existing Observation
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -6566,6 +7167,8 @@ Submit a search request for a set of Observations. Returns an Id which reference
 |observationTimeStampRangeStart|string (date-time)|Timestamp range start|
 |observationUnitDbIds|array[string]|The unique id of an Observation Unit|
 |observationVariableDbIds|array[string]|The IDs of traits, could be ontology ID, database ID or PUI|
+|page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
+|pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |programDbIds|array[string]|list of programs to search across|
 |seasonDbIds|array[string]|The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)|
 |studyDbIds|array[string]|The database ID / PK of the studies search parameter|
@@ -6576,7 +7179,24 @@ Submit a search request for a set of Observations. Returns an Id which reference
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultsDbId|string||
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|collector|string|The name or identifier of the entity which collected the observation|
+|germplasmDbId|string|The ID which uniquely identifies a germplasm|
+|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
+|observationDbId|string|The ID which uniquely identifies an observation|
+|observationTimeStamp|string (date-time)|The date and time when this observation was made|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|observationUnitName|string|A human readable name for an observation unit|
+|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
+|observationVariableName|string|A human readable name for an observation variable|
+|season|object||
+|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|year|integer|The 4 digit year of the season.|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
+|value|string|The value of the data collected as an observation|
 
 
  
@@ -6612,6 +7232,8 @@ Submit a search request for a set of Observations. Returns an Id which reference
         "a646187d",
         "6d23513b"
     ],
+    "page": 0,
+    "pageSize": 1000,
     "programDbIds": [
         "d8ca7076",
         "d56b0b68"
@@ -6653,7 +7275,64 @@ Submit a search request for a set of Observations. Returns an Id which reference
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "collector": "917d3ae0",
+                "germplasmDbId": "2408ab11",
+                "germplasmName": "A0000003",
+                "observationDbId": "ef24b615",
+                "observationTimeStamp": "2018-01-01T14:47:23-0600",
+                "observationUnitDbId": "598111d4",
+                "observationUnitName": "Plot 1",
+                "observationVariableDbId": "c403d107",
+                "observationVariableName": "Plant Height in meters",
+                "season": {
+                    "season": "Spring",
+                    "seasonDbId": "Spring_2018",
+                    "year": 2018
+                },
+                "studyDbId": "ef2829db",
+                "uploadedBy": "a2f7f60b",
+                "value": "2.3"
+            }
+        ]
+    }
+}
+```
+
++ Response 202 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -6733,6 +7412,42 @@ observationValue data type inferred from the ontology
 
 
 
++ Response 102 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultsDbId": "551ae08c"
+    }
+}
+```
+
 + Response 200 (application/json)
 ```
 {
@@ -6753,7 +7468,7 @@ observationValue data type inferred from the ontology
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -6867,7 +7582,7 @@ Call to retrieve a list of observation variable ontologies available in the syst
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -6983,7 +7698,7 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -7200,7 +7915,7 @@ Create a new scale object in the database
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -7344,7 +8059,7 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -7560,7 +8275,7 @@ Update the details of an existing scale
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -7714,7 +8429,7 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -7909,7 +8624,7 @@ Create a new trait object in the database
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -8042,7 +8757,7 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -8236,7 +8951,7 @@ Update an existing trait
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [

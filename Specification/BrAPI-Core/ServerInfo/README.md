@@ -88,7 +88,7 @@ BAD    "call": "germplasm/<germplasmDbId>/pedigree"
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [

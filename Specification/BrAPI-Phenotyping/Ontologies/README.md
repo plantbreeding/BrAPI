@@ -60,7 +60,7 @@ Call to retrieve a list of observation variable ontologies available in the syst
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
