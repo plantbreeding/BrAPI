@@ -6,9 +6,7 @@
 
 ### Get - /callsets [GET /brapi/v1/callsets{?callSetDbId}{?callSetName}{?variantSetDbId}{?sampleDbId}{?germplasmDbId}{?page}{?pageSize}]
 
- Gets a filtered list of `CallSet` JSON objects.
-Also See:
-`GET /variantsets/{variantsetsDbId}/callsets` 
+Gets a filtered list of `CallSet` JSON objects.
 
 
 
@@ -20,10 +18,10 @@ Also See:
 |additionalInfo|object|Additional arbitrary info|
 |callSetDbId|string|The call set ID.|
 |callSetName|string|The call set name.|
-|created|string (int64)|The date this call set was created in milliseconds from the epoch.|
+|created|integer|The date this call set was created in milliseconds from the epoch.|
 |sampleDbId|string|The Biosample entity the call set data was generated from.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|updated|string (int64)|The time at which this call set was last updated in milliseconds from the epoch.|
+|updated|integer|The time at which this call set was last updated in milliseconds from the epoch.|
 |variantSetIds|array[string]|The IDs of the variant sets this call set has calls in.|
 
 
@@ -31,7 +29,7 @@ Also See:
 
 + Parameters
     + callSetDbId (Optional, ) ... The ID of the `CallSet` to be retrieved.
-    + callSetName (Optional, ) ... The human readbale name of the `CallSet` to be retrieved.
+    + callSetName (Optional, ) ... The human readable name of the `CallSet` to be retrieved.
     + variantSetDbId (Optional, ) ... The ID of the `VariantSet` to be retrieved.
     + sampleDbId (Optional, ) ... The ID of the `VariantSet` to be retrieved.
     + germplasmDbId (Optional, ) ... Return only call sets generated from the Sample of this Germplasm
@@ -62,7 +60,7 @@ Also See:
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -78,10 +76,10 @@ Also See:
                 "additionalInfo": {},
                 "callSetDbId": "callSetDbId",
                 "callSetName": "callSetName",
-                "created": "",
+                "created": 0,
                 "sampleDbId": "sampleDbId",
                 "studyDbId": "studyDbId",
-                "updated": "",
+                "updated": 0,
                 "variantSetIds": [
                     "variantSetIds1",
                     "variantSetIds2"
@@ -112,7 +110,7 @@ Also See:
 
 ### Get - /callsets/{callSetDbId} [GET /brapi/v1/callsets/{callSetDbId}]
 
-`GET /callsets/{id}` will return a JSON version of `CallSet`.
+Gets a `CallSet` by ID.
 
 
 
@@ -123,10 +121,10 @@ Also See:
 |additionalInfo|object|Additional arbitrary info|
 |callSetDbId|string|The call set ID.|
 |callSetName|string|The call set name.|
-|created|string (int64)|The date this call set was created in milliseconds from the epoch.|
+|created|integer|The date this call set was created in milliseconds from the epoch.|
 |sampleDbId|string|The Biosample entity the call set data was generated from.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|updated|string (int64)|The time at which this call set was last updated in milliseconds from the epoch.|
+|updated|integer|The time at which this call set was last updated in milliseconds from the epoch.|
 |variantSetIds|array[string]|The IDs of the variant sets this call set has calls in.|
 
 
@@ -159,7 +157,7 @@ Also See:
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -173,10 +171,10 @@ Also See:
         "additionalInfo": {},
         "callSetDbId": "callSetDbId",
         "callSetName": "callSetName",
-        "created": "",
+        "created": 0,
         "sampleDbId": "sampleDbId",
         "studyDbId": "studyDbId",
-        "updated": "",
+        "updated": 0,
         "variantSetIds": [
             "variantSetIds1",
             "variantSetIds2"
@@ -210,9 +208,7 @@ Also See:
 
 ### Get - /callsets/{callSetDbId}/calls [GET /brapi/v1/callsets/{callSetDbId}/calls{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?page}{?pageSize}]
 
- Gets a list of `Calls` associated with a `CallSet`.
-Also See:
-`GET /calls?callSetDbId={callSetDbId}` 
+Gets a list of `Calls` associated with a `CallSet`.
 
 
 
@@ -226,8 +222,8 @@ Also See:
 |callSetName|string|The name of the call set this variant call belongs to. If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
 |genotype|object|`ListValue` is a wrapper around a repeated field of values.  The JSON representation for `ListValue` is JSON array.|
 |values|array|Repeated field of dynamically typed values.|
-|genotype_likelihood|array[number]|The genotype likelihoods for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.|
-|phaseset|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phaseset string.|
+|genotype_likelihood|array[number]|The genotype likelihood for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.|
+|phaseSet|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phase set string.|
 |variantDbId|string|The ID of the variant this call belongs to.|
 |variantName|string|The name of the variant this call belongs to.|
 |expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurence (false)|
@@ -271,7 +267,7 @@ Also See:
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -291,14 +287,15 @@ Also See:
                     "values": []
                 },
                 "genotype_likelihood": [],
-                "phaseset": "phaseset",
+                "phaseSet": "phaseSet",
                 "variantDbId": "variantDbId",
                 "variantName": "variantName"
             }
         ],
-        "sepPhased": "sepPhased",
-        "sepUnphased": "sepUnphased",
-        "unknownString": "unknownString"
+        "expandHomozygotes": true,
+        "sepPhased": "~",
+        "sepUnphased": "|",
+        "unknownString": "-"
     }
 }
 ```
@@ -323,9 +320,7 @@ Also See:
 
 ### Post - /search/callsets [POST /brapi/v1/search/callsets]
 
-`POST /callsets/search` must accept a JSON version of
-`SearchCallSetsRequest` as the post body and will return a JSON version of
-`SearchCallSetsResponse`.
+Gets a list of call sets matching the search criteria.
 
 **Request Fields** 
 
@@ -335,6 +330,8 @@ Also See:
 |callSetNames|array[string]|Only return call sets with these names (case-sensitive, exact match).|
 |germplasmDbIds|array[string]|Return only call sets generated from the Sample of this germplasm|
 |germplasmNames|array[string]|Return only call sets generated from the Sample of this germplasm|
+|page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
+|pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |sampleDbIds|array[string]|Return only call sets generated from the provided Biosample ID.|
 |sampleNames|array[string]|Return only call sets generated from the provided Biosample ID.|
 |variantSetDbIds|array[string]|The VariantSet to search.|
@@ -344,7 +341,15 @@ Also See:
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultsDbId|string||
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|callSetDbId|string|The call set ID.|
+|callSetName|string|The call set name.|
+|created|integer|The date this call set was created in milliseconds from the epoch.|
+|sampleDbId|string|The Biosample entity the call set data was generated from.|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|updated|integer|The time at which this call set was last updated in milliseconds from the epoch.|
+|variantSetIds|array[string]|The IDs of the variant sets this call set has calls in.|
 
 
  
@@ -373,6 +378,8 @@ Also See:
         "germplasmNames1",
         "germplasmNames2"
     ],
+    "page": 0,
+    "pageSize": 1000,
     "sampleDbIds": [
         "sampleDbIds1",
         "sampleDbIds2"
@@ -410,7 +417,57 @@ Also See:
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "callSetDbId": "callSetDbId",
+                "callSetName": "callSetName",
+                "created": 0,
+                "sampleDbId": "sampleDbId",
+                "studyDbId": "studyDbId",
+                "updated": 0,
+                "variantSetIds": [
+                    "variantSetIds1",
+                    "variantSetIds2"
+                ]
+            }
+        ]
+    }
+}
+```
+
++ Response 202 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -446,9 +503,7 @@ Also See:
 
 ### Get - /search/callsets/{searchResultsDbId} [GET /brapi/v1/search/callsets/{searchResultsDbId}{?page}{?pageSize}]
 
-`POST /callsets/search` must accept a JSON version of
-`SearchCallSetsRequest` as the post body and will return a JSON version of
-`SearchCallSetsResponse`.
+Gets a list of call sets matching the search criteria.
 
 
 
@@ -460,10 +515,10 @@ Also See:
 |additionalInfo|object|Additional arbitrary info|
 |callSetDbId|string|The call set ID.|
 |callSetName|string|The call set name.|
-|created|string (int64)|The date this call set was created in milliseconds from the epoch.|
+|created|integer|The date this call set was created in milliseconds from the epoch.|
 |sampleDbId|string|The Biosample entity the call set data was generated from.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|updated|string (int64)|The time at which this call set was last updated in milliseconds from the epoch.|
+|updated|integer|The time at which this call set was last updated in milliseconds from the epoch.|
 |variantSetIds|array[string]|The IDs of the variant sets this call set has calls in.|
 
 
@@ -477,6 +532,42 @@ Also See:
 
 
 
+
++ Response 102 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultsDbId": "551ae08c"
+    }
+}
+```
 
 + Response 200 (application/json)
 ```
@@ -498,7 +589,7 @@ Also See:
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -514,10 +605,10 @@ Also See:
                 "additionalInfo": {},
                 "callSetDbId": "callSetDbId",
                 "callSetName": "callSetName",
-                "created": "",
+                "created": 0,
                 "sampleDbId": "sampleDbId",
                 "studyDbId": "studyDbId",
-                "updated": "",
+                "updated": 0,
                 "variantSetIds": [
                     "variantSetIds1",
                     "variantSetIds2"

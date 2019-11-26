@@ -6,14 +6,14 @@
 
 ### Post - /search/variantsets [POST /brapi/v1/search/variantsets]
 
-`POST /variantsets/search` must accept a JSON version of
-`SearchVariantSetsRequest` as the post body and will return a JSON version
-of `SearchVariantSetsResponse`.
+Gets a list of `VariantSet` matching the search criteria.
 
 **Request Fields** 
 
 |Field|Type|Description|
 |---|---|---| 
+|page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
+|pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |studyDbIds|array[string]|The `Dataset` to search.|
 |variantSetDbIds|array[string]|The VariantSet to search.|
 
@@ -22,7 +22,26 @@ of `SearchVariantSetsResponse`.
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultsDbId|string||
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|analysis|array[object]|Set of Analysis descriptors for this VariantSet|
+|analysisDbId|string|Formats of id  name  description  accessions are described in the documentation on general attributes and formats.|
+|analysisName|string||
+|created|string|The time at which this record was created, in ISO 8601 format.|
+|description|string||
+|software|array[string]|The software run to generate this analysis.|
+|type|string|The type of analysis.|
+|updated|string|The time at which this record was last updated, in ISO 8601 format.|
+|availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.   dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)  fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
+|dataFormat|string|dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)|
+|fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
+|fileURL|string (uri)|A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file.|
+|callSetCount|integer|The number of CallSets included in this VariantSet|
+|referenceSetDbId|string|The ID of the reference set that describes the sequences used by the variants in this set.|
+|studyDbId|string|The ID of the dataset this variant set belongs to.|
+|variantCount|integer|The number of Variants included in this VariantSet|
+|variantSetDbId|string|The variant set ID.|
+|variantSetName|string|The variant set name.|
 
 
  
@@ -35,6 +54,8 @@ of `SearchVariantSetsResponse`.
 + Request (application/json)
 ```
 {
+    "page": 0,
+    "pageSize": 1000,
     "studyDbIds": [
         "studyDbIds1",
         "studyDbIds2"
@@ -68,7 +89,86 @@ of `SearchVariantSetsResponse`.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "analysis": [
+                    {
+                        "analysisDbId": "analysisDbId",
+                        "analysisName": "analysisName",
+                        "created": "created",
+                        "description": "description",
+                        "software": [
+                            "software1",
+                            "software2"
+                        ],
+                        "type": "type",
+                        "updated": "updated"
+                    }
+                ],
+                "availableFormats": [
+                    {
+                        "dataFormat": [
+                            "DartSeq",
+                            "VCF",
+                            "Hapmap",
+                            "tabular",
+                            "JSON"
+                        ],
+                        "fileFormat": [
+                            "text/csv",
+                            "text/tsv",
+                            "application/excel",
+                            "application/zip",
+                            "application/json"
+                        ],
+                        "fileURL": ""
+                    }
+                ],
+                "callSetCount": 0,
+                "referenceSetDbId": "referenceSetDbId",
+                "studyDbId": "studyDbId",
+                "variantCount": 0,
+                "variantSetDbId": "variantSetDbId",
+                "variantSetName": "variantSetName"
+            }
+        ]
+    }
+}
+```
+
++ Response 202 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -104,9 +204,7 @@ of `SearchVariantSetsResponse`.
 
 ### Get - /search/variantsets/{searchResultsDbId} [GET /brapi/v1/search/variantsets/{searchResultsDbId}{?page}{?pageSize}]
 
-`POST /variantsets/search` must accept a JSON version of
-`SearchVariantSetsRequest` as the post body and will return a JSON version
-of `SearchVariantSetsResponse`.
+Gets a list of `VariantSet` matching the search criteria.
 
 
 
@@ -124,9 +222,9 @@ of `SearchVariantSetsResponse`.
 |software|array[string]|The software run to generate this analysis.|
 |type|string|The type of analysis.|
 |updated|string|The time at which this record was last updated, in ISO 8601 format.|
-|availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.   dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)  fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevent request and response.|
+|availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.   dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)  fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
 |dataFormat|string|dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)|
-|fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevent request and response.|
+|fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
 |fileURL|string (uri)|A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file.|
 |callSetCount|integer|The number of CallSets included in this VariantSet|
 |referenceSetDbId|string|The ID of the reference set that describes the sequences used by the variants in this set.|
@@ -146,6 +244,42 @@ of `SearchVariantSetsResponse`.
 
 
 
+
++ Response 102 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultsDbId": "551ae08c"
+    }
+}
+```
 
 + Response 200 (application/json)
 ```
@@ -167,7 +301,7 @@ of `SearchVariantSetsResponse`.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -246,7 +380,7 @@ of `SearchVariantSetsResponse`.
 
 ### Get - /variantsets [GET /brapi/v1/variantsets{?variantSetDbId}{?page}{?pageSize}]
 
-`GET /variantsets` will return a filtered list of `VariantSet`.
+Will return a filtered list of `VariantSet`.
 
 
 
@@ -264,9 +398,9 @@ of `SearchVariantSetsResponse`.
 |software|array[string]|The software run to generate this analysis.|
 |type|string|The type of analysis.|
 |updated|string|The time at which this record was last updated, in ISO 8601 format.|
-|availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.   dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)  fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevent request and response.|
+|availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.   dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)  fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
 |dataFormat|string|dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)|
-|fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevent request and response.|
+|fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
 |fileURL|string (uri)|A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file.|
 |callSetCount|integer|The number of CallSets included in this VariantSet|
 |referenceSetDbId|string|The ID of the reference set that describes the sequences used by the variants in this set.|
@@ -307,7 +441,7 @@ of `SearchVariantSetsResponse`.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -386,8 +520,7 @@ of `SearchVariantSetsResponse`.
 
 ### Post - /variantsets/extract [POST /brapi/v1/variantsets/extract]
 
-`POST /variantsets/extract` will perform a search for `Calls` which match the search criteria in `variantSetsExtractRequest`
-The results of the search will be used to create a new `VariantSet` on the server. The new `VariantSet` will be returned.
+Will perform a search for `Calls` which match the search criteria in `variantSetsExtractRequest`. The results of the search will be used to create a new `VariantSet` on the server. The new `VariantSet` will be returned.
 
 **Request Fields** 
 
@@ -415,9 +548,9 @@ The results of the search will be used to create a new `VariantSet` on the serve
 |software|array[string]|The software run to generate this analysis.|
 |type|string|The type of analysis.|
 |updated|string|The time at which this record was last updated, in ISO 8601 format.|
-|availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.   dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)  fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevent request and response.|
+|availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.   dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)  fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
 |dataFormat|string|dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)|
-|fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevent request and response.|
+|fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
 |fileURL|string (uri)|A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file.|
 |callSetCount|integer|The number of CallSets included in this VariantSet|
 |referenceSetDbId|string|The ID of the reference set that describes the sequences used by the variants in this set.|
@@ -477,7 +610,7 @@ The results of the search will be used to create a new `VariantSet` on the serve
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -557,8 +690,7 @@ The results of the search will be used to create a new `VariantSet` on the serve
 
 ### Get - /variantsets/{variantSetDbId} [GET /brapi/v1/variantsets/{variantSetDbId}]
 
-`GET /variantsets/{variantSetDbId}` will return a JSON version of
-`VariantSet`.
+This call will return a JSON version of a `VariantSet`.
 
 
 
@@ -575,9 +707,9 @@ The results of the search will be used to create a new `VariantSet` on the serve
 |software|array[string]|The software run to generate this analysis.|
 |type|string|The type of analysis.|
 |updated|string|The time at which this record was last updated, in ISO 8601 format.|
-|availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.   dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)  fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevent request and response.|
+|availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.   dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)  fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
 |dataFormat|string|dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)|
-|fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevent request and response.|
+|fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
 |fileURL|string (uri)|A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file.|
 |callSetCount|integer|The number of CallSets included in this VariantSet|
 |referenceSetDbId|string|The ID of the reference set that describes the sequences used by the variants in this set.|
@@ -616,7 +748,7 @@ The results of the search will be used to create a new `VariantSet` on the serve
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -696,9 +828,7 @@ The results of the search will be used to create a new `VariantSet` on the serve
 
 ### Get - /variantsets/{variantSetDbId}/calls [GET /brapi/v1/variantsets/{variantSetDbId}/calls{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?page}{?pageSize}]
 
- Gets a list of `Calls` associated with a `VariantSet`.
-Also See:
-`GET /calls?variantSetDbId={variantSetDbId}` 
+Gets a list of `Calls` associated with a `VariantSet`.
 
 
 
@@ -712,8 +842,8 @@ Also See:
 |callSetName|string|The name of the call set this variant call belongs to. If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
 |genotype|object|`ListValue` is a wrapper around a repeated field of values.  The JSON representation for `ListValue` is JSON array.|
 |values|array|Repeated field of dynamically typed values.|
-|genotype_likelihood|array[number]|The genotype likelihoods for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.|
-|phaseset|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phaseset string.|
+|genotype_likelihood|array[number]|The genotype likelihood for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.|
+|phaseSet|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phase set string.|
 |variantDbId|string|The ID of the variant this call belongs to.|
 |variantName|string|The name of the variant this call belongs to.|
 |expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurence (false)|
@@ -757,7 +887,7 @@ Also See:
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -777,14 +907,15 @@ Also See:
                     "values": []
                 },
                 "genotype_likelihood": [],
-                "phaseset": "phaseset",
+                "phaseSet": "phaseSet",
                 "variantDbId": "variantDbId",
                 "variantName": "variantName"
             }
         ],
-        "sepPhased": "sepPhased",
-        "sepUnphased": "sepUnphased",
-        "unknownString": "unknownString"
+        "expandHomozygotes": true,
+        "sepPhased": "~",
+        "sepUnphased": "|",
+        "unknownString": "-"
     }
 }
 ```
@@ -809,9 +940,7 @@ Also See:
 
 ### Get - /variantsets/{variantSetDbId}/callsets [GET /brapi/v1/variantsets/{variantSetDbId}/callsets{?callSetDbId}{?callSetName}{?page}{?pageSize}]
 
- Gets a list of `CallSets` associated with a `VariantSet`.
-Also See:
-`GET /callsets?variantSetDbId={variantSetDbId}` 
+Gets a list of `CallSets` associated with a `VariantSet`.
 
 
 
@@ -823,10 +952,10 @@ Also See:
 |additionalInfo|object|Additional arbitrary info|
 |callSetDbId|string|The call set ID.|
 |callSetName|string|The call set name.|
-|created|string (int64)|The date this call set was created in milliseconds from the epoch.|
+|created|integer|The date this call set was created in milliseconds from the epoch.|
 |sampleDbId|string|The Biosample entity the call set data was generated from.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|updated|string (int64)|The time at which this call set was last updated in milliseconds from the epoch.|
+|updated|integer|The time at which this call set was last updated in milliseconds from the epoch.|
 |variantSetIds|array[string]|The IDs of the variant sets this call set has calls in.|
 
 
@@ -834,7 +963,7 @@ Also See:
 
 + Parameters
     + callSetDbId (Optional, ) ... The ID of the `CallSet` to be retrieved.
-    + callSetName (Optional, ) ... The human readbale name of the `CallSet` to be retrieved.
+    + callSetName (Optional, ) ... The human readable name of the `CallSet` to be retrieved.
     + variantSetDbId (Required, ) ... The ID of the `VariantSet` to be retrieved.
     + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
@@ -863,7 +992,7 @@ Also See:
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -879,10 +1008,10 @@ Also See:
                 "additionalInfo": {},
                 "callSetDbId": "callSetDbId",
                 "callSetName": "callSetName",
-                "created": "",
+                "created": 0,
                 "sampleDbId": "sampleDbId",
                 "studyDbId": "studyDbId",
-                "updated": "",
+                "updated": 0,
                 "variantSetIds": [
                     "variantSetIds1",
                     "variantSetIds2"
@@ -913,8 +1042,7 @@ Also See:
 
 ### Get - /variantsets/{variantSetDbId}/variants [GET /brapi/v1/variantsets/{variantSetDbId}/variants{?variantDbId}{?page}{?pageSize}]
 
-`GET /variantsets/{variant_set_id}` will return a JSON version of
-`VariantSet`.
+This call will return an array of `Variants`.
 
 
 
@@ -926,21 +1054,21 @@ Also See:
 |additionalInfo|object|Additional arbitrary info|
 |alternate_bases|array[string]|The bases that appear instead of the reference bases. Multiple alternate alleles are possible.|
 |ciend|array[integer]|Similar to "cipos", but for the variant's end position (which is derived from start + svlen).|
-|cipos|array[integer]|In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCFv4.2|
-|created|string (int64)|The date this variant was created in milliseconds from the epoch.|
-|end|string (int64)|The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated by `start + referenceBases.length`.|
+|cipos|array[integer]|In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCF v4.2|
+|created|integer|The date this variant was created in milliseconds from the epoch.|
+|end|integer|The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated by `start + referenceBases.length`.|
 |filtersApplied|boolean (boolean)|True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.|
 |filtersFailed|array[string]|Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.|
 |filtersPassed|boolean (boolean)|True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.|
 |referenceBases|string|The reference bases for this variant. They start at the given start position.|
-|referenceName|string|The reference on which this variant occurs. (e.g. `chr20` or `X`)|
-|start|string (int64)|The start position at which this variant occurs (0-based). This corresponds to the first base of the string of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning the join of circular genomes are represented as two variants one on each side of the join (position 0).|
-|svlen|string (int64)|Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCFv4.2|
-|updated|string (int64)|The time at which this variant was last updated in milliseconds from the epoch.|
+|referenceName|string|The reference on which this variant occurs. (e.g. `chr_20` or `X`)|
+|start|integer|The start position at which this variant occurs (0-based). This corresponds to the first base of the string of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning the join of circular genomes are represented as two variants one on each side of the join (position 0).|
+|svlen|integer|Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2|
+|updated|integer|The time at which this variant was last updated in milliseconds from the epoch.|
 |variantDbId|string|The variant ID.|
 |variantNames|array[string]|Names for the variant, for example a RefSNP ID.|
-|variantSetDbId|array[string]|An array of `VariantSet` IDs this variant belongs to. This transitively defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
-|variantType|string|The "variant_type" is used to denote e.g. structural variants. Examples:   DUP  : duplication of sequence following "start"; not necessarily in situ   DEL  : deletion of sequence following "start"|
+|variantSetDbId|array[string]|An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
+|variantType|string|The "variant_type" is used to denote e.g. structural variants. Examples:   DUP  : duplication of sequence following "start"   DEL  : deletion of sequence following "start"|
 
 
  
@@ -975,7 +1103,7 @@ Also See:
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -1008,8 +1136,8 @@ Also See:
                     "3f14f578"
                 ],
                 "filtersPassed": true,
-                "referenceBases": "ATCGATTGAGCTCTAGCG",
-                "referenceName": "chr20",
+                "referenceBases": "TAGGATTGAGCTCTATAT",
+                "referenceName": "chr_20",
                 "start": "500",
                 "svlen": "1500",
                 "updated": "1573672019",

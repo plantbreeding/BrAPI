@@ -46,9 +46,7 @@ V2.0 - [GitHub](https://github.com/plantbreeding/API/tree/brapi-v2-dev/Specifica
 
 ### Get - /callsets [GET /brapi/v1/callsets{?callSetDbId}{?callSetName}{?variantSetDbId}{?sampleDbId}{?germplasmDbId}{?page}{?pageSize}]
 
- Gets a filtered list of `CallSet` JSON objects.
-Also See:
-`GET /variantsets/{variantsetsDbId}/callsets` 
+Gets a filtered list of `CallSet` JSON objects.
 
 
 
@@ -60,10 +58,10 @@ Also See:
 |additionalInfo|object|Additional arbitrary info|
 |callSetDbId|string|The call set ID.|
 |callSetName|string|The call set name.|
-|created|string (int64)|The date this call set was created in milliseconds from the epoch.|
+|created|integer|The date this call set was created in milliseconds from the epoch.|
 |sampleDbId|string|The Biosample entity the call set data was generated from.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|updated|string (int64)|The time at which this call set was last updated in milliseconds from the epoch.|
+|updated|integer|The time at which this call set was last updated in milliseconds from the epoch.|
 |variantSetIds|array[string]|The IDs of the variant sets this call set has calls in.|
 
 
@@ -71,7 +69,7 @@ Also See:
 
 + Parameters
     + callSetDbId (Optional, ) ... The ID of the `CallSet` to be retrieved.
-    + callSetName (Optional, ) ... The human readbale name of the `CallSet` to be retrieved.
+    + callSetName (Optional, ) ... The human readable name of the `CallSet` to be retrieved.
     + variantSetDbId (Optional, ) ... The ID of the `VariantSet` to be retrieved.
     + sampleDbId (Optional, ) ... The ID of the `VariantSet` to be retrieved.
     + germplasmDbId (Optional, ) ... Return only call sets generated from the Sample of this Germplasm
@@ -102,7 +100,7 @@ Also See:
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -118,10 +116,10 @@ Also See:
                 "additionalInfo": {},
                 "callSetDbId": "callSetDbId",
                 "callSetName": "callSetName",
-                "created": "",
+                "created": 0,
                 "sampleDbId": "sampleDbId",
                 "studyDbId": "studyDbId",
-                "updated": "",
+                "updated": 0,
                 "variantSetIds": [
                     "variantSetIds1",
                     "variantSetIds2"
@@ -152,7 +150,7 @@ Also See:
 
 ### Get - /callsets/{callSetDbId} [GET /brapi/v1/callsets/{callSetDbId}]
 
-`GET /callsets/{id}` will return a JSON version of `CallSet`.
+Gets a `CallSet` by ID.
 
 
 
@@ -163,10 +161,10 @@ Also See:
 |additionalInfo|object|Additional arbitrary info|
 |callSetDbId|string|The call set ID.|
 |callSetName|string|The call set name.|
-|created|string (int64)|The date this call set was created in milliseconds from the epoch.|
+|created|integer|The date this call set was created in milliseconds from the epoch.|
 |sampleDbId|string|The Biosample entity the call set data was generated from.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|updated|string (int64)|The time at which this call set was last updated in milliseconds from the epoch.|
+|updated|integer|The time at which this call set was last updated in milliseconds from the epoch.|
 |variantSetIds|array[string]|The IDs of the variant sets this call set has calls in.|
 
 
@@ -199,7 +197,7 @@ Also See:
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -213,10 +211,10 @@ Also See:
         "additionalInfo": {},
         "callSetDbId": "callSetDbId",
         "callSetName": "callSetName",
-        "created": "",
+        "created": 0,
         "sampleDbId": "sampleDbId",
         "studyDbId": "studyDbId",
-        "updated": "",
+        "updated": 0,
         "variantSetIds": [
             "variantSetIds1",
             "variantSetIds2"
@@ -250,9 +248,7 @@ Also See:
 
 ### Get - /callsets/{callSetDbId}/calls [GET /brapi/v1/callsets/{callSetDbId}/calls{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?page}{?pageSize}]
 
- Gets a list of `Calls` associated with a `CallSet`.
-Also See:
-`GET /calls?callSetDbId={callSetDbId}` 
+Gets a list of `Calls` associated with a `CallSet`.
 
 
 
@@ -266,8 +262,8 @@ Also See:
 |callSetName|string|The name of the call set this variant call belongs to. If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
 |genotype|object|`ListValue` is a wrapper around a repeated field of values.  The JSON representation for `ListValue` is JSON array.|
 |values|array|Repeated field of dynamically typed values.|
-|genotype_likelihood|array[number]|The genotype likelihoods for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.|
-|phaseset|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phaseset string.|
+|genotype_likelihood|array[number]|The genotype likelihood for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.|
+|phaseSet|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phase set string.|
 |variantDbId|string|The ID of the variant this call belongs to.|
 |variantName|string|The name of the variant this call belongs to.|
 |expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurence (false)|
@@ -311,7 +307,7 @@ Also See:
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -331,14 +327,15 @@ Also See:
                     "values": []
                 },
                 "genotype_likelihood": [],
-                "phaseset": "phaseset",
+                "phaseSet": "phaseSet",
                 "variantDbId": "variantDbId",
                 "variantName": "variantName"
             }
         ],
-        "sepPhased": "sepPhased",
-        "sepUnphased": "sepUnphased",
-        "unknownString": "unknownString"
+        "expandHomozygotes": true,
+        "sepPhased": "~",
+        "sepUnphased": "|",
+        "unknownString": "-"
     }
 }
 ```
@@ -363,9 +360,7 @@ Also See:
 
 ### Post - /search/callsets [POST /brapi/v1/search/callsets]
 
-`POST /callsets/search` must accept a JSON version of
-`SearchCallSetsRequest` as the post body and will return a JSON version of
-`SearchCallSetsResponse`.
+Gets a list of call sets matching the search criteria.
 
 **Request Fields** 
 
@@ -375,6 +370,8 @@ Also See:
 |callSetNames|array[string]|Only return call sets with these names (case-sensitive, exact match).|
 |germplasmDbIds|array[string]|Return only call sets generated from the Sample of this germplasm|
 |germplasmNames|array[string]|Return only call sets generated from the Sample of this germplasm|
+|page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
+|pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |sampleDbIds|array[string]|Return only call sets generated from the provided Biosample ID.|
 |sampleNames|array[string]|Return only call sets generated from the provided Biosample ID.|
 |variantSetDbIds|array[string]|The VariantSet to search.|
@@ -384,7 +381,15 @@ Also See:
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultsDbId|string||
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|callSetDbId|string|The call set ID.|
+|callSetName|string|The call set name.|
+|created|integer|The date this call set was created in milliseconds from the epoch.|
+|sampleDbId|string|The Biosample entity the call set data was generated from.|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|updated|integer|The time at which this call set was last updated in milliseconds from the epoch.|
+|variantSetIds|array[string]|The IDs of the variant sets this call set has calls in.|
 
 
  
@@ -413,6 +418,8 @@ Also See:
         "germplasmNames1",
         "germplasmNames2"
     ],
+    "page": 0,
+    "pageSize": 1000,
     "sampleDbIds": [
         "sampleDbIds1",
         "sampleDbIds2"
@@ -450,7 +457,57 @@ Also See:
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "callSetDbId": "callSetDbId",
+                "callSetName": "callSetName",
+                "created": 0,
+                "sampleDbId": "sampleDbId",
+                "studyDbId": "studyDbId",
+                "updated": 0,
+                "variantSetIds": [
+                    "variantSetIds1",
+                    "variantSetIds2"
+                ]
+            }
+        ]
+    }
+}
+```
+
++ Response 202 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -486,9 +543,7 @@ Also See:
 
 ### Get - /search/callsets/{searchResultsDbId} [GET /brapi/v1/search/callsets/{searchResultsDbId}{?page}{?pageSize}]
 
-`POST /callsets/search` must accept a JSON version of
-`SearchCallSetsRequest` as the post body and will return a JSON version of
-`SearchCallSetsResponse`.
+Gets a list of call sets matching the search criteria.
 
 
 
@@ -500,10 +555,10 @@ Also See:
 |additionalInfo|object|Additional arbitrary info|
 |callSetDbId|string|The call set ID.|
 |callSetName|string|The call set name.|
-|created|string (int64)|The date this call set was created in milliseconds from the epoch.|
+|created|integer|The date this call set was created in milliseconds from the epoch.|
 |sampleDbId|string|The Biosample entity the call set data was generated from.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|updated|string (int64)|The time at which this call set was last updated in milliseconds from the epoch.|
+|updated|integer|The time at which this call set was last updated in milliseconds from the epoch.|
 |variantSetIds|array[string]|The IDs of the variant sets this call set has calls in.|
 
 
@@ -517,6 +572,42 @@ Also See:
 
 
 
+
++ Response 102 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultsDbId": "551ae08c"
+    }
+}
+```
 
 + Response 200 (application/json)
 ```
@@ -538,7 +629,7 @@ Also See:
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -554,10 +645,10 @@ Also See:
                 "additionalInfo": {},
                 "callSetDbId": "callSetDbId",
                 "callSetName": "callSetName",
-                "created": "",
+                "created": 0,
                 "sampleDbId": "sampleDbId",
                 "studyDbId": "studyDbId",
-                "updated": "",
+                "updated": 0,
                 "variantSetIds": [
                     "variantSetIds1",
                     "variantSetIds2"
@@ -591,11 +682,7 @@ Also See:
 
 ### Get - /calls [GET /brapi/v1/calls{?callSetDbId}{?variantDbId}{?variantSetDbId}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?page}{?pageSize}]
 
- `GET /call` will return a filtered list of `Call` JSON objects.
-Also See:
-`GET /callsets/{callsetsDbId}/calls`
-`GET /variants/{variantsDbId}/calls`
-`GET /variantsets/{variantsetsDbId}/calls` 
+Will return a filtered list of `Call` JSON objects.
 
 
 
@@ -609,8 +696,8 @@ Also See:
 |callSetName|string|The name of the call set this variant call belongs to. If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
 |genotype|object|`ListValue` is a wrapper around a repeated field of values.  The JSON representation for `ListValue` is JSON array.|
 |values|array|Repeated field of dynamically typed values.|
-|genotype_likelihood|array[number]|The genotype likelihoods for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.|
-|phaseset|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phaseset string.|
+|genotype_likelihood|array[number]|The genotype likelihood for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.|
+|phaseSet|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phase set string.|
 |variantDbId|string|The ID of the variant this call belongs to.|
 |variantName|string|The name of the variant this call belongs to.|
 |expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurence (false)|
@@ -656,7 +743,7 @@ Also See:
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -676,14 +763,15 @@ Also See:
                     "values": []
                 },
                 "genotype_likelihood": [],
-                "phaseset": "phaseset",
+                "phaseSet": "phaseSet",
                 "variantDbId": "variantDbId",
                 "variantName": "variantName"
             }
         ],
-        "sepPhased": "sepPhased",
-        "sepUnphased": "sepUnphased",
-        "unknownString": "unknownString"
+        "expandHomozygotes": true,
+        "sepPhased": "~",
+        "sepUnphased": "|",
+        "unknownString": "-"
     }
 }
 ```
@@ -708,7 +796,7 @@ Also See:
 
 ### Post - /search/calls [POST /brapi/v1/search/calls]
 
-`GET /callsets/{id}` will return a JSON version of `CallSet`.
+Submit a search request for `Calls`
 
 **Request Fields** 
 
@@ -716,6 +804,8 @@ Also See:
 |---|---|---| 
 |callSetDbIds|array[string]|The CallSet to search.|
 |expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurence (false)|
+|page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
+|pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |sepPhased|string|The string used as a separator for phased allele calls.|
 |sepUnphased|string|The string used as a separator for unphased allele calls.|
 |unknownString|string|The string used as a representation for missing data.|
@@ -727,7 +817,20 @@ Also See:
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultsDbId|string||
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|callSetDbId|string|The ID of the call set this variant call belongs to.  If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
+|callSetName|string|The name of the call set this variant call belongs to. If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
+|genotype|object|`ListValue` is a wrapper around a repeated field of values.  The JSON representation for `ListValue` is JSON array.|
+|values|array|Repeated field of dynamically typed values.|
+|genotype_likelihood|array[number]|The genotype likelihood for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.|
+|phaseSet|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phase set string.|
+|variantDbId|string|The ID of the variant this call belongs to.|
+|variantName|string|The name of the variant this call belongs to.|
+|expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurence (false)|
+|sepPhased|string|The string used as a separator for phased allele calls.|
+|sepUnphased|string|The string used as a separator for unphased allele calls.|
+|unknownString|string|The string used as a representation for missing data.|
 
 
  
@@ -744,6 +847,8 @@ Also See:
         "callSetDbIds1",
         "callSetDbIds2"
     ],
+    "page": 0,
+    "pageSize": 1000,
     "sepPhased": "sepPhased",
     "sepUnphased": "sepUnphased",
     "unknownString": "unknownString",
@@ -780,7 +885,60 @@ Also See:
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "callSetDbId": "callSetDbId",
+                "callSetName": "callSetName",
+                "genotype": {
+                    "values": []
+                },
+                "genotype_likelihood": [],
+                "phaseSet": "phaseSet",
+                "variantDbId": "variantDbId",
+                "variantName": "variantName"
+            }
+        ],
+        "expandHomozygotes": true,
+        "sepPhased": "~",
+        "sepUnphased": "|",
+        "unknownString": "-"
+    }
+}
+```
+
++ Response 202 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -831,8 +989,8 @@ See Search Services for additional implementation details.
 |callSetName|string|The name of the call set this variant call belongs to. If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
 |genotype|object|`ListValue` is a wrapper around a repeated field of values.  The JSON representation for `ListValue` is JSON array.|
 |values|array|Repeated field of dynamically typed values.|
-|genotype_likelihood|array[number]|The genotype likelihoods for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.|
-|phaseset|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phaseset string.|
+|genotype_likelihood|array[number]|The genotype likelihood for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.|
+|phaseSet|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phase set string.|
 |variantDbId|string|The ID of the variant this call belongs to.|
 |variantName|string|The name of the variant this call belongs to.|
 |expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurence (false)|
@@ -851,6 +1009,42 @@ See Search Services for additional implementation details.
 
 
 
+
++ Response 102 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultsDbId": "551ae08c"
+    }
+}
+```
 
 + Response 200 (application/json)
 ```
@@ -872,7 +1066,7 @@ See Search Services for additional implementation details.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -892,14 +1086,15 @@ See Search Services for additional implementation details.
                     "values": []
                 },
                 "genotype_likelihood": [],
-                "phaseset": "phaseset",
+                "phaseSet": "phaseSet",
                 "variantDbId": "variantDbId",
                 "variantName": "variantName"
             }
         ],
-        "sepPhased": "sepPhased",
-        "sepUnphased": "sepUnphased",
-        "unknownString": "unknownString"
+        "expandHomozygotes": true,
+        "sepPhased": "~",
+        "sepUnphased": "|",
+        "unknownString": "-"
     }
 }
 ```
@@ -946,23 +1141,23 @@ Get list of maps
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |comments|string|Additional comments|
-|commonCropName|string|The common name of the crop, found from "GET /commoncropnames"|
+|commonCropName|string|The common name of the crop|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|linkageGroupCount|integer (int32)|The number of linkage groups present in this genomic map|
+|linkageGroupCount|integer|The number of linkage groups present in this genomic map|
 |mapDbId|string|The ID which uniquely identifies this genomic map|
 |mapName|string|A human readable name for this genomic map|
 |mapPUI|string|The DOI or other permanent identifier for this genomic map|
-|markerCount|integer (int32)|The number of markers present in this genomic map|
+|markerCount|integer|The number of markers present in this genomic map|
 |publishedDate|string (date-time)|The date this genome was published|
 |scientificName|string|Full scientific binomial format name. This includes Genus, Species, and Sub-species|
-|type|string|The type of map this represents, ussually "Genetic"|
+|type|string|The type of map this represents, usually "Genetic"|
 |unit|string|The units used to describe the data in this map|
 
 
  
 
 + Parameters
-    + commonCropName (Optional, ) ... The common name of the crop, found from "GET /commoncropnames"
+    + commonCropName (Optional, ) ... The common name of the crop
     + mapPUI (Optional, ) ... The DOI or other permanent identifier for this genomic map
     + scientificName (Optional, ) ... Full scientific binomial format name. This includes Genus, Species, and Sub-species
     + type (Optional, ) ... Type of map
@@ -996,7 +1191,7 @@ Get list of maps
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -1019,7 +1214,7 @@ Get list of maps
                 "mapPUI": "doi:10.3207/2959859860",
                 "markerCount": 1100,
                 "publishedDate": "2018-01-01T14:47:23-0600",
-                "scientificName": "Asimina triloba",
+                "scientificName": "Zea mays",
                 "type": "Genetic",
                 "unit": "cM"
             }
@@ -1058,16 +1253,16 @@ Provides the number of markers on each linkageGroup and the max position on the 
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
 |comments|string|Additional comments|
-|commonCropName|string|The common name of the crop, found from "GET /commoncropnames"|
+|commonCropName|string|The common name of the crop|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|linkageGroupCount|integer (int32)|The number of linkage groups present in this genomic map|
+|linkageGroupCount|integer|The number of linkage groups present in this genomic map|
 |mapDbId|string|The ID which uniquely identifies this genomic map|
 |mapName|string|A human readable name for this genomic map|
 |mapPUI|string|The DOI or other permanent identifier for this genomic map|
-|markerCount|integer (int32)|The number of markers present in this genomic map|
+|markerCount|integer|The number of markers present in this genomic map|
 |publishedDate|string (date-time)|The date this genome was published|
 |scientificName|string|Full scientific binomial format name. This includes Genus, Species, and Sub-species|
-|type|string|The type of map this represents, ussually "Genetic"|
+|type|string|The type of map this represents, usually "Genetic"|
 |unit|string|The units used to describe the data in this map|
 
 
@@ -1102,7 +1297,7 @@ Provides the number of markers on each linkageGroup and the max position on the 
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -1123,7 +1318,7 @@ Provides the number of markers on each linkageGroup and the max position on the 
         "mapPUI": "doi:10.3207/2959859860",
         "markerCount": 1100,
         "publishedDate": "2018-01-01T14:47:23-0600",
-        "scientificName": "Asimina triloba",
+        "scientificName": "Zea mays",
         "type": "Genetic",
         "unit": "cM"
     }
@@ -1201,7 +1396,7 @@ Get the Linkage Groups of a specific Genomic Map. A Linkage Group is the BrAPI g
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -1261,7 +1456,7 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 |additionalInfo|object|Additional arbitrary info|
 |linkageGroupName|string|The Uniquely Identifiable name of this linkage group|
 |mapDbId|string|The unique ID of the map|
-|mapName|string|The human readbale name of the map|
+|mapName|string|The human readable name of the map|
 |markerDbId|string|Internal db identifier|
 |markerName|string|The human readable name for a marker|
 |position|integer|The position of a marker within a linkage group|
@@ -1302,7 +1497,7 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -1359,13 +1554,22 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 |markerDbIds|array[string]|Internal db identifier|
 |maxPosition|integer|The maximum position|
 |minPosition|integer|The minimum position|
+|page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
+|pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 
 
 **Response Fields** 
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultsDbId|string||
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|linkageGroupName|string|The Uniquely Identifiable name of this linkage group|
+|mapDbId|string|The unique ID of the map|
+|mapName|string|The human readable name of the map|
+|markerDbId|string|Internal db identifier|
+|markerName|string|The human readable name for a marker|
+|position|integer|The position of a marker within a linkage group|
 
 
  
@@ -1391,7 +1595,9 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
         "f8894a26"
     ],
     "maxPosition": 4000,
-    "minPosition": 250
+    "minPosition": 250,
+    "page": 0,
+    "pageSize": 1000
 }
 ```
 
@@ -1417,7 +1623,53 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "linkageGroupName": "Chromosome 3",
+                "mapDbId": "3d52bdf3",
+                "mapName": "Genome Map 1",
+                "markerDbId": "a1eb250a",
+                "markerName": "Marker_2390",
+                "position": 2390
+            }
+        ]
+    }
+}
+```
+
++ Response 202 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -1465,7 +1717,7 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 |additionalInfo|object|Additional arbitrary info|
 |linkageGroupName|string|The Uniquely Identifiable name of this linkage group|
 |mapDbId|string|The unique ID of the map|
-|mapName|string|The human readbale name of the map|
+|mapName|string|The human readable name of the map|
 |markerDbId|string|Internal db identifier|
 |markerName|string|The human readable name for a marker|
 |position|integer|The position of a marker within a linkage group|
@@ -1481,6 +1733,42 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 
 
 
+
++ Response 102 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultsDbId": "551ae08c"
+    }
+}
+```
 
 + Response 200 (application/json)
 ```
@@ -1502,7 +1790,7 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -1543,323 +1831,15 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 "ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
 ```
 
-# Group References
+# Group Reference Sets
 
-
-
-
-
-### Get - /references [GET /brapi/v1/references{?referenceDbId}{?referenceSetDbId}{?accession}{?md5checksum}{?isDerived}{?minLength}{?maxLength}{?page}{?pageSize}]
-
-`GET /references` will return a filtered list of `Reference` JSON objects.
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|isDerived|boolean (boolean)|A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.|
-|length|string (int64)|The length of this reference's sequence.|
-|md5checksum|string|The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).|
-|referenceDbId|string|The reference ID. Unique within the repository.|
-|referenceName|string|The unique name of this reference within the Reference Set (e.g. '22').|
-|sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.|
-|sourceDivergence|number (float)|The `sourceDivergence` is the fraction of non-indel bases that do not match the reference this message was derived from.|
-|sourceURI|string|The URI from which the sequence was obtained. Specifies a FASTA format file/string with one name, sequence pair. In most cases, clients should call the `getReferenceBases()` method to obtain sequence bases for a `Reference` instead of attempting to retrieve this URI.|
-|species|object||
-|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
-|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
-
-
- 
-
-+ Parameters
-    + referenceDbId (Optional, ) ... The ID of the `Refernce` to be retrieved.
-    + referenceSetDbId (Optional, ) ... The ID of the `RefernceSet` to be retrieved.
-    + accession (Optional, ) ... If unset, return the reference sets for which the `accession`matches this string (case-sensitive, exact match).
-    + md5checksum (Optional, ) ... If specified, return the references for which the`md5checksum` matches this string (case-sensitive, exact match).See `Reference::md5checksum` for details.
-    + isDerived (Optional, ) ... If the reference is derived from a source sequence
-    + minLength (Optional, ) ... The minimum length of the reference sequences to be retrieved.
-    + maxLength (Optional, ) ... The maximum length of the reference sequences to be retrieved.
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "@context": [
-        "https://brapi.org/jsonld/context/metadata.jsonld"
-    ],
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "data": [
-            {
-                "additionalInfo": {},
-                "length": "",
-                "md5checksum": "md5checksum",
-                "referenceDbId": "referenceDbId",
-                "referenceName": "referenceName",
-                "sourceAccessions": [
-                    "sourceAccessions1",
-                    "sourceAccessions2"
-                ],
-                "sourceURI": "sourceURI",
-                "species": {
-                    "term": "term",
-                    "termURI": "termURI"
-                }
-            }
-        ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-
-
-### Get - /references/{referenceDbId} [GET /brapi/v1/references/{referenceDbId}]
-
-`GET /references/{reference_id}` will return a JSON version of
-`Reference`.
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|additionalInfo|object|Additional arbitrary info|
-|isDerived|boolean (boolean)|A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.|
-|length|string (int64)|The length of this reference's sequence.|
-|md5checksum|string|The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).|
-|referenceDbId|string|The reference ID. Unique within the repository.|
-|referenceName|string|The unique name of this reference within the Reference Set (e.g. '22').|
-|sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.|
-|sourceDivergence|number (float)|The `sourceDivergence` is the fraction of non-indel bases that do not match the reference this message was derived from.|
-|sourceURI|string|The URI from which the sequence was obtained. Specifies a FASTA format file/string with one name, sequence pair. In most cases, clients should call the `getReferenceBases()` method to obtain sequence bases for a `Reference` instead of attempting to retrieve this URI.|
-|species|object||
-|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
-|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
-
-
- 
-
-+ Parameters
-    + referenceDbId (Required, ) ... The ID of the `Reference` to be retrieved.
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "@context": [
-        "https://brapi.org/jsonld/context/metadata.jsonld"
-    ],
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "additionalInfo": {},
-        "length": "",
-        "md5checksum": "md5checksum",
-        "referenceDbId": "referenceDbId",
-        "referenceName": "referenceName",
-        "sourceAccessions": [
-            "sourceAccessions1",
-            "sourceAccessions2"
-        ],
-        "sourceURI": "sourceURI",
-        "species": {
-            "term": "term",
-            "termURI": "termURI"
-        }
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-+ Response 404 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
-```
-
-
-
-
-### Get - /references/{referenceDbId}/bases [GET /brapi/v1/references/{referenceDbId}/bases{?start}{?end}{?pageToken}]
-
-`POST /listreferencebases` will return a JSON version of
-`ListReferenceBasesResponse`.
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|nextPageToken|string|The continuation token, which is used to page through large result sets. Provide this value in a subsequent request to return the next page of results. This field will be empty if there aren't any additional results.|
-|offset|string (int64)|The offset position (0-based) of the given sequence from the start of this `Reference`. This value will differ for each page in a paginated request.|
-|sequence|string|A substring of the bases that make up this reference. Bases are represented as IUPAC-IUB codes; this string matches the regexp `[ACGTMRWSYKVHDBN]*`.|
-
-
- 
-
-+ Parameters
-    + referenceDbId (Required, ) ... The ID of the `Reference` to be retrieved.
-    + start (Optional, ) ... The start position (0-based) of this query. Defaults to 0.Genomic positions are non-negative integers less than reference length.Requests spanning the join of circular genomes are represented astwo requests one on each side of the join (position 0).
-    + end (Optional, ) ... The end position (0-based, exclusive) of this query. Defaults to the length of this `Reference`.
-    + pageToken (Optional, ) ... The continuation token, which is used to page through large result sets.To get the next page of results, set this parameter to the value of`next_page_token` from the previous response.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "@context": [
-        "https://brapi.org/jsonld/context/metadata.jsonld"
-    ],
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "nextPageToken": "nextPageToken",
-        "offset": "",
-        "sequence": "sequence"
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-+ Response 404 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - The requested object DbId is not found"
-```
 
 
 
 
 ### Get - /referencesets [GET /brapi/v1/referencesets{?referenceSetDbId}{?accession}{?assemblyPUI}{?md5checksum}{?page}{?pageSize}]
 
-`GET /referencesets/{reference_set_id}` will return a JSON version of
-`ReferenceSet`.
+Gets a filtered list of `ReferenceSets`.
 
 
 
@@ -1869,7 +1849,7 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 |---|---|---| 
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
-|assemblyPUI|string|The remaining information is about the source of the sequences Public id of this reference set, such as `GRCh37`.|
+|assemblyPUI|string|The remaining information is about the source of the sequences Public id of this reference set, such as `GRCH_37`.|
 |description|string|Optional free text description of this reference set.|
 |isDerived|boolean (boolean)|A reference set may be derived from a source if it contains additional sequences, or some of the sequences within it are derived (see the definition of `isDerived` in `Reference`).|
 |md5checksum|string|Order-independent MD5 checksum which identifies this `ReferenceSet`.  To compute this checksum, make a list of `Reference.md5checksum` for all `Reference` s in this set. Then sort that list, and take the MD5 hash of all the strings concatenated together. Express the hash as a lower-case hexadecimal string.|
@@ -1877,7 +1857,7 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 |referenceSetName|string|The reference set name.|
 |sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.|
 |sourceURI|string|Specifies a FASTA format file/string.|
-|species|object||
+|species|object|An ontology term describing an attribute.|
 |term|string|Ontology term - the label of the ontology term the termId is pointing to.|
 |termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
 
@@ -1886,9 +1866,9 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 
 + Parameters
     + referenceSetDbId (Optional, ) ... The ID of the `ReferenceSet` to be retrieved.
-    + accession (Optional, ) ... If unset, return the reference sets for which the `accession`matches this string (case-sensitive, exact match).
-    + assemblyPUI (Optional, ) ... If unset, return the reference sets for which the `assemblyId`matches this string (case-sensitive, exact match).
-    + md5checksum (Optional, ) ... If unset, return the reference sets for which the`md5checksum` matches this string (case-sensitive, exact match).See `ReferenceSet::md5checksum` for details.
+    + accession (Optional, ) ... If set, return the reference sets for which the `accession` matches this string (case-sensitive, exact match).
+    + assemblyPUI (Optional, ) ... If set, return the reference sets for which the `assemblyId` matches this string (case-sensitive, exact match).
+    + md5checksum (Optional, ) ... If set, return the reference sets for which the `md5checksum` matches this string (case-sensitive, exact match).
     + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -1916,7 +1896,7 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -1970,11 +1950,26 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 
 ### Get - /referencesets/{referenceSetDbId} [GET /brapi/v1/referencesets/{referenceSetDbId}]
 
-`GET /referencesets/{reference_set_id}` will return a JSON version of
-`ReferenceSet`.
+Gets a `ReferenceSet` by ID.
 
 
 
+**Response Fields** 
+
+|Field|Type|Description|
+|---|---|---| 
+|additionalInfo|object|Additional arbitrary info|
+|assemblyPUI|string|The remaining information is about the source of the sequences Public id of this reference set, such as `GRCH_37`.|
+|description|string|Optional free text description of this reference set.|
+|isDerived|boolean (boolean)|A reference set may be derived from a source if it contains additional sequences, or some of the sequences within it are derived (see the definition of `isDerived` in `Reference`).|
+|md5checksum|string|Order-independent MD5 checksum which identifies this `ReferenceSet`.  To compute this checksum, make a list of `Reference.md5checksum` for all `Reference` s in this set. Then sort that list, and take the MD5 hash of all the strings concatenated together. Express the hash as a lower-case hexadecimal string.|
+|referenceSetDbId|string|The reference set ID. Unique in the repository.|
+|referenceSetName|string|The reference set name.|
+|sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.|
+|sourceURI|string|Specifies a FASTA format file/string.|
+|species|object|An ontology term describing an attribute.|
+|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
+|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
 
 
  
@@ -1988,20 +1983,49 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 + Response 200 (application/json)
 ```
 {
-    "additionalInfo": {},
-    "assemblyPUI": "assemblyPUI",
-    "description": "description",
-    "md5checksum": "md5checksum",
-    "referenceSetDbId": "referenceSetDbId",
-    "referenceSetName": "referenceSetName",
-    "sourceAccessions": [
-        "sourceAccessions1",
-        "sourceAccessions2"
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
-    "sourceURI": "sourceURI",
-    "species": {
-        "term": "term",
-        "termURI": "termURI"
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "additionalInfo": {},
+        "assemblyPUI": "assemblyPUI",
+        "description": "description",
+        "md5checksum": "md5checksum",
+        "referenceSetDbId": "referenceSetDbId",
+        "referenceSetName": "referenceSetName",
+        "sourceAccessions": [
+            "sourceAccessions1",
+            "sourceAccessions2"
+        ],
+        "sourceURI": "sourceURI",
+        "species": {
+            "term": "term",
+            "termURI": "termURI"
+        }
     }
 }
 ```
@@ -2009,28 +2033,38 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 
 
 
-### Post - /search/references [POST /brapi/v1/search/references]
+### Post - /search/referencesets [POST /brapi/v1/search/referencesets]
 
-`POST /references/search` must accept a JSON version of
-`SearchReferencesRequest` as the post body and will return a JSON
-version of `SearchReferencesResponse`.
+Gets a list of `ReferenceSet` matching the search criteria.
 
 **Request Fields** 
 
 |Field|Type|Description|
 |---|---|---| 
-|accession|string|If specified, return the references for which the `accession` matches this string (case-sensitive, exact match).|
-|md5checksum|string|If specified, return the references for which the `md5checksum` matches this string (case-sensitive, exact match). See `ReferenceSet::md5checksum` for details.|
-|page_size|integer (int32)|Specifies the maximum number of results to return in a single page. If unspecified, a system default will be used.|
-|page_token|string|The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of `next_page_token` from the previous response.|
-|referenceSetDbId|string|The `ReferenceSet` to search.|
+|accession|string|If set, return the reference sets for which the `accession` matches this string (case-sensitive, exact match).|
+|assemblyPUI|string|If set, return the reference sets for which the `assemblyId` matches this string (case-sensitive, exact match).|
+|md5checksum|string|If set, return the reference sets for which the `md5checksum` matches this string (case-sensitive, exact match).|
+|page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
+|pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 
 
 **Response Fields** 
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultsDbId|string||
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|assemblyPUI|string|The remaining information is about the source of the sequences Public id of this reference set, such as `GRCH_37`.|
+|description|string|Optional free text description of this reference set.|
+|isDerived|boolean (boolean)|A reference set may be derived from a source if it contains additional sequences, or some of the sequences within it are derived (see the definition of `isDerived` in `Reference`).|
+|md5checksum|string|Order-independent MD5 checksum which identifies this `ReferenceSet`.  To compute this checksum, make a list of `Reference.md5checksum` for all `Reference` s in this set. Then sort that list, and take the MD5 hash of all the strings concatenated together. Express the hash as a lower-case hexadecimal string.|
+|referenceSetDbId|string|The reference set ID. Unique in the repository.|
+|referenceSetName|string|The reference set name.|
+|sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.|
+|sourceURI|string|Specifies a FASTA format file/string.|
+|species|object|An ontology term describing an attribute.|
+|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
+|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
 
 
  
@@ -2044,10 +2078,10 @@ version of `SearchReferencesResponse`.
 ```
 {
     "accession": "accession",
+    "assemblyPUI": "assemblyPUI",
     "md5checksum": "md5checksum",
-    "page_size": 0,
-    "page_token": "page_token",
-    "referenceSetDbId": "referenceSetDbId"
+    "page": 0,
+    "pageSize": 1000
 }
 ```
 
@@ -2073,99 +2107,7 @@ version of `SearchReferencesResponse`.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "searchResultsDbId": "551ae08c"
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-
-
-### Get - /search/references/{searchResultsDbId} [GET /brapi/v1/search/references/{searchResultsDbId}{?page}{?pageSize}]
-
-`POST /references/search` must accept a JSON version of
-`SearchReferencesRequest` as the post body and will return a JSON
-version of `SearchReferencesResponse`.
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|isDerived|boolean (boolean)|A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.|
-|length|string (int64)|The length of this reference's sequence.|
-|md5checksum|string|The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).|
-|referenceDbId|string|The reference ID. Unique within the repository.|
-|referenceName|string|The unique name of this reference within the Reference Set (e.g. '22').|
-|sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.|
-|sourceDivergence|number (float)|The `sourceDivergence` is the fraction of non-indel bases that do not match the reference this message was derived from.|
-|sourceURI|string|The URI from which the sequence was obtained. Specifies a FASTA format file/string with one name, sequence pair. In most cases, clients should call the `getReferenceBases()` method to obtain sequence bases for a `Reference` instead of attempting to retrieve this URI.|
-|species|object||
-|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
-|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
-
-
- 
-
-+ Parameters
-    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "@context": [
-        "https://brapi.org/jsonld/context/metadata.jsonld"
-    ],
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -2179,10 +2121,11 @@ version of `SearchReferencesResponse`.
         "data": [
             {
                 "additionalInfo": {},
-                "length": "",
+                "assemblyPUI": "assemblyPUI",
+                "description": "description",
                 "md5checksum": "md5checksum",
-                "referenceDbId": "referenceDbId",
-                "referenceName": "referenceName",
+                "referenceSetDbId": "referenceSetDbId",
+                "referenceSetName": "referenceSetName",
                 "sourceAccessions": [
                     "sourceAccessions1",
                     "sourceAccessions2"
@@ -2198,69 +2141,7 @@ version of `SearchReferencesResponse`.
 }
 ```
 
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-
-
-### Post - /search/referencesets [POST /brapi/v1/search/referencesets]
-
-`POST /referencesets/search` must accept a JSON version of
-`SearchReferenceSetsRequest` as the post body and will return a JSON
-version of `SearchReferenceSetsResponse`.
-
-**Request Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|accession|string|If unset, return the reference sets for which the `accession` matches this string (case-sensitive, exact match).|
-|assemblyPUI|string|If unset, return the reference sets for which the `assemblyId` matches this string (case-sensitive, exact match).|
-|md5checksum|string|If unset, return the reference sets for which the `md5checksum` matches this string (case-sensitive, exact match). See `ReferenceSet::md5checksum` for details.|
-|page_size|integer (int32)|Specifies the maximum number of results to return in a single page. If unspecified, a system default will be used.|
-|page_token|string|The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of `next_page_token` from the previous response.|
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|searchResultsDbId|string||
-
-
- 
-
-+ Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
- 
-+ Request (application/json)
-```
-{
-    "accession": "accession",
-    "assemblyPUI": "assemblyPUI",
-    "md5checksum": "md5checksum",
-    "page_size": 0,
-    "page_token": "page_token"
-}
-```
-
-
-
-+ Response 200 (application/json)
++ Response 202 (application/json)
 ```
 {
     "@context": [
@@ -2280,7 +2161,7 @@ version of `SearchReferenceSetsResponse`.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -2316,9 +2197,7 @@ version of `SearchReferenceSetsResponse`.
 
 ### Get - /search/referencesets/{searchResultsDbId} [GET /brapi/v1/search/referencesets/{searchResultsDbId}{?page}{?pageSize}]
 
-`POST /referencesets/search` must accept a JSON version of
-`SearchReferenceSetsRequest` as the post body and will return a JSON
-version of `SearchReferenceSetsResponse`.
+Gets a list of `ReferenceSet` matching the search criteria.
 
 
 
@@ -2328,7 +2207,7 @@ version of `SearchReferenceSetsResponse`.
 |---|---|---| 
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
-|assemblyPUI|string|The remaining information is about the source of the sequences Public id of this reference set, such as `GRCh37`.|
+|assemblyPUI|string|The remaining information is about the source of the sequences Public id of this reference set, such as `GRCH_37`.|
 |description|string|Optional free text description of this reference set.|
 |isDerived|boolean (boolean)|A reference set may be derived from a source if it contains additional sequences, or some of the sequences within it are derived (see the definition of `isDerived` in `Reference`).|
 |md5checksum|string|Order-independent MD5 checksum which identifies this `ReferenceSet`.  To compute this checksum, make a list of `Reference.md5checksum` for all `Reference` s in this set. Then sort that list, and take the MD5 hash of all the strings concatenated together. Express the hash as a lower-case hexadecimal string.|
@@ -2336,7 +2215,7 @@ version of `SearchReferenceSetsResponse`.
 |referenceSetName|string|The reference set name.|
 |sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.|
 |sourceURI|string|Specifies a FASTA format file/string.|
-|species|object||
+|species|object|An ontology term describing an attribute.|
 |term|string|Ontology term - the label of the ontology term the termId is pointing to.|
 |termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
 
@@ -2351,6 +2230,42 @@ version of `SearchReferenceSetsResponse`.
 
 
 
+
++ Response 102 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultsDbId": "551ae08c"
+    }
+}
+```
 
 + Response 200 (application/json)
 ```
@@ -2372,7 +2287,7 @@ version of `SearchReferenceSetsResponse`.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -2440,14 +2355,14 @@ version of `SearchReferenceSetsResponse`.
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |isDerived|boolean (boolean)|A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.|
-|length|string (int64)|The length of this reference's sequence.|
+|length|integer|The length of this reference's sequence.|
 |md5checksum|string|The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).|
 |referenceDbId|string|The reference ID. Unique within the repository.|
 |referenceName|string|The unique name of this reference within the Reference Set (e.g. '22').|
 |sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.|
 |sourceDivergence|number (float)|The `sourceDivergence` is the fraction of non-indel bases that do not match the reference this message was derived from.|
 |sourceURI|string|The URI from which the sequence was obtained. Specifies a FASTA format file/string with one name, sequence pair. In most cases, clients should call the `getReferenceBases()` method to obtain sequence bases for a `Reference` instead of attempting to retrieve this URI.|
-|species|object||
+|species|object|An ontology term describing an attribute.|
 |term|string|Ontology term - the label of the ontology term the termId is pointing to.|
 |termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
 
@@ -2455,10 +2370,10 @@ version of `SearchReferenceSetsResponse`.
  
 
 + Parameters
-    + referenceDbId (Optional, ) ... The ID of the `Refernce` to be retrieved.
-    + referenceSetDbId (Optional, ) ... The ID of the `RefernceSet` to be retrieved.
-    + accession (Optional, ) ... If unset, return the reference sets for which the `accession`matches this string (case-sensitive, exact match).
-    + md5checksum (Optional, ) ... If specified, return the references for which the`md5checksum` matches this string (case-sensitive, exact match).See `Reference::md5checksum` for details.
+    + referenceDbId (Optional, ) ... The ID of the `Reference` to be retrieved.
+    + referenceSetDbId (Optional, ) ... The ID of the `ReferenceSet` to be retrieved.
+    + accession (Optional, ) ... If set, return the reference sets for which the `accession` matches this string (case-sensitive, exact match).
+    + md5checksum (Optional, ) ... If specified, return the references for which the `md5checksum` matches this string (case-sensitive, exact match).
     + isDerived (Optional, ) ... If the reference is derived from a source sequence
     + minLength (Optional, ) ... The minimum length of the reference sequences to be retrieved.
     + maxLength (Optional, ) ... The maximum length of the reference sequences to be retrieved.
@@ -2489,7 +2404,7 @@ version of `SearchReferenceSetsResponse`.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -2503,7 +2418,7 @@ version of `SearchReferenceSetsResponse`.
         "data": [
             {
                 "additionalInfo": {},
-                "length": "",
+                "length": 0,
                 "md5checksum": "md5checksum",
                 "referenceDbId": "referenceDbId",
                 "referenceName": "referenceName",
@@ -2553,14 +2468,14 @@ version of `SearchReferenceSetsResponse`.
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
 |isDerived|boolean (boolean)|A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.|
-|length|string (int64)|The length of this reference's sequence.|
+|length|integer|The length of this reference's sequence.|
 |md5checksum|string|The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).|
 |referenceDbId|string|The reference ID. Unique within the repository.|
 |referenceName|string|The unique name of this reference within the Reference Set (e.g. '22').|
 |sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.|
 |sourceDivergence|number (float)|The `sourceDivergence` is the fraction of non-indel bases that do not match the reference this message was derived from.|
 |sourceURI|string|The URI from which the sequence was obtained. Specifies a FASTA format file/string with one name, sequence pair. In most cases, clients should call the `getReferenceBases()` method to obtain sequence bases for a `Reference` instead of attempting to retrieve this URI.|
-|species|object||
+|species|object|An ontology term describing an attribute.|
 |term|string|Ontology term - the label of the ontology term the termId is pointing to.|
 |termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
 
@@ -2593,7 +2508,7 @@ version of `SearchReferenceSetsResponse`.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -2605,7 +2520,7 @@ version of `SearchReferenceSetsResponse`.
     },
     "result": {
         "additionalInfo": {},
-        "length": "",
+        "length": 0,
         "md5checksum": "md5checksum",
         "referenceDbId": "referenceDbId",
         "referenceName": "referenceName",
@@ -2647,8 +2562,7 @@ version of `SearchReferenceSetsResponse`.
 
 ### Get - /references/{referenceDbId}/bases [GET /brapi/v1/references/{referenceDbId}/bases{?start}{?end}{?pageToken}]
 
-`POST /listreferencebases` will return a JSON version of
-`ListReferenceBasesResponse`.
+Lists `Reference` bases by ID and optional range.
 
 
 
@@ -2656,9 +2570,9 @@ version of `SearchReferenceSetsResponse`.
 
 |Field|Type|Description|
 |---|---|---| 
-|nextPageToken|string|The continuation token, which is used to page through large result sets. Provide this value in a subsequent request to return the next page of results. This field will be empty if there aren't any additional results.|
-|offset|string (int64)|The offset position (0-based) of the given sequence from the start of this `Reference`. This value will differ for each page in a paginated request.|
-|sequence|string|A substring of the bases that make up this reference. Bases are represented as IUPAC-IUB codes; this string matches the regexp `[ACGTMRWSYKVHDBN]*`.|
+|nextPageToken|string|The continuation token, which is used to page through large result sets. Provide this value in a subsequent request to return the next page of results. This field will be empty if there are not any additional results.|
+|offset|integer|The offset position (0-based) of the given sequence from the start of this `Reference`. This value will differ for each page in a request.|
+|sequence|string|A sub-string of the bases that make up this reference. Bases are represented as IUPAC-IUB codes; this string matches the regular expression `[ACGTMRWSYKVHDBN]*`.|
 
 
  
@@ -2693,7 +2607,7 @@ version of `SearchReferenceSetsResponse`.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -2705,7 +2619,7 @@ version of `SearchReferenceSetsResponse`.
     },
     "result": {
         "nextPageToken": "nextPageToken",
-        "offset": "",
+        "offset": 0,
         "sequence": "sequence"
     }
 }
@@ -2734,159 +2648,6 @@ version of `SearchReferenceSetsResponse`.
 
 
 
-### Get - /referencesets [GET /brapi/v1/referencesets{?referenceSetDbId}{?accession}{?assemblyPUI}{?md5checksum}{?page}{?pageSize}]
-
-`GET /referencesets/{reference_set_id}` will return a JSON version of
-`ReferenceSet`.
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|assemblyPUI|string|The remaining information is about the source of the sequences Public id of this reference set, such as `GRCh37`.|
-|description|string|Optional free text description of this reference set.|
-|isDerived|boolean (boolean)|A reference set may be derived from a source if it contains additional sequences, or some of the sequences within it are derived (see the definition of `isDerived` in `Reference`).|
-|md5checksum|string|Order-independent MD5 checksum which identifies this `ReferenceSet`.  To compute this checksum, make a list of `Reference.md5checksum` for all `Reference` s in this set. Then sort that list, and take the MD5 hash of all the strings concatenated together. Express the hash as a lower-case hexadecimal string.|
-|referenceSetDbId|string|The reference set ID. Unique in the repository.|
-|referenceSetName|string|The reference set name.|
-|sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.|
-|sourceURI|string|Specifies a FASTA format file/string.|
-|species|object||
-|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
-|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
-
-
- 
-
-+ Parameters
-    + referenceSetDbId (Optional, ) ... The ID of the `ReferenceSet` to be retrieved.
-    + accession (Optional, ) ... If unset, return the reference sets for which the `accession`matches this string (case-sensitive, exact match).
-    + assemblyPUI (Optional, ) ... If unset, return the reference sets for which the `assemblyId`matches this string (case-sensitive, exact match).
-    + md5checksum (Optional, ) ... If unset, return the reference sets for which the`md5checksum` matches this string (case-sensitive, exact match).See `ReferenceSet::md5checksum` for details.
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "@context": [
-        "https://brapi.org/jsonld/context/metadata.jsonld"
-    ],
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "data": [
-            {
-                "additionalInfo": {},
-                "assemblyPUI": "assemblyPUI",
-                "description": "description",
-                "md5checksum": "md5checksum",
-                "referenceSetDbId": "referenceSetDbId",
-                "referenceSetName": "referenceSetName",
-                "sourceAccessions": [
-                    "sourceAccessions1",
-                    "sourceAccessions2"
-                ],
-                "sourceURI": "sourceURI",
-                "species": {
-                    "term": "term",
-                    "termURI": "termURI"
-                }
-            }
-        ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-
-
-### Get - /referencesets/{referenceSetDbId} [GET /brapi/v1/referencesets/{referenceSetDbId}]
-
-`GET /referencesets/{reference_set_id}` will return a JSON version of
-`ReferenceSet`.
-
-
-
-
-
- 
-
-+ Parameters
-    + referenceSetDbId (Required, ) ... The ID of the `ReferenceSet` to be retrieved.
-
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "additionalInfo": {},
-    "assemblyPUI": "assemblyPUI",
-    "description": "description",
-    "md5checksum": "md5checksum",
-    "referenceSetDbId": "referenceSetDbId",
-    "referenceSetName": "referenceSetName",
-    "sourceAccessions": [
-        "sourceAccessions1",
-        "sourceAccessions2"
-    ],
-    "sourceURI": "sourceURI",
-    "species": {
-        "term": "term",
-        "termURI": "termURI"
-    }
-}
-```
-
-
-
-
 ### Post - /search/references [POST /brapi/v1/search/references]
 
 `POST /references/search` must accept a JSON version of
@@ -2899,7 +2660,9 @@ version of `SearchReferencesResponse`.
 |---|---|---| 
 |accession|string|If specified, return the references for which the `accession` matches this string (case-sensitive, exact match).|
 |md5checksum|string|If specified, return the references for which the `md5checksum` matches this string (case-sensitive, exact match). See `ReferenceSet::md5checksum` for details.|
-|page_size|integer (int32)|Specifies the maximum number of results to return in a single page. If unspecified, a system default will be used.|
+|page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
+|pageSize|integer|The size of the pages to be returned. Default is `1000`.|
+|page_size|integer|Specifies the maximum number of results to return in a single page. If unspecified, a system default will be used.|
 |page_token|string|The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of `next_page_token` from the previous response.|
 |referenceSetDbId|string|The `ReferenceSet` to search.|
 
@@ -2908,7 +2671,19 @@ version of `SearchReferencesResponse`.
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultsDbId|string||
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|isDerived|boolean (boolean)|A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.|
+|length|integer|The length of this reference's sequence.|
+|md5checksum|string|The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).|
+|referenceDbId|string|The reference ID. Unique within the repository.|
+|referenceName|string|The unique name of this reference within the Reference Set (e.g. '22').|
+|sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.|
+|sourceDivergence|number (float)|The `sourceDivergence` is the fraction of non-indel bases that do not match the reference this message was derived from.|
+|sourceURI|string|The URI from which the sequence was obtained. Specifies a FASTA format file/string with one name, sequence pair. In most cases, clients should call the `getReferenceBases()` method to obtain sequence bases for a `Reference` instead of attempting to retrieve this URI.|
+|species|object|An ontology term describing an attribute.|
+|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
+|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
 
 
  
@@ -2923,6 +2698,8 @@ version of `SearchReferencesResponse`.
 {
     "accession": "accession",
     "md5checksum": "md5checksum",
+    "page": 0,
+    "pageSize": 1000,
     "page_size": 0,
     "page_token": "page_token",
     "referenceSetDbId": "referenceSetDbId"
@@ -2951,7 +2728,60 @@ version of `SearchReferencesResponse`.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "length": 0,
+                "md5checksum": "md5checksum",
+                "referenceDbId": "referenceDbId",
+                "referenceName": "referenceName",
+                "sourceAccessions": [
+                    "sourceAccessions1",
+                    "sourceAccessions2"
+                ],
+                "sourceURI": "sourceURI",
+                "species": {
+                    "term": "term",
+                    "termURI": "termURI"
+                }
+            }
+        ]
+    }
+}
+```
+
++ Response 202 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -3000,14 +2830,14 @@ version of `SearchReferencesResponse`.
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |isDerived|boolean (boolean)|A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.|
-|length|string (int64)|The length of this reference's sequence.|
+|length|integer|The length of this reference's sequence.|
 |md5checksum|string|The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).|
 |referenceDbId|string|The reference ID. Unique within the repository.|
 |referenceName|string|The unique name of this reference within the Reference Set (e.g. '22').|
 |sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.|
 |sourceDivergence|number (float)|The `sourceDivergence` is the fraction of non-indel bases that do not match the reference this message was derived from.|
 |sourceURI|string|The URI from which the sequence was obtained. Specifies a FASTA format file/string with one name, sequence pair. In most cases, clients should call the `getReferenceBases()` method to obtain sequence bases for a `Reference` instead of attempting to retrieve this URI.|
-|species|object||
+|species|object|An ontology term describing an attribute.|
 |term|string|Ontology term - the label of the ontology term the termId is pointing to.|
 |termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
 
@@ -3023,7 +2853,7 @@ version of `SearchReferencesResponse`.
 
 
 
-+ Response 200 (application/json)
++ Response 102 (application/json)
 ```
 {
     "@context": [
@@ -3043,122 +2873,7 @@ version of `SearchReferencesResponse`.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "data": [
-            {
-                "additionalInfo": {},
-                "length": "",
-                "md5checksum": "md5checksum",
-                "referenceDbId": "referenceDbId",
-                "referenceName": "referenceName",
-                "sourceAccessions": [
-                    "sourceAccessions1",
-                    "sourceAccessions2"
-                ],
-                "sourceURI": "sourceURI",
-                "species": {
-                    "term": "term",
-                    "termURI": "termURI"
-                }
-            }
-        ]
-    }
-}
-```
-
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-
-
-### Post - /search/referencesets [POST /brapi/v1/search/referencesets]
-
-`POST /referencesets/search` must accept a JSON version of
-`SearchReferenceSetsRequest` as the post body and will return a JSON
-version of `SearchReferenceSetsResponse`.
-
-**Request Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|accession|string|If unset, return the reference sets for which the `accession` matches this string (case-sensitive, exact match).|
-|assemblyPUI|string|If unset, return the reference sets for which the `assemblyId` matches this string (case-sensitive, exact match).|
-|md5checksum|string|If unset, return the reference sets for which the `md5checksum` matches this string (case-sensitive, exact match). See `ReferenceSet::md5checksum` for details.|
-|page_size|integer (int32)|Specifies the maximum number of results to return in a single page. If unspecified, a system default will be used.|
-|page_token|string|The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of `next_page_token` from the previous response.|
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|searchResultsDbId|string||
-
-
- 
-
-+ Parameters
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
- 
-+ Request (application/json)
-```
-{
-    "accession": "accession",
-    "assemblyPUI": "assemblyPUI",
-    "md5checksum": "md5checksum",
-    "page_size": 0,
-    "page_token": "page_token"
-}
-```
-
-
-
-+ Response 200 (application/json)
-```
-{
-    "@context": [
-        "https://brapi.org/jsonld/context/metadata.jsonld"
-    ],
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -3174,62 +2889,6 @@ version of `SearchReferenceSetsResponse`.
 }
 ```
 
-+ Response 400 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Malformed JSON Request Object\n\nERROR - 2018-10-08T18:15:11Z - Invalid query parameter\n\nERROR - 2018-10-08T18:15:11Z - Required parameter is missing"
-```
-
-+ Response 401 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token"
-```
-
-+ Response 403 (application/json)
-```
-"ERROR - 2018-10-08T18:15:11Z - User does not have permission to perform this action"
-```
-
-
-
-
-### Get - /search/referencesets/{searchResultsDbId} [GET /brapi/v1/search/referencesets/{searchResultsDbId}{?page}{?pageSize}]
-
-`POST /referencesets/search` must accept a JSON version of
-`SearchReferenceSetsRequest` as the post body and will return a JSON
-version of `SearchReferenceSetsResponse`.
-
-
-
-**Response Fields** 
-
-|Field|Type|Description|
-|---|---|---| 
-|data|array[object]||
-|additionalInfo|object|Additional arbitrary info|
-|assemblyPUI|string|The remaining information is about the source of the sequences Public id of this reference set, such as `GRCh37`.|
-|description|string|Optional free text description of this reference set.|
-|isDerived|boolean (boolean)|A reference set may be derived from a source if it contains additional sequences, or some of the sequences within it are derived (see the definition of `isDerived` in `Reference`).|
-|md5checksum|string|Order-independent MD5 checksum which identifies this `ReferenceSet`.  To compute this checksum, make a list of `Reference.md5checksum` for all `Reference` s in this set. Then sort that list, and take the MD5 hash of all the strings concatenated together. Express the hash as a lower-case hexadecimal string.|
-|referenceSetDbId|string|The reference set ID. Unique in the repository.|
-|referenceSetName|string|The reference set name.|
-|sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.|
-|sourceURI|string|Specifies a FASTA format file/string.|
-|species|object||
-|term|string|Ontology term - the label of the ontology term the termId is pointing to.|
-|termURI|string|Ontology term identifier - the CURIE for an ontology term. It differs from the standard GA4GH schema's :ref:`id ` in that it is a CURIE pointing to an information resource outside of the scope of the schema or its resource implementation.|
-
-
- 
-
-+ Parameters
-    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
-    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
-
-
-
-
 + Response 200 (application/json)
 ```
 {
@@ -3250,7 +2909,7 @@ version of `SearchReferenceSetsResponse`.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -3264,11 +2923,10 @@ version of `SearchReferenceSetsResponse`.
         "data": [
             {
                 "additionalInfo": {},
-                "assemblyPUI": "assemblyPUI",
-                "description": "description",
+                "length": 0,
                 "md5checksum": "md5checksum",
-                "referenceSetDbId": "referenceSetDbId",
-                "referenceSetName": "referenceSetName",
+                "referenceDbId": "referenceDbId",
+                "referenceName": "referenceName",
                 "sourceAccessions": [
                     "sourceAccessions1",
                     "sourceAccessions2"
@@ -3339,7 +2997,7 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
 |takenBy|string|The name or identifier of the entity which took the sample from the field|
 |tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.  MIAPPE V1.1 (DM-78) Plant anatomical entity - A description of  the plant part (e.g. leaf) or the plant product (e.g. resin) from which the sample was taken, in the form of an accession number to a suitable controlled vocabulary (Plant Ontology).|
 |trialDbId|string|The ID which uniquely identifies a trial within the given database server|
-|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
+|well|string|The Well identifier for this samples location in the plate. Usually a concatenation of Row and Column, or just a number if the samples are not part of an ordered plate.|
 
 
  
@@ -3376,7 +3034,7 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -3461,7 +3119,7 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
 |takenBy|string|The name or identifier of the entity which took the sample from the field|
 |tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.  MIAPPE V1.1 (DM-78) Plant anatomical entity - A description of  the plant part (e.g. leaf) or the plant product (e.g. resin) from which the sample was taken, in the form of an accession number to a suitable controlled vocabulary (Plant Ontology).|
 |trialDbId|string|The ID which uniquely identifies a trial within the given database server|
-|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
+|well|string|The Well identifier for this samples location in the plate. Usually a concatenation of Row and Column, or just a number if the samples are not part of an ordered plate.|
 
 
 **Response Fields** 
@@ -3489,7 +3147,7 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
 |takenBy|string|The name or identifier of the entity which took the sample from the field|
 |tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.  MIAPPE V1.1 (DM-78) Plant anatomical entity - A description of  the plant part (e.g. leaf) or the plant product (e.g. resin) from which the sample was taken, in the form of an accession number to a suitable controlled vocabulary (Plant Ontology).|
 |trialDbId|string|The ID which uniquely identifies a trial within the given database server|
-|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
+|well|string|The Well identifier for this samples location in the plate. Usually a concatenation of Row and Column, or just a number if the samples are not part of an ordered plate.|
 
 
  
@@ -3549,7 +3207,7 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -3637,7 +3295,7 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
 |takenBy|string|The name or identifier of the entity which took the sample from the field|
 |tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.  MIAPPE V1.1 (DM-78) Plant anatomical entity - A description of  the plant part (e.g. leaf) or the plant product (e.g. resin) from which the sample was taken, in the form of an accession number to a suitable controlled vocabulary (Plant Ontology).|
 |trialDbId|string|The ID which uniquely identifies a trial within the given database server|
-|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
+|well|string|The Well identifier for this samples location in the plate. Usually a concatenation of Row and Column, or just a number if the samples are not part of an ordered plate.|
 
 
  
@@ -3669,7 +3327,7 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -3755,7 +3413,7 @@ Update the details of an existing Sample
 |takenBy|string|The name or identifier of the entity which took the sample from the field|
 |tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.  MIAPPE V1.1 (DM-78) Plant anatomical entity - A description of  the plant part (e.g. leaf) or the plant product (e.g. resin) from which the sample was taken, in the form of an accession number to a suitable controlled vocabulary (Plant Ontology).|
 |trialDbId|string|The ID which uniquely identifies a trial within the given database server|
-|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
+|well|string|The Well identifier for this samples location in the plate. Usually a concatenation of Row and Column, or just a number if the samples are not part of an ordered plate.|
 
 
 **Response Fields** 
@@ -3782,7 +3440,7 @@ Update the details of an existing Sample
 |takenBy|string|The name or identifier of the entity which took the sample from the field|
 |tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.  MIAPPE V1.1 (DM-78) Plant anatomical entity - A description of  the plant part (e.g. leaf) or the plant product (e.g. resin) from which the sample was taken, in the form of an accession number to a suitable controlled vocabulary (Plant Ontology).|
 |trialDbId|string|The ID which uniquely identifies a trial within the given database server|
-|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
+|well|string|The Well identifier for this samples location in the plate. Usually a concatenation of Row and Column, or just a number if the samples are not part of an ordered plate.|
 
 
  
@@ -3841,7 +3499,7 @@ Update the details of an existing Sample
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -3912,6 +3570,8 @@ See Search Services for additional implementation details.
 |---|---|---| 
 |germplasmDbIds|array[string]| The ID which uniquely identifies a germplasm|
 |observationUnitDbIds|array[string]|The ID which uniquely identifies an observation unit|
+|page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
+|pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |plateDbIds|array[string]|The ID which uniquely identifies a plate of samples|
 |sampleDbIds|array[string]|The ID which uniquely identifies a sample|
 
@@ -3920,7 +3580,28 @@ See Search Services for additional implementation details.
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultsDbId|string||
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|column|integer|The Column identifier for this samples location in the plate|
+|germplasmDbId|string|The ID which uniquely identifies a germplasm|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|plateDbId|string|The ID which uniquely identifies a plate of samples|
+|plateName|string|The human readable name of a plate|
+|programDbId|string|The ID which uniquely identifies a program within the given database server|
+|row|string|The Row identifier for this samples location in the plate|
+|sampleBarcode|string|A unique identifier physically attached to the sample|
+|sampleDbId|string|The ID which uniquely identifies a sample  MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.|
+|sampleDescription|string|Description of a sample  MIAPPE V1.1 (DM-79) Sample description - Any information not captured by the other sample fields, including quantification, sample treatments and processing.|
+|sampleGroupDbId|string|The ID which uniquely identifies a group of samples|
+|sampleName|string|The name of the sample|
+|samplePUI|string|A permanent unique identifier for the sample (DOI, URL, UUID, etc)  MIAPPE V1.1 (DM-81) External ID - An identifier for the sample in a persistent repository, comprising the name of the repository and the accession number of the observation unit therein. Submission to the EBI Biosamples repository is recommended. URI are recommended when possible. |
+|sampleTimestamp|string (date-time)|The date and time a sample was collected from the field  MIAPPE V1.1 (DM-80) Collection date - The date and time when the sample was collected / harvested|
+|sampleType|string|The type of sample taken. ex. 'DNA', 'RNA', 'Tissue', etc|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|takenBy|string|The name or identifier of the entity which took the sample from the field|
+|tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.  MIAPPE V1.1 (DM-78) Plant anatomical entity - A description of  the plant part (e.g. leaf) or the plant product (e.g. resin) from which the sample was taken, in the form of an accession number to a suitable controlled vocabulary (Plant Ontology).|
+|trialDbId|string|The ID which uniquely identifies a trial within the given database server|
+|well|string|The Well identifier for this samples location in the plate. Usually a concatenation of Row and Column, or just a number if the samples are not part of an ordered plate.|
 
 
  
@@ -3941,6 +3622,8 @@ See Search Services for additional implementation details.
         "observationUnitDbIds1",
         "observationUnitDbIds2"
     ],
+    "page": 0,
+    "pageSize": 1000,
     "plateDbIds": [
         "plateDbIds1",
         "plateDbIds2"
@@ -3974,7 +3657,67 @@ See Search Services for additional implementation details.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "column": 6,
+                "germplasmDbId": "7e08d538",
+                "observationUnitDbId": "073a3ce5",
+                "plateDbId": "2dce16d1",
+                "plateName": "Plate_alpha_20191022",
+                "programDbId": "bd748e00",
+                "row": "B",
+                "sampleBarcode": "3a027b59",
+                "sampleDbId": "cd06a61d",
+                "sampleDescription": "This sample was taken from the root of a tree",
+                "sampleGroupDbId": "8524b436",
+                "sampleName": "Sample_alpha_20191022",
+                "samplePUI": "doi:10.15454/312953986E3",
+                "sampleTimestamp": "2018-01-01T14:47:23-0600",
+                "sampleType": "Tissue",
+                "studyDbId": "64bd6bf9",
+                "takenBy": "Bob",
+                "tissueType": "Root",
+                "trialDbId": "d34c5349",
+                "well": "B6"
+            }
+        ]
+    }
+}
+```
+
++ Response 202 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -4041,7 +3784,7 @@ See Search Services for additional implementation details.
 |takenBy|string|The name or identifier of the entity which took the sample from the field|
 |tissueType|string|The type of tissue sampled. ex. 'Leaf', 'Root', etc.  MIAPPE V1.1 (DM-78) Plant anatomical entity - A description of  the plant part (e.g. leaf) or the plant product (e.g. resin) from which the sample was taken, in the form of an accession number to a suitable controlled vocabulary (Plant Ontology).|
 |trialDbId|string|The ID which uniquely identifies a trial within the given database server|
-|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
+|well|string|The Well identifier for this samples location in the plate. Usually a concatenation of Row and Column, or just a number if the samples are not part of an ordered plate.|
 
 
  
@@ -4054,6 +3797,42 @@ See Search Services for additional implementation details.
 
 
 
+
++ Response 102 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultsDbId": "551ae08c"
+    }
+}
+```
 
 + Response 200 (application/json)
 ```
@@ -4075,7 +3854,7 @@ See Search Services for additional implementation details.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -4143,14 +3922,14 @@ See Search Services for additional implementation details.
 
 ### Post - /search/variantsets [POST /brapi/v1/search/variantsets]
 
-`POST /variantsets/search` must accept a JSON version of
-`SearchVariantSetsRequest` as the post body and will return a JSON version
-of `SearchVariantSetsResponse`.
+Gets a list of `VariantSet` matching the search criteria.
 
 **Request Fields** 
 
 |Field|Type|Description|
 |---|---|---| 
+|page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
+|pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |studyDbIds|array[string]|The `Dataset` to search.|
 |variantSetDbIds|array[string]|The VariantSet to search.|
 
@@ -4159,7 +3938,26 @@ of `SearchVariantSetsResponse`.
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultsDbId|string||
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|analysis|array[object]|Set of Analysis descriptors for this VariantSet|
+|analysisDbId|string|Formats of id  name  description  accessions are described in the documentation on general attributes and formats.|
+|analysisName|string||
+|created|string|The time at which this record was created, in ISO 8601 format.|
+|description|string||
+|software|array[string]|The software run to generate this analysis.|
+|type|string|The type of analysis.|
+|updated|string|The time at which this record was last updated, in ISO 8601 format.|
+|availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.   dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)  fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
+|dataFormat|string|dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)|
+|fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
+|fileURL|string (uri)|A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file.|
+|callSetCount|integer|The number of CallSets included in this VariantSet|
+|referenceSetDbId|string|The ID of the reference set that describes the sequences used by the variants in this set.|
+|studyDbId|string|The ID of the dataset this variant set belongs to.|
+|variantCount|integer|The number of Variants included in this VariantSet|
+|variantSetDbId|string|The variant set ID.|
+|variantSetName|string|The variant set name.|
 
 
  
@@ -4172,6 +3970,8 @@ of `SearchVariantSetsResponse`.
 + Request (application/json)
 ```
 {
+    "page": 0,
+    "pageSize": 1000,
     "studyDbIds": [
         "studyDbIds1",
         "studyDbIds2"
@@ -4205,7 +4005,86 @@ of `SearchVariantSetsResponse`.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "analysis": [
+                    {
+                        "analysisDbId": "analysisDbId",
+                        "analysisName": "analysisName",
+                        "created": "created",
+                        "description": "description",
+                        "software": [
+                            "software1",
+                            "software2"
+                        ],
+                        "type": "type",
+                        "updated": "updated"
+                    }
+                ],
+                "availableFormats": [
+                    {
+                        "dataFormat": [
+                            "DartSeq",
+                            "VCF",
+                            "Hapmap",
+                            "tabular",
+                            "JSON"
+                        ],
+                        "fileFormat": [
+                            "text/csv",
+                            "text/tsv",
+                            "application/excel",
+                            "application/zip",
+                            "application/json"
+                        ],
+                        "fileURL": ""
+                    }
+                ],
+                "callSetCount": 0,
+                "referenceSetDbId": "referenceSetDbId",
+                "studyDbId": "studyDbId",
+                "variantCount": 0,
+                "variantSetDbId": "variantSetDbId",
+                "variantSetName": "variantSetName"
+            }
+        ]
+    }
+}
+```
+
++ Response 202 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -4241,9 +4120,7 @@ of `SearchVariantSetsResponse`.
 
 ### Get - /search/variantsets/{searchResultsDbId} [GET /brapi/v1/search/variantsets/{searchResultsDbId}{?page}{?pageSize}]
 
-`POST /variantsets/search` must accept a JSON version of
-`SearchVariantSetsRequest` as the post body and will return a JSON version
-of `SearchVariantSetsResponse`.
+Gets a list of `VariantSet` matching the search criteria.
 
 
 
@@ -4261,9 +4138,9 @@ of `SearchVariantSetsResponse`.
 |software|array[string]|The software run to generate this analysis.|
 |type|string|The type of analysis.|
 |updated|string|The time at which this record was last updated, in ISO 8601 format.|
-|availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.   dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)  fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevent request and response.|
+|availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.   dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)  fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
 |dataFormat|string|dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)|
-|fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevent request and response.|
+|fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
 |fileURL|string (uri)|A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file.|
 |callSetCount|integer|The number of CallSets included in this VariantSet|
 |referenceSetDbId|string|The ID of the reference set that describes the sequences used by the variants in this set.|
@@ -4283,6 +4160,42 @@ of `SearchVariantSetsResponse`.
 
 
 
+
++ Response 102 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultsDbId": "551ae08c"
+    }
+}
+```
 
 + Response 200 (application/json)
 ```
@@ -4304,7 +4217,7 @@ of `SearchVariantSetsResponse`.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -4383,7 +4296,7 @@ of `SearchVariantSetsResponse`.
 
 ### Get - /variantsets [GET /brapi/v1/variantsets{?variantSetDbId}{?page}{?pageSize}]
 
-`GET /variantsets` will return a filtered list of `VariantSet`.
+Will return a filtered list of `VariantSet`.
 
 
 
@@ -4401,9 +4314,9 @@ of `SearchVariantSetsResponse`.
 |software|array[string]|The software run to generate this analysis.|
 |type|string|The type of analysis.|
 |updated|string|The time at which this record was last updated, in ISO 8601 format.|
-|availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.   dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)  fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevent request and response.|
+|availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.   dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)  fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
 |dataFormat|string|dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)|
-|fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevent request and response.|
+|fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
 |fileURL|string (uri)|A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file.|
 |callSetCount|integer|The number of CallSets included in this VariantSet|
 |referenceSetDbId|string|The ID of the reference set that describes the sequences used by the variants in this set.|
@@ -4444,7 +4357,7 @@ of `SearchVariantSetsResponse`.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -4523,8 +4436,7 @@ of `SearchVariantSetsResponse`.
 
 ### Post - /variantsets/extract [POST /brapi/v1/variantsets/extract]
 
-`POST /variantsets/extract` will perform a search for `Calls` which match the search criteria in `variantSetsExtractRequest`
-The results of the search will be used to create a new `VariantSet` on the server. The new `VariantSet` will be returned.
+Will perform a search for `Calls` which match the search criteria in `variantSetsExtractRequest`. The results of the search will be used to create a new `VariantSet` on the server. The new `VariantSet` will be returned.
 
 **Request Fields** 
 
@@ -4552,9 +4464,9 @@ The results of the search will be used to create a new `VariantSet` on the serve
 |software|array[string]|The software run to generate this analysis.|
 |type|string|The type of analysis.|
 |updated|string|The time at which this record was last updated, in ISO 8601 format.|
-|availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.   dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)  fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevent request and response.|
+|availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.   dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)  fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
 |dataFormat|string|dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)|
-|fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevent request and response.|
+|fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
 |fileURL|string (uri)|A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file.|
 |callSetCount|integer|The number of CallSets included in this VariantSet|
 |referenceSetDbId|string|The ID of the reference set that describes the sequences used by the variants in this set.|
@@ -4614,7 +4526,7 @@ The results of the search will be used to create a new `VariantSet` on the serve
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -4694,8 +4606,7 @@ The results of the search will be used to create a new `VariantSet` on the serve
 
 ### Get - /variantsets/{variantSetDbId} [GET /brapi/v1/variantsets/{variantSetDbId}]
 
-`GET /variantsets/{variantSetDbId}` will return a JSON version of
-`VariantSet`.
+This call will return a JSON version of a `VariantSet`.
 
 
 
@@ -4712,9 +4623,9 @@ The results of the search will be used to create a new `VariantSet` on the serve
 |software|array[string]|The software run to generate this analysis.|
 |type|string|The type of analysis.|
 |updated|string|The time at which this record was last updated, in ISO 8601 format.|
-|availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.   dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)  fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevent request and response.|
+|availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.   dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)  fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
 |dataFormat|string|dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)|
-|fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevent request and response.|
+|fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
 |fileURL|string (uri)|A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file.|
 |callSetCount|integer|The number of CallSets included in this VariantSet|
 |referenceSetDbId|string|The ID of the reference set that describes the sequences used by the variants in this set.|
@@ -4753,7 +4664,7 @@ The results of the search will be used to create a new `VariantSet` on the serve
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -4833,9 +4744,7 @@ The results of the search will be used to create a new `VariantSet` on the serve
 
 ### Get - /variantsets/{variantSetDbId}/calls [GET /brapi/v1/variantsets/{variantSetDbId}/calls{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?page}{?pageSize}]
 
- Gets a list of `Calls` associated with a `VariantSet`.
-Also See:
-`GET /calls?variantSetDbId={variantSetDbId}` 
+Gets a list of `Calls` associated with a `VariantSet`.
 
 
 
@@ -4849,8 +4758,8 @@ Also See:
 |callSetName|string|The name of the call set this variant call belongs to. If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
 |genotype|object|`ListValue` is a wrapper around a repeated field of values.  The JSON representation for `ListValue` is JSON array.|
 |values|array|Repeated field of dynamically typed values.|
-|genotype_likelihood|array[number]|The genotype likelihoods for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.|
-|phaseset|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phaseset string.|
+|genotype_likelihood|array[number]|The genotype likelihood for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.|
+|phaseSet|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phase set string.|
 |variantDbId|string|The ID of the variant this call belongs to.|
 |variantName|string|The name of the variant this call belongs to.|
 |expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurence (false)|
@@ -4894,7 +4803,7 @@ Also See:
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -4914,14 +4823,15 @@ Also See:
                     "values": []
                 },
                 "genotype_likelihood": [],
-                "phaseset": "phaseset",
+                "phaseSet": "phaseSet",
                 "variantDbId": "variantDbId",
                 "variantName": "variantName"
             }
         ],
-        "sepPhased": "sepPhased",
-        "sepUnphased": "sepUnphased",
-        "unknownString": "unknownString"
+        "expandHomozygotes": true,
+        "sepPhased": "~",
+        "sepUnphased": "|",
+        "unknownString": "-"
     }
 }
 ```
@@ -4946,9 +4856,7 @@ Also See:
 
 ### Get - /variantsets/{variantSetDbId}/callsets [GET /brapi/v1/variantsets/{variantSetDbId}/callsets{?callSetDbId}{?callSetName}{?page}{?pageSize}]
 
- Gets a list of `CallSets` associated with a `VariantSet`.
-Also See:
-`GET /callsets?variantSetDbId={variantSetDbId}` 
+Gets a list of `CallSets` associated with a `VariantSet`.
 
 
 
@@ -4960,10 +4868,10 @@ Also See:
 |additionalInfo|object|Additional arbitrary info|
 |callSetDbId|string|The call set ID.|
 |callSetName|string|The call set name.|
-|created|string (int64)|The date this call set was created in milliseconds from the epoch.|
+|created|integer|The date this call set was created in milliseconds from the epoch.|
 |sampleDbId|string|The Biosample entity the call set data was generated from.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|updated|string (int64)|The time at which this call set was last updated in milliseconds from the epoch.|
+|updated|integer|The time at which this call set was last updated in milliseconds from the epoch.|
 |variantSetIds|array[string]|The IDs of the variant sets this call set has calls in.|
 
 
@@ -4971,7 +4879,7 @@ Also See:
 
 + Parameters
     + callSetDbId (Optional, ) ... The ID of the `CallSet` to be retrieved.
-    + callSetName (Optional, ) ... The human readbale name of the `CallSet` to be retrieved.
+    + callSetName (Optional, ) ... The human readable name of the `CallSet` to be retrieved.
     + variantSetDbId (Required, ) ... The ID of the `VariantSet` to be retrieved.
     + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
@@ -5000,7 +4908,7 @@ Also See:
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -5016,10 +4924,10 @@ Also See:
                 "additionalInfo": {},
                 "callSetDbId": "callSetDbId",
                 "callSetName": "callSetName",
-                "created": "",
+                "created": 0,
                 "sampleDbId": "sampleDbId",
                 "studyDbId": "studyDbId",
-                "updated": "",
+                "updated": 0,
                 "variantSetIds": [
                     "variantSetIds1",
                     "variantSetIds2"
@@ -5050,8 +4958,7 @@ Also See:
 
 ### Get - /variantsets/{variantSetDbId}/variants [GET /brapi/v1/variantsets/{variantSetDbId}/variants{?variantDbId}{?page}{?pageSize}]
 
-`GET /variantsets/{variant_set_id}` will return a JSON version of
-`VariantSet`.
+This call will return an array of `Variants`.
 
 
 
@@ -5063,21 +4970,21 @@ Also See:
 |additionalInfo|object|Additional arbitrary info|
 |alternate_bases|array[string]|The bases that appear instead of the reference bases. Multiple alternate alleles are possible.|
 |ciend|array[integer]|Similar to "cipos", but for the variant's end position (which is derived from start + svlen).|
-|cipos|array[integer]|In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCFv4.2|
-|created|string (int64)|The date this variant was created in milliseconds from the epoch.|
-|end|string (int64)|The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated by `start + referenceBases.length`.|
+|cipos|array[integer]|In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCF v4.2|
+|created|integer|The date this variant was created in milliseconds from the epoch.|
+|end|integer|The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated by `start + referenceBases.length`.|
 |filtersApplied|boolean (boolean)|True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.|
 |filtersFailed|array[string]|Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.|
 |filtersPassed|boolean (boolean)|True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.|
 |referenceBases|string|The reference bases for this variant. They start at the given start position.|
-|referenceName|string|The reference on which this variant occurs. (e.g. `chr20` or `X`)|
-|start|string (int64)|The start position at which this variant occurs (0-based). This corresponds to the first base of the string of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning the join of circular genomes are represented as two variants one on each side of the join (position 0).|
-|svlen|string (int64)|Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCFv4.2|
-|updated|string (int64)|The time at which this variant was last updated in milliseconds from the epoch.|
+|referenceName|string|The reference on which this variant occurs. (e.g. `chr_20` or `X`)|
+|start|integer|The start position at which this variant occurs (0-based). This corresponds to the first base of the string of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning the join of circular genomes are represented as two variants one on each side of the join (position 0).|
+|svlen|integer|Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2|
+|updated|integer|The time at which this variant was last updated in milliseconds from the epoch.|
 |variantDbId|string|The variant ID.|
 |variantNames|array[string]|Names for the variant, for example a RefSNP ID.|
-|variantSetDbId|array[string]|An array of `VariantSet` IDs this variant belongs to. This transitively defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
-|variantType|string|The "variant_type" is used to denote e.g. structural variants. Examples:   DUP  : duplication of sequence following "start"; not necessarily in situ   DEL  : deletion of sequence following "start"|
+|variantSetDbId|array[string]|An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
+|variantType|string|The "variant_type" is used to denote e.g. structural variants. Examples:   DUP  : duplication of sequence following "start"   DEL  : deletion of sequence following "start"|
 
 
  
@@ -5112,7 +5019,7 @@ Also See:
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -5145,8 +5052,8 @@ Also See:
                     "3f14f578"
                 ],
                 "filtersPassed": true,
-                "referenceBases": "ATCGATTGAGCTCTAGCG",
-                "referenceName": "chr20",
+                "referenceBases": "TAGGATTGAGCTCTATAT",
+                "referenceName": "chr_20",
                 "start": "500",
                 "svlen": "1500",
                 "updated": "1573672019",
@@ -5198,9 +5105,11 @@ Also See:
 |Field|Type|Description|
 |---|---|---| 
 |callSetDbIds|array[string]|Only return variant calls which belong to call sets with these IDs. If unspecified, return all variants and no variant call objects.|
-|end|string (int64)|Required. The end of the window (0-based, exclusive) for which overlapping variants should be returned.|
+|end|integer|Required. The end of the window (0-based, exclusive) for which overlapping variants should be returned.|
+|page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
+|pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |reference_name|string|Required. Only return variants on this reference.|
-|start|string (int64)|Required. The beginning of the window (0-based, inclusive) for which overlapping variants should be returned. Genomic positions are non-negative integers less than reference length. Requests spanning the join of circular genomes are represented as two requests one on each side of the join (position 0).|
+|start|integer|Required. The beginning of the window (0-based, inclusive) for which overlapping variants should be returned. Genomic positions are non-negative integers less than reference length. Requests spanning the join of circular genomes are represented as two requests one on each side of the join (position 0).|
 |variantSetDbIds|array[string]|The `VariantSet` to search.|
 
 
@@ -5208,7 +5117,25 @@ Also See:
 
 |Field|Type|Description|
 |---|---|---| 
-|searchResultsDbId|string||
+|data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
+|alternate_bases|array[string]|The bases that appear instead of the reference bases. Multiple alternate alleles are possible.|
+|ciend|array[integer]|Similar to "cipos", but for the variant's end position (which is derived from start + svlen).|
+|cipos|array[integer]|In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCF v4.2|
+|created|integer|The date this variant was created in milliseconds from the epoch.|
+|end|integer|The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated by `start + referenceBases.length`.|
+|filtersApplied|boolean (boolean)|True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.|
+|filtersFailed|array[string]|Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.|
+|filtersPassed|boolean (boolean)|True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.|
+|referenceBases|string|The reference bases for this variant. They start at the given start position.|
+|referenceName|string|The reference on which this variant occurs. (e.g. `chr_20` or `X`)|
+|start|integer|The start position at which this variant occurs (0-based). This corresponds to the first base of the string of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning the join of circular genomes are represented as two variants one on each side of the join (position 0).|
+|svlen|integer|Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2|
+|updated|integer|The time at which this variant was last updated in milliseconds from the epoch.|
+|variantDbId|string|The variant ID.|
+|variantNames|array[string]|Names for the variant, for example a RefSNP ID.|
+|variantSetDbId|array[string]|An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
+|variantType|string|The "variant_type" is used to denote e.g. structural variants. Examples:   DUP  : duplication of sequence following "start"   DEL  : deletion of sequence following "start"|
 
 
  
@@ -5225,9 +5152,11 @@ Also See:
         "callSetDbIds1",
         "callSetDbIds2"
     ],
-    "end": "",
+    "end": 0,
+    "page": 0,
+    "pageSize": 1000,
     "reference_name": "reference_name",
-    "start": "",
+    "start": 0,
     "variantSetDbIds": [
         "variantSetDbIds1",
         "variantSetDbIds2"
@@ -5257,7 +5186,81 @@ Also See:
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "data": [
+            {
+                "additionalInfo": {},
+                "alternate_bases": [
+                    "TAGGATTGAGCTCTATAT"
+                ],
+                "ciend": [
+                    -1000,
+                    0
+                ],
+                "cipos": [
+                    -12000,
+                    1000
+                ],
+                "created": "1573671122",
+                "end": "518",
+                "filtersApplied": true,
+                "filtersFailed": [
+                    "d629a669",
+                    "3f14f578"
+                ],
+                "filtersPassed": true,
+                "referenceBases": "TAGGATTGAGCTCTATAT",
+                "referenceName": "chr_20",
+                "start": "500",
+                "svlen": "1500",
+                "updated": "1573672019",
+                "variantDbId": "628e89c5",
+                "variantNames": [
+                    "RefSNP_ID_1",
+                    "06ea312e"
+                ],
+                "variantSetDbId": [
+                    "c8ae400b",
+                    "ef2c204b"
+                ],
+                "variantType": "DUP"
+            }
+        ]
+    }
+}
+```
+
++ Response 202 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -5307,21 +5310,21 @@ Also See:
 |additionalInfo|object|Additional arbitrary info|
 |alternate_bases|array[string]|The bases that appear instead of the reference bases. Multiple alternate alleles are possible.|
 |ciend|array[integer]|Similar to "cipos", but for the variant's end position (which is derived from start + svlen).|
-|cipos|array[integer]|In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCFv4.2|
-|created|string (int64)|The date this variant was created in milliseconds from the epoch.|
-|end|string (int64)|The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated by `start + referenceBases.length`.|
+|cipos|array[integer]|In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCF v4.2|
+|created|integer|The date this variant was created in milliseconds from the epoch.|
+|end|integer|The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated by `start + referenceBases.length`.|
 |filtersApplied|boolean (boolean)|True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.|
 |filtersFailed|array[string]|Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.|
 |filtersPassed|boolean (boolean)|True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.|
 |referenceBases|string|The reference bases for this variant. They start at the given start position.|
-|referenceName|string|The reference on which this variant occurs. (e.g. `chr20` or `X`)|
-|start|string (int64)|The start position at which this variant occurs (0-based). This corresponds to the first base of the string of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning the join of circular genomes are represented as two variants one on each side of the join (position 0).|
-|svlen|string (int64)|Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCFv4.2|
-|updated|string (int64)|The time at which this variant was last updated in milliseconds from the epoch.|
+|referenceName|string|The reference on which this variant occurs. (e.g. `chr_20` or `X`)|
+|start|integer|The start position at which this variant occurs (0-based). This corresponds to the first base of the string of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning the join of circular genomes are represented as two variants one on each side of the join (position 0).|
+|svlen|integer|Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2|
+|updated|integer|The time at which this variant was last updated in milliseconds from the epoch.|
 |variantDbId|string|The variant ID.|
 |variantNames|array[string]|Names for the variant, for example a RefSNP ID.|
-|variantSetDbId|array[string]|An array of `VariantSet` IDs this variant belongs to. This transitively defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
-|variantType|string|The "variant_type" is used to denote e.g. structural variants. Examples:   DUP  : duplication of sequence following "start"; not necessarily in situ   DEL  : deletion of sequence following "start"|
+|variantSetDbId|array[string]|An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
+|variantType|string|The "variant_type" is used to denote e.g. structural variants. Examples:   DUP  : duplication of sequence following "start"   DEL  : deletion of sequence following "start"|
 
 
  
@@ -5334,6 +5337,42 @@ Also See:
 
 
 
+
++ Response 102 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xslx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultsDbId": "551ae08c"
+    }
+}
+```
 
 + Response 200 (application/json)
 ```
@@ -5355,7 +5394,7 @@ Also See:
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -5388,8 +5427,8 @@ Also See:
                     "3f14f578"
                 ],
                 "filtersPassed": true,
-                "referenceBases": "ATCGATTGAGCTCTAGCG",
-                "referenceName": "chr20",
+                "referenceBases": "TAGGATTGAGCTCTATAT",
+                "referenceName": "chr_20",
                 "start": "500",
                 "svlen": "1500",
                 "updated": "1573672019",
@@ -5441,21 +5480,21 @@ Also See:
 |additionalInfo|object|Additional arbitrary info|
 |alternate_bases|array[string]|The bases that appear instead of the reference bases. Multiple alternate alleles are possible.|
 |ciend|array[integer]|Similar to "cipos", but for the variant's end position (which is derived from start + svlen).|
-|cipos|array[integer]|In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCFv4.2|
-|created|string (int64)|The date this variant was created in milliseconds from the epoch.|
-|end|string (int64)|The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated by `start + referenceBases.length`.|
+|cipos|array[integer]|In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCF v4.2|
+|created|integer|The date this variant was created in milliseconds from the epoch.|
+|end|integer|The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated by `start + referenceBases.length`.|
 |filtersApplied|boolean (boolean)|True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.|
 |filtersFailed|array[string]|Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.|
 |filtersPassed|boolean (boolean)|True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.|
 |referenceBases|string|The reference bases for this variant. They start at the given start position.|
-|referenceName|string|The reference on which this variant occurs. (e.g. `chr20` or `X`)|
-|start|string (int64)|The start position at which this variant occurs (0-based). This corresponds to the first base of the string of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning the join of circular genomes are represented as two variants one on each side of the join (position 0).|
-|svlen|string (int64)|Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCFv4.2|
-|updated|string (int64)|The time at which this variant was last updated in milliseconds from the epoch.|
+|referenceName|string|The reference on which this variant occurs. (e.g. `chr_20` or `X`)|
+|start|integer|The start position at which this variant occurs (0-based). This corresponds to the first base of the string of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning the join of circular genomes are represented as two variants one on each side of the join (position 0).|
+|svlen|integer|Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2|
+|updated|integer|The time at which this variant was last updated in milliseconds from the epoch.|
 |variantDbId|string|The variant ID.|
 |variantNames|array[string]|Names for the variant, for example a RefSNP ID.|
-|variantSetDbId|array[string]|An array of `VariantSet` IDs this variant belongs to. This transitively defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
-|variantType|string|The "variant_type" is used to denote e.g. structural variants. Examples:   DUP  : duplication of sequence following "start"; not necessarily in situ   DEL  : deletion of sequence following "start"|
+|variantSetDbId|array[string]|An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
+|variantType|string|The "variant_type" is used to denote e.g. structural variants. Examples:   DUP  : duplication of sequence following "start"   DEL  : deletion of sequence following "start"|
 
 
  
@@ -5490,7 +5529,7 @@ Also See:
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -5523,8 +5562,8 @@ Also See:
                     "3f14f578"
                 ],
                 "filtersPassed": true,
-                "referenceBases": "ATCGATTGAGCTCTAGCG",
-                "referenceName": "chr20",
+                "referenceBases": "TAGGATTGAGCTCTATAT",
+                "referenceName": "chr_20",
                 "start": "500",
                 "svlen": "1500",
                 "updated": "1573672019",
@@ -5575,21 +5614,21 @@ Also See:
 |additionalInfo|object|Additional arbitrary info|
 |alternate_bases|array[string]|The bases that appear instead of the reference bases. Multiple alternate alleles are possible.|
 |ciend|array[integer]|Similar to "cipos", but for the variant's end position (which is derived from start + svlen).|
-|cipos|array[integer]|In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCFv4.2|
-|created|string (int64)|The date this variant was created in milliseconds from the epoch.|
-|end|string (int64)|The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated by `start + referenceBases.length`.|
+|cipos|array[integer]|In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCF v4.2|
+|created|integer|The date this variant was created in milliseconds from the epoch.|
+|end|integer|The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated by `start + referenceBases.length`.|
 |filtersApplied|boolean (boolean)|True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.|
 |filtersFailed|array[string]|Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.|
 |filtersPassed|boolean (boolean)|True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.|
 |referenceBases|string|The reference bases for this variant. They start at the given start position.|
-|referenceName|string|The reference on which this variant occurs. (e.g. `chr20` or `X`)|
-|start|string (int64)|The start position at which this variant occurs (0-based). This corresponds to the first base of the string of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning the join of circular genomes are represented as two variants one on each side of the join (position 0).|
-|svlen|string (int64)|Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCFv4.2|
-|updated|string (int64)|The time at which this variant was last updated in milliseconds from the epoch.|
+|referenceName|string|The reference on which this variant occurs. (e.g. `chr_20` or `X`)|
+|start|integer|The start position at which this variant occurs (0-based). This corresponds to the first base of the string of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning the join of circular genomes are represented as two variants one on each side of the join (position 0).|
+|svlen|integer|Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2|
+|updated|integer|The time at which this variant was last updated in milliseconds from the epoch.|
 |variantDbId|string|The variant ID.|
 |variantNames|array[string]|Names for the variant, for example a RefSNP ID.|
-|variantSetDbId|array[string]|An array of `VariantSet` IDs this variant belongs to. This transitively defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
-|variantType|string|The "variant_type" is used to denote e.g. structural variants. Examples:   DUP  : duplication of sequence following "start"; not necessarily in situ   DEL  : deletion of sequence following "start"|
+|variantSetDbId|array[string]|An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
+|variantType|string|The "variant_type" is used to denote e.g. structural variants. Examples:   DUP  : duplication of sequence following "start"   DEL  : deletion of sequence following "start"|
 
 
  
@@ -5621,7 +5660,7 @@ Also See:
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -5652,8 +5691,8 @@ Also See:
             "3f14f578"
         ],
         "filtersPassed": true,
-        "referenceBases": "ATCGATTGAGCTCTAGCG",
-        "referenceName": "chr20",
+        "referenceBases": "TAGGATTGAGCTCTATAT",
+        "referenceName": "chr_20",
         "start": "500",
         "svlen": "1500",
         "updated": "1573672019",
@@ -5696,9 +5735,7 @@ Also See:
 
 ### Get - /variants/{variantDbId}/calls [GET /brapi/v1/variants/{variantDbId}/calls{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?page}{?pageSize}]
 
- The variant calls for this particular variant. Each one represents the determination of genotype with respect to this variant. `Call`s in this array are implicitly associated with this `Variant`.
-Also See:
-`GET /calls?variantDbId={variantDbId}` 
+The variant calls for this particular variant. Each one represents the determination of genotype with respect to this variant. `Call`s in this array are implicitly associated with this `Variant`.
 
 
 
@@ -5712,8 +5749,8 @@ Also See:
 |callSetName|string|The name of the call set this variant call belongs to. If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.|
 |genotype|object|`ListValue` is a wrapper around a repeated field of values.  The JSON representation for `ListValue` is JSON array.|
 |values|array|Repeated field of dynamically typed values.|
-|genotype_likelihood|array[number]|The genotype likelihoods for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.|
-|phaseset|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phaseset string.|
+|genotype_likelihood|array[number]|The genotype likelihood for this variant call. Each array entry represents how likely a specific genotype is for this call as log10(P(data  genotype)), analogous to the GL tag in the VCF spec. The value ordering is defined by the GL tag in the VCF spec.|
+|phaseSet|string|If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phase set string.|
 |variantDbId|string|The ID of the variant this call belongs to.|
 |variantName|string|The name of the variant this call belongs to.|
 |expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurence (false)|
@@ -5757,7 +5794,7 @@ Also See:
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -5777,14 +5814,15 @@ Also See:
                     "values": []
                 },
                 "genotype_likelihood": [],
-                "phaseset": "phaseset",
+                "phaseSet": "phaseSet",
                 "variantDbId": "variantDbId",
                 "variantName": "variantName"
             }
         ],
-        "sepPhased": "sepPhased",
-        "sepUnphased": "sepUnphased",
-        "unknownString": "unknownString"
+        "expandHomozygotes": true,
+        "sepPhased": "~",
+        "sepUnphased": "|",
+        "unknownString": "-"
     }
 }
 ```
@@ -5865,7 +5903,7 @@ List current available orders
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -5883,8 +5921,8 @@ List current available orders
                 "orderId": "96ba0ca3",
                 "requiredServiceInfo": {
                     "extractDNA": true,
-                    "genus": "Aedes",
-                    "species": "vexans",
+                    "genus": "Zea",
+                    "species": "mays",
                     "volumePerWell": "2.3 ml"
                 },
                 "serviceIds": [
@@ -5959,7 +5997,7 @@ Submit a new order to a vendor
 |volume|object|A value with units|
 |units|string|Units (example: "ng/ul")|
 |value|number|Value (example: "2.3")|
-|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
+|well|string|The Well identifier for this samples location in the plate. Usually a concatenation of Row and Column, or just a number if the samples are not part of an ordered plate.|
 |requiredServiceInfo|object|A map of additional data required by the requested service. This includes things like Volume and Concentration.|
 |sampleType|string|The type of Samples being submitted|
 |serviceIds|array[string]|A list of unique, alpha-numeric ID which identify the requested services to be applied to this order.  A Vendor Service defines what platform, technology, and markers will be used.  A list of available service IDs can be retrieved from the Vendor Specs.|
@@ -6048,8 +6086,8 @@ Submit a new order to a vendor
     ],
     "requiredServiceInfo": {
         "extractDNA": true,
-        "genus": "Aedes",
-        "species": "vexans",
+        "genus": "Zea",
+        "species": "mays",
         "volumePerWell": "2.3 ml"
     },
     "sampleType": "Tissue",
@@ -6083,7 +6121,7 @@ Submit a new order to a vendor
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -6167,7 +6205,7 @@ Retrieve the plate and sample details of an order being processed
 |volume|object|A value with units|
 |units|string|Units (example: "ng/ul")|
 |value|number|Value (example: "2.3")|
-|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
+|well|string|The Well identifier for this samples location in the plate. Usually a concatenation of Row and Column, or just a number if the samples are not part of an ordered plate.|
 
 
  
@@ -6201,7 +6239,7 @@ Retrieve the plate and sample details of an order being processed
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -6347,7 +6385,7 @@ Retrieve the data files generated by the vendors analysis
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -6441,7 +6479,7 @@ Retrieve the current status of an order being processed
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -6529,7 +6567,7 @@ Submit a new set of Sample data
 |volume|object|A value with units|
 |units|string|Units (example: "ng/ul")|
 |value|number|Value (example: "2.3")|
-|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
+|well|string|The Well identifier for this samples location in the plate. Usually a concatenation of Row and Column, or just a number if the samples are not part of an ordered plate.|
 |sampleType|string|The type of Samples being submitted|
 
 
@@ -6636,7 +6674,7 @@ Submit a new set of Sample data
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -6715,7 +6753,7 @@ Get data for a submitted set of plates
 |volume|object|A value with units|
 |units|string|Units (example: "ng/ul")|
 |value|number|Value (example: "2.3")|
-|well|string|The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.|
+|well|string|The Well identifier for this samples location in the plate. Usually a concatenation of Row and Column, or just a number if the samples are not part of an ordered plate.|
 
 
  
@@ -6747,7 +6785,7 @@ Get data for a submitted set of plates
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -6855,7 +6893,7 @@ Defines the plate format specification for the vendor.
 
 |Field|Type|Description|
 |---|---|---| 
-|additionalInfo|object|Additional arbitrary information specific to a particular Vendor. Look for the Vedors specific API documentation for more details|
+|additionalInfo|object|Additional arbitrary information specific to a particular Vendor. Look for the Vendors specific API documentation for more details|
 |services|array[object]|List of platform specifications available at the vendor|
 |serviceDescription|string|Description of the vendor platform|
 |serviceId|string|Unique identifier for this service|
@@ -6905,7 +6943,7 @@ Defines the plate format specification for the vendor.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -6926,15 +6964,15 @@ Defines the plate format specification for the vendor.
                 "servicePlatformName": "RNA-seq",
                 "specificRequirements": [
                     {
-                        "description": "The genus of the samples (ex Aedes)",
+                        "description": "The genus of the samples",
                         "key": "genus"
                     },
                     {
-                        "description": "The species of the samples (ex vexans)",
+                        "description": "The species of the samples",
                         "key": "species"
                     },
                     {
-                        "description": "Aproximate volume of each sample (ex 2.3 ml)",
+                        "description": "Approximate volume of each sample (ex 2.3 ml)",
                         "key": "volumePerWell"
                     },
                     {
