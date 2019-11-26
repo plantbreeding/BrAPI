@@ -13,7 +13,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/SearchReferenceSetsRequest'
+              $ref: '#/components/schemas/ReferenceSetsSearchRequest'
         required: true
       responses:
         '200':
