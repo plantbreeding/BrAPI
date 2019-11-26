@@ -30,7 +30,7 @@ paths:
         
         BAD    "call": "germplasm/{id}/pedigree"
         
-        BAD    "call": "germplasm/{germplasmdbid}/pedigree" 
+        BAD    "call": "germplasm/{germplasmDBid}/pedigree" 
         
         BAD    "call": "brapi/v2/germplasm/{germplasmDbId}/pedigree" 
         

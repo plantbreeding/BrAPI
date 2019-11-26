@@ -14,7 +14,7 @@ components:
           description: Additional arbitrary info
           type: object
         germplasmDbId:
-          description: ' The ID which uniquely identifies a germplasm'
+          description: The ID which uniquely identifies a germplasm
           type: string
           example: e9d9ed57
         germplasmName:
@@ -34,7 +34,7 @@ components:
             The level of an observation unit. ex. "plot", "plant"
             
             MIAPPE V1.1 DM-71 Observation unit type "Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended. 
-            The observation unit type cannot be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables).
+            The observation unit type can not be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables).
             Alternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead."
           type: string
           example: plot
@@ -62,9 +62,9 @@ components:
                 description: The system identifier (name, URL, etc) which has an external reference to the observation unit
                 type: string
           example:
-          - id: SAMEA179865230
+          - id: SAMEA_179865230
             source: ebi.biosample
-          - id: INRA:CoeSt6 _SMH03
+          - id: INRA:4d45d11c
             source: gnpis.lot
         observationUnitPosition:
           $ref: '#/components/schemas/ObservationUnitPosition'

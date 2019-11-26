@@ -20,11 +20,11 @@ components:
         crossingProjectName: 
           description: the human readable name for a crossing project
           type: string
-          example: myIbadanCrosses2018
+          example: my_Ibadan_Crosses_2018
         plannedCrossName: 
           description: the human readable name for a cross
           type: string
-          example: myIbadanCrosses2018_01
+          example: my_Ibadan_Crosses_2018_01
         crossType: 
           description: the type of cross
           type: string

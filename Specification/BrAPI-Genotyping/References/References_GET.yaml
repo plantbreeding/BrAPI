@@ -10,30 +10,25 @@ paths:
         `GET /references` will return a filtered list of `Reference` JSON objects.
       parameters:
         - name: referenceDbId
-          description: The ID of the `Refernce` to be retrieved.
+          description: The ID of the `Reference` to be retrieved.
           in: query
           required: false
           schema:
             type: string
         - name: referenceSetDbId
-          description: The ID of the `RefernceSet` to be retrieved.
+          description: The ID of the `ReferenceSet` to be retrieved.
           in: query
           required: false
           schema:
             type: string
         - name: accession
-          description: |-
-            If unset, return the reference sets for which the `accession`
-            matches this string (case-sensitive, exact match).
+          description: If set, return the reference sets for which the `accession` matches this string (case-sensitive, exact match).
           in: query
           required: false
           schema:
             type: string
         - name: md5checksum
-          description: |-
-            If specified, return the references for which the
-            `md5checksum` matches this string (case-sensitive, exact match).
-            See `Reference::md5checksum` for details.
+          description: If specified, return the references for which the `md5checksum` matches this string (case-sensitive, exact match).
           in: query
           required: false
           schema:

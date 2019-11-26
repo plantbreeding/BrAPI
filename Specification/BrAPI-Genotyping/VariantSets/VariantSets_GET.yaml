@@ -6,8 +6,7 @@ paths:
   /variantsets:
     get:
       summary: Gets a filtered list of `VariantSets`.
-      description: |-
-        `GET /variantsets` will return a filtered list of `VariantSet`.
+      description: Will return a filtered list of `VariantSet`.
       parameters:
         - name: variantSetDbId
           description: The ID of the `VariantSet` to be retrieved.

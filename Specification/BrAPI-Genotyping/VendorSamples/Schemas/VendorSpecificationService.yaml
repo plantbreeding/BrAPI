@@ -46,11 +46,11 @@ components:
                 type: string
           example:
           - key: genus
-            description: The genus of the samples (ex Aedes)
+            description: The genus of the samples
           - key: species
-            description: The species of the samples (ex vexans)
+            description: The species of the samples
           - key: volumePerWell
-            description: Aproximate volume of each sample (ex 2.3 ml)
+            description: Approximate volume of each sample (ex 2.3 ml)
           - key: extractDNA
             description: Does DNA extraction need to happen before sequencing (ex true)
 

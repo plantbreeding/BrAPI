@@ -19,11 +19,11 @@ components:
           type: string
           example: institute.org/server
         organizationURL:
-          description: The URL of the organiation that manages this server and data
+          description: The URL of the organization that manages this server and data
           type: string
           example: institute.org/home
         organizationName:
-          description: The name of the organiation that manages this server and data
+          description: The name of the organization that manages this server and data
           type: string
           example: The Institute
         serverName:

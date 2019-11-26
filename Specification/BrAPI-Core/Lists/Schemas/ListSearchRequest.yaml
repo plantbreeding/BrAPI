@@ -42,7 +42,7 @@ components:
           type: array
           items:
             type: string
-          example: ['Bob Robertson', 'Rob Bobertson']
+          example: ['Bob Robertson', 'Rob Robertson']
         listOwnerPersonDbIds:
           type: array
           items:

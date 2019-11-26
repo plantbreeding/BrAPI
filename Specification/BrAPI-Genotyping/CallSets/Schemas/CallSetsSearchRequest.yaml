@@ -6,9 +6,7 @@ paths: {}
 components:
   schemas:
     callSetsSearchRequest: 
-      description: |-
-        ******************  /callsets  *********************
-        This request maps to the body of `POST /search/callsets` as JSON.
+      description: Request for searching for `CallSets`
       type: object
       properties:
         page:

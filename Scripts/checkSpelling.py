@@ -7,8 +7,11 @@ from spellchecker import SpellChecker
 
 def go():
     rootPath = './Specification/'
+    exitOnFail = False
     if len(sys.argv) > 1 :
         rootPath = sys.argv[1];
+    if len(sys.argv) > 2 :
+        exitOnFail = sys.argv[2] == '-f';
     if(rootPath[-1] == '/'):
         rootPath = rootPath + '**/*.yaml'
         
@@ -19,32 +22,42 @@ def go():
             lines = stream.readlines()
             for line in lines:
                 lineNumber += 1
+                if(lineNumber == 6):
+                    continue
                 words = parseLine(line)
                 unknownWords = spell.unknown(words)
                                     
                 if len(unknownWords) > 0:
                     errorMsg = ''
                     for unknownWord in unknownWords:
-                         if re.match('[0-9a-f]{8}', unknownWord) is None:
-                             errorMsg = errorMsg + unknownWord + ', '
+                        errorMsg = errorMsg + unknownWord + ', '
                     if len(errorMsg) > 0:
                         errorLines.append('line ' + str(lineNumber) + ' - ' + errorMsg[:-2])
         if len(errorLines) > 0:
             print('Error in: ', filename)
             for errorLine in errorLines:
                 print(errorLine)
+            if(exitOnFail):
+                exit(1)
+        else:
+            if(exitOnFail):
+                print('No spelling errors detected in ' + filename)
 
 def parseLine(line):
     words = splitPattern.split(line)
-    #print(words)
-    words = list(filter(
-        lambda x: len(x) > 2, words
-    ))
-    output = []
+    # Split Camel Case words 
+    wordsCamel = []
     for word in words:
-        output.extend(camel_case_split(word))
-    #print(output)
-    return(output)
+        wordsCamel.extend(camel_case_split(word))
+    words = wordsCamel
+    # Remove short words
+    words = list(filter(lambda x: len(x) > 2, words))
+    # Remove all caps (assume acronym)
+    words = list(filter(lambda x: re.match(r'^[A-Z]*$', x)  is None, words))
+    # Remove 8 character hexidecimal (assume DbId)
+    words = list(filter(lambda x: re.match(r'^[0-9A-F]{8}$|^[0-9a-f]{8}$', x) is None, words))
+    #print(words)
+    return(words)
 
 def camel_case_split(identifier):
     matches = re.finditer('.+?(?:(?<=[a-z0-9])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z0-9])|$)', identifier)
@@ -54,29 +67,32 @@ spell = SpellChecker()
 spell.word_frequency.load_words([
     #tech
     'brapi',
-    'json', 'csv', 'tsv', 'flapjack', 'jpg', 'svg', 
-    'http', 'https', 'url', 'href', 'html', 'webpage',
-    'openapi', 'apiary', 'github',
-    'enum', 'wsmime', 'date-time', 'timestamp',
+    'json', 'csv', 'tsv', 'flapjack', 'jpg', 'svg', 'postgres', 'md5sum', 'md5checksum', 'fileadmin', 'pdfs',
+    'http', 'https', 'url', 'href', 'html', 'webpage', 'www', 'wiews',
+    'openapi', 'apiary', 'github', 'swaggerhub', 'ga4gh', 
+    'brapicore', 'brapiphenotyping', 'brapigenotyping', 'brapigermplasm',
+    'enum', 'wsmime', 'date-time', 'timestamp', 'uuid',
     '$ref', 'metadata', 'desc',
     'wiki', 'wikipedia',
-    'uppercase', 'lowercase',
-    'xref', 'xrefs',
-    'preprocessing','debug', 'async', 'upload', 'uploaded',
+    'uppercase', 'lowercase', 'concatenated', 'whitespace',
+    'xref', 'xrefs', 'xmlns', 'foaf',
+    'preprocessing','debug', 'async', 'upload', 'uploaded', 'imagecontent',
+    '2px', '5px', '10px', '20px', '#ddd',
+    'thh', 'ss+hhmm', 'yyyy', 'o8601', 'timezone', 's84', 't18',
     #plant
-    'germplasm', 'genebank',
-    'multi-crop',
-    'pui', 'peco', 'envo', 'puid', 'r001', 'geodetic', 's84', 't18',
+    'germplasm', 'genebank', 'genebanks',
+    'multi-crop', 'subblock',
+    'pui', 'peco', 'envo', 'puid', 'r001', 'geodetic', 'georeference', 'georeferencing',
     'phenotyping', 'genotyping', 'agronomy', 'phenological', 'agronomical',
     'authorships', 'orcid',
     'bioinformatics', 'plantbreeding',
-    'centimeter', 'centimeters',
-    'mcpd', 'ncbi',
-    'subtaxa', 'subtaxon', 'fructus',
-    'obo', 'rdf', 'obolibrary', 'ontologies',
-    'carotenoid',
+    'centimeter', 'centimeters', 'unphased', 'log10',
+    'mcpd', 'ncbi', 'miappe', 'ebi', 'biosample', 'biosamples', 'inra', 'gnpis', 'cipos', 'ciend', 'svlen', 'bioversity',
+    'subtaxa', 'subtaxon', 'subform', 'subvariety', 'infraspecific', 'convar', 'convariety', 'amphiploids', 'aneuploids', 'landrace', 'cryo', 'ruderal', 'shrubland',
+    'obo', 'rdf', 'obolibrary', 'ontologies', 'vcf', 'hapmap',
+    'carotenoid', 'pipet', 'plateless', 'indel', 'parent1', 'parent2',
+    'Zea', 'mays', 'fructus', 'c2365e900c81a89cf74d83dab60df146', 
     #fun
-    'tomatillo',
-    'coladas'])
-splitPattern = re.compile("(?:\\\\n|[\s\'\.\-\\\"\*`:;/,_=^@<>{}()\[\]])+")  
+    'tomatillo', 'hadron', 'coladas', 'townsville'])
+splitPattern = re.compile("(?:\\\\n|[\s\'\.\-\\\"\*`:;/,_=^@#<>{}()\[\]])+")  
 go()

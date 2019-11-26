@@ -6,7 +6,7 @@ paths:
   /callsets/{callSetDbId}:
     get:
       summary: Gets a `CallSet` by ID.
-      description: '`GET /callsets/{id}` will return a JSON version of `CallSet`.'
+      description: Gets a `CallSet` by ID.
       parameters:
         - name: callSetDbId
           description: The ID of the `CallSet` to be retrieved.

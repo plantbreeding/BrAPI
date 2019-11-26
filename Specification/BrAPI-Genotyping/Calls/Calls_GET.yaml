@@ -6,17 +6,7 @@ paths:
   /calls:
     get:
       summary: Gets a filtered list of `Calls`
-      description: '
-        `GET /call` will return a filtered list of `Call` JSON objects.
-        
-        Also See:
-        
-        `GET /callsets/{callsetsDbId}/calls`
-        
-        `GET /variants/{variantsDbId}/calls`
-        
-        `GET /variantsets/{variantsetsDbId}/calls`
-        '
+      description: Will return a filtered list of `Call` JSON objects.
       parameters:
         - name: callSetDbId
           description: The ID of the `CallSet` to be retrieved.

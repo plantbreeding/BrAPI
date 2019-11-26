@@ -9,7 +9,7 @@ paths:
       description: Get list of maps
       parameters:
       - name: commonCropName
-        description: The common name of the crop, found from "GET /commoncropnames"
+        description: The common name of the crop
         in: query
         required: false
         schema:

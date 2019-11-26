@@ -1,8 +1,7 @@
 components:
   schemas:
     variantSetsExtractRequest:
-      description: |-
-        This request maps to the body of `POST /variantsets/extract` as JSON.
+      description: Request object for extracting data subsets as new Variant Sets
       properties:
         callSetDbIds:
           description: The CallSet to search.

@@ -15,7 +15,7 @@ components:
         germplasmName: 
           description: the human readable name for a germplasm
           type: string
-          example: TME419
+          example: TME_419
         observationUnitDbId: 
           description: the unique identifier for an observation unit
           type: string
@@ -23,7 +23,7 @@ components:
         observationUnitName: 
           description: the human readable name for an observation unit
           type: string
-          example: myIbadanPlot9001
+          example: my_Ibadan_Plot_9001
         parentType: 
           description: The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.
           enum:

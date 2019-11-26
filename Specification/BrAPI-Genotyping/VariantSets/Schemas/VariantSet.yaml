@@ -16,11 +16,11 @@ components:
             
             dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)
             
-            fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevent request and response.
+            fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.
           type: array
           items:
             type: object
-            description: Each 'availableFormat' object is a pairing of dataFormat and fileFormat. These must be comunicated in pairs because they are not independant parametres and sometimes one influences the other.
+            description: Each 'availableFormat' object is a pairing of dataFormat and fileFormat. These must be communicated in pairs because they are not independant parameters and sometimes one influences the other.
             properties:
               dataFormat:
                 description: dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)
@@ -32,7 +32,7 @@ components:
                 - tabular
                 - JSON 
               fileFormat:
-                description: fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevent request and response.
+                description: fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.
                 type: string
                 enum:
                 - text/csv

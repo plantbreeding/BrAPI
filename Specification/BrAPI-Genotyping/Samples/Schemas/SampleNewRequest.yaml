@@ -73,7 +73,7 @@ components:
           type: string
           example: B
         well:
-          description: The Well identifier for this samples location in the plate. Ussually a concatination of Row and Column, or just a number if the samples are not part of an ordered plate.
+          description: The Well identifier for this samples location in the plate. Usually a concatenation of Row and Column, or just a number if the samples are not part of an ordered plate.
           type: string
           example: B6
         studyDbId:

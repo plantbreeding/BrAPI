@@ -6,15 +6,7 @@ paths:
   /variants/{variantDbId}/calls:
     get:
       summary: Gets a list of `Calls` associated with a `Variant`.
-      description: '
-        The variant calls for this particular variant. Each one represents the
-        determination of genotype with respect to this variant. `Call`s in this
-        array are implicitly associated with this `Variant`.
-      
-        Also See:
-        
-        `GET /calls?variantDbId={variantDbId}`
-        '
+      description: The variant calls for this particular variant. Each one represents the determination of genotype with respect to this variant. `Call`s in this array are implicitly associated with this `Variant`.
       parameters:
         - name: variantDbId
           description: The ID of the `Variant` to be retrieved.

@@ -18,7 +18,7 @@ components:
           type: string
           example: 3d52bdf3
         mapName: 
-          description: The human readbale name of the map
+          description: The human readable name of the map
           type: string
           example: Genome Map 1
         linkageGroupName: 

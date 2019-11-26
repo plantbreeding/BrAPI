@@ -22,7 +22,7 @@ components:
           description: |-
             The altitude/elevation of this location (in meters)
             
-            MIAPP V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).
+            MIAPPE V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).
           type: number
           example: 35.6
         countryCode:

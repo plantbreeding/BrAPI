@@ -6,13 +6,7 @@ paths:
   /callsets:
     get:
       summary: Gets a filtered list of `CallSet` JSON objects.
-      description: '
-        Gets a filtered list of `CallSet` JSON objects.
-      
-        Also See:
-        
-        `GET /variantsets/{variantsetsDbId}/callsets`
-        '
+      description: Gets a filtered list of `CallSet` JSON objects.
       parameters:
         - name: callSetDbId
           description: The ID of the `CallSet` to be retrieved.
@@ -21,7 +15,7 @@ paths:
           schema:
             type: string
         - name: callSetName
-          description: The human readbale name of the `CallSet` to be retrieved.
+          description: The human readable name of the `CallSet` to be retrieved.
           in: query
           required: false
           schema:

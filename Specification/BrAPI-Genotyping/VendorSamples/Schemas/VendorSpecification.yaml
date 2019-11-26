@@ -11,7 +11,7 @@ components:
         additionalInfo:
           additionalProperties:
             type: object
-          description: Additional arbitrary information specific to a particular Vendor. Look for the Vedors specific API documentation for more details
+          description: Additional arbitrary information specific to a particular Vendor. Look for the Vendors specific API documentation for more details
           type: object
         services:
           description: List of platform specifications available at the vendor

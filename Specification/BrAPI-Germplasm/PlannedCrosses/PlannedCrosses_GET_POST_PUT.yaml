@@ -66,29 +66,26 @@ paths:
                 $ref: '#/components/schemas/PlannedCrossNewRequest'
               example:
                 'c8905568':
-                  additionalInfo:
-                    additionalProp1: string
-                    additionalProp2: string
-                    additionalProp3: string
+                  additionalInfo: {}
                   crossAttributes: 
                   - crossAttributeName: string
                     crossAttributeValue: string
-                  crossName: myIbadanCrosses2018_01
+                  crossName: my_Ibadan_Crosses_2018_01
                   crossType: BIPARENTAL
                   crossingProjectDbId: 696d7c92
-                  crossingProjectName: myIbadanCrosses2018
+                  crossingProjectName: my_Ibadan_Crosses_2018
                   parent1: 
                     germplasmDbId: d34b10c3
-                    germplasmName: TME419
+                    germplasmName: TME_419
                     observationUnitDbId: 2e1926a7
-                    observationUnitName: myIbadanPlot9001
+                    observationUnitName: my_Ibadan_Plot_9001
                     parentType: MALE
                   parent2: 
-                    germplasmDbId: d34b10c3
-                    germplasmName: TME419
-                    observationUnitDbId: 2e1926a7
-                    observationUnitName: myIbadanPlot9001
-                    parentType: MALE
+                    germplasmDbId: 843fb211
+                    germplasmName: TME_419
+                    observationUnitDbId: f05e955f
+                    observationUnitName: my_Ibadan_Plot_9002
+                    parentType: FEMALE
       responses:
         '200':
           $ref: '#/components/responses/PlannedCrossesListResponse'

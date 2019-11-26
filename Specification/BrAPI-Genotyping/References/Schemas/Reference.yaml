@@ -6,12 +6,7 @@ paths: {}
 components:
   schemas:
     Reference:
-      description: |-
-        A `Reference` is a canonical assembled contig, intended to act as a
-        reference coordinate space for other genomic annotations. A single
-        `Reference` might represent the human chromosome 1, for instance.
-
-        `Reference` s are designed to be immutable.
+      description: A `Reference` is a canonical assembled contig, intended to act as a reference coordinate space for other genomic annotations. A single `Reference` might represent the human chromosome 1, for instance. `References` are designed to be immutable.
       type: object
       properties:
         additionalInfo:
@@ -28,8 +23,7 @@ components:
           type: boolean
         length:
           description: The length of this reference's sequence.
-          format: int64
-          type: string
+          type: integer
         md5checksum:
           description: The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).
           type: string

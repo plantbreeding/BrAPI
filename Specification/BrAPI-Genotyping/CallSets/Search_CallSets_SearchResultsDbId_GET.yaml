@@ -6,13 +6,7 @@ paths:
   /search/callsets/{searchResultsDbId}:
     get:
       summary: Gets a list of call sets matching the search criteria.
-      description: >-
-        `POST /callsets/search` must accept a JSON version of
-
-        `SearchCallSetsRequest` as the post body and will return a JSON version
-        of
-
-        `SearchCallSetsResponse`.
+      description: Gets a list of call sets matching the search criteria.
       parameters:
       - $ref: '#/components/parameters/searchResultsDbId'
       - $ref: '#/components/parameters/page'

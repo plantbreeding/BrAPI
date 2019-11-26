@@ -5,10 +5,8 @@ openapi: 3.0.0
 paths:
   /variantsets/{variantSetDbId}/variants:
     get:
-      summary: Gets a `VariantSet` by ID.
-      description: |-
-        `GET /variantsets/{variant_set_id}` will return a JSON version of
-        `VariantSet`.
+      summary: Gets a `Variants` for a given `VariantSet`.
+      description: This call will return an array of `Variants`.
       parameters:
         - name: variantDbId
           description: The ID of the `Variant` to be retrieved.

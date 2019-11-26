@@ -6,13 +6,7 @@ paths:
   /search/variantsets/{searchResultsDbId}:
     get:
       summary: Gets a list of `VariantSet` matching the search criteria.
-      description: >-
-        `POST /variantsets/search` must accept a JSON version of
-
-        `SearchVariantSetsRequest` as the post body and will return a JSON
-        version
-
-        of `SearchVariantSetsResponse`.
+      description: Gets a list of `VariantSet` matching the search criteria.
       parameters:
       - $ref: '#/components/parameters/searchResultsDbId'
       - $ref: '#/components/parameters/page'

@@ -6,7 +6,7 @@ paths:
   /search/calls:
     post:
       summary: Submit a search request for `Calls`
-      description: '`GET /callsets/{id}` will return a JSON version of `CallSet`.'
+      description: Submit a search request for `Calls`
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:

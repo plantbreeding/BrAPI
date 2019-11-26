@@ -20,11 +20,11 @@ components:
         crossingProjectName: 
           description: the human readable name for a crossing project
           type: string
-          example: myIbadanCrosses2018
+          example: my_Ibadan_Crosses_2018
         crossName: 
           description: the human readable name for a cross
           type: string
-          example: myIbadanCrosses2018_01
+          example: my_Ibadan_Crosses_2018_01
         crossType: 
           description: the type of cross
           type: string
@@ -42,7 +42,7 @@ components:
         parent2: 
           $ref: '#/components/schemas/CrossParent'
         pollinationTimeStamp: 
-          description: the timestamp when the polination took place
+          description: the timestamp when the pollination took place
           type: string
           format: date-time
         crossAttributes: 
@@ -55,8 +55,8 @@ components:
               crossAttributeName:
                 description: the human readable name of a cross attribute
                 type: string
-                example: Humidity
+                example: Humidity Percentage
               crossAttributeValue: 
                 description: the value of a cross attribute
                 type: string
-                example: 45%
+                example: 45

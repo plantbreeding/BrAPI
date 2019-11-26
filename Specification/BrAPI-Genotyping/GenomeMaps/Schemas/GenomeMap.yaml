@@ -22,7 +22,7 @@ components:
           type: string
           example: Comments about this map
         commonCropName:
-          description: The common name of the crop, found from "GET /commoncropnames"
+          description: The common name of the crop
           type: string
           example: Paw Paw
         documentationURL:
@@ -32,7 +32,6 @@ components:
           example: https://brapi.org
         linkageGroupCount:
           description: The number of linkage groups present in this genomic map
-          format: int32
           type: integer
           example: 5
         mapDbId:
@@ -49,7 +48,6 @@ components:
           example: Genome Map 1
         markerCount:
           description: The number of markers present in this genomic map
-          format: int32
           type: integer
           example: 1100
         publishedDate:
@@ -59,9 +57,9 @@ components:
         scientificName:
           description: Full scientific binomial format name. This includes Genus, Species, and Sub-species
           type: string
-          example: Asimina triloba
+          example: Zea mays
         type:
-          description: The type of map this represents, ussually "Genetic"
+          description: The type of map this represents, usually "Genetic"
           type: string
           example: Genetic
         unit:

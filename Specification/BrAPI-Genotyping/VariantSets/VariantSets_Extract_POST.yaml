@@ -6,9 +6,7 @@ paths:
   /variantsets/extract:
     post:
       summary: Create new `VariantSet` based on search results
-      description: |-
-        `POST /variantsets/extract` will perform a search for `Calls` which match the search criteria in `variantSetsExtractRequest`
-        The results of the search will be used to create a new `VariantSet` on the server. The new `VariantSet` will be returned.
+      description: Will perform a search for `Calls` which match the search criteria in `variantSetsExtractRequest`. The results of the search will be used to create a new `VariantSet` on the server. The new `VariantSet` will be returned.
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:

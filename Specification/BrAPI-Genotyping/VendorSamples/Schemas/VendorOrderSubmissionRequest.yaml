@@ -19,8 +19,8 @@ components:
             description: A map of additional data required by the requested service. This includes things like Volume and Concentration.
             type: object
             example:
-              genus: Aedes
-              species: vexans
+              genus: Zea
+              species: mays
               volumePerWell: 2.3 ml
               extractDNA: true
           serviceIds:

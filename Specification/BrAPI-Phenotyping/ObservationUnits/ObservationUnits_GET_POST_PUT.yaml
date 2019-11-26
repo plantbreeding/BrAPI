@@ -104,10 +104,7 @@ paths:
                 $ref: '#/components/schemas/ObservationUnitNewRequest'
             example: 
               '<observationUnitDbId_1>': 
-                additionalInfo: 
-                  additionalProp1: string
-                  additionalProp2: string
-                  additionalProp3: string
+                additionalInfo: {}
                 germplasmDbId: e9d9ed57
                 germplasmName: A0000001
                 locationDbId: 0e208b20
@@ -129,7 +126,7 @@ paths:
                   positionCoordinateYType: GRID_ROW
                   replicate: 1                
                 observationUnitXref: 
-                  - id: SAMEA179865230
+                  - id: SAMEA_179865230
                     source: "ebi.biosample"
                 plantNumber: 1
                 plotNumber: 01
@@ -143,16 +140,13 @@ paths:
                 trialDbId: 776a609c
                 trialName: "Purple Tomato"
               '<observationUnitDbId_2>': 
-                additionalInfo: 
-                  additionalProp1: string
-                  additionalProp2: string
-                  additionalProp3: string
+                additionalInfo: {}
                 germplasmDbId: e9d9ed57
                 germplasmName: A0000001
                 locationDbId: 0e208b20
                 locationName: "Field Station Alpha"
                 observationLevel: plot
-                observationUnitName: "Plot 1"
+                observationUnitName: "Plot 1 xfjhxgfjfjgfxjgfx"
                 observationUnitPosition: 
                   blockNumber: 6
                   entryNumber: 3
@@ -168,7 +162,7 @@ paths:
                   positionCoordinateYType: GRID_ROW
                   replicate: 1
                 observationUnitXref: 
-                  - id: SAMEA179865230
+                  - id: SAMEA_179865230
                     source: "ebi.biosample"
                 plantNumber: 1
                 plotNumber: 01

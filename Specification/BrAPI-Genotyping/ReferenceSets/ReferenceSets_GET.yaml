@@ -5,10 +5,8 @@ info:
 paths:
   /referencesets:
     get:
-      summary: Gets a `ReferenceSet` by ID.
-      description: |-
-        `GET /referencesets/{reference_set_id}` will return a JSON version of
-        `ReferenceSet`.
+      summary: Gets a list of `ReferenceSets`.
+      description: Gets a filtered list of `ReferenceSets`.
       parameters:
         - name: referenceSetDbId
           description: The ID of the `ReferenceSet` to be retrieved.
@@ -16,24 +14,17 @@ paths:
           schema:
             type: string
         - name: accession
-          description: |-
-            If unset, return the reference sets for which the `accession`
-            matches this string (case-sensitive, exact match).
+          description: If set, return the reference sets for which the `accession` matches this string (case-sensitive, exact match).
           in: query
           schema:
             type: string
         - name: assemblyPUI
-          description: |-
-            If unset, return the reference sets for which the `assemblyId`
-            matches this string (case-sensitive, exact match).
+          description: If set, return the reference sets for which the `assemblyId` matches this string (case-sensitive, exact match).
           in: query
           schema:
             type: string
         - name: md5checksum
-          description: |-
-            If unset, return the reference sets for which the
-            `md5checksum` matches this string (case-sensitive, exact match).
-            See `ReferenceSet::md5checksum` for details.
+          description: If set, return the reference sets for which the `md5checksum` matches this string (case-sensitive, exact match).
           in: query
           schema:
             type: string

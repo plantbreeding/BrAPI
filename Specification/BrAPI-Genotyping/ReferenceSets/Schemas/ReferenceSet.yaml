@@ -6,11 +6,11 @@ paths: {}
 components:
   schemas:
     ReferenceSet:
-      description: A `ReferenceSet` is a set of `Reference` s which typically comprise a reference assembly, such as `GRCh38`. A `ReferenceSet` defines a common coordinate space for comparing reference-aligned experimental data.
+      description: A `ReferenceSet` is a set of `Reference` s which typically comprise a reference assembly, such as `GRCH_38`. A `ReferenceSet` defines a common coordinate space for comparing reference-aligned experimental data.
       type: object
       properties:
         assemblyPUI:
-          description: The remaining information is about the source of the sequences Public id of this reference set, such as `GRCh37`.
+          description: The remaining information is about the source of the sequences Public id of this reference set, such as `GRCH_37`.
           type: string
         additionalInfo:
           additionalProperties:

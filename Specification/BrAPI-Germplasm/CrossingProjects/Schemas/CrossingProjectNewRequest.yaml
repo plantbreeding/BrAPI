@@ -11,11 +11,11 @@ components:
         crossingProjectName:
           description: the human readable name for a crossing project
           type: string
-          example: IbadanCrosses2018
-        corssingProjectDescription:
+          example: Ibadan_Crosses_2018
+        crossingProjectDescription:
           description: the description for a crossing project
           type: string
-          example: Crosses between germplasm X and germplasm Y in male nursery study X2018 and female nursery study Y2018
+          example: Crosses between germplasm X and germplasm Y in male nursery study X_2018 and female nursery study Y_2018
         programDbId:
           description: the unique identifier for a program
           type: string

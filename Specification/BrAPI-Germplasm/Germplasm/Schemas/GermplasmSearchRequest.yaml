@@ -39,7 +39,7 @@ components:
           items:
             type: string
           type: array
-          example: ['Aspergillus', 'Byssochlamys']
+          example: ['Aspergillus', 'Zea']
         germplasmNames:
           description: List of human readable names to identify germplasm
           items:
@@ -57,7 +57,7 @@ components:
           items:
             type: string
           type: array
-          example: ['fructus', 'fulva']
+          example: ['fructus', 'mays']
         parentDbIds:
           description: Search for Germplasm with these parents
           items:

@@ -1,9 +1,13 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
 components:
   schemas:
     variantSetsSearchRequest: 
-      description: |-
-        ******************  /variantsets  *********************
-        This request maps to the body of `POST /search/variantsets` as JSON.
+      description: Search parameters for searching Variant Sets
+      type: object
       properties:
         page:
           description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
@@ -23,9 +27,4 @@ components:
           type: array
           items:
             type: string
-      type: object
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}
+

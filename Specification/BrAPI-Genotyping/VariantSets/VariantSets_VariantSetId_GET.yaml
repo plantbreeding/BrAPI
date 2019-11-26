@@ -6,9 +6,7 @@ paths:
   /variantsets/{variantSetDbId}:
     get:
       summary: Gets a `VariantSet` by ID.
-      description: |-
-        `GET /variantsets/{variantSetDbId}` will return a JSON version of
-        `VariantSet`.
+      description: This call will return a JSON version of a `VariantSet`.
       parameters:
         - name: variantSetDbId
           description: The ID of the `Variant` to be retrieved.

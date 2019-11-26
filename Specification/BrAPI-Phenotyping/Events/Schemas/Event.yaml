@@ -38,7 +38,7 @@ components:
           description: |-
             A detailed, human-readable description of this event
             
-            MIAPEE V1.1 (DM-67) Event description - Description of the event, including details such as amount applied and possibly duration of the event. 
+            MIAPPE V1.1 (DM-67) Event description - Description of the event, including details such as amount applied and possibly duration of the event. 
           type: string
           example: A set of plots was watered
         studyDbId: 
@@ -80,8 +80,8 @@ components:
                 type: string
                 example: http://xmlns.com/foaf/0.1/Agent
           example:
-          - key: http://www.phenome-fppn.fr/vocabulary/2018#hasContact,
-            value: http://www.phenome-fppn.fr/diaphen/id/agent/marie_dupond,
+          - key: http://www.example.fr/vocabulary/2018#hasContact,
+            value: http://www.example.fr/id/agent/marie,
             valueRdfType: http://xmlns.com/foaf/0.1/Agent,
           - key: fertilizer
             value: nitrogen
