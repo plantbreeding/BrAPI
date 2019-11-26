@@ -63,7 +63,7 @@ Get a filtered list of Seed Lot descriptions available in a system.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -204,7 +204,7 @@ Add new Seed Lot descriptions to a server
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -308,7 +308,7 @@ Get a filtered list of Seed Lot Transactions
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -432,7 +432,7 @@ Add new Seed Lot Transaction to be recorded
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -531,7 +531,7 @@ Get a specific Seed Lot by seedLotDbId
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -671,7 +671,7 @@ Update an existing Seed Lot
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -776,7 +776,7 @@ Get all Transactions related to a specific Seed Lot
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [

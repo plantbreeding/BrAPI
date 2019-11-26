@@ -888,7 +888,7 @@ See Search Services for additional implementation details.
     ],
     "listOwnerNames": [
         "Bob Robertson",
-        "Rob Bobertson"
+        "Rob Robertson"
     ],
     "listOwnerPersonDbIds": [
         "bob@bob.com",
@@ -1202,7 +1202,7 @@ Get a list of locations.
 |data|array[object]||
 |abbreviation|string|An abbreviation which represents this location|
 |additionalInfo|object|Additional arbitrary info|
-|altitude|number|The altitude/elevation of this location (in meters)  MIAPP V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
+|altitude|number|The altitude/elevation of this location (in meters)  MIAPPE V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
 |coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
 |coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
@@ -1329,7 +1329,7 @@ Add new locations to database
 |---|---|---| 
 |abbreviation|string|An abbreviation which represents this location|
 |additionalInfo|object|Additional arbitrary info|
-|altitude|number|The altitude/elevation of this location (in meters)  MIAPP V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
+|altitude|number|The altitude/elevation of this location (in meters)  MIAPPE V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
 |coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
 |coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
@@ -1355,7 +1355,7 @@ Add new locations to database
 |data|array[object]||
 |abbreviation|string|An abbreviation which represents this location|
 |additionalInfo|object|Additional arbitrary info|
-|altitude|number|The altitude/elevation of this location (in meters)  MIAPP V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
+|altitude|number|The altitude/elevation of this location (in meters)  MIAPPE V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
 |coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
 |coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
@@ -1516,7 +1516,7 @@ Get details for a location.
 |---|---|---| 
 |abbreviation|string|An abbreviation which represents this location|
 |additionalInfo|object|Additional arbitrary info|
-|altitude|number|The altitude/elevation of this location (in meters)  MIAPP V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
+|altitude|number|The altitude/elevation of this location (in meters)  MIAPPE V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
 |coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
 |coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
@@ -1642,7 +1642,7 @@ Update the details for an existing location.
 |---|---|---| 
 |abbreviation|string|An abbreviation which represents this location|
 |additionalInfo|object|Additional arbitrary info|
-|altitude|number|The altitude/elevation of this location (in meters)  MIAPP V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
+|altitude|number|The altitude/elevation of this location (in meters)  MIAPPE V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
 |coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
 |coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
@@ -1667,7 +1667,7 @@ Update the details for an existing location.
 |---|---|---| 
 |abbreviation|string|An abbreviation which represents this location|
 |additionalInfo|object|Additional arbitrary info|
-|altitude|number|The altitude/elevation of this location (in meters)  MIAPP V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
+|altitude|number|The altitude/elevation of this location (in meters)  MIAPPE V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
 |coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
 |coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
@@ -1847,7 +1847,7 @@ See Search Services for additional implementation details.
 |data|array[object]||
 |abbreviation|string|An abbreviation which represents this location|
 |additionalInfo|object|Additional arbitrary info|
-|altitude|number|The altitude/elevation of this location (in meters)  MIAPP V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
+|altitude|number|The altitude/elevation of this location (in meters)  MIAPPE V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
 |coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
 |coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
@@ -2062,7 +2062,7 @@ See Search Services for additional implementation details.
 |data|array[object]||
 |abbreviation|string|An abbreviation which represents this location|
 |additionalInfo|object|Additional arbitrary info|
-|altitude|number|The altitude/elevation of this location (in meters)  MIAPP V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
+|altitude|number|The altitude/elevation of this location (in meters)  MIAPPE V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
 |coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
 |coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
@@ -3803,7 +3803,7 @@ GOOD   "call": "germplasm/{germplasmDbId}/pedigree"
 
 BAD    "call": "germplasm/{id}/pedigree"
 
-BAD    "call": "germplasm/{germplasmdbid}/pedigree" 
+BAD    "call": "germplasm/{germplasmDBid}/pedigree" 
 
 BAD    "call": "brapi/v2/germplasm/{germplasmDbId}/pedigree" 
 
@@ -3825,8 +3825,8 @@ BAD    "call": "germplasm/<germplasmDbId>/pedigree"
 |contactEmail|string|A contact email address for this server management|
 |documentationURL|string|A URL to the human readable documentation of this object|
 |location|string|Physical location of this server (ie. City, Country)|
-|organizationName|string|The name of the organiation that manages this server and data|
-|organizationURL|string|The URL of the organiation that manages this server and data|
+|organizationName|string|The name of the organization that manages this server and data|
+|organizationURL|string|The URL of the organization that manages this server and data|
 |serverDescription|string|A description of this server|
 |serverName|string|The name of this server|
 
@@ -4148,7 +4148,7 @@ See Search Services for additional implementation details.
 |location|object||
 |abbreviation|string|An abbreviation which represents this location|
 |additionalInfo|object|Additional arbitrary info|
-|altitude|number|The altitude/elevation of this location (in meters)  MIAPP V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
+|altitude|number|The altitude/elevation of this location (in meters)  MIAPPE V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
 |coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
 |coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
@@ -4520,7 +4520,7 @@ StartDate and endDate should be ISO-8601 format for dates
 |location|object||
 |abbreviation|string|An abbreviation which represents this location|
 |additionalInfo|object|Additional arbitrary info|
-|altitude|number|The altitude/elevation of this location (in meters)  MIAPP V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
+|altitude|number|The altitude/elevation of this location (in meters)  MIAPPE V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
 |coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
 |coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
@@ -4769,7 +4769,7 @@ StartDate and endDate should be ISO-8601 format for dates
 |location|object||
 |abbreviation|string|An abbreviation which represents this location|
 |additionalInfo|object|Additional arbitrary info|
-|altitude|number|The altitude/elevation of this location (in meters)  MIAPP V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
+|altitude|number|The altitude/elevation of this location (in meters)  MIAPPE V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
 |coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
 |coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
@@ -4841,7 +4841,7 @@ StartDate and endDate should be ISO-8601 format for dates
 |location|object||
 |abbreviation|string|An abbreviation which represents this location|
 |additionalInfo|object|Additional arbitrary info|
-|altitude|number|The altitude/elevation of this location (in meters)  MIAPP V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
+|altitude|number|The altitude/elevation of this location (in meters)  MIAPPE V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
 |coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
 |coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
@@ -5170,7 +5170,7 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
 |location|object||
 |abbreviation|string|An abbreviation which represents this location|
 |additionalInfo|object|Additional arbitrary info|
-|altitude|number|The altitude/elevation of this location (in meters)  MIAPP V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
+|altitude|number|The altitude/elevation of this location (in meters)  MIAPPE V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
 |coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
 |coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
@@ -5401,7 +5401,7 @@ Update an existing Study with new data
 |location|object||
 |abbreviation|string|An abbreviation which represents this location|
 |additionalInfo|object|Additional arbitrary info|
-|altitude|number|The altitude/elevation of this location (in meters)  MIAPP V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
+|altitude|number|The altitude/elevation of this location (in meters)  MIAPPE V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
 |coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
 |coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
@@ -5472,7 +5472,7 @@ Update an existing Study with new data
 |location|object||
 |abbreviation|string|An abbreviation which represents this location|
 |additionalInfo|object|Additional arbitrary info|
-|altitude|number|The altitude/elevation of this location (in meters)  MIAPP V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
+|altitude|number|The altitude/elevation of this location (in meters)  MIAPPE V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
 |coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
 |coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
@@ -6683,7 +6683,7 @@ Get the details of a specific Trial
 |location|object||
 |abbreviation|string|An abbreviation which represents this location|
 |additionalInfo|object|Additional arbitrary info|
-|altitude|number|The altitude/elevation of this location (in meters)  MIAPP V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
+|altitude|number|The altitude/elevation of this location (in meters)  MIAPPE V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
 |coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
 |coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||
@@ -6946,7 +6946,7 @@ Update the details of an existing Trial
 |location|object||
 |abbreviation|string|An abbreviation which represents this location|
 |additionalInfo|object|Additional arbitrary info|
-|altitude|number|The altitude/elevation of this location (in meters)  MIAPP V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
+|altitude|number|The altitude/elevation of this location (in meters)  MIAPPE V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
 |coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
 |coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object||

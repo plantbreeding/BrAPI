@@ -37,7 +37,7 @@ Get a filtered list of Cross entities.
 |observationUnitDbId|string|the unique identifier for an observation unit|
 |observationUnitName|string|the human readable name for an observation unit|
 |parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
-|pollinationTimeStamp|string (date-time)|the timestamp when the polination took place|
+|pollinationTimeStamp|string (date-time)|the timestamp when the pollination took place|
 
 
  
@@ -71,7 +71,7 @@ Get a filtered list of Cross entities.
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -87,20 +87,20 @@ Get a filtered list of Cross entities.
                 "additionalInfo": {},
                 "crossAttributes": [
                     {
-                        "crossAttributeName": "Humidity",
-                        "crossAttributeValue": "45%"
+                        "crossAttributeName": "Humidity Percentage",
+                        "crossAttributeValue": 45
                     }
                 ],
                 "crossDbId": "d105fd6f",
-                "crossName": "myIbadanCrosses2018_01",
+                "crossName": "my_Ibadan_Crosses_2018_01",
                 "crossType": "BIPARENTAL",
                 "crossingProjectDbId": "696d7c92",
-                "crossingProjectName": "myIbadanCrosses2018",
+                "crossingProjectName": "my_Ibadan_Crosses_2018",
                 "parent1": {
                     "germplasmDbId": "d34b10c3",
-                    "germplasmName": "TME419",
+                    "germplasmName": "TME_419",
                     "observationUnitDbId": "2e1926a7",
-                    "observationUnitName": "myIbadanPlot9001",
+                    "observationUnitName": "my_Ibadan_Plot_9001",
                     "parentType": [
                         "MALE",
                         "FEMALE",
@@ -110,9 +110,9 @@ Get a filtered list of Cross entities.
                 },
                 "parent2": {
                     "germplasmDbId": "d34b10c3",
-                    "germplasmName": "TME419",
+                    "germplasmName": "TME_419",
                     "observationUnitDbId": "2e1926a7",
-                    "observationUnitName": "myIbadanPlot9001",
+                    "observationUnitName": "my_Ibadan_Plot_9001",
                     "parentType": [
                         "MALE",
                         "FEMALE",
@@ -173,7 +173,7 @@ Create new Cross entities on this server
 |observationUnitDbId|string|the unique identifier for an observation unit|
 |observationUnitName|string|the human readable name for an observation unit|
 |parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
-|pollinationTimeStamp|string (date-time)|the timestamp when the polination took place|
+|pollinationTimeStamp|string (date-time)|the timestamp when the pollination took place|
 
 
 **Response Fields** 
@@ -202,7 +202,7 @@ Create new Cross entities on this server
 |observationUnitDbId|string|the unique identifier for an observation unit|
 |observationUnitName|string|the human readable name for an observation unit|
 |parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
-|pollinationTimeStamp|string (date-time)|the timestamp when the polination took place|
+|pollinationTimeStamp|string (date-time)|the timestamp when the pollination took place|
 
 
  
@@ -219,19 +219,19 @@ Create new Cross entities on this server
         "additionalInfo": {},
         "crossAttributes": [
             {
-                "crossAttributeName": "Humidity",
-                "crossAttributeValue": "45%"
+                "crossAttributeName": "Humidity Percentage",
+                "crossAttributeValue": 45
             }
         ],
-        "crossName": "myIbadanCrosses2018_01",
+        "crossName": "my_Ibadan_Crosses_2018_01",
         "crossType": "BIPARENTAL",
         "crossingProjectDbId": "696d7c92",
-        "crossingProjectName": "myIbadanCrosses2018",
+        "crossingProjectName": "my_Ibadan_Crosses_2018",
         "parent1": {
             "germplasmDbId": "d34b10c3",
-            "germplasmName": "TME419",
+            "germplasmName": "TME_419",
             "observationUnitDbId": "2e1926a7",
-            "observationUnitName": "myIbadanPlot9001",
+            "observationUnitName": "my_Ibadan_Plot_9001",
             "parentType": [
                 "MALE",
                 "FEMALE",
@@ -241,9 +241,9 @@ Create new Cross entities on this server
         },
         "parent2": {
             "germplasmDbId": "d34b10c3",
-            "germplasmName": "TME419",
+            "germplasmName": "TME_419",
             "observationUnitDbId": "2e1926a7",
-            "observationUnitName": "myIbadanPlot9001",
+            "observationUnitName": "my_Ibadan_Plot_9001",
             "parentType": [
                 "MALE",
                 "FEMALE",
@@ -278,7 +278,7 @@ Create new Cross entities on this server
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -294,20 +294,20 @@ Create new Cross entities on this server
                 "additionalInfo": {},
                 "crossAttributes": [
                     {
-                        "crossAttributeName": "Humidity",
-                        "crossAttributeValue": "45%"
+                        "crossAttributeName": "Humidity Percentage",
+                        "crossAttributeValue": 45
                     }
                 ],
                 "crossDbId": "d105fd6f",
-                "crossName": "myIbadanCrosses2018_01",
+                "crossName": "my_Ibadan_Crosses_2018_01",
                 "crossType": "BIPARENTAL",
                 "crossingProjectDbId": "696d7c92",
-                "crossingProjectName": "myIbadanCrosses2018",
+                "crossingProjectName": "my_Ibadan_Crosses_2018",
                 "parent1": {
                     "germplasmDbId": "d34b10c3",
-                    "germplasmName": "TME419",
+                    "germplasmName": "TME_419",
                     "observationUnitDbId": "2e1926a7",
-                    "observationUnitName": "myIbadanPlot9001",
+                    "observationUnitName": "my_Ibadan_Plot_9001",
                     "parentType": [
                         "MALE",
                         "FEMALE",
@@ -317,9 +317,9 @@ Create new Cross entities on this server
                 },
                 "parent2": {
                     "germplasmDbId": "d34b10c3",
-                    "germplasmName": "TME419",
+                    "germplasmName": "TME_419",
                     "observationUnitDbId": "2e1926a7",
-                    "observationUnitName": "myIbadanPlot9001",
+                    "observationUnitName": "my_Ibadan_Plot_9001",
                     "parentType": [
                         "MALE",
                         "FEMALE",
@@ -388,7 +388,7 @@ Update existing Cross entities on this server
 |observationUnitDbId|string|the unique identifier for an observation unit|
 |observationUnitName|string|the human readable name for an observation unit|
 |parentType|string|The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.|
-|pollinationTimeStamp|string (date-time)|the timestamp when the polination took place|
+|pollinationTimeStamp|string (date-time)|the timestamp when the pollination took place|
 
 
  
@@ -402,36 +402,32 @@ Update existing Cross entities on this server
 ```
 {
     "d105fd6f": {
-        "additionalInfo": {
-            "additionalProp1": "string",
-            "additionalProp2": "string",
-            "additionalProp3": "string"
-        },
+        "additionalInfo": {},
         "crossAttributes": [
             {
                 "crossAttributeName": "string",
                 "crossAttributeValue": "string"
             }
         ],
-        "crossName": "myIbadanCrosses2018_01",
+        "crossName": "my_Ibadan_Crosses_2018_01",
         "crossType": "BIPARENTAL",
         "crossingProjectDbId": "696d7c92",
-        "crossingProjectName": "myIbadanCrosses2018",
+        "crossingProjectName": "my_Ibadan_Crosses_2018",
         "parent1": {
             "germplasmDbId": "d34b10c3",
-            "germplasmName": "TME419",
+            "germplasmName": "TME_419",
             "observationUnitDbId": "2e1926a7",
-            "observationUnitName": "myIbadanPlot9001",
+            "observationUnitName": "my_Ibadan_Plot_9001",
             "parentType": "MALE"
         },
         "parent2": {
             "germplasmDbId": "d34b10c3",
-            "germplasmName": "TME419",
+            "germplasmName": "TME_419",
             "observationUnitDbId": "2e1926a7",
-            "observationUnitName": "myIbadanPlot9001",
+            "observationUnitName": "my_Ibadan_Plot_9001",
             "parentType": "MALE"
         },
-        "pollinationTimeStamp": "2019-08-15T15:49:00.327Z"
+        "pollinationTimeStamp": "2019-08-15T18:49:00.327Z"
     }
 }
 ```
@@ -458,7 +454,7 @@ Update existing Cross entities on this server
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
-            "totalCount": 1,
+            "totalCount": 10,
             "totalPages": 1
         },
         "status": [
@@ -474,20 +470,20 @@ Update existing Cross entities on this server
                 "additionalInfo": {},
                 "crossAttributes": [
                     {
-                        "crossAttributeName": "Humidity",
-                        "crossAttributeValue": "45%"
+                        "crossAttributeName": "Humidity Percentage",
+                        "crossAttributeValue": 45
                     }
                 ],
                 "crossDbId": "d105fd6f",
-                "crossName": "myIbadanCrosses2018_01",
+                "crossName": "my_Ibadan_Crosses_2018_01",
                 "crossType": "BIPARENTAL",
                 "crossingProjectDbId": "696d7c92",
-                "crossingProjectName": "myIbadanCrosses2018",
+                "crossingProjectName": "my_Ibadan_Crosses_2018",
                 "parent1": {
                     "germplasmDbId": "d34b10c3",
-                    "germplasmName": "TME419",
+                    "germplasmName": "TME_419",
                     "observationUnitDbId": "2e1926a7",
-                    "observationUnitName": "myIbadanPlot9001",
+                    "observationUnitName": "my_Ibadan_Plot_9001",
                     "parentType": [
                         "MALE",
                         "FEMALE",
@@ -497,9 +493,9 @@ Update existing Cross entities on this server
                 },
                 "parent2": {
                     "germplasmDbId": "d34b10c3",
-                    "germplasmName": "TME419",
+                    "germplasmName": "TME_419",
                     "observationUnitDbId": "2e1926a7",
-                    "observationUnitName": "myIbadanPlot9001",
+                    "observationUnitName": "my_Ibadan_Plot_9001",
                     "parentType": [
                         "MALE",
                         "FEMALE",

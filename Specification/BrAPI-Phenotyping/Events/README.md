@@ -20,7 +20,7 @@ Get list of events
 |additionalInfo|object|Additional arbitrary info|
 |date|array[string]|A list of dates when the event occured  MIAPPE V1.1 (DM-68) Event date - Date and time of the event.|
 |eventDbId|string|Internal database identifier|
-|eventDescription|string|A detailed, human-readable description of this event  MIAPEE V1.1 (DM-67) Event description - Description of the event, including details such as amount applied and possibly duration of the event. |
+|eventDescription|string|A detailed, human-readable description of this event  MIAPPE V1.1 (DM-67) Event description - Description of the event, including details such as amount applied and possibly duration of the event. |
 |eventParameters|array[object]|A list of objects describing additional event parameters. Each of the following accepts a human-readable value or URI|
 |key|string|Specifies the relationship between the event and the given property. E.g. fertilizer, operator|
 |rdfValue|string|The type of the value given above, e.g. http://xmlns.com/foaf/0.1/Agent|
@@ -88,8 +88,8 @@ Get list of events
                 "eventDescription": "A set of plots was watered",
                 "eventParameters": [
                     {
-                        "key": "http://www.phenome-fppn.fr/vocabulary/2018#hasContact,",
-                        "value": "http://www.phenome-fppn.fr/diaphen/id/agent/marie_dupond,",
+                        "key": "http://www.example.fr/vocabulary/2018#hasContact,",
+                        "value": "http://www.example.fr/id/agent/marie,",
                         "valueRdfType": "http://xmlns.com/foaf/0.1/Agent,"
                     },
                     {
