@@ -134,7 +134,7 @@ components:
           description: The authority organization responsible for tracking and maintaining the species name (MCPD)
           type: string
           example: Smith, 1822
-        subtaxa:
+        germplasmSubtaxa:
           description: |-
             Subtaxon can be used to store any additional taxonomic identifier. (MCPD)
             
