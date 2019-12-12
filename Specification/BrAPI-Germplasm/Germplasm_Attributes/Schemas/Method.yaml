@@ -6,33 +6,12 @@ paths: {}
 components:
   schemas:
     Method:
-      type: object
-      description: Method metadata
-      properties:
-        methodClass:
-          description: 'Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.'
-          type: string
-          example: Measurement
-        methodDescription:
-          description: Method description.
-          type: string
-          example: A standard tape measure
-        formula:
-          description: For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation
-          type: string
-          example: a^2 + b^2 = c^2
-        methodDbId:
-          description: Method unique identifier
-          type: string
-          example: d04d6fb5
-        methodName:
-          description: Human readable name for the method
-          type: string
-          example: Tape Measure
-        ontologyReference:
-          $ref: '#/components/schemas/OntologyReference'
-        reference:
-          description: Bibliographical reference describing the method.
-          type: string
-          example: Smith, R., 1874, Working Title, Popular Journal volume 4
+      allOf:
+      - $ref: '#/components/schemas/MethodNewRequest'
+      - type: object
+        properties:
+          methodDbId:
+            description: Method unique identifier
+            type: string
+            example: 0adb2764
 
