@@ -3062,12 +3062,13 @@ List available attributes.
 |growthStage|string|Growth stage at which measurement is made (examples: "flowering")|
 |institution|string|Name of institution submitting the variable|
 |language|string|2 letter ISO 639-1 code for the language of submission of the variable.|
-|method|object|Method metadata|
+|method|object||
+|additionalInfo|object|Additional arbitrary info|
+|description|string|Method description  MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
-|methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.|
+|methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |methodDbId|string|Method unique identifier|
-|methodDescription|string|Method description.|
-|methodName|string|Human readable name for the method|
+|methodName|string|Human readable name for the method  MIAPPE V1.1 (DM-88) Method  Name of the method of observation|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -3075,7 +3076,7 @@ List available attributes.
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|reference|string|Bibliographical reference describing the method.|
+|reference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -3083,7 +3084,7 @@ List available attributes.
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|scale|object|Scale metadata|
+|scale|object||
 |dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
@@ -3094,7 +3095,7 @@ List available attributes.
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
 |scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
-|scaleName|string|Name of the scale|
+|scaleName|string|Name of the scale  MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
 |validValues|object||
 |categories|array[object]|List of possible values with optional labels|
 |label|string|A text label for a category|
@@ -3123,7 +3124,7 @@ List available attributes.
 |traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
 |traitDbId|string|The ID which uniquely identifies a trait|
 |traitDescription|string|The description of a trait|
-|traitName|string|The human readable name of a trait|
+|traitName|string|The human readable name of a trait  MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
 |xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
 |xref|string|Cross reference of the variable term to a term from an external ontology or to a database of a major system.|
 
@@ -3191,11 +3192,12 @@ List available attributes.
                 "institution": "The BrAPI Institute",
                 "language": "en",
                 "method": {
+                    "additionalInfo": {},
+                    "description": "A measuring tape was used",
                     "formula": "a^2 + b^2 = c^2",
                     "methodClass": "Measurement",
-                    "methodDbId": "d04d6fb5",
-                    "methodDescription": "A standard tape measure",
-                    "methodName": "Tape Measure",
+                    "methodDbId": "0adb2764",
+                    "methodName": "Measuring Tape",
                     "ontologyReference": {
                         "documentationLinks": [
                             {
@@ -3211,7 +3213,7 @@ List available attributes.
                         "ontologyName": "The Crop Ontology",
                         "version": "7.2.3"
                     },
-                    "reference": "Smith, R., 1874, Working Title, Popular Journal volume 4"
+                    "reference": "Smith, 1893, Really Cool Paper, Popular Journal"
                 },
                 "ontologyReference": {
                     "documentationLinks": [
@@ -3365,12 +3367,13 @@ Create new Germplasm Attributes
 |growthStage|string|Growth stage at which measurement is made (examples: "flowering")|
 |institution|string|Name of institution submitting the variable|
 |language|string|2 letter ISO 639-1 code for the language of submission of the variable.|
-|method|object|Method metadata|
+|method|object||
+|additionalInfo|object|Additional arbitrary info|
+|description|string|Method description  MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
-|methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.|
+|methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |methodDbId|string|Method unique identifier|
-|methodDescription|string|Method description.|
-|methodName|string|Human readable name for the method|
+|methodName|string|Human readable name for the method  MIAPPE V1.1 (DM-88) Method  Name of the method of observation|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -3378,7 +3381,7 @@ Create new Germplasm Attributes
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|reference|string|Bibliographical reference describing the method.|
+|reference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -3386,7 +3389,7 @@ Create new Germplasm Attributes
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|scale|object|Scale metadata|
+|scale|object||
 |dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
@@ -3397,7 +3400,7 @@ Create new Germplasm Attributes
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
 |scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
-|scaleName|string|Name of the scale|
+|scaleName|string|Name of the scale  MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
 |validValues|object||
 |categories|array[object]|List of possible values with optional labels|
 |label|string|A text label for a category|
@@ -3426,7 +3429,7 @@ Create new Germplasm Attributes
 |traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
 |traitDbId|string|The ID which uniquely identifies a trait|
 |traitDescription|string|The description of a trait|
-|traitName|string|The human readable name of a trait|
+|traitName|string|The human readable name of a trait  MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
 |xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
 |xref|string|Cross reference of the variable term to a term from an external ontology or to a database of a major system.|
 
@@ -3448,12 +3451,13 @@ Create new Germplasm Attributes
 |growthStage|string|Growth stage at which measurement is made (examples: "flowering")|
 |institution|string|Name of institution submitting the variable|
 |language|string|2 letter ISO 639-1 code for the language of submission of the variable.|
-|method|object|Method metadata|
+|method|object||
+|additionalInfo|object|Additional arbitrary info|
+|description|string|Method description  MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
-|methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.|
+|methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |methodDbId|string|Method unique identifier|
-|methodDescription|string|Method description.|
-|methodName|string|Human readable name for the method|
+|methodName|string|Human readable name for the method  MIAPPE V1.1 (DM-88) Method  Name of the method of observation|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -3461,7 +3465,7 @@ Create new Germplasm Attributes
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|reference|string|Bibliographical reference describing the method.|
+|reference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -3469,7 +3473,7 @@ Create new Germplasm Attributes
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|scale|object|Scale metadata|
+|scale|object||
 |dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
@@ -3480,7 +3484,7 @@ Create new Germplasm Attributes
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
 |scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
-|scaleName|string|Name of the scale|
+|scaleName|string|Name of the scale  MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
 |validValues|object||
 |categories|array[object]|List of possible values with optional labels|
 |label|string|A text label for a category|
@@ -3509,7 +3513,7 @@ Create new Germplasm Attributes
 |traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
 |traitDbId|string|The ID which uniquely identifies a trait|
 |traitDescription|string|The description of a trait|
-|traitName|string|The human readable name of a trait|
+|traitName|string|The human readable name of a trait  MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
 |xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
 |xref|string|Cross reference of the variable term to a term from an external ontology or to a database of a major system.|
 
@@ -3540,11 +3544,12 @@ Create new Germplasm Attributes
         "institution": "The BrAPI Institute",
         "language": "en",
         "method": {
+            "additionalInfo": {},
+            "description": "A measuring tape was used",
             "formula": "a^2 + b^2 = c^2",
             "methodClass": "Measurement",
-            "methodDbId": "d04d6fb5",
-            "methodDescription": "A standard tape measure",
-            "methodName": "Tape Measure",
+            "methodDbId": "0adb2764",
+            "methodName": "Measuring Tape",
             "ontologyReference": {
                 "documentationLinks": [
                     {
@@ -3560,7 +3565,7 @@ Create new Germplasm Attributes
                 "ontologyName": "The Crop Ontology",
                 "version": "7.2.3"
             },
-            "reference": "Smith, R., 1874, Working Title, Popular Journal volume 4"
+            "reference": "Smith, 1893, Really Cool Paper, Popular Journal"
         },
         "ontologyReference": {
             "documentationLinks": [
@@ -3726,11 +3731,12 @@ Create new Germplasm Attributes
                 "institution": "The BrAPI Institute",
                 "language": "en",
                 "method": {
+                    "additionalInfo": {},
+                    "description": "A measuring tape was used",
                     "formula": "a^2 + b^2 = c^2",
                     "methodClass": "Measurement",
-                    "methodDbId": "d04d6fb5",
-                    "methodDescription": "A standard tape measure",
-                    "methodName": "Tape Measure",
+                    "methodDbId": "0adb2764",
+                    "methodName": "Measuring Tape",
                     "ontologyReference": {
                         "documentationLinks": [
                             {
@@ -3746,7 +3752,7 @@ Create new Germplasm Attributes
                         "ontologyName": "The Crop Ontology",
                         "version": "7.2.3"
                     },
-                    "reference": "Smith, R., 1874, Working Title, Popular Journal volume 4"
+                    "reference": "Smith, 1893, Really Cool Paper, Popular Journal"
                 },
                 "ontologyReference": {
                     "documentationLinks": [
@@ -3983,12 +3989,13 @@ Get the details for a specific Germplasm Attribute
 |growthStage|string|Growth stage at which measurement is made (examples: "flowering")|
 |institution|string|Name of institution submitting the variable|
 |language|string|2 letter ISO 639-1 code for the language of submission of the variable.|
-|method|object|Method metadata|
+|method|object||
+|additionalInfo|object|Additional arbitrary info|
+|description|string|Method description  MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
-|methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.|
+|methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |methodDbId|string|Method unique identifier|
-|methodDescription|string|Method description.|
-|methodName|string|Human readable name for the method|
+|methodName|string|Human readable name for the method  MIAPPE V1.1 (DM-88) Method  Name of the method of observation|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -3996,7 +4003,7 @@ Get the details for a specific Germplasm Attribute
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|reference|string|Bibliographical reference describing the method.|
+|reference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -4004,7 +4011,7 @@ Get the details for a specific Germplasm Attribute
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|scale|object|Scale metadata|
+|scale|object||
 |dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
@@ -4015,7 +4022,7 @@ Get the details for a specific Germplasm Attribute
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
 |scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
-|scaleName|string|Name of the scale|
+|scaleName|string|Name of the scale  MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
 |validValues|object||
 |categories|array[object]|List of possible values with optional labels|
 |label|string|A text label for a category|
@@ -4044,7 +4051,7 @@ Get the details for a specific Germplasm Attribute
 |traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
 |traitDbId|string|The ID which uniquely identifies a trait|
 |traitDescription|string|The description of a trait|
-|traitName|string|The human readable name of a trait|
+|traitName|string|The human readable name of a trait  MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
 |xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
 |xref|string|Cross reference of the variable term to a term from an external ontology or to a database of a major system.|
 
@@ -4105,11 +4112,12 @@ Get the details for a specific Germplasm Attribute
         "institution": "The BrAPI Institute",
         "language": "en",
         "method": {
+            "additionalInfo": {},
+            "description": "A measuring tape was used",
             "formula": "a^2 + b^2 = c^2",
             "methodClass": "Measurement",
-            "methodDbId": "d04d6fb5",
-            "methodDescription": "A standard tape measure",
-            "methodName": "Tape Measure",
+            "methodDbId": "0adb2764",
+            "methodName": "Measuring Tape",
             "ontologyReference": {
                 "documentationLinks": [
                     {
@@ -4125,7 +4133,7 @@ Get the details for a specific Germplasm Attribute
                 "ontologyName": "The Crop Ontology",
                 "version": "7.2.3"
             },
-            "reference": "Smith, R., 1874, Working Title, Popular Journal volume 4"
+            "reference": "Smith, 1893, Really Cool Paper, Popular Journal"
         },
         "ontologyReference": {
             "documentationLinks": [
@@ -4277,12 +4285,13 @@ Create new Germplasm Attributes
 |growthStage|string|Growth stage at which measurement is made (examples: "flowering")|
 |institution|string|Name of institution submitting the variable|
 |language|string|2 letter ISO 639-1 code for the language of submission of the variable.|
-|method|object|Method metadata|
+|method|object||
+|additionalInfo|object|Additional arbitrary info|
+|description|string|Method description  MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
-|methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.|
+|methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |methodDbId|string|Method unique identifier|
-|methodDescription|string|Method description.|
-|methodName|string|Human readable name for the method|
+|methodName|string|Human readable name for the method  MIAPPE V1.1 (DM-88) Method  Name of the method of observation|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -4290,7 +4299,7 @@ Create new Germplasm Attributes
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|reference|string|Bibliographical reference describing the method.|
+|reference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -4298,7 +4307,7 @@ Create new Germplasm Attributes
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|scale|object|Scale metadata|
+|scale|object||
 |dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
@@ -4309,7 +4318,7 @@ Create new Germplasm Attributes
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
 |scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
-|scaleName|string|Name of the scale|
+|scaleName|string|Name of the scale  MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
 |validValues|object||
 |categories|array[object]|List of possible values with optional labels|
 |label|string|A text label for a category|
@@ -4338,7 +4347,7 @@ Create new Germplasm Attributes
 |traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
 |traitDbId|string|The ID which uniquely identifies a trait|
 |traitDescription|string|The description of a trait|
-|traitName|string|The human readable name of a trait|
+|traitName|string|The human readable name of a trait  MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
 |xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
 |xref|string|Cross reference of the variable term to a term from an external ontology or to a database of a major system.|
 
@@ -4359,12 +4368,13 @@ Create new Germplasm Attributes
 |growthStage|string|Growth stage at which measurement is made (examples: "flowering")|
 |institution|string|Name of institution submitting the variable|
 |language|string|2 letter ISO 639-1 code for the language of submission of the variable.|
-|method|object|Method metadata|
+|method|object||
+|additionalInfo|object|Additional arbitrary info|
+|description|string|Method description  MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
-|methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.|
+|methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |methodDbId|string|Method unique identifier|
-|methodDescription|string|Method description.|
-|methodName|string|Human readable name for the method|
+|methodName|string|Human readable name for the method  MIAPPE V1.1 (DM-88) Method  Name of the method of observation|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -4372,7 +4382,7 @@ Create new Germplasm Attributes
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|reference|string|Bibliographical reference describing the method.|
+|reference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -4380,7 +4390,7 @@ Create new Germplasm Attributes
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|scale|object|Scale metadata|
+|scale|object||
 |dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
@@ -4391,7 +4401,7 @@ Create new Germplasm Attributes
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
 |scaleDbId|string|Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.|
-|scaleName|string|Name of the scale|
+|scaleName|string|Name of the scale  MIAPPE V1.1 (DM-92) Scale Name of the scale associated with the variable|
 |validValues|object||
 |categories|array[object]|List of possible values with optional labels|
 |label|string|A text label for a category|
@@ -4420,7 +4430,7 @@ Create new Germplasm Attributes
 |traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
 |traitDbId|string|The ID which uniquely identifies a trait|
 |traitDescription|string|The description of a trait|
-|traitName|string|The human readable name of a trait|
+|traitName|string|The human readable name of a trait  MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
 |xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
 |xref|string|Cross reference of the variable term to a term from an external ontology or to a database of a major system.|
 
@@ -4451,11 +4461,12 @@ Create new Germplasm Attributes
     "institution": "The BrAPI Institute",
     "language": "en",
     "method": {
+        "additionalInfo": {},
+        "description": "A measuring tape was used",
         "formula": "a^2 + b^2 = c^2",
         "methodClass": "Measurement",
-        "methodDbId": "d04d6fb5",
-        "methodDescription": "A standard tape measure",
-        "methodName": "Tape Measure",
+        "methodDbId": "0adb2764",
+        "methodName": "Measuring Tape",
         "ontologyReference": {
             "documentationLinks": [
                 {
@@ -4471,7 +4482,7 @@ Create new Germplasm Attributes
             "ontologyName": "The Crop Ontology",
             "version": "7.2.3"
         },
-        "reference": "Smith, R., 1874, Working Title, Popular Journal volume 4"
+        "reference": "Smith, 1893, Really Cool Paper, Popular Journal"
     },
     "ontologyReference": {
         "documentationLinks": [
@@ -4634,11 +4645,12 @@ Create new Germplasm Attributes
         "institution": "The BrAPI Institute",
         "language": "en",
         "method": {
+            "additionalInfo": {},
+            "description": "A measuring tape was used",
             "formula": "a^2 + b^2 = c^2",
             "methodClass": "Measurement",
-            "methodDbId": "d04d6fb5",
-            "methodDescription": "A standard tape measure",
-            "methodName": "Tape Measure",
+            "methodDbId": "0adb2764",
+            "methodName": "Measuring Tape",
             "ontologyReference": {
                 "documentationLinks": [
                     {
@@ -4654,7 +4666,7 @@ Create new Germplasm Attributes
                 "ontologyName": "The Crop Ontology",
                 "version": "7.2.3"
             },
-            "reference": "Smith, R., 1874, Working Title, Popular Journal volume 4"
+            "reference": "Smith, 1893, Really Cool Paper, Popular Journal"
         },
         "ontologyReference": {
             "documentationLinks": [

@@ -7,7 +7,7 @@ components:
   schemas:
     Trait:
       allOf:
-      - $ref: '#/components/schemas/TraitNewRequest'
+      - $ref: '#/components/schemas/TraitBaseClass'
       - type: object
         properties:
           traitDbId:

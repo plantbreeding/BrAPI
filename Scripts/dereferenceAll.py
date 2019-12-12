@@ -36,7 +36,7 @@ def dereferenceAll(obj, parent):
                 newList.append(dereferenceAll(item, parent))
             obj = newList
     except Exception as ex:
-        print(obj)
+        ##print(obj)
         raise ex
     return obj
 

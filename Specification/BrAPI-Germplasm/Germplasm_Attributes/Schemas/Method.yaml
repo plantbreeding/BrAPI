@@ -7,7 +7,7 @@ components:
   schemas:
     Method:
       allOf:
-      - $ref: '#/components/schemas/MethodNewRequest'
+      - $ref: '#/components/schemas/MethodBaseClass'
       - type: object
         properties:
           methodDbId:

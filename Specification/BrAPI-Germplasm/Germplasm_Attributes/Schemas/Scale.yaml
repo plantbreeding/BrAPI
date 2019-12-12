@@ -7,7 +7,7 @@ components:
   schemas:
     Scale:
       allOf:
-      - $ref: '#/components/schemas/ScaleNewRequest'
+      - $ref: '#/components/schemas/ScaleBaseClass'
       - type: object
         description: Scale metadata
         required:
