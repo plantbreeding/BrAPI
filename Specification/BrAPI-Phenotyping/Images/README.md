@@ -858,7 +858,7 @@ See Search Services for additional implementation details.
 |imageFileSizeMin|integer|A minimum image file size to search for.|
 |imageHeightMax|integer|A maximum image height to search for.|
 |imageHeightMin|integer|A minimum image height to search for.|
-|imageLocation|object||
+|imageLocation|object|A GeoJSON Polygon which describes an area to search for other GeoJSON objects. All contained Points and intersecting Polygons should be returned as search results.   All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
 |imageNames|array[string]|Human readable names to search for.|
@@ -924,10 +924,26 @@ See Search Services for additional implementation details.
     "imageLocation": {
         "geometry": {
             "coordinates": [
-                -76.506042,
-                42.417373
+                [
+                    [
+                        -77.456654,
+                        42.241133
+                    ],
+                    [
+                        -75.414133,
+                        41.508282
+                    ],
+                    [
+                        -76.506042,
+                        42.417373
+                    ],
+                    [
+                        -77.456654,
+                        42.241133
+                    ]
+                ]
             ],
-            "type": "Point"
+            "type": "Polygon"
         },
         "type": "Feature"
     },

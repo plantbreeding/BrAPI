@@ -1838,7 +1838,7 @@ See Search Services for additional implementation details.
 |abbreviations|array[string]|An abbreviation which represents this location|
 |altitudeMax|number|The maximum altitude to search for|
 |altitudeMin|number|The minimum altitude to search for|
-|coordinates|object||
+|coordinates|object|A GeoJSON Polygon which describes an area to search for other GeoJSON objects. All contained Points and intersecting Polygons should be returned as search results.   All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
 |countryCodes|array[string]|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
@@ -1899,10 +1899,26 @@ See Search Services for additional implementation details.
     "coordinates": {
         "geometry": {
             "coordinates": [
-                -76.506042,
-                42.417373
+                [
+                    [
+                        -77.456654,
+                        42.241133
+                    ],
+                    [
+                        -75.414133,
+                        41.508282
+                    ],
+                    [
+                        -76.506042,
+                        42.417373
+                    ],
+                    [
+                        -77.456654,
+                        42.241133
+                    ]
+                ]
             ],
-            "type": "Point"
+            "type": "Polygon"
         },
         "type": "Feature"
     },
