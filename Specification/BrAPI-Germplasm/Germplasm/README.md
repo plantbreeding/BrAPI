@@ -224,13 +224,13 @@ Addresses these needs
 |germplasmPUI|string|The Permanent Unique Identifier which represents a germplasm  MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.|
 |germplasmPreprocessing|string|Description of any process or treatment applied uniformly to the germplasm, prior to the study itself. Can be provided as free text or as an accession number from a suitable controlled vocabulary.|
 |germplasmSpecies|string|Specific epithet portion of the scientific name in lowercase letters. (MCPD)  MIAPPE V1.1 (DM-44) Species - Species name (formally: specific epithet) for the organism under study, according to standard scientific nomenclature.|
+|germplasmSubtaxa|string|Subtaxon can be used to store any additional taxonomic identifier. (MCPD)  MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).|
 |instituteCode|string|The code for the Institute that has bred the material. (MCPD)|
 |instituteName|string|The name of the institution which bred the material (MCPD)|
 |pedigree|string|The cross name and optional selection history.|
 |seedSource|string|The source of the seed |
 |seedSourceDescription|string|Description of the material source|
 |speciesAuthority|string|The authority organization responsible for tracking and maintaining the species name (MCPD)|
-|subtaxa|string|Subtaxon can be used to store any additional taxonomic identifier. (MCPD)  MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).|
 |subtaxaAuthority|string|The authority organization responsible for tracking and maintaining the subtaxon information (MCPD)|
 |synonyms|array[string]|List of alternative names or IDs used to reference this germplasm|
 |taxonIds|array[object]|The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.  MIAPPE V1.1 (DM-42) Organism - An identifier for the organism at the species level. Use of the NCBI taxon ID is recommended.|
@@ -327,13 +327,13 @@ Addresses these needs
                 "germplasmPUI": "http://pui.per/accession/A0000003",
                 "germplasmPreprocessing": "EO:0007210; transplanted from study 2351 observation unit ID: pot:894",
                 "germplasmSpecies": "fructus",
+                "germplasmSubtaxa": "Aspergillus fructus A",
                 "instituteCode": "PER001",
                 "instituteName": "The BrAPI Institute",
                 "pedigree": "A0000001/A0000002",
                 "seedSource": "A0000001/A0000002",
                 "seedSourceDescription": "Branches were collected from a 10-year-old tree growing in a progeny trial established in a loamy brown earth soil.",
                 "speciesAuthority": "Smith, 1822",
-                "subtaxa": "Aspergillus fructus A",
                 "subtaxaAuthority": "Smith, 1822",
                 "synonyms": [
                     "variety_1"
@@ -412,13 +412,13 @@ Addresses these needs
 |germplasmPUI|string|The Permanent Unique Identifier which represents a germplasm  MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.|
 |germplasmPreprocessing|string|Description of any process or treatment applied uniformly to the germplasm, prior to the study itself. Can be provided as free text or as an accession number from a suitable controlled vocabulary.|
 |germplasmSpecies|string|Specific epithet portion of the scientific name in lowercase letters. (MCPD)  MIAPPE V1.1 (DM-44) Species - Species name (formally: specific epithet) for the organism under study, according to standard scientific nomenclature.|
+|germplasmSubtaxa|string|Subtaxon can be used to store any additional taxonomic identifier. (MCPD)  MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).|
 |instituteCode|string|The code for the Institute that has bred the material. (MCPD)|
 |instituteName|string|The name of the institution which bred the material (MCPD)|
 |pedigree|string|The cross name and optional selection history.|
 |seedSource|string|The source of the seed |
 |seedSourceDescription|string|Description of the material source|
 |speciesAuthority|string|The authority organization responsible for tracking and maintaining the species name (MCPD)|
-|subtaxa|string|Subtaxon can be used to store any additional taxonomic identifier. (MCPD)  MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).|
 |subtaxaAuthority|string|The authority organization responsible for tracking and maintaining the subtaxon information (MCPD)|
 |synonyms|array[string]|List of alternative names or IDs used to reference this germplasm|
 |taxonIds|array[object]|The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.  MIAPPE V1.1 (DM-42) Organism - An identifier for the organism at the species level. Use of the NCBI taxon ID is recommended.|
@@ -459,13 +459,13 @@ Addresses these needs
 |germplasmPUI|string|The Permanent Unique Identifier which represents a germplasm  MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.|
 |germplasmPreprocessing|string|Description of any process or treatment applied uniformly to the germplasm, prior to the study itself. Can be provided as free text or as an accession number from a suitable controlled vocabulary.|
 |germplasmSpecies|string|Specific epithet portion of the scientific name in lowercase letters. (MCPD)  MIAPPE V1.1 (DM-44) Species - Species name (formally: specific epithet) for the organism under study, according to standard scientific nomenclature.|
+|germplasmSubtaxa|string|Subtaxon can be used to store any additional taxonomic identifier. (MCPD)  MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).|
 |instituteCode|string|The code for the Institute that has bred the material. (MCPD)|
 |instituteName|string|The name of the institution which bred the material (MCPD)|
 |pedigree|string|The cross name and optional selection history.|
 |seedSource|string|The source of the seed |
 |seedSourceDescription|string|Description of the material source|
 |speciesAuthority|string|The authority organization responsible for tracking and maintaining the species name (MCPD)|
-|subtaxa|string|Subtaxon can be used to store any additional taxonomic identifier. (MCPD)  MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).|
 |subtaxaAuthority|string|The authority organization responsible for tracking and maintaining the subtaxon information (MCPD)|
 |synonyms|array[string]|List of alternative names or IDs used to reference this germplasm|
 |taxonIds|array[object]|The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.  MIAPPE V1.1 (DM-42) Organism - An identifier for the organism at the species level. Use of the NCBI taxon ID is recommended.|
@@ -517,13 +517,13 @@ Addresses these needs
         "germplasmPUI": "http://pui.per/accession/A0000003",
         "germplasmPreprocessing": "EO:0007210; transplanted from study 2351 observation unit ID: pot:894",
         "germplasmSpecies": "fructus",
+        "germplasmSubtaxa": "Aspergillus fructus A",
         "instituteCode": "PER001",
         "instituteName": "The BrAPI Institute",
         "pedigree": "A0000001/A0000002",
         "seedSource": "A0000001/A0000002",
         "seedSourceDescription": "Branches were collected from a 10-year-old tree growing in a progeny trial established in a loamy brown earth soil.",
         "speciesAuthority": "Smith, 1822",
-        "subtaxa": "Aspergillus fructus A",
         "subtaxaAuthority": "Smith, 1822",
         "synonyms": [
             "variety_1"
@@ -610,13 +610,13 @@ Addresses these needs
                 "germplasmPUI": "http://pui.per/accession/A0000003",
                 "germplasmPreprocessing": "EO:0007210; transplanted from study 2351 observation unit ID: pot:894",
                 "germplasmSpecies": "fructus",
+                "germplasmSubtaxa": "Aspergillus fructus A",
                 "instituteCode": "PER001",
                 "instituteName": "The BrAPI Institute",
                 "pedigree": "A0000001/A0000002",
                 "seedSource": "A0000001/A0000002",
                 "seedSourceDescription": "Branches were collected from a 10-year-old tree growing in a progeny trial established in a loamy brown earth soil.",
                 "speciesAuthority": "Smith, 1822",
-                "subtaxa": "Aspergillus fructus A",
                 "subtaxaAuthority": "Smith, 1822",
                 "synonyms": [
                     "variety_1"
@@ -692,13 +692,13 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 |germplasmPUI|string|The Permanent Unique Identifier which represents a germplasm  MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.|
 |germplasmPreprocessing|string|Description of any process or treatment applied uniformly to the germplasm, prior to the study itself. Can be provided as free text or as an accession number from a suitable controlled vocabulary.|
 |germplasmSpecies|string|Specific epithet portion of the scientific name in lowercase letters. (MCPD)  MIAPPE V1.1 (DM-44) Species - Species name (formally: specific epithet) for the organism under study, according to standard scientific nomenclature.|
+|germplasmSubtaxa|string|Subtaxon can be used to store any additional taxonomic identifier. (MCPD)  MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).|
 |instituteCode|string|The code for the Institute that has bred the material. (MCPD)|
 |instituteName|string|The name of the institution which bred the material (MCPD)|
 |pedigree|string|The cross name and optional selection history.|
 |seedSource|string|The source of the seed |
 |seedSourceDescription|string|Description of the material source|
 |speciesAuthority|string|The authority organization responsible for tracking and maintaining the species name (MCPD)|
-|subtaxa|string|Subtaxon can be used to store any additional taxonomic identifier. (MCPD)  MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).|
 |subtaxaAuthority|string|The authority organization responsible for tracking and maintaining the subtaxon information (MCPD)|
 |synonyms|array[string]|List of alternative names or IDs used to reference this germplasm|
 |taxonIds|array[object]|The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.  MIAPPE V1.1 (DM-42) Organism - An identifier for the organism at the species level. Use of the NCBI taxon ID is recommended.|
@@ -780,13 +780,13 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
         "germplasmPUI": "http://pui.per/accession/A0000003",
         "germplasmPreprocessing": "EO:0007210; transplanted from study 2351 observation unit ID: pot:894",
         "germplasmSpecies": "fructus",
+        "germplasmSubtaxa": "Aspergillus fructus A",
         "instituteCode": "PER001",
         "instituteName": "The BrAPI Institute",
         "pedigree": "A0000001/A0000002",
         "seedSource": "A0000001/A0000002",
         "seedSourceDescription": "Branches were collected from a 10-year-old tree growing in a progeny trial established in a loamy brown earth soil.",
         "speciesAuthority": "Smith, 1822",
-        "subtaxa": "Aspergillus fructus A",
         "subtaxaAuthority": "Smith, 1822",
         "synonyms": [
             "variety_1"
@@ -862,13 +862,13 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 |germplasmPUI|string|The Permanent Unique Identifier which represents a germplasm  MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.|
 |germplasmPreprocessing|string|Description of any process or treatment applied uniformly to the germplasm, prior to the study itself. Can be provided as free text or as an accession number from a suitable controlled vocabulary.|
 |germplasmSpecies|string|Specific epithet portion of the scientific name in lowercase letters. (MCPD)  MIAPPE V1.1 (DM-44) Species - Species name (formally: specific epithet) for the organism under study, according to standard scientific nomenclature.|
+|germplasmSubtaxa|string|Subtaxon can be used to store any additional taxonomic identifier. (MCPD)  MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).|
 |instituteCode|string|The code for the Institute that has bred the material. (MCPD)|
 |instituteName|string|The name of the institution which bred the material (MCPD)|
 |pedigree|string|The cross name and optional selection history.|
 |seedSource|string|The source of the seed |
 |seedSourceDescription|string|Description of the material source|
 |speciesAuthority|string|The authority organization responsible for tracking and maintaining the species name (MCPD)|
-|subtaxa|string|Subtaxon can be used to store any additional taxonomic identifier. (MCPD)  MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).|
 |subtaxaAuthority|string|The authority organization responsible for tracking and maintaining the subtaxon information (MCPD)|
 |synonyms|array[string]|List of alternative names or IDs used to reference this germplasm|
 |taxonIds|array[object]|The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.  MIAPPE V1.1 (DM-42) Organism - An identifier for the organism at the species level. Use of the NCBI taxon ID is recommended.|
@@ -908,13 +908,13 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 |germplasmPUI|string|The Permanent Unique Identifier which represents a germplasm  MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.|
 |germplasmPreprocessing|string|Description of any process or treatment applied uniformly to the germplasm, prior to the study itself. Can be provided as free text or as an accession number from a suitable controlled vocabulary.|
 |germplasmSpecies|string|Specific epithet portion of the scientific name in lowercase letters. (MCPD)  MIAPPE V1.1 (DM-44) Species - Species name (formally: specific epithet) for the organism under study, according to standard scientific nomenclature.|
+|germplasmSubtaxa|string|Subtaxon can be used to store any additional taxonomic identifier. (MCPD)  MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).|
 |instituteCode|string|The code for the Institute that has bred the material. (MCPD)|
 |instituteName|string|The name of the institution which bred the material (MCPD)|
 |pedigree|string|The cross name and optional selection history.|
 |seedSource|string|The source of the seed |
 |seedSourceDescription|string|Description of the material source|
 |speciesAuthority|string|The authority organization responsible for tracking and maintaining the species name (MCPD)|
-|subtaxa|string|Subtaxon can be used to store any additional taxonomic identifier. (MCPD)  MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).|
 |subtaxaAuthority|string|The authority organization responsible for tracking and maintaining the subtaxon information (MCPD)|
 |synonyms|array[string]|List of alternative names or IDs used to reference this germplasm|
 |taxonIds|array[object]|The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.  MIAPPE V1.1 (DM-42) Organism - An identifier for the organism at the species level. Use of the NCBI taxon ID is recommended.|
@@ -966,13 +966,13 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
     "germplasmPUI": "http://pui.per/accession/A0000003",
     "germplasmPreprocessing": "EO:0007210; transplanted from study 2351 observation unit ID: pot:894",
     "germplasmSpecies": "fructus",
+    "germplasmSubtaxa": "Aspergillus fructus A",
     "instituteCode": "PER001",
     "instituteName": "The BrAPI Institute",
     "pedigree": "A0000001/A0000002",
     "seedSource": "A0000001/A0000002",
     "seedSourceDescription": "Branches were collected from a 10-year-old tree growing in a progeny trial established in a loamy brown earth soil.",
     "speciesAuthority": "Smith, 1822",
-    "subtaxa": "Aspergillus fructus A",
     "subtaxaAuthority": "Smith, 1822",
     "synonyms": [
         "variety_1"
@@ -1056,13 +1056,13 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
         "germplasmPUI": "http://pui.per/accession/A0000003",
         "germplasmPreprocessing": "EO:0007210; transplanted from study 2351 observation unit ID: pot:894",
         "germplasmSpecies": "fructus",
+        "germplasmSubtaxa": "Aspergillus fructus A",
         "instituteCode": "PER001",
         "instituteName": "The BrAPI Institute",
         "pedigree": "A0000001/A0000002",
         "seedSource": "A0000001/A0000002",
         "seedSourceDescription": "Branches were collected from a 10-year-old tree growing in a progeny trial established in a loamy brown earth soil.",
         "speciesAuthority": "Smith, 1822",
-        "subtaxa": "Aspergillus fructus A",
         "subtaxaAuthority": "Smith, 1822",
         "synonyms": [
             "variety_1"
@@ -1608,13 +1608,13 @@ See Search Services for additional implementation details.
 |germplasmPUI|string|The Permanent Unique Identifier which represents a germplasm  MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.|
 |germplasmPreprocessing|string|Description of any process or treatment applied uniformly to the germplasm, prior to the study itself. Can be provided as free text or as an accession number from a suitable controlled vocabulary.|
 |germplasmSpecies|string|Specific epithet portion of the scientific name in lowercase letters. (MCPD)  MIAPPE V1.1 (DM-44) Species - Species name (formally: specific epithet) for the organism under study, according to standard scientific nomenclature.|
+|germplasmSubtaxa|string|Subtaxon can be used to store any additional taxonomic identifier. (MCPD)  MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).|
 |instituteCode|string|The code for the Institute that has bred the material. (MCPD)|
 |instituteName|string|The name of the institution which bred the material (MCPD)|
 |pedigree|string|The cross name and optional selection history.|
 |seedSource|string|The source of the seed |
 |seedSourceDescription|string|Description of the material source|
 |speciesAuthority|string|The authority organization responsible for tracking and maintaining the species name (MCPD)|
-|subtaxa|string|Subtaxon can be used to store any additional taxonomic identifier. (MCPD)  MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).|
 |subtaxaAuthority|string|The authority organization responsible for tracking and maintaining the subtaxon information (MCPD)|
 |synonyms|array[string]|List of alternative names or IDs used to reference this germplasm|
 |taxonIds|array[object]|The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.  MIAPPE V1.1 (DM-42) Organism - An identifier for the organism at the species level. Use of the NCBI taxon ID is recommended.|
@@ -1754,13 +1754,13 @@ See Search Services for additional implementation details.
                 "germplasmPUI": "http://pui.per/accession/A0000003",
                 "germplasmPreprocessing": "EO:0007210; transplanted from study 2351 observation unit ID: pot:894",
                 "germplasmSpecies": "fructus",
+                "germplasmSubtaxa": "Aspergillus fructus A",
                 "instituteCode": "PER001",
                 "instituteName": "The BrAPI Institute",
                 "pedigree": "A0000001/A0000002",
                 "seedSource": "A0000001/A0000002",
                 "seedSourceDescription": "Branches were collected from a 10-year-old tree growing in a progeny trial established in a loamy brown earth soil.",
                 "speciesAuthority": "Smith, 1822",
-                "subtaxa": "Aspergillus fructus A",
                 "subtaxaAuthority": "Smith, 1822",
                 "synonyms": [
                     "variety_1"
@@ -1881,13 +1881,13 @@ Addresses these needs:
 |germplasmPUI|string|The Permanent Unique Identifier which represents a germplasm  MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.|
 |germplasmPreprocessing|string|Description of any process or treatment applied uniformly to the germplasm, prior to the study itself. Can be provided as free text or as an accession number from a suitable controlled vocabulary.|
 |germplasmSpecies|string|Specific epithet portion of the scientific name in lowercase letters. (MCPD)  MIAPPE V1.1 (DM-44) Species - Species name (formally: specific epithet) for the organism under study, according to standard scientific nomenclature.|
+|germplasmSubtaxa|string|Subtaxon can be used to store any additional taxonomic identifier. (MCPD)  MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).|
 |instituteCode|string|The code for the Institute that has bred the material. (MCPD)|
 |instituteName|string|The name of the institution which bred the material (MCPD)|
 |pedigree|string|The cross name and optional selection history.|
 |seedSource|string|The source of the seed |
 |seedSourceDescription|string|Description of the material source|
 |speciesAuthority|string|The authority organization responsible for tracking and maintaining the species name (MCPD)|
-|subtaxa|string|Subtaxon can be used to store any additional taxonomic identifier. (MCPD)  MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).|
 |subtaxaAuthority|string|The authority organization responsible for tracking and maintaining the subtaxon information (MCPD)|
 |synonyms|array[string]|List of alternative names or IDs used to reference this germplasm|
 |taxonIds|array[object]|The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.  MIAPPE V1.1 (DM-42) Organism - An identifier for the organism at the species level. Use of the NCBI taxon ID is recommended.|
@@ -2009,13 +2009,13 @@ Addresses these needs:
                 "germplasmPUI": "http://pui.per/accession/A0000003",
                 "germplasmPreprocessing": "EO:0007210; transplanted from study 2351 observation unit ID: pot:894",
                 "germplasmSpecies": "fructus",
+                "germplasmSubtaxa": "Aspergillus fructus A",
                 "instituteCode": "PER001",
                 "instituteName": "The BrAPI Institute",
                 "pedigree": "A0000001/A0000002",
                 "seedSource": "A0000001/A0000002",
                 "seedSourceDescription": "Branches were collected from a 10-year-old tree growing in a progeny trial established in a loamy brown earth soil.",
                 "speciesAuthority": "Smith, 1822",
-                "subtaxa": "Aspergillus fructus A",
                 "subtaxaAuthority": "Smith, 1822",
                 "synonyms": [
                     "variety_1"
