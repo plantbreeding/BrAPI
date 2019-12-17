@@ -45,7 +45,7 @@ components:
           type: integer
           example: 720
         imageLocation:
-          $ref: '#/components/schemas/geoJSON'
+          $ref: '#/components/schemas/geoJSONSearchArea'
         imageNames:
           description: Human readable names to search for.
           items:

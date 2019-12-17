@@ -42,8 +42,8 @@ components:
           items:
             type: string
           example: ['United States of America', 'Peru']
-        coordinatesArea:
-          $ref: '#/components/schemas/geoJSON'
+        coordinates: 
+          $ref: '#/components/schemas/geoJSONSearchArea'
         instituteAddresses:
           description: The street address of the institute to search for
           type: array

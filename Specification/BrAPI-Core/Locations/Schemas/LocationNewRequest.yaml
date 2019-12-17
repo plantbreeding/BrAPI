@@ -25,6 +25,10 @@ components:
             MIAPPE V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).
           type: number
           example: 35.6
+        coordinateUncertainty:
+          description: Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown.
+          type: string
+          example: '20'
         countryCode:
           description: '
             [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec

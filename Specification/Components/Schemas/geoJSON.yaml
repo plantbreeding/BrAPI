@@ -12,7 +12,9 @@ components:
       properties:
         geometry:
           title: GeoJSON Geometry
-          oneOf:
+          type: object
+          description: A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed. 
+          oneOf: 
           - $ref: '#/components/schemas/pointGeometry'
           - $ref: '#/components/schemas/polygonGeometry'
           discriminator: 
@@ -20,7 +22,6 @@ components:
             mapping:
               Point: '#/components/schemas/pointGeometry'
               Polygon: '#/components/schemas/polygonGeometry'
-          type: object
           example: 
             coordinates: [ -76.506042, 42.417373 ]
             type: Point
@@ -28,7 +29,7 @@ components:
           type: string
           default: Feature
           example: Feature
-          description: Feature
+          description: The literal string "Feature"
     pointGeometry:
       type: object
       description: Array with exactly 2 values representing the Longitude and Latitude of a point
@@ -39,7 +40,7 @@ components:
           type: string
           default: Point
           example: Point
-          description: Point
+          description: The literal string "Point"
     polygonGeometry: 
       type: object
       description: An array of Linear Rings. Each Linear Ring is an array of Points. Each Point is an array with exactly 2 values representing the Longitude and Latitude.
@@ -50,7 +51,7 @@ components:
           type: string
           default: Polygon
           example: Polygon
-          description: Polygon
+          description: The literal string "Polygon"
     linearRing:
       description: An array of at least four positions where the first equals the last
       items:
