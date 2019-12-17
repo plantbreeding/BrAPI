@@ -25,6 +25,13 @@ def dereferenceAll(obj, parent):
                     for item in obj[fieldStr]:
                         itemObj = dereferenceAll(item, parent)
                         comboObj['properties'] = {**(comboObj['properties']), **(itemObj['properties'])}
+                        if 'title' in itemObj:
+                            comboObj['title'] = itemObj['title']
+                        if 'description' in itemObj:
+                            comboObj['description'] = itemObj['description']
+                        if 'example' in itemObj:
+                            comboObj['example'] = itemObj['example']
+                        
                     obj = comboObj
                 else:
                     obj[fieldStr] = dereferenceAll(obj[fieldStr], parent)
