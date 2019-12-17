@@ -206,8 +206,8 @@ Implementation Notes
 |imageFileSize|integer|The size of the image in Bytes.|
 |imageHeight|integer|The height of the image in Pixels.|
 |imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|geometry|object||
-|type|string|Feature|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
 |imageTimeStamp|string (date-time)|The date and time the image was taken|
 |imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
@@ -350,8 +350,8 @@ Implementation Notes
 |imageFileSize|integer|The size of the image in Bytes.|
 |imageHeight|integer|The height of the image in Pixels.|
 |imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|geometry|object||
-|type|string|Feature|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
 |imageTimeStamp|string (date-time)|The date and time the image was taken|
 |imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
@@ -375,8 +375,8 @@ Implementation Notes
 |imageFileSize|integer|The size of the image in Bytes.|
 |imageHeight|integer|The height of the image in Pixels.|
 |imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|geometry|object||
-|type|string|Feature|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
 |imageTimeStamp|string (date-time)|The date and time the image was taken|
 |imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
@@ -550,8 +550,8 @@ Implementation Notes
 |imageFileSize|integer|The size of the image in Bytes.|
 |imageHeight|integer|The height of the image in Pixels.|
 |imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|geometry|object||
-|type|string|Feature|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
 |imageTimeStamp|string (date-time)|The date and time the image was taken|
 |imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
@@ -693,8 +693,8 @@ Implementation Notes
 |imageFileSize|integer|The size of the image in Bytes.|
 |imageHeight|integer|The height of the image in Pixels.|
 |imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|geometry|object||
-|type|string|Feature|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
 |imageTimeStamp|string (date-time)|The date and time the image was taken|
 |imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
@@ -717,8 +717,8 @@ Implementation Notes
 |imageFileSize|integer|The size of the image in Bytes.|
 |imageHeight|integer|The height of the image in Pixels.|
 |imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|geometry|object||
-|type|string|Feature|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
 |imageTimeStamp|string (date-time)|The date and time the image was taken|
 |imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
@@ -894,8 +894,8 @@ Implementation Notes
 |imageFileSize|integer|The size of the image in Bytes.|
 |imageHeight|integer|The height of the image in Pixels.|
 |imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|geometry|object||
-|type|string|Feature|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
 |imageTimeStamp|string (date-time)|The date and time the image was taken|
 |imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
@@ -1027,9 +1027,9 @@ See Search Services for additional implementation details.
 |imageFileSizeMin|integer|A minimum image file size to search for.|
 |imageHeightMax|integer|A maximum image height to search for.|
 |imageHeightMin|integer|A minimum image height to search for.|
-|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|geometry|object||
-|type|string|Feature|
+|imageLocation|object||
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |imageNames|array[string]|Human readable names to search for.|
 |imageTimeStampRangeEnd|string (date-time)|The latest timestamp to search for.|
 |imageTimeStampRangeStart|string (date-time)|The earliest timestamp to search for.|
@@ -1056,8 +1056,8 @@ See Search Services for additional implementation details.
 |imageFileSize|integer|The size of the image in Bytes.|
 |imageHeight|integer|The height of the image in Pixels.|
 |imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|geometry|object||
-|type|string|Feature|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
 |imageTimeStamp|string (date-time)|The date and time the image was taken|
 |imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
@@ -1280,8 +1280,8 @@ Implementation Notes
 |imageFileSize|integer|The size of the image in Bytes.|
 |imageHeight|integer|The height of the image in Pixels.|
 |imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|geometry|object||
-|type|string|Feature|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
 |imageTimeStamp|string (date-time)|The date and time the image was taken|
 |imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
@@ -2112,8 +2112,8 @@ Get a filtered set of Observation Units
 |entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
 |geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|geometry|object||
-|type|string|Feature|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
@@ -2287,8 +2287,8 @@ Add new Observation Units
 |entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
 |geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|geometry|object||
-|type|string|Feature|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
@@ -2329,8 +2329,8 @@ Add new Observation Units
 |entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
 |geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|geometry|object||
-|type|string|Feature|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
@@ -2570,8 +2570,8 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 |entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
 |geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|geometry|object||
-|type|string|Feature|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
@@ -3045,8 +3045,8 @@ Get the details of a specific Observation Unit
 |entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
 |geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|geometry|object||
-|type|string|Feature|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
@@ -3208,8 +3208,8 @@ Update an existing Observation Units
 |entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
 |geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|geometry|object||
-|type|string|Feature|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
@@ -3249,8 +3249,8 @@ Update an existing Observation Units
 |entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
 |geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|geometry|object||
-|type|string|Feature|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
@@ -3512,8 +3512,8 @@ observationValue data type inferred from the ontology
 |entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
 |geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|geometry|object||
-|type|string|Feature|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
@@ -3754,8 +3754,8 @@ See Search Services for additional implementation details.
 |entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
 |geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|geometry|object||
-|type|string|Feature|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|

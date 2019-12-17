@@ -37,8 +37,8 @@ Implementation Notes
 |imageFileSize|integer|The size of the image in Bytes.|
 |imageHeight|integer|The height of the image in Pixels.|
 |imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|geometry|object||
-|type|string|Feature|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
 |imageTimeStamp|string (date-time)|The date and time the image was taken|
 |imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
@@ -181,8 +181,8 @@ Implementation Notes
 |imageFileSize|integer|The size of the image in Bytes.|
 |imageHeight|integer|The height of the image in Pixels.|
 |imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|geometry|object||
-|type|string|Feature|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
 |imageTimeStamp|string (date-time)|The date and time the image was taken|
 |imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
@@ -206,8 +206,8 @@ Implementation Notes
 |imageFileSize|integer|The size of the image in Bytes.|
 |imageHeight|integer|The height of the image in Pixels.|
 |imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|geometry|object||
-|type|string|Feature|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
 |imageTimeStamp|string (date-time)|The date and time the image was taken|
 |imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
@@ -381,8 +381,8 @@ Implementation Notes
 |imageFileSize|integer|The size of the image in Bytes.|
 |imageHeight|integer|The height of the image in Pixels.|
 |imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|geometry|object||
-|type|string|Feature|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
 |imageTimeStamp|string (date-time)|The date and time the image was taken|
 |imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
@@ -524,8 +524,8 @@ Implementation Notes
 |imageFileSize|integer|The size of the image in Bytes.|
 |imageHeight|integer|The height of the image in Pixels.|
 |imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|geometry|object||
-|type|string|Feature|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
 |imageTimeStamp|string (date-time)|The date and time the image was taken|
 |imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
@@ -548,8 +548,8 @@ Implementation Notes
 |imageFileSize|integer|The size of the image in Bytes.|
 |imageHeight|integer|The height of the image in Pixels.|
 |imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|geometry|object||
-|type|string|Feature|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
 |imageTimeStamp|string (date-time)|The date and time the image was taken|
 |imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
@@ -725,8 +725,8 @@ Implementation Notes
 |imageFileSize|integer|The size of the image in Bytes.|
 |imageHeight|integer|The height of the image in Pixels.|
 |imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|geometry|object||
-|type|string|Feature|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
 |imageTimeStamp|string (date-time)|The date and time the image was taken|
 |imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
@@ -858,9 +858,9 @@ See Search Services for additional implementation details.
 |imageFileSizeMin|integer|A minimum image file size to search for.|
 |imageHeightMax|integer|A maximum image height to search for.|
 |imageHeightMin|integer|A minimum image height to search for.|
-|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|geometry|object||
-|type|string|Feature|
+|imageLocation|object||
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |imageNames|array[string]|Human readable names to search for.|
 |imageTimeStampRangeEnd|string (date-time)|The latest timestamp to search for.|
 |imageTimeStampRangeStart|string (date-time)|The earliest timestamp to search for.|
@@ -887,8 +887,8 @@ See Search Services for additional implementation details.
 |imageFileSize|integer|The size of the image in Bytes.|
 |imageHeight|integer|The height of the image in Pixels.|
 |imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|geometry|object||
-|type|string|Feature|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
 |imageTimeStamp|string (date-time)|The date and time the image was taken|
 |imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
@@ -1111,8 +1111,8 @@ Implementation Notes
 |imageFileSize|integer|The size of the image in Bytes.|
 |imageHeight|integer|The height of the image in Pixels.|
 |imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
-|geometry|object||
-|type|string|Feature|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
 |imageTimeStamp|string (date-time)|The date and time the image was taken|
 |imageURL|string|The complete, absolute URI path to the image file. Images might be stored on a different host or path than the BrAPI web server.|
