@@ -250,6 +250,8 @@ Gets a `CallSet` by ID.
 
 Gets a list of `Calls` associated with a `CallSet`.
 
+** THIS ENDPOINT USES TOKEN BASED PAGING **
+
 
 
 **Response Fields** 
@@ -280,7 +282,7 @@ Gets a list of `Calls` associated with a `CallSet`.
     + unknownString (Optional, ) ... The string to use as a representation for missing data
     + sepPhased (Optional, ) ... The string to use as a separator for phased allele calls
     + sepUnphased (Optional, ) ... The string to use as a separator for unphased allele calls
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + page (Optional, ) ... Which result page is requested. Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
@@ -305,8 +307,10 @@ Gets a list of `Calls` associated with a `CallSet`.
             }
         ],
         "pagination": {
-            "currentPage": 0,
+            "currentPageToken": "48bc6ac1",
+            "nextPageToken": "cb668f63",
             "pageSize": 1000,
+            "prevPageToken": "9659857e",
             "totalCount": 10,
             "totalPages": 1
         },
@@ -682,7 +686,9 @@ Gets a list of call sets matching the search criteria.
 
 ### Get - /calls [GET /brapi/v1/calls{?callSetDbId}{?variantDbId}{?variantSetDbId}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?page}{?pageSize}]
 
-Will return a filtered list of `Call` JSON objects.
+Gets a filtered list of `Call` JSON objects.
+
+** THIS ENDPOINT USES TOKEN BASED PAGING **
 
 
 
@@ -716,7 +722,7 @@ Will return a filtered list of `Call` JSON objects.
     + unknownString (Optional, ) ... The string to use as a representation for missing data
     + sepPhased (Optional, ) ... The string to use as a separator for phased allele calls
     + sepUnphased (Optional, ) ... The string to use as a separator for unphased allele calls
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + page (Optional, ) ... Which result page is requested. Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
@@ -741,8 +747,10 @@ Will return a filtered list of `Call` JSON objects.
             }
         ],
         "pagination": {
-            "currentPage": 0,
+            "currentPageToken": "48bc6ac1",
+            "nextPageToken": "cb668f63",
             "pageSize": 1000,
+            "prevPageToken": "9659857e",
             "totalCount": 10,
             "totalPages": 1
         },
@@ -797,6 +805,8 @@ Will return a filtered list of `Call` JSON objects.
 ### Post - /search/calls [POST /brapi/v1/search/calls]
 
 Submit a search request for `Calls`
+
+** THIS ENDPOINT USES TOKEN BASED PAGING **
 
 **Request Fields** 
 
@@ -883,8 +893,10 @@ Submit a search request for `Calls`
             }
         ],
         "pagination": {
-            "currentPage": 0,
+            "currentPageToken": "48bc6ac1",
+            "nextPageToken": "cb668f63",
             "pageSize": 1000,
+            "prevPageToken": "9659857e",
             "totalCount": 10,
             "totalPages": 1
         },
@@ -975,7 +987,10 @@ Submit a search request for `Calls`
 ### Get - /search/calls/{searchResultsDbId} [GET /brapi/v1/search/calls/{searchResultsDbId}{?page}{?pageSize}]
 
 Returns a filtered list of `Call` JSON objects.
+
 See Search Services for additional implementation details.
+
+** THIS ENDPOINT USES TOKEN BASED PAGING **
 
 
 
@@ -1003,7 +1018,7 @@ See Search Services for additional implementation details.
 
 + Parameters
     + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + page (Optional, ) ... Which result page is requested. Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
@@ -1064,8 +1079,10 @@ See Search Services for additional implementation details.
             }
         ],
         "pagination": {
-            "currentPage": 0,
+            "currentPageToken": "48bc6ac1",
+            "nextPageToken": "cb668f63",
             "pageSize": 1000,
+            "prevPageToken": "9659857e",
             "totalCount": 10,
             "totalPages": 1
         },
@@ -4746,6 +4763,8 @@ This call will return a JSON version of a `VariantSet`.
 
 Gets a list of `Calls` associated with a `VariantSet`.
 
+** THIS ENDPOINT USES TOKEN BASED PAGING **
+
 
 
 **Response Fields** 
@@ -4776,7 +4795,7 @@ Gets a list of `Calls` associated with a `VariantSet`.
     + unknownString (Optional, ) ... The string to use as a representation for missing data
     + sepPhased (Optional, ) ... The string to use as a separator for phased allele calls
     + sepUnphased (Optional, ) ... The string to use as a separator for unphased allele calls
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + page (Optional, ) ... Which result page is requested. Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
@@ -4801,8 +4820,10 @@ Gets a list of `Calls` associated with a `VariantSet`.
             }
         ],
         "pagination": {
-            "currentPage": 0,
+            "currentPageToken": "48bc6ac1",
+            "nextPageToken": "cb668f63",
             "pageSize": 1000,
+            "prevPageToken": "9659857e",
             "totalCount": 10,
             "totalPages": 1
         },
@@ -4960,6 +4981,8 @@ Gets a list of `CallSets` associated with a `VariantSet`.
 
 This call will return an array of `Variants`.
 
+** THIS ENDPOINT USES TOKEN BASED PAGING **
+
 
 
 **Response Fields** 
@@ -4992,7 +5015,7 @@ This call will return an array of `Variants`.
 + Parameters
     + variantDbId (Optional, ) ... The ID of the `Variant` to be retrieved.
     + variantSetDbId (Required, ) ... The ID of the `VariantSet` to be retrieved.
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + page (Optional, ) ... Which result page is requested. Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
@@ -5017,8 +5040,10 @@ This call will return an array of `Variants`.
             }
         ],
         "pagination": {
-            "currentPage": 0,
+            "currentPageToken": "48bc6ac1",
+            "nextPageToken": "cb668f63",
             "pageSize": 1000,
+            "prevPageToken": "9659857e",
             "totalCount": 10,
             "totalPages": 1
         },
@@ -5096,9 +5121,9 @@ This call will return an array of `Variants`.
 
 ### Post - /search/variants [POST /brapi/v1/search/variants]
 
-`POST /variants/search` must accept a JSON version of
-`SearchVariantsRequest` as the post body and will return a JSON version of
-`SearchVariantsResponse`.
+Gets a list of `Variant` matching the search criteria.
+
+** THIS ENDPOINT USES TOKEN BASED PAGING **
 
 **Request Fields** 
 
@@ -5184,8 +5209,10 @@ This call will return an array of `Variants`.
             }
         ],
         "pagination": {
-            "currentPage": 0,
+            "currentPageToken": "48bc6ac1",
+            "nextPageToken": "cb668f63",
             "pageSize": 1000,
+            "prevPageToken": "9659857e",
             "totalCount": 10,
             "totalPages": 1
         },
@@ -5296,9 +5323,9 @@ This call will return an array of `Variants`.
 
 ### Get - /search/variants/{searchResultsDbId} [GET /brapi/v1/search/variants/{searchResultsDbId}{?page}{?pageSize}]
 
-`POST /variants/search` must accept a JSON version of
-`SearchVariantsRequest` as the post body and will return a JSON version of
-`SearchVariantsResponse`.
+Gets a list of `Variant` matching the search criteria.
+
+** THIS ENDPOINT USES TOKEN BASED PAGING **
 
 
 
@@ -5331,7 +5358,7 @@ This call will return an array of `Variants`.
 
 + Parameters
     + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + page (Optional, ) ... Which result page is requested. Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
@@ -5392,8 +5419,10 @@ This call will return an array of `Variants`.
             }
         ],
         "pagination": {
-            "currentPage": 0,
+            "currentPageToken": "48bc6ac1",
+            "nextPageToken": "cb668f63",
             "pageSize": 1000,
+            "prevPageToken": "9659857e",
             "totalCount": 10,
             "totalPages": 1
         },
@@ -5468,7 +5497,9 @@ This call will return an array of `Variants`.
 
 ### Get - /variants [GET /brapi/v1/variants{?variantDbId}{?variantSetDbId}{?page}{?pageSize}]
 
-`GET /variants` will return a filtered list of `Variants`.
+Gets a filtered list of `Variants`.
+
+** THIS ENDPOINT USES TOKEN BASED PAGING **
 
 
 
@@ -5502,7 +5533,7 @@ This call will return an array of `Variants`.
 + Parameters
     + variantDbId (Optional, ) ... The ID of the `Variant` to be retrieved.
     + variantSetDbId (Optional, ) ... The ID of the `VariantSet` to be retrieved.
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + page (Optional, ) ... Which result page is requested. Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
@@ -5527,8 +5558,10 @@ This call will return an array of `Variants`.
             }
         ],
         "pagination": {
-            "currentPage": 0,
+            "currentPageToken": "48bc6ac1",
+            "nextPageToken": "cb668f63",
             "pageSize": 1000,
+            "prevPageToken": "9659857e",
             "totalCount": 10,
             "totalPages": 1
         },
@@ -5737,6 +5770,8 @@ This call will return an array of `Variants`.
 
 The variant calls for this particular variant. Each one represents the determination of genotype with respect to this variant. `Calls` in this array are implicitly associated with this `Variant`.
 
+** THIS ENDPOINT USES TOKEN BASED PAGING **
+
 
 
 **Response Fields** 
@@ -5767,7 +5802,7 @@ The variant calls for this particular variant. Each one represents the determina
     + unknownString (Optional, ) ... The string to use as a representation for missing data
     + sepPhased (Optional, ) ... The string to use as a separator for phased allele calls
     + sepUnphased (Optional, ) ... The string to use as a separator for unphased allele calls
-    + page (Optional, ) ... Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
+    + page (Optional, ) ... Which result page is requested. Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
@@ -5792,8 +5827,10 @@ The variant calls for this particular variant. Each one represents the determina
             }
         ],
         "pagination": {
-            "currentPage": 0,
+            "currentPageToken": "48bc6ac1",
+            "nextPageToken": "cb668f63",
             "pageSize": 1000,
+            "prevPageToken": "9659857e",
             "totalCount": 10,
             "totalPages": 1
         },
