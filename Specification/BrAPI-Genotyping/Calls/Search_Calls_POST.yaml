@@ -6,7 +6,10 @@ paths:
   /search/calls:
     post:
       summary: Submit a search request for `Calls`
-      description: Submit a search request for `Calls`
+      description: |-
+        Submit a search request for `Calls`
+        
+        ** THIS ENDPOINT USES TOKEN BASED PAGING **
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:

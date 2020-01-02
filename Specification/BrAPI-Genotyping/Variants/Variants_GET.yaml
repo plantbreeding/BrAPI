@@ -6,7 +6,10 @@ paths:
   /variants:
     get:
       summary: Gets a filtered list of `Variants`.
-      description: '`GET /variants` will return a filtered list of `Variants`.'
+      description: |-
+        Gets a filtered list of `Variants`.
+        
+        ** THIS ENDPOINT USES TOKEN BASED PAGING **
       parameters:
         - name: variantDbId
           description: The ID of the `Variant` to be retrieved.
@@ -20,7 +23,7 @@ paths:
           required: false
           schema:
             type: string
-        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/pageToken'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/authorizationHeader'
       responses:

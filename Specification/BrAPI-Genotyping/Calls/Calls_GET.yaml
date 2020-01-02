@@ -6,7 +6,10 @@ paths:
   /calls:
     get:
       summary: Gets a filtered list of `Calls`
-      description: Will return a filtered list of `Call` JSON objects.
+      description: |-
+        Gets a filtered list of `Call` JSON objects.
+        
+        ** THIS ENDPOINT USES TOKEN BASED PAGING **
       parameters:
         - name: callSetDbId
           description: The ID of the `CallSet` to be retrieved.
@@ -50,7 +53,7 @@ paths:
           required: false
           schema:
             type: string
-        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/pageToken'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/authorizationHeader'
       responses:

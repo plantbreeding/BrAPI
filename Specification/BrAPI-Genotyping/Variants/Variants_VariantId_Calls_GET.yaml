@@ -6,7 +6,10 @@ paths:
   /variants/{variantDbId}/calls:
     get:
       summary: Gets a list of `Calls` associated with a `Variant`.
-      description: The variant calls for this particular variant. Each one represents the determination of genotype with respect to this variant. `Calls` in this array are implicitly associated with this `Variant`.
+      description: |-
+        The variant calls for this particular variant. Each one represents the determination of genotype with respect to this variant. `Calls` in this array are implicitly associated with this `Variant`.
+        
+        ** THIS ENDPOINT USES TOKEN BASED PAGING **
       parameters:
         - name: variantDbId
           description: The ID of the `Variant` to be retrieved.
@@ -38,7 +41,7 @@ paths:
           required: false
           schema:
             type: string
-        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/pageToken'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/authorizationHeader'
       responses:

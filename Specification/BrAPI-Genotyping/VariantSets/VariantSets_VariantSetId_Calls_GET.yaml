@@ -6,7 +6,10 @@ paths:
   /variantsets/{variantSetDbId}/calls:
     get:
       summary:  Gets a list of `Calls` associated with a `VariantSet`.
-      description: Gets a list of `Calls` associated with a `VariantSet`.
+      description: |-
+        Gets a list of `Calls` associated with a `VariantSet`.
+        
+        ** THIS ENDPOINT USES TOKEN BASED PAGING **
       parameters:
         - name: variantSetDbId
           description: The ID of the `VariantSet` to be retrieved.
@@ -38,7 +41,7 @@ paths:
           required: false
           schema:
             type: string
-        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/pageToken'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/authorizationHeader'
       responses:

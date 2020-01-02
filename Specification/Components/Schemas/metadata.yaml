@@ -5,9 +5,14 @@ openapi: 3.0.0
 paths: {}
 components:
   schemas:
-    '@context':
-      $ref: '#/components/schemas/Context'
     metadata:
+      allOf:
+      - $ref: '#/components/schemas/metadataBase'
+      - type: object
+        properties:
+          pagination:
+            $ref: '#/components/schemas/indexPagination'
+    metadataBase:
       type: object
       properties:
         datafiles:
@@ -18,8 +23,6 @@ components:
           items:
             $ref: '#/components/schemas/dataFile'
           type: array
-        pagination:
-          $ref: '#/components/schemas/pagination'
         status:
           description: |-
             The status field contains a list of informational status messages from the server. 
@@ -27,6 +30,73 @@ components:
           items:
             $ref: '#/components/schemas/status'
           type: array
+    metadataTokenPagination:
+      allOf:
+      - $ref: '#/components/schemas/metadataBase'
+      - type: object
+        properties:
+          pagination:
+            $ref: '#/components/schemas/tokenPagination'
+    basePagination:
+      type: object
+      required:
+      - pageSize
+      properties:
+        pageSize:
+          description: The number of data elements returned, aka the size of the current page. If the requested page does not have enough elements to fill a page at the requested page size, this field should indicate the actual number of elements returned.   
+          type: integer
+          default: 1000
+          example: 1000
+        totalCount:
+          description: The total number of elements that are available on the server and match the requested query paramters. 
+          type: integer
+          example: 10
+        totalPages:
+          description: |-
+            The total number of pages of elements available on the server. This should be calculated with the following formula. 
+            
+            totalPages = CEILING( totalCount / requested_page_size)
+          type: integer
+          example: 1
+    indexPagination:
+      allOf:
+      - $ref: '#/components/schemas/basePagination'
+      - type: object
+        description: |-
+          The pagination object is applicable only when the payload contains a "data" key. It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. 
+          
+          Pages are zero indexed, so the first page will be page 0 (zero).
+        required:
+        - currentPage
+        properties:
+          currentPage:
+            description: The index number for the returned page of data. This should always match the requested page number or the default page (0). 
+            type: integer
+            default: 0
+            example: 0
+    tokenPagination:
+      allOf:
+      - $ref: '#/components/schemas/basePagination'
+      - type: object
+        description: |-
+          The pagination object is applicable only when the payload contains a "data" key. It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. 
+          
+          Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken to construct an additional query and move to the next or previous page respectively.  
+        required:
+        - nextPageToken
+        properties:
+          nextPageToken:
+            description: The string token used to query the next page of data.
+            type: string
+            example: cb668f63
+          currentPageToken:
+            description: The string token used to query the current page of data.
+            type: string
+            example: 48bc6ac1
+          prevPageToken:
+            description: The string token used to query the previous page of data.
+            type: string
+            example: 9659857e
     dataFile:
       type: object
       description: A dataFile contains a URL and the relevant file metadata to represent a file
@@ -58,30 +128,6 @@ components:
           description: The MD5 Hash of the file contents to be used as a check sum
           type: string
           example: c2365e900c81a89cf74d83dab60df146
-    pagination:
-      type: object
-      description: |-
-        The pagination object is applicable only when the payload contains a "data" key. 
-        It describes the pagination of the data contained in the "data" array, as a way to identify which subset of data is being returned. 
-        Pages are zero indexed, so the first page will be page 0 (zero).
-      required:
-      - currentPage
-      - pageSize
-      properties:
-        currentPage:
-          type: integer
-          default: 0
-          example: 0
-        pageSize:
-          type: integer
-          default: 1000
-          example: 1000
-        totalCount:
-          type: integer
-          example: 10
-        totalPages:
-          type: integer
-          example: 1
     status:
       description: An array of status messages to convey technical logging information from the server to the client. 
       required:

@@ -6,12 +6,15 @@ paths:
   /search/calls/{searchResultsDbId}:
     get:
       summary: Returns a filtered list of `Call` JSON objects.
-      description: 'Returns a filtered list of `Call` JSON objects.
+      description: |-
+        Returns a filtered list of `Call` JSON objects.
 
-        See Search Services for additional implementation details.'
+        See Search Services for additional implementation details.
+        
+        ** THIS ENDPOINT USES TOKEN BASED PAGING **
       parameters:
       - $ref: '#/components/parameters/searchResultsDbId'
-      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageToken'
       - $ref: '#/components/parameters/pageSize'
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
