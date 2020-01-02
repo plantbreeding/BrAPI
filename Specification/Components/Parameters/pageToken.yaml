@@ -9,7 +9,7 @@ components:
       description: Which result page is requested. Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively. 
       example: 33c27874
       in: query
-      name: page
+      name: pageToken
       required: false
       schema:
         type: string
