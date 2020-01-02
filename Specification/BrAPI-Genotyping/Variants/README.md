@@ -206,7 +206,7 @@ Gets a list of `Variant` matching the search criteria.
 
 
 
-### Get - /search/variants/{searchResultsDbId} [GET /brapi/v1/search/variants/{searchResultsDbId}{?page}{?pageSize}]
+### Get - /search/variants/{searchResultsDbId} [GET /brapi/v1/search/variants/{searchResultsDbId}{?pageToken}{?pageSize}]
 
 Gets a list of `Variant` matching the search criteria.
 
@@ -243,7 +243,7 @@ Gets a list of `Variant` matching the search criteria.
 
 + Parameters
     + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
-    + page (Optional, ) ... Which result page is requested. Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively.
+    + pageToken (Optional, ) ... Which result page is requested. Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
@@ -380,7 +380,7 @@ Gets a list of `Variant` matching the search criteria.
 
 
 
-### Get - /variants [GET /brapi/v1/variants{?variantDbId}{?variantSetDbId}{?page}{?pageSize}]
+### Get - /variants [GET /brapi/v1/variants{?variantDbId}{?variantSetDbId}{?pageToken}{?pageSize}]
 
 Gets a filtered list of `Variants`.
 
@@ -418,7 +418,7 @@ Gets a filtered list of `Variants`.
 + Parameters
     + variantDbId (Optional, ) ... The ID of the `Variant` to be retrieved.
     + variantSetDbId (Optional, ) ... The ID of the `VariantSet` to be retrieved.
-    + page (Optional, ) ... Which result page is requested. Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively.
+    + pageToken (Optional, ) ... Which result page is requested. Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
@@ -651,7 +651,7 @@ Gets a filtered list of `Variants`.
 
 
 
-### Get - /variants/{variantDbId}/calls [GET /brapi/v1/variants/{variantDbId}/calls{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?page}{?pageSize}]
+### Get - /variants/{variantDbId}/calls [GET /brapi/v1/variants/{variantDbId}/calls{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageToken}{?pageSize}]
 
 The variant calls for this particular variant. Each one represents the determination of genotype with respect to this variant. `Calls` in this array are implicitly associated with this `Variant`.
 
@@ -687,7 +687,7 @@ The variant calls for this particular variant. Each one represents the determina
     + unknownString (Optional, ) ... The string to use as a representation for missing data
     + sepPhased (Optional, ) ... The string to use as a separator for phased allele calls
     + sepUnphased (Optional, ) ... The string to use as a separator for unphased allele calls
-    + page (Optional, ) ... Which result page is requested. Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively.
+    + pageToken (Optional, ) ... Which result page is requested. Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 

@@ -4,7 +4,7 @@
 
 
 
-### Get - /calls [GET /brapi/v1/calls{?callSetDbId}{?variantDbId}{?variantSetDbId}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?page}{?pageSize}]
+### Get - /calls [GET /brapi/v1/calls{?callSetDbId}{?variantDbId}{?variantSetDbId}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageToken}{?pageSize}]
 
 Gets a filtered list of `Call` JSON objects.
 
@@ -42,7 +42,7 @@ Gets a filtered list of `Call` JSON objects.
     + unknownString (Optional, ) ... The string to use as a representation for missing data
     + sepPhased (Optional, ) ... The string to use as a separator for phased allele calls
     + sepUnphased (Optional, ) ... The string to use as a separator for unphased allele calls
-    + page (Optional, ) ... Which result page is requested. Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively.
+    + pageToken (Optional, ) ... Which result page is requested. Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
@@ -304,7 +304,7 @@ Submit a search request for `Calls`
 
 
 
-### Get - /search/calls/{searchResultsDbId} [GET /brapi/v1/search/calls/{searchResultsDbId}{?page}{?pageSize}]
+### Get - /search/calls/{searchResultsDbId} [GET /brapi/v1/search/calls/{searchResultsDbId}{?pageToken}{?pageSize}]
 
 Returns a filtered list of `Call` JSON objects.
 
@@ -338,7 +338,7 @@ See Search Services for additional implementation details.
 
 + Parameters
     + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
-    + page (Optional, ) ... Which result page is requested. Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively.
+    + pageToken (Optional, ) ... Which result page is requested. Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
