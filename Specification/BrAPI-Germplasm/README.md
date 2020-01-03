@@ -1153,7 +1153,7 @@ Get the details of a specific Breeding Method used to produce Germplasm
 
 
 
-### Get - /germplasm [GET /brapi/v1/germplasm{?germplasmPUI}{?germplasmDbId}{?germplasmName}{?commonCropName}{?accessionNumber}{?germplasmGenus}{?germplasmSpecies}{?studyDbIds}{?synonym}{?parentDbId}{?progenyDbId}{?xref}{?page}{?pageSize}]
+### Get - /germplasm [GET /brapi/v1/germplasm{?germplasmPUI}{?germplasmDbId}{?germplasmName}{?commonCropName}{?accessionNumber}{?germplasmGenus}{?germplasmSpecies}{?studyDbId}{?synonym}{?parentDbId}{?progenyDbId}{?xref}{?page}{?pageSize}]
 
 Addresses these needs
 
@@ -1222,7 +1222,7 @@ Addresses these needs
     + accessionNumber (Optional, ) ... Unique identifiers for accessions within a genebank
     + germplasmGenus (Optional, ) ... Genus name to identify germplasm
     + germplasmSpecies (Optional, ) ... Species name to identify germplasm
-    + studyDbIds (Optional, ) ... Search for Germplasm that are associated with a particular Study
+    + studyDbId (Optional, ) ... Search for Germplasm that are associated with a particular Study
     + synonym (Optional, ) ... Alternative name or ID used to reference this germplasm
     + parentDbId (Optional, ) ... Search for Germplasm with this parent
     + progenyDbId (Optional, ) ... Search for Germplasm with this child
@@ -2534,17 +2534,18 @@ See Search Services for additional implementation details.
 |Field|Type|Description|
 |---|---|---| 
 |accessionNumbers|array[string]|List unique identifiers for accessions within a genebank|
-|commonCropNames|array[string]|List crops to search by|
-|germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm|
+|commonCropNames|array[string]|Common name for the crop which this program is for|
+|germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm to search for|
 |germplasmGenus|array[string]|List of Genus names to identify germplasm|
-|germplasmNames|array[string]|List of human readable names to identify germplasm|
+|germplasmNames|array[string]|List of human readable names to identify germplasm to search for|
 |germplasmPUIs|array[string]|List of Permanent Unique Identifiers to identify germplasm|
 |germplasmSpecies|array[string]|List of Species names to identify germplasm|
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |parentDbIds|array[string]|Search for Germplasm with these parents|
 |progenyDbIds|array[string]|Search for Germplasm with these children|
-|studyDbIds|array[string]|Search for Germplasm that are associated with a particular Study|
+|studyDbIds|array[string]|List of study identifiers to search for|
+|studyNames|array[string]|List of study names to filter search results|
 |synonyms|array[string]|List of alternative names or IDs used to reference this germplasm|
 |xrefs|array[string]|Search for Germplasm by an external reference|
 
@@ -2645,8 +2646,12 @@ See Search Services for additional implementation details.
         "ce06cf9e"
     ],
     "studyDbIds": [
-        "4a5f9742",
-        "07a6229c"
+        "cf6c4bd4",
+        "691e69d6"
+    ],
+    "studyNames": [
+        "The First Bob Study 2017",
+        "Wheat Yield Trial 246"
     ],
     "synonyms": [
         "variety_1",

@@ -244,9 +244,9 @@ Gets a list of `ReferenceSet` matching the search criteria.
 + Request (application/json)
 ```
 {
-    "accession": "accession",
-    "assemblyPUI": "assemblyPUI",
-    "md5checksum": "md5checksum",
+    "accession": "A0009283",
+    "assemblyPUI": "doi:10.15454/312953986E3",
+    "md5checksum": "c2365e900c81a89cf74d83dab60df146",
     "page": 0,
     "pageSize": 1000
 }

@@ -1487,15 +1487,20 @@ observationValue data type inferred from the ontology
 
 |Field|Type|Description|
 |---|---|---| 
-|germplasmDbIds|array[string]|The name or synonym of external genebank accession identifiers|
-|locationDbIds|array[string]|locations these traits were collected|
+|germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm to search for|
+|germplasmNames|array[string]|List of human readable names to identify germplasm to search for|
+|locationDbIds|array[string]|The location ids to search for|
+|locationNames|array[string]|A human readable names to search for|
 |observationLevel|string|The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnit Structure.|
 |observationUnitDbIds|array[string]|The unique id of an observation unit|
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
-|programDbIds|array[string]|list of programs to search across|
-|studyDbIds|array[string]|The database ID / PK of the studies search parameter|
-|trialDbIds|array[string]|list of trials to search across|
+|programDbIds|array[string]|A program identifier to search for|
+|programNames|array[string]|A name of a program to search for|
+|studyDbIds|array[string]|List of study identifiers to search for|
+|studyNames|array[string]|List of study names to filter search results|
+|trialDbIds|array[string]|The ID which uniquely identifies a trial to search for|
+|trialNames|array[string]|The human readable name of a trial to search for|
 
 
 **Response Fields** 
@@ -1551,12 +1556,20 @@ observationValue data type inferred from the ontology
 ```
 {
     "germplasmDbIds": [
-        "621b6f1b",
-        "cdb7a727"
+        "e9c6edd7",
+        "1b1df4a6"
+    ],
+    "germplasmNames": [
+        "A0000003",
+        "A0000477"
     ],
     "locationDbIds": [
-        "88da535f",
-        "1554486a"
+        "b28911cf",
+        "5071d1e4"
+    ],
+    "locationNames": [
+        "Location Alpha",
+        "The Large Hadron Collider"
     ],
     "observationLevel": "plant",
     "observationUnitDbIds": [
@@ -1566,16 +1579,28 @@ observationValue data type inferred from the ontology
     "page": 0,
     "pageSize": 1000,
     "programDbIds": [
-        "ea41cd20",
-        "f03f211a"
+        "8f5de35b",
+        "0e2d4a13"
+    ],
+    "programNames": [
+        "Better Breeding Program",
+        "Best Breeding Program"
     ],
     "studyDbIds": [
-        "c74f8370",
-        "dd021ad9"
+        "cf6c4bd4",
+        "691e69d6"
+    ],
+    "studyNames": [
+        "The First Bob Study 2017",
+        "Wheat Yield Trial 246"
     ],
     "trialDbIds": [
-        "4688d49c",
-        "3c90127d"
+        "d2593dc2",
+        "9431a731"
+    ],
+    "trialNames": [
+        "All Yield Trials 2016",
+        "Disease Resistance Study Comparison Group"
     ]
 }
 ```

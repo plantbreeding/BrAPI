@@ -19,17 +19,20 @@ See Search Services for additional implementation details.
 |Field|Type|Description|
 |---|---|---| 
 |active|boolean|Is this trail currently active|
-|commonCropNames|array[string]|Common name for the crop associated with this trial|
+|commonCropNames|array[string]|Common name for the crop which this program is for|
 |contactDbIds|array[string]|List of contact entities associated with this trial|
-|locationDbIds|array[string]|A location identifier to search for (could be in connected study)|
+|locationDbIds|array[string]|The location ids to search for|
+|locationNames|array[string]|A human readable names to search for|
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |programDbIds|array[string]|A program identifier to search for|
+|programNames|array[string]|A name of a program to search for|
 |searchDateRangeEnd|string (date)|The end of the overlapping search date range. `searchDateRangeStart` must be before `searchDateRangeEnd`.  Return a Trial entity if any of the following cases are true  - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is null   - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`  - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is null  - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is before `trial.endDate`|
 |searchDateRangeStart|string (date)|The start of the overlapping search date range. `searchDateRangeStart` must be before `searchDateRangeEnd`.  Return a Trial entity if any of the following cases are true  - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is null   - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`  - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is null  - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is before `trial.endDate`|
-|studyDbIds|array[string]|The ID which uniquely identifies a study|
-|trialDbIds|array[string]|The ID which uniquely identifies a trial|
-|trialNames|array[string]|The human readable name of a trial|
+|studyDbIds|array[string]|List of study identifiers to search for|
+|studyNames|array[string]|List of study names to filter search results|
+|trialDbIds|array[string]|The ID which uniquely identifies a trial to search for|
+|trialNames|array[string]|The human readable name of a trial to search for|
 |trialPUIs|array[string]|A permanent identifier for a trial. Could be DOI or other URI formatted identifier.|
 
 
@@ -87,20 +90,32 @@ See Search Services for additional implementation details.
         "b82f0967"
     ],
     "locationDbIds": [
-        "8fe061c3",
-        "6eafd31e"
+        "b28911cf",
+        "5071d1e4"
+    ],
+    "locationNames": [
+        "Location Alpha",
+        "The Large Hadron Collider"
     ],
     "page": 0,
     "pageSize": 1000,
     "programDbIds": [
-        "7e54bd46",
-        "e54a7703"
+        "8f5de35b",
+        "0e2d4a13"
+    ],
+    "programNames": [
+        "Better Breeding Program",
+        "Best Breeding Program"
     ],
     "searchDateRangeEnd": "2018-01-01",
     "searchDateRangeStart": "2018-01-01",
     "studyDbIds": [
-        "e4fbcc24",
-        "6ca07754"
+        "cf6c4bd4",
+        "691e69d6"
+    ],
+    "studyNames": [
+        "The First Bob Study 2017",
+        "Wheat Yield Trial 246"
     ],
     "trialDbIds": [
         "d2593dc2",

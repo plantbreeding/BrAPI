@@ -242,7 +242,7 @@ Gets a list of `Calls` associated with a `CallSet`.
     + unknownString (Optional, ) ... The string to use as a representation for missing data
     + sepPhased (Optional, ) ... The string to use as a separator for phased allele calls
     + sepUnphased (Optional, ) ... The string to use as a separator for unphased allele calls
-    + pageToken (Optional, ) ... Which result page is requested. Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively.
+    + pageToken (Optional, ) ... Used to request a specific page of data to be returned.Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively. 
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
@@ -332,8 +332,8 @@ Gets a list of call sets matching the search criteria.
 |---|---|---| 
 |callSetDbIds|array[string]|Only return call sets with these DbIds (case-sensitive, exact match).|
 |callSetNames|array[string]|Only return call sets with these names (case-sensitive, exact match).|
-|germplasmDbIds|array[string]|Return only call sets generated from the Sample of this germplasm|
-|germplasmNames|array[string]|Return only call sets generated from the Sample of this germplasm|
+|germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm to search for|
+|germplasmNames|array[string]|List of human readable names to identify germplasm to search for|
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |sampleDbIds|array[string]|Return only call sets generated from the provided Biosample ID.|
@@ -375,12 +375,12 @@ Gets a list of call sets matching the search criteria.
         "callSetNames2"
     ],
     "germplasmDbIds": [
-        "germplasmDbIds1",
-        "germplasmDbIds2"
+        "e9c6edd7",
+        "1b1df4a6"
     ],
     "germplasmNames": [
-        "germplasmNames1",
-        "germplasmNames2"
+        "A0000003",
+        "A0000477"
     ],
     "page": 0,
     "pageSize": 1000,

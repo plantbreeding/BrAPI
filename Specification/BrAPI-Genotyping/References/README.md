@@ -321,11 +321,9 @@ version of `SearchReferencesResponse`.
 |Field|Type|Description|
 |---|---|---| 
 |accession|string|If specified, return the references for which the `accession` matches this string (case-sensitive, exact match).|
-|md5checksum|string|If specified, return the references for which the `md5checksum` matches this string (case-sensitive, exact match). See `ReferenceSet::md5checksum` for details.|
+|md5checksum|string|If specified, return the references for which the `md5checksum` matches this string (case-sensitive, exact match).|
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
-|page_size|integer|Specifies the maximum number of results to return in a single page. If unspecified, a system default will be used.|
-|page_token|string|The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of `next_page_token` from the previous response.|
 |referenceSetDbId|string|The `ReferenceSet` to search.|
 
 
@@ -358,13 +356,11 @@ version of `SearchReferencesResponse`.
 + Request (application/json)
 ```
 {
-    "accession": "accession",
-    "md5checksum": "md5checksum",
+    "accession": "A0009283",
+    "md5checksum": "c2365e900c81a89cf74d83dab60df146",
     "page": 0,
     "pageSize": 1000,
-    "page_size": 0,
-    "page_token": "page_token",
-    "referenceSetDbId": "referenceSetDbId"
+    "referenceSetDbId": "04c83ea7"
 }
 ```
 

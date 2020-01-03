@@ -282,7 +282,7 @@ Gets a list of `Calls` associated with a `CallSet`.
     + unknownString (Optional, ) ... The string to use as a representation for missing data
     + sepPhased (Optional, ) ... The string to use as a separator for phased allele calls
     + sepUnphased (Optional, ) ... The string to use as a separator for unphased allele calls
-    + pageToken (Optional, ) ... Which result page is requested. Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively.
+    + pageToken (Optional, ) ... Used to request a specific page of data to be returned.Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively. 
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
@@ -372,8 +372,8 @@ Gets a list of call sets matching the search criteria.
 |---|---|---| 
 |callSetDbIds|array[string]|Only return call sets with these DbIds (case-sensitive, exact match).|
 |callSetNames|array[string]|Only return call sets with these names (case-sensitive, exact match).|
-|germplasmDbIds|array[string]|Return only call sets generated from the Sample of this germplasm|
-|germplasmNames|array[string]|Return only call sets generated from the Sample of this germplasm|
+|germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm to search for|
+|germplasmNames|array[string]|List of human readable names to identify germplasm to search for|
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |sampleDbIds|array[string]|Return only call sets generated from the provided Biosample ID.|
@@ -415,12 +415,12 @@ Gets a list of call sets matching the search criteria.
         "callSetNames2"
     ],
     "germplasmDbIds": [
-        "germplasmDbIds1",
-        "germplasmDbIds2"
+        "e9c6edd7",
+        "1b1df4a6"
     ],
     "germplasmNames": [
-        "germplasmNames1",
-        "germplasmNames2"
+        "A0000003",
+        "A0000477"
     ],
     "page": 0,
     "pageSize": 1000,
@@ -722,7 +722,7 @@ Gets a filtered list of `Call` JSON objects.
     + unknownString (Optional, ) ... The string to use as a representation for missing data
     + sepPhased (Optional, ) ... The string to use as a separator for phased allele calls
     + sepUnphased (Optional, ) ... The string to use as a separator for unphased allele calls
-    + pageToken (Optional, ) ... Which result page is requested. Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively.
+    + pageToken (Optional, ) ... Used to request a specific page of data to be returned.Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively. 
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
@@ -814,8 +814,8 @@ Submit a search request for `Calls`
 |---|---|---| 
 |callSetDbIds|array[string]|The CallSet to search.|
 |expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurence (false)|
-|page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
+|pageToken|string|Used to request a specific page of data to be returned.  Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively. |
 |sepPhased|string|The string used as a separator for phased allele calls.|
 |sepUnphased|string|The string used as a separator for unphased allele calls.|
 |unknownString|string|The string used as a representation for missing data.|
@@ -857,8 +857,8 @@ Submit a search request for `Calls`
         "callSetDbIds1",
         "callSetDbIds2"
     ],
-    "page": 0,
     "pageSize": 1000,
+    "pageToken": "33c27874",
     "sepPhased": "sepPhased",
     "sepUnphased": "sepUnphased",
     "unknownString": "unknownString",
@@ -1018,7 +1018,7 @@ See Search Services for additional implementation details.
 
 + Parameters
     + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
-    + pageToken (Optional, ) ... Which result page is requested. Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively.
+    + pageToken (Optional, ) ... Used to request a specific page of data to be returned.Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively. 
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
@@ -2094,9 +2094,9 @@ Gets a list of `ReferenceSet` matching the search criteria.
 + Request (application/json)
 ```
 {
-    "accession": "accession",
-    "assemblyPUI": "assemblyPUI",
-    "md5checksum": "md5checksum",
+    "accession": "A0009283",
+    "assemblyPUI": "doi:10.15454/312953986E3",
+    "md5checksum": "c2365e900c81a89cf74d83dab60df146",
     "page": 0,
     "pageSize": 1000
 }
@@ -2676,11 +2676,9 @@ version of `SearchReferencesResponse`.
 |Field|Type|Description|
 |---|---|---| 
 |accession|string|If specified, return the references for which the `accession` matches this string (case-sensitive, exact match).|
-|md5checksum|string|If specified, return the references for which the `md5checksum` matches this string (case-sensitive, exact match). See `ReferenceSet::md5checksum` for details.|
+|md5checksum|string|If specified, return the references for which the `md5checksum` matches this string (case-sensitive, exact match).|
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
-|page_size|integer|Specifies the maximum number of results to return in a single page. If unspecified, a system default will be used.|
-|page_token|string|The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of `next_page_token` from the previous response.|
 |referenceSetDbId|string|The `ReferenceSet` to search.|
 
 
@@ -2713,13 +2711,11 @@ version of `SearchReferencesResponse`.
 + Request (application/json)
 ```
 {
-    "accession": "accession",
-    "md5checksum": "md5checksum",
+    "accession": "A0009283",
+    "md5checksum": "c2365e900c81a89cf74d83dab60df146",
     "page": 0,
     "pageSize": 1000,
-    "page_size": 0,
-    "page_token": "page_token",
-    "referenceSetDbId": "referenceSetDbId"
+    "referenceSetDbId": "04c83ea7"
 }
 ```
 
@@ -3585,7 +3581,8 @@ See Search Services for additional implementation details.
 
 |Field|Type|Description|
 |---|---|---| 
-|germplasmDbIds|array[string]| The ID which uniquely identifies a germplasm|
+|germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm to search for|
+|germplasmNames|array[string]|List of human readable names to identify germplasm to search for|
 |observationUnitDbIds|array[string]|The ID which uniquely identifies an observation unit|
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
@@ -3632,8 +3629,12 @@ See Search Services for additional implementation details.
 ```
 {
     "germplasmDbIds": [
-        "germplasmDbIds1",
-        "germplasmDbIds2"
+        "e9c6edd7",
+        "1b1df4a6"
+    ],
+    "germplasmNames": [
+        "A0000003",
+        "A0000477"
     ],
     "observationUnitDbIds": [
         "observationUnitDbIds1",
@@ -3947,7 +3948,8 @@ Gets a list of `VariantSet` matching the search criteria.
 |---|---|---| 
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
-|studyDbIds|array[string]|The `Dataset` to search.|
+|studyDbIds|array[string]|List of study identifiers to search for|
+|studyNames|array[string]|List of study names to filter search results|
 |variantSetDbIds|array[string]|The VariantSet to search.|
 
 
@@ -3990,8 +3992,12 @@ Gets a list of `VariantSet` matching the search criteria.
     "page": 0,
     "pageSize": 1000,
     "studyDbIds": [
-        "studyDbIds1",
-        "studyDbIds2"
+        "cf6c4bd4",
+        "691e69d6"
+    ],
+    "studyNames": [
+        "The First Bob Study 2017",
+        "Wheat Yield Trial 246"
     ],
     "variantSetDbIds": [
         "variantSetDbIds1",
@@ -4795,7 +4801,7 @@ Gets a list of `Calls` associated with a `VariantSet`.
     + unknownString (Optional, ) ... The string to use as a representation for missing data
     + sepPhased (Optional, ) ... The string to use as a separator for phased allele calls
     + sepUnphased (Optional, ) ... The string to use as a separator for unphased allele calls
-    + pageToken (Optional, ) ... Which result page is requested. Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively.
+    + pageToken (Optional, ) ... Used to request a specific page of data to be returned.Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively. 
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
@@ -5015,7 +5021,7 @@ This call will return an array of `Variants`.
 + Parameters
     + variantDbId (Optional, ) ... The ID of the `Variant` to be retrieved.
     + variantSetDbId (Required, ) ... The ID of the `VariantSet` to be retrieved.
-    + pageToken (Optional, ) ... Which result page is requested. Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively.
+    + pageToken (Optional, ) ... Used to request a specific page of data to be returned.Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively. 
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
@@ -5130,11 +5136,11 @@ Gets a list of `Variant` matching the search criteria.
 |Field|Type|Description|
 |---|---|---| 
 |callSetDbIds|array[string]|Only return variant calls which belong to call sets with these IDs. If unspecified, return all variants and no variant call objects.|
-|end|integer|Required. The end of the window (0-based, exclusive) for which overlapping variants should be returned.|
-|page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
+|end|integer|The end of the window (0-based, exclusive) for which overlapping variants should be returned.|
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
-|reference_name|string|Required. Only return variants on this reference.|
-|start|integer|Required. The beginning of the window (0-based, inclusive) for which overlapping variants should be returned. Genomic positions are non-negative integers less than reference length. Requests spanning the join of circular genomes are represented as two requests one on each side of the join (position 0).|
+|pageToken|string|Used to request a specific page of data to be returned.  Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively. |
+|referenceDbId|string|Only return variants on this reference.|
+|start|integer|The beginning of the window (0-based, inclusive) for which overlapping variants should be returned. Genomic positions are non-negative integers less than reference length. Requests spanning the join of circular genomes are represented as two requests one on each side of the join (position 0).|
 |variantSetDbIds|array[string]|The `VariantSet` to search.|
 
 
@@ -5174,17 +5180,17 @@ Gets a list of `Variant` matching the search criteria.
 ```
 {
     "callSetDbIds": [
-        "callSetDbIds1",
-        "callSetDbIds2"
+        "4639fe3e",
+        "b60d900b"
     ],
-    "end": 0,
-    "page": 0,
+    "end": 1500,
     "pageSize": 1000,
-    "reference_name": "reference_name",
-    "start": 0,
+    "pageToken": "33c27874",
+    "referenceDbId": "120a2d5c",
+    "start": 100,
     "variantSetDbIds": [
-        "variantSetDbIds1",
-        "variantSetDbIds2"
+        "ba63d810",
+        "434d1760"
     ]
 }
 ```
@@ -5358,7 +5364,7 @@ Gets a list of `Variant` matching the search criteria.
 
 + Parameters
     + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
-    + pageToken (Optional, ) ... Which result page is requested. Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively.
+    + pageToken (Optional, ) ... Used to request a specific page of data to be returned.Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively. 
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
@@ -5533,7 +5539,7 @@ Gets a filtered list of `Variants`.
 + Parameters
     + variantDbId (Optional, ) ... The ID of the `Variant` to be retrieved.
     + variantSetDbId (Optional, ) ... The ID of the `VariantSet` to be retrieved.
-    + pageToken (Optional, ) ... Which result page is requested. Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively.
+    + pageToken (Optional, ) ... Used to request a specific page of data to be returned.Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively. 
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
@@ -5802,7 +5808,7 @@ The variant calls for this particular variant. Each one represents the determina
     + unknownString (Optional, ) ... The string to use as a representation for missing data
     + sepPhased (Optional, ) ... The string to use as a separator for phased allele calls
     + sepUnphased (Optional, ) ... The string to use as a separator for unphased allele calls
-    + pageToken (Optional, ) ... Which result page is requested. Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively.
+    + pageToken (Optional, ) ... Used to request a specific page of data to be returned.Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively. 
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 

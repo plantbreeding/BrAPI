@@ -609,7 +609,8 @@ See Search Services for additional implementation details.
 
 |Field|Type|Description|
 |---|---|---| 
-|germplasmDbIds|array[string]| The ID which uniquely identifies a germplasm|
+|germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm to search for|
+|germplasmNames|array[string]|List of human readable names to identify germplasm to search for|
 |observationUnitDbIds|array[string]|The ID which uniquely identifies an observation unit|
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
@@ -656,8 +657,12 @@ See Search Services for additional implementation details.
 ```
 {
     "germplasmDbIds": [
-        "germplasmDbIds1",
-        "germplasmDbIds2"
+        "e9c6edd7",
+        "1b1df4a6"
+    ],
+    "germplasmNames": [
+        "A0000003",
+        "A0000477"
     ],
     "observationUnitDbIds": [
         "observationUnitDbIds1",
