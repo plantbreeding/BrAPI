@@ -107,11 +107,11 @@ components:
           description: The absolute URL where the file is located
           type: string
           format: uri
-          example: https://wiki.brapi.org/examples/datafile.xslx
+          example: https://wiki.brapi.org/examples/datafile.xlsx
         fileName:
           description: The name of the file
           type: string
-          example: datafile.xslx
+          example: datafile.xlsx
         fileSize:
           description: The size of the file in bytes
           type: integer

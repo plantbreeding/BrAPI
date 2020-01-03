@@ -65,7 +65,7 @@ spell = SpellChecker()
 spell.word_frequency.load_words([
     #tech
     'brapi',
-    'json', 'csv', 'tsv', 'flapjack', 'jpg', 'svg', 'postgres', 'md5sum', 'md5checksum', 'fileadmin', 'pdfs',
+    'json', 'csv', 'tsv', 'flapjack', 'jpg', 'svg', 'postgres', 'md5sum', 'md5checksum', 'fileadmin', 'pdfs', 'xlsx',
     'http', 'https', 'url', 'href', 'html', 'webpage', 'www', 'wiews',
     'openapi', 'apiary', 'github', 'swaggerhub', 'ga4gh', 
     'brapicore', 'brapiphenotyping', 'brapigenotyping', 'brapigermplasm',

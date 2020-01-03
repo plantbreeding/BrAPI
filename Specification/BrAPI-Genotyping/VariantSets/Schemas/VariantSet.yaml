@@ -51,7 +51,7 @@ components:
           example:
           - dataFormat: VCF
             fileFormat: application/excel
-            fileURL: https://brapi.org/example/VCF_1.xslx
+            fileURL: https://brapi.org/example/VCF_1.xlsx
           - dataFormat: VCF
             fileFormat: text/csv
             fileURL: https://brapi.org/example/VCF_2.csv
