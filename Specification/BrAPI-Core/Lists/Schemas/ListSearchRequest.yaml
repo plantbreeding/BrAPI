@@ -6,53 +6,47 @@ paths: {}
 components:
   schemas:
     ListSearchRequest:
-      type: object
-      properties:
-        page:
-          description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-          type: integer
-          example: 0
-        pageSize:
-          description: The size of the pages to be returned. Default is `1000`.
-          example: 1000
-          type: integer
-        dateCreatedRangeStart:
-          format: date-time
-          type: string
-        dateCreatedRangeEnd:
-          format: date-time
-          type: string
-        dateModifiedRangeStart:
-          format: date-time
-          type: string
-        dateModifiedRangeEnd:
-          format: date-time
-          type: string
-        listDbIds:
-          type: array
-          items:
+      allOf:
+      - $ref: '#/components/schemas/SearchRequestParametersPaging'
+      - type: object
+        properties:
+          dateCreatedRangeStart:
+            format: date-time
             type: string
-          example: ['55f20cf6', '3193ca3d']
-        listNames:
-          type: array
-          items:
+          dateCreatedRangeEnd:
+            format: date-time
             type: string
-          example: ['Planing List 1', 'Bobs List']
-        listOwnerNames:
-          type: array
-          items:
+          dateModifiedRangeStart:
+            format: date-time
             type: string
-          example: ['Bob Robertson', 'Rob Robertson']
-        listOwnerPersonDbIds:
-          type: array
-          items:
+          dateModifiedRangeEnd:
+            format: date-time
             type: string
-          example: ['bob@bob.com', 'rob@bob.com']
-        listSources:
-          type: array
-          items:
-            type: string
-          example: ['USER', 'SYSTEM', 'EXTERNAL']
-        listType:
-          $ref: '#/components/schemas/ListTypes'
+          listDbIds:
+            type: array
+            items:
+              type: string
+            example: ['55f20cf6', '3193ca3d']
+          listNames:
+            type: array
+            items:
+              type: string
+            example: ['Planing List 1', 'Bobs List']
+          listOwnerNames:
+            type: array
+            items:
+              type: string
+            example: ['Bob Robertson', 'Rob Robertson']
+          listOwnerPersonDbIds:
+            type: array
+            items:
+              type: string
+            example: ['bob@bob.com', 'rob@bob.com']
+          listSources:
+            type: array
+            items:
+              type: string
+            example: ['USER', 'SYSTEM', 'EXTERNAL']
+          listType:
+            $ref: '#/components/schemas/ListTypes'
 

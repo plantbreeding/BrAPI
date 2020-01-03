@@ -6,34 +6,24 @@ paths: {}
 components:
   schemas:
     SampleSearchRequest:
-      type: object
-      properties:
-        page:
-          description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-          type: integer
-          example: 0
-        pageSize:
-          description: The size of the pages to be returned. Default is `1000`.
-          example: 1000
-          type: integer
-        germplasmDbIds:
-          description: ' The ID which uniquely identifies a germplasm'
-          items:
-            type: string
-          type: array
-        observationUnitDbIds:
-          description: The ID which uniquely identifies an observation unit
-          items:
-            type: string
-          type: array
-        plateDbIds:
-          description: The ID which uniquely identifies a plate of samples
-          items:
-            type: string
-          type: array
-        sampleDbIds:
-          description: The ID which uniquely identifies a sample
-          items:
-            type: string
-          type: array
+      allOf:
+      - $ref: '#/components/schemas/SearchRequestParametersPaging'
+      - $ref: '#/components/schemas/SearchRequestParametersGermplasm'
+      - type: object
+        properties: 
+          observationUnitDbIds: 
+            description: The ID which uniquely identifies an observation unit
+            items:
+              type: string
+            type: array
+          plateDbIds:
+            description: The ID which uniquely identifies a plate of samples
+            items:
+              type: string
+            type: array
+          sampleDbIds:
+            description: The ID which uniquely identifies a sample
+            items:
+              type: string
+            type: array
 

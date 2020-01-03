@@ -6,24 +6,20 @@ paths: {}
 components:
   schemas:
     ReferenceSetsSearchRequest:
-      description: This request defines search criteria to find `ReferenceSets`.
-      type: object
-      properties:
-        page:
-          description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-          type: integer
-          example: 0
-        pageSize:
-          description: The size of the pages to be returned. Default is `1000`.
-          example: 1000
-          type: integer
-        accession:
-          description: If set, return the reference sets for which the `accession` matches this string (case-sensitive, exact match).
-          type: string
-        assemblyPUI:
-          description: If set, return the reference sets for which the `assemblyId` matches this string (case-sensitive, exact match).
-          type: string
-        md5checksum:
-          description: If set, return the reference sets for which the `md5checksum` matches this string (case-sensitive, exact match).
-          type: string
+      allOf:
+      - $ref: '#/components/schemas/SearchRequestParametersPaging'
+      - type: object
+        properties:
+          accession:
+            description: If set, return the reference sets for which the `accession` matches this string (case-sensitive, exact match).
+            type: string
+            example: A0009283
+          assemblyPUI:
+            description: If set, return the reference sets for which the `assemblyId` matches this string (case-sensitive, exact match).
+            type: string
+            example: doi:10.15454/312953986E3
+          md5checksum: 
+            description: If set, return the reference sets for which the `md5checksum` matches this string (case-sensitive, exact match).
+            type: string
+            example: c2365e900c81a89cf74d83dab60df146
 

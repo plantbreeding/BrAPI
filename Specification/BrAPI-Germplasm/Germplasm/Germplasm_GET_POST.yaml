@@ -57,7 +57,7 @@ paths:
         required: false
         schema:
           type: string
-      - name: studyDbIds 
+      - name: studyDbId
         description: Search for Germplasm that are associated with a particular Study
         in: query
         required: false

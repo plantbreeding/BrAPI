@@ -1,0 +1,22 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    SearchRequestParametersLocations: 
+      type: object
+      properties:
+        locationDbIds:
+          description: The location ids to search for
+          type: array
+          items:
+            type: string
+          example: ['b28911cf', '5071d1e4']
+        locationNames:
+          description: A human readable names to search for
+          type: array
+          items:
+            type: string
+          example: ['Location Alpha', 'The Large Hadron Collider']

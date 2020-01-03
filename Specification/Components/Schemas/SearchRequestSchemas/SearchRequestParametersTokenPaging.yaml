@@ -1,0 +1,21 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    SearchRequestParametersTokenPaging: 
+      type: object
+      properties:
+        pageToken:
+          description: |-
+            Used to request a specific page of data to be returned.
+            
+            Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively. 
+          example: 33c27874
+          type: string
+        pageSize:
+          description: The size of the pages to be returned. Default is `1000`.
+          example: 1000
+          type: integer

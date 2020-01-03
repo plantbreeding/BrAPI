@@ -6,54 +6,23 @@ paths: {}
 components:
   schemas:
     ObservationUnitSearchRequest: 
-      type: object
-      properties:
-        page:
-          description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-          type: integer
-          example: 0
-        pageSize:
-          description: The size of the pages to be returned. Default is `1000`.
-          example: 1000
-          type: integer
-        observationUnitDbIds:
-          description: The unique id of an observation unit
-          items:
+      allOf:
+      - $ref: '#/components/schemas/SearchRequestParametersPaging'
+      - $ref: '#/components/schemas/SearchRequestParametersPrograms'
+      - $ref: '#/components/schemas/SearchRequestParametersTrials'
+      - $ref: '#/components/schemas/SearchRequestParametersStudies'
+      - $ref: '#/components/schemas/SearchRequestParametersLocations'
+      - $ref: '#/components/schemas/SearchRequestParametersGermplasm'
+      - type: object
+        properties:
+          observationUnitDbIds:
+            description: The unique id of an observation unit
+            items:
+              type: string
+            type: array
+            example: ['66bab7e3', '0e5e7f99']
+          observationLevel: 
+            description: The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnit Structure.
             type: string
-          type: array
-          example: ['66bab7e3', '0e5e7f99']
-        germplasmDbIds: 
-          description: The name or synonym of external genebank accession identifiers
-          items:
-            type: string
-          type: array
-          example: ['621b6f1b', 'cdb7a727']
-        locationDbIds:
-          description: locations these traits were collected
-          items:
-            type: string
-          type: array
-          example: ['88da535f', '1554486a']
-        observationLevel:
-          description: The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnit Structure.
-          type: string
-          example: plant
-        programDbIds:
-          description: list of programs to search across
-          items:
-            type: string
-          type: array
-          example: ['ea41cd20', 'f03f211a']
-        studyDbIds:
-          description: The database ID / PK of the studies search parameter
-          items:
-            type: string
-          type: array
-          example: ['c74f8370', 'dd021ad9']
-        trialDbIds:
-          description: list of trials to search across
-          items:
-            type: string
-          type: array
-          example: ['4688d49c', '3c90127d']
+            example: plant
 

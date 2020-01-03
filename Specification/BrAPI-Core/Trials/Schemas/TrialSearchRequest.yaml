@@ -6,96 +6,59 @@ paths: {}
 components:
   schemas:
     TrialSearchRequest:
-      type: object
-      properties:
-        page:
-          description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-          type: integer
-          example: 0
-        pageSize:
-          description: The size of the pages to be returned. Default is `1000`.
-          example: 1000
-          type: integer
-        active:
-          description: Is this trail currently active
-          type: boolean
-          example: true
-        commonCropNames:
-          description: Common name for the crop associated with this trial
-          type: array
-          items:
+      allOf:
+      - $ref: '#/components/schemas/SearchRequestParametersPaging'
+      - $ref: '#/components/schemas/SearchRequestParametersCommonCropNames'
+      - $ref: '#/components/schemas/SearchRequestParametersPrograms'
+      - $ref: '#/components/schemas/SearchRequestParametersTrials'
+      - $ref: '#/components/schemas/SearchRequestParametersStudies'
+      - $ref: '#/components/schemas/SearchRequestParametersLocations'
+      - type: object
+        properties:
+          active:
+            description: Is this trail currently active
+            type: boolean
+            example: true
+          contactDbIds:
+            description: List of contact entities associated with this trial
+            type: array
+            items:
+              type: string
+            example: ['e0f70c2a', 'b82f0967']
+          searchDateRangeStart: 
+            description: |-
+              The start of the overlapping search date range. `searchDateRangeStart` must be before `searchDateRangeEnd`.
+              
+              Return a Trial entity if any of the following cases are true
+              
+              - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is null 
+              
+              - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`
+              
+              - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is null
+              
+              - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is before `trial.endDate`
+            format: date
             type: string
-          example: ['Tomatillo', 'Paw Paw']
-        contactDbIds:
-          description: List of contact entities associated with this trial
-          type: array
-          items:
+          searchDateRangeEnd:
+            description: |-
+              The end of the overlapping search date range. `searchDateRangeStart` must be before `searchDateRangeEnd`.
+              
+              Return a Trial entity if any of the following cases are true
+              
+              - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is null 
+              
+              - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`
+              
+              - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is null
+              
+              - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is before `trial.endDate`
+            format: date
             type: string
-          example: ['e0f70c2a', 'b82f0967']
-        programDbIds:
-          description: A program identifier to search for
-          type: array
-          items:
-            type: string
-          example: ['7e54bd46', 'e54a7703']
-        locationDbIds:
-          description: A location identifier to search for (could be in connected study)
-          type: array
-          items:
-            type: string
-          example: ['8fe061c3', '6eafd31e']
-        searchDateRangeStart:
-          description: |-
-            The start of the overlapping search date range. `searchDateRangeStart` must be before `searchDateRangeEnd`.
-            
-            Return a Trial entity if any of the following cases are true
-            
-            - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is null 
-            
-            - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`
-            
-            - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is null
-            
-            - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is before `trial.endDate`
-          format: date
-          type: string
-        searchDateRangeEnd:
-          description: |-
-            The end of the overlapping search date range. `searchDateRangeStart` must be before `searchDateRangeEnd`.
-            
-            Return a Trial entity if any of the following cases are true
-            
-            - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is null 
-            
-            - `searchDateRangeStart` is before `trial.endDate` AND `searchDateRangeEnd` is after `trial.startDate`
-            
-            - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is null
-            
-            - `searchDateRangeEnd` is after `trial.startDate` AND `searchDateRangeStart` is before `trial.endDate`
-          format: date
-          type: string
-        studyDbIds:
-          description: The ID which uniquely identifies a study
-          type: array
-          items:
-            type: string
-          example: ['e4fbcc24', '6ca07754']
-        trialDbIds:
-          description: The ID which uniquely identifies a trial
-          type: array
-          items:
-            type: string
-          example: ['d2593dc2', '9431a731']
-        trialPUIs:
-          description: A permanent identifier for a trial. Could be DOI or other URI formatted identifier.
-          type: array
-          items:
-            type: string
-          example: ['https://doi.org/01093190', 'https://doi.org/11192409']
-        trialNames:
-          description: The human readable name of a trial
-          type: array
-          items:
-            type: string
-          example: ['All Yield Trials 2016', 'Disease Resistance Study Comparison Group']
+          trialPUIs: 
+            description: A permanent identifier for a trial. Could be DOI or other URI formatted identifier.
+            type: array
+            items:
+              type: string
+            example: ['https://doi.org/01093190', 'https://doi.org/11192409']
 

@@ -1,0 +1,16 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    SearchRequestParametersCommonCropNames: 
+      type: object
+      properties:
+        commonCropNames:
+          description: Common name for the crop which this program is for
+          items:
+            type: string
+          type: array
+          example: ['Tomatillo', 'Paw Paw']

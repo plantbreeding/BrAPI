@@ -6,40 +6,34 @@ paths: {}
 components:
   schemas:
     MarkerPositionSearchRequest: 
-      type: object
-      properties:
-        page:
-          description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-          type: integer
-          example: 0
-        pageSize:
-          description: The size of the pages to be returned. Default is `1000`.
-          example: 1000
-          type: integer
-        mapDbIds:
-          description: The unique ID of the map 
-          type: array
-          items: 
-            type: string
-          example: ['7e6fa8aa', 'bedc418c']
-        linkageGroupNames: 
-          description: The Uniquely Identifiable name of this linkage group
-          type: array
-          items: 
-            type: string
-          example: ['Chromosome 2', 'Chromosome 3']
-        markerDbIds:
-          description: Internal db identifier
-          type: array
-          items: 
-            type: string
-          example: ['a0caa928', 'f8894a26']
-        minPosition:
-          description: The minimum position
-          type: integer
-          example: 250
-        maxPosition: 
-          description: The maximum position
-          type: integer
-          example: 4000
+      allOf:
+      - $ref: '#/components/schemas/SearchRequestParametersPaging'
+      - type: object
+        properties:
+          mapDbIds:
+            description: The unique ID of the map 
+            type: array
+            items: 
+              type: string
+            example: ['7e6fa8aa', 'bedc418c']
+          linkageGroupNames: 
+            description: The Uniquely Identifiable name of this linkage group
+            type: array
+            items: 
+              type: string
+            example: ['Chromosome 2', 'Chromosome 3']
+          markerDbIds:
+            description: Internal db identifier
+            type: array
+            items: 
+              type: string
+            example: ['a0caa928', 'f8894a26']
+          minPosition:
+            description: The minimum position
+            type: integer
+            example: 250
+          maxPosition: 
+            description: The maximum position
+            type: integer
+            example: 4000
 

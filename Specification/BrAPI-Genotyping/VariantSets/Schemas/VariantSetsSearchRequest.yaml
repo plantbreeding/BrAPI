@@ -6,25 +6,14 @@ paths: {}
 components:
   schemas:
     variantSetsSearchRequest: 
-      description: Search parameters for searching Variant Sets
-      type: object
-      properties:
-        page:
-          description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-          type: integer
-          example: 0
-        pageSize:
-          description: The size of the pages to be returned. Default is `1000`.
-          example: 1000
-          type: integer
-        studyDbIds: 
-          description: The `Dataset` to search.
-          type: array
-          items:
-            type: string
-        variantSetDbIds: 
-          description: The VariantSet to search.
-          type: array
-          items:
-            type: string
+      allOf:
+      - $ref: '#/components/schemas/SearchRequestParametersPaging'
+      - $ref: '#/components/schemas/SearchRequestParametersStudies'
+      - type: object
+        properties: 
+          variantSetDbIds: 
+            description: The VariantSet to search.
+            type: array
+            items:
+              type: string
 

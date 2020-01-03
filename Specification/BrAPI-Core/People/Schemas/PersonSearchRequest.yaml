@@ -6,61 +6,55 @@ paths: {}
 components:
   schemas:
     PersonSearchRequest:
-      type: object
-      properties:
-        page:
-          description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-          type: integer
-          example: 0
-        pageSize:
-          description: The size of the pages to be returned. Default is `1000`.
-          example: 1000
-          type: integer
-        emailAddresses:
-          description: email address for this person
-          type: array
-          items:
-            type: string
-          example: ['bob@bob.com', 'rob@bob.com']
-        firstNames:
-          description: Persons first name
-          type: array
-          items:
-            type: string
-          example: ['Bob', 'Rob']
-        lastNames:
-          description: Persons last name
-          type: array
-          items:
-            type: string
-          example: ['Robertson', 'Smith']
-        mailingAddresses:
-          description: physical address of this person
-          type: array
-          items:
-            type: string
-          example: ['123 Main Street', '456 Side Street']
-        middleNames:
-          description: Persons middle name
-          type: array
-          items:
-            type: string
-          example: ['Danger', 'Fight']
-        personDbIds:
-          description: Unique ID for this person
-          type: array
-          items:
-            type: string
-          example: ['1e7731ab', 'bc28cff8']
-        phoneNumbers:
-          description: phone number of this person
-          type: array
-          items:
-            type: string
-          example: ['9995555555', '8884444444']
-        userIDs:
-          description: A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.
-          type: array
-          items:
-            type: string
-          example: ['bob', 'rob']
+      allOf:
+      - $ref: '#/components/schemas/SearchRequestParametersPaging'
+      - type: object
+        properties:
+          emailAddresses:
+            description: email address for this person
+            type: array
+            items:
+              type: string
+            example: ['bob@bob.com', 'rob@bob.com']
+          firstNames:
+            description: Persons first name
+            type: array
+            items:
+              type: string
+            example: ['Bob', 'Rob']
+          lastNames:
+            description: Persons last name
+            type: array
+            items:
+              type: string
+            example: ['Robertson', 'Smith']
+          mailingAddresses:
+            description: physical address of this person
+            type: array
+            items:
+              type: string
+            example: ['123 Main Street', '456 Side Street']
+          middleNames:
+            description: Persons middle name
+            type: array
+            items:
+              type: string
+            example: ['Danger', 'Fight']
+          personDbIds:
+            description: Unique ID for this person
+            type: array
+            items:
+              type: string
+            example: ['1e7731ab', 'bc28cff8']
+          phoneNumbers:
+            description: phone number of this person
+            type: array
+            items:
+              type: string
+            example: ['9995555555', '8884444444']
+          userIDs:
+            description: A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.
+            type: array
+            items:
+              type: string
+            example: ['bob', 'rob']

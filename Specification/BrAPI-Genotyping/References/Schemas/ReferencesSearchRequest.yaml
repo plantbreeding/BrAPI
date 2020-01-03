@@ -6,42 +6,20 @@ paths: {}
 components:
   schemas:
     ReferencesSearchRequest: 
-      description: |-
-        ****************  /references  *******************
-        This request maps to the body of `POST /references/search` as JSON.
-      type: object
-      properties:
-        page:
-          description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-          type: integer
-          example: 0
-        pageSize:
-          description: The size of the pages to be returned. Default is `1000`.
-          example: 1000
-          type: integer
-        accession:
-          description: |-
-            If specified, return the references for which the `accession`
-            matches this string (case-sensitive, exact match).
-          type: string
-        md5checksum:
-          description: |-
-            If specified, return the references for which the
-            `md5checksum` matches this string (case-sensitive, exact match).
-            See `ReferenceSet::md5checksum` for details.
-          type: string
-        page_size:
-          description: |-
-            Specifies the maximum number of results to return in a single page.
-            If unspecified, a system default will be used.
-          type: integer
-        page_token:
-          description: |-
-            The continuation token, which is used to page through large result sets.
-            To get the next page of results, set this parameter to the value of
-            `next_page_token` from the previous response.
-          type: string
-        referenceSetDbId:
-          description: The `ReferenceSet` to search.
-          type: string
+      allOf:
+      - $ref: '#/components/schemas/SearchRequestParametersPaging'
+      - type: object
+        properties:
+          accession:
+            description: If specified, return the references for which the `accession` matches this string (case-sensitive, exact match).
+            type: string
+            example: A0009283
+          md5checksum:
+            description: If specified, return the references for which the `md5checksum` matches this string (case-sensitive, exact match).
+            type: string
+            example: c2365e900c81a89cf74d83dab60df146
+          referenceSetDbId:
+            description: The `ReferenceSet` to search.
+            type: string
+            example: 04c83ea7
 

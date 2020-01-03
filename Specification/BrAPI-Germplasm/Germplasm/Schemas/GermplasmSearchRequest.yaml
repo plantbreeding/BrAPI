@@ -6,86 +6,59 @@ paths: {}
 components:
   schemas:
     GermplasmSearchRequest: 
-      type: object
-      properties:
-        page:
-          description: Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-          type: integer
-          example: 0
-        pageSize:
-          description: The size of the pages to be returned. Default is `1000`.
-          example: 1000
-          type: integer
-        accessionNumbers:
-          description: List unique identifiers for accessions within a genebank
-          items:
-            type: string
-          type: array
-          example: ['A0000003', 'A0000477']
-        commonCropNames:
-          description: List crops to search by
-          items:
-            type: string
-          type: array
-          example: ['Tomatillo', 'Paw Paw']
-        germplasmDbIds:
-          description: List of IDs which uniquely identify germplasm
-          items:
-            type: string
-          type: array
-          example: ['e9c6edd7', '1b1df4a6']
-        germplasmGenus:
-          description: List of Genus names to identify germplasm
-          items:
-            type: string
-          type: array
-          example: ['Aspergillus', 'Zea']
-        germplasmNames:
-          description: List of human readable names to identify germplasm
-          items:
-            type: string
-          type: array
-          example: ['A0000003', 'A0000477']
-        germplasmPUIs:
-          description: List of Permanent Unique Identifiers to identify germplasm
-          items:
-            type: string
-          type: array
-          example: ['http://pui.per/accession/A0000003', 'http://pui.per/accession/A0000477']
-        germplasmSpecies:
-          description: List of Species names to identify germplasm
-          items:
-            type: string
-          type: array
-          example: ['fructus', 'mays']
-        parentDbIds:
-          description: Search for Germplasm with these parents
-          items:
-            type: string
-          type: array
-          example: ['72c1001f', '7346c553']
-        progenyDbIds: 
-          description: Search for Germplasm with these children
-          items:
-            type: string
-          type: array
-          example: ['16e16a7e', 'ce06cf9e']
-        studyDbIds: 
-          description: Search for Germplasm that are associated with a particular Study
-          items:
-            type: string
-          type: array
-          example: ['4a5f9742', '07a6229c']
-        synonyms:
-          description: List of alternative names or IDs used to reference this germplasm
-          items:
-            type: string
-          type: array
-          example: ['variety_1', '2c38f9b6']
-        xrefs: 
-          description: Search for Germplasm by an external reference
-          items:
-            type: string
-          type: array
-          example: ['http://pui.per/accession/A0008766', '4cda72fe']
+      allOf:
+      - $ref: '#/components/schemas/SearchRequestParametersPaging'
+      - $ref: '#/components/schemas/SearchRequestParametersCommonCropNames'
+      - $ref: '#/components/schemas/SearchRequestParametersGermplasm'
+      - $ref: '#/components/schemas/SearchRequestParametersStudies'
+      - type: object
+        properties: 
+          accessionNumbers:
+            description: List unique identifiers for accessions within a genebank
+            items:
+              type: string
+            type: array
+            example: ['A0000003', 'A0000477']
+          germplasmGenus: 
+            description: List of Genus names to identify germplasm
+            items:
+              type: string
+            type: array
+            example: ['Aspergillus', 'Zea']
+          germplasmPUIs:
+            description: List of Permanent Unique Identifiers to identify germplasm
+            items:
+              type: string
+            type: array
+            example: ['http://pui.per/accession/A0000003', 'http://pui.per/accession/A0000477']
+          germplasmSpecies:
+            description: List of Species names to identify germplasm
+            items:
+              type: string
+            type: array
+            example: ['fructus', 'mays']
+          parentDbIds:
+            description: Search for Germplasm with these parents
+            items:
+              type: string
+            type: array
+            example: ['72c1001f', '7346c553']
+          progenyDbIds: 
+            description: Search for Germplasm with these children
+            items:
+              type: string
+            type: array
+            example: ['16e16a7e', 'ce06cf9e']
+          synonyms:
+            description: List of alternative names or IDs used to reference this germplasm
+            items:
+              type: string
+            type: array
+            example: ['variety_1', '2c38f9b6']
+          xrefs: 
+            description: Search for Germplasm by an external reference
+            items:
+              type: string
+            type: array
+            example: ['http://pui.per/accession/A0008766', '4cda72fe']
 
