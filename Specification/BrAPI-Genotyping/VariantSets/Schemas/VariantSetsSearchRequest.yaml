@@ -5,15 +5,28 @@ openapi: 3.0.0
 paths: {}
 components:
   schemas:
-    variantSetsSearchRequest: 
+    VariantSetsSearchRequest: 
       allOf:
       - $ref: '#/components/schemas/SearchRequestParametersPaging'
       - $ref: '#/components/schemas/SearchRequestParametersStudies'
       - type: object
         properties: 
+          callSetDbIds: 
+            description: The CallSet to search.
+            type: array
+            items:
+              type: string
+            example: ['9569cfc4', 'da1e888c']
+          variantDbIds: 
+            description: The Variant to search.
+            type: array
+            items:
+              type: string
+            example: ['c80f068b', 'eb7c5f50']
           variantSetDbIds: 
             description: The VariantSet to search.
             type: array
             items:
               type: string
+            example: ['b2903842', 'dcbb8558']
 

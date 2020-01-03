@@ -13,7 +13,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/variantSetsSearchRequest'
+              $ref: '#/components/schemas/VariantSetsSearchRequest'
         description: Study Search request
       responses:
         '200':

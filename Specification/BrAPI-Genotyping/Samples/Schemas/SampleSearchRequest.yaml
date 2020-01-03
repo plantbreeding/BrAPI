@@ -16,14 +16,17 @@ components:
             items:
               type: string
             type: array
+            example: [ '3cd0ca36', '983f3b14']
           plateDbIds:
             description: The ID which uniquely identifies a plate of samples
             items:
               type: string
             type: array
+            example: [ '0cac98b8', 'b96125fb']
           sampleDbIds:
             description: The ID which uniquely identifies a sample
             items:
               type: string
             type: array
+            example: [ '3bece2ca', 'dd286cc6']
 

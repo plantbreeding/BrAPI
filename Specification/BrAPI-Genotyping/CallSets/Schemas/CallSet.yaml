@@ -17,24 +17,31 @@ components:
         sampleDbId:
           description: The Biosample entity the call set data was generated from.
           type: string
+          example: 5e50e11d
         created:
-          description: The date this call set was created in milliseconds from the epoch.
-          type: integer
+          description: The date this call set was created
+          type: string
+          format: date-time
         callSetDbId:
           description: The call set ID.
           type: string
+          example: eb2bfd3d
         callSetName:
           description: The call set name.
           type: string
+          example: Sample_123_DNA_Run_456
         updated:
-          description: The time at which this call set was last updated in milliseconds from the epoch.
-          type: integer
+          description: The time at which this call set was last updated
+          type: string
+          format: date-time
         studyDbId:
           description: The ID which uniquely identifies a study within the given database server
           type: string
+          example: 708149c1
         variantSetIds:
           description: The IDs of the variant sets this call set has calls in.
           items:
             type: string
           type: array
+          example: [ 'cfd3d60f', 'a4e8bfe9' ]
 

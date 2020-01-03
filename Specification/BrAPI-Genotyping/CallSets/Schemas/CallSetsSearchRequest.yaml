@@ -12,27 +12,32 @@ components:
       - type: object
         properties:
           sampleDbIds:
-            description: Return only call sets generated from the provided Biosample ID.
+            description: Return only call sets generated from the provided Biosample IDs.
             type: array
             items:
               type: string
+            example: [ '758d3f6d', '39c0a3f7']
           sampleNames:
-            description: Return only call sets generated from the provided Biosample ID.
+            description: Return only call sets generated from the provided Biosample human readable names.
             type: array
             items:
               type: string
+            example: [ 'Sample_123', 'Sample_789' ]
           callSetDbIds: 
             description: Only return call sets with these DbIds (case-sensitive, exact match).
             type: array
             items:
               type: string
+            example: [ '6c7486b2', '49c36a73']
           callSetNames:
             description: Only return call sets with these names (case-sensitive, exact match).
             type: array
             items:
               type: string
+            example: [ 'Sample_123_DNA_Run_456', 'Sample_789_DNA_Run_101' ]
           variantSetDbIds: 
             description: The VariantSet to search.
             type: array
             items:
               type: string
+            example: [ '8a9a8972', '32a2649a']

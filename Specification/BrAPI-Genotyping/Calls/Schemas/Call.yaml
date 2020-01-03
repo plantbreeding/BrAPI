@@ -6,6 +6,7 @@ paths: {}
 components:
   schemas:
     Call:
+      type: object
       description: |-
         A `Call` represents the determination of genotype with respect to a particular `Variant`.
 
@@ -22,15 +23,19 @@ components:
 
             If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.
           type: string
+          example: 16466f55
         callSetName:
           description: The name of the call set this variant call belongs to. If this field is not present, the ordering of the call sets from a `SearchCallSetsRequest` over this `VariantSet` is guaranteed to match the ordering of the calls on this `Variant`. The number of results will also be the same.
           type: string
+          example: Sample_123_DNA_Run_456
         variantDbId:
           description: The ID of the variant this call belongs to.
           type: string
+          example: 538c8ecf
         variantName:
           description: The name of the variant this call belongs to.
           type: string
+          example: Marker A
         genotype:
           $ref: '#/components/schemas/ListValue'
         genotype_likelihood:
@@ -39,8 +44,9 @@ components:
             format: double
             type: number
           type: array
+          example: [ 1.0 ]
         phaseSet:
           description: If this field is populated, this variant call's genotype ordering implies the phase of the bases and is consistent with any other variant calls on the same contig which have the same phase set string.
           type: string
-      type: object
+          example: 6410afc5
 

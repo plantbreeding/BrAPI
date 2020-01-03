@@ -1,12 +1,19 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
 components:
   schemas:
     ListValue:
+      type: object
       description: |-
         `ListValue` is a wrapper around a repeated field of values.
 
         The JSON representation for `ListValue` is JSON array.
       properties:
         values:
+          type: array
           description: Repeated field of dynamically typed values.
           items:
             oneOf:
@@ -18,10 +25,4 @@ components:
               type: number
             - description: Represents a string value.
               type: string
-          type: array
-      type: object
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}
+          example: [ 'AA' ]

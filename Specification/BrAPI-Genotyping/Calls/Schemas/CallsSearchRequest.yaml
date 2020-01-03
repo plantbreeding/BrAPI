@@ -15,25 +15,32 @@ components:
             type: array
             items:
               type: string
+            example: [ 'a03202ec', '274e4f63' ]
           variantDbIds: 
             description: The Variant to search.
             type: array
             items:
               type: string
+            example: [ 'bba0b258', 'ff97d4f0' ]
           variantSetDbIds: 
             description: The VariantSet to search.
             type: array
             items:
               type: string
+            example: [ '407c0508', '49e24dfc' ]
           expandHomozygotes:
             description: Should homozygotes be expanded (true) or collapsed into a single occurence (false)
             type: boolean
+            example: true
           sepPhased:
             description: The string used as a separator for phased allele calls.
             type: string
+            example: '~'
           sepUnphased:
             description: The string used as a separator for unphased allele calls.
             type: string
+            example: '|'
           unknownString:
             description: The string used as a representation for missing data.
             type: string
+            example: '-'
