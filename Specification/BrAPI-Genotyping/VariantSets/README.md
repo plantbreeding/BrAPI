@@ -12,10 +12,12 @@ Gets a list of `VariantSet` matching the search criteria.
 
 |Field|Type|Description|
 |---|---|---| 
+|callSetDbIds|array[string]|The CallSet to search.|
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |studyDbIds|array[string]|List of study identifiers to search for|
 |studyNames|array[string]|List of study names to filter search results|
+|variantDbIds|array[string]|The Variant to search.|
 |variantSetDbIds|array[string]|The VariantSet to search.|
 
 
@@ -26,13 +28,13 @@ Gets a list of `VariantSet` matching the search criteria.
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |analysis|array[object]|Set of Analysis descriptors for this VariantSet|
-|analysisDbId|string|Formats of id  name  description  accessions are described in the documentation on general attributes and formats.|
-|analysisName|string||
-|created|string|The time at which this record was created, in ISO 8601 format.|
-|description|string||
+|analysisDbId|string|Unique identifier for this analysis description|
+|analysisName|string|A human readable name for this analysis|
+|created|string (date-time)|The time at which this record was created, in ISO 8601 format.|
+|description|string|A human readable description of the analysis|
 |software|array[string]|The software run to generate this analysis.|
 |type|string|The type of analysis.|
-|updated|string|The time at which this record was last updated, in ISO 8601 format.|
+|updated|string (date-time)|The time at which this record was last updated, in ISO 8601 format.|
 |availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.   dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)  fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
 |dataFormat|string|dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)|
 |fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
@@ -55,6 +57,10 @@ Gets a list of `VariantSet` matching the search criteria.
 + Request (application/json)
 ```
 {
+    "callSetDbIds": [
+        "9569cfc4",
+        "da1e888c"
+    ],
     "page": 0,
     "pageSize": 1000,
     "studyDbIds": [
@@ -65,9 +71,13 @@ Gets a list of `VariantSet` matching the search criteria.
         "The First Bob Study 2017",
         "Wheat Yield Trial 246"
     ],
+    "variantDbIds": [
+        "c80f068b",
+        "eb7c5f50"
+    ],
     "variantSetDbIds": [
-        "variantSetDbIds1",
-        "variantSetDbIds2"
+        "b2903842",
+        "dcbb8558"
     ]
 }
 ```
@@ -85,10 +95,10 @@ Gets a list of `VariantSet` matching the search criteria.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -110,43 +120,35 @@ Gets a list of `VariantSet` matching the search criteria.
                 "additionalInfo": {},
                 "analysis": [
                     {
-                        "analysisDbId": "analysisDbId",
-                        "analysisName": "analysisName",
-                        "created": "created",
-                        "description": "description",
+                        "analysisDbId": "6191a6bd",
+                        "analysisName": "Standard QC",
+                        "created": "2018-01-01T14:47:23-0600",
+                        "description": "This is a formal description of a QC methodology. Blah blah blah ...",
                         "software": [
-                            "software1",
-                            "software2"
+                            "https://github.com/genotyping/QC"
                         ],
-                        "type": "type",
-                        "updated": "updated"
+                        "type": "QC",
+                        "updated": "2018-01-01T14:47:23-0600"
                     }
                 ],
                 "availableFormats": [
                     {
-                        "dataFormat": [
-                            "DartSeq",
-                            "VCF",
-                            "Hapmap",
-                            "tabular",
-                            "JSON"
-                        ],
-                        "fileFormat": [
-                            "text/csv",
-                            "text/tsv",
-                            "application/excel",
-                            "application/zip",
-                            "application/json"
-                        ],
-                        "fileURL": ""
+                        "dataFormat": "VCF",
+                        "fileFormat": "application/excel",
+                        "fileURL": "https://brapi.org/example/VCF_1.xlsx"
+                    },
+                    {
+                        "dataFormat": "VCF",
+                        "fileFormat": "text/csv",
+                        "fileURL": "https://brapi.org/example/VCF_2.csv"
                     }
                 ],
-                "callSetCount": 0,
-                "referenceSetDbId": "referenceSetDbId",
-                "studyDbId": "studyDbId",
-                "variantCount": 0,
-                "variantSetDbId": "variantSetDbId",
-                "variantSetName": "variantSetName"
+                "callSetCount": 341,
+                "referenceSetDbId": "57eae639",
+                "studyDbId": "2fc3b034",
+                "variantCount": 250,
+                "variantSetDbId": "87a6ac1e",
+                "variantSetName": "Maize QC DataSet 002334"
             }
         ]
     }
@@ -164,10 +166,10 @@ Gets a list of `VariantSet` matching the search criteria.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -220,13 +222,13 @@ Gets a list of `VariantSet` matching the search criteria.
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |analysis|array[object]|Set of Analysis descriptors for this VariantSet|
-|analysisDbId|string|Formats of id  name  description  accessions are described in the documentation on general attributes and formats.|
-|analysisName|string||
-|created|string|The time at which this record was created, in ISO 8601 format.|
-|description|string||
+|analysisDbId|string|Unique identifier for this analysis description|
+|analysisName|string|A human readable name for this analysis|
+|created|string (date-time)|The time at which this record was created, in ISO 8601 format.|
+|description|string|A human readable description of the analysis|
 |software|array[string]|The software run to generate this analysis.|
 |type|string|The type of analysis.|
-|updated|string|The time at which this record was last updated, in ISO 8601 format.|
+|updated|string (date-time)|The time at which this record was last updated, in ISO 8601 format.|
 |availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.   dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)  fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
 |dataFormat|string|dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)|
 |fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
@@ -261,10 +263,10 @@ Gets a list of `VariantSet` matching the search criteria.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -297,10 +299,10 @@ Gets a list of `VariantSet` matching the search criteria.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -322,43 +324,35 @@ Gets a list of `VariantSet` matching the search criteria.
                 "additionalInfo": {},
                 "analysis": [
                     {
-                        "analysisDbId": "analysisDbId",
-                        "analysisName": "analysisName",
-                        "created": "created",
-                        "description": "description",
+                        "analysisDbId": "6191a6bd",
+                        "analysisName": "Standard QC",
+                        "created": "2018-01-01T14:47:23-0600",
+                        "description": "This is a formal description of a QC methodology. Blah blah blah ...",
                         "software": [
-                            "software1",
-                            "software2"
+                            "https://github.com/genotyping/QC"
                         ],
-                        "type": "type",
-                        "updated": "updated"
+                        "type": "QC",
+                        "updated": "2018-01-01T14:47:23-0600"
                     }
                 ],
                 "availableFormats": [
                     {
-                        "dataFormat": [
-                            "DartSeq",
-                            "VCF",
-                            "Hapmap",
-                            "tabular",
-                            "JSON"
-                        ],
-                        "fileFormat": [
-                            "text/csv",
-                            "text/tsv",
-                            "application/excel",
-                            "application/zip",
-                            "application/json"
-                        ],
-                        "fileURL": ""
+                        "dataFormat": "VCF",
+                        "fileFormat": "application/excel",
+                        "fileURL": "https://brapi.org/example/VCF_1.xlsx"
+                    },
+                    {
+                        "dataFormat": "VCF",
+                        "fileFormat": "text/csv",
+                        "fileURL": "https://brapi.org/example/VCF_2.csv"
                     }
                 ],
-                "callSetCount": 0,
-                "referenceSetDbId": "referenceSetDbId",
-                "studyDbId": "studyDbId",
-                "variantCount": 0,
-                "variantSetDbId": "variantSetDbId",
-                "variantSetName": "variantSetName"
+                "callSetCount": 341,
+                "referenceSetDbId": "57eae639",
+                "studyDbId": "2fc3b034",
+                "variantCount": 250,
+                "variantSetDbId": "87a6ac1e",
+                "variantSetName": "Maize QC DataSet 002334"
             }
         ]
     }
@@ -396,13 +390,13 @@ Will return a filtered list of `VariantSet`.
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |analysis|array[object]|Set of Analysis descriptors for this VariantSet|
-|analysisDbId|string|Formats of id  name  description  accessions are described in the documentation on general attributes and formats.|
-|analysisName|string||
-|created|string|The time at which this record was created, in ISO 8601 format.|
-|description|string||
+|analysisDbId|string|Unique identifier for this analysis description|
+|analysisName|string|A human readable name for this analysis|
+|created|string (date-time)|The time at which this record was created, in ISO 8601 format.|
+|description|string|A human readable description of the analysis|
 |software|array[string]|The software run to generate this analysis.|
 |type|string|The type of analysis.|
-|updated|string|The time at which this record was last updated, in ISO 8601 format.|
+|updated|string (date-time)|The time at which this record was last updated, in ISO 8601 format.|
 |availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.   dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)  fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
 |dataFormat|string|dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)|
 |fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
@@ -437,10 +431,10 @@ Will return a filtered list of `VariantSet`.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -462,43 +456,35 @@ Will return a filtered list of `VariantSet`.
                 "additionalInfo": {},
                 "analysis": [
                     {
-                        "analysisDbId": "analysisDbId",
-                        "analysisName": "analysisName",
-                        "created": "created",
-                        "description": "description",
+                        "analysisDbId": "6191a6bd",
+                        "analysisName": "Standard QC",
+                        "created": "2018-01-01T14:47:23-0600",
+                        "description": "This is a formal description of a QC methodology. Blah blah blah ...",
                         "software": [
-                            "software1",
-                            "software2"
+                            "https://github.com/genotyping/QC"
                         ],
-                        "type": "type",
-                        "updated": "updated"
+                        "type": "QC",
+                        "updated": "2018-01-01T14:47:23-0600"
                     }
                 ],
                 "availableFormats": [
                     {
-                        "dataFormat": [
-                            "DartSeq",
-                            "VCF",
-                            "Hapmap",
-                            "tabular",
-                            "JSON"
-                        ],
-                        "fileFormat": [
-                            "text/csv",
-                            "text/tsv",
-                            "application/excel",
-                            "application/zip",
-                            "application/json"
-                        ],
-                        "fileURL": ""
+                        "dataFormat": "VCF",
+                        "fileFormat": "application/excel",
+                        "fileURL": "https://brapi.org/example/VCF_1.xlsx"
+                    },
+                    {
+                        "dataFormat": "VCF",
+                        "fileFormat": "text/csv",
+                        "fileURL": "https://brapi.org/example/VCF_2.csv"
                     }
                 ],
-                "callSetCount": 0,
-                "referenceSetDbId": "referenceSetDbId",
-                "studyDbId": "studyDbId",
-                "variantCount": 0,
-                "variantSetDbId": "variantSetDbId",
-                "variantSetName": "variantSetName"
+                "callSetCount": 341,
+                "referenceSetDbId": "57eae639",
+                "studyDbId": "2fc3b034",
+                "variantCount": 250,
+                "variantSetDbId": "87a6ac1e",
+                "variantSetName": "Maize QC DataSet 002334"
             }
         ]
     }
@@ -535,6 +521,8 @@ Will perform a search for `Calls` which match the search criteria in `variantSet
 |expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurence (false)|
 |sepPhased|string|The string used as a separator for phased allele calls.|
 |sepUnphased|string|The string used as a separator for unphased allele calls.|
+|studyDbIds|array[string]|List of study identifiers to search for|
+|studyNames|array[string]|List of study names to filter search results|
 |unknownString|string|The string used as a representation for missing data.|
 |variantDbIds|array[string]|The Variant to search.|
 |variantSetDbIds|array[string]|The VariantSet to search.|
@@ -546,13 +534,13 @@ Will perform a search for `Calls` which match the search criteria in `variantSet
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
 |analysis|array[object]|Set of Analysis descriptors for this VariantSet|
-|analysisDbId|string|Formats of id  name  description  accessions are described in the documentation on general attributes and formats.|
-|analysisName|string||
-|created|string|The time at which this record was created, in ISO 8601 format.|
-|description|string||
+|analysisDbId|string|Unique identifier for this analysis description|
+|analysisName|string|A human readable name for this analysis|
+|created|string (date-time)|The time at which this record was created, in ISO 8601 format.|
+|description|string|A human readable description of the analysis|
 |software|array[string]|The software run to generate this analysis.|
 |type|string|The type of analysis.|
-|updated|string|The time at which this record was last updated, in ISO 8601 format.|
+|updated|string (date-time)|The time at which this record was last updated, in ISO 8601 format.|
 |availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.   dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)  fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
 |dataFormat|string|dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)|
 |fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
@@ -576,19 +564,28 @@ Will perform a search for `Calls` which match the search criteria in `variantSet
 ```
 {
     "callSetDbIds": [
-        "callSetDbIds1",
-        "callSetDbIds2"
+        "9569cfc4",
+        "da1e888c"
     ],
-    "sepPhased": "sepPhased",
-    "sepUnphased": "sepUnphased",
-    "unknownString": "unknownString",
+    "expandHomozygotes": true,
+    "sepPhased": "~",
+    "sepUnphased": "|",
+    "studyDbIds": [
+        "cf6c4bd4",
+        "691e69d6"
+    ],
+    "studyNames": [
+        "The First Bob Study 2017",
+        "Wheat Yield Trial 246"
+    ],
+    "unknownString": "-",
     "variantDbIds": [
-        "variantDbIds1",
-        "variantDbIds2"
+        "c80f068b",
+        "eb7c5f50"
     ],
     "variantSetDbIds": [
-        "variantSetDbIds1",
-        "variantSetDbIds2"
+        "b2903842",
+        "dcbb8558"
     ]
 }
 ```
@@ -606,10 +603,10 @@ Will perform a search for `Calls` which match the search criteria in `variantSet
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -629,43 +626,35 @@ Will perform a search for `Calls` which match the search criteria in `variantSet
         "additionalInfo": {},
         "analysis": [
             {
-                "analysisDbId": "analysisDbId",
-                "analysisName": "analysisName",
-                "created": "created",
-                "description": "description",
+                "analysisDbId": "6191a6bd",
+                "analysisName": "Standard QC",
+                "created": "2018-01-01T14:47:23-0600",
+                "description": "This is a formal description of a QC methodology. Blah blah blah ...",
                 "software": [
-                    "software1",
-                    "software2"
+                    "https://github.com/genotyping/QC"
                 ],
-                "type": "type",
-                "updated": "updated"
+                "type": "QC",
+                "updated": "2018-01-01T14:47:23-0600"
             }
         ],
         "availableFormats": [
             {
-                "dataFormat": [
-                    "DartSeq",
-                    "VCF",
-                    "Hapmap",
-                    "tabular",
-                    "JSON"
-                ],
-                "fileFormat": [
-                    "text/csv",
-                    "text/tsv",
-                    "application/excel",
-                    "application/zip",
-                    "application/json"
-                ],
-                "fileURL": ""
+                "dataFormat": "VCF",
+                "fileFormat": "application/excel",
+                "fileURL": "https://brapi.org/example/VCF_1.xlsx"
+            },
+            {
+                "dataFormat": "VCF",
+                "fileFormat": "text/csv",
+                "fileURL": "https://brapi.org/example/VCF_2.csv"
             }
         ],
-        "callSetCount": 0,
-        "referenceSetDbId": "referenceSetDbId",
-        "studyDbId": "studyDbId",
-        "variantCount": 0,
-        "variantSetDbId": "variantSetDbId",
-        "variantSetName": "variantSetName"
+        "callSetCount": 341,
+        "referenceSetDbId": "57eae639",
+        "studyDbId": "2fc3b034",
+        "variantCount": 250,
+        "variantSetDbId": "87a6ac1e",
+        "variantSetName": "Maize QC DataSet 002334"
     }
 }
 ```
@@ -705,13 +694,13 @@ This call will return a JSON version of a `VariantSet`.
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
 |analysis|array[object]|Set of Analysis descriptors for this VariantSet|
-|analysisDbId|string|Formats of id  name  description  accessions are described in the documentation on general attributes and formats.|
-|analysisName|string||
-|created|string|The time at which this record was created, in ISO 8601 format.|
-|description|string||
+|analysisDbId|string|Unique identifier for this analysis description|
+|analysisName|string|A human readable name for this analysis|
+|created|string (date-time)|The time at which this record was created, in ISO 8601 format.|
+|description|string|A human readable description of the analysis|
 |software|array[string]|The software run to generate this analysis.|
 |type|string|The type of analysis.|
-|updated|string|The time at which this record was last updated, in ISO 8601 format.|
+|updated|string (date-time)|The time at which this record was last updated, in ISO 8601 format.|
 |availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.   dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)  fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
 |dataFormat|string|dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)|
 |fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
@@ -744,10 +733,10 @@ This call will return a JSON version of a `VariantSet`.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -767,43 +756,35 @@ This call will return a JSON version of a `VariantSet`.
         "additionalInfo": {},
         "analysis": [
             {
-                "analysisDbId": "analysisDbId",
-                "analysisName": "analysisName",
-                "created": "created",
-                "description": "description",
+                "analysisDbId": "6191a6bd",
+                "analysisName": "Standard QC",
+                "created": "2018-01-01T14:47:23-0600",
+                "description": "This is a formal description of a QC methodology. Blah blah blah ...",
                 "software": [
-                    "software1",
-                    "software2"
+                    "https://github.com/genotyping/QC"
                 ],
-                "type": "type",
-                "updated": "updated"
+                "type": "QC",
+                "updated": "2018-01-01T14:47:23-0600"
             }
         ],
         "availableFormats": [
             {
-                "dataFormat": [
-                    "DartSeq",
-                    "VCF",
-                    "Hapmap",
-                    "tabular",
-                    "JSON"
-                ],
-                "fileFormat": [
-                    "text/csv",
-                    "text/tsv",
-                    "application/excel",
-                    "application/zip",
-                    "application/json"
-                ],
-                "fileURL": ""
+                "dataFormat": "VCF",
+                "fileFormat": "application/excel",
+                "fileURL": "https://brapi.org/example/VCF_1.xlsx"
+            },
+            {
+                "dataFormat": "VCF",
+                "fileFormat": "text/csv",
+                "fileURL": "https://brapi.org/example/VCF_2.csv"
             }
         ],
-        "callSetCount": 0,
-        "referenceSetDbId": "referenceSetDbId",
-        "studyDbId": "studyDbId",
-        "variantCount": 0,
-        "variantSetDbId": "variantSetDbId",
-        "variantSetName": "variantSetName"
+        "callSetCount": 341,
+        "referenceSetDbId": "57eae639",
+        "studyDbId": "2fc3b034",
+        "variantCount": 250,
+        "variantSetDbId": "87a6ac1e",
+        "variantSetName": "Maize QC DataSet 002334"
     }
 }
 ```
@@ -885,10 +866,10 @@ Gets a list of `Calls` associated with a `VariantSet`.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -910,15 +891,19 @@ Gets a list of `Calls` associated with a `VariantSet`.
         "data": [
             {
                 "additionalInfo": {},
-                "callSetDbId": "callSetDbId",
-                "callSetName": "callSetName",
+                "callSetDbId": "16466f55",
+                "callSetName": "Sample_123_DNA_Run_456",
                 "genotype": {
-                    "values": []
+                    "values": [
+                        "AA"
+                    ]
                 },
-                "genotype_likelihood": [],
-                "phaseSet": "phaseSet",
-                "variantDbId": "variantDbId",
-                "variantName": "variantName"
+                "genotype_likelihood": [
+                    1.0
+                ],
+                "phaseSet": "6410afc5",
+                "variantDbId": "538c8ecf",
+                "variantName": "Marker A"
             }
         ],
         "expandHomozygotes": true,
@@ -961,10 +946,10 @@ Gets a list of `CallSets` associated with a `VariantSet`.
 |additionalInfo|object|Additional arbitrary info|
 |callSetDbId|string|The call set ID.|
 |callSetName|string|The call set name.|
-|created|integer|The date this call set was created in milliseconds from the epoch.|
+|created|string (date-time)|The date this call set was created|
 |sampleDbId|string|The Biosample entity the call set data was generated from.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|updated|integer|The time at which this call set was last updated in milliseconds from the epoch.|
+|updated|string (date-time)|The time at which this call set was last updated|
 |variantSetIds|array[string]|The IDs of the variant sets this call set has calls in.|
 
 
@@ -992,10 +977,10 @@ Gets a list of `CallSets` associated with a `VariantSet`.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -1015,15 +1000,15 @@ Gets a list of `CallSets` associated with a `VariantSet`.
         "data": [
             {
                 "additionalInfo": {},
-                "callSetDbId": "callSetDbId",
-                "callSetName": "callSetName",
-                "created": 0,
-                "sampleDbId": "sampleDbId",
-                "studyDbId": "studyDbId",
-                "updated": 0,
+                "callSetDbId": "eb2bfd3d",
+                "callSetName": "Sample_123_DNA_Run_456",
+                "created": "2018-01-01T14:47:23-0600",
+                "sampleDbId": "5e50e11d",
+                "studyDbId": "708149c1",
+                "updated": "2018-01-01T14:47:23-0600",
                 "variantSetIds": [
-                    "variantSetIds1",
-                    "variantSetIds2"
+                    "cfd3d60f",
+                    "a4e8bfe9"
                 ]
             }
         ]
@@ -1105,10 +1090,10 @@ This call will return an array of `Variants`.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {

@@ -72,10 +72,10 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -231,10 +231,10 @@ Add new Observation entities
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -363,10 +363,10 @@ Note - In strictly typed languages, this structure can be represented as a Map o
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -515,10 +515,10 @@ See the example responses below</p>
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -787,10 +787,10 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -945,10 +945,10 @@ Update an existing Observation
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -1150,10 +1150,10 @@ Submit a search request for a set of Observations. Returns an Id which reference
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -1207,10 +1207,10 @@ Submit a search request for a set of Observations. Returns an Id which reference
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -1307,10 +1307,10 @@ observationValue data type inferred from the ontology
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -1343,10 +1343,10 @@ observationValue data type inferred from the ontology
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {

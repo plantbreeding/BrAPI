@@ -52,10 +52,10 @@ Get a filtered list of breeding Programs. This list can be filtered by common cr
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -177,10 +177,10 @@ Add new breeding Programs to the database. The `programDbId` is set by the serve
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -273,10 +273,10 @@ Get a single breeding Program by Id. This can be used to quickly get the details
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -392,10 +392,10 @@ Update the details of an existing breeding Program.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -535,10 +535,10 @@ See Search Services for additional implementation details.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -583,10 +583,10 @@ See Search Services for additional implementation details.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -671,10 +671,10 @@ See Search Services for additional implementation details.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -707,10 +707,10 @@ See Search Services for additional implementation details.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {

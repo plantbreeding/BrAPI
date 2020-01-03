@@ -58,10 +58,10 @@ Get a filtered list of Planned Cross entities.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -243,10 +243,10 @@ Create new Planned Cross entities on this server
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -407,10 +407,10 @@ Update existing Planned Cross entities on this server
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {

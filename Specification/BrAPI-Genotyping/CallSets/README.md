@@ -18,10 +18,10 @@ Gets a filtered list of `CallSet` JSON objects.
 |additionalInfo|object|Additional arbitrary info|
 |callSetDbId|string|The call set ID.|
 |callSetName|string|The call set name.|
-|created|integer|The date this call set was created in milliseconds from the epoch.|
+|created|string (date-time)|The date this call set was created|
 |sampleDbId|string|The Biosample entity the call set data was generated from.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|updated|integer|The time at which this call set was last updated in milliseconds from the epoch.|
+|updated|string (date-time)|The time at which this call set was last updated|
 |variantSetIds|array[string]|The IDs of the variant sets this call set has calls in.|
 
 
@@ -51,10 +51,10 @@ Gets a filtered list of `CallSet` JSON objects.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -74,15 +74,15 @@ Gets a filtered list of `CallSet` JSON objects.
         "data": [
             {
                 "additionalInfo": {},
-                "callSetDbId": "callSetDbId",
-                "callSetName": "callSetName",
-                "created": 0,
-                "sampleDbId": "sampleDbId",
-                "studyDbId": "studyDbId",
-                "updated": 0,
+                "callSetDbId": "eb2bfd3d",
+                "callSetName": "Sample_123_DNA_Run_456",
+                "created": "2018-01-01T14:47:23-0600",
+                "sampleDbId": "5e50e11d",
+                "studyDbId": "708149c1",
+                "updated": "2018-01-01T14:47:23-0600",
                 "variantSetIds": [
-                    "variantSetIds1",
-                    "variantSetIds2"
+                    "cfd3d60f",
+                    "a4e8bfe9"
                 ]
             }
         ]
@@ -121,10 +121,10 @@ Gets a `CallSet` by ID.
 |additionalInfo|object|Additional arbitrary info|
 |callSetDbId|string|The call set ID.|
 |callSetName|string|The call set name.|
-|created|integer|The date this call set was created in milliseconds from the epoch.|
+|created|string (date-time)|The date this call set was created|
 |sampleDbId|string|The Biosample entity the call set data was generated from.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|updated|integer|The time at which this call set was last updated in milliseconds from the epoch.|
+|updated|string (date-time)|The time at which this call set was last updated|
 |variantSetIds|array[string]|The IDs of the variant sets this call set has calls in.|
 
 
@@ -148,10 +148,10 @@ Gets a `CallSet` by ID.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -169,15 +169,15 @@ Gets a `CallSet` by ID.
     },
     "result": {
         "additionalInfo": {},
-        "callSetDbId": "callSetDbId",
-        "callSetName": "callSetName",
-        "created": 0,
-        "sampleDbId": "sampleDbId",
-        "studyDbId": "studyDbId",
-        "updated": 0,
+        "callSetDbId": "eb2bfd3d",
+        "callSetName": "Sample_123_DNA_Run_456",
+        "created": "2018-01-01T14:47:23-0600",
+        "sampleDbId": "5e50e11d",
+        "studyDbId": "708149c1",
+        "updated": "2018-01-01T14:47:23-0600",
         "variantSetIds": [
-            "variantSetIds1",
-            "variantSetIds2"
+            "cfd3d60f",
+            "a4e8bfe9"
         ]
     }
 }
@@ -260,10 +260,10 @@ Gets a list of `Calls` associated with a `CallSet`.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -285,15 +285,19 @@ Gets a list of `Calls` associated with a `CallSet`.
         "data": [
             {
                 "additionalInfo": {},
-                "callSetDbId": "callSetDbId",
-                "callSetName": "callSetName",
+                "callSetDbId": "16466f55",
+                "callSetName": "Sample_123_DNA_Run_456",
                 "genotype": {
-                    "values": []
+                    "values": [
+                        "AA"
+                    ]
                 },
-                "genotype_likelihood": [],
-                "phaseSet": "phaseSet",
-                "variantDbId": "variantDbId",
-                "variantName": "variantName"
+                "genotype_likelihood": [
+                    1.0
+                ],
+                "phaseSet": "6410afc5",
+                "variantDbId": "538c8ecf",
+                "variantName": "Marker A"
             }
         ],
         "expandHomozygotes": true,
@@ -336,8 +340,8 @@ Gets a list of call sets matching the search criteria.
 |germplasmNames|array[string]|List of human readable names to identify germplasm to search for|
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
-|sampleDbIds|array[string]|Return only call sets generated from the provided Biosample ID.|
-|sampleNames|array[string]|Return only call sets generated from the provided Biosample ID.|
+|sampleDbIds|array[string]|Return only call sets generated from the provided Biosample IDs.|
+|sampleNames|array[string]|Return only call sets generated from the provided Biosample human readable names.|
 |variantSetDbIds|array[string]|The VariantSet to search.|
 
 
@@ -349,10 +353,10 @@ Gets a list of call sets matching the search criteria.
 |additionalInfo|object|Additional arbitrary info|
 |callSetDbId|string|The call set ID.|
 |callSetName|string|The call set name.|
-|created|integer|The date this call set was created in milliseconds from the epoch.|
+|created|string (date-time)|The date this call set was created|
 |sampleDbId|string|The Biosample entity the call set data was generated from.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|updated|integer|The time at which this call set was last updated in milliseconds from the epoch.|
+|updated|string (date-time)|The time at which this call set was last updated|
 |variantSetIds|array[string]|The IDs of the variant sets this call set has calls in.|
 
 
@@ -367,12 +371,12 @@ Gets a list of call sets matching the search criteria.
 ```
 {
     "callSetDbIds": [
-        "callSetDbIds1",
-        "callSetDbIds2"
+        "6c7486b2",
+        "49c36a73"
     ],
     "callSetNames": [
-        "callSetNames1",
-        "callSetNames2"
+        "Sample_123_DNA_Run_456",
+        "Sample_789_DNA_Run_101"
     ],
     "germplasmDbIds": [
         "e9c6edd7",
@@ -385,16 +389,16 @@ Gets a list of call sets matching the search criteria.
     "page": 0,
     "pageSize": 1000,
     "sampleDbIds": [
-        "sampleDbIds1",
-        "sampleDbIds2"
+        "758d3f6d",
+        "39c0a3f7"
     ],
     "sampleNames": [
-        "sampleNames1",
-        "sampleNames2"
+        "Sample_123",
+        "Sample_789"
     ],
     "variantSetDbIds": [
-        "variantSetDbIds1",
-        "variantSetDbIds2"
+        "8a9a8972",
+        "32a2649a"
     ]
 }
 ```
@@ -412,10 +416,10 @@ Gets a list of call sets matching the search criteria.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -435,15 +439,15 @@ Gets a list of call sets matching the search criteria.
         "data": [
             {
                 "additionalInfo": {},
-                "callSetDbId": "callSetDbId",
-                "callSetName": "callSetName",
-                "created": 0,
-                "sampleDbId": "sampleDbId",
-                "studyDbId": "studyDbId",
-                "updated": 0,
+                "callSetDbId": "eb2bfd3d",
+                "callSetName": "Sample_123_DNA_Run_456",
+                "created": "2018-01-01T14:47:23-0600",
+                "sampleDbId": "5e50e11d",
+                "studyDbId": "708149c1",
+                "updated": "2018-01-01T14:47:23-0600",
                 "variantSetIds": [
-                    "variantSetIds1",
-                    "variantSetIds2"
+                    "cfd3d60f",
+                    "a4e8bfe9"
                 ]
             }
         ]
@@ -462,10 +466,10 @@ Gets a list of call sets matching the search criteria.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -519,10 +523,10 @@ Gets a list of call sets matching the search criteria.
 |additionalInfo|object|Additional arbitrary info|
 |callSetDbId|string|The call set ID.|
 |callSetName|string|The call set name.|
-|created|integer|The date this call set was created in milliseconds from the epoch.|
+|created|string (date-time)|The date this call set was created|
 |sampleDbId|string|The Biosample entity the call set data was generated from.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|updated|integer|The time at which this call set was last updated in milliseconds from the epoch.|
+|updated|string (date-time)|The time at which this call set was last updated|
 |variantSetIds|array[string]|The IDs of the variant sets this call set has calls in.|
 
 
@@ -548,10 +552,10 @@ Gets a list of call sets matching the search criteria.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -584,10 +588,10 @@ Gets a list of call sets matching the search criteria.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -607,15 +611,15 @@ Gets a list of call sets matching the search criteria.
         "data": [
             {
                 "additionalInfo": {},
-                "callSetDbId": "callSetDbId",
-                "callSetName": "callSetName",
-                "created": 0,
-                "sampleDbId": "sampleDbId",
-                "studyDbId": "studyDbId",
-                "updated": 0,
+                "callSetDbId": "eb2bfd3d",
+                "callSetName": "Sample_123_DNA_Run_456",
+                "created": "2018-01-01T14:47:23-0600",
+                "sampleDbId": "5e50e11d",
+                "studyDbId": "708149c1",
+                "updated": "2018-01-01T14:47:23-0600",
                 "variantSetIds": [
-                    "variantSetIds1",
-                    "variantSetIds2"
+                    "cfd3d60f",
+                    "a4e8bfe9"
                 ]
             }
         ]

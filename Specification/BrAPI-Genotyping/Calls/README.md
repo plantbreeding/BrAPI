@@ -60,10 +60,10 @@ Gets a filtered list of `Call` JSON objects.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -85,15 +85,19 @@ Gets a filtered list of `Call` JSON objects.
         "data": [
             {
                 "additionalInfo": {},
-                "callSetDbId": "callSetDbId",
-                "callSetName": "callSetName",
+                "callSetDbId": "16466f55",
+                "callSetName": "Sample_123_DNA_Run_456",
                 "genotype": {
-                    "values": []
+                    "values": [
+                        "AA"
+                    ]
                 },
-                "genotype_likelihood": [],
-                "phaseSet": "phaseSet",
-                "variantDbId": "variantDbId",
-                "variantName": "variantName"
+                "genotype_likelihood": [
+                    1.0
+                ],
+                "phaseSet": "6410afc5",
+                "variantDbId": "538c8ecf",
+                "variantName": "Marker A"
             }
         ],
         "expandHomozygotes": true,
@@ -174,21 +178,22 @@ Submit a search request for `Calls`
 ```
 {
     "callSetDbIds": [
-        "callSetDbIds1",
-        "callSetDbIds2"
+        "a03202ec",
+        "274e4f63"
     ],
+    "expandHomozygotes": true,
     "pageSize": 1000,
     "pageToken": "33c27874",
-    "sepPhased": "sepPhased",
-    "sepUnphased": "sepUnphased",
-    "unknownString": "unknownString",
+    "sepPhased": "~",
+    "sepUnphased": "|",
+    "unknownString": "-",
     "variantDbIds": [
-        "variantDbIds1",
-        "variantDbIds2"
+        "bba0b258",
+        "ff97d4f0"
     ],
     "variantSetDbIds": [
-        "variantSetDbIds1",
-        "variantSetDbIds2"
+        "407c0508",
+        "49e24dfc"
     ]
 }
 ```
@@ -206,10 +211,10 @@ Submit a search request for `Calls`
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -231,15 +236,19 @@ Submit a search request for `Calls`
         "data": [
             {
                 "additionalInfo": {},
-                "callSetDbId": "callSetDbId",
-                "callSetName": "callSetName",
+                "callSetDbId": "16466f55",
+                "callSetName": "Sample_123_DNA_Run_456",
                 "genotype": {
-                    "values": []
+                    "values": [
+                        "AA"
+                    ]
                 },
-                "genotype_likelihood": [],
-                "phaseSet": "phaseSet",
-                "variantDbId": "variantDbId",
-                "variantName": "variantName"
+                "genotype_likelihood": [
+                    1.0
+                ],
+                "phaseSet": "6410afc5",
+                "variantDbId": "538c8ecf",
+                "variantName": "Marker A"
             }
         ],
         "expandHomozygotes": true,
@@ -261,10 +270,10 @@ Submit a search request for `Calls`
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -356,10 +365,10 @@ See Search Services for additional implementation details.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -392,10 +401,10 @@ See Search Services for additional implementation details.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -417,15 +426,19 @@ See Search Services for additional implementation details.
         "data": [
             {
                 "additionalInfo": {},
-                "callSetDbId": "callSetDbId",
-                "callSetName": "callSetName",
+                "callSetDbId": "16466f55",
+                "callSetName": "Sample_123_DNA_Run_456",
                 "genotype": {
-                    "values": []
+                    "values": [
+                        "AA"
+                    ]
                 },
-                "genotype_likelihood": [],
-                "phaseSet": "phaseSet",
-                "variantDbId": "variantDbId",
-                "variantName": "variantName"
+                "genotype_likelihood": [
+                    1.0
+                ],
+                "phaseSet": "6410afc5",
+                "variantDbId": "538c8ecf",
+                "variantName": "Marker A"
             }
         ],
         "expandHomozygotes": true,

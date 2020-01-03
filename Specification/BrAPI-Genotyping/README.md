@@ -58,10 +58,10 @@ Gets a filtered list of `CallSet` JSON objects.
 |additionalInfo|object|Additional arbitrary info|
 |callSetDbId|string|The call set ID.|
 |callSetName|string|The call set name.|
-|created|integer|The date this call set was created in milliseconds from the epoch.|
+|created|string (date-time)|The date this call set was created|
 |sampleDbId|string|The Biosample entity the call set data was generated from.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|updated|integer|The time at which this call set was last updated in milliseconds from the epoch.|
+|updated|string (date-time)|The time at which this call set was last updated|
 |variantSetIds|array[string]|The IDs of the variant sets this call set has calls in.|
 
 
@@ -91,10 +91,10 @@ Gets a filtered list of `CallSet` JSON objects.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -114,15 +114,15 @@ Gets a filtered list of `CallSet` JSON objects.
         "data": [
             {
                 "additionalInfo": {},
-                "callSetDbId": "callSetDbId",
-                "callSetName": "callSetName",
-                "created": 0,
-                "sampleDbId": "sampleDbId",
-                "studyDbId": "studyDbId",
-                "updated": 0,
+                "callSetDbId": "eb2bfd3d",
+                "callSetName": "Sample_123_DNA_Run_456",
+                "created": "2018-01-01T14:47:23-0600",
+                "sampleDbId": "5e50e11d",
+                "studyDbId": "708149c1",
+                "updated": "2018-01-01T14:47:23-0600",
                 "variantSetIds": [
-                    "variantSetIds1",
-                    "variantSetIds2"
+                    "cfd3d60f",
+                    "a4e8bfe9"
                 ]
             }
         ]
@@ -161,10 +161,10 @@ Gets a `CallSet` by ID.
 |additionalInfo|object|Additional arbitrary info|
 |callSetDbId|string|The call set ID.|
 |callSetName|string|The call set name.|
-|created|integer|The date this call set was created in milliseconds from the epoch.|
+|created|string (date-time)|The date this call set was created|
 |sampleDbId|string|The Biosample entity the call set data was generated from.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|updated|integer|The time at which this call set was last updated in milliseconds from the epoch.|
+|updated|string (date-time)|The time at which this call set was last updated|
 |variantSetIds|array[string]|The IDs of the variant sets this call set has calls in.|
 
 
@@ -188,10 +188,10 @@ Gets a `CallSet` by ID.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -209,15 +209,15 @@ Gets a `CallSet` by ID.
     },
     "result": {
         "additionalInfo": {},
-        "callSetDbId": "callSetDbId",
-        "callSetName": "callSetName",
-        "created": 0,
-        "sampleDbId": "sampleDbId",
-        "studyDbId": "studyDbId",
-        "updated": 0,
+        "callSetDbId": "eb2bfd3d",
+        "callSetName": "Sample_123_DNA_Run_456",
+        "created": "2018-01-01T14:47:23-0600",
+        "sampleDbId": "5e50e11d",
+        "studyDbId": "708149c1",
+        "updated": "2018-01-01T14:47:23-0600",
         "variantSetIds": [
-            "variantSetIds1",
-            "variantSetIds2"
+            "cfd3d60f",
+            "a4e8bfe9"
         ]
     }
 }
@@ -300,10 +300,10 @@ Gets a list of `Calls` associated with a `CallSet`.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -325,15 +325,19 @@ Gets a list of `Calls` associated with a `CallSet`.
         "data": [
             {
                 "additionalInfo": {},
-                "callSetDbId": "callSetDbId",
-                "callSetName": "callSetName",
+                "callSetDbId": "16466f55",
+                "callSetName": "Sample_123_DNA_Run_456",
                 "genotype": {
-                    "values": []
+                    "values": [
+                        "AA"
+                    ]
                 },
-                "genotype_likelihood": [],
-                "phaseSet": "phaseSet",
-                "variantDbId": "variantDbId",
-                "variantName": "variantName"
+                "genotype_likelihood": [
+                    1.0
+                ],
+                "phaseSet": "6410afc5",
+                "variantDbId": "538c8ecf",
+                "variantName": "Marker A"
             }
         ],
         "expandHomozygotes": true,
@@ -376,8 +380,8 @@ Gets a list of call sets matching the search criteria.
 |germplasmNames|array[string]|List of human readable names to identify germplasm to search for|
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
-|sampleDbIds|array[string]|Return only call sets generated from the provided Biosample ID.|
-|sampleNames|array[string]|Return only call sets generated from the provided Biosample ID.|
+|sampleDbIds|array[string]|Return only call sets generated from the provided Biosample IDs.|
+|sampleNames|array[string]|Return only call sets generated from the provided Biosample human readable names.|
 |variantSetDbIds|array[string]|The VariantSet to search.|
 
 
@@ -389,10 +393,10 @@ Gets a list of call sets matching the search criteria.
 |additionalInfo|object|Additional arbitrary info|
 |callSetDbId|string|The call set ID.|
 |callSetName|string|The call set name.|
-|created|integer|The date this call set was created in milliseconds from the epoch.|
+|created|string (date-time)|The date this call set was created|
 |sampleDbId|string|The Biosample entity the call set data was generated from.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|updated|integer|The time at which this call set was last updated in milliseconds from the epoch.|
+|updated|string (date-time)|The time at which this call set was last updated|
 |variantSetIds|array[string]|The IDs of the variant sets this call set has calls in.|
 
 
@@ -407,12 +411,12 @@ Gets a list of call sets matching the search criteria.
 ```
 {
     "callSetDbIds": [
-        "callSetDbIds1",
-        "callSetDbIds2"
+        "6c7486b2",
+        "49c36a73"
     ],
     "callSetNames": [
-        "callSetNames1",
-        "callSetNames2"
+        "Sample_123_DNA_Run_456",
+        "Sample_789_DNA_Run_101"
     ],
     "germplasmDbIds": [
         "e9c6edd7",
@@ -425,16 +429,16 @@ Gets a list of call sets matching the search criteria.
     "page": 0,
     "pageSize": 1000,
     "sampleDbIds": [
-        "sampleDbIds1",
-        "sampleDbIds2"
+        "758d3f6d",
+        "39c0a3f7"
     ],
     "sampleNames": [
-        "sampleNames1",
-        "sampleNames2"
+        "Sample_123",
+        "Sample_789"
     ],
     "variantSetDbIds": [
-        "variantSetDbIds1",
-        "variantSetDbIds2"
+        "8a9a8972",
+        "32a2649a"
     ]
 }
 ```
@@ -452,10 +456,10 @@ Gets a list of call sets matching the search criteria.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -475,15 +479,15 @@ Gets a list of call sets matching the search criteria.
         "data": [
             {
                 "additionalInfo": {},
-                "callSetDbId": "callSetDbId",
-                "callSetName": "callSetName",
-                "created": 0,
-                "sampleDbId": "sampleDbId",
-                "studyDbId": "studyDbId",
-                "updated": 0,
+                "callSetDbId": "eb2bfd3d",
+                "callSetName": "Sample_123_DNA_Run_456",
+                "created": "2018-01-01T14:47:23-0600",
+                "sampleDbId": "5e50e11d",
+                "studyDbId": "708149c1",
+                "updated": "2018-01-01T14:47:23-0600",
                 "variantSetIds": [
-                    "variantSetIds1",
-                    "variantSetIds2"
+                    "cfd3d60f",
+                    "a4e8bfe9"
                 ]
             }
         ]
@@ -502,10 +506,10 @@ Gets a list of call sets matching the search criteria.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -559,10 +563,10 @@ Gets a list of call sets matching the search criteria.
 |additionalInfo|object|Additional arbitrary info|
 |callSetDbId|string|The call set ID.|
 |callSetName|string|The call set name.|
-|created|integer|The date this call set was created in milliseconds from the epoch.|
+|created|string (date-time)|The date this call set was created|
 |sampleDbId|string|The Biosample entity the call set data was generated from.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|updated|integer|The time at which this call set was last updated in milliseconds from the epoch.|
+|updated|string (date-time)|The time at which this call set was last updated|
 |variantSetIds|array[string]|The IDs of the variant sets this call set has calls in.|
 
 
@@ -588,10 +592,10 @@ Gets a list of call sets matching the search criteria.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -624,10 +628,10 @@ Gets a list of call sets matching the search criteria.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -647,15 +651,15 @@ Gets a list of call sets matching the search criteria.
         "data": [
             {
                 "additionalInfo": {},
-                "callSetDbId": "callSetDbId",
-                "callSetName": "callSetName",
-                "created": 0,
-                "sampleDbId": "sampleDbId",
-                "studyDbId": "studyDbId",
-                "updated": 0,
+                "callSetDbId": "eb2bfd3d",
+                "callSetName": "Sample_123_DNA_Run_456",
+                "created": "2018-01-01T14:47:23-0600",
+                "sampleDbId": "5e50e11d",
+                "studyDbId": "708149c1",
+                "updated": "2018-01-01T14:47:23-0600",
                 "variantSetIds": [
-                    "variantSetIds1",
-                    "variantSetIds2"
+                    "cfd3d60f",
+                    "a4e8bfe9"
                 ]
             }
         ]
@@ -740,10 +744,10 @@ Gets a filtered list of `Call` JSON objects.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -765,15 +769,19 @@ Gets a filtered list of `Call` JSON objects.
         "data": [
             {
                 "additionalInfo": {},
-                "callSetDbId": "callSetDbId",
-                "callSetName": "callSetName",
+                "callSetDbId": "16466f55",
+                "callSetName": "Sample_123_DNA_Run_456",
                 "genotype": {
-                    "values": []
+                    "values": [
+                        "AA"
+                    ]
                 },
-                "genotype_likelihood": [],
-                "phaseSet": "phaseSet",
-                "variantDbId": "variantDbId",
-                "variantName": "variantName"
+                "genotype_likelihood": [
+                    1.0
+                ],
+                "phaseSet": "6410afc5",
+                "variantDbId": "538c8ecf",
+                "variantName": "Marker A"
             }
         ],
         "expandHomozygotes": true,
@@ -854,21 +862,22 @@ Submit a search request for `Calls`
 ```
 {
     "callSetDbIds": [
-        "callSetDbIds1",
-        "callSetDbIds2"
+        "a03202ec",
+        "274e4f63"
     ],
+    "expandHomozygotes": true,
     "pageSize": 1000,
     "pageToken": "33c27874",
-    "sepPhased": "sepPhased",
-    "sepUnphased": "sepUnphased",
-    "unknownString": "unknownString",
+    "sepPhased": "~",
+    "sepUnphased": "|",
+    "unknownString": "-",
     "variantDbIds": [
-        "variantDbIds1",
-        "variantDbIds2"
+        "bba0b258",
+        "ff97d4f0"
     ],
     "variantSetDbIds": [
-        "variantSetDbIds1",
-        "variantSetDbIds2"
+        "407c0508",
+        "49e24dfc"
     ]
 }
 ```
@@ -886,10 +895,10 @@ Submit a search request for `Calls`
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -911,15 +920,19 @@ Submit a search request for `Calls`
         "data": [
             {
                 "additionalInfo": {},
-                "callSetDbId": "callSetDbId",
-                "callSetName": "callSetName",
+                "callSetDbId": "16466f55",
+                "callSetName": "Sample_123_DNA_Run_456",
                 "genotype": {
-                    "values": []
+                    "values": [
+                        "AA"
+                    ]
                 },
-                "genotype_likelihood": [],
-                "phaseSet": "phaseSet",
-                "variantDbId": "variantDbId",
-                "variantName": "variantName"
+                "genotype_likelihood": [
+                    1.0
+                ],
+                "phaseSet": "6410afc5",
+                "variantDbId": "538c8ecf",
+                "variantName": "Marker A"
             }
         ],
         "expandHomozygotes": true,
@@ -941,10 +954,10 @@ Submit a search request for `Calls`
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -1036,10 +1049,10 @@ See Search Services for additional implementation details.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -1072,10 +1085,10 @@ See Search Services for additional implementation details.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -1097,15 +1110,19 @@ See Search Services for additional implementation details.
         "data": [
             {
                 "additionalInfo": {},
-                "callSetDbId": "callSetDbId",
-                "callSetName": "callSetName",
+                "callSetDbId": "16466f55",
+                "callSetName": "Sample_123_DNA_Run_456",
                 "genotype": {
-                    "values": []
+                    "values": [
+                        "AA"
+                    ]
                 },
-                "genotype_likelihood": [],
-                "phaseSet": "phaseSet",
-                "variantDbId": "variantDbId",
-                "variantName": "variantName"
+                "genotype_likelihood": [
+                    1.0
+                ],
+                "phaseSet": "6410afc5",
+                "variantDbId": "538c8ecf",
+                "variantName": "Marker A"
             }
         ],
         "expandHomozygotes": true,
@@ -1199,10 +1216,10 @@ Get list of maps
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -1305,10 +1322,10 @@ Provides the number of markers on each linkageGroup and the max position on the 
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -1404,10 +1421,10 @@ Get the Linkage Groups of a specific Genomic Map. A Linkage Group is the BrAPI g
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -1505,10 +1522,10 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -1631,10 +1648,10 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -1677,10 +1694,10 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -1762,10 +1779,10 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -1798,10 +1815,10 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -1904,10 +1921,10 @@ Gets a filtered list of `ReferenceSets`.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -2008,10 +2025,10 @@ Gets a `ReferenceSet` by ID.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -2115,10 +2132,10 @@ Gets a list of `ReferenceSet` matching the search criteria.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -2169,10 +2186,10 @@ Gets a list of `ReferenceSet` matching the search criteria.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -2259,10 +2276,10 @@ Gets a list of `ReferenceSet` matching the search criteria.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -2295,10 +2312,10 @@ Gets a list of `ReferenceSet` matching the search criteria.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -2412,10 +2429,10 @@ Gets a list of `ReferenceSet` matching the search criteria.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -2516,10 +2533,10 @@ Gets a list of `ReferenceSet` matching the search criteria.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -2615,10 +2632,10 @@ Lists `Reference` bases by ID and optional range.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -2732,10 +2749,10 @@ version of `SearchReferencesResponse`.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -2785,10 +2802,10 @@ version of `SearchReferencesResponse`.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -2877,10 +2894,10 @@ version of `SearchReferencesResponse`.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -2913,10 +2930,10 @@ version of `SearchReferencesResponse`.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -3038,10 +3055,10 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -3211,10 +3228,10 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -3331,10 +3348,10 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -3503,10 +3520,10 @@ Update the details of an existing Sample
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -3637,18 +3654,18 @@ See Search Services for additional implementation details.
         "A0000477"
     ],
     "observationUnitDbIds": [
-        "observationUnitDbIds1",
-        "observationUnitDbIds2"
+        "3cd0ca36",
+        "983f3b14"
     ],
     "page": 0,
     "pageSize": 1000,
     "plateDbIds": [
-        "plateDbIds1",
-        "plateDbIds2"
+        "0cac98b8",
+        "b96125fb"
     ],
     "sampleDbIds": [
-        "sampleDbIds1",
-        "sampleDbIds2"
+        "3bece2ca",
+        "dd286cc6"
     ]
 }
 ```
@@ -3666,10 +3683,10 @@ See Search Services for additional implementation details.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -3726,10 +3743,10 @@ See Search Services for additional implementation details.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -3827,10 +3844,10 @@ See Search Services for additional implementation details.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -3863,10 +3880,10 @@ See Search Services for additional implementation details.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -3946,10 +3963,12 @@ Gets a list of `VariantSet` matching the search criteria.
 
 |Field|Type|Description|
 |---|---|---| 
+|callSetDbIds|array[string]|The CallSet to search.|
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |studyDbIds|array[string]|List of study identifiers to search for|
 |studyNames|array[string]|List of study names to filter search results|
+|variantDbIds|array[string]|The Variant to search.|
 |variantSetDbIds|array[string]|The VariantSet to search.|
 
 
@@ -3960,13 +3979,13 @@ Gets a list of `VariantSet` matching the search criteria.
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |analysis|array[object]|Set of Analysis descriptors for this VariantSet|
-|analysisDbId|string|Formats of id  name  description  accessions are described in the documentation on general attributes and formats.|
-|analysisName|string||
-|created|string|The time at which this record was created, in ISO 8601 format.|
-|description|string||
+|analysisDbId|string|Unique identifier for this analysis description|
+|analysisName|string|A human readable name for this analysis|
+|created|string (date-time)|The time at which this record was created, in ISO 8601 format.|
+|description|string|A human readable description of the analysis|
 |software|array[string]|The software run to generate this analysis.|
 |type|string|The type of analysis.|
-|updated|string|The time at which this record was last updated, in ISO 8601 format.|
+|updated|string (date-time)|The time at which this record was last updated, in ISO 8601 format.|
 |availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.   dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)  fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
 |dataFormat|string|dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)|
 |fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
@@ -3989,6 +4008,10 @@ Gets a list of `VariantSet` matching the search criteria.
 + Request (application/json)
 ```
 {
+    "callSetDbIds": [
+        "9569cfc4",
+        "da1e888c"
+    ],
     "page": 0,
     "pageSize": 1000,
     "studyDbIds": [
@@ -3999,9 +4022,13 @@ Gets a list of `VariantSet` matching the search criteria.
         "The First Bob Study 2017",
         "Wheat Yield Trial 246"
     ],
+    "variantDbIds": [
+        "c80f068b",
+        "eb7c5f50"
+    ],
     "variantSetDbIds": [
-        "variantSetDbIds1",
-        "variantSetDbIds2"
+        "b2903842",
+        "dcbb8558"
     ]
 }
 ```
@@ -4019,10 +4046,10 @@ Gets a list of `VariantSet` matching the search criteria.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -4044,43 +4071,35 @@ Gets a list of `VariantSet` matching the search criteria.
                 "additionalInfo": {},
                 "analysis": [
                     {
-                        "analysisDbId": "analysisDbId",
-                        "analysisName": "analysisName",
-                        "created": "created",
-                        "description": "description",
+                        "analysisDbId": "6191a6bd",
+                        "analysisName": "Standard QC",
+                        "created": "2018-01-01T14:47:23-0600",
+                        "description": "This is a formal description of a QC methodology. Blah blah blah ...",
                         "software": [
-                            "software1",
-                            "software2"
+                            "https://github.com/genotyping/QC"
                         ],
-                        "type": "type",
-                        "updated": "updated"
+                        "type": "QC",
+                        "updated": "2018-01-01T14:47:23-0600"
                     }
                 ],
                 "availableFormats": [
                     {
-                        "dataFormat": [
-                            "DartSeq",
-                            "VCF",
-                            "Hapmap",
-                            "tabular",
-                            "JSON"
-                        ],
-                        "fileFormat": [
-                            "text/csv",
-                            "text/tsv",
-                            "application/excel",
-                            "application/zip",
-                            "application/json"
-                        ],
-                        "fileURL": ""
+                        "dataFormat": "VCF",
+                        "fileFormat": "application/excel",
+                        "fileURL": "https://brapi.org/example/VCF_1.xlsx"
+                    },
+                    {
+                        "dataFormat": "VCF",
+                        "fileFormat": "text/csv",
+                        "fileURL": "https://brapi.org/example/VCF_2.csv"
                     }
                 ],
-                "callSetCount": 0,
-                "referenceSetDbId": "referenceSetDbId",
-                "studyDbId": "studyDbId",
-                "variantCount": 0,
-                "variantSetDbId": "variantSetDbId",
-                "variantSetName": "variantSetName"
+                "callSetCount": 341,
+                "referenceSetDbId": "57eae639",
+                "studyDbId": "2fc3b034",
+                "variantCount": 250,
+                "variantSetDbId": "87a6ac1e",
+                "variantSetName": "Maize QC DataSet 002334"
             }
         ]
     }
@@ -4098,10 +4117,10 @@ Gets a list of `VariantSet` matching the search criteria.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -4154,13 +4173,13 @@ Gets a list of `VariantSet` matching the search criteria.
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |analysis|array[object]|Set of Analysis descriptors for this VariantSet|
-|analysisDbId|string|Formats of id  name  description  accessions are described in the documentation on general attributes and formats.|
-|analysisName|string||
-|created|string|The time at which this record was created, in ISO 8601 format.|
-|description|string||
+|analysisDbId|string|Unique identifier for this analysis description|
+|analysisName|string|A human readable name for this analysis|
+|created|string (date-time)|The time at which this record was created, in ISO 8601 format.|
+|description|string|A human readable description of the analysis|
 |software|array[string]|The software run to generate this analysis.|
 |type|string|The type of analysis.|
-|updated|string|The time at which this record was last updated, in ISO 8601 format.|
+|updated|string (date-time)|The time at which this record was last updated, in ISO 8601 format.|
 |availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.   dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)  fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
 |dataFormat|string|dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)|
 |fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
@@ -4195,10 +4214,10 @@ Gets a list of `VariantSet` matching the search criteria.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -4231,10 +4250,10 @@ Gets a list of `VariantSet` matching the search criteria.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -4256,43 +4275,35 @@ Gets a list of `VariantSet` matching the search criteria.
                 "additionalInfo": {},
                 "analysis": [
                     {
-                        "analysisDbId": "analysisDbId",
-                        "analysisName": "analysisName",
-                        "created": "created",
-                        "description": "description",
+                        "analysisDbId": "6191a6bd",
+                        "analysisName": "Standard QC",
+                        "created": "2018-01-01T14:47:23-0600",
+                        "description": "This is a formal description of a QC methodology. Blah blah blah ...",
                         "software": [
-                            "software1",
-                            "software2"
+                            "https://github.com/genotyping/QC"
                         ],
-                        "type": "type",
-                        "updated": "updated"
+                        "type": "QC",
+                        "updated": "2018-01-01T14:47:23-0600"
                     }
                 ],
                 "availableFormats": [
                     {
-                        "dataFormat": [
-                            "DartSeq",
-                            "VCF",
-                            "Hapmap",
-                            "tabular",
-                            "JSON"
-                        ],
-                        "fileFormat": [
-                            "text/csv",
-                            "text/tsv",
-                            "application/excel",
-                            "application/zip",
-                            "application/json"
-                        ],
-                        "fileURL": ""
+                        "dataFormat": "VCF",
+                        "fileFormat": "application/excel",
+                        "fileURL": "https://brapi.org/example/VCF_1.xlsx"
+                    },
+                    {
+                        "dataFormat": "VCF",
+                        "fileFormat": "text/csv",
+                        "fileURL": "https://brapi.org/example/VCF_2.csv"
                     }
                 ],
-                "callSetCount": 0,
-                "referenceSetDbId": "referenceSetDbId",
-                "studyDbId": "studyDbId",
-                "variantCount": 0,
-                "variantSetDbId": "variantSetDbId",
-                "variantSetName": "variantSetName"
+                "callSetCount": 341,
+                "referenceSetDbId": "57eae639",
+                "studyDbId": "2fc3b034",
+                "variantCount": 250,
+                "variantSetDbId": "87a6ac1e",
+                "variantSetName": "Maize QC DataSet 002334"
             }
         ]
     }
@@ -4330,13 +4341,13 @@ Will return a filtered list of `VariantSet`.
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |analysis|array[object]|Set of Analysis descriptors for this VariantSet|
-|analysisDbId|string|Formats of id  name  description  accessions are described in the documentation on general attributes and formats.|
-|analysisName|string||
-|created|string|The time at which this record was created, in ISO 8601 format.|
-|description|string||
+|analysisDbId|string|Unique identifier for this analysis description|
+|analysisName|string|A human readable name for this analysis|
+|created|string (date-time)|The time at which this record was created, in ISO 8601 format.|
+|description|string|A human readable description of the analysis|
 |software|array[string]|The software run to generate this analysis.|
 |type|string|The type of analysis.|
-|updated|string|The time at which this record was last updated, in ISO 8601 format.|
+|updated|string (date-time)|The time at which this record was last updated, in ISO 8601 format.|
 |availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.   dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)  fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
 |dataFormat|string|dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)|
 |fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
@@ -4371,10 +4382,10 @@ Will return a filtered list of `VariantSet`.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -4396,43 +4407,35 @@ Will return a filtered list of `VariantSet`.
                 "additionalInfo": {},
                 "analysis": [
                     {
-                        "analysisDbId": "analysisDbId",
-                        "analysisName": "analysisName",
-                        "created": "created",
-                        "description": "description",
+                        "analysisDbId": "6191a6bd",
+                        "analysisName": "Standard QC",
+                        "created": "2018-01-01T14:47:23-0600",
+                        "description": "This is a formal description of a QC methodology. Blah blah blah ...",
                         "software": [
-                            "software1",
-                            "software2"
+                            "https://github.com/genotyping/QC"
                         ],
-                        "type": "type",
-                        "updated": "updated"
+                        "type": "QC",
+                        "updated": "2018-01-01T14:47:23-0600"
                     }
                 ],
                 "availableFormats": [
                     {
-                        "dataFormat": [
-                            "DartSeq",
-                            "VCF",
-                            "Hapmap",
-                            "tabular",
-                            "JSON"
-                        ],
-                        "fileFormat": [
-                            "text/csv",
-                            "text/tsv",
-                            "application/excel",
-                            "application/zip",
-                            "application/json"
-                        ],
-                        "fileURL": ""
+                        "dataFormat": "VCF",
+                        "fileFormat": "application/excel",
+                        "fileURL": "https://brapi.org/example/VCF_1.xlsx"
+                    },
+                    {
+                        "dataFormat": "VCF",
+                        "fileFormat": "text/csv",
+                        "fileURL": "https://brapi.org/example/VCF_2.csv"
                     }
                 ],
-                "callSetCount": 0,
-                "referenceSetDbId": "referenceSetDbId",
-                "studyDbId": "studyDbId",
-                "variantCount": 0,
-                "variantSetDbId": "variantSetDbId",
-                "variantSetName": "variantSetName"
+                "callSetCount": 341,
+                "referenceSetDbId": "57eae639",
+                "studyDbId": "2fc3b034",
+                "variantCount": 250,
+                "variantSetDbId": "87a6ac1e",
+                "variantSetName": "Maize QC DataSet 002334"
             }
         ]
     }
@@ -4469,6 +4472,8 @@ Will perform a search for `Calls` which match the search criteria in `variantSet
 |expandHomozygotes|boolean|Should homozygotes be expanded (true) or collapsed into a single occurence (false)|
 |sepPhased|string|The string used as a separator for phased allele calls.|
 |sepUnphased|string|The string used as a separator for unphased allele calls.|
+|studyDbIds|array[string]|List of study identifiers to search for|
+|studyNames|array[string]|List of study names to filter search results|
 |unknownString|string|The string used as a representation for missing data.|
 |variantDbIds|array[string]|The Variant to search.|
 |variantSetDbIds|array[string]|The VariantSet to search.|
@@ -4480,13 +4485,13 @@ Will perform a search for `Calls` which match the search criteria in `variantSet
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
 |analysis|array[object]|Set of Analysis descriptors for this VariantSet|
-|analysisDbId|string|Formats of id  name  description  accessions are described in the documentation on general attributes and formats.|
-|analysisName|string||
-|created|string|The time at which this record was created, in ISO 8601 format.|
-|description|string||
+|analysisDbId|string|Unique identifier for this analysis description|
+|analysisName|string|A human readable name for this analysis|
+|created|string (date-time)|The time at which this record was created, in ISO 8601 format.|
+|description|string|A human readable description of the analysis|
 |software|array[string]|The software run to generate this analysis.|
 |type|string|The type of analysis.|
-|updated|string|The time at which this record was last updated, in ISO 8601 format.|
+|updated|string (date-time)|The time at which this record was last updated, in ISO 8601 format.|
 |availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.   dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)  fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
 |dataFormat|string|dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)|
 |fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
@@ -4510,19 +4515,28 @@ Will perform a search for `Calls` which match the search criteria in `variantSet
 ```
 {
     "callSetDbIds": [
-        "callSetDbIds1",
-        "callSetDbIds2"
+        "9569cfc4",
+        "da1e888c"
     ],
-    "sepPhased": "sepPhased",
-    "sepUnphased": "sepUnphased",
-    "unknownString": "unknownString",
+    "expandHomozygotes": true,
+    "sepPhased": "~",
+    "sepUnphased": "|",
+    "studyDbIds": [
+        "cf6c4bd4",
+        "691e69d6"
+    ],
+    "studyNames": [
+        "The First Bob Study 2017",
+        "Wheat Yield Trial 246"
+    ],
+    "unknownString": "-",
     "variantDbIds": [
-        "variantDbIds1",
-        "variantDbIds2"
+        "c80f068b",
+        "eb7c5f50"
     ],
     "variantSetDbIds": [
-        "variantSetDbIds1",
-        "variantSetDbIds2"
+        "b2903842",
+        "dcbb8558"
     ]
 }
 ```
@@ -4540,10 +4554,10 @@ Will perform a search for `Calls` which match the search criteria in `variantSet
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -4563,43 +4577,35 @@ Will perform a search for `Calls` which match the search criteria in `variantSet
         "additionalInfo": {},
         "analysis": [
             {
-                "analysisDbId": "analysisDbId",
-                "analysisName": "analysisName",
-                "created": "created",
-                "description": "description",
+                "analysisDbId": "6191a6bd",
+                "analysisName": "Standard QC",
+                "created": "2018-01-01T14:47:23-0600",
+                "description": "This is a formal description of a QC methodology. Blah blah blah ...",
                 "software": [
-                    "software1",
-                    "software2"
+                    "https://github.com/genotyping/QC"
                 ],
-                "type": "type",
-                "updated": "updated"
+                "type": "QC",
+                "updated": "2018-01-01T14:47:23-0600"
             }
         ],
         "availableFormats": [
             {
-                "dataFormat": [
-                    "DartSeq",
-                    "VCF",
-                    "Hapmap",
-                    "tabular",
-                    "JSON"
-                ],
-                "fileFormat": [
-                    "text/csv",
-                    "text/tsv",
-                    "application/excel",
-                    "application/zip",
-                    "application/json"
-                ],
-                "fileURL": ""
+                "dataFormat": "VCF",
+                "fileFormat": "application/excel",
+                "fileURL": "https://brapi.org/example/VCF_1.xlsx"
+            },
+            {
+                "dataFormat": "VCF",
+                "fileFormat": "text/csv",
+                "fileURL": "https://brapi.org/example/VCF_2.csv"
             }
         ],
-        "callSetCount": 0,
-        "referenceSetDbId": "referenceSetDbId",
-        "studyDbId": "studyDbId",
-        "variantCount": 0,
-        "variantSetDbId": "variantSetDbId",
-        "variantSetName": "variantSetName"
+        "callSetCount": 341,
+        "referenceSetDbId": "57eae639",
+        "studyDbId": "2fc3b034",
+        "variantCount": 250,
+        "variantSetDbId": "87a6ac1e",
+        "variantSetName": "Maize QC DataSet 002334"
     }
 }
 ```
@@ -4639,13 +4645,13 @@ This call will return a JSON version of a `VariantSet`.
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
 |analysis|array[object]|Set of Analysis descriptors for this VariantSet|
-|analysisDbId|string|Formats of id  name  description  accessions are described in the documentation on general attributes and formats.|
-|analysisName|string||
-|created|string|The time at which this record was created, in ISO 8601 format.|
-|description|string||
+|analysisDbId|string|Unique identifier for this analysis description|
+|analysisName|string|A human readable name for this analysis|
+|created|string (date-time)|The time at which this record was created, in ISO 8601 format.|
+|description|string|A human readable description of the analysis|
 |software|array[string]|The software run to generate this analysis.|
 |type|string|The type of analysis.|
-|updated|string|The time at which this record was last updated, in ISO 8601 format.|
+|updated|string (date-time)|The time at which this record was last updated, in ISO 8601 format.|
 |availableFormats|array[object]|When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats.   dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)  fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
 |dataFormat|string|dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)|
 |fileFormat|string|fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.|
@@ -4678,10 +4684,10 @@ This call will return a JSON version of a `VariantSet`.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -4701,43 +4707,35 @@ This call will return a JSON version of a `VariantSet`.
         "additionalInfo": {},
         "analysis": [
             {
-                "analysisDbId": "analysisDbId",
-                "analysisName": "analysisName",
-                "created": "created",
-                "description": "description",
+                "analysisDbId": "6191a6bd",
+                "analysisName": "Standard QC",
+                "created": "2018-01-01T14:47:23-0600",
+                "description": "This is a formal description of a QC methodology. Blah blah blah ...",
                 "software": [
-                    "software1",
-                    "software2"
+                    "https://github.com/genotyping/QC"
                 ],
-                "type": "type",
-                "updated": "updated"
+                "type": "QC",
+                "updated": "2018-01-01T14:47:23-0600"
             }
         ],
         "availableFormats": [
             {
-                "dataFormat": [
-                    "DartSeq",
-                    "VCF",
-                    "Hapmap",
-                    "tabular",
-                    "JSON"
-                ],
-                "fileFormat": [
-                    "text/csv",
-                    "text/tsv",
-                    "application/excel",
-                    "application/zip",
-                    "application/json"
-                ],
-                "fileURL": ""
+                "dataFormat": "VCF",
+                "fileFormat": "application/excel",
+                "fileURL": "https://brapi.org/example/VCF_1.xlsx"
+            },
+            {
+                "dataFormat": "VCF",
+                "fileFormat": "text/csv",
+                "fileURL": "https://brapi.org/example/VCF_2.csv"
             }
         ],
-        "callSetCount": 0,
-        "referenceSetDbId": "referenceSetDbId",
-        "studyDbId": "studyDbId",
-        "variantCount": 0,
-        "variantSetDbId": "variantSetDbId",
-        "variantSetName": "variantSetName"
+        "callSetCount": 341,
+        "referenceSetDbId": "57eae639",
+        "studyDbId": "2fc3b034",
+        "variantCount": 250,
+        "variantSetDbId": "87a6ac1e",
+        "variantSetName": "Maize QC DataSet 002334"
     }
 }
 ```
@@ -4819,10 +4817,10 @@ Gets a list of `Calls` associated with a `VariantSet`.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -4844,15 +4842,19 @@ Gets a list of `Calls` associated with a `VariantSet`.
         "data": [
             {
                 "additionalInfo": {},
-                "callSetDbId": "callSetDbId",
-                "callSetName": "callSetName",
+                "callSetDbId": "16466f55",
+                "callSetName": "Sample_123_DNA_Run_456",
                 "genotype": {
-                    "values": []
+                    "values": [
+                        "AA"
+                    ]
                 },
-                "genotype_likelihood": [],
-                "phaseSet": "phaseSet",
-                "variantDbId": "variantDbId",
-                "variantName": "variantName"
+                "genotype_likelihood": [
+                    1.0
+                ],
+                "phaseSet": "6410afc5",
+                "variantDbId": "538c8ecf",
+                "variantName": "Marker A"
             }
         ],
         "expandHomozygotes": true,
@@ -4895,10 +4897,10 @@ Gets a list of `CallSets` associated with a `VariantSet`.
 |additionalInfo|object|Additional arbitrary info|
 |callSetDbId|string|The call set ID.|
 |callSetName|string|The call set name.|
-|created|integer|The date this call set was created in milliseconds from the epoch.|
+|created|string (date-time)|The date this call set was created|
 |sampleDbId|string|The Biosample entity the call set data was generated from.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
-|updated|integer|The time at which this call set was last updated in milliseconds from the epoch.|
+|updated|string (date-time)|The time at which this call set was last updated|
 |variantSetIds|array[string]|The IDs of the variant sets this call set has calls in.|
 
 
@@ -4926,10 +4928,10 @@ Gets a list of `CallSets` associated with a `VariantSet`.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -4949,15 +4951,15 @@ Gets a list of `CallSets` associated with a `VariantSet`.
         "data": [
             {
                 "additionalInfo": {},
-                "callSetDbId": "callSetDbId",
-                "callSetName": "callSetName",
-                "created": 0,
-                "sampleDbId": "sampleDbId",
-                "studyDbId": "studyDbId",
-                "updated": 0,
+                "callSetDbId": "eb2bfd3d",
+                "callSetName": "Sample_123_DNA_Run_456",
+                "created": "2018-01-01T14:47:23-0600",
+                "sampleDbId": "5e50e11d",
+                "studyDbId": "708149c1",
+                "updated": "2018-01-01T14:47:23-0600",
                 "variantSetIds": [
-                    "variantSetIds1",
-                    "variantSetIds2"
+                    "cfd3d60f",
+                    "a4e8bfe9"
                 ]
             }
         ]
@@ -5039,10 +5041,10 @@ This call will return an array of `Variants`.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -5208,10 +5210,10 @@ Gets a list of `Variant` matching the search criteria.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -5284,10 +5286,10 @@ Gets a list of `Variant` matching the search criteria.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -5382,10 +5384,10 @@ Gets a list of `Variant` matching the search criteria.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -5418,10 +5420,10 @@ Gets a list of `Variant` matching the search criteria.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -5557,10 +5559,10 @@ Gets a filtered list of `Variants`.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -5690,10 +5692,10 @@ Gets a filtered list of `Variants`.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -5826,10 +5828,10 @@ The variant calls for this particular variant. Each one represents the determina
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -5851,15 +5853,19 @@ The variant calls for this particular variant. Each one represents the determina
         "data": [
             {
                 "additionalInfo": {},
-                "callSetDbId": "callSetDbId",
-                "callSetName": "callSetName",
+                "callSetDbId": "16466f55",
+                "callSetName": "Sample_123_DNA_Run_456",
                 "genotype": {
-                    "values": []
+                    "values": [
+                        "AA"
+                    ]
                 },
-                "genotype_likelihood": [],
-                "phaseSet": "phaseSet",
-                "variantDbId": "variantDbId",
-                "variantName": "variantName"
+                "genotype_likelihood": [
+                    1.0
+                ],
+                "phaseSet": "6410afc5",
+                "variantDbId": "538c8ecf",
+                "variantName": "Marker A"
             }
         ],
         "expandHomozygotes": true,
@@ -5937,10 +5943,10 @@ List current available orders
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -6155,10 +6161,10 @@ Submit a new order to a vendor
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -6273,10 +6279,10 @@ Retrieve the plate and sample details of an order being processed
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -6419,10 +6425,10 @@ Retrieve the data files generated by the vendors analysis
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -6513,10 +6519,10 @@ Retrieve the current status of an order being processed
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -6708,10 +6714,10 @@ Submit a new set of Sample data
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -6819,10 +6825,10 @@ Get data for a submitted set of plates
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
@@ -6977,10 +6983,10 @@ Defines the plate format specification for the vendor.
             {
                 "fileDescription": "This is an Excel data file",
                 "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xslx",
+                "fileName": "datafile.xlsx",
                 "fileSize": 4398,
                 "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xslx"
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
             }
         ],
         "pagination": {
