@@ -32,6 +32,12 @@ paths:
         required: false
         schema:
           type: string
+      - description: Filter by study DbId
+        in: query
+        name: studyDbId
+        required: false
+        schema:
+          type: string
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
       - $ref: '#/components/parameters/authorizationHeader'
