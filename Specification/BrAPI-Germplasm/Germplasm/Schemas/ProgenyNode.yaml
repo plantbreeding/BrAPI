@@ -11,7 +11,7 @@ components:
       - germplasmDbId
       - progeny
       properties:
-        defaultDisplayName:
+        germplasmName:
           description: A human readable name for a germplasm
           type: string
           example: A0021004
@@ -26,7 +26,7 @@ components:
             - germplasmDbId
             - parentType
             properties:
-              defaultDisplayName:
+              germplasmName:
                 description: The human readable name of a progeny germplasm
                 type: string
                 example: A0021011
@@ -46,13 +46,13 @@ components:
             type: object
           type: array
           example:
-          - defaultDisplayName: A0021011
+          - germplasmName: A0021011
             germplasmDbId: e8d5dad7
             parentType: FEMALE
-          - defaultDisplayName: A0021012
+          - germplasmName: A0021012
             germplasmDbId: ac07fbd8
             parentType: FEMALE
-          - defaultDisplayName: A0021013
+          - germplasmName: A0021013
             germplasmDbId: 07f45f67
             parentType: FEMALE
 
