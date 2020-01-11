@@ -7,7 +7,7 @@ API methods for tracking/managing plant samples and related meta-data. A 'Sample
 
 
 
-### Get - /samples [GET /brapi/v1/samples{?sampleDbId}{?observationUnitDbId}{?plateDbId}{?germplasmDbId}{?page}{?pageSize}]
+### Get - /samples [GET /brapi/v1/samples{?sampleDbId}{?observationUnitDbId}{?plateDbId}{?germplasmDbId}{?studyDbId}{?page}{?pageSize}]
 
 Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
 
@@ -48,6 +48,7 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
     + observationUnitDbId (Optional, ) ... the internal DB id for an observation unit where a sample was taken from
     + plateDbId (Optional, ) ... the internal DB id for a plate of samples
     + germplasmDbId (Optional, ) ... the internal DB id for a germplasm
+    + studyDbId (Optional, ) ... Filter by study DbId
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -616,6 +617,8 @@ See Search Services for additional implementation details.
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |plateDbIds|array[string]|The ID which uniquely identifies a plate of samples|
 |sampleDbIds|array[string]|The ID which uniquely identifies a sample|
+|studyDbIds|array[string]|List of study identifiers to search for|
+|studyNames|array[string]|List of study names to filter search results|
 
 
 **Response Fields** 
@@ -677,6 +680,14 @@ See Search Services for additional implementation details.
     "sampleDbIds": [
         "3bece2ca",
         "dd286cc6"
+    ],
+    "studyDbIds": [
+        "cf6c4bd4",
+        "691e69d6"
+    ],
+    "studyNames": [
+        "The First Bob Study 2017",
+        "Wheat Yield Trial 246"
     ]
 }
 ```
