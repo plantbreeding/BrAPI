@@ -123,7 +123,7 @@ components:
             required:
             - metadata
             - result
-        application/csv:
+        text/csv: 
           example: |-
             "observationUnitDbId","observationUnitName","studyDbId","studyName","germplasmDbId","germplasmName","plotNumber","plantNumber","blockNumber","entryNumber","replicate","positionCoordinateX","positionCoordinateY","year","f959a77d","8341dee0","84c9fd86"
             
@@ -138,7 +138,7 @@ components:
             "d98d0d4c","Plant Epsilon","0fe3e48b","2017 Plant Study","59d435cd","A0043002","2","4","2","1","2","76.50106683","42.44409356","2017","28.9","0","46.5"
           schema:
             type: string
-        application/tsv:
+        text/tsv:
           example: |-
             "observationUnitDbId"	"observationUnitName"	"studyDbId"	"studyName"	"germplasmDbId"	"germplasmName"	"plotNumber"	"plantNumber"	"blockNumber"	"entryNumber"	"replicate"	"positionCoordinateX"	"positionCoordinateY"	"year"	"f959a77d"	"8341dee0"	"84c9fd86"
             

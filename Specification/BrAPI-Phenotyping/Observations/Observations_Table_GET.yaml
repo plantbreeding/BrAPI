@@ -144,7 +144,7 @@ components:
             required:
             - metadata
             - result
-        application/csv:
+        text/csv: 
           example: |-
             "observationTimeStamp","studyDbId","studyName","germplasmDbId","germplasmName","observationUnitDbId","observationUnitName","plotNumber","plantNumber","blockNumber","entryNumber","replicate","positionCoordinateX","positionCoordinateY","2d599b04","a0e84c5c","35c5670a","0144dea8"
             "","","","","","","","","","","","","","","Plant height","Carotenoid","Root color","Virus severity"
@@ -158,7 +158,7 @@ components:
             "2019-09-10T18:20:15.629Z", "f753a83c", "Study 1", "40498c3c", "A0000002", "2869d94a", "Plant epsilon", "2", "4", "1", "2", "2","76.50106687","42.44409301", "",    "3.2", "", ""
           schema:
             type: string
-        application/tsv:
+        text/tsv:
           example: |-
             "observationTimeStamp"	"studyDbId"	"studyName"	"germplasmDbId"	"germplasmName"	"observationUnitDbId"	"observationUnitName"	"plotNumber"	"plantNumber"	"blockNumber"	"entryNumber"	"replicate"	"positionCoordinateX"	"positionCoordinateY"	"2d599b04"	"a0e84c5c"	"35c5670a"	"0144dea8"
             ""	""	""	""	""	""	""	""	""	""	""	""	""	""	"Plant height"	"Carotenoid"	"Root color"	"Virus severity"

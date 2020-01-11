@@ -22,7 +22,10 @@ components:
           type: string
           example: A0000003
         acquisitionDate:
-          description: The date this germplasm was acquired by the genebank (MCPD)
+          description: |-
+            The date this germplasm was acquired by the genebank 
+            
+            MCPD (v2.1) (ACQDATE) 12. Date on which the accession entered the collection [YYYYMMDD] where YYYY is the year, MM is the month and DD is the day. Missing data (MM or DD) should be indicated with hyphens or "00" [double zero].
           format: date
           type: string
         biologicalStatusOfAccessionCode:
@@ -58,11 +61,17 @@ components:
           type: string
           example: ffcce7ef
         commonCropName:
-          description: Common name for the crop (MCPD)
+          description: |-
+            Common name for the crop 
+            
+            MCPD (v2.1) (CROPNAME) 10. Common name of the crop. Example: "malting barley", "mas".
           type: string
           example: Maize
         countryOfOriginCode:
-          description: 3-letter ISO 3166-1 code of the country in which the sample was originally collected (MCPD)
+          description: |-
+            3-letter ISO 3166-1 code of the country in which the sample was originally collected 
+            
+            MCPD (v2.1) (ORIGCTY) 13. 3-letter ISO 3166-1 code of the country in which the sample was originally collected (e.g. landrace, crop wild relative, farmers variety), bred or selected (breeding lines, GMOs, segregating populations, hybrids, modern cultivars, etc.). Note- Descriptors 14 to 16 below should be completed accordingly only if it was "collected".
           type: string
           example: BES
         defaultDisplayName:
@@ -75,13 +84,21 @@ components:
           type: string
           example: https://wiki.brapi.org
         donors:
-          description: List of donor institutes (MCPD)
+          description: List of donor institutes
           items:
             properties:
               donorAccessionNumber:
+                description: |-
+                  The accession number assigned by the donor
+                  
+                  MCPD (v2.1) (DONORNUMB) 23. Identifier assigned to an accession by the donor. Follows ACCENUMB standard.
                 type: string
                 example: A0000123
               donorInstituteCode:
+                description: |-
+                  The institute code for the donor institute
+                  
+                  MCPD (v2.1) (DONORCODE) 22. FAO WIEWS code of the donor institute. Follows INSTCODE standard.
                 type: string
                 example: PER001
               germplasmPUI:
@@ -91,7 +108,9 @@ components:
           type: array
         germplasmGenus:
           description: |-
-            Genus name for taxon. Initial uppercase letter required. (MCPD)
+            Genus name for taxon. Initial uppercase letter required.
+            
+            MCPD (v2.1) (GENUS) 5. Genus name for taxon. Initial uppercase letter required.
             
             MIAPPE V1.1 (DM-43) Genus - Genus name for the organism under study, according to standard scientific nomenclature.
           type: string
@@ -109,17 +128,22 @@ components:
           example: http://pui.per/accession/A0000003
         germplasmSpecies:
           description: |-
-            Specific epithet portion of the scientific name in lowercase letters. (MCPD)
+            Specific epithet portion of the scientific name in lowercase letters.
+            
+            MCPD (v2.1) (SPECIES) 6. Specific epithet portion of the scientific name in lowercase letters. Only the following abbreviation is allowed: "sp." 
             
             MIAPPE V1.1 (DM-44) Species - Species name (formally: specific epithet) for the organism under study, according to standard scientific nomenclature.
           type: string
           example: fructus
         instituteCode:
-          description: The code for the Institute that has bred the material. (MCPD)
+          description: |-
+            The code for the Institute that has bred the material. 
+            
+            MCPD (v2.1) (INSTCODE) 1. FAO WIEWS code of the institute where the accession is maintained. The codes consist of the 3-letter ISO 3166 country code of the country where the institute is located plus a number (e.g. PER001). The current set of institute codes is available from http://www.fao.org/wiews. For those institutes not yet having an FAO Code, or for those with "obsolete" codes, see "Common formatting rules (v)".
           type: string
           example: PER001
         instituteName:
-          description: The name of the institution which bred the material (MCPD)
+          description: The name of the institution which bred the material
           type: string
           example: The BrAPI Institute
         pedigree:
@@ -131,18 +155,26 @@ components:
           type: string
           example: A0000001/A0000002
         speciesAuthority:
-          description: The authority organization responsible for tracking and maintaining the species name (MCPD)
+          description: |-
+            The authority organization responsible for tracking and maintaining the species name 
+            
+            MCPD (v2.1) (SPAUTHOR) 7. Provide the authority for the species name.
           type: string
           example: Smith, 1822
         germplasmSubtaxa:
           description: |-
-            Subtaxon can be used to store any additional taxonomic identifier. (MCPD)
+            Subtaxon can be used to store any additional taxonomic identifier.
+            
+            MCPD (v2.1) (SUBTAXA) 8. Subtaxon can be used to store any additional taxonomic identifier. The following abbreviations are allowed: "subsp." (for subspecies); "convar." (for convariety); "var." (for variety); "f." (for form); "Group" (for "cultivar group").
             
             MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).
           type: string
           example: Aspergillus fructus A
         subtaxaAuthority:
-          description: The authority organization responsible for tracking and maintaining the subtaxon information (MCPD)
+          description: |-
+            The authority organization responsible for tracking and maintaining the subtaxon information
+            
+            MCPD (v2.1) (SUBTAUTHOR) 9. Provide the subtaxon authority at the most detailed taxonomic level.
           type: string
           example: Smith, 1822
         synonyms:
@@ -160,7 +192,10 @@ components:
             $ref: '#/components/schemas/TaxonID'
           type: array
         typeOfGermplasmStorageCode:
-          description: The 2 digit code representing the type of storage this germplasm is kept in at a genebank. (MCPD)
+          description: |-
+            The 2 digit code representing the type of storage this germplasm is kept in at a genebank. 
+            
+            MCPD (v2.1) (STORAGE) 26. If germplasm is maintained under different types of storage, multiple choices are allowed, separated by a semicolon (e.g. 20;30). (Refer to FAO/IPGRI Genebank Standards 1994 for details on storage type.) 10) Seed collection 11) Short term 12) Medium term 13) Long term 20) Field collection 30) In vitro collection 40) Cryo-preserved collection 50) DNA collection 99) Other (elaborate in REMARKS field)
           items:
             enum:
             - '10'

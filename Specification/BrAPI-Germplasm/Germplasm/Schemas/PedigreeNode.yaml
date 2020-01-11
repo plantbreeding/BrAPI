@@ -9,8 +9,6 @@ components:
       type: object
       required: 
       - germplasmDbId
-      - parent1DbId
-      - parent1Type
       properties:
         crossingProjectDbId:
           description: The crossing project used to generate this germplasm
@@ -20,7 +18,7 @@ components:
           description: The year the parents were originally crossed
           type: integer
           example: 2005
-        defaultDisplayName:
+        germplasmName:
           description: A human readable name for a germplasm
           type: string
           example: A0021004
@@ -32,59 +30,57 @@ components:
           description: The ID which uniquely identifies a germplasm
           type: string
           example: 1098ebaf
-        parent1DbId:
-          description: The germplasm DbId of the first parent of this germplasm
-          type: string
-          example: a55847ed
-        parent1Name:
-          description: the human readable name of the first parent of this germplasm
-          type: string
-          example: A0000592
-        parent1Type:
-          description: The type of parent the first parent is. ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.
-          enum:
-          - MALE
-          - FEMALE
-          - SELF
-          - POPULATION
-          type: string
-          example: FEMALE
-        parent2DbId:
-          description: The germplasm DbId of the second parent of this germplasm
-          type: string
-          example: 14c46b32
-        parent2Name:
-          description: The human readable name of the second parent of this germplasm
-          type: string
-          example: A0040035
-        parent2Type:
-          description: The type of parent the second parent is. ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.
-          enum:
-          - MALE
-          - FEMALE
-          - SELF
-          - POPULATION
-          type: string
-          example: MALE
         pedigree:
           description: The string representation of the pedigree.
           type: string
           example: A0000001/A0000002
-        siblings:
-          description: 'List of sibling germplasm '
+        parents:
+          description: List of parent nodes in the pedigree tree.
+          type: array
           items:
+            type: object
             properties:
-              defaultDisplayName:
+              germplasmDbId:
+                description: The germplasm DbId of the parent of this germplasm
+                type: string
+                example: a55847ed
+              germplasmName:
+                description: the human readable name of the parent of this germplasm
+                type: string
+                example: A0000592
+              parentType:
+                description: The type of parent the parent is. ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.
+                enum:
+                - MALE
+                - FEMALE
+                - SELF
+                - POPULATION
+                type: string
+                example: FEMALE
+          example:
+          - germplasmDbId: b66958de
+            germplasmName: A0000592
+            parentType: MALE
+          - germplasmDbId: a55847ed
+            germplasmName: A0000592
+            parentType: FEMALE
+        siblings:
+          description: List of sibling germplasm
+          type: array
+          items:
+            type: object
+            properties:
+              germplasmName:
+                description: the germplasm name of the sibling
                 type: string
               germplasmDbId:
+                description: the germplasm DbId of the sibling
                 type: string
-            type: object
-          type: array
           example: 
-          - defaultDisplayName: A0021005
+          - germplasmName: A0021005
             germplasmDbId: 334f53a3
-          - defaultDisplayName: A0021006
+          - germplasmName: A0021006
             germplasmDbId: 7bbbda8c
-          - defaultDisplayName: A0021007
+          - germplasmName: A0021007
             germplasmDbId: ab1d9b26
 
