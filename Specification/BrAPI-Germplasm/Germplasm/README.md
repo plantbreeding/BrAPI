@@ -1453,11 +1453,11 @@ Implementation Notes
 
 |Field|Type|Description|
 |---|---|---| 
-|defaultDisplayName|string|A human readable name for a germplasm|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
+|germplasmName|string|A human readable name for a germplasm|
 |progeny|array[object]|List of germplasm entities which are direct children of this germplasm|
-|defaultDisplayName|string|The human readable name of a progeny germplasm|
 |germplasmDbId|string|The unique identifier of a progeny germplasm|
+|germplasmName|string|The human readable name of a progeny germplasm|
 |parentType|string|Given a germplasm A having a progeny B and C, 'parentType' for progeny B item refers to the 'parentType' of A toward B.|
 
 
@@ -1501,22 +1501,22 @@ Implementation Notes
         ]
     },
     "result": {
-        "defaultDisplayName": "A0021004",
         "germplasmDbId": "01b974dc",
+        "germplasmName": "A0021004",
         "progeny": [
             {
-                "defaultDisplayName": "A0021011",
                 "germplasmDbId": "e8d5dad7",
+                "germplasmName": "A0021011",
                 "parentType": "FEMALE"
             },
             {
-                "defaultDisplayName": "A0021012",
                 "germplasmDbId": "ac07fbd8",
+                "germplasmName": "A0021012",
                 "parentType": "FEMALE"
             },
             {
-                "defaultDisplayName": "A0021013",
                 "germplasmDbId": "07f45f67",
+                "germplasmName": "A0021013",
                 "parentType": "FEMALE"
             }
         ]
