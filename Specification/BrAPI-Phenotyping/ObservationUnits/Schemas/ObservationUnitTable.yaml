@@ -21,7 +21,7 @@ components:
           - ["05d1b011","Plant Beta",   "0fe3e48b","2017 Plant Study","59d435cd","A0043002","1","2","1","1","2","76.50106683","42.44409301","2017","27.9","1","45.345"]
           - ["67e2d87c","Plant Gamma",  "0fe3e48b","2017 Plant Study","06307ec0","A0043001","2","3","2","1","1","76.50106681","42.44409356","2017","25.5","3","50.76"]
           - ["d98d0d4c","Plant Epsilon","0fe3e48b","2017 Plant Study","59d435cd","A0043002","2","4","2","1","2","76.50106683","42.44409356","2017","28.9","0","46.5"]
-        headerRow:
+        headerRow: 
           description: |-
             <p>The table is REQUIRED to have the following columns</p>
             <ul>

@@ -96,7 +96,7 @@ paths:
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          $ref: '#/components/responses/ObservationTableResponse'
+          $ref: '#/components/responses/ObservationUnitTableResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
