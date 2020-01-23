@@ -8,7 +8,7 @@ components:
     ObservationVariableSearchRequest:
       allOf:
       - $ref: '#/components/schemas/SearchRequestParametersPaging'
-      - $ref: '#/components/schemas/SearchRequestParametersExternalreferences'
+      - $ref: '#/components/schemas/SearchRequestParametersExternalReferences'
       - type: object
         properties:
           dataTypes:

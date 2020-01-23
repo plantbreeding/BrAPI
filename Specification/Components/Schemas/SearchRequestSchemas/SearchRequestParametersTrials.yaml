@@ -5,18 +5,18 @@ openapi: 3.0.0
 paths: {}
 components:
   schemas:
-    SearchRequestParametersExternalreferences: 
+    SearchRequestParametersTrials: 
       type: object
       properties:
-        externalReferenceIDs: 
-          description: List of external references for the trait to search for
+        trialDbIds:
+          description: The ID which uniquely identifies a trial to search for
+          type: array
           items:
             type: string
+          example: ['d2593dc2', '9431a731']
+        trialNames:
+          description: The human readable name of a trial to search for
           type: array
-          example: ['http://purl.obolibrary.org/obo/ro.owl', '14a19841']
-        externalReferenceSources: 
-          description: List of external references sources for the trait to search for
           items:
             type: string
-          type: array
-          example: ['OBO Library', 'Field App Name']
+          example: ['All Yield Trials 2016', 'Disease Resistance Study Comparison Group']
