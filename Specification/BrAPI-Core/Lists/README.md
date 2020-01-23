@@ -5,7 +5,7 @@ Calls for manipulating generic lists of item IDs
 
 
 
-### Get - /lists [GET /brapi/v1/lists{?listType}{?listName}{?listDbId}{?listSource}{?page}{?pageSize}]
+### Get - /lists [GET /brapi/v1/lists{?listType}{?listName}{?listDbId}{?listSource}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get filtered set of generic lists
 
@@ -19,6 +19,9 @@ Get filtered set of generic lists
 |additionalInfo|object|Additional arbitrary info|
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |listDbId|string|The unique identifier for a List|
 |listDescription|string|Description of a List|
 |listName|string|Human readable name of a List|
@@ -36,6 +39,8 @@ Get filtered set of generic lists
     + listName (Optional, ) ... The human readable name of this generic list
     + listDbId (Optional, ) ... The unique ID of this generic list
     + listSource (Optional, ) ... The source tag of this generic list
+    + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
+    + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -79,6 +84,24 @@ Get filtered set of generic lists
                 "additionalInfo": {},
                 "dateCreated": "2018-01-01T14:47:23-0600",
                 "dateModified": "2018-01-01T14:47:23-0600",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "listDbId": "6f621cfa",
                 "listDescription": "This is a list of germplasm I would like to investigate next season",
                 "listName": "MyGermplasm_Sept_2020",
@@ -133,6 +156,9 @@ Create a new list
 |data|array[string]|The list of DbIds contained in this list|
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |listDescription|string|Description of a List|
 |listName|string|Human readable name of a List|
 |listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
@@ -150,6 +176,9 @@ Create a new list
 |additionalInfo|object|Additional arbitrary info|
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |listDbId|string|The unique identifier for a List|
 |listDescription|string|Description of a List|
 |listName|string|Human readable name of a List|
@@ -178,6 +207,24 @@ Create a new list
         ],
         "dateCreated": "2018-01-01T14:47:23-0600",
         "dateModified": "2018-01-01T14:47:23-0600",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "listDescription": "This is a list of germplasm I would like to investigate next season",
         "listName": "MyGermplasm_Sept_2020",
         "listOwnerName": "Bob Robertson",
@@ -237,6 +284,24 @@ Create a new list
                 "additionalInfo": {},
                 "dateCreated": "2018-01-01T14:47:23-0600",
                 "dateModified": "2018-01-01T14:47:23-0600",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "listDbId": "6f621cfa",
                 "listDescription": "This is a list of germplasm I would like to investigate next season",
                 "listName": "MyGermplasm_Sept_2020",
@@ -293,6 +358,9 @@ Get a specific generic lists
 |data|array[string]|The list of DbIds contained in this list|
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |listDbId|string|The unique identifier for a List|
 |listDescription|string|Description of a List|
 |listName|string|Human readable name of a List|
@@ -350,6 +418,24 @@ Get a specific generic lists
         ],
         "dateCreated": "2018-01-01T14:47:23-0600",
         "dateModified": "2018-01-01T14:47:23-0600",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "listDbId": "6f621cfa",
         "listDescription": "This is a list of germplasm I would like to investigate next season",
         "listName": "MyGermplasm_Sept_2020",
@@ -407,6 +493,9 @@ Update an existing generic list
 |data|array[string]|The list of DbIds contained in this list|
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |listDescription|string|Description of a List|
 |listName|string|Human readable name of a List|
 |listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
@@ -424,6 +513,9 @@ Update an existing generic list
 |data|array[string]|The list of DbIds contained in this list|
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |listDbId|string|The unique identifier for a List|
 |listDescription|string|Description of a List|
 |listName|string|Human readable name of a List|
@@ -452,6 +544,24 @@ Update an existing generic list
     ],
     "dateCreated": "2018-01-01T14:47:23-0600",
     "dateModified": "2018-01-01T14:47:23-0600",
+    "externalReferences": [
+        {
+            "referenceID": "doi:10.155454/12349537E12",
+            "referenceSource": "DOI"
+        },
+        {
+            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+            "referenceSource": "OBO Library"
+        },
+        {
+            "referenceID": "75a50e76",
+            "referenceSource": "Remote Data Collection Upload Tool"
+        },
+        {
+            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+            "referenceSource": "BrAPI Example Server"
+        }
+    ],
     "listDescription": "This is a list of germplasm I would like to investigate next season",
     "listName": "MyGermplasm_Sept_2020",
     "listOwnerName": "Bob Robertson",
@@ -512,6 +622,24 @@ Update an existing generic list
         ],
         "dateCreated": "2018-01-01T14:47:23-0600",
         "dateModified": "2018-01-01T14:47:23-0600",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "listDbId": "6f621cfa",
         "listDescription": "This is a list of germplasm I would like to investigate next season",
         "listName": "MyGermplasm_Sept_2020",
@@ -575,6 +703,9 @@ Add new data to a specific generic lists
 |data|array[string]|The list of DbIds contained in this list|
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |listDbId|string|The unique identifier for a List|
 |listDescription|string|Description of a List|
 |listName|string|Human readable name of a List|
@@ -641,6 +772,24 @@ Add new data to a specific generic lists
         ],
         "dateCreated": "2018-01-01T14:47:23-0600",
         "dateModified": "2018-01-01T14:47:23-0600",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "listDbId": "6f621cfa",
         "listDescription": "This is a list of germplasm I would like to investigate next season",
         "listName": "MyGermplasm_Sept_2020",
@@ -699,6 +848,8 @@ See Search Services for additional implementation details.
 |dateCreatedRangeStart|string (date-time)||
 |dateModifiedRangeEnd|string (date-time)||
 |dateModifiedRangeStart|string (date-time)||
+|externalReferenceIDs|array[string]|List of external references for the trait to search for|
+|externalReferenceSources|array[string]|List of external references sources for the trait to search for|
 |listDbIds|array[string]||
 |listNames|array[string]||
 |listOwnerNames|array[string]||
@@ -717,6 +868,9 @@ See Search Services for additional implementation details.
 |additionalInfo|object|Additional arbitrary info|
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |listDbId|string|The unique identifier for a List|
 |listDescription|string|Description of a List|
 |listName|string|Human readable name of a List|
@@ -741,6 +895,14 @@ See Search Services for additional implementation details.
     "dateCreatedRangeStart": "2018-01-01T14:47:23-0600",
     "dateModifiedRangeEnd": "2018-01-01T14:47:23-0600",
     "dateModifiedRangeStart": "2018-01-01T14:47:23-0600",
+    "externalReferenceIDs": [
+        "http://purl.obolibrary.org/obo/ro.owl",
+        "14a19841"
+    ],
+    "externalReferenceSources": [
+        "OBO Library",
+        "Field App Name"
+    ],
     "listDbIds": [
         "55f20cf6",
         "3193ca3d"
@@ -816,6 +978,24 @@ See Search Services for additional implementation details.
                 "additionalInfo": {},
                 "dateCreated": "2018-01-01T14:47:23-0600",
                 "dateModified": "2018-01-01T14:47:23-0600",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "listDbId": "6f621cfa",
                 "listDescription": "This is a list of germplasm I would like to investigate next season",
                 "listName": "MyGermplasm_Sept_2020",
@@ -909,6 +1089,9 @@ See Search Services for additional implementation details.
 |additionalInfo|object|Additional arbitrary info|
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |listDbId|string|The unique identifier for a List|
 |listDescription|string|Description of a List|
 |listName|string|Human readable name of a List|
@@ -1002,6 +1185,24 @@ See Search Services for additional implementation details.
                 "additionalInfo": {},
                 "dateCreated": "2018-01-01T14:47:23-0600",
                 "dateModified": "2018-01-01T14:47:23-0600",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "listDbId": "6f621cfa",
                 "listDescription": "This is a list of germplasm I would like to investigate next season",
                 "listName": "MyGermplasm_Sept_2020",

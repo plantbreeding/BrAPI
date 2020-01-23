@@ -7,7 +7,7 @@ Location calls.
 
 
 
-### Get - /locations [GET /brapi/v1/locations{?locationType}{?page}{?pageSize}]
+### Get - /locations [GET /brapi/v1/locations{?locationType}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a list of locations.
 * The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
@@ -33,6 +33,9 @@ Get a list of locations.
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
@@ -47,6 +50,8 @@ Get a list of locations.
 
 + Parameters
     + locationType (Optional, ) ... Filter by location type specified.
+    + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
+    + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -107,6 +112,24 @@ Get a list of locations.
                 "documentationURL": "https://brapi.org",
                 "environmentType": "Nursery",
                 "exposure": "Structure, no exposure",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
                 "instituteName": "Plant Science Institute",
                 "locationDbId": "3cfdd67d",
@@ -162,6 +185,9 @@ Add new locations to database
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationName|string|A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.|
@@ -189,6 +215,9 @@ Add new locations to database
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
@@ -230,6 +259,24 @@ Add new locations to database
         "documentationURL": "https://brapi.org",
         "environmentType": "Nursery",
         "exposure": "Structure, no exposure",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
         "instituteName": "Plant Science Institute",
         "locationName": "Location 1",
@@ -296,6 +343,24 @@ Add new locations to database
                 "documentationURL": "https://brapi.org",
                 "environmentType": "Nursery",
                 "exposure": "Structure, no exposure",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
                 "instituteName": "Plant Science Institute",
                 "locationDbId": "3cfdd67d",
@@ -353,6 +418,9 @@ Get details for a location.
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
@@ -423,6 +491,24 @@ Get details for a location.
         "documentationURL": "https://brapi.org",
         "environmentType": "Nursery",
         "exposure": "Structure, no exposure",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
         "instituteName": "Plant Science Institute",
         "locationDbId": "3cfdd67d",
@@ -481,6 +567,9 @@ Update the details for an existing location.
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationName|string|A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.|
@@ -507,6 +596,9 @@ Update the details for an existing location.
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
@@ -548,6 +640,24 @@ Update the details for an existing location.
     "documentationURL": "https://brapi.org",
     "environmentType": "Nursery",
     "exposure": "Structure, no exposure",
+    "externalReferences": [
+        {
+            "referenceID": "doi:10.155454/12349537E12",
+            "referenceSource": "DOI"
+        },
+        {
+            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+            "referenceSource": "OBO Library"
+        },
+        {
+            "referenceID": "75a50e76",
+            "referenceSource": "Remote Data Collection Upload Tool"
+        },
+        {
+            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+            "referenceSource": "BrAPI Example Server"
+        }
+    ],
     "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
     "instituteName": "Plant Science Institute",
     "locationName": "Location 1",
@@ -611,6 +721,24 @@ Update the details for an existing location.
         "documentationURL": "https://brapi.org",
         "environmentType": "Nursery",
         "exposure": "Structure, no exposure",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
         "instituteName": "Plant Science Institute",
         "locationDbId": "3cfdd67d",
@@ -663,6 +791,8 @@ See Search Services for additional implementation details.
 |type|string|The literal string "Feature"|
 |countryCodes|array[string]|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
 |countryNames|array[string]|The full name of the country to search for|
+|externalReferenceIDs|array[string]|List of external references for the trait to search for|
+|externalReferenceSources|array[string]|List of external references sources for the trait to search for|
 |instituteAddresses|array[string]|The street address of the institute to search for|
 |instituteNames|array[string]|The name of the institute to search for|
 |locationDbIds|array[string]|The location ids to search for|
@@ -690,6 +820,9 @@ See Search Services for additional implementation details.
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
@@ -749,6 +882,14 @@ See Search Services for additional implementation details.
     "countryNames": [
         "United States of America",
         "Peru"
+    ],
+    "externalReferenceIDs": [
+        "http://purl.obolibrary.org/obo/ro.owl",
+        "14a19841"
+    ],
+    "externalReferenceSources": [
+        "OBO Library",
+        "Field App Name"
     ],
     "instituteAddresses": [
         "123 Main Street",
@@ -830,6 +971,24 @@ See Search Services for additional implementation details.
                 "documentationURL": "https://brapi.org",
                 "environmentType": "Nursery",
                 "exposure": "Structure, no exposure",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
                 "instituteName": "Plant Science Institute",
                 "locationDbId": "3cfdd67d",
@@ -923,6 +1082,9 @@ See Search Services for additional implementation details.
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
@@ -1033,6 +1195,24 @@ See Search Services for additional implementation details.
                 "documentationURL": "https://brapi.org",
                 "environmentType": "Nursery",
                 "exposure": "Structure, no exposure",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
                 "instituteName": "Plant Science Institute",
                 "locationDbId": "3cfdd67d",

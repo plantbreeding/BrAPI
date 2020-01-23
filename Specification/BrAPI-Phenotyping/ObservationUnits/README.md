@@ -92,7 +92,7 @@ The values are used to supply the `observationLevel` parameter in the observatio
 
 
 
-### Get - /observationunits [GET /brapi/v1/observationunits{?germplasmDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}{?page}{?pageSize}]
+### Get - /observationunits [GET /brapi/v1/observationunits{?germplasmDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered set of Observation Units
 
@@ -104,6 +104,9 @@ Get a filtered set of Observation Units
 |---|---|---| 
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |locationDbId|string|The ID which uniquely identifies a location, associated with this study|
@@ -124,9 +127,6 @@ Get a filtered set of Observation Units
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|observationUnitXref|array[object]|A list of external references to this observation unit|
-|id|string|The unique ID in the external reference 'source' system|
-|source|string|The system identifier (name, URL, etc) which has an external reference to the observation unit|
 |plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
 |plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |programDbId|string|The ID which uniquely identifies a program|
@@ -150,6 +150,8 @@ Get a filtered set of Observation Units
     + programDbId (Optional, ) ... The unique ID of a program to filter on
     + seasonDbId (Optional, ) ... The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)
     + observationLevel (Optional, ) ... The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnitStructure.
+    + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
+    + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -191,6 +193,24 @@ Get a filtered set of Observation Units
         "data": [
             {
                 "additionalInfo": {},
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "germplasmDbId": "e9d9ed57",
                 "germplasmName": "A0000001",
                 "locationDbId": "0e208b20",
@@ -223,16 +243,6 @@ Get a filtered set of Observation Units
                     "positionCoordinateYType": "GRID_ROW",
                     "replicate": "1"
                 },
-                "observationUnitXref": [
-                    {
-                        "id": "SAMEA_179865230",
-                        "source": "ebi.biosample"
-                    },
-                    {
-                        "id": "INRA:4d45d11c",
-                        "source": "gnpis.lot"
-                    }
-                ],
                 "plantNumber": "1",
                 "plotNumber": "01",
                 "programDbId": "2d763a7a",
@@ -280,6 +290,9 @@ Add new Observation Units
 |Field|Type|Description|
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |locationDbId|string|The ID which uniquely identifies a location, associated with this study|
@@ -299,9 +312,6 @@ Add new Observation Units
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|observationUnitXref|array[object]|A list of external references to this observation unit|
-|id|string|The unique ID in the external reference 'source' system|
-|source|string|The system identifier (name, URL, etc) which has an external reference to the observation unit|
 |plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
 |plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |programDbId|string|The ID which uniquely identifies a program|
@@ -321,6 +331,9 @@ Add new Observation Units
 |---|---|---| 
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |locationDbId|string|The ID which uniquely identifies a location, associated with this study|
@@ -341,9 +354,6 @@ Add new Observation Units
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|observationUnitXref|array[object]|A list of external references to this observation unit|
-|id|string|The unique ID in the external reference 'source' system|
-|source|string|The system identifier (name, URL, etc) which has an external reference to the observation unit|
 |plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
 |plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |programDbId|string|The ID which uniquely identifies a program|
@@ -369,6 +379,24 @@ Add new Observation Units
 [
     {
         "additionalInfo": {},
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "germplasmDbId": "e9d9ed57",
         "germplasmName": "A0000001",
         "locationDbId": "0e208b20",
@@ -400,16 +428,6 @@ Add new Observation Units
             "positionCoordinateYType": "GRID_ROW",
             "replicate": "1"
         },
-        "observationUnitXref": [
-            {
-                "id": "SAMEA_179865230",
-                "source": "ebi.biosample"
-            },
-            {
-                "id": "INRA:4d45d11c",
-                "source": "gnpis.lot"
-            }
-        ],
         "plantNumber": "1",
         "plotNumber": "01",
         "programDbId": "2d763a7a",
@@ -464,6 +482,24 @@ Add new Observation Units
         "data": [
             {
                 "additionalInfo": {},
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "germplasmDbId": "e9d9ed57",
                 "germplasmName": "A0000001",
                 "locationDbId": "0e208b20",
@@ -496,16 +532,6 @@ Add new Observation Units
                     "positionCoordinateYType": "GRID_ROW",
                     "replicate": "1"
                 },
-                "observationUnitXref": [
-                    {
-                        "id": "SAMEA_179865230",
-                        "source": "ebi.biosample"
-                    },
-                    {
-                        "id": "INRA:4d45d11c",
-                        "source": "gnpis.lot"
-                    }
-                ],
                 "plantNumber": "1",
                 "plotNumber": "01",
                 "programDbId": "2d763a7a",
@@ -562,6 +588,9 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 |---|---|---| 
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |locationDbId|string|The ID which uniquely identifies a location, associated with this study|
@@ -582,9 +611,6 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|observationUnitXref|array[object]|A list of external references to this observation unit|
-|id|string|The unique ID in the external reference 'source' system|
-|source|string|The system identifier (name, URL, etc) which has an external reference to the observation unit|
 |plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
 |plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |programDbId|string|The ID which uniquely identifies a program|
@@ -646,6 +672,24 @@ Note - In strictly typed languages, this structure can be represented as a Map o
         "data": [
             {
                 "additionalInfo": {},
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "germplasmDbId": "e9d9ed57",
                 "germplasmName": "A0000001",
                 "locationDbId": "0e208b20",
@@ -678,16 +722,6 @@ Note - In strictly typed languages, this structure can be represented as a Map o
                     "positionCoordinateYType": "GRID_ROW",
                     "replicate": "1"
                 },
-                "observationUnitXref": [
-                    {
-                        "id": "SAMEA_179865230",
-                        "source": "ebi.biosample"
-                    },
-                    {
-                        "id": "INRA:4d45d11c",
-                        "source": "gnpis.lot"
-                    }
-                ],
                 "plantNumber": "1",
                 "plotNumber": "01",
                 "programDbId": "2d763a7a",
@@ -976,6 +1010,9 @@ Get the details of a specific Observation Unit
 |Field|Type|Description|
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |locationDbId|string|The ID which uniquely identifies a location, associated with this study|
@@ -996,9 +1033,6 @@ Get the details of a specific Observation Unit
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|observationUnitXref|array[object]|A list of external references to this observation unit|
-|id|string|The unique ID in the external reference 'source' system|
-|source|string|The system identifier (name, URL, etc) which has an external reference to the observation unit|
 |plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
 |plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |programDbId|string|The ID which uniquely identifies a program|
@@ -1053,6 +1087,24 @@ Get the details of a specific Observation Unit
     },
     "result": {
         "additionalInfo": {},
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "germplasmDbId": "e9d9ed57",
         "germplasmName": "A0000001",
         "locationDbId": "0e208b20",
@@ -1085,16 +1137,6 @@ Get the details of a specific Observation Unit
             "positionCoordinateYType": "GRID_ROW",
             "replicate": "1"
         },
-        "observationUnitXref": [
-            {
-                "id": "SAMEA_179865230",
-                "source": "ebi.biosample"
-            },
-            {
-                "id": "INRA:4d45d11c",
-                "source": "gnpis.lot"
-            }
-        ],
         "plantNumber": "1",
         "plotNumber": "01",
         "programDbId": "2d763a7a",
@@ -1140,6 +1182,9 @@ Update an existing Observation Units
 |Field|Type|Description|
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |locationDbId|string|The ID which uniquely identifies a location, associated with this study|
@@ -1159,9 +1204,6 @@ Update an existing Observation Units
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|observationUnitXref|array[object]|A list of external references to this observation unit|
-|id|string|The unique ID in the external reference 'source' system|
-|source|string|The system identifier (name, URL, etc) which has an external reference to the observation unit|
 |plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
 |plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |programDbId|string|The ID which uniquely identifies a program|
@@ -1180,6 +1222,9 @@ Update an existing Observation Units
 |Field|Type|Description|
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |locationDbId|string|The ID which uniquely identifies a location, associated with this study|
@@ -1200,9 +1245,6 @@ Update an existing Observation Units
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|observationUnitXref|array[object]|A list of external references to this observation unit|
-|id|string|The unique ID in the external reference 'source' system|
-|source|string|The system identifier (name, URL, etc) which has an external reference to the observation unit|
 |plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
 |plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |programDbId|string|The ID which uniquely identifies a program|
@@ -1228,6 +1270,24 @@ Update an existing Observation Units
 ```
 {
     "additionalInfo": {},
+    "externalReferences": [
+        {
+            "referenceID": "doi:10.155454/12349537E12",
+            "referenceSource": "DOI"
+        },
+        {
+            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+            "referenceSource": "OBO Library"
+        },
+        {
+            "referenceID": "75a50e76",
+            "referenceSource": "Remote Data Collection Upload Tool"
+        },
+        {
+            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+            "referenceSource": "BrAPI Example Server"
+        }
+    ],
     "germplasmDbId": "e9d9ed57",
     "germplasmName": "A0000001",
     "locationDbId": "0e208b20",
@@ -1259,16 +1319,6 @@ Update an existing Observation Units
         "positionCoordinateYType": "GRID_ROW",
         "replicate": "1"
     },
-    "observationUnitXref": [
-        {
-            "id": "SAMEA_179865230",
-            "source": "ebi.biosample"
-        },
-        {
-            "id": "INRA:4d45d11c",
-            "source": "gnpis.lot"
-        }
-    ],
     "plantNumber": "1",
     "plotNumber": "01",
     "programDbId": "2d763a7a",
@@ -1320,6 +1370,24 @@ Update an existing Observation Units
     },
     "result": {
         "additionalInfo": {},
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "germplasmDbId": "e9d9ed57",
         "germplasmName": "A0000001",
         "locationDbId": "0e208b20",
@@ -1352,16 +1420,6 @@ Update an existing Observation Units
             "positionCoordinateYType": "GRID_ROW",
             "replicate": "1"
         },
-        "observationUnitXref": [
-            {
-                "id": "SAMEA_179865230",
-                "source": "ebi.biosample"
-            },
-            {
-                "id": "INRA:4d45d11c",
-                "source": "gnpis.lot"
-            }
-        ],
         "plantNumber": "1",
         "plotNumber": "01",
         "programDbId": "2d763a7a",
@@ -1426,6 +1484,8 @@ observationValue data type inferred from the ontology
 
 |Field|Type|Description|
 |---|---|---| 
+|externalReferenceIDs|array[string]|List of external references for the trait to search for|
+|externalReferenceSources|array[string]|List of external references sources for the trait to search for|
 |germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm to search for|
 |germplasmNames|array[string]|List of human readable names to identify germplasm to search for|
 |locationDbIds|array[string]|The location ids to search for|
@@ -1448,6 +1508,9 @@ observationValue data type inferred from the ontology
 |---|---|---| 
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |locationDbId|string|The ID which uniquely identifies a location, associated with this study|
@@ -1468,9 +1531,6 @@ observationValue data type inferred from the ontology
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|observationUnitXref|array[object]|A list of external references to this observation unit|
-|id|string|The unique ID in the external reference 'source' system|
-|source|string|The system identifier (name, URL, etc) which has an external reference to the observation unit|
 |plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
 |plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |programDbId|string|The ID which uniquely identifies a program|
@@ -1494,6 +1554,14 @@ observationValue data type inferred from the ontology
 + Request (application/json)
 ```
 {
+    "externalReferenceIDs": [
+        "http://purl.obolibrary.org/obo/ro.owl",
+        "14a19841"
+    ],
+    "externalReferenceSources": [
+        "OBO Library",
+        "Field App Name"
+    ],
     "germplasmDbIds": [
         "e9c6edd7",
         "1b1df4a6"
@@ -1580,6 +1648,24 @@ observationValue data type inferred from the ontology
         "data": [
             {
                 "additionalInfo": {},
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "germplasmDbId": "e9d9ed57",
                 "germplasmName": "A0000001",
                 "locationDbId": "0e208b20",
@@ -1612,16 +1698,6 @@ observationValue data type inferred from the ontology
                     "positionCoordinateYType": "GRID_ROW",
                     "replicate": "1"
                 },
-                "observationUnitXref": [
-                    {
-                        "id": "SAMEA_179865230",
-                        "source": "ebi.biosample"
-                    },
-                    {
-                        "id": "INRA:4d45d11c",
-                        "source": "gnpis.lot"
-                    }
-                ],
                 "plantNumber": "1",
                 "plotNumber": "01",
                 "programDbId": "2d763a7a",
@@ -1710,6 +1786,9 @@ See Search Services for additional implementation details.
 |---|---|---| 
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |locationDbId|string|The ID which uniquely identifies a location, associated with this study|
@@ -1730,9 +1809,6 @@ See Search Services for additional implementation details.
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|observationUnitXref|array[object]|A list of external references to this observation unit|
-|id|string|The unique ID in the external reference 'source' system|
-|source|string|The system identifier (name, URL, etc) which has an external reference to the observation unit|
 |plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
 |plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |programDbId|string|The ID which uniquely identifies a program|
@@ -1827,6 +1903,24 @@ See Search Services for additional implementation details.
         "data": [
             {
                 "additionalInfo": {},
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "germplasmDbId": "e9d9ed57",
                 "germplasmName": "A0000001",
                 "locationDbId": "0e208b20",
@@ -1859,16 +1953,6 @@ See Search Services for additional implementation details.
                     "positionCoordinateYType": "GRID_ROW",
                     "replicate": "1"
                 },
-                "observationUnitXref": [
-                    {
-                        "id": "SAMEA_179865230",
-                        "source": "ebi.biosample"
-                    },
-                    {
-                        "id": "INRA:4d45d11c",
-                        "source": "gnpis.lot"
-                    }
-                ],
                 "plantNumber": "1",
                 "plotNumber": "01",
                 "programDbId": "2d763a7a",

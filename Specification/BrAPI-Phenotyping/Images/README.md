@@ -11,7 +11,7 @@ The `/images` calls support a GeoJSON object structure for describing their loca
 
 
 
-### Get - /images [GET /brapi/v1/images{?imageDbId}{?imageName}{?observationUnitDbId}{?observationDbId}{?descriptiveOntologyTerm}{?page}{?pageSize}]
+### Get - /images [GET /brapi/v1/images{?imageDbId}{?imageName}{?observationUnitDbId}{?observationDbId}{?descriptiveOntologyTerm}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get filtered set of image meta data
 
@@ -32,6 +32,9 @@ Implementation Notes
 |copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
 |description|string|The human readable description of an image.|
 |descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |imageDbId|string|The unique identifier of an image|
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
 |imageFileSize|integer|The size of the image in Bytes.|
@@ -56,6 +59,8 @@ Implementation Notes
     + observationUnitDbId (Optional, ) ... The unique identifier of the observation unit an image is portraying
     + observationDbId (Optional, ) ... The unique identifier of the observation an image is associated with
     + descriptiveOntologyTerm (Optional, ) ... A descriptive term associated with an image
+    + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
+    + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -103,6 +108,24 @@ Implementation Notes
                     "doi:10.1002/0470841559",
                     "Red",
                     "ncbi:0300294"
+                ],
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
                 ],
                 "imageDbId": "a55efb9c",
                 "imageFileName": "image_0000231.jpg",
@@ -177,6 +200,9 @@ Implementation Notes
 |copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
 |description|string|The human readable description of an image.|
 |descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
 |imageFileSize|integer|The size of the image in Bytes.|
 |imageHeight|integer|The height of the image in Pixels.|
@@ -201,6 +227,9 @@ Implementation Notes
 |copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
 |description|string|The human readable description of an image.|
 |descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |imageDbId|string|The unique identifier of an image|
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
 |imageFileSize|integer|The size of the image in Bytes.|
@@ -235,6 +264,24 @@ Implementation Notes
             "doi:10.1002/0470841559",
             "Red",
             "ncbi:0300294"
+        ],
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
         ],
         "imageFileName": "image_0000231.jpg",
         "imageFileSize": 50000,
@@ -307,6 +354,24 @@ Implementation Notes
                     "Red",
                     "ncbi:0300294"
                 ],
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "imageDbId": "a55efb9c",
                 "imageFileName": "image_0000231.jpg",
                 "imageFileSize": 50000,
@@ -376,6 +441,9 @@ Implementation Notes
 |copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
 |description|string|The human readable description of an image.|
 |descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |imageDbId|string|The unique identifier of an image|
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
 |imageFileSize|integer|The size of the image in Bytes.|
@@ -439,6 +507,24 @@ Implementation Notes
             "doi:10.1002/0470841559",
             "Red",
             "ncbi:0300294"
+        ],
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
         ],
         "imageDbId": "a55efb9c",
         "imageFileName": "image_0000231.jpg",
@@ -520,6 +606,9 @@ Implementation Notes
 |copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
 |description|string|The human readable description of an image.|
 |descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
 |imageFileSize|integer|The size of the image in Bytes.|
 |imageHeight|integer|The height of the image in Pixels.|
@@ -543,6 +632,9 @@ Implementation Notes
 |copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
 |description|string|The human readable description of an image.|
 |descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |imageDbId|string|The unique identifier of an image|
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
 |imageFileSize|integer|The size of the image in Bytes.|
@@ -577,6 +669,24 @@ Implementation Notes
         "doi:10.1002/0470841559",
         "Red",
         "ncbi:0300294"
+    ],
+    "externalReferences": [
+        {
+            "referenceID": "doi:10.155454/12349537E12",
+            "referenceSource": "DOI"
+        },
+        {
+            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+            "referenceSource": "OBO Library"
+        },
+        {
+            "referenceID": "75a50e76",
+            "referenceSource": "Remote Data Collection Upload Tool"
+        },
+        {
+            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+            "referenceSource": "BrAPI Example Server"
+        }
     ],
     "imageFileName": "image_0000231.jpg",
     "imageFileSize": 50000,
@@ -645,6 +755,24 @@ Implementation Notes
             "doi:10.1002/0470841559",
             "Red",
             "ncbi:0300294"
+        ],
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
         ],
         "imageDbId": "a55efb9c",
         "imageFileName": "image_0000231.jpg",
@@ -720,6 +848,9 @@ Implementation Notes
 |copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
 |description|string|The human readable description of an image.|
 |descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |imageDbId|string|The unique identifier of an image|
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
 |imageFileSize|integer|The size of the image in Bytes.|
@@ -783,6 +914,24 @@ Implementation Notes
             "doi:10.1002/0470841559",
             "Red",
             "ncbi:0300294"
+        ],
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
         ],
         "imageDbId": "a55efb9c",
         "imageFileName": "image_0000231.jpg",
@@ -853,6 +1002,8 @@ See Search Services for additional implementation details.
 |Field|Type|Description|
 |---|---|---| 
 |descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image to search for. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
+|externalReferenceIDs|array[string]|List of external references for the trait to search for|
+|externalReferenceSources|array[string]|List of external references sources for the trait to search for|
 |imageFileNames|array[string]|Image file names to search for.|
 |imageFileSizeMax|integer|A maximum image file size to search for.|
 |imageFileSizeMin|integer|A minimum image file size to search for.|
@@ -882,6 +1033,9 @@ See Search Services for additional implementation details.
 |copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
 |description|string|The human readable description of an image.|
 |descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |imageDbId|string|The unique identifier of an image|
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
 |imageFileSize|integer|The size of the image in Bytes.|
@@ -912,6 +1066,14 @@ See Search Services for additional implementation details.
         "doi:10.1002/0470841559",
         "Red",
         "ncbi:0300294"
+    ],
+    "externalReferenceIDs": [
+        "http://purl.obolibrary.org/obo/ro.owl",
+        "14a19841"
+    ],
+    "externalReferenceSources": [
+        "OBO Library",
+        "Field App Name"
     ],
     "imageFileNames": [
         "image_01032019.jpg",
@@ -1015,6 +1177,24 @@ See Search Services for additional implementation details.
                     "doi:10.1002/0470841559",
                     "Red",
                     "ncbi:0300294"
+                ],
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
                 ],
                 "imageDbId": "a55efb9c",
                 "imageFileName": "image_0000231.jpg",
@@ -1122,6 +1302,9 @@ Implementation Notes
 |copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
 |description|string|The human readable description of an image.|
 |descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |imageDbId|string|The unique identifier of an image|
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
 |imageFileSize|integer|The size of the image in Bytes.|
@@ -1225,6 +1408,24 @@ Implementation Notes
                     "doi:10.1002/0470841559",
                     "Red",
                     "ncbi:0300294"
+                ],
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
                 ],
                 "imageDbId": "a55efb9c",
                 "imageFileName": "image_0000231.jpg",

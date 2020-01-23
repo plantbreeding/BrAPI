@@ -21,6 +21,8 @@ See Search Services for additional implementation details.
 |active|boolean|Is this trail currently active|
 |commonCropNames|array[string]|Common name for the crop which this program is for|
 |contactDbIds|array[string]|List of contact entities associated with this trial|
+|externalReferenceIDs|array[string]|List of external references for the trait to search for|
+|externalReferenceSources|array[string]|List of external references sources for the trait to search for|
 |locationDbIds|array[string]|The location ids to search for|
 |locationNames|array[string]|A human readable names to search for|
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
@@ -58,6 +60,9 @@ See Search Services for additional implementation details.
 |submissionDate|string (date)|MIAPPE V1.1 (DM-5) Submission date - Date of submission of the dataset presently being described to a host repository.|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date)|The date this trial ends|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|A program identifier to search for|
 |programName|string|Human readable name of the program|
 |publications|array[object]|MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.|
@@ -88,6 +93,14 @@ See Search Services for additional implementation details.
     "contactDbIds": [
         "e0f70c2a",
         "b82f0967"
+    ],
+    "externalReferenceIDs": [
+        "http://purl.obolibrary.org/obo/ro.owl",
+        "14a19841"
+    ],
+    "externalReferenceSources": [
+        "OBO Library",
+        "Field App Name"
     ],
     "locationDbIds": [
         "b28911cf",
@@ -190,6 +203,24 @@ See Search Services for additional implementation details.
                 ],
                 "documentationURL": "https://wiki.brapi.org",
                 "endDate": "2018-01-01",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "programDbId": "673f378a",
                 "programName": "Tomatillo_Breeding_Program",
                 "publications": [
@@ -292,6 +323,9 @@ See Search Services for additional implementation details.
 |submissionDate|string (date)|MIAPPE V1.1 (DM-5) Submission date - Date of submission of the dataset presently being described to a host repository.|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date)|The date this trial ends|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|A program identifier to search for|
 |programName|string|Human readable name of the program|
 |publications|array[object]|MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.|
@@ -407,6 +441,24 @@ See Search Services for additional implementation details.
                 ],
                 "documentationURL": "https://wiki.brapi.org",
                 "endDate": "2018-01-01",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "programDbId": "673f378a",
                 "programName": "Tomatillo_Breeding_Program",
                 "publications": [
@@ -449,7 +501,7 @@ See Search Services for additional implementation details.
 
 
 
-### Get - /trials [GET /brapi/v1/trials{?active}{?commonCropName}{?contactDbId}{?programDbId}{?locationDbId}{?searchDateRangeStart}{?searchDateRangeEnd}{?studyDbId}{?trialDbId}{?trialName}{?trialPUI}{?sortBy}{?sortOrder}{?page}{?pageSize}]
+### Get - /trials [GET /brapi/v1/trials{?active}{?commonCropName}{?contactDbId}{?programDbId}{?locationDbId}{?searchDateRangeStart}{?searchDateRangeEnd}{?studyDbId}{?trialDbId}{?trialName}{?trialPUI}{?sortBy}{?sortOrder}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Retrieve a filtered list of breeding Trials. A Trial is a collection of Studies
 
@@ -477,6 +529,9 @@ Retrieve a filtered list of breeding Trials. A Trial is a collection of Studies
 |submissionDate|string (date)|MIAPPE V1.1 (DM-5) Submission date - Date of submission of the dataset presently being described to a host repository.|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date)|The date this trial ends|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|A program identifier to search for|
 |programName|string|Human readable name of the program|
 |publications|array[object]|MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.|
@@ -505,6 +560,8 @@ Retrieve a filtered list of breeding Trials. A Trial is a collection of Studies
     + trialPUI (Optional, ) ... Filter by trial PUI
     + sortBy (Optional, ) ... Sort order. Name of the field to sort by.
     + sortOrder (Optional, ) ... Sort order direction: asc/desc
+    + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
+    + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -568,6 +625,24 @@ Retrieve a filtered list of breeding Trials. A Trial is a collection of Studies
                 ],
                 "documentationURL": "https://wiki.brapi.org",
                 "endDate": "2018-01-01",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "programDbId": "673f378a",
                 "programName": "Tomatillo_Breeding_Program",
                 "publications": [
@@ -630,6 +705,9 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
 |submissionDate|string (date)|MIAPPE V1.1 (DM-5) Submission date - Date of submission of the dataset presently being described to a host repository.|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date)|The date this trial ends|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|A program identifier to search for|
 |programName|string|Human readable name of the program|
 |publications|array[object]|MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.|
@@ -663,6 +741,9 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
 |submissionDate|string (date)|MIAPPE V1.1 (DM-5) Submission date - Date of submission of the dataset presently being described to a host repository.|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date)|The date this trial ends|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|A program identifier to search for|
 |programName|string|Human readable name of the program|
 |publications|array[object]|MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.|
@@ -709,6 +790,24 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
         ],
         "documentationURL": "https://wiki.brapi.org",
         "endDate": "2018-01-01",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "programDbId": "673f378a",
         "programName": "Tomatillo_Breeding_Program",
         "publications": [
@@ -783,6 +882,24 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
                 ],
                 "documentationURL": "https://wiki.brapi.org",
                 "endDate": "2018-01-01",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "programDbId": "673f378a",
                 "programName": "Tomatillo_Breeding_Program",
                 "publications": [
@@ -859,6 +976,9 @@ Get the details of a specific Trial
 |experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.|
@@ -880,6 +1000,9 @@ Get the details of a specific Trial
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
@@ -978,6 +1101,24 @@ Get the details of a specific Trial
             "PUI": "CO_715:0000145",
             "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information."
         },
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "growthFacility": {
             "PUI": "CO_715:0000162",
             "description": "field environment condition, greenhouse"
@@ -1008,6 +1149,24 @@ Get the details of a specific Trial
             "documentationURL": "https://brapi.org",
             "environmentType": "Nursery",
             "exposure": "Structure, no exposure",
+            "externalReferences": [
+                {
+                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceSource": "DOI"
+                },
+                {
+                    "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                    "referenceSource": "OBO Library"
+                },
+                {
+                    "referenceID": "75a50e76",
+                    "referenceSource": "Remote Data Collection Upload Tool"
+                },
+                {
+                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                    "referenceSource": "BrAPI Example Server"
+                }
+            ],
             "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
             "instituteName": "Plant Science Institute",
             "locationDbId": "3cfdd67d",
@@ -1080,6 +1239,9 @@ Update the details of an existing Trial
 |submissionDate|string (date)|MIAPPE V1.1 (DM-5) Submission date - Date of submission of the dataset presently being described to a host repository.|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date)|The date this trial ends|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|A program identifier to search for|
 |programName|string|Human readable name of the program|
 |publications|array[object]|MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.|
@@ -1124,6 +1286,9 @@ Update the details of an existing Trial
 |experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.|
@@ -1145,6 +1310,9 @@ Update the details of an existing Trial
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
@@ -1198,6 +1366,24 @@ Update the details of an existing Trial
     ],
     "documentationURL": "https://wiki.brapi.org",
     "endDate": "2018-01-01",
+    "externalReferences": [
+        {
+            "referenceID": "doi:10.155454/12349537E12",
+            "referenceSource": "DOI"
+        },
+        {
+            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+            "referenceSource": "OBO Library"
+        },
+        {
+            "referenceID": "75a50e76",
+            "referenceSource": "Remote Data Collection Upload Tool"
+        },
+        {
+            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+            "referenceSource": "BrAPI Example Server"
+        }
+    ],
     "programDbId": "673f378a",
     "programName": "Tomatillo_Breeding_Program",
     "publications": [
@@ -1285,6 +1471,24 @@ Update the details of an existing Trial
             "PUI": "CO_715:0000145",
             "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information."
         },
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "growthFacility": {
             "PUI": "CO_715:0000162",
             "description": "field environment condition, greenhouse"
@@ -1315,6 +1519,24 @@ Update the details of an existing Trial
             "documentationURL": "https://brapi.org",
             "environmentType": "Nursery",
             "exposure": "Structure, no exposure",
+            "externalReferences": [
+                {
+                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceSource": "DOI"
+                },
+                {
+                    "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                    "referenceSource": "OBO Library"
+                },
+                {
+                    "referenceID": "75a50e76",
+                    "referenceSource": "Remote Data Collection Upload Tool"
+                },
+                {
+                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                    "referenceSource": "BrAPI Example Server"
+                }
+            ],
             "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
             "instituteName": "Plant Science Institute",
             "locationDbId": "3cfdd67d",

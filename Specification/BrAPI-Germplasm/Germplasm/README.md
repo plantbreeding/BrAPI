@@ -181,7 +181,7 @@ Get the details of a specific Breeding Method used to produce Germplasm
 
 
 
-### Get - /germplasm [GET /brapi/v1/germplasm{?germplasmPUI}{?germplasmDbId}{?germplasmName}{?commonCropName}{?accessionNumber}{?germplasmGenus}{?germplasmSpecies}{?studyDbId}{?synonym}{?parentDbId}{?progenyDbId}{?xref}{?page}{?pageSize}]
+### Get - /germplasm [GET /brapi/v1/germplasm{?germplasmPUI}{?germplasmDbId}{?germplasmName}{?commonCropName}{?accessionNumber}{?germplasmGenus}{?germplasmSpecies}{?studyDbId}{?synonym}{?parentDbId}{?progenyDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Addresses these needs
 
@@ -211,6 +211,9 @@ Addresses these needs
 |donorAccessionNumber|string|The accession number assigned by the donor  MCPD (v2.1) (DONORNUMB) 23. Identifier assigned to an accession by the donor. Follows ACCENUMB standard.|
 |donorInstituteCode|string|The institute code for the donor institute  MCPD (v2.1) (DONORCODE) 22. FAO WIEWS code of the donor institute. Follows INSTCODE standard.|
 |germplasmPUI|string||
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server  MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.|
 |germplasmGenus|string|Genus name for taxon. Initial uppercase letter required.  MCPD (v2.1) (GENUS) 5. Genus name for taxon. Initial uppercase letter required.  MIAPPE V1.1 (DM-43) Genus - Genus name for the organism under study, according to standard scientific nomenclature.|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
@@ -237,7 +240,6 @@ Addresses these needs
 |sourceName|string|The human readable name of the taxonomy provider|
 |taxonId|string|The identifier (name, ID, URI) of a particular taxonomy within the source provider|
 |typeOfGermplasmStorageCode|array[string]|The 2 digit code representing the type of storage this germplasm is kept in at a genebank.   MCPD (v2.1) (STORAGE) 26. If germplasm is maintained under different types of storage, multiple choices are allowed, separated by a semicolon (e.g. 20;30). (Refer to FAO/IPGRI Genebank Standards 1994 for details on storage type.) 10) Seed collection 11) Short term 12) Medium term 13) Long term 20) Field collection 30) In vitro collection 40) Cryo-preserved collection 50) DNA collection 99) Other (elaborate in REMARKS field)|
-|xref|string|External reference to another system|
 
 
  
@@ -254,7 +256,8 @@ Addresses these needs
     + synonym (Optional, ) ... Alternative name or ID used to reference this germplasm
     + parentDbId (Optional, ) ... Search for Germplasm with this parent
     + progenyDbId (Optional, ) ... Search for Germplasm with this child
-    + xref (Optional, ) ... Search for Germplasm by an external reference
+    + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
+    + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -311,6 +314,24 @@ Addresses these needs
                         "germplasmPUI": "http://pui.per/accession/A0000003"
                     }
                 ],
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "germplasmDbId": "d4076594",
                 "germplasmGenus": "Aspergillus",
                 "germplasmName": "A0000003",
@@ -347,8 +368,7 @@ Addresses these needs
                 "typeOfGermplasmStorageCode": [
                     "11",
                     "13'"
-                ],
-                "xref": "http://pui.per/accession/A0000079"
+                ]
             }
         ]
     }
@@ -394,6 +414,9 @@ Create new Germplasm entities on this server
 |donorAccessionNumber|string|The accession number assigned by the donor  MCPD (v2.1) (DONORNUMB) 23. Identifier assigned to an accession by the donor. Follows ACCENUMB standard.|
 |donorInstituteCode|string|The institute code for the donor institute  MCPD (v2.1) (DONORCODE) 22. FAO WIEWS code of the donor institute. Follows INSTCODE standard.|
 |germplasmPUI|string||
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmGenus|string|Genus name for taxon. Initial uppercase letter required.  MCPD (v2.1) (GENUS) 5. Genus name for taxon. Initial uppercase letter required.  MIAPPE V1.1 (DM-43) Genus - Genus name for the organism under study, according to standard scientific nomenclature.|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |germplasmOrigin|array[object]|Information for material (orchard, natural sites, ...). Geographic identification of the plants from which seeds or cutting have been taken to produce that germplasm.|
@@ -419,7 +442,6 @@ Create new Germplasm entities on this server
 |sourceName|string|The human readable name of the taxonomy provider|
 |taxonId|string|The identifier (name, ID, URI) of a particular taxonomy within the source provider|
 |typeOfGermplasmStorageCode|array[string]|The 2 digit code representing the type of storage this germplasm is kept in at a genebank.   MCPD (v2.1) (STORAGE) 26. If germplasm is maintained under different types of storage, multiple choices are allowed, separated by a semicolon (e.g. 20;30). (Refer to FAO/IPGRI Genebank Standards 1994 for details on storage type.) 10) Seed collection 11) Short term 12) Medium term 13) Long term 20) Field collection 30) In vitro collection 40) Cryo-preserved collection 50) DNA collection 99) Other (elaborate in REMARKS field)|
-|xref|string|External reference to another system|
 
 
 **Response Fields** 
@@ -440,6 +462,9 @@ Create new Germplasm entities on this server
 |donorAccessionNumber|string|The accession number assigned by the donor  MCPD (v2.1) (DONORNUMB) 23. Identifier assigned to an accession by the donor. Follows ACCENUMB standard.|
 |donorInstituteCode|string|The institute code for the donor institute  MCPD (v2.1) (DONORCODE) 22. FAO WIEWS code of the donor institute. Follows INSTCODE standard.|
 |germplasmPUI|string||
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server  MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.|
 |germplasmGenus|string|Genus name for taxon. Initial uppercase letter required.  MCPD (v2.1) (GENUS) 5. Genus name for taxon. Initial uppercase letter required.  MIAPPE V1.1 (DM-43) Genus - Genus name for the organism under study, according to standard scientific nomenclature.|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
@@ -466,7 +491,6 @@ Create new Germplasm entities on this server
 |sourceName|string|The human readable name of the taxonomy provider|
 |taxonId|string|The identifier (name, ID, URI) of a particular taxonomy within the source provider|
 |typeOfGermplasmStorageCode|array[string]|The 2 digit code representing the type of storage this germplasm is kept in at a genebank.   MCPD (v2.1) (STORAGE) 26. If germplasm is maintained under different types of storage, multiple choices are allowed, separated by a semicolon (e.g. 20;30). (Refer to FAO/IPGRI Genebank Standards 1994 for details on storage type.) 10) Seed collection 11) Short term 12) Medium term 13) Long term 20) Field collection 30) In vitro collection 40) Cryo-preserved collection 50) DNA collection 99) Other (elaborate in REMARKS field)|
-|xref|string|External reference to another system|
 
 
  
@@ -494,6 +518,24 @@ Create new Germplasm entities on this server
                 "donorAccessionNumber": "A0000123",
                 "donorInstituteCode": "PER001",
                 "germplasmPUI": "http://pui.per/accession/A0000003"
+            }
+        ],
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
             }
         ],
         "germplasmGenus": "Aspergillus",
@@ -531,8 +573,7 @@ Create new Germplasm entities on this server
         "typeOfGermplasmStorageCode": [
             "11",
             "13'"
-        ],
-        "xref": "http://pui.per/accession/A0000079"
+        ]
     }
 ]
 ```
@@ -588,6 +629,24 @@ Create new Germplasm entities on this server
                         "germplasmPUI": "http://pui.per/accession/A0000003"
                     }
                 ],
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "germplasmDbId": "d4076594",
                 "germplasmGenus": "Aspergillus",
                 "germplasmName": "A0000003",
@@ -624,8 +683,7 @@ Create new Germplasm entities on this server
                 "typeOfGermplasmStorageCode": [
                     "11",
                     "13'"
-                ],
-                "xref": "http://pui.per/accession/A0000079"
+                ]
             }
         ]
     }
@@ -673,6 +731,9 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 |donorAccessionNumber|string|The accession number assigned by the donor  MCPD (v2.1) (DONORNUMB) 23. Identifier assigned to an accession by the donor. Follows ACCENUMB standard.|
 |donorInstituteCode|string|The institute code for the donor institute  MCPD (v2.1) (DONORCODE) 22. FAO WIEWS code of the donor institute. Follows INSTCODE standard.|
 |germplasmPUI|string||
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server  MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.|
 |germplasmGenus|string|Genus name for taxon. Initial uppercase letter required.  MCPD (v2.1) (GENUS) 5. Genus name for taxon. Initial uppercase letter required.  MIAPPE V1.1 (DM-43) Genus - Genus name for the organism under study, according to standard scientific nomenclature.|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
@@ -699,7 +760,6 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 |sourceName|string|The human readable name of the taxonomy provider|
 |taxonId|string|The identifier (name, ID, URI) of a particular taxonomy within the source provider|
 |typeOfGermplasmStorageCode|array[string]|The 2 digit code representing the type of storage this germplasm is kept in at a genebank.   MCPD (v2.1) (STORAGE) 26. If germplasm is maintained under different types of storage, multiple choices are allowed, separated by a semicolon (e.g. 20;30). (Refer to FAO/IPGRI Genebank Standards 1994 for details on storage type.) 10) Seed collection 11) Short term 12) Medium term 13) Long term 20) Field collection 30) In vitro collection 40) Cryo-preserved collection 50) DNA collection 99) Other (elaborate in REMARKS field)|
-|xref|string|External reference to another system|
 
 
  
@@ -758,6 +818,24 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
                 "germplasmPUI": "http://pui.per/accession/A0000003"
             }
         ],
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "germplasmDbId": "d4076594",
         "germplasmGenus": "Aspergillus",
         "germplasmName": "A0000003",
@@ -794,8 +872,7 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
         "typeOfGermplasmStorageCode": [
             "11",
             "13'"
-        ],
-        "xref": "http://pui.per/accession/A0000079"
+        ]
     }
 }
 ```
@@ -844,6 +921,9 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 |donorAccessionNumber|string|The accession number assigned by the donor  MCPD (v2.1) (DONORNUMB) 23. Identifier assigned to an accession by the donor. Follows ACCENUMB standard.|
 |donorInstituteCode|string|The institute code for the donor institute  MCPD (v2.1) (DONORCODE) 22. FAO WIEWS code of the donor institute. Follows INSTCODE standard.|
 |germplasmPUI|string||
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmGenus|string|Genus name for taxon. Initial uppercase letter required.  MCPD (v2.1) (GENUS) 5. Genus name for taxon. Initial uppercase letter required.  MIAPPE V1.1 (DM-43) Genus - Genus name for the organism under study, according to standard scientific nomenclature.|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |germplasmOrigin|array[object]|Information for material (orchard, natural sites, ...). Geographic identification of the plants from which seeds or cutting have been taken to produce that germplasm.|
@@ -869,7 +949,6 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 |sourceName|string|The human readable name of the taxonomy provider|
 |taxonId|string|The identifier (name, ID, URI) of a particular taxonomy within the source provider|
 |typeOfGermplasmStorageCode|array[string]|The 2 digit code representing the type of storage this germplasm is kept in at a genebank.   MCPD (v2.1) (STORAGE) 26. If germplasm is maintained under different types of storage, multiple choices are allowed, separated by a semicolon (e.g. 20;30). (Refer to FAO/IPGRI Genebank Standards 1994 for details on storage type.) 10) Seed collection 11) Short term 12) Medium term 13) Long term 20) Field collection 30) In vitro collection 40) Cryo-preserved collection 50) DNA collection 99) Other (elaborate in REMARKS field)|
-|xref|string|External reference to another system|
 
 
 **Response Fields** 
@@ -889,6 +968,9 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 |donorAccessionNumber|string|The accession number assigned by the donor  MCPD (v2.1) (DONORNUMB) 23. Identifier assigned to an accession by the donor. Follows ACCENUMB standard.|
 |donorInstituteCode|string|The institute code for the donor institute  MCPD (v2.1) (DONORCODE) 22. FAO WIEWS code of the donor institute. Follows INSTCODE standard.|
 |germplasmPUI|string||
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server  MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.|
 |germplasmGenus|string|Genus name for taxon. Initial uppercase letter required.  MCPD (v2.1) (GENUS) 5. Genus name for taxon. Initial uppercase letter required.  MIAPPE V1.1 (DM-43) Genus - Genus name for the organism under study, according to standard scientific nomenclature.|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
@@ -915,7 +997,6 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 |sourceName|string|The human readable name of the taxonomy provider|
 |taxonId|string|The identifier (name, ID, URI) of a particular taxonomy within the source provider|
 |typeOfGermplasmStorageCode|array[string]|The 2 digit code representing the type of storage this germplasm is kept in at a genebank.   MCPD (v2.1) (STORAGE) 26. If germplasm is maintained under different types of storage, multiple choices are allowed, separated by a semicolon (e.g. 20;30). (Refer to FAO/IPGRI Genebank Standards 1994 for details on storage type.) 10) Seed collection 11) Short term 12) Medium term 13) Long term 20) Field collection 30) In vitro collection 40) Cryo-preserved collection 50) DNA collection 99) Other (elaborate in REMARKS field)|
-|xref|string|External reference to another system|
 
 
  
@@ -943,6 +1024,24 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
             "donorAccessionNumber": "A0000123",
             "donorInstituteCode": "PER001",
             "germplasmPUI": "http://pui.per/accession/A0000003"
+        }
+    ],
+    "externalReferences": [
+        {
+            "referenceID": "doi:10.155454/12349537E12",
+            "referenceSource": "DOI"
+        },
+        {
+            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+            "referenceSource": "OBO Library"
+        },
+        {
+            "referenceID": "75a50e76",
+            "referenceSource": "Remote Data Collection Upload Tool"
+        },
+        {
+            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+            "referenceSource": "BrAPI Example Server"
         }
     ],
     "germplasmGenus": "Aspergillus",
@@ -980,8 +1079,7 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
     "typeOfGermplasmStorageCode": [
         "11",
         "13'"
-    ],
-    "xref": "http://pui.per/accession/A0000079"
+    ]
 }
 ```
 
@@ -1034,6 +1132,24 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
                 "germplasmPUI": "http://pui.per/accession/A0000003"
             }
         ],
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "germplasmDbId": "d4076594",
         "germplasmGenus": "Aspergillus",
         "germplasmName": "A0000003",
@@ -1070,8 +1186,7 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
         "typeOfGermplasmStorageCode": [
             "11",
             "13'"
-        ],
-        "xref": "http://pui.per/accession/A0000079"
+        ]
     }
 }
 ```
@@ -1561,6 +1676,8 @@ See Search Services for additional implementation details.
 |---|---|---| 
 |accessionNumbers|array[string]|List unique identifiers for accessions within a genebank|
 |commonCropNames|array[string]|Common name for the crop which this program is for|
+|externalReferenceIDs|array[string]|List of external references for the trait to search for|
+|externalReferenceSources|array[string]|List of external references sources for the trait to search for|
 |germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm to search for|
 |germplasmGenus|array[string]|List of Genus names to identify germplasm|
 |germplasmNames|array[string]|List of human readable names to identify germplasm to search for|
@@ -1573,7 +1690,6 @@ See Search Services for additional implementation details.
 |studyDbIds|array[string]|List of study identifiers to search for|
 |studyNames|array[string]|List of study names to filter search results|
 |synonyms|array[string]|List of alternative names or IDs used to reference this germplasm|
-|xrefs|array[string]|Search for Germplasm by an external reference|
 
 
 **Response Fields** 
@@ -1594,6 +1710,9 @@ See Search Services for additional implementation details.
 |donorAccessionNumber|string|The accession number assigned by the donor  MCPD (v2.1) (DONORNUMB) 23. Identifier assigned to an accession by the donor. Follows ACCENUMB standard.|
 |donorInstituteCode|string|The institute code for the donor institute  MCPD (v2.1) (DONORCODE) 22. FAO WIEWS code of the donor institute. Follows INSTCODE standard.|
 |germplasmPUI|string||
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server  MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.|
 |germplasmGenus|string|Genus name for taxon. Initial uppercase letter required.  MCPD (v2.1) (GENUS) 5. Genus name for taxon. Initial uppercase letter required.  MIAPPE V1.1 (DM-43) Genus - Genus name for the organism under study, according to standard scientific nomenclature.|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
@@ -1620,7 +1739,6 @@ See Search Services for additional implementation details.
 |sourceName|string|The human readable name of the taxonomy provider|
 |taxonId|string|The identifier (name, ID, URI) of a particular taxonomy within the source provider|
 |typeOfGermplasmStorageCode|array[string]|The 2 digit code representing the type of storage this germplasm is kept in at a genebank.   MCPD (v2.1) (STORAGE) 26. If germplasm is maintained under different types of storage, multiple choices are allowed, separated by a semicolon (e.g. 20;30). (Refer to FAO/IPGRI Genebank Standards 1994 for details on storage type.) 10) Seed collection 11) Short term 12) Medium term 13) Long term 20) Field collection 30) In vitro collection 40) Cryo-preserved collection 50) DNA collection 99) Other (elaborate in REMARKS field)|
-|xref|string|External reference to another system|
 
 
  
@@ -1640,6 +1758,14 @@ See Search Services for additional implementation details.
     "commonCropNames": [
         "Tomatillo",
         "Paw Paw"
+    ],
+    "externalReferenceIDs": [
+        "http://purl.obolibrary.org/obo/ro.owl",
+        "14a19841"
+    ],
+    "externalReferenceSources": [
+        "OBO Library",
+        "Field App Name"
     ],
     "germplasmDbIds": [
         "e9c6edd7",
@@ -1682,10 +1808,6 @@ See Search Services for additional implementation details.
     "synonyms": [
         "variety_1",
         "2c38f9b6"
-    ],
-    "xrefs": [
-        "http://pui.per/accession/A0008766",
-        "4cda72fe"
     ]
 }
 ```
@@ -1741,6 +1863,24 @@ See Search Services for additional implementation details.
                         "germplasmPUI": "http://pui.per/accession/A0000003"
                     }
                 ],
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "germplasmDbId": "d4076594",
                 "germplasmGenus": "Aspergillus",
                 "germplasmName": "A0000003",
@@ -1777,8 +1917,7 @@ See Search Services for additional implementation details.
                 "typeOfGermplasmStorageCode": [
                     "11",
                     "13'"
-                ],
-                "xref": "http://pui.per/accession/A0000079"
+                ]
             }
         ]
     }
@@ -1871,6 +2010,9 @@ Addresses these needs:
 |donorAccessionNumber|string|The accession number assigned by the donor  MCPD (v2.1) (DONORNUMB) 23. Identifier assigned to an accession by the donor. Follows ACCENUMB standard.|
 |donorInstituteCode|string|The institute code for the donor institute  MCPD (v2.1) (DONORCODE) 22. FAO WIEWS code of the donor institute. Follows INSTCODE standard.|
 |germplasmPUI|string||
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server  MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.|
 |germplasmGenus|string|Genus name for taxon. Initial uppercase letter required.  MCPD (v2.1) (GENUS) 5. Genus name for taxon. Initial uppercase letter required.  MIAPPE V1.1 (DM-43) Genus - Genus name for the organism under study, according to standard scientific nomenclature.|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
@@ -1897,7 +2039,6 @@ Addresses these needs:
 |sourceName|string|The human readable name of the taxonomy provider|
 |taxonId|string|The identifier (name, ID, URI) of a particular taxonomy within the source provider|
 |typeOfGermplasmStorageCode|array[string]|The 2 digit code representing the type of storage this germplasm is kept in at a genebank.   MCPD (v2.1) (STORAGE) 26. If germplasm is maintained under different types of storage, multiple choices are allowed, separated by a semicolon (e.g. 20;30). (Refer to FAO/IPGRI Genebank Standards 1994 for details on storage type.) 10) Seed collection 11) Short term 12) Medium term 13) Long term 20) Field collection 30) In vitro collection 40) Cryo-preserved collection 50) DNA collection 99) Other (elaborate in REMARKS field)|
-|xref|string|External reference to another system|
 
 
  
@@ -1996,6 +2137,24 @@ Addresses these needs:
                         "germplasmPUI": "http://pui.per/accession/A0000003"
                     }
                 ],
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "germplasmDbId": "d4076594",
                 "germplasmGenus": "Aspergillus",
                 "germplasmName": "A0000003",
@@ -2032,8 +2191,7 @@ Addresses these needs:
                 "typeOfGermplasmStorageCode": [
                     "11",
                     "13'"
-                ],
-                "xref": "http://pui.per/accession/A0000079"
+                ]
             }
         ]
     }

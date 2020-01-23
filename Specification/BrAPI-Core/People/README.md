@@ -5,7 +5,7 @@ Calls for maintaining information about people
 
 
 
-### Get - /people [GET /brapi/v1/people{?firstName}{?lastName}{?personDbId}{?userID}{?page}{?pageSize}]
+### Get - /people [GET /brapi/v1/people{?firstName}{?lastName}{?personDbId}{?userID}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get filtered list of people
 
@@ -19,6 +19,9 @@ Get filtered list of people
 |additionalInfo|object|Additional arbitrary info|
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
 |mailingAddress|string|physical address of this person|
@@ -35,6 +38,8 @@ Get filtered list of people
     + lastName (Optional, ) ... A persons last name
     + personDbId (Optional, ) ... The unique ID of a person
     + userID (Optional, ) ... A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.
+    + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
+    + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -78,6 +83,24 @@ Get filtered list of people
                 "additionalInfo": {},
                 "description": "Bob likes pina coladas and getting caught in the rain.",
                 "emailAddress": "bob@bob.com",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "firstName": "Bob",
                 "lastName": "Robertson",
                 "mailingAddress": "123 Street Ave, City, State, Country",
@@ -120,6 +143,9 @@ Create new People entities. `personDbId` is generated and managed by the server.
 |additionalInfo|object|Additional arbitrary info|
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
 |mailingAddress|string|physical address of this person|
@@ -136,6 +162,9 @@ Create new People entities. `personDbId` is generated and managed by the server.
 |additionalInfo|object|Additional arbitrary info|
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
 |mailingAddress|string|physical address of this person|
@@ -159,6 +188,24 @@ Create new People entities. `personDbId` is generated and managed by the server.
         "additionalInfo": {},
         "description": "Bob likes pina coladas and getting caught in the rain.",
         "emailAddress": "bob@bob.com",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "firstName": "Bob",
         "lastName": "Robertson",
         "mailingAddress": "123 Street Ave, City, State, Country",
@@ -207,6 +254,24 @@ Create new People entities. `personDbId` is generated and managed by the server.
                 "additionalInfo": {},
                 "description": "Bob likes pina coladas and getting caught in the rain.",
                 "emailAddress": "bob@bob.com",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "firstName": "Bob",
                 "lastName": "Robertson",
                 "mailingAddress": "123 Street Ave, City, State, Country",
@@ -251,6 +316,9 @@ Get the details for a specific Person
 |additionalInfo|object|Additional arbitrary info|
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
 |mailingAddress|string|physical address of this person|
@@ -303,6 +371,24 @@ Get the details for a specific Person
         "additionalInfo": {},
         "description": "Bob likes pina coladas and getting caught in the rain.",
         "emailAddress": "bob@bob.com",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "firstName": "Bob",
         "lastName": "Robertson",
         "mailingAddress": "123 Street Ave, City, State, Country",
@@ -348,6 +434,9 @@ Update an existing Person
 |additionalInfo|object|Additional arbitrary info|
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
 |mailingAddress|string|physical address of this person|
@@ -363,6 +452,9 @@ Update an existing Person
 |additionalInfo|object|Additional arbitrary info|
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
 |mailingAddress|string|physical address of this person|
@@ -386,6 +478,24 @@ Update an existing Person
     "additionalInfo": {},
     "description": "Bob likes pina coladas and getting caught in the rain.",
     "emailAddress": "bob@bob.com",
+    "externalReferences": [
+        {
+            "referenceID": "doi:10.155454/12349537E12",
+            "referenceSource": "DOI"
+        },
+        {
+            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+            "referenceSource": "OBO Library"
+        },
+        {
+            "referenceID": "75a50e76",
+            "referenceSource": "Remote Data Collection Upload Tool"
+        },
+        {
+            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+            "referenceSource": "BrAPI Example Server"
+        }
+    ],
     "firstName": "Bob",
     "lastName": "Robertson",
     "mailingAddress": "123 Street Ave, City, State, Country",
@@ -431,6 +541,24 @@ Update an existing Person
         "additionalInfo": {},
         "description": "Bob likes pina coladas and getting caught in the rain.",
         "emailAddress": "bob@bob.com",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "firstName": "Bob",
         "lastName": "Robertson",
         "mailingAddress": "123 Street Ave, City, State, Country",
@@ -476,6 +604,8 @@ See Search Services for additional implementation details.
 |Field|Type|Description|
 |---|---|---| 
 |emailAddresses|array[string]|email address for this person|
+|externalReferenceIDs|array[string]|List of external references for the trait to search for|
+|externalReferenceSources|array[string]|List of external references sources for the trait to search for|
 |firstNames|array[string]|Persons first name|
 |lastNames|array[string]|Persons last name|
 |mailingAddresses|array[string]|physical address of this person|
@@ -495,6 +625,9 @@ See Search Services for additional implementation details.
 |additionalInfo|object|Additional arbitrary info|
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
 |mailingAddress|string|physical address of this person|
@@ -517,6 +650,14 @@ See Search Services for additional implementation details.
     "emailAddresses": [
         "bob@bob.com",
         "rob@bob.com"
+    ],
+    "externalReferenceIDs": [
+        "http://purl.obolibrary.org/obo/ro.owl",
+        "14a19841"
+    ],
+    "externalReferenceSources": [
+        "OBO Library",
+        "Field App Name"
     ],
     "firstNames": [
         "Bob",
@@ -589,6 +730,24 @@ See Search Services for additional implementation details.
                 "additionalInfo": {},
                 "description": "Bob likes pina coladas and getting caught in the rain.",
                 "emailAddress": "bob@bob.com",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "firstName": "Bob",
                 "lastName": "Robertson",
                 "mailingAddress": "123 Street Ave, City, State, Country",
@@ -672,6 +831,9 @@ See Search Services for additional implementation details.
 |additionalInfo|object|Additional arbitrary info|
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
 |mailingAddress|string|physical address of this person|
@@ -764,6 +926,24 @@ See Search Services for additional implementation details.
                 "additionalInfo": {},
                 "description": "Bob likes pina coladas and getting caught in the rain.",
                 "emailAddress": "bob@bob.com",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "firstName": "Bob",
                 "lastName": "Robertson",
                 "mailingAddress": "123 Street Ave, City, State, Country",
