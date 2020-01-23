@@ -1347,13 +1347,7 @@ Addresses these needs
 
 ### Post - /germplasm [POST /brapi/v1/germplasm]
 
-Addresses these needs
-
-- General germplasm search mechanism that accepts POST for complex queries 
-
-- Possibility to search germplasm by more parameters than those allowed by the existing germplasm search 
-
-- Possibility to get MCPD details by PUID rather than dbId
+Create new Germplasm entities on this server
 
 **Request Fields** 
 
