@@ -113,6 +113,7 @@ components:
           example: Irrigation was applied according needs during summer to prevent water stress.
         experimentalDesign:
           description: The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology
+          type: object
           properties:
             description:
               description: MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.
@@ -122,9 +123,9 @@ components:
               description: MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.
               type: string
               example: CO_715:0000145
-          type: object
         growthFacility:
           description: Short description of the facility in which the study was carried out.
+          type: object
           properties:
             description:
               description: MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.
@@ -134,5 +135,7 @@ components:
               description: MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.
               type: string
               example: CO_715:0000162
-          type: object
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
+          
 

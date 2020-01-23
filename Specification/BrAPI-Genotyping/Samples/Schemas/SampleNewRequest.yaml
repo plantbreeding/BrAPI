@@ -103,4 +103,7 @@ components:
             MIAPPE V1.1 (DM-78) Plant anatomical entity - A description of  the plant part (e.g. leaf) or the plant product (e.g. resin) from which the sample was taken, in the form of an accession number to a suitable controlled vocabulary (Plant Ontology).
           type: string
           example: Root
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
+          
 

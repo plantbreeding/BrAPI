@@ -53,8 +53,6 @@ components:
             MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation
           type: string
           example: Height
-        xref:
-          description: Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term
-          type: string
-          example: http://purl.obolibrary.org/obo/ro.owl
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
 

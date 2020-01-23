@@ -49,23 +49,8 @@ components:
             MIAPPE V1.1 (DM-72) External ID - Identifier for the observation unit in a persistent repository, comprises the name of the repository and the identifier of the observation unit therein. The EBI Biosamples repository can be used. URI are recommended when possible.
           type: string
           example: http://pui.per/plot/1a9afc14
-        observationUnitXref:
-          description: A list of external references to this observation unit
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                description: The unique ID in the external reference 'source' system
-                type: string
-              source:
-                description: The system identifier (name, URL, etc) which has an external reference to the observation unit
-                type: string
-          example:
-          - id: SAMEA_179865230
-            source: ebi.biosample
-          - id: INRA:4d45d11c
-            source: gnpis.lot
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
         observationUnitPosition:
           $ref: '#/components/schemas/ObservationUnitPosition'
         plantNumber:
@@ -108,4 +93,7 @@ components:
           description: The human readable name of a trial
           type: string
           example: Purple Tomato
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
+          
 

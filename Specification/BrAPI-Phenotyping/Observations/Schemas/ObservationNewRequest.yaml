@@ -59,4 +59,7 @@ components:
           description: The value of the data collected as an observation
           type: string
           example: '2.3'
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
+          
 

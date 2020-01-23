@@ -7,6 +7,8 @@ components:
   schemas:
     ListBaseFields:
       type: object
+      required:
+      - listType
       properties:
         additionalInfo:
           additionalProperties:
@@ -48,5 +50,5 @@ components:
           example: GeneBank Repository 1.3
         listType:
           $ref: '#/components/schemas/ListTypes'
-      required:
-      - listType
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'

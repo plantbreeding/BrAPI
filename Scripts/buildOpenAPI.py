@@ -17,16 +17,18 @@ def str_presenter(dumper, data):
     return dumper.represent_scalar('tag:yaml.org,2002:str', data, style='|')
   return dumper.represent_scalar('tag:yaml.org,2002:str', data)
 
-def go(rootPath, metaFilePath = './swaggerMetaData.yaml'):
+def go(rootPaths, metaFilePath = './swaggerMetaData.yaml'):
     paths = {}
     defin = {'schemas': {}, 'parameters': {}, 'responses': {}, 'securitySchemes': {}}
         
-    outFilePath = rootPath + '/brapi_openapi.yaml'
+    outFilePath = rootPaths[0] + '/brapi_openapi.yaml'
     if os.path.exists(outFilePath):
         os.remove(outFilePath)
         
-    filenames = glob.glob(rootPath + '/**/*.yaml', recursive=True)
-    filenames.extend(glob.glob(rootPath + '/../Components/**/*.yaml', recursive=True))
+    filenames = glob.glob(rootPaths[0] + '/**/*.yaml', recursive=True)
+    for rootPath in rootPaths[1:]:
+        filenames.extend(glob.glob(rootPath + '/**/*.yaml', recursive=True))
+    
     for filename in filenames:
         #print(filename)
         with open(filename, "r") as stream:
@@ -69,11 +71,14 @@ yaml.add_representer(str, str_presenter)
 noalias_dumper = yaml.dumper.SafeDumper
 noalias_dumper.ignore_aliases = lambda self, data: True
 
-rootPath = '.'
+rootPaths = []
+metaFilePath = '.' + '/swaggerMetaData.yaml'
 if len(sys.argv) > 1 :
-    rootPath = sys.argv[1]
-metaFilePath = rootPath + '/swaggerMetaData.yaml'
-if len(sys.argv) > 2 :
-    metaFilePath = sys.argv[2]
+    rootPaths = sys.argv[1:]
+    metaFilePath = rootPaths[0] + '/swaggerMetaData.yaml'
+else:
+    print('need at least one root directory')
+    exit(1)
     
-go(rootPath, metaFilePath)
+go(rootPaths, metaFilePath)
+

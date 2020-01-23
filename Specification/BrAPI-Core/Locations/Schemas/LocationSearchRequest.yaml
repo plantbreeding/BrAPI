@@ -8,6 +8,7 @@ components:
     LocationSearchRequest:
       allOf:
       - $ref: '#/components/schemas/SearchRequestParametersPaging'
+      - $ref: '#/components/schemas/SearchRequestParametersExternalRefereces'
       - $ref: '#/components/schemas/SearchRequestParametersLocations'
       - type: object
         properties:

@@ -57,3 +57,6 @@ components:
           description: Description of the things being counted in this Seed Lot (seeds, bulbs, stock, tree, etc)
           type: string
           example: seeds
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
+          

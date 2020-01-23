@@ -37,11 +37,13 @@ components:
           example: Measuring Tape
         ontologyReference:
           $ref: '#/components/schemas/OntologyReference'
-        reference:
+        bibliographicalReference:
           description: |-
             Bibliographical reference describing the method.
             
             MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.
           type: string
           example: Smith, 1893, Really Cool Paper, Popular Journal
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
 

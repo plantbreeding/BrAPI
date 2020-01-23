@@ -223,7 +223,5 @@ components:
           items:
             $ref: '#/components/schemas/GermplasmOrigin'
           type: array
-        xref:
-          description: External reference to another system
-          type: string
-          example: http://pui.per/accession/A0000079
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'

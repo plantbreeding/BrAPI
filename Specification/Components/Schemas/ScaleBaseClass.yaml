@@ -56,8 +56,6 @@ components:
               description: Minimum value (used for data capture control) for numerical and date scales
               type: integer
               example: 2
-        xref:
-          description: Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database
-          type: string
-          example: http://purl.obolibrary.org/obo/ro.owl
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
 

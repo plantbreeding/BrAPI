@@ -41,3 +41,6 @@ components:
           $ref: '#/components/schemas/CrossParent'
         parent2: 
           $ref: '#/components/schemas/CrossParent'
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
+          

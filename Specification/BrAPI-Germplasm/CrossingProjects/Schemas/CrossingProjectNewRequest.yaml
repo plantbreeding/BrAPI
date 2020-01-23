@@ -28,4 +28,7 @@ components:
           description: the common name of a crop (for multi-crop systems)
           type: string
           example: Cassava
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
+          
         

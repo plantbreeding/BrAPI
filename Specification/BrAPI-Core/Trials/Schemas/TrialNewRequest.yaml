@@ -98,3 +98,6 @@ components:
           description: A permanent identifier for a trial. Could be DOI or other URI formatted identifier.
           type: string
           example: https://doi.org/101093190
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
+          

@@ -10,6 +10,7 @@ components:
       - $ref: '#/components/schemas/SearchRequestParametersPaging'
       - $ref: '#/components/schemas/SearchRequestParametersCommonCropNames'
       - $ref: '#/components/schemas/SearchRequestParametersPrograms'
+      - $ref: '#/components/schemas/SearchRequestParametersExternalRefereces'
       - type: object
         properties:
           abbreviations:

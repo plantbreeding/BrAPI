@@ -5,7 +5,7 @@ openapi: 3.0.0
 paths: {}
 components:
   schemas:
-    ObservationVariableSearchRequest:
+    GermplasmAttributeSearchRequest:
       allOf:
       - $ref: '#/components/schemas/SearchRequestParametersPaging'
       - $ref: '#/components/schemas/SearchRequestParametersExternalRefereces'
@@ -23,14 +23,14 @@ components:
               type: string
             type: array
             example: ['07e34f83', 'd3d5517a']
-          observationVariableDbIds:
-            description: List of observation variable IDs to search for
+          germplasmAttributeDbIds:
+            description: List of Germplasm Attribute IDs to search for
             items:
               type: string
             type: array
             example: ['2ef15c9f', '318e7f7d']
-          observationVariableNames:
-            description: List of human readable observation variable names to search for
+          germplasmAttributeNames:
+            description: List of human readable Germplasm Attribute names to search for
             items:
               type: string
             type: array

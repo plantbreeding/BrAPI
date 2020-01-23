@@ -6,6 +6,7 @@ paths: {}
 components:
   schemas:
     ProgramNewRequest:
+      type: object
       properties:
         abbreviation:
           description: An abbreviation which represents this program
@@ -41,5 +42,7 @@ components:
           description: Human readable name of the program
           type: string
           example: Tomatillo_Breeding_Program
-      type: object
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
+          
 

@@ -71,4 +71,7 @@ components:
           description: The related observation unit identifier, if relevant.
           type: string
           example: b7e690b6
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
+          
 

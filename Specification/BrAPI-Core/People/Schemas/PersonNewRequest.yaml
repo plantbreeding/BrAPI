@@ -6,6 +6,7 @@ paths: {}
 components:
   schemas:
     PersonNewRequest:
+      type: object
       properties:
         additionalInfo:
           additionalProperties:
@@ -44,4 +45,6 @@ components:
           description: A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.
           type: string
           example: bob-23
-      type: object
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
+          

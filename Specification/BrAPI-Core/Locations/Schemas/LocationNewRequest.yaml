@@ -99,4 +99,7 @@ components:
           example: Valley
         coordinates:
           $ref: '#/components/schemas/geoJSON'
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
+          
 

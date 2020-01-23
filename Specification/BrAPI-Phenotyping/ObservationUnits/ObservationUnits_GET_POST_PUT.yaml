@@ -50,6 +50,8 @@ paths:
         required: false
         schema:
           type: string
+      - $ref: '#/components/parameters/externalReferenceID'
+      - $ref: '#/components/parameters/externalReferenceSource'
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
       - $ref: '#/components/parameters/authorizationHeader'
@@ -124,10 +126,10 @@ paths:
                   positionCoordinateXType: GRID_COL
                   positionCoordinateY: 03
                   positionCoordinateYType: GRID_ROW
-                  replicate: 1                
-                observationUnitXref: 
-                  - id: SAMEA_179865230
-                    source: "ebi.biosample"
+                  replicate: 1 
+                externalReferences:  
+                  - referenceID: SAMEA_179865230
+                    referenceSource: "ebi.biosample"
                 plantNumber: 1
                 plotNumber: 01
                 programDbId: 2d763a7a
@@ -161,9 +163,9 @@ paths:
                   positionCoordinateY: 03
                   positionCoordinateYType: GRID_ROW
                   replicate: 1
-                observationUnitXref: 
-                  - id: SAMEA_179865230
-                    source: "ebi.biosample"
+                externalReferences:  
+                  - referenceID: SAMEA_179865230
+                    referenceSource: "ebi.biosample"
                 plantNumber: 1
                 plotNumber: 01
                 programDbId: 2d763a7a

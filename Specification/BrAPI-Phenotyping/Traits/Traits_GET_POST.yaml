@@ -11,6 +11,20 @@ paths:
 
         An Observation Variable has 3 critical parts; A Trait being observed, a Method for making the observation, and a Scale on which the observation can be measured and compared with other observations.'
       parameters:
+      - description: The unique identifier for a trait
+        in: query
+        name: traitDbId
+        required: false
+        schema:
+          type: string
+      - description: The unique identifier for an observation variable
+        in: query
+        name: observationVariableDbId
+        required: false
+        schema:
+          type: string
+      - $ref: '#/components/parameters/externalReferenceID'
+      - $ref: '#/components/parameters/externalReferenceSource'
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
       - $ref: '#/components/parameters/authorizationHeader'

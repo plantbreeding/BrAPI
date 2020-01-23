@@ -11,6 +11,7 @@ components:
       - $ref: '#/components/schemas/SearchRequestParametersCommonCropNames'
       - $ref: '#/components/schemas/SearchRequestParametersGermplasm'
       - $ref: '#/components/schemas/SearchRequestParametersStudies'
+      - $ref: '#/components/schemas/SearchRequestParametersExternalRefereces'
       - type: object
         properties: 
           accessionNumbers:
@@ -55,10 +56,4 @@ components:
               type: string
             type: array
             example: ['variety_1', '2c38f9b6']
-          xrefs: 
-            description: Search for Germplasm by an external reference
-            items:
-              type: string
-            type: array
-            example: ['http://pui.per/accession/A0008766', '4cda72fe']
 

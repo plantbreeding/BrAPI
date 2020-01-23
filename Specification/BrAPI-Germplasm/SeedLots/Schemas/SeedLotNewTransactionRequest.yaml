@@ -37,4 +37,7 @@ components:
           description: Description of the things being transfered in this transaction (seeds, bulbs, stock, etc)
           type: string
           example: seeds
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
+          
 
