@@ -143,7 +143,9 @@ def compareParams(pathsToDiff, lowerVersionFile, higherVersionFile):
             for param in highParams:
                 higherParams.append(param['name'] + sep + param['schema']['type'])
         else:
-            print('Error 1')
+            print('Error: Something is missing Parameter?')
+            print(lowerVersionFile['paths'][pathSplit[0]][pathSplit[1]])
+            print(higherVersionFile['paths'][pathSplit[0]][pathSplit[1]])
             exit(1)
         
         pathsToDiff[path]['addedParams'] = list(set(higherParams) - set(lowerParams))
