@@ -915,7 +915,7 @@ Get data for a submitted set of plates
  
 
 + Parameters
-    + submissionId (Required, ) ... 
+    + submissionId (Required, ) ... The submission id returned by the vendor when a set of plates was successfully submitted. From response of "POST /vendor/plates"
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 

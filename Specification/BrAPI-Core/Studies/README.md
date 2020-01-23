@@ -23,6 +23,8 @@ See Search Services for additional implementation details.
 |---|---|---| 
 |active|boolean|Is this study currently active|
 |commonCropNames|array[string]|Common name for the crop which this program is for|
+|externalReferenceIDs|array[string]|List of external references for the trait to search for|
+|externalReferenceSources|array[string]|List of external references sources for the trait to search for|
 |germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm to search for|
 |germplasmNames|array[string]|List of human readable names to identify germplasm to search for|
 |locationDbIds|array[string]|The location ids to search for|
@@ -63,6 +65,14 @@ See Search Services for additional implementation details.
     "commonCropNames": [
         "Tomatillo",
         "Paw Paw"
+    ],
+    "externalReferenceIDs": [
+        "http://purl.obolibrary.org/obo/ro.owl",
+        "14a19841"
+    ],
+    "externalReferenceSources": [
+        "OBO Library",
+        "Field App Name"
     ],
     "germplasmDbIds": [
         "e9c6edd7",
@@ -238,6 +248,9 @@ See Search Services for additional implementation details.
 |experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.|
@@ -259,6 +272,9 @@ See Search Services for additional implementation details.
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
@@ -397,6 +413,24 @@ See Search Services for additional implementation details.
                     "PUI": "CO_715:0000145",
                     "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information."
                 },
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "growthFacility": {
                     "PUI": "CO_715:0000162",
                     "description": "field environment condition, greenhouse"
@@ -427,6 +461,24 @@ See Search Services for additional implementation details.
                     "documentationURL": "https://brapi.org",
                     "environmentType": "Nursery",
                     "exposure": "Structure, no exposure",
+                    "externalReferences": [
+                        {
+                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceSource": "DOI"
+                        },
+                        {
+                            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                            "referenceSource": "OBO Library"
+                        },
+                        {
+                            "referenceID": "75a50e76",
+                            "referenceSource": "Remote Data Collection Upload Tool"
+                        },
+                        {
+                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                            "referenceSource": "BrAPI Example Server"
+                        }
+                    ],
                     "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
                     "instituteName": "Plant Science Institute",
                     "locationDbId": "3cfdd67d",
@@ -570,7 +622,7 @@ program like "PlantingTime_3" or "Season E"
 
 
 
-### Get - /studies [GET /brapi/v1/studies{?commonCropName}{?studyType}{?programDbId}{?locationDbId}{?seasonDbId}{?trialDbId}{?studyDbId}{?germplasmDbId}{?observationVariableDbId}{?active}{?sortBy}{?sortOrder}{?page}{?pageSize}]
+### Get - /studies [GET /brapi/v1/studies{?commonCropName}{?studyType}{?programDbId}{?locationDbId}{?seasonDbId}{?trialDbId}{?studyDbId}{?germplasmDbId}{?observationVariableDbId}{?active}{?sortBy}{?sortOrder}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get list of studies
 
@@ -612,6 +664,9 @@ StartDate and endDate should be ISO-8601 format for dates
 |experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.|
@@ -633,6 +688,9 @@ StartDate and endDate should be ISO-8601 format for dates
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
@@ -667,6 +725,8 @@ StartDate and endDate should be ISO-8601 format for dates
     + active (Optional, ) ... Filter active status true/false.
     + sortBy (Optional, ) ... Name of the field to sort by.
     + sortOrder (Optional, ) ... Sort order direction. Ascending/Descending.
+    + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
+    + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -746,6 +806,24 @@ StartDate and endDate should be ISO-8601 format for dates
                     "PUI": "CO_715:0000145",
                     "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information."
                 },
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "growthFacility": {
                     "PUI": "CO_715:0000162",
                     "description": "field environment condition, greenhouse"
@@ -776,6 +854,24 @@ StartDate and endDate should be ISO-8601 format for dates
                     "documentationURL": "https://brapi.org",
                     "environmentType": "Nursery",
                     "exposure": "Structure, no exposure",
+                    "externalReferences": [
+                        {
+                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceSource": "DOI"
+                        },
+                        {
+                            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                            "referenceSource": "OBO Library"
+                        },
+                        {
+                            "referenceID": "75a50e76",
+                            "referenceSource": "Remote Data Collection Upload Tool"
+                        },
+                        {
+                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                            "referenceSource": "BrAPI Example Server"
+                        }
+                    ],
                     "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
                     "instituteName": "Plant Science Institute",
                     "locationDbId": "3cfdd67d",
@@ -863,6 +959,9 @@ StartDate and endDate should be ISO-8601 format for dates
 |experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.|
@@ -884,6 +983,9 @@ StartDate and endDate should be ISO-8601 format for dates
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
@@ -936,6 +1038,9 @@ StartDate and endDate should be ISO-8601 format for dates
 |experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.|
@@ -957,6 +1062,9 @@ StartDate and endDate should be ISO-8601 format for dates
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
@@ -1026,6 +1134,24 @@ StartDate and endDate should be ISO-8601 format for dates
             "PUI": "CO_715:0000145",
             "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information."
         },
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "growthFacility": {
             "PUI": "CO_715:0000162",
             "description": "field environment condition, greenhouse"
@@ -1056,6 +1182,24 @@ StartDate and endDate should be ISO-8601 format for dates
             "documentationURL": "https://brapi.org",
             "environmentType": "Nursery",
             "exposure": "Structure, no exposure",
+            "externalReferences": [
+                {
+                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceSource": "DOI"
+                },
+                {
+                    "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                    "referenceSource": "OBO Library"
+                },
+                {
+                    "referenceID": "75a50e76",
+                    "referenceSource": "Remote Data Collection Upload Tool"
+                },
+                {
+                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                    "referenceSource": "BrAPI Example Server"
+                }
+            ],
             "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
             "instituteName": "Plant Science Institute",
             "locationDbId": "3cfdd67d",
@@ -1153,6 +1297,24 @@ StartDate and endDate should be ISO-8601 format for dates
                     "PUI": "CO_715:0000145",
                     "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information."
                 },
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "growthFacility": {
                     "PUI": "CO_715:0000162",
                     "description": "field environment condition, greenhouse"
@@ -1183,6 +1345,24 @@ StartDate and endDate should be ISO-8601 format for dates
                     "documentationURL": "https://brapi.org",
                     "environmentType": "Nursery",
                     "exposure": "Structure, no exposure",
+                    "externalReferences": [
+                        {
+                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceSource": "DOI"
+                        },
+                        {
+                            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                            "referenceSource": "OBO Library"
+                        },
+                        {
+                            "referenceID": "75a50e76",
+                            "referenceSource": "Remote Data Collection Upload Tool"
+                        },
+                        {
+                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                            "referenceSource": "BrAPI Example Server"
+                        }
+                    ],
                     "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
                     "instituteName": "Plant Science Institute",
                     "locationDbId": "3cfdd67d",
@@ -1268,6 +1448,9 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
 |experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.|
@@ -1289,6 +1472,9 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
@@ -1387,6 +1573,24 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
             "PUI": "CO_715:0000145",
             "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information."
         },
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "growthFacility": {
             "PUI": "CO_715:0000162",
             "description": "field environment condition, greenhouse"
@@ -1417,6 +1621,24 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
             "documentationURL": "https://brapi.org",
             "environmentType": "Nursery",
             "exposure": "Structure, no exposure",
+            "externalReferences": [
+                {
+                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceSource": "DOI"
+                },
+                {
+                    "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                    "referenceSource": "OBO Library"
+                },
+                {
+                    "referenceID": "75a50e76",
+                    "referenceSource": "Remote Data Collection Upload Tool"
+                },
+                {
+                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                    "referenceSource": "BrAPI Example Server"
+                }
+            ],
             "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
             "instituteName": "Plant Science Institute",
             "locationDbId": "3cfdd67d",
@@ -1501,6 +1723,9 @@ Update an existing Study with new data
 |experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.|
@@ -1522,6 +1747,9 @@ Update an existing Study with new data
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
@@ -1573,6 +1801,9 @@ Update an existing Study with new data
 |experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.|
@@ -1594,6 +1825,9 @@ Update an existing Study with new data
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
@@ -1663,6 +1897,24 @@ Update an existing Study with new data
         "PUI": "CO_715:0000145",
         "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information."
     },
+    "externalReferences": [
+        {
+            "referenceID": "doi:10.155454/12349537E12",
+            "referenceSource": "DOI"
+        },
+        {
+            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+            "referenceSource": "OBO Library"
+        },
+        {
+            "referenceID": "75a50e76",
+            "referenceSource": "Remote Data Collection Upload Tool"
+        },
+        {
+            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+            "referenceSource": "BrAPI Example Server"
+        }
+    ],
     "growthFacility": {
         "PUI": "CO_715:0000162",
         "description": "field environment condition, greenhouse"
@@ -1693,6 +1945,24 @@ Update an existing Study with new data
         "documentationURL": "https://brapi.org",
         "environmentType": "Nursery",
         "exposure": "Structure, no exposure",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
         "instituteName": "Plant Science Institute",
         "locationDbId": "3cfdd67d",
@@ -1787,6 +2057,24 @@ Update an existing Study with new data
             "PUI": "CO_715:0000145",
             "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information."
         },
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "growthFacility": {
             "PUI": "CO_715:0000162",
             "description": "field environment condition, greenhouse"
@@ -1817,6 +2105,24 @@ Update an existing Study with new data
             "documentationURL": "https://brapi.org",
             "environmentType": "Nursery",
             "exposure": "Structure, no exposure",
+            "externalReferences": [
+                {
+                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceSource": "DOI"
+                },
+                {
+                    "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                    "referenceSource": "OBO Library"
+                },
+                {
+                    "referenceID": "75a50e76",
+                    "referenceSource": "Remote Data Collection Upload Tool"
+                },
+                {
+                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                    "referenceSource": "BrAPI Example Server"
+                }
+            ],
             "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
             "instituteName": "Plant Science Institute",
             "locationDbId": "3cfdd67d",

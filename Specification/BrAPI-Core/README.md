@@ -142,7 +142,7 @@ Calls for manipulating generic lists of item IDs
 
 
 
-### Get - /lists [GET /brapi/v1/lists{?listType}{?listName}{?listDbId}{?listSource}{?page}{?pageSize}]
+### Get - /lists [GET /brapi/v1/lists{?listType}{?listName}{?listDbId}{?listSource}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get filtered set of generic lists
 
@@ -156,6 +156,9 @@ Get filtered set of generic lists
 |additionalInfo|object|Additional arbitrary info|
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |listDbId|string|The unique identifier for a List|
 |listDescription|string|Description of a List|
 |listName|string|Human readable name of a List|
@@ -173,6 +176,8 @@ Get filtered set of generic lists
     + listName (Optional, ) ... The human readable name of this generic list
     + listDbId (Optional, ) ... The unique ID of this generic list
     + listSource (Optional, ) ... The source tag of this generic list
+    + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
+    + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -216,6 +221,24 @@ Get filtered set of generic lists
                 "additionalInfo": {},
                 "dateCreated": "2018-01-01T14:47:23-0600",
                 "dateModified": "2018-01-01T14:47:23-0600",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "listDbId": "6f621cfa",
                 "listDescription": "This is a list of germplasm I would like to investigate next season",
                 "listName": "MyGermplasm_Sept_2020",
@@ -270,6 +293,9 @@ Create a new list
 |data|array[string]|The list of DbIds contained in this list|
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |listDescription|string|Description of a List|
 |listName|string|Human readable name of a List|
 |listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
@@ -287,6 +313,9 @@ Create a new list
 |additionalInfo|object|Additional arbitrary info|
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |listDbId|string|The unique identifier for a List|
 |listDescription|string|Description of a List|
 |listName|string|Human readable name of a List|
@@ -315,6 +344,24 @@ Create a new list
         ],
         "dateCreated": "2018-01-01T14:47:23-0600",
         "dateModified": "2018-01-01T14:47:23-0600",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "listDescription": "This is a list of germplasm I would like to investigate next season",
         "listName": "MyGermplasm_Sept_2020",
         "listOwnerName": "Bob Robertson",
@@ -374,6 +421,24 @@ Create a new list
                 "additionalInfo": {},
                 "dateCreated": "2018-01-01T14:47:23-0600",
                 "dateModified": "2018-01-01T14:47:23-0600",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "listDbId": "6f621cfa",
                 "listDescription": "This is a list of germplasm I would like to investigate next season",
                 "listName": "MyGermplasm_Sept_2020",
@@ -430,6 +495,9 @@ Get a specific generic lists
 |data|array[string]|The list of DbIds contained in this list|
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |listDbId|string|The unique identifier for a List|
 |listDescription|string|Description of a List|
 |listName|string|Human readable name of a List|
@@ -487,6 +555,24 @@ Get a specific generic lists
         ],
         "dateCreated": "2018-01-01T14:47:23-0600",
         "dateModified": "2018-01-01T14:47:23-0600",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "listDbId": "6f621cfa",
         "listDescription": "This is a list of germplasm I would like to investigate next season",
         "listName": "MyGermplasm_Sept_2020",
@@ -544,6 +630,9 @@ Update an existing generic list
 |data|array[string]|The list of DbIds contained in this list|
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |listDescription|string|Description of a List|
 |listName|string|Human readable name of a List|
 |listOwnerName|string|Human readable name of a List Owner. (usually a user or person)|
@@ -561,6 +650,9 @@ Update an existing generic list
 |data|array[string]|The list of DbIds contained in this list|
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |listDbId|string|The unique identifier for a List|
 |listDescription|string|Description of a List|
 |listName|string|Human readable name of a List|
@@ -589,6 +681,24 @@ Update an existing generic list
     ],
     "dateCreated": "2018-01-01T14:47:23-0600",
     "dateModified": "2018-01-01T14:47:23-0600",
+    "externalReferences": [
+        {
+            "referenceID": "doi:10.155454/12349537E12",
+            "referenceSource": "DOI"
+        },
+        {
+            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+            "referenceSource": "OBO Library"
+        },
+        {
+            "referenceID": "75a50e76",
+            "referenceSource": "Remote Data Collection Upload Tool"
+        },
+        {
+            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+            "referenceSource": "BrAPI Example Server"
+        }
+    ],
     "listDescription": "This is a list of germplasm I would like to investigate next season",
     "listName": "MyGermplasm_Sept_2020",
     "listOwnerName": "Bob Robertson",
@@ -649,6 +759,24 @@ Update an existing generic list
         ],
         "dateCreated": "2018-01-01T14:47:23-0600",
         "dateModified": "2018-01-01T14:47:23-0600",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "listDbId": "6f621cfa",
         "listDescription": "This is a list of germplasm I would like to investigate next season",
         "listName": "MyGermplasm_Sept_2020",
@@ -712,6 +840,9 @@ Add new data to a specific generic lists
 |data|array[string]|The list of DbIds contained in this list|
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |listDbId|string|The unique identifier for a List|
 |listDescription|string|Description of a List|
 |listName|string|Human readable name of a List|
@@ -778,6 +909,24 @@ Add new data to a specific generic lists
         ],
         "dateCreated": "2018-01-01T14:47:23-0600",
         "dateModified": "2018-01-01T14:47:23-0600",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "listDbId": "6f621cfa",
         "listDescription": "This is a list of germplasm I would like to investigate next season",
         "listName": "MyGermplasm_Sept_2020",
@@ -836,6 +985,8 @@ See Search Services for additional implementation details.
 |dateCreatedRangeStart|string (date-time)||
 |dateModifiedRangeEnd|string (date-time)||
 |dateModifiedRangeStart|string (date-time)||
+|externalReferenceIDs|array[string]|List of external references for the trait to search for|
+|externalReferenceSources|array[string]|List of external references sources for the trait to search for|
 |listDbIds|array[string]||
 |listNames|array[string]||
 |listOwnerNames|array[string]||
@@ -854,6 +1005,9 @@ See Search Services for additional implementation details.
 |additionalInfo|object|Additional arbitrary info|
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |listDbId|string|The unique identifier for a List|
 |listDescription|string|Description of a List|
 |listName|string|Human readable name of a List|
@@ -878,6 +1032,14 @@ See Search Services for additional implementation details.
     "dateCreatedRangeStart": "2018-01-01T14:47:23-0600",
     "dateModifiedRangeEnd": "2018-01-01T14:47:23-0600",
     "dateModifiedRangeStart": "2018-01-01T14:47:23-0600",
+    "externalReferenceIDs": [
+        "http://purl.obolibrary.org/obo/ro.owl",
+        "14a19841"
+    ],
+    "externalReferenceSources": [
+        "OBO Library",
+        "Field App Name"
+    ],
     "listDbIds": [
         "55f20cf6",
         "3193ca3d"
@@ -953,6 +1115,24 @@ See Search Services for additional implementation details.
                 "additionalInfo": {},
                 "dateCreated": "2018-01-01T14:47:23-0600",
                 "dateModified": "2018-01-01T14:47:23-0600",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "listDbId": "6f621cfa",
                 "listDescription": "This is a list of germplasm I would like to investigate next season",
                 "listName": "MyGermplasm_Sept_2020",
@@ -1046,6 +1226,9 @@ See Search Services for additional implementation details.
 |additionalInfo|object|Additional arbitrary info|
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |listDbId|string|The unique identifier for a List|
 |listDescription|string|Description of a List|
 |listName|string|Human readable name of a List|
@@ -1139,6 +1322,24 @@ See Search Services for additional implementation details.
                 "additionalInfo": {},
                 "dateCreated": "2018-01-01T14:47:23-0600",
                 "dateModified": "2018-01-01T14:47:23-0600",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "listDbId": "6f621cfa",
                 "listDescription": "This is a list of germplasm I would like to investigate next season",
                 "listName": "MyGermplasm_Sept_2020",
@@ -1187,7 +1388,7 @@ Location calls.
 
 
 
-### Get - /locations [GET /brapi/v1/locations{?locationType}{?page}{?pageSize}]
+### Get - /locations [GET /brapi/v1/locations{?locationType}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a list of locations.
 * The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
@@ -1213,6 +1414,9 @@ Get a list of locations.
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
@@ -1227,6 +1431,8 @@ Get a list of locations.
 
 + Parameters
     + locationType (Optional, ) ... Filter by location type specified.
+    + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
+    + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -1287,6 +1493,24 @@ Get a list of locations.
                 "documentationURL": "https://brapi.org",
                 "environmentType": "Nursery",
                 "exposure": "Structure, no exposure",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
                 "instituteName": "Plant Science Institute",
                 "locationDbId": "3cfdd67d",
@@ -1342,6 +1566,9 @@ Add new locations to database
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationName|string|A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.|
@@ -1369,6 +1596,9 @@ Add new locations to database
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
@@ -1410,6 +1640,24 @@ Add new locations to database
         "documentationURL": "https://brapi.org",
         "environmentType": "Nursery",
         "exposure": "Structure, no exposure",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
         "instituteName": "Plant Science Institute",
         "locationName": "Location 1",
@@ -1476,6 +1724,24 @@ Add new locations to database
                 "documentationURL": "https://brapi.org",
                 "environmentType": "Nursery",
                 "exposure": "Structure, no exposure",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
                 "instituteName": "Plant Science Institute",
                 "locationDbId": "3cfdd67d",
@@ -1533,6 +1799,9 @@ Get details for a location.
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
@@ -1603,6 +1872,24 @@ Get details for a location.
         "documentationURL": "https://brapi.org",
         "environmentType": "Nursery",
         "exposure": "Structure, no exposure",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
         "instituteName": "Plant Science Institute",
         "locationDbId": "3cfdd67d",
@@ -1661,6 +1948,9 @@ Update the details for an existing location.
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationName|string|A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.|
@@ -1687,6 +1977,9 @@ Update the details for an existing location.
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
@@ -1728,6 +2021,24 @@ Update the details for an existing location.
     "documentationURL": "https://brapi.org",
     "environmentType": "Nursery",
     "exposure": "Structure, no exposure",
+    "externalReferences": [
+        {
+            "referenceID": "doi:10.155454/12349537E12",
+            "referenceSource": "DOI"
+        },
+        {
+            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+            "referenceSource": "OBO Library"
+        },
+        {
+            "referenceID": "75a50e76",
+            "referenceSource": "Remote Data Collection Upload Tool"
+        },
+        {
+            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+            "referenceSource": "BrAPI Example Server"
+        }
+    ],
     "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
     "instituteName": "Plant Science Institute",
     "locationName": "Location 1",
@@ -1791,6 +2102,24 @@ Update the details for an existing location.
         "documentationURL": "https://brapi.org",
         "environmentType": "Nursery",
         "exposure": "Structure, no exposure",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
         "instituteName": "Plant Science Institute",
         "locationDbId": "3cfdd67d",
@@ -1843,6 +2172,8 @@ See Search Services for additional implementation details.
 |type|string|The literal string "Feature"|
 |countryCodes|array[string]|[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec|
 |countryNames|array[string]|The full name of the country to search for|
+|externalReferenceIDs|array[string]|List of external references for the trait to search for|
+|externalReferenceSources|array[string]|List of external references sources for the trait to search for|
 |instituteAddresses|array[string]|The street address of the institute to search for|
 |instituteNames|array[string]|The name of the institute to search for|
 |locationDbIds|array[string]|The location ids to search for|
@@ -1870,6 +2201,9 @@ See Search Services for additional implementation details.
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
@@ -1929,6 +2263,14 @@ See Search Services for additional implementation details.
     "countryNames": [
         "United States of America",
         "Peru"
+    ],
+    "externalReferenceIDs": [
+        "http://purl.obolibrary.org/obo/ro.owl",
+        "14a19841"
+    ],
+    "externalReferenceSources": [
+        "OBO Library",
+        "Field App Name"
     ],
     "instituteAddresses": [
         "123 Main Street",
@@ -2010,6 +2352,24 @@ See Search Services for additional implementation details.
                 "documentationURL": "https://brapi.org",
                 "environmentType": "Nursery",
                 "exposure": "Structure, no exposure",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
                 "instituteName": "Plant Science Institute",
                 "locationDbId": "3cfdd67d",
@@ -2103,6 +2463,9 @@ See Search Services for additional implementation details.
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
@@ -2213,6 +2576,24 @@ See Search Services for additional implementation details.
                 "documentationURL": "https://brapi.org",
                 "environmentType": "Nursery",
                 "exposure": "Structure, no exposure",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
                 "instituteName": "Plant Science Institute",
                 "locationDbId": "3cfdd67d",
@@ -2249,7 +2630,7 @@ Calls for maintaining information about people
 
 
 
-### Get - /people [GET /brapi/v1/people{?firstName}{?lastName}{?personDbId}{?userID}{?page}{?pageSize}]
+### Get - /people [GET /brapi/v1/people{?firstName}{?lastName}{?personDbId}{?userID}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get filtered list of people
 
@@ -2263,6 +2644,9 @@ Get filtered list of people
 |additionalInfo|object|Additional arbitrary info|
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
 |mailingAddress|string|physical address of this person|
@@ -2279,6 +2663,8 @@ Get filtered list of people
     + lastName (Optional, ) ... A persons last name
     + personDbId (Optional, ) ... The unique ID of a person
     + userID (Optional, ) ... A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.
+    + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
+    + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -2322,6 +2708,24 @@ Get filtered list of people
                 "additionalInfo": {},
                 "description": "Bob likes pina coladas and getting caught in the rain.",
                 "emailAddress": "bob@bob.com",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "firstName": "Bob",
                 "lastName": "Robertson",
                 "mailingAddress": "123 Street Ave, City, State, Country",
@@ -2364,6 +2768,9 @@ Create new People entities. `personDbId` is generated and managed by the server.
 |additionalInfo|object|Additional arbitrary info|
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
 |mailingAddress|string|physical address of this person|
@@ -2380,6 +2787,9 @@ Create new People entities. `personDbId` is generated and managed by the server.
 |additionalInfo|object|Additional arbitrary info|
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
 |mailingAddress|string|physical address of this person|
@@ -2403,6 +2813,24 @@ Create new People entities. `personDbId` is generated and managed by the server.
         "additionalInfo": {},
         "description": "Bob likes pina coladas and getting caught in the rain.",
         "emailAddress": "bob@bob.com",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "firstName": "Bob",
         "lastName": "Robertson",
         "mailingAddress": "123 Street Ave, City, State, Country",
@@ -2451,6 +2879,24 @@ Create new People entities. `personDbId` is generated and managed by the server.
                 "additionalInfo": {},
                 "description": "Bob likes pina coladas and getting caught in the rain.",
                 "emailAddress": "bob@bob.com",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "firstName": "Bob",
                 "lastName": "Robertson",
                 "mailingAddress": "123 Street Ave, City, State, Country",
@@ -2495,6 +2941,9 @@ Get the details for a specific Person
 |additionalInfo|object|Additional arbitrary info|
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
 |mailingAddress|string|physical address of this person|
@@ -2547,6 +2996,24 @@ Get the details for a specific Person
         "additionalInfo": {},
         "description": "Bob likes pina coladas and getting caught in the rain.",
         "emailAddress": "bob@bob.com",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "firstName": "Bob",
         "lastName": "Robertson",
         "mailingAddress": "123 Street Ave, City, State, Country",
@@ -2592,6 +3059,9 @@ Update an existing Person
 |additionalInfo|object|Additional arbitrary info|
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
 |mailingAddress|string|physical address of this person|
@@ -2607,6 +3077,9 @@ Update an existing Person
 |additionalInfo|object|Additional arbitrary info|
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
 |mailingAddress|string|physical address of this person|
@@ -2630,6 +3103,24 @@ Update an existing Person
     "additionalInfo": {},
     "description": "Bob likes pina coladas and getting caught in the rain.",
     "emailAddress": "bob@bob.com",
+    "externalReferences": [
+        {
+            "referenceID": "doi:10.155454/12349537E12",
+            "referenceSource": "DOI"
+        },
+        {
+            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+            "referenceSource": "OBO Library"
+        },
+        {
+            "referenceID": "75a50e76",
+            "referenceSource": "Remote Data Collection Upload Tool"
+        },
+        {
+            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+            "referenceSource": "BrAPI Example Server"
+        }
+    ],
     "firstName": "Bob",
     "lastName": "Robertson",
     "mailingAddress": "123 Street Ave, City, State, Country",
@@ -2675,6 +3166,24 @@ Update an existing Person
         "additionalInfo": {},
         "description": "Bob likes pina coladas and getting caught in the rain.",
         "emailAddress": "bob@bob.com",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "firstName": "Bob",
         "lastName": "Robertson",
         "mailingAddress": "123 Street Ave, City, State, Country",
@@ -2720,6 +3229,8 @@ See Search Services for additional implementation details.
 |Field|Type|Description|
 |---|---|---| 
 |emailAddresses|array[string]|email address for this person|
+|externalReferenceIDs|array[string]|List of external references for the trait to search for|
+|externalReferenceSources|array[string]|List of external references sources for the trait to search for|
 |firstNames|array[string]|Persons first name|
 |lastNames|array[string]|Persons last name|
 |mailingAddresses|array[string]|physical address of this person|
@@ -2739,6 +3250,9 @@ See Search Services for additional implementation details.
 |additionalInfo|object|Additional arbitrary info|
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
 |mailingAddress|string|physical address of this person|
@@ -2761,6 +3275,14 @@ See Search Services for additional implementation details.
     "emailAddresses": [
         "bob@bob.com",
         "rob@bob.com"
+    ],
+    "externalReferenceIDs": [
+        "http://purl.obolibrary.org/obo/ro.owl",
+        "14a19841"
+    ],
+    "externalReferenceSources": [
+        "OBO Library",
+        "Field App Name"
     ],
     "firstNames": [
         "Bob",
@@ -2833,6 +3355,24 @@ See Search Services for additional implementation details.
                 "additionalInfo": {},
                 "description": "Bob likes pina coladas and getting caught in the rain.",
                 "emailAddress": "bob@bob.com",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "firstName": "Bob",
                 "lastName": "Robertson",
                 "mailingAddress": "123 Street Ave, City, State, Country",
@@ -2916,6 +3456,9 @@ See Search Services for additional implementation details.
 |additionalInfo|object|Additional arbitrary info|
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
 |mailingAddress|string|physical address of this person|
@@ -3008,6 +3551,24 @@ See Search Services for additional implementation details.
                 "additionalInfo": {},
                 "description": "Bob likes pina coladas and getting caught in the rain.",
                 "emailAddress": "bob@bob.com",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "firstName": "Bob",
                 "lastName": "Robertson",
                 "mailingAddress": "123 Street Ave, City, State, Country",
@@ -3044,7 +3605,7 @@ A Program can contain multiple Trials. A Trial can contain multiple Studies.
 
 
 
-### Get - /programs [GET /brapi/v1/programs{?commonCropName}{?programName}{?abbreviation}{?page}{?pageSize}]
+### Get - /programs [GET /brapi/v1/programs{?commonCropName}{?programName}{?abbreviation}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered list of breeding Programs. This list can be filtered by common crop name to narrow results to a specific crop.
 
@@ -3059,6 +3620,9 @@ Get a filtered list of breeding Programs. This list can be filtered by common cr
 |additionalInfo|object|Additional arbitrary info|
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
 |objective|string|The primary objective of the program|
@@ -3072,6 +3636,8 @@ Get a filtered list of breeding Programs. This list can be filtered by common cr
     + commonCropName (Optional, ) ... Filter by the common crop name. Exact match.
     + programName (Optional, ) ... Filter by program name. Exact match.
     + abbreviation (Optional, ) ... Filter by program abbreviation. Exact match.
+    + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
+    + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -3116,6 +3682,24 @@ Get a filtered list of breeding Programs. This list can be filtered by common cr
                 "additionalInfo": {},
                 "commonCropName": "Tomatillo",
                 "documentationURL": "https://wiki.brapi.org",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "leadPersonDbId": "fe6f5c50",
                 "leadPersonName": "Bob Robertson",
                 "objective": "Make a better tomatillo",
@@ -3157,6 +3741,9 @@ Add new breeding Programs to the database. The `programDbId` is set by the serve
 |additionalInfo|object|Additional arbitrary info|
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
 |objective|string|The primary objective of the program|
@@ -3172,6 +3759,9 @@ Add new breeding Programs to the database. The `programDbId` is set by the serve
 |additionalInfo|object|Additional arbitrary info|
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
 |objective|string|The primary objective of the program|
@@ -3194,6 +3784,24 @@ Add new breeding Programs to the database. The `programDbId` is set by the serve
         "additionalInfo": {},
         "commonCropName": "Tomatillo",
         "documentationURL": "https://wiki.brapi.org",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "leadPersonDbId": "fe6f5c50",
         "leadPersonName": "Bob Robertson",
         "objective": "Make a better tomatillo",
@@ -3241,6 +3849,24 @@ Add new breeding Programs to the database. The `programDbId` is set by the serve
                 "additionalInfo": {},
                 "commonCropName": "Tomatillo",
                 "documentationURL": "https://wiki.brapi.org",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "leadPersonDbId": "fe6f5c50",
                 "leadPersonName": "Bob Robertson",
                 "objective": "Make a better tomatillo",
@@ -3284,6 +3910,9 @@ Get a single breeding Program by Id. This can be used to quickly get the details
 |additionalInfo|object|Additional arbitrary info|
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
 |objective|string|The primary objective of the program|
@@ -3335,6 +3964,24 @@ Get a single breeding Program by Id. This can be used to quickly get the details
         "additionalInfo": {},
         "commonCropName": "Tomatillo",
         "documentationURL": "https://wiki.brapi.org",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "leadPersonDbId": "fe6f5c50",
         "leadPersonName": "Bob Robertson",
         "objective": "Make a better tomatillo",
@@ -3374,6 +4021,9 @@ Update the details of an existing breeding Program.
 |additionalInfo|object|Additional arbitrary info|
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
 |objective|string|The primary objective of the program|
@@ -3388,6 +4038,9 @@ Update the details of an existing breeding Program.
 |additionalInfo|object|Additional arbitrary info|
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
 |objective|string|The primary objective of the program|
@@ -3410,6 +4063,24 @@ Update the details of an existing breeding Program.
     "additionalInfo": {},
     "commonCropName": "Tomatillo",
     "documentationURL": "https://wiki.brapi.org",
+    "externalReferences": [
+        {
+            "referenceID": "doi:10.155454/12349537E12",
+            "referenceSource": "DOI"
+        },
+        {
+            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+            "referenceSource": "OBO Library"
+        },
+        {
+            "referenceID": "75a50e76",
+            "referenceSource": "Remote Data Collection Upload Tool"
+        },
+        {
+            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+            "referenceSource": "BrAPI Example Server"
+        }
+    ],
     "leadPersonDbId": "fe6f5c50",
     "leadPersonName": "Bob Robertson",
     "objective": "Make a better tomatillo",
@@ -3454,6 +4125,24 @@ Update the details of an existing breeding Program.
         "additionalInfo": {},
         "commonCropName": "Tomatillo",
         "documentationURL": "https://wiki.brapi.org",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "leadPersonDbId": "fe6f5c50",
         "leadPersonName": "Bob Robertson",
         "objective": "Make a better tomatillo",
@@ -3492,6 +4181,8 @@ See Search Services for additional implementation details.
 |---|---|---| 
 |abbreviations|array[string]|An abbreviation of a program to search for|
 |commonCropNames|array[string]|Common name for the crop which this program is for|
+|externalReferenceIDs|array[string]|List of external references for the trait to search for|
+|externalReferenceSources|array[string]|List of external references sources for the trait to search for|
 |leadPersonDbIds|array[string]|The person DbIds of the program leader to search for|
 |leadPersonNames|array[string]|The names of the program leader to search for|
 |objectives|array[string]|A program objective to search for|
@@ -3510,6 +4201,9 @@ See Search Services for additional implementation details.
 |additionalInfo|object|Additional arbitrary info|
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
 |objective|string|The primary objective of the program|
@@ -3534,6 +4228,14 @@ See Search Services for additional implementation details.
     "commonCropNames": [
         "Tomatillo",
         "Paw Paw"
+    ],
+    "externalReferenceIDs": [
+        "http://purl.obolibrary.org/obo/ro.owl",
+        "14a19841"
+    ],
+    "externalReferenceSources": [
+        "OBO Library",
+        "Field App Name"
     ],
     "leadPersonDbIds": [
         "d8bd96c7",
@@ -3599,6 +4301,24 @@ See Search Services for additional implementation details.
                 "additionalInfo": {},
                 "commonCropName": "Tomatillo",
                 "documentationURL": "https://wiki.brapi.org",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "leadPersonDbId": "fe6f5c50",
                 "leadPersonName": "Bob Robertson",
                 "objective": "Make a better tomatillo",
@@ -3680,6 +4400,9 @@ See Search Services for additional implementation details.
 |additionalInfo|object|Additional arbitrary info|
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
 |objective|string|The primary objective of the program|
@@ -3771,6 +4494,24 @@ See Search Services for additional implementation details.
                 "additionalInfo": {},
                 "commonCropName": "Tomatillo",
                 "documentationURL": "https://wiki.brapi.org",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "leadPersonDbId": "fe6f5c50",
                 "leadPersonName": "Bob Robertson",
                 "objective": "Make a better tomatillo",
@@ -3970,6 +4711,8 @@ See Search Services for additional implementation details.
 |---|---|---| 
 |active|boolean|Is this study currently active|
 |commonCropNames|array[string]|Common name for the crop which this program is for|
+|externalReferenceIDs|array[string]|List of external references for the trait to search for|
+|externalReferenceSources|array[string]|List of external references sources for the trait to search for|
 |germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm to search for|
 |germplasmNames|array[string]|List of human readable names to identify germplasm to search for|
 |locationDbIds|array[string]|The location ids to search for|
@@ -4010,6 +4753,14 @@ See Search Services for additional implementation details.
     "commonCropNames": [
         "Tomatillo",
         "Paw Paw"
+    ],
+    "externalReferenceIDs": [
+        "http://purl.obolibrary.org/obo/ro.owl",
+        "14a19841"
+    ],
+    "externalReferenceSources": [
+        "OBO Library",
+        "Field App Name"
     ],
     "germplasmDbIds": [
         "e9c6edd7",
@@ -4185,6 +4936,9 @@ See Search Services for additional implementation details.
 |experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.|
@@ -4206,6 +4960,9 @@ See Search Services for additional implementation details.
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
@@ -4344,6 +5101,24 @@ See Search Services for additional implementation details.
                     "PUI": "CO_715:0000145",
                     "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information."
                 },
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "growthFacility": {
                     "PUI": "CO_715:0000162",
                     "description": "field environment condition, greenhouse"
@@ -4374,6 +5149,24 @@ See Search Services for additional implementation details.
                     "documentationURL": "https://brapi.org",
                     "environmentType": "Nursery",
                     "exposure": "Structure, no exposure",
+                    "externalReferences": [
+                        {
+                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceSource": "DOI"
+                        },
+                        {
+                            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                            "referenceSource": "OBO Library"
+                        },
+                        {
+                            "referenceID": "75a50e76",
+                            "referenceSource": "Remote Data Collection Upload Tool"
+                        },
+                        {
+                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                            "referenceSource": "BrAPI Example Server"
+                        }
+                    ],
                     "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
                     "instituteName": "Plant Science Institute",
                     "locationDbId": "3cfdd67d",
@@ -4517,7 +5310,7 @@ program like "PlantingTime_3" or "Season E"
 
 
 
-### Get - /studies [GET /brapi/v1/studies{?commonCropName}{?studyType}{?programDbId}{?locationDbId}{?seasonDbId}{?trialDbId}{?studyDbId}{?germplasmDbId}{?observationVariableDbId}{?active}{?sortBy}{?sortOrder}{?page}{?pageSize}]
+### Get - /studies [GET /brapi/v1/studies{?commonCropName}{?studyType}{?programDbId}{?locationDbId}{?seasonDbId}{?trialDbId}{?studyDbId}{?germplasmDbId}{?observationVariableDbId}{?active}{?sortBy}{?sortOrder}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get list of studies
 
@@ -4559,6 +5352,9 @@ StartDate and endDate should be ISO-8601 format for dates
 |experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.|
@@ -4580,6 +5376,9 @@ StartDate and endDate should be ISO-8601 format for dates
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
@@ -4614,6 +5413,8 @@ StartDate and endDate should be ISO-8601 format for dates
     + active (Optional, ) ... Filter active status true/false.
     + sortBy (Optional, ) ... Name of the field to sort by.
     + sortOrder (Optional, ) ... Sort order direction. Ascending/Descending.
+    + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
+    + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -4693,6 +5494,24 @@ StartDate and endDate should be ISO-8601 format for dates
                     "PUI": "CO_715:0000145",
                     "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information."
                 },
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "growthFacility": {
                     "PUI": "CO_715:0000162",
                     "description": "field environment condition, greenhouse"
@@ -4723,6 +5542,24 @@ StartDate and endDate should be ISO-8601 format for dates
                     "documentationURL": "https://brapi.org",
                     "environmentType": "Nursery",
                     "exposure": "Structure, no exposure",
+                    "externalReferences": [
+                        {
+                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceSource": "DOI"
+                        },
+                        {
+                            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                            "referenceSource": "OBO Library"
+                        },
+                        {
+                            "referenceID": "75a50e76",
+                            "referenceSource": "Remote Data Collection Upload Tool"
+                        },
+                        {
+                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                            "referenceSource": "BrAPI Example Server"
+                        }
+                    ],
                     "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
                     "instituteName": "Plant Science Institute",
                     "locationDbId": "3cfdd67d",
@@ -4810,6 +5647,9 @@ StartDate and endDate should be ISO-8601 format for dates
 |experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.|
@@ -4831,6 +5671,9 @@ StartDate and endDate should be ISO-8601 format for dates
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
@@ -4883,6 +5726,9 @@ StartDate and endDate should be ISO-8601 format for dates
 |experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.|
@@ -4904,6 +5750,9 @@ StartDate and endDate should be ISO-8601 format for dates
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
@@ -4973,6 +5822,24 @@ StartDate and endDate should be ISO-8601 format for dates
             "PUI": "CO_715:0000145",
             "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information."
         },
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "growthFacility": {
             "PUI": "CO_715:0000162",
             "description": "field environment condition, greenhouse"
@@ -5003,6 +5870,24 @@ StartDate and endDate should be ISO-8601 format for dates
             "documentationURL": "https://brapi.org",
             "environmentType": "Nursery",
             "exposure": "Structure, no exposure",
+            "externalReferences": [
+                {
+                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceSource": "DOI"
+                },
+                {
+                    "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                    "referenceSource": "OBO Library"
+                },
+                {
+                    "referenceID": "75a50e76",
+                    "referenceSource": "Remote Data Collection Upload Tool"
+                },
+                {
+                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                    "referenceSource": "BrAPI Example Server"
+                }
+            ],
             "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
             "instituteName": "Plant Science Institute",
             "locationDbId": "3cfdd67d",
@@ -5100,6 +5985,24 @@ StartDate and endDate should be ISO-8601 format for dates
                     "PUI": "CO_715:0000145",
                     "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information."
                 },
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "growthFacility": {
                     "PUI": "CO_715:0000162",
                     "description": "field environment condition, greenhouse"
@@ -5130,6 +6033,24 @@ StartDate and endDate should be ISO-8601 format for dates
                     "documentationURL": "https://brapi.org",
                     "environmentType": "Nursery",
                     "exposure": "Structure, no exposure",
+                    "externalReferences": [
+                        {
+                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceSource": "DOI"
+                        },
+                        {
+                            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                            "referenceSource": "OBO Library"
+                        },
+                        {
+                            "referenceID": "75a50e76",
+                            "referenceSource": "Remote Data Collection Upload Tool"
+                        },
+                        {
+                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                            "referenceSource": "BrAPI Example Server"
+                        }
+                    ],
                     "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
                     "instituteName": "Plant Science Institute",
                     "locationDbId": "3cfdd67d",
@@ -5215,6 +6136,9 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
 |experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.|
@@ -5236,6 +6160,9 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
@@ -5334,6 +6261,24 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
             "PUI": "CO_715:0000145",
             "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information."
         },
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "growthFacility": {
             "PUI": "CO_715:0000162",
             "description": "field environment condition, greenhouse"
@@ -5364,6 +6309,24 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
             "documentationURL": "https://brapi.org",
             "environmentType": "Nursery",
             "exposure": "Structure, no exposure",
+            "externalReferences": [
+                {
+                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceSource": "DOI"
+                },
+                {
+                    "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                    "referenceSource": "OBO Library"
+                },
+                {
+                    "referenceID": "75a50e76",
+                    "referenceSource": "Remote Data Collection Upload Tool"
+                },
+                {
+                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                    "referenceSource": "BrAPI Example Server"
+                }
+            ],
             "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
             "instituteName": "Plant Science Institute",
             "locationDbId": "3cfdd67d",
@@ -5448,6 +6411,9 @@ Update an existing Study with new data
 |experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.|
@@ -5469,6 +6435,9 @@ Update an existing Study with new data
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
@@ -5520,6 +6489,9 @@ Update an existing Study with new data
 |experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.|
@@ -5541,6 +6513,9 @@ Update an existing Study with new data
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
@@ -5610,6 +6585,24 @@ Update an existing Study with new data
         "PUI": "CO_715:0000145",
         "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information."
     },
+    "externalReferences": [
+        {
+            "referenceID": "doi:10.155454/12349537E12",
+            "referenceSource": "DOI"
+        },
+        {
+            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+            "referenceSource": "OBO Library"
+        },
+        {
+            "referenceID": "75a50e76",
+            "referenceSource": "Remote Data Collection Upload Tool"
+        },
+        {
+            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+            "referenceSource": "BrAPI Example Server"
+        }
+    ],
     "growthFacility": {
         "PUI": "CO_715:0000162",
         "description": "field environment condition, greenhouse"
@@ -5640,6 +6633,24 @@ Update an existing Study with new data
         "documentationURL": "https://brapi.org",
         "environmentType": "Nursery",
         "exposure": "Structure, no exposure",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
         "instituteName": "Plant Science Institute",
         "locationDbId": "3cfdd67d",
@@ -5734,6 +6745,24 @@ Update an existing Study with new data
             "PUI": "CO_715:0000145",
             "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information."
         },
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "growthFacility": {
             "PUI": "CO_715:0000162",
             "description": "field environment condition, greenhouse"
@@ -5764,6 +6793,24 @@ Update an existing Study with new data
             "documentationURL": "https://brapi.org",
             "environmentType": "Nursery",
             "exposure": "Structure, no exposure",
+            "externalReferences": [
+                {
+                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceSource": "DOI"
+                },
+                {
+                    "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                    "referenceSource": "OBO Library"
+                },
+                {
+                    "referenceID": "75a50e76",
+                    "referenceSource": "Remote Data Collection Upload Tool"
+                },
+                {
+                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                    "referenceSource": "BrAPI Example Server"
+                }
+            ],
             "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
             "instituteName": "Plant Science Institute",
             "locationDbId": "3cfdd67d",
@@ -5911,6 +6958,8 @@ See Search Services for additional implementation details.
 |active|boolean|Is this trail currently active|
 |commonCropNames|array[string]|Common name for the crop which this program is for|
 |contactDbIds|array[string]|List of contact entities associated with this trial|
+|externalReferenceIDs|array[string]|List of external references for the trait to search for|
+|externalReferenceSources|array[string]|List of external references sources for the trait to search for|
 |locationDbIds|array[string]|The location ids to search for|
 |locationNames|array[string]|A human readable names to search for|
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
@@ -5948,6 +6997,9 @@ See Search Services for additional implementation details.
 |submissionDate|string (date)|MIAPPE V1.1 (DM-5) Submission date - Date of submission of the dataset presently being described to a host repository.|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date)|The date this trial ends|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|A program identifier to search for|
 |programName|string|Human readable name of the program|
 |publications|array[object]|MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.|
@@ -5978,6 +7030,14 @@ See Search Services for additional implementation details.
     "contactDbIds": [
         "e0f70c2a",
         "b82f0967"
+    ],
+    "externalReferenceIDs": [
+        "http://purl.obolibrary.org/obo/ro.owl",
+        "14a19841"
+    ],
+    "externalReferenceSources": [
+        "OBO Library",
+        "Field App Name"
     ],
     "locationDbIds": [
         "b28911cf",
@@ -6080,6 +7140,24 @@ See Search Services for additional implementation details.
                 ],
                 "documentationURL": "https://wiki.brapi.org",
                 "endDate": "2018-01-01",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "programDbId": "673f378a",
                 "programName": "Tomatillo_Breeding_Program",
                 "publications": [
@@ -6182,6 +7260,9 @@ See Search Services for additional implementation details.
 |submissionDate|string (date)|MIAPPE V1.1 (DM-5) Submission date - Date of submission of the dataset presently being described to a host repository.|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date)|The date this trial ends|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|A program identifier to search for|
 |programName|string|Human readable name of the program|
 |publications|array[object]|MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.|
@@ -6297,6 +7378,24 @@ See Search Services for additional implementation details.
                 ],
                 "documentationURL": "https://wiki.brapi.org",
                 "endDate": "2018-01-01",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "programDbId": "673f378a",
                 "programName": "Tomatillo_Breeding_Program",
                 "publications": [
@@ -6339,7 +7438,7 @@ See Search Services for additional implementation details.
 
 
 
-### Get - /trials [GET /brapi/v1/trials{?active}{?commonCropName}{?contactDbId}{?programDbId}{?locationDbId}{?searchDateRangeStart}{?searchDateRangeEnd}{?studyDbId}{?trialDbId}{?trialName}{?trialPUI}{?sortBy}{?sortOrder}{?page}{?pageSize}]
+### Get - /trials [GET /brapi/v1/trials{?active}{?commonCropName}{?contactDbId}{?programDbId}{?locationDbId}{?searchDateRangeStart}{?searchDateRangeEnd}{?studyDbId}{?trialDbId}{?trialName}{?trialPUI}{?sortBy}{?sortOrder}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Retrieve a filtered list of breeding Trials. A Trial is a collection of Studies
 
@@ -6367,6 +7466,9 @@ Retrieve a filtered list of breeding Trials. A Trial is a collection of Studies
 |submissionDate|string (date)|MIAPPE V1.1 (DM-5) Submission date - Date of submission of the dataset presently being described to a host repository.|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date)|The date this trial ends|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|A program identifier to search for|
 |programName|string|Human readable name of the program|
 |publications|array[object]|MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.|
@@ -6395,6 +7497,8 @@ Retrieve a filtered list of breeding Trials. A Trial is a collection of Studies
     + trialPUI (Optional, ) ... Filter by trial PUI
     + sortBy (Optional, ) ... Sort order. Name of the field to sort by.
     + sortOrder (Optional, ) ... Sort order direction: asc/desc
+    + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
+    + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -6458,6 +7562,24 @@ Retrieve a filtered list of breeding Trials. A Trial is a collection of Studies
                 ],
                 "documentationURL": "https://wiki.brapi.org",
                 "endDate": "2018-01-01",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "programDbId": "673f378a",
                 "programName": "Tomatillo_Breeding_Program",
                 "publications": [
@@ -6520,6 +7642,9 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
 |submissionDate|string (date)|MIAPPE V1.1 (DM-5) Submission date - Date of submission of the dataset presently being described to a host repository.|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date)|The date this trial ends|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|A program identifier to search for|
 |programName|string|Human readable name of the program|
 |publications|array[object]|MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.|
@@ -6553,6 +7678,9 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
 |submissionDate|string (date)|MIAPPE V1.1 (DM-5) Submission date - Date of submission of the dataset presently being described to a host repository.|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date)|The date this trial ends|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|A program identifier to search for|
 |programName|string|Human readable name of the program|
 |publications|array[object]|MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.|
@@ -6599,6 +7727,24 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
         ],
         "documentationURL": "https://wiki.brapi.org",
         "endDate": "2018-01-01",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "programDbId": "673f378a",
         "programName": "Tomatillo_Breeding_Program",
         "publications": [
@@ -6673,6 +7819,24 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
                 ],
                 "documentationURL": "https://wiki.brapi.org",
                 "endDate": "2018-01-01",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "programDbId": "673f378a",
                 "programName": "Tomatillo_Breeding_Program",
                 "publications": [
@@ -6749,6 +7913,9 @@ Get the details of a specific Trial
 |experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.|
@@ -6770,6 +7937,9 @@ Get the details of a specific Trial
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
@@ -6868,6 +8038,24 @@ Get the details of a specific Trial
             "PUI": "CO_715:0000145",
             "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information."
         },
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "growthFacility": {
             "PUI": "CO_715:0000162",
             "description": "field environment condition, greenhouse"
@@ -6898,6 +8086,24 @@ Get the details of a specific Trial
             "documentationURL": "https://brapi.org",
             "environmentType": "Nursery",
             "exposure": "Structure, no exposure",
+            "externalReferences": [
+                {
+                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceSource": "DOI"
+                },
+                {
+                    "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                    "referenceSource": "OBO Library"
+                },
+                {
+                    "referenceID": "75a50e76",
+                    "referenceSource": "Remote Data Collection Upload Tool"
+                },
+                {
+                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                    "referenceSource": "BrAPI Example Server"
+                }
+            ],
             "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
             "instituteName": "Plant Science Institute",
             "locationDbId": "3cfdd67d",
@@ -6970,6 +8176,9 @@ Update the details of an existing Trial
 |submissionDate|string (date)|MIAPPE V1.1 (DM-5) Submission date - Date of submission of the dataset presently being described to a host repository.|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date)|The date this trial ends|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|A program identifier to search for|
 |programName|string|Human readable name of the program|
 |publications|array[object]|MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.|
@@ -7014,6 +8223,9 @@ Update the details of an existing Trial
 |experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.|
@@ -7035,6 +8247,9 @@ Update the details of an existing Trial
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
@@ -7088,6 +8303,24 @@ Update the details of an existing Trial
     ],
     "documentationURL": "https://wiki.brapi.org",
     "endDate": "2018-01-01",
+    "externalReferences": [
+        {
+            "referenceID": "doi:10.155454/12349537E12",
+            "referenceSource": "DOI"
+        },
+        {
+            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+            "referenceSource": "OBO Library"
+        },
+        {
+            "referenceID": "75a50e76",
+            "referenceSource": "Remote Data Collection Upload Tool"
+        },
+        {
+            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+            "referenceSource": "BrAPI Example Server"
+        }
+    ],
     "programDbId": "673f378a",
     "programName": "Tomatillo_Breeding_Program",
     "publications": [
@@ -7175,6 +8408,24 @@ Update the details of an existing Trial
             "PUI": "CO_715:0000145",
             "description": "Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information."
         },
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "growthFacility": {
             "PUI": "CO_715:0000162",
             "description": "field environment condition, greenhouse"
@@ -7205,6 +8456,24 @@ Update the details of an existing Trial
             "documentationURL": "https://brapi.org",
             "environmentType": "Nursery",
             "exposure": "Structure, no exposure",
+            "externalReferences": [
+                {
+                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceSource": "DOI"
+                },
+                {
+                    "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                    "referenceSource": "OBO Library"
+                },
+                {
+                    "referenceID": "75a50e76",
+                    "referenceSource": "Remote Data Collection Upload Tool"
+                },
+                {
+                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                    "referenceSource": "BrAPI Example Server"
+                }
+            ],
             "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
             "instituteName": "Plant Science Institute",
             "locationDbId": "3cfdd67d",

@@ -180,7 +180,7 @@ The `/images` calls support a GeoJSON object structure for describing their loca
 
 
 
-### Get - /images [GET /brapi/v1/images{?imageDbId}{?imageName}{?observationUnitDbId}{?observationDbId}{?descriptiveOntologyTerm}{?page}{?pageSize}]
+### Get - /images [GET /brapi/v1/images{?imageDbId}{?imageName}{?observationUnitDbId}{?observationDbId}{?descriptiveOntologyTerm}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get filtered set of image meta data
 
@@ -201,6 +201,9 @@ Implementation Notes
 |copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
 |description|string|The human readable description of an image.|
 |descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |imageDbId|string|The unique identifier of an image|
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
 |imageFileSize|integer|The size of the image in Bytes.|
@@ -225,6 +228,8 @@ Implementation Notes
     + observationUnitDbId (Optional, ) ... The unique identifier of the observation unit an image is portraying
     + observationDbId (Optional, ) ... The unique identifier of the observation an image is associated with
     + descriptiveOntologyTerm (Optional, ) ... A descriptive term associated with an image
+    + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
+    + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -272,6 +277,24 @@ Implementation Notes
                     "doi:10.1002/0470841559",
                     "Red",
                     "ncbi:0300294"
+                ],
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
                 ],
                 "imageDbId": "a55efb9c",
                 "imageFileName": "image_0000231.jpg",
@@ -346,6 +369,9 @@ Implementation Notes
 |copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
 |description|string|The human readable description of an image.|
 |descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
 |imageFileSize|integer|The size of the image in Bytes.|
 |imageHeight|integer|The height of the image in Pixels.|
@@ -370,6 +396,9 @@ Implementation Notes
 |copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
 |description|string|The human readable description of an image.|
 |descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |imageDbId|string|The unique identifier of an image|
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
 |imageFileSize|integer|The size of the image in Bytes.|
@@ -404,6 +433,24 @@ Implementation Notes
             "doi:10.1002/0470841559",
             "Red",
             "ncbi:0300294"
+        ],
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
         ],
         "imageFileName": "image_0000231.jpg",
         "imageFileSize": 50000,
@@ -476,6 +523,24 @@ Implementation Notes
                     "Red",
                     "ncbi:0300294"
                 ],
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "imageDbId": "a55efb9c",
                 "imageFileName": "image_0000231.jpg",
                 "imageFileSize": 50000,
@@ -545,6 +610,9 @@ Implementation Notes
 |copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
 |description|string|The human readable description of an image.|
 |descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |imageDbId|string|The unique identifier of an image|
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
 |imageFileSize|integer|The size of the image in Bytes.|
@@ -608,6 +676,24 @@ Implementation Notes
             "doi:10.1002/0470841559",
             "Red",
             "ncbi:0300294"
+        ],
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
         ],
         "imageDbId": "a55efb9c",
         "imageFileName": "image_0000231.jpg",
@@ -689,6 +775,9 @@ Implementation Notes
 |copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
 |description|string|The human readable description of an image.|
 |descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
 |imageFileSize|integer|The size of the image in Bytes.|
 |imageHeight|integer|The height of the image in Pixels.|
@@ -712,6 +801,9 @@ Implementation Notes
 |copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
 |description|string|The human readable description of an image.|
 |descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |imageDbId|string|The unique identifier of an image|
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
 |imageFileSize|integer|The size of the image in Bytes.|
@@ -746,6 +838,24 @@ Implementation Notes
         "doi:10.1002/0470841559",
         "Red",
         "ncbi:0300294"
+    ],
+    "externalReferences": [
+        {
+            "referenceID": "doi:10.155454/12349537E12",
+            "referenceSource": "DOI"
+        },
+        {
+            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+            "referenceSource": "OBO Library"
+        },
+        {
+            "referenceID": "75a50e76",
+            "referenceSource": "Remote Data Collection Upload Tool"
+        },
+        {
+            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+            "referenceSource": "BrAPI Example Server"
+        }
     ],
     "imageFileName": "image_0000231.jpg",
     "imageFileSize": 50000,
@@ -814,6 +924,24 @@ Implementation Notes
             "doi:10.1002/0470841559",
             "Red",
             "ncbi:0300294"
+        ],
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
         ],
         "imageDbId": "a55efb9c",
         "imageFileName": "image_0000231.jpg",
@@ -889,6 +1017,9 @@ Implementation Notes
 |copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
 |description|string|The human readable description of an image.|
 |descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |imageDbId|string|The unique identifier of an image|
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
 |imageFileSize|integer|The size of the image in Bytes.|
@@ -952,6 +1083,24 @@ Implementation Notes
             "doi:10.1002/0470841559",
             "Red",
             "ncbi:0300294"
+        ],
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
         ],
         "imageDbId": "a55efb9c",
         "imageFileName": "image_0000231.jpg",
@@ -1022,6 +1171,8 @@ See Search Services for additional implementation details.
 |Field|Type|Description|
 |---|---|---| 
 |descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image to search for. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
+|externalReferenceIDs|array[string]|List of external references for the trait to search for|
+|externalReferenceSources|array[string]|List of external references sources for the trait to search for|
 |imageFileNames|array[string]|Image file names to search for.|
 |imageFileSizeMax|integer|A maximum image file size to search for.|
 |imageFileSizeMin|integer|A minimum image file size to search for.|
@@ -1051,6 +1202,9 @@ See Search Services for additional implementation details.
 |copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
 |description|string|The human readable description of an image.|
 |descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |imageDbId|string|The unique identifier of an image|
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
 |imageFileSize|integer|The size of the image in Bytes.|
@@ -1081,6 +1235,14 @@ See Search Services for additional implementation details.
         "doi:10.1002/0470841559",
         "Red",
         "ncbi:0300294"
+    ],
+    "externalReferenceIDs": [
+        "http://purl.obolibrary.org/obo/ro.owl",
+        "14a19841"
+    ],
+    "externalReferenceSources": [
+        "OBO Library",
+        "Field App Name"
     ],
     "imageFileNames": [
         "image_01032019.jpg",
@@ -1184,6 +1346,24 @@ See Search Services for additional implementation details.
                     "doi:10.1002/0470841559",
                     "Red",
                     "ncbi:0300294"
+                ],
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
                 ],
                 "imageDbId": "a55efb9c",
                 "imageFileName": "image_0000231.jpg",
@@ -1291,6 +1471,9 @@ Implementation Notes
 |copyright|string|The copyright information of this image. Example 'Copyright 2018 Bob Robertson'|
 |description|string|The human readable description of an image.|
 |descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |imageDbId|string|The unique identifier of an image|
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
 |imageFileSize|integer|The size of the image in Bytes.|
@@ -1395,6 +1578,24 @@ Implementation Notes
                     "Red",
                     "ncbi:0300294"
                 ],
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "imageDbId": "a55efb9c",
                 "imageFileName": "image_0000231.jpg",
                 "imageFileSize": 50000,
@@ -1456,7 +1657,7 @@ API to manage the details of observation variable Methods. An observation variab
 
 
 
-### Get - /methods [GET /brapi/v1/methods{?page}{?pageSize}]
+### Get - /methods [GET /brapi/v1/methods{?methodDbId}{?observationVariableDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Returns a list of Methods available on a server.
 
@@ -1470,7 +1671,11 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 |---|---|---| 
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
+|bibliographicalReference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 |description|string|Method description  MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 |methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |methodDbId|string|Method unique identifier|
@@ -1482,12 +1687,15 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|reference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 
 
  
 
 + Parameters
+    + methodDbId (Optional, ) ... The unique identifier for a method
+    + observationVariableDbId (Optional, ) ... The unique identifier for an observation variable
+    + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
+    + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -1529,7 +1737,26 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
         "data": [
             {
                 "additionalInfo": {},
+                "bibliographicalReference": "Smith, 1893, Really Cool Paper, Popular Journal",
                 "description": "A measuring tape was used",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "formula": "a^2 + b^2 = c^2",
                 "methodClass": "Measurement",
                 "methodDbId": "0adb2764",
@@ -1548,8 +1775,7 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
                     "ontologyDbId": "6b071868",
                     "ontologyName": "The Crop Ontology",
                     "version": "7.2.3"
-                },
-                "reference": "Smith, 1893, Really Cool Paper, Popular Journal"
+                }
             }
         ]
     }
@@ -1583,7 +1809,11 @@ Create a new method object in the database
 |Field|Type|Description|
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
+|bibliographicalReference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 |description|string|Method description  MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 |methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |methodName|string|Human readable name for the method  MIAPPE V1.1 (DM-88) Method  Name of the method of observation|
@@ -1594,7 +1824,6 @@ Create a new method object in the database
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|reference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 
 
 **Response Fields** 
@@ -1603,7 +1832,11 @@ Create a new method object in the database
 |---|---|---| 
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
+|bibliographicalReference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 |description|string|Method description  MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 |methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |methodDbId|string|Method unique identifier|
@@ -1615,7 +1848,6 @@ Create a new method object in the database
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|reference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 
 
  
@@ -1630,7 +1862,26 @@ Create a new method object in the database
 [
     {
         "additionalInfo": {},
+        "bibliographicalReference": "Smith, 1893, Really Cool Paper, Popular Journal",
         "description": "A measuring tape was used",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "formula": "a^2 + b^2 = c^2",
         "methodClass": "Measurement",
         "methodName": "Measuring Tape",
@@ -1648,8 +1899,7 @@ Create a new method object in the database
             "ontologyDbId": "6b071868",
             "ontologyName": "The Crop Ontology",
             "version": "7.2.3"
-        },
-        "reference": "Smith, 1893, Really Cool Paper, Popular Journal"
+        }
     }
 ]
 ```
@@ -1690,7 +1940,26 @@ Create a new method object in the database
         "data": [
             {
                 "additionalInfo": {},
+                "bibliographicalReference": "Smith, 1893, Really Cool Paper, Popular Journal",
                 "description": "A measuring tape was used",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "formula": "a^2 + b^2 = c^2",
                 "methodClass": "Measurement",
                 "methodDbId": "0adb2764",
@@ -1709,8 +1978,7 @@ Create a new method object in the database
                     "ontologyDbId": "6b071868",
                     "ontologyName": "The Crop Ontology",
                     "version": "7.2.3"
-                },
-                "reference": "Smith, 1893, Really Cool Paper, Popular Journal"
+                }
             }
         ]
     }
@@ -1748,7 +2016,11 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 |Field|Type|Description|
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
+|bibliographicalReference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 |description|string|Method description  MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 |methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |methodDbId|string|Method unique identifier|
@@ -1760,7 +2032,6 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|reference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 
 
  
@@ -1804,7 +2075,26 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
     },
     "result": {
         "additionalInfo": {},
+        "bibliographicalReference": "Smith, 1893, Really Cool Paper, Popular Journal",
         "description": "A measuring tape was used",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "formula": "a^2 + b^2 = c^2",
         "methodClass": "Measurement",
         "methodDbId": "0adb2764",
@@ -1823,8 +2113,7 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
             "ontologyDbId": "6b071868",
             "ontologyName": "The Crop Ontology",
             "version": "7.2.3"
-        },
-        "reference": "Smith, 1893, Really Cool Paper, Popular Journal"
+        }
     }
 }
 ```
@@ -1861,7 +2150,11 @@ Update the details of an existing method
 |Field|Type|Description|
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
+|bibliographicalReference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 |description|string|Method description  MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 |methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |methodName|string|Human readable name for the method  MIAPPE V1.1 (DM-88) Method  Name of the method of observation|
@@ -1872,7 +2165,6 @@ Update the details of an existing method
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|reference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 
 
 **Response Fields** 
@@ -1880,7 +2172,11 @@ Update the details of an existing method
 |Field|Type|Description|
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
+|bibliographicalReference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 |description|string|Method description  MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 |methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |methodDbId|string|Method unique identifier|
@@ -1892,7 +2188,6 @@ Update the details of an existing method
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|reference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 
 
  
@@ -1907,7 +2202,26 @@ Update the details of an existing method
 ```
 {
     "additionalInfo": {},
+    "bibliographicalReference": "Smith, 1893, Really Cool Paper, Popular Journal",
     "description": "A measuring tape was used",
+    "externalReferences": [
+        {
+            "referenceID": "doi:10.155454/12349537E12",
+            "referenceSource": "DOI"
+        },
+        {
+            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+            "referenceSource": "OBO Library"
+        },
+        {
+            "referenceID": "75a50e76",
+            "referenceSource": "Remote Data Collection Upload Tool"
+        },
+        {
+            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+            "referenceSource": "BrAPI Example Server"
+        }
+    ],
     "formula": "a^2 + b^2 = c^2",
     "methodClass": "Measurement",
     "methodName": "Measuring Tape",
@@ -1925,8 +2239,7 @@ Update the details of an existing method
         "ontologyDbId": "6b071868",
         "ontologyName": "The Crop Ontology",
         "version": "7.2.3"
-    },
-    "reference": "Smith, 1893, Really Cool Paper, Popular Journal"
+    }
 }
 ```
 
@@ -1964,7 +2277,26 @@ Update the details of an existing method
     },
     "result": {
         "additionalInfo": {},
+        "bibliographicalReference": "Smith, 1893, Really Cool Paper, Popular Journal",
         "description": "A measuring tape was used",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "formula": "a^2 + b^2 = c^2",
         "methodClass": "Measurement",
         "methodDbId": "0adb2764",
@@ -1983,8 +2315,7 @@ Update the details of an existing method
             "ontologyDbId": "6b071868",
             "ontologyName": "The Crop Ontology",
             "version": "7.2.3"
-        },
-        "reference": "Smith, 1893, Really Cool Paper, Popular Journal"
+        }
     }
 }
 ```
@@ -2103,7 +2434,7 @@ The values are used to supply the `observationLevel` parameter in the observatio
 
 
 
-### Get - /observationunits [GET /brapi/v1/observationunits{?germplasmDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}{?page}{?pageSize}]
+### Get - /observationunits [GET /brapi/v1/observationunits{?germplasmDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered set of Observation Units
 
@@ -2115,6 +2446,9 @@ Get a filtered set of Observation Units
 |---|---|---| 
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |locationDbId|string|The ID which uniquely identifies a location, associated with this study|
@@ -2135,9 +2469,6 @@ Get a filtered set of Observation Units
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|observationUnitXref|array[object]|A list of external references to this observation unit|
-|id|string|The unique ID in the external reference 'source' system|
-|source|string|The system identifier (name, URL, etc) which has an external reference to the observation unit|
 |plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
 |plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |programDbId|string|The ID which uniquely identifies a program|
@@ -2161,6 +2492,8 @@ Get a filtered set of Observation Units
     + programDbId (Optional, ) ... The unique ID of a program to filter on
     + seasonDbId (Optional, ) ... The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)
     + observationLevel (Optional, ) ... The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnitStructure.
+    + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
+    + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -2202,6 +2535,24 @@ Get a filtered set of Observation Units
         "data": [
             {
                 "additionalInfo": {},
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "germplasmDbId": "e9d9ed57",
                 "germplasmName": "A0000001",
                 "locationDbId": "0e208b20",
@@ -2234,16 +2585,6 @@ Get a filtered set of Observation Units
                     "positionCoordinateYType": "GRID_ROW",
                     "replicate": "1"
                 },
-                "observationUnitXref": [
-                    {
-                        "id": "SAMEA_179865230",
-                        "source": "ebi.biosample"
-                    },
-                    {
-                        "id": "INRA:4d45d11c",
-                        "source": "gnpis.lot"
-                    }
-                ],
                 "plantNumber": "1",
                 "plotNumber": "01",
                 "programDbId": "2d763a7a",
@@ -2291,6 +2632,9 @@ Add new Observation Units
 |Field|Type|Description|
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |locationDbId|string|The ID which uniquely identifies a location, associated with this study|
@@ -2310,9 +2654,6 @@ Add new Observation Units
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|observationUnitXref|array[object]|A list of external references to this observation unit|
-|id|string|The unique ID in the external reference 'source' system|
-|source|string|The system identifier (name, URL, etc) which has an external reference to the observation unit|
 |plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
 |plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |programDbId|string|The ID which uniquely identifies a program|
@@ -2332,6 +2673,9 @@ Add new Observation Units
 |---|---|---| 
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |locationDbId|string|The ID which uniquely identifies a location, associated with this study|
@@ -2352,9 +2696,6 @@ Add new Observation Units
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|observationUnitXref|array[object]|A list of external references to this observation unit|
-|id|string|The unique ID in the external reference 'source' system|
-|source|string|The system identifier (name, URL, etc) which has an external reference to the observation unit|
 |plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
 |plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |programDbId|string|The ID which uniquely identifies a program|
@@ -2380,6 +2721,24 @@ Add new Observation Units
 [
     {
         "additionalInfo": {},
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "germplasmDbId": "e9d9ed57",
         "germplasmName": "A0000001",
         "locationDbId": "0e208b20",
@@ -2411,16 +2770,6 @@ Add new Observation Units
             "positionCoordinateYType": "GRID_ROW",
             "replicate": "1"
         },
-        "observationUnitXref": [
-            {
-                "id": "SAMEA_179865230",
-                "source": "ebi.biosample"
-            },
-            {
-                "id": "INRA:4d45d11c",
-                "source": "gnpis.lot"
-            }
-        ],
         "plantNumber": "1",
         "plotNumber": "01",
         "programDbId": "2d763a7a",
@@ -2475,6 +2824,24 @@ Add new Observation Units
         "data": [
             {
                 "additionalInfo": {},
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "germplasmDbId": "e9d9ed57",
                 "germplasmName": "A0000001",
                 "locationDbId": "0e208b20",
@@ -2507,16 +2874,6 @@ Add new Observation Units
                     "positionCoordinateYType": "GRID_ROW",
                     "replicate": "1"
                 },
-                "observationUnitXref": [
-                    {
-                        "id": "SAMEA_179865230",
-                        "source": "ebi.biosample"
-                    },
-                    {
-                        "id": "INRA:4d45d11c",
-                        "source": "gnpis.lot"
-                    }
-                ],
                 "plantNumber": "1",
                 "plotNumber": "01",
                 "programDbId": "2d763a7a",
@@ -2573,6 +2930,9 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 |---|---|---| 
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |locationDbId|string|The ID which uniquely identifies a location, associated with this study|
@@ -2593,9 +2953,6 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|observationUnitXref|array[object]|A list of external references to this observation unit|
-|id|string|The unique ID in the external reference 'source' system|
-|source|string|The system identifier (name, URL, etc) which has an external reference to the observation unit|
 |plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
 |plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |programDbId|string|The ID which uniquely identifies a program|
@@ -2657,6 +3014,24 @@ Note - In strictly typed languages, this structure can be represented as a Map o
         "data": [
             {
                 "additionalInfo": {},
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "germplasmDbId": "e9d9ed57",
                 "germplasmName": "A0000001",
                 "locationDbId": "0e208b20",
@@ -2689,16 +3064,6 @@ Note - In strictly typed languages, this structure can be represented as a Map o
                     "positionCoordinateYType": "GRID_ROW",
                     "replicate": "1"
                 },
-                "observationUnitXref": [
-                    {
-                        "id": "SAMEA_179865230",
-                        "source": "ebi.biosample"
-                    },
-                    {
-                        "id": "INRA:4d45d11c",
-                        "source": "gnpis.lot"
-                    }
-                ],
                 "plantNumber": "1",
                 "plotNumber": "01",
                 "programDbId": "2d763a7a",
@@ -2987,6 +3352,9 @@ Get the details of a specific Observation Unit
 |Field|Type|Description|
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |locationDbId|string|The ID which uniquely identifies a location, associated with this study|
@@ -3007,9 +3375,6 @@ Get the details of a specific Observation Unit
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|observationUnitXref|array[object]|A list of external references to this observation unit|
-|id|string|The unique ID in the external reference 'source' system|
-|source|string|The system identifier (name, URL, etc) which has an external reference to the observation unit|
 |plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
 |plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |programDbId|string|The ID which uniquely identifies a program|
@@ -3064,6 +3429,24 @@ Get the details of a specific Observation Unit
     },
     "result": {
         "additionalInfo": {},
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "germplasmDbId": "e9d9ed57",
         "germplasmName": "A0000001",
         "locationDbId": "0e208b20",
@@ -3096,16 +3479,6 @@ Get the details of a specific Observation Unit
             "positionCoordinateYType": "GRID_ROW",
             "replicate": "1"
         },
-        "observationUnitXref": [
-            {
-                "id": "SAMEA_179865230",
-                "source": "ebi.biosample"
-            },
-            {
-                "id": "INRA:4d45d11c",
-                "source": "gnpis.lot"
-            }
-        ],
         "plantNumber": "1",
         "plotNumber": "01",
         "programDbId": "2d763a7a",
@@ -3151,6 +3524,9 @@ Update an existing Observation Units
 |Field|Type|Description|
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |locationDbId|string|The ID which uniquely identifies a location, associated with this study|
@@ -3170,9 +3546,6 @@ Update an existing Observation Units
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|observationUnitXref|array[object]|A list of external references to this observation unit|
-|id|string|The unique ID in the external reference 'source' system|
-|source|string|The system identifier (name, URL, etc) which has an external reference to the observation unit|
 |plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
 |plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |programDbId|string|The ID which uniquely identifies a program|
@@ -3191,6 +3564,9 @@ Update an existing Observation Units
 |Field|Type|Description|
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |locationDbId|string|The ID which uniquely identifies a location, associated with this study|
@@ -3211,9 +3587,6 @@ Update an existing Observation Units
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|observationUnitXref|array[object]|A list of external references to this observation unit|
-|id|string|The unique ID in the external reference 'source' system|
-|source|string|The system identifier (name, URL, etc) which has an external reference to the observation unit|
 |plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
 |plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |programDbId|string|The ID which uniquely identifies a program|
@@ -3239,6 +3612,24 @@ Update an existing Observation Units
 ```
 {
     "additionalInfo": {},
+    "externalReferences": [
+        {
+            "referenceID": "doi:10.155454/12349537E12",
+            "referenceSource": "DOI"
+        },
+        {
+            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+            "referenceSource": "OBO Library"
+        },
+        {
+            "referenceID": "75a50e76",
+            "referenceSource": "Remote Data Collection Upload Tool"
+        },
+        {
+            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+            "referenceSource": "BrAPI Example Server"
+        }
+    ],
     "germplasmDbId": "e9d9ed57",
     "germplasmName": "A0000001",
     "locationDbId": "0e208b20",
@@ -3270,16 +3661,6 @@ Update an existing Observation Units
         "positionCoordinateYType": "GRID_ROW",
         "replicate": "1"
     },
-    "observationUnitXref": [
-        {
-            "id": "SAMEA_179865230",
-            "source": "ebi.biosample"
-        },
-        {
-            "id": "INRA:4d45d11c",
-            "source": "gnpis.lot"
-        }
-    ],
     "plantNumber": "1",
     "plotNumber": "01",
     "programDbId": "2d763a7a",
@@ -3331,6 +3712,24 @@ Update an existing Observation Units
     },
     "result": {
         "additionalInfo": {},
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "germplasmDbId": "e9d9ed57",
         "germplasmName": "A0000001",
         "locationDbId": "0e208b20",
@@ -3363,16 +3762,6 @@ Update an existing Observation Units
             "positionCoordinateYType": "GRID_ROW",
             "replicate": "1"
         },
-        "observationUnitXref": [
-            {
-                "id": "SAMEA_179865230",
-                "source": "ebi.biosample"
-            },
-            {
-                "id": "INRA:4d45d11c",
-                "source": "gnpis.lot"
-            }
-        ],
         "plantNumber": "1",
         "plotNumber": "01",
         "programDbId": "2d763a7a",
@@ -3437,6 +3826,8 @@ observationValue data type inferred from the ontology
 
 |Field|Type|Description|
 |---|---|---| 
+|externalReferenceIDs|array[string]|List of external references for the trait to search for|
+|externalReferenceSources|array[string]|List of external references sources for the trait to search for|
 |germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm to search for|
 |germplasmNames|array[string]|List of human readable names to identify germplasm to search for|
 |locationDbIds|array[string]|The location ids to search for|
@@ -3459,6 +3850,9 @@ observationValue data type inferred from the ontology
 |---|---|---| 
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |locationDbId|string|The ID which uniquely identifies a location, associated with this study|
@@ -3479,9 +3873,6 @@ observationValue data type inferred from the ontology
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|observationUnitXref|array[object]|A list of external references to this observation unit|
-|id|string|The unique ID in the external reference 'source' system|
-|source|string|The system identifier (name, URL, etc) which has an external reference to the observation unit|
 |plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
 |plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |programDbId|string|The ID which uniquely identifies a program|
@@ -3505,6 +3896,14 @@ observationValue data type inferred from the ontology
 + Request (application/json)
 ```
 {
+    "externalReferenceIDs": [
+        "http://purl.obolibrary.org/obo/ro.owl",
+        "14a19841"
+    ],
+    "externalReferenceSources": [
+        "OBO Library",
+        "Field App Name"
+    ],
     "germplasmDbIds": [
         "e9c6edd7",
         "1b1df4a6"
@@ -3591,6 +3990,24 @@ observationValue data type inferred from the ontology
         "data": [
             {
                 "additionalInfo": {},
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "germplasmDbId": "e9d9ed57",
                 "germplasmName": "A0000001",
                 "locationDbId": "0e208b20",
@@ -3623,16 +4040,6 @@ observationValue data type inferred from the ontology
                     "positionCoordinateYType": "GRID_ROW",
                     "replicate": "1"
                 },
-                "observationUnitXref": [
-                    {
-                        "id": "SAMEA_179865230",
-                        "source": "ebi.biosample"
-                    },
-                    {
-                        "id": "INRA:4d45d11c",
-                        "source": "gnpis.lot"
-                    }
-                ],
                 "plantNumber": "1",
                 "plotNumber": "01",
                 "programDbId": "2d763a7a",
@@ -3721,6 +4128,9 @@ See Search Services for additional implementation details.
 |---|---|---| 
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |locationDbId|string|The ID which uniquely identifies a location, associated with this study|
@@ -3741,9 +4151,6 @@ See Search Services for additional implementation details.
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|observationUnitXref|array[object]|A list of external references to this observation unit|
-|id|string|The unique ID in the external reference 'source' system|
-|source|string|The system identifier (name, URL, etc) which has an external reference to the observation unit|
 |plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
 |plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |programDbId|string|The ID which uniquely identifies a program|
@@ -3838,6 +4245,24 @@ See Search Services for additional implementation details.
         "data": [
             {
                 "additionalInfo": {},
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "germplasmDbId": "e9d9ed57",
                 "germplasmName": "A0000001",
                 "locationDbId": "0e208b20",
@@ -3870,16 +4295,6 @@ See Search Services for additional implementation details.
                     "positionCoordinateYType": "GRID_ROW",
                     "replicate": "1"
                 },
-                "observationUnitXref": [
-                    {
-                        "id": "SAMEA_179865230",
-                        "source": "ebi.biosample"
-                    },
-                    {
-                        "id": "INRA:4d45d11c",
-                        "source": "gnpis.lot"
-                    }
-                ],
                 "plantNumber": "1",
                 "plotNumber": "01",
                 "programDbId": "2d763a7a",
@@ -3939,19 +4354,18 @@ See Search Services for additional implementation details.
 |Field|Type|Description|
 |---|---|---| 
 |dataTypes|array[string]|List of scale data types to filter search results|
+|externalReferenceIDs|array[string]|List of external references for the trait to search for|
+|externalReferenceSources|array[string]|List of external references sources for the trait to search for|
 |methodDbIds|array[string]|List of methods to filter search results|
 |observationVariableDbIds|array[string]|List of observation variable IDs to search for|
 |observationVariableNames|array[string]|List of human readable observation variable names to search for|
-|observationVariableXrefs|array[string]|List of cross references for the observation variable to search for|
 |ontologyDbIds|array[string]|List of ontology IDs to search for|
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |scaleDbIds|array[string]|List of scales to filter search results|
-|scaleXrefs|array[string]|List of cross references for the scale to search for|
 |studyDbId|array[string]|The unique ID of a studies to filter on|
 |traitClasses|array[string]|List of trait classes to filter search results|
 |traitDbIds|array[string]|List of trait unique ID to filter search results|
-|traitXrefs|array[string]|List of cross references for the trait to search for|
 
 
 **Response Fields** 
@@ -3964,12 +4378,19 @@ See Search Services for additional implementation details.
 |contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
 |defaultValue|string|Variable default value. (examples: "red", "2.3", etc.)|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |growthStage|string|Growth stage at which measurement is made (examples: "flowering")|
 |institution|string|Name of institution submitting the variable|
 |language|string|2 letter ISO 639-1 code for the language of submission of the variable.|
 |method|object||
 |additionalInfo|object|Additional arbitrary info|
+|bibliographicalReference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 |description|string|Method description  MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 |methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |methodDbId|string|Method unique identifier|
@@ -3981,7 +4402,6 @@ See Search Services for additional implementation details.
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|reference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 |observationVariableDbId|string|Variable unique identifier  MIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation.|
 |observationVariableName|string|Variable name (usually a short name)  MIAPPE V1.1 (DM-84) Variable name - Name of the variable.|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
@@ -3994,6 +4414,9 @@ See Search Services for additional implementation details.
 |scale|object|Scale metadata|
 |dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -4009,7 +4432,6 @@ See Search Services for additional implementation details.
 |value|string|The actual value for a category|
 |max|integer|Maximum value (used for field data capture control).|
 |min|integer|Minimum value (used for data capture control) for numerical and date scales|
-|xref|string|Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database|
 |scientist|string|Name of scientist submitting the variable.|
 |status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
 |submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
@@ -4018,6 +4440,9 @@ See Search Services for additional implementation details.
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
@@ -4032,8 +4457,6 @@ See Search Services for additional implementation details.
 |traitDbId|string|The ID which uniquely identifies a trait|
 |traitDescription|string|The description of a trait|
 |traitName|string|The human readable name of a trait  MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
-|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
-|xref|string|Cross reference of the variable term to a term from an external ontology or to a database of a major system.|
 
 
  
@@ -4051,6 +4474,14 @@ See Search Services for additional implementation details.
         "Ordinal",
         "Text"
     ],
+    "externalReferenceIDs": [
+        "http://purl.obolibrary.org/obo/ro.owl",
+        "14a19841"
+    ],
+    "externalReferenceSources": [
+        "OBO Library",
+        "Field App Name"
+    ],
     "methodDbIds": [
         "07e34f83",
         "d3d5517a"
@@ -4063,10 +4494,6 @@ See Search Services for additional implementation details.
         "Plant Height 1",
         "Root Color"
     ],
-    "observationVariableXrefs": [
-        " http://purl.obolibrary.org/obo/ro.owl",
-        " http://purl.obolibrary.org/obo/ro.owl"
-    ],
     "ontologyDbIds": [
         "f44f7b23",
         "a26b576e"
@@ -4076,10 +4503,6 @@ See Search Services for additional implementation details.
     "scaleDbIds": [
         "a13ecffa",
         "7e1afe4f"
-    ],
-    "scaleXrefs": [
-        " http://purl.obolibrary.org/obo/ro.owl",
-        " http://purl.obolibrary.org/obo/ro.owl"
     ],
     "studyDbId": [
         "5bcac0ae",
@@ -4093,10 +4516,6 @@ See Search Services for additional implementation details.
     "traitDbIds": [
         "ef81147b",
         "78d82fad"
-    ],
-    "traitXrefs": [
-        " http://purl.obolibrary.org/obo/ro.owl",
-        " http://purl.obolibrary.org/obo/ro.owl"
     ]
 }
 ```
@@ -4144,12 +4563,49 @@ See Search Services for additional implementation details.
                 ],
                 "defaultValue": 2.0,
                 "documentationURL": "https://wiki.brapi.org/documentation.html",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "growthStage": "flowering",
                 "institution": "The BrAPI Institute",
                 "language": "en",
                 "method": {
                     "additionalInfo": {},
+                    "bibliographicalReference": "Smith, 1893, Really Cool Paper, Popular Journal",
                     "description": "A measuring tape was used",
+                    "externalReferences": [
+                        {
+                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceSource": "DOI"
+                        },
+                        {
+                            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                            "referenceSource": "OBO Library"
+                        },
+                        {
+                            "referenceID": "75a50e76",
+                            "referenceSource": "Remote Data Collection Upload Tool"
+                        },
+                        {
+                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                            "referenceSource": "BrAPI Example Server"
+                        }
+                    ],
                     "formula": "a^2 + b^2 = c^2",
                     "methodClass": "Measurement",
                     "methodDbId": "0adb2764",
@@ -4168,8 +4624,7 @@ See Search Services for additional implementation details.
                         "ontologyDbId": "6b071868",
                         "ontologyName": "The Crop Ontology",
                         "version": "7.2.3"
-                    },
-                    "reference": "Smith, 1893, Really Cool Paper, Popular Journal"
+                    }
                 },
                 "observationVariableDbId": "b9b7edd1",
                 "observationVariableName": "Variable Name",
@@ -4199,6 +4654,24 @@ See Search Services for additional implementation details.
                         "Text"
                     ],
                     "decimalPlaces": 2,
+                    "externalReferences": [
+                        {
+                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceSource": "DOI"
+                        },
+                        {
+                            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                            "referenceSource": "OBO Library"
+                        },
+                        {
+                            "referenceID": "75a50e76",
+                            "referenceSource": "Remote Data Collection Upload Tool"
+                        },
+                        {
+                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                            "referenceSource": "BrAPI Example Server"
+                        }
+                    ],
                     "ontologyReference": {
                         "documentationLinks": [
                             {
@@ -4233,8 +4706,7 @@ See Search Services for additional implementation details.
                         ],
                         "max": 9999,
                         "min": 2
-                    },
-                    "xref": "http://purl.obolibrary.org/obo/ro.owl"
+                    }
                 },
                 "scientist": "Dr. Bob Robertson",
                 "status": "recommended",
@@ -4252,6 +4724,24 @@ See Search Services for additional implementation details.
                     ],
                     "attribute": "height",
                     "entity": "Stalk",
+                    "externalReferences": [
+                        {
+                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceSource": "DOI"
+                        },
+                        {
+                            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                            "referenceSource": "OBO Library"
+                        },
+                        {
+                            "referenceID": "75a50e76",
+                            "referenceSource": "Remote Data Collection Upload Tool"
+                        },
+                        {
+                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                            "referenceSource": "BrAPI Example Server"
+                        }
+                    ],
                     "mainAbbreviation": "PH",
                     "ontologyReference": {
                         "documentationLinks": [
@@ -4278,10 +4768,8 @@ See Search Services for additional implementation details.
                     "traitClass": "phenological",
                     "traitDbId": "9b2e34f5",
                     "traitDescription": "The height of the plant",
-                    "traitName": "Height",
-                    "xref": "http://purl.obolibrary.org/obo/ro.owl"
-                },
-                "xref": "http://purl.obolibrary.org/obo/ro.owl"
+                    "traitName": "Height"
+                }
             }
         ]
     }
@@ -4360,12 +4848,19 @@ See Search Services for additional implementation details.
 |contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
 |defaultValue|string|Variable default value. (examples: "red", "2.3", etc.)|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |growthStage|string|Growth stage at which measurement is made (examples: "flowering")|
 |institution|string|Name of institution submitting the variable|
 |language|string|2 letter ISO 639-1 code for the language of submission of the variable.|
 |method|object||
 |additionalInfo|object|Additional arbitrary info|
+|bibliographicalReference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 |description|string|Method description  MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 |methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |methodDbId|string|Method unique identifier|
@@ -4377,7 +4872,6 @@ See Search Services for additional implementation details.
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|reference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 |observationVariableDbId|string|Variable unique identifier  MIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation.|
 |observationVariableName|string|Variable name (usually a short name)  MIAPPE V1.1 (DM-84) Variable name - Name of the variable.|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
@@ -4390,6 +4884,9 @@ See Search Services for additional implementation details.
 |scale|object|Scale metadata|
 |dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -4405,7 +4902,6 @@ See Search Services for additional implementation details.
 |value|string|The actual value for a category|
 |max|integer|Maximum value (used for field data capture control).|
 |min|integer|Minimum value (used for data capture control) for numerical and date scales|
-|xref|string|Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database|
 |scientist|string|Name of scientist submitting the variable.|
 |status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
 |submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
@@ -4414,6 +4910,9 @@ See Search Services for additional implementation details.
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
@@ -4428,8 +4927,6 @@ See Search Services for additional implementation details.
 |traitDbId|string|The ID which uniquely identifies a trait|
 |traitDescription|string|The description of a trait|
 |traitName|string|The human readable name of a trait  MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
-|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
-|xref|string|Cross reference of the variable term to a term from an external ontology or to a database of a major system.|
 
 
  
@@ -4520,12 +5017,49 @@ See Search Services for additional implementation details.
                 ],
                 "defaultValue": 2.0,
                 "documentationURL": "https://wiki.brapi.org/documentation.html",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "growthStage": "flowering",
                 "institution": "The BrAPI Institute",
                 "language": "en",
                 "method": {
                     "additionalInfo": {},
+                    "bibliographicalReference": "Smith, 1893, Really Cool Paper, Popular Journal",
                     "description": "A measuring tape was used",
+                    "externalReferences": [
+                        {
+                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceSource": "DOI"
+                        },
+                        {
+                            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                            "referenceSource": "OBO Library"
+                        },
+                        {
+                            "referenceID": "75a50e76",
+                            "referenceSource": "Remote Data Collection Upload Tool"
+                        },
+                        {
+                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                            "referenceSource": "BrAPI Example Server"
+                        }
+                    ],
                     "formula": "a^2 + b^2 = c^2",
                     "methodClass": "Measurement",
                     "methodDbId": "0adb2764",
@@ -4544,8 +5078,7 @@ See Search Services for additional implementation details.
                         "ontologyDbId": "6b071868",
                         "ontologyName": "The Crop Ontology",
                         "version": "7.2.3"
-                    },
-                    "reference": "Smith, 1893, Really Cool Paper, Popular Journal"
+                    }
                 },
                 "observationVariableDbId": "b9b7edd1",
                 "observationVariableName": "Variable Name",
@@ -4575,6 +5108,24 @@ See Search Services for additional implementation details.
                         "Text"
                     ],
                     "decimalPlaces": 2,
+                    "externalReferences": [
+                        {
+                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceSource": "DOI"
+                        },
+                        {
+                            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                            "referenceSource": "OBO Library"
+                        },
+                        {
+                            "referenceID": "75a50e76",
+                            "referenceSource": "Remote Data Collection Upload Tool"
+                        },
+                        {
+                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                            "referenceSource": "BrAPI Example Server"
+                        }
+                    ],
                     "ontologyReference": {
                         "documentationLinks": [
                             {
@@ -4609,8 +5160,7 @@ See Search Services for additional implementation details.
                         ],
                         "max": 9999,
                         "min": 2
-                    },
-                    "xref": "http://purl.obolibrary.org/obo/ro.owl"
+                    }
                 },
                 "scientist": "Dr. Bob Robertson",
                 "status": "recommended",
@@ -4628,6 +5178,24 @@ See Search Services for additional implementation details.
                     ],
                     "attribute": "height",
                     "entity": "Stalk",
+                    "externalReferences": [
+                        {
+                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceSource": "DOI"
+                        },
+                        {
+                            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                            "referenceSource": "OBO Library"
+                        },
+                        {
+                            "referenceID": "75a50e76",
+                            "referenceSource": "Remote Data Collection Upload Tool"
+                        },
+                        {
+                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                            "referenceSource": "BrAPI Example Server"
+                        }
+                    ],
                     "mainAbbreviation": "PH",
                     "ontologyReference": {
                         "documentationLinks": [
@@ -4654,10 +5222,8 @@ See Search Services for additional implementation details.
                     "traitClass": "phenological",
                     "traitDbId": "9b2e34f5",
                     "traitDescription": "The height of the plant",
-                    "traitName": "Height",
-                    "xref": "http://purl.obolibrary.org/obo/ro.owl"
-                },
-                "xref": "http://purl.obolibrary.org/obo/ro.owl"
+                    "traitName": "Height"
+                }
             }
         ]
     }
@@ -4687,7 +5253,7 @@ See Search Services for additional implementation details.
 
 
 
-### Get - /variables [GET /brapi/v1/variables{?observationVariableDbId}{?traitClass}{?studyDbId}{?page}{?pageSize}]
+### Get - /variables [GET /brapi/v1/variables{?observationVariableDbId}{?traitClass}{?studyDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Call to retrieve a list of observationVariables available in the system.
 
@@ -4703,12 +5269,19 @@ Call to retrieve a list of observationVariables available in the system.
 |contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
 |defaultValue|string|Variable default value. (examples: "red", "2.3", etc.)|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |growthStage|string|Growth stage at which measurement is made (examples: "flowering")|
 |institution|string|Name of institution submitting the variable|
 |language|string|2 letter ISO 639-1 code for the language of submission of the variable.|
 |method|object||
 |additionalInfo|object|Additional arbitrary info|
+|bibliographicalReference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 |description|string|Method description  MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 |methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |methodDbId|string|Method unique identifier|
@@ -4720,7 +5293,6 @@ Call to retrieve a list of observationVariables available in the system.
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|reference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 |observationVariableDbId|string|Variable unique identifier  MIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation.|
 |observationVariableName|string|Variable name (usually a short name)  MIAPPE V1.1 (DM-84) Variable name - Name of the variable.|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
@@ -4733,6 +5305,9 @@ Call to retrieve a list of observationVariables available in the system.
 |scale|object|Scale metadata|
 |dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -4748,7 +5323,6 @@ Call to retrieve a list of observationVariables available in the system.
 |value|string|The actual value for a category|
 |max|integer|Maximum value (used for field data capture control).|
 |min|integer|Minimum value (used for data capture control) for numerical and date scales|
-|xref|string|Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database|
 |scientist|string|Name of scientist submitting the variable.|
 |status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
 |submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
@@ -4757,6 +5331,9 @@ Call to retrieve a list of observationVariables available in the system.
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
@@ -4771,8 +5348,6 @@ Call to retrieve a list of observationVariables available in the system.
 |traitDbId|string|The ID which uniquely identifies a trait|
 |traitDescription|string|The description of a trait|
 |traitName|string|The human readable name of a trait  MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
-|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
-|xref|string|Cross reference of the variable term to a term from an external ontology or to a database of a major system.|
 
 
  
@@ -4781,6 +5356,8 @@ Call to retrieve a list of observationVariables available in the system.
     + observationVariableDbId (Optional, ) ... Variable's unique ID
     + traitClass (Optional, ) ... Variable's trait class (phenological, physiological, morphological, etc.)
     + studyDbId (Optional, ) ... The unique ID of a studies to filter on
+    + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
+    + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -4829,12 +5406,49 @@ Call to retrieve a list of observationVariables available in the system.
                 ],
                 "defaultValue": 2.0,
                 "documentationURL": "https://wiki.brapi.org/documentation.html",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "growthStage": "flowering",
                 "institution": "The BrAPI Institute",
                 "language": "en",
                 "method": {
                     "additionalInfo": {},
+                    "bibliographicalReference": "Smith, 1893, Really Cool Paper, Popular Journal",
                     "description": "A measuring tape was used",
+                    "externalReferences": [
+                        {
+                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceSource": "DOI"
+                        },
+                        {
+                            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                            "referenceSource": "OBO Library"
+                        },
+                        {
+                            "referenceID": "75a50e76",
+                            "referenceSource": "Remote Data Collection Upload Tool"
+                        },
+                        {
+                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                            "referenceSource": "BrAPI Example Server"
+                        }
+                    ],
                     "formula": "a^2 + b^2 = c^2",
                     "methodClass": "Measurement",
                     "methodDbId": "0adb2764",
@@ -4853,8 +5467,7 @@ Call to retrieve a list of observationVariables available in the system.
                         "ontologyDbId": "6b071868",
                         "ontologyName": "The Crop Ontology",
                         "version": "7.2.3"
-                    },
-                    "reference": "Smith, 1893, Really Cool Paper, Popular Journal"
+                    }
                 },
                 "observationVariableDbId": "b9b7edd1",
                 "observationVariableName": "Variable Name",
@@ -4884,6 +5497,24 @@ Call to retrieve a list of observationVariables available in the system.
                         "Text"
                     ],
                     "decimalPlaces": 2,
+                    "externalReferences": [
+                        {
+                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceSource": "DOI"
+                        },
+                        {
+                            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                            "referenceSource": "OBO Library"
+                        },
+                        {
+                            "referenceID": "75a50e76",
+                            "referenceSource": "Remote Data Collection Upload Tool"
+                        },
+                        {
+                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                            "referenceSource": "BrAPI Example Server"
+                        }
+                    ],
                     "ontologyReference": {
                         "documentationLinks": [
                             {
@@ -4918,8 +5549,7 @@ Call to retrieve a list of observationVariables available in the system.
                         ],
                         "max": 9999,
                         "min": 2
-                    },
-                    "xref": "http://purl.obolibrary.org/obo/ro.owl"
+                    }
                 },
                 "scientist": "Dr. Bob Robertson",
                 "status": "recommended",
@@ -4937,6 +5567,24 @@ Call to retrieve a list of observationVariables available in the system.
                     ],
                     "attribute": "height",
                     "entity": "Stalk",
+                    "externalReferences": [
+                        {
+                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceSource": "DOI"
+                        },
+                        {
+                            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                            "referenceSource": "OBO Library"
+                        },
+                        {
+                            "referenceID": "75a50e76",
+                            "referenceSource": "Remote Data Collection Upload Tool"
+                        },
+                        {
+                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                            "referenceSource": "BrAPI Example Server"
+                        }
+                    ],
                     "mainAbbreviation": "PH",
                     "ontologyReference": {
                         "documentationLinks": [
@@ -4963,10 +5611,8 @@ Call to retrieve a list of observationVariables available in the system.
                     "traitClass": "phenological",
                     "traitDbId": "9b2e34f5",
                     "traitDescription": "The height of the plant",
-                    "traitName": "Height",
-                    "xref": "http://purl.obolibrary.org/obo/ro.owl"
-                },
-                "xref": "http://purl.obolibrary.org/obo/ro.owl"
+                    "traitName": "Height"
+                }
             }
         ]
     }
@@ -5004,12 +5650,19 @@ Add new Observation Variables to the system.
 |contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
 |defaultValue|string|Variable default value. (examples: "red", "2.3", etc.)|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |growthStage|string|Growth stage at which measurement is made (examples: "flowering")|
 |institution|string|Name of institution submitting the variable|
 |language|string|2 letter ISO 639-1 code for the language of submission of the variable.|
 |method|object||
 |additionalInfo|object|Additional arbitrary info|
+|bibliographicalReference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 |description|string|Method description  MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 |methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |methodDbId|string|Method unique identifier|
@@ -5021,7 +5674,6 @@ Add new Observation Variables to the system.
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|reference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 |observationVariableName|string|Variable name (usually a short name)|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
@@ -5033,6 +5685,9 @@ Add new Observation Variables to the system.
 |scale|object|Scale metadata|
 |dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -5048,7 +5703,6 @@ Add new Observation Variables to the system.
 |value|string|The actual value for a category|
 |max|integer|Maximum value (used for field data capture control).|
 |min|integer|Minimum value (used for data capture control) for numerical and date scales|
-|xref|string|Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database|
 |scientist|string|Name of scientist submitting the variable.|
 |status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
 |submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
@@ -5057,6 +5711,9 @@ Add new Observation Variables to the system.
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
@@ -5071,8 +5728,6 @@ Add new Observation Variables to the system.
 |traitDbId|string|The ID which uniquely identifies a trait|
 |traitDescription|string|The description of a trait|
 |traitName|string|The human readable name of a trait  MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
-|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
-|xref|string|Cross reference of the variable term to a term from an external ontology or to a database of a major system.|
 
 
 **Response Fields** 
@@ -5085,12 +5740,19 @@ Add new Observation Variables to the system.
 |contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
 |defaultValue|string|Variable default value. (examples: "red", "2.3", etc.)|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |growthStage|string|Growth stage at which measurement is made (examples: "flowering")|
 |institution|string|Name of institution submitting the variable|
 |language|string|2 letter ISO 639-1 code for the language of submission of the variable.|
 |method|object||
 |additionalInfo|object|Additional arbitrary info|
+|bibliographicalReference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 |description|string|Method description  MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 |methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |methodDbId|string|Method unique identifier|
@@ -5102,7 +5764,6 @@ Add new Observation Variables to the system.
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|reference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 |observationVariableDbId|string|Variable unique identifier  MIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation.|
 |observationVariableName|string|Variable name (usually a short name)  MIAPPE V1.1 (DM-84) Variable name - Name of the variable.|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
@@ -5115,6 +5776,9 @@ Add new Observation Variables to the system.
 |scale|object|Scale metadata|
 |dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -5130,7 +5794,6 @@ Add new Observation Variables to the system.
 |value|string|The actual value for a category|
 |max|integer|Maximum value (used for field data capture control).|
 |min|integer|Minimum value (used for data capture control) for numerical and date scales|
-|xref|string|Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database|
 |scientist|string|Name of scientist submitting the variable.|
 |status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
 |submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
@@ -5139,6 +5802,9 @@ Add new Observation Variables to the system.
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
@@ -5153,8 +5819,6 @@ Add new Observation Variables to the system.
 |traitDbId|string|The ID which uniquely identifies a trait|
 |traitDescription|string|The description of a trait|
 |traitName|string|The human readable name of a trait  MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
-|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
-|xref|string|Cross reference of the variable term to a term from an external ontology or to a database of a major system.|
 
 
  
@@ -5176,12 +5840,49 @@ Add new Observation Variables to the system.
         ],
         "defaultValue": 2.0,
         "documentationURL": "https://wiki.brapi.org/documentation.html",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "growthStage": "flowering",
         "institution": "The BrAPI Institute",
         "language": "en",
         "method": {
             "additionalInfo": {},
+            "bibliographicalReference": "Smith, 1893, Really Cool Paper, Popular Journal",
             "description": "A measuring tape was used",
+            "externalReferences": [
+                {
+                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceSource": "DOI"
+                },
+                {
+                    "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                    "referenceSource": "OBO Library"
+                },
+                {
+                    "referenceID": "75a50e76",
+                    "referenceSource": "Remote Data Collection Upload Tool"
+                },
+                {
+                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                    "referenceSource": "BrAPI Example Server"
+                }
+            ],
             "formula": "a^2 + b^2 = c^2",
             "methodClass": "Measurement",
             "methodDbId": "0adb2764",
@@ -5200,8 +5901,7 @@ Add new Observation Variables to the system.
                 "ontologyDbId": "6b071868",
                 "ontologyName": "The Crop Ontology",
                 "version": "7.2.3"
-            },
-            "reference": "Smith, 1893, Really Cool Paper, Popular Journal"
+            }
         },
         "observationVariableName": "Variable Name",
         "ontologyReference": {
@@ -5230,6 +5930,24 @@ Add new Observation Variables to the system.
                 "Text"
             ],
             "decimalPlaces": 2,
+            "externalReferences": [
+                {
+                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceSource": "DOI"
+                },
+                {
+                    "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                    "referenceSource": "OBO Library"
+                },
+                {
+                    "referenceID": "75a50e76",
+                    "referenceSource": "Remote Data Collection Upload Tool"
+                },
+                {
+                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                    "referenceSource": "BrAPI Example Server"
+                }
+            ],
             "ontologyReference": {
                 "documentationLinks": [
                     {
@@ -5264,8 +5982,7 @@ Add new Observation Variables to the system.
                 ],
                 "max": 9999,
                 "min": 2
-            },
-            "xref": "http://purl.obolibrary.org/obo/ro.owl"
+            }
         },
         "scientist": "Dr. Bob Robertson",
         "status": "recommended",
@@ -5283,6 +6000,24 @@ Add new Observation Variables to the system.
             ],
             "attribute": "height",
             "entity": "Stalk",
+            "externalReferences": [
+                {
+                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceSource": "DOI"
+                },
+                {
+                    "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                    "referenceSource": "OBO Library"
+                },
+                {
+                    "referenceID": "75a50e76",
+                    "referenceSource": "Remote Data Collection Upload Tool"
+                },
+                {
+                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                    "referenceSource": "BrAPI Example Server"
+                }
+            ],
             "mainAbbreviation": "PH",
             "ontologyReference": {
                 "documentationLinks": [
@@ -5309,10 +6044,8 @@ Add new Observation Variables to the system.
             "traitClass": "phenological",
             "traitDbId": "9b2e34f5",
             "traitDescription": "The height of the plant",
-            "traitName": "Height",
-            "xref": "http://purl.obolibrary.org/obo/ro.owl"
-        },
-        "xref": "http://purl.obolibrary.org/obo/ro.owl"
+            "traitName": "Height"
+        }
     }
 ]
 ```
@@ -5360,12 +6093,49 @@ Add new Observation Variables to the system.
                 ],
                 "defaultValue": 2.0,
                 "documentationURL": "https://wiki.brapi.org/documentation.html",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "growthStage": "flowering",
                 "institution": "The BrAPI Institute",
                 "language": "en",
                 "method": {
                     "additionalInfo": {},
+                    "bibliographicalReference": "Smith, 1893, Really Cool Paper, Popular Journal",
                     "description": "A measuring tape was used",
+                    "externalReferences": [
+                        {
+                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceSource": "DOI"
+                        },
+                        {
+                            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                            "referenceSource": "OBO Library"
+                        },
+                        {
+                            "referenceID": "75a50e76",
+                            "referenceSource": "Remote Data Collection Upload Tool"
+                        },
+                        {
+                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                            "referenceSource": "BrAPI Example Server"
+                        }
+                    ],
                     "formula": "a^2 + b^2 = c^2",
                     "methodClass": "Measurement",
                     "methodDbId": "0adb2764",
@@ -5384,8 +6154,7 @@ Add new Observation Variables to the system.
                         "ontologyDbId": "6b071868",
                         "ontologyName": "The Crop Ontology",
                         "version": "7.2.3"
-                    },
-                    "reference": "Smith, 1893, Really Cool Paper, Popular Journal"
+                    }
                 },
                 "observationVariableDbId": "b9b7edd1",
                 "observationVariableName": "Variable Name",
@@ -5415,6 +6184,24 @@ Add new Observation Variables to the system.
                         "Text"
                     ],
                     "decimalPlaces": 2,
+                    "externalReferences": [
+                        {
+                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceSource": "DOI"
+                        },
+                        {
+                            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                            "referenceSource": "OBO Library"
+                        },
+                        {
+                            "referenceID": "75a50e76",
+                            "referenceSource": "Remote Data Collection Upload Tool"
+                        },
+                        {
+                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                            "referenceSource": "BrAPI Example Server"
+                        }
+                    ],
                     "ontologyReference": {
                         "documentationLinks": [
                             {
@@ -5449,8 +6236,7 @@ Add new Observation Variables to the system.
                         ],
                         "max": 9999,
                         "min": 2
-                    },
-                    "xref": "http://purl.obolibrary.org/obo/ro.owl"
+                    }
                 },
                 "scientist": "Dr. Bob Robertson",
                 "status": "recommended",
@@ -5468,6 +6254,24 @@ Add new Observation Variables to the system.
                     ],
                     "attribute": "height",
                     "entity": "Stalk",
+                    "externalReferences": [
+                        {
+                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceSource": "DOI"
+                        },
+                        {
+                            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                            "referenceSource": "OBO Library"
+                        },
+                        {
+                            "referenceID": "75a50e76",
+                            "referenceSource": "Remote Data Collection Upload Tool"
+                        },
+                        {
+                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                            "referenceSource": "BrAPI Example Server"
+                        }
+                    ],
                     "mainAbbreviation": "PH",
                     "ontologyReference": {
                         "documentationLinks": [
@@ -5494,10 +6298,8 @@ Add new Observation Variables to the system.
                     "traitClass": "phenological",
                     "traitDbId": "9b2e34f5",
                     "traitDescription": "The height of the plant",
-                    "traitName": "Height",
-                    "xref": "http://purl.obolibrary.org/obo/ro.owl"
-                },
-                "xref": "http://purl.obolibrary.org/obo/ro.owl"
+                    "traitName": "Height"
+                }
             }
         ]
     }
@@ -5537,12 +6339,19 @@ Retrieve variable details
 |contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
 |defaultValue|string|Variable default value. (examples: "red", "2.3", etc.)|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |growthStage|string|Growth stage at which measurement is made (examples: "flowering")|
 |institution|string|Name of institution submitting the variable|
 |language|string|2 letter ISO 639-1 code for the language of submission of the variable.|
 |method|object||
 |additionalInfo|object|Additional arbitrary info|
+|bibliographicalReference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 |description|string|Method description  MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 |methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |methodDbId|string|Method unique identifier|
@@ -5554,7 +6363,6 @@ Retrieve variable details
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|reference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 |observationVariableDbId|string|Variable unique identifier  MIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation.|
 |observationVariableName|string|Variable name (usually a short name)  MIAPPE V1.1 (DM-84) Variable name - Name of the variable.|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
@@ -5567,6 +6375,9 @@ Retrieve variable details
 |scale|object|Scale metadata|
 |dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -5582,7 +6393,6 @@ Retrieve variable details
 |value|string|The actual value for a category|
 |max|integer|Maximum value (used for field data capture control).|
 |min|integer|Minimum value (used for data capture control) for numerical and date scales|
-|xref|string|Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database|
 |scientist|string|Name of scientist submitting the variable.|
 |status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
 |submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
@@ -5591,6 +6401,9 @@ Retrieve variable details
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
@@ -5605,8 +6418,6 @@ Retrieve variable details
 |traitDbId|string|The ID which uniquely identifies a trait|
 |traitDescription|string|The description of a trait|
 |traitName|string|The human readable name of a trait  MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
-|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
-|xref|string|Cross reference of the variable term to a term from an external ontology or to a database of a major system.|
 
 
  
@@ -5657,12 +6468,49 @@ Retrieve variable details
         ],
         "defaultValue": 2.0,
         "documentationURL": "https://wiki.brapi.org/documentation.html",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "growthStage": "flowering",
         "institution": "The BrAPI Institute",
         "language": "en",
         "method": {
             "additionalInfo": {},
+            "bibliographicalReference": "Smith, 1893, Really Cool Paper, Popular Journal",
             "description": "A measuring tape was used",
+            "externalReferences": [
+                {
+                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceSource": "DOI"
+                },
+                {
+                    "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                    "referenceSource": "OBO Library"
+                },
+                {
+                    "referenceID": "75a50e76",
+                    "referenceSource": "Remote Data Collection Upload Tool"
+                },
+                {
+                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                    "referenceSource": "BrAPI Example Server"
+                }
+            ],
             "formula": "a^2 + b^2 = c^2",
             "methodClass": "Measurement",
             "methodDbId": "0adb2764",
@@ -5681,8 +6529,7 @@ Retrieve variable details
                 "ontologyDbId": "6b071868",
                 "ontologyName": "The Crop Ontology",
                 "version": "7.2.3"
-            },
-            "reference": "Smith, 1893, Really Cool Paper, Popular Journal"
+            }
         },
         "observationVariableDbId": "b9b7edd1",
         "observationVariableName": "Variable Name",
@@ -5712,6 +6559,24 @@ Retrieve variable details
                 "Text"
             ],
             "decimalPlaces": 2,
+            "externalReferences": [
+                {
+                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceSource": "DOI"
+                },
+                {
+                    "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                    "referenceSource": "OBO Library"
+                },
+                {
+                    "referenceID": "75a50e76",
+                    "referenceSource": "Remote Data Collection Upload Tool"
+                },
+                {
+                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                    "referenceSource": "BrAPI Example Server"
+                }
+            ],
             "ontologyReference": {
                 "documentationLinks": [
                     {
@@ -5746,8 +6611,7 @@ Retrieve variable details
                 ],
                 "max": 9999,
                 "min": 2
-            },
-            "xref": "http://purl.obolibrary.org/obo/ro.owl"
+            }
         },
         "scientist": "Dr. Bob Robertson",
         "status": "recommended",
@@ -5765,6 +6629,24 @@ Retrieve variable details
             ],
             "attribute": "height",
             "entity": "Stalk",
+            "externalReferences": [
+                {
+                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceSource": "DOI"
+                },
+                {
+                    "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                    "referenceSource": "OBO Library"
+                },
+                {
+                    "referenceID": "75a50e76",
+                    "referenceSource": "Remote Data Collection Upload Tool"
+                },
+                {
+                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                    "referenceSource": "BrAPI Example Server"
+                }
+            ],
             "mainAbbreviation": "PH",
             "ontologyReference": {
                 "documentationLinks": [
@@ -5791,10 +6673,8 @@ Retrieve variable details
             "traitClass": "phenological",
             "traitDbId": "9b2e34f5",
             "traitDescription": "The height of the plant",
-            "traitName": "Height",
-            "xref": "http://purl.obolibrary.org/obo/ro.owl"
-        },
-        "xref": "http://purl.obolibrary.org/obo/ro.owl"
+            "traitName": "Height"
+        }
     }
 }
 ```
@@ -5837,12 +6717,19 @@ Update an existing Observation Variable
 |contextOfUse|array[string]|Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])|
 |defaultValue|string|Variable default value. (examples: "red", "2.3", etc.)|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |growthStage|string|Growth stage at which measurement is made (examples: "flowering")|
 |institution|string|Name of institution submitting the variable|
 |language|string|2 letter ISO 639-1 code for the language of submission of the variable.|
 |method|object||
 |additionalInfo|object|Additional arbitrary info|
+|bibliographicalReference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 |description|string|Method description  MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 |methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |methodDbId|string|Method unique identifier|
@@ -5854,7 +6741,6 @@ Update an existing Observation Variable
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|reference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 |observationVariableDbId|string|Variable unique identifier  MIAPPE V1.1 (DM-83) Variable ID - Code used to identify the variable in the data file. We recommend using a variable definition from the Crop Ontology where possible. Otherwise, the Crop Ontology naming convention is recommended: <trait abbreviation>_<method abbreviation>_<scale abbreviation>). A variable ID must be unique within a given investigation.|
 |observationVariableName|string|Variable name (usually a short name)  MIAPPE V1.1 (DM-84) Variable name - Name of the variable.|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
@@ -5867,6 +6753,9 @@ Update an existing Observation Variable
 |scale|object|Scale metadata|
 |dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -5882,7 +6771,6 @@ Update an existing Observation Variable
 |value|string|The actual value for a category|
 |max|integer|Maximum value (used for field data capture control).|
 |min|integer|Minimum value (used for data capture control) for numerical and date scales|
-|xref|string|Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database|
 |scientist|string|Name of scientist submitting the variable.|
 |status|string|Variable status. (examples: "recommended", "obsolete", "legacy", etc.)|
 |submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
@@ -5891,6 +6779,9 @@ Update an existing Observation Variable
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
@@ -5905,8 +6796,6 @@ Update an existing Observation Variable
 |traitDbId|string|The ID which uniquely identifies a trait|
 |traitDescription|string|The description of a trait|
 |traitName|string|The human readable name of a trait  MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
-|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
-|xref|string|Cross reference of the variable term to a term from an external ontology or to a database of a major system.|
 
 
  
@@ -5957,12 +6846,49 @@ Update an existing Observation Variable
         ],
         "defaultValue": 2.0,
         "documentationURL": "https://wiki.brapi.org/documentation.html",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "growthStage": "flowering",
         "institution": "The BrAPI Institute",
         "language": "en",
         "method": {
             "additionalInfo": {},
+            "bibliographicalReference": "Smith, 1893, Really Cool Paper, Popular Journal",
             "description": "A measuring tape was used",
+            "externalReferences": [
+                {
+                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceSource": "DOI"
+                },
+                {
+                    "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                    "referenceSource": "OBO Library"
+                },
+                {
+                    "referenceID": "75a50e76",
+                    "referenceSource": "Remote Data Collection Upload Tool"
+                },
+                {
+                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                    "referenceSource": "BrAPI Example Server"
+                }
+            ],
             "formula": "a^2 + b^2 = c^2",
             "methodClass": "Measurement",
             "methodDbId": "0adb2764",
@@ -5981,8 +6907,7 @@ Update an existing Observation Variable
                 "ontologyDbId": "6b071868",
                 "ontologyName": "The Crop Ontology",
                 "version": "7.2.3"
-            },
-            "reference": "Smith, 1893, Really Cool Paper, Popular Journal"
+            }
         },
         "observationVariableDbId": "b9b7edd1",
         "observationVariableName": "Variable Name",
@@ -6012,6 +6937,24 @@ Update an existing Observation Variable
                 "Text"
             ],
             "decimalPlaces": 2,
+            "externalReferences": [
+                {
+                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceSource": "DOI"
+                },
+                {
+                    "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                    "referenceSource": "OBO Library"
+                },
+                {
+                    "referenceID": "75a50e76",
+                    "referenceSource": "Remote Data Collection Upload Tool"
+                },
+                {
+                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                    "referenceSource": "BrAPI Example Server"
+                }
+            ],
             "ontologyReference": {
                 "documentationLinks": [
                     {
@@ -6046,8 +6989,7 @@ Update an existing Observation Variable
                 ],
                 "max": 9999,
                 "min": 2
-            },
-            "xref": "http://purl.obolibrary.org/obo/ro.owl"
+            }
         },
         "scientist": "Dr. Bob Robertson",
         "status": "recommended",
@@ -6065,6 +7007,24 @@ Update an existing Observation Variable
             ],
             "attribute": "height",
             "entity": "Stalk",
+            "externalReferences": [
+                {
+                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceSource": "DOI"
+                },
+                {
+                    "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                    "referenceSource": "OBO Library"
+                },
+                {
+                    "referenceID": "75a50e76",
+                    "referenceSource": "Remote Data Collection Upload Tool"
+                },
+                {
+                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                    "referenceSource": "BrAPI Example Server"
+                }
+            ],
             "mainAbbreviation": "PH",
             "ontologyReference": {
                 "documentationLinks": [
@@ -6091,10 +7051,8 @@ Update an existing Observation Variable
             "traitClass": "phenological",
             "traitDbId": "9b2e34f5",
             "traitDescription": "The height of the plant",
-            "traitName": "Height",
-            "xref": "http://purl.obolibrary.org/obo/ro.owl"
-        },
-        "xref": "http://purl.obolibrary.org/obo/ro.owl"
+            "traitName": "Height"
+        }
     }
 }
 ```
@@ -6129,7 +7087,7 @@ API to manage the details of observation variable Traits. An observation variabl
 
 
 
-### Get - /observations [GET /brapi/v1/observations{?observationUnitDbId}{?germplasmDbId}{?observationVariableDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}{?page}{?pageSize}]
+### Get - /observations [GET /brapi/v1/observations{?observationUnitDbId}{?germplasmDbId}{?observationVariableDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Retrieve all observations where there are measurements for the given observation variables.
 
@@ -6144,6 +7102,9 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |observationDbId|string|The ID which uniquely identifies an observation|
@@ -6175,6 +7136,8 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
     + observationLevel (Optional, ) ... The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnitStructure.
     + observationTimeStampRangeStart (Optional, ) ... Timestamp range start
     + observationTimeStampRangeEnd (Optional, ) ... Timestamp range end
+    + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
+    + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -6217,6 +7180,24 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
             {
                 "additionalInfo": {},
                 "collector": "917d3ae0",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "germplasmDbId": "2408ab11",
                 "germplasmName": "A0000003",
                 "observationDbId": "ef24b615",
@@ -6267,6 +7248,9 @@ Add new Observation entities
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |observationTimeStamp|string (date-time)|The date and time when this observation was made|
@@ -6290,6 +7274,9 @@ Add new Observation entities
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |observationDbId|string|The ID which uniquely identifies an observation|
@@ -6320,6 +7307,24 @@ Add new Observation entities
     {
         "additionalInfo": {},
         "collector": "917d3ae0",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "germplasmDbId": "2408ab11",
         "germplasmName": "A0000003",
         "observationTimeStamp": "2018-01-01T14:47:23-0600",
@@ -6376,6 +7381,24 @@ Add new Observation entities
             {
                 "additionalInfo": {},
                 "collector": "917d3ae0",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "germplasmDbId": "2408ab11",
                 "germplasmName": "A0000003",
                 "observationDbId": "ef24b615",
@@ -6442,6 +7465,9 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |observationDbId|string|The ID which uniquely identifies an observation|
@@ -6508,6 +7534,24 @@ Note - In strictly typed languages, this structure can be represented as a Map o
             {
                 "additionalInfo": {},
                 "collector": "917d3ae0",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "germplasmDbId": "2408ab11",
                 "germplasmName": "A0000003",
                 "observationDbId": "ef24b615",
@@ -6871,6 +7915,9 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |observationDbId|string|The ID which uniquely identifies an observation|
@@ -6930,6 +7977,24 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
     "result": {
         "additionalInfo": {},
         "collector": "917d3ae0",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "germplasmDbId": "2408ab11",
         "germplasmName": "A0000003",
         "observationDbId": "ef24b615",
@@ -6983,6 +8048,9 @@ Update an existing Observation
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |observationTimeStamp|string (date-time)|The date and time when this observation was made|
@@ -7005,6 +8073,9 @@ Update an existing Observation
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |observationDbId|string|The ID which uniquely identifies an observation|
@@ -7035,6 +8106,24 @@ Update an existing Observation
 {
     "additionalInfo": {},
     "collector": "917d3ae0",
+    "externalReferences": [
+        {
+            "referenceID": "doi:10.155454/12349537E12",
+            "referenceSource": "DOI"
+        },
+        {
+            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+            "referenceSource": "OBO Library"
+        },
+        {
+            "referenceID": "75a50e76",
+            "referenceSource": "Remote Data Collection Upload Tool"
+        },
+        {
+            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+            "referenceSource": "BrAPI Example Server"
+        }
+    ],
     "germplasmDbId": "2408ab11",
     "germplasmName": "A0000003",
     "observationTimeStamp": "2018-01-01T14:47:23-0600",
@@ -7088,6 +8177,24 @@ Update an existing Observation
     "result": {
         "additionalInfo": {},
         "collector": "917d3ae0",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "germplasmDbId": "2408ab11",
         "germplasmName": "A0000003",
         "observationDbId": "ef24b615",
@@ -7139,6 +8246,8 @@ Submit a search request for a set of Observations. Returns an Id which reference
 
 |Field|Type|Description|
 |---|---|---| 
+|externalReferenceIDs|array[string]|List of external references for the trait to search for|
+|externalReferenceSources|array[string]|List of external references sources for the trait to search for|
 |germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm to search for|
 |germplasmNames|array[string]|List of human readable names to identify germplasm to search for|
 |locationDbIds|array[string]|The location ids to search for|
@@ -7167,6 +8276,9 @@ Submit a search request for a set of Observations. Returns an Id which reference
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |observationDbId|string|The ID which uniquely identifies an observation|
@@ -7194,6 +8306,14 @@ Submit a search request for a set of Observations. Returns an Id which reference
 + Request (application/json)
 ```
 {
+    "externalReferenceIDs": [
+        "http://purl.obolibrary.org/obo/ro.owl",
+        "14a19841"
+    ],
+    "externalReferenceSources": [
+        "OBO Library",
+        "Field App Name"
+    ],
     "germplasmDbIds": [
         "e9c6edd7",
         "1b1df4a6"
@@ -7295,6 +8415,24 @@ Submit a search request for a set of Observations. Returns an Id which reference
             {
                 "additionalInfo": {},
                 "collector": "917d3ae0",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "germplasmDbId": "2408ab11",
                 "germplasmName": "A0000003",
                 "observationDbId": "ef24b615",
@@ -7388,6 +8526,9 @@ observationValue data type inferred from the ontology
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |observationDbId|string|The ID which uniquely identifies an observation|
@@ -7488,6 +8629,24 @@ observationValue data type inferred from the ontology
             {
                 "additionalInfo": {},
                 "collector": "917d3ae0",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "germplasmDbId": "2408ab11",
                 "germplasmName": "A0000003",
                 "observationDbId": "ef24b615",
@@ -7640,7 +8799,7 @@ API to manage the details of observation variable Scales. An observation variabl
 
 
 
-### Get - /scales [GET /brapi/v1/scales{?page}{?pageSize}]
+### Get - /scales [GET /brapi/v1/scales{?scaleDbId}{?observationVariableDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Returns a list of Scales available on a server.
 
@@ -7655,6 +8814,9 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 |data|array[object]||
 |dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -7670,12 +8832,15 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 |value|string|The actual value for a category|
 |max|integer|Maximum value (used for field data capture control).|
 |min|integer|Minimum value (used for data capture control) for numerical and date scales|
-|xref|string|Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database|
 
 
  
 
 + Parameters
+    + scaleDbId (Optional, ) ... The unique identifier for a scale
+    + observationVariableDbId (Optional, ) ... The unique identifier for an observation variable
+    + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
+    + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -7726,6 +8891,24 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
                     "Text"
                 ],
                 "decimalPlaces": 2,
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "ontologyReference": {
                     "documentationLinks": [
                         {
@@ -7760,8 +8943,7 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
                     ],
                     "max": 9999,
                     "min": 2
-                },
-                "xref": "http://purl.obolibrary.org/obo/ro.owl"
+                }
             }
         ]
     }
@@ -7796,6 +8978,9 @@ Create a new scale object in the database
 |---|---|---| 
 |dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -7810,7 +8995,6 @@ Create a new scale object in the database
 |value|string|The actual value for a category|
 |max|integer|Maximum value (used for field data capture control).|
 |min|integer|Minimum value (used for data capture control) for numerical and date scales|
-|xref|string|Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database|
 
 
 **Response Fields** 
@@ -7820,6 +9004,9 @@ Create a new scale object in the database
 |data|array[object]||
 |dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -7835,7 +9022,6 @@ Create a new scale object in the database
 |value|string|The actual value for a category|
 |max|integer|Maximum value (used for field data capture control).|
 |min|integer|Minimum value (used for data capture control) for numerical and date scales|
-|xref|string|Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database|
 
 
  
@@ -7859,6 +9045,24 @@ Create a new scale object in the database
             "Text"
         ],
         "decimalPlaces": 2,
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "ontologyReference": {
             "documentationLinks": [
                 {
@@ -7892,8 +9096,7 @@ Create a new scale object in the database
             ],
             "max": 9999,
             "min": 2
-        },
-        "xref": "http://purl.obolibrary.org/obo/ro.owl"
+        }
     }
 ]
 ```
@@ -7943,6 +9146,24 @@ Create a new scale object in the database
                     "Text"
                 ],
                 "decimalPlaces": 2,
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "ontologyReference": {
                     "documentationLinks": [
                         {
@@ -7977,8 +9198,7 @@ Create a new scale object in the database
                     ],
                     "max": 9999,
                     "min": 2
-                },
-                "xref": "http://purl.obolibrary.org/obo/ro.owl"
+                }
             }
         ]
     }
@@ -8017,6 +9237,9 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
 |---|---|---| 
 |dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -8032,7 +9255,6 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
 |value|string|The actual value for a category|
 |max|integer|Maximum value (used for field data capture control).|
 |min|integer|Minimum value (used for data capture control) for numerical and date scales|
-|xref|string|Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database|
 
 
  
@@ -8085,6 +9307,24 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
             "Text"
         ],
         "decimalPlaces": 2,
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "ontologyReference": {
             "documentationLinks": [
                 {
@@ -8119,8 +9359,7 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
             ],
             "max": 9999,
             "min": 2
-        },
-        "xref": "http://purl.obolibrary.org/obo/ro.owl"
+        }
     }
 }
 ```
@@ -8158,6 +9397,9 @@ Update the details of an existing scale
 |---|---|---| 
 |dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -8172,7 +9414,6 @@ Update the details of an existing scale
 |value|string|The actual value for a category|
 |max|integer|Maximum value (used for field data capture control).|
 |min|integer|Minimum value (used for data capture control) for numerical and date scales|
-|xref|string|Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database|
 
 
 **Response Fields** 
@@ -8181,6 +9422,9 @@ Update the details of an existing scale
 |---|---|---| 
 |dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
 |URL|string (uri)||
@@ -8196,7 +9440,6 @@ Update the details of an existing scale
 |value|string|The actual value for a category|
 |max|integer|Maximum value (used for field data capture control).|
 |min|integer|Minimum value (used for data capture control) for numerical and date scales|
-|xref|string|Cross reference to the scale, for example to a unit ontology such as UO or to a unit of an external major database|
 
 
  
@@ -8220,6 +9463,24 @@ Update the details of an existing scale
         "Text"
     ],
     "decimalPlaces": 2,
+    "externalReferences": [
+        {
+            "referenceID": "doi:10.155454/12349537E12",
+            "referenceSource": "DOI"
+        },
+        {
+            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+            "referenceSource": "OBO Library"
+        },
+        {
+            "referenceID": "75a50e76",
+            "referenceSource": "Remote Data Collection Upload Tool"
+        },
+        {
+            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+            "referenceSource": "BrAPI Example Server"
+        }
+    ],
     "ontologyReference": {
         "documentationLinks": [
             {
@@ -8253,8 +9514,7 @@ Update the details of an existing scale
         ],
         "max": 9999,
         "min": 2
-    },
-    "xref": "http://purl.obolibrary.org/obo/ro.owl"
+    }
 }
 ```
 
@@ -8301,6 +9561,24 @@ Update the details of an existing scale
             "Text"
         ],
         "decimalPlaces": 2,
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "ontologyReference": {
             "documentationLinks": [
                 {
@@ -8335,8 +9613,7 @@ Update the details of an existing scale
             ],
             "max": 9999,
             "min": 2
-        },
-        "xref": "http://purl.obolibrary.org/obo/ro.owl"
+        }
     }
 }
 ```
@@ -8371,7 +9648,7 @@ API to manage the details of observation variable Traits. An observation variabl
 
 
 
-### Get - /traits [GET /brapi/v1/traits{?page}{?pageSize}]
+### Get - /traits [GET /brapi/v1/traits{?traitDbId}{?observationVariableDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Call to retrieve a list of traits available in the system and their associated variables.
 
@@ -8387,6 +9664,9 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
@@ -8401,12 +9681,15 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 |traitDbId|string|The ID which uniquely identifies a trait|
 |traitDescription|string|The description of a trait|
 |traitName|string|The human readable name of a trait  MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
-|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
 
 
  
 
 + Parameters
+    + traitDbId (Optional, ) ... The unique identifier for a trait
+    + observationVariableDbId (Optional, ) ... The unique identifier for an observation variable
+    + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
+    + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -8454,6 +9737,24 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
                 ],
                 "attribute": "height",
                 "entity": "Stalk",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "mainAbbreviation": "PH",
                 "ontologyReference": {
                     "documentationLinks": [
@@ -8480,8 +9781,7 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
                 "traitClass": "phenological",
                 "traitDbId": "9b2e34f5",
                 "traitDescription": "The height of the plant",
-                "traitName": "Height",
-                "xref": "http://purl.obolibrary.org/obo/ro.owl"
+                "traitName": "Height"
             }
         ]
     }
@@ -8517,6 +9817,9 @@ Create a new trait object in the database
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
@@ -8530,7 +9833,6 @@ Create a new trait object in the database
 |traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
 |traitDescription|string|The description of a trait|
 |traitName|string|The human readable name of a trait  MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
-|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
 
 
 **Response Fields** 
@@ -8541,6 +9843,9 @@ Create a new trait object in the database
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
@@ -8555,7 +9860,6 @@ Create a new trait object in the database
 |traitDbId|string|The ID which uniquely identifies a trait|
 |traitDescription|string|The description of a trait|
 |traitName|string|The human readable name of a trait  MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
-|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
 
 
  
@@ -8576,6 +9880,24 @@ Create a new trait object in the database
         ],
         "attribute": "height",
         "entity": "Stalk",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "mainAbbreviation": "PH",
         "ontologyReference": {
             "documentationLinks": [
@@ -8601,8 +9923,7 @@ Create a new trait object in the database
         ],
         "traitClass": "phenological",
         "traitDescription": "The height of the plant",
-        "traitName": "Height",
-        "xref": "http://purl.obolibrary.org/obo/ro.owl"
+        "traitName": "Height"
     }
 ]
 ```
@@ -8649,6 +9970,24 @@ Create a new trait object in the database
                 ],
                 "attribute": "height",
                 "entity": "Stalk",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "mainAbbreviation": "PH",
                 "ontologyReference": {
                     "documentationLinks": [
@@ -8675,8 +10014,7 @@ Create a new trait object in the database
                 "traitClass": "phenological",
                 "traitDbId": "9b2e34f5",
                 "traitDescription": "The height of the plant",
-                "traitName": "Height",
-                "xref": "http://purl.obolibrary.org/obo/ro.owl"
+                "traitName": "Height"
             }
         ]
     }
@@ -8716,6 +10054,9 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
@@ -8730,7 +10071,6 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
 |traitDbId|string|The ID which uniquely identifies a trait|
 |traitDescription|string|The description of a trait|
 |traitName|string|The human readable name of a trait  MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
-|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
 
 
  
@@ -8780,6 +10120,24 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
         ],
         "attribute": "height",
         "entity": "Stalk",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "mainAbbreviation": "PH",
         "ontologyReference": {
             "documentationLinks": [
@@ -8806,8 +10164,7 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
         "traitClass": "phenological",
         "traitDbId": "9b2e34f5",
         "traitDescription": "The height of the plant",
-        "traitName": "Height",
-        "xref": "http://purl.obolibrary.org/obo/ro.owl"
+        "traitName": "Height"
     }
 }
 ```
@@ -8846,6 +10203,9 @@ Update an existing trait
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
@@ -8859,7 +10219,6 @@ Update an existing trait
 |traitClass|string|Trait class. (examples: "morphological", "phenological", "agronomical", "physiological", "abiotic stress", "biotic stress", "biochemical", "quality traits", "fertility", etc.)|
 |traitDescription|string|The description of a trait|
 |traitName|string|The human readable name of a trait  MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
-|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
 
 
 **Response Fields** 
@@ -8869,6 +10228,9 @@ Update an existing trait
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |mainAbbreviation|string|Main abbreviation for trait name. (examples: "Carotenoid content" => "CC")|
 |ontologyReference|object|MIAPPE V1.1  (DM-85) Variable accession number - Accession number of the variable in the Crop Ontology  (DM-87) Trait accession number - Accession number of the trait in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-89) Method accession number - Accession number of the method in a suitable controlled vocabulary (Crop Ontology, Trait Ontology).  (DM-93) Scale accession number - Accession number of the scale in a suitable controlled vocabulary (Crop Ontology).|
 |documentationLinks|array[object]|links to various ontology documentation|
@@ -8883,7 +10245,6 @@ Update an existing trait
 |traitDbId|string|The ID which uniquely identifies a trait|
 |traitDescription|string|The description of a trait|
 |traitName|string|The human readable name of a trait  MIAPPE V1.1 (DM-86) Trait - Name of the (plant or environmental) trait under observation|
-|xref|string|Cross reference of the trait to an external ontology or database term e.g., Xref to a trait ontology (TO) term|
 
 
  
@@ -8904,6 +10265,24 @@ Update an existing trait
     ],
     "attribute": "height",
     "entity": "Stalk",
+    "externalReferences": [
+        {
+            "referenceID": "doi:10.155454/12349537E12",
+            "referenceSource": "DOI"
+        },
+        {
+            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+            "referenceSource": "OBO Library"
+        },
+        {
+            "referenceID": "75a50e76",
+            "referenceSource": "Remote Data Collection Upload Tool"
+        },
+        {
+            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+            "referenceSource": "BrAPI Example Server"
+        }
+    ],
     "mainAbbreviation": "PH",
     "ontologyReference": {
         "documentationLinks": [
@@ -8929,8 +10308,7 @@ Update an existing trait
     ],
     "traitClass": "phenological",
     "traitDescription": "The height of the plant",
-    "traitName": "Height",
-    "xref": "http://purl.obolibrary.org/obo/ro.owl"
+    "traitName": "Height"
 }
 ```
 
@@ -8974,6 +10352,24 @@ Update an existing trait
         ],
         "attribute": "height",
         "entity": "Stalk",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "mainAbbreviation": "PH",
         "ontologyReference": {
             "documentationLinks": [
@@ -9000,8 +10396,7 @@ Update an existing trait
         "traitClass": "phenological",
         "traitDbId": "9b2e34f5",
         "traitDescription": "The height of the plant",
-        "traitName": "Height",
-        "xref": "http://purl.obolibrary.org/obo/ro.owl"
+        "traitName": "Height"
     }
 }
 ```

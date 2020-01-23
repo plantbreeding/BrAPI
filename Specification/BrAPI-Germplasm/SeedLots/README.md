@@ -5,7 +5,7 @@
 
 
 
-### Get - /seedlots [GET /brapi/v1/seedlots{?seedLotDbId}{?germplasmDbId}{?page}{?pageSize}]
+### Get - /seedlots [GET /brapi/v1/seedlots{?seedLotDbId}{?germplasmDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered list of Seed Lot descriptions available in a system.
 
@@ -19,6 +19,9 @@ Get a filtered list of Seed Lot descriptions available in a system.
 |additionalInfo|object|Additional arbitrary info|
 |count|integer|Current balance of seeds in this lot|
 |createdDate|string (date-time)|The time stamp for when this seed lot was created|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
 |lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
 |locationDbId|string|DbId of the storage location|
@@ -36,6 +39,8 @@ Get a filtered list of Seed Lot descriptions available in a system.
 + Parameters
     + seedLotDbId (Optional, ) ... Unique id for a seed lot on this server
     + germplasmDbId (Optional, ) ... The internal id of the germplasm
+    + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
+    + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -79,6 +84,24 @@ Get a filtered list of Seed Lot descriptions available in a system.
                 "additionalInfo": {},
                 "count": 561,
                 "createdDate": "2018-01-01T14:47:23-0600",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "germplasmDbId": "029d705d",
                 "lastUpdated": "2018-01-01T14:47:23-0600",
                 "locationDbId": "7989c44c",
@@ -124,6 +147,9 @@ Add new Seed Lot descriptions to a server
 |additionalInfo|object|Additional arbitrary info|
 |count|integer|Current balance of seeds in this lot|
 |createdDate|string (date-time)|The time stamp for when this seed lot was created|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
 |lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
 |locationDbId|string|DbId of the storage location|
@@ -143,6 +169,9 @@ Add new Seed Lot descriptions to a server
 |additionalInfo|object|Additional arbitrary info|
 |count|integer|Current balance of seeds in this lot|
 |createdDate|string (date-time)|The time stamp for when this seed lot was created|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
 |lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
 |locationDbId|string|DbId of the storage location|
@@ -169,6 +198,24 @@ Add new Seed Lot descriptions to a server
         "additionalInfo": {},
         "count": 561,
         "createdDate": "2018-01-01T14:47:23-0600",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "germplasmDbId": "029d705d",
         "lastUpdated": "2018-01-01T14:47:23-0600",
         "locationDbId": "7989c44c",
@@ -220,6 +267,24 @@ Add new Seed Lot descriptions to a server
                 "additionalInfo": {},
                 "count": 561,
                 "createdDate": "2018-01-01T14:47:23-0600",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "germplasmDbId": "029d705d",
                 "lastUpdated": "2018-01-01T14:47:23-0600",
                 "locationDbId": "7989c44c",
@@ -254,7 +319,7 @@ Add new Seed Lot descriptions to a server
 
 
 
-### Get - /seedlots/transactions [GET /brapi/v1/seedlots/transactions{?transactionDbId}{?seedLotDbId}{?germplasmDbId}{?page}{?pageSize}]
+### Get - /seedlots/transactions [GET /brapi/v1/seedlots/transactions{?transactionDbId}{?seedLotDbId}{?germplasmDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered list of Seed Lot Transactions
 
@@ -267,6 +332,9 @@ Get a filtered list of Seed Lot Transactions
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |count|integer|The amount of units being transfered|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |fromSeedLotDbId|string|The identifier for the Seed Lot being transfered out of|
 |toSeedLotDbId|string|The identifier for the Seed Lot being transfered into|
 |transactionDbId|string|Unique DbId for the Seed Lot Transaction|
@@ -281,6 +349,8 @@ Get a filtered list of Seed Lot Transactions
     + transactionDbId (Optional, ) ... Unique id for a transaction on this server
     + seedLotDbId (Optional, ) ... Unique id for a seed lot on this server
     + germplasmDbId (Optional, ) ... The internal id of the germplasm
+    + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
+    + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -323,6 +393,24 @@ Get a filtered list of Seed Lot Transactions
             {
                 "additionalInfo": {},
                 "count": 45,
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "fromSeedLotDbId": "11eef13b",
                 "toSeedLotDbId": "59339b90",
                 "transactionDbId": "28e46db9",
@@ -364,6 +452,9 @@ Add new Seed Lot Transaction to be recorded
 |seedLots|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |count|integer|The amount of units being transfered|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |fromSeedLotDbId|string|The identifier for the Seed Lot being transfered out of|
 |toSeedLotDbId|string|The identifier for the Seed Lot being transfered into|
 |transactionDescription|string|A general description of this Seed Lot Transaction|
@@ -378,6 +469,9 @@ Add new Seed Lot Transaction to be recorded
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |count|integer|The amount of units being transfered|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |fromSeedLotDbId|string|The identifier for the Seed Lot being transfered out of|
 |toSeedLotDbId|string|The identifier for the Seed Lot being transfered into|
 |transactionDbId|string|Unique DbId for the Seed Lot Transaction|
@@ -400,6 +494,24 @@ Add new Seed Lot Transaction to be recorded
         {
             "additionalInfo": {},
             "count": 45,
+            "externalReferences": [
+                {
+                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceSource": "DOI"
+                },
+                {
+                    "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                    "referenceSource": "OBO Library"
+                },
+                {
+                    "referenceID": "75a50e76",
+                    "referenceSource": "Remote Data Collection Upload Tool"
+                },
+                {
+                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                    "referenceSource": "BrAPI Example Server"
+                }
+            ],
             "fromSeedLotDbId": "11eef13b",
             "toSeedLotDbId": "59339b90",
             "transactionDescription": "f9cd88d2",
@@ -447,6 +559,24 @@ Add new Seed Lot Transaction to be recorded
             {
                 "additionalInfo": {},
                 "count": 45,
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "fromSeedLotDbId": "11eef13b",
                 "toSeedLotDbId": "59339b90",
                 "transactionDbId": "28e46db9",
@@ -490,6 +620,9 @@ Get a specific Seed Lot by seedLotDbId
 |additionalInfo|object|Additional arbitrary info|
 |count|integer|Current balance of seeds in this lot|
 |createdDate|string (date-time)|The time stamp for when this seed lot was created|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
 |lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
 |locationDbId|string|DbId of the storage location|
@@ -545,6 +678,24 @@ Get a specific Seed Lot by seedLotDbId
         "additionalInfo": {},
         "count": 561,
         "createdDate": "2018-01-01T14:47:23-0600",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "germplasmDbId": "029d705d",
         "lastUpdated": "2018-01-01T14:47:23-0600",
         "locationDbId": "7989c44c",
@@ -593,6 +744,9 @@ Update an existing Seed Lot
 |additionalInfo|object|Additional arbitrary info|
 |count|integer|Current balance of seeds in this lot|
 |createdDate|string (date-time)|The time stamp for when this seed lot was created|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
 |lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
 |locationDbId|string|DbId of the storage location|
@@ -611,6 +765,9 @@ Update an existing Seed Lot
 |additionalInfo|object|Additional arbitrary info|
 |count|integer|Current balance of seeds in this lot|
 |createdDate|string (date-time)|The time stamp for when this seed lot was created|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
 |lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
 |locationDbId|string|DbId of the storage location|
@@ -637,6 +794,24 @@ Update an existing Seed Lot
     "additionalInfo": {},
     "count": 561,
     "createdDate": "2018-01-01T14:47:23-0600",
+    "externalReferences": [
+        {
+            "referenceID": "doi:10.155454/12349537E12",
+            "referenceSource": "DOI"
+        },
+        {
+            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+            "referenceSource": "OBO Library"
+        },
+        {
+            "referenceID": "75a50e76",
+            "referenceSource": "Remote Data Collection Upload Tool"
+        },
+        {
+            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+            "referenceSource": "BrAPI Example Server"
+        }
+    ],
     "germplasmDbId": "029d705d",
     "lastUpdated": "2018-01-01T14:47:23-0600",
     "locationDbId": "7989c44c",
@@ -685,6 +860,24 @@ Update an existing Seed Lot
         "additionalInfo": {},
         "count": 561,
         "createdDate": "2018-01-01T14:47:23-0600",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "germplasmDbId": "029d705d",
         "lastUpdated": "2018-01-01T14:47:23-0600",
         "locationDbId": "7989c44c",
@@ -735,6 +928,9 @@ Get all Transactions related to a specific Seed Lot
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |count|integer|The amount of units being transfered|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |fromSeedLotDbId|string|The identifier for the Seed Lot being transfered out of|
 |toSeedLotDbId|string|The identifier for the Seed Lot being transfered into|
 |transactionDbId|string|Unique DbId for the Seed Lot Transaction|
@@ -791,6 +987,24 @@ Get all Transactions related to a specific Seed Lot
             {
                 "additionalInfo": {},
                 "count": 45,
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "fromSeedLotDbId": "11eef13b",
                 "toSeedLotDbId": "59339b90",
                 "transactionDbId": "28e46db9",

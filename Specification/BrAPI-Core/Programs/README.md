@@ -6,7 +6,7 @@ A Program can contain multiple Trials. A Trial can contain multiple Studies.
 
 
 
-### Get - /programs [GET /brapi/v1/programs{?commonCropName}{?programName}{?abbreviation}{?page}{?pageSize}]
+### Get - /programs [GET /brapi/v1/programs{?commonCropName}{?programName}{?abbreviation}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered list of breeding Programs. This list can be filtered by common crop name to narrow results to a specific crop.
 
@@ -21,6 +21,9 @@ Get a filtered list of breeding Programs. This list can be filtered by common cr
 |additionalInfo|object|Additional arbitrary info|
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
 |objective|string|The primary objective of the program|
@@ -34,6 +37,8 @@ Get a filtered list of breeding Programs. This list can be filtered by common cr
     + commonCropName (Optional, ) ... Filter by the common crop name. Exact match.
     + programName (Optional, ) ... Filter by program name. Exact match.
     + abbreviation (Optional, ) ... Filter by program abbreviation. Exact match.
+    + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
+    + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -78,6 +83,24 @@ Get a filtered list of breeding Programs. This list can be filtered by common cr
                 "additionalInfo": {},
                 "commonCropName": "Tomatillo",
                 "documentationURL": "https://wiki.brapi.org",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "leadPersonDbId": "fe6f5c50",
                 "leadPersonName": "Bob Robertson",
                 "objective": "Make a better tomatillo",
@@ -119,6 +142,9 @@ Add new breeding Programs to the database. The `programDbId` is set by the serve
 |additionalInfo|object|Additional arbitrary info|
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
 |objective|string|The primary objective of the program|
@@ -134,6 +160,9 @@ Add new breeding Programs to the database. The `programDbId` is set by the serve
 |additionalInfo|object|Additional arbitrary info|
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
 |objective|string|The primary objective of the program|
@@ -156,6 +185,24 @@ Add new breeding Programs to the database. The `programDbId` is set by the serve
         "additionalInfo": {},
         "commonCropName": "Tomatillo",
         "documentationURL": "https://wiki.brapi.org",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "leadPersonDbId": "fe6f5c50",
         "leadPersonName": "Bob Robertson",
         "objective": "Make a better tomatillo",
@@ -203,6 +250,24 @@ Add new breeding Programs to the database. The `programDbId` is set by the serve
                 "additionalInfo": {},
                 "commonCropName": "Tomatillo",
                 "documentationURL": "https://wiki.brapi.org",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "leadPersonDbId": "fe6f5c50",
                 "leadPersonName": "Bob Robertson",
                 "objective": "Make a better tomatillo",
@@ -246,6 +311,9 @@ Get a single breeding Program by Id. This can be used to quickly get the details
 |additionalInfo|object|Additional arbitrary info|
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
 |objective|string|The primary objective of the program|
@@ -297,6 +365,24 @@ Get a single breeding Program by Id. This can be used to quickly get the details
         "additionalInfo": {},
         "commonCropName": "Tomatillo",
         "documentationURL": "https://wiki.brapi.org",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "leadPersonDbId": "fe6f5c50",
         "leadPersonName": "Bob Robertson",
         "objective": "Make a better tomatillo",
@@ -336,6 +422,9 @@ Update the details of an existing breeding Program.
 |additionalInfo|object|Additional arbitrary info|
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
 |objective|string|The primary objective of the program|
@@ -350,6 +439,9 @@ Update the details of an existing breeding Program.
 |additionalInfo|object|Additional arbitrary info|
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
 |objective|string|The primary objective of the program|
@@ -372,6 +464,24 @@ Update the details of an existing breeding Program.
     "additionalInfo": {},
     "commonCropName": "Tomatillo",
     "documentationURL": "https://wiki.brapi.org",
+    "externalReferences": [
+        {
+            "referenceID": "doi:10.155454/12349537E12",
+            "referenceSource": "DOI"
+        },
+        {
+            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+            "referenceSource": "OBO Library"
+        },
+        {
+            "referenceID": "75a50e76",
+            "referenceSource": "Remote Data Collection Upload Tool"
+        },
+        {
+            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+            "referenceSource": "BrAPI Example Server"
+        }
+    ],
     "leadPersonDbId": "fe6f5c50",
     "leadPersonName": "Bob Robertson",
     "objective": "Make a better tomatillo",
@@ -416,6 +526,24 @@ Update the details of an existing breeding Program.
         "additionalInfo": {},
         "commonCropName": "Tomatillo",
         "documentationURL": "https://wiki.brapi.org",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "leadPersonDbId": "fe6f5c50",
         "leadPersonName": "Bob Robertson",
         "objective": "Make a better tomatillo",
@@ -454,6 +582,8 @@ See Search Services for additional implementation details.
 |---|---|---| 
 |abbreviations|array[string]|An abbreviation of a program to search for|
 |commonCropNames|array[string]|Common name for the crop which this program is for|
+|externalReferenceIDs|array[string]|List of external references for the trait to search for|
+|externalReferenceSources|array[string]|List of external references sources for the trait to search for|
 |leadPersonDbIds|array[string]|The person DbIds of the program leader to search for|
 |leadPersonNames|array[string]|The names of the program leader to search for|
 |objectives|array[string]|A program objective to search for|
@@ -472,6 +602,9 @@ See Search Services for additional implementation details.
 |additionalInfo|object|Additional arbitrary info|
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
 |objective|string|The primary objective of the program|
@@ -496,6 +629,14 @@ See Search Services for additional implementation details.
     "commonCropNames": [
         "Tomatillo",
         "Paw Paw"
+    ],
+    "externalReferenceIDs": [
+        "http://purl.obolibrary.org/obo/ro.owl",
+        "14a19841"
+    ],
+    "externalReferenceSources": [
+        "OBO Library",
+        "Field App Name"
     ],
     "leadPersonDbIds": [
         "d8bd96c7",
@@ -561,6 +702,24 @@ See Search Services for additional implementation details.
                 "additionalInfo": {},
                 "commonCropName": "Tomatillo",
                 "documentationURL": "https://wiki.brapi.org",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "leadPersonDbId": "fe6f5c50",
                 "leadPersonName": "Bob Robertson",
                 "objective": "Make a better tomatillo",
@@ -642,6 +801,9 @@ See Search Services for additional implementation details.
 |additionalInfo|object|Additional arbitrary info|
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
 |objective|string|The primary objective of the program|
@@ -733,6 +895,24 @@ See Search Services for additional implementation details.
                 "additionalInfo": {},
                 "commonCropName": "Tomatillo",
                 "documentationURL": "https://wiki.brapi.org",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "leadPersonDbId": "fe6f5c50",
                 "leadPersonName": "Bob Robertson",
                 "objective": "Make a better tomatillo",

@@ -8,7 +8,7 @@ API to manage the details of observation variable Methods. An observation variab
 
 
 
-### Get - /methods [GET /brapi/v1/methods{?page}{?pageSize}]
+### Get - /methods [GET /brapi/v1/methods{?methodDbId}{?observationVariableDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Returns a list of Methods available on a server.
 
@@ -22,7 +22,11 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 |---|---|---| 
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
+|bibliographicalReference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 |description|string|Method description  MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 |methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |methodDbId|string|Method unique identifier|
@@ -34,12 +38,15 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|reference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 
 
  
 
 + Parameters
+    + methodDbId (Optional, ) ... The unique identifier for a method
+    + observationVariableDbId (Optional, ) ... The unique identifier for an observation variable
+    + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
+    + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -81,7 +88,26 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
         "data": [
             {
                 "additionalInfo": {},
+                "bibliographicalReference": "Smith, 1893, Really Cool Paper, Popular Journal",
                 "description": "A measuring tape was used",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "formula": "a^2 + b^2 = c^2",
                 "methodClass": "Measurement",
                 "methodDbId": "0adb2764",
@@ -100,8 +126,7 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
                     "ontologyDbId": "6b071868",
                     "ontologyName": "The Crop Ontology",
                     "version": "7.2.3"
-                },
-                "reference": "Smith, 1893, Really Cool Paper, Popular Journal"
+                }
             }
         ]
     }
@@ -135,7 +160,11 @@ Create a new method object in the database
 |Field|Type|Description|
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
+|bibliographicalReference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 |description|string|Method description  MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 |methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |methodName|string|Human readable name for the method  MIAPPE V1.1 (DM-88) Method  Name of the method of observation|
@@ -146,7 +175,6 @@ Create a new method object in the database
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|reference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 
 
 **Response Fields** 
@@ -155,7 +183,11 @@ Create a new method object in the database
 |---|---|---| 
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
+|bibliographicalReference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 |description|string|Method description  MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 |methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |methodDbId|string|Method unique identifier|
@@ -167,7 +199,6 @@ Create a new method object in the database
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|reference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 
 
  
@@ -182,7 +213,26 @@ Create a new method object in the database
 [
     {
         "additionalInfo": {},
+        "bibliographicalReference": "Smith, 1893, Really Cool Paper, Popular Journal",
         "description": "A measuring tape was used",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "formula": "a^2 + b^2 = c^2",
         "methodClass": "Measurement",
         "methodName": "Measuring Tape",
@@ -200,8 +250,7 @@ Create a new method object in the database
             "ontologyDbId": "6b071868",
             "ontologyName": "The Crop Ontology",
             "version": "7.2.3"
-        },
-        "reference": "Smith, 1893, Really Cool Paper, Popular Journal"
+        }
     }
 ]
 ```
@@ -242,7 +291,26 @@ Create a new method object in the database
         "data": [
             {
                 "additionalInfo": {},
+                "bibliographicalReference": "Smith, 1893, Really Cool Paper, Popular Journal",
                 "description": "A measuring tape was used",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "formula": "a^2 + b^2 = c^2",
                 "methodClass": "Measurement",
                 "methodDbId": "0adb2764",
@@ -261,8 +329,7 @@ Create a new method object in the database
                     "ontologyDbId": "6b071868",
                     "ontologyName": "The Crop Ontology",
                     "version": "7.2.3"
-                },
-                "reference": "Smith, 1893, Really Cool Paper, Popular Journal"
+                }
             }
         ]
     }
@@ -300,7 +367,11 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 |Field|Type|Description|
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
+|bibliographicalReference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 |description|string|Method description  MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 |methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |methodDbId|string|Method unique identifier|
@@ -312,7 +383,6 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|reference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 
 
  
@@ -356,7 +426,26 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
     },
     "result": {
         "additionalInfo": {},
+        "bibliographicalReference": "Smith, 1893, Really Cool Paper, Popular Journal",
         "description": "A measuring tape was used",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "formula": "a^2 + b^2 = c^2",
         "methodClass": "Measurement",
         "methodDbId": "0adb2764",
@@ -375,8 +464,7 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
             "ontologyDbId": "6b071868",
             "ontologyName": "The Crop Ontology",
             "version": "7.2.3"
-        },
-        "reference": "Smith, 1893, Really Cool Paper, Popular Journal"
+        }
     }
 }
 ```
@@ -413,7 +501,11 @@ Update the details of an existing method
 |Field|Type|Description|
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
+|bibliographicalReference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 |description|string|Method description  MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 |methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |methodName|string|Human readable name for the method  MIAPPE V1.1 (DM-88) Method  Name of the method of observation|
@@ -424,7 +516,6 @@ Update the details of an existing method
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|reference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 
 
 **Response Fields** 
@@ -432,7 +523,11 @@ Update the details of an existing method
 |Field|Type|Description|
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
+|bibliographicalReference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 |description|string|Method description  MIAPPE V1.1 (DM-90) Method description - Textual description of the method, which may extend a method defined in an external reference with specific parameters, e.g. growth stage, inoculation precise organ (leaf number)|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |formula|string|For computational methods i.e., when the method consists in assessing the trait by computing measurements, write the generic formula used for the calculation|
 |methodClass|string|Method class (examples: "Measurement", "Counting", "Estimation", "Computation", etc.)|
 |methodDbId|string|Method unique identifier|
@@ -444,7 +539,6 @@ Update the details of an existing method
 |ontologyDbId|string|Ontology database unique identifier|
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
-|reference|string|Bibliographical reference describing the method.  MIAPPE V1.1 (DM-91) Reference associated to the method - URI/DOI of reference describing the method.|
 
 
  
@@ -459,7 +553,26 @@ Update the details of an existing method
 ```
 {
     "additionalInfo": {},
+    "bibliographicalReference": "Smith, 1893, Really Cool Paper, Popular Journal",
     "description": "A measuring tape was used",
+    "externalReferences": [
+        {
+            "referenceID": "doi:10.155454/12349537E12",
+            "referenceSource": "DOI"
+        },
+        {
+            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+            "referenceSource": "OBO Library"
+        },
+        {
+            "referenceID": "75a50e76",
+            "referenceSource": "Remote Data Collection Upload Tool"
+        },
+        {
+            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+            "referenceSource": "BrAPI Example Server"
+        }
+    ],
     "formula": "a^2 + b^2 = c^2",
     "methodClass": "Measurement",
     "methodName": "Measuring Tape",
@@ -477,8 +590,7 @@ Update the details of an existing method
         "ontologyDbId": "6b071868",
         "ontologyName": "The Crop Ontology",
         "version": "7.2.3"
-    },
-    "reference": "Smith, 1893, Really Cool Paper, Popular Journal"
+    }
 }
 ```
 
@@ -516,7 +628,26 @@ Update the details of an existing method
     },
     "result": {
         "additionalInfo": {},
+        "bibliographicalReference": "Smith, 1893, Really Cool Paper, Popular Journal",
         "description": "A measuring tape was used",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "formula": "a^2 + b^2 = c^2",
         "methodClass": "Measurement",
         "methodDbId": "0adb2764",
@@ -535,8 +666,7 @@ Update the details of an existing method
             "ontologyDbId": "6b071868",
             "ontologyName": "The Crop Ontology",
             "version": "7.2.3"
-        },
-        "reference": "Smith, 1893, Really Cool Paper, Popular Journal"
+        }
     }
 }
 ```

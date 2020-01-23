@@ -7,7 +7,7 @@ API methods for tracking/managing plant samples and related meta-data. A 'Sample
 
 
 
-### Get - /samples [GET /brapi/v1/samples{?sampleDbId}{?observationUnitDbId}{?plateDbId}{?germplasmDbId}{?studyDbId}{?page}{?pageSize}]
+### Get - /samples [GET /brapi/v1/samples{?sampleDbId}{?observationUnitDbId}{?plateDbId}{?germplasmDbId}{?studyDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
 
@@ -20,6 +20,9 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
 |plateDbId|string|The ID which uniquely identifies a plate of samples|
@@ -49,6 +52,8 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
     + plateDbId (Optional, ) ... the internal DB id for a plate of samples
     + germplasmDbId (Optional, ) ... the internal DB id for a germplasm
     + studyDbId (Optional, ) ... Filter by study DbId
+    + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
+    + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -91,6 +96,24 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
             {
                 "additionalInfo": {},
                 "column": 6,
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "germplasmDbId": "7e08d538",
                 "observationUnitDbId": "073a3ce5",
                 "plateDbId": "2dce16d1",
@@ -144,6 +167,9 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
 |plateDbId|string|The ID which uniquely identifies a plate of samples|
@@ -171,6 +197,9 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
 |plateDbId|string|The ID which uniquely identifies a plate of samples|
@@ -205,6 +234,24 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
     {
         "additionalInfo": {},
         "column": 6,
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "germplasmDbId": "7e08d538",
         "observationUnitDbId": "073a3ce5",
         "plateDbId": "2dce16d1",
@@ -264,6 +311,24 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
             {
                 "additionalInfo": {},
                 "column": 6,
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "germplasmDbId": "7e08d538",
                 "observationUnitDbId": "073a3ce5",
                 "plateDbId": "2dce16d1",
@@ -319,6 +384,9 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
 |plateDbId|string|The ID which uniquely identifies a plate of samples|
@@ -382,6 +450,24 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
     "result": {
         "additionalInfo": {},
         "column": 6,
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "germplasmDbId": "7e08d538",
         "observationUnitDbId": "073a3ce5",
         "plateDbId": "2dce16d1",
@@ -438,6 +524,9 @@ Update the details of an existing Sample
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
 |plateDbId|string|The ID which uniquely identifies a plate of samples|
@@ -464,6 +553,9 @@ Update the details of an existing Sample
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
 |plateDbId|string|The ID which uniquely identifies a plate of samples|
@@ -498,6 +590,24 @@ Update the details of an existing Sample
 {
     "additionalInfo": {},
     "column": 6,
+    "externalReferences": [
+        {
+            "referenceID": "doi:10.155454/12349537E12",
+            "referenceSource": "DOI"
+        },
+        {
+            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+            "referenceSource": "OBO Library"
+        },
+        {
+            "referenceID": "75a50e76",
+            "referenceSource": "Remote Data Collection Upload Tool"
+        },
+        {
+            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+            "referenceSource": "BrAPI Example Server"
+        }
+    ],
     "germplasmDbId": "7e08d538",
     "observationUnitDbId": "073a3ce5",
     "plateDbId": "2dce16d1",
@@ -554,6 +664,24 @@ Update the details of an existing Sample
     "result": {
         "additionalInfo": {},
         "column": 6,
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "germplasmDbId": "7e08d538",
         "observationUnitDbId": "073a3ce5",
         "plateDbId": "2dce16d1",
@@ -610,6 +738,8 @@ See Search Services for additional implementation details.
 
 |Field|Type|Description|
 |---|---|---| 
+|externalReferenceIDs|array[string]|List of external references for the trait to search for|
+|externalReferenceSources|array[string]|List of external references sources for the trait to search for|
 |germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm to search for|
 |germplasmNames|array[string]|List of human readable names to identify germplasm to search for|
 |observationUnitDbIds|array[string]|The ID which uniquely identifies an observation unit|
@@ -628,6 +758,9 @@ See Search Services for additional implementation details.
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
 |plateDbId|string|The ID which uniquely identifies a plate of samples|
@@ -659,6 +792,14 @@ See Search Services for additional implementation details.
 + Request (application/json)
 ```
 {
+    "externalReferenceIDs": [
+        "http://purl.obolibrary.org/obo/ro.owl",
+        "14a19841"
+    ],
+    "externalReferenceSources": [
+        "OBO Library",
+        "Field App Name"
+    ],
     "germplasmDbIds": [
         "e9c6edd7",
         "1b1df4a6"
@@ -729,6 +870,24 @@ See Search Services for additional implementation details.
             {
                 "additionalInfo": {},
                 "column": 6,
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "germplasmDbId": "7e08d538",
                 "observationUnitDbId": "073a3ce5",
                 "plateDbId": "2dce16d1",
@@ -823,6 +982,9 @@ See Search Services for additional implementation details.
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
 |plateDbId|string|The ID which uniquely identifies a plate of samples|
@@ -926,6 +1088,24 @@ See Search Services for additional implementation details.
             {
                 "additionalInfo": {},
                 "column": 6,
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "germplasmDbId": "7e08d538",
                 "observationUnitDbId": "073a3ce5",
                 "plateDbId": "2dce16d1",

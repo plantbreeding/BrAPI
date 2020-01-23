@@ -5,7 +5,7 @@
 
 
 
-### Get - /plannedcrosses [GET /brapi/v1/plannedcrosses{?crossingProjectDbId}{?page}{?pageSize}]
+### Get - /plannedcrosses [GET /brapi/v1/plannedcrosses{?crossingProjectDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered list of Planned Cross entities.
 
@@ -20,6 +20,9 @@ Get a filtered list of Planned Cross entities.
 |crossType|string|the type of cross|
 |crossingProjectDbId|string|the unique identifier for a crossing project|
 |crossingProjectName|string|the human readable name for a crossing project|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |parent1|object||
 |germplasmDbId|string|the unique identifier for a germplasm|
 |germplasmName|string|the human readable name for a germplasm|
@@ -40,6 +43,8 @@ Get a filtered list of Planned Cross entities.
 
 + Parameters
     + crossingProjectDbId (Optional, ) ... Search for Crossing Projects with this unique id
+    + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
+    + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -84,6 +89,24 @@ Get a filtered list of Planned Cross entities.
                 "crossType": "BIPARENTAL",
                 "crossingProjectDbId": "696d7c92",
                 "crossingProjectName": "my_Ibadan_Crosses_2018",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "parent1": {
                     "germplasmDbId": "d34b10c3",
                     "germplasmName": "TME_419",
@@ -146,6 +169,9 @@ Create new Planned Cross entities on this server
 |crossType|string|the type of cross|
 |crossingProjectDbId|string|the unique identifier for a crossing project|
 |crossingProjectName|string|the human readable name for a crossing project|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |parent1|object||
 |germplasmDbId|string|the unique identifier for a germplasm|
 |germplasmName|string|the human readable name for a germplasm|
@@ -170,6 +196,9 @@ Create new Planned Cross entities on this server
 |crossType|string|the type of cross|
 |crossingProjectDbId|string|the unique identifier for a crossing project|
 |crossingProjectName|string|the human readable name for a crossing project|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |parent1|object||
 |germplasmDbId|string|the unique identifier for a germplasm|
 |germplasmName|string|the human readable name for a germplasm|
@@ -201,6 +230,24 @@ Create new Planned Cross entities on this server
         "crossType": "BIPARENTAL",
         "crossingProjectDbId": "696d7c92",
         "crossingProjectName": "my_Ibadan_Crosses_2018",
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            },
+            {
+                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                "referenceSource": "BrAPI Example Server"
+            }
+        ],
         "parent1": {
             "germplasmDbId": "d34b10c3",
             "germplasmName": "TME_419",
@@ -269,6 +316,24 @@ Create new Planned Cross entities on this server
                 "crossType": "BIPARENTAL",
                 "crossingProjectDbId": "696d7c92",
                 "crossingProjectName": "my_Ibadan_Crosses_2018",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "parent1": {
                     "germplasmDbId": "d34b10c3",
                     "germplasmName": "TME_419",
@@ -338,6 +403,9 @@ Update existing Planned Cross entities on this server
 |crossType|string|the type of cross|
 |crossingProjectDbId|string|the unique identifier for a crossing project|
 |crossingProjectName|string|the human readable name for a crossing project|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
 |parent1|object||
 |germplasmDbId|string|the unique identifier for a germplasm|
 |germplasmName|string|the human readable name for a germplasm|
@@ -433,6 +501,24 @@ Update existing Planned Cross entities on this server
                 "crossType": "BIPARENTAL",
                 "crossingProjectDbId": "696d7c92",
                 "crossingProjectName": "my_Ibadan_Crosses_2018",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
                 "parent1": {
                     "germplasmDbId": "d34b10c3",
                     "germplasmName": "TME_419",
