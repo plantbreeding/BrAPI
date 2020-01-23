@@ -8,7 +8,7 @@ components:
     ListSearchRequest:
       allOf:
       - $ref: '#/components/schemas/SearchRequestParametersPaging'
-      - $ref: '#/components/schemas/SearchRequestParametersExternalRefereces'
+      - $ref: '#/components/schemas/SearchRequestParametersExternalreferences'
       - type: object
         properties:
           dateCreatedRangeStart:

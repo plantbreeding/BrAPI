@@ -10,7 +10,7 @@ components:
       - $ref: '#/components/schemas/SearchRequestParametersPaging'
       - $ref: '#/components/schemas/SearchRequestParametersGermplasm'
       - $ref: '#/components/schemas/SearchRequestParametersStudies'
-      - $ref: '#/components/schemas/SearchRequestParametersExternalRefereces'
+      - $ref: '#/components/schemas/SearchRequestParametersExternalreferences'
       - type: object
         properties: 
           observationUnitDbIds: 

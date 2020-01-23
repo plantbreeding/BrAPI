@@ -5,7 +5,7 @@ openapi: 3.0.0
 paths: {}
 components:
   schemas:
-    SearchRequestParametersExternalRefereces: 
+    SearchRequestParametersExternalreferences: 
       type: object
       properties:
         externalReferenceIDs: 

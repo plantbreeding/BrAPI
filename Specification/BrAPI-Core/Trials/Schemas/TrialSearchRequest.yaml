@@ -13,7 +13,7 @@ components:
       - $ref: '#/components/schemas/SearchRequestParametersTrials'
       - $ref: '#/components/schemas/SearchRequestParametersStudies'
       - $ref: '#/components/schemas/SearchRequestParametersLocations'
-      - $ref: '#/components/schemas/SearchRequestParametersExternalRefereces'
+      - $ref: '#/components/schemas/SearchRequestParametersExternalreferences'
       - type: object
         properties:
           active:
