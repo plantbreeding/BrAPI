@@ -21,6 +21,10 @@ components:
           description: Name of the germplasm. It can be the preferred name and does not have to be unique.
           type: string
           example: A0000001
+        seedLotDbId:
+          description: The unique identifier for the originating Seed Lot
+          type: string
+          example: 261ecb09
         locationDbId:
           description: The ID which uniquely identifies a location, associated with this study
           type: string
