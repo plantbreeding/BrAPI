@@ -13,6 +13,12 @@ paths:
         
         The values are used to supply the `observationLevel` parameter in the observation unit details call.
       parameters:
+      - description: Filter by study DbId
+        in: query
+        name: studyDbId
+        required: false
+        schema:
+          type: string
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
       - $ref: '#/components/parameters/authorizationHeader'
