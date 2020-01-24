@@ -92,9 +92,9 @@ components:
           type: string
           example: Grape_Yield_Spring_2018
         studyPUI:
-          description: A perminant unique identifier associated with this study data. For example, a URI or DOI
+          description: A permanent unique identifier associated with this study data. For example, a URI or DOI
           type: string
-          example: doi:10.155454/12349537E12
+          example: doi:10.155454/12349537312
         studyType:
           description: The type of study being performed. ex. "Yield Trial", etc
           type: string
