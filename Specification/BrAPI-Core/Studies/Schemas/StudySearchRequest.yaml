@@ -61,9 +61,9 @@ components:
             type: array
             example: ['Yield Trial', 'Disease Resistance Trial']
           studyPUIs:
-            description: Perminant unique identifier associated with study data. For example, a URI or DOI
+            description: Permanent unique identifier associated with study data. For example, a URI or DOI
             type: array
             items:
               type: string
-            example: ['doi:10.155454/12349537E12', 'https://pui.per/d8dd35e1']
+            example: ['doi:10.155454/12349537312', 'https://pui.per/d8dd35e1']
 
