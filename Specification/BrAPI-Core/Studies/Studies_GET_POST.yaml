@@ -53,6 +53,12 @@ paths:
         required: false
         schema:
           type: string
+      - description: Filter by study PUI
+        in: query
+        name: studyPUI
+        required: false
+        schema:
+          type: string
       - description: Filter by germplasm DbId
         in: query
         name: germplasmDbId
