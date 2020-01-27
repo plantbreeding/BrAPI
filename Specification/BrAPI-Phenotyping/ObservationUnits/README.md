@@ -7,7 +7,7 @@ API to retrieve and submit data (phenotypes, environment variables) from studies
 
 
 
-### Get - /observationlevels [GET /brapi/v1/observationlevels{?page}{?pageSize}]
+### Get - /observationlevels [GET /brapi/v1/observationlevels{?studyDbId}{?page}{?pageSize}]
 
 Call to retrieve the list of supported observation levels. 
 
@@ -27,6 +27,7 @@ The values are used to supply the `observationLevel` parameter in the observatio
  
 
 + Parameters
+    + studyDbId (Optional, ) ... Filter by study DbId
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -131,6 +132,7 @@ Get a filtered set of Observation Units
 |plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |programDbId|string|The ID which uniquely identifies a program|
 |programName|string|The human readable name of a program|
+|seedLotDbId|string|The unique identifier for the originating Seed Lot|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |studyName|string|The human readable name for a study|
 |treatments|array[object]|List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.|
@@ -247,6 +249,7 @@ Get a filtered set of Observation Units
                 "plotNumber": "01",
                 "programDbId": "2d763a7a",
                 "programName": "The Perfect Breeding Program",
+                "seedLotDbId": "261ecb09",
                 "studyDbId": "9865addc",
                 "studyName": "Purple_Tomato_1",
                 "treatments": [
@@ -316,6 +319,7 @@ Add new Observation Units
 |plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |programDbId|string|The ID which uniquely identifies a program|
 |programName|string|The human readable name of a program|
+|seedLotDbId|string|The unique identifier for the originating Seed Lot|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |studyName|string|The human readable name for a study|
 |treatments|array[object]|List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.|
@@ -358,6 +362,7 @@ Add new Observation Units
 |plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |programDbId|string|The ID which uniquely identifies a program|
 |programName|string|The human readable name of a program|
+|seedLotDbId|string|The unique identifier for the originating Seed Lot|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |studyName|string|The human readable name for a study|
 |treatments|array[object]|List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.|
@@ -432,6 +437,7 @@ Add new Observation Units
         "plotNumber": "01",
         "programDbId": "2d763a7a",
         "programName": "The Perfect Breeding Program",
+        "seedLotDbId": "261ecb09",
         "studyDbId": "9865addc",
         "studyName": "Purple_Tomato_1",
         "treatments": [
@@ -536,6 +542,7 @@ Add new Observation Units
                 "plotNumber": "01",
                 "programDbId": "2d763a7a",
                 "programName": "The Perfect Breeding Program",
+                "seedLotDbId": "261ecb09",
                 "studyDbId": "9865addc",
                 "studyName": "Purple_Tomato_1",
                 "treatments": [
@@ -615,6 +622,7 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 |plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |programDbId|string|The ID which uniquely identifies a program|
 |programName|string|The human readable name of a program|
+|seedLotDbId|string|The unique identifier for the originating Seed Lot|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |studyName|string|The human readable name for a study|
 |treatments|array[object]|List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.|
@@ -726,6 +734,7 @@ Note - In strictly typed languages, this structure can be represented as a Map o
                 "plotNumber": "01",
                 "programDbId": "2d763a7a",
                 "programName": "The Perfect Breeding Program",
+                "seedLotDbId": "261ecb09",
                 "studyDbId": "9865addc",
                 "studyName": "Purple_Tomato_1",
                 "treatments": [
@@ -1037,6 +1046,7 @@ Get the details of a specific Observation Unit
 |plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |programDbId|string|The ID which uniquely identifies a program|
 |programName|string|The human readable name of a program|
+|seedLotDbId|string|The unique identifier for the originating Seed Lot|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |studyName|string|The human readable name for a study|
 |treatments|array[object]|List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.|
@@ -1141,6 +1151,7 @@ Get the details of a specific Observation Unit
         "plotNumber": "01",
         "programDbId": "2d763a7a",
         "programName": "The Perfect Breeding Program",
+        "seedLotDbId": "261ecb09",
         "studyDbId": "9865addc",
         "studyName": "Purple_Tomato_1",
         "treatments": [
@@ -1208,6 +1219,7 @@ Update an existing Observation Units
 |plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |programDbId|string|The ID which uniquely identifies a program|
 |programName|string|The human readable name of a program|
+|seedLotDbId|string|The unique identifier for the originating Seed Lot|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |studyName|string|The human readable name for a study|
 |treatments|array[object]|List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.|
@@ -1249,6 +1261,7 @@ Update an existing Observation Units
 |plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |programDbId|string|The ID which uniquely identifies a program|
 |programName|string|The human readable name of a program|
+|seedLotDbId|string|The unique identifier for the originating Seed Lot|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |studyName|string|The human readable name for a study|
 |treatments|array[object]|List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.|
@@ -1323,6 +1336,7 @@ Update an existing Observation Units
     "plotNumber": "01",
     "programDbId": "2d763a7a",
     "programName": "The Perfect Breeding Program",
+    "seedLotDbId": "261ecb09",
     "studyDbId": "9865addc",
     "studyName": "Purple_Tomato_1",
     "treatments": [
@@ -1424,6 +1438,7 @@ Update an existing Observation Units
         "plotNumber": "01",
         "programDbId": "2d763a7a",
         "programName": "The Perfect Breeding Program",
+        "seedLotDbId": "261ecb09",
         "studyDbId": "9865addc",
         "studyName": "Purple_Tomato_1",
         "treatments": [
@@ -1535,6 +1550,7 @@ observationValue data type inferred from the ontology
 |plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |programDbId|string|The ID which uniquely identifies a program|
 |programName|string|The human readable name of a program|
+|seedLotDbId|string|The unique identifier for the originating Seed Lot|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |studyName|string|The human readable name for a study|
 |treatments|array[object]|List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.|
@@ -1702,6 +1718,7 @@ observationValue data type inferred from the ontology
                 "plotNumber": "01",
                 "programDbId": "2d763a7a",
                 "programName": "The Perfect Breeding Program",
+                "seedLotDbId": "261ecb09",
                 "studyDbId": "9865addc",
                 "studyName": "Purple_Tomato_1",
                 "treatments": [
@@ -1813,6 +1830,7 @@ See Search Services for additional implementation details.
 |plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |programDbId|string|The ID which uniquely identifies a program|
 |programName|string|The human readable name of a program|
+|seedLotDbId|string|The unique identifier for the originating Seed Lot|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |studyName|string|The human readable name for a study|
 |treatments|array[object]|List of treatments applied to an observation unit.  MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.|
@@ -1957,6 +1975,7 @@ See Search Services for additional implementation details.
                 "plotNumber": "01",
                 "programDbId": "2d763a7a",
                 "programName": "The Perfect Breeding Program",
+                "seedLotDbId": "261ecb09",
                 "studyDbId": "9865addc",
                 "studyName": "Purple_Tomato_1",
                 "treatments": [

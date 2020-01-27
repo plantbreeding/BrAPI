@@ -959,8 +959,12 @@ Get the details of a specific Trial
 |type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation|
 |culturalPractices|string|MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.|
 |dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
-|dataLinkName|string|The name of the external data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
-|type|string|The type of external data link|
+|dataFormat|string|The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)|
+|description|string|The general description of this data link|
+|fileFormat|string|The MIME type of the file (ie text/csv, application/excel, application/zip).|
+|name|string|The name of the external data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
+|provenance|string|The description of the origin or ownership of this linked data. Could be a formal reference to software, method, or workflow.|
+|scientificType|string|The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc|
 |url|string (uri)|MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.|
 |version|string|MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
@@ -1017,6 +1021,7 @@ Get the details of a specific Trial
 |studyDbId|string|The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.|
 |studyDescription|string|The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study|
 |studyName|string|The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study|
+|studyPUI|string|A permanent unique identifier associated with this study data. For example, a URI or DOI|
 |studyType|string|The type of study being performed. ex. "Yield Trial", etc|
 |trialDbId|string|The ID which uniquely identifies a trial|
 |trialName|string|The human readable name of a trial|
@@ -1078,10 +1083,14 @@ Get the details of a specific Trial
         "culturalPractices": "Irrigation was applied according needs during summer to prevent water stress.",
         "dataLinks": [
             {
-                "dataLinkName": "image-archive.zip",
-                "type": "Image Archive",
+                "dataFormat": "Image Archive",
+                "description": "Raw drone images collected for this study",
+                "fileFormat": "application/zip",
+                "name": "image-archive.zip",
+                "provenance": "Image Processing Pipeline, built at the University of Antarctica: https://github.com/antarctica/pipeline",
+                "scientificType": "Environmental",
                 "url": "https://brapi.org/image-archive.zip",
-                "version": "1.0.0"
+                "version": "1.0.3"
             }
         ],
         "documentationURL": "https://wiki.brapi.org",
@@ -1184,6 +1193,7 @@ Get the details of a specific Trial
         "studyDbId": "175ac75a",
         "studyDescription": "This is a yield study for Spring 2018",
         "studyName": "Grape_Yield_Spring_2018",
+        "studyPUI": "doi:10.155454/12349537312",
         "studyType": "Phenotyping",
         "trialDbId": "48b327ea",
         "trialName": "Grape_Yield_Trial"
@@ -1269,8 +1279,12 @@ Update the details of an existing Trial
 |type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation|
 |culturalPractices|string|MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.|
 |dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
-|dataLinkName|string|The name of the external data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
-|type|string|The type of external data link|
+|dataFormat|string|The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)|
+|description|string|The general description of this data link|
+|fileFormat|string|The MIME type of the file (ie text/csv, application/excel, application/zip).|
+|name|string|The name of the external data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
+|provenance|string|The description of the origin or ownership of this linked data. Could be a formal reference to software, method, or workflow.|
+|scientificType|string|The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc|
 |url|string (uri)|MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.|
 |version|string|MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
@@ -1327,6 +1341,7 @@ Update the details of an existing Trial
 |studyDbId|string|The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.|
 |studyDescription|string|The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study|
 |studyName|string|The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study|
+|studyPUI|string|A permanent unique identifier associated with this study data. For example, a URI or DOI|
 |studyType|string|The type of study being performed. ex. "Yield Trial", etc|
 |trialDbId|string|The ID which uniquely identifies a trial|
 |trialName|string|The human readable name of a trial|
@@ -1448,10 +1463,14 @@ Update the details of an existing Trial
         "culturalPractices": "Irrigation was applied according needs during summer to prevent water stress.",
         "dataLinks": [
             {
-                "dataLinkName": "image-archive.zip",
-                "type": "Image Archive",
+                "dataFormat": "Image Archive",
+                "description": "Raw drone images collected for this study",
+                "fileFormat": "application/zip",
+                "name": "image-archive.zip",
+                "provenance": "Image Processing Pipeline, built at the University of Antarctica: https://github.com/antarctica/pipeline",
+                "scientificType": "Environmental",
                 "url": "https://brapi.org/image-archive.zip",
-                "version": "1.0.0"
+                "version": "1.0.3"
             }
         ],
         "documentationURL": "https://wiki.brapi.org",
@@ -1554,6 +1573,7 @@ Update the details of an existing Trial
         "studyDbId": "175ac75a",
         "studyDescription": "This is a yield study for Spring 2018",
         "studyName": "Grape_Yield_Spring_2018",
+        "studyPUI": "doi:10.155454/12349537312",
         "studyType": "Phenotyping",
         "trialDbId": "48b327ea",
         "trialName": "Grape_Yield_Trial"
