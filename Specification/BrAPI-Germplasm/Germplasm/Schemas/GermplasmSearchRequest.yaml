@@ -20,7 +20,7 @@ components:
               type: string
             type: array
             example: ['A0000003', 'A0000477']
-          germplasmGenus: 
+          genus: 
             description: List of Genus names to identify germplasm
             items:
               type: string
@@ -32,7 +32,7 @@ components:
               type: string
             type: array
             example: ['http://pui.per/accession/A0000003', 'http://pui.per/accession/A0000477']
-          germplasmSpecies:
+          species:
             description: List of Species names to identify germplasm
             items:
               type: string

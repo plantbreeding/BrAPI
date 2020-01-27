@@ -106,7 +106,7 @@ components:
                 example: http://pui.per/accession/A0000003
             type: object
           type: array
-        germplasmGenus:
+        genus:
           description: |-
             Genus name for taxon. Initial uppercase letter required.
             
@@ -126,7 +126,7 @@ components:
             MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.
           type: string
           example: http://pui.per/accession/A0000003
-        germplasmSpecies:
+        species:
           description: |-
             Specific epithet portion of the scientific name in lowercase letters.
             
@@ -161,7 +161,7 @@ components:
             MCPD (v2.1) (SPAUTHOR) 7. Provide the authority for the species name.
           type: string
           example: Smith, 1822
-        germplasmSubtaxa:
+        subtaxa:
           description: |-
             Subtaxon can be used to store any additional taxonomic identifier.
             

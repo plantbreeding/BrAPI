@@ -45,13 +45,13 @@ paths:
         required: false
         schema:
           type: string
-      - name: germplasmGenus
+      - name: genus
         description: Genus name to identify germplasm
         in: query
         required: false
         schema:
           type: string
-      - name: germplasmSpecies
+      - name: species
         description: Species name to identify germplasm
         in: query
         required: false
