@@ -4,7 +4,7 @@
 
 
 
-### Post - /search/variants [POST /brapi/v1/search/variants]
+### Post - /search/variants [POST /brapi/v2/search/variants]
 
 Gets a list of `Variant` matching the search criteria.
 
@@ -206,7 +206,7 @@ Gets a list of `Variant` matching the search criteria.
 
 
 
-### Get - /search/variants/{searchResultsDbId} [GET /brapi/v1/search/variants/{searchResultsDbId}{?pageToken}{?pageSize}]
+### Get - /search/variants/{searchResultsDbId} [GET /brapi/v2/search/variants/{searchResultsDbId}{?pageToken}{?pageSize}]
 
 Gets a list of `Variant` matching the search criteria.
 
@@ -380,7 +380,7 @@ Gets a list of `Variant` matching the search criteria.
 
 
 
-### Get - /variants [GET /brapi/v1/variants{?variantDbId}{?variantSetDbId}{?pageToken}{?pageSize}]
+### Get - /variants [GET /brapi/v2/variants{?variantDbId}{?variantSetDbId}{?pageToken}{?pageSize}]
 
 Gets a filtered list of `Variants`.
 
@@ -519,7 +519,7 @@ Gets a filtered list of `Variants`.
 
 
 
-### Get - /variants/{variantDbId} [GET /brapi/v1/variants/{variantDbId}]
+### Get - /variants/{variantDbId} [GET /brapi/v2/variants/{variantDbId}]
 
 `GET /variants/{id}` will return a JSON version of `Variant`.
 
@@ -651,7 +651,7 @@ Gets a filtered list of `Variants`.
 
 
 
-### Get - /variants/{variantDbId}/calls [GET /brapi/v1/variants/{variantDbId}/calls{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageToken}{?pageSize}]
+### Get - /variants/{variantDbId}/calls [GET /brapi/v2/variants/{variantDbId}/calls{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageToken}{?pageSize}]
 
 The variant calls for this particular variant. Each one represents the determination of genotype with respect to this variant. `Calls` in this array are implicitly associated with this `Variant`.
 

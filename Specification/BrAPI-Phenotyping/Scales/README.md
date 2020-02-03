@@ -8,7 +8,7 @@ API to manage the details of observation variable Scales. An observation variabl
 
 
 
-### Get - /scales [GET /brapi/v1/scales{?scaleDbId}{?observationVariableDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /scales [GET /brapi/v2/scales{?scaleDbId}{?observationVariableDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Returns a list of Scales available on a server.
 
@@ -177,7 +177,7 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 
 
 
-### Post - /scales [POST /brapi/v1/scales]
+### Post - /scales [POST /brapi/v2/scales]
 
 Create a new scale object in the database
 
@@ -432,7 +432,7 @@ Create a new scale object in the database
 
 
 
-### Get - /scales/{scaleDbId} [GET /brapi/v1/scales/{scaleDbId}]
+### Get - /scales/{scaleDbId} [GET /brapi/v2/scales/{scaleDbId}]
 
 Retrieve details about a specific scale
 
@@ -596,7 +596,7 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
 
 
 
-### Put - /scales/{scaleDbId} [PUT /brapi/v1/scales/{scaleDbId}]
+### Put - /scales/{scaleDbId} [PUT /brapi/v2/scales/{scaleDbId}]
 
 Update the details of an existing scale
 

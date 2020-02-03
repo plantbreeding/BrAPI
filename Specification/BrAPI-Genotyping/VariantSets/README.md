@@ -4,7 +4,7 @@
 
 
 
-### Post - /search/variantsets [POST /brapi/v1/search/variantsets]
+### Post - /search/variantsets [POST /brapi/v2/search/variantsets]
 
 Gets a list of `VariantSet` matching the search criteria.
 
@@ -209,7 +209,7 @@ Gets a list of `VariantSet` matching the search criteria.
 
 
 
-### Get - /search/variantsets/{searchResultsDbId} [GET /brapi/v1/search/variantsets/{searchResultsDbId}{?page}{?pageSize}]
+### Get - /search/variantsets/{searchResultsDbId} [GET /brapi/v2/search/variantsets/{searchResultsDbId}{?page}{?pageSize}]
 
 Gets a list of `VariantSet` matching the search criteria.
 
@@ -377,7 +377,7 @@ Gets a list of `VariantSet` matching the search criteria.
 
 
 
-### Get - /variantsets [GET /brapi/v1/variantsets{?variantSetDbId}{?page}{?pageSize}]
+### Get - /variantsets [GET /brapi/v2/variantsets{?variantSetDbId}{?page}{?pageSize}]
 
 Will return a filtered list of `VariantSet`.
 
@@ -509,7 +509,7 @@ Will return a filtered list of `VariantSet`.
 
 
 
-### Post - /variantsets/extract [POST /brapi/v1/variantsets/extract]
+### Post - /variantsets/extract [POST /brapi/v2/variantsets/extract]
 
 Will perform a search for `Calls` which match the search criteria in `variantSetsExtractRequest`. The results of the search will be used to create a new `VariantSet` on the server. The new `VariantSet` will be returned.
 
@@ -682,7 +682,7 @@ Will perform a search for `Calls` which match the search criteria in `variantSet
 
 
 
-### Get - /variantsets/{variantSetDbId} [GET /brapi/v1/variantsets/{variantSetDbId}]
+### Get - /variantsets/{variantSetDbId} [GET /brapi/v2/variantsets/{variantSetDbId}]
 
 This call will return a JSON version of a `VariantSet`.
 
@@ -812,7 +812,7 @@ This call will return a JSON version of a `VariantSet`.
 
 
 
-### Get - /variantsets/{variantSetDbId}/calls [GET /brapi/v1/variantsets/{variantSetDbId}/calls{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageToken}{?pageSize}]
+### Get - /variantsets/{variantSetDbId}/calls [GET /brapi/v2/variantsets/{variantSetDbId}/calls{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageToken}{?pageSize}]
 
 Gets a list of `Calls` associated with a `VariantSet`.
 
@@ -932,7 +932,7 @@ Gets a list of `Calls` associated with a `VariantSet`.
 
 
 
-### Get - /variantsets/{variantSetDbId}/callsets [GET /brapi/v1/variantsets/{variantSetDbId}/callsets{?callSetDbId}{?callSetName}{?page}{?pageSize}]
+### Get - /variantsets/{variantSetDbId}/callsets [GET /brapi/v2/variantsets/{variantSetDbId}/callsets{?callSetDbId}{?callSetName}{?page}{?pageSize}]
 
 Gets a list of `CallSets` associated with a `VariantSet`.
 
@@ -1034,7 +1034,7 @@ Gets a list of `CallSets` associated with a `VariantSet`.
 
 
 
-### Get - /variantsets/{variantSetDbId}/variants [GET /brapi/v1/variantsets/{variantSetDbId}/variants{?variantDbId}{?pageToken}{?pageSize}]
+### Get - /variantsets/{variantSetDbId}/variants [GET /brapi/v2/variantsets/{variantSetDbId}/variants{?variantDbId}{?pageToken}{?pageSize}]
 
 This call will return an array of `Variants`.
 

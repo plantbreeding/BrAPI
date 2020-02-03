@@ -7,7 +7,7 @@ API methods for tracking/managing plant samples and related meta-data. A 'Sample
 
 
 
-### Get - /samples [GET /brapi/v1/samples{?sampleDbId}{?observationUnitDbId}{?plateDbId}{?germplasmDbId}{?studyDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /samples [GET /brapi/v2/samples{?sampleDbId}{?observationUnitDbId}{?plateDbId}{?germplasmDbId}{?studyDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
 
@@ -157,7 +157,7 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
 
 
 
-### Post - /samples [POST /brapi/v1/samples]
+### Post - /samples [POST /brapi/v2/samples]
 
 Call to register the event of a sample being taken. Sample ID is assigned as a result of the operation and returned in response.
 
@@ -372,7 +372,7 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
 
 
 
-### Get - /samples/{sampleDbId} [GET /brapi/v1/samples/{sampleDbId}]
+### Get - /samples/{sampleDbId} [GET /brapi/v2/samples/{sampleDbId}]
 
 Used to retrieve the details of a single Sample from a Sample Tracking system.
 
@@ -514,7 +514,7 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
 
 
 
-### Put - /samples/{sampleDbId} [PUT /brapi/v1/samples/{sampleDbId}]
+### Put - /samples/{sampleDbId} [PUT /brapi/v2/samples/{sampleDbId}]
 
 Update the details of an existing Sample
 
@@ -728,7 +728,7 @@ Update the details of an existing Sample
 
 
 
-### Post - /search/samples [POST /brapi/v1/search/samples]
+### Post - /search/samples [POST /brapi/v2/search/samples]
 
 Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
 
@@ -967,7 +967,7 @@ See Search Services for additional implementation details.
 
 
 
-### Get - /search/samples/{searchResultsDbId} [GET /brapi/v1/search/samples/{searchResultsDbId}{?page}{?pageSize}]
+### Get - /search/samples/{searchResultsDbId} [GET /brapi/v2/search/samples/{searchResultsDbId}{?page}{?pageSize}]
 
 Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
 

@@ -4,7 +4,7 @@
 
 
 
-### Get - /callsets [GET /brapi/v1/callsets{?callSetDbId}{?callSetName}{?variantSetDbId}{?sampleDbId}{?germplasmDbId}{?page}{?pageSize}]
+### Get - /callsets [GET /brapi/v2/callsets{?callSetDbId}{?callSetName}{?variantSetDbId}{?sampleDbId}{?germplasmDbId}{?page}{?pageSize}]
 
 Gets a filtered list of `CallSet` JSON objects.
 
@@ -108,7 +108,7 @@ Gets a filtered list of `CallSet` JSON objects.
 
 
 
-### Get - /callsets/{callSetDbId} [GET /brapi/v1/callsets/{callSetDbId}]
+### Get - /callsets/{callSetDbId} [GET /brapi/v2/callsets/{callSetDbId}]
 
 Gets a `CallSet` by ID.
 
@@ -206,7 +206,7 @@ Gets a `CallSet` by ID.
 
 
 
-### Get - /callsets/{callSetDbId}/calls [GET /brapi/v1/callsets/{callSetDbId}/calls{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageToken}{?pageSize}]
+### Get - /callsets/{callSetDbId}/calls [GET /brapi/v2/callsets/{callSetDbId}/calls{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageToken}{?pageSize}]
 
 Gets a list of `Calls` associated with a `CallSet`.
 
@@ -326,7 +326,7 @@ Gets a list of `Calls` associated with a `CallSet`.
 
 
 
-### Post - /search/callsets [POST /brapi/v1/search/callsets]
+### Post - /search/callsets [POST /brapi/v2/search/callsets]
 
 Gets a list of call sets matching the search criteria.
 
@@ -509,7 +509,7 @@ Gets a list of call sets matching the search criteria.
 
 
 
-### Get - /search/callsets/{searchResultsDbId} [GET /brapi/v1/search/callsets/{searchResultsDbId}{?page}{?pageSize}]
+### Get - /search/callsets/{searchResultsDbId} [GET /brapi/v2/search/callsets/{searchResultsDbId}{?page}{?pageSize}]
 
 Gets a list of call sets matching the search criteria.
 

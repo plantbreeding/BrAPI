@@ -8,7 +8,7 @@ API to manage the details of observation variable Traits. An observation variabl
 
 
 
-### Get - /traits [GET /brapi/v1/traits{?traitDbId}{?observationVariableDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /traits [GET /brapi/v2/traits{?traitDbId}{?observationVariableDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Call to retrieve a list of traits available in the system and their associated variables.
 
@@ -166,7 +166,7 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 
 
 
-### Post - /traits [POST /brapi/v1/traits]
+### Post - /traits [POST /brapi/v2/traits]
 
 Create a new trait object in the database
 
@@ -399,7 +399,7 @@ Create a new trait object in the database
 
 
 
-### Get - /traits/{traitDbId} [GET /brapi/v1/traits/{traitDbId}]
+### Get - /traits/{traitDbId} [GET /brapi/v2/traits/{traitDbId}]
 
 Retrieve the details of a single trait
 
@@ -552,7 +552,7 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
 
 
 
-### Put - /traits/{traitDbId} [PUT /brapi/v1/traits/{traitDbId}]
+### Put - /traits/{traitDbId} [PUT /brapi/v2/traits/{traitDbId}]
 
 Update an existing trait
 

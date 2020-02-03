@@ -6,7 +6,7 @@ An event is discrete occurrence at a particular time in the experiment (which ca
 
 
 
-### Get - /events [GET /brapi/v1/events{?studyDbId}{?observationUnitDbId}{?eventType}{?dateRangeStart}{?dateRangeEnd}{?page}{?pageSize}]
+### Get - /events [GET /brapi/v2/events{?studyDbId}{?observationUnitDbId}{?eventType}{?dateRangeStart}{?dateRangeEnd}{?page}{?pageSize}]
 
 Get list of events
 

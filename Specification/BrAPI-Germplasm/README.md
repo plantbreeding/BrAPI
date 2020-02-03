@@ -45,7 +45,7 @@ V2.0 - [GitHub](https://github.com/plantbreeding/API/tree/brapi-v2-dev/Specifica
 
 
 
-### Get - /crosses [GET /brapi/v1/crosses{?crossingProjectDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /crosses [GET /brapi/v2/crosses{?crossingProjectDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered list of Cross entities.
 
@@ -208,7 +208,7 @@ Get a filtered list of Cross entities.
 
 
 
-### Post - /crosses [POST /brapi/v1/crosses]
+### Post - /crosses [POST /brapi/v2/crosses]
 
 Create new Cross entities on this server
 
@@ -457,7 +457,7 @@ Create new Cross entities on this server
 
 
 
-### Put - /crosses [PUT /brapi/v1/crosses]
+### Put - /crosses [PUT /brapi/v2/crosses]
 
 Update existing Cross entities on this server
 
@@ -658,7 +658,7 @@ Update existing Cross entities on this server
 
 
 
-### Get - /crossingprojects [GET /brapi/v1/crossingprojects{?crossingProjectDbId}{?page}{?pageSize}]
+### Get - /crossingprojects [GET /brapi/v2/crossingprojects{?crossingProjectDbId}{?page}{?pageSize}]
 
 Get a filtered list of Crossing Projects.
 
@@ -772,7 +772,7 @@ Get a filtered list of Crossing Projects.
 
 
 
-### Post - /crossingprojects [POST /brapi/v1/crossingprojects]
+### Post - /crossingprojects [POST /brapi/v2/crossingprojects]
 
 Create new Crossing Project entities on this server
 
@@ -927,7 +927,7 @@ Create new Crossing Project entities on this server
 
 
 
-### Get - /crossingprojects/{crossingProjectDbId} [GET /brapi/v1/crossingprojects/{crossingProjectDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /crossingprojects/{crossingProjectDbId} [GET /brapi/v2/crossingprojects/{crossingProjectDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered list of Crossing Projects.
 
@@ -1038,7 +1038,7 @@ Get a filtered list of Crossing Projects.
 
 
 
-### Put - /crossingprojects/{crossingProjectDbId} [PUT /brapi/v1/crossingprojects/{crossingProjectDbId}]
+### Put - /crossingprojects/{crossingProjectDbId} [PUT /brapi/v2/crossingprojects/{crossingProjectDbId}]
 
 Update an existing Crossing Project entity on this server
 
@@ -1192,7 +1192,7 @@ Fun Fact: The plural of germplasm is germplasm (no "s").
 
 
 
-### Get - /breedingmethods [GET /brapi/v1/breedingmethods{?page}{?pageSize}]
+### Get - /breedingmethods [GET /brapi/v2/breedingmethods{?page}{?pageSize}]
 
 Get the list of germplasm breeding methods available in a system.
 
@@ -1280,7 +1280,7 @@ Get the list of germplasm breeding methods available in a system.
 
 
 
-### Get - /breedingmethods/{breedingMethodDbId} [GET /brapi/v1/breedingmethods/{breedingMethodDbId}]
+### Get - /breedingmethods/{breedingMethodDbId} [GET /brapi/v2/breedingmethods/{breedingMethodDbId}]
 
 Get the details of a specific Breeding Method used to produce Germplasm
 
@@ -1367,7 +1367,7 @@ Get the details of a specific Breeding Method used to produce Germplasm
 
 
 
-### Get - /germplasm [GET /brapi/v1/germplasm{?germplasmPUI}{?germplasmDbId}{?germplasmName}{?commonCropName}{?accessionNumber}{?genus}{?species}{?studyDbId}{?synonym}{?parentDbId}{?progenyDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /germplasm [GET /brapi/v2/germplasm{?germplasmPUI}{?germplasmDbId}{?germplasmName}{?commonCropName}{?accessionNumber}{?genus}{?species}{?studyDbId}{?synonym}{?parentDbId}{?progenyDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Addresses these needs
 
@@ -1579,7 +1579,7 @@ Addresses these needs
 
 
 
-### Post - /germplasm [POST /brapi/v1/germplasm]
+### Post - /germplasm [POST /brapi/v2/germplasm]
 
 Create new Germplasm entities on this server
 
@@ -1894,7 +1894,7 @@ Create new Germplasm entities on this server
 
 
 
-### Get - /germplasm/{germplasmDbId} [GET /brapi/v1/germplasm/{germplasmDbId}]
+### Get - /germplasm/{germplasmDbId} [GET /brapi/v2/germplasm/{germplasmDbId}]
 
 Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport Data. The MCPD fields are optional and marked with the prefix [MCPD].
 
@@ -2086,7 +2086,7 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 
 
 
-### Put - /germplasm/{germplasmDbId} [PUT /brapi/v1/germplasm/{germplasmDbId}]
+### Put - /germplasm/{germplasmDbId} [PUT /brapi/v2/germplasm/{germplasmDbId}]
 
 Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport Data. The MCPD fields are optional and marked with the prefix [MCPD].
 
@@ -2400,7 +2400,7 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 
 
 
-### Get - /germplasm/{germplasmDbId}/mcpd [GET /brapi/v1/germplasm/{germplasmDbId}/mcpd]
+### Get - /germplasm/{germplasmDbId}/mcpd [GET /brapi/v2/germplasm/{germplasmDbId}/mcpd]
 
 Get all MCPD details of a germplasm
 
@@ -2608,7 +2608,7 @@ Implementation Notes
 
 
 
-### Get - /germplasm/{germplasmDbId}/pedigree [GET /brapi/v1/germplasm/{germplasmDbId}/pedigree{?notation}{?includeSiblings}]
+### Get - /germplasm/{germplasmDbId}/pedigree [GET /brapi/v2/germplasm/{germplasmDbId}/pedigree{?notation}{?includeSiblings}]
 
 Get the parentage information of a specific Germplasm
 
@@ -2734,7 +2734,7 @@ Get the parentage information of a specific Germplasm
 
 
 
-### Get - /germplasm/{germplasmDbId}/progeny [GET /brapi/v1/germplasm/{germplasmDbId}/progeny]
+### Get - /germplasm/{germplasmDbId}/progeny [GET /brapi/v2/germplasm/{germplasmDbId}/progeny]
 
 Get the germplasmDbIds for all the Progeny of a particular germplasm.
 
@@ -2842,7 +2842,7 @@ Implementation Notes
 
 
 
-### Post - /search/germplasm [POST /brapi/v1/search/germplasm]
+### Post - /search/germplasm [POST /brapi/v2/search/germplasm]
 
 Search for a set of germplasm based on some criteria
 
@@ -3164,7 +3164,7 @@ See Search Services for additional implementation details.
 
 
 
-### Get - /search/germplasm/{searchResultsDbId} [GET /brapi/v1/search/germplasm/{searchResultsDbId}{?page}{?pageSize}]
+### Get - /search/germplasm/{searchResultsDbId} [GET /brapi/v2/search/germplasm/{searchResultsDbId}{?page}{?pageSize}]
 
 See Search Services for additional implementation details.
 
@@ -3414,7 +3414,7 @@ hardness.  They are often evaluated by genotyping for diagnostic markers.
 
 
 
-### Get - /attributes [GET /brapi/v1/attributes{?attributeCategory}{?attributeDbId}{?attributeName}{?germplasmDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /attributes [GET /brapi/v2/attributes{?attributeCategory}{?attributeDbId}{?attributeName}{?germplasmDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 List available attributes.
 
@@ -3803,7 +3803,7 @@ List available attributes.
 
 
 
-### Post - /attributes [POST /brapi/v1/attributes]
+### Post - /attributes [POST /brapi/v2/attributes]
 
 Create new Germplasm Attributes
 
@@ -4498,7 +4498,7 @@ Create new Germplasm Attributes
 
 
 
-### Get - /attributes/categories [GET /brapi/v1/attributes/categories{?page}{?pageSize}]
+### Get - /attributes/categories [GET /brapi/v2/attributes/categories{?page}{?pageSize}]
 
 List all available attribute categories.
 
@@ -4578,7 +4578,7 @@ List all available attribute categories.
 
 
 
-### Get - /attributes/{attributeDbId} [GET /brapi/v1/attributes/{attributeDbId}]
+### Get - /attributes/{attributeDbId} [GET /brapi/v2/attributes/{attributeDbId}]
 
 Get the details for a specific Germplasm Attribute
 
@@ -4955,7 +4955,7 @@ Get the details for a specific Germplasm Attribute
 
 
 
-### Post - /attributes/{attributeDbId} [POST /brapi/v1/attributes/{attributeDbId}]
+### Post - /attributes/{attributeDbId} [POST /brapi/v2/attributes/{attributeDbId}]
 
 Create new Germplasm Attributes
 
@@ -5644,7 +5644,7 @@ Create new Germplasm Attributes
 
 
 
-### Post - /search/attributes [POST /brapi/v1/search/attributes]
+### Post - /search/attributes [POST /brapi/v2/search/attributes]
 
 Search for a set of Germplasm Attributes based on some criteria
         
@@ -6135,7 +6135,7 @@ See Search Services for additional implementation details.
 
 
 
-### Get - /search/attributes/{searchResultsDbId} [GET /brapi/v1/search/attributes/{searchResultsDbId}{?page}{?pageSize}]
+### Get - /search/attributes/{searchResultsDbId} [GET /brapi/v2/search/attributes/{searchResultsDbId}{?page}{?pageSize}]
 
 Get the results of a Germplasm Attributes search request
 
@@ -6566,7 +6566,7 @@ See Search Services for additional implementation details.
 
 
 
-### Get - /plannedcrosses [GET /brapi/v1/plannedcrosses{?crossingProjectDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /plannedcrosses [GET /brapi/v2/plannedcrosses{?crossingProjectDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered list of Planned Cross entities.
 
@@ -6718,7 +6718,7 @@ Get a filtered list of Planned Cross entities.
 
 
 
-### Post - /plannedcrosses [POST /brapi/v1/plannedcrosses]
+### Post - /plannedcrosses [POST /brapi/v2/plannedcrosses]
 
 Create new Planned Cross entities on this server
 
@@ -6945,7 +6945,7 @@ Create new Planned Cross entities on this server
 
 
 
-### Put - /plannedcrosses [PUT /brapi/v1/plannedcrosses]
+### Put - /plannedcrosses [PUT /brapi/v2/plannedcrosses]
 
 Update existing Planned Cross entities on this server
 
@@ -7134,7 +7134,7 @@ Update existing Planned Cross entities on this server
 
 
 
-### Get - /seedlots [GET /brapi/v1/seedlots{?seedLotDbId}{?germplasmDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /seedlots [GET /brapi/v2/seedlots{?seedLotDbId}{?germplasmDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered list of Seed Lot descriptions available in a system.
 
@@ -7265,7 +7265,7 @@ Get a filtered list of Seed Lot descriptions available in a system.
 
 
 
-### Post - /seedlots [POST /brapi/v1/seedlots]
+### Post - /seedlots [POST /brapi/v2/seedlots]
 
 Add new Seed Lot descriptions to a server
 
@@ -7448,7 +7448,7 @@ Add new Seed Lot descriptions to a server
 
 
 
-### Get - /seedlots/transactions [GET /brapi/v1/seedlots/transactions{?transactionDbId}{?seedLotDbId}{?germplasmDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /seedlots/transactions [GET /brapi/v2/seedlots/transactions{?transactionDbId}{?seedLotDbId}{?germplasmDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered list of Seed Lot Transactions
 
@@ -7570,7 +7570,7 @@ Get a filtered list of Seed Lot Transactions
 
 
 
-### Post - /seedlots/transactions [POST /brapi/v1/seedlots/transactions]
+### Post - /seedlots/transactions [POST /brapi/v2/seedlots/transactions]
 
 Add new Seed Lot Transaction to be recorded
 
@@ -7736,7 +7736,7 @@ Add new Seed Lot Transaction to be recorded
 
 
 
-### Get - /seedlots/{seedLotDbId} [GET /brapi/v1/seedlots/{seedLotDbId}]
+### Get - /seedlots/{seedLotDbId} [GET /brapi/v2/seedlots/{seedLotDbId}]
 
 Get a specific Seed Lot by seedLotDbId
 
@@ -7862,7 +7862,7 @@ Get a specific Seed Lot by seedLotDbId
 
 
 
-### Put - /seedlots/{seedLotDbId} [PUT /brapi/v1/seedlots/{seedLotDbId}]
+### Put - /seedlots/{seedLotDbId} [PUT /brapi/v2/seedlots/{seedLotDbId}]
 
 Update an existing Seed Lot
 
@@ -8044,7 +8044,7 @@ Update an existing Seed Lot
 
 
 
-### Get - /seedlots/{seedLotDbId}/transactions [GET /brapi/v1/seedlots/{seedLotDbId}/transactions{?transactionDbId}{?transactionDirection}{?page}{?pageSize}]
+### Get - /seedlots/{seedLotDbId}/transactions [GET /brapi/v2/seedlots/{seedLotDbId}/transactions{?transactionDbId}{?transactionDirection}{?page}{?pageSize}]
 
 Get all Transactions related to a specific Seed Lot
 

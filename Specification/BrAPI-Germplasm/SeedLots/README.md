@@ -5,7 +5,7 @@
 
 
 
-### Get - /seedlots [GET /brapi/v1/seedlots{?seedLotDbId}{?germplasmDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /seedlots [GET /brapi/v2/seedlots{?seedLotDbId}{?germplasmDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered list of Seed Lot descriptions available in a system.
 
@@ -136,7 +136,7 @@ Get a filtered list of Seed Lot descriptions available in a system.
 
 
 
-### Post - /seedlots [POST /brapi/v1/seedlots]
+### Post - /seedlots [POST /brapi/v2/seedlots]
 
 Add new Seed Lot descriptions to a server
 
@@ -319,7 +319,7 @@ Add new Seed Lot descriptions to a server
 
 
 
-### Get - /seedlots/transactions [GET /brapi/v1/seedlots/transactions{?transactionDbId}{?seedLotDbId}{?germplasmDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /seedlots/transactions [GET /brapi/v2/seedlots/transactions{?transactionDbId}{?seedLotDbId}{?germplasmDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered list of Seed Lot Transactions
 
@@ -441,7 +441,7 @@ Get a filtered list of Seed Lot Transactions
 
 
 
-### Post - /seedlots/transactions [POST /brapi/v1/seedlots/transactions]
+### Post - /seedlots/transactions [POST /brapi/v2/seedlots/transactions]
 
 Add new Seed Lot Transaction to be recorded
 
@@ -607,7 +607,7 @@ Add new Seed Lot Transaction to be recorded
 
 
 
-### Get - /seedlots/{seedLotDbId} [GET /brapi/v1/seedlots/{seedLotDbId}]
+### Get - /seedlots/{seedLotDbId} [GET /brapi/v2/seedlots/{seedLotDbId}]
 
 Get a specific Seed Lot by seedLotDbId
 
@@ -733,7 +733,7 @@ Get a specific Seed Lot by seedLotDbId
 
 
 
-### Put - /seedlots/{seedLotDbId} [PUT /brapi/v1/seedlots/{seedLotDbId}]
+### Put - /seedlots/{seedLotDbId} [PUT /brapi/v2/seedlots/{seedLotDbId}]
 
 Update an existing Seed Lot
 
@@ -915,7 +915,7 @@ Update an existing Seed Lot
 
 
 
-### Get - /seedlots/{seedLotDbId}/transactions [GET /brapi/v1/seedlots/{seedLotDbId}/transactions{?transactionDbId}{?transactionDirection}{?page}{?pageSize}]
+### Get - /seedlots/{seedLotDbId}/transactions [GET /brapi/v2/seedlots/{seedLotDbId}/transactions{?transactionDbId}{?transactionDirection}{?page}{?pageSize}]
 
 Get all Transactions related to a specific Seed Lot
 

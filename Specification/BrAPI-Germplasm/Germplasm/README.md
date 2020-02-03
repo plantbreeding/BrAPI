@@ -6,7 +6,7 @@ Fun Fact: The plural of germplasm is germplasm (no "s").
 
 
 
-### Get - /breedingmethods [GET /brapi/v1/breedingmethods{?page}{?pageSize}]
+### Get - /breedingmethods [GET /brapi/v2/breedingmethods{?page}{?pageSize}]
 
 Get the list of germplasm breeding methods available in a system.
 
@@ -94,7 +94,7 @@ Get the list of germplasm breeding methods available in a system.
 
 
 
-### Get - /breedingmethods/{breedingMethodDbId} [GET /brapi/v1/breedingmethods/{breedingMethodDbId}]
+### Get - /breedingmethods/{breedingMethodDbId} [GET /brapi/v2/breedingmethods/{breedingMethodDbId}]
 
 Get the details of a specific Breeding Method used to produce Germplasm
 
@@ -181,7 +181,7 @@ Get the details of a specific Breeding Method used to produce Germplasm
 
 
 
-### Get - /germplasm [GET /brapi/v1/germplasm{?germplasmPUI}{?germplasmDbId}{?germplasmName}{?commonCropName}{?accessionNumber}{?genus}{?species}{?studyDbId}{?synonym}{?parentDbId}{?progenyDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /germplasm [GET /brapi/v2/germplasm{?germplasmPUI}{?germplasmDbId}{?germplasmName}{?commonCropName}{?accessionNumber}{?genus}{?species}{?studyDbId}{?synonym}{?parentDbId}{?progenyDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Addresses these needs
 
@@ -393,7 +393,7 @@ Addresses these needs
 
 
 
-### Post - /germplasm [POST /brapi/v1/germplasm]
+### Post - /germplasm [POST /brapi/v2/germplasm]
 
 Create new Germplasm entities on this server
 
@@ -708,7 +708,7 @@ Create new Germplasm entities on this server
 
 
 
-### Get - /germplasm/{germplasmDbId} [GET /brapi/v1/germplasm/{germplasmDbId}]
+### Get - /germplasm/{germplasmDbId} [GET /brapi/v2/germplasm/{germplasmDbId}]
 
 Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport Data. The MCPD fields are optional and marked with the prefix [MCPD].
 
@@ -900,7 +900,7 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 
 
 
-### Put - /germplasm/{germplasmDbId} [PUT /brapi/v1/germplasm/{germplasmDbId}]
+### Put - /germplasm/{germplasmDbId} [PUT /brapi/v2/germplasm/{germplasmDbId}]
 
 Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport Data. The MCPD fields are optional and marked with the prefix [MCPD].
 
@@ -1214,7 +1214,7 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 
 
 
-### Get - /germplasm/{germplasmDbId}/mcpd [GET /brapi/v1/germplasm/{germplasmDbId}/mcpd]
+### Get - /germplasm/{germplasmDbId}/mcpd [GET /brapi/v2/germplasm/{germplasmDbId}/mcpd]
 
 Get all MCPD details of a germplasm
 
@@ -1422,7 +1422,7 @@ Implementation Notes
 
 
 
-### Get - /germplasm/{germplasmDbId}/pedigree [GET /brapi/v1/germplasm/{germplasmDbId}/pedigree{?notation}{?includeSiblings}]
+### Get - /germplasm/{germplasmDbId}/pedigree [GET /brapi/v2/germplasm/{germplasmDbId}/pedigree{?notation}{?includeSiblings}]
 
 Get the parentage information of a specific Germplasm
 
@@ -1548,7 +1548,7 @@ Get the parentage information of a specific Germplasm
 
 
 
-### Get - /germplasm/{germplasmDbId}/progeny [GET /brapi/v1/germplasm/{germplasmDbId}/progeny]
+### Get - /germplasm/{germplasmDbId}/progeny [GET /brapi/v2/germplasm/{germplasmDbId}/progeny]
 
 Get the germplasmDbIds for all the Progeny of a particular germplasm.
 
@@ -1656,7 +1656,7 @@ Implementation Notes
 
 
 
-### Post - /search/germplasm [POST /brapi/v1/search/germplasm]
+### Post - /search/germplasm [POST /brapi/v2/search/germplasm]
 
 Search for a set of germplasm based on some criteria
 
@@ -1978,7 +1978,7 @@ See Search Services for additional implementation details.
 
 
 
-### Get - /search/germplasm/{searchResultsDbId} [GET /brapi/v1/search/germplasm/{searchResultsDbId}{?page}{?pageSize}]
+### Get - /search/germplasm/{searchResultsDbId} [GET /brapi/v2/search/germplasm/{searchResultsDbId}{?page}{?pageSize}]
 
 See Search Services for additional implementation details.
 

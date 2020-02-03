@@ -6,7 +6,7 @@ API to retrieve list and details of observation variables. An observation variab
 
 
 
-### Post - /search/variables [POST /brapi/v1/search/variables]
+### Post - /search/variables [POST /brapi/v2/search/variables]
 
 Search observation variables.
 
@@ -493,7 +493,7 @@ See Search Services for additional implementation details.
 
 
 
-### Get - /search/variables/{searchResultsDbId} [GET /brapi/v1/search/variables/{searchResultsDbId}{?page}{?pageSize}]
+### Get - /search/variables/{searchResultsDbId} [GET /brapi/v2/search/variables/{searchResultsDbId}{?page}{?pageSize}]
 
 Search observation variables.
 
@@ -916,7 +916,7 @@ See Search Services for additional implementation details.
 
 
 
-### Get - /variables [GET /brapi/v1/variables{?observationVariableDbId}{?traitClass}{?studyDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /variables [GET /brapi/v2/variables{?observationVariableDbId}{?traitClass}{?studyDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Call to retrieve a list of observationVariables available in the system.
 
@@ -1300,7 +1300,7 @@ Call to retrieve a list of observationVariables available in the system.
 
 
 
-### Post - /variables [POST /brapi/v1/variables]
+### Post - /variables [POST /brapi/v2/variables]
 
 Add new Observation Variables to the system.
 
@@ -1987,7 +1987,7 @@ Add new Observation Variables to the system.
 
 
 
-### Get - /variables/{observationVariableDbId} [GET /brapi/v1/variables/{observationVariableDbId}]
+### Get - /variables/{observationVariableDbId} [GET /brapi/v2/variables/{observationVariableDbId}]
 
 Retrieve variable details
 
@@ -2365,7 +2365,7 @@ Retrieve variable details
 
 
 
-### Put - /variables/{observationVariableDbId} [PUT /brapi/v1/variables/{observationVariableDbId}]
+### Put - /variables/{observationVariableDbId} [PUT /brapi/v2/variables/{observationVariableDbId}]
 
 Update an existing Observation Variable
 

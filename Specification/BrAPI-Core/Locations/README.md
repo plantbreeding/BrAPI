@@ -7,7 +7,7 @@ Location calls.
 
 
 
-### Get - /locations [GET /brapi/v1/locations{?locationType}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /locations [GET /brapi/v2/locations{?locationType}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a list of locations.
 * The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
@@ -162,7 +162,7 @@ Get a list of locations.
 
 
 
-### Post - /locations [POST /brapi/v1/locations]
+### Post - /locations [POST /brapi/v2/locations]
 
 Add new locations to database
 * The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
@@ -393,7 +393,7 @@ Add new locations to database
 
 
 
-### Get - /locations/{locationDbId} [GET /brapi/v1/locations/{locationDbId}]
+### Get - /locations/{locationDbId} [GET /brapi/v2/locations/{locationDbId}]
 
 Get details for a location.
 - The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
@@ -544,7 +544,7 @@ Get details for a location.
 
 
 
-### Put - /locations/{locationDbId} [PUT /brapi/v1/locations/{locationDbId}]
+### Put - /locations/{locationDbId} [PUT /brapi/v2/locations/{locationDbId}]
 
 Update the details for an existing location.
 - The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
@@ -774,7 +774,7 @@ Update the details for an existing location.
 
 
 
-### Post - /search/locations [POST /brapi/v1/search/locations]
+### Post - /search/locations [POST /brapi/v2/search/locations]
 
 Advanced searching for the locations resource.
 See Search Services for additional implementation details.
@@ -1057,7 +1057,7 @@ See Search Services for additional implementation details.
 
 
 
-### Get - /search/locations/{searchResultsDbId} [GET /brapi/v1/search/locations/{searchResultsDbId}{?page}{?pageSize}]
+### Get - /search/locations/{searchResultsDbId} [GET /brapi/v2/search/locations/{searchResultsDbId}{?page}{?pageSize}]
 
 Advanced searching for the locations resource.
 See Search Services for additional implementation details.

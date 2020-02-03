@@ -6,7 +6,7 @@ For multi crop systems this is a useful call to list all the supported crops.
 
 
 
-### Get - /commoncropnames [GET /brapi/v1/commoncropnames{?page}{?pageSize}]
+### Get - /commoncropnames [GET /brapi/v2/commoncropnames{?page}{?pageSize}]
 
 List the common crop names for the crops available in a database server. 
 

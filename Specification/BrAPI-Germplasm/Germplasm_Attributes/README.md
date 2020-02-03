@@ -8,7 +8,7 @@ hardness.  They are often evaluated by genotyping for diagnostic markers.
 
 
 
-### Get - /attributes [GET /brapi/v1/attributes{?attributeCategory}{?attributeDbId}{?attributeName}{?germplasmDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /attributes [GET /brapi/v2/attributes{?attributeCategory}{?attributeDbId}{?attributeName}{?germplasmDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 List available attributes.
 
@@ -397,7 +397,7 @@ List available attributes.
 
 
 
-### Post - /attributes [POST /brapi/v1/attributes]
+### Post - /attributes [POST /brapi/v2/attributes]
 
 Create new Germplasm Attributes
 
@@ -1092,7 +1092,7 @@ Create new Germplasm Attributes
 
 
 
-### Get - /attributes/categories [GET /brapi/v1/attributes/categories{?page}{?pageSize}]
+### Get - /attributes/categories [GET /brapi/v2/attributes/categories{?page}{?pageSize}]
 
 List all available attribute categories.
 
@@ -1172,7 +1172,7 @@ List all available attribute categories.
 
 
 
-### Get - /attributes/{attributeDbId} [GET /brapi/v1/attributes/{attributeDbId}]
+### Get - /attributes/{attributeDbId} [GET /brapi/v2/attributes/{attributeDbId}]
 
 Get the details for a specific Germplasm Attribute
 
@@ -1549,7 +1549,7 @@ Get the details for a specific Germplasm Attribute
 
 
 
-### Post - /attributes/{attributeDbId} [POST /brapi/v1/attributes/{attributeDbId}]
+### Post - /attributes/{attributeDbId} [POST /brapi/v2/attributes/{attributeDbId}]
 
 Create new Germplasm Attributes
 
@@ -2238,7 +2238,7 @@ Create new Germplasm Attributes
 
 
 
-### Post - /search/attributes [POST /brapi/v1/search/attributes]
+### Post - /search/attributes [POST /brapi/v2/search/attributes]
 
 Search for a set of Germplasm Attributes based on some criteria
         
@@ -2729,7 +2729,7 @@ See Search Services for additional implementation details.
 
 
 
-### Get - /search/attributes/{searchResultsDbId} [GET /brapi/v1/search/attributes/{searchResultsDbId}{?page}{?pageSize}]
+### Get - /search/attributes/{searchResultsDbId} [GET /brapi/v2/search/attributes/{searchResultsDbId}{?page}{?pageSize}]
 
 Get the results of a Germplasm Attributes search request
 

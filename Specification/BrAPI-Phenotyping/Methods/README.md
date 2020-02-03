@@ -8,7 +8,7 @@ API to manage the details of observation variable Methods. An observation variab
 
 
 
-### Get - /methods [GET /brapi/v1/methods{?methodDbId}{?observationVariableDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /methods [GET /brapi/v2/methods{?methodDbId}{?observationVariableDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Returns a list of Methods available on a server.
 
@@ -151,7 +151,7 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 
 
 
-### Post - /methods [POST /brapi/v1/methods]
+### Post - /methods [POST /brapi/v2/methods]
 
 Create a new method object in the database
 
@@ -354,7 +354,7 @@ Create a new method object in the database
 
 
 
-### Get - /methods/{methodDbId} [GET /brapi/v1/methods/{methodDbId}]
+### Get - /methods/{methodDbId} [GET /brapi/v2/methods/{methodDbId}]
 
 Retrieve details about a specific method
 
@@ -492,7 +492,7 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 
 
 
-### Put - /methods/{methodDbId} [PUT /brapi/v1/methods/{methodDbId}]
+### Put - /methods/{methodDbId} [PUT /brapi/v2/methods/{methodDbId}]
 
 Update the details of an existing method
 

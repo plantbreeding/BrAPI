@@ -5,7 +5,7 @@
 
 
 
-### Get - /crosses [GET /brapi/v1/crosses{?crossingProjectDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /crosses [GET /brapi/v2/crosses{?crossingProjectDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered list of Cross entities.
 
@@ -168,7 +168,7 @@ Get a filtered list of Cross entities.
 
 
 
-### Post - /crosses [POST /brapi/v1/crosses]
+### Post - /crosses [POST /brapi/v2/crosses]
 
 Create new Cross entities on this server
 
@@ -417,7 +417,7 @@ Create new Cross entities on this server
 
 
 
-### Put - /crosses [PUT /brapi/v1/crosses]
+### Put - /crosses [PUT /brapi/v2/crosses]
 
 Update existing Cross entities on this server
 

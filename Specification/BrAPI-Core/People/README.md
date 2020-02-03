@@ -5,7 +5,7 @@ Calls for maintaining information about people
 
 
 
-### Get - /people [GET /brapi/v1/people{?firstName}{?lastName}{?personDbId}{?userID}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /people [GET /brapi/v2/people{?firstName}{?lastName}{?personDbId}{?userID}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get filtered list of people
 
@@ -132,7 +132,7 @@ Get filtered list of people
 
 
 
-### Post - /people [POST /brapi/v1/people]
+### Post - /people [POST /brapi/v2/people]
 
 Create new People entities. `personDbId` is generated and managed by the server.
 
@@ -303,7 +303,7 @@ Create new People entities. `personDbId` is generated and managed by the server.
 
 
 
-### Get - /people/{personDbId} [GET /brapi/v1/people/{personDbId}]
+### Get - /people/{personDbId} [GET /brapi/v2/people/{personDbId}]
 
 Get the details for a specific Person
 
@@ -423,7 +423,7 @@ Get the details for a specific Person
 
 
 
-### Put - /people/{personDbId} [PUT /brapi/v1/people/{personDbId}]
+### Put - /people/{personDbId} [PUT /brapi/v2/people/{personDbId}]
 
 Update an existing Person
 
@@ -593,7 +593,7 @@ Update an existing Person
 
 
 
-### Post - /search/people [POST /brapi/v1/search/people]
+### Post - /search/people [POST /brapi/v2/search/people]
 
 Advanced searching for the programs resource.
 
@@ -815,7 +815,7 @@ See Search Services for additional implementation details.
 
 
 
-### Get - /search/people/{searchResultsDbId} [GET /brapi/v1/search/people/{searchResultsDbId}{?page}{?pageSize}]
+### Get - /search/people/{searchResultsDbId} [GET /brapi/v2/search/people/{searchResultsDbId}{?page}{?pageSize}]
 
 Advanced searching for the people resource.
 

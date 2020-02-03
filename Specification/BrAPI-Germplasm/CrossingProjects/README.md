@@ -5,7 +5,7 @@
 
 
 
-### Get - /crossingprojects [GET /brapi/v1/crossingprojects{?crossingProjectDbId}{?page}{?pageSize}]
+### Get - /crossingprojects [GET /brapi/v2/crossingprojects{?crossingProjectDbId}{?page}{?pageSize}]
 
 Get a filtered list of Crossing Projects.
 
@@ -119,7 +119,7 @@ Get a filtered list of Crossing Projects.
 
 
 
-### Post - /crossingprojects [POST /brapi/v1/crossingprojects]
+### Post - /crossingprojects [POST /brapi/v2/crossingprojects]
 
 Create new Crossing Project entities on this server
 
@@ -274,7 +274,7 @@ Create new Crossing Project entities on this server
 
 
 
-### Get - /crossingprojects/{crossingProjectDbId} [GET /brapi/v1/crossingprojects/{crossingProjectDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /crossingprojects/{crossingProjectDbId} [GET /brapi/v2/crossingprojects/{crossingProjectDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered list of Crossing Projects.
 
@@ -385,7 +385,7 @@ Get a filtered list of Crossing Projects.
 
 
 
-### Put - /crossingprojects/{crossingProjectDbId} [PUT /brapi/v1/crossingprojects/{crossingProjectDbId}]
+### Put - /crossingprojects/{crossingProjectDbId} [PUT /brapi/v2/crossingprojects/{crossingProjectDbId}]
 
 Update an existing Crossing Project entity on this server
 

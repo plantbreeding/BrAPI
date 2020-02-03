@@ -11,7 +11,7 @@ A "study" in BrAPI represents an "study" in MIAPPE (Minimal Information about a 
 
 
 
-### Post - /search/studies [POST /brapi/v1/search/studies]
+### Post - /search/studies [POST /brapi/v2/search/studies]
 
 Get list of studies
 StartDate and endDate should be ISO-8601 format for dates
@@ -209,7 +209,7 @@ See Search Services for additional implementation details.
 
 
 
-### Get - /search/studies/{searchResultsDbId} [GET /brapi/v1/search/studies/{searchResultsDbId}{?page}{?pageSize}]
+### Get - /search/studies/{searchResultsDbId} [GET /brapi/v2/search/studies/{searchResultsDbId}{?page}{?pageSize}]
 
 Get list of studies
 
@@ -543,7 +543,7 @@ See Search Services for additional implementation details.
 
 
 
-### Get - /seasons [GET /brapi/v1/seasons{?seasonDbId}{?season}{?year}{?page}{?pageSize}]
+### Get - /seasons [GET /brapi/v2/seasons{?seasonDbId}{?season}{?year}{?page}{?pageSize}]
 
 Call to retrieve all seasons in the database.
 
@@ -637,7 +637,7 @@ program like "PlantingTime_3" or "Season E"
 
 
 
-### Get - /studies [GET /brapi/v1/studies{?commonCropName}{?studyType}{?programDbId}{?locationDbId}{?seasonDbId}{?trialDbId}{?studyDbId}{?studyPUI}{?germplasmDbId}{?observationVariableDbId}{?active}{?sortBy}{?sortOrder}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /studies [GET /brapi/v2/studies{?commonCropName}{?studyType}{?programDbId}{?locationDbId}{?seasonDbId}{?trialDbId}{?studyDbId}{?studyPUI}{?germplasmDbId}{?observationVariableDbId}{?active}{?sortBy}{?sortOrder}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get list of studies
 
@@ -942,7 +942,7 @@ StartDate and endDate should be ISO-8601 format for dates
 
 
 
-### Post - /studies [POST /brapi/v1/studies]
+### Post - /studies [POST /brapi/v2/studies]
 
 Create new studies
 
@@ -1453,7 +1453,7 @@ StartDate and endDate should be ISO-8601 format for dates
 
 
 
-### Get - /studies/{studyDbId} [GET /brapi/v1/studies/{studyDbId}]
+### Get - /studies/{studyDbId} [GET /brapi/v2/studies/{studyDbId}]
 
 Retrieve the information of the study required for field data collection
 
@@ -1742,7 +1742,7 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
 
 
 
-### Put - /studies/{studyDbId} [PUT /brapi/v1/studies/{studyDbId}]
+### Put - /studies/{studyDbId} [PUT /brapi/v2/studies/{studyDbId}]
 
 Update an existing Study with new data
 
@@ -2246,7 +2246,7 @@ Update an existing Study with new data
 
 
 
-### Get - /studytypes [GET /brapi/v1/studytypes{?page}{?pageSize}]
+### Get - /studytypes [GET /brapi/v2/studytypes{?page}{?pageSize}]
 
 Call to retrieve the list of study types.
 

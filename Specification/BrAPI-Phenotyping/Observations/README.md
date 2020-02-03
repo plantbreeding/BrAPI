@@ -8,7 +8,7 @@ API to manage the details of observation variable Traits. An observation variabl
 
 
 
-### Get - /observations [GET /brapi/v1/observations{?observationUnitDbId}{?germplasmDbId}{?observationVariableDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /observations [GET /brapi/v2/observations{?observationUnitDbId}{?germplasmDbId}{?observationVariableDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Retrieve all observations where there are measurements for the given observation variables.
 
@@ -159,7 +159,7 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
 
 
 
-### Post - /observations [POST /brapi/v1/observations]
+### Post - /observations [POST /brapi/v2/observations]
 
 Add new Observation entities
 
@@ -365,7 +365,7 @@ Add new Observation entities
 
 
 
-### Put - /observations [PUT /brapi/v1/observations]
+### Put - /observations [PUT /brapi/v2/observations]
 
 Update multiple Observation entities simultaneously with a single call
 
@@ -518,7 +518,7 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 
 
 
-### Get - /observations/table [GET /brapi/v1/observations/table{?observationUnitDbId}{?germplasmDbId}{?observationVariableDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}{?searchResultsDbId}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}]
+### Get - /observations/table [GET /brapi/v2/observations/table{?observationUnitDbId}{?germplasmDbId}{?observationVariableDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}{?searchResultsDbId}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}]
 
 <p>This service is designed to retrieve a table of time dependant observation values as a matrix of Observation Units and Observation Variables.
 This is also sometimes called a Time Series. This service takes the "Sparse Table" approach for representing this time dependant data.</p>
@@ -822,7 +822,7 @@ See the example responses below</p>
 
 
 
-### Get - /observations/{observationDbId} [GET /brapi/v1/observations/{observationDbId}]
+### Get - /observations/{observationDbId} [GET /brapi/v2/observations/{observationDbId}]
 
 Get the details of a specific Observations
 
@@ -959,7 +959,7 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
 
 
 
-### Put - /observations/{observationDbId} [PUT /brapi/v1/observations/{observationDbId}]
+### Put - /observations/{observationDbId} [PUT /brapi/v2/observations/{observationDbId}]
 
 Update an existing Observation
 
@@ -1159,7 +1159,7 @@ Update an existing Observation
 
 
 
-### Post - /search/observations [POST /brapi/v1/search/observations]
+### Post - /search/observations [POST /brapi/v2/search/observations]
 
 Submit a search request for a set of Observations. Returns an Id which reference the results of this search
 
@@ -1430,7 +1430,7 @@ Submit a search request for a set of Observations. Returns an Id which reference
 
 
 
-### Get - /search/observations/{searchResultsDbId} [GET /brapi/v1/search/observations/{searchResultsDbId}{?page}{?pageSize}]
+### Get - /search/observations/{searchResultsDbId} [GET /brapi/v2/search/observations/{searchResultsDbId}{?page}{?pageSize}]
 
 Returns a list of Observations based on search criteria.
 

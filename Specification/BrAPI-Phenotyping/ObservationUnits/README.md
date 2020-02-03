@@ -7,7 +7,7 @@ API to retrieve and submit data (phenotypes, environment variables) from studies
 
 
 
-### Get - /observationlevels [GET /brapi/v1/observationlevels{?studyDbId}{?page}{?pageSize}]
+### Get - /observationlevels [GET /brapi/v2/observationlevels{?studyDbId}{?page}{?pageSize}]
 
 Call to retrieve the list of supported observation levels. 
 
@@ -93,7 +93,7 @@ The values are used to supply the `observationLevel` parameter in the observatio
 
 
 
-### Get - /observationunits [GET /brapi/v1/observationunits{?germplasmDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /observationunits [GET /brapi/v2/observationunits{?germplasmDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered set of Observation Units
 
@@ -284,7 +284,7 @@ Get a filtered set of Observation Units
 
 
 
-### Post - /observationunits [POST /brapi/v1/observationunits]
+### Post - /observationunits [POST /brapi/v2/observationunits]
 
 Add new Observation Units
 
@@ -577,7 +577,7 @@ Add new Observation Units
 
 
 
-### Put - /observationunits [PUT /brapi/v1/observationunits]
+### Put - /observationunits [PUT /brapi/v2/observationunits]
 
 Update a set of Observation Units
 
@@ -769,7 +769,7 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 
 
 
-### Get - /observationunits/table [GET /brapi/v1/observationunits/table{?observationUnitDbId}{?germplasmDbId}{?observationVariableDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}]
+### Get - /observationunits/table [GET /brapi/v2/observationunits/table{?observationUnitDbId}{?germplasmDbId}{?observationVariableDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}]
 
 <p>This service is designed to retrieve a table for observation values as a matrix of Observation Units and Observation Variables.</p>
 <p>The table may be represented by JSON, CSV, or TSV. The "Accept" HTTP header is used for the client to request different return formats. 
@@ -1008,7 +1008,7 @@ See the example responses below</p>
 
 
 
-### Get - /observationunits/{observationUnitDbId} [GET /brapi/v1/observationunits/{observationUnitDbId}]
+### Get - /observationunits/{observationUnitDbId} [GET /brapi/v2/observationunits/{observationUnitDbId}]
 
 Get the details of a specific Observation Unit
 
@@ -1184,7 +1184,7 @@ Get the details of a specific Observation Unit
 
 
 
-### Put - /observationunits/{observationUnitDbId} [PUT /brapi/v1/observationunits/{observationUnitDbId}]
+### Put - /observationunits/{observationUnitDbId} [PUT /brapi/v2/observationunits/{observationUnitDbId}]
 
 Update an existing Observation Units
 
@@ -1471,7 +1471,7 @@ Update an existing Observation Units
 
 
 
-### Post - /search/observationunits [POST /brapi/v1/search/observationunits]
+### Post - /search/observationunits [POST /brapi/v2/search/observationunits]
 
 Returns a list of observationUnit with the observed Phenotypes.
 
@@ -1789,7 +1789,7 @@ observationValue data type inferred from the ontology
 
 
 
-### Get - /search/observationunits/{searchResultsDbId} [GET /brapi/v1/search/observationunits/{searchResultsDbId}{?page}{?pageSize}]
+### Get - /search/observationunits/{searchResultsDbId} [GET /brapi/v2/search/observationunits/{searchResultsDbId}{?page}{?pageSize}]
 
 Returns a list of observationUnit with the observed Phenotypes.
 

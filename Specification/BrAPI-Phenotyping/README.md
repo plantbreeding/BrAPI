@@ -46,7 +46,7 @@ An event is discrete occurrence at a particular time in the experiment (which ca
 
 
 
-### Get - /events [GET /brapi/v1/events{?studyDbId}{?observationUnitDbId}{?eventType}{?dateRangeStart}{?dateRangeEnd}{?page}{?pageSize}]
+### Get - /events [GET /brapi/v2/events{?studyDbId}{?observationUnitDbId}{?eventType}{?dateRangeStart}{?dateRangeEnd}{?page}{?pageSize}]
 
 Get list of events
 
@@ -180,7 +180,7 @@ The `/images` calls support a GeoJSON object structure for describing their loca
 
 
 
-### Get - /images [GET /brapi/v1/images{?imageDbId}{?imageName}{?observationUnitDbId}{?observationDbId}{?descriptiveOntologyTerm}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /images [GET /brapi/v2/images{?imageDbId}{?imageName}{?observationUnitDbId}{?observationDbId}{?descriptiveOntologyTerm}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get filtered set of image meta data
 
@@ -345,7 +345,7 @@ Implementation Notes
 
 
 
-### Post - /images [POST /brapi/v1/images]
+### Post - /images [POST /brapi/v2/images]
 
 Create a new image meta data object
 
@@ -590,7 +590,7 @@ Implementation Notes
 
 
 
-### Get - /images/{imageDbId} [GET /brapi/v1/images/{imageDbId}]
+### Get - /images/{imageDbId} [GET /brapi/v2/images/{imageDbId}]
 
 Get one image meta data object
 
@@ -747,7 +747,7 @@ Implementation Notes
 
 
 
-### Put - /images/{imageDbId} [PUT /brapi/v1/images/{imageDbId}]
+### Put - /images/{imageDbId} [PUT /brapi/v2/images/{imageDbId}]
 
 Update an image meta data object
 
@@ -995,7 +995,7 @@ Implementation Notes
 
 
 
-### Put - /images/{imageDbId}/imagecontent [PUT /brapi/v1/images/{imageDbId}/imagecontent]
+### Put - /images/{imageDbId}/imagecontent [PUT /brapi/v2/images/{imageDbId}/imagecontent]
 
 Update an image with the image file content
 
@@ -1154,7 +1154,7 @@ Implementation Notes
 
 
 
-### Post - /search/images [POST /brapi/v1/search/images]
+### Post - /search/images [POST /brapi/v2/search/images]
 
 Get filtered set of image meta data
 
@@ -1450,7 +1450,7 @@ See Search Services for additional implementation details.
 
 
 
-### Get - /search/images/{searchResultsDbId} [GET /brapi/v1/search/images/{searchResultsDbId}{?page}{?pageSize}]
+### Get - /search/images/{searchResultsDbId} [GET /brapi/v2/search/images/{searchResultsDbId}{?page}{?pageSize}]
 
 Get filtered set of image meta data
 
@@ -1657,7 +1657,7 @@ API to manage the details of observation variable Methods. An observation variab
 
 
 
-### Get - /methods [GET /brapi/v1/methods{?methodDbId}{?observationVariableDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /methods [GET /brapi/v2/methods{?methodDbId}{?observationVariableDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Returns a list of Methods available on a server.
 
@@ -1800,7 +1800,7 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 
 
 
-### Post - /methods [POST /brapi/v1/methods]
+### Post - /methods [POST /brapi/v2/methods]
 
 Create a new method object in the database
 
@@ -2003,7 +2003,7 @@ Create a new method object in the database
 
 
 
-### Get - /methods/{methodDbId} [GET /brapi/v1/methods/{methodDbId}]
+### Get - /methods/{methodDbId} [GET /brapi/v2/methods/{methodDbId}]
 
 Retrieve details about a specific method
 
@@ -2141,7 +2141,7 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 
 
 
-### Put - /methods/{methodDbId} [PUT /brapi/v1/methods/{methodDbId}]
+### Put - /methods/{methodDbId} [PUT /brapi/v2/methods/{methodDbId}]
 
 Update the details of an existing method
 
@@ -2349,7 +2349,7 @@ API to retrieve and submit data (phenotypes, environment variables) from studies
 
 
 
-### Get - /observationlevels [GET /brapi/v1/observationlevels{?studyDbId}{?page}{?pageSize}]
+### Get - /observationlevels [GET /brapi/v2/observationlevels{?studyDbId}{?page}{?pageSize}]
 
 Call to retrieve the list of supported observation levels. 
 
@@ -2435,7 +2435,7 @@ The values are used to supply the `observationLevel` parameter in the observatio
 
 
 
-### Get - /observationunits [GET /brapi/v1/observationunits{?germplasmDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /observationunits [GET /brapi/v2/observationunits{?germplasmDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered set of Observation Units
 
@@ -2626,7 +2626,7 @@ Get a filtered set of Observation Units
 
 
 
-### Post - /observationunits [POST /brapi/v1/observationunits]
+### Post - /observationunits [POST /brapi/v2/observationunits]
 
 Add new Observation Units
 
@@ -2919,7 +2919,7 @@ Add new Observation Units
 
 
 
-### Put - /observationunits [PUT /brapi/v1/observationunits]
+### Put - /observationunits [PUT /brapi/v2/observationunits]
 
 Update a set of Observation Units
 
@@ -3111,7 +3111,7 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 
 
 
-### Get - /observationunits/table [GET /brapi/v1/observationunits/table{?observationUnitDbId}{?germplasmDbId}{?observationVariableDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}]
+### Get - /observationunits/table [GET /brapi/v2/observationunits/table{?observationUnitDbId}{?germplasmDbId}{?observationVariableDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}]
 
 <p>This service is designed to retrieve a table for observation values as a matrix of Observation Units and Observation Variables.</p>
 <p>The table may be represented by JSON, CSV, or TSV. The "Accept" HTTP header is used for the client to request different return formats. 
@@ -3350,7 +3350,7 @@ See the example responses below</p>
 
 
 
-### Get - /observationunits/{observationUnitDbId} [GET /brapi/v1/observationunits/{observationUnitDbId}]
+### Get - /observationunits/{observationUnitDbId} [GET /brapi/v2/observationunits/{observationUnitDbId}]
 
 Get the details of a specific Observation Unit
 
@@ -3526,7 +3526,7 @@ Get the details of a specific Observation Unit
 
 
 
-### Put - /observationunits/{observationUnitDbId} [PUT /brapi/v1/observationunits/{observationUnitDbId}]
+### Put - /observationunits/{observationUnitDbId} [PUT /brapi/v2/observationunits/{observationUnitDbId}]
 
 Update an existing Observation Units
 
@@ -3813,7 +3813,7 @@ Update an existing Observation Units
 
 
 
-### Post - /search/observationunits [POST /brapi/v1/search/observationunits]
+### Post - /search/observationunits [POST /brapi/v2/search/observationunits]
 
 Returns a list of observationUnit with the observed Phenotypes.
 
@@ -4131,7 +4131,7 @@ observationValue data type inferred from the ontology
 
 
 
-### Get - /search/observationunits/{searchResultsDbId} [GET /brapi/v1/search/observationunits/{searchResultsDbId}{?page}{?pageSize}]
+### Get - /search/observationunits/{searchResultsDbId} [GET /brapi/v2/search/observationunits/{searchResultsDbId}{?page}{?pageSize}]
 
 Returns a list of observationUnit with the observed Phenotypes.
 
@@ -4362,7 +4362,7 @@ API to retrieve list and details of observation variables. An observation variab
 
 
 
-### Post - /search/variables [POST /brapi/v1/search/variables]
+### Post - /search/variables [POST /brapi/v2/search/variables]
 
 Search observation variables.
 
@@ -4849,7 +4849,7 @@ See Search Services for additional implementation details.
 
 
 
-### Get - /search/variables/{searchResultsDbId} [GET /brapi/v1/search/variables/{searchResultsDbId}{?page}{?pageSize}]
+### Get - /search/variables/{searchResultsDbId} [GET /brapi/v2/search/variables/{searchResultsDbId}{?page}{?pageSize}]
 
 Search observation variables.
 
@@ -5272,7 +5272,7 @@ See Search Services for additional implementation details.
 
 
 
-### Get - /variables [GET /brapi/v1/variables{?observationVariableDbId}{?traitClass}{?studyDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /variables [GET /brapi/v2/variables{?observationVariableDbId}{?traitClass}{?studyDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Call to retrieve a list of observationVariables available in the system.
 
@@ -5656,7 +5656,7 @@ Call to retrieve a list of observationVariables available in the system.
 
 
 
-### Post - /variables [POST /brapi/v1/variables]
+### Post - /variables [POST /brapi/v2/variables]
 
 Add new Observation Variables to the system.
 
@@ -6343,7 +6343,7 @@ Add new Observation Variables to the system.
 
 
 
-### Get - /variables/{observationVariableDbId} [GET /brapi/v1/variables/{observationVariableDbId}]
+### Get - /variables/{observationVariableDbId} [GET /brapi/v2/variables/{observationVariableDbId}]
 
 Retrieve variable details
 
@@ -6721,7 +6721,7 @@ Retrieve variable details
 
 
 
-### Put - /variables/{observationVariableDbId} [PUT /brapi/v1/variables/{observationVariableDbId}]
+### Put - /variables/{observationVariableDbId} [PUT /brapi/v2/variables/{observationVariableDbId}]
 
 Update an existing Observation Variable
 
@@ -7106,7 +7106,7 @@ API to manage the details of observation variable Traits. An observation variabl
 
 
 
-### Get - /observations [GET /brapi/v1/observations{?observationUnitDbId}{?germplasmDbId}{?observationVariableDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /observations [GET /brapi/v2/observations{?observationUnitDbId}{?germplasmDbId}{?observationVariableDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Retrieve all observations where there are measurements for the given observation variables.
 
@@ -7257,7 +7257,7 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
 
 
 
-### Post - /observations [POST /brapi/v1/observations]
+### Post - /observations [POST /brapi/v2/observations]
 
 Add new Observation entities
 
@@ -7463,7 +7463,7 @@ Add new Observation entities
 
 
 
-### Put - /observations [PUT /brapi/v1/observations]
+### Put - /observations [PUT /brapi/v2/observations]
 
 Update multiple Observation entities simultaneously with a single call
 
@@ -7616,7 +7616,7 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 
 
 
-### Get - /observations/table [GET /brapi/v1/observations/table{?observationUnitDbId}{?germplasmDbId}{?observationVariableDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}{?searchResultsDbId}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}]
+### Get - /observations/table [GET /brapi/v2/observations/table{?observationUnitDbId}{?germplasmDbId}{?observationVariableDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}{?searchResultsDbId}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}]
 
 <p>This service is designed to retrieve a table of time dependant observation values as a matrix of Observation Units and Observation Variables.
 This is also sometimes called a Time Series. This service takes the "Sparse Table" approach for representing this time dependant data.</p>
@@ -7920,7 +7920,7 @@ See the example responses below</p>
 
 
 
-### Get - /observations/{observationDbId} [GET /brapi/v1/observations/{observationDbId}]
+### Get - /observations/{observationDbId} [GET /brapi/v2/observations/{observationDbId}]
 
 Get the details of a specific Observations
 
@@ -8057,7 +8057,7 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
 
 
 
-### Put - /observations/{observationDbId} [PUT /brapi/v1/observations/{observationDbId}]
+### Put - /observations/{observationDbId} [PUT /brapi/v2/observations/{observationDbId}]
 
 Update an existing Observation
 
@@ -8257,7 +8257,7 @@ Update an existing Observation
 
 
 
-### Post - /search/observations [POST /brapi/v1/search/observations]
+### Post - /search/observations [POST /brapi/v2/search/observations]
 
 Submit a search request for a set of Observations. Returns an Id which reference the results of this search
 
@@ -8528,7 +8528,7 @@ Submit a search request for a set of Observations. Returns an Id which reference
 
 
 
-### Get - /search/observations/{searchResultsDbId} [GET /brapi/v1/search/observations/{searchResultsDbId}{?page}{?pageSize}]
+### Get - /search/observations/{searchResultsDbId} [GET /brapi/v2/search/observations/{searchResultsDbId}{?page}{?pageSize}]
 
 Returns a list of Observations based on search criteria.
 
@@ -8713,7 +8713,7 @@ API to manage the details of stored Ontologies. This could be a reference a loca
 
 
 
-### Get - /ontologies [GET /brapi/v1/ontologies{?page}{?pageSize}]
+### Get - /ontologies [GET /brapi/v2/ontologies{?page}{?pageSize}]
 
 Call to retrieve a list of observation variable ontologies available in the system.
 
@@ -8818,7 +8818,7 @@ API to manage the details of observation variable Scales. An observation variabl
 
 
 
-### Get - /scales [GET /brapi/v1/scales{?scaleDbId}{?observationVariableDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /scales [GET /brapi/v2/scales{?scaleDbId}{?observationVariableDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Returns a list of Scales available on a server.
 
@@ -8987,7 +8987,7 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 
 
 
-### Post - /scales [POST /brapi/v1/scales]
+### Post - /scales [POST /brapi/v2/scales]
 
 Create a new scale object in the database
 
@@ -9242,7 +9242,7 @@ Create a new scale object in the database
 
 
 
-### Get - /scales/{scaleDbId} [GET /brapi/v1/scales/{scaleDbId}]
+### Get - /scales/{scaleDbId} [GET /brapi/v2/scales/{scaleDbId}]
 
 Retrieve details about a specific scale
 
@@ -9406,7 +9406,7 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
 
 
 
-### Put - /scales/{scaleDbId} [PUT /brapi/v1/scales/{scaleDbId}]
+### Put - /scales/{scaleDbId} [PUT /brapi/v2/scales/{scaleDbId}]
 
 Update the details of an existing scale
 
@@ -9667,7 +9667,7 @@ API to manage the details of observation variable Traits. An observation variabl
 
 
 
-### Get - /traits [GET /brapi/v1/traits{?traitDbId}{?observationVariableDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /traits [GET /brapi/v2/traits{?traitDbId}{?observationVariableDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Call to retrieve a list of traits available in the system and their associated variables.
 
@@ -9825,7 +9825,7 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 
 
 
-### Post - /traits [POST /brapi/v1/traits]
+### Post - /traits [POST /brapi/v2/traits]
 
 Create a new trait object in the database
 
@@ -10058,7 +10058,7 @@ Create a new trait object in the database
 
 
 
-### Get - /traits/{traitDbId} [GET /brapi/v1/traits/{traitDbId}]
+### Get - /traits/{traitDbId} [GET /brapi/v2/traits/{traitDbId}]
 
 Retrieve the details of a single trait
 
@@ -10211,7 +10211,7 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
 
 
 
-### Put - /traits/{traitDbId} [PUT /brapi/v1/traits/{traitDbId}]
+### Put - /traits/{traitDbId} [PUT /brapi/v2/traits/{traitDbId}]
 
 Update an existing trait
 

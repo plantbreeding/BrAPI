@@ -11,7 +11,7 @@ The `/images` calls support a GeoJSON object structure for describing their loca
 
 
 
-### Get - /images [GET /brapi/v1/images{?imageDbId}{?imageName}{?observationUnitDbId}{?observationDbId}{?descriptiveOntologyTerm}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /images [GET /brapi/v2/images{?imageDbId}{?imageName}{?observationUnitDbId}{?observationDbId}{?descriptiveOntologyTerm}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get filtered set of image meta data
 
@@ -176,7 +176,7 @@ Implementation Notes
 
 
 
-### Post - /images [POST /brapi/v1/images]
+### Post - /images [POST /brapi/v2/images]
 
 Create a new image meta data object
 
@@ -421,7 +421,7 @@ Implementation Notes
 
 
 
-### Get - /images/{imageDbId} [GET /brapi/v1/images/{imageDbId}]
+### Get - /images/{imageDbId} [GET /brapi/v2/images/{imageDbId}]
 
 Get one image meta data object
 
@@ -578,7 +578,7 @@ Implementation Notes
 
 
 
-### Put - /images/{imageDbId} [PUT /brapi/v1/images/{imageDbId}]
+### Put - /images/{imageDbId} [PUT /brapi/v2/images/{imageDbId}]
 
 Update an image meta data object
 
@@ -826,7 +826,7 @@ Implementation Notes
 
 
 
-### Put - /images/{imageDbId}/imagecontent [PUT /brapi/v1/images/{imageDbId}/imagecontent]
+### Put - /images/{imageDbId}/imagecontent [PUT /brapi/v2/images/{imageDbId}/imagecontent]
 
 Update an image with the image file content
 
@@ -985,7 +985,7 @@ Implementation Notes
 
 
 
-### Post - /search/images [POST /brapi/v1/search/images]
+### Post - /search/images [POST /brapi/v2/search/images]
 
 Get filtered set of image meta data
 
@@ -1281,7 +1281,7 @@ See Search Services for additional implementation details.
 
 
 
-### Get - /search/images/{searchResultsDbId} [GET /brapi/v1/search/images/{searchResultsDbId}{?page}{?pageSize}]
+### Get - /search/images/{searchResultsDbId} [GET /brapi/v2/search/images/{searchResultsDbId}{?page}{?pageSize}]
 
 Get filtered set of image meta data
 

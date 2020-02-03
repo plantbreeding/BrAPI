@@ -44,7 +44,7 @@ V2.0 - [GitHub](https://github.com/plantbreeding/API/tree/brapi-v2-dev/Specifica
 
 
 
-### Get - /callsets [GET /brapi/v1/callsets{?callSetDbId}{?callSetName}{?variantSetDbId}{?sampleDbId}{?germplasmDbId}{?page}{?pageSize}]
+### Get - /callsets [GET /brapi/v2/callsets{?callSetDbId}{?callSetName}{?variantSetDbId}{?sampleDbId}{?germplasmDbId}{?page}{?pageSize}]
 
 Gets a filtered list of `CallSet` JSON objects.
 
@@ -148,7 +148,7 @@ Gets a filtered list of `CallSet` JSON objects.
 
 
 
-### Get - /callsets/{callSetDbId} [GET /brapi/v1/callsets/{callSetDbId}]
+### Get - /callsets/{callSetDbId} [GET /brapi/v2/callsets/{callSetDbId}]
 
 Gets a `CallSet` by ID.
 
@@ -246,7 +246,7 @@ Gets a `CallSet` by ID.
 
 
 
-### Get - /callsets/{callSetDbId}/calls [GET /brapi/v1/callsets/{callSetDbId}/calls{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageToken}{?pageSize}]
+### Get - /callsets/{callSetDbId}/calls [GET /brapi/v2/callsets/{callSetDbId}/calls{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageToken}{?pageSize}]
 
 Gets a list of `Calls` associated with a `CallSet`.
 
@@ -366,7 +366,7 @@ Gets a list of `Calls` associated with a `CallSet`.
 
 
 
-### Post - /search/callsets [POST /brapi/v1/search/callsets]
+### Post - /search/callsets [POST /brapi/v2/search/callsets]
 
 Gets a list of call sets matching the search criteria.
 
@@ -549,7 +549,7 @@ Gets a list of call sets matching the search criteria.
 
 
 
-### Get - /search/callsets/{searchResultsDbId} [GET /brapi/v1/search/callsets/{searchResultsDbId}{?page}{?pageSize}]
+### Get - /search/callsets/{searchResultsDbId} [GET /brapi/v2/search/callsets/{searchResultsDbId}{?page}{?pageSize}]
 
 Gets a list of call sets matching the search criteria.
 
@@ -688,7 +688,7 @@ Gets a list of call sets matching the search criteria.
 
 
 
-### Get - /calls [GET /brapi/v1/calls{?callSetDbId}{?variantDbId}{?variantSetDbId}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageToken}{?pageSize}]
+### Get - /calls [GET /brapi/v2/calls{?callSetDbId}{?variantDbId}{?variantSetDbId}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageToken}{?pageSize}]
 
 Gets a filtered list of `Call` JSON objects.
 
@@ -810,7 +810,7 @@ Gets a filtered list of `Call` JSON objects.
 
 
 
-### Post - /search/calls [POST /brapi/v1/search/calls]
+### Post - /search/calls [POST /brapi/v2/search/calls]
 
 Submit a search request for `Calls`
 
@@ -997,7 +997,7 @@ Submit a search request for `Calls`
 
 
 
-### Get - /search/calls/{searchResultsDbId} [GET /brapi/v1/search/calls/{searchResultsDbId}{?pageToken}{?pageSize}]
+### Get - /search/calls/{searchResultsDbId} [GET /brapi/v2/search/calls/{searchResultsDbId}{?pageToken}{?pageSize}]
 
 Returns a filtered list of `Call` JSON objects.
 
@@ -1162,7 +1162,7 @@ Retrieving genetic or physical maps
 
 
 
-### Get - /maps [GET /brapi/v1/maps{?commonCropName}{?mapPUI}{?scientificName}{?type}{?programDbId}{?trialDbId}{?studyDbId}{?page}{?pageSize}]
+### Get - /maps [GET /brapi/v2/maps{?commonCropName}{?mapPUI}{?scientificName}{?type}{?programDbId}{?trialDbId}{?studyDbId}{?page}{?pageSize}]
 
 Get list of maps
 
@@ -1275,7 +1275,7 @@ Get list of maps
 
 
 
-### Get - /maps/{mapDbId} [GET /brapi/v1/maps/{mapDbId}{?page}{?pageSize}]
+### Get - /maps/{mapDbId} [GET /brapi/v2/maps/{mapDbId}{?page}{?pageSize}]
 
 Provides the number of markers on each linkageGroup and the max position on the linkageGroup
 
@@ -1382,7 +1382,7 @@ Provides the number of markers on each linkageGroup and the max position on the 
 
 
 
-### Get - /maps/{mapDbId}/linkagegroups [GET /brapi/v1/maps/{mapDbId}/linkagegroups{?page}{?pageSize}]
+### Get - /maps/{mapDbId}/linkagegroups [GET /brapi/v2/maps/{mapDbId}/linkagegroups{?page}{?pageSize}]
 
 Get the Linkage Groups of a specific Genomic Map. A Linkage Group is the BrAPI generic term for a named section of a map. A Linkage Group can represent a Chromosome, Scaffold, or Linkage Group.
 
@@ -1476,7 +1476,7 @@ Get the Linkage Groups of a specific Genomic Map. A Linkage Group is the BrAPI g
 
 
 
-### Get - /markerpositions [GET /brapi/v1/markerpositions{?mapDbId}{?linkageGroupName}{?markerDbId}{?minPosition}{?maxPosition}{?page}{?pageSize}]
+### Get - /markerpositions [GET /brapi/v2/markerpositions{?mapDbId}{?linkageGroupName}{?markerDbId}{?minPosition}{?maxPosition}{?page}{?pageSize}]
 
 Get marker position information, based on Map, Linkage Group, and Marker ID
 
@@ -1575,7 +1575,7 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 
 
 
-### Post - /search/markerpositions [POST /brapi/v1/search/markerpositions]
+### Post - /search/markerpositions [POST /brapi/v2/search/markerpositions]
 
 Get marker position information, based on Map, Linkage Group, and Marker ID
 
@@ -1737,7 +1737,7 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 
 
 
-### Post - /search/markerpositions/{searchResultsDbId} [POST /brapi/v1/search/markerpositions/{searchResultsDbId}{?page}{?pageSize}]
+### Post - /search/markerpositions/{searchResultsDbId} [POST /brapi/v2/search/markerpositions/{searchResultsDbId}{?page}{?pageSize}]
 
 Get marker position information, based on Map, Linkage Group, and Marker ID
 
@@ -1871,7 +1871,7 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 
 
 
-### Get - /referencesets [GET /brapi/v1/referencesets{?referenceSetDbId}{?accession}{?assemblyPUI}{?md5checksum}{?page}{?pageSize}]
+### Get - /referencesets [GET /brapi/v2/referencesets{?referenceSetDbId}{?accession}{?assemblyPUI}{?md5checksum}{?page}{?pageSize}]
 
 Gets a filtered list of `ReferenceSets`.
 
@@ -1982,7 +1982,7 @@ Gets a filtered list of `ReferenceSets`.
 
 
 
-### Get - /referencesets/{referenceSetDbId} [GET /brapi/v1/referencesets/{referenceSetDbId}]
+### Get - /referencesets/{referenceSetDbId} [GET /brapi/v2/referencesets/{referenceSetDbId}]
 
 Gets a `ReferenceSet` by ID.
 
@@ -2067,7 +2067,7 @@ Gets a `ReferenceSet` by ID.
 
 
 
-### Post - /search/referencesets [POST /brapi/v1/search/referencesets]
+### Post - /search/referencesets [POST /brapi/v2/search/referencesets]
 
 Gets a list of `ReferenceSet` matching the search criteria.
 
@@ -2229,7 +2229,7 @@ Gets a list of `ReferenceSet` matching the search criteria.
 
 
 
-### Get - /search/referencesets/{searchResultsDbId} [GET /brapi/v1/search/referencesets/{searchResultsDbId}{?page}{?pageSize}]
+### Get - /search/referencesets/{searchResultsDbId} [GET /brapi/v2/search/referencesets/{searchResultsDbId}{?page}{?pageSize}]
 
 Gets a list of `ReferenceSet` matching the search criteria.
 
@@ -2376,7 +2376,7 @@ Gets a list of `ReferenceSet` matching the search criteria.
 
 
 
-### Get - /references [GET /brapi/v1/references{?referenceDbId}{?referenceSetDbId}{?accession}{?md5checksum}{?isDerived}{?minLength}{?maxLength}{?page}{?pageSize}]
+### Get - /references [GET /brapi/v2/references{?referenceDbId}{?referenceSetDbId}{?accession}{?md5checksum}{?isDerived}{?minLength}{?maxLength}{?page}{?pageSize}]
 
 `GET /references` will return a filtered list of `Reference` JSON objects.
 
@@ -2489,7 +2489,7 @@ Gets a list of `ReferenceSet` matching the search criteria.
 
 
 
-### Get - /references/{referenceDbId} [GET /brapi/v1/references/{referenceDbId}]
+### Get - /references/{referenceDbId} [GET /brapi/v2/references/{referenceDbId}]
 
 `GET /references/{reference_id}` will return a JSON version of
 `Reference`.
@@ -2594,7 +2594,7 @@ Gets a list of `ReferenceSet` matching the search criteria.
 
 
 
-### Get - /references/{referenceDbId}/bases [GET /brapi/v1/references/{referenceDbId}/bases{?start}{?end}{?pageToken}]
+### Get - /references/{referenceDbId}/bases [GET /brapi/v2/references/{referenceDbId}/bases{?start}{?end}{?pageToken}]
 
 Lists `Reference` bases by ID and optional range.
 
@@ -2682,7 +2682,7 @@ Lists `Reference` bases by ID and optional range.
 
 
 
-### Post - /search/references [POST /brapi/v1/search/references]
+### Post - /search/references [POST /brapi/v2/search/references]
 
 `POST /references/search` must accept a JSON version of
 `SearchReferencesRequest` as the post body and will return a JSON
@@ -2845,7 +2845,7 @@ version of `SearchReferencesResponse`.
 
 
 
-### Get - /search/references/{searchResultsDbId} [GET /brapi/v1/search/references/{searchResultsDbId}{?page}{?pageSize}]
+### Get - /search/references/{searchResultsDbId} [GET /brapi/v2/search/references/{searchResultsDbId}{?page}{?pageSize}]
 
 `POST /references/search` must accept a JSON version of
 `SearchReferencesRequest` as the post body and will return a JSON
@@ -2996,7 +2996,7 @@ API methods for tracking/managing plant samples and related meta-data. A 'Sample
 
 
 
-### Get - /samples [GET /brapi/v1/samples{?sampleDbId}{?observationUnitDbId}{?plateDbId}{?germplasmDbId}{?studyDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /samples [GET /brapi/v2/samples{?sampleDbId}{?observationUnitDbId}{?plateDbId}{?germplasmDbId}{?studyDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
 
@@ -3146,7 +3146,7 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
 
 
 
-### Post - /samples [POST /brapi/v1/samples]
+### Post - /samples [POST /brapi/v2/samples]
 
 Call to register the event of a sample being taken. Sample ID is assigned as a result of the operation and returned in response.
 
@@ -3361,7 +3361,7 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
 
 
 
-### Get - /samples/{sampleDbId} [GET /brapi/v1/samples/{sampleDbId}]
+### Get - /samples/{sampleDbId} [GET /brapi/v2/samples/{sampleDbId}]
 
 Used to retrieve the details of a single Sample from a Sample Tracking system.
 
@@ -3503,7 +3503,7 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
 
 
 
-### Put - /samples/{sampleDbId} [PUT /brapi/v1/samples/{sampleDbId}]
+### Put - /samples/{sampleDbId} [PUT /brapi/v2/samples/{sampleDbId}]
 
 Update the details of an existing Sample
 
@@ -3717,7 +3717,7 @@ Update the details of an existing Sample
 
 
 
-### Post - /search/samples [POST /brapi/v1/search/samples]
+### Post - /search/samples [POST /brapi/v2/search/samples]
 
 Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
 
@@ -3956,7 +3956,7 @@ See Search Services for additional implementation details.
 
 
 
-### Get - /search/samples/{searchResultsDbId} [GET /brapi/v1/search/samples/{searchResultsDbId}{?page}{?pageSize}]
+### Get - /search/samples/{searchResultsDbId} [GET /brapi/v2/search/samples/{searchResultsDbId}{?page}{?pageSize}]
 
 Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
 
@@ -4146,7 +4146,7 @@ See Search Services for additional implementation details.
 
 
 
-### Post - /search/variantsets [POST /brapi/v1/search/variantsets]
+### Post - /search/variantsets [POST /brapi/v2/search/variantsets]
 
 Gets a list of `VariantSet` matching the search criteria.
 
@@ -4351,7 +4351,7 @@ Gets a list of `VariantSet` matching the search criteria.
 
 
 
-### Get - /search/variantsets/{searchResultsDbId} [GET /brapi/v1/search/variantsets/{searchResultsDbId}{?page}{?pageSize}]
+### Get - /search/variantsets/{searchResultsDbId} [GET /brapi/v2/search/variantsets/{searchResultsDbId}{?page}{?pageSize}]
 
 Gets a list of `VariantSet` matching the search criteria.
 
@@ -4519,7 +4519,7 @@ Gets a list of `VariantSet` matching the search criteria.
 
 
 
-### Get - /variantsets [GET /brapi/v1/variantsets{?variantSetDbId}{?page}{?pageSize}]
+### Get - /variantsets [GET /brapi/v2/variantsets{?variantSetDbId}{?page}{?pageSize}]
 
 Will return a filtered list of `VariantSet`.
 
@@ -4651,7 +4651,7 @@ Will return a filtered list of `VariantSet`.
 
 
 
-### Post - /variantsets/extract [POST /brapi/v1/variantsets/extract]
+### Post - /variantsets/extract [POST /brapi/v2/variantsets/extract]
 
 Will perform a search for `Calls` which match the search criteria in `variantSetsExtractRequest`. The results of the search will be used to create a new `VariantSet` on the server. The new `VariantSet` will be returned.
 
@@ -4824,7 +4824,7 @@ Will perform a search for `Calls` which match the search criteria in `variantSet
 
 
 
-### Get - /variantsets/{variantSetDbId} [GET /brapi/v1/variantsets/{variantSetDbId}]
+### Get - /variantsets/{variantSetDbId} [GET /brapi/v2/variantsets/{variantSetDbId}]
 
 This call will return a JSON version of a `VariantSet`.
 
@@ -4954,7 +4954,7 @@ This call will return a JSON version of a `VariantSet`.
 
 
 
-### Get - /variantsets/{variantSetDbId}/calls [GET /brapi/v1/variantsets/{variantSetDbId}/calls{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageToken}{?pageSize}]
+### Get - /variantsets/{variantSetDbId}/calls [GET /brapi/v2/variantsets/{variantSetDbId}/calls{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageToken}{?pageSize}]
 
 Gets a list of `Calls` associated with a `VariantSet`.
 
@@ -5074,7 +5074,7 @@ Gets a list of `Calls` associated with a `VariantSet`.
 
 
 
-### Get - /variantsets/{variantSetDbId}/callsets [GET /brapi/v1/variantsets/{variantSetDbId}/callsets{?callSetDbId}{?callSetName}{?page}{?pageSize}]
+### Get - /variantsets/{variantSetDbId}/callsets [GET /brapi/v2/variantsets/{variantSetDbId}/callsets{?callSetDbId}{?callSetName}{?page}{?pageSize}]
 
 Gets a list of `CallSets` associated with a `VariantSet`.
 
@@ -5176,7 +5176,7 @@ Gets a list of `CallSets` associated with a `VariantSet`.
 
 
 
-### Get - /variantsets/{variantSetDbId}/variants [GET /brapi/v1/variantsets/{variantSetDbId}/variants{?variantDbId}{?pageToken}{?pageSize}]
+### Get - /variantsets/{variantSetDbId}/variants [GET /brapi/v2/variantsets/{variantSetDbId}/variants{?variantDbId}{?pageToken}{?pageSize}]
 
 This call will return an array of `Variants`.
 
@@ -5318,7 +5318,7 @@ This call will return an array of `Variants`.
 
 
 
-### Post - /search/variants [POST /brapi/v1/search/variants]
+### Post - /search/variants [POST /brapi/v2/search/variants]
 
 Gets a list of `Variant` matching the search criteria.
 
@@ -5520,7 +5520,7 @@ Gets a list of `Variant` matching the search criteria.
 
 
 
-### Get - /search/variants/{searchResultsDbId} [GET /brapi/v1/search/variants/{searchResultsDbId}{?pageToken}{?pageSize}]
+### Get - /search/variants/{searchResultsDbId} [GET /brapi/v2/search/variants/{searchResultsDbId}{?pageToken}{?pageSize}]
 
 Gets a list of `Variant` matching the search criteria.
 
@@ -5694,7 +5694,7 @@ Gets a list of `Variant` matching the search criteria.
 
 
 
-### Get - /variants [GET /brapi/v1/variants{?variantDbId}{?variantSetDbId}{?pageToken}{?pageSize}]
+### Get - /variants [GET /brapi/v2/variants{?variantDbId}{?variantSetDbId}{?pageToken}{?pageSize}]
 
 Gets a filtered list of `Variants`.
 
@@ -5833,7 +5833,7 @@ Gets a filtered list of `Variants`.
 
 
 
-### Get - /variants/{variantDbId} [GET /brapi/v1/variants/{variantDbId}]
+### Get - /variants/{variantDbId} [GET /brapi/v2/variants/{variantDbId}]
 
 `GET /variants/{id}` will return a JSON version of `Variant`.
 
@@ -5965,7 +5965,7 @@ Gets a filtered list of `Variants`.
 
 
 
-### Get - /variants/{variantDbId}/calls [GET /brapi/v1/variants/{variantDbId}/calls{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageToken}{?pageSize}]
+### Get - /variants/{variantDbId}/calls [GET /brapi/v2/variants/{variantDbId}/calls{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageToken}{?pageSize}]
 
 The variant calls for this particular variant. Each one represents the determination of genotype with respect to this variant. `Calls` in this array are implicitly associated with this `Variant`.
 
@@ -6093,7 +6093,7 @@ Note that to use these calls, you likely have to use the authentication call pri
 
 
 
-### Get - /vendor/orders [GET /brapi/v1/vendor/orders{?orderId}{?submissionId}{?page}{?pageSize}]
+### Get - /vendor/orders [GET /brapi/v2/vendor/orders{?orderId}{?submissionId}{?page}{?pageSize}]
 
 List current available orders
 
@@ -6194,7 +6194,7 @@ List current available orders
 
 
 
-### Post - /vendor/orders [POST /brapi/v1/vendor/orders]
+### Post - /vendor/orders [POST /brapi/v2/vendor/orders]
 
 Submit a new order to a vendor
 
@@ -6402,7 +6402,7 @@ Submit a new order to a vendor
 
 
 
-### Get - /vendor/orders/{orderId}/plates [GET /brapi/v1/vendor/orders/{orderId}/plates{?page}{?pageSize}]
+### Get - /vendor/orders/{orderId}/plates [GET /brapi/v2/vendor/orders/{orderId}/plates{?page}{?pageSize}]
 
 Retrieve the plate and sample details of an order being processed
 
@@ -6575,7 +6575,7 @@ Retrieve the plate and sample details of an order being processed
 
 
 
-### Get - /vendor/orders/{orderId}/results [GET /brapi/v1/vendor/orders/{orderId}/results{?page}{?pageSize}]
+### Get - /vendor/orders/{orderId}/results [GET /brapi/v2/vendor/orders/{orderId}/results{?page}{?pageSize}]
 
 Retrieve the data files generated by the vendors analysis
 
@@ -6677,7 +6677,7 @@ Retrieve the data files generated by the vendors analysis
 
 
 
-### Get - /vendor/orders/{orderId}/status [GET /brapi/v1/vendor/orders/{orderId}/status]
+### Get - /vendor/orders/{orderId}/status [GET /brapi/v2/vendor/orders/{orderId}/status]
 
 Retrieve the current status of an order being processed
 
@@ -6764,7 +6764,7 @@ Retrieve the current status of an order being processed
 
 
 
-### Post - /vendor/plates [POST /brapi/v1/vendor/plates]
+### Post - /vendor/plates [POST /brapi/v2/vendor/plates]
 
 Submit a new set of Sample data
 
@@ -6948,7 +6948,7 @@ Submit a new set of Sample data
 
 
 
-### Get - /vendor/plates/{submissionId} [GET /brapi/v1/vendor/plates/{submissionId}]
+### Get - /vendor/plates/{submissionId} [GET /brapi/v2/vendor/plates/{submissionId}]
 
 Get data for a submitted set of plates
 
@@ -7123,7 +7123,7 @@ Get data for a submitted set of plates
 
 
 
-### Get - /vendor/specifications [GET /brapi/v1/vendor/specifications]
+### Get - /vendor/specifications [GET /brapi/v2/vendor/specifications]
 
 Defines the plate format specification for the vendor.
 

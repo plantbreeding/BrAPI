@@ -46,7 +46,7 @@ For multi crop systems this is a useful call to list all the supported crops.
 
 
 
-### Get - /commoncropnames [GET /brapi/v1/commoncropnames{?page}{?pageSize}]
+### Get - /commoncropnames [GET /brapi/v2/commoncropnames{?page}{?pageSize}]
 
 List the common crop names for the crops available in a database server. 
 
@@ -142,7 +142,7 @@ Calls for manipulating generic lists of item IDs
 
 
 
-### Get - /lists [GET /brapi/v1/lists{?listType}{?listName}{?listDbId}{?listSource}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /lists [GET /brapi/v2/lists{?listType}{?listName}{?listDbId}{?listSource}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get filtered set of generic lists
 
@@ -281,7 +281,7 @@ Get filtered set of generic lists
 
 
 
-### Post - /lists [POST /brapi/v1/lists]
+### Post - /lists [POST /brapi/v2/lists]
 
 Create a new list
 
@@ -481,7 +481,7 @@ Create a new list
 
 
 
-### Get - /lists/{listDbId} [GET /brapi/v1/lists/{listDbId}]
+### Get - /lists/{listDbId} [GET /brapi/v2/lists/{listDbId}]
 
 Get a specific generic lists
 
@@ -618,7 +618,7 @@ Get a specific generic lists
 
 
 
-### Put - /lists/{listDbId} [PUT /brapi/v1/lists/{listDbId}]
+### Put - /lists/{listDbId} [PUT /brapi/v2/lists/{listDbId}]
 
 Update an existing generic list
 
@@ -822,7 +822,7 @@ Update an existing generic list
 
 
 
-### Post - /lists/{listDbId}/items [POST /brapi/v1/lists/{listDbId}/items]
+### Post - /lists/{listDbId}/items [POST /brapi/v2/lists/{listDbId}/items]
 
 Add new data to a specific generic lists
 
@@ -972,7 +972,7 @@ Add new data to a specific generic lists
 
 
 
-### Post - /search/lists [POST /brapi/v1/search/lists]
+### Post - /search/lists [POST /brapi/v2/search/lists]
 
 Advanced searching for the list resource.
 See Search Services for additional implementation details.
@@ -1211,7 +1211,7 @@ See Search Services for additional implementation details.
 
 
 
-### Get - /search/lists/{searchResultsDbId} [GET /brapi/v1/search/lists/{searchResultsDbId}{?page}{?pageSize}]
+### Get - /search/lists/{searchResultsDbId} [GET /brapi/v2/search/lists/{searchResultsDbId}{?page}{?pageSize}]
 
 Advanced searching for the list resource.
 See Search Services for additional implementation details.
@@ -1388,7 +1388,7 @@ Location calls.
 
 
 
-### Get - /locations [GET /brapi/v1/locations{?locationType}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /locations [GET /brapi/v2/locations{?locationType}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a list of locations.
 * The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
@@ -1543,7 +1543,7 @@ Get a list of locations.
 
 
 
-### Post - /locations [POST /brapi/v1/locations]
+### Post - /locations [POST /brapi/v2/locations]
 
 Add new locations to database
 * The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
@@ -1774,7 +1774,7 @@ Add new locations to database
 
 
 
-### Get - /locations/{locationDbId} [GET /brapi/v1/locations/{locationDbId}]
+### Get - /locations/{locationDbId} [GET /brapi/v2/locations/{locationDbId}]
 
 Get details for a location.
 - The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
@@ -1925,7 +1925,7 @@ Get details for a location.
 
 
 
-### Put - /locations/{locationDbId} [PUT /brapi/v1/locations/{locationDbId}]
+### Put - /locations/{locationDbId} [PUT /brapi/v2/locations/{locationDbId}]
 
 Update the details for an existing location.
 - The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
@@ -2155,7 +2155,7 @@ Update the details for an existing location.
 
 
 
-### Post - /search/locations [POST /brapi/v1/search/locations]
+### Post - /search/locations [POST /brapi/v2/search/locations]
 
 Advanced searching for the locations resource.
 See Search Services for additional implementation details.
@@ -2438,7 +2438,7 @@ See Search Services for additional implementation details.
 
 
 
-### Get - /search/locations/{searchResultsDbId} [GET /brapi/v1/search/locations/{searchResultsDbId}{?page}{?pageSize}]
+### Get - /search/locations/{searchResultsDbId} [GET /brapi/v2/search/locations/{searchResultsDbId}{?page}{?pageSize}]
 
 Advanced searching for the locations resource.
 See Search Services for additional implementation details.
@@ -2630,7 +2630,7 @@ Calls for maintaining information about people
 
 
 
-### Get - /people [GET /brapi/v1/people{?firstName}{?lastName}{?personDbId}{?userID}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /people [GET /brapi/v2/people{?firstName}{?lastName}{?personDbId}{?userID}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get filtered list of people
 
@@ -2757,7 +2757,7 @@ Get filtered list of people
 
 
 
-### Post - /people [POST /brapi/v1/people]
+### Post - /people [POST /brapi/v2/people]
 
 Create new People entities. `personDbId` is generated and managed by the server.
 
@@ -2928,7 +2928,7 @@ Create new People entities. `personDbId` is generated and managed by the server.
 
 
 
-### Get - /people/{personDbId} [GET /brapi/v1/people/{personDbId}]
+### Get - /people/{personDbId} [GET /brapi/v2/people/{personDbId}]
 
 Get the details for a specific Person
 
@@ -3048,7 +3048,7 @@ Get the details for a specific Person
 
 
 
-### Put - /people/{personDbId} [PUT /brapi/v1/people/{personDbId}]
+### Put - /people/{personDbId} [PUT /brapi/v2/people/{personDbId}]
 
 Update an existing Person
 
@@ -3218,7 +3218,7 @@ Update an existing Person
 
 
 
-### Post - /search/people [POST /brapi/v1/search/people]
+### Post - /search/people [POST /brapi/v2/search/people]
 
 Advanced searching for the programs resource.
 
@@ -3440,7 +3440,7 @@ See Search Services for additional implementation details.
 
 
 
-### Get - /search/people/{searchResultsDbId} [GET /brapi/v1/search/people/{searchResultsDbId}{?page}{?pageSize}]
+### Get - /search/people/{searchResultsDbId} [GET /brapi/v2/search/people/{searchResultsDbId}{?page}{?pageSize}]
 
 Advanced searching for the people resource.
 
@@ -3605,7 +3605,7 @@ A Program can contain multiple Trials. A Trial can contain multiple Studies.
 
 
 
-### Get - /programs [GET /brapi/v1/programs{?commonCropName}{?programName}{?abbreviation}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /programs [GET /brapi/v2/programs{?commonCropName}{?programName}{?abbreviation}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered list of breeding Programs. This list can be filtered by common crop name to narrow results to a specific crop.
 
@@ -3729,7 +3729,7 @@ Get a filtered list of breeding Programs. This list can be filtered by common cr
 
 
 
-### Post - /programs [POST /brapi/v1/programs]
+### Post - /programs [POST /brapi/v2/programs]
 
 Add new breeding Programs to the database. The `programDbId` is set by the server, all other fields are take from the request body, or a default value is used.
 
@@ -3896,7 +3896,7 @@ Add new breeding Programs to the database. The `programDbId` is set by the serve
 
 
 
-### Get - /programs/{programDbId} [GET /brapi/v1/programs/{programDbId}]
+### Get - /programs/{programDbId} [GET /brapi/v2/programs/{programDbId}]
 
 Get a single breeding Program by Id. This can be used to quickly get the details of a Program when you have the Id from another entity.
 
@@ -4009,7 +4009,7 @@ Get a single breeding Program by Id. This can be used to quickly get the details
 
 
 
-### Put - /programs/{programDbId} [PUT /brapi/v1/programs/{programDbId}]
+### Put - /programs/{programDbId} [PUT /brapi/v2/programs/{programDbId}]
 
 Update the details of an existing breeding Program.
 
@@ -4170,7 +4170,7 @@ Update the details of an existing breeding Program.
 
 
 
-### Post - /search/programs [POST /brapi/v1/search/programs]
+### Post - /search/programs [POST /brapi/v2/search/programs]
 
 Advanced searching for the programs resource.
 See Search Services for additional implementation details.
@@ -4384,7 +4384,7 @@ See Search Services for additional implementation details.
 
 
 
-### Get - /search/programs/{searchResultsDbId} [GET /brapi/v1/search/programs/{searchResultsDbId}{?page}{?pageSize}]
+### Get - /search/programs/{searchResultsDbId} [GET /brapi/v2/search/programs/{searchResultsDbId}{?page}{?pageSize}]
 
 Advanced searching for the programs resource.
 See Search Services for additional implementation details.
@@ -4550,7 +4550,7 @@ The '/serverinfo' call is used to find the available BrAPI calls on a particular
 
 
 
-### Get - /serverinfo [GET /brapi/v1/serverinfo{?dataType}]
+### Get - /serverinfo [GET /brapi/v2/serverinfo{?dataType}]
 
 Implementation Notes
 
@@ -4699,7 +4699,7 @@ A "study" in BrAPI represents an "study" in MIAPPE (Minimal Information about a 
 
 
 
-### Post - /search/studies [POST /brapi/v1/search/studies]
+### Post - /search/studies [POST /brapi/v2/search/studies]
 
 Get list of studies
 StartDate and endDate should be ISO-8601 format for dates
@@ -4897,7 +4897,7 @@ See Search Services for additional implementation details.
 
 
 
-### Get - /search/studies/{searchResultsDbId} [GET /brapi/v1/search/studies/{searchResultsDbId}{?page}{?pageSize}]
+### Get - /search/studies/{searchResultsDbId} [GET /brapi/v2/search/studies/{searchResultsDbId}{?page}{?pageSize}]
 
 Get list of studies
 
@@ -5231,7 +5231,7 @@ See Search Services for additional implementation details.
 
 
 
-### Get - /seasons [GET /brapi/v1/seasons{?seasonDbId}{?season}{?year}{?page}{?pageSize}]
+### Get - /seasons [GET /brapi/v2/seasons{?seasonDbId}{?season}{?year}{?page}{?pageSize}]
 
 Call to retrieve all seasons in the database.
 
@@ -5325,7 +5325,7 @@ program like "PlantingTime_3" or "Season E"
 
 
 
-### Get - /studies [GET /brapi/v1/studies{?commonCropName}{?studyType}{?programDbId}{?locationDbId}{?seasonDbId}{?trialDbId}{?studyDbId}{?studyPUI}{?germplasmDbId}{?observationVariableDbId}{?active}{?sortBy}{?sortOrder}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /studies [GET /brapi/v2/studies{?commonCropName}{?studyType}{?programDbId}{?locationDbId}{?seasonDbId}{?trialDbId}{?studyDbId}{?studyPUI}{?germplasmDbId}{?observationVariableDbId}{?active}{?sortBy}{?sortOrder}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get list of studies
 
@@ -5630,7 +5630,7 @@ StartDate and endDate should be ISO-8601 format for dates
 
 
 
-### Post - /studies [POST /brapi/v1/studies]
+### Post - /studies [POST /brapi/v2/studies]
 
 Create new studies
 
@@ -6141,7 +6141,7 @@ StartDate and endDate should be ISO-8601 format for dates
 
 
 
-### Get - /studies/{studyDbId} [GET /brapi/v1/studies/{studyDbId}]
+### Get - /studies/{studyDbId} [GET /brapi/v2/studies/{studyDbId}]
 
 Retrieve the information of the study required for field data collection
 
@@ -6430,7 +6430,7 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
 
 
 
-### Put - /studies/{studyDbId} [PUT /brapi/v1/studies/{studyDbId}]
+### Put - /studies/{studyDbId} [PUT /brapi/v2/studies/{studyDbId}]
 
 Update an existing Study with new data
 
@@ -6934,7 +6934,7 @@ Update an existing Study with new data
 
 
 
-### Get - /studytypes [GET /brapi/v1/studytypes{?page}{?pageSize}]
+### Get - /studytypes [GET /brapi/v2/studytypes{?page}{?pageSize}]
 
 Call to retrieve the list of study types.
 
@@ -7022,7 +7022,7 @@ A "trial" in BrAPI represents an "investigation" in MIAPPE (Minimal Information 
 
 
 
-### Post - /search/trials [POST /brapi/v1/search/trials]
+### Post - /search/trials [POST /brapi/v2/search/trials]
 
 Advanced searching for the programs resource.
 See Search Services for additional implementation details.
@@ -7307,7 +7307,7 @@ See Search Services for additional implementation details.
 
 
 
-### Get - /search/trials/{searchResultsDbId} [GET /brapi/v1/search/trials/{searchResultsDbId}{?page}{?pageSize}]
+### Get - /search/trials/{searchResultsDbId} [GET /brapi/v2/search/trials/{searchResultsDbId}{?page}{?pageSize}]
 
 Advanced searching for the trials resource.
 See Search Services for additional implementation details.
@@ -7514,7 +7514,7 @@ See Search Services for additional implementation details.
 
 
 
-### Get - /trials [GET /brapi/v1/trials{?active}{?commonCropName}{?contactDbId}{?programDbId}{?locationDbId}{?searchDateRangeStart}{?searchDateRangeEnd}{?studyDbId}{?trialDbId}{?trialName}{?trialPUI}{?sortBy}{?sortOrder}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /trials [GET /brapi/v2/trials{?active}{?commonCropName}{?contactDbId}{?programDbId}{?locationDbId}{?searchDateRangeStart}{?searchDateRangeEnd}{?studyDbId}{?trialDbId}{?trialName}{?trialPUI}{?sortBy}{?sortOrder}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Retrieve a filtered list of breeding Trials. A Trial is a collection of Studies
 
@@ -7693,7 +7693,7 @@ Retrieve a filtered list of breeding Trials. A Trial is a collection of Studies
 
 
 
-### Post - /trials [POST /brapi/v1/trials]
+### Post - /trials [POST /brapi/v2/trials]
 
 Create new breeding Trials. A Trial represents a collection of related Studies. `trialDbId` is generated by the server.
 
@@ -7950,7 +7950,7 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
 
 
 
-### Get - /trials/{trialDbId} [GET /brapi/v1/trials/{trialDbId}]
+### Get - /trials/{trialDbId} [GET /brapi/v2/trials/{trialDbId}]
 
 Get the details of a specific Trial
 
@@ -8237,7 +8237,7 @@ Get the details of a specific Trial
 
 
 
-### Put - /trials/{trialDbId} [PUT /brapi/v1/trials/{trialDbId}]
+### Put - /trials/{trialDbId} [PUT /brapi/v2/trials/{trialDbId}]
 
 Update the details of an existing Trial
 

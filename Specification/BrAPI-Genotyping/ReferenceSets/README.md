@@ -4,7 +4,7 @@
 
 
 
-### Get - /referencesets [GET /brapi/v1/referencesets{?referenceSetDbId}{?accession}{?assemblyPUI}{?md5checksum}{?page}{?pageSize}]
+### Get - /referencesets [GET /brapi/v2/referencesets{?referenceSetDbId}{?accession}{?assemblyPUI}{?md5checksum}{?page}{?pageSize}]
 
 Gets a filtered list of `ReferenceSets`.
 
@@ -115,7 +115,7 @@ Gets a filtered list of `ReferenceSets`.
 
 
 
-### Get - /referencesets/{referenceSetDbId} [GET /brapi/v1/referencesets/{referenceSetDbId}]
+### Get - /referencesets/{referenceSetDbId} [GET /brapi/v2/referencesets/{referenceSetDbId}]
 
 Gets a `ReferenceSet` by ID.
 
@@ -200,7 +200,7 @@ Gets a `ReferenceSet` by ID.
 
 
 
-### Post - /search/referencesets [POST /brapi/v1/search/referencesets]
+### Post - /search/referencesets [POST /brapi/v2/search/referencesets]
 
 Gets a list of `ReferenceSet` matching the search criteria.
 
@@ -362,7 +362,7 @@ Gets a list of `ReferenceSet` matching the search criteria.
 
 
 
-### Get - /search/referencesets/{searchResultsDbId} [GET /brapi/v1/search/referencesets/{searchResultsDbId}{?page}{?pageSize}]
+### Get - /search/referencesets/{searchResultsDbId} [GET /brapi/v2/search/referencesets/{searchResultsDbId}{?page}{?pageSize}]
 
 Gets a list of `ReferenceSet` matching the search criteria.
 

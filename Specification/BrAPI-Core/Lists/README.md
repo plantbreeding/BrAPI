@@ -5,7 +5,7 @@ Calls for manipulating generic lists of item IDs
 
 
 
-### Get - /lists [GET /brapi/v1/lists{?listType}{?listName}{?listDbId}{?listSource}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /lists [GET /brapi/v2/lists{?listType}{?listName}{?listDbId}{?listSource}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get filtered set of generic lists
 
@@ -144,7 +144,7 @@ Get filtered set of generic lists
 
 
 
-### Post - /lists [POST /brapi/v1/lists]
+### Post - /lists [POST /brapi/v2/lists]
 
 Create a new list
 
@@ -344,7 +344,7 @@ Create a new list
 
 
 
-### Get - /lists/{listDbId} [GET /brapi/v1/lists/{listDbId}]
+### Get - /lists/{listDbId} [GET /brapi/v2/lists/{listDbId}]
 
 Get a specific generic lists
 
@@ -481,7 +481,7 @@ Get a specific generic lists
 
 
 
-### Put - /lists/{listDbId} [PUT /brapi/v1/lists/{listDbId}]
+### Put - /lists/{listDbId} [PUT /brapi/v2/lists/{listDbId}]
 
 Update an existing generic list
 
@@ -685,7 +685,7 @@ Update an existing generic list
 
 
 
-### Post - /lists/{listDbId}/items [POST /brapi/v1/lists/{listDbId}/items]
+### Post - /lists/{listDbId}/items [POST /brapi/v2/lists/{listDbId}/items]
 
 Add new data to a specific generic lists
 
@@ -835,7 +835,7 @@ Add new data to a specific generic lists
 
 
 
-### Post - /search/lists [POST /brapi/v1/search/lists]
+### Post - /search/lists [POST /brapi/v2/search/lists]
 
 Advanced searching for the list resource.
 See Search Services for additional implementation details.
@@ -1074,7 +1074,7 @@ See Search Services for additional implementation details.
 
 
 
-### Get - /search/lists/{searchResultsDbId} [GET /brapi/v1/search/lists/{searchResultsDbId}{?page}{?pageSize}]
+### Get - /search/lists/{searchResultsDbId} [GET /brapi/v2/search/lists/{searchResultsDbId}{?page}{?pageSize}]
 
 Advanced searching for the list resource.
 See Search Services for additional implementation details.

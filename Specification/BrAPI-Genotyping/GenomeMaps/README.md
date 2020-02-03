@@ -12,7 +12,7 @@ Retrieving genetic or physical maps
 
 
 
-### Get - /maps [GET /brapi/v1/maps{?commonCropName}{?mapPUI}{?scientificName}{?type}{?programDbId}{?trialDbId}{?studyDbId}{?page}{?pageSize}]
+### Get - /maps [GET /brapi/v2/maps{?commonCropName}{?mapPUI}{?scientificName}{?type}{?programDbId}{?trialDbId}{?studyDbId}{?page}{?pageSize}]
 
 Get list of maps
 
@@ -125,7 +125,7 @@ Get list of maps
 
 
 
-### Get - /maps/{mapDbId} [GET /brapi/v1/maps/{mapDbId}{?page}{?pageSize}]
+### Get - /maps/{mapDbId} [GET /brapi/v2/maps/{mapDbId}{?page}{?pageSize}]
 
 Provides the number of markers on each linkageGroup and the max position on the linkageGroup
 
@@ -232,7 +232,7 @@ Provides the number of markers on each linkageGroup and the max position on the 
 
 
 
-### Get - /maps/{mapDbId}/linkagegroups [GET /brapi/v1/maps/{mapDbId}/linkagegroups{?page}{?pageSize}]
+### Get - /maps/{mapDbId}/linkagegroups [GET /brapi/v2/maps/{mapDbId}/linkagegroups{?page}{?pageSize}]
 
 Get the Linkage Groups of a specific Genomic Map. A Linkage Group is the BrAPI generic term for a named section of a map. A Linkage Group can represent a Chromosome, Scaffold, or Linkage Group.
 
@@ -326,7 +326,7 @@ Get the Linkage Groups of a specific Genomic Map. A Linkage Group is the BrAPI g
 
 
 
-### Get - /markerpositions [GET /brapi/v1/markerpositions{?mapDbId}{?linkageGroupName}{?markerDbId}{?minPosition}{?maxPosition}{?page}{?pageSize}]
+### Get - /markerpositions [GET /brapi/v2/markerpositions{?mapDbId}{?linkageGroupName}{?markerDbId}{?minPosition}{?maxPosition}{?page}{?pageSize}]
 
 Get marker position information, based on Map, Linkage Group, and Marker ID
 
@@ -425,7 +425,7 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 
 
 
-### Post - /search/markerpositions [POST /brapi/v1/search/markerpositions]
+### Post - /search/markerpositions [POST /brapi/v2/search/markerpositions]
 
 Get marker position information, based on Map, Linkage Group, and Marker ID
 
@@ -587,7 +587,7 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 
 
 
-### Post - /search/markerpositions/{searchResultsDbId} [POST /brapi/v1/search/markerpositions/{searchResultsDbId}{?page}{?pageSize}]
+### Post - /search/markerpositions/{searchResultsDbId} [POST /brapi/v2/search/markerpositions/{searchResultsDbId}{?page}{?pageSize}]
 
 Get marker position information, based on Map, Linkage Group, and Marker ID
 

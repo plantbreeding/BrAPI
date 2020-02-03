@@ -4,7 +4,7 @@
 
 
 
-### Get - /references [GET /brapi/v1/references{?referenceDbId}{?referenceSetDbId}{?accession}{?md5checksum}{?isDerived}{?minLength}{?maxLength}{?page}{?pageSize}]
+### Get - /references [GET /brapi/v2/references{?referenceDbId}{?referenceSetDbId}{?accession}{?md5checksum}{?isDerived}{?minLength}{?maxLength}{?page}{?pageSize}]
 
 `GET /references` will return a filtered list of `Reference` JSON objects.
 
@@ -117,7 +117,7 @@
 
 
 
-### Get - /references/{referenceDbId} [GET /brapi/v1/references/{referenceDbId}]
+### Get - /references/{referenceDbId} [GET /brapi/v2/references/{referenceDbId}]
 
 `GET /references/{reference_id}` will return a JSON version of
 `Reference`.
@@ -222,7 +222,7 @@
 
 
 
-### Get - /references/{referenceDbId}/bases [GET /brapi/v1/references/{referenceDbId}/bases{?start}{?end}{?pageToken}]
+### Get - /references/{referenceDbId}/bases [GET /brapi/v2/references/{referenceDbId}/bases{?start}{?end}{?pageToken}]
 
 Lists `Reference` bases by ID and optional range.
 
@@ -310,7 +310,7 @@ Lists `Reference` bases by ID and optional range.
 
 
 
-### Post - /search/references [POST /brapi/v1/search/references]
+### Post - /search/references [POST /brapi/v2/search/references]
 
 `POST /references/search` must accept a JSON version of
 `SearchReferencesRequest` as the post body and will return a JSON
@@ -473,7 +473,7 @@ version of `SearchReferencesResponse`.
 
 
 
-### Get - /search/references/{searchResultsDbId} [GET /brapi/v1/search/references/{searchResultsDbId}{?page}{?pageSize}]
+### Get - /search/references/{searchResultsDbId} [GET /brapi/v2/search/references/{searchResultsDbId}{?page}{?pageSize}]
 
 `POST /references/search` must accept a JSON version of
 `SearchReferencesRequest` as the post body and will return a JSON

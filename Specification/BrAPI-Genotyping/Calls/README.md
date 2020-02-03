@@ -4,7 +4,7 @@
 
 
 
-### Get - /calls [GET /brapi/v1/calls{?callSetDbId}{?variantDbId}{?variantSetDbId}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageToken}{?pageSize}]
+### Get - /calls [GET /brapi/v2/calls{?callSetDbId}{?variantDbId}{?variantSetDbId}{?expandHomozygotes}{?unknownString}{?sepPhased}{?sepUnphased}{?pageToken}{?pageSize}]
 
 Gets a filtered list of `Call` JSON objects.
 
@@ -126,7 +126,7 @@ Gets a filtered list of `Call` JSON objects.
 
 
 
-### Post - /search/calls [POST /brapi/v1/search/calls]
+### Post - /search/calls [POST /brapi/v2/search/calls]
 
 Submit a search request for `Calls`
 
@@ -313,7 +313,7 @@ Submit a search request for `Calls`
 
 
 
-### Get - /search/calls/{searchResultsDbId} [GET /brapi/v1/search/calls/{searchResultsDbId}{?pageToken}{?pageSize}]
+### Get - /search/calls/{searchResultsDbId} [GET /brapi/v2/search/calls/{searchResultsDbId}{?pageToken}{?pageSize}]
 
 Returns a filtered list of `Call` JSON objects.
 
