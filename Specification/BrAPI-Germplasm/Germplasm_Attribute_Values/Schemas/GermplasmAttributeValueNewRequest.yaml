@@ -1,0 +1,39 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    GermplasmAttributeValueNewRequest: 
+      type: object
+      required:
+      - attributeName
+      properties:
+        attributeDbId:
+          description: The ID which uniquely identifies this attribute within the given database server
+          type: string
+          example: e529dd5a
+        attributeName: 
+          description: A human readable name for this attribute
+          type: string
+          example: Weevil Resistance
+        germplasmDbId: 
+          description: The ID which uniquely identifies a germplasm within the given database server
+          type: string
+          example: d4076594
+        germplasmName:
+          description: Name of the germplasm. It can be the preferred name and does not have to be unique.
+          type: string
+          example: A0000003
+        determinedDate: 
+          description: The date the value of this attribute was determined for a given germplasm
+          type: string
+          format: date-time
+        value: 
+          description: The value of this attribute for a given germplasm
+          type: string
+          example: Present
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
+

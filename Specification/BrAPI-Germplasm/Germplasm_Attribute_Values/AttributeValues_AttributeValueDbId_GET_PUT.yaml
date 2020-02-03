@@ -1,0 +1,76 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /attributeValues/{attributeValueDbId}:
+    get:
+      summary: Get the details for a specific Germplasm Attribute
+      description: Get the details for a specific Germplasm Attribute
+      parameters:
+      - name: attributeValueDbId
+        description: The unique id for an attribute value
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/GermplasmAttributeValueSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Germplasm Attributes
+    post:
+      summary: Create new Germplasm Attribute Values
+      description: Create new Germplasm Attribute Values
+      parameters:
+      - name: attributeValueDbId
+        description: The unique id for an attribute value
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GermplasmAttributeValueNewRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/GermplasmAttributeValueSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Germplasm Attributes
+components:
+  responses:
+    GermplasmAttributeValueSingleResponse:
+      description: OK
+      headers: {}
+      content:
+        application/json:
+          schema:
+            title: GermplasmAttributeValueSingleResponse
+            type: object
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                $ref: '#/components/schemas/GermplasmAttributeValue'
+            required:
+            - metadata
+            - result
+    

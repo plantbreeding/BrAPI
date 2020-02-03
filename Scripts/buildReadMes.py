@@ -77,7 +77,7 @@ def buildGroupTitle(callPath, method, callsStrings):
 	if groupTitle not in groupTitles:
 		groupTitleStr = '\n## '
 		groupTitleStr += method.capitalize() + ' - ' + re.sub('{.*}', '{ID}', callPath)
-		groupTitleStr += ' [/brapi/v1/' + callPath + '] \n'
+		groupTitleStr += ' [/brapi/v2/' + callPath + '] \n'
 		
 		callsStrings[groupTitle] = {'titleStr': '', 'depReadMeStrings': [], 'readMeStrings': []}
 	
@@ -91,7 +91,7 @@ def buildTitleStr(path, method, params = [], deprecated = False):
 		
 	titleStr += method.capitalize() + ' - ' + path
 	
-	titleStr += ' [' + method.upper() + ' /brapi/v1' + path
+	titleStr += ' [' + method.upper() + ' /brapi/v2' + path
 	
 	for param in params:
 		if param['in'] == 'query' :
