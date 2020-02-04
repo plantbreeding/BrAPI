@@ -7,7 +7,7 @@
         "logo": "https://www.ipk-gatersleben.de/fileadmin/template/main/images-ipk/ipklogo.png",
         "resource": [
           {
-            "name": "plant phenopyping",
+            "name": "IPK Gatersleben - Germplasm and Phenotypic Data",
             "base-url": "https://webapps.ipk-gatersleben.de/api/brapi/v1",
             "logo": "https://www.ipk-gatersleben.de/fileadmin/template/main/images-ipk/ipklogo.png",
             "description": "Germplasm resources and plant phenotyping from IPK-Gatersleben"
