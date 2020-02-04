@@ -25,7 +25,7 @@ paths:
         '403':
           $ref: '#/components/responses/403Forbidden'
       tags:
-      - Germplasm Attributes
+      - Germplasm Attribute Values
     post:
       summary: Create new Germplasm Attribute Values
       description: Create new Germplasm Attribute Values
@@ -52,7 +52,7 @@ paths:
         '403':
           $ref: '#/components/responses/403Forbidden'
       tags:
-      - Germplasm Attributes
+      - Germplasm Attribute Values
 components:
   responses:
     GermplasmAttributeValueSingleResponse:

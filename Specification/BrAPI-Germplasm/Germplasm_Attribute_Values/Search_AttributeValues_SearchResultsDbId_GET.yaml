@@ -3,11 +3,11 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /search/attributes/{searchResultsDbId}:
+  /search/attributeValues/{searchResultsDbId}:
     get:
-      summary: Get the results of a Germplasm Attributes search request
+      summary: Get the results of a Germplasm Attribute Values search request
       description: |-
-        Get the results of a Germplasm Attributes search request
+        Get the results of a Germplasm Attribute Values search request
       
         See Search Services for additional implementation details.
       parameters:
@@ -19,7 +19,7 @@ paths:
         '102': 
           $ref: '#/components/responses/102ProcessingSearchResponse' 
         '200':
-          $ref: '#/components/responses/GermplasmAttributeListResponse'
+          $ref: '#/components/responses/GermplasmAttributeValueListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -29,4 +29,4 @@ paths:
         '404':
           $ref: '#/components/responses/404NotFound'
       tags:
-      - Germplasm
+      - Germplasm Attribute Values

@@ -29,4 +29,4 @@ paths:
         '404':
           $ref: '#/components/responses/404NotFound'
       tags:
-      - Germplasm
+      - Germplasm Attributes

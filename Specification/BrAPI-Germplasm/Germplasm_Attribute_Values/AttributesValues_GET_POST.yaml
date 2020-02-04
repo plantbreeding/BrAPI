@@ -8,8 +8,8 @@ paths:
       summary: Get the Germplasm Attribute Values
       description: Get the Germplasm Attribute Values
       parameters:
-      - name: attributeCategory
-        description: The general category for the attribute. very similar to Trait class.
+      - name: attributeValueDbId
+        description: The unique id for an attribute value
         in: query
         required: false
         schema:
@@ -47,10 +47,10 @@ paths:
         '403':
           $ref: '#/components/responses/403Forbidden'
       tags:
-      - Germplasm Attributes
+      - Germplasm Attribute Values
     post:
-      summary: Create new Germplasm Attributes
-      description: Create new Germplasm Attributes
+      summary: Create new Germplasm Attribute Values
+      description: Create new Germplasm Attribute Values
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
@@ -59,10 +59,10 @@ paths:
             schema:
               type: array
               items: 
-                $ref: '#/components/schemas/GermplasmAttributeNewRequest'
+                $ref: '#/components/schemas/GermplasmAttributeValueNewRequest'
       responses:
         '200':
-          $ref: '#/components/responses/GermplasmAttributeListResponse'
+          $ref: '#/components/responses/GermplasmAttributeValueListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -70,14 +70,14 @@ paths:
         '403':
           $ref: '#/components/responses/403Forbidden'
       tags:
-      - Germplasm Attributes
+      - Germplasm Attribute Values
 components:
   responses:
-    GermplasmAttributeListResponse:
+    GermplasmAttributeValueListResponse:
       content:
         application/json:
           schema:
-            title: GermplasmAttributeListResponse
+            title: GermplasmAttributeValueListResponse
             type: object
             properties:
               '@context':
@@ -88,7 +88,7 @@ components:
                 properties:
                   data:
                     items:
-                      $ref: '#/components/schemas/GermplasmAttribute'
+                      $ref: '#/components/schemas/GermplasmAttributeValue'
                     type: array
                 required:
                 - data
