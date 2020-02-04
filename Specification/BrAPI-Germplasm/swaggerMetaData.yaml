@@ -108,6 +108,11 @@ tags:
   externalDocs:
     description: Docs
     url: https://wiki.brapi.org/
+- name: Germplasm Attribute Values
+  description: Information about Germplasm Attribute Values
+  externalDocs:
+    description: Docs
+    url: https://wiki.brapi.org/
 - name: Crossing Projects
   description: Information about Crossing Projects
   externalDocs:

@@ -3,11 +3,11 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /search/attributes:
+  /search/attributevalues: 
     post:
-      summary: Submit a search request for Germplasm Attributes
+      summary: Submit a search request for Germplasm Attribute Values
       description: |-
-        Search for a set of Germplasm Attributes based on some criteria
+        Search for a set of Germplasm Attribute Values based on some criteria
                 
         See Search Services for additional implementation details.
       parameters:
@@ -16,10 +16,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/GermplasmAttributeSearchRequest'
+              $ref: '#/components/schemas/GermplasmAttributeValueSearchRequest'
       responses:
         '200':
-          $ref: '#/components/responses/GermplasmAttributeListResponse'
+          $ref: '#/components/responses/GermplasmAttributeValueListResponse'
         '202':
           $ref: '#/components/responses/202AcceptedSearchResponse'
         '400':
@@ -29,4 +29,4 @@ paths:
         '403':
           $ref: '#/components/responses/403Forbidden'
       tags:
-      - Germplasm Attributes
+      - Germplasm Attribute Values

@@ -1,0 +1,101 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /attributevalues:
+    get:
+      summary: Get the Germplasm Attribute Values
+      description: Get the Germplasm Attribute Values
+      parameters:
+      - name: attributeValueDbId
+        description: The unique id for an attribute value
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: attributeDbId
+        description: The unique id for an attribute
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: attributeName
+        description: The human readable name for an attribute
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: germplasmDbId
+        description: Get all attributes associated with this germplasm
+        in: query
+        required: false
+        schema:
+          type: string
+      - $ref: '#/components/parameters/externalReferenceID'
+      - $ref: '#/components/parameters/externalReferenceSource'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/GermplasmAttributeListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Germplasm Attribute Values
+    post:
+      summary: Create new Germplasm Attribute Values
+      description: Create new Germplasm Attribute Values
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items: 
+                $ref: '#/components/schemas/GermplasmAttributeValueNewRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/GermplasmAttributeValueListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Germplasm Attribute Values
+components:
+  responses:
+    GermplasmAttributeValueListResponse:
+      content:
+        application/json:
+          schema:
+            title: GermplasmAttributeValueListResponse
+            type: object
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/components/schemas/GermplasmAttributeValue'
+                    type: array
+                required:
+                - data
+                type: object
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}
+    
