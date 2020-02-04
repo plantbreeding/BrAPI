@@ -3,7 +3,7 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /search/attributeValues/{searchResultsDbId}:
+  /search/attributevalues/{searchResultsDbId}: 
     get:
       summary: Get the results of a Germplasm Attribute Values search request
       description: |-
