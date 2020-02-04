@@ -2248,11 +2248,11 @@ See Search Services for additional implementation details.
 
 |Field|Type|Description|
 |---|---|---| 
+|attributeDbIds|array[string]|List of Germplasm Attribute IDs to search for|
+|attributeNames|array[string]|List of human readable Germplasm Attribute names to search for|
 |dataTypes|array[string]|List of scale data types to filter search results|
 |externalReferenceIDs|array[string]|List of external references for the trait to search for|
 |externalReferenceSources|array[string]|List of external references sources for the trait to search for|
-|germplasmAttributeDbIds|array[string]|List of Germplasm Attribute IDs to search for|
-|germplasmAttributeNames|array[string]|List of human readable Germplasm Attribute names to search for|
 |methodDbIds|array[string]|List of methods to filter search results|
 |ontologyDbIds|array[string]|List of ontology IDs to search for|
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
@@ -2366,6 +2366,14 @@ See Search Services for additional implementation details.
 + Request (application/json)
 ```
 {
+    "attributeDbIds": [
+        "2ef15c9f",
+        "318e7f7d"
+    ],
+    "attributeNames": [
+        "Plant Height 1",
+        "Root Color"
+    ],
     "dataTypes": [
         "Numerical",
         "Ordinal",
@@ -2378,14 +2386,6 @@ See Search Services for additional implementation details.
     "externalReferenceSources": [
         "OBO Library",
         "Field App Name"
-    ],
-    "germplasmAttributeDbIds": [
-        "2ef15c9f",
-        "318e7f7d"
-    ],
-    "germplasmAttributeNames": [
-        "Plant Height 1",
-        "Root Color"
     ],
     "methodDbIds": [
         "07e34f83",
