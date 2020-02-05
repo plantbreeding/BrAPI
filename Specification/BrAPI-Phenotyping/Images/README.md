@@ -39,7 +39,7 @@ Implementation Notes
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
 |imageFileSize|integer|The size of the image in Bytes.|
 |imageHeight|integer|The height of the image in Pixels.|
-|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
@@ -135,7 +135,8 @@ Implementation Notes
                     "geometry": {
                         "coordinates": [
                             -76.506042,
-                            42.417373
+                            42.417373,
+                            123
                         ],
                         "type": "Point"
                     },
@@ -206,7 +207,7 @@ Implementation Notes
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
 |imageFileSize|integer|The size of the image in Bytes.|
 |imageHeight|integer|The height of the image in Pixels.|
-|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
@@ -234,7 +235,7 @@ Implementation Notes
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
 |imageFileSize|integer|The size of the image in Bytes.|
 |imageHeight|integer|The height of the image in Pixels.|
-|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
@@ -290,7 +291,8 @@ Implementation Notes
             "geometry": {
                 "coordinates": [
                     -76.506042,
-                    42.417373
+                    42.417373,
+                    123
                 ],
                 "type": "Point"
             },
@@ -380,7 +382,8 @@ Implementation Notes
                     "geometry": {
                         "coordinates": [
                             -76.506042,
-                            42.417373
+                            42.417373,
+                            123
                         ],
                         "type": "Point"
                     },
@@ -448,7 +451,7 @@ Implementation Notes
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
 |imageFileSize|integer|The size of the image in Bytes.|
 |imageHeight|integer|The height of the image in Pixels.|
-|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
@@ -534,7 +537,8 @@ Implementation Notes
             "geometry": {
                 "coordinates": [
                     -76.506042,
-                    42.417373
+                    42.417373,
+                    123
                 ],
                 "type": "Point"
             },
@@ -612,7 +616,7 @@ Implementation Notes
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
 |imageFileSize|integer|The size of the image in Bytes.|
 |imageHeight|integer|The height of the image in Pixels.|
-|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
@@ -639,7 +643,7 @@ Implementation Notes
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
 |imageFileSize|integer|The size of the image in Bytes.|
 |imageHeight|integer|The height of the image in Pixels.|
-|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
@@ -695,7 +699,8 @@ Implementation Notes
         "geometry": {
             "coordinates": [
                 -76.506042,
-                42.417373
+                42.417373,
+                123
             ],
             "type": "Point"
         },
@@ -782,7 +787,8 @@ Implementation Notes
             "geometry": {
                 "coordinates": [
                     -76.506042,
-                    42.417373
+                    42.417373,
+                    123
                 ],
                 "type": "Point"
             },
@@ -855,7 +861,7 @@ Implementation Notes
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
 |imageFileSize|integer|The size of the image in Bytes.|
 |imageHeight|integer|The height of the image in Pixels.|
-|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
@@ -941,7 +947,8 @@ Implementation Notes
             "geometry": {
                 "coordinates": [
                     -76.506042,
-                    42.417373
+                    42.417373,
+                    123
                 ],
                 "type": "Point"
             },
@@ -1040,7 +1047,7 @@ See Search Services for additional implementation details.
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
 |imageFileSize|integer|The size of the image in Bytes.|
 |imageHeight|integer|The height of the image in Pixels.|
-|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
@@ -1204,7 +1211,8 @@ See Search Services for additional implementation details.
                     "geometry": {
                         "coordinates": [
                             -76.506042,
-                            42.417373
+                            42.417373,
+                            123
                         ],
                         "type": "Point"
                     },
@@ -1309,7 +1317,7 @@ Implementation Notes
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
 |imageFileSize|integer|The size of the image in Bytes.|
 |imageHeight|integer|The height of the image in Pixels.|
-|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|imageLocation|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
 |imageName|string|The human readable name of an image. Might be the same as 'imageFileName', but could be different.|
@@ -1435,7 +1443,8 @@ Implementation Notes
                     "geometry": {
                         "coordinates": [
                             -76.506042,
-                            42.417373
+                            42.417373,
+                            123
                         ],
                         "type": "Point"
                     },

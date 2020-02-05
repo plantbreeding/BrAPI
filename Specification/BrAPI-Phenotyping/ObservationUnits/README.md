@@ -120,7 +120,7 @@ Get a filtered set of Observation Units
 |blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
 |entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
-|geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
 |positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
@@ -233,7 +233,8 @@ Get a filtered set of Observation Units
                         "geometry": {
                             "coordinates": [
                                 -76.506042,
-                                42.417373
+                                42.417373,
+                                123
                             ],
                             "type": "Point"
                         },
@@ -307,7 +308,7 @@ Add new Observation Units
 |blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
 |entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
-|geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
 |positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
@@ -350,7 +351,7 @@ Add new Observation Units
 |blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
 |entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
-|geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
 |positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
@@ -421,7 +422,8 @@ Add new Observation Units
                 "geometry": {
                     "coordinates": [
                         -76.506042,
-                        42.417373
+                        42.417373,
+                        123
                     ],
                     "type": "Point"
                 },
@@ -526,7 +528,8 @@ Add new Observation Units
                         "geometry": {
                             "coordinates": [
                                 -76.506042,
-                                42.417373
+                                42.417373,
+                                123
                             ],
                             "type": "Point"
                         },
@@ -610,7 +613,7 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 |blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
 |entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
-|geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
 |positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
@@ -718,7 +721,8 @@ Note - In strictly typed languages, this structure can be represented as a Map o
                         "geometry": {
                             "coordinates": [
                                 -76.506042,
-                                42.417373
+                                42.417373,
+                                123
                             ],
                             "type": "Point"
                         },
@@ -1034,7 +1038,7 @@ Get the details of a specific Observation Unit
 |blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
 |entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
-|geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
 |positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
@@ -1135,7 +1139,8 @@ Get the details of a specific Observation Unit
                 "geometry": {
                     "coordinates": [
                         -76.506042,
-                        42.417373
+                        42.417373,
+                        123
                     ],
                     "type": "Point"
                 },
@@ -1207,7 +1212,7 @@ Update an existing Observation Units
 |blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
 |entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
-|geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
 |positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
@@ -1249,7 +1254,7 @@ Update an existing Observation Units
 |blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
 |entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
-|geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
 |positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
@@ -1320,7 +1325,8 @@ Update an existing Observation Units
             "geometry": {
                 "coordinates": [
                     -76.506042,
-                    42.417373
+                    42.417373,
+                    123
                 ],
                 "type": "Point"
             },
@@ -1422,7 +1428,8 @@ Update an existing Observation Units
                 "geometry": {
                     "coordinates": [
                         -76.506042,
-                        42.417373
+                        42.417373,
+                        123
                     ],
                     "type": "Point"
                 },
@@ -1538,7 +1545,7 @@ observationValue data type inferred from the ontology
 |blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
 |entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
-|geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
 |positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
@@ -1702,7 +1709,8 @@ observationValue data type inferred from the ontology
                         "geometry": {
                             "coordinates": [
                                 -76.506042,
-                                42.417373
+                                42.417373,
+                                123
                             ],
                             "type": "Point"
                         },
@@ -1818,7 +1826,7 @@ See Search Services for additional implementation details.
 |blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
 |entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
-|geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
 |positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
@@ -1959,7 +1967,8 @@ See Search Services for additional implementation details.
                         "geometry": {
                             "coordinates": [
                                 -76.506042,
-                                42.417373
+                                42.417373,
+                                123
                             ],
                             "type": "Point"
                         },
