@@ -1423,7 +1423,9 @@ Addresses these needs
 |description|string|A supplemental text description of the storage type|
 |subtaxa|string|Subtaxon can be used to store any additional taxonomic identifier.  MCPD (v2.1) (SUBTAXA) 8. Subtaxon can be used to store any additional taxonomic identifier. The following abbreviations are allowed: "subsp." (for subspecies); "convar." (for convariety); "var." (for variety); "f." (for form); "Group" (for "cultivar group").  MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).|
 |subtaxaAuthority|string|The authority organization responsible for tracking and maintaining the subtaxon information  MCPD (v2.1) (SUBTAUTHOR) 9. Provide the subtaxon authority at the most detailed taxonomic level.|
-|synonyms|array[string]|List of alternative names or IDs used to reference this germplasm|
+|synonyms|array[object]|List of alternative names or IDs used to reference this germplasm|
+|synonym|string|Alternative name or ID used to reference this germplasm|
+|type|string|A descriptive classification for this synonym|
 |taxonIds|array[object]|The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.  MIAPPE V1.1 (DM-42) Organism - An identifier for the organism at the species level. Use of the NCBI taxon ID is recommended.|
 |sourceName|string|The human readable name of the taxonomy provider|
 |taxonId|string|The identifier (name, ID, URI) of a particular taxonomy within the source provider|
@@ -1561,7 +1563,10 @@ Addresses these needs
                 "subtaxa": "Aspergillus fructus A",
                 "subtaxaAuthority": "Smith, 1822",
                 "synonyms": [
-                    "variety_1"
+                    {
+                        "synonym": "variety_1",
+                        "type": "Pre-Code"
+                    }
                 ],
                 "taxonIds": [
                     {
@@ -1639,7 +1644,9 @@ Create new Germplasm entities on this server
 |description|string|A supplemental text description of the storage type|
 |subtaxa|string|Subtaxon can be used to store any additional taxonomic identifier.  MCPD (v2.1) (SUBTAXA) 8. Subtaxon can be used to store any additional taxonomic identifier. The following abbreviations are allowed: "subsp." (for subspecies); "convar." (for convariety); "var." (for variety); "f." (for form); "Group" (for "cultivar group").  MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).|
 |subtaxaAuthority|string|The authority organization responsible for tracking and maintaining the subtaxon information  MCPD (v2.1) (SUBTAUTHOR) 9. Provide the subtaxon authority at the most detailed taxonomic level.|
-|synonyms|array[string]|List of alternative names or IDs used to reference this germplasm|
+|synonyms|array[object]|List of alternative names or IDs used to reference this germplasm|
+|synonym|string|Alternative name or ID used to reference this germplasm|
+|type|string|A descriptive classification for this synonym|
 |taxonIds|array[object]|The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.  MIAPPE V1.1 (DM-42) Organism - An identifier for the organism at the species level. Use of the NCBI taxon ID is recommended.|
 |sourceName|string|The human readable name of the taxonomy provider|
 |taxonId|string|The identifier (name, ID, URI) of a particular taxonomy within the source provider|
@@ -1689,7 +1696,9 @@ Create new Germplasm entities on this server
 |description|string|A supplemental text description of the storage type|
 |subtaxa|string|Subtaxon can be used to store any additional taxonomic identifier.  MCPD (v2.1) (SUBTAXA) 8. Subtaxon can be used to store any additional taxonomic identifier. The following abbreviations are allowed: "subsp." (for subspecies); "convar." (for convariety); "var." (for variety); "f." (for form); "Group" (for "cultivar group").  MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).|
 |subtaxaAuthority|string|The authority organization responsible for tracking and maintaining the subtaxon information  MCPD (v2.1) (SUBTAUTHOR) 9. Provide the subtaxon authority at the most detailed taxonomic level.|
-|synonyms|array[string]|List of alternative names or IDs used to reference this germplasm|
+|synonyms|array[object]|List of alternative names or IDs used to reference this germplasm|
+|synonym|string|Alternative name or ID used to reference this germplasm|
+|type|string|A descriptive classification for this synonym|
 |taxonIds|array[object]|The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.  MIAPPE V1.1 (DM-42) Organism - An identifier for the organism at the species level. Use of the NCBI taxon ID is recommended.|
 |sourceName|string|The human readable name of the taxonomy provider|
 |taxonId|string|The identifier (name, ID, URI) of a particular taxonomy within the source provider|
@@ -1781,7 +1790,10 @@ Create new Germplasm entities on this server
         "subtaxa": "Aspergillus fructus A",
         "subtaxaAuthority": "Smith, 1822",
         "synonyms": [
-            "variety_1"
+            {
+                "synonym": "variety_1",
+                "type": "Pre-Code"
+            }
         ],
         "taxonIds": [
             {
@@ -1904,7 +1916,10 @@ Create new Germplasm entities on this server
                 "subtaxa": "Aspergillus fructus A",
                 "subtaxaAuthority": "Smith, 1822",
                 "synonyms": [
-                    "variety_1"
+                    {
+                        "synonym": "variety_1",
+                        "type": "Pre-Code"
+                    }
                 ],
                 "taxonIds": [
                     {
@@ -1985,7 +2000,9 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 |description|string|A supplemental text description of the storage type|
 |subtaxa|string|Subtaxon can be used to store any additional taxonomic identifier.  MCPD (v2.1) (SUBTAXA) 8. Subtaxon can be used to store any additional taxonomic identifier. The following abbreviations are allowed: "subsp." (for subspecies); "convar." (for convariety); "var." (for variety); "f." (for form); "Group" (for "cultivar group").  MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).|
 |subtaxaAuthority|string|The authority organization responsible for tracking and maintaining the subtaxon information  MCPD (v2.1) (SUBTAUTHOR) 9. Provide the subtaxon authority at the most detailed taxonomic level.|
-|synonyms|array[string]|List of alternative names or IDs used to reference this germplasm|
+|synonyms|array[object]|List of alternative names or IDs used to reference this germplasm|
+|synonym|string|Alternative name or ID used to reference this germplasm|
+|type|string|A descriptive classification for this synonym|
 |taxonIds|array[object]|The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.  MIAPPE V1.1 (DM-42) Organism - An identifier for the organism at the species level. Use of the NCBI taxon ID is recommended.|
 |sourceName|string|The human readable name of the taxonomy provider|
 |taxonId|string|The identifier (name, ID, URI) of a particular taxonomy within the source provider|
@@ -2107,7 +2124,10 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
         "subtaxa": "Aspergillus fructus A",
         "subtaxaAuthority": "Smith, 1822",
         "synonyms": [
-            "variety_1"
+            {
+                "synonym": "variety_1",
+                "type": "Pre-Code"
+            }
         ],
         "taxonIds": [
             {
@@ -2188,7 +2208,9 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 |description|string|A supplemental text description of the storage type|
 |subtaxa|string|Subtaxon can be used to store any additional taxonomic identifier.  MCPD (v2.1) (SUBTAXA) 8. Subtaxon can be used to store any additional taxonomic identifier. The following abbreviations are allowed: "subsp." (for subspecies); "convar." (for convariety); "var." (for variety); "f." (for form); "Group" (for "cultivar group").  MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).|
 |subtaxaAuthority|string|The authority organization responsible for tracking and maintaining the subtaxon information  MCPD (v2.1) (SUBTAUTHOR) 9. Provide the subtaxon authority at the most detailed taxonomic level.|
-|synonyms|array[string]|List of alternative names or IDs used to reference this germplasm|
+|synonyms|array[object]|List of alternative names or IDs used to reference this germplasm|
+|synonym|string|Alternative name or ID used to reference this germplasm|
+|type|string|A descriptive classification for this synonym|
 |taxonIds|array[object]|The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.  MIAPPE V1.1 (DM-42) Organism - An identifier for the organism at the species level. Use of the NCBI taxon ID is recommended.|
 |sourceName|string|The human readable name of the taxonomy provider|
 |taxonId|string|The identifier (name, ID, URI) of a particular taxonomy within the source provider|
@@ -2237,7 +2259,9 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 |description|string|A supplemental text description of the storage type|
 |subtaxa|string|Subtaxon can be used to store any additional taxonomic identifier.  MCPD (v2.1) (SUBTAXA) 8. Subtaxon can be used to store any additional taxonomic identifier. The following abbreviations are allowed: "subsp." (for subspecies); "convar." (for convariety); "var." (for variety); "f." (for form); "Group" (for "cultivar group").  MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).|
 |subtaxaAuthority|string|The authority organization responsible for tracking and maintaining the subtaxon information  MCPD (v2.1) (SUBTAUTHOR) 9. Provide the subtaxon authority at the most detailed taxonomic level.|
-|synonyms|array[string]|List of alternative names or IDs used to reference this germplasm|
+|synonyms|array[object]|List of alternative names or IDs used to reference this germplasm|
+|synonym|string|Alternative name or ID used to reference this germplasm|
+|type|string|A descriptive classification for this synonym|
 |taxonIds|array[object]|The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.  MIAPPE V1.1 (DM-42) Organism - An identifier for the organism at the species level. Use of the NCBI taxon ID is recommended.|
 |sourceName|string|The human readable name of the taxonomy provider|
 |taxonId|string|The identifier (name, ID, URI) of a particular taxonomy within the source provider|
@@ -2329,7 +2353,10 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
     "subtaxa": "Aspergillus fructus A",
     "subtaxaAuthority": "Smith, 1822",
     "synonyms": [
-        "variety_1"
+        {
+            "synonym": "variety_1",
+            "type": "Pre-Code"
+        }
     ],
     "taxonIds": [
         {
@@ -2449,7 +2476,10 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
         "subtaxa": "Aspergillus fructus A",
         "subtaxaAuthority": "Smith, 1822",
         "synonyms": [
-            "variety_1"
+            {
+                "synonym": "variety_1",
+                "type": "Pre-Code"
+            }
         ],
         "taxonIds": [
             {
@@ -3006,7 +3036,9 @@ See Search Services for additional implementation details.
 |description|string|A supplemental text description of the storage type|
 |subtaxa|string|Subtaxon can be used to store any additional taxonomic identifier.  MCPD (v2.1) (SUBTAXA) 8. Subtaxon can be used to store any additional taxonomic identifier. The following abbreviations are allowed: "subsp." (for subspecies); "convar." (for convariety); "var." (for variety); "f." (for form); "Group" (for "cultivar group").  MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).|
 |subtaxaAuthority|string|The authority organization responsible for tracking and maintaining the subtaxon information  MCPD (v2.1) (SUBTAUTHOR) 9. Provide the subtaxon authority at the most detailed taxonomic level.|
-|synonyms|array[string]|List of alternative names or IDs used to reference this germplasm|
+|synonyms|array[object]|List of alternative names or IDs used to reference this germplasm|
+|synonym|string|Alternative name or ID used to reference this germplasm|
+|type|string|A descriptive classification for this synonym|
 |taxonIds|array[object]|The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.  MIAPPE V1.1 (DM-42) Organism - An identifier for the organism at the species level. Use of the NCBI taxon ID is recommended.|
 |sourceName|string|The human readable name of the taxonomy provider|
 |taxonId|string|The identifier (name, ID, URI) of a particular taxonomy within the source provider|
@@ -3194,7 +3226,10 @@ See Search Services for additional implementation details.
                 "subtaxa": "Aspergillus fructus A",
                 "subtaxaAuthority": "Smith, 1822",
                 "synonyms": [
-                    "variety_1"
+                    {
+                        "synonym": "variety_1",
+                        "type": "Pre-Code"
+                    }
                 ],
                 "taxonIds": [
                     {
@@ -3320,7 +3355,9 @@ Addresses these needs:
 |description|string|A supplemental text description of the storage type|
 |subtaxa|string|Subtaxon can be used to store any additional taxonomic identifier.  MCPD (v2.1) (SUBTAXA) 8. Subtaxon can be used to store any additional taxonomic identifier. The following abbreviations are allowed: "subsp." (for subspecies); "convar." (for convariety); "var." (for variety); "f." (for form); "Group" (for "cultivar group").  MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).|
 |subtaxaAuthority|string|The authority organization responsible for tracking and maintaining the subtaxon information  MCPD (v2.1) (SUBTAUTHOR) 9. Provide the subtaxon authority at the most detailed taxonomic level.|
-|synonyms|array[string]|List of alternative names or IDs used to reference this germplasm|
+|synonyms|array[object]|List of alternative names or IDs used to reference this germplasm|
+|synonym|string|Alternative name or ID used to reference this germplasm|
+|type|string|A descriptive classification for this synonym|
 |taxonIds|array[object]|The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.  MIAPPE V1.1 (DM-42) Organism - An identifier for the organism at the species level. Use of the NCBI taxon ID is recommended.|
 |sourceName|string|The human readable name of the taxonomy provider|
 |taxonId|string|The identifier (name, ID, URI) of a particular taxonomy within the source provider|
@@ -3482,7 +3519,10 @@ Addresses these needs:
                 "subtaxa": "Aspergillus fructus A",
                 "subtaxaAuthority": "Smith, 1822",
                 "synonyms": [
-                    "variety_1"
+                    {
+                        "synonym": "variety_1",
+                        "type": "Pre-Code"
+                    }
                 ],
                 "taxonIds": [
                     {
