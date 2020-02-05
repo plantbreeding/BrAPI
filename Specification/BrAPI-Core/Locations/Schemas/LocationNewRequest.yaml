@@ -18,13 +18,6 @@ components:
           description: Additional arbitrary info
           type: object
           example: {}
-        altitude:
-          description: |-
-            The altitude/elevation of this location (in meters)
-            
-            MIAPPE V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).
-          type: number
-          example: 35.6
         coordinateUncertainty:
           description: Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown.
           type: string

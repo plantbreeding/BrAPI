@@ -12,24 +12,6 @@ components:
           description: Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown.
           type: string
           example: '20'
-        altitude: 
-          description: Elevation of collecting site expressed in meters above sea level. Negative values are allowed.
-          type: string
-          example: '35'
-        latitudeDecimal: 
-          description: Latitude expressed in decimal degrees. Positive values are North of the Equator; negative values are South of the Equator (e.g. -44.6975).
-          type: string
-          example: '-44.6975'
-        latitudeDegrees: 
-          description: Degrees (2 digits) minutes (2 digits), and seconds (2 digits) followed by N (North) or S (South) (e.g. 103020S). Every missing digit (minutes or seconds) should be indicated with a hyphen. Leading zeros are required (e.g. 10
-          type: string
-          example: 103020S
-        longitudeDecimal: 
-          description: Longitude expressed in decimal degrees. Positive values are East of the Greenwich Meridian; negative values are West of the Greenwich Meridian (e.g. +120.9123).
-          type: string
-          example: '+120.9123'
-        longitudeDegrees: 
-          description: Degrees (3 digits), minutes (2 digits), and seconds (2 digits) followed by E (East) or W (West) (e.g. 0762510W). Every missing digit (minutes or seconds) should be indicated with a hyphen. Leading zeros are required (e.g. 076
-          type: string
-          example: 0762510W
+        coordinates:
+          $ref: '#/components/schemas/geoJSON'
 
