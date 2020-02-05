@@ -145,6 +145,5 @@ The BRAPI response payload, which is contained in the "result" key, allows for t
 }
 ````
 
-Additional documentation is in the [GitHub wiki](https://github.com/plantbreeding/documentation/wiki). 
-See especially the [Best Practices and Conventions]
-(https://github.com/plantbreeding/documentation/wiki/Best-Practices-and-Conventions).
+Additional documentation is in the [BrAPI Wiki](https://wiki.brapi.org/index.php/BrAPI). 
+See especially the [Best Practices](https://wiki.brapi.org/index.php/Best_Practices).
