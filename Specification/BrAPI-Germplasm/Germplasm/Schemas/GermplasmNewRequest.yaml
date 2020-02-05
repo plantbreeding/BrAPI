@@ -234,7 +234,7 @@ components:
                 type: string
                 example: '11'
               description:
-                description: A suplemental text description of the storage type
+                description: A supplemental text description of the storage type
                 type: string
                 example: Short term 
         germplasmPreprocessing:
