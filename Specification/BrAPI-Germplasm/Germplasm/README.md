@@ -202,6 +202,7 @@ Addresses these needs
 |acquisitionDate|string (date)|The date this germplasm was acquired by the genebank   MCPD (v2.1) (ACQDATE) 12. Date on which the accession entered the collection [YYYYMMDD] where YYYY is the year, MM is the month and DD is the day. Missing data (MM or DD) should be indicated with hyphens or "00" [double zero].|
 |additionalInfo|object|Additional arbitrary info|
 |biologicalStatusOfAccessionCode|string|MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc.   100) Wild  110) Natural  120) Semi-natural/wild  130) Semi-natural/sown  200) Weedy  300) Traditional cultivar/landrace  400) Breeding/research material  410) Breeders line  411) Synthetic population  412) Hybrid  413) Founder stock/base population  414) Inbred line (parent of hybrid cultivar)  415) Segregating population  416) Clonal selection  420) Genetic stock  421) Mutant (e.g. induced/insertion mutants, tilling populations)  422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids)  423) Other genetic stocks (e.g. mapping populations)  500) Advanced or improved cultivar (conventional breeding methods)  600) GMO (by genetic engineering)  999) Other (Elaborate in REMARKS field)|
+|biologicalStatusOfAccessionDescription|string|Supplemental text description for 'biologicalStatusOfAccessionCode'|
 |breedingMethodDbId|string|The unique identifier for the breeding method used to create this germplasm|
 |commonCropName|string|Common name for the crop   MCPD (v2.1) (CROPNAME) 10. Common name of the crop. Example: "malting barley", "mas".|
 |countryOfOriginCode|string|3-letter ISO 3166-1 code of the country in which the sample was originally collected   MCPD (v2.1) (ORIGCTY) 13. 3-letter ISO 3166-1 code of the country in which the sample was originally collected (e.g. landrace, crop wild relative, farmers variety), bred or selected (breeding lines, GMOs, segregating populations, hybrids, modern cultivars, etc.). Note- Descriptors 14 to 16 below should be completed accordingly only if it was "collected".|
@@ -233,13 +234,15 @@ Addresses these needs
 |seedSourceDescription|string|Description of the material source|
 |species|string|Specific epithet portion of the scientific name in lowercase letters.  MCPD (v2.1) (SPECIES) 6. Specific epithet portion of the scientific name in lowercase letters. Only the following abbreviation is allowed: "sp."   MIAPPE V1.1 (DM-44) Species - Species name (formally: specific epithet) for the organism under study, according to standard scientific nomenclature.|
 |speciesAuthority|string|The authority organization responsible for tracking and maintaining the species name   MCPD (v2.1) (SPAUTHOR) 7. Provide the authority for the species name.|
+|storageTypes|array[object]|The type of storage this germplasm is kept in at a genebank.|
+|code|string|The 2 digit code representing the type of storage this germplasm is kept in at a genebank.   MCPD (v2.1) (STORAGE) 26. If germplasm is maintained under different types of storage, multiple choices are allowed, separated by a semicolon (e.g. 20;30). (Refer to FAO/IPGRI Genebank Standards 1994 for details on storage type.)   10) Seed collection  11) Short term  12) Medium term  13) Long term  20) Field collection  30) In vitro collection  40) Cryo-preserved collection  50) DNA collection  99) Other (elaborate in REMARKS field)|
+|description|string|A supplemental text description of the storage type|
 |subtaxa|string|Subtaxon can be used to store any additional taxonomic identifier.  MCPD (v2.1) (SUBTAXA) 8. Subtaxon can be used to store any additional taxonomic identifier. The following abbreviations are allowed: "subsp." (for subspecies); "convar." (for convariety); "var." (for variety); "f." (for form); "Group" (for "cultivar group").  MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).|
 |subtaxaAuthority|string|The authority organization responsible for tracking and maintaining the subtaxon information  MCPD (v2.1) (SUBTAUTHOR) 9. Provide the subtaxon authority at the most detailed taxonomic level.|
 |synonyms|array[string]|List of alternative names or IDs used to reference this germplasm|
 |taxonIds|array[object]|The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.  MIAPPE V1.1 (DM-42) Organism - An identifier for the organism at the species level. Use of the NCBI taxon ID is recommended.|
 |sourceName|string|The human readable name of the taxonomy provider|
 |taxonId|string|The identifier (name, ID, URI) of a particular taxonomy within the source provider|
-|typeOfGermplasmStorageCode|array[string]|The 2 digit code representing the type of storage this germplasm is kept in at a genebank.   MCPD (v2.1) (STORAGE) 26. If germplasm is maintained under different types of storage, multiple choices are allowed, separated by a semicolon (e.g. 20;30). (Refer to FAO/IPGRI Genebank Standards 1994 for details on storage type.) 10) Seed collection 11) Short term 12) Medium term 13) Long term 20) Field collection 30) In vitro collection 40) Cryo-preserved collection 50) DNA collection 99) Other (elaborate in REMARKS field)|
 
 
  
@@ -301,7 +304,8 @@ Addresses these needs
                 "accessionNumber": "A0000003",
                 "acquisitionDate": "2018-01-01",
                 "additionalInfo": {},
-                "biologicalStatusOfAccessionCode": "421",
+                "biologicalStatusOfAccessionCode": "420",
+                "biologicalStatusOfAccessionDescription": "Genetic stock",
                 "breedingMethodDbId": "ffcce7ef",
                 "commonCropName": "Maize",
                 "countryOfOriginCode": "BES",
@@ -354,6 +358,16 @@ Addresses these needs
                 "seedSourceDescription": "Branches were collected from a 10-year-old tree growing in a progeny trial established in a loamy brown earth soil.",
                 "species": "fructus",
                 "speciesAuthority": "Smith, 1822",
+                "storageTypes": [
+                    {
+                        "code": "20",
+                        "description": "Field collection"
+                    },
+                    {
+                        "code": "11",
+                        "description": "Short term"
+                    }
+                ],
                 "subtaxa": "Aspergillus fructus A",
                 "subtaxaAuthority": "Smith, 1822",
                 "synonyms": [
@@ -364,10 +378,6 @@ Addresses these needs
                         "sourceName": "NCBI",
                         "taxonId": "2026747"
                     }
-                ],
-                "typeOfGermplasmStorageCode": [
-                    "11",
-                    "13'"
                 ]
             }
         ]
@@ -405,6 +415,7 @@ Create new Germplasm entities on this server
 |acquisitionDate|string (date)|The date this germplasm was acquired by the genebank   MCPD (v2.1) (ACQDATE) 12. Date on which the accession entered the collection [YYYYMMDD] where YYYY is the year, MM is the month and DD is the day. Missing data (MM or DD) should be indicated with hyphens or "00" [double zero].|
 |additionalInfo|object|Additional arbitrary info|
 |biologicalStatusOfAccessionCode|string|MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc.   100) Wild  110) Natural  120) Semi-natural/wild  130) Semi-natural/sown  200) Weedy  300) Traditional cultivar/landrace  400) Breeding/research material  410) Breeders line  411) Synthetic population  412) Hybrid  413) Founder stock/base population  414) Inbred line (parent of hybrid cultivar)  415) Segregating population  416) Clonal selection  420) Genetic stock  421) Mutant (e.g. induced/insertion mutants, tilling populations)  422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids)  423) Other genetic stocks (e.g. mapping populations)  500) Advanced or improved cultivar (conventional breeding methods)  600) GMO (by genetic engineering)  999) Other (Elaborate in REMARKS field)|
+|biologicalStatusOfAccessionDescription|string|Supplemental text description for 'biologicalStatusOfAccessionCode'|
 |breedingMethodDbId|string|The unique identifier for the breeding method used to create this germplasm|
 |commonCropName|string|Common name for the crop   MCPD (v2.1) (CROPNAME) 10. Common name of the crop. Example: "malting barley", "mas".|
 |countryOfOriginCode|string|3-letter ISO 3166-1 code of the country in which the sample was originally collected   MCPD (v2.1) (ORIGCTY) 13. 3-letter ISO 3166-1 code of the country in which the sample was originally collected (e.g. landrace, crop wild relative, farmers variety), bred or selected (breeding lines, GMOs, segregating populations, hybrids, modern cultivars, etc.). Note- Descriptors 14 to 16 below should be completed accordingly only if it was "collected".|
@@ -435,13 +446,15 @@ Create new Germplasm entities on this server
 |seedSourceDescription|string|Description of the material source|
 |species|string|Specific epithet portion of the scientific name in lowercase letters.  MCPD (v2.1) (SPECIES) 6. Specific epithet portion of the scientific name in lowercase letters. Only the following abbreviation is allowed: "sp."   MIAPPE V1.1 (DM-44) Species - Species name (formally: specific epithet) for the organism under study, according to standard scientific nomenclature.|
 |speciesAuthority|string|The authority organization responsible for tracking and maintaining the species name   MCPD (v2.1) (SPAUTHOR) 7. Provide the authority for the species name.|
+|storageTypes|array[object]|The type of storage this germplasm is kept in at a genebank.|
+|code|string|The 2 digit code representing the type of storage this germplasm is kept in at a genebank.   MCPD (v2.1) (STORAGE) 26. If germplasm is maintained under different types of storage, multiple choices are allowed, separated by a semicolon (e.g. 20;30). (Refer to FAO/IPGRI Genebank Standards 1994 for details on storage type.)   10) Seed collection  11) Short term  12) Medium term  13) Long term  20) Field collection  30) In vitro collection  40) Cryo-preserved collection  50) DNA collection  99) Other (elaborate in REMARKS field)|
+|description|string|A supplemental text description of the storage type|
 |subtaxa|string|Subtaxon can be used to store any additional taxonomic identifier.  MCPD (v2.1) (SUBTAXA) 8. Subtaxon can be used to store any additional taxonomic identifier. The following abbreviations are allowed: "subsp." (for subspecies); "convar." (for convariety); "var." (for variety); "f." (for form); "Group" (for "cultivar group").  MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).|
 |subtaxaAuthority|string|The authority organization responsible for tracking and maintaining the subtaxon information  MCPD (v2.1) (SUBTAUTHOR) 9. Provide the subtaxon authority at the most detailed taxonomic level.|
 |synonyms|array[string]|List of alternative names or IDs used to reference this germplasm|
 |taxonIds|array[object]|The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.  MIAPPE V1.1 (DM-42) Organism - An identifier for the organism at the species level. Use of the NCBI taxon ID is recommended.|
 |sourceName|string|The human readable name of the taxonomy provider|
 |taxonId|string|The identifier (name, ID, URI) of a particular taxonomy within the source provider|
-|typeOfGermplasmStorageCode|array[string]|The 2 digit code representing the type of storage this germplasm is kept in at a genebank.   MCPD (v2.1) (STORAGE) 26. If germplasm is maintained under different types of storage, multiple choices are allowed, separated by a semicolon (e.g. 20;30). (Refer to FAO/IPGRI Genebank Standards 1994 for details on storage type.) 10) Seed collection 11) Short term 12) Medium term 13) Long term 20) Field collection 30) In vitro collection 40) Cryo-preserved collection 50) DNA collection 99) Other (elaborate in REMARKS field)|
 
 
 **Response Fields** 
@@ -453,6 +466,7 @@ Create new Germplasm entities on this server
 |acquisitionDate|string (date)|The date this germplasm was acquired by the genebank   MCPD (v2.1) (ACQDATE) 12. Date on which the accession entered the collection [YYYYMMDD] where YYYY is the year, MM is the month and DD is the day. Missing data (MM or DD) should be indicated with hyphens or "00" [double zero].|
 |additionalInfo|object|Additional arbitrary info|
 |biologicalStatusOfAccessionCode|string|MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc.   100) Wild  110) Natural  120) Semi-natural/wild  130) Semi-natural/sown  200) Weedy  300) Traditional cultivar/landrace  400) Breeding/research material  410) Breeders line  411) Synthetic population  412) Hybrid  413) Founder stock/base population  414) Inbred line (parent of hybrid cultivar)  415) Segregating population  416) Clonal selection  420) Genetic stock  421) Mutant (e.g. induced/insertion mutants, tilling populations)  422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids)  423) Other genetic stocks (e.g. mapping populations)  500) Advanced or improved cultivar (conventional breeding methods)  600) GMO (by genetic engineering)  999) Other (Elaborate in REMARKS field)|
+|biologicalStatusOfAccessionDescription|string|Supplemental text description for 'biologicalStatusOfAccessionCode'|
 |breedingMethodDbId|string|The unique identifier for the breeding method used to create this germplasm|
 |commonCropName|string|Common name for the crop   MCPD (v2.1) (CROPNAME) 10. Common name of the crop. Example: "malting barley", "mas".|
 |countryOfOriginCode|string|3-letter ISO 3166-1 code of the country in which the sample was originally collected   MCPD (v2.1) (ORIGCTY) 13. 3-letter ISO 3166-1 code of the country in which the sample was originally collected (e.g. landrace, crop wild relative, farmers variety), bred or selected (breeding lines, GMOs, segregating populations, hybrids, modern cultivars, etc.). Note- Descriptors 14 to 16 below should be completed accordingly only if it was "collected".|
@@ -484,13 +498,15 @@ Create new Germplasm entities on this server
 |seedSourceDescription|string|Description of the material source|
 |species|string|Specific epithet portion of the scientific name in lowercase letters.  MCPD (v2.1) (SPECIES) 6. Specific epithet portion of the scientific name in lowercase letters. Only the following abbreviation is allowed: "sp."   MIAPPE V1.1 (DM-44) Species - Species name (formally: specific epithet) for the organism under study, according to standard scientific nomenclature.|
 |speciesAuthority|string|The authority organization responsible for tracking and maintaining the species name   MCPD (v2.1) (SPAUTHOR) 7. Provide the authority for the species name.|
+|storageTypes|array[object]|The type of storage this germplasm is kept in at a genebank.|
+|code|string|The 2 digit code representing the type of storage this germplasm is kept in at a genebank.   MCPD (v2.1) (STORAGE) 26. If germplasm is maintained under different types of storage, multiple choices are allowed, separated by a semicolon (e.g. 20;30). (Refer to FAO/IPGRI Genebank Standards 1994 for details on storage type.)   10) Seed collection  11) Short term  12) Medium term  13) Long term  20) Field collection  30) In vitro collection  40) Cryo-preserved collection  50) DNA collection  99) Other (elaborate in REMARKS field)|
+|description|string|A supplemental text description of the storage type|
 |subtaxa|string|Subtaxon can be used to store any additional taxonomic identifier.  MCPD (v2.1) (SUBTAXA) 8. Subtaxon can be used to store any additional taxonomic identifier. The following abbreviations are allowed: "subsp." (for subspecies); "convar." (for convariety); "var." (for variety); "f." (for form); "Group" (for "cultivar group").  MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).|
 |subtaxaAuthority|string|The authority organization responsible for tracking and maintaining the subtaxon information  MCPD (v2.1) (SUBTAUTHOR) 9. Provide the subtaxon authority at the most detailed taxonomic level.|
 |synonyms|array[string]|List of alternative names or IDs used to reference this germplasm|
 |taxonIds|array[object]|The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.  MIAPPE V1.1 (DM-42) Organism - An identifier for the organism at the species level. Use of the NCBI taxon ID is recommended.|
 |sourceName|string|The human readable name of the taxonomy provider|
 |taxonId|string|The identifier (name, ID, URI) of a particular taxonomy within the source provider|
-|typeOfGermplasmStorageCode|array[string]|The 2 digit code representing the type of storage this germplasm is kept in at a genebank.   MCPD (v2.1) (STORAGE) 26. If germplasm is maintained under different types of storage, multiple choices are allowed, separated by a semicolon (e.g. 20;30). (Refer to FAO/IPGRI Genebank Standards 1994 for details on storage type.) 10) Seed collection 11) Short term 12) Medium term 13) Long term 20) Field collection 30) In vitro collection 40) Cryo-preserved collection 50) DNA collection 99) Other (elaborate in REMARKS field)|
 
 
  
@@ -507,7 +523,8 @@ Create new Germplasm entities on this server
         "accessionNumber": "A0000003",
         "acquisitionDate": "2018-01-01",
         "additionalInfo": {},
-        "biologicalStatusOfAccessionCode": "421",
+        "biologicalStatusOfAccessionCode": "420",
+        "biologicalStatusOfAccessionDescription": "Genetic stock",
         "breedingMethodDbId": "ffcce7ef",
         "commonCropName": "Maize",
         "countryOfOriginCode": "BES",
@@ -559,6 +576,16 @@ Create new Germplasm entities on this server
         "seedSourceDescription": "Branches were collected from a 10-year-old tree growing in a progeny trial established in a loamy brown earth soil.",
         "species": "fructus",
         "speciesAuthority": "Smith, 1822",
+        "storageTypes": [
+            {
+                "code": "20",
+                "description": "Field collection"
+            },
+            {
+                "code": "11",
+                "description": "Short term"
+            }
+        ],
         "subtaxa": "Aspergillus fructus A",
         "subtaxaAuthority": "Smith, 1822",
         "synonyms": [
@@ -569,10 +596,6 @@ Create new Germplasm entities on this server
                 "sourceName": "NCBI",
                 "taxonId": "2026747"
             }
-        ],
-        "typeOfGermplasmStorageCode": [
-            "11",
-            "13'"
         ]
     }
 ]
@@ -616,7 +639,8 @@ Create new Germplasm entities on this server
                 "accessionNumber": "A0000003",
                 "acquisitionDate": "2018-01-01",
                 "additionalInfo": {},
-                "biologicalStatusOfAccessionCode": "421",
+                "biologicalStatusOfAccessionCode": "420",
+                "biologicalStatusOfAccessionDescription": "Genetic stock",
                 "breedingMethodDbId": "ffcce7ef",
                 "commonCropName": "Maize",
                 "countryOfOriginCode": "BES",
@@ -669,6 +693,16 @@ Create new Germplasm entities on this server
                 "seedSourceDescription": "Branches were collected from a 10-year-old tree growing in a progeny trial established in a loamy brown earth soil.",
                 "species": "fructus",
                 "speciesAuthority": "Smith, 1822",
+                "storageTypes": [
+                    {
+                        "code": "20",
+                        "description": "Field collection"
+                    },
+                    {
+                        "code": "11",
+                        "description": "Short term"
+                    }
+                ],
                 "subtaxa": "Aspergillus fructus A",
                 "subtaxaAuthority": "Smith, 1822",
                 "synonyms": [
@@ -679,10 +713,6 @@ Create new Germplasm entities on this server
                         "sourceName": "NCBI",
                         "taxonId": "2026747"
                     }
-                ],
-                "typeOfGermplasmStorageCode": [
-                    "11",
-                    "13'"
                 ]
             }
         ]
@@ -722,6 +752,7 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 |acquisitionDate|string (date)|The date this germplasm was acquired by the genebank   MCPD (v2.1) (ACQDATE) 12. Date on which the accession entered the collection [YYYYMMDD] where YYYY is the year, MM is the month and DD is the day. Missing data (MM or DD) should be indicated with hyphens or "00" [double zero].|
 |additionalInfo|object|Additional arbitrary info|
 |biologicalStatusOfAccessionCode|string|MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc.   100) Wild  110) Natural  120) Semi-natural/wild  130) Semi-natural/sown  200) Weedy  300) Traditional cultivar/landrace  400) Breeding/research material  410) Breeders line  411) Synthetic population  412) Hybrid  413) Founder stock/base population  414) Inbred line (parent of hybrid cultivar)  415) Segregating population  416) Clonal selection  420) Genetic stock  421) Mutant (e.g. induced/insertion mutants, tilling populations)  422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids)  423) Other genetic stocks (e.g. mapping populations)  500) Advanced or improved cultivar (conventional breeding methods)  600) GMO (by genetic engineering)  999) Other (Elaborate in REMARKS field)|
+|biologicalStatusOfAccessionDescription|string|Supplemental text description for 'biologicalStatusOfAccessionCode'|
 |breedingMethodDbId|string|The unique identifier for the breeding method used to create this germplasm|
 |commonCropName|string|Common name for the crop   MCPD (v2.1) (CROPNAME) 10. Common name of the crop. Example: "malting barley", "mas".|
 |countryOfOriginCode|string|3-letter ISO 3166-1 code of the country in which the sample was originally collected   MCPD (v2.1) (ORIGCTY) 13. 3-letter ISO 3166-1 code of the country in which the sample was originally collected (e.g. landrace, crop wild relative, farmers variety), bred or selected (breeding lines, GMOs, segregating populations, hybrids, modern cultivars, etc.). Note- Descriptors 14 to 16 below should be completed accordingly only if it was "collected".|
@@ -753,13 +784,15 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 |seedSourceDescription|string|Description of the material source|
 |species|string|Specific epithet portion of the scientific name in lowercase letters.  MCPD (v2.1) (SPECIES) 6. Specific epithet portion of the scientific name in lowercase letters. Only the following abbreviation is allowed: "sp."   MIAPPE V1.1 (DM-44) Species - Species name (formally: specific epithet) for the organism under study, according to standard scientific nomenclature.|
 |speciesAuthority|string|The authority organization responsible for tracking and maintaining the species name   MCPD (v2.1) (SPAUTHOR) 7. Provide the authority for the species name.|
+|storageTypes|array[object]|The type of storage this germplasm is kept in at a genebank.|
+|code|string|The 2 digit code representing the type of storage this germplasm is kept in at a genebank.   MCPD (v2.1) (STORAGE) 26. If germplasm is maintained under different types of storage, multiple choices are allowed, separated by a semicolon (e.g. 20;30). (Refer to FAO/IPGRI Genebank Standards 1994 for details on storage type.)   10) Seed collection  11) Short term  12) Medium term  13) Long term  20) Field collection  30) In vitro collection  40) Cryo-preserved collection  50) DNA collection  99) Other (elaborate in REMARKS field)|
+|description|string|A supplemental text description of the storage type|
 |subtaxa|string|Subtaxon can be used to store any additional taxonomic identifier.  MCPD (v2.1) (SUBTAXA) 8. Subtaxon can be used to store any additional taxonomic identifier. The following abbreviations are allowed: "subsp." (for subspecies); "convar." (for convariety); "var." (for variety); "f." (for form); "Group" (for "cultivar group").  MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).|
 |subtaxaAuthority|string|The authority organization responsible for tracking and maintaining the subtaxon information  MCPD (v2.1) (SUBTAUTHOR) 9. Provide the subtaxon authority at the most detailed taxonomic level.|
 |synonyms|array[string]|List of alternative names or IDs used to reference this germplasm|
 |taxonIds|array[object]|The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.  MIAPPE V1.1 (DM-42) Organism - An identifier for the organism at the species level. Use of the NCBI taxon ID is recommended.|
 |sourceName|string|The human readable name of the taxonomy provider|
 |taxonId|string|The identifier (name, ID, URI) of a particular taxonomy within the source provider|
-|typeOfGermplasmStorageCode|array[string]|The 2 digit code representing the type of storage this germplasm is kept in at a genebank.   MCPD (v2.1) (STORAGE) 26. If germplasm is maintained under different types of storage, multiple choices are allowed, separated by a semicolon (e.g. 20;30). (Refer to FAO/IPGRI Genebank Standards 1994 for details on storage type.) 10) Seed collection 11) Short term 12) Medium term 13) Long term 20) Field collection 30) In vitro collection 40) Cryo-preserved collection 50) DNA collection 99) Other (elaborate in REMARKS field)|
 
 
  
@@ -805,7 +838,8 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
         "accessionNumber": "A0000003",
         "acquisitionDate": "2018-01-01",
         "additionalInfo": {},
-        "biologicalStatusOfAccessionCode": "421",
+        "biologicalStatusOfAccessionCode": "420",
+        "biologicalStatusOfAccessionDescription": "Genetic stock",
         "breedingMethodDbId": "ffcce7ef",
         "commonCropName": "Maize",
         "countryOfOriginCode": "BES",
@@ -858,6 +892,16 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
         "seedSourceDescription": "Branches were collected from a 10-year-old tree growing in a progeny trial established in a loamy brown earth soil.",
         "species": "fructus",
         "speciesAuthority": "Smith, 1822",
+        "storageTypes": [
+            {
+                "code": "20",
+                "description": "Field collection"
+            },
+            {
+                "code": "11",
+                "description": "Short term"
+            }
+        ],
         "subtaxa": "Aspergillus fructus A",
         "subtaxaAuthority": "Smith, 1822",
         "synonyms": [
@@ -868,10 +912,6 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
                 "sourceName": "NCBI",
                 "taxonId": "2026747"
             }
-        ],
-        "typeOfGermplasmStorageCode": [
-            "11",
-            "13'"
         ]
     }
 }
@@ -912,6 +952,7 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 |acquisitionDate|string (date)|The date this germplasm was acquired by the genebank   MCPD (v2.1) (ACQDATE) 12. Date on which the accession entered the collection [YYYYMMDD] where YYYY is the year, MM is the month and DD is the day. Missing data (MM or DD) should be indicated with hyphens or "00" [double zero].|
 |additionalInfo|object|Additional arbitrary info|
 |biologicalStatusOfAccessionCode|string|MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc.   100) Wild  110) Natural  120) Semi-natural/wild  130) Semi-natural/sown  200) Weedy  300) Traditional cultivar/landrace  400) Breeding/research material  410) Breeders line  411) Synthetic population  412) Hybrid  413) Founder stock/base population  414) Inbred line (parent of hybrid cultivar)  415) Segregating population  416) Clonal selection  420) Genetic stock  421) Mutant (e.g. induced/insertion mutants, tilling populations)  422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids)  423) Other genetic stocks (e.g. mapping populations)  500) Advanced or improved cultivar (conventional breeding methods)  600) GMO (by genetic engineering)  999) Other (Elaborate in REMARKS field)|
+|biologicalStatusOfAccessionDescription|string|Supplemental text description for 'biologicalStatusOfAccessionCode'|
 |breedingMethodDbId|string|The unique identifier for the breeding method used to create this germplasm|
 |commonCropName|string|Common name for the crop   MCPD (v2.1) (CROPNAME) 10. Common name of the crop. Example: "malting barley", "mas".|
 |countryOfOriginCode|string|3-letter ISO 3166-1 code of the country in which the sample was originally collected   MCPD (v2.1) (ORIGCTY) 13. 3-letter ISO 3166-1 code of the country in which the sample was originally collected (e.g. landrace, crop wild relative, farmers variety), bred or selected (breeding lines, GMOs, segregating populations, hybrids, modern cultivars, etc.). Note- Descriptors 14 to 16 below should be completed accordingly only if it was "collected".|
@@ -942,13 +983,15 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 |seedSourceDescription|string|Description of the material source|
 |species|string|Specific epithet portion of the scientific name in lowercase letters.  MCPD (v2.1) (SPECIES) 6. Specific epithet portion of the scientific name in lowercase letters. Only the following abbreviation is allowed: "sp."   MIAPPE V1.1 (DM-44) Species - Species name (formally: specific epithet) for the organism under study, according to standard scientific nomenclature.|
 |speciesAuthority|string|The authority organization responsible for tracking and maintaining the species name   MCPD (v2.1) (SPAUTHOR) 7. Provide the authority for the species name.|
+|storageTypes|array[object]|The type of storage this germplasm is kept in at a genebank.|
+|code|string|The 2 digit code representing the type of storage this germplasm is kept in at a genebank.   MCPD (v2.1) (STORAGE) 26. If germplasm is maintained under different types of storage, multiple choices are allowed, separated by a semicolon (e.g. 20;30). (Refer to FAO/IPGRI Genebank Standards 1994 for details on storage type.)   10) Seed collection  11) Short term  12) Medium term  13) Long term  20) Field collection  30) In vitro collection  40) Cryo-preserved collection  50) DNA collection  99) Other (elaborate in REMARKS field)|
+|description|string|A supplemental text description of the storage type|
 |subtaxa|string|Subtaxon can be used to store any additional taxonomic identifier.  MCPD (v2.1) (SUBTAXA) 8. Subtaxon can be used to store any additional taxonomic identifier. The following abbreviations are allowed: "subsp." (for subspecies); "convar." (for convariety); "var." (for variety); "f." (for form); "Group" (for "cultivar group").  MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).|
 |subtaxaAuthority|string|The authority organization responsible for tracking and maintaining the subtaxon information  MCPD (v2.1) (SUBTAUTHOR) 9. Provide the subtaxon authority at the most detailed taxonomic level.|
 |synonyms|array[string]|List of alternative names or IDs used to reference this germplasm|
 |taxonIds|array[object]|The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.  MIAPPE V1.1 (DM-42) Organism - An identifier for the organism at the species level. Use of the NCBI taxon ID is recommended.|
 |sourceName|string|The human readable name of the taxonomy provider|
 |taxonId|string|The identifier (name, ID, URI) of a particular taxonomy within the source provider|
-|typeOfGermplasmStorageCode|array[string]|The 2 digit code representing the type of storage this germplasm is kept in at a genebank.   MCPD (v2.1) (STORAGE) 26. If germplasm is maintained under different types of storage, multiple choices are allowed, separated by a semicolon (e.g. 20;30). (Refer to FAO/IPGRI Genebank Standards 1994 for details on storage type.) 10) Seed collection 11) Short term 12) Medium term 13) Long term 20) Field collection 30) In vitro collection 40) Cryo-preserved collection 50) DNA collection 99) Other (elaborate in REMARKS field)|
 
 
 **Response Fields** 
@@ -959,6 +1002,7 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 |acquisitionDate|string (date)|The date this germplasm was acquired by the genebank   MCPD (v2.1) (ACQDATE) 12. Date on which the accession entered the collection [YYYYMMDD] where YYYY is the year, MM is the month and DD is the day. Missing data (MM or DD) should be indicated with hyphens or "00" [double zero].|
 |additionalInfo|object|Additional arbitrary info|
 |biologicalStatusOfAccessionCode|string|MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc.   100) Wild  110) Natural  120) Semi-natural/wild  130) Semi-natural/sown  200) Weedy  300) Traditional cultivar/landrace  400) Breeding/research material  410) Breeders line  411) Synthetic population  412) Hybrid  413) Founder stock/base population  414) Inbred line (parent of hybrid cultivar)  415) Segregating population  416) Clonal selection  420) Genetic stock  421) Mutant (e.g. induced/insertion mutants, tilling populations)  422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids)  423) Other genetic stocks (e.g. mapping populations)  500) Advanced or improved cultivar (conventional breeding methods)  600) GMO (by genetic engineering)  999) Other (Elaborate in REMARKS field)|
+|biologicalStatusOfAccessionDescription|string|Supplemental text description for 'biologicalStatusOfAccessionCode'|
 |breedingMethodDbId|string|The unique identifier for the breeding method used to create this germplasm|
 |commonCropName|string|Common name for the crop   MCPD (v2.1) (CROPNAME) 10. Common name of the crop. Example: "malting barley", "mas".|
 |countryOfOriginCode|string|3-letter ISO 3166-1 code of the country in which the sample was originally collected   MCPD (v2.1) (ORIGCTY) 13. 3-letter ISO 3166-1 code of the country in which the sample was originally collected (e.g. landrace, crop wild relative, farmers variety), bred or selected (breeding lines, GMOs, segregating populations, hybrids, modern cultivars, etc.). Note- Descriptors 14 to 16 below should be completed accordingly only if it was "collected".|
@@ -990,13 +1034,15 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 |seedSourceDescription|string|Description of the material source|
 |species|string|Specific epithet portion of the scientific name in lowercase letters.  MCPD (v2.1) (SPECIES) 6. Specific epithet portion of the scientific name in lowercase letters. Only the following abbreviation is allowed: "sp."   MIAPPE V1.1 (DM-44) Species - Species name (formally: specific epithet) for the organism under study, according to standard scientific nomenclature.|
 |speciesAuthority|string|The authority organization responsible for tracking and maintaining the species name   MCPD (v2.1) (SPAUTHOR) 7. Provide the authority for the species name.|
+|storageTypes|array[object]|The type of storage this germplasm is kept in at a genebank.|
+|code|string|The 2 digit code representing the type of storage this germplasm is kept in at a genebank.   MCPD (v2.1) (STORAGE) 26. If germplasm is maintained under different types of storage, multiple choices are allowed, separated by a semicolon (e.g. 20;30). (Refer to FAO/IPGRI Genebank Standards 1994 for details on storage type.)   10) Seed collection  11) Short term  12) Medium term  13) Long term  20) Field collection  30) In vitro collection  40) Cryo-preserved collection  50) DNA collection  99) Other (elaborate in REMARKS field)|
+|description|string|A supplemental text description of the storage type|
 |subtaxa|string|Subtaxon can be used to store any additional taxonomic identifier.  MCPD (v2.1) (SUBTAXA) 8. Subtaxon can be used to store any additional taxonomic identifier. The following abbreviations are allowed: "subsp." (for subspecies); "convar." (for convariety); "var." (for variety); "f." (for form); "Group" (for "cultivar group").  MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).|
 |subtaxaAuthority|string|The authority organization responsible for tracking and maintaining the subtaxon information  MCPD (v2.1) (SUBTAUTHOR) 9. Provide the subtaxon authority at the most detailed taxonomic level.|
 |synonyms|array[string]|List of alternative names or IDs used to reference this germplasm|
 |taxonIds|array[object]|The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.  MIAPPE V1.1 (DM-42) Organism - An identifier for the organism at the species level. Use of the NCBI taxon ID is recommended.|
 |sourceName|string|The human readable name of the taxonomy provider|
 |taxonId|string|The identifier (name, ID, URI) of a particular taxonomy within the source provider|
-|typeOfGermplasmStorageCode|array[string]|The 2 digit code representing the type of storage this germplasm is kept in at a genebank.   MCPD (v2.1) (STORAGE) 26. If germplasm is maintained under different types of storage, multiple choices are allowed, separated by a semicolon (e.g. 20;30). (Refer to FAO/IPGRI Genebank Standards 1994 for details on storage type.) 10) Seed collection 11) Short term 12) Medium term 13) Long term 20) Field collection 30) In vitro collection 40) Cryo-preserved collection 50) DNA collection 99) Other (elaborate in REMARKS field)|
 
 
  
@@ -1013,7 +1059,8 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
     "accessionNumber": "A0000003",
     "acquisitionDate": "2018-01-01",
     "additionalInfo": {},
-    "biologicalStatusOfAccessionCode": "421",
+    "biologicalStatusOfAccessionCode": "420",
+    "biologicalStatusOfAccessionDescription": "Genetic stock",
     "breedingMethodDbId": "ffcce7ef",
     "commonCropName": "Maize",
     "countryOfOriginCode": "BES",
@@ -1065,6 +1112,16 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
     "seedSourceDescription": "Branches were collected from a 10-year-old tree growing in a progeny trial established in a loamy brown earth soil.",
     "species": "fructus",
     "speciesAuthority": "Smith, 1822",
+    "storageTypes": [
+        {
+            "code": "20",
+            "description": "Field collection"
+        },
+        {
+            "code": "11",
+            "description": "Short term"
+        }
+    ],
     "subtaxa": "Aspergillus fructus A",
     "subtaxaAuthority": "Smith, 1822",
     "synonyms": [
@@ -1075,10 +1132,6 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
             "sourceName": "NCBI",
             "taxonId": "2026747"
         }
-    ],
-    "typeOfGermplasmStorageCode": [
-        "11",
-        "13'"
     ]
 }
 ```
@@ -1119,7 +1172,8 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
         "accessionNumber": "A0000003",
         "acquisitionDate": "2018-01-01",
         "additionalInfo": {},
-        "biologicalStatusOfAccessionCode": "421",
+        "biologicalStatusOfAccessionCode": "420",
+        "biologicalStatusOfAccessionDescription": "Genetic stock",
         "breedingMethodDbId": "ffcce7ef",
         "commonCropName": "Maize",
         "countryOfOriginCode": "BES",
@@ -1172,6 +1226,16 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
         "seedSourceDescription": "Branches were collected from a 10-year-old tree growing in a progeny trial established in a loamy brown earth soil.",
         "species": "fructus",
         "speciesAuthority": "Smith, 1822",
+        "storageTypes": [
+            {
+                "code": "20",
+                "description": "Field collection"
+            },
+            {
+                "code": "11",
+                "description": "Short term"
+            }
+        ],
         "subtaxa": "Aspergillus fructus A",
         "subtaxaAuthority": "Smith, 1822",
         "synonyms": [
@@ -1182,10 +1246,6 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
                 "sourceName": "NCBI",
                 "taxonId": "2026747"
             }
-        ],
-        "typeOfGermplasmStorageCode": [
-            "11",
-            "13'"
         ]
     }
 }
@@ -1701,6 +1761,7 @@ See Search Services for additional implementation details.
 |acquisitionDate|string (date)|The date this germplasm was acquired by the genebank   MCPD (v2.1) (ACQDATE) 12. Date on which the accession entered the collection [YYYYMMDD] where YYYY is the year, MM is the month and DD is the day. Missing data (MM or DD) should be indicated with hyphens or "00" [double zero].|
 |additionalInfo|object|Additional arbitrary info|
 |biologicalStatusOfAccessionCode|string|MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc.   100) Wild  110) Natural  120) Semi-natural/wild  130) Semi-natural/sown  200) Weedy  300) Traditional cultivar/landrace  400) Breeding/research material  410) Breeders line  411) Synthetic population  412) Hybrid  413) Founder stock/base population  414) Inbred line (parent of hybrid cultivar)  415) Segregating population  416) Clonal selection  420) Genetic stock  421) Mutant (e.g. induced/insertion mutants, tilling populations)  422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids)  423) Other genetic stocks (e.g. mapping populations)  500) Advanced or improved cultivar (conventional breeding methods)  600) GMO (by genetic engineering)  999) Other (Elaborate in REMARKS field)|
+|biologicalStatusOfAccessionDescription|string|Supplemental text description for 'biologicalStatusOfAccessionCode'|
 |breedingMethodDbId|string|The unique identifier for the breeding method used to create this germplasm|
 |commonCropName|string|Common name for the crop   MCPD (v2.1) (CROPNAME) 10. Common name of the crop. Example: "malting barley", "mas".|
 |countryOfOriginCode|string|3-letter ISO 3166-1 code of the country in which the sample was originally collected   MCPD (v2.1) (ORIGCTY) 13. 3-letter ISO 3166-1 code of the country in which the sample was originally collected (e.g. landrace, crop wild relative, farmers variety), bred or selected (breeding lines, GMOs, segregating populations, hybrids, modern cultivars, etc.). Note- Descriptors 14 to 16 below should be completed accordingly only if it was "collected".|
@@ -1732,13 +1793,15 @@ See Search Services for additional implementation details.
 |seedSourceDescription|string|Description of the material source|
 |species|string|Specific epithet portion of the scientific name in lowercase letters.  MCPD (v2.1) (SPECIES) 6. Specific epithet portion of the scientific name in lowercase letters. Only the following abbreviation is allowed: "sp."   MIAPPE V1.1 (DM-44) Species - Species name (formally: specific epithet) for the organism under study, according to standard scientific nomenclature.|
 |speciesAuthority|string|The authority organization responsible for tracking and maintaining the species name   MCPD (v2.1) (SPAUTHOR) 7. Provide the authority for the species name.|
+|storageTypes|array[object]|The type of storage this germplasm is kept in at a genebank.|
+|code|string|The 2 digit code representing the type of storage this germplasm is kept in at a genebank.   MCPD (v2.1) (STORAGE) 26. If germplasm is maintained under different types of storage, multiple choices are allowed, separated by a semicolon (e.g. 20;30). (Refer to FAO/IPGRI Genebank Standards 1994 for details on storage type.)   10) Seed collection  11) Short term  12) Medium term  13) Long term  20) Field collection  30) In vitro collection  40) Cryo-preserved collection  50) DNA collection  99) Other (elaborate in REMARKS field)|
+|description|string|A supplemental text description of the storage type|
 |subtaxa|string|Subtaxon can be used to store any additional taxonomic identifier.  MCPD (v2.1) (SUBTAXA) 8. Subtaxon can be used to store any additional taxonomic identifier. The following abbreviations are allowed: "subsp." (for subspecies); "convar." (for convariety); "var." (for variety); "f." (for form); "Group" (for "cultivar group").  MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).|
 |subtaxaAuthority|string|The authority organization responsible for tracking and maintaining the subtaxon information  MCPD (v2.1) (SUBTAUTHOR) 9. Provide the subtaxon authority at the most detailed taxonomic level.|
 |synonyms|array[string]|List of alternative names or IDs used to reference this germplasm|
 |taxonIds|array[object]|The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.  MIAPPE V1.1 (DM-42) Organism - An identifier for the organism at the species level. Use of the NCBI taxon ID is recommended.|
 |sourceName|string|The human readable name of the taxonomy provider|
 |taxonId|string|The identifier (name, ID, URI) of a particular taxonomy within the source provider|
-|typeOfGermplasmStorageCode|array[string]|The 2 digit code representing the type of storage this germplasm is kept in at a genebank.   MCPD (v2.1) (STORAGE) 26. If germplasm is maintained under different types of storage, multiple choices are allowed, separated by a semicolon (e.g. 20;30). (Refer to FAO/IPGRI Genebank Standards 1994 for details on storage type.) 10) Seed collection 11) Short term 12) Medium term 13) Long term 20) Field collection 30) In vitro collection 40) Cryo-preserved collection 50) DNA collection 99) Other (elaborate in REMARKS field)|
 
 
  
@@ -1850,7 +1913,8 @@ See Search Services for additional implementation details.
                 "accessionNumber": "A0000003",
                 "acquisitionDate": "2018-01-01",
                 "additionalInfo": {},
-                "biologicalStatusOfAccessionCode": "421",
+                "biologicalStatusOfAccessionCode": "420",
+                "biologicalStatusOfAccessionDescription": "Genetic stock",
                 "breedingMethodDbId": "ffcce7ef",
                 "commonCropName": "Maize",
                 "countryOfOriginCode": "BES",
@@ -1903,6 +1967,16 @@ See Search Services for additional implementation details.
                 "seedSourceDescription": "Branches were collected from a 10-year-old tree growing in a progeny trial established in a loamy brown earth soil.",
                 "species": "fructus",
                 "speciesAuthority": "Smith, 1822",
+                "storageTypes": [
+                    {
+                        "code": "20",
+                        "description": "Field collection"
+                    },
+                    {
+                        "code": "11",
+                        "description": "Short term"
+                    }
+                ],
                 "subtaxa": "Aspergillus fructus A",
                 "subtaxaAuthority": "Smith, 1822",
                 "synonyms": [
@@ -1913,10 +1987,6 @@ See Search Services for additional implementation details.
                         "sourceName": "NCBI",
                         "taxonId": "2026747"
                     }
-                ],
-                "typeOfGermplasmStorageCode": [
-                    "11",
-                    "13'"
                 ]
             }
         ]
@@ -2001,6 +2071,7 @@ Addresses these needs:
 |acquisitionDate|string (date)|The date this germplasm was acquired by the genebank   MCPD (v2.1) (ACQDATE) 12. Date on which the accession entered the collection [YYYYMMDD] where YYYY is the year, MM is the month and DD is the day. Missing data (MM or DD) should be indicated with hyphens or "00" [double zero].|
 |additionalInfo|object|Additional arbitrary info|
 |biologicalStatusOfAccessionCode|string|MCPD (v2.1) (SAMPSTAT) 19. The coding scheme proposed can be used at 3 different levels of detail: either by using the general codes such as 100, 200, 300, 400, or by using the more specific codes such as 110, 120, etc.   100) Wild  110) Natural  120) Semi-natural/wild  130) Semi-natural/sown  200) Weedy  300) Traditional cultivar/landrace  400) Breeding/research material  410) Breeders line  411) Synthetic population  412) Hybrid  413) Founder stock/base population  414) Inbred line (parent of hybrid cultivar)  415) Segregating population  416) Clonal selection  420) Genetic stock  421) Mutant (e.g. induced/insertion mutants, tilling populations)  422) Cytogenetic stocks (e.g. chromosome addition/substitution, aneuploids,  amphiploids)  423) Other genetic stocks (e.g. mapping populations)  500) Advanced or improved cultivar (conventional breeding methods)  600) GMO (by genetic engineering)  999) Other (Elaborate in REMARKS field)|
+|biologicalStatusOfAccessionDescription|string|Supplemental text description for 'biologicalStatusOfAccessionCode'|
 |breedingMethodDbId|string|The unique identifier for the breeding method used to create this germplasm|
 |commonCropName|string|Common name for the crop   MCPD (v2.1) (CROPNAME) 10. Common name of the crop. Example: "malting barley", "mas".|
 |countryOfOriginCode|string|3-letter ISO 3166-1 code of the country in which the sample was originally collected   MCPD (v2.1) (ORIGCTY) 13. 3-letter ISO 3166-1 code of the country in which the sample was originally collected (e.g. landrace, crop wild relative, farmers variety), bred or selected (breeding lines, GMOs, segregating populations, hybrids, modern cultivars, etc.). Note- Descriptors 14 to 16 below should be completed accordingly only if it was "collected".|
@@ -2032,13 +2103,15 @@ Addresses these needs:
 |seedSourceDescription|string|Description of the material source|
 |species|string|Specific epithet portion of the scientific name in lowercase letters.  MCPD (v2.1) (SPECIES) 6. Specific epithet portion of the scientific name in lowercase letters. Only the following abbreviation is allowed: "sp."   MIAPPE V1.1 (DM-44) Species - Species name (formally: specific epithet) for the organism under study, according to standard scientific nomenclature.|
 |speciesAuthority|string|The authority organization responsible for tracking and maintaining the species name   MCPD (v2.1) (SPAUTHOR) 7. Provide the authority for the species name.|
+|storageTypes|array[object]|The type of storage this germplasm is kept in at a genebank.|
+|code|string|The 2 digit code representing the type of storage this germplasm is kept in at a genebank.   MCPD (v2.1) (STORAGE) 26. If germplasm is maintained under different types of storage, multiple choices are allowed, separated by a semicolon (e.g. 20;30). (Refer to FAO/IPGRI Genebank Standards 1994 for details on storage type.)   10) Seed collection  11) Short term  12) Medium term  13) Long term  20) Field collection  30) In vitro collection  40) Cryo-preserved collection  50) DNA collection  99) Other (elaborate in REMARKS field)|
+|description|string|A supplemental text description of the storage type|
 |subtaxa|string|Subtaxon can be used to store any additional taxonomic identifier.  MCPD (v2.1) (SUBTAXA) 8. Subtaxon can be used to store any additional taxonomic identifier. The following abbreviations are allowed: "subsp." (for subspecies); "convar." (for convariety); "var." (for variety); "f." (for form); "Group" (for "cultivar group").  MIAPPE V1.1 (DM-44) Infraspecific name - Name of any subtaxa level, including variety, crossing name, etc. It can be used to store any additional taxonomic identifier. Either free text description or key-value pair list format (the key is the name of the rank and the value is the value of  the rank). Ranks can be among the following terms: subspecies, cultivar, variety, subvariety, convariety, group, subgroup, hybrid, line, form, subform. For MCPD compliance, the following abbreviations are allowed: subsp. (subspecies); convar. (convariety); var. (variety); f. (form); Group (cultivar group).|
 |subtaxaAuthority|string|The authority organization responsible for tracking and maintaining the subtaxon information  MCPD (v2.1) (SUBTAUTHOR) 9. Provide the subtaxon authority at the most detailed taxonomic level.|
 |synonyms|array[string]|List of alternative names or IDs used to reference this germplasm|
 |taxonIds|array[object]|The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.  MIAPPE V1.1 (DM-42) Organism - An identifier for the organism at the species level. Use of the NCBI taxon ID is recommended.|
 |sourceName|string|The human readable name of the taxonomy provider|
 |taxonId|string|The identifier (name, ID, URI) of a particular taxonomy within the source provider|
-|typeOfGermplasmStorageCode|array[string]|The 2 digit code representing the type of storage this germplasm is kept in at a genebank.   MCPD (v2.1) (STORAGE) 26. If germplasm is maintained under different types of storage, multiple choices are allowed, separated by a semicolon (e.g. 20;30). (Refer to FAO/IPGRI Genebank Standards 1994 for details on storage type.) 10) Seed collection 11) Short term 12) Medium term 13) Long term 20) Field collection 30) In vitro collection 40) Cryo-preserved collection 50) DNA collection 99) Other (elaborate in REMARKS field)|
 
 
  
@@ -2124,7 +2197,8 @@ Addresses these needs:
                 "accessionNumber": "A0000003",
                 "acquisitionDate": "2018-01-01",
                 "additionalInfo": {},
-                "biologicalStatusOfAccessionCode": "421",
+                "biologicalStatusOfAccessionCode": "420",
+                "biologicalStatusOfAccessionDescription": "Genetic stock",
                 "breedingMethodDbId": "ffcce7ef",
                 "commonCropName": "Maize",
                 "countryOfOriginCode": "BES",
@@ -2177,6 +2251,16 @@ Addresses these needs:
                 "seedSourceDescription": "Branches were collected from a 10-year-old tree growing in a progeny trial established in a loamy brown earth soil.",
                 "species": "fructus",
                 "speciesAuthority": "Smith, 1822",
+                "storageTypes": [
+                    {
+                        "code": "20",
+                        "description": "Field collection"
+                    },
+                    {
+                        "code": "11",
+                        "description": "Short term"
+                    }
+                ],
                 "subtaxa": "Aspergillus fructus A",
                 "subtaxaAuthority": "Smith, 1822",
                 "synonyms": [
@@ -2187,10 +2271,6 @@ Addresses these needs:
                         "sourceName": "NCBI",
                         "taxonId": "2026747"
                     }
-                ],
-                "typeOfGermplasmStorageCode": [
-                    "11",
-                    "13'"
                 ]
             }
         ]
