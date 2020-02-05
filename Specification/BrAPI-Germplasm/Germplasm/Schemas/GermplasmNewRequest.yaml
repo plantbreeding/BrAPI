@@ -183,10 +183,18 @@ components:
           example: Smith, 1822
         synonyms:
           description: List of alternative names or IDs used to reference this germplasm
-          items:
-            type: string
           type: array
-          example: ['variety_1']
+          items:
+            type: object
+            properties:
+              synonym:
+                description: Alternative name or ID used to reference this germplasm
+                type: string
+                example: 'variety_1'
+              type:
+                description: A descriptive classification for this synonym
+                type: string
+                example: 'precode'
         taxonIds:
           description: |-
             The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.
