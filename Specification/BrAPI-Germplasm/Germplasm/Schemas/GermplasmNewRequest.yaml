@@ -194,7 +194,7 @@ components:
               type:
                 description: A descriptive classification for this synonym
                 type: string
-                example: 'precode'
+                example: 'Pre-Code'
         taxonIds:
           description: |-
             The list of IDs for this SPECIES from different sources. If present, NCBI Taxon should be always listed as "ncbiTaxon" preferably with a purl. The rank of this ID should be species.
