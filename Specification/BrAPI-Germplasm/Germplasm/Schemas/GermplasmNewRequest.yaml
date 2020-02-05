@@ -55,7 +55,11 @@ components:
             999) Other (Elaborate in REMARKS field)
           enum: [ '100', '110', '120', '130', '200', '300', '400', '410', '411', '412', '413', '414', '415', '416', '420', '421', '422', '423', '500', '600', '999']
           type: string
-          example: '421'
+          example: '420'
+        biologicalStatusOfAccessionDescription:
+          description: Supplemental text description for 'biologicalStatusOfAccessionCode'
+          type: string
+          example: 'Genetic stock'
         breedingMethodDbId:
           description: The unique identifier for the breeding method used to create this germplasm
           type: string
@@ -191,25 +195,48 @@ components:
           items:
             $ref: '#/components/schemas/TaxonID'
           type: array
-        typeOfGermplasmStorageCode:
-          description: |-
-            The 2 digit code representing the type of storage this germplasm is kept in at a genebank. 
-            
-            MCPD (v2.1) (STORAGE) 26. If germplasm is maintained under different types of storage, multiple choices are allowed, separated by a semicolon (e.g. 20;30). (Refer to FAO/IPGRI Genebank Standards 1994 for details on storage type.) 10) Seed collection 11) Short term 12) Medium term 13) Long term 20) Field collection 30) In vitro collection 40) Cryo-preserved collection 50) DNA collection 99) Other (elaborate in REMARKS field)
-          items:
-            enum:
-            - '10'
-            - '11'
-            - '12'
-            - '13'
-            - '20'
-            - '30'
-            - '40'
-            - '50'
-            - '99'
-            type: string
+        storageTypes:
+          description: The type of storage this germplasm is kept in at a genebank.
           type: array
-          example: ['11', 13']
+          example: 
+            - code: '20'
+              description: Field collection 
+            - code: '11'
+              description: Short term 
+          items: 
+            type: object
+            properties:
+              code:
+                description: |-
+                  The 2 digit code representing the type of storage this germplasm is kept in at a genebank. 
+                  
+                  MCPD (v2.1) (STORAGE) 26. If germplasm is maintained under different types of storage, multiple choices are allowed, separated by a semicolon (e.g. 20;30). (Refer to FAO/IPGRI Genebank Standards 1994 for details on storage type.) 
+                  
+                  10) Seed collection 
+                  11) Short term 
+                  12) Medium term 
+                  13) Long term 
+                  20) Field collection 
+                  30) In vitro collection 
+                  40) Cryo-preserved collection 
+                  50) DNA collection 
+                  99) Other (elaborate in REMARKS field)
+                enum:
+                - '10'
+                - '11'
+                - '12'
+                - '13'
+                - '20'
+                - '30'
+                - '40'
+                - '50'
+                - '99'
+                type: string
+                example: '11'
+              description:
+                description: A suplemental text description of the storage type
+                type: string
+                example: Short term 
         germplasmPreprocessing:
           description: Description of any process or treatment applied uniformly to the germplasm, prior to the study itself. Can be provided as free text or as an accession number from a suitable controlled vocabulary.
           type: string
