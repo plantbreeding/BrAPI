@@ -993,10 +993,9 @@ Get the details of a specific Trial
 |location|object||
 |abbreviation|string|An abbreviation which represents this location|
 |additionalInfo|object|Additional arbitrary info|
-|altitude|number|The altitude/elevation of this location (in meters)  MIAPPE V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
 |coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
 |coordinateUncertainty|string|Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown.|
-|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
 |countryCode|string| [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.|
@@ -1140,14 +1139,14 @@ Get the details of a specific Trial
         "location": {
             "abbreviation": "L1",
             "additionalInfo": {},
-            "altitude": 35.6,
             "coordinateDescription": "North East corner of greenhouse",
             "coordinateUncertainty": "20",
             "coordinates": {
                 "geometry": {
                     "coordinates": [
                         -76.506042,
-                        42.417373
+                        42.417373,
+                        123
                     ],
                     "type": "Point"
                 },
@@ -1313,10 +1312,9 @@ Update the details of an existing Trial
 |location|object||
 |abbreviation|string|An abbreviation which represents this location|
 |additionalInfo|object|Additional arbitrary info|
-|altitude|number|The altitude/elevation of this location (in meters)  MIAPPE V1.1 (DM-21) Geographic location (altitude) - Altitude of the experimental site, provided in metres (m).|
 |coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
 |coordinateUncertainty|string|Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown.|
-|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.|
+|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
 |countryCode|string| [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.|
@@ -1520,14 +1518,14 @@ Update the details of an existing Trial
         "location": {
             "abbreviation": "L1",
             "additionalInfo": {},
-            "altitude": 35.6,
             "coordinateDescription": "North East corner of greenhouse",
             "coordinateUncertainty": "20",
             "coordinates": {
                 "geometry": {
                     "coordinates": [
                         -76.506042,
-                        42.417373
+                        42.417373,
+                        123
                     ],
                     "type": "Point"
                 },

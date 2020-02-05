@@ -219,12 +219,10 @@ Addresses these needs
 |germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server  MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |germplasmOrigin|array[object]|Information for material (orchard, natural sites, ...). Geographic identification of the plants from which seeds or cutting have been taken to produce that germplasm.|
-|altitude|string|Elevation of collecting site expressed in meters above sea level. Negative values are allowed.|
 |coordinateUncertainty|string|Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown.|
-|latitudeDecimal|string|Latitude expressed in decimal degrees. Positive values are North of the Equator; negative values are South of the Equator (e.g. -44.6975).|
-|latitudeDegrees|string|Degrees (2 digits) minutes (2 digits), and seconds (2 digits) followed by N (North) or S (South) (e.g. 103020S). Every missing digit (minutes or seconds) should be indicated with a hyphen. Leading zeros are required (e.g. 10|
-|longitudeDecimal|string|Longitude expressed in decimal degrees. Positive values are East of the Greenwich Meridian; negative values are West of the Greenwich Meridian (e.g. +120.9123).|
-|longitudeDegrees|string|Degrees (3 digits), minutes (2 digits), and seconds (2 digits) followed by E (East) or W (West) (e.g. 0762510W). Every missing digit (minutes or seconds) should be indicated with a hyphen. Leading zeros are required (e.g. 076|
+|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |germplasmPUI|string|The Permanent Unique Identifier which represents a germplasm  MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.|
 |germplasmPreprocessing|string|Description of any process or treatment applied uniformly to the germplasm, prior to the study itself. Can be provided as free text or as an accession number from a suitable controlled vocabulary.|
 |instituteCode|string|The code for the Institute that has bred the material.   MCPD (v2.1) (INSTCODE) 1. FAO WIEWS code of the institute where the accession is maintained. The codes consist of the 3-letter ISO 3166 country code of the country where the institute is located plus a number (e.g. PER001). The current set of institute codes is available from http://www.fao.org/wiews. For those institutes not yet having an FAO Code, or for those with "obsolete" codes, see "Common formatting rules (v)".|
@@ -341,12 +339,18 @@ Addresses these needs
                 "germplasmName": "A0000003",
                 "germplasmOrigin": [
                     {
-                        "altitude": "35",
                         "coordinateUncertainty": "20",
-                        "latitudeDecimal": "-44.6975",
-                        "latitudeDegrees": "103020S",
-                        "longitudeDecimal": "+120.9123",
-                        "longitudeDegrees": "0762510W"
+                        "coordinates": {
+                            "geometry": {
+                                "coordinates": [
+                                    -76.506042,
+                                    42.417373,
+                                    123
+                                ],
+                                "type": "Point"
+                            },
+                            "type": "Feature"
+                        }
                     }
                 ],
                 "germplasmPUI": "http://pui.per/accession/A0000003",
@@ -431,12 +435,10 @@ Create new Germplasm entities on this server
 |genus|string|Genus name for taxon. Initial uppercase letter required.  MCPD (v2.1) (GENUS) 5. Genus name for taxon. Initial uppercase letter required.  MIAPPE V1.1 (DM-43) Genus - Genus name for the organism under study, according to standard scientific nomenclature.|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |germplasmOrigin|array[object]|Information for material (orchard, natural sites, ...). Geographic identification of the plants from which seeds or cutting have been taken to produce that germplasm.|
-|altitude|string|Elevation of collecting site expressed in meters above sea level. Negative values are allowed.|
 |coordinateUncertainty|string|Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown.|
-|latitudeDecimal|string|Latitude expressed in decimal degrees. Positive values are North of the Equator; negative values are South of the Equator (e.g. -44.6975).|
-|latitudeDegrees|string|Degrees (2 digits) minutes (2 digits), and seconds (2 digits) followed by N (North) or S (South) (e.g. 103020S). Every missing digit (minutes or seconds) should be indicated with a hyphen. Leading zeros are required (e.g. 10|
-|longitudeDecimal|string|Longitude expressed in decimal degrees. Positive values are East of the Greenwich Meridian; negative values are West of the Greenwich Meridian (e.g. +120.9123).|
-|longitudeDegrees|string|Degrees (3 digits), minutes (2 digits), and seconds (2 digits) followed by E (East) or W (West) (e.g. 0762510W). Every missing digit (minutes or seconds) should be indicated with a hyphen. Leading zeros are required (e.g. 076|
+|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |germplasmPUI|string|The Permanent Unique Identifier which represents a germplasm  MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.|
 |germplasmPreprocessing|string|Description of any process or treatment applied uniformly to the germplasm, prior to the study itself. Can be provided as free text or as an accession number from a suitable controlled vocabulary.|
 |instituteCode|string|The code for the Institute that has bred the material.   MCPD (v2.1) (INSTCODE) 1. FAO WIEWS code of the institute where the accession is maintained. The codes consist of the 3-letter ISO 3166 country code of the country where the institute is located plus a number (e.g. PER001). The current set of institute codes is available from http://www.fao.org/wiews. For those institutes not yet having an FAO Code, or for those with "obsolete" codes, see "Common formatting rules (v)".|
@@ -483,12 +485,10 @@ Create new Germplasm entities on this server
 |germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server  MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |germplasmOrigin|array[object]|Information for material (orchard, natural sites, ...). Geographic identification of the plants from which seeds or cutting have been taken to produce that germplasm.|
-|altitude|string|Elevation of collecting site expressed in meters above sea level. Negative values are allowed.|
 |coordinateUncertainty|string|Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown.|
-|latitudeDecimal|string|Latitude expressed in decimal degrees. Positive values are North of the Equator; negative values are South of the Equator (e.g. -44.6975).|
-|latitudeDegrees|string|Degrees (2 digits) minutes (2 digits), and seconds (2 digits) followed by N (North) or S (South) (e.g. 103020S). Every missing digit (minutes or seconds) should be indicated with a hyphen. Leading zeros are required (e.g. 10|
-|longitudeDecimal|string|Longitude expressed in decimal degrees. Positive values are East of the Greenwich Meridian; negative values are West of the Greenwich Meridian (e.g. +120.9123).|
-|longitudeDegrees|string|Degrees (3 digits), minutes (2 digits), and seconds (2 digits) followed by E (East) or W (West) (e.g. 0762510W). Every missing digit (minutes or seconds) should be indicated with a hyphen. Leading zeros are required (e.g. 076|
+|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |germplasmPUI|string|The Permanent Unique Identifier which represents a germplasm  MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.|
 |germplasmPreprocessing|string|Description of any process or treatment applied uniformly to the germplasm, prior to the study itself. Can be provided as free text or as an accession number from a suitable controlled vocabulary.|
 |instituteCode|string|The code for the Institute that has bred the material.   MCPD (v2.1) (INSTCODE) 1. FAO WIEWS code of the institute where the accession is maintained. The codes consist of the 3-letter ISO 3166 country code of the country where the institute is located plus a number (e.g. PER001). The current set of institute codes is available from http://www.fao.org/wiews. For those institutes not yet having an FAO Code, or for those with "obsolete" codes, see "Common formatting rules (v)".|
@@ -559,12 +559,18 @@ Create new Germplasm entities on this server
         "germplasmName": "A0000003",
         "germplasmOrigin": [
             {
-                "altitude": "35",
                 "coordinateUncertainty": "20",
-                "latitudeDecimal": "-44.6975",
-                "latitudeDegrees": "103020S",
-                "longitudeDecimal": "+120.9123",
-                "longitudeDegrees": "0762510W"
+                "coordinates": {
+                    "geometry": {
+                        "coordinates": [
+                            -76.506042,
+                            42.417373,
+                            123
+                        ],
+                        "type": "Point"
+                    },
+                    "type": "Feature"
+                }
             }
         ],
         "germplasmPUI": "http://pui.per/accession/A0000003",
@@ -676,12 +682,18 @@ Create new Germplasm entities on this server
                 "germplasmName": "A0000003",
                 "germplasmOrigin": [
                     {
-                        "altitude": "35",
                         "coordinateUncertainty": "20",
-                        "latitudeDecimal": "-44.6975",
-                        "latitudeDegrees": "103020S",
-                        "longitudeDecimal": "+120.9123",
-                        "longitudeDegrees": "0762510W"
+                        "coordinates": {
+                            "geometry": {
+                                "coordinates": [
+                                    -76.506042,
+                                    42.417373,
+                                    123
+                                ],
+                                "type": "Point"
+                            },
+                            "type": "Feature"
+                        }
                     }
                 ],
                 "germplasmPUI": "http://pui.per/accession/A0000003",
@@ -769,12 +781,10 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 |germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server  MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |germplasmOrigin|array[object]|Information for material (orchard, natural sites, ...). Geographic identification of the plants from which seeds or cutting have been taken to produce that germplasm.|
-|altitude|string|Elevation of collecting site expressed in meters above sea level. Negative values are allowed.|
 |coordinateUncertainty|string|Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown.|
-|latitudeDecimal|string|Latitude expressed in decimal degrees. Positive values are North of the Equator; negative values are South of the Equator (e.g. -44.6975).|
-|latitudeDegrees|string|Degrees (2 digits) minutes (2 digits), and seconds (2 digits) followed by N (North) or S (South) (e.g. 103020S). Every missing digit (minutes or seconds) should be indicated with a hyphen. Leading zeros are required (e.g. 10|
-|longitudeDecimal|string|Longitude expressed in decimal degrees. Positive values are East of the Greenwich Meridian; negative values are West of the Greenwich Meridian (e.g. +120.9123).|
-|longitudeDegrees|string|Degrees (3 digits), minutes (2 digits), and seconds (2 digits) followed by E (East) or W (West) (e.g. 0762510W). Every missing digit (minutes or seconds) should be indicated with a hyphen. Leading zeros are required (e.g. 076|
+|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |germplasmPUI|string|The Permanent Unique Identifier which represents a germplasm  MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.|
 |germplasmPreprocessing|string|Description of any process or treatment applied uniformly to the germplasm, prior to the study itself. Can be provided as free text or as an accession number from a suitable controlled vocabulary.|
 |instituteCode|string|The code for the Institute that has bred the material.   MCPD (v2.1) (INSTCODE) 1. FAO WIEWS code of the institute where the accession is maintained. The codes consist of the 3-letter ISO 3166 country code of the country where the institute is located plus a number (e.g. PER001). The current set of institute codes is available from http://www.fao.org/wiews. For those institutes not yet having an FAO Code, or for those with "obsolete" codes, see "Common formatting rules (v)".|
@@ -875,12 +885,18 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
         "germplasmName": "A0000003",
         "germplasmOrigin": [
             {
-                "altitude": "35",
                 "coordinateUncertainty": "20",
-                "latitudeDecimal": "-44.6975",
-                "latitudeDegrees": "103020S",
-                "longitudeDecimal": "+120.9123",
-                "longitudeDegrees": "0762510W"
+                "coordinates": {
+                    "geometry": {
+                        "coordinates": [
+                            -76.506042,
+                            42.417373,
+                            123
+                        ],
+                        "type": "Point"
+                    },
+                    "type": "Feature"
+                }
             }
         ],
         "germplasmPUI": "http://pui.per/accession/A0000003",
@@ -968,12 +984,10 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 |genus|string|Genus name for taxon. Initial uppercase letter required.  MCPD (v2.1) (GENUS) 5. Genus name for taxon. Initial uppercase letter required.  MIAPPE V1.1 (DM-43) Genus - Genus name for the organism under study, according to standard scientific nomenclature.|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |germplasmOrigin|array[object]|Information for material (orchard, natural sites, ...). Geographic identification of the plants from which seeds or cutting have been taken to produce that germplasm.|
-|altitude|string|Elevation of collecting site expressed in meters above sea level. Negative values are allowed.|
 |coordinateUncertainty|string|Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown.|
-|latitudeDecimal|string|Latitude expressed in decimal degrees. Positive values are North of the Equator; negative values are South of the Equator (e.g. -44.6975).|
-|latitudeDegrees|string|Degrees (2 digits) minutes (2 digits), and seconds (2 digits) followed by N (North) or S (South) (e.g. 103020S). Every missing digit (minutes or seconds) should be indicated with a hyphen. Leading zeros are required (e.g. 10|
-|longitudeDecimal|string|Longitude expressed in decimal degrees. Positive values are East of the Greenwich Meridian; negative values are West of the Greenwich Meridian (e.g. +120.9123).|
-|longitudeDegrees|string|Degrees (3 digits), minutes (2 digits), and seconds (2 digits) followed by E (East) or W (West) (e.g. 0762510W). Every missing digit (minutes or seconds) should be indicated with a hyphen. Leading zeros are required (e.g. 076|
+|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |germplasmPUI|string|The Permanent Unique Identifier which represents a germplasm  MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.|
 |germplasmPreprocessing|string|Description of any process or treatment applied uniformly to the germplasm, prior to the study itself. Can be provided as free text or as an accession number from a suitable controlled vocabulary.|
 |instituteCode|string|The code for the Institute that has bred the material.   MCPD (v2.1) (INSTCODE) 1. FAO WIEWS code of the institute where the accession is maintained. The codes consist of the 3-letter ISO 3166 country code of the country where the institute is located plus a number (e.g. PER001). The current set of institute codes is available from http://www.fao.org/wiews. For those institutes not yet having an FAO Code, or for those with "obsolete" codes, see "Common formatting rules (v)".|
@@ -1019,12 +1033,10 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 |germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server  MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |germplasmOrigin|array[object]|Information for material (orchard, natural sites, ...). Geographic identification of the plants from which seeds or cutting have been taken to produce that germplasm.|
-|altitude|string|Elevation of collecting site expressed in meters above sea level. Negative values are allowed.|
 |coordinateUncertainty|string|Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown.|
-|latitudeDecimal|string|Latitude expressed in decimal degrees. Positive values are North of the Equator; negative values are South of the Equator (e.g. -44.6975).|
-|latitudeDegrees|string|Degrees (2 digits) minutes (2 digits), and seconds (2 digits) followed by N (North) or S (South) (e.g. 103020S). Every missing digit (minutes or seconds) should be indicated with a hyphen. Leading zeros are required (e.g. 10|
-|longitudeDecimal|string|Longitude expressed in decimal degrees. Positive values are East of the Greenwich Meridian; negative values are West of the Greenwich Meridian (e.g. +120.9123).|
-|longitudeDegrees|string|Degrees (3 digits), minutes (2 digits), and seconds (2 digits) followed by E (East) or W (West) (e.g. 0762510W). Every missing digit (minutes or seconds) should be indicated with a hyphen. Leading zeros are required (e.g. 076|
+|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |germplasmPUI|string|The Permanent Unique Identifier which represents a germplasm  MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.|
 |germplasmPreprocessing|string|Description of any process or treatment applied uniformly to the germplasm, prior to the study itself. Can be provided as free text or as an accession number from a suitable controlled vocabulary.|
 |instituteCode|string|The code for the Institute that has bred the material.   MCPD (v2.1) (INSTCODE) 1. FAO WIEWS code of the institute where the accession is maintained. The codes consist of the 3-letter ISO 3166 country code of the country where the institute is located plus a number (e.g. PER001). The current set of institute codes is available from http://www.fao.org/wiews. For those institutes not yet having an FAO Code, or for those with "obsolete" codes, see "Common formatting rules (v)".|
@@ -1095,12 +1107,18 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
     "germplasmName": "A0000003",
     "germplasmOrigin": [
         {
-            "altitude": "35",
             "coordinateUncertainty": "20",
-            "latitudeDecimal": "-44.6975",
-            "latitudeDegrees": "103020S",
-            "longitudeDecimal": "+120.9123",
-            "longitudeDegrees": "0762510W"
+            "coordinates": {
+                "geometry": {
+                    "coordinates": [
+                        -76.506042,
+                        42.417373,
+                        123
+                    ],
+                    "type": "Point"
+                },
+                "type": "Feature"
+            }
         }
     ],
     "germplasmPUI": "http://pui.per/accession/A0000003",
@@ -1209,12 +1227,18 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
         "germplasmName": "A0000003",
         "germplasmOrigin": [
             {
-                "altitude": "35",
                 "coordinateUncertainty": "20",
-                "latitudeDecimal": "-44.6975",
-                "latitudeDegrees": "103020S",
-                "longitudeDecimal": "+120.9123",
-                "longitudeDegrees": "0762510W"
+                "coordinates": {
+                    "geometry": {
+                        "coordinates": [
+                            -76.506042,
+                            42.417373,
+                            123
+                        ],
+                        "type": "Point"
+                    },
+                    "type": "Feature"
+                }
             }
         ],
         "germplasmPUI": "http://pui.per/accession/A0000003",
@@ -1778,12 +1802,10 @@ See Search Services for additional implementation details.
 |germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server  MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |germplasmOrigin|array[object]|Information for material (orchard, natural sites, ...). Geographic identification of the plants from which seeds or cutting have been taken to produce that germplasm.|
-|altitude|string|Elevation of collecting site expressed in meters above sea level. Negative values are allowed.|
 |coordinateUncertainty|string|Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown.|
-|latitudeDecimal|string|Latitude expressed in decimal degrees. Positive values are North of the Equator; negative values are South of the Equator (e.g. -44.6975).|
-|latitudeDegrees|string|Degrees (2 digits) minutes (2 digits), and seconds (2 digits) followed by N (North) or S (South) (e.g. 103020S). Every missing digit (minutes or seconds) should be indicated with a hyphen. Leading zeros are required (e.g. 10|
-|longitudeDecimal|string|Longitude expressed in decimal degrees. Positive values are East of the Greenwich Meridian; negative values are West of the Greenwich Meridian (e.g. +120.9123).|
-|longitudeDegrees|string|Degrees (3 digits), minutes (2 digits), and seconds (2 digits) followed by E (East) or W (West) (e.g. 0762510W). Every missing digit (minutes or seconds) should be indicated with a hyphen. Leading zeros are required (e.g. 076|
+|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |germplasmPUI|string|The Permanent Unique Identifier which represents a germplasm  MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.|
 |germplasmPreprocessing|string|Description of any process or treatment applied uniformly to the germplasm, prior to the study itself. Can be provided as free text or as an accession number from a suitable controlled vocabulary.|
 |instituteCode|string|The code for the Institute that has bred the material.   MCPD (v2.1) (INSTCODE) 1. FAO WIEWS code of the institute where the accession is maintained. The codes consist of the 3-letter ISO 3166 country code of the country where the institute is located plus a number (e.g. PER001). The current set of institute codes is available from http://www.fao.org/wiews. For those institutes not yet having an FAO Code, or for those with "obsolete" codes, see "Common formatting rules (v)".|
@@ -1950,12 +1972,18 @@ See Search Services for additional implementation details.
                 "germplasmName": "A0000003",
                 "germplasmOrigin": [
                     {
-                        "altitude": "35",
                         "coordinateUncertainty": "20",
-                        "latitudeDecimal": "-44.6975",
-                        "latitudeDegrees": "103020S",
-                        "longitudeDecimal": "+120.9123",
-                        "longitudeDegrees": "0762510W"
+                        "coordinates": {
+                            "geometry": {
+                                "coordinates": [
+                                    -76.506042,
+                                    42.417373,
+                                    123
+                                ],
+                                "type": "Point"
+                            },
+                            "type": "Feature"
+                        }
                     }
                 ],
                 "germplasmPUI": "http://pui.per/accession/A0000003",
@@ -2088,12 +2116,10 @@ Addresses these needs:
 |germplasmDbId|string|The ID which uniquely identifies a germplasm within the given database server  MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc. This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |germplasmOrigin|array[object]|Information for material (orchard, natural sites, ...). Geographic identification of the plants from which seeds or cutting have been taken to produce that germplasm.|
-|altitude|string|Elevation of collecting site expressed in meters above sea level. Negative values are allowed.|
 |coordinateUncertainty|string|Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown.|
-|latitudeDecimal|string|Latitude expressed in decimal degrees. Positive values are North of the Equator; negative values are South of the Equator (e.g. -44.6975).|
-|latitudeDegrees|string|Degrees (2 digits) minutes (2 digits), and seconds (2 digits) followed by N (North) or S (South) (e.g. 103020S). Every missing digit (minutes or seconds) should be indicated with a hyphen. Leading zeros are required (e.g. 10|
-|longitudeDecimal|string|Longitude expressed in decimal degrees. Positive values are East of the Greenwich Meridian; negative values are West of the Greenwich Meridian (e.g. +120.9123).|
-|longitudeDegrees|string|Degrees (3 digits), minutes (2 digits), and seconds (2 digits) followed by E (East) or W (West) (e.g. 0762510W). Every missing digit (minutes or seconds) should be indicated with a hyphen. Leading zeros are required (e.g. 076|
+|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
+|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
+|type|string|The literal string "Feature"|
 |germplasmPUI|string|The Permanent Unique Identifier which represents a germplasm  MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.|
 |germplasmPreprocessing|string|Description of any process or treatment applied uniformly to the germplasm, prior to the study itself. Can be provided as free text or as an accession number from a suitable controlled vocabulary.|
 |instituteCode|string|The code for the Institute that has bred the material.   MCPD (v2.1) (INSTCODE) 1. FAO WIEWS code of the institute where the accession is maintained. The codes consist of the 3-letter ISO 3166 country code of the country where the institute is located plus a number (e.g. PER001). The current set of institute codes is available from http://www.fao.org/wiews. For those institutes not yet having an FAO Code, or for those with "obsolete" codes, see "Common formatting rules (v)".|
@@ -2234,12 +2260,18 @@ Addresses these needs:
                 "germplasmName": "A0000003",
                 "germplasmOrigin": [
                     {
-                        "altitude": "35",
                         "coordinateUncertainty": "20",
-                        "latitudeDecimal": "-44.6975",
-                        "latitudeDegrees": "103020S",
-                        "longitudeDecimal": "+120.9123",
-                        "longitudeDegrees": "0762510W"
+                        "coordinates": {
+                            "geometry": {
+                                "coordinates": [
+                                    -76.506042,
+                                    42.417373,
+                                    123
+                                ],
+                                "type": "Point"
+                            },
+                            "type": "Feature"
+                        }
                     }
                 ],
                 "germplasmPUI": "http://pui.per/accession/A0000003",
