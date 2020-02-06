@@ -62,8 +62,17 @@ components:
           description: The usage license associated with the study data
           type: string
           example: MIT License
-        location:
-          $ref: '#/components/schemas/Location'
+        locationDbId:
+          description: The unique identifier for a Location
+          type: string
+          example: 3cfdd67d
+        locationName:
+          description: |-
+            A human readable name for this location
+            
+            MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.
+          type: string
+          example: Location 1
         seasons:
           description: List of seasons over which this study was performed.
           items:
