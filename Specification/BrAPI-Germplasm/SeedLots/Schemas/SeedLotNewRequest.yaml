@@ -49,12 +49,12 @@ components:
           description: The timestamp for the last update to this Seed Lot (including transactions)
           type: string
           format: date-time
-        count:
-          description: Current balance of seeds in this lot 
-          type: integer
+        amount:
+          description: Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).
+          type: number
           example: 561
         units:
-          description: Description of the things being counted in this Seed Lot (seeds, bulbs, stock, tree, etc)
+          description: Description of the things being counted in this Seed Lot (seeds, bulbs, kg, tree, etc)
           type: string
           example: seeds
         externalReferences: 
