@@ -20,7 +20,7 @@ paths:
         required: false
         schema:
           type: string
-      - name: markerDbId
+      - name: variantDbId
         description: The unique id for a marker
         in: query
         required: false

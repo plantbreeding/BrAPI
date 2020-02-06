@@ -22,7 +22,7 @@ components:
             items: 
               type: string
             example: ['Chromosome 2', 'Chromosome 3']
-          markerDbIds:
+          variantDbIds:
             description: Internal db identifier
             type: array
             items: 

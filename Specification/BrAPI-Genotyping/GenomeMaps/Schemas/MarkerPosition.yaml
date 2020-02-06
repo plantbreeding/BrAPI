@@ -29,11 +29,11 @@ components:
           description: The position of a marker within a linkage group
           type: integer
           example: 2390
-        markerDbId: 
+        variantDbId: 
           description: Internal db identifier
           type: string
           example: a1eb250a
-        markerName: 
+        variantName: 
           description: The human readable name for a marker
           type: string
           example: Marker_2390
