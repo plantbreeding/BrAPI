@@ -47,7 +47,7 @@ components:
           format: date-time
         end:
           description: |-
-            This field is optional and may be ignored if there is no relevent map or reference to be associated with.
+            This field is optional and may be ignored if there is no relevant map or reference to be associated with.
           
             The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated 
             by `start + referenceBases.length`.
@@ -89,7 +89,7 @@ components:
           example: chr_20
         start:
           description: |-
-            This field is optional and may be ignored if there is no relevent map or reference to be associated with.
+            This field is optional and may be ignored if there is no relevant map or reference to be associated with.
           
             The start position at which this variant occurs (0-based). This corresponds to the first base of the string 
             of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning 
