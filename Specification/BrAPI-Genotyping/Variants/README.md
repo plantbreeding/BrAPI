@@ -32,16 +32,16 @@ Gets a list of `Variant` matching the search criteria.
 |alternate_bases|array[string]|The bases that appear instead of the reference bases. Multiple alternate alleles are possible.|
 |ciend|array[integer]|Similar to "cipos", but for the variant's end position (which is derived from start + svlen).|
 |cipos|array[integer]|In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCF v4.2|
-|created|integer|The date this variant was created in milliseconds from the epoch.|
-|end|integer|The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated by `start + referenceBases.length`.|
+|created|string (date-time)|The timestamp when this variant was created.|
+|end|integer|This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated  by `start + referenceBases.length`.|
 |filtersApplied|boolean (boolean)|True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.|
 |filtersFailed|array[string]|Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.|
 |filtersPassed|boolean (boolean)|True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.|
 |referenceBases|string|The reference bases for this variant. They start at the given start position.|
 |referenceName|string|The reference on which this variant occurs. (e.g. `chr_20` or `X`)|
-|start|integer|The start position at which this variant occurs (0-based). This corresponds to the first base of the string of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning the join of circular genomes are represented as two variants one on each side of the join (position 0).|
+|start|integer|This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The start position at which this variant occurs (0-based). This corresponds to the first base of the string  of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning  the join of circular genomes are represented as two variants one on each side of the join (position 0).|
 |svlen|integer|Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2|
-|updated|integer|The time at which this variant was last updated in milliseconds from the epoch.|
+|updated|string (date-time)|The time at which this variant was last updated.|
 |variantDbId|string|The variant ID.|
 |variantNames|array[string]|Names for the variant, for example a RefSNP ID.|
 |variantSetDbId|array[string]|An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
@@ -123,7 +123,7 @@ Gets a list of `Variant` matching the search criteria.
                     -12000,
                     1000
                 ],
-                "created": "1573671122",
+                "created": "2018-01-01T14:47:23-0600",
                 "end": "518",
                 "filtersApplied": true,
                 "filtersFailed": [
@@ -135,7 +135,7 @@ Gets a list of `Variant` matching the search criteria.
                 "referenceName": "chr_20",
                 "start": "500",
                 "svlen": "1500",
-                "updated": "1573672019",
+                "updated": "2018-01-01T14:47:23-0600",
                 "variantDbId": "628e89c5",
                 "variantNames": [
                     "RefSNP_ID_1",
@@ -223,16 +223,16 @@ Gets a list of `Variant` matching the search criteria.
 |alternate_bases|array[string]|The bases that appear instead of the reference bases. Multiple alternate alleles are possible.|
 |ciend|array[integer]|Similar to "cipos", but for the variant's end position (which is derived from start + svlen).|
 |cipos|array[integer]|In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCF v4.2|
-|created|integer|The date this variant was created in milliseconds from the epoch.|
-|end|integer|The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated by `start + referenceBases.length`.|
+|created|string (date-time)|The timestamp when this variant was created.|
+|end|integer|This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated  by `start + referenceBases.length`.|
 |filtersApplied|boolean (boolean)|True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.|
 |filtersFailed|array[string]|Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.|
 |filtersPassed|boolean (boolean)|True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.|
 |referenceBases|string|The reference bases for this variant. They start at the given start position.|
 |referenceName|string|The reference on which this variant occurs. (e.g. `chr_20` or `X`)|
-|start|integer|The start position at which this variant occurs (0-based). This corresponds to the first base of the string of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning the join of circular genomes are represented as two variants one on each side of the join (position 0).|
+|start|integer|This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The start position at which this variant occurs (0-based). This corresponds to the first base of the string  of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning  the join of circular genomes are represented as two variants one on each side of the join (position 0).|
 |svlen|integer|Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2|
-|updated|integer|The time at which this variant was last updated in milliseconds from the epoch.|
+|updated|string (date-time)|The time at which this variant was last updated.|
 |variantDbId|string|The variant ID.|
 |variantNames|array[string]|Names for the variant, for example a RefSNP ID.|
 |variantSetDbId|array[string]|An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
@@ -333,7 +333,7 @@ Gets a list of `Variant` matching the search criteria.
                     -12000,
                     1000
                 ],
-                "created": "1573671122",
+                "created": "2018-01-01T14:47:23-0600",
                 "end": "518",
                 "filtersApplied": true,
                 "filtersFailed": [
@@ -345,7 +345,7 @@ Gets a list of `Variant` matching the search criteria.
                 "referenceName": "chr_20",
                 "start": "500",
                 "svlen": "1500",
-                "updated": "1573672019",
+                "updated": "2018-01-01T14:47:23-0600",
                 "variantDbId": "628e89c5",
                 "variantNames": [
                     "RefSNP_ID_1",
@@ -397,16 +397,16 @@ Gets a filtered list of `Variants`.
 |alternate_bases|array[string]|The bases that appear instead of the reference bases. Multiple alternate alleles are possible.|
 |ciend|array[integer]|Similar to "cipos", but for the variant's end position (which is derived from start + svlen).|
 |cipos|array[integer]|In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCF v4.2|
-|created|integer|The date this variant was created in milliseconds from the epoch.|
-|end|integer|The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated by `start + referenceBases.length`.|
+|created|string (date-time)|The timestamp when this variant was created.|
+|end|integer|This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated  by `start + referenceBases.length`.|
 |filtersApplied|boolean (boolean)|True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.|
 |filtersFailed|array[string]|Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.|
 |filtersPassed|boolean (boolean)|True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.|
 |referenceBases|string|The reference bases for this variant. They start at the given start position.|
 |referenceName|string|The reference on which this variant occurs. (e.g. `chr_20` or `X`)|
-|start|integer|The start position at which this variant occurs (0-based). This corresponds to the first base of the string of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning the join of circular genomes are represented as two variants one on each side of the join (position 0).|
+|start|integer|This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The start position at which this variant occurs (0-based). This corresponds to the first base of the string  of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning  the join of circular genomes are represented as two variants one on each side of the join (position 0).|
 |svlen|integer|Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2|
-|updated|integer|The time at which this variant was last updated in milliseconds from the epoch.|
+|updated|string (date-time)|The time at which this variant was last updated.|
 |variantDbId|string|The variant ID.|
 |variantNames|array[string]|Names for the variant, for example a RefSNP ID.|
 |variantSetDbId|array[string]|An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
@@ -472,7 +472,7 @@ Gets a filtered list of `Variants`.
                     -12000,
                     1000
                 ],
-                "created": "1573671122",
+                "created": "2018-01-01T14:47:23-0600",
                 "end": "518",
                 "filtersApplied": true,
                 "filtersFailed": [
@@ -484,7 +484,7 @@ Gets a filtered list of `Variants`.
                 "referenceName": "chr_20",
                 "start": "500",
                 "svlen": "1500",
-                "updated": "1573672019",
+                "updated": "2018-01-01T14:47:23-0600",
                 "variantDbId": "628e89c5",
                 "variantNames": [
                     "RefSNP_ID_1",
@@ -533,16 +533,16 @@ Gets a filtered list of `Variants`.
 |alternate_bases|array[string]|The bases that appear instead of the reference bases. Multiple alternate alleles are possible.|
 |ciend|array[integer]|Similar to "cipos", but for the variant's end position (which is derived from start + svlen).|
 |cipos|array[integer]|In the case of structural variants, start and end of the variant may not be known with an exact base position. "cipos" provides an interval with high confidence for the start position. The interval is provided by 0 or 2 signed integers which are added to the start position. Based on the use in VCF v4.2|
-|created|integer|The date this variant was created in milliseconds from the epoch.|
-|end|integer|The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated by `start + referenceBases.length`.|
+|created|string (date-time)|The timestamp when this variant was created.|
+|end|integer|This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated  by `start + referenceBases.length`.|
 |filtersApplied|boolean (boolean)|True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.|
 |filtersFailed|array[string]|Zero or more filters that failed for this variant. VCF column 7 "FILTER" shared across all alleles in the same VCF record.|
 |filtersPassed|boolean (boolean)|True if all filters for this variant passed. VCF column 7 "FILTER" value PASS.|
 |referenceBases|string|The reference bases for this variant. They start at the given start position.|
 |referenceName|string|The reference on which this variant occurs. (e.g. `chr_20` or `X`)|
-|start|integer|The start position at which this variant occurs (0-based). This corresponds to the first base of the string of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning the join of circular genomes are represented as two variants one on each side of the join (position 0).|
+|start|integer|This field is optional and may be ignored if there is no relevant map or reference to be associated with.  The start position at which this variant occurs (0-based). This corresponds to the first base of the string  of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning  the join of circular genomes are represented as two variants one on each side of the join (position 0).|
 |svlen|integer|Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2|
-|updated|integer|The time at which this variant was last updated in milliseconds from the epoch.|
+|updated|string (date-time)|The time at which this variant was last updated.|
 |variantDbId|string|The variant ID.|
 |variantNames|array[string]|Names for the variant, for example a RefSNP ID.|
 |variantSetDbId|array[string]|An array of `VariantSet` IDs this variant belongs to. This also defines the `ReferenceSet` against which the `Variant` is to be interpreted.|
@@ -601,7 +601,7 @@ Gets a filtered list of `Variants`.
             -12000,
             1000
         ],
-        "created": "1573671122",
+        "created": "2018-01-01T14:47:23-0600",
         "end": "518",
         "filtersApplied": true,
         "filtersFailed": [
@@ -613,7 +613,7 @@ Gets a filtered list of `Variants`.
         "referenceName": "chr_20",
         "start": "500",
         "svlen": "1500",
-        "updated": "1573672019",
+        "updated": "2018-01-01T14:47:23-0600",
         "variantDbId": "628e89c5",
         "variantNames": [
             "RefSNP_ID_1",

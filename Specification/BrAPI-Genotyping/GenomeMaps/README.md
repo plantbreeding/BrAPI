@@ -326,7 +326,7 @@ Get the Linkage Groups of a specific Genomic Map. A Linkage Group is the BrAPI g
 
 
 
-### Get - /markerpositions [GET /brapi/v2/markerpositions{?mapDbId}{?linkageGroupName}{?markerDbId}{?minPosition}{?maxPosition}{?page}{?pageSize}]
+### Get - /markerpositions [GET /brapi/v2/markerpositions{?mapDbId}{?linkageGroupName}{?variantDbId}{?minPosition}{?maxPosition}{?page}{?pageSize}]
 
 Get marker position information, based on Map, Linkage Group, and Marker ID
 
@@ -341,9 +341,9 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 |linkageGroupName|string|The Uniquely Identifiable name of this linkage group|
 |mapDbId|string|The unique ID of the map|
 |mapName|string|The human readable name of the map|
-|markerDbId|string|Internal db identifier|
-|markerName|string|The human readable name for a marker|
 |position|integer|The position of a marker within a linkage group|
+|variantDbId|string|Internal db identifier|
+|variantName|string|The human readable name for a marker|
 
 
  
@@ -351,7 +351,7 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 + Parameters
     + mapDbId (Optional, ) ... unique id of a map
     + linkageGroupName (Optional, ) ... The chromosome identifier or the generic linkage group identifier if the chromosome is not applicable.
-    + markerDbId (Optional, ) ... The unique id for a marker
+    + variantDbId (Optional, ) ... The unique id for a marker
     + minPosition (Optional, ) ... The minimum position
     + maxPosition (Optional, ) ... The maximum position
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
@@ -398,9 +398,9 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
                 "linkageGroupName": "Chromosome 3",
                 "mapDbId": "3d52bdf3",
                 "mapName": "Genome Map 1",
-                "markerDbId": "a1eb250a",
-                "markerName": "Marker_2390",
-                "position": 2390
+                "position": 2390,
+                "variantDbId": "a1eb250a",
+                "variantName": "Marker_2390"
             }
         ]
     }
@@ -435,11 +435,11 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 |---|---|---| 
 |linkageGroupNames|array[string]|The Uniquely Identifiable name of this linkage group|
 |mapDbIds|array[string]|The unique ID of the map|
-|markerDbIds|array[string]|Internal db identifier|
 |maxPosition|integer|The maximum position|
 |minPosition|integer|The minimum position|
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
+|variantDbIds|array[string]|Internal db identifier|
 
 
 **Response Fields** 
@@ -451,9 +451,9 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 |linkageGroupName|string|The Uniquely Identifiable name of this linkage group|
 |mapDbId|string|The unique ID of the map|
 |mapName|string|The human readable name of the map|
-|markerDbId|string|Internal db identifier|
-|markerName|string|The human readable name for a marker|
 |position|integer|The position of a marker within a linkage group|
+|variantDbId|string|Internal db identifier|
+|variantName|string|The human readable name for a marker|
 
 
  
@@ -474,14 +474,14 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
         "7e6fa8aa",
         "bedc418c"
     ],
-    "markerDbIds": [
-        "a0caa928",
-        "f8894a26"
-    ],
     "maxPosition": 4000,
     "minPosition": 250,
     "page": 0,
-    "pageSize": 1000
+    "pageSize": 1000,
+    "variantDbIds": [
+        "a0caa928",
+        "f8894a26"
+    ]
 }
 ```
 
@@ -524,9 +524,9 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
                 "linkageGroupName": "Chromosome 3",
                 "mapDbId": "3d52bdf3",
                 "mapName": "Genome Map 1",
-                "markerDbId": "a1eb250a",
-                "markerName": "Marker_2390",
-                "position": 2390
+                "position": 2390,
+                "variantDbId": "a1eb250a",
+                "variantName": "Marker_2390"
             }
         ]
     }
@@ -602,9 +602,9 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 |linkageGroupName|string|The Uniquely Identifiable name of this linkage group|
 |mapDbId|string|The unique ID of the map|
 |mapName|string|The human readable name of the map|
-|markerDbId|string|Internal db identifier|
-|markerName|string|The human readable name for a marker|
 |position|integer|The position of a marker within a linkage group|
+|variantDbId|string|Internal db identifier|
+|variantName|string|The human readable name for a marker|
 
 
  
@@ -691,9 +691,9 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
                 "linkageGroupName": "Chromosome 3",
                 "mapDbId": "3d52bdf3",
                 "mapName": "Genome Map 1",
-                "markerDbId": "a1eb250a",
-                "markerName": "Marker_2390",
-                "position": 2390
+                "position": 2390,
+                "variantDbId": "a1eb250a",
+                "variantName": "Marker_2390"
             }
         ]
     }
