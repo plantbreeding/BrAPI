@@ -22,7 +22,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/StudyListResponse'
-        '200':
+        '202':
           $ref: '#/components/responses/202AcceptedSearchResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
