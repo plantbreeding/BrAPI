@@ -29,12 +29,12 @@ components:
           description: The identifier for the Seed Lot being transfered out of
           type: string
           example: 11eef13b
-        count:
-          description: The amount of units being transfered 
-          type: integer
+        amount: 
+          description: The amount of units being transfered. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).
+          type: number
           example: 45
         units:
-          description: Description of the things being transfered in this transaction (seeds, bulbs, stock, etc)
+          description: Description of the things being transfered in this transaction (seeds, bulbs, kg, etc)
           type: string
           example: seeds
         externalReferences: 
