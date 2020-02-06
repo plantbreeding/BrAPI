@@ -331,7 +331,7 @@ Get a filtered list of Seed Lot Transactions
 |---|---|---| 
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
-|count|integer|The amount of units being transfered|
+|amount|number|The amount of units being transfered. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID||The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
@@ -340,7 +340,7 @@ Get a filtered list of Seed Lot Transactions
 |transactionDbId|string|Unique DbId for the Seed Lot Transaction|
 |transactionDescription|string|A general description of this Seed Lot Transaction|
 |transactionTimestamp|string (date-time)|The time stamp for when the transaction occured|
-|units|string|Description of the things being transfered in this transaction (seeds, bulbs, stock, etc)|
+|units|string|Description of the things being transfered in this transaction (seeds, bulbs, kg, etc)|
 
 
  
@@ -392,7 +392,7 @@ Get a filtered list of Seed Lot Transactions
         "data": [
             {
                 "additionalInfo": {},
-                "count": 45,
+                "amount": 45,
                 "externalReferences": [
                     {
                         "referenceID": "doi:10.155454/12349537E12",
@@ -451,7 +451,7 @@ Add new Seed Lot Transaction to be recorded
 |---|---|---| 
 |seedLots|array[object]||
 |additionalInfo|object|Additional arbitrary info|
-|count|integer|The amount of units being transfered|
+|amount|number|The amount of units being transfered. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID||The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
@@ -459,7 +459,7 @@ Add new Seed Lot Transaction to be recorded
 |toSeedLotDbId|string|The identifier for the Seed Lot being transfered into|
 |transactionDescription|string|A general description of this Seed Lot Transaction|
 |transactionTimestamp|string (date-time)|The time stamp for when the transaction occured|
-|units|string|Description of the things being transfered in this transaction (seeds, bulbs, stock, etc)|
+|units|string|Description of the things being transfered in this transaction (seeds, bulbs, kg, etc)|
 
 
 **Response Fields** 
@@ -468,7 +468,7 @@ Add new Seed Lot Transaction to be recorded
 |---|---|---| 
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
-|count|integer|The amount of units being transfered|
+|amount|number|The amount of units being transfered. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID||The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
@@ -477,7 +477,7 @@ Add new Seed Lot Transaction to be recorded
 |transactionDbId|string|Unique DbId for the Seed Lot Transaction|
 |transactionDescription|string|A general description of this Seed Lot Transaction|
 |transactionTimestamp|string (date-time)|The time stamp for when the transaction occured|
-|units|string|Description of the things being transfered in this transaction (seeds, bulbs, stock, etc)|
+|units|string|Description of the things being transfered in this transaction (seeds, bulbs, kg, etc)|
 
 
  
@@ -493,7 +493,7 @@ Add new Seed Lot Transaction to be recorded
     "seedLots": [
         {
             "additionalInfo": {},
-            "count": 45,
+            "amount": 45,
             "externalReferences": [
                 {
                     "referenceID": "doi:10.155454/12349537E12",
@@ -558,7 +558,7 @@ Add new Seed Lot Transaction to be recorded
         "data": [
             {
                 "additionalInfo": {},
-                "count": 45,
+                "amount": 45,
                 "externalReferences": [
                     {
                         "referenceID": "doi:10.155454/12349537E12",
@@ -927,7 +927,7 @@ Get all Transactions related to a specific Seed Lot
 |---|---|---| 
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
-|count|integer|The amount of units being transfered|
+|amount|number|The amount of units being transfered. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID||The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
@@ -936,7 +936,7 @@ Get all Transactions related to a specific Seed Lot
 |transactionDbId|string|Unique DbId for the Seed Lot Transaction|
 |transactionDescription|string|A general description of this Seed Lot Transaction|
 |transactionTimestamp|string (date-time)|The time stamp for when the transaction occured|
-|units|string|Description of the things being transfered in this transaction (seeds, bulbs, stock, etc)|
+|units|string|Description of the things being transfered in this transaction (seeds, bulbs, kg, etc)|
 
 
  
@@ -986,7 +986,7 @@ Get all Transactions related to a specific Seed Lot
         "data": [
             {
                 "additionalInfo": {},
-                "count": 45,
+                "amount": 45,
                 "externalReferences": [
                     {
                         "referenceID": "doi:10.155454/12349537E12",
