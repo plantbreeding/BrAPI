@@ -11,7 +11,31 @@ paths:
         - name: variantSetDbId
           description: The ID of the `VariantSet` to be retrieved.
           in: query
-          required: true
+          required: false
+          schema:
+            type: string
+        - name: variantDbId
+          description: The ID of the `Variant` to be retrieved.
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: callSetDbId
+          description: The ID of the `CallSet` to be retrieved.
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: studyDbId
+          description: Filter by study DbId
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: studyName
+          description: Filter by study name
+          in: query
+          required: false
           schema:
             type: string
         - $ref: '#/components/parameters/page'

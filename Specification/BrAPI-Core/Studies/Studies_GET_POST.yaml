@@ -53,6 +53,12 @@ paths:
         required: false
         schema:
           type: string
+      - description: Filter by study name
+        in: query
+        name: studyName
+        required: false
+        schema:
+          type: string
       - description: Filter by study PUI
         in: query
         name: studyPUI
