@@ -2474,13 +2474,13 @@ Get a filtered set of Observation Units
 |geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
+|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
+|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
-|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |programDbId|string|The ID which uniquely identifies a program|
 |programName|string|The human readable name of a program|
 |seedLotDbId|string|The unique identifier for the originating Seed Lot|
@@ -2591,14 +2591,14 @@ Get a filtered set of Observation Units
                         },
                         "type": "Feature"
                     },
+                    "plantNumber": "1",
+                    "plotNumber": "01",
                     "positionCoordinateX": "74",
                     "positionCoordinateXType": "GRID_COL",
                     "positionCoordinateY": "03",
                     "positionCoordinateYType": "GRID_ROW",
                     "replicate": "1"
                 },
-                "plantNumber": "1",
-                "plotNumber": "01",
                 "programDbId": "2d763a7a",
                 "programName": "The Perfect Breeding Program",
                 "seedLotDbId": "261ecb09",
@@ -2662,13 +2662,13 @@ Add new Observation Units
 |geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
+|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
+|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
-|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |programDbId|string|The ID which uniquely identifies a program|
 |programName|string|The human readable name of a program|
 |seedLotDbId|string|The unique identifier for the originating Seed Lot|
@@ -2705,13 +2705,13 @@ Add new Observation Units
 |geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
+|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
+|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
-|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |programDbId|string|The ID which uniquely identifies a program|
 |programName|string|The human readable name of a program|
 |seedLotDbId|string|The unique identifier for the originating Seed Lot|
@@ -2780,14 +2780,14 @@ Add new Observation Units
                 },
                 "type": "Feature"
             },
+            "plantNumber": "1",
+            "plotNumber": "01",
             "positionCoordinateX": "74",
             "positionCoordinateXType": "GRID_COL",
             "positionCoordinateY": "03",
             "positionCoordinateYType": "GRID_ROW",
             "replicate": "1"
         },
-        "plantNumber": "1",
-        "plotNumber": "01",
         "programDbId": "2d763a7a",
         "programName": "The Perfect Breeding Program",
         "seedLotDbId": "261ecb09",
@@ -2886,14 +2886,14 @@ Add new Observation Units
                         },
                         "type": "Feature"
                     },
+                    "plantNumber": "1",
+                    "plotNumber": "01",
                     "positionCoordinateX": "74",
                     "positionCoordinateXType": "GRID_COL",
                     "positionCoordinateY": "03",
                     "positionCoordinateYType": "GRID_ROW",
                     "replicate": "1"
                 },
-                "plantNumber": "1",
-                "plotNumber": "01",
                 "programDbId": "2d763a7a",
                 "programName": "The Perfect Breeding Program",
                 "seedLotDbId": "261ecb09",
@@ -2967,13 +2967,13 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 |geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
+|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
+|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
-|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |programDbId|string|The ID which uniquely identifies a program|
 |programName|string|The human readable name of a program|
 |seedLotDbId|string|The unique identifier for the originating Seed Lot|
@@ -3079,14 +3079,14 @@ Note - In strictly typed languages, this structure can be represented as a Map o
                         },
                         "type": "Feature"
                     },
+                    "plantNumber": "1",
+                    "plotNumber": "01",
                     "positionCoordinateX": "74",
                     "positionCoordinateXType": "GRID_COL",
                     "positionCoordinateY": "03",
                     "positionCoordinateYType": "GRID_ROW",
                     "replicate": "1"
                 },
-                "plantNumber": "1",
-                "plotNumber": "01",
                 "programDbId": "2d763a7a",
                 "programName": "The Perfect Breeding Program",
                 "seedLotDbId": "261ecb09",
@@ -3392,13 +3392,13 @@ Get the details of a specific Observation Unit
 |geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
+|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
+|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
-|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |programDbId|string|The ID which uniquely identifies a program|
 |programName|string|The human readable name of a program|
 |seedLotDbId|string|The unique identifier for the originating Seed Lot|
@@ -3497,14 +3497,14 @@ Get the details of a specific Observation Unit
                 },
                 "type": "Feature"
             },
+            "plantNumber": "1",
+            "plotNumber": "01",
             "positionCoordinateX": "74",
             "positionCoordinateXType": "GRID_COL",
             "positionCoordinateY": "03",
             "positionCoordinateYType": "GRID_ROW",
             "replicate": "1"
         },
-        "plantNumber": "1",
-        "plotNumber": "01",
         "programDbId": "2d763a7a",
         "programName": "The Perfect Breeding Program",
         "seedLotDbId": "261ecb09",
@@ -3566,13 +3566,13 @@ Update an existing Observation Units
 |geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
+|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
+|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
-|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |programDbId|string|The ID which uniquely identifies a program|
 |programName|string|The human readable name of a program|
 |seedLotDbId|string|The unique identifier for the originating Seed Lot|
@@ -3608,13 +3608,13 @@ Update an existing Observation Units
 |geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
+|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
+|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
-|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |programDbId|string|The ID which uniquely identifies a program|
 |programName|string|The human readable name of a program|
 |seedLotDbId|string|The unique identifier for the originating Seed Lot|
@@ -3683,14 +3683,14 @@ Update an existing Observation Units
             },
             "type": "Feature"
         },
+        "plantNumber": "1",
+        "plotNumber": "01",
         "positionCoordinateX": "74",
         "positionCoordinateXType": "GRID_COL",
         "positionCoordinateY": "03",
         "positionCoordinateYType": "GRID_ROW",
         "replicate": "1"
     },
-    "plantNumber": "1",
-    "plotNumber": "01",
     "programDbId": "2d763a7a",
     "programName": "The Perfect Breeding Program",
     "seedLotDbId": "261ecb09",
@@ -3786,14 +3786,14 @@ Update an existing Observation Units
                 },
                 "type": "Feature"
             },
+            "plantNumber": "1",
+            "plotNumber": "01",
             "positionCoordinateX": "74",
             "positionCoordinateXType": "GRID_COL",
             "positionCoordinateY": "03",
             "positionCoordinateYType": "GRID_ROW",
             "replicate": "1"
         },
-        "plantNumber": "1",
-        "plotNumber": "01",
         "programDbId": "2d763a7a",
         "programName": "The Perfect Breeding Program",
         "seedLotDbId": "261ecb09",
@@ -3899,13 +3899,13 @@ observationValue data type inferred from the ontology
 |geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
+|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
+|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
-|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |programDbId|string|The ID which uniquely identifies a program|
 |programName|string|The human readable name of a program|
 |seedLotDbId|string|The unique identifier for the originating Seed Lot|
@@ -4067,14 +4067,14 @@ observationValue data type inferred from the ontology
                         },
                         "type": "Feature"
                     },
+                    "plantNumber": "1",
+                    "plotNumber": "01",
                     "positionCoordinateX": "74",
                     "positionCoordinateXType": "GRID_COL",
                     "positionCoordinateY": "03",
                     "positionCoordinateYType": "GRID_ROW",
                     "replicate": "1"
                 },
-                "plantNumber": "1",
-                "plotNumber": "01",
                 "programDbId": "2d763a7a",
                 "programName": "The Perfect Breeding Program",
                 "seedLotDbId": "261ecb09",
@@ -4180,13 +4180,13 @@ See Search Services for additional implementation details.
 |geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
+|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
+|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
-|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
-|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
 |programDbId|string|The ID which uniquely identifies a program|
 |programName|string|The human readable name of a program|
 |seedLotDbId|string|The unique identifier for the originating Seed Lot|
@@ -4325,14 +4325,14 @@ See Search Services for additional implementation details.
                         },
                         "type": "Feature"
                     },
+                    "plantNumber": "1",
+                    "plotNumber": "01",
                     "positionCoordinateX": "74",
                     "positionCoordinateXType": "GRID_COL",
                     "positionCoordinateY": "03",
                     "positionCoordinateYType": "GRID_ROW",
                     "replicate": "1"
                 },
-                "plantNumber": "1",
-                "plotNumber": "01",
                 "programDbId": "2d763a7a",
                 "programName": "The Perfect Breeding Program",
                 "seedLotDbId": "261ecb09",
