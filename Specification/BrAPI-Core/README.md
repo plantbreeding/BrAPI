@@ -4947,30 +4947,8 @@ See Search Services for additional implementation details.
 |timestamp|string (date-time)||
 |version|string||
 |license|string|The usage license associated with the study data|
-|location|object||
-|abbreviation|string|An abbreviation which represents this location|
-|additionalInfo|object|Additional arbitrary info|
-|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
-|coordinateUncertainty|string|Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown.|
-|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
-|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
-|type|string|The literal string "Feature"|
-|countryCode|string| [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.|
-|countryName|string|The full name of the country where this location is  MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
-|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
-|instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
 |locationName|string|A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.|
-|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
-|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
-|slope|string|Describes the approximate slope (height/distance) of the location.|
-|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
 |observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
 |seasons|array[string]|List of seasons over which this study was performed.|
 |startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
@@ -5133,54 +5111,8 @@ See Search Services for additional implementation details.
                     "version": "1.2.3"
                 },
                 "license": "MIT License",
-                "location": {
-                    "abbreviation": "L1",
-                    "additionalInfo": {},
-                    "coordinateDescription": "North East corner of greenhouse",
-                    "coordinateUncertainty": "20",
-                    "coordinates": {
-                        "geometry": {
-                            "coordinates": [
-                                -76.506042,
-                                42.417373,
-                                123
-                            ],
-                            "type": "Point"
-                        },
-                        "type": "Feature"
-                    },
-                    "countryCode": "PER",
-                    "countryName": "Peru",
-                    "documentationURL": "https://brapi.org",
-                    "environmentType": "Nursery",
-                    "exposure": "Structure, no exposure",
-                    "externalReferences": [
-                        {
-                            "referenceID": "doi:10.155454/12349537E12",
-                            "referenceSource": "DOI"
-                        },
-                        {
-                            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                            "referenceSource": "OBO Library"
-                        },
-                        {
-                            "referenceID": "75a50e76",
-                            "referenceSource": "Remote Data Collection Upload Tool"
-                        },
-                        {
-                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                            "referenceSource": "BrAPI Example Server"
-                        }
-                    ],
-                    "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
-                    "instituteName": "Plant Science Institute",
-                    "locationDbId": "3cfdd67d",
-                    "locationName": "Location 1",
-                    "locationType": "Storage Location",
-                    "siteStatus": "Private",
-                    "slope": "0",
-                    "topography": "Valley"
-                },
+                "locationDbId": "3cfdd67d",
+                "locationName": "Location 1",
                 "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
                 "seasons": [
                     "Spring_2018"
@@ -5372,30 +5304,8 @@ StartDate and endDate should be ISO-8601 format for dates
 |timestamp|string (date-time)||
 |version|string||
 |license|string|The usage license associated with the study data|
-|location|object||
-|abbreviation|string|An abbreviation which represents this location|
-|additionalInfo|object|Additional arbitrary info|
-|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
-|coordinateUncertainty|string|Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown.|
-|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
-|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
-|type|string|The literal string "Feature"|
-|countryCode|string| [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.|
-|countryName|string|The full name of the country where this location is  MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
-|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
-|instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
 |locationName|string|A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.|
-|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
-|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
-|slope|string|Describes the approximate slope (height/distance) of the location.|
-|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
 |observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
 |seasons|array[string]|List of seasons over which this study was performed.|
 |startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
@@ -5536,54 +5446,8 @@ StartDate and endDate should be ISO-8601 format for dates
                     "version": "1.2.3"
                 },
                 "license": "MIT License",
-                "location": {
-                    "abbreviation": "L1",
-                    "additionalInfo": {},
-                    "coordinateDescription": "North East corner of greenhouse",
-                    "coordinateUncertainty": "20",
-                    "coordinates": {
-                        "geometry": {
-                            "coordinates": [
-                                -76.506042,
-                                42.417373,
-                                123
-                            ],
-                            "type": "Point"
-                        },
-                        "type": "Feature"
-                    },
-                    "countryCode": "PER",
-                    "countryName": "Peru",
-                    "documentationURL": "https://brapi.org",
-                    "environmentType": "Nursery",
-                    "exposure": "Structure, no exposure",
-                    "externalReferences": [
-                        {
-                            "referenceID": "doi:10.155454/12349537E12",
-                            "referenceSource": "DOI"
-                        },
-                        {
-                            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                            "referenceSource": "OBO Library"
-                        },
-                        {
-                            "referenceID": "75a50e76",
-                            "referenceSource": "Remote Data Collection Upload Tool"
-                        },
-                        {
-                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                            "referenceSource": "BrAPI Example Server"
-                        }
-                    ],
-                    "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
-                    "instituteName": "Plant Science Institute",
-                    "locationDbId": "3cfdd67d",
-                    "locationName": "Location 1",
-                    "locationType": "Storage Location",
-                    "siteStatus": "Private",
-                    "slope": "0",
-                    "topography": "Valley"
-                },
+                "locationDbId": "3cfdd67d",
+                "locationName": "Location 1",
                 "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
                 "seasons": [
                     "Spring_2018"
@@ -5677,30 +5541,8 @@ StartDate and endDate should be ISO-8601 format for dates
 |timestamp|string (date-time)||
 |version|string||
 |license|string|The usage license associated with the study data|
-|location|object||
-|abbreviation|string|An abbreviation which represents this location|
-|additionalInfo|object|Additional arbitrary info|
-|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
-|coordinateUncertainty|string|Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown.|
-|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
-|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
-|type|string|The literal string "Feature"|
-|countryCode|string| [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.|
-|countryName|string|The full name of the country where this location is  MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
-|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
-|instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
 |locationName|string|A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.|
-|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
-|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
-|slope|string|Describes the approximate slope (height/distance) of the location.|
-|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
 |observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
 |seasons|array[string]|List of seasons over which this study was performed.|
 |startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
@@ -5760,30 +5602,8 @@ StartDate and endDate should be ISO-8601 format for dates
 |timestamp|string (date-time)||
 |version|string||
 |license|string|The usage license associated with the study data|
-|location|object||
-|abbreviation|string|An abbreviation which represents this location|
-|additionalInfo|object|Additional arbitrary info|
-|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
-|coordinateUncertainty|string|Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown.|
-|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
-|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
-|type|string|The literal string "Feature"|
-|countryCode|string| [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.|
-|countryName|string|The full name of the country where this location is  MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
-|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
-|instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
 |locationName|string|A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.|
-|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
-|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
-|slope|string|Describes the approximate slope (height/distance) of the location.|
-|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
 |observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
 |seasons|array[string]|List of seasons over which this study was performed.|
 |startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
@@ -5877,54 +5697,8 @@ StartDate and endDate should be ISO-8601 format for dates
             "version": "1.2.3"
         },
         "license": "MIT License",
-        "location": {
-            "abbreviation": "L1",
-            "additionalInfo": {},
-            "coordinateDescription": "North East corner of greenhouse",
-            "coordinateUncertainty": "20",
-            "coordinates": {
-                "geometry": {
-                    "coordinates": [
-                        -76.506042,
-                        42.417373,
-                        123
-                    ],
-                    "type": "Point"
-                },
-                "type": "Feature"
-            },
-            "countryCode": "PER",
-            "countryName": "Peru",
-            "documentationURL": "https://brapi.org",
-            "environmentType": "Nursery",
-            "exposure": "Structure, no exposure",
-            "externalReferences": [
-                {
-                    "referenceID": "doi:10.155454/12349537E12",
-                    "referenceSource": "DOI"
-                },
-                {
-                    "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                    "referenceSource": "OBO Library"
-                },
-                {
-                    "referenceID": "75a50e76",
-                    "referenceSource": "Remote Data Collection Upload Tool"
-                },
-                {
-                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                    "referenceSource": "BrAPI Example Server"
-                }
-            ],
-            "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
-            "instituteName": "Plant Science Institute",
-            "locationDbId": "3cfdd67d",
-            "locationName": "Location 1",
-            "locationType": "Storage Location",
-            "siteStatus": "Private",
-            "slope": "0",
-            "topography": "Valley"
-        },
+        "locationDbId": "3cfdd67d",
+        "locationName": "Location 1",
         "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
         "seasons": [
             "Spring_2018"
@@ -6045,54 +5819,8 @@ StartDate and endDate should be ISO-8601 format for dates
                     "version": "1.2.3"
                 },
                 "license": "MIT License",
-                "location": {
-                    "abbreviation": "L1",
-                    "additionalInfo": {},
-                    "coordinateDescription": "North East corner of greenhouse",
-                    "coordinateUncertainty": "20",
-                    "coordinates": {
-                        "geometry": {
-                            "coordinates": [
-                                -76.506042,
-                                42.417373,
-                                123
-                            ],
-                            "type": "Point"
-                        },
-                        "type": "Feature"
-                    },
-                    "countryCode": "PER",
-                    "countryName": "Peru",
-                    "documentationURL": "https://brapi.org",
-                    "environmentType": "Nursery",
-                    "exposure": "Structure, no exposure",
-                    "externalReferences": [
-                        {
-                            "referenceID": "doi:10.155454/12349537E12",
-                            "referenceSource": "DOI"
-                        },
-                        {
-                            "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                            "referenceSource": "OBO Library"
-                        },
-                        {
-                            "referenceID": "75a50e76",
-                            "referenceSource": "Remote Data Collection Upload Tool"
-                        },
-                        {
-                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                            "referenceSource": "BrAPI Example Server"
-                        }
-                    ],
-                    "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
-                    "instituteName": "Plant Science Institute",
-                    "locationDbId": "3cfdd67d",
-                    "locationName": "Location 1",
-                    "locationType": "Storage Location",
-                    "siteStatus": "Private",
-                    "slope": "0",
-                    "topography": "Valley"
-                },
+                "locationDbId": "3cfdd67d",
+                "locationName": "Location 1",
                 "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
                 "seasons": [
                     "Spring_2018"
@@ -6184,30 +5912,8 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
 |timestamp|string (date-time)||
 |version|string||
 |license|string|The usage license associated with the study data|
-|location|object||
-|abbreviation|string|An abbreviation which represents this location|
-|additionalInfo|object|Additional arbitrary info|
-|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
-|coordinateUncertainty|string|Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown.|
-|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
-|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
-|type|string|The literal string "Feature"|
-|countryCode|string| [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.|
-|countryName|string|The full name of the country where this location is  MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
-|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
-|instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
 |locationName|string|A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.|
-|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
-|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
-|slope|string|Describes the approximate slope (height/distance) of the location.|
-|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
 |observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
 |seasons|array[string]|List of seasons over which this study was performed.|
 |startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
@@ -6330,54 +6036,8 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
             "version": "1.2.3"
         },
         "license": "MIT License",
-        "location": {
-            "abbreviation": "L1",
-            "additionalInfo": {},
-            "coordinateDescription": "North East corner of greenhouse",
-            "coordinateUncertainty": "20",
-            "coordinates": {
-                "geometry": {
-                    "coordinates": [
-                        -76.506042,
-                        42.417373,
-                        123
-                    ],
-                    "type": "Point"
-                },
-                "type": "Feature"
-            },
-            "countryCode": "PER",
-            "countryName": "Peru",
-            "documentationURL": "https://brapi.org",
-            "environmentType": "Nursery",
-            "exposure": "Structure, no exposure",
-            "externalReferences": [
-                {
-                    "referenceID": "doi:10.155454/12349537E12",
-                    "referenceSource": "DOI"
-                },
-                {
-                    "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                    "referenceSource": "OBO Library"
-                },
-                {
-                    "referenceID": "75a50e76",
-                    "referenceSource": "Remote Data Collection Upload Tool"
-                },
-                {
-                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                    "referenceSource": "BrAPI Example Server"
-                }
-            ],
-            "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
-            "instituteName": "Plant Science Institute",
-            "locationDbId": "3cfdd67d",
-            "locationName": "Location 1",
-            "locationType": "Storage Location",
-            "siteStatus": "Private",
-            "slope": "0",
-            "topography": "Valley"
-        },
+        "locationDbId": "3cfdd67d",
+        "locationName": "Location 1",
         "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
         "seasons": [
             "Spring_2018"
@@ -6468,30 +6128,8 @@ Update an existing Study with new data
 |timestamp|string (date-time)||
 |version|string||
 |license|string|The usage license associated with the study data|
-|location|object||
-|abbreviation|string|An abbreviation which represents this location|
-|additionalInfo|object|Additional arbitrary info|
-|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
-|coordinateUncertainty|string|Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown.|
-|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
-|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
-|type|string|The literal string "Feature"|
-|countryCode|string| [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.|
-|countryName|string|The full name of the country where this location is  MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
-|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
-|instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
 |locationName|string|A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.|
-|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
-|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
-|slope|string|Describes the approximate slope (height/distance) of the location.|
-|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
 |observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
 |seasons|array[string]|List of seasons over which this study was performed.|
 |startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
@@ -6550,30 +6188,8 @@ Update an existing Study with new data
 |timestamp|string (date-time)||
 |version|string||
 |license|string|The usage license associated with the study data|
-|location|object||
-|abbreviation|string|An abbreviation which represents this location|
-|additionalInfo|object|Additional arbitrary info|
-|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
-|coordinateUncertainty|string|Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown.|
-|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
-|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
-|type|string|The literal string "Feature"|
-|countryCode|string| [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.|
-|countryName|string|The full name of the country where this location is  MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
-|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
-|instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
 |locationName|string|A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.|
-|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
-|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
-|slope|string|Describes the approximate slope (height/distance) of the location.|
-|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
 |observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
 |seasons|array[string]|List of seasons over which this study was performed.|
 |startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
@@ -6667,54 +6283,8 @@ Update an existing Study with new data
         "version": "1.2.3"
     },
     "license": "MIT License",
-    "location": {
-        "abbreviation": "L1",
-        "additionalInfo": {},
-        "coordinateDescription": "North East corner of greenhouse",
-        "coordinateUncertainty": "20",
-        "coordinates": {
-            "geometry": {
-                "coordinates": [
-                    -76.506042,
-                    42.417373,
-                    123
-                ],
-                "type": "Point"
-            },
-            "type": "Feature"
-        },
-        "countryCode": "PER",
-        "countryName": "Peru",
-        "documentationURL": "https://brapi.org",
-        "environmentType": "Nursery",
-        "exposure": "Structure, no exposure",
-        "externalReferences": [
-            {
-                "referenceID": "doi:10.155454/12349537E12",
-                "referenceSource": "DOI"
-            },
-            {
-                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                "referenceSource": "OBO Library"
-            },
-            {
-                "referenceID": "75a50e76",
-                "referenceSource": "Remote Data Collection Upload Tool"
-            },
-            {
-                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                "referenceSource": "BrAPI Example Server"
-            }
-        ],
-        "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
-        "instituteName": "Plant Science Institute",
-        "locationDbId": "3cfdd67d",
-        "locationName": "Location 1",
-        "locationType": "Storage Location",
-        "siteStatus": "Private",
-        "slope": "0",
-        "topography": "Valley"
-    },
+    "locationDbId": "3cfdd67d",
+    "locationName": "Location 1",
     "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
     "seasons": [
         "Spring_2018"
@@ -6832,54 +6402,8 @@ Update an existing Study with new data
             "version": "1.2.3"
         },
         "license": "MIT License",
-        "location": {
-            "abbreviation": "L1",
-            "additionalInfo": {},
-            "coordinateDescription": "North East corner of greenhouse",
-            "coordinateUncertainty": "20",
-            "coordinates": {
-                "geometry": {
-                    "coordinates": [
-                        -76.506042,
-                        42.417373,
-                        123
-                    ],
-                    "type": "Point"
-                },
-                "type": "Feature"
-            },
-            "countryCode": "PER",
-            "countryName": "Peru",
-            "documentationURL": "https://brapi.org",
-            "environmentType": "Nursery",
-            "exposure": "Structure, no exposure",
-            "externalReferences": [
-                {
-                    "referenceID": "doi:10.155454/12349537E12",
-                    "referenceSource": "DOI"
-                },
-                {
-                    "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                    "referenceSource": "OBO Library"
-                },
-                {
-                    "referenceID": "75a50e76",
-                    "referenceSource": "Remote Data Collection Upload Tool"
-                },
-                {
-                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                    "referenceSource": "BrAPI Example Server"
-                }
-            ],
-            "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
-            "instituteName": "Plant Science Institute",
-            "locationDbId": "3cfdd67d",
-            "locationName": "Location 1",
-            "locationType": "Storage Location",
-            "siteStatus": "Private",
-            "slope": "0",
-            "topography": "Valley"
-        },
+        "locationDbId": "3cfdd67d",
+        "locationName": "Location 1",
         "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
         "seasons": [
             "Spring_2018"
@@ -7988,30 +7512,8 @@ Get the details of a specific Trial
 |timestamp|string (date-time)||
 |version|string||
 |license|string|The usage license associated with the study data|
-|location|object||
-|abbreviation|string|An abbreviation which represents this location|
-|additionalInfo|object|Additional arbitrary info|
-|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
-|coordinateUncertainty|string|Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown.|
-|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
-|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
-|type|string|The literal string "Feature"|
-|countryCode|string| [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.|
-|countryName|string|The full name of the country where this location is  MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
-|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
-|instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
 |locationName|string|A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.|
-|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
-|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
-|slope|string|Describes the approximate slope (height/distance) of the location.|
-|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
 |observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
 |seasons|array[string]|List of seasons over which this study was performed.|
 |startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
@@ -8134,54 +7636,8 @@ Get the details of a specific Trial
             "version": "1.2.3"
         },
         "license": "MIT License",
-        "location": {
-            "abbreviation": "L1",
-            "additionalInfo": {},
-            "coordinateDescription": "North East corner of greenhouse",
-            "coordinateUncertainty": "20",
-            "coordinates": {
-                "geometry": {
-                    "coordinates": [
-                        -76.506042,
-                        42.417373,
-                        123
-                    ],
-                    "type": "Point"
-                },
-                "type": "Feature"
-            },
-            "countryCode": "PER",
-            "countryName": "Peru",
-            "documentationURL": "https://brapi.org",
-            "environmentType": "Nursery",
-            "exposure": "Structure, no exposure",
-            "externalReferences": [
-                {
-                    "referenceID": "doi:10.155454/12349537E12",
-                    "referenceSource": "DOI"
-                },
-                {
-                    "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                    "referenceSource": "OBO Library"
-                },
-                {
-                    "referenceID": "75a50e76",
-                    "referenceSource": "Remote Data Collection Upload Tool"
-                },
-                {
-                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                    "referenceSource": "BrAPI Example Server"
-                }
-            ],
-            "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
-            "instituteName": "Plant Science Institute",
-            "locationDbId": "3cfdd67d",
-            "locationName": "Location 1",
-            "locationType": "Storage Location",
-            "siteStatus": "Private",
-            "slope": "0",
-            "topography": "Valley"
-        },
+        "locationDbId": "3cfdd67d",
+        "locationName": "Location 1",
         "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
         "seasons": [
             "Spring_2018"
@@ -8307,30 +7763,8 @@ Update the details of an existing Trial
 |timestamp|string (date-time)||
 |version|string||
 |license|string|The usage license associated with the study data|
-|location|object||
-|abbreviation|string|An abbreviation which represents this location|
-|additionalInfo|object|Additional arbitrary info|
-|coordinateDescription|string|Describes the precision and landmarks of the coordinate values used for this location. (ex. the site, the nearest town, a 10 kilometers radius circle, +/- 20 meters, etc)|
-|coordinateUncertainty|string|Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown.|
-|coordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
-|geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
-|type|string|The literal string "Feature"|
-|countryCode|string| [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.|
-|countryName|string|The full name of the country where this location is  MIAPPE V1.1 (DM-17) Geographic location (country) - The country where the experiment took place, either as a full name or preferably as a 2-letter code.|
-|documentationURL|string (uri)|A URL to the human readable documentation of this object|
-|environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
-|exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
-|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
-|referenceSource|string|An identifier for the source system or database of this reference|
-|instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
-|instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |locationDbId|string|The unique identifier for a Location|
 |locationName|string|A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.|
-|locationType|string|The type of location this represents (ex. Breeding Location, Storage Location, etc)|
-|siteStatus|string|Description of the accessibility of the location (ex. Public, Private)|
-|slope|string|Describes the approximate slope (height/distance) of the location.|
-|topography|string|Describes the topography of the land at the location. (ex. Plateau, Cirque, Hill, Valley, etc)|
 |observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
 |seasons|array[string]|List of seasons over which this study was performed.|
 |startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
@@ -8513,54 +7947,8 @@ Update the details of an existing Trial
             "version": "1.2.3"
         },
         "license": "MIT License",
-        "location": {
-            "abbreviation": "L1",
-            "additionalInfo": {},
-            "coordinateDescription": "North East corner of greenhouse",
-            "coordinateUncertainty": "20",
-            "coordinates": {
-                "geometry": {
-                    "coordinates": [
-                        -76.506042,
-                        42.417373,
-                        123
-                    ],
-                    "type": "Point"
-                },
-                "type": "Feature"
-            },
-            "countryCode": "PER",
-            "countryName": "Peru",
-            "documentationURL": "https://brapi.org",
-            "environmentType": "Nursery",
-            "exposure": "Structure, no exposure",
-            "externalReferences": [
-                {
-                    "referenceID": "doi:10.155454/12349537E12",
-                    "referenceSource": "DOI"
-                },
-                {
-                    "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                    "referenceSource": "OBO Library"
-                },
-                {
-                    "referenceID": "75a50e76",
-                    "referenceSource": "Remote Data Collection Upload Tool"
-                },
-                {
-                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                    "referenceSource": "BrAPI Example Server"
-                }
-            ],
-            "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
-            "instituteName": "Plant Science Institute",
-            "locationDbId": "3cfdd67d",
-            "locationName": "Location 1",
-            "locationType": "Storage Location",
-            "siteStatus": "Private",
-            "slope": "0",
-            "topography": "Valley"
-        },
+        "locationDbId": "3cfdd67d",
+        "locationName": "Location 1",
         "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
         "seasons": [
             "Spring_2018"
