@@ -16,6 +16,14 @@ components:
           description: The block number for an observation unit. Different systems may use different block designs.
           type: string
           example: '6'
+        plantNumber:
+          description: 'The plant number in a field. Applicable for observationLevel: "plant"'
+          type: string
+          example: '1'
+        plotNumber:
+          description: 'The plot number in a field. Applicable for observationLevel: "plot"'
+          type: string
+          example: '01'
         entryNumber:
           description: The entry number for an observation unit. Different systems may use different entry systems.
           type: string

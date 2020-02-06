@@ -57,14 +57,6 @@ components:
           $ref: '#/components/schemas/ExternalReferences'
         observationUnitPosition:
           $ref: '#/components/schemas/ObservationUnitPosition'
-        plantNumber:
-          description: 'The plant number in a field. Applicable for observationLevel: "plant"'
-          type: string
-          example: '1'
-        plotNumber:
-          description: 'The plot number in a field. Applicable for observationLevel: "plot"'
-          type: string
-          example: '01'
         programDbId:
           description: The ID which uniquely identifies a program
           type: string
