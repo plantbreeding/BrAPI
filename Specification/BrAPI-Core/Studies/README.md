@@ -746,7 +746,7 @@ program like "PlantingTime_3" or "Season E"
 
 
 
-### Get - /studies [GET /brapi/v2/studies{?commonCropName}{?studyType}{?programDbId}{?locationDbId}{?seasonDbId}{?trialDbId}{?studyDbId}{?studyPUI}{?germplasmDbId}{?observationVariableDbId}{?active}{?sortBy}{?sortOrder}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /studies [GET /brapi/v2/studies{?commonCropName}{?studyType}{?programDbId}{?locationDbId}{?seasonDbId}{?trialDbId}{?studyDbId}{?studyName}{?studyPUI}{?germplasmDbId}{?observationVariableDbId}{?active}{?sortBy}{?sortOrder}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get list of studies
 
@@ -826,6 +826,7 @@ StartDate and endDate should be ISO-8601 format for dates
     + seasonDbId (Optional, ) ... Filter by season or year
     + trialDbId (Optional, ) ... Filter by trial
     + studyDbId (Optional, ) ... Filter by study DbId
+    + studyName (Optional, ) ... Filter by study name
     + studyPUI (Optional, ) ... Filter by study PUI
     + germplasmDbId (Optional, ) ... Filter by germplasm DbId
     + observationVariableDbId (Optional, ) ... Filter by observation variable DbId

@@ -4519,7 +4519,7 @@ Gets a list of `VariantSet` matching the search criteria.
 
 
 
-### Get - /variantsets [GET /brapi/v2/variantsets{?variantSetDbId}{?page}{?pageSize}]
+### Get - /variantsets [GET /brapi/v2/variantsets{?variantSetDbId}{?variantDbId}{?callSetDbId}{?studyDbId}{?studyName}{?page}{?pageSize}]
 
 Will return a filtered list of `VariantSet`.
 
@@ -4554,7 +4554,11 @@ Will return a filtered list of `VariantSet`.
  
 
 + Parameters
-    + variantSetDbId (Required, ) ... The ID of the `VariantSet` to be retrieved.
+    + variantSetDbId (Optional, ) ... The ID of the `VariantSet` to be retrieved.
+    + variantDbId (Optional, ) ... The ID of the `Variant` to be retrieved.
+    + callSetDbId (Optional, ) ... The ID of the `CallSet` to be retrieved.
+    + studyDbId (Optional, ) ... Filter by study DbId
+    + studyName (Optional, ) ... Filter by study name
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
