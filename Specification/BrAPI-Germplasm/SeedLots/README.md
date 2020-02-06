@@ -17,7 +17,7 @@ Get a filtered list of Seed Lot descriptions available in a system.
 |---|---|---| 
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
-|count|integer|Current balance of seeds in this lot|
+|amount|number|Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
 |createdDate|string (date-time)|The time stamp for when this seed lot was created|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID||The external reference ID. Could be a simple string or a URI.|
@@ -31,7 +31,7 @@ Get a filtered list of Seed Lot descriptions available in a system.
 |seedLotName|string|A human readable name for this Seed Lot|
 |sourceCollection|string|The description of the source where this material was originally collected (wild, nursery, etc)|
 |storageLocation|string|Description the storage location|
-|units|string|Description of the things being counted in this Seed Lot (seeds, bulbs, stock, tree, etc)|
+|units|string|Description of the things being counted in this Seed Lot (seeds, bulbs, kg, tree, etc)|
 
 
  
@@ -82,7 +82,7 @@ Get a filtered list of Seed Lot descriptions available in a system.
         "data": [
             {
                 "additionalInfo": {},
-                "count": 561,
+                "amount": 561,
                 "createdDate": "2018-01-01T14:47:23-0600",
                 "externalReferences": [
                     {
@@ -145,7 +145,7 @@ Add new Seed Lot descriptions to a server
 |Field|Type|Description|
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
-|count|integer|Current balance of seeds in this lot|
+|amount|number|Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
 |createdDate|string (date-time)|The time stamp for when this seed lot was created|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID||The external reference ID. Could be a simple string or a URI.|
@@ -158,7 +158,7 @@ Add new Seed Lot descriptions to a server
 |seedLotName|string|A human readable name for this Seed Lot|
 |sourceCollection|string|The description of the source where this material was originally collected (wild, nursery, etc)|
 |storageLocation|string|Description the storage location|
-|units|string|Description of the things being counted in this Seed Lot (seeds, bulbs, stock, tree, etc)|
+|units|string|Description of the things being counted in this Seed Lot (seeds, bulbs, kg, tree, etc)|
 
 
 **Response Fields** 
@@ -167,7 +167,7 @@ Add new Seed Lot descriptions to a server
 |---|---|---| 
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
-|count|integer|Current balance of seeds in this lot|
+|amount|number|Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
 |createdDate|string (date-time)|The time stamp for when this seed lot was created|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID||The external reference ID. Could be a simple string or a URI.|
@@ -181,7 +181,7 @@ Add new Seed Lot descriptions to a server
 |seedLotName|string|A human readable name for this Seed Lot|
 |sourceCollection|string|The description of the source where this material was originally collected (wild, nursery, etc)|
 |storageLocation|string|Description the storage location|
-|units|string|Description of the things being counted in this Seed Lot (seeds, bulbs, stock, tree, etc)|
+|units|string|Description of the things being counted in this Seed Lot (seeds, bulbs, kg, tree, etc)|
 
 
  
@@ -196,7 +196,7 @@ Add new Seed Lot descriptions to a server
 [
     {
         "additionalInfo": {},
-        "count": 561,
+        "amount": 561,
         "createdDate": "2018-01-01T14:47:23-0600",
         "externalReferences": [
             {
@@ -265,7 +265,7 @@ Add new Seed Lot descriptions to a server
         "data": [
             {
                 "additionalInfo": {},
-                "count": 561,
+                "amount": 561,
                 "createdDate": "2018-01-01T14:47:23-0600",
                 "externalReferences": [
                     {
@@ -618,7 +618,7 @@ Get a specific Seed Lot by seedLotDbId
 |Field|Type|Description|
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
-|count|integer|Current balance of seeds in this lot|
+|amount|number|Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
 |createdDate|string (date-time)|The time stamp for when this seed lot was created|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID||The external reference ID. Could be a simple string or a URI.|
@@ -632,7 +632,7 @@ Get a specific Seed Lot by seedLotDbId
 |seedLotName|string|A human readable name for this Seed Lot|
 |sourceCollection|string|The description of the source where this material was originally collected (wild, nursery, etc)|
 |storageLocation|string|Description the storage location|
-|units|string|Description of the things being counted in this Seed Lot (seeds, bulbs, stock, tree, etc)|
+|units|string|Description of the things being counted in this Seed Lot (seeds, bulbs, kg, tree, etc)|
 
 
  
@@ -676,7 +676,7 @@ Get a specific Seed Lot by seedLotDbId
     },
     "result": {
         "additionalInfo": {},
-        "count": 561,
+        "amount": 561,
         "createdDate": "2018-01-01T14:47:23-0600",
         "externalReferences": [
             {
@@ -742,7 +742,7 @@ Update an existing Seed Lot
 |Field|Type|Description|
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
-|count|integer|Current balance of seeds in this lot|
+|amount|number|Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
 |createdDate|string (date-time)|The time stamp for when this seed lot was created|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID||The external reference ID. Could be a simple string or a URI.|
@@ -755,7 +755,7 @@ Update an existing Seed Lot
 |seedLotName|string|A human readable name for this Seed Lot|
 |sourceCollection|string|The description of the source where this material was originally collected (wild, nursery, etc)|
 |storageLocation|string|Description the storage location|
-|units|string|Description of the things being counted in this Seed Lot (seeds, bulbs, stock, tree, etc)|
+|units|string|Description of the things being counted in this Seed Lot (seeds, bulbs, kg, tree, etc)|
 
 
 **Response Fields** 
@@ -763,7 +763,7 @@ Update an existing Seed Lot
 |Field|Type|Description|
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
-|count|integer|Current balance of seeds in this lot|
+|amount|number|Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
 |createdDate|string (date-time)|The time stamp for when this seed lot was created|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
 |referenceID||The external reference ID. Could be a simple string or a URI.|
@@ -777,7 +777,7 @@ Update an existing Seed Lot
 |seedLotName|string|A human readable name for this Seed Lot|
 |sourceCollection|string|The description of the source where this material was originally collected (wild, nursery, etc)|
 |storageLocation|string|Description the storage location|
-|units|string|Description of the things being counted in this Seed Lot (seeds, bulbs, stock, tree, etc)|
+|units|string|Description of the things being counted in this Seed Lot (seeds, bulbs, kg, tree, etc)|
 
 
  
@@ -792,7 +792,7 @@ Update an existing Seed Lot
 ```
 {
     "additionalInfo": {},
-    "count": 561,
+    "amount": 561,
     "createdDate": "2018-01-01T14:47:23-0600",
     "externalReferences": [
         {
@@ -858,7 +858,7 @@ Update an existing Seed Lot
     },
     "result": {
         "additionalInfo": {},
-        "count": 561,
+        "amount": 561,
         "createdDate": "2018-01-01T14:47:23-0600",
         "externalReferences": [
             {
