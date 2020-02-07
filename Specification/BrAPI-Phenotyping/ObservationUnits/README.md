@@ -7,7 +7,7 @@ API to retrieve and submit data (phenotypes, environment variables) from studies
 
 
 
-### Get - /observationlevels [GET /brapi/v2/observationlevels{?studyDbId}{?page}{?pageSize}]
+### Get - /observationlevels [GET /brapi/v2/observationlevels{?studyDbId}{?trialDbId}{?programDbId}{?page}{?pageSize}]
 
 Call to retrieve the list of supported observation levels. 
 
@@ -28,6 +28,8 @@ The values are used to supply the `observationLevel` parameter in the observatio
 
 + Parameters
     + studyDbId (Optional, ) ... Filter by study DbId
+    + trialDbId (Optional, ) ... Filter by trial DbId
+    + programDbId (Optional, ) ... Filter by program DbId
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
