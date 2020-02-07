@@ -19,6 +19,18 @@ paths:
         required: false
         schema:
           type: string
+      - description: Filter by trial DbId
+        in: query
+        name: trialDbId
+        required: false
+        schema:
+          type: string
+      - description: Filter by program DbId
+        in: query
+        name: programDbId
+        required: false
+        schema:
+          type: string
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
       - $ref: '#/components/parameters/authorizationHeader'
