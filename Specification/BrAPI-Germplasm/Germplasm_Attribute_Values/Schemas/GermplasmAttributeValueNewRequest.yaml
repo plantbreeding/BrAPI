@@ -10,6 +10,11 @@ components:
       required:
       - attributeName
       properties:
+        additionalInfo:
+          additionalProperties: 
+            type: string
+          description: Additional arbitrary info
+          type: object
         attributeDbId:
           description: The ID which uniquely identifies this attribute within the given database server
           type: string
