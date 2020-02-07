@@ -3963,6 +3963,7 @@ Create new Germplasm Attribute Values
 
 |Field|Type|Description|
 |---|---|---| 
+|additionalInfo|object|Additional arbitrary info|
 |attributeDbId|string|The ID which uniquely identifies this attribute within the given database server|
 |attributeName|string|A human readable name for this attribute|
 |determinedDate|string (date-time)|The date the value of this attribute was determined for a given germplasm|
@@ -3979,6 +3980,7 @@ Create new Germplasm Attribute Values
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
 |attributeDbId|string|The ID which uniquely identifies this attribute within the given database server|
 |attributeName|string|A human readable name for this attribute|
 |attributeValueDbId|string|The ID which uniquely identifies this attribute value within the given database server|
@@ -4002,6 +4004,7 @@ Create new Germplasm Attribute Values
 ```
 [
     {
+        "additionalInfo": {},
         "attributeDbId": "e529dd5a",
         "attributeName": "Weevil Resistance",
         "determinedDate": "2018-01-01T14:47:23-0600",
@@ -4065,6 +4068,7 @@ Create new Germplasm Attribute Values
     "result": {
         "data": [
             {
+                "additionalInfo": {},
                 "attributeDbId": "e529dd5a",
                 "attributeName": "Weevil Resistance",
                 "attributeValueDbId": "33edbab7",
@@ -4124,6 +4128,7 @@ Get the details for a specific Germplasm Attribute
 
 |Field|Type|Description|
 |---|---|---| 
+|additionalInfo|object|Additional arbitrary info|
 |attributeDbId|string|The ID which uniquely identifies this attribute within the given database server|
 |attributeName|string|A human readable name for this attribute|
 |attributeValueDbId|string|The ID which uniquely identifies this attribute value within the given database server|
@@ -4176,6 +4181,7 @@ Get the details for a specific Germplasm Attribute
         ]
     },
     "result": {
+        "additionalInfo": {},
         "attributeDbId": "e529dd5a",
         "attributeName": "Weevil Resistance",
         "attributeValueDbId": "33edbab7",
@@ -4231,6 +4237,7 @@ Create new Germplasm Attribute Values
 
 |Field|Type|Description|
 |---|---|---| 
+|additionalInfo|object|Additional arbitrary info|
 |attributeDbId|string|The ID which uniquely identifies this attribute within the given database server|
 |attributeName|string|A human readable name for this attribute|
 |determinedDate|string (date-time)|The date the value of this attribute was determined for a given germplasm|
@@ -4246,6 +4253,7 @@ Create new Germplasm Attribute Values
 
 |Field|Type|Description|
 |---|---|---| 
+|additionalInfo|object|Additional arbitrary info|
 |attributeDbId|string|The ID which uniquely identifies this attribute within the given database server|
 |attributeName|string|A human readable name for this attribute|
 |attributeValueDbId|string|The ID which uniquely identifies this attribute value within the given database server|
@@ -4269,6 +4277,7 @@ Create new Germplasm Attribute Values
 + Request (application/json)
 ```
 {
+    "additionalInfo": {},
     "attributeDbId": "e529dd5a",
     "attributeName": "Weevil Resistance",
     "determinedDate": "2018-01-01T14:47:23-0600",
@@ -4329,6 +4338,7 @@ Create new Germplasm Attribute Values
         ]
     },
     "result": {
+        "additionalInfo": {},
         "attributeDbId": "e529dd5a",
         "attributeName": "Weevil Resistance",
         "attributeValueDbId": "33edbab7",
@@ -4408,6 +4418,7 @@ See Search Services for additional implementation details.
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
 |attributeDbId|string|The ID which uniquely identifies this attribute within the given database server|
 |attributeName|string|A human readable name for this attribute|
 |attributeValueDbId|string|The ID which uniquely identifies this attribute value within the given database server|
@@ -4524,6 +4535,7 @@ See Search Services for additional implementation details.
     "result": {
         "data": [
             {
+                "additionalInfo": {},
                 "attributeDbId": "e529dd5a",
                 "attributeName": "Weevil Resistance",
                 "attributeValueDbId": "33edbab7",
@@ -4622,6 +4634,7 @@ See Search Services for additional implementation details.
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
 |attributeDbId|string|The ID which uniquely identifies this attribute within the given database server|
 |attributeName|string|A human readable name for this attribute|
 |attributeValueDbId|string|The ID which uniquely identifies this attribute value within the given database server|
@@ -4714,6 +4727,7 @@ See Search Services for additional implementation details.
     "result": {
         "data": [
             {
+                "additionalInfo": {},
                 "attributeDbId": "e529dd5a",
                 "attributeName": "Weevil Resistance",
                 "attributeValueDbId": "33edbab7",
