@@ -9,7 +9,7 @@ paths:
       description: Get the a single Season
       parameters:
       - description: The unique identifier for a season. For backward compatibility it can be a string like '2012', '1957-2004'
-        example: 2012, 2012-2019, 3
+        example: b230a1d2, Spring_2017, 3
         in: path
         name: seasonDbId
         required: true
@@ -32,7 +32,7 @@ paths:
       description: Update existing Seasons
       parameters:
       - description: The unique identifier for a season. For backward compatibility it can be a string like '2012', '1957-2004'
-        example: 2012, 2012-2019, 3
+        example: b230a1d2, Spring_2017, 3
         in: path
         name: seasonDbId
         required: true
@@ -56,7 +56,7 @@ paths:
         '403':
           $ref: '#/components/responses/403Forbidden'
       tags:
-      - Studies      
+      - Seasons      
 components:
   responses:
     SeasonSingleResponse:
