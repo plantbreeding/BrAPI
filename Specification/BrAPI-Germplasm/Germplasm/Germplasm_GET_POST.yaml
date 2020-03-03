@@ -45,6 +45,12 @@ paths:
         required: false
         schema:
           type: string
+      - name: collection
+        description: A specific panel/collection/population name this germplasm belongs to.
+        in: query
+        required: false
+        schema:
+          type: string
       - name: genus
         description: Genus name to identify germplasm
         in: query

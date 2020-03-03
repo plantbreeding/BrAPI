@@ -56,4 +56,10 @@ components:
               type: string
             type: array
             example: ['variety_1', '2c38f9b6']
+          collections:
+            description: A specific panel/collection/population name this germplasm belongs to.
+            items:
+              type: string
+            type: array
+            example: ['RDP1', 'MDP1']
 

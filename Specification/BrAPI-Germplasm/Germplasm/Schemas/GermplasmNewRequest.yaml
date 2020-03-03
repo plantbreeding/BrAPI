@@ -64,6 +64,10 @@ components:
           description: The unique identifier for the breeding method used to create this germplasm
           type: string
           example: ffcce7ef
+        collection:
+          description: A specific panel/collection/population name this germplasm belongs to.
+          type: string
+          example: Rice Diversity Panel 1 (RDP1)
         commonCropName:
           description: |-
             Common name for the crop 
