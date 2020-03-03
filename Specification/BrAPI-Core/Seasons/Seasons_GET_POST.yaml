@@ -34,36 +34,13 @@ paths:
         name: year
         required: false
         schema:
-          type: string
+          type: integer
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
-          content:
-            application/json:
-              schema:
-                properties:
-                  '@context':
-                    $ref: '#/components/schemas/Context'
-                  metadata:
-                    $ref: '#/components/schemas/metadata'
-                  result:
-                    properties:
-                      data:
-                        items:
-                          $ref: '#/components/schemas/Season'
-                        type: array
-                    required:
-                    - data
-                    type: object
-                required:
-                - metadata
-                - result
-                title: seasonsResponse
-                type: object
-          description: OK
-          headers: {}
+          $ref: '#/components/responses/SeasonListResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -71,4 +48,54 @@ paths:
         '403':
           $ref: '#/components/responses/403Forbidden'
       tags:
-      - Studies
+      - Seasons
+    post:
+      summary: POST new Seasons
+      description: Add new season entries to the database
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items: 
+                $ref: '#/components/schemas/Season'
+      responses:
+        '200':
+          $ref: '#/components/responses/SeasonListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Studies      
+components:
+  responses:
+    SeasonListResponse:
+      content:
+        application/json:
+          schema:
+            title: SeasonListResponse
+            type: object
+            required:
+            - metadata
+            - result
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                type: object
+                required:
+                - data
+                properties:
+                  data:
+                    items:
+                      $ref: '#/components/schemas/Season'
+                    type: array
+      description: OK
+      headers: {}

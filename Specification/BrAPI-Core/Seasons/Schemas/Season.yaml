@@ -5,9 +5,12 @@ openapi: 3.0.0
 paths: {}
 components:
   schemas:
-    Season:
+    Season: 
+      type: object
+      required:
+      - seasonDbId
       properties:
-        season:
+        seasonName:
           description: Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.
           type: string
           example: Spring
@@ -19,7 +22,4 @@ components:
           description: The 4 digit year of the season.
           type: integer
           example: 2018
-      type: object
-      required:
-      - seasonDbId
 

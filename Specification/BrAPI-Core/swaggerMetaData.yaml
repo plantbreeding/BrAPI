@@ -128,6 +128,11 @@ tags:
   externalDocs:
     description: Docs
     url: https://wiki.brapi.org/
+- name: Seasons
+  description: Information about Seasons
+  externalDocs:
+    description: Docs
+    url: https://wiki.brapi.org/
 - name: Lists
   description: Create and manipulate generic lists
   externalDocs:
