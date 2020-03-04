@@ -99,7 +99,7 @@ components:
             
             MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study
           type: string
-          example: INRA's Walnut Genetic Resources Observation at Toulenne
+          example: INRA's Walnut Genetic Resources Observation at Kenya
         studyCode:
           description: A short human readable code for a study
           type: string
