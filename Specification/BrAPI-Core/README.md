@@ -5099,6 +5099,7 @@ See Search Services for additional implementation details.
 |seasonDbIds|array[string]|The ID which uniquely identifies a season|
 |sortBy|string|Name of one of the fields within the study object on which results can be sorted|
 |sortOrder|string|Order results should be sorted. ex. "ASC" or "DESC"|
+|studyCodes|array[string]|A short human readable code for a study|
 |studyDbIds|array[string]|List of study identifiers to search for|
 |studyNames|array[string]|List of study names to filter search results|
 |studyPUIs|array[string]|Permanent unique identifier associated with study data. For example, a URI or DOI|
@@ -5160,6 +5161,7 @@ See Search Services for additional implementation details.
 |observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
 |seasons|array[string]|List of seasons over which this study was performed.|
 |startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
+|studyCode|string|A short human readable code for a study|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.|
 |studyDescription|string|The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study|
 |studyName|string|The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study|
@@ -5242,6 +5244,10 @@ See Search Services for additional implementation details.
     "sortOrder": [
         "ASC",
         "DESC"
+    ],
+    "studyCodes": [
+        "Grape_Yield_Spring_2018",
+        "Walnut_Kenya"
     ],
     "studyDbIds": [
         "cf6c4bd4",
@@ -5382,9 +5388,10 @@ See Search Services for additional implementation details.
                     "Spring_2018"
                 ],
                 "startDate": "2018-01-01T14:47:23-0600",
+                "studyCode": "Grape_Yield_Spring_2018",
                 "studyDbId": "175ac75a",
                 "studyDescription": "This is a yield study for Spring 2018",
-                "studyName": "Grape_Yield_Spring_2018",
+                "studyName": "INRA's Walnut Genetic Resources Observation at Kenya",
                 "studyPUI": "doi:10.155454/12349537312",
                 "studyType": "Phenotyping",
                 "trialDbId": "48b327ea",
@@ -5512,6 +5519,7 @@ See Search Services for additional implementation details.
 |observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
 |seasons|array[string]|List of seasons over which this study was performed.|
 |startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
+|studyCode|string|A short human readable code for a study|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.|
 |studyDescription|string|The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study|
 |studyName|string|The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study|
@@ -5678,9 +5686,10 @@ See Search Services for additional implementation details.
                     "Spring_2018"
                 ],
                 "startDate": "2018-01-01T14:47:23-0600",
+                "studyCode": "Grape_Yield_Spring_2018",
                 "studyDbId": "175ac75a",
                 "studyDescription": "This is a yield study for Spring 2018",
-                "studyName": "Grape_Yield_Spring_2018",
+                "studyName": "INRA's Walnut Genetic Resources Observation at Kenya",
                 "studyPUI": "doi:10.155454/12349537312",
                 "studyType": "Phenotyping",
                 "trialDbId": "48b327ea",
@@ -5714,7 +5723,7 @@ See Search Services for additional implementation details.
 
 
 
-### Get - /studies [GET /brapi/v2/studies{?commonCropName}{?studyType}{?programDbId}{?locationDbId}{?seasonDbId}{?trialDbId}{?studyDbId}{?studyName}{?studyPUI}{?germplasmDbId}{?observationVariableDbId}{?active}{?sortBy}{?sortOrder}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /studies [GET /brapi/v2/studies{?commonCropName}{?studyType}{?programDbId}{?locationDbId}{?seasonDbId}{?trialDbId}{?studyDbId}{?studyName}{?studyCode}{?studyPUI}{?germplasmDbId}{?observationVariableDbId}{?active}{?sortBy}{?sortOrder}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get list of studies
 
@@ -5775,6 +5784,7 @@ StartDate and endDate should be ISO-8601 format for dates
 |observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
 |seasons|array[string]|List of seasons over which this study was performed.|
 |startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
+|studyCode|string|A short human readable code for a study|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.|
 |studyDescription|string|The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study|
 |studyName|string|The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study|
@@ -5795,6 +5805,7 @@ StartDate and endDate should be ISO-8601 format for dates
     + trialDbId (Optional, ) ... Filter by trial
     + studyDbId (Optional, ) ... Filter by study DbId
     + studyName (Optional, ) ... Filter by study name
+    + studyCode (Optional, ) ... Filter by study code
     + studyPUI (Optional, ) ... Filter by study PUI
     + germplasmDbId (Optional, ) ... Filter by germplasm DbId
     + observationVariableDbId (Optional, ) ... Filter by observation variable DbId
@@ -5920,9 +5931,10 @@ StartDate and endDate should be ISO-8601 format for dates
                     "Spring_2018"
                 ],
                 "startDate": "2018-01-01T14:47:23-0600",
+                "studyCode": "Grape_Yield_Spring_2018",
                 "studyDbId": "175ac75a",
                 "studyDescription": "This is a yield study for Spring 2018",
-                "studyName": "Grape_Yield_Spring_2018",
+                "studyName": "INRA's Walnut Genetic Resources Observation at Kenya",
                 "studyPUI": "doi:10.155454/12349537312",
                 "studyType": "Phenotyping",
                 "trialDbId": "48b327ea",
@@ -6013,6 +6025,7 @@ StartDate and endDate should be ISO-8601 format for dates
 |observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
 |seasons|array[string]|List of seasons over which this study was performed.|
 |startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
+|studyCode|string|A short human readable code for a study|
 |studyDescription|string|The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study|
 |studyName|string|The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study|
 |studyPUI|string|A permanent unique identifier associated with this study data. For example, a URI or DOI|
@@ -6074,6 +6087,7 @@ StartDate and endDate should be ISO-8601 format for dates
 |observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
 |seasons|array[string]|List of seasons over which this study was performed.|
 |startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
+|studyCode|string|A short human readable code for a study|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.|
 |studyDescription|string|The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study|
 |studyName|string|The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study|
@@ -6171,8 +6185,9 @@ StartDate and endDate should be ISO-8601 format for dates
             "Spring_2018"
         ],
         "startDate": "2018-01-01T14:47:23-0600",
+        "studyCode": "Grape_Yield_Spring_2018",
         "studyDescription": "This is a yield study for Spring 2018",
-        "studyName": "Grape_Yield_Spring_2018",
+        "studyName": "INRA's Walnut Genetic Resources Observation at Kenya",
         "studyPUI": "doi:10.155454/12349537312",
         "studyType": "Phenotyping",
         "trialDbId": "48b327ea",
@@ -6293,9 +6308,10 @@ StartDate and endDate should be ISO-8601 format for dates
                     "Spring_2018"
                 ],
                 "startDate": "2018-01-01T14:47:23-0600",
+                "studyCode": "Grape_Yield_Spring_2018",
                 "studyDbId": "175ac75a",
                 "studyDescription": "This is a yield study for Spring 2018",
-                "studyName": "Grape_Yield_Spring_2018",
+                "studyName": "INRA's Walnut Genetic Resources Observation at Kenya",
                 "studyPUI": "doi:10.155454/12349537312",
                 "studyType": "Phenotyping",
                 "trialDbId": "48b327ea",
@@ -6384,6 +6400,7 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
 |observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
 |seasons|array[string]|List of seasons over which this study was performed.|
 |startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
+|studyCode|string|A short human readable code for a study|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.|
 |studyDescription|string|The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study|
 |studyName|string|The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study|
@@ -6510,9 +6527,10 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
             "Spring_2018"
         ],
         "startDate": "2018-01-01T14:47:23-0600",
+        "studyCode": "Grape_Yield_Spring_2018",
         "studyDbId": "175ac75a",
         "studyDescription": "This is a yield study for Spring 2018",
-        "studyName": "Grape_Yield_Spring_2018",
+        "studyName": "INRA's Walnut Genetic Resources Observation at Kenya",
         "studyPUI": "doi:10.155454/12349537312",
         "studyType": "Phenotyping",
         "trialDbId": "48b327ea",
@@ -6600,6 +6618,7 @@ Update an existing Study with new data
 |observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
 |seasons|array[string]|List of seasons over which this study was performed.|
 |startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
+|studyCode|string|A short human readable code for a study|
 |studyDescription|string|The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study|
 |studyName|string|The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study|
 |studyPUI|string|A permanent unique identifier associated with this study data. For example, a URI or DOI|
@@ -6660,6 +6679,7 @@ Update an existing Study with new data
 |observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
 |seasons|array[string]|List of seasons over which this study was performed.|
 |startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
+|studyCode|string|A short human readable code for a study|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.|
 |studyDescription|string|The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study|
 |studyName|string|The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study|
@@ -6757,8 +6777,9 @@ Update an existing Study with new data
         "Spring_2018"
     ],
     "startDate": "2018-01-01T14:47:23-0600",
+    "studyCode": "Grape_Yield_Spring_2018",
     "studyDescription": "This is a yield study for Spring 2018",
-    "studyName": "Grape_Yield_Spring_2018",
+    "studyName": "INRA's Walnut Genetic Resources Observation at Kenya",
     "studyPUI": "doi:10.155454/12349537312",
     "studyType": "Phenotyping",
     "trialDbId": "48b327ea",
@@ -6876,9 +6897,10 @@ Update an existing Study with new data
             "Spring_2018"
         ],
         "startDate": "2018-01-01T14:47:23-0600",
+        "studyCode": "Grape_Yield_Spring_2018",
         "studyDbId": "175ac75a",
         "studyDescription": "This is a yield study for Spring 2018",
-        "studyName": "Grape_Yield_Spring_2018",
+        "studyName": "INRA's Walnut Genetic Resources Observation at Kenya",
         "studyPUI": "doi:10.155454/12349537312",
         "studyType": "Phenotyping",
         "trialDbId": "48b327ea",
@@ -7984,6 +8006,7 @@ Get the details of a specific Trial
 |observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
 |seasons|array[string]|List of seasons over which this study was performed.|
 |startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
+|studyCode|string|A short human readable code for a study|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.|
 |studyDescription|string|The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study|
 |studyName|string|The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study|
@@ -8110,9 +8133,10 @@ Get the details of a specific Trial
             "Spring_2018"
         ],
         "startDate": "2018-01-01T14:47:23-0600",
+        "studyCode": "Grape_Yield_Spring_2018",
         "studyDbId": "175ac75a",
         "studyDescription": "This is a yield study for Spring 2018",
-        "studyName": "Grape_Yield_Spring_2018",
+        "studyName": "INRA's Walnut Genetic Resources Observation at Kenya",
         "studyPUI": "doi:10.155454/12349537312",
         "studyType": "Phenotyping",
         "trialDbId": "48b327ea",
@@ -8235,6 +8259,7 @@ Update the details of an existing Trial
 |observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
 |seasons|array[string]|List of seasons over which this study was performed.|
 |startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
+|studyCode|string|A short human readable code for a study|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server  MIAPPE V1.1 (DM-11) Study unique ID - Unique identifier comprising the name or identifier for the institution/database hosting the submission of the study data, and the identifier of the study in that institution.|
 |studyDescription|string|The description of this study  MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study|
 |studyName|string|The human readable name for a study  MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study|
@@ -8421,9 +8446,10 @@ Update the details of an existing Trial
             "Spring_2018"
         ],
         "startDate": "2018-01-01T14:47:23-0600",
+        "studyCode": "Grape_Yield_Spring_2018",
         "studyDbId": "175ac75a",
         "studyDescription": "This is a yield study for Spring 2018",
-        "studyName": "Grape_Yield_Spring_2018",
+        "studyName": "INRA's Walnut Genetic Resources Observation at Kenya",
         "studyPUI": "doi:10.155454/12349537312",
         "studyType": "Phenotyping",
         "trialDbId": "48b327ea",
