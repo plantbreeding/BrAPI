@@ -13,6 +13,7 @@ components:
       - $ref: '#/components/schemas/SearchRequestParametersStudies'
       - $ref: '#/components/schemas/SearchRequestParametersGermplasm'
       - $ref: '#/components/schemas/SearchRequestParametersLocations'
+      - $ref: '#/components/schemas/SearchRequestParametersObservationVariables'
       - $ref: '#/components/schemas/SearchRequestParametersExternalReferences'
       - type: object
         properties:
@@ -40,12 +41,6 @@ components:
             description: Timestamp range start
             format: date-time
             type: string
-          observationVariableDbIds:
-            description: The IDs of traits, could be ontology ID, database ID or PUI
-            items:
-              type: string
-            type: array
-            example: ['a646187d', '6d23513b']
           seasonDbIds: 
             description: The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)
             items:

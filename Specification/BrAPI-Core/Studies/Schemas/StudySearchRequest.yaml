@@ -14,6 +14,7 @@ components:
       - $ref: '#/components/schemas/SearchRequestParametersStudies'
       - $ref: '#/components/schemas/SearchRequestParametersLocations'
       - $ref: '#/components/schemas/SearchRequestParametersGermplasm'
+      - $ref: '#/components/schemas/SearchRequestParametersObservationVariables'
       - $ref: '#/components/schemas/SearchRequestParametersExternalReferences'
       - type: object
         properties:
