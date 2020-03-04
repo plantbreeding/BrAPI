@@ -60,6 +60,12 @@ components:
               type: string
             type: array
             example: ['Yield Trial', 'Disease Resistance Trial']
+          studyCodes:
+            description: A short human readable code for a study
+            items:
+              type: string
+            type: array
+            example: ['Grape_Yield_Spring_2018', 'Walnut_Toulenne']
           studyPUIs:
             description: Permanent unique identifier associated with study data. For example, a URI or DOI
             type: array
