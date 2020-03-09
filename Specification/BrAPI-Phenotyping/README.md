@@ -3867,6 +3867,8 @@ observationValue data type inferred from the ontology
 |locationNames|array[string]|A human readable names to search for|
 |observationLevel|string|The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnit Structure.|
 |observationUnitDbIds|array[string]|The unique id of an observation unit|
+|observationVariableDbIds|array[string]|The DbIds of Variables to search for|
+|observationVariableNames|array[string]|The names of Variables to search for|
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |programDbIds|array[string]|A program identifier to search for|
@@ -3958,6 +3960,14 @@ observationValue data type inferred from the ontology
     "observationUnitDbIds": [
         "66bab7e3",
         "0e5e7f99"
+    ],
+    "observationVariableDbIds": [
+        "a646187d",
+        "6d23513b"
+    ],
+    "observationVariableNames": [
+        "Plant Height in meters",
+        "Wheat rust score 1-5"
     ],
     "page": 0,
     "pageSize": 1000,
@@ -8296,7 +8306,8 @@ Submit a search request for a set of Observations. Returns an Id which reference
 |observationTimeStampRangeEnd|string (date-time)|Timestamp range end|
 |observationTimeStampRangeStart|string (date-time)|Timestamp range start|
 |observationUnitDbIds|array[string]|The unique id of an Observation Unit|
-|observationVariableDbIds|array[string]|The IDs of traits, could be ontology ID, database ID or PUI|
+|observationVariableDbIds|array[string]|The DbIds of Variables to search for|
+|observationVariableNames|array[string]|The names of Variables to search for|
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |programDbIds|array[string]|A program identifier to search for|
@@ -8383,6 +8394,10 @@ Submit a search request for a set of Observations. Returns an Id which reference
     "observationVariableDbIds": [
         "a646187d",
         "6d23513b"
+    ],
+    "observationVariableNames": [
+        "Plant Height in meters",
+        "Wheat rust score 1-5"
     ],
     "page": 0,
     "pageSize": 1000,

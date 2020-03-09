@@ -30,6 +30,7 @@ See Search Services for additional implementation details.
 |locationDbIds|array[string]|The location ids to search for|
 |locationNames|array[string]|A human readable names to search for|
 |observationVariableDbIds|array[string]|List of observation variable IDs to search for|
+|observationVariableNames|array[string]|The names of Variables to search for|
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
 |programDbIds|array[string]|A program identifier to search for|
@@ -151,6 +152,10 @@ See Search Services for additional implementation details.
     "observationVariableDbIds": [
         "819e508f",
         "f540b703"
+    ],
+    "observationVariableNames": [
+        "Plant Height in meters",
+        "Wheat rust score 1-5"
     ],
     "page": 0,
     "pageSize": 1000,
