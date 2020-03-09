@@ -23,10 +23,26 @@ components:
               type: string
             type: array
             example: ['66bab7e3', '0e5e7f99']
-          observationLevel: 
-            description: The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnit Structure.
-            type: string
-            example: plant
+          observationLevels: 
+            description: Searches for values in ObservationUnit->observationUnitPosition->observationLevel
+            type: array 
+            items: 
+              $ref: '#/components/schemas/ObservationUnitLevelRelationship'
+            example:
+              - levelName: plot
+                levelCode: Plot_123
+              - levelName: plot
+                levelCode: Plot_456
+              - levelName: plot
+                levelCode: Plot_789
+          observationLevelRelationships: 
+            description: Searches for values in ObservationUnit->observationUnitPosition->observationLevelRelationships
+            type: array 
+            items: 
+              $ref: '#/components/schemas/ObservationUnitLevelRelationship'
+            example:
+              - levelName: field
+                levelCode: Field_1
           includeObservations: 
             description: |-
               Use this parameter to include a list of observations embedded in each ObservationUnit object. 

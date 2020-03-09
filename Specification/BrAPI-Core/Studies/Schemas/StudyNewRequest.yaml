@@ -120,6 +120,19 @@ components:
           description: The human readable name of a trial
           type: string
           example: Grape_Yield_Trial
+        observationLevels:
+          description: |-
+            Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6). 
+          type: array 
+          items: 
+            $ref: '#/components/schemas/ObservationUnitHierarchyLevel'
+          example:
+            - levelName: field
+              levelOrder: 0
+            - levelName: block
+              levelOrder: 1
+            - levelName: plot
+              levelOrder: 2
         observationUnitsDescription:
           description: MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.
           type: string

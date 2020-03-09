@@ -12,22 +12,18 @@ components:
         MIAPPE V1.1 (DM-73) Spatial distribution - Type and value of a spatial coordinate (georeference or relative) or level of observation (plot 45, subblock 7, block 2) provided as a key-value pair of the form type:value. Levels of observation must be consistent with those listed in the Study section.
       type: object
       properties:
-        blockNumber:
-          description: The block number for an observation unit. Different systems may use different block designs.
-          type: string
-          example: '6'
-        plantNumber:
-          description: 'The plant number in a field. Applicable for observationLevel: "plant"'
-          type: string
-          example: '1'
-        plotNumber:
-          description: 'The plot number in a field. Applicable for observationLevel: "plot"'
-          type: string
-          example: '01'
-        entryNumber:
-          description: The entry number for an observation unit. Different systems may use different entry systems.
-          type: string
-          example: '3'
+        observationLevel:
+          allOf:
+          - $ref: '#/components/schemas/ObservationUnitLevelRelationship'
+          - type: object
+            description: |-
+              The exact level and level code of an observation unit. 
+              
+              MIAPPE V1.1 DM-71 Observation unit type "Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended. 
+              The observation unit type can not be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables).
+              Alternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead."
+        observationLevelRelationships:
+          $ref: '#/components/schemas/ObservationUnitLevelRelationship'
         entryType:
           description: The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"
           enum:
@@ -103,9 +99,5 @@ components:
           - MEASURED_COL
           type: string
           example: GRID_ROW
-        replicate:
-          description: The replicate number of an observation unit. May be the same as blockNumber.
-          type: string
-          example: '1'
         geoCoordinates:
           $ref: '#/components/schemas/geoJSON'

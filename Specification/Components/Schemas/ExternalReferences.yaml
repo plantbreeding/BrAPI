@@ -25,5 +25,3 @@ components:
           referenceID: http://purl.obolibrary.org/obo/ro.owl
         - referenceSource: Remote Data Collection Upload Tool
           referenceID: 75a50e76
-        - referenceSource: BrAPI Example Server
-          referenceID: https://test-server.brapi.org/brapi/v2/object/8557af36

@@ -33,15 +33,6 @@ components:
           description: The human readable name of a location associated with this study
           type: string
           example: Field Station Alpha
-        observationLevel:
-          description: |-
-            The level of an observation unit. ex. "plot", "plant"
-            
-            MIAPPE V1.1 DM-71 Observation unit type "Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended. 
-            The observation unit type can not be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables).
-            Alternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead."
-          type: string
-          example: plot
         observationUnitName:
           description: A human readable name for an observation unit
           type: string
