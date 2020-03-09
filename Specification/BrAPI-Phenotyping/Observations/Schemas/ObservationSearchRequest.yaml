@@ -46,7 +46,7 @@ components:
             type: array 
             items: 
               $ref: '#/components/schemas/ObservationUnitLevelRelationship'
-            example:
+            example: 
               - levelName: field
                 levelCode: Field_1
           observationTimeStampRangeEnd:

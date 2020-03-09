@@ -291,7 +291,6 @@ def buildReadMes(rootPath, specificPath):
 	fullBrAPI = dereferenceAll.dereferenceBrAPI(filePath = rootPath + '/brapi_openapi.yaml')
 	
 	for dir in glob.iglob(rootPath + specificPath + '/', recursive=False):
-		print("dir - " + dir)
 		readMeStr = buildReadMe(dir, fullBrAPI)
 		fileName = dir + '/README.md'
 		with open(fileName, 'w') as outfile:

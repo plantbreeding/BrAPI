@@ -16,6 +16,7 @@ components:
           allOf:
           - $ref: '#/components/schemas/ObservationUnitLevelRelationship'
           - type: object
+            properties: {}
             description: |-
               The exact level and level code of an observation unit. 
               
@@ -23,7 +24,27 @@ components:
               The observation unit type can not be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables).
               Alternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead."
         observationLevelRelationships:
-          $ref: '#/components/schemas/ObservationUnitLevelRelationship'
+          description: |-
+            Observation levels indicate the granularity level at which the measurements are taken. 
+            
+            `levelName` defines the level 
+            
+            `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6). 
+            
+            `levelCode` is an ID code for this level tag. Identify this observation unit by each level of the hierarchy where it exists
+          type: array 
+          items:
+            $ref: '#/components/schemas/ObservationUnitLevelRelationship' 
+          example:
+            - levelName: field
+              levelOrder: 0
+              levelCode: Field_1
+            - levelName: block
+              levelOrder: 1
+              levelCode: Block_12
+            - levelName: plot
+              levelOrder: 2
+              levelCode: Plot_123
         entryType:
           description: The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"
           enum:
