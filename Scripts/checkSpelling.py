@@ -74,7 +74,7 @@ spell.word_frequency.load_words([
     'wiki', 'wikipedia',
     'uppercase', 'lowercase', 'concatenated', 'whitespace',
     'xref', 'xrefs', 'xmlns', 'foaf',
-    'preprocessing','debug', 'async', 'upload', 'uploaded', 'imagecontent',
+    'preprocessing','debug', 'async', 'upload', 'uploaded', 'imagecontent', 'unpaginated',
     '2px', '5px', '10px', '20px', '#ddd',
     'thh', 'ss+hhmm', 'yyyy', 'o8601', 'timezone', 's84', 't18',
     #plant
