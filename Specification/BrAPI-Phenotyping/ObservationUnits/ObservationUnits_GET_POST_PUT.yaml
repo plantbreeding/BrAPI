@@ -50,6 +50,15 @@ paths:
         required: false
         schema:
           type: string
+      - description: |-
+          Use this parameter to include a list of observations embedded in each ObservationUnit object. 
+          
+          CAUTION - Use this parameter at your own risk. It may return large, unpaginated lists of observation data. Only set this value to True if you are sure you need to.
+        in: query
+        name: includeObservations
+        required: false
+        schema:
+          type: boolean
       - $ref: '#/components/parameters/externalReferenceID'
       - $ref: '#/components/parameters/externalReferenceSource'
       - $ref: '#/components/parameters/page'

@@ -17,3 +17,11 @@ components:
               MIAPPE V1.1 (DM-70) Observation unit ID - Identifier used to identify the observation unit in data files containing the values observed or measured on that unit. Must be locally unique. 
             type: string
             example: 8c67503c
+          observations:
+            description: |-
+              All observations attached to this observation unit. 
+              
+              Default for this field is null or omitted. Do NOT include data in this field unless the 'includeObservations' flag is explicitly set to True.
+            type: array
+            items:
+              $ref: '#/components/schemas/Observation'
