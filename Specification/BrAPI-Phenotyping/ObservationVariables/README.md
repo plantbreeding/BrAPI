@@ -238,10 +238,6 @@ See Search Services for additional implementation details.
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "growthStage": "flowering",
@@ -263,10 +259,6 @@ See Search Services for additional implementation details.
                         {
                             "referenceID": "75a50e76",
                             "referenceSource": "Remote Data Collection Upload Tool"
-                        },
-                        {
-                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                            "referenceSource": "BrAPI Example Server"
                         }
                     ],
                     "formula": "a^2 + b^2 = c^2",
@@ -329,10 +321,6 @@ See Search Services for additional implementation details.
                         {
                             "referenceID": "75a50e76",
                             "referenceSource": "Remote Data Collection Upload Tool"
-                        },
-                        {
-                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                            "referenceSource": "BrAPI Example Server"
                         }
                     ],
                     "ontologyReference": {
@@ -399,10 +387,6 @@ See Search Services for additional implementation details.
                         {
                             "referenceID": "75a50e76",
                             "referenceSource": "Remote Data Collection Upload Tool"
-                        },
-                        {
-                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                            "referenceSource": "BrAPI Example Server"
                         }
                     ],
                     "mainAbbreviation": "PH",
@@ -692,10 +676,6 @@ See Search Services for additional implementation details.
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "growthStage": "flowering",
@@ -717,10 +697,6 @@ See Search Services for additional implementation details.
                         {
                             "referenceID": "75a50e76",
                             "referenceSource": "Remote Data Collection Upload Tool"
-                        },
-                        {
-                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                            "referenceSource": "BrAPI Example Server"
                         }
                     ],
                     "formula": "a^2 + b^2 = c^2",
@@ -783,10 +759,6 @@ See Search Services for additional implementation details.
                         {
                             "referenceID": "75a50e76",
                             "referenceSource": "Remote Data Collection Upload Tool"
-                        },
-                        {
-                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                            "referenceSource": "BrAPI Example Server"
                         }
                     ],
                     "ontologyReference": {
@@ -853,10 +825,6 @@ See Search Services for additional implementation details.
                         {
                             "referenceID": "75a50e76",
                             "referenceSource": "Remote Data Collection Upload Tool"
-                        },
-                        {
-                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                            "referenceSource": "BrAPI Example Server"
                         }
                     ],
                     "mainAbbreviation": "PH",
@@ -1081,10 +1049,6 @@ Call to retrieve a list of observationVariables available in the system.
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "growthStage": "flowering",
@@ -1106,10 +1070,6 @@ Call to retrieve a list of observationVariables available in the system.
                         {
                             "referenceID": "75a50e76",
                             "referenceSource": "Remote Data Collection Upload Tool"
-                        },
-                        {
-                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                            "referenceSource": "BrAPI Example Server"
                         }
                     ],
                     "formula": "a^2 + b^2 = c^2",
@@ -1172,10 +1132,6 @@ Call to retrieve a list of observationVariables available in the system.
                         {
                             "referenceID": "75a50e76",
                             "referenceSource": "Remote Data Collection Upload Tool"
-                        },
-                        {
-                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                            "referenceSource": "BrAPI Example Server"
                         }
                     ],
                     "ontologyReference": {
@@ -1242,10 +1198,6 @@ Call to retrieve a list of observationVariables available in the system.
                         {
                             "referenceID": "75a50e76",
                             "referenceSource": "Remote Data Collection Upload Tool"
-                        },
-                        {
-                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                            "referenceSource": "BrAPI Example Server"
                         }
                     ],
                     "mainAbbreviation": "PH",
@@ -1515,10 +1467,6 @@ Add new Observation Variables to the system.
             {
                 "referenceID": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
-            },
-            {
-                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                "referenceSource": "BrAPI Example Server"
             }
         ],
         "growthStage": "flowering",
@@ -1540,10 +1488,6 @@ Add new Observation Variables to the system.
                 {
                     "referenceID": "75a50e76",
                     "referenceSource": "Remote Data Collection Upload Tool"
-                },
-                {
-                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                    "referenceSource": "BrAPI Example Server"
                 }
             ],
             "formula": "a^2 + b^2 = c^2",
@@ -1605,10 +1549,6 @@ Add new Observation Variables to the system.
                 {
                     "referenceID": "75a50e76",
                     "referenceSource": "Remote Data Collection Upload Tool"
-                },
-                {
-                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                    "referenceSource": "BrAPI Example Server"
                 }
             ],
             "ontologyReference": {
@@ -1675,10 +1615,6 @@ Add new Observation Variables to the system.
                 {
                     "referenceID": "75a50e76",
                     "referenceSource": "Remote Data Collection Upload Tool"
-                },
-                {
-                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                    "referenceSource": "BrAPI Example Server"
                 }
             ],
             "mainAbbreviation": "PH",
@@ -1768,10 +1704,6 @@ Add new Observation Variables to the system.
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "growthStage": "flowering",
@@ -1793,10 +1725,6 @@ Add new Observation Variables to the system.
                         {
                             "referenceID": "75a50e76",
                             "referenceSource": "Remote Data Collection Upload Tool"
-                        },
-                        {
-                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                            "referenceSource": "BrAPI Example Server"
                         }
                     ],
                     "formula": "a^2 + b^2 = c^2",
@@ -1859,10 +1787,6 @@ Add new Observation Variables to the system.
                         {
                             "referenceID": "75a50e76",
                             "referenceSource": "Remote Data Collection Upload Tool"
-                        },
-                        {
-                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                            "referenceSource": "BrAPI Example Server"
                         }
                     ],
                     "ontologyReference": {
@@ -1929,10 +1853,6 @@ Add new Observation Variables to the system.
                         {
                             "referenceID": "75a50e76",
                             "referenceSource": "Remote Data Collection Upload Tool"
-                        },
-                        {
-                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                            "referenceSource": "BrAPI Example Server"
                         }
                     ],
                     "mainAbbreviation": "PH",
@@ -2143,10 +2063,6 @@ Retrieve variable details
             {
                 "referenceID": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
-            },
-            {
-                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                "referenceSource": "BrAPI Example Server"
             }
         ],
         "growthStage": "flowering",
@@ -2168,10 +2084,6 @@ Retrieve variable details
                 {
                     "referenceID": "75a50e76",
                     "referenceSource": "Remote Data Collection Upload Tool"
-                },
-                {
-                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                    "referenceSource": "BrAPI Example Server"
                 }
             ],
             "formula": "a^2 + b^2 = c^2",
@@ -2234,10 +2146,6 @@ Retrieve variable details
                 {
                     "referenceID": "75a50e76",
                     "referenceSource": "Remote Data Collection Upload Tool"
-                },
-                {
-                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                    "referenceSource": "BrAPI Example Server"
                 }
             ],
             "ontologyReference": {
@@ -2304,10 +2212,6 @@ Retrieve variable details
                 {
                     "referenceID": "75a50e76",
                     "referenceSource": "Remote Data Collection Upload Tool"
-                },
-                {
-                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                    "referenceSource": "BrAPI Example Server"
                 }
             ],
             "mainAbbreviation": "PH",
@@ -2521,10 +2425,6 @@ Update an existing Observation Variable
             {
                 "referenceID": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
-            },
-            {
-                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                "referenceSource": "BrAPI Example Server"
             }
         ],
         "growthStage": "flowering",
@@ -2546,10 +2446,6 @@ Update an existing Observation Variable
                 {
                     "referenceID": "75a50e76",
                     "referenceSource": "Remote Data Collection Upload Tool"
-                },
-                {
-                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                    "referenceSource": "BrAPI Example Server"
                 }
             ],
             "formula": "a^2 + b^2 = c^2",
@@ -2612,10 +2508,6 @@ Update an existing Observation Variable
                 {
                     "referenceID": "75a50e76",
                     "referenceSource": "Remote Data Collection Upload Tool"
-                },
-                {
-                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                    "referenceSource": "BrAPI Example Server"
                 }
             ],
             "ontologyReference": {
@@ -2682,10 +2574,6 @@ Update an existing Observation Variable
                 {
                     "referenceID": "75a50e76",
                     "referenceSource": "Remote Data Collection Upload Tool"
-                },
-                {
-                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                    "referenceSource": "BrAPI Example Server"
                 }
             ],
             "mainAbbreviation": "PH",

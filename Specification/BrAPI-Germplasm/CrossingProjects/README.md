@@ -87,10 +87,6 @@ Get a filtered list of Crossing Projects.
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "programDbId": "a088176c",
@@ -179,10 +175,6 @@ Create new Crossing Project entities on this server
             {
                 "referenceID": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
-            },
-            {
-                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                "referenceSource": "BrAPI Example Server"
             }
         ],
         "programDbId": "a088176c",
@@ -242,10 +234,6 @@ Create new Crossing Project entities on this server
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "programDbId": "a088176c",
@@ -355,10 +343,6 @@ Get a filtered list of Crossing Projects.
             {
                 "referenceID": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
-            },
-            {
-                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                "referenceSource": "BrAPI Example Server"
             }
         ],
         "programDbId": "a088176c",
@@ -444,10 +428,6 @@ Update an existing Crossing Project entity on this server
         {
             "referenceID": "75a50e76",
             "referenceSource": "Remote Data Collection Upload Tool"
-        },
-        {
-            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-            "referenceSource": "BrAPI Example Server"
         }
     ],
     "programDbId": "a088176c",
@@ -504,10 +484,6 @@ Update an existing Crossing Project entity on this server
             {
                 "referenceID": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
-            },
-            {
-                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                "referenceSource": "BrAPI Example Server"
             }
         ],
         "programDbId": "a088176c",

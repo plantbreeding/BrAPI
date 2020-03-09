@@ -97,6 +97,9 @@ See Search Services for additional implementation details.
 |license|string|The usage license associated with the study data|
 |locationDbId|string|The unique identifier for a Location|
 |locationName|string|A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.|
+|observationLevels|array[object]|Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6). |
+|levelName|string|A name for this level|
+|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
 |observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
 |seasons|array[string]|List of seasons over which this study was performed.|
 |startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
@@ -309,10 +312,6 @@ See Search Services for additional implementation details.
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "growthFacility": {
@@ -326,6 +325,20 @@ See Search Services for additional implementation details.
                 "license": "MIT License",
                 "locationDbId": "3cfdd67d",
                 "locationName": "Location 1",
+                "observationLevels": [
+                    {
+                        "levelName": "field",
+                        "levelOrder": 0
+                    },
+                    {
+                        "levelName": "block",
+                        "levelOrder": 1
+                    },
+                    {
+                        "levelName": "plot",
+                        "levelOrder": 2
+                    }
+                ],
                 "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
                 "seasons": [
                     "Spring_2018"
@@ -459,6 +472,9 @@ See Search Services for additional implementation details.
 |license|string|The usage license associated with the study data|
 |locationDbId|string|The unique identifier for a Location|
 |locationName|string|A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.|
+|observationLevels|array[object]|Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6). |
+|levelName|string|A name for this level|
+|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
 |observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
 |seasons|array[string]|List of seasons over which this study was performed.|
 |startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
@@ -607,10 +623,6 @@ See Search Services for additional implementation details.
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "growthFacility": {
@@ -624,6 +636,20 @@ See Search Services for additional implementation details.
                 "license": "MIT License",
                 "locationDbId": "3cfdd67d",
                 "locationName": "Location 1",
+                "observationLevels": [
+                    {
+                        "levelName": "field",
+                        "levelOrder": 0
+                    },
+                    {
+                        "levelName": "block",
+                        "levelOrder": 1
+                    },
+                    {
+                        "levelName": "plot",
+                        "levelOrder": 2
+                    }
+                ],
                 "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
                 "seasons": [
                     "Spring_2018"
@@ -724,6 +750,9 @@ StartDate and endDate should be ISO-8601 format for dates
 |license|string|The usage license associated with the study data|
 |locationDbId|string|The unique identifier for a Location|
 |locationName|string|A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.|
+|observationLevels|array[object]|Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6). |
+|levelName|string|A name for this level|
+|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
 |observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
 |seasons|array[string]|List of seasons over which this study was performed.|
 |startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
@@ -852,10 +881,6 @@ StartDate and endDate should be ISO-8601 format for dates
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "growthFacility": {
@@ -869,6 +894,20 @@ StartDate and endDate should be ISO-8601 format for dates
                 "license": "MIT License",
                 "locationDbId": "3cfdd67d",
                 "locationName": "Location 1",
+                "observationLevels": [
+                    {
+                        "levelName": "field",
+                        "levelOrder": 0
+                    },
+                    {
+                        "levelName": "block",
+                        "levelOrder": 1
+                    },
+                    {
+                        "levelName": "plot",
+                        "levelOrder": 2
+                    }
+                ],
                 "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
                 "seasons": [
                     "Spring_2018"
@@ -965,6 +1004,9 @@ StartDate and endDate should be ISO-8601 format for dates
 |license|string|The usage license associated with the study data|
 |locationDbId|string|The unique identifier for a Location|
 |locationName|string|A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.|
+|observationLevels|array[object]|Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6). |
+|levelName|string|A name for this level|
+|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
 |observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
 |seasons|array[string]|List of seasons over which this study was performed.|
 |startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
@@ -1027,6 +1069,9 @@ StartDate and endDate should be ISO-8601 format for dates
 |license|string|The usage license associated with the study data|
 |locationDbId|string|The unique identifier for a Location|
 |locationName|string|A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.|
+|observationLevels|array[object]|Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6). |
+|levelName|string|A name for this level|
+|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
 |observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
 |seasons|array[string]|List of seasons over which this study was performed.|
 |startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
@@ -1106,10 +1151,6 @@ StartDate and endDate should be ISO-8601 format for dates
             {
                 "referenceID": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
-            },
-            {
-                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                "referenceSource": "BrAPI Example Server"
             }
         ],
         "growthFacility": {
@@ -1123,6 +1164,20 @@ StartDate and endDate should be ISO-8601 format for dates
         "license": "MIT License",
         "locationDbId": "3cfdd67d",
         "locationName": "Location 1",
+        "observationLevels": [
+            {
+                "levelName": "field",
+                "levelOrder": 0
+            },
+            {
+                "levelName": "block",
+                "levelOrder": 1
+            },
+            {
+                "levelName": "plot",
+                "levelOrder": 2
+            }
+        ],
         "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
         "seasons": [
             "Spring_2018"
@@ -1229,10 +1284,6 @@ StartDate and endDate should be ISO-8601 format for dates
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "growthFacility": {
@@ -1246,6 +1297,20 @@ StartDate and endDate should be ISO-8601 format for dates
                 "license": "MIT License",
                 "locationDbId": "3cfdd67d",
                 "locationName": "Location 1",
+                "observationLevels": [
+                    {
+                        "levelName": "field",
+                        "levelOrder": 0
+                    },
+                    {
+                        "levelName": "block",
+                        "levelOrder": 1
+                    },
+                    {
+                        "levelName": "plot",
+                        "levelOrder": 2
+                    }
+                ],
                 "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
                 "seasons": [
                     "Spring_2018"
@@ -1340,6 +1405,9 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
 |license|string|The usage license associated with the study data|
 |locationDbId|string|The unique identifier for a Location|
 |locationName|string|A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.|
+|observationLevels|array[object]|Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6). |
+|levelName|string|A name for this level|
+|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
 |observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
 |seasons|array[string]|List of seasons over which this study was performed.|
 |startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
@@ -1448,10 +1516,6 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
             {
                 "referenceID": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
-            },
-            {
-                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                "referenceSource": "BrAPI Example Server"
             }
         ],
         "growthFacility": {
@@ -1465,6 +1529,20 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
         "license": "MIT License",
         "locationDbId": "3cfdd67d",
         "locationName": "Location 1",
+        "observationLevels": [
+            {
+                "levelName": "field",
+                "levelOrder": 0
+            },
+            {
+                "levelName": "block",
+                "levelOrder": 1
+            },
+            {
+                "levelName": "plot",
+                "levelOrder": 2
+            }
+        ],
         "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
         "seasons": [
             "Spring_2018"
@@ -1558,6 +1636,9 @@ Update an existing Study with new data
 |license|string|The usage license associated with the study data|
 |locationDbId|string|The unique identifier for a Location|
 |locationName|string|A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.|
+|observationLevels|array[object]|Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6). |
+|levelName|string|A name for this level|
+|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
 |observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
 |seasons|array[string]|List of seasons over which this study was performed.|
 |startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
@@ -1619,6 +1700,9 @@ Update an existing Study with new data
 |license|string|The usage license associated with the study data|
 |locationDbId|string|The unique identifier for a Location|
 |locationName|string|A human readable name for this location  MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.|
+|observationLevels|array[object]|Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6). |
+|levelName|string|A name for this level|
+|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
 |observationUnitsDescription|string|MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.|
 |seasons|array[string]|List of seasons over which this study was performed.|
 |startDate|string (date-time)|The date this study started  MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started|
@@ -1698,10 +1782,6 @@ Update an existing Study with new data
         {
             "referenceID": "75a50e76",
             "referenceSource": "Remote Data Collection Upload Tool"
-        },
-        {
-            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-            "referenceSource": "BrAPI Example Server"
         }
     ],
     "growthFacility": {
@@ -1715,6 +1795,20 @@ Update an existing Study with new data
     "license": "MIT License",
     "locationDbId": "3cfdd67d",
     "locationName": "Location 1",
+    "observationLevels": [
+        {
+            "levelName": "field",
+            "levelOrder": 0
+        },
+        {
+            "levelName": "block",
+            "levelOrder": 1
+        },
+        {
+            "levelName": "plot",
+            "levelOrder": 2
+        }
+    ],
     "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
     "seasons": [
         "Spring_2018"
@@ -1818,10 +1912,6 @@ Update an existing Study with new data
             {
                 "referenceID": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
-            },
-            {
-                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                "referenceSource": "BrAPI Example Server"
             }
         ],
         "growthFacility": {
@@ -1835,6 +1925,20 @@ Update an existing Study with new data
         "license": "MIT License",
         "locationDbId": "3cfdd67d",
         "locationName": "Location 1",
+        "observationLevels": [
+            {
+                "levelName": "field",
+                "levelOrder": 0
+            },
+            {
+                "levelName": "block",
+                "levelOrder": 1
+            },
+            {
+                "levelName": "plot",
+                "levelOrder": 2
+            }
+        ],
         "observationUnitsDescription": "Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.",
         "seasons": [
             "Spring_2018"

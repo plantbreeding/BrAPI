@@ -333,10 +333,6 @@ Addresses these needs
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "genus": "Aspergillus",
@@ -564,10 +560,6 @@ Create new Germplasm entities on this server
             {
                 "referenceID": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
-            },
-            {
-                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                "referenceSource": "BrAPI Example Server"
             }
         ],
         "genus": "Aspergillus",
@@ -690,10 +682,6 @@ Create new Germplasm entities on this server
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "genus": "Aspergillus",
@@ -900,10 +888,6 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
             {
                 "referenceID": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
-            },
-            {
-                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                "referenceSource": "BrAPI Example Server"
             }
         ],
         "genus": "Aspergillus",
@@ -1133,10 +1117,6 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
         {
             "referenceID": "75a50e76",
             "referenceSource": "Remote Data Collection Upload Tool"
-        },
-        {
-            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-            "referenceSource": "BrAPI Example Server"
         }
     ],
     "genus": "Aspergillus",
@@ -1256,10 +1236,6 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
             {
                 "referenceID": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
-            },
-            {
-                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                "referenceSource": "BrAPI Example Server"
             }
         ],
         "genus": "Aspergillus",
@@ -2013,10 +1989,6 @@ See Search Services for additional implementation details.
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "genus": "Aspergillus",
@@ -2308,10 +2280,6 @@ Addresses these needs:
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "genus": "Aspergillus",

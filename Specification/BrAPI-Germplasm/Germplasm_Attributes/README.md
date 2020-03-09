@@ -180,10 +180,6 @@ List available attributes.
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "growthStage": "flowering",
@@ -205,10 +201,6 @@ List available attributes.
                         {
                             "referenceID": "75a50e76",
                             "referenceSource": "Remote Data Collection Upload Tool"
-                        },
-                        {
-                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                            "referenceSource": "BrAPI Example Server"
                         }
                     ],
                     "formula": "a^2 + b^2 = c^2",
@@ -269,10 +261,6 @@ List available attributes.
                         {
                             "referenceID": "75a50e76",
                             "referenceSource": "Remote Data Collection Upload Tool"
-                        },
-                        {
-                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                            "referenceSource": "BrAPI Example Server"
                         }
                     ],
                     "ontologyReference": {
@@ -339,10 +327,6 @@ List available attributes.
                         {
                             "referenceID": "75a50e76",
                             "referenceSource": "Remote Data Collection Upload Tool"
-                        },
-                        {
-                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                            "referenceSource": "BrAPI Example Server"
                         }
                     ],
                     "mainAbbreviation": "PH",
@@ -619,10 +603,6 @@ Create new Germplasm Attributes
             {
                 "referenceID": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
-            },
-            {
-                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                "referenceSource": "BrAPI Example Server"
             }
         ],
         "growthStage": "flowering",
@@ -644,10 +624,6 @@ Create new Germplasm Attributes
                 {
                     "referenceID": "75a50e76",
                     "referenceSource": "Remote Data Collection Upload Tool"
-                },
-                {
-                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                    "referenceSource": "BrAPI Example Server"
                 }
             ],
             "formula": "a^2 + b^2 = c^2",
@@ -708,10 +684,6 @@ Create new Germplasm Attributes
                 {
                     "referenceID": "75a50e76",
                     "referenceSource": "Remote Data Collection Upload Tool"
-                },
-                {
-                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                    "referenceSource": "BrAPI Example Server"
                 }
             ],
             "ontologyReference": {
@@ -778,10 +750,6 @@ Create new Germplasm Attributes
                 {
                     "referenceID": "75a50e76",
                     "referenceSource": "Remote Data Collection Upload Tool"
-                },
-                {
-                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                    "referenceSource": "BrAPI Example Server"
                 }
             ],
             "mainAbbreviation": "PH",
@@ -875,10 +843,6 @@ Create new Germplasm Attributes
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "growthStage": "flowering",
@@ -900,10 +864,6 @@ Create new Germplasm Attributes
                         {
                             "referenceID": "75a50e76",
                             "referenceSource": "Remote Data Collection Upload Tool"
-                        },
-                        {
-                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                            "referenceSource": "BrAPI Example Server"
                         }
                     ],
                     "formula": "a^2 + b^2 = c^2",
@@ -964,10 +924,6 @@ Create new Germplasm Attributes
                         {
                             "referenceID": "75a50e76",
                             "referenceSource": "Remote Data Collection Upload Tool"
-                        },
-                        {
-                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                            "referenceSource": "BrAPI Example Server"
                         }
                     ],
                     "ontologyReference": {
@@ -1034,10 +990,6 @@ Create new Germplasm Attributes
                         {
                             "referenceID": "75a50e76",
                             "referenceSource": "Remote Data Collection Upload Tool"
-                        },
-                        {
-                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                            "referenceSource": "BrAPI Example Server"
                         }
                     ],
                     "mainAbbreviation": "PH",
@@ -1334,10 +1286,6 @@ Get the details for a specific Germplasm Attribute
             {
                 "referenceID": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
-            },
-            {
-                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                "referenceSource": "BrAPI Example Server"
             }
         ],
         "growthStage": "flowering",
@@ -1359,10 +1307,6 @@ Get the details for a specific Germplasm Attribute
                 {
                     "referenceID": "75a50e76",
                     "referenceSource": "Remote Data Collection Upload Tool"
-                },
-                {
-                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                    "referenceSource": "BrAPI Example Server"
                 }
             ],
             "formula": "a^2 + b^2 = c^2",
@@ -1423,10 +1367,6 @@ Get the details for a specific Germplasm Attribute
                 {
                     "referenceID": "75a50e76",
                     "referenceSource": "Remote Data Collection Upload Tool"
-                },
-                {
-                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                    "referenceSource": "BrAPI Example Server"
                 }
             ],
             "ontologyReference": {
@@ -1493,10 +1433,6 @@ Get the details for a specific Germplasm Attribute
                 {
                     "referenceID": "75a50e76",
                     "referenceSource": "Remote Data Collection Upload Tool"
-                },
-                {
-                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                    "referenceSource": "BrAPI Example Server"
                 }
             ],
             "mainAbbreviation": "PH",
@@ -1770,10 +1706,6 @@ Create new Germplasm Attributes
         {
             "referenceID": "75a50e76",
             "referenceSource": "Remote Data Collection Upload Tool"
-        },
-        {
-            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-            "referenceSource": "BrAPI Example Server"
         }
     ],
     "growthStage": "flowering",
@@ -1795,10 +1727,6 @@ Create new Germplasm Attributes
             {
                 "referenceID": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
-            },
-            {
-                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                "referenceSource": "BrAPI Example Server"
             }
         ],
         "formula": "a^2 + b^2 = c^2",
@@ -1859,10 +1787,6 @@ Create new Germplasm Attributes
             {
                 "referenceID": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
-            },
-            {
-                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                "referenceSource": "BrAPI Example Server"
             }
         ],
         "ontologyReference": {
@@ -1929,10 +1853,6 @@ Create new Germplasm Attributes
             {
                 "referenceID": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
-            },
-            {
-                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                "referenceSource": "BrAPI Example Server"
             }
         ],
         "mainAbbreviation": "PH",
@@ -2023,10 +1943,6 @@ Create new Germplasm Attributes
             {
                 "referenceID": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
-            },
-            {
-                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                "referenceSource": "BrAPI Example Server"
             }
         ],
         "growthStage": "flowering",
@@ -2048,10 +1964,6 @@ Create new Germplasm Attributes
                 {
                     "referenceID": "75a50e76",
                     "referenceSource": "Remote Data Collection Upload Tool"
-                },
-                {
-                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                    "referenceSource": "BrAPI Example Server"
                 }
             ],
             "formula": "a^2 + b^2 = c^2",
@@ -2112,10 +2024,6 @@ Create new Germplasm Attributes
                 {
                     "referenceID": "75a50e76",
                     "referenceSource": "Remote Data Collection Upload Tool"
-                },
-                {
-                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                    "referenceSource": "BrAPI Example Server"
                 }
             ],
             "ontologyReference": {
@@ -2182,10 +2090,6 @@ Create new Germplasm Attributes
                 {
                     "referenceID": "75a50e76",
                     "referenceSource": "Remote Data Collection Upload Tool"
-                },
-                {
-                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                    "referenceSource": "BrAPI Example Server"
                 }
             ],
             "mainAbbreviation": "PH",
@@ -2476,10 +2380,6 @@ See Search Services for additional implementation details.
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "growthStage": "flowering",
@@ -2501,10 +2401,6 @@ See Search Services for additional implementation details.
                         {
                             "referenceID": "75a50e76",
                             "referenceSource": "Remote Data Collection Upload Tool"
-                        },
-                        {
-                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                            "referenceSource": "BrAPI Example Server"
                         }
                     ],
                     "formula": "a^2 + b^2 = c^2",
@@ -2565,10 +2461,6 @@ See Search Services for additional implementation details.
                         {
                             "referenceID": "75a50e76",
                             "referenceSource": "Remote Data Collection Upload Tool"
-                        },
-                        {
-                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                            "referenceSource": "BrAPI Example Server"
                         }
                     ],
                     "ontologyReference": {
@@ -2635,10 +2527,6 @@ See Search Services for additional implementation details.
                         {
                             "referenceID": "75a50e76",
                             "referenceSource": "Remote Data Collection Upload Tool"
-                        },
-                        {
-                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                            "referenceSource": "BrAPI Example Server"
                         }
                     ],
                     "mainAbbreviation": "PH",
@@ -2934,10 +2822,6 @@ See Search Services for additional implementation details.
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "growthStage": "flowering",
@@ -2959,10 +2843,6 @@ See Search Services for additional implementation details.
                         {
                             "referenceID": "75a50e76",
                             "referenceSource": "Remote Data Collection Upload Tool"
-                        },
-                        {
-                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                            "referenceSource": "BrAPI Example Server"
                         }
                     ],
                     "formula": "a^2 + b^2 = c^2",
@@ -3023,10 +2903,6 @@ See Search Services for additional implementation details.
                         {
                             "referenceID": "75a50e76",
                             "referenceSource": "Remote Data Collection Upload Tool"
-                        },
-                        {
-                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                            "referenceSource": "BrAPI Example Server"
                         }
                     ],
                     "ontologyReference": {
@@ -3093,10 +2969,6 @@ See Search Services for additional implementation details.
                         {
                             "referenceID": "75a50e76",
                             "referenceSource": "Remote Data Collection Upload Tool"
-                        },
-                        {
-                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                            "referenceSource": "BrAPI Example Server"
                         }
                     ],
                     "mainAbbreviation": "PH",

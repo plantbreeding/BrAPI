@@ -96,10 +96,6 @@ Get filtered set of generic lists
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "listDbId": "6f621cfa",
@@ -219,10 +215,6 @@ Create a new list
             {
                 "referenceID": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
-            },
-            {
-                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                "referenceSource": "BrAPI Example Server"
             }
         ],
         "listDescription": "This is a list of germplasm I would like to investigate next season",
@@ -296,10 +288,6 @@ Create a new list
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "listDbId": "6f621cfa",
@@ -430,10 +418,6 @@ Get a specific generic lists
             {
                 "referenceID": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
-            },
-            {
-                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                "referenceSource": "BrAPI Example Server"
             }
         ],
         "listDbId": "6f621cfa",
@@ -556,10 +540,6 @@ Update an existing generic list
         {
             "referenceID": "75a50e76",
             "referenceSource": "Remote Data Collection Upload Tool"
-        },
-        {
-            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-            "referenceSource": "BrAPI Example Server"
         }
     ],
     "listDescription": "This is a list of germplasm I would like to investigate next season",
@@ -634,10 +614,6 @@ Update an existing generic list
             {
                 "referenceID": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
-            },
-            {
-                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                "referenceSource": "BrAPI Example Server"
             }
         ],
         "listDbId": "6f621cfa",
@@ -784,10 +760,6 @@ Add new data to a specific generic lists
             {
                 "referenceID": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
-            },
-            {
-                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                "referenceSource": "BrAPI Example Server"
             }
         ],
         "listDbId": "6f621cfa",
@@ -990,10 +962,6 @@ See Search Services for additional implementation details.
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "listDbId": "6f621cfa",
@@ -1197,10 +1165,6 @@ See Search Services for additional implementation details.
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "listDbId": "6f621cfa",

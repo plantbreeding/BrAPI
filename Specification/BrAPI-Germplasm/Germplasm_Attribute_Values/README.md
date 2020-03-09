@@ -180,10 +180,6 @@ Get the Germplasm Attribute Values
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "growthStage": "flowering",
@@ -205,10 +201,6 @@ Get the Germplasm Attribute Values
                         {
                             "referenceID": "75a50e76",
                             "referenceSource": "Remote Data Collection Upload Tool"
-                        },
-                        {
-                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                            "referenceSource": "BrAPI Example Server"
                         }
                     ],
                     "formula": "a^2 + b^2 = c^2",
@@ -269,10 +261,6 @@ Get the Germplasm Attribute Values
                         {
                             "referenceID": "75a50e76",
                             "referenceSource": "Remote Data Collection Upload Tool"
-                        },
-                        {
-                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                            "referenceSource": "BrAPI Example Server"
                         }
                     ],
                     "ontologyReference": {
@@ -339,10 +327,6 @@ Get the Germplasm Attribute Values
                         {
                             "referenceID": "75a50e76",
                             "referenceSource": "Remote Data Collection Upload Tool"
-                        },
-                        {
-                            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                            "referenceSource": "BrAPI Example Server"
                         }
                     ],
                     "mainAbbreviation": "PH",
@@ -462,10 +446,6 @@ Create new Germplasm Attribute Values
             {
                 "referenceID": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
-            },
-            {
-                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                "referenceSource": "BrAPI Example Server"
             }
         ],
         "germplasmDbId": "d4076594",
@@ -527,10 +507,6 @@ Create new Germplasm Attribute Values
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "germplasmDbId": "d4076594",
@@ -640,10 +616,6 @@ Get the details for a specific Germplasm Attribute
             {
                 "referenceID": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
-            },
-            {
-                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                "referenceSource": "BrAPI Example Server"
             }
         ],
         "germplasmDbId": "d4076594",
@@ -735,10 +707,6 @@ Create new Germplasm Attribute Values
         {
             "referenceID": "75a50e76",
             "referenceSource": "Remote Data Collection Upload Tool"
-        },
-        {
-            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-            "referenceSource": "BrAPI Example Server"
         }
     ],
     "germplasmDbId": "d4076594",
@@ -797,10 +765,6 @@ Create new Germplasm Attribute Values
             {
                 "referenceID": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
-            },
-            {
-                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                "referenceSource": "BrAPI Example Server"
             }
         ],
         "germplasmDbId": "d4076594",
@@ -994,10 +958,6 @@ See Search Services for additional implementation details.
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "germplasmDbId": "d4076594",
@@ -1186,10 +1146,6 @@ See Search Services for additional implementation details.
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "germplasmDbId": "d4076594",

@@ -11,7 +11,7 @@ API to retrieve and submit data (phenotypes, environment variables) from studies
 
 Call to retrieve the list of supported observation levels. 
 
-Observation levels indicate the granularity level at which the measurements are taken. 
+Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6). 
 
 The values are used to supply the `observationLevel` parameter in the observation unit details call.
 
@@ -21,7 +21,9 @@ The values are used to supply the `observationLevel` parameter in the observatio
 
 |Field|Type|Description|
 |---|---|---| 
-|data|array[string]||
+|data|array[object]||
+|levelName|string|A name for this level|
+|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
 
 
  
@@ -69,9 +71,26 @@ The values are used to supply the `observationLevel` parameter in the observatio
     },
     "result": {
         "data": [
-            "field",
-            "plot",
-            "plant"
+            {
+                "levelName": "field",
+                "levelOrder": 0
+            },
+            {
+                "levelName": "block",
+                "levelOrder": 1
+            },
+            {
+                "levelName": "plot",
+                "levelOrder": 2
+            },
+            {
+                "levelName": "sub-plot",
+                "levelOrder": 3
+            },
+            {
+                "levelName": "plant",
+                "levelOrder": 4
+            }
         ]
     }
 }
@@ -95,7 +114,7 @@ The values are used to supply the `observationLevel` parameter in the observatio
 
 
 
-### Get - /observationunits [GET /brapi/v2/observationunits{?germplasmDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}{?includeObservations}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /observationunits [GET /brapi/v2/observationunits{?germplasmDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationUnitLevelName}{?observationUnitLevelOrder}{?observationUnitLevelCode}{?includeObservations}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered set of Observation Units
 
@@ -114,24 +133,26 @@ Get a filtered set of Observation Units
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |locationDbId|string|The ID which uniquely identifies a location, associated with this study|
 |locationName|string|The human readable name of a location associated with this study|
-|observationLevel|string|The level of an observation unit. ex. "plot", "plant"  MIAPPE V1.1 DM-71 Observation unit type "Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended.  The observation unit type can not be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables). Alternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead."|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit  MIAPPE V1.1 (DM-70) Observation unit ID - Identifier used to identify the observation unit in data files containing the values observed or measured on that unit. Must be locally unique. |
 |observationUnitName|string|A human readable name for an observation unit|
 |observationUnitPUI|string|A Permanent Unique Identifier for an observation unit  MIAPPE V1.1 (DM-72) External ID - Identifier for the observation unit in a persistent repository, comprises the name of the repository and the identifier of the observation unit therein. The EBI Biosamples repository can be used. URI are recommended when possible.|
 |observationUnitPosition|object|All positional and layout information related to this Observation Unit  MIAPPE V1.1 (DM-73) Spatial distribution - Type and value of a spatial coordinate (georeference or relative) or level of observation (plot 45, subblock 7, block 2) provided as a key-value pair of the form type:value. Levels of observation must be consistent with those listed in the Study section.|
-|blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
-|entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
 |geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
-|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
-|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
+|observationLevel|object|The exact level and level code of an observation unit.   MIAPPE V1.1 DM-71 Observation unit type "Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended.  The observation unit type can not be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables). Alternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead."|
+|levelCode|string|An ID code for this level tag. Identify this observation unit by each level of the hierarchy where it exists|
+|levelName|string|A name for this level|
+|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
+|observationLevelRelationships|array[object]|Observation levels indicate the granularity level at which the measurements are taken.   `levelName` defines the level   `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6).   `levelCode` is an ID code for this level tag. Identify this observation unit by each level of the hierarchy where it exists|
+|levelCode|string|An ID code for this level tag. Identify this observation unit by each level of the hierarchy where it exists|
+|levelName|string|A name for this level|
+|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
 |positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
-|replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
 |observations|array[object]|All observations attached to this observation unit.   Default for this field is null or omitted. Do NOT include data in this field unless the 'includeObservations' flag is explicitly set to True.|
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
@@ -174,7 +195,9 @@ Get a filtered set of Observation Units
     + trialDbId (Optional, ) ... The unique ID of a trial to filter on
     + programDbId (Optional, ) ... The unique ID of a program to filter on
     + seasonDbId (Optional, ) ... The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)
-    + observationLevel (Optional, ) ... The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnitStructure.
+    + observationUnitLevelName (Optional, ) ... The Observation Unit Level. Returns only the observation unit of the specified Level. References ObservationUnit->observationUnitPosition->observationLevel->levelName
+    + observationUnitLevelOrder (Optional, ) ... The Observation Unit Level Order Number. Returns only the observation unit of the specified Level. References ObservationUnit->observationUnitPosition->observationLevel->levelOrder
+    + observationUnitLevelCode (Optional, ) ... The Observation Unit Level Code. This parameter should be used together with `observationUnitLevelName` or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->levelCode
     + includeObservations (Optional, ) ... Use this parameter to include a list of observations embedded in each ObservationUnit object. CAUTION - Use this parameter at your own risk. It may return large, unpaginated lists of observation data. Only set this value to True if you are sure you need to.
     + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
     + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
@@ -231,23 +254,16 @@ Get a filtered set of Observation Units
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "germplasmDbId": "e9d9ed57",
                 "germplasmName": "A0000001",
                 "locationDbId": "0e208b20",
                 "locationName": "Field Station Alpha",
-                "observationLevel": "plot",
                 "observationUnitDbId": "8c67503c",
                 "observationUnitName": "Plot 1",
                 "observationUnitPUI": "http://pui.per/plot/1a9afc14",
                 "observationUnitPosition": {
-                    "blockNumber": "6",
-                    "entryNumber": "3",
                     "entryType": [
                         "CHECK",
                         "TEST",
@@ -264,13 +280,32 @@ Get a filtered set of Observation Units
                         },
                         "type": "Feature"
                     },
-                    "plantNumber": "1",
-                    "plotNumber": "01",
+                    "observationLevel": {
+                        "levelCode": "Plot_123",
+                        "levelName": "plot",
+                        "levelOrder": 2
+                    },
+                    "observationLevelRelationships": [
+                        {
+                            "levelCode": "Field_1",
+                            "levelName": "field",
+                            "levelOrder": 0
+                        },
+                        {
+                            "levelCode": "Block_12",
+                            "levelName": "block",
+                            "levelOrder": 1
+                        },
+                        {
+                            "levelCode": "Plot_123",
+                            "levelName": "plot",
+                            "levelOrder": 2
+                        }
+                    ],
                     "positionCoordinateX": "74",
                     "positionCoordinateXType": "GRID_COL",
                     "positionCoordinateY": "03",
-                    "positionCoordinateYType": "GRID_ROW",
-                    "replicate": "1"
+                    "positionCoordinateYType": "GRID_ROW"
                 },
                 "observations": [
                     {
@@ -288,10 +323,6 @@ Get a filtered set of Observation Units
                             {
                                 "referenceID": "75a50e76",
                                 "referenceSource": "Remote Data Collection Upload Tool"
-                            },
-                            {
-                                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                                "referenceSource": "BrAPI Example Server"
                             }
                         ],
                         "germplasmDbId": "2408ab11",
@@ -365,23 +396,25 @@ Add new Observation Units
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |locationDbId|string|The ID which uniquely identifies a location, associated with this study|
 |locationName|string|The human readable name of a location associated with this study|
-|observationLevel|string|The level of an observation unit. ex. "plot", "plant"  MIAPPE V1.1 DM-71 Observation unit type "Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended.  The observation unit type can not be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables). Alternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead."|
 |observationUnitName|string|A human readable name for an observation unit|
 |observationUnitPUI|string|A Permanent Unique Identifier for an observation unit  MIAPPE V1.1 (DM-72) External ID - Identifier for the observation unit in a persistent repository, comprises the name of the repository and the identifier of the observation unit therein. The EBI Biosamples repository can be used. URI are recommended when possible.|
 |observationUnitPosition|object|All positional and layout information related to this Observation Unit  MIAPPE V1.1 (DM-73) Spatial distribution - Type and value of a spatial coordinate (georeference or relative) or level of observation (plot 45, subblock 7, block 2) provided as a key-value pair of the form type:value. Levels of observation must be consistent with those listed in the Study section.|
-|blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
-|entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
 |geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
-|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
-|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
+|observationLevel|object|The exact level and level code of an observation unit.   MIAPPE V1.1 DM-71 Observation unit type "Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended.  The observation unit type can not be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables). Alternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead."|
+|levelCode|string|An ID code for this level tag. Identify this observation unit by each level of the hierarchy where it exists|
+|levelName|string|A name for this level|
+|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
+|observationLevelRelationships|array[object]|Observation levels indicate the granularity level at which the measurements are taken.   `levelName` defines the level   `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6).   `levelCode` is an ID code for this level tag. Identify this observation unit by each level of the hierarchy where it exists|
+|levelCode|string|An ID code for this level tag. Identify this observation unit by each level of the hierarchy where it exists|
+|levelName|string|A name for this level|
+|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
 |positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
-|replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
 |programDbId|string|The ID which uniquely identifies a program|
 |programName|string|The human readable name of a program|
 |seedLotDbId|string|The unique identifier for the originating Seed Lot|
@@ -407,24 +440,26 @@ Add new Observation Units
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |locationDbId|string|The ID which uniquely identifies a location, associated with this study|
 |locationName|string|The human readable name of a location associated with this study|
-|observationLevel|string|The level of an observation unit. ex. "plot", "plant"  MIAPPE V1.1 DM-71 Observation unit type "Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended.  The observation unit type can not be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables). Alternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead."|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit  MIAPPE V1.1 (DM-70) Observation unit ID - Identifier used to identify the observation unit in data files containing the values observed or measured on that unit. Must be locally unique. |
 |observationUnitName|string|A human readable name for an observation unit|
 |observationUnitPUI|string|A Permanent Unique Identifier for an observation unit  MIAPPE V1.1 (DM-72) External ID - Identifier for the observation unit in a persistent repository, comprises the name of the repository and the identifier of the observation unit therein. The EBI Biosamples repository can be used. URI are recommended when possible.|
 |observationUnitPosition|object|All positional and layout information related to this Observation Unit  MIAPPE V1.1 (DM-73) Spatial distribution - Type and value of a spatial coordinate (georeference or relative) or level of observation (plot 45, subblock 7, block 2) provided as a key-value pair of the form type:value. Levels of observation must be consistent with those listed in the Study section.|
-|blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
-|entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
 |geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
-|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
-|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
+|observationLevel|object|The exact level and level code of an observation unit.   MIAPPE V1.1 DM-71 Observation unit type "Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended.  The observation unit type can not be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables). Alternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead."|
+|levelCode|string|An ID code for this level tag. Identify this observation unit by each level of the hierarchy where it exists|
+|levelName|string|A name for this level|
+|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
+|observationLevelRelationships|array[object]|Observation levels indicate the granularity level at which the measurements are taken.   `levelName` defines the level   `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6).   `levelCode` is an ID code for this level tag. Identify this observation unit by each level of the hierarchy where it exists|
+|levelCode|string|An ID code for this level tag. Identify this observation unit by each level of the hierarchy where it exists|
+|levelName|string|A name for this level|
+|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
 |positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
-|replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
 |observations|array[object]|All observations attached to this observation unit.   Default for this field is null or omitted. Do NOT include data in this field unless the 'includeObservations' flag is explicitly set to True.|
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
@@ -482,22 +517,15 @@ Add new Observation Units
             {
                 "referenceID": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
-            },
-            {
-                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                "referenceSource": "BrAPI Example Server"
             }
         ],
         "germplasmDbId": "e9d9ed57",
         "germplasmName": "A0000001",
         "locationDbId": "0e208b20",
         "locationName": "Field Station Alpha",
-        "observationLevel": "plot",
         "observationUnitName": "Plot 1",
         "observationUnitPUI": "http://pui.per/plot/1a9afc14",
         "observationUnitPosition": {
-            "blockNumber": "6",
-            "entryNumber": "3",
             "entryType": [
                 "CHECK",
                 "TEST",
@@ -514,13 +542,32 @@ Add new Observation Units
                 },
                 "type": "Feature"
             },
-            "plantNumber": "1",
-            "plotNumber": "01",
+            "observationLevel": {
+                "levelCode": "Plot_123",
+                "levelName": "plot",
+                "levelOrder": 2
+            },
+            "observationLevelRelationships": [
+                {
+                    "levelCode": "Field_1",
+                    "levelName": "field",
+                    "levelOrder": 0
+                },
+                {
+                    "levelCode": "Block_12",
+                    "levelName": "block",
+                    "levelOrder": 1
+                },
+                {
+                    "levelCode": "Plot_123",
+                    "levelName": "plot",
+                    "levelOrder": 2
+                }
+            ],
             "positionCoordinateX": "74",
             "positionCoordinateXType": "GRID_COL",
             "positionCoordinateY": "03",
-            "positionCoordinateYType": "GRID_ROW",
-            "replicate": "1"
+            "positionCoordinateYType": "GRID_ROW"
         },
         "programDbId": "2d763a7a",
         "programName": "The Perfect Breeding Program",
@@ -587,23 +634,16 @@ Add new Observation Units
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "germplasmDbId": "e9d9ed57",
                 "germplasmName": "A0000001",
                 "locationDbId": "0e208b20",
                 "locationName": "Field Station Alpha",
-                "observationLevel": "plot",
                 "observationUnitDbId": "8c67503c",
                 "observationUnitName": "Plot 1",
                 "observationUnitPUI": "http://pui.per/plot/1a9afc14",
                 "observationUnitPosition": {
-                    "blockNumber": "6",
-                    "entryNumber": "3",
                     "entryType": [
                         "CHECK",
                         "TEST",
@@ -620,13 +660,32 @@ Add new Observation Units
                         },
                         "type": "Feature"
                     },
-                    "plantNumber": "1",
-                    "plotNumber": "01",
+                    "observationLevel": {
+                        "levelCode": "Plot_123",
+                        "levelName": "plot",
+                        "levelOrder": 2
+                    },
+                    "observationLevelRelationships": [
+                        {
+                            "levelCode": "Field_1",
+                            "levelName": "field",
+                            "levelOrder": 0
+                        },
+                        {
+                            "levelCode": "Block_12",
+                            "levelName": "block",
+                            "levelOrder": 1
+                        },
+                        {
+                            "levelCode": "Plot_123",
+                            "levelName": "plot",
+                            "levelOrder": 2
+                        }
+                    ],
                     "positionCoordinateX": "74",
                     "positionCoordinateXType": "GRID_COL",
                     "positionCoordinateY": "03",
-                    "positionCoordinateYType": "GRID_ROW",
-                    "replicate": "1"
+                    "positionCoordinateYType": "GRID_ROW"
                 },
                 "observations": [
                     {
@@ -644,10 +703,6 @@ Add new Observation Units
                             {
                                 "referenceID": "75a50e76",
                                 "referenceSource": "Remote Data Collection Upload Tool"
-                            },
-                            {
-                                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                                "referenceSource": "BrAPI Example Server"
                             }
                         ],
                         "germplasmDbId": "2408ab11",
@@ -730,24 +785,26 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |locationDbId|string|The ID which uniquely identifies a location, associated with this study|
 |locationName|string|The human readable name of a location associated with this study|
-|observationLevel|string|The level of an observation unit. ex. "plot", "plant"  MIAPPE V1.1 DM-71 Observation unit type "Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended.  The observation unit type can not be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables). Alternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead."|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit  MIAPPE V1.1 (DM-70) Observation unit ID - Identifier used to identify the observation unit in data files containing the values observed or measured on that unit. Must be locally unique. |
 |observationUnitName|string|A human readable name for an observation unit|
 |observationUnitPUI|string|A Permanent Unique Identifier for an observation unit  MIAPPE V1.1 (DM-72) External ID - Identifier for the observation unit in a persistent repository, comprises the name of the repository and the identifier of the observation unit therein. The EBI Biosamples repository can be used. URI are recommended when possible.|
 |observationUnitPosition|object|All positional and layout information related to this Observation Unit  MIAPPE V1.1 (DM-73) Spatial distribution - Type and value of a spatial coordinate (georeference or relative) or level of observation (plot 45, subblock 7, block 2) provided as a key-value pair of the form type:value. Levels of observation must be consistent with those listed in the Study section.|
-|blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
-|entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
 |geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
-|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
-|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
+|observationLevel|object|The exact level and level code of an observation unit.   MIAPPE V1.1 DM-71 Observation unit type "Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended.  The observation unit type can not be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables). Alternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead."|
+|levelCode|string|An ID code for this level tag. Identify this observation unit by each level of the hierarchy where it exists|
+|levelName|string|A name for this level|
+|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
+|observationLevelRelationships|array[object]|Observation levels indicate the granularity level at which the measurements are taken.   `levelName` defines the level   `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6).   `levelCode` is an ID code for this level tag. Identify this observation unit by each level of the hierarchy where it exists|
+|levelCode|string|An ID code for this level tag. Identify this observation unit by each level of the hierarchy where it exists|
+|levelName|string|A name for this level|
+|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
 |positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
-|replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
 |observations|array[object]|All observations attached to this observation unit.   Default for this field is null or omitted. Do NOT include data in this field unless the 'includeObservations' flag is explicitly set to True.|
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
@@ -841,23 +898,16 @@ Note - In strictly typed languages, this structure can be represented as a Map o
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "germplasmDbId": "e9d9ed57",
                 "germplasmName": "A0000001",
                 "locationDbId": "0e208b20",
                 "locationName": "Field Station Alpha",
-                "observationLevel": "plot",
                 "observationUnitDbId": "8c67503c",
                 "observationUnitName": "Plot 1",
                 "observationUnitPUI": "http://pui.per/plot/1a9afc14",
                 "observationUnitPosition": {
-                    "blockNumber": "6",
-                    "entryNumber": "3",
                     "entryType": [
                         "CHECK",
                         "TEST",
@@ -874,13 +924,32 @@ Note - In strictly typed languages, this structure can be represented as a Map o
                         },
                         "type": "Feature"
                     },
-                    "plantNumber": "1",
-                    "plotNumber": "01",
+                    "observationLevel": {
+                        "levelCode": "Plot_123",
+                        "levelName": "plot",
+                        "levelOrder": 2
+                    },
+                    "observationLevelRelationships": [
+                        {
+                            "levelCode": "Field_1",
+                            "levelName": "field",
+                            "levelOrder": 0
+                        },
+                        {
+                            "levelCode": "Block_12",
+                            "levelName": "block",
+                            "levelOrder": 1
+                        },
+                        {
+                            "levelCode": "Plot_123",
+                            "levelName": "plot",
+                            "levelOrder": 2
+                        }
+                    ],
                     "positionCoordinateX": "74",
                     "positionCoordinateXType": "GRID_COL",
                     "positionCoordinateY": "03",
-                    "positionCoordinateYType": "GRID_ROW",
-                    "replicate": "1"
+                    "positionCoordinateYType": "GRID_ROW"
                 },
                 "observations": [
                     {
@@ -898,10 +967,6 @@ Note - In strictly typed languages, this structure can be represented as a Map o
                             {
                                 "referenceID": "75a50e76",
                                 "referenceSource": "Remote Data Collection Upload Tool"
-                            },
-                            {
-                                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                                "referenceSource": "BrAPI Example Server"
                             }
                         ],
                         "germplasmDbId": "2408ab11",
@@ -1237,24 +1302,26 @@ Get the details of a specific Observation Unit
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |locationDbId|string|The ID which uniquely identifies a location, associated with this study|
 |locationName|string|The human readable name of a location associated with this study|
-|observationLevel|string|The level of an observation unit. ex. "plot", "plant"  MIAPPE V1.1 DM-71 Observation unit type "Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended.  The observation unit type can not be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables). Alternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead."|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit  MIAPPE V1.1 (DM-70) Observation unit ID - Identifier used to identify the observation unit in data files containing the values observed or measured on that unit. Must be locally unique. |
 |observationUnitName|string|A human readable name for an observation unit|
 |observationUnitPUI|string|A Permanent Unique Identifier for an observation unit  MIAPPE V1.1 (DM-72) External ID - Identifier for the observation unit in a persistent repository, comprises the name of the repository and the identifier of the observation unit therein. The EBI Biosamples repository can be used. URI are recommended when possible.|
 |observationUnitPosition|object|All positional and layout information related to this Observation Unit  MIAPPE V1.1 (DM-73) Spatial distribution - Type and value of a spatial coordinate (georeference or relative) or level of observation (plot 45, subblock 7, block 2) provided as a key-value pair of the form type:value. Levels of observation must be consistent with those listed in the Study section.|
-|blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
-|entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
 |geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
-|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
-|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
+|observationLevel|object|The exact level and level code of an observation unit.   MIAPPE V1.1 DM-71 Observation unit type "Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended.  The observation unit type can not be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables). Alternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead."|
+|levelCode|string|An ID code for this level tag. Identify this observation unit by each level of the hierarchy where it exists|
+|levelName|string|A name for this level|
+|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
+|observationLevelRelationships|array[object]|Observation levels indicate the granularity level at which the measurements are taken.   `levelName` defines the level   `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6).   `levelCode` is an ID code for this level tag. Identify this observation unit by each level of the hierarchy where it exists|
+|levelCode|string|An ID code for this level tag. Identify this observation unit by each level of the hierarchy where it exists|
+|levelName|string|A name for this level|
+|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
 |positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
-|replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
 |observations|array[object]|All observations attached to this observation unit.   Default for this field is null or omitted. Do NOT include data in this field unless the 'includeObservations' flag is explicitly set to True.|
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
@@ -1341,23 +1408,16 @@ Get the details of a specific Observation Unit
             {
                 "referenceID": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
-            },
-            {
-                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                "referenceSource": "BrAPI Example Server"
             }
         ],
         "germplasmDbId": "e9d9ed57",
         "germplasmName": "A0000001",
         "locationDbId": "0e208b20",
         "locationName": "Field Station Alpha",
-        "observationLevel": "plot",
         "observationUnitDbId": "8c67503c",
         "observationUnitName": "Plot 1",
         "observationUnitPUI": "http://pui.per/plot/1a9afc14",
         "observationUnitPosition": {
-            "blockNumber": "6",
-            "entryNumber": "3",
             "entryType": [
                 "CHECK",
                 "TEST",
@@ -1374,13 +1434,32 @@ Get the details of a specific Observation Unit
                 },
                 "type": "Feature"
             },
-            "plantNumber": "1",
-            "plotNumber": "01",
+            "observationLevel": {
+                "levelCode": "Plot_123",
+                "levelName": "plot",
+                "levelOrder": 2
+            },
+            "observationLevelRelationships": [
+                {
+                    "levelCode": "Field_1",
+                    "levelName": "field",
+                    "levelOrder": 0
+                },
+                {
+                    "levelCode": "Block_12",
+                    "levelName": "block",
+                    "levelOrder": 1
+                },
+                {
+                    "levelCode": "Plot_123",
+                    "levelName": "plot",
+                    "levelOrder": 2
+                }
+            ],
             "positionCoordinateX": "74",
             "positionCoordinateXType": "GRID_COL",
             "positionCoordinateY": "03",
-            "positionCoordinateYType": "GRID_ROW",
-            "replicate": "1"
+            "positionCoordinateYType": "GRID_ROW"
         },
         "observations": [
             {
@@ -1398,10 +1477,6 @@ Get the details of a specific Observation Unit
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "germplasmDbId": "2408ab11",
@@ -1473,23 +1548,25 @@ Update an existing Observation Units
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |locationDbId|string|The ID which uniquely identifies a location, associated with this study|
 |locationName|string|The human readable name of a location associated with this study|
-|observationLevel|string|The level of an observation unit. ex. "plot", "plant"  MIAPPE V1.1 DM-71 Observation unit type "Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended.  The observation unit type can not be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables). Alternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead."|
 |observationUnitName|string|A human readable name for an observation unit|
 |observationUnitPUI|string|A Permanent Unique Identifier for an observation unit  MIAPPE V1.1 (DM-72) External ID - Identifier for the observation unit in a persistent repository, comprises the name of the repository and the identifier of the observation unit therein. The EBI Biosamples repository can be used. URI are recommended when possible.|
 |observationUnitPosition|object|All positional and layout information related to this Observation Unit  MIAPPE V1.1 (DM-73) Spatial distribution - Type and value of a spatial coordinate (georeference or relative) or level of observation (plot 45, subblock 7, block 2) provided as a key-value pair of the form type:value. Levels of observation must be consistent with those listed in the Study section.|
-|blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
-|entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
 |geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
-|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
-|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
+|observationLevel|object|The exact level and level code of an observation unit.   MIAPPE V1.1 DM-71 Observation unit type "Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended.  The observation unit type can not be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables). Alternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead."|
+|levelCode|string|An ID code for this level tag. Identify this observation unit by each level of the hierarchy where it exists|
+|levelName|string|A name for this level|
+|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
+|observationLevelRelationships|array[object]|Observation levels indicate the granularity level at which the measurements are taken.   `levelName` defines the level   `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6).   `levelCode` is an ID code for this level tag. Identify this observation unit by each level of the hierarchy where it exists|
+|levelCode|string|An ID code for this level tag. Identify this observation unit by each level of the hierarchy where it exists|
+|levelName|string|A name for this level|
+|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
 |positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
-|replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
 |programDbId|string|The ID which uniquely identifies a program|
 |programName|string|The human readable name of a program|
 |seedLotDbId|string|The unique identifier for the originating Seed Lot|
@@ -1514,24 +1591,26 @@ Update an existing Observation Units
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |locationDbId|string|The ID which uniquely identifies a location, associated with this study|
 |locationName|string|The human readable name of a location associated with this study|
-|observationLevel|string|The level of an observation unit. ex. "plot", "plant"  MIAPPE V1.1 DM-71 Observation unit type "Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended.  The observation unit type can not be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables). Alternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead."|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit  MIAPPE V1.1 (DM-70) Observation unit ID - Identifier used to identify the observation unit in data files containing the values observed or measured on that unit. Must be locally unique. |
 |observationUnitName|string|A human readable name for an observation unit|
 |observationUnitPUI|string|A Permanent Unique Identifier for an observation unit  MIAPPE V1.1 (DM-72) External ID - Identifier for the observation unit in a persistent repository, comprises the name of the repository and the identifier of the observation unit therein. The EBI Biosamples repository can be used. URI are recommended when possible.|
 |observationUnitPosition|object|All positional and layout information related to this Observation Unit  MIAPPE V1.1 (DM-73) Spatial distribution - Type and value of a spatial coordinate (georeference or relative) or level of observation (plot 45, subblock 7, block 2) provided as a key-value pair of the form type:value. Levels of observation must be consistent with those listed in the Study section.|
-|blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
-|entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
 |geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
-|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
-|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
+|observationLevel|object|The exact level and level code of an observation unit.   MIAPPE V1.1 DM-71 Observation unit type "Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended.  The observation unit type can not be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables). Alternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead."|
+|levelCode|string|An ID code for this level tag. Identify this observation unit by each level of the hierarchy where it exists|
+|levelName|string|A name for this level|
+|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
+|observationLevelRelationships|array[object]|Observation levels indicate the granularity level at which the measurements are taken.   `levelName` defines the level   `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6).   `levelCode` is an ID code for this level tag. Identify this observation unit by each level of the hierarchy where it exists|
+|levelCode|string|An ID code for this level tag. Identify this observation unit by each level of the hierarchy where it exists|
+|levelName|string|A name for this level|
+|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
 |positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
-|replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
 |observations|array[object]|All observations attached to this observation unit.   Default for this field is null or omitted. Do NOT include data in this field unless the 'includeObservations' flag is explicitly set to True.|
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
@@ -1589,22 +1668,15 @@ Update an existing Observation Units
         {
             "referenceID": "75a50e76",
             "referenceSource": "Remote Data Collection Upload Tool"
-        },
-        {
-            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-            "referenceSource": "BrAPI Example Server"
         }
     ],
     "germplasmDbId": "e9d9ed57",
     "germplasmName": "A0000001",
     "locationDbId": "0e208b20",
     "locationName": "Field Station Alpha",
-    "observationLevel": "plot",
     "observationUnitName": "Plot 1",
     "observationUnitPUI": "http://pui.per/plot/1a9afc14",
     "observationUnitPosition": {
-        "blockNumber": "6",
-        "entryNumber": "3",
         "entryType": [
             "CHECK",
             "TEST",
@@ -1621,13 +1693,32 @@ Update an existing Observation Units
             },
             "type": "Feature"
         },
-        "plantNumber": "1",
-        "plotNumber": "01",
+        "observationLevel": {
+            "levelCode": "Plot_123",
+            "levelName": "plot",
+            "levelOrder": 2
+        },
+        "observationLevelRelationships": [
+            {
+                "levelCode": "Field_1",
+                "levelName": "field",
+                "levelOrder": 0
+            },
+            {
+                "levelCode": "Block_12",
+                "levelName": "block",
+                "levelOrder": 1
+            },
+            {
+                "levelCode": "Plot_123",
+                "levelName": "plot",
+                "levelOrder": 2
+            }
+        ],
         "positionCoordinateX": "74",
         "positionCoordinateXType": "GRID_COL",
         "positionCoordinateY": "03",
-        "positionCoordinateYType": "GRID_ROW",
-        "replicate": "1"
+        "positionCoordinateYType": "GRID_ROW"
     },
     "programDbId": "2d763a7a",
     "programName": "The Perfect Breeding Program",
@@ -1691,23 +1782,16 @@ Update an existing Observation Units
             {
                 "referenceID": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
-            },
-            {
-                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                "referenceSource": "BrAPI Example Server"
             }
         ],
         "germplasmDbId": "e9d9ed57",
         "germplasmName": "A0000001",
         "locationDbId": "0e208b20",
         "locationName": "Field Station Alpha",
-        "observationLevel": "plot",
         "observationUnitDbId": "8c67503c",
         "observationUnitName": "Plot 1",
         "observationUnitPUI": "http://pui.per/plot/1a9afc14",
         "observationUnitPosition": {
-            "blockNumber": "6",
-            "entryNumber": "3",
             "entryType": [
                 "CHECK",
                 "TEST",
@@ -1724,13 +1808,32 @@ Update an existing Observation Units
                 },
                 "type": "Feature"
             },
-            "plantNumber": "1",
-            "plotNumber": "01",
+            "observationLevel": {
+                "levelCode": "Plot_123",
+                "levelName": "plot",
+                "levelOrder": 2
+            },
+            "observationLevelRelationships": [
+                {
+                    "levelCode": "Field_1",
+                    "levelName": "field",
+                    "levelOrder": 0
+                },
+                {
+                    "levelCode": "Block_12",
+                    "levelName": "block",
+                    "levelOrder": 1
+                },
+                {
+                    "levelCode": "Plot_123",
+                    "levelName": "plot",
+                    "levelOrder": 2
+                }
+            ],
             "positionCoordinateX": "74",
             "positionCoordinateXType": "GRID_COL",
             "positionCoordinateY": "03",
-            "positionCoordinateYType": "GRID_ROW",
-            "replicate": "1"
+            "positionCoordinateYType": "GRID_ROW"
         },
         "observations": [
             {
@@ -1748,10 +1851,6 @@ Update an existing Observation Units
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "germplasmDbId": "2408ab11",
@@ -1842,7 +1941,14 @@ observationValue data type inferred from the ontology
 |includeObservations|boolean|Use this parameter to include a list of observations embedded in each ObservationUnit object.   CAUTION - Use this parameter at your own risk. It may return large, unpaginated lists of observation data. Only set this value to True if you are sure you need to.|
 |locationDbIds|array[string]|The location ids to search for|
 |locationNames|array[string]|A human readable names to search for|
-|observationLevel|string|The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnit Structure.|
+|observationLevelRelationships|array[object]|Searches for values in ObservationUnit->observationUnitPosition->observationLevelRelationships|
+|levelCode|string|An ID code for this level tag. Identify this observation unit by each level of the hierarchy where it exists|
+|levelName|string|A name for this level|
+|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
+|observationLevels|array[object]|Searches for values in ObservationUnit->observationUnitPosition->observationLevel|
+|levelCode|string|An ID code for this level tag. Identify this observation unit by each level of the hierarchy where it exists|
+|levelName|string|A name for this level|
+|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
 |observationUnitDbIds|array[string]|The unique id of an observation unit|
 |observationVariableDbIds|array[string]|The DbIds of Variables to search for|
 |observationVariableNames|array[string]|The names of Variables to search for|
@@ -1869,24 +1975,26 @@ observationValue data type inferred from the ontology
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |locationDbId|string|The ID which uniquely identifies a location, associated with this study|
 |locationName|string|The human readable name of a location associated with this study|
-|observationLevel|string|The level of an observation unit. ex. "plot", "plant"  MIAPPE V1.1 DM-71 Observation unit type "Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended.  The observation unit type can not be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables). Alternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead."|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit  MIAPPE V1.1 (DM-70) Observation unit ID - Identifier used to identify the observation unit in data files containing the values observed or measured on that unit. Must be locally unique. |
 |observationUnitName|string|A human readable name for an observation unit|
 |observationUnitPUI|string|A Permanent Unique Identifier for an observation unit  MIAPPE V1.1 (DM-72) External ID - Identifier for the observation unit in a persistent repository, comprises the name of the repository and the identifier of the observation unit therein. The EBI Biosamples repository can be used. URI are recommended when possible.|
 |observationUnitPosition|object|All positional and layout information related to this Observation Unit  MIAPPE V1.1 (DM-73) Spatial distribution - Type and value of a spatial coordinate (georeference or relative) or level of observation (plot 45, subblock 7, block 2) provided as a key-value pair of the form type:value. Levels of observation must be consistent with those listed in the Study section.|
-|blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
-|entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
 |geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
-|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
-|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
+|observationLevel|object|The exact level and level code of an observation unit.   MIAPPE V1.1 DM-71 Observation unit type "Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended.  The observation unit type can not be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables). Alternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead."|
+|levelCode|string|An ID code for this level tag. Identify this observation unit by each level of the hierarchy where it exists|
+|levelName|string|A name for this level|
+|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
+|observationLevelRelationships|array[object]|Observation levels indicate the granularity level at which the measurements are taken.   `levelName` defines the level   `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6).   `levelCode` is an ID code for this level tag. Identify this observation unit by each level of the hierarchy where it exists|
+|levelCode|string|An ID code for this level tag. Identify this observation unit by each level of the hierarchy where it exists|
+|levelName|string|A name for this level|
+|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
 |positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
-|replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
 |observations|array[object]|All observations attached to this observation unit.   Default for this field is null or omitted. Do NOT include data in this field unless the 'includeObservations' flag is explicitly set to True.|
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
@@ -1955,7 +2063,26 @@ observationValue data type inferred from the ontology
         "Location Alpha",
         "The Large Hadron Collider"
     ],
-    "observationLevel": "plant",
+    "observationLevelRelationships": [
+        {
+            "levelCode": "Field_1",
+            "levelName": "field"
+        }
+    ],
+    "observationLevels": [
+        {
+            "levelCode": "Plot_123",
+            "levelName": "plot"
+        },
+        {
+            "levelCode": "Plot_456",
+            "levelName": "plot"
+        },
+        {
+            "levelCode": "Plot_789",
+            "levelName": "plot"
+        }
+    ],
     "observationUnitDbIds": [
         "66bab7e3",
         "0e5e7f99"
@@ -2045,23 +2172,16 @@ observationValue data type inferred from the ontology
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "germplasmDbId": "e9d9ed57",
                 "germplasmName": "A0000001",
                 "locationDbId": "0e208b20",
                 "locationName": "Field Station Alpha",
-                "observationLevel": "plot",
                 "observationUnitDbId": "8c67503c",
                 "observationUnitName": "Plot 1",
                 "observationUnitPUI": "http://pui.per/plot/1a9afc14",
                 "observationUnitPosition": {
-                    "blockNumber": "6",
-                    "entryNumber": "3",
                     "entryType": [
                         "CHECK",
                         "TEST",
@@ -2078,13 +2198,32 @@ observationValue data type inferred from the ontology
                         },
                         "type": "Feature"
                     },
-                    "plantNumber": "1",
-                    "plotNumber": "01",
+                    "observationLevel": {
+                        "levelCode": "Plot_123",
+                        "levelName": "plot",
+                        "levelOrder": 2
+                    },
+                    "observationLevelRelationships": [
+                        {
+                            "levelCode": "Field_1",
+                            "levelName": "field",
+                            "levelOrder": 0
+                        },
+                        {
+                            "levelCode": "Block_12",
+                            "levelName": "block",
+                            "levelOrder": 1
+                        },
+                        {
+                            "levelCode": "Plot_123",
+                            "levelName": "plot",
+                            "levelOrder": 2
+                        }
+                    ],
                     "positionCoordinateX": "74",
                     "positionCoordinateXType": "GRID_COL",
                     "positionCoordinateY": "03",
-                    "positionCoordinateYType": "GRID_ROW",
-                    "replicate": "1"
+                    "positionCoordinateYType": "GRID_ROW"
                 },
                 "observations": [
                     {
@@ -2102,10 +2241,6 @@ observationValue data type inferred from the ontology
                             {
                                 "referenceID": "75a50e76",
                                 "referenceSource": "Remote Data Collection Upload Tool"
-                            },
-                            {
-                                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                                "referenceSource": "BrAPI Example Server"
                             }
                         ],
                         "germplasmDbId": "2408ab11",
@@ -2220,24 +2355,26 @@ See Search Services for additional implementation details.
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
 |locationDbId|string|The ID which uniquely identifies a location, associated with this study|
 |locationName|string|The human readable name of a location associated with this study|
-|observationLevel|string|The level of an observation unit. ex. "plot", "plant"  MIAPPE V1.1 DM-71 Observation unit type "Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended.  The observation unit type can not be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables). Alternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead."|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit  MIAPPE V1.1 (DM-70) Observation unit ID - Identifier used to identify the observation unit in data files containing the values observed or measured on that unit. Must be locally unique. |
 |observationUnitName|string|A human readable name for an observation unit|
 |observationUnitPUI|string|A Permanent Unique Identifier for an observation unit  MIAPPE V1.1 (DM-72) External ID - Identifier for the observation unit in a persistent repository, comprises the name of the repository and the identifier of the observation unit therein. The EBI Biosamples repository can be used. URI are recommended when possible.|
 |observationUnitPosition|object|All positional and layout information related to this Observation Unit  MIAPPE V1.1 (DM-73) Spatial distribution - Type and value of a spatial coordinate (georeference or relative) or level of observation (plot 45, subblock 7, block 2) provided as a key-value pair of the form type:value. Levels of observation must be consistent with those listed in the Study section.|
-|blockNumber|string|The block number for an observation unit. Different systems may use different block designs.|
-|entryNumber|string|The entry number for an observation unit. Different systems may use different entry systems.|
 |entryType|string|The type of entry for this observation unit. ex. "CHECK", "TEST", "FILLER"|
 |geoCoordinates|object|One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.  Copied from RFC 7946 Section 3.1.1  A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.|
 |geometry|object|A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed.|
 |type|string|The literal string "Feature"|
-|plantNumber|string|The plant number in a field. Applicable for observationLevel: "plant"|
-|plotNumber|string|The plot number in a field. Applicable for observationLevel: "plot"|
+|observationLevel|object|The exact level and level code of an observation unit.   MIAPPE V1.1 DM-71 Observation unit type "Type of observation unit in textual form, usually one of the following: study, block, sub-block, plot, sub-plot, pot, plant. Use of other observation unit types is possible but not recommended.  The observation unit type can not be used to indicate sub-plant levels. However, observations can still be made on the sub-plant level, as long as the details are indicated in the associated observed variable (see observed variables). Alternatively, it is possible to use samples for more detailed tracing of sub-plant units, attaching the observations to them instead."|
+|levelCode|string|An ID code for this level tag. Identify this observation unit by each level of the hierarchy where it exists|
+|levelName|string|A name for this level|
+|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
+|observationLevelRelationships|array[object]|Observation levels indicate the granularity level at which the measurements are taken.   `levelName` defines the level   `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6).   `levelCode` is an ID code for this level tag. Identify this observation unit by each level of the hierarchy where it exists|
+|levelCode|string|An ID code for this level tag. Identify this observation unit by each level of the hierarchy where it exists|
+|levelName|string|A name for this level|
+|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
 |positionCoordinateX|string|The X position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateXType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
-|replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
 |observations|array[object]|All observations attached to this observation unit.   Default for this field is null or omitted. Do NOT include data in this field unless the 'includeObservations' flag is explicitly set to True.|
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
@@ -2364,23 +2501,16 @@ See Search Services for additional implementation details.
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "germplasmDbId": "e9d9ed57",
                 "germplasmName": "A0000001",
                 "locationDbId": "0e208b20",
                 "locationName": "Field Station Alpha",
-                "observationLevel": "plot",
                 "observationUnitDbId": "8c67503c",
                 "observationUnitName": "Plot 1",
                 "observationUnitPUI": "http://pui.per/plot/1a9afc14",
                 "observationUnitPosition": {
-                    "blockNumber": "6",
-                    "entryNumber": "3",
                     "entryType": [
                         "CHECK",
                         "TEST",
@@ -2397,13 +2527,32 @@ See Search Services for additional implementation details.
                         },
                         "type": "Feature"
                     },
-                    "plantNumber": "1",
-                    "plotNumber": "01",
+                    "observationLevel": {
+                        "levelCode": "Plot_123",
+                        "levelName": "plot",
+                        "levelOrder": 2
+                    },
+                    "observationLevelRelationships": [
+                        {
+                            "levelCode": "Field_1",
+                            "levelName": "field",
+                            "levelOrder": 0
+                        },
+                        {
+                            "levelCode": "Block_12",
+                            "levelName": "block",
+                            "levelOrder": 1
+                        },
+                        {
+                            "levelCode": "Plot_123",
+                            "levelName": "plot",
+                            "levelOrder": 2
+                        }
+                    ],
                     "positionCoordinateX": "74",
                     "positionCoordinateXType": "GRID_COL",
                     "positionCoordinateY": "03",
-                    "positionCoordinateYType": "GRID_ROW",
-                    "replicate": "1"
+                    "positionCoordinateYType": "GRID_ROW"
                 },
                 "observations": [
                     {
@@ -2421,10 +2570,6 @@ See Search Services for additional implementation details.
                             {
                                 "referenceID": "75a50e76",
                                 "referenceSource": "Remote Data Collection Upload Tool"
-                            },
-                            {
-                                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                                "referenceSource": "BrAPI Example Server"
                             }
                         ],
                         "germplasmDbId": "2408ab11",

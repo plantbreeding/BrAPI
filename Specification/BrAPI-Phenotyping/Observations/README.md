@@ -8,7 +8,7 @@ API to manage the details of observation variable Traits. An observation variabl
 
 
 
-### Get - /observations [GET /brapi/v2/observations{?observationUnitDbId}{?germplasmDbId}{?observationVariableDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /observations [GET /brapi/v2/observations{?observationUnitDbId}{?germplasmDbId}{?observationVariableDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationUnitLevelName}{?observationUnitLevelOrder}{?observationUnitLevelCode}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Retrieve all observations where there are measurements for the given observation variables.
 
@@ -54,7 +54,9 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
     + trialDbId (Optional, ) ... The unique ID of a trial to filter on
     + programDbId (Optional, ) ... The unique ID of a program to filter on
     + seasonDbId (Optional, ) ... The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)
-    + observationLevel (Optional, ) ... The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnitStructure.
+    + observationUnitLevelName (Optional, ) ... The Observation Unit Level. Returns only the observation unit of the specified Level. References ObservationUnit->observationUnitPosition->observationLevel->levelName
+    + observationUnitLevelOrder (Optional, ) ... The Observation Unit Level Order Number. Returns only the observation unit of the specified Level. References ObservationUnit->observationUnitPosition->observationLevel->levelOrder
+    + observationUnitLevelCode (Optional, ) ... The Observation Unit Level Code. This parameter should be used together with `observationUnitLevelName` or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->levelCode
     + observationTimeStampRangeStart (Optional, ) ... Timestamp range start
     + observationTimeStampRangeEnd (Optional, ) ... Timestamp range end
     + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
@@ -113,10 +115,6 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "germplasmDbId": "2408ab11",
@@ -240,10 +238,6 @@ Add new Observation entities
             {
                 "referenceID": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
-            },
-            {
-                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                "referenceSource": "BrAPI Example Server"
             }
         ],
         "germplasmDbId": "2408ab11",
@@ -314,10 +308,6 @@ Add new Observation entities
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "germplasmDbId": "2408ab11",
@@ -467,10 +457,6 @@ Note - In strictly typed languages, this structure can be represented as a Map o
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "germplasmDbId": "2408ab11",
@@ -976,10 +962,6 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
             {
                 "referenceID": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
-            },
-            {
-                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                "referenceSource": "BrAPI Example Server"
             }
         ],
         "germplasmDbId": "2408ab11",
@@ -1105,10 +1087,6 @@ Update an existing Observation
         {
             "referenceID": "75a50e76",
             "referenceSource": "Remote Data Collection Upload Tool"
-        },
-        {
-            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-            "referenceSource": "BrAPI Example Server"
         }
     ],
     "germplasmDbId": "2408ab11",
@@ -1176,10 +1154,6 @@ Update an existing Observation
             {
                 "referenceID": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
-            },
-            {
-                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                "referenceSource": "BrAPI Example Server"
             }
         ],
         "germplasmDbId": "2408ab11",
@@ -1240,7 +1214,14 @@ Submit a search request for a set of Observations. Returns an Id which reference
 |locationDbIds|array[string]|The location ids to search for|
 |locationNames|array[string]|A human readable names to search for|
 |observationDbIds|array[string]|The unique id of an Observation|
-|observationLevel|string|The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnit Structure.|
+|observationLevelRelationships|array[object]|Searches for values in ObservationUnit->observationUnitPosition->observationLevelRelationships|
+|levelCode|string|An ID code for this level tag. Identify this observation unit by each level of the hierarchy where it exists|
+|levelName|string|A name for this level|
+|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
+|observationLevels|array[object]|Searches for values in ObservationUnit->observationUnitPosition->observationLevel|
+|levelCode|string|An ID code for this level tag. Identify this observation unit by each level of the hierarchy where it exists|
+|levelName|string|A name for this level|
+|levelOrder|integer|`levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`'s lower numbers are at the top of the hierarchy (ie field -> 1) and higher numbers are at the bottom of the hierarchy (ie plant -> 9).|
 |observationTimeStampRangeEnd|string (date-time)|Timestamp range end|
 |observationTimeStampRangeStart|string (date-time)|Timestamp range start|
 |observationUnitDbIds|array[string]|The unique id of an Observation Unit|
@@ -1322,7 +1303,26 @@ Submit a search request for a set of Observations. Returns an Id which reference
         "6a4a59d8",
         "3ff067e0"
     ],
-    "observationLevel": "plot",
+    "observationLevelRelationships": [
+        {
+            "levelCode": "Field_1",
+            "levelName": "field"
+        }
+    ],
+    "observationLevels": [
+        {
+            "levelCode": "Plot_123",
+            "levelName": "plot"
+        },
+        {
+            "levelCode": "Plot_456",
+            "levelName": "plot"
+        },
+        {
+            "levelCode": "Plot_789",
+            "levelName": "plot"
+        }
+    ],
     "observationTimeStampRangeEnd": "2018-01-01T14:47:23-0600",
     "observationTimeStampRangeStart": "2018-01-01T14:47:23-0600",
     "observationUnitDbIds": [
@@ -1419,10 +1419,6 @@ Submit a search request for a set of Observations. Returns an Id which reference
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "germplasmDbId": "2408ab11",
@@ -1633,10 +1629,6 @@ observationValue data type inferred from the ontology
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "germplasmDbId": "2408ab11",

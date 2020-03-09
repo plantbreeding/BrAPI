@@ -96,10 +96,6 @@ Get a filtered list of Seed Lot descriptions available in a system.
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "germplasmDbId": "029d705d",
@@ -210,10 +206,6 @@ Add new Seed Lot descriptions to a server
             {
                 "referenceID": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
-            },
-            {
-                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                "referenceSource": "BrAPI Example Server"
             }
         ],
         "germplasmDbId": "029d705d",
@@ -279,10 +271,6 @@ Add new Seed Lot descriptions to a server
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "germplasmDbId": "029d705d",
@@ -405,10 +393,6 @@ Get a filtered list of Seed Lot Transactions
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "fromSeedLotDbId": "11eef13b",
@@ -506,10 +490,6 @@ Add new Seed Lot Transaction to be recorded
                 {
                     "referenceID": "75a50e76",
                     "referenceSource": "Remote Data Collection Upload Tool"
-                },
-                {
-                    "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                    "referenceSource": "BrAPI Example Server"
                 }
             ],
             "fromSeedLotDbId": "11eef13b",
@@ -571,10 +551,6 @@ Add new Seed Lot Transaction to be recorded
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "fromSeedLotDbId": "11eef13b",
@@ -690,10 +666,6 @@ Get a specific Seed Lot by seedLotDbId
             {
                 "referenceID": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
-            },
-            {
-                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                "referenceSource": "BrAPI Example Server"
             }
         ],
         "germplasmDbId": "029d705d",
@@ -806,10 +778,6 @@ Update an existing Seed Lot
         {
             "referenceID": "75a50e76",
             "referenceSource": "Remote Data Collection Upload Tool"
-        },
-        {
-            "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-            "referenceSource": "BrAPI Example Server"
         }
     ],
     "germplasmDbId": "029d705d",
@@ -872,10 +840,6 @@ Update an existing Seed Lot
             {
                 "referenceID": "75a50e76",
                 "referenceSource": "Remote Data Collection Upload Tool"
-            },
-            {
-                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                "referenceSource": "BrAPI Example Server"
             }
         ],
         "germplasmDbId": "029d705d",
@@ -999,10 +963,6 @@ Get all Transactions related to a specific Seed Lot
                     {
                         "referenceID": "75a50e76",
                         "referenceSource": "Remote Data Collection Upload Tool"
-                    },
-                    {
-                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
-                        "referenceSource": "BrAPI Example Server"
                     }
                 ],
                 "fromSeedLotDbId": "11eef13b",
