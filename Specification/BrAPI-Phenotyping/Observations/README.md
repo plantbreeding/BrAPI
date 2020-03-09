@@ -527,7 +527,7 @@ By default, if the "Accept" header is not included in the request, the server sh
 <p>The table is REQUIRED to have the following columns</p>
 <ul>
   <li>observationUnitDbId - Each row is related to one Observation Unit</li>
-  <li>observationTimeStamp</li>
+  <li>observationTimeStamp - Each row is has a time stamp for when the observation was taken</li>
   <li>At least one column with an observationVariableDbId</li>
 </ul>
 <p>The table may have any or all of the following OPTIONAL columns. Included columns are decided by the server developer</p>
@@ -537,13 +537,20 @@ By default, if the "Accept" header is not included in the request, the server sh
   <li>studyName</li>
   <li>germplasmDbId</li>
   <li>germplasmName</li>
-  <li>plotNumber</li>
-  <li>plantNumber</li>
-  <li>blockNumber</li>
-  <li>entryNumber</li>
-  <li>replicate</li>
   <li>positionCoordinateX</li>
   <li>positionCoordinateY</li>
+  <li>year</li>
+</ul>
+<p>The table also may have any number of Observation Unit Hierarchy Level columns. For example:</p>
+<ul>
+  <li>field</li>
+  <li>plot</li>
+  <li>sub-plot</li>
+  <li>plant</li>
+  <li>pot</li>
+  <li>block</li>
+  <li>entry</li>
+  <li>rep</li>
 </ul>
 <p>The JSON representation provides a pair of extra arrays for defining the headers of the table. 
 The first array "headerRow" will always contain "observationUnitDbId" and any or all of the OPTIONAL column header names. 
@@ -559,9 +566,10 @@ See the example responses below</p>
 |Field|Type|Description|
 |---|---|---| 
 |data|array[array]|Matrix of observation data recorded for different observation variables across different observation units|
-|headerRow|array[string]|The header row describing observation unit fields. Append "observationVariableDbIds" for complete header row of the table.  This array should contain any or all of the following strings; year, studyDbId, studyName, locationDbId, locationName, germplasmDbId, germplasmName, observationUnitDbId, plotNumber, replicate, blockNumber, entryType, X, Y|
-|observationVariableDbIds|array[string]|The list of observation variables which have values recorded for them in the data matrix. Append to the "headerRow" for complete header row.|
-|observationVariableNames|array[string]|The list of observation variable names which have values recorded for them in the data matrix. Order should match "observationVariableDbIds".|
+|headerRow|array[string]|<p>The table is REQUIRED to have the following columns</p> <ul>   <li>observationUnitDbId - Each row is related to one Observation Unit</li>   <li>observationTimeStamp - Each row is has a time stamp for when the observation was taken</li>   <li>At least one column with an observationVariableDbId</li> </ul> <p>The table may have any or all of the following OPTIONAL columns. Included columns are decided by the server developer</p> <ul>   <li>observationUnitName</li>   <li>studyDbId</li>   <li>studyName</li>   <li>germplasmDbId</li>   <li>germplasmName</li>   <li>positionCoordinateX</li>   <li>positionCoordinateY</li>   <li>year</li> </ul> <p>The table also may have any number of Observation Unit Hierarchy Level columns. For example:</p> <ul>   <li>field</li>   <li>plot</li>   <li>sub-plot</li>   <li>plant</li>   <li>pot</li>   <li>block</li>   <li>entry</li>   <li>rep</li> </ul> <p>The JSON representation provides a pair of extra arrays for defining the headers of the table.  The first array "headerRow" will always contain "observationUnitDbId" and any or all of the OPTIONAL column header names.  The second array "observationVariables" contains the names and DbIds for the Observation Variables represented in the table.  By appending the two arrays, you can construct the complete header row of the table. </p>|
+|observationVariables|array[object]|The list of observation variables which have values recorded for them in the data matrix. Append to the 'headerRow' for complete header row of the table.|
+|observationVariableDbId|string|Variable unique identifier|
+|observationVariableName|string|Variable name (usually a short name)|
 
 
  
@@ -619,176 +627,234 @@ See the example responses below</p>
         "data": [
             [
                 "2019-09-10T18:13:27.223Z",
-                "f753a83c",
-                "Study 1",
-                "67c3cf0c",
-                "A0000001",
-                "d64dd058",
-                "Plant alpha",
-                "1",
-                "1",
-                "1",
-                "1",
-                "1",
-                "1.1",
+                "f3a8a3db",
+                "Plant Alpha",
+                "0fe3e48b",
+                "2017 Plant Study",
+                "06307ec0",
+                "A0043001",
+                "76.50106681",
+                "42.44409301",
+                "2017",
+                "Field_1",
+                "Plot_11",
+                "SubPlot_111",
+                "Plant_1111",
+                "Pot_1111",
+                "Block_11",
+                "Entry_11",
+                "Rep_11",
+                "25.3",
                 "",
                 "",
                 ""
             ],
             [
-                "2019-09-10T18:14:54.868Z",
-                "f753a83c",
-                "Study 1",
-                "67c3cf0c",
-                "A0000001",
-                "f9adff3c",
-                "Plant beta",
-                "2",
-                "2",
-                "1",
-                "1",
-                "2",
-                "1.9",
+                "2019-09-10T18:14:27.223Z",
+                "f3a8a3db",
+                "Plant Alpha",
+                "0fe3e48b",
+                "2017 Plant Study",
+                "06307ec0",
+                "A0043001",
+                "76.50106681",
+                "42.44409301",
+                "2017",
+                "Field_1",
+                "Plot_11",
+                "SubPlot_111",
+                "Plant_1111",
+                "Pot_1111",
+                "Block_11",
+                "Entry_11",
+                "Rep_11",
                 "",
-                "",
-                ""
-            ],
-            [
-                "2019-09-10T18:15:34.433Z",
-                "f753a83c",
-                "Study 1",
-                "40498c3c",
-                "A0000002",
-                "67102b8f",
-                "Plant gamma",
-                "1",
                 "3",
-                "1",
-                "2",
-                "1",
-                "1.4",
+                "",
+                ""
+            ],
+            [
+                "2019-09-10T18:15:54.868Z",
+                "05d1b011",
+                "Plant Beta",
+                "0fe3e48b",
+                "2017 Plant Study",
+                "59d435cd",
+                "A0043002",
+                "76.50106683",
+                "42.44409301",
+                "2017",
+                "Field_1",
+                "Plot_11",
+                "SubPlot_112",
+                "Plant_1122",
+                "Pot_1122",
+                "Block_11",
+                "Entry_11",
+                "Rep_12",
+                "27.9",
                 "",
                 "",
                 ""
             ],
             [
-                "2019-09-10T18:16:15.629Z",
-                "f753a83c",
-                "Study 1",
-                "40498c3c",
-                "A0000002",
-                "2869d94a",
-                "Plant epsilon",
-                "2",
-                "4",
-                "1",
-                "2",
-                "2",
-                "1.5",
+                "2019-09-10T18:16:54.868Z",
+                "05d1b011",
+                "Plant Beta",
+                "0fe3e48b",
+                "2017 Plant Study",
+                "59d435cd",
+                "A0043002",
+                "76.50106683",
+                "42.44409301",
+                "2017",
+                "Field_1",
+                "Plot_11",
+                "SubPlot_112",
+                "Plant_1122",
+                "Pot_1122",
+                "Block_11",
+                "Entry_11",
+                "Rep_12",
                 "",
-                "",
-                ""
-            ],
-            [
-                "2019-09-10T18:17:27.223Z",
-                "f753a83c",
-                "Study 1",
-                "67c3cf0c",
-                "A0000001",
-                "d64dd058",
-                "Plant alpha",
                 "1",
-                "1",
-                "1",
-                "1",
-                "1",
-                "",
-                "2.6",
                 "",
                 ""
             ],
             [
-                "2019-09-10T18:18:54.868Z",
-                "f753a83c",
-                "Study 1",
-                "67c3cf0c",
-                "A0000001",
-                "f9adff3c",
-                "Plant beta",
-                "2",
-                "2",
-                "1",
-                "1",
-                "2",
+                "2019-09-10T18:17:34.433Z",
+                "67e2d87c",
+                "Plant Gamma",
+                "0fe3e48b",
+                "2017 Plant Study",
+                "06307ec0",
+                "A0043001",
+                "76.50106681",
+                "42.44409356",
+                "2017",
+                "Field_1",
+                "Plot_12",
+                "SubPlot_123",
+                "Plant_1233",
+                "Pot_1233",
+                "Block_12",
+                "Entry_12",
+                "Rep_11",
                 "",
-                "2.3",
-                "",
-                ""
-            ],
-            [
-                "2019-09-10T18:19:34.433Z",
-                "f753a83c",
-                "Study 1",
-                "40498c3c",
-                "A0000002",
-                "67102b8f",
-                "Plant gamma",
-                "1",
                 "3",
-                "1",
-                "2",
-                "1",
                 "",
-                "3.1",
+                ""
+            ],
+            [
+                "2019-09-10T18:18:34.433Z",
+                "67e2d87c",
+                "Plant Gamma",
+                "0fe3e48b",
+                "2017 Plant Study",
+                "06307ec0",
+                "A0043001",
+                "76.50106681",
+                "42.44409356",
+                "2017",
+                "Field_1",
+                "Plot_12",
+                "SubPlot_123",
+                "Plant_1233",
+                "Pot_1233",
+                "Block_12",
+                "Entry_12",
+                "Rep_11",
+                "25.5",
+                "",
+                "",
+                ""
+            ],
+            [
+                "2019-09-10T18:19:15.629Z",
+                "d98d0d4c",
+                "Plant Epsilon",
+                "0fe3e48b",
+                "2017 Plant Study",
+                "59d435cd",
+                "A0043002",
+                "76.50106683",
+                "42.44409356",
+                "2017",
+                "Field_1",
+                "Plot_12",
+                "SubPlot_124",
+                "Plant_1244",
+                "Pot_1244",
+                "Block_12",
+                "Entry_12",
+                "Rep_12",
+                "28.9",
+                "",
                 "",
                 ""
             ],
             [
                 "2019-09-10T18:20:15.629Z",
-                "f753a83c",
-                "Study 1",
-                "40498c3c",
-                "A0000002",
-                "2869d94a",
-                "Plant epsilon",
-                "2",
-                "4",
-                "1",
-                "2",
-                "2",
+                "d98d0d4c",
+                "Plant Epsilon",
+                "0fe3e48b",
+                "2017 Plant Study",
+                "59d435cd",
+                "A0043002",
+                "76.50106683",
+                "42.44409356",
+                "2017",
+                "Field_1",
+                "Plot_12",
+                "SubPlot_124",
+                "Plant_1244",
+                "Pot_1244",
+                "Block_12",
+                "Entry_12",
+                "Rep_12",
                 "",
-                "3.2",
+                "0",
                 "",
                 ""
             ]
         ],
         "headerRow": [
             "observationTimeStamp",
+            "observationUnitDbId",
+            "observationUnitName",
             "studyDbId",
             "studyName",
             "germplasmDbId",
             "germplasmName",
-            "observationUnitDbId",
-            "observationUnitName",
-            "plotNumber",
-            "plantNumber",
-            "blockNumber",
-            "entryNumber",
-            "replicate",
             "positionCoordinateX",
-            "positionCoordinateY"
+            "positionCoordinateY",
+            "year",
+            "field",
+            "plot",
+            "sub-plot",
+            "plant",
+            "pot",
+            "block",
+            "entry",
+            "rep"
         ],
-        "observationVariableDbIds": [
-            "367aa1a9",
-            "2acb934c",
-            "85a21ce1",
-            "46f590e5"
-        ],
-        "observationVariableNames": [
-            "Plant height",
-            "Carotenoid",
-            "Root color",
-            "Virus severity"
+        "observationVariables": [
+            {
+                "observationVariableDbId": "367aa1a9",
+                "observationVariableName": "Plant height"
+            },
+            {
+                "observationVariableDbId": "2acb934c",
+                "observationVariableName": "Carotenoid"
+            },
+            {
+                "observationVariableDbId": "85a21ce1",
+                "observationVariableName": "Root color"
+            },
+            {
+                "observationVariableDbId": "46f590e5",
+                "observationVariableName": "Virus severity"
+            }
         ]
     }
 }
@@ -796,12 +862,12 @@ See the example responses below</p>
 
 + Response 200 (text/csv)
 ```
-"\"observationTimeStamp\",\"studyDbId\",\"studyName\",\"germplasmDbId\",\"germplasmName\",\"observationUnitDbId\",\"observationUnitName\",\"plotNumber\",\"plantNumber\",\"blockNumber\",\"entryNumber\",\"replicate\",\"positionCoordinateX\",\"positionCoordinateY\",\"2d599b04\",\"a0e84c5c\",\"35c5670a\",\"0144dea8\"\n\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"Plant height\",\"Carotenoid\",\"Root color\",\"Virus severity\"\n\"2019-09-10T18:13:27.223Z\", \"f753a83c\", \"Study 1\", \"67c3cf0c\", \"A0000001\", \"d64dd058\", \"Plant alpha\",   \"1\", \"1\", \"1\", \"1\", \"1\",\"76.50106681\",\"42.44409301\", \"1.1\", \"\",    \"\", \"\"\n\"2019-09-10T18:14:54.868Z\", \"f753a83c\", \"Study 1\", \"67c3cf0c\", \"A0000001\", \"f9adff3c\", \"Plant beta\",    \"2\", \"2\", \"1\", \"1\", \"2\",\"76.50106683\",\"42.44409301\", \"1.9\", \"\",    \"\", \"\"\n\"2019-09-10T18:15:34.433Z\", \"f753a83c\", \"Study 1\", \"40498c3c\", \"A0000002\", \"67102b8f\", \"Plant gamma\",   \"1\", \"3\", \"1\", \"2\", \"1\",\"76.50106685\",\"42.44409301\", \"1.4\", \"\",    \"\", \"\"\n\"2019-09-10T18:16:15.629Z\", \"f753a83c\", \"Study 1\", \"40498c3c\", \"A0000002\", \"2869d94a\", \"Plant epsilon\", \"2\", \"4\", \"1\", \"2\", \"2\",\"76.50106687\",\"42.44409301\", \"1.5\", \"\",    \"\", \"\"\n\"2019-09-10T18:17:27.223Z\", \"f753a83c\", \"Study 1\", \"67c3cf0c\", \"A0000001\", \"d64dd058\", \"Plant alpha\",   \"1\", \"1\", \"1\", \"1\", \"1\",\"76.50106681\",\"42.44409301\", \"\",    \"2.6\", \"\", \"\"\n\"2019-09-10T18:18:54.868Z\", \"f753a83c\", \"Study 1\", \"67c3cf0c\", \"A0000001\", \"f9adff3c\", \"Plant beta\",    \"2\", \"2\", \"1\", \"1\", \"2\",\"76.50106683\",\"42.44409301\", \"\",    \"2.3\", \"\", \"\"\n\"2019-09-10T18:19:34.433Z\", \"f753a83c\", \"Study 1\", \"40498c3c\", \"A0000002\", \"67102b8f\", \"Plant gamma\",   \"1\", \"3\", \"1\", \"2\", \"1\",\"76.50106685\",\"42.44409301\", \"\",    \"3.1\", \"\", \"\"\n\"2019-09-10T18:20:15.629Z\", \"f753a83c\", \"Study 1\", \"40498c3c\", \"A0000002\", \"2869d94a\", \"Plant epsilon\", \"2\", \"4\", \"1\", \"2\", \"2\",\"76.50106687\",\"42.44409301\", \"\",    \"3.2\", \"\", \"\""
+"\"observationUnitDbId\",\"observationUnitName\",\"studyDbId\",\"studyName\",\"germplasmDbId\",\"germplasmName\",\"positionCoordinateX\",\"positionCoordinateY\",\"year\",\"field\",\"plot\",\"sub-plot\",\"plant\",\"pot\",\"block\",\"entry\",\"rep\",\"f959a77d\",\"8341dee0\",\"84c9fd86\",\"93d80c95\"\n\n\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"Plant height\",\"Carotenoid\",\"Root color\",\"Virus severity\"\n      \n\"2019-09-10T18:13:27.223Z\",\"f3a8a3db\",\"Plant Alpha\",  \"0fe3e48b\",\"2017 Plant Study\",\"06307ec0\",\"A0043001\",\"76.50106681\",\"42.44409301\",\"2017\",\"Field_1\",\"Plot_11\",\"SubPlot_111\",\"Plant_1111\",\"Pot_1111\",\"Block_11\",\"Entry_11\",\"Rep_11\",\"25.3\",\"\", \"\",\"\"\n\n\"2019-09-10T18:14:27.223Z\",\"f3a8a3db\",\"Plant Alpha\",  \"0fe3e48b\",\"2017 Plant Study\",\"06307ec0\",\"A0043001\",\"76.50106681\",\"42.44409301\",\"2017\",\"Field_1\",\"Plot_11\",\"SubPlot_111\",\"Plant_1111\",\"Pot_1111\",\"Block_11\",\"Entry_11\",\"Rep_11\",\"\",    \"3\",\"\",\"\"\n\n\"2019-09-10T18:15:54.868Z\",\"05d1b011\",\"Plant Beta\",   \"0fe3e48b\",\"2017 Plant Study\",\"59d435cd\",\"A0043002\",\"76.50106683\",\"42.44409301\",\"2017\",\"Field_1\",\"Plot_11\",\"SubPlot_112\",\"Plant_1122\",\"Pot_1122\",\"Block_11\",\"Entry_11\",\"Rep_12\",\"27.9\",\"\", \"\",\"\"\n\n\"2019-09-10T18:16:54.868Z\",\"05d1b011\",\"Plant Beta\",   \"0fe3e48b\",\"2017 Plant Study\",\"59d435cd\",\"A0043002\",\"76.50106683\",\"42.44409301\",\"2017\",\"Field_1\",\"Plot_11\",\"SubPlot_112\",\"Plant_1122\",\"Pot_1122\",\"Block_11\",\"Entry_11\",\"Rep_12\",\"\",    \"1\",\"\",\"\"\n\n\"2019-09-10T18:17:34.433Z\",\"67e2d87c\",\"Plant Gamma\",  \"0fe3e48b\",\"2017 Plant Study\",\"06307ec0\",\"A0043001\",\"76.50106681\",\"42.44409356\",\"2017\",\"Field_1\",\"Plot_12\",\"SubPlot_123\",\"Plant_1233\",\"Pot_1233\",\"Block_12\",\"Entry_12\",\"Rep_11\",\"\",    \"3\",\"\",\"\"\n\n\"2019-09-10T18:18:34.433Z\",\"67e2d87c\",\"Plant Gamma\",  \"0fe3e48b\",\"2017 Plant Study\",\"06307ec0\",\"A0043001\",\"76.50106681\",\"42.44409356\",\"2017\",\"Field_1\",\"Plot_12\",\"SubPlot_123\",\"Plant_1233\",\"Pot_1233\",\"Block_12\",\"Entry_12\",\"Rep_11\",\"25.5\",\"\", \"\",\"\"\n\n\"2019-09-10T18:19:15.629Z\",\"d98d0d4c\",\"Plant Epsilon\",\"0fe3e48b\",\"2017 Plant Study\",\"59d435cd\",\"A0043002\",\"76.50106683\",\"42.44409356\",\"2017\",\"Field_1\",\"Plot_12\",\"SubPlot_124\",\"Plant_1244\",\"Pot_1244\",\"Block_12\",\"Entry_12\",\"Rep_12\",\"28.9\",\"\", \"\",\"\"\n\n\"2019-09-10T18:20:15.629Z\",\"d98d0d4c\",\"Plant Epsilon\",\"0fe3e48b\",\"2017 Plant Study\",\"59d435cd\",\"A0043002\",\"76.50106683\",\"42.44409356\",\"2017\",\"Field_1\",\"Plot_12\",\"SubPlot_124\",\"Plant_1244\",\"Pot_1244\",\"Block_12\",\"Entry_12\",\"Rep_12\",\"\",    \"0\",\"\",\"\""
 ```
 
 + Response 200 (text/tsv)
 ```
-"\"observationTimeStamp\"\t\"studyDbId\"\t\"studyName\"\t\"germplasmDbId\"\t\"germplasmName\"\t\"observationUnitDbId\"\t\"observationUnitName\"\t\"plotNumber\"\t\"plantNumber\"\t\"blockNumber\"\t\"entryNumber\"\t\"replicate\"\t\"positionCoordinateX\"\t\"positionCoordinateY\"\t\"2d599b04\"\t\"a0e84c5c\"\t\"35c5670a\"\t\"0144dea8\"\n\"\"\t\"\"\t\"\"\t\"\"\t\"\"\t\"\"\t\"\"\t\"\"\t\"\"\t\"\"\t\"\"\t\"\"\t\"\"\t\"\"\t\"Plant height\"\t\"Carotenoid\"\t\"Root color\"\t\"Virus severity\"\n\"2019-09-10T18:13:27.223Z\"\t\"f753a83c\"\t\"Study 1\"\t\"67c3cf0c\"\t\"A0000001\"\t\"d64dd058\"\t\"Plant alpha\"\t\"1\"\t\"1\"\t\"1\"\t\"1\"\t\"1\"\t\"76.50106681\"\t\"42.44409301\"\t\"1.1\"\t\"\"\t\"\"\t\"\"\n\"2019-09-10T18:14:54.868Z\"\t\"f753a83c\"\t\"Study 1\"\t\"67c3cf0c\"\t\"A0000001\"\t\"f9adff3c\"\t\"Plant beta\"\t\"2\"\t\"2\"\t\"1\"\t\"1\"\t\"2\"\t\"76.50106683\"\t\"42.44409301\"\t\"1.9\"\t\"\"\t\"\"\t\"\"\n\"2019-09-10T18:15:34.433Z\"\t\"f753a83c\"\t\"Study 1\"\t\"40498c3c\"\t\"A0000002\"\t\"67102b8f\"\t\"Plant gamma\"\t\"1\"\t\"3\"\t\"1\"\t\"2\"\t\"1\"\t\"76.50106685\"\t\"42.44409301\"\t\"1.4\"\t\"\"\t\"\"\t\"\"\n\"2019-09-10T18:16:15.629Z\"\t\"f753a83c\"\t\"Study 1\"\t\"40498c3c\"\t\"A0000002\"\t\"2869d94a\"\t\"Plant epsilon\"\t\"2\"\t\"4\"\t\"1\"\t\"2\"\t\"2\"\t\"76.50106687\"\t\"42.44409301\"\t\"1.5\"\t\"\"\t\"\"\t\"\"\n\"2019-09-10T18:17:27.223Z\"\t\"f753a83c\"\t\"Study 1\"\t\"67c3cf0c\"\t\"A0000001\"\t\"d64dd058\"\t\"Plant alpha\"\t\"1\"\t\"1\"\t\"1\"\t\"1\"\t\"1\"\t\"76.50106681\"\t\"42.44409301\"\t\"\"\t\"2.6\"\t\"\"\t\"\"\n\"2019-09-10T18:18:54.868Z\"\t\"f753a83c\"\t\"Study 1\"\t\"67c3cf0c\"\t\"A0000001\"\t\"f9adff3c\"\t\"Plant beta\"\t\"2\"\t\"2\"\t\"1\"\t\"1\"\t\"2\"\t\"76.50106683\"\t\"42.44409301\"\t\"\"\t\"2.3\"\t\"\"\t\"\"\n\"2019-09-10T18:19:34.433Z\"\t\"f753a83c\"\t\"Study 1\"\t\"40498c3c\"\t\"A0000002\"\t\"67102b8f\"\t\"Plant gamma\"\t\"1\"\t\"3\"\t\"1\"\t\"2\"\t\"1\"\t\"76.50106685\"\t\"42.44409301\"\t\"\"\t\"3.1\"\t\"\"\t\"\"\n\"2019-09-10T18:20:15.629Z\"\t\"f753a83c\"\t\"Study 1\"\t\"40498c3c\"\t\"A0000002\"\t\"2869d94a\"\t\"Plant epsilon\"\t\"2\"\t\"4\"\t\"1\"\t\"2\"\t\"2\"\t\"76.50106687\"\t\"42.44409301\"\t\"\"\t\"3.2\"\t\"\"\t\"\""
+"\"observationUnitDbId\"\\t\"observationUnitName\"\\t\"studyDbId\"\\t\"studyName\"\\t\"germplasmDbId\"\\t\"germplasmName\"\\t\"positionCoordinateX\"\\t\"positionCoordinateY\"\\t\"year\"\\t\"field\"\\t\"plot\"\\t\"sub-plot\"\\t\"plant\"\\t\"pot\"\\t\"block\"\\t\"entry\"\\t\"rep\"\\t\"f959a77d\"\\t\"8341dee0\"\\t\"84c9fd86\"\\t\"93d80c95\"\n\n\"\"\\t\"\"\\t\"\"\\t\"\"\\t\"\"\\t\"\"\\t\"\"\\t\"\"\\t\"\"\\t\"\"\\t\"\"\\t\"\"\\t\"\"\\t\"\"\\t\"\"\\t\"\"\\t\"\"\\t\"Plant height\"\\t\"Carotenoid\"\\t\"Root color\"\\t\"Virus severity\"\n      \n\"2019-09-10T18:13:27.223Z\"\\t\"f3a8a3db\"\\t\"Plant Alpha\"\\t  \"0fe3e48b\"\\t\"2017 Plant Study\"\\t\"06307ec0\"\\t\"A0043001\"\\t\"76.50106681\"\\t\"42.44409301\"\\t\"2017\"\\t\"Field_1\"\\t\"Plot_11\"\\t\"SubPlot_111\"\\t\"Plant_1111\"\\t\"Pot_1111\"\\t\"Block_11\"\\t\"Entry_11\"\\t\"Rep_11\"\\t\"25.3\"\\t\"\"\\t \"\"\\t\"\"\n\n\"2019-09-10T18:14:27.223Z\"\\t\"f3a8a3db\"\\t\"Plant Alpha\"\\t  \"0fe3e48b\"\\t\"2017 Plant Study\"\\t\"06307ec0\"\\t\"A0043001\"\\t\"76.50106681\"\\t\"42.44409301\"\\t\"2017\"\\t\"Field_1\"\\t\"Plot_11\"\\t\"SubPlot_111\"\\t\"Plant_1111\"\\t\"Pot_1111\"\\t\"Block_11\"\\t\"Entry_11\"\\t\"Rep_11\"\\t\"\"\\t    \"3\"\\t\"\"\\t\"\"\n\n\"2019-09-10T18:15:54.868Z\"\\t\"05d1b011\"\\t\"Plant Beta\"\\t   \"0fe3e48b\"\\t\"2017 Plant Study\"\\t\"59d435cd\"\\t\"A0043002\"\\t\"76.50106683\"\\t\"42.44409301\"\\t\"2017\"\\t\"Field_1\"\\t\"Plot_11\"\\t\"SubPlot_112\"\\t\"Plant_1122\"\\t\"Pot_1122\"\\t\"Block_11\"\\t\"Entry_11\"\\t\"Rep_12\"\\t\"27.9\"\\t\"\"\\t \"\"\\t\"\"\n\n\"2019-09-10T18:16:54.868Z\"\\t\"05d1b011\"\\t\"Plant Beta\"\\t   \"0fe3e48b\"\\t\"2017 Plant Study\"\\t\"59d435cd\"\\t\"A0043002\"\\t\"76.50106683\"\\t\"42.44409301\"\\t\"2017\"\\t\"Field_1\"\\t\"Plot_11\"\\t\"SubPlot_112\"\\t\"Plant_1122\"\\t\"Pot_1122\"\\t\"Block_11\"\\t\"Entry_11\"\\t\"Rep_12\"\\t\"\"\\t    \"1\"\\t\"\"\\t\"\"\n\n\"2019-09-10T18:17:34.433Z\"\\t\"67e2d87c\"\\t\"Plant Gamma\"\\t  \"0fe3e48b\"\\t\"2017 Plant Study\"\\t\"06307ec0\"\\t\"A0043001\"\\t\"76.50106681\"\\t\"42.44409356\"\\t\"2017\"\\t\"Field_1\"\\t\"Plot_12\"\\t\"SubPlot_123\"\\t\"Plant_1233\"\\t\"Pot_1233\"\\t\"Block_12\"\\t\"Entry_12\"\\t\"Rep_11\"\\t\"\"\\t    \"3\"\\t\"\"\\t\"\"\n\n\"2019-09-10T18:18:34.433Z\"\\t\"67e2d87c\"\\t\"Plant Gamma\"\\t  \"0fe3e48b\"\\t\"2017 Plant Study\"\\t\"06307ec0\"\\t\"A0043001\"\\t\"76.50106681\"\\t\"42.44409356\"\\t\"2017\"\\t\"Field_1\"\\t\"Plot_12\"\\t\"SubPlot_123\"\\t\"Plant_1233\"\\t\"Pot_1233\"\\t\"Block_12\"\\t\"Entry_12\"\\t\"Rep_11\"\\t\"25.5\"\\t\"\"\\t \"\"\\t\"\"\n\n\"2019-09-10T18:19:15.629Z\"\\t\"d98d0d4c\"\\t\"Plant Epsilon\"\\t\"0fe3e48b\"\\t\"2017 Plant Study\"\\t\"59d435cd\"\\t\"A0043002\"\\t\"76.50106683\"\\t\"42.44409356\"\\t\"2017\"\\t\"Field_1\"\\t\"Plot_12\"\\t\"SubPlot_124\"\\t\"Plant_1244\"\\t\"Pot_1244\"\\t\"Block_12\"\\t\"Entry_12\"\\t\"Rep_12\"\\t\"28.9\"\\t\"\"\\t \"\"\\t\"\"\n\n\"2019-09-10T18:20:15.629Z\"\\t\"d98d0d4c\"\\t\"Plant Epsilon\"\\t\"0fe3e48b\"\\t\"2017 Plant Study\"\\t\"59d435cd\"\\t\"A0043002\"\\t\"76.50106683\"\\t\"42.44409356\"\\t\"2017\"\\t\"Field_1\"\\t\"Plot_12\"\\t\"SubPlot_124\"\\t\"Plant_1244\"\\t\"Pot_1244\"\\t\"Block_12\"\\t\"Entry_12\"\\t\"Rep_12\"\\t\"\"\\t    \"0\"\\t\"\"\\t\"\""
 ```
 
 + Response 400 (application/json)

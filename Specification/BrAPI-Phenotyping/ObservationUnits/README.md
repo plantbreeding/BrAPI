@@ -95,7 +95,7 @@ The values are used to supply the `observationLevel` parameter in the observatio
 
 
 
-### Get - /observationunits [GET /brapi/v2/observationunits{?germplasmDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /observationunits [GET /brapi/v2/observationunits{?germplasmDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationLevel}{?includeObservations}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered set of Observation Units
 
@@ -132,6 +132,27 @@ Get a filtered set of Observation Units
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
+|observations|array[object]|All observations attached to this observation unit.   Default for this field is null or omitted. Do NOT include data in this field unless the 'includeObservations' flag is explicitly set to True.|
+|additionalInfo|object|Additional arbitrary info|
+|collector|string|The name or identifier of the entity which collected the observation|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
+|germplasmDbId|string|The ID which uniquely identifies a germplasm|
+|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
+|observationDbId|string|The ID which uniquely identifies an observation|
+|observationTimeStamp|string (date-time)|The date and time when this observation was made|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|observationUnitName|string|A human readable name for an observation unit|
+|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
+|observationVariableName|string|A human readable name for an observation variable|
+|season|object||
+|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|year|integer|The 4 digit year of the season.|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
+|value|string|The value of the data collected as an observation|
 |programDbId|string|The ID which uniquely identifies a program|
 |programName|string|The human readable name of a program|
 |seedLotDbId|string|The unique identifier for the originating Seed Lot|
@@ -154,6 +175,7 @@ Get a filtered set of Observation Units
     + programDbId (Optional, ) ... The unique ID of a program to filter on
     + seasonDbId (Optional, ) ... The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)
     + observationLevel (Optional, ) ... The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnitStructure.
+    + includeObservations (Optional, ) ... Use this parameter to include a list of observations embedded in each ObservationUnit object. CAUTION - Use this parameter at your own risk. It may return large, unpaginated lists of observation data. Only set this value to True if you are sure you need to.
     + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
     + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
@@ -250,6 +272,46 @@ Get a filtered set of Observation Units
                     "positionCoordinateYType": "GRID_ROW",
                     "replicate": "1"
                 },
+                "observations": [
+                    {
+                        "additionalInfo": {},
+                        "collector": "917d3ae0",
+                        "externalReferences": [
+                            {
+                                "referenceID": "doi:10.155454/12349537E12",
+                                "referenceSource": "DOI"
+                            },
+                            {
+                                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                                "referenceSource": "OBO Library"
+                            },
+                            {
+                                "referenceID": "75a50e76",
+                                "referenceSource": "Remote Data Collection Upload Tool"
+                            },
+                            {
+                                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                                "referenceSource": "BrAPI Example Server"
+                            }
+                        ],
+                        "germplasmDbId": "2408ab11",
+                        "germplasmName": "A0000003",
+                        "observationDbId": "ef24b615",
+                        "observationTimeStamp": "2018-01-01T14:47:23-0600",
+                        "observationUnitDbId": "598111d4",
+                        "observationUnitName": "Plot 1",
+                        "observationVariableDbId": "c403d107",
+                        "observationVariableName": "Plant Height in meters",
+                        "season": {
+                            "season": "Spring",
+                            "seasonDbId": "Spring_2018",
+                            "year": 2018
+                        },
+                        "studyDbId": "ef2829db",
+                        "uploadedBy": "a2f7f60b",
+                        "value": "2.3"
+                    }
+                ],
                 "programDbId": "2d763a7a",
                 "programName": "The Perfect Breeding Program",
                 "seedLotDbId": "261ecb09",
@@ -363,6 +425,27 @@ Add new Observation Units
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
+|observations|array[object]|All observations attached to this observation unit.   Default for this field is null or omitted. Do NOT include data in this field unless the 'includeObservations' flag is explicitly set to True.|
+|additionalInfo|object|Additional arbitrary info|
+|collector|string|The name or identifier of the entity which collected the observation|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
+|germplasmDbId|string|The ID which uniquely identifies a germplasm|
+|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
+|observationDbId|string|The ID which uniquely identifies an observation|
+|observationTimeStamp|string (date-time)|The date and time when this observation was made|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|observationUnitName|string|A human readable name for an observation unit|
+|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
+|observationVariableName|string|A human readable name for an observation variable|
+|season|object||
+|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|year|integer|The 4 digit year of the season.|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
+|value|string|The value of the data collected as an observation|
 |programDbId|string|The ID which uniquely identifies a program|
 |programName|string|The human readable name of a program|
 |seedLotDbId|string|The unique identifier for the originating Seed Lot|
@@ -545,6 +628,46 @@ Add new Observation Units
                     "positionCoordinateYType": "GRID_ROW",
                     "replicate": "1"
                 },
+                "observations": [
+                    {
+                        "additionalInfo": {},
+                        "collector": "917d3ae0",
+                        "externalReferences": [
+                            {
+                                "referenceID": "doi:10.155454/12349537E12",
+                                "referenceSource": "DOI"
+                            },
+                            {
+                                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                                "referenceSource": "OBO Library"
+                            },
+                            {
+                                "referenceID": "75a50e76",
+                                "referenceSource": "Remote Data Collection Upload Tool"
+                            },
+                            {
+                                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                                "referenceSource": "BrAPI Example Server"
+                            }
+                        ],
+                        "germplasmDbId": "2408ab11",
+                        "germplasmName": "A0000003",
+                        "observationDbId": "ef24b615",
+                        "observationTimeStamp": "2018-01-01T14:47:23-0600",
+                        "observationUnitDbId": "598111d4",
+                        "observationUnitName": "Plot 1",
+                        "observationVariableDbId": "c403d107",
+                        "observationVariableName": "Plant Height in meters",
+                        "season": {
+                            "season": "Spring",
+                            "seasonDbId": "Spring_2018",
+                            "year": 2018
+                        },
+                        "studyDbId": "ef2829db",
+                        "uploadedBy": "a2f7f60b",
+                        "value": "2.3"
+                    }
+                ],
                 "programDbId": "2d763a7a",
                 "programName": "The Perfect Breeding Program",
                 "seedLotDbId": "261ecb09",
@@ -625,6 +748,27 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
+|observations|array[object]|All observations attached to this observation unit.   Default for this field is null or omitted. Do NOT include data in this field unless the 'includeObservations' flag is explicitly set to True.|
+|additionalInfo|object|Additional arbitrary info|
+|collector|string|The name or identifier of the entity which collected the observation|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
+|germplasmDbId|string|The ID which uniquely identifies a germplasm|
+|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
+|observationDbId|string|The ID which uniquely identifies an observation|
+|observationTimeStamp|string (date-time)|The date and time when this observation was made|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|observationUnitName|string|A human readable name for an observation unit|
+|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
+|observationVariableName|string|A human readable name for an observation variable|
+|season|object||
+|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|year|integer|The 4 digit year of the season.|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
+|value|string|The value of the data collected as an observation|
 |programDbId|string|The ID which uniquely identifies a program|
 |programName|string|The human readable name of a program|
 |seedLotDbId|string|The unique identifier for the originating Seed Lot|
@@ -738,6 +882,46 @@ Note - In strictly typed languages, this structure can be represented as a Map o
                     "positionCoordinateYType": "GRID_ROW",
                     "replicate": "1"
                 },
+                "observations": [
+                    {
+                        "additionalInfo": {},
+                        "collector": "917d3ae0",
+                        "externalReferences": [
+                            {
+                                "referenceID": "doi:10.155454/12349537E12",
+                                "referenceSource": "DOI"
+                            },
+                            {
+                                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                                "referenceSource": "OBO Library"
+                            },
+                            {
+                                "referenceID": "75a50e76",
+                                "referenceSource": "Remote Data Collection Upload Tool"
+                            },
+                            {
+                                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                                "referenceSource": "BrAPI Example Server"
+                            }
+                        ],
+                        "germplasmDbId": "2408ab11",
+                        "germplasmName": "A0000003",
+                        "observationDbId": "ef24b615",
+                        "observationTimeStamp": "2018-01-01T14:47:23-0600",
+                        "observationUnitDbId": "598111d4",
+                        "observationUnitName": "Plot 1",
+                        "observationVariableDbId": "c403d107",
+                        "observationVariableName": "Plant Height in meters",
+                        "season": {
+                            "season": "Spring",
+                            "seasonDbId": "Spring_2018",
+                            "year": 2018
+                        },
+                        "studyDbId": "ef2829db",
+                        "uploadedBy": "a2f7f60b",
+                        "value": "2.3"
+                    }
+                ],
                 "programDbId": "2d763a7a",
                 "programName": "The Perfect Breeding Program",
                 "seedLotDbId": "261ecb09",
@@ -792,14 +976,20 @@ By default, if the "Accept" header is not included in the request, the server sh
   <li>studyName</li>
   <li>germplasmDbId</li>
   <li>germplasmName</li>
-  <li>plotNumber</li>
-  <li>plantNumber</li>
-  <li>blockNumber</li>
-  <li>entryNumber</li>
-  <li>replicate</li>
   <li>positionCoordinateX</li>
   <li>positionCoordinateY</li>
   <li>year</li>
+</ul>
+<p>The table also may have any number of Observation Unit Hierarchy Level columns. For example:</p>
+<ul>
+  <li>field</li>
+  <li>plot</li>
+  <li>sub-plot</li>
+  <li>plant</li>
+  <li>pot</li>
+  <li>block</li>
+  <li>entry</li>
+  <li>rep</li>
 </ul>
 <p>The JSON representation provides a pair of extra arrays for defining the headers of the table. 
 The first array "headerRow" will always contain "observationUnitDbId" and any or all of the OPTIONAL column header names. 
@@ -815,7 +1005,7 @@ See the example responses below</p>
 |Field|Type|Description|
 |---|---|---| 
 |data|array[array]|Matrix of observation data recorded for different observation variables across different observation units|
-|headerRow|array[string]|<p>The table is REQUIRED to have the following columns</p> <ul>   <li>observationUnitDbId - Each row is related to one Observation Unit</li>   <li>At least one column with an observationVariableDbId</li> </ul> <p>The table may have any or all of the following OPTIONAL columns. Included columns are decided by the server developer</p> <ul>   <li>observationUnitName</li>   <li>studyDbId</li>   <li>studyName</li>   <li>germplasmDbId</li>   <li>germplasmName</li>   <li>plotNumber</li>   <li>plantNumber</li>   <li>blockNumber</li>   <li>entryNumber</li>   <li>replicate</li>   <li>positionCoordinateX</li>   <li>positionCoordinateY</li>   <li>year</li> </ul> <p>The JSON representation provides a pair of extra arrays for defining the headers of the table.  The first array "headerRow" will always contain "observationUnitDbId" and any or all of the OPTIONAL column header names.  The second array "observationVariables" contains the names and DbIds for the Observation Variables represented in the table.  By appending the two arrays, you can construct the complete header row of the table. </p>|
+|headerRow|array[string]|<p>The table is REQUIRED to have the following columns</p> <ul>   <li>observationUnitDbId - Each row is related to one Observation Unit</li>   <li>At least one column with an observationVariableDbId</li> </ul> <p>The table may have any or all of the following OPTIONAL columns. Included columns are decided by the server developer</p> <ul>   <li>observationUnitName</li>   <li>studyDbId</li>   <li>studyName</li>   <li>germplasmDbId</li>   <li>germplasmName</li>   <li>positionCoordinateX</li>   <li>positionCoordinateY</li>   <li>year</li> </ul> <p>The table also may have any number of Observation Unit Hierarchy Level columns. For example:</p> <ul>   <li>field</li>   <li>plot</li>   <li>sub-plot</li>   <li>plant</li>   <li>pot</li>   <li>block</li>   <li>entry</li>   <li>rep</li> </ul> <p>The JSON representation provides a pair of extra arrays for defining the headers of the table.  The first array "headerRow" will always contain "observationUnitDbId" and any or all of the OPTIONAL column header names.  The second array "observationVariables" contains the names and DbIds for the Observation Variables represented in the table.  By appending the two arrays, you can construct the complete header row of the table. </p>|
 |observationVariables|array[object]|The list of observation variables which have values recorded for them in the data matrix. Append to the 'headerRow' for complete header row of the table.|
 |observationVariableDbId|string|Variable unique identifier|
 |observationVariableName|string|Variable name (usually a short name)|
@@ -878,14 +1068,17 @@ See the example responses below</p>
                 "2017 Plant Study",
                 "06307ec0",
                 "A0043001",
-                "1",
-                "1",
-                "1",
-                "1",
-                "1",
                 "76.50106681",
                 "42.44409301",
                 "2017",
+                "Field_1",
+                "Plot_11",
+                "SubPlot_111",
+                "Plant_1111",
+                "Pot_1111",
+                "Block_11",
+                "Entry_11",
+                "Rep_11",
                 "25.3",
                 "3",
                 "50.75"
@@ -897,14 +1090,17 @@ See the example responses below</p>
                 "2017 Plant Study",
                 "59d435cd",
                 "A0043002",
-                "1",
-                "2",
-                "1",
-                "1",
-                "2",
                 "76.50106683",
                 "42.44409301",
                 "2017",
+                "Field_1",
+                "Plot_11",
+                "SubPlot_112",
+                "Plant_1122",
+                "Pot_1122",
+                "Block_11",
+                "Entry_11",
+                "Rep_12",
                 "27.9",
                 "1",
                 "45.345"
@@ -916,14 +1112,17 @@ See the example responses below</p>
                 "2017 Plant Study",
                 "06307ec0",
                 "A0043001",
-                "2",
-                "3",
-                "2",
-                "1",
-                "1",
                 "76.50106681",
                 "42.44409356",
                 "2017",
+                "Field_1",
+                "Plot_12",
+                "SubPlot_123",
+                "Plant_1233",
+                "Pot_1233",
+                "Block_12",
+                "Entry_12",
+                "Rep_11",
                 "25.5",
                 "3",
                 "50.76"
@@ -935,14 +1134,17 @@ See the example responses below</p>
                 "2017 Plant Study",
                 "59d435cd",
                 "A0043002",
-                "2",
-                "4",
-                "2",
-                "1",
-                "2",
                 "76.50106683",
                 "42.44409356",
                 "2017",
+                "Field_1",
+                "Plot_12",
+                "SubPlot_124",
+                "Plant_1244",
+                "Pot_1244",
+                "Block_12",
+                "Entry_12",
+                "Rep_12",
                 "28.9",
                 "0",
                 "46.5"
@@ -955,14 +1157,17 @@ See the example responses below</p>
             "studyName",
             "germplasmDbId",
             "germplasmName",
-            "plotNumber",
-            "plantNumber",
-            "blockNumber",
-            "entryNumber",
-            "replicate",
             "positionCoordinateX",
             "positionCoordinateY",
-            "year"
+            "year",
+            "field",
+            "plot",
+            "sub-plot",
+            "plant",
+            "pot",
+            "block",
+            "entry",
+            "rep"
         ],
         "observationVariables": [
             {
@@ -988,12 +1193,12 @@ See the example responses below</p>
 
 + Response 200 (text/csv)
 ```
-"\"observationUnitDbId\",\"observationUnitName\",\"studyDbId\",\"studyName\",\"germplasmDbId\",\"germplasmName\",\"plotNumber\",\"plantNumber\",\"blockNumber\",\"entryNumber\",\"replicate\",\"positionCoordinateX\",\"positionCoordinateY\",\"year\",\"f959a77d\",\"8341dee0\",\"84c9fd86\"\n\n\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"Plant Height\",\"Virus severity\",\"Carotenoid\"\n\n\"f3a8a3db\",\"Plant Alpha\",  \"0fe3e48b\",\"2017 Plant Study\",\"06307ec0\",\"A0043001\",\"1\",\"1\",\"1\",\"1\",\"1\",\"76.50106681\",\"42.44409301\",\"2017\",\"25.3\",\"3\",\"50.75\"\n\n\"05d1b011\",\"Plant Beta\",   \"0fe3e48b\",\"2017 Plant Study\",\"59d435cd\",\"A0043002\",\"1\",\"2\",\"1\",\"1\",\"2\",\"76.50106683\",\"42.44409301\",\"2017\",\"27.9\",\"1\",\"45.345\"\n\n\"67e2d87c\",\"Plant Gamma\",  \"0fe3e48b\",\"2017 Plant Study\",\"06307ec0\",\"A0043001\",\"2\",\"3\",\"2\",\"1\",\"1\",\"76.50106681\",\"42.44409356\",\"2017\",\"25.5\",\"3\",\"50.76\"\n\n\"d98d0d4c\",\"Plant Epsilon\",\"0fe3e48b\",\"2017 Plant Study\",\"59d435cd\",\"A0043002\",\"2\",\"4\",\"2\",\"1\",\"2\",\"76.50106683\",\"42.44409356\",\"2017\",\"28.9\",\"0\",\"46.5\""
+"\"observationUnitDbId\",\"observationUnitName\",\"studyDbId\",\"studyName\",\"germplasmDbId\",\"germplasmName\",\"positionCoordinateX\",\"positionCoordinateY\",\"year\",\"field\",\"plot\",\"sub-plot\",\"plant\",\"pot\",\"block\",\"entry\",\"rep\",\"f959a77d\",\"8341dee0\",\"84c9fd86\"\n\n\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"Plant Height\",\"Virus severity\",\"Carotenoid\"\n\n\"f3a8a3db\",\"Plant Alpha\",  \"0fe3e48b\",\"2017 Plant Study\",\"06307ec0\",\"A0043001\",\"76.50106681\",\"42.44409301\",\"2017\",\"Field_1\",\"Plot_11\",\"SubPlot_111\",\"Plant_1111\",\"Pot_1111\",\"Block_11\",\"Entry_11\",\"Rep_11\",\"25.3\",\"3\",\"50.75\"\n\n\"05d1b011\",\"Plant Beta\",   \"0fe3e48b\",\"2017 Plant Study\",\"59d435cd\",\"A0043002\",\"76.50106683\",\"42.44409301\",\"2017\",\"Field_1\",\"Plot_11\",\"SubPlot_112\",\"Plant_1122\",\"Pot_1122\",\"Block_11\",\"Entry_11\",\"Rep_12\",\"27.9\",\"1\",\"45.345\"\n\n\"67e2d87c\",\"Plant Gamma\",  \"0fe3e48b\",\"2017 Plant Study\",\"06307ec0\",\"A0043001\",\"76.50106681\",\"42.44409356\",\"2017\",\"Field_1\",\"Plot_12\",\"SubPlot_123\",\"Plant_1233\",\"Pot_1233\",\"Block_12\",\"Entry_12\",\"Rep_11\",\"25.5\",\"3\",\"50.76\"\n\n\"d98d0d4c\",\"Plant Epsilon\",\"0fe3e48b\",\"2017 Plant Study\",\"59d435cd\",\"A0043002\",\"76.50106683\",\"42.44409356\",\"2017\",\"Field_1\",\"Plot_12\",\"SubPlot_124\",\"Plant_1244\",\"Pot_1244\",\"Block_12\",\"Entry_12\",\"Rep_12\",\"28.9\",\"0\",\"46.5\""
 ```
 
 + Response 200 (text/tsv)
 ```
-"\"observationUnitDbId\"\t\"observationUnitName\"\t\"studyDbId\"\t\"studyName\"\t\"germplasmDbId\"\t\"germplasmName\"\t\"plotNumber\"\t\"plantNumber\"\t\"blockNumber\"\t\"entryNumber\"\t\"replicate\"\t\"positionCoordinateX\"\t\"positionCoordinateY\"\t\"year\"\t\"f959a77d\"\t\"8341dee0\"\t\"84c9fd86\"\n\n\"\"\t\"\"\t\"\"\t\"\"\t\"\"\t\"\"\t\"\"\t\"\"\t\"\"\t\"\"\t\"\"\t\"\"\t\"\"\t\"\"\t\"Plant Height\"\t\"Virus severity\"\t\"Carotenoid\"\n\n\"f3a8a3db\"\t\"Plant Alpha\"\t\"0fe3e48b\"\t\"2017 Plant Study\"\t\"06307ec0\"\t\"A0043001\"\t\"1\"\t\"1\"\t\"1\"\t\"1\"\t\"1\"\t\"76.50106681\"\t\"42.44409301\"\t\"2017\"\t\"25.3\"\t\"3\"\t\"50.75\"\n\n\"05d1b011\"\t\"Plant Beta\"\t\"0fe3e48b\"\t\"2017 Plant Study\"\t\"59d435cd\"\t\"A0043002\"\t\"1\"\t\"2\"\t\"1\"\t\"1\"\t\"2\"\t\"76.50106683\"\t\"42.44409301\"\t\"2017\"\t\"27.9\"\t\"1\"\t\"45.345\"\n\n\"67e2d87c\"\t\"Plant Gamma\"\t\"0fe3e48b\"\t\"2017 Plant Study\"\t\"06307ec0\"\t\"A0043001\"\t\"2\"\t\"3\"\t\"2\"\t\"1\"\t\"1\"\t\"76.50106681\"\t\"42.44409356\"\t\"2017\"\t\"25.5\"\t\"3\"\t\"50.76\"\n\n\"d98d0d4c\"\t\"Plant Epsilon\"\t\"0fe3e48b\"\t\"2017 Plant Study\"\t\"59d435cd\"\t\"A0043002\"\t\"2\"\t\"4\"\t\"2\"\t\"1\"\t\"2\"\t\"76.50106683\"\t\"42.44409356\"\t\"2017\"\t\"28.9\"\t\"0\"\t\"46.5\""
+"\"observationUnitDbId\"\\t\"observationUnitName\"\\t\"studyDbId\"\\t\"studyName\"\\t\"germplasmDbId\"\\t\"germplasmName\"\\t\"positionCoordinateX\"\\t\"positionCoordinateY\"\\t\"year\"\\t\"field\"\\t\"plot\"\\t\"sub-plot\"\\t\"plant\"\\t\"pot\"\\t\"block\"\\t\"entry\"\\t\"rep\"\\t\"f959a77d\"\\t\"8341dee0\"\\t\"84c9fd86\"\n\n\"\"\\t\"\"\\t\"\"\\t\"\"\\t\"\"\\t\"\"\\t\"\"\\t\"\"\\t\"\"\\t\"\"\\t\"\"\\t\"\"\\t\"\"\\t\"\"\\t\"\"\\t\"\"\\t\"\"\\t\"Plant Height\"\\t\"Virus severity\"\\t\"Carotenoid\"\n\n\"f3a8a3db\"\\t\"Plant Alpha\"\\t  \"0fe3e48b\"\\t\"2017 Plant Study\"\\t\"06307ec0\"\\t\"A0043001\"\\t\"76.50106681\"\\t\"42.44409301\"\\t\"2017\"\\t\"Field_1\"\\t\"Plot_11\"\\t\"SubPlot_111\"\\t\"Plant_1111\"\\t\"Pot_1111\"\\t\"Block_11\"\\t\"Entry_11\"\\t\"Rep_11\"\\t\"25.3\"\\t\"3\"\\t\"50.75\"\n\n\"05d1b011\"\\t\"Plant Beta\"\\t   \"0fe3e48b\"\\t\"2017 Plant Study\"\\t\"59d435cd\"\\t\"A0043002\"\\t\"76.50106683\"\\t\"42.44409301\"\\t\"2017\"\\t\"Field_1\"\\t\"Plot_11\"\\t\"SubPlot_112\"\\t\"Plant_1122\"\\t\"Pot_1122\"\\t\"Block_11\"\\t\"Entry_11\"\\t\"Rep_12\"\\t\"27.9\"\\t\"1\"\\t\"45.345\"\n\n\"67e2d87c\"\\t\"Plant Gamma\"\\t  \"0fe3e48b\"\\t\"2017 Plant Study\"\\t\"06307ec0\"\\t\"A0043001\"\\t\"76.50106681\"\\t\"42.44409356\"\\t\"2017\"\\t\"Field_1\"\\t\"Plot_12\"\\t\"SubPlot_123\"\\t\"Plant_1233\"\\t\"Pot_1233\"\\t\"Block_12\"\\t\"Entry_12\"\\t\"Rep_11\"\\t\"25.5\"\\t\"3\"\\t\"50.76\"\n\n\"d98d0d4c\"\\t\"Plant Epsilon\"\\t\"0fe3e48b\"\\t\"2017 Plant Study\"\\t\"59d435cd\"\\t\"A0043002\"\\t\"76.50106683\"\\t\"42.44409356\"\\t\"2017\"\\t\"Field_1\"\\t\"Plot_12\"\\t\"SubPlot_124\"\\t\"Plant_1244\"\\t\"Pot_1244\"\\t\"Block_12\"\\t\"Entry_12\"\\t\"Rep_12\"\\t\"28.9\"\\t\"0\"\\t\"46.5\""
 ```
 
 + Response 400 (application/json)
@@ -1050,6 +1255,27 @@ Get the details of a specific Observation Unit
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
+|observations|array[object]|All observations attached to this observation unit.   Default for this field is null or omitted. Do NOT include data in this field unless the 'includeObservations' flag is explicitly set to True.|
+|additionalInfo|object|Additional arbitrary info|
+|collector|string|The name or identifier of the entity which collected the observation|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
+|germplasmDbId|string|The ID which uniquely identifies a germplasm|
+|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
+|observationDbId|string|The ID which uniquely identifies an observation|
+|observationTimeStamp|string (date-time)|The date and time when this observation was made|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|observationUnitName|string|A human readable name for an observation unit|
+|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
+|observationVariableName|string|A human readable name for an observation variable|
+|season|object||
+|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|year|integer|The 4 digit year of the season.|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
+|value|string|The value of the data collected as an observation|
 |programDbId|string|The ID which uniquely identifies a program|
 |programName|string|The human readable name of a program|
 |seedLotDbId|string|The unique identifier for the originating Seed Lot|
@@ -1156,6 +1382,46 @@ Get the details of a specific Observation Unit
             "positionCoordinateYType": "GRID_ROW",
             "replicate": "1"
         },
+        "observations": [
+            {
+                "additionalInfo": {},
+                "collector": "917d3ae0",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
+                "germplasmDbId": "2408ab11",
+                "germplasmName": "A0000003",
+                "observationDbId": "ef24b615",
+                "observationTimeStamp": "2018-01-01T14:47:23-0600",
+                "observationUnitDbId": "598111d4",
+                "observationUnitName": "Plot 1",
+                "observationVariableDbId": "c403d107",
+                "observationVariableName": "Plant Height in meters",
+                "season": {
+                    "season": "Spring",
+                    "seasonDbId": "Spring_2018",
+                    "year": 2018
+                },
+                "studyDbId": "ef2829db",
+                "uploadedBy": "a2f7f60b",
+                "value": "2.3"
+            }
+        ],
         "programDbId": "2d763a7a",
         "programName": "The Perfect Breeding Program",
         "seedLotDbId": "261ecb09",
@@ -1266,6 +1532,27 @@ Update an existing Observation Units
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
+|observations|array[object]|All observations attached to this observation unit.   Default for this field is null or omitted. Do NOT include data in this field unless the 'includeObservations' flag is explicitly set to True.|
+|additionalInfo|object|Additional arbitrary info|
+|collector|string|The name or identifier of the entity which collected the observation|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
+|germplasmDbId|string|The ID which uniquely identifies a germplasm|
+|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
+|observationDbId|string|The ID which uniquely identifies an observation|
+|observationTimeStamp|string (date-time)|The date and time when this observation was made|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|observationUnitName|string|A human readable name for an observation unit|
+|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
+|observationVariableName|string|A human readable name for an observation variable|
+|season|object||
+|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|year|integer|The 4 digit year of the season.|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
+|value|string|The value of the data collected as an observation|
 |programDbId|string|The ID which uniquely identifies a program|
 |programName|string|The human readable name of a program|
 |seedLotDbId|string|The unique identifier for the originating Seed Lot|
@@ -1445,6 +1732,46 @@ Update an existing Observation Units
             "positionCoordinateYType": "GRID_ROW",
             "replicate": "1"
         },
+        "observations": [
+            {
+                "additionalInfo": {},
+                "collector": "917d3ae0",
+                "externalReferences": [
+                    {
+                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceSource": "DOI"
+                    },
+                    {
+                        "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                        "referenceSource": "OBO Library"
+                    },
+                    {
+                        "referenceID": "75a50e76",
+                        "referenceSource": "Remote Data Collection Upload Tool"
+                    },
+                    {
+                        "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                        "referenceSource": "BrAPI Example Server"
+                    }
+                ],
+                "germplasmDbId": "2408ab11",
+                "germplasmName": "A0000003",
+                "observationDbId": "ef24b615",
+                "observationTimeStamp": "2018-01-01T14:47:23-0600",
+                "observationUnitDbId": "598111d4",
+                "observationUnitName": "Plot 1",
+                "observationVariableDbId": "c403d107",
+                "observationVariableName": "Plant Height in meters",
+                "season": {
+                    "season": "Spring",
+                    "seasonDbId": "Spring_2018",
+                    "year": 2018
+                },
+                "studyDbId": "ef2829db",
+                "uploadedBy": "a2f7f60b",
+                "value": "2.3"
+            }
+        ],
         "programDbId": "2d763a7a",
         "programName": "The Perfect Breeding Program",
         "seedLotDbId": "261ecb09",
@@ -1512,6 +1839,7 @@ observationValue data type inferred from the ontology
 |externalReferenceSources|array[string]|List of external references sources for the trait to search for|
 |germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm to search for|
 |germplasmNames|array[string]|List of human readable names to identify germplasm to search for|
+|includeObservations|boolean|Use this parameter to include a list of observations embedded in each ObservationUnit object.   CAUTION - Use this parameter at your own risk. It may return large, unpaginated lists of observation data. Only set this value to True if you are sure you need to.|
 |locationDbIds|array[string]|The location ids to search for|
 |locationNames|array[string]|A human readable names to search for|
 |observationLevel|string|The type of the observationUnit. Returns only the observation unit of the specified type; the parent levels ID can be accessed through observationUnit Structure.|
@@ -1559,6 +1887,27 @@ observationValue data type inferred from the ontology
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
+|observations|array[object]|All observations attached to this observation unit.   Default for this field is null or omitted. Do NOT include data in this field unless the 'includeObservations' flag is explicitly set to True.|
+|additionalInfo|object|Additional arbitrary info|
+|collector|string|The name or identifier of the entity which collected the observation|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
+|germplasmDbId|string|The ID which uniquely identifies a germplasm|
+|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
+|observationDbId|string|The ID which uniquely identifies an observation|
+|observationTimeStamp|string (date-time)|The date and time when this observation was made|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|observationUnitName|string|A human readable name for an observation unit|
+|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
+|observationVariableName|string|A human readable name for an observation variable|
+|season|object||
+|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|year|integer|The 4 digit year of the season.|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
+|value|string|The value of the data collected as an observation|
 |programDbId|string|The ID which uniquely identifies a program|
 |programName|string|The human readable name of a program|
 |seedLotDbId|string|The unique identifier for the originating Seed Lot|
@@ -1597,6 +1946,7 @@ observationValue data type inferred from the ontology
         "A0000003",
         "A0000477"
     ],
+    "includeObservations": false,
     "locationDbIds": [
         "b28911cf",
         "5071d1e4"
@@ -1736,6 +2086,46 @@ observationValue data type inferred from the ontology
                     "positionCoordinateYType": "GRID_ROW",
                     "replicate": "1"
                 },
+                "observations": [
+                    {
+                        "additionalInfo": {},
+                        "collector": "917d3ae0",
+                        "externalReferences": [
+                            {
+                                "referenceID": "doi:10.155454/12349537E12",
+                                "referenceSource": "DOI"
+                            },
+                            {
+                                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                                "referenceSource": "OBO Library"
+                            },
+                            {
+                                "referenceID": "75a50e76",
+                                "referenceSource": "Remote Data Collection Upload Tool"
+                            },
+                            {
+                                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                                "referenceSource": "BrAPI Example Server"
+                            }
+                        ],
+                        "germplasmDbId": "2408ab11",
+                        "germplasmName": "A0000003",
+                        "observationDbId": "ef24b615",
+                        "observationTimeStamp": "2018-01-01T14:47:23-0600",
+                        "observationUnitDbId": "598111d4",
+                        "observationUnitName": "Plot 1",
+                        "observationVariableDbId": "c403d107",
+                        "observationVariableName": "Plant Height in meters",
+                        "season": {
+                            "season": "Spring",
+                            "seasonDbId": "Spring_2018",
+                            "year": 2018
+                        },
+                        "studyDbId": "ef2829db",
+                        "uploadedBy": "a2f7f60b",
+                        "value": "2.3"
+                    }
+                ],
                 "programDbId": "2d763a7a",
                 "programName": "The Perfect Breeding Program",
                 "seedLotDbId": "261ecb09",
@@ -1848,6 +2238,27 @@ See Search Services for additional implementation details.
 |positionCoordinateY|string|The Y position coordinate for an observation unit. Different systems may use different coordinate systems.|
 |positionCoordinateYType|string|The type of positional coordinate used. Must be one of the following values  LONGITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  LATITUDE - ISO 6709 standard, WGS84 geodetic datum. See 'Location Coordinate Encoding' for details  PLANTED_ROW - The physical planted row number   PLANTED_INDIVIDUAL - The physical counted number, could be independant or within a planted row  GRID_ROW - The row index number of a square grid overlay  GRID_COL - The column index number of a square grid overlay  MEASURED_ROW - The distance in meters from a defined 0-th row  MEASURED_COL - The distance in meters from a defined 0-th column|
 |replicate|string|The replicate number of an observation unit. May be the same as blockNumber.|
+|observations|array[object]|All observations attached to this observation unit.   Default for this field is null or omitted. Do NOT include data in this field unless the 'includeObservations' flag is explicitly set to True.|
+|additionalInfo|object|Additional arbitrary info|
+|collector|string|The name or identifier of the entity which collected the observation|
+|externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
+|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceSource|string|An identifier for the source system or database of this reference|
+|germplasmDbId|string|The ID which uniquely identifies a germplasm|
+|germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
+|observationDbId|string|The ID which uniquely identifies an observation|
+|observationTimeStamp|string (date-time)|The date and time when this observation was made|
+|observationUnitDbId|string|The ID which uniquely identifies an observation unit|
+|observationUnitName|string|A human readable name for an observation unit|
+|observationVariableDbId|string|The ID which uniquely identifies an observation variable|
+|observationVariableName|string|A human readable name for an observation variable|
+|season|object||
+|season|string|Name of the season. ex. 'Spring', 'Q2', 'Season A', etc.|
+|seasonDbId|string|The ID which uniquely identifies a season. For backward compatibility it can be a string like '2012', '1957-2004'|
+|year|integer|The 4 digit year of the season.|
+|studyDbId|string|The ID which uniquely identifies a study within the given database server|
+|uploadedBy|string|The name or id of the user who uploaded the observation to the database system|
+|value|string|The value of the data collected as an observation|
 |programDbId|string|The ID which uniquely identifies a program|
 |programName|string|The human readable name of a program|
 |seedLotDbId|string|The unique identifier for the originating Seed Lot|
@@ -1994,6 +2405,46 @@ See Search Services for additional implementation details.
                     "positionCoordinateYType": "GRID_ROW",
                     "replicate": "1"
                 },
+                "observations": [
+                    {
+                        "additionalInfo": {},
+                        "collector": "917d3ae0",
+                        "externalReferences": [
+                            {
+                                "referenceID": "doi:10.155454/12349537E12",
+                                "referenceSource": "DOI"
+                            },
+                            {
+                                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                                "referenceSource": "OBO Library"
+                            },
+                            {
+                                "referenceID": "75a50e76",
+                                "referenceSource": "Remote Data Collection Upload Tool"
+                            },
+                            {
+                                "referenceID": "https://test-server.brapi.org/brapi/v2/object/8557af36",
+                                "referenceSource": "BrAPI Example Server"
+                            }
+                        ],
+                        "germplasmDbId": "2408ab11",
+                        "germplasmName": "A0000003",
+                        "observationDbId": "ef24b615",
+                        "observationTimeStamp": "2018-01-01T14:47:23-0600",
+                        "observationUnitDbId": "598111d4",
+                        "observationUnitName": "Plot 1",
+                        "observationVariableDbId": "c403d107",
+                        "observationVariableName": "Plant Height in meters",
+                        "season": {
+                            "season": "Spring",
+                            "seasonDbId": "Spring_2018",
+                            "year": 2018
+                        },
+                        "studyDbId": "ef2829db",
+                        "uploadedBy": "a2f7f60b",
+                        "value": "2.3"
+                    }
+                ],
                 "programDbId": "2d763a7a",
                 "programName": "The Perfect Breeding Program",
                 "seedLotDbId": "261ecb09",
