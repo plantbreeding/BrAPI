@@ -68,7 +68,7 @@ def postParams(path):
 		params = {
 		  "data": [
 		    {
-		      "observatioUnitDbId": "1",
+		      "observationUnitDbId": "1",
 		      "observations": [
 		        {
 		          "collector": "string",
@@ -217,7 +217,7 @@ def postParams(path):
 				    "commit": "string",
 				    "data": [
 				      {
-				        "observatioUnitDbId": "1",
+				        "observationUnitDbId": "1",
 				        "observations": [
 				          {
 				            "collector": "string",

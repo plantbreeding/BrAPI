@@ -124,6 +124,19 @@
         ]
       },
       {
+        "name": "VIB Center For Plant Systems Biology",
+        "description": "BrAPI endpoint to access the publicly available data from PIPPA, an interface for plant phenotype analysis",
+        "logo": "https://www.psb.ugent.be/images/psbgroot.png",
+        "resource": [
+          {
+            "name": "PIPPA - PSB Interface for Plant Phenotype Analysis",
+            "base-url": "https://pippa.psb.ugent.be/BrAPIPPA/brapi/v1/",
+            "logo": "https://www.psb.ugent.be/images/psbgroot.png",
+            "description": "More information about the provided datasets can be found here: https://pippa.psb.ugent.be/"
+          }
+        ]
+      },
+      {
         "name": "BrAPI",
         "description": "The BrAPI Community",
         "logo": "https://brapi.org/assets/images/brapi-logo.svg",
@@ -140,10 +153,23 @@
         "name": "Crop Ontology",
         "description": "The Crop Ontology project website.",
         "logo": "http://www.cropontology.org/images/Crop_Ontology_logo.png",
-        "resource": {
-          "name": "Crop Ontology BrAPI implementation",
-          "base-url": "http://www.cropontology.org/brapi/v1/"
-        }
+        "resource": [
+          {
+            "name": "Crop Ontology BrAPI implementation",
+            "base-url": "http://www.cropontology.org/brapi/v1/"
+          }
+         ]
+       },
+       {
+        "name": "TERRA-REF",
+        "description": "TERRA Reference phenotyping platform.",
+        "logo": "https://terraref.org/sites/terraref.org/files/site-logo.png",
+        "resource": [
+          {
+            "name": "TERRA-REF BrAPI implementation",
+            "base-url": "https://brapi.workbench.terraref.org/brapi/v1/"
+          }
+        ]
       }
     ]
   }
