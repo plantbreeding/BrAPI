@@ -1,0 +1,45 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    Service: 
+      type: object
+      required:
+      - call
+      - versions
+      - methods
+      properties:
+        service:
+          description: The name of the available call as recorded in the documentation
+          type: string
+          example: germplasm
+        dataTypes:
+          description: The possible data formats returned by the available call
+          items:
+            $ref: '#/components/schemas/WSMIMEDataTypes'
+          type: array
+          example: ['application/json']
+        methods:
+          description: The possible HTTP Methods to be used with the available call
+          items:
+            enum:
+            - GET
+            - POST
+            - PUT
+            - DELETE
+            type: string
+          type: array
+          example: ['GET', 'POST']
+        versions:
+          description: The supported versions of a particular call
+          items:
+            enum:
+            - '2.0'
+            - '2.1'
+            - '2.2'
+            type: string
+          type: array
+          example: ['2.0', '2.1']

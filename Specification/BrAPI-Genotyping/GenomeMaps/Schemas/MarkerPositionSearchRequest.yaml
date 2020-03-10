@@ -1,0 +1,39 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    MarkerPositionSearchRequest: 
+      allOf:
+      - $ref: '#/components/schemas/SearchRequestParametersPaging'
+      - type: object
+        properties:
+          mapDbIds:
+            description: The unique ID of the map 
+            type: array
+            items: 
+              type: string
+            example: ['7e6fa8aa', 'bedc418c']
+          linkageGroupNames: 
+            description: The Uniquely Identifiable name of this linkage group
+            type: array
+            items: 
+              type: string
+            example: ['Chromosome 2', 'Chromosome 3']
+          variantDbIds:
+            description: Internal db identifier
+            type: array
+            items: 
+              type: string
+            example: ['a0caa928', 'f8894a26']
+          minPosition:
+            description: The minimum position
+            type: integer
+            example: 250
+          maxPosition: 
+            description: The maximum position
+            type: integer
+            example: 4000
+

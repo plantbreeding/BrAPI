@@ -1,0 +1,40 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components: 
+  schemas:
+    MarkerPosition: 
+      type: object 
+      properties:
+        additionalInfo:
+          additionalProperties:
+            type: string
+          description: Additional arbitrary info
+          type: object
+        mapDbId:
+          description: The unique ID of the map 
+          type: string
+          example: 3d52bdf3
+        mapName: 
+          description: The human readable name of the map
+          type: string
+          example: Genome Map 1
+        linkageGroupName: 
+          description: The Uniquely Identifiable name of this linkage group
+          type: string
+          example: Chromosome 3 
+        position: 
+          description: The position of a marker within a linkage group
+          type: integer
+          example: 2390
+        variantDbId: 
+          description: Internal db identifier
+          type: string
+          example: a1eb250a
+        variantName: 
+          description: The human readable name for a marker
+          type: string
+          example: Marker_2390
+

@@ -1,0 +1,171 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    StudyNewRequest:
+      type: object
+      properties:
+        active:
+          description: Is this study currently active
+          type: boolean
+          example: true
+        additionalInfo:
+          additionalProperties:
+            type: string
+          description: Additional arbitrary info
+          type: object
+        commonCropName:
+          description: Common name for the crop associated with this study
+          type: string
+          example: Grape
+        contacts:
+          description: List of contact entities associated with this study
+          items:
+            $ref: '#/components/schemas/Contact'
+          type: array
+        dataLinks:
+          description: List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.
+          items:
+            $ref: '#/components/schemas/DataLink'
+          type: array
+        documentationURL:
+          description: A URL to the human readable documentation of this object
+          format: uri
+          type: string
+          example: https://wiki.brapi.org
+        endDate:
+          description: |-
+            The date the study ends
+            
+            MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended
+          format: date-time
+          type: string
+        environmentParameters:
+          description: Environmental parameters that were kept constant throughout the study and did not change between observation units.
+          items:
+            $ref: '#/components/schemas/EnvironmentParameter'
+          type: array
+        lastUpdate:
+          description: The date and time when this study was last modified
+          type: object
+          properties:
+            timestamp:
+              format: date-time
+              type: string
+            version:
+              type: string
+              example: 1.2.3
+        license:
+          description: The usage license associated with the study data
+          type: string
+          example: MIT License
+        locationDbId:
+          description: The unique identifier for a Location
+          type: string
+          example: 3cfdd67d
+        locationName:
+          description: |-
+            A human readable name for this location
+            
+            MIAPPE V1.1 (DM-18) Experimental site name - The name of the natural site, experimental field, greenhouse, phenotyping facility, etc. where the experiment took place.
+          type: string
+          example: Location 1
+        seasons:
+          description: List of seasons over which this study was performed.
+          items:
+            type: string
+          type: array
+          example: ['Spring_2018']
+        startDate:
+          description: |-
+            The date this study started
+            
+            MIAPPE V1.1 (DM-14) Start date of study - Date and, if relevant, time when the experiment started
+          format: date-time
+          type: string
+        studyDescription:
+          description: |-
+            The description of this study
+            
+            MIAPPE V1.1 (DM-13) Study description - Human-readable text describing the study
+          type: string
+          example: This is a yield study for Spring 2018
+        studyName:
+          description: |-
+            The human readable name for a study
+            
+            MIAPPE V1.1 (DM-12) Study title - Human-readable text summarising the study
+          type: string
+          example: INRA's Walnut Genetic Resources Observation at Kenya
+        studyCode:
+          description: A short human readable code for a study
+          type: string
+          example: Grape_Yield_Spring_2018
+        studyPUI:
+          description: A permanent unique identifier associated with this study data. For example, a URI or DOI
+          type: string
+          example: doi:10.155454/12349537312
+        studyType:
+          description: The type of study being performed. ex. "Yield Trial", etc
+          type: string
+          example: Phenotyping
+        trialDbId:
+          description: The ID which uniquely identifies a trial
+          type: string
+          example: 48b327ea
+        trialName:
+          description: The human readable name of a trial
+          type: string
+          example: Grape_Yield_Trial
+        observationLevels:
+          description: |-
+            Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6). 
+          type: array 
+          items: 
+            $ref: '#/components/schemas/ObservationUnitHierarchyLevel'
+          example:
+            - levelName: field
+              levelOrder: 0
+            - levelName: block
+              levelOrder: 1
+            - levelName: plot
+              levelOrder: 2
+        observationUnitsDescription:
+          description: MIAPPE V1.1 (DM-25) Observation unit description - General description of the observation units in the study.
+          type: string
+          example: Observation units consisted in individual plots themselves consisting of a row of 15 plants at a density of approximately six plants per square meter.
+        culturalPractices:
+          description: MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.
+          type: string
+          example: Irrigation was applied according needs during summer to prevent water stress.
+        experimentalDesign:
+          description: The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology
+          type: object
+          properties:
+            description:
+              description: MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.
+              type: string
+              example: Lines were repeated twice at each location using a complete block design. In order to limit competition effects, each block was organized into four sub-blocks corresponding to earliest groups based on a prior information.
+            PUI:
+              description: MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.
+              type: string
+              example: CO_715:0000145
+        growthFacility:
+          description: Short description of the facility in which the study was carried out.
+          type: object
+          properties:
+            description:
+              description: MIAPPE V1.1 (DM-26) Description of growth facility - Short description of the facility in which the study was carried out.
+              type: string
+              example: field environment condition, greenhouse
+            PUI:
+              description: MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.
+              type: string
+              example: CO_715:0000162
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
+          
+

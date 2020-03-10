@@ -1,0 +1,82 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /methods/{methodDbId}:
+    get:
+      summary: Get the details for a specific Method
+      description: |-
+        Retrieve details about a specific method
+
+        An Observation Variable has 3 critical parts; A Trait being observed, a Method for making the observation, and a Scale on which the observation can be measured and compared with other observations.
+      parameters:
+      - description: Id of the method to retrieve details of.
+        in: path
+        name: methodDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/MethodSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Methods
+    put:
+      summary: Update an existing Method
+      description: Update the details of an existing method
+      parameters:
+      - description: Id of the method to retrieve details of.
+        in: path
+        name: methodDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MethodNewRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/MethodSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Methods
+components:
+  responses:
+    MethodSingleResponse:
+      content:
+        application/json:
+          schema:
+            title: MethodSingleResponse
+            type: object
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                $ref: '#/components/schemas/Method'
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}

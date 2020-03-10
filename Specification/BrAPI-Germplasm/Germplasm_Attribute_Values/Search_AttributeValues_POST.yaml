@@ -1,0 +1,32 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /search/attributevalues: 
+    post:
+      summary: Submit a search request for Germplasm Attribute Values
+      description: |-
+        Search for a set of Germplasm Attribute Values based on some criteria
+                
+        See Search Services for additional implementation details.
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GermplasmAttributeValueSearchRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/GermplasmAttributeValueListResponse'
+        '202':
+          $ref: '#/components/responses/202AcceptedSearchResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Germplasm Attribute Values

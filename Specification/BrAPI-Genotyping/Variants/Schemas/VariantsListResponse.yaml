@@ -1,0 +1,34 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  responses:
+    VariantsListResponse:
+      description: OK
+      headers: {}
+      content:
+        application/json:
+          schema:
+            title: VariantsListResponse
+            type: object
+            required:
+            - metadata
+            - result
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadataTokenPagination'
+              result:
+                title: VariantsListResponseResult
+                type: object
+                required:
+                - data
+                properties:
+                  data:
+                    items:
+                      $ref: '#/components/schemas/Variant'
+                    type: array
+                    

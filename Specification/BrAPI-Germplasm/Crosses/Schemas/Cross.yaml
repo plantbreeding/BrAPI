@@ -1,0 +1,16 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    Cross:
+      allOf:
+        - $ref: '#/components/schemas/CrossNewRequest'
+        - type: object
+          properties:
+            crossDbId:
+              description: the unique identifier for a cross
+              type: string
+              example: d105fd6f

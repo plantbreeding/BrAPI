@@ -1,0 +1,22 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    TaxonID:
+      properties:
+        sourceName:
+          description: The human readable name of the taxonomy provider
+          type: string
+          example: NCBI
+        taxonId:
+          description: The identifier (name, ID, URI) of a particular taxonomy within the source provider
+          type: string
+          example: '2026747'
+      required:
+      - sourceName
+      - taxonId
+      type: object
+

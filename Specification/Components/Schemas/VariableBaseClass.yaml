@@ -1,51 +1,84 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
 components:
   schemas:
     VariableBaseClass:
+      required:
+      - trait
+      - method
+      - scale
+      type: object
       properties:
+        additionalInfo:
+          additionalProperties:
+            type: string
+          description: Additional arbitrary info
+          type: object
         contextOfUse:
           description: 'Indication of how trait is routinely used. (examples: ["Trial evaluation", "Nursery evaluation"])'
           items:
             type: string
           type: array
-        crop:
+          example: ["Trial evaluation", "Nursery evaluation"]
+        commonCropName:
           description: 'Crop name (examples: "Maize", "Wheat")'
           type: string
+          example: Maize
         defaultValue:
           description: 'Variable default value. (examples: "red", "2.3", etc.)'
           type: string
+          example: 2.0
         documentationURL:
           description: A URL to the human readable documentation of this object
           format: uri
           type: string
+          example: https://wiki.brapi.org/documentation.html
         growthStage:
           description: 'Growth stage at which measurement is made (examples: "flowering")'
           type: string
+          example: flowering
         institution:
           description: Name of institution submitting the variable
           type: string
+          example: The BrAPI Institute
         language:
-          description: 2 letter ISO code for the language of submission of the variable.
+          description: 2 letter ISO 639-1 code for the language of submission of the variable.
           type: string
+          example: en
         method:
-          $ref: '#/components/schemas/method'
-        ontologyDbId:
-          deprecated: true
-          description: DEPRECATED in v1.3 - see "this.ontologyReference.ontologyDbId"
-          type: string
-        ontologyName:
-          deprecated: true
-          description: DEPRECATED in v1.3 - see "this.ontologyReference.ontologyName"
-          type: string
+          allOf:
+          - $ref: '#/components/schemas/MethodBaseClass'
+          - type: object
+            properties:
+              methodDbId:
+                description: Method unique identifier
+                type: string
+                example: 0adb2764
         ontologyReference:
-          $ref: '#/components/schemas/ontologyReference'
+          $ref: '#/components/schemas/OntologyReference'
         scale:
-          $ref: '#/components/schemas/scale'
+          allOf:
+          - $ref: '#/components/schemas/ScaleBaseClass'
+          - type: object
+            description: Scale metadata
+            required:
+            - scaleDbId
+            properties:
+              scaleDbId:
+                description: Unique identifier of the scale. If left blank, the upload system will automatically generate a scale ID.
+                type: string
+                example: af730171
         scientist:
           description: Name of scientist submitting the variable.
           type: string
+          example: Dr. Bob Robertson
         status:
           description: 'Variable status. (examples: "recommended", "obsolete", "legacy", etc.)'
           type: string
+          example: recommended
         submissionTimestamp:
           description: Timestamp when the Variable was added (ISO 8601)
           format: date-time
@@ -55,18 +88,16 @@ components:
           items:
             type: string
           type: array
+          example: ['Maize Height', 'Stalk Height', 'Corn Height']
         trait:
-          $ref: '#/components/schemas/trait'
-        xref:
-          description: Cross reference of the variable term to a term from an external ontology or to a database of a major system.
-          type: string
-      required:
-      - trait
-      - method
-      - scale
-      type: object
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}
+          allOf:
+          - $ref: '#/components/schemas/TraitBaseClass'
+          - type: object
+            properties:
+              traitDbId:
+                description: The ID which uniquely identifies a trait
+                type: string
+                example: 9b2e34f5
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
+

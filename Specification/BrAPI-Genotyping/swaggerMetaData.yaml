@@ -1,0 +1,145 @@
+components: 
+  securitySchemes:
+    AuthorizationToken:
+      bearerFormat: nonce token or JWT
+      description: OAuth Bearer Token - A valid Bearer token to prove authorization
+      scheme: bearer
+      type: http
+info:
+  description: |-
+    The Breeding API (BrAPI) is a Standardized REST ful Web Service API Specification for communicating Plant Breeding Data. BrAPI allows for easy data sharing between databases and tools involved in plant breeding.
+    <div class="brapi-section">
+    <h2 class="brapi-section-title">General Reference Documentation</h2>
+    <div class="gen-info-link"><a href="https://github.com/plantbreeding/API/blob/master/Specification/GeneralInfo/URL_Structure.md">URL Structure</a></div>
+    <div class="gen-info-link"><a href="https://github.com/plantbreeding/API/blob/master/Specification/GeneralInfo/Response_Structure.md">Response Structure</a></div>
+    <div class="gen-info-link"><a href="https://github.com/plantbreeding/API/blob/master/Specification/GeneralInfo/Date_Time_Encoding.md">Date/Time Encoding</a></div>
+    <div class="gen-info-link"><a href="https://github.com/plantbreeding/API/blob/master/Specification/GeneralInfo/Location_Encoding.md">Location Encoding</a></div>
+    <div class="gen-info-link"><a href="https://github.com/plantbreeding/API/blob/master/Specification/GeneralInfo/Error_Handling.md">Error Handling</a></div>
+    <div class="gen-info-link"><a href="https://github.com/plantbreeding/API/blob/master/Specification/GeneralInfo/Search_Services.md">Search Services</a></div>
+    </div>
+
+    <div class="brapi-section">
+    <h2 class="brapi-section-title">BrAPI Core</h2>
+    <div class="brapi-section-description">The BrAPI Core module contains high level entities used for organization and management. This includes Programs, Trials, Studies, Locations, People, and Lists</div>
+    <div class="version-number">V2.0</div>
+    <div class="link-btn"><a href="https://github.com/plantbreeding/API/tree/brapi-v2-dev/Specification/BrAPI-Core">GitHub</a></div>
+    <div class="link-btn"><a href="https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI-Core">SwaggerHub</a></div>
+    <div class="link-btn"><a href="https://brapicore.docs.apiary.io">Apiary</a></div>
+    <div class="stop-float"></div>
+    </div>
+    
+    <div class="brapi-section">
+    <h2 class="brapi-section-title">BrAPI Phenotyping</h2>
+    <div class="brapi-section-description">The BrAPI Phenotyping module contains entities related to phenotypic observations. This includes Observation Units, Observations, Observation Variables, Traits, Scales, Methods, and Images</div>
+    <div class="version-number">V2.0</div>
+    <div class="link-btn"><a href="https://github.com/plantbreeding/API/tree/brapi-v2-dev/Specification/BrAPI-Phenotyping">GitHub</a></div>
+    <div class="link-btn"><a href="https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI-Phenotyping">SwaggerHub</a></div>
+    <div class="link-btn"><a href="https://brapiphenotyping.docs.apiary.io">Apiary</a></div>
+    <div class="stop-float"></div>
+    </div>
+    
+    <div class="current-brapi-section brapi-section">
+    <h2 class="brapi-section-title">BrAPI Genotyping</h2>
+    <div class="brapi-section-description">The BrAPI Genotyping module contains entities related to genotyping analysis. This includes Samples, Markers, Variant Sets, Variants, Call Sets, Calls, References, Reads, and Vendor Orders</div>
+    <div class="version-number">V2.0</div>
+    <div class="link-btn"><a href="https://github.com/plantbreeding/API/tree/brapi-v2-dev/Specification/BrAPI-Genotyping">GitHub</a></div>
+    <div class="link-btn"><a href="https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI-Genotyping">SwaggerHub</a></div>
+    <div class="link-btn"><a href="https://brapigenotyping.docs.apiary.io">Apiary</a></div>
+    <div class="stop-float"></div>
+    </div>
+    
+    <div class="brapi-section">
+    <h2 class="brapi-section-title">BrAPI Germplasm</h2>
+    <div class="brapi-section-description">The BrAPI Germplasm module contains entities related to germplasm management. This includes Germplasm, Germplasm Attributes, Seed Lots, Crosses, Pedigree, and Progeny</div>
+    <div class="version-number">V2.0</div>
+    <div class="link-btn"><a href="https://github.com/plantbreeding/API/tree/brapi-v2-dev/Specification/BrAPI-Germplasm">GitHub</a></div>
+    <div class="link-btn"><a href="https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI-Germplasm">SwaggerHub</a></div>
+    <div class="link-btn"><a href="https://brapigermplasm.docs.apiary.io">Apiary</a></div>
+    <div class="stop-float"></div>
+    </div>
+    
+    <style>
+    .link-btn{
+    float: left; 
+    margin: 2px 10px 0 0; 
+    padding: 0 5px; 
+    border-radius: 5px; 
+    background-color: #ddd;
+    }
+    .stop-float{
+      clear: both;
+    }
+    .version-number{
+      float: left; 
+      margin: 5px 10px 0 5px;
+    }
+    .brapi-section-title{
+      margin: 0 10px 0 0;
+      font-size: 20px;
+    }
+    .current-brapi-section{
+      font-weight: bolder;
+      border-radius: 5px; 
+      background-color: #ddd;
+    }
+    .brapi-section{
+      padding: 5px 5px; 
+    }
+    .brapi-section-description{
+      margin: 5px 0 0 5px;
+    }
+    </style>
+  title: BrAPI-Genotyping
+  version: '2.0'
+openapi: 3.0.0
+paths: {}
+security:
+- AuthorizationToken: []
+servers:
+- url: https://test-server.brapi.org/brapi/v2
+tags:
+- name: Calls
+  description: Individual genotype allele calls
+  externalDocs:
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Call Sets
+  description: Each Call Set is related to one physical sample 
+  externalDocs:
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Variants
+  description: Information about Variants, also called Markers
+  externalDocs:
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Variant Sets
+  description: Information about Variant Sets, also called Data Sets or Allele Matrices 
+  externalDocs:
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Samples
+  description: Information about physical samples
+  externalDocs:
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: References
+  description: Genetic sequences used for reference
+  externalDocs:
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Reference Sets
+  description: Collections of references
+  externalDocs:
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Genome Maps
+  description: Information about physical and genetic maps
+  externalDocs:
+    description: Docs
+    url: https://wiki.brapi.org/
+- name: Vendor
+  description: This interface is specific to facilities that performs an external analysis, such as genotyping facilities. The interface should be implemented by that facility''s server. The breeding database is the client of this interface.
+  externalDocs:
+    description: Docs
+    url: https://wiki.brapi.org/

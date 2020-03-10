@@ -1,0 +1,86 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    ObservationUnitNewRequest:
+      type: object
+      properties:
+        additionalInfo:
+          additionalProperties:
+            type: string
+          description: Additional arbitrary info
+          type: object
+        germplasmDbId:
+          description: The ID which uniquely identifies a germplasm
+          type: string
+          example: e9d9ed57
+        germplasmName:
+          description: Name of the germplasm. It can be the preferred name and does not have to be unique.
+          type: string
+          example: A0000001
+        seedLotDbId:
+          description: The unique identifier for the originating Seed Lot
+          type: string
+          example: 261ecb09
+        locationDbId:
+          description: The ID which uniquely identifies a location, associated with this study
+          type: string
+          example: 0e208b20
+        locationName:
+          description: The human readable name of a location associated with this study
+          type: string
+          example: Field Station Alpha
+        observationUnitName:
+          description: A human readable name for an observation unit
+          type: string
+          example: Plot 1
+        observationUnitPUI:
+          description: |-
+            A Permanent Unique Identifier for an observation unit
+            
+            MIAPPE V1.1 (DM-72) External ID - Identifier for the observation unit in a persistent repository, comprises the name of the repository and the identifier of the observation unit therein. The EBI Biosamples repository can be used. URI are recommended when possible.
+          type: string
+          example: http://pui.per/plot/1a9afc14
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
+        observationUnitPosition:
+          $ref: '#/components/schemas/ObservationUnitPosition'
+        programDbId:
+          description: The ID which uniquely identifies a program
+          type: string
+          example: 2d763a7a
+        programName:
+          description: The human readable name of a program
+          type: string
+          example: The Perfect Breeding Program
+        studyDbId:
+          description: The ID which uniquely identifies a study within the given database server
+          type: string
+          example: 9865addc
+        studyName:
+          description: The human readable name for a study
+          type: string
+          example: Purple_Tomato_1
+        treatments:
+          description: |-
+            List of treatments applied to an observation unit.
+            
+            MIAPPE V1.1 (DM-74) Observation Unit factor value - List of values for each factor applied to the observation unit.
+          items:
+            $ref: '#/components/schemas/ObservationTreatment'
+          type: array
+        trialDbId:
+          description: The ID which uniquely identifies a trial
+          type: string
+          example: 776a609c
+        trialName:
+          description: The human readable name of a trial
+          type: string
+          example: Purple Tomato
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
+          
+

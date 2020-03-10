@@ -1,0 +1,53 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    ListSearchRequest:
+      allOf:
+      - $ref: '#/components/schemas/SearchRequestParametersPaging'
+      - $ref: '#/components/schemas/SearchRequestParametersExternalReferences'
+      - type: object
+        properties:
+          dateCreatedRangeStart:
+            format: date-time
+            type: string
+          dateCreatedRangeEnd:
+            format: date-time
+            type: string
+          dateModifiedRangeStart:
+            format: date-time
+            type: string
+          dateModifiedRangeEnd:
+            format: date-time
+            type: string
+          listDbIds:
+            type: array
+            items:
+              type: string
+            example: ['55f20cf6', '3193ca3d']
+          listNames:
+            type: array
+            items:
+              type: string
+            example: ['Planing List 1', 'Bobs List']
+          listOwnerNames:
+            type: array
+            items:
+              type: string
+            example: ['Bob Robertson', 'Rob Robertson']
+          listOwnerPersonDbIds:
+            type: array
+            items:
+              type: string
+            example: ['bob@bob.com', 'rob@bob.com']
+          listSources:
+            type: array
+            items:
+              type: string
+            example: ['USER', 'SYSTEM', 'EXTERNAL']
+          listType:
+            $ref: '#/components/schemas/ListTypes'
+

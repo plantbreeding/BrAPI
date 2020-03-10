@@ -1,0 +1,240 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /observationunits:
+    get:
+      summary: Get a filtered set of Observation Units
+      description: Get a filtered set of Observation Units
+      parameters:
+      - description: The unique ID of a germplasm (accession) to filter on
+        in: query
+        name: germplasmDbId
+        required: false
+        schema:
+          type: string
+      - description: The unique ID of a studies to filter on
+        in: query
+        name: studyDbId
+        required: false
+        schema:
+          type: string
+      - description: The unique ID of a location where these observations were collected
+        in: query
+        name: locationDbId
+        required: false
+        schema:
+          type: string
+      - description: The unique ID of a trial to filter on
+        in: query
+        name: trialDbId
+        required: false
+        schema:
+          type: string
+      - description: The unique ID of a program to filter on
+        in: query
+        name: programDbId
+        required: false
+        schema:
+          type: string
+      - description: The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)
+        in: query
+        name: seasonDbId
+        required: false
+        schema:
+          type: string
+      - description: The Observation Unit Level. Returns only the observation unit of the specified Level. References ObservationUnit->observationUnitPosition->observationLevel->levelName
+        in: query
+        name: observationUnitLevelName
+        required: false
+        schema:
+          type: string
+      - description: The Observation Unit Level Order Number. Returns only the observation unit of the specified Level. References ObservationUnit->observationUnitPosition->observationLevel->levelOrder
+        in: query
+        name: observationUnitLevelOrder
+        required: false
+        schema:
+          type: string
+      - description: The Observation Unit Level Code. This parameter should be used together with `observationUnitLevelName` or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->levelCode
+        in: query
+        name: observationUnitLevelCode
+        required: false
+        schema:
+          type: string
+      - description: |-
+          Use this parameter to include a list of observations embedded in each ObservationUnit object. 
+          
+          CAUTION - Use this parameter at your own risk. It may return large, unpaginated lists of observation data. Only set this value to True if you are sure you need to.
+        in: query
+        name: includeObservations
+        required: false
+        schema:
+          type: boolean
+      - $ref: '#/components/parameters/externalReferenceID'
+      - $ref: '#/components/parameters/externalReferenceSource'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/ObservationUnitListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Observation Units
+    post:
+      summary: Add new Observation Units
+      description: Add new Observation Units
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ObservationUnitNewRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/ObservationUnitListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Observation Units
+    put:
+      summary: Update a set of Observation Units
+      description: |-
+        Update a set of Observation Units
+        
+        Note - In strictly typed languages, this structure can be represented as a Map or Dictionary of objects and parsed directly to JSON.
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties:
+                $ref: '#/components/schemas/ObservationUnitNewRequest'
+            example: 
+              '<observationUnitDbId_1>': 
+                additionalInfo: {}
+                germplasmDbId: e9d9ed57
+                germplasmName: A0000001
+                locationDbId: 0e208b20
+                locationName: "Field Station Alpha"
+                observationLevel: plot
+                observationUnitName: "Plot 1"
+                observationUnitPosition: 
+                  blockNumber: 6
+                  entryNumber: 3
+                  entryType: CHECK
+                  geoCoordinates: 
+                    geometry: 
+                      coordinates: [ -76.506042, 42.417373 ]
+                      type: Point                    
+                    type: Feature                  
+                  positionCoordinateX: 74
+                  positionCoordinateXType: GRID_COL
+                  positionCoordinateY: 03
+                  positionCoordinateYType: GRID_ROW
+                  replicate: 1 
+                externalReferences:  
+                  - referenceID: SAMEA_179865230
+                    referenceSource: "ebi.biosample"
+                plantNumber: 1
+                plotNumber: 01
+                programDbId: 2d763a7a
+                programName: "The Perfect Breeding Program"
+                studyDbId: 9865addc
+                studyName: Purple_Tomato_1
+                treatments: 
+                  - factor: fertilizer
+                    modality: "low fertilizer"
+                trialDbId: 776a609c
+                trialName: "Purple Tomato"
+              '<observationUnitDbId_2>': 
+                additionalInfo: {}
+                germplasmDbId: e9d9ed57
+                germplasmName: A0000001
+                locationDbId: 0e208b20
+                locationName: "Field Station Alpha"
+                observationLevel: plot
+                observationUnitName: "Plot 1"
+                observationUnitPosition: 
+                  blockNumber: 6
+                  entryNumber: 3
+                  entryType: CHECK
+                  geoCoordinates: 
+                    geometry: 
+                      coordinates: [ -76.506042, 42.417373 ]
+                      type: Point
+                    type: Feature
+                  positionCoordinateX: 74
+                  positionCoordinateXType: GRID_COL
+                  positionCoordinateY: 03
+                  positionCoordinateYType: GRID_ROW
+                  replicate: 1
+                externalReferences:  
+                  - referenceID: SAMEA_179865230
+                    referenceSource: "ebi.biosample"
+                plantNumber: 1
+                plotNumber: 01
+                programDbId: 2d763a7a
+                programName: "The Perfect Breeding Program"
+                studyDbId: 9865addc
+                studyName: Purple_Tomato_1
+                treatments: 
+                  - factor: fertilizer
+                    modality: "low fertilizer"
+                trialDbId: 776a609c
+                trialName: "Purple Tomato"
+      responses:
+        '200':
+          $ref: '#/components/responses/ObservationUnitListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Observation Units
+components:
+  responses:
+    ObservationUnitListResponse:
+      content:
+        application/json:
+          schema:
+            title: ObservationUnitListResponse
+            type: object
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/components/schemas/ObservationUnit'
+                    type: array
+                required:
+                - data
+                type: object
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}
+    
+      

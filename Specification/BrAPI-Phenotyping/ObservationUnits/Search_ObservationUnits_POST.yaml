@@ -1,0 +1,50 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /search/observationunits:
+    post:
+      summary: Submit a search request for Observation Units
+      description: |-
+        Returns a list of observationUnit with the observed Phenotypes.
+        
+        See Search Services for additional implementation details.
+        
+        Use case - this section allows to get a dataset from multiple studies. It allows to integrate data from several databases.
+        
+        Example Use cases 
+        
+        - Study a panel of germplasm across multiple studies
+        
+        - Get all data for a specific study 
+        
+        - Get simple atomic phenotyping values 
+
+        - Study Locations for adaptation to climate change
+        
+        - Find phenotypes that are from after a certain timestamp
+        
+        observationTimeStampRangeStart and observationTimeStampRangeEnd use Iso Standard 8601.
+        
+        observationValue data type inferred from the ontology
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObservationUnitSearchRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/ObservationUnitListResponse'
+        '202':
+          $ref: '#/components/responses/202AcceptedSearchResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Observation Units

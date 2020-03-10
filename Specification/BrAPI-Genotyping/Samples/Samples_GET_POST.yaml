@@ -1,0 +1,107 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /samples:
+    get:
+      summary: Get the Samples
+      description: Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
+      parameters:
+      - description: the internal DB id for a sample
+        in: query
+        name: sampleDbId
+        required: false
+        schema:
+          type: string
+      - description: the internal DB id for an observation unit where a sample was taken from
+        in: query
+        name: observationUnitDbId
+        required: false
+        schema:
+          type: string
+      - description: the internal DB id for a plate of samples
+        in: query
+        name: plateDbId
+        required: false
+        schema:
+          type: string
+      - description: the internal DB id for a germplasm
+        in: query
+        name: germplasmDbId
+        required: false
+        schema:
+          type: string
+      - description: Filter by study DbId
+        in: query
+        name: studyDbId
+        required: false
+        schema:
+          type: string
+      - $ref: '#/components/parameters/externalReferenceID'
+      - $ref: '#/components/parameters/externalReferenceSource'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/SampleListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Samples
+    post:
+      summary: Add new Samples
+      description: Call to register the event of a sample being taken. Sample ID is assigned as a result of the operation and returned in response.
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/SampleNewRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/SampleListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Samples
+components:
+  responses:
+    SampleListResponse:
+      content:
+        application/json:
+          schema:
+            title: SampleListResponse
+            type: object
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/components/schemas/Sample'
+                    type: array
+                required:
+                - data
+                type: object
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}
+      

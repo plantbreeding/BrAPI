@@ -1,0 +1,27 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    ExternalReferences: 
+      title: ExternalReferences
+      type: array
+      description: |-
+        An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.
+      items:
+        type: object
+        properties:
+          referenceSource:
+            description: An identifier for the source system or database of this reference
+            type: string
+          referenceID:
+            description: The external reference ID. Could be a simple string or a URI.
+      example: 
+        - referenceSource: DOI
+          referenceID: doi:10.155454/12349537E12
+        - referenceSource: OBO Library
+          referenceID: http://purl.obolibrary.org/obo/ro.owl
+        - referenceSource: Remote Data Collection Upload Tool
+          referenceID: 75a50e76

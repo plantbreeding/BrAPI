@@ -1,3 +1,8 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
 components:
   parameters:
     pageSize:
@@ -8,8 +13,4 @@ components:
       required: false
       schema:
         type: integer
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}
+

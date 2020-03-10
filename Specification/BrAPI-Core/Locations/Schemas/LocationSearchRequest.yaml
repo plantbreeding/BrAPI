@@ -1,0 +1,61 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    LocationSearchRequest:
+      allOf:
+      - $ref: '#/components/schemas/SearchRequestParametersPaging'
+      - $ref: '#/components/schemas/SearchRequestParametersExternalReferences'
+      - $ref: '#/components/schemas/SearchRequestParametersLocations'
+      - type: object
+        properties:
+          abbreviations:
+            description: An abbreviation which represents this location
+            type: array
+            items:
+              type: string
+            example: ['L1', 'LHC']
+          altitudeMin:
+            description: The minimum altitude to search for
+            type: number
+            example: 20
+          altitudeMax:
+            description: The maximum altitude to search for
+            type: number
+            example: 200
+          countryCodes:
+            description: '[ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec'
+            type: array
+            items:
+              type: string
+            example: ['USA', 'PER']
+          countryNames:
+            description: The full name of the country to search for
+            type: array
+            items:
+              type: string
+            example: ['United States of America', 'Peru']
+          coordinates: 
+            $ref: '#/components/schemas/geoJSONSearchArea'
+          instituteAddresses:
+            description: The street address of the institute to search for
+            type: array
+            items:
+              type: string
+            example: ['123 Main Street', '456 Side Street']
+          instituteNames:
+            description: The name of the institute to search for
+            type: array
+            items:
+              type: string
+            example: ['The Institute', 'The Other Institute']
+          locationTypes: 
+            description: The type of location this represents (ex. Breeding Location, Storage Location, etc)
+            type: array
+            items:
+              type: string
+            example: ['Nursery', 'Storage Location']
+

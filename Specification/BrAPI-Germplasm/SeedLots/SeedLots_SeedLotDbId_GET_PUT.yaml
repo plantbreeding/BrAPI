@@ -1,0 +1,79 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /seedlots/{seedLotDbId}:
+    get:
+      summary: Get a specific Seed Lot
+      description: Get a specific Seed Lot by seedLotDbId
+      parameters:
+      - name: seedLotDbId
+        description: Unique id for a seed lot on this server
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/SeedLotSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Seed Lots
+    put:
+      summary: Update an existing Seed Lot 
+      description: Update an existing Seed Lot 
+      parameters:
+      - name: seedLotDbId
+        description: Unique id for a seed lot on this server
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SeedLotNewRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/SeedLotSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Seed Lots
+components:
+  responses:
+    SeedLotSingleResponse:
+      content:
+        application/json:
+          schema:
+            title: SeedLotSingleResponse
+            type: object
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                $ref: '#/components/schemas/SeedLot'
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}

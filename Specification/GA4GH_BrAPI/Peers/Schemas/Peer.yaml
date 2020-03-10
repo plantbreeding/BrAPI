@@ -1,0 +1,31 @@
+components:
+  schemas:
+    Peer:
+      description: |-
+        Peers allow clients to represent services to each other so
+        ad-hoc networks can be easily constructed.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+        url:
+          description: |-
+            This is the base URL where the service can be accessed from. It is
+            expected to be fully formed and to include the port number if the
+            port in use is not standard (http 80, https 443).
+
+            For example, the peer at 1kgenomes would appear as:
+              http://1kgenomes.ga4gh.org
+
+            Trailing slashes should be ignored when constructing client
+            requests based on this peer, and so shouldn't be included.
+
+            This example shows a peer that has specified both a base path
+            and a port.
+              http://myapp.mycloudservice.com:8080/data/
+          type: string
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

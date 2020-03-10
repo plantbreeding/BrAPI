@@ -1,0 +1,40 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /search/germplasm:
+    post:
+      summary: Submit a search request for Germplasm
+      description: |-
+        Search for a set of germplasm based on some criteria
+        
+        Addresses these needs 
+        
+        - General germplasm search mechanism that accepts POST for complex queries 
+        
+        - Possibility to search germplasm by more parameters than those allowed by the existing germplasm search 
+        
+        - Possibility to get MCPD details by PUID rather than dbId
+        
+        See Search Services for additional implementation details.
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GermplasmSearchRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/GermplasmListResponse'
+        '202':
+          $ref: '#/components/responses/202AcceptedSearchResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Germplasm

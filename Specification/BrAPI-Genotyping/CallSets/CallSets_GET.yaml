@@ -1,0 +1,54 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /callsets:
+    get:
+      summary: Gets a filtered list of `CallSet` JSON objects.
+      description: Gets a filtered list of `CallSet` JSON objects.
+      parameters:
+        - name: callSetDbId
+          description: The ID of the `CallSet` to be retrieved.
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: callSetName
+          description: The human readable name of the `CallSet` to be retrieved.
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: variantSetDbId
+          description: The ID of the `VariantSet` to be retrieved.
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: sampleDbId
+          description: The ID of the `VariantSet` to be retrieved.
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: germplasmDbId
+          description: Return only call sets generated from the Sample of this Germplasm
+          in: query
+          required: false
+          schema:
+            type: string
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/pageSize'
+        - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/CallSetsListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+        - Call Sets

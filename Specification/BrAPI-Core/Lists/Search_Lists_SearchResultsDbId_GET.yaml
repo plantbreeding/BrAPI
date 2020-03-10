@@ -1,0 +1,29 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /search/lists/{searchResultsDbId}:
+    get:
+      summary: Get the results of a List search request
+      description: |-
+        Advanced searching for the list resource.
+        See Search Services for additional implementation details.
+      parameters:
+      - $ref: '#/components/parameters/searchResultsDbId'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '102': 
+          $ref: '#/components/responses/102ProcessingSearchResponse' 
+        '200':
+          $ref: '#/components/responses/ListsListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Lists

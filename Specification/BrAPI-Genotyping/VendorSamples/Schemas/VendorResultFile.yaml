@@ -1,0 +1,44 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    VendorResultFile: 
+      type: object
+      required:
+      - fileURL
+      - fileType
+      - fileName
+      - clientSampleIds
+      properties:
+        additionalInfo:
+          additionalProperties:
+            type: string
+          description: Additional arbitrary info
+          type: object
+        clientSampleIds:
+          description: The list of sampleDbIds included in the file
+          items:
+            type: string
+          type: array
+          example: ['3968733e', 'e0de6391', '66854172']
+        fileName:
+          description: Name of the file
+          type: string
+          example: sequence_data_ce640bd3.csv
+        fileType:
+          description: Format of the file
+          type: string
+          example: text/csv
+        fileURL:
+          description: The URL to a file with the results of a vendor analysis
+          type: string
+          format: uri
+          example: https://vendor.org/data/sequence_data_ce640bd3.csv
+        md5sum:
+          description: MD5 Hash Check Sum for the file to confirm download without error
+          type: string
+          example: c2365e900c81a89cf74d83dab60df146
+

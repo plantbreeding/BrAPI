@@ -1,0 +1,39 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /variants:
+    get:
+      summary: Gets a filtered list of `Variants`.
+      description: |-
+        Gets a filtered list of `Variants`.
+        
+        ** THIS ENDPOINT USES TOKEN BASED PAGING **
+      parameters:
+        - name: variantDbId
+          description: The ID of the `Variant` to be retrieved.
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: variantSetDbId
+          description: The ID of the `VariantSet` to be retrieved.
+          in: query
+          required: false
+          schema:
+            type: string
+        - $ref: '#/components/parameters/pageToken'
+        - $ref: '#/components/parameters/pageSize'
+        - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/VariantsListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+        - Variants

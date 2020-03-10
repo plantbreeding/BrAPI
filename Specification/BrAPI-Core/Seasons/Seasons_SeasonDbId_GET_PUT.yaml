@@ -1,0 +1,79 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /seasons/{seasonDbId}:
+    get:
+      summary: Get the a single Season
+      description: Get the a single Season
+      parameters:
+      - description: The unique identifier for a season. For backward compatibility it can be a string like '2012', '1957-2004'
+        example: b230a1d2, Spring_2017, 3
+        in: path
+        name: seasonDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/SeasonSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Seasons
+    put:
+      summary: Update existing Seasons
+      description: Update existing Seasons
+      parameters:
+      - description: The unique identifier for a season. For backward compatibility it can be a string like '2012', '1957-2004'
+        example: b230a1d2, Spring_2017, 3
+        in: path
+        name: seasonDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items: 
+                $ref: '#/components/schemas/Season'
+      responses:
+        '200':
+          $ref: '#/components/responses/SeasonSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Seasons      
+components:
+  responses:
+    SeasonSingleResponse:
+      content:
+        application/json:
+          schema:
+            title: SeasonSingleResponse
+            type: object
+            required:
+            - metadata
+            - result
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                $ref: '#/components/schemas/Season'
+      description: OK
+      headers: {}

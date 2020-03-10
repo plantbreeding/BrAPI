@@ -1,0 +1,33 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /search/variants:
+    post:
+      summary: Gets a list of `Variant` matching the search criteria.
+      description: |-
+        Gets a list of `Variant` matching the search criteria.
+        
+        ** THIS ENDPOINT USES TOKEN BASED PAGING **
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/variantsSearchRequest'
+        description: Study Search request
+      responses:
+        '200':
+          $ref: '#/components/responses/VariantsListResponse'
+        '202': 
+          $ref: '#/components/responses/202AcceptedSearchResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Variants

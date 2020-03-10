@@ -1,0 +1,27 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /search/callsets/{searchResultsDbId}:
+    get:
+      summary: Gets a list of call sets matching the search criteria.
+      description: Gets a list of call sets matching the search criteria.
+      parameters:
+      - $ref: '#/components/parameters/searchResultsDbId'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '102': 
+          $ref: '#/components/responses/102ProcessingSearchResponse' 
+        '200':
+          $ref: '#/components/responses/CallSetsListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Call Sets

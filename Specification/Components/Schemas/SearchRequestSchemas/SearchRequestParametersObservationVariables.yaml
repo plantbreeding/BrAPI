@@ -1,0 +1,22 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    SearchRequestParametersObservationVariables: 
+      type: object
+      properties:
+        observationVariableDbIds:
+          description: The DbIds of Variables to search for
+          items:
+            type: string
+          type: array
+          example: ['a646187d', '6d23513b']
+        observationVariableNames: 
+          description: The names of Variables to search for
+          items:
+            type: string
+          type: array
+          example: ['Plant Height in meters', 'Wheat rust score 1-5']

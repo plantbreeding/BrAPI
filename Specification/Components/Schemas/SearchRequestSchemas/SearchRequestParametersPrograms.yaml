@@ -1,0 +1,22 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    SearchRequestParametersPrograms: 
+      type: object
+      properties:
+        programDbIds:
+          description: A program identifier to search for
+          items:
+            type: string
+          type: array
+          example: ['8f5de35b', '0e2d4a13']
+        programNames:
+          description: A name of a program to search for
+          items:
+            type: string
+          type: array
+          example: ['Better Breeding Program', 'Best Breeding Program']

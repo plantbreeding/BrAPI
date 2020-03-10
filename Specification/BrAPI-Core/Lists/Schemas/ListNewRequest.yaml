@@ -1,0 +1,18 @@
+info: 
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    ListNewRequest:
+      allOf:
+      - $ref: '#/components/schemas/ListBaseFields'
+      - type: object
+        properties: 
+          data:
+            description: The list of DbIds contained in this list
+            type: array
+            items:
+              type: string
+            example: ['758a78c0', '2c78f9ee']

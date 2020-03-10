@@ -1,57 +1,89 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
 components:
   schemas:
-    geoJSON:
-      description: One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
-      properties:
-        geometry:
-          oneOf:
-          - description: "Example \n\n    [ -76.506042, 42.417373 ]"
-            properties:
-              coordinates:
-                $ref: '#/components/schemas/position'
-              type:
-                enum:
-                - Point
-                type: string
-            title: Point
-            type: object
-          - description: "Example \n\n    [ \n    \n      [ \n      \n        [ -77.456654, 42.241133 ], \n        \n        [ -75.414133, 41.508282 ],\n      \n        [ -76.506042, 42.417373 ], \n        \n        [ -77.456654, 42.241133 ] \n      \n      ] \n    \n    ]"
-            properties:
-              coordinates:
-                $ref: '#/components/schemas/polygon'
-              type:
-                enum:
-                - Polygon
-                type: string
-            title: Polygon
-            type: object
-          title: GeoJSON Geometry
-          type: object
-        type:
-          enum:
-          - Feature
-          type: string
+    geoJSON: 
       title: GeoJSON
       type: object
+      description: |-
+        One geometry as defined by GeoJSON (RFC 7946). All coordinates are decimal values on the WGS84 geographic coordinate reference system.
+        
+        Copied from RFC 7946 Section 3.1.1
+        
+        A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
+        easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
+      properties:
+        geometry:
+          title: GeoJSON Geometry
+          type: object
+          description: A geometry as defined by GeoJSON (RFC 7946). In this context, only Point or Polygon geometry are allowed. 
+          oneOf: 
+          - $ref: '#/components/schemas/pointGeometry'
+          - $ref: '#/components/schemas/polygonGeometry'
+          discriminator: 
+            propertyName: type
+            mapping:
+              Point: '#/components/schemas/pointGeometry'
+              Polygon: '#/components/schemas/polygonGeometry'
+          example: 
+            coordinates: [ -76.506042, 42.417373, 123 ]
+            type: Point
+        type:
+          type: string
+          default: Feature
+          example: Feature
+          description: The literal string "Feature"
+    pointGeometry:
+      type: object
+      description: |-
+        Copied from RFC 7946 Section 3.1.1
+        
+        A position is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
+        easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
+      properties:
+        coordinates:
+          $ref: '#/components/schemas/position'
+        type:
+          type: string
+          default: Point
+          example: Point
+          description: The literal string "Point"
+    polygonGeometry: 
+      type: object
+      description: |-
+        An array of Linear Rings. Each Linear Ring is an array of Points. 
+        
+        A Point is an array of numbers. There MUST be two or more elements. The first two elements are longitude and latitude, or
+        easting and northing, precisely in that order and using decimal numbers. Altitude or elevation MAY be included as an optional third element.
+      properties: 
+        coordinates:
+          $ref: '#/components/schemas/polygon'
+        type: 
+          type: string
+          default: Polygon
+          example: Polygon
+          description: The literal string "Polygon"
     linearRing:
       description: An array of at least four positions where the first equals the last
       items:
         $ref: '#/components/schemas/position'
       minItems: 4
       type: array
+      example: [ [ -77.456654, 42.241133, 494 ], [ -75.414133, 41.508282, 571 ], [ -76.506042, 42.417373, 123 ], [ -77.456654, 42.241133, 346 ] ]
     polygon:
       description: An array of linear rings
       items:
         $ref: '#/components/schemas/linearRing'
       type: array
+      example: [ [ [ -77.456654, 42.241133, 494 ], [ -75.414133, 41.508282, 571 ], [ -76.506042, 42.417373, 123 ], [ -77.456654, 42.241133, 346 ] ] ]
     position:
       description: A single position
       items:
         type: number
       minItems: 2
       type: array
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}
+      example: [ -76.506042, 42.417373, 123 ]
+

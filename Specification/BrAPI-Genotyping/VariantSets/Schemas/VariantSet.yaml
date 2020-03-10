@@ -1,0 +1,87 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    VariantSet:
+      type: object
+      description: A VariantSet is a collection of variants and variant calls intended to be analyzed together.
+      properties:
+        additionalInfo:
+          additionalProperties:
+            type: string
+          description: Additional arbitrary info
+          type: object
+        availableFormats:
+          description: |-
+            When the data for a VariantSet is retrieved, it can be retrieved in a variety of data formats and file formats. 
+            
+            dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)
+            
+            fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.
+          type: array
+          items:
+            type: object
+            description: Each 'availableFormat' object is a pairing of dataFormat and fileFormat. These must be communicated in pairs because they are not independant parameters and sometimes one influences the other.
+            properties:
+              dataFormat:
+                description: dataFormat defines the structure of the data within a file (ie DartSeq, VCF, Hapmap, tabular, etc)
+                type: string
+                enum:
+                - DartSeq
+                - VCF
+                - Hapmap
+                - tabular
+                - JSON 
+              fileFormat:
+                description: fileFormat defines the MIME type of the file (ie text/csv, application/excel, application/zip). This should also be reflected in the Accept and ContentType HTTP headers for every relevant request and response.
+                type: string
+                enum:
+                - text/csv
+                - text/tsv
+                - application/excel
+                - application/zip
+                - application/json
+              fileURL:
+                description: A URL which indicates the location of the file version of this VariantSet. Could be a static file URL or an API endpoint which generates the file.
+                type: string
+                format: uri
+          example:
+          - dataFormat: VCF
+            fileFormat: application/excel
+            fileURL: https://brapi.org/example/VCF_1.xlsx
+          - dataFormat: VCF
+            fileFormat: text/csv
+            fileURL: https://brapi.org/example/VCF_2.csv
+        analysis:
+          description: Set of Analysis descriptors for this VariantSet 
+          type: array
+          items:
+            $ref: '#/components/schemas/Analysis'
+        studyDbId:
+          description: The ID of the dataset this variant set belongs to.
+          type: string
+          example: 2fc3b034
+        variantSetDbId: 
+          description: The variant set ID.
+          type: string
+          example: 87a6ac1e
+        variantSetName:
+          description: The variant set name.
+          type: string
+          example: Maize QC DataSet 002334 
+        variantCount:
+          description: The number of Variants included in this VariantSet
+          type: integer
+          example: 250
+        callSetCount:
+          description: The number of CallSets included in this VariantSet
+          type: integer
+          example: 341
+        referenceSetDbId:
+          description: The ID of the reference set that describes the sequences used by the variants in this set.
+          type: string
+          example: 57eae639
+

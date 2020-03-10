@@ -1,0 +1,65 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    GermplasmSearchRequest: 
+      allOf:
+      - $ref: '#/components/schemas/SearchRequestParametersPaging'
+      - $ref: '#/components/schemas/SearchRequestParametersCommonCropNames'
+      - $ref: '#/components/schemas/SearchRequestParametersGermplasm'
+      - $ref: '#/components/schemas/SearchRequestParametersStudies'
+      - $ref: '#/components/schemas/SearchRequestParametersExternalReferences'
+      - type: object
+        properties: 
+          accessionNumbers:
+            description: List unique identifiers for accessions within a genebank
+            items:
+              type: string
+            type: array
+            example: ['A0000003', 'A0000477']
+          genus: 
+            description: List of Genus names to identify germplasm
+            items:
+              type: string
+            type: array
+            example: ['Aspergillus', 'Zea']
+          germplasmPUIs:
+            description: List of Permanent Unique Identifiers to identify germplasm
+            items:
+              type: string
+            type: array
+            example: ['http://pui.per/accession/A0000003', 'http://pui.per/accession/A0000477']
+          species:
+            description: List of Species names to identify germplasm
+            items:
+              type: string
+            type: array
+            example: ['fructus', 'mays']
+          parentDbIds:
+            description: Search for Germplasm with these parents
+            items:
+              type: string
+            type: array
+            example: ['72c1001f', '7346c553']
+          progenyDbIds: 
+            description: Search for Germplasm with these children
+            items:
+              type: string
+            type: array
+            example: ['16e16a7e', 'ce06cf9e']
+          synonyms:
+            description: List of alternative names or IDs used to reference this germplasm
+            items:
+              type: string
+            type: array
+            example: ['variety_1', '2c38f9b6']
+          collections:
+            description: A specific panel/collection/population name this germplasm belongs to.
+            items:
+              type: string
+            type: array
+            example: ['RDP1', 'MDP1']
+

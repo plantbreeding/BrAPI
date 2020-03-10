@@ -1,0 +1,79 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /samples/{sampleDbId}:
+    get:
+      summary: Get the details of a specific Sample
+      description: Used to retrieve the details of a single Sample from a Sample Tracking system.
+      parameters:
+      - description: the internal DB id for a sample
+        in: path
+        name: sampleDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/SampleSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Samples
+    put:
+      summary: Update the details of an existing Sample
+      description: Update the details of an existing Sample
+      parameters:
+      - description: the internal DB id for a sample
+        in: path
+        name: sampleDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SampleNewRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/SampleSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Samples
+components:
+  responses:
+    SampleSingleResponse:
+      content:
+        application/json:
+          schema:
+            title: SampleSingleResponse
+            type: object
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                $ref: '#/components/schemas/Sample'
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}

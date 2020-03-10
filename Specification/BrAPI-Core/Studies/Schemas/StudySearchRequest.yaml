@@ -1,0 +1,76 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    StudySearchRequest:
+      allOf:
+      - $ref: '#/components/schemas/SearchRequestParametersPaging'
+      - $ref: '#/components/schemas/SearchRequestParametersCommonCropNames'
+      - $ref: '#/components/schemas/SearchRequestParametersPrograms'
+      - $ref: '#/components/schemas/SearchRequestParametersTrials'
+      - $ref: '#/components/schemas/SearchRequestParametersStudies'
+      - $ref: '#/components/schemas/SearchRequestParametersLocations'
+      - $ref: '#/components/schemas/SearchRequestParametersGermplasm'
+      - $ref: '#/components/schemas/SearchRequestParametersObservationVariables'
+      - $ref: '#/components/schemas/SearchRequestParametersExternalReferences'
+      - type: object
+        properties:
+          active:
+            description: Is this study currently active
+            type: boolean
+            example: true
+          observationVariableDbIds: 
+            description: List of observation variable IDs to search for
+            items:
+              type: string
+            type: array
+            example: ['819e508f', 'f540b703']
+          seasonDbIds: 
+            description: The ID which uniquely identifies a season
+            items:
+              type: string
+            type: array
+            example: ['Harvest Two 2017', 'Summer 2018']
+          sortBy:
+            description: Name of one of the fields within the study object on which results can be sorted
+            enum:
+            - studyDbId
+            - trialDbId
+            - programDbId
+            - locationDbId
+            - seasonDbId
+            - studyType
+            - studyName
+            - studyLocation
+            - programName
+            - germplasmDbId
+            - observationVariableDbId
+            type: string
+          sortOrder:
+            description: Order results should be sorted. ex. "ASC" or "DESC"
+            enum:
+            - ASC
+            - DESC
+            type: string
+          studyTypes:
+            description: The type of study being performed. ex. "Yield Trial", etc
+            items:
+              type: string
+            type: array
+            example: ['Yield Trial', 'Disease Resistance Trial']
+          studyCodes:
+            description: A short human readable code for a study
+            items:
+              type: string
+            type: array
+            example: ['Grape_Yield_Spring_2018', 'Walnut_Kenya']
+          studyPUIs:
+            description: Permanent unique identifier associated with study data. For example, a URI or DOI
+            type: array
+            items:
+              type: string
+            example: ['doi:10.155454/12349537312', 'https://pui.per/d8dd35e1']
+

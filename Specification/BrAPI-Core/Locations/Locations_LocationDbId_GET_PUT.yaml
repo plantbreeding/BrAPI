@@ -1,0 +1,85 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /locations/{locationDbId}:
+    get:
+      summary: Get the details of a specific Location
+      description: |-
+        Get details for a location.
+        - The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
+        - `altitude` is in meters.'
+      parameters:
+      - description: The internal DB id for a location
+        in: path
+        name: locationDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/LocationSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Locations
+    put:
+      summary: Update the details for an existing Location
+      description: |-
+        Update the details for an existing location.
+        - The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
+        - `altitude` is in meters.'
+      parameters:
+      - description: The internal DB id for a location
+        in: path
+        name: locationDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LocationNewRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/LocationSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Locations
+components:
+  responses:
+    LocationSingleResponse:
+      content:
+        application/json:
+          schema:
+            title: LocationSingleResponse
+            type: object
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                $ref: '#/components/schemas/Location'
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}

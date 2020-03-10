@@ -1,0 +1,25 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    VendorPlate:
+      type: object
+      properties:
+        clientPlateBarcode:
+          description: (Optional) The value of the bar code attached to this plate
+          type: string
+          example: 31dd5787
+        clientPlateId:
+          description: The ID which uniquely identifies this plate to the client making the request
+          type: string
+          example: 0ad6c0ef
+        sampleSubmissionFormat:
+          $ref: '#/components/schemas/PlateFormat'
+        samples:
+          items:
+            $ref: '#/components/schemas/VendorSample'
+          type: array
+

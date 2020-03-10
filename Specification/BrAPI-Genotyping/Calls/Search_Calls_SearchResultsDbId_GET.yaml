@@ -1,0 +1,32 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /search/calls/{searchResultsDbId}:
+    get:
+      summary: Returns a filtered list of `Call` JSON objects.
+      description: |-
+        Returns a filtered list of `Call` JSON objects.
+
+        See Search Services for additional implementation details.
+        
+        ** THIS ENDPOINT USES TOKEN BASED PAGING **
+      parameters:
+      - $ref: '#/components/parameters/searchResultsDbId'
+      - $ref: '#/components/parameters/pageToken'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '102': 
+          $ref: '#/components/responses/102ProcessingSearchResponse' 
+        '200':
+          $ref: '#/components/responses/CallsListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+        - Calls

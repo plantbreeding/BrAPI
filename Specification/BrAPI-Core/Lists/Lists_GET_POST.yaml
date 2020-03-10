@@ -1,0 +1,101 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /lists:
+    get:
+      summary: Get filtered set of generic lists
+      description: Get filtered set of generic lists
+      parameters:
+      - description: The type of objects contained by this generic list
+        in: query
+        name: listType
+        required: false
+        schema:
+          $ref: '#/components/schemas/ListTypes'
+      - description: The human readable name of this generic list
+        in: query
+        name: listName
+        required: false
+        schema:
+          type: string
+      - description: The unique ID of this generic list
+        in: query
+        name: listDbId
+        required: false
+        schema:
+          type: string
+      - description: The source tag of this generic list
+        in: query
+        name: listSource
+        required: false
+        schema:
+          type: string
+      - $ref: '#/components/parameters/externalReferenceID'
+      - $ref: '#/components/parameters/externalReferenceSource'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/ListsListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Lists
+    post:
+      summary: Create a New List
+      description: Create a new list
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ListNewRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/ListsListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Lists
+components:
+  responses:
+    ListsListResponse:
+      content:
+        application/json:
+          schema:
+            title: ListsListResponse
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ListSummary'
+                required:
+                - data
+            required:
+            - metadata
+            - result
+            type: object
+      description: OK
+      headers: {}
+    

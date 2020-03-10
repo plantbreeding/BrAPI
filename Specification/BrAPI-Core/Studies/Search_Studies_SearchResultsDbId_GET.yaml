@@ -1,0 +1,34 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /search/studies/{searchResultsDbId}:
+    get:
+      summary: Get the results of a Studies search request
+      description: |-
+        Get list of studies
+
+        StartDate and endDate should be ISO-8601 format for dates
+
+        See Search Services for additional implementation details.
+      parameters:
+      - $ref: '#/components/parameters/searchResultsDbId'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '102': 
+          $ref: '#/components/responses/102ProcessingSearchResponse' 
+        '200':
+          $ref: '#/components/responses/StudyListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Studies

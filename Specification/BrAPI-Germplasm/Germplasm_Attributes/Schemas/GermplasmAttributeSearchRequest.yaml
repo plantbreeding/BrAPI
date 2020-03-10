@@ -1,0 +1,68 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    GermplasmAttributeSearchRequest:
+      allOf:
+      - $ref: '#/components/schemas/SearchRequestParametersPaging'
+      - $ref: '#/components/schemas/SearchRequestParametersExternalReferences'
+      - type: object
+        properties:
+          dataTypes:
+            description: List of scale data types to filter search results
+            items:
+              $ref: '#/components/schemas/TraitDataType'
+            type: array
+            example: ['Numerical', 'Ordinal', 'Text']
+          methodDbIds:
+            description: List of methods to filter search results
+            items:
+              type: string
+            type: array
+            example: ['07e34f83', 'd3d5517a']
+          attributeDbIds:
+            description: List of Germplasm Attribute IDs to search for
+            items:
+              type: string
+            type: array
+            example: ['2ef15c9f', '318e7f7d']
+          attributeNames:
+            description: List of human readable Germplasm Attribute names to search for
+            items:
+              type: string
+            type: array
+            example: ['Plant Height 1', 'Root Color']
+          ontologyDbIds:
+            description: List of ontology IDs to search for
+            items:
+              type: string
+            type: array
+            example: ['f44f7b23', 'a26b576e']
+          scaleDbIds:
+            description: List of scales to filter search results
+            items:
+              type: string
+            type: array
+            example: ['a13ecffa', '7e1afe4f']
+          studyDbId:  
+            description: The unique ID of a studies to filter on
+            type: array
+            items:
+              type: string
+            example: ['5bcac0ae', '7f48e22d']
+          traitClasses:
+            description: List of trait classes to filter search results
+            items:
+              type: string
+            type: array
+            example: ['morphological', 'phenological', 'agronomical']
+          traitDbIds:
+            description: List of trait unique ID to filter search results
+            items:
+              type: string
+            type: array
+            example: ['ef81147b', '78d82fad']
+  

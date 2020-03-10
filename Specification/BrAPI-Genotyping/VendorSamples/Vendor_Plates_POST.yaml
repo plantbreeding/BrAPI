@@ -1,0 +1,43 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /vendor/plates:
+    post:
+      summary: Submit a new set of Sample data
+      description: Submit a new set of Sample data
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VendorPlateSubmissionRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                title: VendorPlateSubmissionIdSingleResponse
+                type: object
+                properties:
+                  '@context':
+                    $ref: '#/components/schemas/Context'
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/VendorPlateSubmissionId'
+                required:
+                - metadata
+                - result
+          description: OK
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Vendor

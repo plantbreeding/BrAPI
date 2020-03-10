@@ -1,0 +1,27 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    GermplasmAttributeNewRequest: 
+      allOf:
+      - $ref: '#/components/schemas/VariableBaseClass'
+      - type: object
+        required:
+        - attributeName
+        properties: 
+          attributeCategory:
+            description: General category for the attribute. very similar to Trait class.
+            type: string
+            example: Morphological
+          attributeName: 
+            description: A human readable name for this attribute
+            type: string
+            example: Plant Height 1
+          attributeDescription: 
+            description: A human readable description of this attribute
+            type: string
+            example: Height of the plant measured in meters by a tape
+

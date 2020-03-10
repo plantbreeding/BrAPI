@@ -1,0 +1,39 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    ProgramSearchRequest:
+      allOf:
+      - $ref: '#/components/schemas/SearchRequestParametersPaging'
+      - $ref: '#/components/schemas/SearchRequestParametersCommonCropNames'
+      - $ref: '#/components/schemas/SearchRequestParametersPrograms'
+      - $ref: '#/components/schemas/SearchRequestParametersExternalReferences'
+      - type: object
+        properties:
+          abbreviations:
+            description: An abbreviation of a program to search for
+            items:
+              type: string
+            type: array
+            example: ['P1', 'P2']
+          leadPersonDbIds:
+            description: The person DbIds of the program leader to search for
+            items:
+              type: string
+            type: array
+            example: ['d8bd96c7', 'a2b9c8e7']
+          leadPersonNames:
+            description: The names of the program leader to search for
+            items:
+              type: string
+            type: array
+            example: ['Bob Robertson', 'Rob Robertson']
+          objectives:
+            description: A program objective to search for
+            items:
+              type: string
+            type: array
+            example: ['Objective Code One', 'This is a longer objective search query']

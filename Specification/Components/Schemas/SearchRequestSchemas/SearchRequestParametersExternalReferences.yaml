@@ -1,0 +1,22 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    SearchRequestParametersExternalReferences: 
+      type: object
+      properties:
+        externalReferenceIDs: 
+          description: List of external references for the trait to search for
+          items:
+            type: string
+          type: array
+          example: ['http://purl.obolibrary.org/obo/ro.owl', '14a19841']
+        externalReferenceSources: 
+          description: List of external references sources for the trait to search for
+          items:
+            type: string
+          type: array
+          example: ['OBO Library', 'Field App Name']

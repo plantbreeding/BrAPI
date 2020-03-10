@@ -1,0 +1,82 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /traits/{traitDbId}:
+    get:
+      summary: Get the details of a specific Trait
+      description: |-
+        Retrieve the details of a single trait
+
+        An Observation Variable has 3 critical parts: A Trait being observed, a Method for making the observation, and a Scale on which the observation can be measured and compared with other observations.
+      parameters:
+      - description: Id of the trait to retrieve details of.
+        in: path
+        name: traitDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/TraitSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Traits
+    put:
+      summary: Update an existing Trait
+      description: Update an existing trait
+      parameters:
+      - description: Id of the trait to retrieve details of.
+        in: path
+        name: traitDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TraitNewRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/TraitSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Traits
+components:
+  responses:
+    TraitSingleResponse:
+      content:
+        application/json:
+          schema:
+            title: TraitSingleResponse
+            type: object
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                $ref: '#/components/schemas/Trait'
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}

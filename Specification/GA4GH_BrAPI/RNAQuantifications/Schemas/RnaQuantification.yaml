@@ -1,0 +1,45 @@
+components:
+  schemas:
+    RnaQuantification:
+      properties:
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+        biosample_id:
+          title: Biosample ID
+          type: string
+        description:
+          title: Description
+          type: string
+        feature_set_ids:
+          description: List of annotation sets used.
+          items:
+            type: string
+          type: array
+        id:
+          description: |-
+            The unique ID assigned to the results of running the described programs
+            on the specified reads and assignment to the listed annotation.
+          type: string
+        name:
+          title: Name
+          type: string
+        programs:
+          description: Programs can be used to track the provenance of how read data was quantified.
+          items:
+            $ref: '#/components/schemas/Program'
+          type: array
+        read_group_ids:
+          description: ID(s) of the ReadGroup(s) providing the reads for the analysis.
+          items:
+            type: string
+          type: array
+        rna_quantification_set_id:
+          description: ID of the containing RnaQuantificationSet.
+          type: string
+      title: Top level identifying information
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

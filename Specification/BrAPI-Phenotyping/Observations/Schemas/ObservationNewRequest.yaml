@@ -1,0 +1,65 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    ObservationNewRequest:
+      type: object
+      properties:
+        additionalInfo:
+          additionalProperties:
+            type: string
+          description: Additional arbitrary info
+          type: object
+        germplasmDbId:
+          description: The ID which uniquely identifies a germplasm
+          type: string
+          example: 2408ab11
+        germplasmName:
+          description: Name of the germplasm. It can be the preferred name and does not have to be unique.
+          type: string
+          example: A0000003
+        observationTimeStamp:
+          description: The date and time when this observation was made
+          format: date-time
+          type: string
+        observationUnitDbId:
+          description: The ID which uniquely identifies an observation unit
+          type: string
+          example: 598111d4
+        observationUnitName:
+          description: A human readable name for an observation unit
+          type: string
+          example: Plot 1
+        observationVariableDbId:
+          description: The ID which uniquely identifies an observation variable
+          type: string
+          example: c403d107
+        observationVariableName:
+          description: A human readable name for an observation variable
+          type: string
+          example: Plant Height in meters
+        collector:
+          description: The name or identifier of the entity which collected the observation
+          type: string
+          example: 917d3ae0
+        season:
+          $ref: '#/components/schemas/Season'
+        studyDbId:
+          description: The ID which uniquely identifies a study within the given database server
+          type: string
+          example: ef2829db
+        uploadedBy:
+          description: The name or id of the user who uploaded the observation to the database system
+          type: string
+          example: a2f7f60b
+        value:
+          description: The value of the data collected as an observation
+          type: string
+          example: '2.3'
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
+          
+

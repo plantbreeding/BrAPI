@@ -1,0 +1,94 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /programs:
+    get:
+      summary: Get a filtered list of breeding Programs
+      description: Get a filtered list of breeding Programs. This list can be filtered by common crop name to narrow results to a specific crop.
+      parameters:
+      - description: Filter by the common crop name. Exact match.
+        in: query
+        name: commonCropName
+        required: false
+        schema:
+          type: string
+      - description: Filter by program name. Exact match.
+        in: query
+        name: programName
+        required: false
+        schema:
+          type: string
+      - description: Filter by program abbreviation. Exact match.
+        in: query
+        name: abbreviation
+        required: false
+        schema:
+          type: string
+      - $ref: '#/components/parameters/externalReferenceID'
+      - $ref: '#/components/parameters/externalReferenceSource'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/ProgramListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Programs
+    post:
+      summary: Add new breeding Programs to the database
+      description: Add new breeding Programs to the database. The `programDbId` is set by the server, all other fields are take from the request body, or a default value is used.
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items: 
+                $ref: '#/components/schemas/ProgramNewRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/ProgramListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Programs
+components:
+  responses:
+    ProgramListResponse:
+      content:
+        application/json:
+          schema:
+            title: ProgramListResponse
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/components/schemas/Program'
+                    type: array
+                required:
+                - data
+                type: object
+            required:
+            - metadata
+            - result
+            type: object
+      description: OK
+      headers: {}

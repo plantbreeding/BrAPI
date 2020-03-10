@@ -1,0 +1,45 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /images/{imageDbId}/imagecontent:
+    put:
+      summary: Update an image with the image file content
+      description: |-
+        Update an image with the image file content
+        
+        Implementation Notes
+        
+        - This call should be paired with 'PUT /images/{imageDbId}' for full capability
+        
+        - A server may choose to modify the image meta data object based on the actually image which has been uploaded. 
+        
+        - Image data may be stored in a database or file system. Servers should generate and provide the "imageURL" for retrieving the image, wherever it happens to live.
+      parameters:
+      - description: The unique identifier for a image
+        in: path
+        name: imageDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          image/*:
+            schema:
+              format: binary
+              type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/ImageSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Images

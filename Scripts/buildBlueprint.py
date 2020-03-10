@@ -2,60 +2,76 @@
 
 import sys
 import json
+import glob
+import yaml
+import re
+import os
 
 def go():
-	
-	# Tedious to write out the names of all the directories and files but this let's us control the order of assembly
-	sources=[  "GeneralInfo/Intro.md",
-		       "GeneralInfo/URL_Structure.md",
-		       "GeneralInfo/Response_Structure.md",
-		       "GeneralInfo/Error_Handling.md",
-		       "GeneralInfo/Date_Time_Encoding.md",
-		       "GeneralInfo/Location_Encoding.md",
-		       "GeneralInfo/Search_Services.md",
-		       "GeneralInfo/Asychronous_Processing.md",
-		       "Authentication/README.md" ,
-		       "Calls/README.md" ,
-		       "Crops/README.md",
-		       "Germplasm/README.md",
-		       "GermplasmAttributes/README.md",
-		       "Programs/README.md",
-		       "Trials/README.md",
-		       "Studies/README.md",
-		       "Locations/README.md",
-		       "Phenotypes/README.md",
-		       "ObservationVariables/README.md",
-		       "Images/README.md",
-		       "GenomeMaps/README.md",
-		       "Markers/README.md",
-		       "MarkerProfiles/README.md",
-		       "Samples/README.md",
-		       "VendorSamples/README.md",
-		       "Lists/README.md",
-		       "People/README.md"
-		       ]
-	
+		
 	rootPath = '.'
 	if len(sys.argv) > 1 :
 	    rootPath = sys.argv[1]
+	if rootPath[-1] != '/':
+		rootPath = rootPath + '/'
 	
-	fullText = ''
-	for source in sources:
-		filename = rootPath + '/Specification/' + source
-		with open(filename, "r") as inFile:
-			fullText += inFile.read()
+	headerHTML = ''
+	with open(rootPath + "swaggerMetaData.yaml", "r") as headerFile:
+		try:
+			fileObj = yaml.load(headerFile)
+			if 'info' in fileObj:
+				if 'description' in fileObj['info']:
+					headerHTML = parseHTMLToMD(fileObj['info']['description'])
+					
+		except yaml.YAMLError as exc:
+			print(exc)
 	
 	outFilePath = rootPath + '/brapi_blueprint.apib'
+	outFileJsonPath = rootPath + '/brapi_blueprint.apib.json'
+	outREADMEFilePath = rootPath + '/README.md'
+	if os.path.exists(outREADMEFilePath):
+		os.remove(outREADMEFilePath)
+	
+	sources = glob.glob(rootPath + '**/README.md', recursive=True)
+	sources = sorted(sources)
+		
+	fullText = headerHTML
+	for source in sources:
+		source = source.replace('\\', '/')
+		print(source)
+		with open(source, "r") as inFile:
+			fullText += inFile.read()
+	
 	with open(outFilePath, "w") as outFile:
 		outFile.write(fullText)
 		print(outFilePath)
 		
-	outFileJsonPath = rootPath + '/brapi_blueprint.apib.json'
 	with open(outFileJsonPath, "w") as outFileJson:
 		jsonWrapper = {'code': fullText}
 		json.dump(jsonWrapper, outFileJson)
 		print(outFileJsonPath)
+		
+	with open(outREADMEFilePath, "w") as outRMFile:
+		outRMFile.write(fullText)
+		print(outREADMEFilePath)
 			
-			
+def parseHTMLToMD(htmlStr):
+	title = re.search(r'<div class="[^"]*current-brapi-section[^"]*">\n\s*<h2 class="brapi-section-title">([^<]*)</h2>', htmlStr).group(1)
+		
+	body = re.sub(r'<h2 class="brapi-section-title">([^<]*)</h2>', r'### \1', htmlStr)
+	body = re.sub(r'<div class="brapi-section-description">([^<]*)</div>', r'\1', body)
+	body = re.sub(r'<div class="version-number">([^<]*)</div>\n', r'\n\1', body)
+	body = re.sub(r'<div class="stop-float"></div>', r'', body)
+	body = re.sub(r'<div class="[^"]*brapi-section[^"]*">', r'', body)
+	body = re.sub(r'\n\s*</div>', r'\n', body)
+	body = re.sub(r'<div class="link-btn"><a.*href="([^"]*)">([^<]*)</a></div>\n', r' - [\2](\1)', body)
+	body = re.sub(r'<div class="gen-info-link"><a.*href="([^"]*)">([^<]*)</a></div>', r'- [\2](\1)', body)
+	body = re.sub(r'<style>[^<]*</style>', r'\n', body)
+	
+	body = re.sub(title, '**' + title + '**', body)
+	
+	mdStr = 'FORMAT: 1A\n\n# ' + title + '\n\n' + body
+	
+	return mdStr
 			
 go()

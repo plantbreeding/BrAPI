@@ -1,0 +1,57 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /variantsets/{variantSetDbId}/calls:
+    get:
+      summary:  Gets a list of `Calls` associated with a `VariantSet`.
+      description: |-
+        Gets a list of `Calls` associated with a `VariantSet`.
+        
+        ** THIS ENDPOINT USES TOKEN BASED PAGING **
+      parameters:
+        - name: variantSetDbId
+          description: The ID of the `VariantSet` to be retrieved.
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: expandHomozygotes
+          description: Should homozygotes be expanded (true) or collapsed into a single occurence (false)
+          in: query
+          required: false
+          schema:
+            type: boolean
+        - name: unknownString
+          description: The string to use as a representation for missing data
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: sepPhased
+          description: The string to use as a separator for phased allele calls
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: sepUnphased
+          description: The string to use as a separator for unphased allele calls
+          in: query
+          required: false
+          schema:
+            type: string
+        - $ref: '#/components/parameters/pageToken'
+        - $ref: '#/components/parameters/pageSize'
+        - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/CallsListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+        - Variant Sets

@@ -1,0 +1,20 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    Sample:
+      allOf:
+      - $ref: '#/components/schemas/SampleNewRequest'
+      - type: object
+        properties:
+          sampleDbId:
+            description: |-
+              The ID which uniquely identifies a sample
+              
+              MIAPPE V1.1 (DM-76) Sample ID - Unique identifier for the sample.
+            type: string
+            example: cd06a61d
+

@@ -1,0 +1,29 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /search/markerpositions: 
+    post:
+      summary: Get marker position info
+      description: Get marker position information, based on Map, Linkage Group, and Marker ID
+      parameters: 
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MarkerPositionSearchRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/MarkerPositionListResponse'
+        '202':
+          $ref: '#/components/responses/202AcceptedSearchResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Genome Maps

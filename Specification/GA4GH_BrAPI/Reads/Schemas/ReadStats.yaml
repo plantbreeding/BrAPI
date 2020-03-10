@@ -1,0 +1,25 @@
+components:
+  schemas:
+    ReadStats:
+      description: ReadStats can be used to provide summary statistics about read data.
+      properties:
+        aligned_read_count:
+          description: The number of aligned reads.
+          format: int64
+          type: string
+        base_count:
+          description: |-
+            The total number of bases.
+            This is equivalent to the sum of `alignedSequence.length` for all reads.
+          format: int64
+          type: string
+        unaligned_read_count:
+          description: The number of unaligned reads.
+          format: int64
+          type: string
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

@@ -1,0 +1,47 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /ontologies:
+    get:
+      summary: Get the Ontologies
+      description: Call to retrieve a list of observation variable ontologies available in the system.
+      parameters:
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                title: OntologyListResponse
+                type: object
+                properties:
+                  '@context':
+                    $ref: '#/components/schemas/Context'
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    properties:
+                      data:
+                        items:
+                          $ref: '#/components/schemas/Ontology'
+                        type: array
+                    required:
+                    - data
+                    type: object
+                required:
+                - metadata
+                - result
+          description: OK
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Ontologies

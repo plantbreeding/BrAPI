@@ -1,0 +1,86 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    PedigreeNode:
+      type: object
+      required: 
+      - germplasmDbId
+      properties:
+        crossingProjectDbId:
+          description: The crossing project used to generate this germplasm
+          type: string
+          example: 625e745a
+        crossingYear:
+          description: The year the parents were originally crossed
+          type: integer
+          example: 2005
+        germplasmName:
+          description: A human readable name for a germplasm
+          type: string
+          example: A0021004
+        familyCode:
+          description: The code representing the family
+          type: string
+          example: F0000203
+        germplasmDbId:
+          description: The ID which uniquely identifies a germplasm
+          type: string
+          example: 1098ebaf
+        pedigree:
+          description: The string representation of the pedigree.
+          type: string
+          example: A0000001/A0000002
+        parents:
+          description: List of parent nodes in the pedigree tree.
+          type: array
+          items:
+            type: object
+            properties:
+              germplasmDbId:
+                description: The germplasm DbId of the parent of this germplasm
+                type: string
+                example: a55847ed
+              germplasmName:
+                description: the human readable name of the parent of this germplasm
+                type: string
+                example: A0000592
+              parentType:
+                description: The type of parent the parent is. ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.
+                enum:
+                - MALE
+                - FEMALE
+                - SELF
+                - POPULATION
+                type: string
+                example: FEMALE
+          example:
+          - germplasmDbId: b66958de
+            germplasmName: A0000592
+            parentType: MALE
+          - germplasmDbId: a55847ed
+            germplasmName: A0000592
+            parentType: FEMALE
+        siblings:
+          description: List of sibling germplasm
+          type: array
+          items:
+            type: object
+            properties:
+              germplasmName:
+                description: the germplasm name of the sibling
+                type: string
+              germplasmDbId:
+                description: the germplasm DbId of the sibling
+                type: string
+          example: 
+          - germplasmName: A0021005
+            germplasmDbId: 334f53a3
+          - germplasmName: A0021006
+            germplasmDbId: 7bbbda8c
+          - germplasmName: A0021007
+            germplasmDbId: ab1d9b26
+

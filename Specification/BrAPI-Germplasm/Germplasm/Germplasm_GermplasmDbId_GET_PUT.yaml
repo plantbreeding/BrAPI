@@ -1,0 +1,80 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /germplasm/{germplasmDbId}:
+    get:
+      summary: Get the details of a specific Germplasm
+      description: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport Data. The MCPD fields are optional and marked with the prefix [MCPD].
+      parameters:
+      - description: The internal id of the germplasm
+        in: path
+        name: germplasmDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/GermplasmSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Germplasm
+    put:
+      summary: Update the details of an existing Germplasm
+      description: Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport Data. The MCPD fields are optional and marked with the prefix [MCPD].
+      parameters:
+      - description: The internal id of the germplasm
+        in: path
+        name: germplasmDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GermplasmNewRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/GermplasmSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Germplasm
+components:
+  responses:
+    GermplasmSingleResponse:
+      content:
+        application/json:
+          schema:
+            title: GermplasmSingleResponse
+            type: object
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                $ref: '#/components/schemas/Germplasm'
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}
+      

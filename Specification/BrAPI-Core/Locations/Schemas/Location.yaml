@@ -1,0 +1,16 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    Location: 
+      allOf:
+      - $ref: '#/components/schemas/LocationNewRequest'
+      - type: object
+        properties:
+          locationDbId:
+            description: The unique identifier for a Location
+            type: string
+            example: 3cfdd67d

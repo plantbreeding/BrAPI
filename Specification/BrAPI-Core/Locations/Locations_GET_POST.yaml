@@ -1,0 +1,89 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /locations:
+    get:
+      summary: Get a filtered list of Locations
+      description: |-
+        Get a list of locations.
+        * The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
+        * `altitude` is in meters.
+      parameters:
+      - description: Filter by location type specified.
+        in: query
+        name: locationType
+        required: false
+        schema:
+          type: string
+      - $ref: '#/components/parameters/externalReferenceID'
+      - $ref: '#/components/parameters/externalReferenceSource'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/LocationListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Locations
+    post:
+      summary: Create new Locations
+      description: |-
+        Add new locations to database
+        * The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
+        * `altitude` is in meters.
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items: 
+                $ref: '#/components/schemas/LocationNewRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/LocationListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Locations
+components:
+  responses:
+    LocationListResponse:
+      content:
+        application/json:
+          schema:
+            title: LocationListResponse
+            type: object
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/components/schemas/Location'
+                    type: array
+                required:
+                - data
+                type: object
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}
+  

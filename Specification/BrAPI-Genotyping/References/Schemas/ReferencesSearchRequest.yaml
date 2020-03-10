@@ -1,0 +1,25 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    ReferencesSearchRequest: 
+      allOf:
+      - $ref: '#/components/schemas/SearchRequestParametersPaging'
+      - type: object
+        properties:
+          accession:
+            description: If specified, return the references for which the `accession` matches this string (case-sensitive, exact match).
+            type: string
+            example: A0009283
+          md5checksum:
+            description: If specified, return the references for which the `md5checksum` matches this string (case-sensitive, exact match).
+            type: string
+            example: c2365e900c81a89cf74d83dab60df146
+          referenceSetDbId:
+            description: The `ReferenceSet` to search.
+            type: string
+            example: 04c83ea7
+

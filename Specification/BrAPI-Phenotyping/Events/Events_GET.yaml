@@ -1,0 +1,79 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /events:
+    get:
+      summary: Get the Events
+      description: Get list of events
+      parameters:
+      - description: Filter based on study unique identifier in which the events occured
+        in: query
+        name: studyDbId
+        required: false
+        schema:
+          type: string
+      - description: Filter based on an ObservationUnit unique identifier in which the events occured
+        in: query
+        name: observationUnitDbId
+        required: false
+        schema:
+          type: string
+      - description: Filter based on an Event Type
+        in: query
+        name: eventType
+        required: false
+        schema:
+          type: string
+      - description: Filter based on an Date Range
+        in: query
+        name: dateRangeStart
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - description: Filter based on an Date Range
+        in: query
+        name: dateRangeEnd
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  '@context':
+                    $ref: '#/components/schemas/Context'
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    properties:
+                      data:
+                        items:
+                          $ref: '#/components/schemas/Event'
+                        type: array
+                    required:
+                    - data
+                    type: object
+                required:
+                - metadata
+                - result
+                title: eventsResponse
+                type: object
+          description: OK
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Events

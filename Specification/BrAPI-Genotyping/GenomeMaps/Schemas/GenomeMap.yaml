@@ -1,0 +1,69 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    GenomeMap: 
+      type: object
+      required:
+      - mapDbId
+      - commonCropName
+      - type
+      properties:
+        additionalInfo:
+          additionalProperties:
+            type: string
+          description: Additional arbitrary info
+          type: object
+        comments:
+          description: Additional comments
+          type: string
+          example: Comments about this map
+        commonCropName:
+          description: The common name of the crop
+          type: string
+          example: Paw Paw
+        documentationURL:
+          description: A URL to the human readable documentation of this object
+          format: uri
+          type: string
+          example: https://brapi.org
+        linkageGroupCount:
+          description: The number of linkage groups present in this genomic map
+          type: integer
+          example: 5
+        mapDbId:
+          description: The ID which uniquely identifies this genomic map
+          type: string
+          example: 142cffd5
+        mapPUI:
+          description: The DOI or other permanent identifier for this genomic map
+          type: string
+          example: doi:10.3207/2959859860
+        mapName:
+          description: A human readable name for this genomic map
+          type: string
+          example: Genome Map 1
+        markerCount:
+          description: The number of markers present in this genomic map
+          type: integer
+          example: 1100
+        publishedDate:
+          description: The date this genome was published
+          format: date-time
+          type: string
+        scientificName:
+          description: Full scientific binomial format name. This includes Genus, Species, and Sub-species
+          type: string
+          example: Zea mays
+        type:
+          description: The type of map this represents, usually "Genetic"
+          type: string
+          example: Genetic
+        unit:
+          description: The units used to describe the data in this map
+          type: string
+          example: cM
+

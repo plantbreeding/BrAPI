@@ -1,0 +1,92 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /maps:
+    get:
+      summary: Get the Genomic Maps
+      description: Get list of maps
+      parameters:
+      - name: commonCropName
+        description: The common name of the crop
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: mapPUI
+        description: The DOI or other permanent identifier for this genomic map
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: scientificName
+        description: Full scientific binomial format name. This includes Genus, Species, and Sub-species
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: type
+        description: Type of map
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - physical
+          - genomic
+      - name: programDbId
+        description: Unique Id to filter by Program
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: trialDbId
+        description: Unique Id to filter by Trial
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: studyDbId
+        description: Unique Id to filter by Study
+        in: query
+        required: false
+        schema:
+          type: string
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                title: GenomeMapListResponse
+                type: object
+                required:
+                - metadata
+                - result
+                properties:
+                  '@context':
+                    $ref: '#/components/schemas/Context'
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    properties:
+                      data:
+                        items:
+                          $ref: '#/components/schemas/GenomeMap'
+                        type: array
+                    required:
+                    - data
+                    type: object
+          description: OK
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Genome Maps

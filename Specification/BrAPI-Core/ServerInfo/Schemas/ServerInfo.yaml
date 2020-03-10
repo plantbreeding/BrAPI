@@ -1,0 +1,49 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    ServerInfo: 
+      type: object
+      required:
+      - calls
+      properties:
+        contactEmail:
+          description: A contact email address for this server management
+          type: string
+          example: contact@institute.org
+        documentationURL:
+          description: A URL to the human readable documentation of this object
+          type: string
+          example: institute.org/server
+        organizationURL:
+          description: The URL of the organization that manages this server and data
+          type: string
+          example: institute.org/home
+        organizationName:
+          description: The name of the organization that manages this server and data
+          type: string
+          example: The Institute
+        serverName:
+          description: The name of this server
+          type: string
+          example: The BrAPI Test Server
+        serverDescription:
+          description: A description of this server
+          type: string
+          example: |-
+            The BrAPI Test Server
+            Web Server - Apache Tomcat 7.0.32
+            Database - Postgres 10
+            Supported BrAPI Version - V2.0
+        location:
+          description: Physical location of this server (ie. City, Country)
+          type: string
+          example: USA
+        calls:
+          description: Array of available calls on this server
+          items:
+            $ref: '#/components/schemas/Service'
+          type: array

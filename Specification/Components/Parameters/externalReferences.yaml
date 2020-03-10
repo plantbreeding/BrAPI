@@ -1,0 +1,22 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  parameters:
+    externalReferenceID:
+      name: externalReferenceID
+      description: Search for Germplasm by an external reference
+      in: query
+      required: false
+      schema:
+        type: string
+    externalReferenceSource:
+      name: externalReferenceSource
+      description: Search for Germplasm by an external reference
+      in: query
+      required: false
+      schema:
+        type: string
+

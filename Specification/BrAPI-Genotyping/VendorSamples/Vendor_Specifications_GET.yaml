@@ -1,0 +1,32 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /vendor/specifications:
+    get:
+      summary: Get the Vendor Specifications
+      description: Defines the plate format specification for the vendor.
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                title: VendorSpecificationSingleResponse
+                type: object
+                properties:
+                  '@context':
+                    $ref: '#/components/schemas/Context'
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/VendorSpecification'
+                required:
+                - metadata
+                - result
+          description: OK
+          headers: {}
+      tags:
+      - Vendor

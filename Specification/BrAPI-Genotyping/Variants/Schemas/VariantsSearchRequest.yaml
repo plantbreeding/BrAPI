@@ -1,0 +1,37 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    variantsSearchRequest: 
+      allOf:
+      - $ref: '#/components/schemas/SearchRequestParametersTokenPaging'
+      - type: object
+        properties:
+          callSetDbIds: 
+            description: Only return variant calls which belong to call sets with these IDs. If unspecified, return all variants and no variant call objects.
+            items:
+              type: string
+            type: array
+            example: ['4639fe3e', 'b60d900b']
+          end:
+            description: The end of the window (0-based, exclusive) for which overlapping variants should be returned.
+            type: integer
+            example: 1500
+          referenceDbId:
+            description: Only return variants on this reference.
+            type: string
+            example: 120a2d5c
+          start:
+            description: The beginning of the window (0-based, inclusive) for which overlapping variants should be returned. Genomic positions are non-negative integers less than reference length. Requests spanning the join of circular genomes are represented as two requests one on each side of the join (position 0).
+            type: integer
+            example: 100
+          variantSetDbIds: 
+            description: The `VariantSet` to search.
+            items:
+              type: string
+            type: array
+            example: ['ba63d810', '434d1760']
+

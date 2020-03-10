@@ -1,0 +1,58 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    ProgenyNode:
+      type: object
+      required:
+      - germplasmDbId
+      - progeny
+      properties:
+        germplasmName:
+          description: A human readable name for a germplasm
+          type: string
+          example: A0021004
+        germplasmDbId:
+          description: The ID which uniquely identifies a germplasm
+          type: string
+          example: 01b974dc
+        progeny:
+          description: List of germplasm entities which are direct children of this germplasm
+          items:
+            required: 
+            - germplasmDbId
+            - parentType
+            properties:
+              germplasmName:
+                description: The human readable name of a progeny germplasm
+                type: string
+                example: A0021011
+              germplasmDbId:
+                description: The unique identifier of a progeny germplasm
+                type: string
+                example: e8d5dad7
+              parentType:
+                description: Given a germplasm A having a progeny B and C, 'parentType' for progeny B item refers to the 'parentType' of A toward B.
+                enum:
+                - MALE
+                - FEMALE
+                - SELF
+                - POPULATION
+                type: string
+                example: FEMALE
+            type: object
+          type: array
+          example:
+          - germplasmName: A0021011
+            germplasmDbId: e8d5dad7
+            parentType: FEMALE
+          - germplasmName: A0021012
+            germplasmDbId: ac07fbd8
+            parentType: FEMALE
+          - germplasmName: A0021013
+            germplasmDbId: 07f45f67
+            parentType: FEMALE
+

@@ -1,0 +1,51 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /germplasm/{germplasmDbId}/progeny:
+    get:
+      summary: Get the progeny details of a specific Germplasm
+      description: |-
+        Get the germplasmDbIds for all the Progeny of a particular germplasm.
+
+        Implementation Notes
+
+        - Regarding the ''parentType'' field in the progeny object. Given a germplasm A having a progeny B and C, ''parentType'' for progeny B refers to the ''parentType'' of A toward B.
+      parameters:
+      - description: the internal id of the germplasm
+        in: path
+        name: germplasmDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  '@context':
+                    $ref: '#/components/schemas/Context'
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/ProgenyNode'
+                required:
+                - metadata
+                - result
+                title: progenyResponse
+                type: object
+          description: OK
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Germplasm

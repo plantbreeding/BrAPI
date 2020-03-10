@@ -1,0 +1,30 @@
+openapi: 3.0.0
+info:
+  title: ga4gh/read_service.proto
+  version: version not set
+paths:
+  /readgroupsets/search:
+    post:
+      summary: Gets a list of `ReadGroupSet` matching the search criteria.
+      description: |-
+        `POST /readgroupsets/search` must accept a JSON version of
+        `SearchReadGroupSetsRequest` as the post body and will return a JSON
+        version of `SearchReadGroupSetsResponse` . Only readgroups that
+        match an optionally supplied biosampleId will be included in the
+        response.
+      operationId: SearchReadGroupSets
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchReadGroupSetsResponse'
+      tags:
+        - GA4GH
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchReadGroupSetsRequest'
+        required: true

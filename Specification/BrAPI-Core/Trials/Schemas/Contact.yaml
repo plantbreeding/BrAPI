@@ -1,0 +1,55 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    Contact:
+      properties:
+        contactDbId:
+          description: |-
+            The ID which uniquely identifies this contact
+            
+            MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.
+          type: string
+          example: 5f4e5509
+        email:
+          description: |-
+            The contacts email address
+            
+            MIAPPE V1.1 (DM-32) Person email - The electronic mail address of the person.
+          type: string
+          example: bob@bob.com
+        instituteName:
+          description: |-
+            The name of the institution which this contact is part of
+            
+            MIAPPE V1.1 (DM-35) Person affiliation - The institution the person belongs to
+          type: string
+          example: The BrAPI Institute
+        name:
+          description: |-
+            The full name of this contact person
+            
+            MIAPPE V1.1 (DM-31) Person name - The name of the person (either full name or as used in scientific publications)
+          type: string
+          example: Bob Robertson
+        orcid:
+          description: |-
+            The Open Researcher and Contributor ID for this contact person (orcid.org)
+            
+            MIAPPE V1.1 (DM-33) Person ID - An identifier for the data submitter. If that submitter is an individual, ORCID identifiers are recommended.
+          type: string
+          example: http://orcid.org/0000-0001-8640-1750
+        type:
+          description: |-
+            The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)
+            
+            MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation
+          type: string
+          example: PI
+      required:
+      - contactDbId
+      type: object
+

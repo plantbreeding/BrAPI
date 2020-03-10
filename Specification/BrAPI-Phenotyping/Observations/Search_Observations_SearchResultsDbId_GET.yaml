@@ -1,0 +1,33 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /search/observations/{searchResultsDbId}:
+    get:
+      summary: Returns a list of Observations based on search criteria.
+      description: |-
+        Returns a list of Observations based on search criteria.
+
+        observationTimeStamp - Iso Standard 8601.
+
+        observationValue data type inferred from the ontology
+      parameters:
+      - $ref: '#/components/parameters/acceptHeader'
+      - $ref: '#/components/parameters/authorizationHeader'
+      - $ref: '#/components/parameters/searchResultsDbId'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      responses:
+        '102': 
+          $ref: '#/components/responses/102ProcessingSearchResponse' 
+        '200':
+          $ref: '#/components/responses/ObservationListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Observations

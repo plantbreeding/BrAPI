@@ -1,0 +1,101 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /people:
+    get:
+      summary: Get filtered list of People
+      description: Get filtered list of people
+      parameters:
+      - description: A persons first name
+        in: query
+        name: firstName
+        required: false
+        schema:
+          type: string
+      - description: A persons last name
+        in: query
+        name: lastName
+        required: false
+        schema:
+          type: string
+      - description: The unique ID of a person
+        in: query
+        name: personDbId
+        required: false
+        schema:
+          type: string
+      - description: A systems user ID associated with this person. Different from personDbId because you could have a person who is not a user of the system.
+        in: query
+        name: userID
+        required: false
+        schema:
+          type: string
+      - $ref: '#/components/parameters/externalReferenceID'
+      - $ref: '#/components/parameters/externalReferenceSource'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/PersonListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - People
+    post:
+      summary: Create new People
+      description: Create new People entities. `personDbId` is generated and managed by the server.
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items: 
+                $ref: '#/components/schemas/PersonNewRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/PersonListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - People
+components:
+  responses:
+    PersonListResponse:
+      content:
+        application/json:
+          schema:
+            title: PersonListResponse
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                properties:
+                  data:
+                    description: Array of people
+                    items:
+                      $ref: '#/components/schemas/Person'
+                    type: array
+                required:
+                - data
+                type: object
+            required:
+            - metadata
+            - result
+            type: object
+      description: OK
+      headers: {}

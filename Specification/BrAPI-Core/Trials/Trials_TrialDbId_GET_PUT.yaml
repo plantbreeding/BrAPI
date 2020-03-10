@@ -1,0 +1,79 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /trials/{trialDbId}:
+    get:
+      summary: Get the details of a specific Trial
+      description: Get the details of a specific Trial
+      parameters:
+      - description: The internal trialDbId
+        in: path
+        name: trialDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/TrialSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Trials
+    put:
+      summary: Update the details of an existing Trial
+      description: Update the details of an existing Trial
+      parameters:
+      - description: The internal trialDbId
+        in: path
+        name: trialDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TrialNewRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/TrialSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Trials
+components:
+  responses:
+    TrialSingleResponse:
+      content:
+        application/json:
+          schema:
+            title: TrialSingleResponse
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                $ref: '#/components/schemas/Study'
+            required:
+            - metadata
+            - result
+            type: object
+      description: OK
+      headers: {}

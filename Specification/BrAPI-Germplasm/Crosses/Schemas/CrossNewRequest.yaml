@@ -1,0 +1,65 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    CrossNewRequest:
+      type: object
+      properties:
+        additionalInfo:
+          additionalProperties:
+            type: string
+          description: Additional arbitrary info
+          type: object
+        crossingProjectDbId:
+          description: the unique identifier for a crossing project
+          type: string
+          example: 696d7c92
+        crossingProjectName: 
+          description: the human readable name for a crossing project
+          type: string
+          example: my_Ibadan_Crosses_2018
+        crossName: 
+          description: the human readable name for a cross
+          type: string
+          example: my_Ibadan_Crosses_2018_01
+        crossType: 
+          description: the type of cross
+          type: string
+          enum:
+          - BIPARENTAL
+          - SELF
+          - OPEN_POLLINATED
+          - BULK
+          - BULK_SELFED
+          - BULK_OPEN_POLLINATED
+          - DOUBLE_HAPLOID
+          example: BIPARENTAL
+        parent1: 
+          $ref: '#/components/schemas/CrossParent'
+        parent2: 
+          $ref: '#/components/schemas/CrossParent'
+        pollinationTimeStamp: 
+          description: the timestamp when the pollination took place
+          type: string
+          format: date-time
+        crossAttributes: 
+          description: Set of custom attributes associated with a cross
+          type: array
+          items:
+            description: a custom attributes associated with a cross
+            type: object
+            properties:
+              crossAttributeName:
+                description: the human readable name of a cross attribute
+                type: string
+                example: Humidity Percentage
+              crossAttributeValue: 
+                description: the value of a cross attribute
+                type: string
+                example: 45
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
+          

@@ -1,15 +1,16 @@
-components:
-  responses:
-    401Unauthorized:
-      content:
-        application/json:
-          example: ERROR - 2018-10-08T20:15:11Z - Missing or expired authorization token
-          schema:
-            type: string
-      description: Unauthorized
-      headers: {}
 info:
   title: BrAPI
   version: ''
 openapi: 3.0.0
 paths: {}
+components:
+  responses:
+    401Unauthorized:
+      description: Unauthorized
+      headers: {}
+      content:
+        application/json:
+          example: ERROR - 2018-10-08T18:15:11Z - Missing or expired authorization token
+          schema:
+            type: string
+

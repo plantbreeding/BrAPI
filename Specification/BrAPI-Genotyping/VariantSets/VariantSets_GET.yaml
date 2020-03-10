@@ -1,0 +1,82 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /variantsets:
+    get:
+      summary: Gets a filtered list of `VariantSets`.
+      description: Will return a filtered list of `VariantSet`.
+      parameters:
+        - name: variantSetDbId
+          description: The ID of the `VariantSet` to be retrieved.
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: variantDbId
+          description: The ID of the `Variant` to be retrieved.
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: callSetDbId
+          description: The ID of the `CallSet` to be retrieved.
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: studyDbId
+          description: Filter by study DbId
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: studyName
+          description: Filter by study name
+          in: query
+          required: false
+          schema:
+            type: string
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/pageSize'
+        - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/VariantSetsListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+        - Variant Sets
+components:
+  responses:
+    VariantSetsListResponse:
+      description: OK
+      headers: {}
+      content:
+        application/json:
+          schema:
+            title: VariantSetsListResponse
+            type: object
+            required:
+            - metadata
+            - result
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                title: VariantSetsListResponseResult
+                type: object
+                required:
+                - data
+                properties:
+                  data:
+                    items:
+                      $ref: '#/components/schemas/VariantSet'
+                    type: array

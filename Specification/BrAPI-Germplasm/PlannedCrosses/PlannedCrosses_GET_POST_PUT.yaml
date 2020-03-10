@@ -1,0 +1,129 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /plannedcrosses:
+    get:
+      summary: Get a filtered list of Planned Cross entities
+      description: Get a filtered list of Planned Cross entities. 
+      parameters:
+      - name: crossingProjectDbId 
+        description: Search for Crossing Projects with this unique id
+        in: query
+        required: false
+        schema:
+          type: string
+      - $ref: '#/components/parameters/externalReferenceID'
+      - $ref: '#/components/parameters/externalReferenceSource'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/PlannedCrossesListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Crosses
+    post:
+      summary: Create new Planned Cross entities on this server
+      description: Create new Planned Cross entities on this server
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items: 
+                $ref: '#/components/schemas/PlannedCrossNewRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/PlannedCrossesListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Crosses
+    put:
+      summary: Update existing Planned Cross entities on this server
+      description: Update existing Planned Cross entities on this server
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: A map of new Planned Cross entities. The key is the plannedCrossDbId of the entity to be updated, the value is the Planned Cross object.
+              type: object
+              additionalProperties:
+                $ref: '#/components/schemas/PlannedCrossNewRequest'
+              example:
+                'c8905568':
+                  additionalInfo: {}
+                  crossAttributes: 
+                  - crossAttributeName: string
+                    crossAttributeValue: string
+                  crossName: my_Ibadan_Crosses_2018_01
+                  crossType: BIPARENTAL
+                  crossingProjectDbId: 696d7c92
+                  crossingProjectName: my_Ibadan_Crosses_2018
+                  parent1: 
+                    germplasmDbId: d34b10c3
+                    germplasmName: TME_419
+                    observationUnitDbId: 2e1926a7
+                    observationUnitName: my_Ibadan_Plot_9001
+                    parentType: MALE
+                  parent2: 
+                    germplasmDbId: 843fb211
+                    germplasmName: TME_419
+                    observationUnitDbId: f05e955f
+                    observationUnitName: my_Ibadan_Plot_9002
+                    parentType: FEMALE
+      responses:
+        '200':
+          $ref: '#/components/responses/PlannedCrossesListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Crosses
+components:
+  responses:
+    PlannedCrossesListResponse:
+      content:
+        application/json:
+          schema:
+            title: PlannedCrossesListResponse
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/components/schemas/PlannedCross'
+                    type: array
+                required:
+                - data
+                type: object
+            required:
+            - metadata
+            - result
+            type: object
+      description: OK
+      headers: {}
+    

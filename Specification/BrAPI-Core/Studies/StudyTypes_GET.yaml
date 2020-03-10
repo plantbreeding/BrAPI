@@ -1,0 +1,50 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /studytypes:
+    get:
+      summary: Get the Study Types
+      description: Call to retrieve the list of study types.
+      parameters:
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  '@context':
+                    $ref: '#/components/schemas/Context'
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    properties:
+                      data:
+                        items:
+                          type: string
+                        type: array
+                        example:
+                          - Crossing Nursery
+                          - Yield study
+                    required:
+                    - data
+                    type: object
+                required:
+                - metadata
+                - result
+                title: studyTypesResponse
+                type: object
+          description: OK
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Studies

@@ -1,0 +1,29 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /search/observations:
+    post:
+      summary: Submit a search request for a set of Observations
+      description: Submit a search request for a set of Observations. Returns an Id which reference the results of this search
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObservationSearchRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/ObservationListResponse'
+        '202':
+          $ref: '#/components/responses/202AcceptedSearchResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Observations

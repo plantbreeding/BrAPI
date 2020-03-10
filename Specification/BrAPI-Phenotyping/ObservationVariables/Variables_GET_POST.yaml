@@ -1,0 +1,96 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /variables:
+    get:
+      summary: Get the Observation Variables
+      description: Call to retrieve a list of observationVariables available in the system.
+      parameters:
+      - description: Variable's unique ID
+        in: query
+        name: observationVariableDbId
+        required: false
+        schema:
+          type: string
+      - description: Variable's trait class (phenological, physiological, morphological, etc.)
+        in: query
+        name: traitClass
+        required: false
+        schema:
+          type: string
+      - description: The unique ID of a studies to filter on
+        in: query
+        name: studyDbId
+        required: false
+        schema:
+          type: string
+      - $ref: '#/components/parameters/externalReferenceID'
+      - $ref: '#/components/parameters/externalReferenceSource'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/ObservationVariableListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Observation Variables
+    post: 
+      summary: Add new Observation Variables
+      description: Add new Observation Variables to the system.
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ObservationVariableNewRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/ObservationVariableListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Observation Variables
+components:
+  responses:
+    ObservationVariableListResponse:
+      content:
+        application/json:
+          schema:
+            title: ObservationVariableListResponse
+            type: object
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/components/schemas/ObservationVariable'
+                    type: array
+                required:
+                - data
+                type: object
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}
+      
+      

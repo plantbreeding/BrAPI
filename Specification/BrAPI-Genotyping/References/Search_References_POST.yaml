@@ -1,0 +1,33 @@
+openapi: 3.0.0
+info:
+  title: ga4gh/reference_service.proto
+  version: version not set
+paths:
+  /search/references: 
+    post:
+      summary: Gets a list of `Reference` matching the search criteria.
+      description: |-
+        `POST /references/search` must accept a JSON version of
+        `SearchReferencesRequest` as the post body and will return a JSON
+        version of `SearchReferencesResponse`.
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        description: References Search request
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReferencesSearchRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/ReferencesListResponse'
+        '202':
+          $ref: '#/components/responses/202AcceptedSearchResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+        - References

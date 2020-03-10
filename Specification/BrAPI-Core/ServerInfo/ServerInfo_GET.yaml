@@ -1,0 +1,75 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /serverinfo:
+    get:
+      description: |-
+        Implementation Notes
+        
+        Having a consistent structure for the path string of each call is very 
+        important for teams to be able to connect and find errors. Read more on Github.
+        
+        Here are the rules for the path of each call that should be returned
+        
+        Every word in the call path should match the documentation exactly, both in 
+        spelling and capitalization. Note that path strings are all lower case, but 
+        path parameters are camel case.
+        
+        Each path should start relative to \"/\" and therefore should not include \"/\"
+        
+        No leading or trailing slashes (\"/\") 
+        
+        Path parameters are wrapped in curly braces (\"{}\"). The name of the path parameter 
+        should be spelled exactly as it is specified in the documentation.
+        
+        Examples 
+        
+        GOOD   "call": "germplasm/{germplasmDbId}/pedigree" 
+        
+        BAD    "call": "germplasm/{id}/pedigree"
+        
+        BAD    "call": "germplasm/{germplasmDBid}/pedigree" 
+        
+        BAD    "call": "brapi/v2/germplasm/{germplasmDbId}/pedigree" 
+        
+        BAD    "call": "/germplasm/{germplasmDbId}/pedigree/" 
+        
+        BAD    "call": "germplasm/<germplasmDbId>/pedigree"
+      parameters:
+      - description: The data format supported by the call.
+        in: query
+        name: dataType
+        required: false
+        schema:
+          $ref: '#/components/schemas/WSMIMEDataTypes'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  '@context':
+                    $ref: '#/components/schemas/Context'
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/ServerInfo'
+                required:
+                - metadata
+                - result
+                title: callsResponse
+                type: object
+          description: OK
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      summary: Get the list of implemented Calls
+      tags:
+      - Calls

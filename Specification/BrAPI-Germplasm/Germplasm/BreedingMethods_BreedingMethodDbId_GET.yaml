@@ -1,0 +1,46 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /breedingmethods/{breedingMethodDbId}:
+    get:
+      summary: Get the details of a specific Breeding Method
+      description: Get the details of a specific Breeding Method used to produce Germplasm
+      parameters:
+      - description: Internal database identifier for a breeding method
+        in: path
+        name: breedingMethodDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                title: BreedingMethodSingleResponse
+                type: object
+                properties:
+                  '@context':
+                    $ref: '#/components/schemas/Context'
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/BreedingMethod'
+                required:
+                - metadata
+                - result
+          description: OK
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Germplasm

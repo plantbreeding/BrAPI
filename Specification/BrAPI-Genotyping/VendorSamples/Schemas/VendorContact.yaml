@@ -1,0 +1,49 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    VendorContact:
+      type: object
+      required:
+      - vendorName
+      properties:
+        vendorAddress:
+          description: The street address of the vendor
+          type: string
+          example: 123 Main Street
+        vendorCity:
+          description: The name of the city where the vendor is located
+          type: string
+          example: Townsville
+        vendorContactName: 
+          description: The name or identifier of the primary vendor contact
+          type: string
+          example: Bob Robertson
+        vendorCountry:
+          description: The name of the country where the vendor is located
+          type: string
+          example: USA
+        vendorDescription:
+          description: A description of the vendor
+          type: string
+          example: This is a sequencing vendor. Sequencing happens here.
+        vendorEmail:
+          description: The primary email address used to contact the vendor
+          type: string
+          example: bob@bob.org
+        vendorName:
+          description: The human readable name of the vendor
+          type: string
+          example: The Example Vendor Lab
+        vendorPhone:
+          description: The primary phone number used to contact the vendor
+          type: string
+          example: +1-800-555-5555
+        vendorURL:
+          description: The primary URL for the vendor
+          type: string
+          example: https://sequencing.org/vendor
+

@@ -1,0 +1,30 @@
+openapi: 3.0.0
+info:
+  title: ga4gh/reference_service.proto
+  version: version not set
+paths:
+  /search/referencesets:
+    post:
+      summary: Gets a list of `ReferenceSet` matching the search criteria.
+      description: Gets a list of `ReferenceSet` matching the search criteria.
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReferenceSetsSearchRequest'
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/ReferenceSetsListResponse'
+        '202':
+          $ref: '#/components/responses/202AcceptedSearchResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+        - Reference Sets

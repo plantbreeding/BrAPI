@@ -1,0 +1,79 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /lists/{listDbId}:
+    get:
+      summary: Get the details of a specific List
+      description: Get a specific generic lists
+      parameters:
+      - description: The unique ID of this generic list
+        in: path
+        name: listDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/ListsSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Lists
+    put:
+      summary: Update an existing generic list
+      description: Update an existing generic list
+      parameters:
+      - description: The unique ID of this generic list
+        in: path
+        name: listDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListNewRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/ListsSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Lists
+components:
+  responses:
+    ListsSingleResponse:
+      content:
+        application/json:
+          schema:
+            title: ListsSingleResponse
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                $ref: '#/components/schemas/ListDetails'
+            required:
+            - metadata
+            - result
+            type: object
+      description: OK
+      headers: {}

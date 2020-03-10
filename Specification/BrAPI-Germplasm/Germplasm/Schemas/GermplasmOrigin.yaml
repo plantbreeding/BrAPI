@@ -1,0 +1,17 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    GermplasmOrigin:
+      type: object
+      properties:
+        coordinateUncertainty:
+          description: Uncertainty associated with the coordinates in meters. Leave the value empty if the uncertainty is unknown.
+          type: string
+          example: '20'
+        coordinates:
+          $ref: '#/components/schemas/geoJSON'
+

@@ -1,0 +1,103 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /images/{imageDbId}:
+    get:
+      summary: Get the an image meta data summary
+      description: |-
+        Get one image meta data object
+
+        Implementation Notes
+
+        - ''imageURL'' should be a complete URL describing the location of the image. There is no BrAPI call for retrieving the image content, so it could be on a different path, or a different host.
+
+        - ''descriptiveOntologyTerm'' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI''s.
+      parameters:
+      - description: The unique identifier for a image
+        in: path
+        name: imageDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/ImageSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Images
+    put:
+      summary: Update an image meta data
+      description: |-
+        Update an image meta data object
+        
+        Implementation Notes
+        
+        - This call should be paired with 'PUT /images/{imageDbId}/imagecontent' for full capability
+        
+        - A server may choose to modify the image meta data object based on the actually image which has been uploaded. 
+        
+        - Image data may be stored in a database or file system. Servers should generate and provide the "imageURL" as an absolute path for retrieving the image, wherever it happens to live. 
+        
+        - 'descriptiveOntologyTerm' can be thought of as Tags for the image. These could be simple descriptive words, or ontology references, or full ontology URI's. 
+        
+        - The '/images' calls support a GeoJSON object structure for describing their location. The BrAPI spec for GeoJSON only supports two of the possible geometries: Points and Polygons. 
+        
+        - With most images, the Point geometry should be used, and it should indicate the longitude and latitude of the camera. 
+        
+        - For top down images (ie from drones, cranes, etc), the Point geometry may be used to indicate the longitude and latitude of the centroid of the image content, and the Polygon geometry may be used to indicate the border of the image content.
+      parameters:
+      - description: The unique identifier for a image
+        in: path
+        name: imageDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImageNewRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/ImageSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Images
+components:
+  responses:
+    ImageSingleResponse:
+      content:
+        application/json:
+          schema:
+            title: ImageSingleResponse
+            type: object
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                $ref: '#/components/schemas/Image'
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}

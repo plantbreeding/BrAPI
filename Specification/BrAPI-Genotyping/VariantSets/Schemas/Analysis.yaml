@@ -1,0 +1,42 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    Analysis:
+      type: object
+      description: An analysis contains an interpretation of one or several experiments. (e.g. SNVs, copy number variations, methylation status) together with information about the methodology used.
+      properties:
+        created:
+          description: The time at which this record was created, in ISO 8601 format.
+          type: string
+          format: date-time
+        description:
+          description: A human readable description of the analysis
+          type: string
+          example: This is a formal description of a QC methodology. Blah blah blah ...
+        analysisDbId:
+          description: Unique identifier for this analysis description
+          type: string
+          example: 6191a6bd
+        analysisName:
+          description: A human readable name for this analysis
+          type: string
+          example: Standard QC
+        software:
+          description: The software run to generate this analysis.
+          items:
+            type: string
+          type: array
+          example: [ 'https://github.com/genotyping/QC' ]
+        type:
+          description: The type of analysis.
+          type: string
+          example: QC
+        updated:
+          description: The time at which this record was last updated, in ISO 8601 format.
+          type: string
+          format: date-time
+

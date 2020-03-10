@@ -1,0 +1,88 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    Event:
+      type: object 
+      required: 
+      - eventDbId
+      - eventType
+      properties:
+        additionalInfo:
+          additionalProperties:
+            type: string
+          description: Additional arbitrary info
+          type: object
+        eventDbId:
+          description: Internal database identifier
+          type: string
+          example: 8566d4cb
+        eventType:
+          description: |-
+            General category for this event (e.g. Sowing, Watering, Rain). Each eventType should correspond to exactly one eventTypeDbId, if provided.
+            
+            MIAPPE V1.1 (DM-65) Event type - Short name of the event.
+          type: string
+          example: Watering
+        eventTypeDbId:
+          description: |-
+            An identifier for this event type, in the form of an ontology class reference
+            
+            MIAPPE V1.1 (DM-66) Event accession number - Accession number of the event type in a suitable controlled vocabulary (Crop Ontology).
+          type: string
+          example: 4e7d691e
+        eventDescription: 
+          description: |-
+            A detailed, human-readable description of this event
+            
+            MIAPPE V1.1 (DM-67) Event description - Description of the event, including details such as amount applied and possibly duration of the event. 
+          type: string
+          example: A set of plots was watered
+        studyDbId: 
+          description: The study in which the event occurred
+          type: string
+          example: 2cc2001f
+        observationUnitDbIds: 
+          description: A list of the affected observation units. If this parameter is not given, it is understood that the event affected all units in the study
+          items:
+            type: string
+          type: array
+          example: ['8439eaff', 'd7682e7a', '305ae51c']
+        date:
+          description: |-
+            A list of dates when the event occured
+            
+            MIAPPE V1.1 (DM-68) Event date - Date and time of the event.
+          items:
+            format: date-time
+            type: string
+          type: array
+          example: ['2018-10-08T18:15:11Z', '2018-11-09T18:16:12Z']
+        eventParameters: 
+          description: A list of objects describing additional event parameters. Each of the following accepts a human-readable value or URI
+          type: array 
+          items: 
+            type: object
+            properties:
+              key:
+                description: Specifies the relationship between the event and the given property. E.g. fertilizer, operator
+                type: string
+                example: operator
+              value:
+                description: The value of the property for this event. E.g. nitrogen, John Doe
+                type: string
+                example: Bob Robertson
+              rdfValue:
+                description: The type of the value given above, e.g. http://xmlns.com/foaf/0.1/Agent
+                type: string
+                example: http://xmlns.com/foaf/0.1/Agent
+          example:
+          - key: http://www.example.fr/vocabulary/2018#hasContact,
+            value: http://www.example.fr/id/agent/marie,
+            valueRdfType: http://xmlns.com/foaf/0.1/Agent,
+          - key: fertilizer
+            value: nitrogen
+            valueRdfType: null

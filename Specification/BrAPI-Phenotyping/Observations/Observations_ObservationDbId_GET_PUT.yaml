@@ -1,0 +1,82 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /observations/{observationDbId}:
+    get:
+      summary: Get the details of a specific Observations 
+      description: |-
+        Get the details of a specific Observations
+
+        observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:ss+hhmm
+      parameters:
+      - description: The unique ID of an observation
+        in: path
+        name: observationDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/ObservationSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Observations
+    put:
+      summary: Update an existing Observation
+      description: Update an existing Observation
+      parameters:
+      - description: The unique ID of an observation
+        in: path
+        name: observationDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObservationNewRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/ObservationSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - Observations
+components:
+  responses:
+    ObservationSingleResponse:
+      content:
+        application/json:
+          schema:
+            title: ObservationSingleResponse
+            type: object
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                $ref: '#/components/schemas/Observation'
+            required:
+            - metadata
+            - result
+      description: OK
+      headers: {}

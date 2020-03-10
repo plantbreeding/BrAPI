@@ -7,19 +7,28 @@ if [ -f "$1" ]; then
 else
 	BRAPI_FILE=${HOME}/brapi_blueprint.apib;
 fi
-
 if [ -z "$2" ]; then
-	APINAME=brapidev
+	echo "usage: 'publishToApiary <blueprint file> <apiary name> <apiary key>"
+	exit 1
 else
 	APINAME=${2}
+fi
+if [ -z "$3" ]; then
+	echo "usage: 'publishToApiary <blueprint file> <apiary name> <apiary key>"
+	exit 1
+else
+	APIARY_TOKEN=${3}
 fi
 
 
 # Publish to apiary
+echo
+echo
 echo $BRAPI_FILE
 echo $APINAME
+echo
 
-curl -i \
+curl -i -s \
   --request POST \
   --header "Authentication:Token $APIARY_TOKEN" \
   --header "content-type:application/json; charset=utf-8" \
@@ -27,6 +36,7 @@ curl -i \
   https://api.apiary.io/blueprint/publish/$APINAME 
 
 if [ $? -ne 0 ]; then
+	echo
 	echo "ERROR: Apiary rejected the file"
 	exit 1
 fi

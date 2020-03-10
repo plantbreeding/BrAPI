@@ -1,0 +1,79 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /people/{personDbId}:
+    get:
+      summary: Get the details for a specific Person
+      description: Get the details for a specific Person
+      parameters:
+      - description: The unique ID of a person
+        in: path
+        name: personDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/PersonSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - People
+    put:
+      summary: Update an existing Person
+      description: Update an existing Person
+      parameters:
+      - description: The unique ID of a person
+        in: path
+        name: personDbId
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonNewRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/PersonSingleResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+      tags:
+      - People
+components:
+  responses:
+    PersonSingleResponse:
+      content:
+        application/json:
+          schema:
+            title: PersonSingleResponse
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                $ref: '#/components/schemas/Person'
+            required:
+            - metadata
+            - result
+            type: object
+      description: OK
+      headers: {}

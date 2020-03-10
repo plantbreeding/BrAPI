@@ -1,0 +1,81 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /observationlevels:
+    get:
+      summary: Get the Observation Levels
+      description: |-
+        Call to retrieve the list of supported observation levels. 
+        
+        Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6). 
+        
+        The values are used to supply the `observationLevel` parameter in the observation unit details call.
+      parameters:
+      - description: Filter by study DbId
+        in: query
+        name: studyDbId
+        required: false
+        schema:
+          type: string
+      - description: Filter by trial DbId
+        in: query
+        name: trialDbId
+        required: false
+        schema:
+          type: string
+      - description: Filter by program DbId
+        in: query
+        name: programDbId
+        required: false
+        schema:
+          type: string
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                title: ObservationLevelListResponse
+                type: object
+                properties:
+                  '@context':
+                    $ref: '#/components/schemas/Context'
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    required:
+                    - data
+                    type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/ObservationUnitHierarchyLevel'
+                        example:
+                          - levelName: field
+                            levelOrder: 0
+                          - levelName: block
+                            levelOrder: 1
+                          - levelName: plot
+                            levelOrder: 2
+                          - levelName: sub-plot
+                            levelOrder: 3
+                          - levelName: plant
+                            levelOrder: 4
+                required:
+                - metadata
+                - result
+          description: OK
+          headers: {}
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - Observation Units

@@ -1,0 +1,23 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    geoJSONSearchArea: 
+      allOf:
+      - $ref: '#/components/schemas/geoJSON' 
+      - title: GeoJSONSearchArea
+        type: object
+        description: |-
+          A GeoJSON Polygon which describes an area to search for other GeoJSON objects. All contained Points and intersecting Polygons should be returned as search results. 
+          
+          All coordinates are decimal values on the WGS84 geographic coordinate reference system.
+        properties: {}
+        example:
+          type: Feature
+          geometry: 
+            coordinates: [ [ [ -77.456654, 42.241133 ], [ -75.414133, 41.508282 ], [ -76.506042, 42.417373 ], [ -77.456654, 42.241133 ] ] ]
+            type: Polygon
+            

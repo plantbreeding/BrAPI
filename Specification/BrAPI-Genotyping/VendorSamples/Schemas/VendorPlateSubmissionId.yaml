@@ -1,0 +1,18 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    VendorPlateSubmissionId: 
+      description: Response to an order request
+      type: object
+      required:
+      - submissionId
+      properties:
+        submissionId:
+          description: A unique, alpha-numeric ID which identifies a set of plates which have been successfully submitted.
+          type: string
+          example: f8f409e0
+

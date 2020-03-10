@@ -1,0 +1,103 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    TrialNewRequest:
+      type: object
+      properties:
+        active:
+          description: Is this trail currently active
+          type: boolean
+          example: true
+        additionalInfo:
+          additionalProperties:
+            type: string
+          description: Additional arbitrary info
+          type: object
+        commonCropName:
+          description: Common name for the crop associated with this trial
+          type: string
+          example: Wheat
+        contacts:
+          description: List of contact entities associated with this trial
+          items:
+            $ref: '#/components/schemas/Contact'
+          type: array
+        datasetAuthorships:
+          description: License and citation information for the data in this trial
+          items:
+            properties:
+              datasetPUI:
+                type: string
+                example: doi:10.15454/312953986E3
+              license:
+                description: MIAPPE V1.1 (DM-7) License - License for the reuse of the data associated with this investigation. The Creative Commons licenses cover most use cases and are recommended.
+                type: string
+                example: https://CreativeCommons.org/licenses/by/4.0
+              submissionDate:
+                description: MIAPPE V1.1 (DM-5) Submission date - Date of submission of the dataset presently being described to a host repository.
+                type: string
+                format: date
+              publicReleaseDate:
+                description: MIAPPE V1.1 (DM-6) Public release date - Date of first public release of the dataset presently being described.
+                type: string
+                format: date
+            type: object
+          type: array
+        documentationURL:
+          description: A URL to the human readable documentation of this object
+          format: uri
+          type: string
+          example: https://wiki.brapi.org
+        endDate:
+          description: The date this trial ends
+          format: date
+          type: string
+        programDbId:
+          description: A program identifier to search for
+          type: string
+          example: 673f378a
+        programName:
+          description: Human readable name of the program
+          type: string
+          example: Tomatillo_Breeding_Program
+        publications:
+          description: MIAPPE V1.1 (DM-9) Associated publication - An identifier for a literature publication where the investigation is described. Use of DOIs is recommended.
+          type: array
+          items: 
+            type: object
+            properties:
+              publicationPUI:
+                type: string
+                example: doi:10.15454/312953986E3
+              publicationReference:
+                type: string
+                example: Selby, BrAPI - An application programming interface for plant breeding applications, Bioinformatics, https://doi.org/10.1093/bioinformatics/190
+        startDate:
+          description: The date this trial started
+          format: date
+          type: string
+        trialName:
+          description: |-
+            The human readable name of a trial
+            
+            MIAPPE V1.1 (DM-3) Investigation title - Human-readable string summarising the investigation.
+          type: string
+          example: Peru Yield Trial 1
+        trialDescription:
+          description: |-
+            The human readable description of a trial
+            
+            MIAPPE V1.1 (DM-4) Investigation description - Human-readable text describing the investigation in more detail.
+          type: string
+          example: General drought resistance trial initiated in Peru before duplication in Africa
+        trialPUI:
+          description: A permanent identifier for a trial. Could be DOI or other URI formatted identifier.
+          type: string
+          example: https://doi.org/101093190
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
+          

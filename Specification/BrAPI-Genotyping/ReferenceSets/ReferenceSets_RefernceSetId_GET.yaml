@@ -1,0 +1,36 @@
+openapi: 3.0.0
+info:
+  title: ga4gh/reference_service.proto
+  version: version not set
+paths:
+  /referencesets/{referenceSetDbId}:
+    get:
+      summary: Gets a `ReferenceSet` by ID.
+      description: Gets a `ReferenceSet` by ID.
+      parameters:
+        - name: referenceSetDbId
+          description: The ID of the `ReferenceSet` to be retrieved.
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                title: ReferenceSetsSingleResponse
+                type: object
+                required:
+                - metadata
+                - result
+                properties:
+                  '@context':
+                    $ref: '#/components/schemas/Context'
+                  metadata:
+                    $ref: '#/components/schemas/metadata'
+                  result:
+                    $ref: '#/components/schemas/ReferenceSet'
+      tags:
+        - Reference Sets

@@ -1,0 +1,48 @@
+components:
+  schemas:
+    ExpressionLevel:
+      description: The actual numerical quantification for each feature.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/Attributes'
+        conf_interval_high:
+          description: Upper bound of the confidence interval on the expression value.
+          format: float
+          type: number
+        conf_interval_low:
+          description: Lower bound of the confidence interval on the expression value.
+          format: float
+          type: number
+        expression:
+          description: Numerical expression value.
+          format: float
+          type: number
+        id:
+          title: Expression ID
+          type: string
+        is_normalized:
+          description: True if the expression value is a normalized value.
+          format: boolean
+          type: boolean
+        name:
+          title: Name
+          type: string
+        raw_read_count:
+          description: The number of reads mapped to this feature.
+          format: float
+          type: number
+        rna_quantification_id:
+          title: The associated RnaQuantification
+          type: string
+        score:
+          description: Weighted score for the expression value.
+          format: float
+          type: number
+        units:
+          $ref: '#/components/schemas/ExpressionUnit'
+      type: object
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}

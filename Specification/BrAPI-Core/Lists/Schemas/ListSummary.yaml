@@ -1,0 +1,18 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    ListSummary:
+      allOf:
+      - $ref: '#/components/schemas/ListBaseFields'
+      - type: object
+        properties: 
+          listDbId:
+            description: The unique identifier for a List
+            type: string
+            example: 6f621cfa
+        required:
+        - listDbId

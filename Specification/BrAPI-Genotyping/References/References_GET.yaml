@@ -1,0 +1,95 @@
+openapi: 3.0.0
+info:
+  title: ga4gh/reference_service.proto
+  version: version not set
+paths:
+  /references:
+    get:
+      summary: Gets a filtered list of `Reference` objects.
+      description: |-
+        `GET /references` will return a filtered list of `Reference` JSON objects.
+      parameters:
+        - name: referenceDbId
+          description: The ID of the `Reference` to be retrieved.
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: referenceSetDbId
+          description: The ID of the `ReferenceSet` to be retrieved.
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: accession
+          description: If set, return the reference sets for which the `accession` matches this string (case-sensitive, exact match).
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: md5checksum
+          description: If specified, return the references for which the `md5checksum` matches this string (case-sensitive, exact match).
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: isDerived
+          description: If the reference is derived from a source sequence
+          in: query
+          required: false
+          schema:
+            type: boolean
+        - name: minLength
+          description: The minimum length of the reference sequences to be retrieved.
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: maxLength
+          description: The maximum length of the reference sequences to be retrieved.
+          in: query
+          required: false
+          schema:
+            type: integer
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/pageSize'
+        - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/ReferencesListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+        - References
+components:
+  responses:
+    ReferencesListResponse:
+      description: OK
+      headers: {}
+      content:
+        application/json:
+          schema:
+            title: ReferencesListResponse
+            type: object
+            required:
+            - metadata
+            - result
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                title: ReferencesListResponseResult
+                type: object
+                required:
+                - data
+                properties:
+                  data:
+                    items:
+                      $ref: '#/components/schemas/Reference'
+                    type: array

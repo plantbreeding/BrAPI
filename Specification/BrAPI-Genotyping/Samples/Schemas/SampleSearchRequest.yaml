@@ -1,0 +1,34 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    SampleSearchRequest:
+      allOf:
+      - $ref: '#/components/schemas/SearchRequestParametersPaging'
+      - $ref: '#/components/schemas/SearchRequestParametersGermplasm'
+      - $ref: '#/components/schemas/SearchRequestParametersStudies'
+      - $ref: '#/components/schemas/SearchRequestParametersExternalReferences'
+      - type: object
+        properties: 
+          observationUnitDbIds: 
+            description: The ID which uniquely identifies an observation unit
+            items:
+              type: string
+            type: array
+            example: [ '3cd0ca36', '983f3b14']
+          plateDbIds:
+            description: The ID which uniquely identifies a plate of samples
+            items:
+              type: string
+            type: array
+            example: [ '0cac98b8', 'b96125fb']
+          sampleDbIds:
+            description: The ID which uniquely identifies a sample
+            items:
+              type: string
+            type: array
+            example: [ '3bece2ca', 'dd286cc6']
+

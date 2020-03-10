@@ -1,0 +1,62 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    SeedLotNewRequest:
+      type: object
+      properties:
+        additionalInfo:
+          additionalProperties:
+            type: string
+          description: Additional arbitrary info
+          type: object
+        seedLotName:
+          description: A human readable name for this Seed Lot 
+          type: string
+          example: Seed Lot Alpha
+        seedLotDescription:
+          description: A general description of this Seed Lot
+          type: string
+          example: This is a description of a seed lot
+        sourceCollection:
+          description: The description of the source where this material was originally collected (wild, nursery, etc)
+          type: string
+          example: nursery
+        programDbId:
+          description: Unique DbId of the breeding Program this Seed Lot belongs to
+          type: string
+          example: e972d569
+        germplasmDbId:
+          description: Unique DbId of the Germplasm held in this Seed Lot 
+          type: string
+          example: 029d705d
+        locationDbId:
+          description: DbId of the storage location
+          type: string
+          example: 7989c44c
+        storageLocation:
+          description: Description the storage location 
+          type: string
+          example: The storage location is an massive, underground, bunker.
+        createdDate:
+          description: The time stamp for when this seed lot was created
+          type: string
+          format: date-time
+        lastUpdated:
+          description: The timestamp for the last update to this Seed Lot (including transactions)
+          type: string
+          format: date-time
+        amount:
+          description: Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).
+          type: number
+          example: 561
+        units:
+          description: Description of the things being counted in this Seed Lot (seeds, bulbs, kg, tree, etc)
+          type: string
+          example: seeds
+        externalReferences: 
+          $ref: '#/components/schemas/ExternalReferences'
+          
