@@ -25,7 +25,7 @@ The BrAPI Germplasm module contains entities related to germplasm management. Th
 
 | Version | Status | Release Date | SwaggerHub | Apiary | Notes |
 |---------|--------|--------------|------------|--------|-------|
-|[V2.0](https://github.com/plantbreeding/API/tree/V2.0) |Latest Stable Release |Mar 11, 2020 | | | [Release Notes / Change File](https://github.com/plantbreeding/API/releases/tag/V2.0)|
+|[V2.0](https://github.com/plantbreeding/API/tree/V2.0) |Released |Mar 11, 2020 | | | [Release Notes / Change File](https://github.com/plantbreeding/API/releases/tag/V2.0)|
 |                                                       |                      |             |[BrAPI Core](https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI-Core)               |[BrAPI Core](https://brapicore.docs.apiary.io) | |
 |                                                       |                      |             |[BrAPI Phenotyping](https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI-Phenotyping) |[BrAPI Phenotyping](https://brapiphenotyping.docs.apiary.io) | |
 |                                                       |                      |             |[BrAPI Genotyping](https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI-Genotyping)   |[BrAPI Genotyping](https://brapigenotyping.docs.apiary.io) | |
