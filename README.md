@@ -7,21 +7,13 @@ The Breeding API (BrAPI) is a Standardized RESTful Web Service API Specification
 
 BrAPI V2 is divided into four modules:
 
-**BrAPI Core** 
+**BrAPI Core** - The BrAPI Core module contains high level entities used for organization and management. This includes Programs, Trials, Studies, Locations, People, and Lists
 
-The BrAPI Core module contains high level entities used for organization and management. This includes Programs, Trials, Studies, Locations, People, and Lists
+**BrAPI Phenotyping** - The BrAPI Phenotyping module contains entities related to phenotypic observations. This includes Observation Units, Observations, Observation Variables, Traits, Scales, Methods, and Images
 
-**BrAPI Phenotyping**
+**BrAPI Genotyping** - The BrAPI Genotyping module contains entities related to genotyping analysis. This includes Samples, Markers, Variant Sets, Variants, Call Sets, Calls, References, Reads, and Vendor Orders
 
-The BrAPI Phenotyping module contains entities related to phenotypic observations. This includes Observation Units, Observations, Observation Variables, Traits, Scales, Methods, and Images
-
-**BrAPI Genotyping**
-
-The BrAPI Genotyping module contains entities related to genotyping analysis. This includes Samples, Markers, Variant Sets, Variants, Call Sets, Calls, References, Reads, and Vendor Orders
-
-**BrAPI Germplasm**
-
-The BrAPI Germplasm module contains entities related to germplasm management. This includes Germplasm, Germplasm Attributes, Seed Lots, Crosses, Pedigree, and Progeny
+**BrAPI Germplasm** - The BrAPI Germplasm module contains entities related to germplasm management. This includes Germplasm, Germplasm Attributes, Seed Lots, Crosses, Pedigree, and Progeny
 
 | Version | Status | Release Date | SwaggerHub | Apiary | Notes |
 |---------|--------|--------------|------------|--------|-------|
