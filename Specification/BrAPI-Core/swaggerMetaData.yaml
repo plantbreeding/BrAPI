@@ -52,7 +52,7 @@ info:
     <h2 class="brapi-section-title">BrAPI Germplasm</h2>
     <div class="brapi-section-description">The BrAPI Germplasm module contains entities related to germplasm management. This includes Germplasm, Germplasm Attributes, Seed Lots, Crosses, Pedigree, and Progeny</div>
     <div class="version-number">V2.0</div>
-    <div class="link-btn"><a href="https://github.com/plantmaster/tree/master/Specification/BrAPI-Germplasm">GitHub</a></div>
+    <div class="link-btn"><a href="https://github.com/plantbreeding/API/tree/master/Specification/BrAPI-Germplasm">GitHub</a></div>
     <div class="link-btn"><a href="https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI-Germplasm">SwaggerHub</a></div>
     <div class="link-btn"><a href="https://brapigermplasm.docs.apiary.io">Apiary</a></div>
     <div class="stop-float"></div>
