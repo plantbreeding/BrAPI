@@ -182,9 +182,7 @@ RESPONSE JSON
 
 Some searchable entities have non-array parameters in their request body objects. These are generally for things like numbers and dates where a client might be interested in a certain range instead of an exact value. Numeric fields with the suffix "Min" or "Max" describe the minimum and maximum values to search for (inclusive). Date string fields with the suffix "Start" or "End" should be treated as the beginning and ending (respectively) of a time range (inclusive).
 
-
-
-** How to save a Search ** 
+**How to save a Search** 
 
 ###### Option #1: Store the Request
 
@@ -208,7 +206,7 @@ Cons: A potentially expensive search query must be run on the database for every
 Fits best with a "Search once, retrieve once" client expectation
 ```
 
-##### Option #2: Store the Results
+###### Option #2: Store the Results
 
 In this implementation, you will need two new tables, one to store some request data (as in Option #1), and one to store the results of each search. You will be consuming the search parameters immediately during the `POST` call, so it is not necessary to store all the parameter data, but it might be useful for audit purposes. The second table for storing results will be a join table between the search request and the primary entity being searched for. For example, if you are implementing the search for Germplasm, the table might look something like the table below. You might decide to create one table per search type, or group all your search results records into one table for all search types. 
 
