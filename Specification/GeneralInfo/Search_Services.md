@@ -3,7 +3,7 @@
 
 ---
 
-** NOTE **: Throughout this article, the word "entity" is used as a general term to describe a number of BrAPI objects which have search services available. 
+**NOTE**: Throughout this article, the word "entity" is used as a general term to describe a number of BrAPI objects which have search services available. 
 
 ---
 
