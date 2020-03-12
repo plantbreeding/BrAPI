@@ -296,27 +296,6 @@ def buildReadMes(rootPath, specificPath):
 		with open(fileName, 'w') as outfile:
 			outfile.write(readMeStr)
 			print("fileName - " + fileName)
-			
-def buildGitHubReadMe(rootPath):
-	sources=[  "GeneralInfo/Intro.md",
-		       "GeneralInfo/URL_Structure.md",
-		       "GeneralInfo/Response_Structure.md",
-		       "GeneralInfo/Error_Handling.md",
-		       "GeneralInfo/Date_Time_Encoding.md",
-		       "GeneralInfo/Location_Encoding.md",
-		       "GeneralInfo/Search_Services.md",
-		       "GeneralInfo/Asychronous_Processing.md"
-	       ]
-		
-	outFilePath = rootPath + '/Specification/README.md'
-	with open(outFilePath, "w") as outFile:
-		for source in sources:
-			filename = rootPath + '/Specification/' + source
-			with open(filename, "r") as inFile:
-				outFile.write(inFile.read())
-	
-		print("outFilePath - " + outFilePath)
-
 
 rootPath = '.'
 specificPath = '**'
@@ -325,7 +304,5 @@ if len(sys.argv) > 1 :
 if len(sys.argv) > 2 :
 	specificPath = sys.argv[2];
 
-#buildOpenAPI.go(rootPath)
 buildReadMes(rootPath, specificPath)
-#buildGitHubReadMe(rootPath)
 	
