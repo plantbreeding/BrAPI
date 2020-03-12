@@ -1485,9 +1485,9 @@ Get the details for a specific Germplasm Attribute
 
 
 
-### Post - /attributes/{attributeDbId} [POST /brapi/v2/attributes/{attributeDbId}]
+### Put - /attributes/{attributeDbId} [PUT /brapi/v2/attributes/{attributeDbId}]
 
-Create new Germplasm Attributes
+Update an existing Germplasm Attribute
 
 **Request Fields** 
 

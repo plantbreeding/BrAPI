@@ -587,7 +587,7 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 
 
 
-### Post - /search/markerpositions/{searchResultsDbId} [POST /brapi/v2/search/markerpositions/{searchResultsDbId}{?page}{?pageSize}]
+### Get - /search/markerpositions/{searchResultsDbId} [GET /brapi/v2/search/markerpositions/{searchResultsDbId}{?page}{?pageSize}]
 
 Get marker position information, based on Map, Linkage Group, and Marker ID
 
