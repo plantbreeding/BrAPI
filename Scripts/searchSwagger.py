@@ -9,6 +9,7 @@
 
 import yaml
 import sys
+import re
 import dereferenceAll
 
 def go(filePath = './brapi_openapi.yaml'):
@@ -21,58 +22,82 @@ def transform(fileObj):
     if('paths' in fileObj):
         for path in fileObj['paths']:
             for method in fileObj['paths'][path]:
-                obj = {}
-                obj['path'] = path
-                obj['method'] = method
-                if 'deprecated' in fileObj['paths'][path][method]:
-                    obj['deprecated'] = fileObj['paths'][path][method]['deprecated']
-                else:
-                    obj['deprecated'] = False
-                    
-                if 'description' in fileObj['paths'][path][method]:
-                    obj['description'] = fileObj['paths'][path][method]['description']
-                else:
-                    obj['description'] = ''
-                    
-                if 'parameters' in fileObj['paths'][path][method]:
-                    obj['parameters'] = fileObj['paths'][path][method]['parameters']
-                else:
-                    obj['parameters'] = []
-                    
-                if 'requestBody' in fileObj['paths'][path][method]:
-                    obj['requestBody'] = fileObj['paths'][path][method]['requestBody']
-                else:
-                    obj['requestBody'] = {}
-                    
-                if 'responses' in fileObj['paths'][path][method]:
-                    if '200' in fileObj['paths'][path][method]['responses']:
-                        if 'content' in fileObj['paths'][path][method]['responses']['200']:
-                            if 'application/json' in fileObj['paths'][path][method]['responses']['200']['content']:
-                                obj['response'] = fileObj['paths'][path][method]['responses']['200']['content']['application/json']
-                            else:
-                                print('Warning: ' + method + path + ' is missing response json')
-                        else:
-                            print('Warning: ' + method + path + ' is missing response content')
-                    else:
-                        print('Warning: ' + method + path + ' is missing 200 response')
-                    
-                returnList.append(obj)
+                #if method == 'get' and not path.startswith('/search') and path[-1] == '}':
+                item = {'path': path, 'method': method}
+                returnList.append(item)
                 
     return returnList
                 
                 
 def search(searchList):
+    hits = set([])
     for item in searchList:
-        #print(item['response']['schema'])
-        if not item['deprecated']:
-            print(item['method'] + '\t' + item['path'])
-
-def findAllKeys(schema, keys = []):
-    if type(schema) is dict:
-        for key in schema:
-            keys.append(key)
-            keys = findAllKeys(schema[key], keys)
-    return keys
+        path = item['path']
+        method = item['method']
+        
+        isBasePath = re.fullmatch('^/[a-z]+$', path)
+        isDbIdPath = re.fullmatch('^/[a-z]+/\{[a-zA-Z]+}$', path)
+        isDbIdExtraPath = re.fullmatch('^/[a-z]+/\{[a-zA-Z]+}/[a-z]+$', path)
+        isTablePath = re.fullmatch('^/[a-z]+/table$', path)
+        isVendorPath = re.fullmatch('^/vendor/.+$', path)
+        isSearchPostPath = re.fullmatch('^/search/[a-z]+$', path)
+        isSearchGetPath = re.fullmatch('^/search/[a-z]+/{searchResultsDbId}$', path)
+        
+        
+        if isBasePath: 
+            if method == 'get':
+                #filter
+                hits.add(1)
+            elif method == 'post':
+                #new stuff
+                hits.add(2)
+            elif method == 'put':
+                #update list
+                hits.add(3)
+        elif isDbIdPath:
+            if method == 'get':
+                #filter
+                hits.add(4)
+            elif method == 'post':
+                #new stuff
+                hits.add(5)
+                print(' ----5--- ' + method + path)
+            elif method == 'put':
+                #update list
+                hits.add(6)
+        elif isDbIdExtraPath:
+            if method == 'get':
+                #filter
+                hits.add(7)
+            elif method == 'post':
+                #new stuff
+                hits.add(8)
+            elif method == 'put':
+                #update list
+                hits.add(9)
+        elif isTablePath:
+            #table
+            hits.add(10)
+        elif isVendorPath:
+            #vendor
+            if method == 'get':
+                hits.add(11)
+            elif method == 'post':
+                hits.add(12)
+        elif isSearchPostPath:
+            #seach post
+            hits.add(13)
+        elif isSearchGetPath:
+            #seach get
+            if method == 'get':
+                hits.add(14)
+            elif method == 'post':
+                hits.add(15)
+                print(' ---15--- ' + method + path)
+        else:
+            print(method + path)
+        
+    print(hits)
 
 if len(sys.argv) > 1 :
     go(sys.argv[1])

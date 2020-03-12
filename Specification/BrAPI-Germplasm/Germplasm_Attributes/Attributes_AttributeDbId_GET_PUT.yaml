@@ -26,9 +26,9 @@ paths:
           $ref: '#/components/responses/403Forbidden'
       tags:
       - Germplasm Attributes
-    post:
-      summary: Create new Germplasm Attributes
-      description: Create new Germplasm Attributes
+    put:
+      summary: Update an existing Germplasm Attribute
+      description: Update an existing Germplasm Attribute
       parameters:
       - name: attributeDbId
         description: The unique id for an attribute

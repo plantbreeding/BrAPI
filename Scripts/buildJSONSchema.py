@@ -70,7 +70,7 @@ def buildCollection(parent):
 							tag['item'].append(secondTest)
 						break
 	
-	filename = rootPath + 'collections/CompleteBrapiTest.v1.3.json'
+	filename = rootPath + 'collections/CompleteBrapiTest.' + versionNumber + '.json'
 	os.makedirs(os.path.dirname(filename), exist_ok=True)
 	with open(filename, 'w') as outfile:
 		json.dump(collection, outfile, indent=4, sort_keys=True)
@@ -79,35 +79,22 @@ def getExecList(method, path, tag):
 	execList = [
 					"StatusCode:200:breakiffalse",
 					"ContentType:application/json",
-					"Schema:/v1.3/metadata",
-					"Schema:/v1.3/" + tag + '/' + buildResponseObjectName(method, path)
+					"Schema:/" + versionNumber + "/metadata",
+					"Schema:/" + versionNumber + "/" + tag + '/' + buildResponseObjectName(method, path)
 				]
+	
+	isBasePath = re.match('^/[a-z]+$', path)
+	isDbIdPath = re.match('^/[a-z]+/\{$[a-zA-Z]+}', path)
+	isVendorPath = re.match('^/vendor/.+$', path)
+	isSearchPostPath = re.match('^/search/[a-z]+$', path)
+	isSearchGetPath = re.match('^/search/[a-z]+/{searchResultsDbId}$', path)
 	if method.lower() == 'get':
 		if path == '/calls':
 			execList.append('SaveCalls')
-		elif path[1:-1] in ['program', 'location', 'trial', 'method', 'scale', 'trait', 'marker', 'map', 'sample', 'list', 'image']:
-			execList.append('GetValue:/result/data/0/' + path[1:-1] + 'DbId:' + path[1:-1] +'DbId0')
-			execList.append('GetValue:/result/data/1/' + path[1:-1] + 'DbId:' + path[1:-1] +'DbId1')
-		elif path == '/studies':
-			execList.append('GetValue:/result/data/0/studyDbId:studyDbId0')
-			execList.append('GetValue:/result/data/1/studyDbId:studyDbId1')
-		elif path == '/germplasm':
-			execList.append('GetValue:/result/data/0/germplasmDbId:germplasmDbId0')
-			execList.append('GetValue:/result/data/1/germplasmDbId:germplasmDbId1')
-		elif path == '/breedingmethods':
-			execList.append('GetValue:/result/data/0/breedingMethodDbId:breedingMethodDbId0')
-			execList.append('GetValue:/result/data/1/breedingMethodDbId:breedingMethodDbId1')
-		elif path == '/markerprofiles':
-			execList.append('GetValue:/result/data/0/markerProfileDbId:markerProfileDbId0')
-			execList.append('GetValue:/result/data/1/markerProfileDbId:markerProfileDbId1')
-		elif path == '/people':
-			execList.append('GetValue:/result/data/0/personDbId:personDbId0')
-			execList.append('GetValue:/result/data/1/personDbId:personDbId1')
-		elif path == '/variables':
-			execList.append('GetValue:/result/data/0/observationVariableDbId:observationVariableDbId0')
-			execList.append('GetValue:/result/data/1/observationVariableDbId:observationVariableDbId1')
-		elif path == '/maps/{mapDbId}':
-			execList.append('GetValue:/result/data/0/linkageGroupName:linkageGroupName0')
+		else:
+			dbid = mapPathToDbId(path)
+			execList.append('GetValue:/result/data/0/' + dbid + ':' + dbid +'0')
+			execList.append('GetValue:/result/data/1/' + dbid + ':' + dbid +'1')
 		
 	if '/search' in path and method.lower() == 'post':
 			varName = path.split('/')[2] + 'SearchResultDbId'
@@ -115,6 +102,36 @@ def getExecList(method, path, tag):
 			
 			
 	return execList
+
+def mapPathToDbId(path):
+	## Special cases because English is difficult
+	if path == '/attributevalues':
+			return 'attributeValueDbId'
+	elif path == '/breedingmethods':
+			return 'breedingMethodDbId'
+	elif path == '/callsets':
+			return 'callSetDbId'
+	elif path == '/crossingprojects':
+			return 'crossingProjectDbId'
+	elif path == '/observationunits':
+			return 'observationUnitDbId'
+	elif path == '/people':
+			return 'personDbId'
+	elif path == '/referencesets':
+			return 'referenceSetDbId'
+	elif path == '/seedlots':
+			return 'seedLotDbId'
+	elif path == '/studies':
+			return 'studyDbId'
+	elif path == '/variables':
+			return 'observationVariableDbId'
+	elif path == '/variantsets':
+			return 'variantSetDbId'
+	else:
+		rootPath = path[1:]		
+		if rootPath[-1] == 's':
+			rootPath = rootPath[:-1]
+		return rootPath + 'DbId'		
 
 def getRequiresList(method, path, varPostfix = '0'):
 	requiresList = []
@@ -164,18 +181,18 @@ def buildJSONSchemas(method, path, tag, parent):
 	
 	schema = fixSchema(schema)
 	schemaObj = {
-				    "$schema": "http://json-schema.org/draft-04/schema#",
-				    "title": buildResponseObjectName(method, path),
-				    "type": "object",
-				    "properties": {
-				        "result": schema
-				    },
-				    "required": [
-				        "result"
-				    ]
+					"$schema": "http://json-schema.org/draft-04/schema#",
+					"title": buildResponseObjectName(method, path),
+					"type": "object",
+					"properties": {
+						"result": schema
+					},
+					"required": [
+						"result"
+					]
 				}
 	
-	filename = rootPath + 'schemas/v1.3/' + tag + '/' + buildResponseObjectName(method, path) + '.json'
+	filename = rootPath + 'schemas/' + versionNumber + '/' + tag + '/' + buildResponseObjectName(method, path) + '.json'
 	os.makedirs(os.path.dirname(filename), exist_ok=True)
 	with open(filename, 'w') as outfile:
 		json.dump(schemaObj, outfile, indent=4, sort_keys=True)
@@ -245,34 +262,40 @@ def allowNullFields(parent):
 def buildMetaData(parent):
 	metaSchema = fixSchema(parent['components']['schemas']['metadata'])
 	schemaObj = {
-				    "$schema": "http://json-schema.org/draft-04/schema#",
-				    "title": "metadata",
-				    "type": "object",
-				    "properties": {
-				        "metadata": metaSchema
-				    },
-				    "required": [
-				        "metadata"
-				    ]
+					"$schema": "http://json-schema.org/draft-04/schema#",
+					"title": "metadata",
+					"type": "object",
+					"properties": {
+						"metadata": metaSchema
+					},
+					"required": [
+						"metadata"
+					]
 				}
 	
-	filename = rootPath + 'schemas/v1.3/metadata.json'
+	filename = rootPath + 'schemas/' + versionNumber + '/metadata.json'
 	os.makedirs(os.path.dirname(filename), exist_ok=True)
 	with open(filename, 'w') as outfile:
 		json.dump(schemaObj, outfile, indent=4, sort_keys=True)
 	
 	
 rootPath = './out/'
+versionNumber = 'vX.X'
 verbose = False
 
-if len(sys.argv) > 1 :
-	rootPath = sys.argv[1];
-	if rootPath[-1] != '/':
-		rootPath = rootPath + '/'
-if len(sys.argv) > 2 :
-	verbose = sys.argv[2] == '-v';
-	
-parentFile = dereferenceAll.dereferenceBrAPI()
+verbose = '-v' in sys.argv 
+
+if '-version' in sys.argv:
+	vi = sys.argv.index('-version')
+	versionNumber = sys.argv[vi + 1]
+
+if '-root' in sys.argv:
+	ri = sys.argv.index('-root')
+	rootPath = sys.argv[ri + 1]
+if rootPath[-1] != '/':
+	rootPath = rootPath + '/'
+
+parentFile = dereferenceAll.dereferenceBrAPI(filePath = rootPath + 'brapi_openapi.yaml')
 
 buildCollection(parentFile)
 buildMetaData(parentFile)
