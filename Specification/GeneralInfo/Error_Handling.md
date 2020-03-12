@@ -1,7 +1,7 @@
 
 ### Error Handling
 
-Following the RESTful architecture standard, most errors in BrAPI should be reported back to the client using the appropriate HTTP status code. The status codes that BrAPI officially supports are outlined below. Any response which does NOT have a 200 status code should have a plain text body with a reasonable error message which can be displayed to a user if necessary. 
+Following the RESTful architecture standard, most errors in BrAPI should be reported back to the client using the appropriate HTTP status code. The status codes that BrAPI officially supports are outlined below. Any response which has an error status code (4XX and 5XX) should have a plain text body with a reasonable error message which can be displayed to a user if necessary. 
 
 <table>
 <tr>
@@ -14,6 +14,18 @@ Following the RESTful architecture standard, most errors in BrAPI should be repo
 <td>200</td>
 <td>OK</td>
 <td>Use code 200 for every successful JSON response. The 'status' array in a response metadata may contain addition logged errors as described below.</td>
+</tr>
+
+<tr style="vertical-align: top">
+<td>202</td>
+<td>Accepted</td>
+<td>Use code 202 when a request has been received and "Accepted" by the server, but more processing time is needed before a complete response is ready. See BrAPI documentation on Search Services for more details on when to use this code. </td>
+</tr>
+
+<tr style="vertical-align: top">
+<td>102</td>
+<td>Processing</td>
+<td>Use code 102 when more processing time is needed before a complete response is ready. See BrAPI documentation on Search Services for more details on when to use this code. </td>
 </tr>
 
 <tr style="vertical-align: top">

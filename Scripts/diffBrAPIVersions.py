@@ -1,5 +1,8 @@
 #! /usr/bin/env python
 
+## Usage
+## diffBrAPIVersions.py [-d][-m][-a][-v] lowerVersionFilePath higherVersionFilePath > outputFilePath
+
 import sys
 import re
 import yaml

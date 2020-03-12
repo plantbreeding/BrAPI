@@ -17,6 +17,3 @@ General implementation details which apply to the whole API spec.
 
 <a href="https://github.com/plantbreeding/API/blob/master/Specification/GeneralInfo/Search_Services.md">Search Services</a>
 
-<a href="https://github.com/plantbreeding/API/blob/master/Specification/GeneralInfo/Asychronous_Processing.md">Asynchronous Processing</a>
-
-
