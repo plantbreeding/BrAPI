@@ -1,6 +1,13 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
 components:
   schemas:
     ListTypes:
+      type: string
+      example: germplasm
       enum:
       - germplasm
       - markers
@@ -11,9 +18,4 @@ components:
       - observations
       - observationVariables
       - samples
-      type: string
-info:
-  title: BrAPI
-  version: ''
-openapi: 3.0.0
-paths: {}
+

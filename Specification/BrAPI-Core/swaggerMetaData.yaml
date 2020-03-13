@@ -98,7 +98,7 @@ security:
 servers:
 - url: https://test-server.brapi.org/brapi/v2
 tags:
-- name: Calls
+- name: Server Info
   description: Check the available calls on a server
   externalDocs:
     description: Docs

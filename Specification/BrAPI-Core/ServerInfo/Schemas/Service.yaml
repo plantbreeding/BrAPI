@@ -8,14 +8,14 @@ components:
     Service: 
       type: object
       required:
-      - call
+      - service
       - versions
       - methods
       properties:
         service:
           description: The name of the available call as recorded in the documentation
           type: string
-          example: germplasm
+          example: germplasm/{germplasmDbId}/pedigree
         dataTypes:
           description: The possible data formats returned by the available call
           items:

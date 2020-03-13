@@ -72,4 +72,4 @@ paths:
           $ref: '#/components/responses/403Forbidden'
       summary: Get the list of implemented Calls
       tags:
-      - Calls
+      - Server Info

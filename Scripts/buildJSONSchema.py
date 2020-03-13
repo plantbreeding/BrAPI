@@ -33,48 +33,109 @@ def buildCollection(parent):
 									} 
 									)
 	
-	if('paths' in parent):
-		for path in parent['paths']:
-			for method in parent['paths'][path]:
-				for tag in collection['item']:
-					tagName = tag['name']
-					if tagName in parent['paths'][path][method]['tags'] and isNotDeprecated(parent['paths'][path][method]):	
-						
-						buildJSONSchemas(method, path, tagName.replace(' ', ''), parent)
-						newTest = {
-									"name": method.upper() + ' ' + path,
-									"endpoint": path,
-									"description": parent['paths'][path][method]['description'],
-									"requires": getRequiresList(method, path),
-									"request": {
-										"url": "{baseurl}" + replacePathParams(method, path),
-										"method": method.upper()
-									},
-									"event": [
-										{
-											"listen": "test",
-											"type": "text/plain",
-											"exec": getExecList(method, path, tagName.replace(' ', ''))
-										}
-									],
-									"parameters": getParamsList(method, path)
+	sortedPaths = sortPaths(parent)
+	for pathObj in sortedPaths:
+		path = pathObj['path']
+		method = pathObj['method']
+		for tag in collection['item']:
+			tagName = tag['name']
+			if tagName in parent['paths'][path][method]['tags'] and isNotDeprecated(parent['paths'][path][method]):	
+				
+				buildJSONSchemas(method, path, tagName.replace(' ', ''), parent)
+				newTest = {
+							"name": method.upper() + ' ' + path,
+							"endpoint": path,
+							"description": parent['paths'][path][method]['description'],
+							"requires": getRequiresList(method, path),
+							"request": {
+								"url": "{baseurl}" + replacePathParams(method, path),
+								"method": method.upper()
+							},
+							"event": [
+								{
+									"listen": "test",
+									"type": "text/plain",
+									"exec": getExecList(method, path, tagName.replace(' ', ''))
 								}
-							
-						tag['item'].append(newTest)
-						
-						if method.lower() == 'get' and secondTestRegex.match(path):
-							secondTest = deepcopy(newTest)
-							secondTest['name'] += ' with second DbId' 
-							secondTest['requires'] = getRequiresList(method, path, '1')
-							secondTest['request']['url'] = "{baseurl}" + replacePathParams(method, path, '1')
-							tag['item'].append(secondTest)
-						break
+							],
+							"parameters": getParamsList(method, path)
+						}
+					
+				tag['item'].append(newTest)
+				
+				if method.lower() == 'get' and secondTestRegex.match(path):
+					secondTest = deepcopy(newTest)
+					secondTest['name'] += ' with second DbId' 
+					secondTest['requires'] = getRequiresList(method, path, '1')
+					secondTest['request']['url'] = "{baseurl}" + replacePathParams(method, path, '1')
+					tag['item'].append(secondTest)
+				break
 	
-	filename = rootPath + 'collections/CompleteBrapiTest.' + versionNumber + '.json'
+	filename = outPath + 'collections/CompleteBrapiTest.' + versionNumber + '.json'
 	os.makedirs(os.path.dirname(filename), exist_ok=True)
 	with open(filename, 'w') as outfile:
 		json.dump(collection, outfile, indent=4, sort_keys=True)
-		
+
+def sortPaths(parent):
+	
+	serverInfoPath = {}
+	getPaths = []
+	postPaths = []
+	putPaths = []
+	tablePaths = []
+	vendorPaths = []
+	searchPathPosts = []
+	searchPathGets = []
+			    
+	if('paths' in parent):
+		for path in parent['paths']:
+			for method in parent['paths'][path]:
+				pathObj = {'path': path, 'method': method}
+				
+				isServerInfoPath = re.fullmatch('^/serverinfo$', path)
+				isBasePath = re.fullmatch('^/[a-z]+$', path)
+				isBaseExtraPath = re.fullmatch('^/[a-z]+/[a-z]+$', path)
+				isDbIdPath = re.fullmatch('^/[a-z]+/\{[a-zA-Z]+}$', path)
+				isDbIdExtraPath = re.fullmatch('^/[a-z]+/\{[a-zA-Z]+}/[a-z]+$', path)
+				isTablePath = re.fullmatch('^/[a-z]+/table$', path)
+				isVendorPath = re.fullmatch('^/vendor/.+$', path)
+				isSearchPath = re.fullmatch('^/search/[a-z]+(/{searchResultsDbId})?$', path)
+			    
+				dbid = mapPathToDbId(path)
+					
+				if isServerInfoPath:
+					serverInfoPath = pathObj
+				elif isVendorPath:
+					vendorPaths.append(pathObj)
+				elif isSearchPath:
+					if method == 'get':
+						vendorPaths.append(pathObj)
+					elif method == 'post':
+						vendorPaths.append(pathObj)
+				elif isTablePath:
+					tablePaths.append(pathObj)
+				elif isBasePath or isBaseExtraPath or isDbIdPath or isDbIdExtraPath: 
+					if method == 'get':
+						getPaths.append(pathObj)
+					elif method == 'post':
+						postPaths.append(pathObj)
+					elif method == 'put':
+						putPaths.append(pathObj)
+				else:
+					print('missing pidgen hole for ' + method + path)
+	
+	sortedPaths = [serverInfoPath]
+	sortedPaths.extend(getPaths)
+	sortedPaths.extend(postPaths)
+	sortedPaths.extend(putPaths)
+	sortedPaths.extend(tablePaths)
+	sortedPaths.extend(searchPathPosts)
+	sortedPaths.extend(searchPathGets)
+	sortedPaths.extend(vendorPaths)
+	
+	return sortedPaths
+	
+
 def getExecList(method, path, tag):
 	execList = [
 					"StatusCode:200:breakiffalse",
@@ -83,52 +144,82 @@ def getExecList(method, path, tag):
 					"Schema:/" + versionNumber + "/" + tag + '/' + buildResponseObjectName(method, path)
 				]
 	
-	isBasePath = re.match('^/[a-z]+$', path)
-	isDbIdPath = re.match('^/[a-z]+/\{$[a-zA-Z]+}', path)
-	isVendorPath = re.match('^/vendor/.+$', path)
-	isSearchPostPath = re.match('^/search/[a-z]+$', path)
-	isSearchGetPath = re.match('^/search/[a-z]+/{searchResultsDbId}$', path)
-	if method.lower() == 'get':
-		if path == '/calls':
-			execList.append('SaveCalls')
-		else:
-			dbid = mapPathToDbId(path)
-			execList.append('GetValue:/result/data/0/' + dbid + ':' + dbid +'0')
-			execList.append('GetValue:/result/data/1/' + dbid + ':' + dbid +'1')
+	isServerInfoPath = re.fullmatch('^/serverinfo$', path)
+	isBasePath = re.fullmatch('^/[a-z]+$', path)
+	isBaseExtraPath = re.fullmatch('^/[a-z]+/[a-z]+$', path)
+	isDbIdPath = re.fullmatch('^/[a-z]+/\{[a-zA-Z]+}$', path)
+	isDbIdExtraPath = re.fullmatch('^/[a-z]+/\{[a-zA-Z]+}/[a-z]+$', path)
+	isTablePath = re.fullmatch('^/[a-z]+/table$', path)
+	isVendorPath = re.fullmatch('^/vendor/.+$', path)
+	isSearchPath = re.fullmatch('^/search/[a-z]+(/{searchResultsDbId})?$', path)
+    
+	dbid = mapPathToDbId(path)
 		
-	if '/search' in path and method.lower() == 'post':
+	if isServerInfoPath:
+		execList.append('SaveCalls:V2')
+	elif isVendorPath:
+		if method == 'get':
+			print('vendor get')
+		elif method == 'post':
+			print('vendor post')
+	elif isSearchPath:
+		if method == 'get':
+			print('search get')
+		elif method == 'post':
 			varName = path.split('/')[2] + 'SearchResultDbId'
 			execList.append('GetValue:/result/searchResultDbId:' + varName)
-			
-			
+	elif isTablePath:
+		print('table get')
+	elif isBasePath or isBaseExtraPath: 
+		if method == 'get':
+			execList.append('GetValue:/result/data/0/' + dbid + ':' + dbid +'0')
+			execList.append('GetValue:/result/data/1/' + dbid + ':' + dbid +'1')
+		elif method == 'post':
+			execList.append('IsEqual:/result/data/0/' + dbid + ':' + dbid +'0')
+		elif method == 'put':
+			execList.append('IsEqual:/result/data/' + dbid + ':' + dbid +'0')
+	elif isDbIdPath:
+		if method == 'get':
+			execList.append('IsEqual:/result/' + dbid + ':' + dbid +'0')
+		elif method == 'put':
+			execList.append('IsEqual:/result/' + dbid + ':' + dbid +'0')
+	elif isDbIdExtraPath:
+		if method == 'get':
+			print('dbid extra get')
+		elif method == 'post':
+			print('dbid extra post')
+		elif method == 'put':
+			print('dbid extra put')
+	else:
+		print('missing exec list for ' + method + path)		
 	return execList
 
 def mapPathToDbId(path):
 	## Special cases because English is difficult
-	if path == '/attributevalues':
+	if path.startswith('/attributevalues'):
 			return 'attributeValueDbId'
-	elif path == '/breedingmethods':
+	elif path.startswith('/breedingmethods'):
 			return 'breedingMethodDbId'
-	elif path == '/callsets':
+	elif path.startswith('/callsets'):
 			return 'callSetDbId'
-	elif path == '/crossingprojects':
+	elif path.startswith('/crossingprojects'):
 			return 'crossingProjectDbId'
-	elif path == '/observationunits':
+	elif path.startswith('/observationunits'):
 			return 'observationUnitDbId'
-	elif path == '/people':
+	elif path.startswith('/people'):
 			return 'personDbId'
-	elif path == '/referencesets':
+	elif path.startswith('/referencesets'):
 			return 'referenceSetDbId'
-	elif path == '/seedlots':
+	elif path.startswith('/seedlots'):
 			return 'seedLotDbId'
-	elif path == '/studies':
+	elif path.startswith('/studies'):
 			return 'studyDbId'
-	elif path == '/variables':
+	elif path.startswith('/variables'):
 			return 'observationVariableDbId'
-	elif path == '/variantsets':
+	elif path.startswith('/variantsets'):
 			return 'variantSetDbId'
 	else:
-		rootPath = path[1:]		
+		rootPath = path.split('/')[1]		
 		if rootPath[-1] == 's':
 			rootPath = rootPath[:-1]
 		return rootPath + 'DbId'		
@@ -192,7 +283,7 @@ def buildJSONSchemas(method, path, tag, parent):
 					]
 				}
 	
-	filename = rootPath + 'schemas/' + versionNumber + '/' + tag + '/' + buildResponseObjectName(method, path) + '.json'
+	filename = outPath + 'schemas/' + versionNumber + '/' + tag + '/' + buildResponseObjectName(method, path) + '.json'
 	os.makedirs(os.path.dirname(filename), exist_ok=True)
 	with open(filename, 'w') as outfile:
 		json.dump(schemaObj, outfile, indent=4, sort_keys=True)
@@ -204,6 +295,7 @@ def fixSchema(schema):
 		schema['properties']['data']['minItems'] = 1
 		
 	schema = removeDeprecated(schema)
+	schema = removeSwaggerTerms(schema)
 	schema = fixStringFormats(schema)
 	schema = allowNullFields(schema)
 	return schema
@@ -218,6 +310,22 @@ def removeDeprecated(parent):
 					newParent.pop(childKey)
 				else:
 					newParent[childKey] = removeDeprecated(child)
+	return newParent
+
+def removeSwaggerTerms(parent):
+	newParent = deepcopy(parent)
+	if type(newParent) is dict:
+		if 'example' in newParent:
+			newParent.pop('example')
+		if 'discriminator' in newParent:
+			newParent.pop('discriminator')
+		for childKey in newParent:
+			newParent[childKey] = removeSwaggerTerms(newParent[childKey])
+	elif type(newParent) is list:
+		newList = []
+		for item in newParent:
+			newList.append(removeSwaggerTerms(item))
+		newParent = newList
 	return newParent
 
 def fixStringFormats(parent):
@@ -273,13 +381,14 @@ def buildMetaData(parent):
 					]
 				}
 	
-	filename = rootPath + 'schemas/' + versionNumber + '/metadata.json'
+	filename = outPath + 'schemas/' + versionNumber + '/metadata.json'
 	os.makedirs(os.path.dirname(filename), exist_ok=True)
 	with open(filename, 'w') as outfile:
 		json.dump(schemaObj, outfile, indent=4, sort_keys=True)
 	
 	
-rootPath = './out/'
+outPath = './out/'
+yamlPath = './brapi_openapi.yaml'
 versionNumber = 'vX.X'
 verbose = False
 
@@ -288,14 +397,18 @@ verbose = '-v' in sys.argv
 if '-version' in sys.argv:
 	vi = sys.argv.index('-version')
 	versionNumber = sys.argv[vi + 1]
+	
+if '-brapi' in sys.argv:
+	bi = sys.argv.index('-brapi')
+	yamlPath = sys.argv[bi + 1]
 
-if '-root' in sys.argv:
-	ri = sys.argv.index('-root')
-	rootPath = sys.argv[ri + 1]
-if rootPath[-1] != '/':
-	rootPath = rootPath + '/'
+if '-out' in sys.argv:
+	ri = sys.argv.index('-out')
+	outPath = sys.argv[ri + 1]
+if outPath[-1] != '/':
+	outPath = outPath + '/'
 
-parentFile = dereferenceAll.dereferenceBrAPI(filePath = rootPath + 'brapi_openapi.yaml')
+parentFile = dereferenceAll.dereferenceBrAPI(filePath = yamlPath)
 
 buildCollection(parentFile)
 buildMetaData(parentFile)
