@@ -61,7 +61,7 @@ See Search Services for additional implementation details.
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date)|The date this trial ends|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|A program identifier to search for|
 |programName|string|Human readable name of the program|
@@ -320,7 +320,7 @@ See Search Services for additional implementation details.
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date)|The date this trial ends|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|A program identifier to search for|
 |programName|string|Human readable name of the program|
@@ -522,7 +522,7 @@ Retrieve a filtered list of breeding Trials. A Trial is a collection of Studies
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date)|The date this trial ends|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|A program identifier to search for|
 |programName|string|Human readable name of the program|
@@ -694,7 +694,7 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date)|The date this trial ends|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|A program identifier to search for|
 |programName|string|Human readable name of the program|
@@ -730,7 +730,7 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date)|The date this trial ends|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|A program identifier to search for|
 |programName|string|Human readable name of the program|
@@ -961,7 +961,7 @@ Get the details of a specific Trial
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
@@ -1176,7 +1176,7 @@ Update the details of an existing Trial
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date)|The date this trial ends|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|A program identifier to search for|
 |programName|string|Human readable name of the program|
@@ -1227,7 +1227,7 @@ Update the details of an existing Trial
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|

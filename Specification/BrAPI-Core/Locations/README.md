@@ -33,7 +33,7 @@ Get a list of locations.
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
@@ -180,7 +180,7 @@ Add new locations to database
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
@@ -209,7 +209,7 @@ Add new locations to database
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
@@ -403,7 +403,7 @@ Get details for a location.
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
@@ -547,7 +547,7 @@ Update the details for an existing location.
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
@@ -575,7 +575,7 @@ Update the details for an existing location.
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
@@ -790,7 +790,7 @@ See Search Services for additional implementation details.
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
@@ -1047,7 +1047,7 @@ See Search Services for additional implementation details.
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|

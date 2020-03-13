@@ -20,7 +20,7 @@ Get filtered list of people
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
@@ -140,7 +140,7 @@ Create new People entities. `personDbId` is generated and managed by the server.
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
@@ -159,7 +159,7 @@ Create new People entities. `personDbId` is generated and managed by the server.
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
@@ -305,7 +305,7 @@ Get the details for a specific Person
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
@@ -419,7 +419,7 @@ Update an existing Person
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
@@ -437,7 +437,7 @@ Update an existing Person
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
@@ -602,7 +602,7 @@ See Search Services for additional implementation details.
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
@@ -804,7 +804,7 @@ See Search Services for additional implementation details.
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|

@@ -21,7 +21,7 @@ Get a filtered list of Planned Cross entities.
 |crossingProjectDbId|string|the unique identifier for a crossing project|
 |crossingProjectName|string|the human readable name for a crossing project|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |parent1|object||
 |germplasmDbId|string|the unique identifier for a germplasm|
@@ -166,7 +166,7 @@ Create new Planned Cross entities on this server
 |crossingProjectDbId|string|the unique identifier for a crossing project|
 |crossingProjectName|string|the human readable name for a crossing project|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |parent1|object||
 |germplasmDbId|string|the unique identifier for a germplasm|
@@ -193,7 +193,7 @@ Create new Planned Cross entities on this server
 |crossingProjectDbId|string|the unique identifier for a crossing project|
 |crossingProjectName|string|the human readable name for a crossing project|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |parent1|object||
 |germplasmDbId|string|the unique identifier for a germplasm|
@@ -392,7 +392,7 @@ Update existing Planned Cross entities on this server
 |crossingProjectDbId|string|the unique identifier for a crossing project|
 |crossingProjectName|string|the human readable name for a crossing project|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |parent1|object||
 |germplasmDbId|string|the unique identifier for a germplasm|

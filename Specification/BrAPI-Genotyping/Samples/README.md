@@ -21,7 +21,7 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
@@ -164,7 +164,7 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
@@ -194,7 +194,7 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
@@ -373,7 +373,7 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
@@ -509,7 +509,7 @@ Update the details of an existing Sample
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
@@ -538,7 +538,7 @@ Update the details of an existing Sample
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
@@ -735,7 +735,7 @@ See Search Services for additional implementation details.
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|
@@ -955,7 +955,7 @@ See Search Services for additional implementation details.
 |additionalInfo|object|Additional arbitrary info|
 |column|integer|The Column identifier for this samples location in the plate|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |observationUnitDbId|string|The ID which uniquely identifies an observation unit|

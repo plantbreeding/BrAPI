@@ -21,7 +21,7 @@ Get a filtered list of Crossing Projects.
 |crossingProjectDescription|string|the description for a crossing project|
 |crossingProjectName|string|the human readable name for a crossing project|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|the unique identifier for a program|
 |programName|string|the human readable name for a program|
@@ -127,7 +127,7 @@ Create new Crossing Project entities on this server
 |crossingProjectDescription|string|the description for a crossing project|
 |crossingProjectName|string|the human readable name for a crossing project|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|the unique identifier for a program|
 |programName|string|the human readable name for a program|
@@ -143,7 +143,7 @@ Create new Crossing Project entities on this server
 |crossingProjectDescription|string|the description for a crossing project|
 |crossingProjectName|string|the human readable name for a crossing project|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|the unique identifier for a program|
 |programName|string|the human readable name for a program|
@@ -277,7 +277,7 @@ Get a filtered list of Crossing Projects.
 |crossingProjectDescription|string|the description for a crossing project|
 |crossingProjectName|string|the human readable name for a crossing project|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|the unique identifier for a program|
 |programName|string|the human readable name for a program|
@@ -381,7 +381,7 @@ Update an existing Crossing Project entity on this server
 |crossingProjectDescription|string|the description for a crossing project|
 |crossingProjectName|string|the human readable name for a crossing project|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|the unique identifier for a program|
 |programName|string|the human readable name for a program|
@@ -396,7 +396,7 @@ Update an existing Crossing Project entity on this server
 |crossingProjectDescription|string|the description for a crossing project|
 |crossingProjectName|string|the human readable name for a crossing project|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|the unique identifier for a program|
 |programName|string|the human readable name for a program|

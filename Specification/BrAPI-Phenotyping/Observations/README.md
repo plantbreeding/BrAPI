@@ -24,7 +24,7 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
@@ -168,7 +168,7 @@ Add new Observation entities
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
@@ -194,7 +194,7 @@ Add new Observation entities
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
@@ -377,7 +377,7 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
@@ -889,7 +889,7 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
@@ -1018,7 +1018,7 @@ Update an existing Observation
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
@@ -1043,7 +1043,7 @@ Update an existing Observation
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
@@ -1246,7 +1246,7 @@ Submit a search request for a set of Observations. Returns an Id which reference
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
@@ -1515,7 +1515,7 @@ observationValue data type inferred from the ontology
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|

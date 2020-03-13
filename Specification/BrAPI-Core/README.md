@@ -157,7 +157,7 @@ Get filtered set of generic lists
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |listDbId|string|The unique identifier for a List|
 |listDescription|string|Description of a List|
@@ -242,17 +242,7 @@ Get filtered set of generic lists
                 "listOwnerPersonDbId": "58db0628",
                 "listSize": 53,
                 "listSource": "GeneBank Repository 1.3",
-                "listType": [
-                    "germplasm",
-                    "markers",
-                    "programs",
-                    "trials",
-                    "studies",
-                    "observationUnits",
-                    "observations",
-                    "observationVariables",
-                    "samples"
-                ]
+                "listType": "germplasm"
             }
         ]
     }
@@ -290,7 +280,7 @@ Create a new list
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |listDescription|string|Description of a List|
 |listName|string|Human readable name of a List|
@@ -310,7 +300,7 @@ Create a new list
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |listDbId|string|The unique identifier for a List|
 |listDescription|string|Description of a List|
@@ -360,17 +350,7 @@ Create a new list
         "listOwnerPersonDbId": "58db0628",
         "listSize": 53,
         "listSource": "GeneBank Repository 1.3",
-        "listType": [
-            "germplasm",
-            "markers",
-            "programs",
-            "trials",
-            "studies",
-            "observationUnits",
-            "observations",
-            "observationVariables",
-            "samples"
-        ]
+        "listType": "germplasm"
     }
 ]
 ```
@@ -434,17 +414,7 @@ Create a new list
                 "listOwnerPersonDbId": "58db0628",
                 "listSize": 53,
                 "listSource": "GeneBank Repository 1.3",
-                "listType": [
-                    "germplasm",
-                    "markers",
-                    "programs",
-                    "trials",
-                    "studies",
-                    "observationUnits",
-                    "observations",
-                    "observationVariables",
-                    "samples"
-                ]
+                "listType": "germplasm"
             }
         ]
     }
@@ -484,7 +454,7 @@ Get a specific generic lists
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |listDbId|string|The unique identifier for a List|
 |listDescription|string|Description of a List|
@@ -564,17 +534,7 @@ Get a specific generic lists
         "listOwnerPersonDbId": "58db0628",
         "listSize": 53,
         "listSource": "GeneBank Repository 1.3",
-        "listType": [
-            "germplasm",
-            "markers",
-            "programs",
-            "trials",
-            "studies",
-            "observationUnits",
-            "observations",
-            "observationVariables",
-            "samples"
-        ]
+        "listType": "germplasm"
     }
 }
 ```
@@ -615,7 +575,7 @@ Update an existing generic list
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |listDescription|string|Description of a List|
 |listName|string|Human readable name of a List|
@@ -635,7 +595,7 @@ Update an existing generic list
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |listDbId|string|The unique identifier for a List|
 |listDescription|string|Description of a List|
@@ -685,17 +645,7 @@ Update an existing generic list
     "listOwnerPersonDbId": "58db0628",
     "listSize": 53,
     "listSource": "GeneBank Repository 1.3",
-    "listType": [
-        "germplasm",
-        "markers",
-        "programs",
-        "trials",
-        "studies",
-        "observationUnits",
-        "observations",
-        "observationVariables",
-        "samples"
-    ]
+    "listType": "germplasm"
 }
 ```
 
@@ -760,17 +710,7 @@ Update an existing generic list
         "listOwnerPersonDbId": "58db0628",
         "listSize": 53,
         "listSource": "GeneBank Repository 1.3",
-        "listType": [
-            "germplasm",
-            "markers",
-            "programs",
-            "trials",
-            "studies",
-            "observationUnits",
-            "observations",
-            "observationVariables",
-            "samples"
-        ]
+        "listType": "germplasm"
     }
 }
 ```
@@ -817,7 +757,7 @@ Add new data to a specific generic lists
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |listDbId|string|The unique identifier for a List|
 |listDescription|string|Description of a List|
@@ -906,17 +846,7 @@ Add new data to a specific generic lists
         "listOwnerPersonDbId": "58db0628",
         "listSize": 53,
         "listSource": "GeneBank Repository 1.3",
-        "listType": [
-            "germplasm",
-            "markers",
-            "programs",
-            "trials",
-            "studies",
-            "observationUnits",
-            "observations",
-            "observationVariables",
-            "samples"
-        ]
+        "listType": "germplasm"
     }
 }
 ```
@@ -978,7 +908,7 @@ See Search Services for additional implementation details.
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |listDbId|string|The unique identifier for a List|
 |listDescription|string|Description of a List|
@@ -1033,17 +963,7 @@ See Search Services for additional implementation details.
         "SYSTEM",
         "EXTERNAL"
     ],
-    "listType": [
-        "germplasm",
-        "markers",
-        "programs",
-        "trials",
-        "studies",
-        "observationUnits",
-        "observations",
-        "observationVariables",
-        "samples"
-    ],
+    "listType": "germplasm",
     "page": 0,
     "pageSize": 1000
 }
@@ -1108,17 +1028,7 @@ See Search Services for additional implementation details.
                 "listOwnerPersonDbId": "58db0628",
                 "listSize": 53,
                 "listSource": "GeneBank Repository 1.3",
-                "listType": [
-                    "germplasm",
-                    "markers",
-                    "programs",
-                    "trials",
-                    "studies",
-                    "observationUnits",
-                    "observations",
-                    "observationVariables",
-                    "samples"
-                ]
+                "listType": "germplasm"
             }
         ]
     }
@@ -1195,7 +1105,7 @@ See Search Services for additional implementation details.
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |listDbId|string|The unique identifier for a List|
 |listDescription|string|Description of a List|
@@ -1311,17 +1221,7 @@ See Search Services for additional implementation details.
                 "listOwnerPersonDbId": "58db0628",
                 "listSize": 53,
                 "listSource": "GeneBank Repository 1.3",
-                "listType": [
-                    "germplasm",
-                    "markers",
-                    "programs",
-                    "trials",
-                    "studies",
-                    "observationUnits",
-                    "observations",
-                    "observationVariables",
-                    "samples"
-                ]
+                "listType": "germplasm"
             }
         ]
     }
@@ -1378,7 +1278,7 @@ Get a list of locations.
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
@@ -1525,7 +1425,7 @@ Add new locations to database
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
@@ -1554,7 +1454,7 @@ Add new locations to database
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
@@ -1748,7 +1648,7 @@ Get details for a location.
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
@@ -1892,7 +1792,7 @@ Update the details for an existing location.
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
@@ -1920,7 +1820,7 @@ Update the details for an existing location.
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
@@ -2135,7 +2035,7 @@ See Search Services for additional implementation details.
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
@@ -2392,7 +2292,7 @@ See Search Services for additional implementation details.
 |environmentType|string|Describes the general type of environment of the location. (ex. forest, field, nursery, etc)|
 |exposure|string|Describes the level of protection/exposure for things like sun light and wind.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |instituteAddress|string|The street address of the institute representing this location  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
 |instituteName|string|Each institute/laboratory can have several experimental field  MIAPPE V1.1 (DM-16) Contact institution - Name and address of the institution responsible for the study.|
@@ -2569,7 +2469,7 @@ Get filtered list of people
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
@@ -2689,7 +2589,7 @@ Create new People entities. `personDbId` is generated and managed by the server.
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
@@ -2708,7 +2608,7 @@ Create new People entities. `personDbId` is generated and managed by the server.
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
@@ -2854,7 +2754,7 @@ Get the details for a specific Person
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
@@ -2968,7 +2868,7 @@ Update an existing Person
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
@@ -2986,7 +2886,7 @@ Update an existing Person
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
@@ -3151,7 +3051,7 @@ See Search Services for additional implementation details.
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
@@ -3353,7 +3253,7 @@ See Search Services for additional implementation details.
 |description|string|description of this person|
 |emailAddress|string|email address for this person|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |firstName|string|Persons first name|
 |lastName|string|Persons last name|
@@ -3513,7 +3413,7 @@ Get a filtered list of breeding Programs. This list can be filtered by common cr
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
@@ -3630,7 +3530,7 @@ Add new breeding Programs to the database. The `programDbId` is set by the serve
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
@@ -3648,7 +3548,7 @@ Add new breeding Programs to the database. The `programDbId` is set by the serve
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
@@ -3791,7 +3691,7 @@ Get a single breeding Program by Id. This can be used to quickly get the details
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
@@ -3898,7 +3798,7 @@ Update the details of an existing breeding Program.
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
@@ -3915,7 +3815,7 @@ Update the details of an existing breeding Program.
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
@@ -4070,7 +3970,7 @@ See Search Services for additional implementation details.
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
@@ -4265,7 +4165,7 @@ See Search Services for additional implementation details.
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
@@ -4895,7 +4795,7 @@ BAD    "call": "germplasm/<germplasmDbId>/pedigree"
                     "GET",
                     "POST"
                 ],
-                "service": "germplasm",
+                "service": "germplasm/{germplasmDbId}/pedigree",
                 "versions": [
                     "2.0",
                     "2.1"
@@ -5016,7 +4916,7 @@ See Search Services for additional implementation details.
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
@@ -5391,7 +5291,7 @@ See Search Services for additional implementation details.
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
@@ -5669,7 +5569,7 @@ StartDate and endDate should be ISO-8601 format for dates
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
@@ -5923,7 +5823,7 @@ StartDate and endDate should be ISO-8601 format for dates
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
@@ -5988,7 +5888,7 @@ StartDate and endDate should be ISO-8601 format for dates
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
@@ -6324,7 +6224,7 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
@@ -6555,7 +6455,7 @@ Update an existing Study with new data
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
@@ -6619,7 +6519,7 @@ Update an existing Study with new data
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
@@ -7049,7 +6949,7 @@ See Search Services for additional implementation details.
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date)|The date this trial ends|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|A program identifier to search for|
 |programName|string|Human readable name of the program|
@@ -7308,7 +7208,7 @@ See Search Services for additional implementation details.
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date)|The date this trial ends|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|A program identifier to search for|
 |programName|string|Human readable name of the program|
@@ -7510,7 +7410,7 @@ Retrieve a filtered list of breeding Trials. A Trial is a collection of Studies
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date)|The date this trial ends|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|A program identifier to search for|
 |programName|string|Human readable name of the program|
@@ -7682,7 +7582,7 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date)|The date this trial ends|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|A program identifier to search for|
 |programName|string|Human readable name of the program|
@@ -7718,7 +7618,7 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date)|The date this trial ends|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|A program identifier to search for|
 |programName|string|Human readable name of the program|
@@ -7949,7 +7849,7 @@ Get the details of a specific Trial
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|
@@ -8164,7 +8064,7 @@ Update the details of an existing Trial
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date)|The date this trial ends|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |programDbId|string|A program identifier to search for|
 |programName|string|Human readable name of the program|
@@ -8215,7 +8115,7 @@ Update the details of an existing Trial
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
 |description|string|MIAPPE V1.1 (DM-22) Description of the experimental design - Short description of the experimental design, possibly including statistical design. In specific cases, e.g. legacy datasets or data computed from several studies, the experimental design can be "unknown"/"NA", "aggregated/reduced data", or simply 'none'.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |growthFacility|object|Short description of the facility in which the study was carried out.|
 |PUI|string|MIAPPE V1.1 (DM-27) Type of growth facility - Type of growth facility in which the study was carried out, in the form of an accession number from the Crop Ontology.|

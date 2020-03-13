@@ -22,7 +22,7 @@ Get a filtered list of breeding Programs. This list can be filtered by common cr
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
@@ -139,7 +139,7 @@ Add new breeding Programs to the database. The `programDbId` is set by the serve
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
@@ -157,7 +157,7 @@ Add new breeding Programs to the database. The `programDbId` is set by the serve
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
@@ -300,7 +300,7 @@ Get a single breeding Program by Id. This can be used to quickly get the details
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
@@ -407,7 +407,7 @@ Update the details of an existing breeding Program.
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
@@ -424,7 +424,7 @@ Update the details of an existing breeding Program.
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
@@ -579,7 +579,7 @@ See Search Services for additional implementation details.
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|
@@ -774,7 +774,7 @@ See Search Services for additional implementation details.
 |commonCropName|string|Common name for the crop which this program is for|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |leadPersonDbId|string|The unique identifier of the program leader|
 |leadPersonName|string|The name of the program leader|

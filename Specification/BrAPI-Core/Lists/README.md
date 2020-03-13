@@ -20,7 +20,7 @@ Get filtered set of generic lists
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |listDbId|string|The unique identifier for a List|
 |listDescription|string|Description of a List|
@@ -105,17 +105,7 @@ Get filtered set of generic lists
                 "listOwnerPersonDbId": "58db0628",
                 "listSize": 53,
                 "listSource": "GeneBank Repository 1.3",
-                "listType": [
-                    "germplasm",
-                    "markers",
-                    "programs",
-                    "trials",
-                    "studies",
-                    "observationUnits",
-                    "observations",
-                    "observationVariables",
-                    "samples"
-                ]
+                "listType": "germplasm"
             }
         ]
     }
@@ -153,7 +143,7 @@ Create a new list
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |listDescription|string|Description of a List|
 |listName|string|Human readable name of a List|
@@ -173,7 +163,7 @@ Create a new list
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |listDbId|string|The unique identifier for a List|
 |listDescription|string|Description of a List|
@@ -223,17 +213,7 @@ Create a new list
         "listOwnerPersonDbId": "58db0628",
         "listSize": 53,
         "listSource": "GeneBank Repository 1.3",
-        "listType": [
-            "germplasm",
-            "markers",
-            "programs",
-            "trials",
-            "studies",
-            "observationUnits",
-            "observations",
-            "observationVariables",
-            "samples"
-        ]
+        "listType": "germplasm"
     }
 ]
 ```
@@ -297,17 +277,7 @@ Create a new list
                 "listOwnerPersonDbId": "58db0628",
                 "listSize": 53,
                 "listSource": "GeneBank Repository 1.3",
-                "listType": [
-                    "germplasm",
-                    "markers",
-                    "programs",
-                    "trials",
-                    "studies",
-                    "observationUnits",
-                    "observations",
-                    "observationVariables",
-                    "samples"
-                ]
+                "listType": "germplasm"
             }
         ]
     }
@@ -347,7 +317,7 @@ Get a specific generic lists
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |listDbId|string|The unique identifier for a List|
 |listDescription|string|Description of a List|
@@ -427,17 +397,7 @@ Get a specific generic lists
         "listOwnerPersonDbId": "58db0628",
         "listSize": 53,
         "listSource": "GeneBank Repository 1.3",
-        "listType": [
-            "germplasm",
-            "markers",
-            "programs",
-            "trials",
-            "studies",
-            "observationUnits",
-            "observations",
-            "observationVariables",
-            "samples"
-        ]
+        "listType": "germplasm"
     }
 }
 ```
@@ -478,7 +438,7 @@ Update an existing generic list
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |listDescription|string|Description of a List|
 |listName|string|Human readable name of a List|
@@ -498,7 +458,7 @@ Update an existing generic list
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |listDbId|string|The unique identifier for a List|
 |listDescription|string|Description of a List|
@@ -548,17 +508,7 @@ Update an existing generic list
     "listOwnerPersonDbId": "58db0628",
     "listSize": 53,
     "listSource": "GeneBank Repository 1.3",
-    "listType": [
-        "germplasm",
-        "markers",
-        "programs",
-        "trials",
-        "studies",
-        "observationUnits",
-        "observations",
-        "observationVariables",
-        "samples"
-    ]
+    "listType": "germplasm"
 }
 ```
 
@@ -623,17 +573,7 @@ Update an existing generic list
         "listOwnerPersonDbId": "58db0628",
         "listSize": 53,
         "listSource": "GeneBank Repository 1.3",
-        "listType": [
-            "germplasm",
-            "markers",
-            "programs",
-            "trials",
-            "studies",
-            "observationUnits",
-            "observations",
-            "observationVariables",
-            "samples"
-        ]
+        "listType": "germplasm"
     }
 }
 ```
@@ -680,7 +620,7 @@ Add new data to a specific generic lists
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |listDbId|string|The unique identifier for a List|
 |listDescription|string|Description of a List|
@@ -769,17 +709,7 @@ Add new data to a specific generic lists
         "listOwnerPersonDbId": "58db0628",
         "listSize": 53,
         "listSource": "GeneBank Repository 1.3",
-        "listType": [
-            "germplasm",
-            "markers",
-            "programs",
-            "trials",
-            "studies",
-            "observationUnits",
-            "observations",
-            "observationVariables",
-            "samples"
-        ]
+        "listType": "germplasm"
     }
 }
 ```
@@ -841,7 +771,7 @@ See Search Services for additional implementation details.
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |listDbId|string|The unique identifier for a List|
 |listDescription|string|Description of a List|
@@ -896,17 +826,7 @@ See Search Services for additional implementation details.
         "SYSTEM",
         "EXTERNAL"
     ],
-    "listType": [
-        "germplasm",
-        "markers",
-        "programs",
-        "trials",
-        "studies",
-        "observationUnits",
-        "observations",
-        "observationVariables",
-        "samples"
-    ],
+    "listType": "germplasm",
     "page": 0,
     "pageSize": 1000
 }
@@ -971,17 +891,7 @@ See Search Services for additional implementation details.
                 "listOwnerPersonDbId": "58db0628",
                 "listSize": 53,
                 "listSource": "GeneBank Repository 1.3",
-                "listType": [
-                    "germplasm",
-                    "markers",
-                    "programs",
-                    "trials",
-                    "studies",
-                    "observationUnits",
-                    "observations",
-                    "observationVariables",
-                    "samples"
-                ]
+                "listType": "germplasm"
             }
         ]
     }
@@ -1058,7 +968,7 @@ See Search Services for additional implementation details.
 |dateCreated|string (date-time)|Timestamp when the entity was first created|
 |dateModified|string (date-time)|Timestamp when the entity was last updated|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |listDbId|string|The unique identifier for a List|
 |listDescription|string|Description of a List|
@@ -1174,17 +1084,7 @@ See Search Services for additional implementation details.
                 "listOwnerPersonDbId": "58db0628",
                 "listSize": 53,
                 "listSource": "GeneBank Repository 1.3",
-                "listType": [
-                    "germplasm",
-                    "markers",
-                    "programs",
-                    "trials",
-                    "studies",
-                    "observationUnits",
-                    "observations",
-                    "observationVariables",
-                    "samples"
-                ]
+                "listType": "germplasm"
             }
         ]
     }

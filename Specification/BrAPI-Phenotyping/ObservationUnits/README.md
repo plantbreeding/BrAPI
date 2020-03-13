@@ -127,7 +127,7 @@ Get a filtered set of Observation Units
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
@@ -157,7 +157,7 @@ Get a filtered set of Observation Units
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
@@ -390,7 +390,7 @@ Add new Observation Units
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
@@ -434,7 +434,7 @@ Add new Observation Units
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
@@ -464,7 +464,7 @@ Add new Observation Units
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
@@ -779,7 +779,7 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
@@ -809,7 +809,7 @@ Note - In strictly typed languages, this structure can be represented as a Map o
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
@@ -1296,7 +1296,7 @@ Get the details of a specific Observation Unit
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
@@ -1326,7 +1326,7 @@ Get the details of a specific Observation Unit
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
@@ -1542,7 +1542,7 @@ Update an existing Observation Units
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
@@ -1585,7 +1585,7 @@ Update an existing Observation Units
 |---|---|---| 
 |additionalInfo|object|Additional arbitrary info|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
@@ -1615,7 +1615,7 @@ Update an existing Observation Units
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
@@ -1969,7 +1969,7 @@ observationValue data type inferred from the ontology
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
@@ -1999,7 +1999,7 @@ observationValue data type inferred from the ontology
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
@@ -2349,7 +2349,7 @@ See Search Services for additional implementation details.
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|
@@ -2379,7 +2379,7 @@ See Search Services for additional implementation details.
 |additionalInfo|object|Additional arbitrary info|
 |collector|string|The name or identifier of the entity which collected the observation|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|The ID which uniquely identifies a germplasm|
 |germplasmName|string|Name of the germplasm. It can be the preferred name and does not have to be unique.|

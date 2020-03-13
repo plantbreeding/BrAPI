@@ -108,7 +108,7 @@ BAD    "call": "germplasm/<germplasmDbId>/pedigree"
                     "GET",
                     "POST"
                 ],
-                "service": "germplasm",
+                "service": "germplasm/{germplasmDbId}/pedigree",
                 "versions": [
                     "2.0",
                     "2.1"

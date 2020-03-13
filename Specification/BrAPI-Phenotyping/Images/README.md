@@ -33,7 +33,7 @@ Implementation Notes
 |description|string|The human readable description of an image.|
 |descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |imageDbId|string|The unique identifier of an image|
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
@@ -198,7 +198,7 @@ Implementation Notes
 |description|string|The human readable description of an image.|
 |descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
 |imageFileSize|integer|The size of the image in Bytes.|
@@ -225,7 +225,7 @@ Implementation Notes
 |description|string|The human readable description of an image.|
 |descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |imageDbId|string|The unique identifier of an image|
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
@@ -433,7 +433,7 @@ Implementation Notes
 |description|string|The human readable description of an image.|
 |descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |imageDbId|string|The unique identifier of an image|
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
@@ -595,7 +595,7 @@ Implementation Notes
 |description|string|The human readable description of an image.|
 |descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
 |imageFileSize|integer|The size of the image in Bytes.|
@@ -621,7 +621,7 @@ Implementation Notes
 |description|string|The human readable description of an image.|
 |descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |imageDbId|string|The unique identifier of an image|
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
@@ -831,7 +831,7 @@ Implementation Notes
 |description|string|The human readable description of an image.|
 |descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |imageDbId|string|The unique identifier of an image|
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
@@ -1013,7 +1013,7 @@ See Search Services for additional implementation details.
 |description|string|The human readable description of an image.|
 |descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |imageDbId|string|The unique identifier of an image|
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|
@@ -1279,7 +1279,7 @@ Implementation Notes
 |description|string|The human readable description of an image.|
 |descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |imageDbId|string|The unique identifier of an image|
 |imageFileName|string|The name of the image file. Might be the same as 'imageName', but could be different.|

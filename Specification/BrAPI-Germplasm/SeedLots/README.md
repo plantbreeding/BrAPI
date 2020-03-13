@@ -20,7 +20,7 @@ Get a filtered list of Seed Lot descriptions available in a system.
 |amount|number|Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
 |createdDate|string (date-time)|The time stamp for when this seed lot was created|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
 |lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
@@ -144,7 +144,7 @@ Add new Seed Lot descriptions to a server
 |amount|number|Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
 |createdDate|string (date-time)|The time stamp for when this seed lot was created|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
 |lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
@@ -166,7 +166,7 @@ Add new Seed Lot descriptions to a server
 |amount|number|Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
 |createdDate|string (date-time)|The time stamp for when this seed lot was created|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
 |lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
@@ -321,7 +321,7 @@ Get a filtered list of Seed Lot Transactions
 |additionalInfo|object|Additional arbitrary info|
 |amount|number|The amount of units being transfered. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |fromSeedLotDbId|string|The identifier for the Seed Lot being transfered out of|
 |toSeedLotDbId|string|The identifier for the Seed Lot being transfered into|
@@ -437,7 +437,7 @@ Add new Seed Lot Transaction to be recorded
 |additionalInfo|object|Additional arbitrary info|
 |amount|number|The amount of units being transfered. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |fromSeedLotDbId|string|The identifier for the Seed Lot being transfered out of|
 |toSeedLotDbId|string|The identifier for the Seed Lot being transfered into|
@@ -454,7 +454,7 @@ Add new Seed Lot Transaction to be recorded
 |additionalInfo|object|Additional arbitrary info|
 |amount|number|The amount of units being transfered. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |fromSeedLotDbId|string|The identifier for the Seed Lot being transfered out of|
 |toSeedLotDbId|string|The identifier for the Seed Lot being transfered into|
@@ -597,7 +597,7 @@ Get a specific Seed Lot by seedLotDbId
 |amount|number|Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
 |createdDate|string (date-time)|The time stamp for when this seed lot was created|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
 |lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
@@ -717,7 +717,7 @@ Update an existing Seed Lot
 |amount|number|Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
 |createdDate|string (date-time)|The time stamp for when this seed lot was created|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
 |lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
@@ -738,7 +738,7 @@ Update an existing Seed Lot
 |amount|number|Current balance of seeds in this lot. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
 |createdDate|string (date-time)|The time stamp for when this seed lot was created|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |germplasmDbId|string|Unique DbId of the Germplasm held in this Seed Lot|
 |lastUpdated|string (date-time)|The timestamp for the last update to this Seed Lot (including transactions)|
@@ -893,7 +893,7 @@ Get all Transactions related to a specific Seed Lot
 |additionalInfo|object|Additional arbitrary info|
 |amount|number|The amount of units being transfered. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
-|referenceID||The external reference ID. Could be a simple string or a URI.|
+|referenceID|string|The external reference ID. Could be a simple string or a URI.|
 |referenceSource|string|An identifier for the source system or database of this reference|
 |fromSeedLotDbId|string|The identifier for the Seed Lot being transfered out of|
 |toSeedLotDbId|string|The identifier for the Seed Lot being transfered into|
