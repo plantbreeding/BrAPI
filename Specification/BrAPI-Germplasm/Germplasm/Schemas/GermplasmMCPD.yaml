@@ -271,7 +271,7 @@ components:
             - '99'
             type: string
           type: array
-          example: ['11', 13']
+          example: ['11', '13']
         subtaxon:
           description: 'MCPD (v2.1) (SUBTAXA) 8. Subtaxon can be used to store any additional taxonomic identifier. The following abbreviations are allowed: "subsp." (for subspecies); "convar." (for convariety); "var." (for variety); "f." (for form); "Group" (for "cultivar group").'
           type: string

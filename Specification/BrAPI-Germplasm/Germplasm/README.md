@@ -1494,7 +1494,7 @@ Implementation Notes
         "speciesAuthority": "Smith, 1822",
         "storageTypeCodes": [
             "11",
-            "13'"
+            "13"
         ],
         "subtaxon": "Aspergillus fructus A",
         "subtaxonAuthority": "Smith, 1822"

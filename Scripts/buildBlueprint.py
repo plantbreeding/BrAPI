@@ -9,14 +9,28 @@ import os
 
 def go():
 		
-	rootPath = '.'
-	if len(sys.argv) > 1 :
-	    rootPath = sys.argv[1]
-	if rootPath[-1] != '/':
-		rootPath = rootPath + '/'
+	outPath = './'
+	headerPath = './swaggerMetaData.yaml'
+	sourcePath = './'
+	
+	if '-out' in sys.argv:
+		i = sys.argv.index('-out')
+		outPath = sys.argv[i + 1]
+		if outPath[-1] != '/':
+			outPath = outPath + '/'
+			
+	if '-header' in sys.argv:
+		i = sys.argv.index('-header')
+		headerPath = sys.argv[i + 1]
+		
+	if '-source' in sys.argv:
+		i = sys.argv.index('-source')
+		sourcePath = sys.argv[i + 1]
+		if sourcePath[-1] != '/':
+			sourcePath = sourcePath + '/'
 	
 	headerHTML = ''
-	with open(rootPath + "swaggerMetaData.yaml", "r") as headerFile:
+	with open(headerPath, "r") as headerFile:
 		try:
 			fileObj = yaml.load(headerFile)
 			if 'info' in fileObj:
@@ -26,13 +40,14 @@ def go():
 		except yaml.YAMLError as exc:
 			print(exc)
 	
-	outFilePath = rootPath + '/brapi_blueprint.apib'
-	outFileJsonPath = rootPath + '/brapi_blueprint.apib.json'
-	outREADMEFilePath = rootPath + '/README.md'
-	if os.path.exists(outREADMEFilePath):
-		os.remove(outREADMEFilePath)
+	outFilePath = outPath + 'brapi_blueprint.apib'
+	outFileJsonPath = outPath + 'brapi_blueprint.apib.json'
 	
-	sources = glob.glob(rootPath + '**/README.md', recursive=True)
+	#outREADMEFilePath = outPath + 'README.md'
+	#if os.path.exists(outREADMEFilePath):
+	#	os.remove(outREADMEFilePath)
+	
+	sources = glob.glob(sourcePath + '**/README.md', recursive=True)
 	sources = sorted(sources)
 		
 	fullText = headerHTML
@@ -51,9 +66,9 @@ def go():
 		json.dump(jsonWrapper, outFileJson)
 		print(outFileJsonPath)
 		
-	with open(outREADMEFilePath, "w") as outRMFile:
-		outRMFile.write(fullText)
-		print(outREADMEFilePath)
+	#with open(outREADMEFilePath, "w") as outRMFile:
+	#	outRMFile.write(fullText)
+	#	print(outREADMEFilePath)
 			
 def parseHTMLToMD(htmlStr):
 	title = re.search(r'<div class="[^"]*current-brapi-section[^"]*">\n\s*<h2 class="brapi-section-title">([^<]*)</h2>', htmlStr).group(1)

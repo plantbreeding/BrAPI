@@ -118,11 +118,7 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
                     "documentationLinks": [
                         {
                             "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                            "type": [
-                                "OBO",
-                                "RDF",
-                                "WEBPAGE"
-                            ]
+                            "type": "OBO"
                         }
                     ],
                     "ontologyDbId": "6b071868",
@@ -268,11 +264,7 @@ Create a new scale object in the database
             "documentationLinks": [
                 {
                     "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                    "type": [
-                        "OBO",
-                        "RDF",
-                        "WEBPAGE"
-                    ]
+                    "type": "OBO"
                 }
             ],
             "ontologyDbId": "6b071868",
@@ -365,11 +357,7 @@ Create a new scale object in the database
                     "documentationLinks": [
                         {
                             "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                            "type": [
-                                "OBO",
-                                "RDF",
-                                "WEBPAGE"
-                            ]
+                            "type": "OBO"
                         }
                     ],
                     "ontologyDbId": "6b071868",
@@ -522,11 +510,7 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
             "documentationLinks": [
                 {
                     "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                    "type": [
-                        "OBO",
-                        "RDF",
-                        "WEBPAGE"
-                    ]
+                    "type": "OBO"
                 }
             ],
             "ontologyDbId": "6b071868",
@@ -674,11 +658,7 @@ Update the details of an existing scale
         "documentationLinks": [
             {
                 "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                "type": [
-                    "OBO",
-                    "RDF",
-                    "WEBPAGE"
-                ]
+                "type": "OBO"
             }
         ],
         "ontologyDbId": "6b071868",
@@ -768,11 +748,7 @@ Update the details of an existing scale
             "documentationLinks": [
                 {
                     "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                    "type": [
-                        "OBO",
-                        "RDF",
-                        "WEBPAGE"
-                    ]
+                    "type": "OBO"
                 }
             ],
             "ontologyDbId": "6b071868",

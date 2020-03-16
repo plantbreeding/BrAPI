@@ -166,7 +166,7 @@ List available attributes.
                     "Trial evaluation",
                     "Nursery evaluation"
                 ],
-                "defaultValue": 2.0,
+                "defaultValue": "2.0",
                 "documentationURL": "https://wiki.brapi.org/documentation.html",
                 "externalReferences": [
                     {
@@ -211,11 +211,7 @@ List available attributes.
                         "documentationLinks": [
                             {
                                 "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                                "type": [
-                                    "OBO",
-                                    "RDF",
-                                    "WEBPAGE"
-                                ]
+                                "type": "OBO"
                             }
                         ],
                         "ontologyDbId": "6b071868",
@@ -227,11 +223,7 @@ List available attributes.
                     "documentationLinks": [
                         {
                             "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                            "type": [
-                                "OBO",
-                                "RDF",
-                                "WEBPAGE"
-                            ]
+                            "type": "OBO"
                         }
                     ],
                     "ontologyDbId": "6b071868",
@@ -267,11 +259,7 @@ List available attributes.
                         "documentationLinks": [
                             {
                                 "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                                "type": [
-                                    "OBO",
-                                    "RDF",
-                                    "WEBPAGE"
-                                ]
+                                "type": "OBO"
                             }
                         ],
                         "ontologyDbId": "6b071868",
@@ -334,11 +322,7 @@ List available attributes.
                         "documentationLinks": [
                             {
                                 "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                                "type": [
-                                    "OBO",
-                                    "RDF",
-                                    "WEBPAGE"
-                                ]
+                                "type": "OBO"
                             }
                         ],
                         "ontologyDbId": "6b071868",
@@ -589,7 +573,7 @@ Create new Germplasm Attributes
             "Trial evaluation",
             "Nursery evaluation"
         ],
-        "defaultValue": 2.0,
+        "defaultValue": "2.0",
         "documentationURL": "https://wiki.brapi.org/documentation.html",
         "externalReferences": [
             {
@@ -634,11 +618,7 @@ Create new Germplasm Attributes
                 "documentationLinks": [
                     {
                         "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                        "type": [
-                            "OBO",
-                            "RDF",
-                            "WEBPAGE"
-                        ]
+                        "type": "OBO"
                     }
                 ],
                 "ontologyDbId": "6b071868",
@@ -650,11 +630,7 @@ Create new Germplasm Attributes
             "documentationLinks": [
                 {
                     "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                    "type": [
-                        "OBO",
-                        "RDF",
-                        "WEBPAGE"
-                    ]
+                    "type": "OBO"
                 }
             ],
             "ontologyDbId": "6b071868",
@@ -690,11 +666,7 @@ Create new Germplasm Attributes
                 "documentationLinks": [
                     {
                         "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                        "type": [
-                            "OBO",
-                            "RDF",
-                            "WEBPAGE"
-                        ]
+                        "type": "OBO"
                     }
                 ],
                 "ontologyDbId": "6b071868",
@@ -757,11 +729,7 @@ Create new Germplasm Attributes
                 "documentationLinks": [
                     {
                         "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                        "type": [
-                            "OBO",
-                            "RDF",
-                            "WEBPAGE"
-                        ]
+                        "type": "OBO"
                     }
                 ],
                 "ontologyDbId": "6b071868",
@@ -829,7 +797,7 @@ Create new Germplasm Attributes
                     "Trial evaluation",
                     "Nursery evaluation"
                 ],
-                "defaultValue": 2.0,
+                "defaultValue": "2.0",
                 "documentationURL": "https://wiki.brapi.org/documentation.html",
                 "externalReferences": [
                     {
@@ -874,11 +842,7 @@ Create new Germplasm Attributes
                         "documentationLinks": [
                             {
                                 "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                                "type": [
-                                    "OBO",
-                                    "RDF",
-                                    "WEBPAGE"
-                                ]
+                                "type": "OBO"
                             }
                         ],
                         "ontologyDbId": "6b071868",
@@ -890,11 +854,7 @@ Create new Germplasm Attributes
                     "documentationLinks": [
                         {
                             "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                            "type": [
-                                "OBO",
-                                "RDF",
-                                "WEBPAGE"
-                            ]
+                            "type": "OBO"
                         }
                     ],
                     "ontologyDbId": "6b071868",
@@ -930,11 +890,7 @@ Create new Germplasm Attributes
                         "documentationLinks": [
                             {
                                 "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                                "type": [
-                                    "OBO",
-                                    "RDF",
-                                    "WEBPAGE"
-                                ]
+                                "type": "OBO"
                             }
                         ],
                         "ontologyDbId": "6b071868",
@@ -997,11 +953,7 @@ Create new Germplasm Attributes
                         "documentationLinks": [
                             {
                                 "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                                "type": [
-                                    "OBO",
-                                    "RDF",
-                                    "WEBPAGE"
-                                ]
+                                "type": "OBO"
                             }
                         ],
                         "ontologyDbId": "6b071868",
@@ -1272,7 +1224,7 @@ Get the details for a specific Germplasm Attribute
             "Trial evaluation",
             "Nursery evaluation"
         ],
-        "defaultValue": 2.0,
+        "defaultValue": "2.0",
         "documentationURL": "https://wiki.brapi.org/documentation.html",
         "externalReferences": [
             {
@@ -1317,11 +1269,7 @@ Get the details for a specific Germplasm Attribute
                 "documentationLinks": [
                     {
                         "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                        "type": [
-                            "OBO",
-                            "RDF",
-                            "WEBPAGE"
-                        ]
+                        "type": "OBO"
                     }
                 ],
                 "ontologyDbId": "6b071868",
@@ -1333,11 +1281,7 @@ Get the details for a specific Germplasm Attribute
             "documentationLinks": [
                 {
                     "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                    "type": [
-                        "OBO",
-                        "RDF",
-                        "WEBPAGE"
-                    ]
+                    "type": "OBO"
                 }
             ],
             "ontologyDbId": "6b071868",
@@ -1373,11 +1317,7 @@ Get the details for a specific Germplasm Attribute
                 "documentationLinks": [
                     {
                         "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                        "type": [
-                            "OBO",
-                            "RDF",
-                            "WEBPAGE"
-                        ]
+                        "type": "OBO"
                     }
                 ],
                 "ontologyDbId": "6b071868",
@@ -1440,11 +1380,7 @@ Get the details for a specific Germplasm Attribute
                 "documentationLinks": [
                     {
                         "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                        "type": [
-                            "OBO",
-                            "RDF",
-                            "WEBPAGE"
-                        ]
+                        "type": "OBO"
                     }
                 ],
                 "ontologyDbId": "6b071868",
@@ -1692,7 +1628,7 @@ Update an existing Germplasm Attribute
         "Trial evaluation",
         "Nursery evaluation"
     ],
-    "defaultValue": 2.0,
+    "defaultValue": "2.0",
     "documentationURL": "https://wiki.brapi.org/documentation.html",
     "externalReferences": [
         {
@@ -1737,11 +1673,7 @@ Update an existing Germplasm Attribute
             "documentationLinks": [
                 {
                     "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                    "type": [
-                        "OBO",
-                        "RDF",
-                        "WEBPAGE"
-                    ]
+                    "type": "OBO"
                 }
             ],
             "ontologyDbId": "6b071868",
@@ -1753,11 +1685,7 @@ Update an existing Germplasm Attribute
         "documentationLinks": [
             {
                 "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                "type": [
-                    "OBO",
-                    "RDF",
-                    "WEBPAGE"
-                ]
+                "type": "OBO"
             }
         ],
         "ontologyDbId": "6b071868",
@@ -1793,11 +1721,7 @@ Update an existing Germplasm Attribute
             "documentationLinks": [
                 {
                     "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                    "type": [
-                        "OBO",
-                        "RDF",
-                        "WEBPAGE"
-                    ]
+                    "type": "OBO"
                 }
             ],
             "ontologyDbId": "6b071868",
@@ -1860,11 +1784,7 @@ Update an existing Germplasm Attribute
             "documentationLinks": [
                 {
                     "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                    "type": [
-                        "OBO",
-                        "RDF",
-                        "WEBPAGE"
-                    ]
+                    "type": "OBO"
                 }
             ],
             "ontologyDbId": "6b071868",
@@ -1929,7 +1849,7 @@ Update an existing Germplasm Attribute
             "Trial evaluation",
             "Nursery evaluation"
         ],
-        "defaultValue": 2.0,
+        "defaultValue": "2.0",
         "documentationURL": "https://wiki.brapi.org/documentation.html",
         "externalReferences": [
             {
@@ -1974,11 +1894,7 @@ Update an existing Germplasm Attribute
                 "documentationLinks": [
                     {
                         "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                        "type": [
-                            "OBO",
-                            "RDF",
-                            "WEBPAGE"
-                        ]
+                        "type": "OBO"
                     }
                 ],
                 "ontologyDbId": "6b071868",
@@ -1990,11 +1906,7 @@ Update an existing Germplasm Attribute
             "documentationLinks": [
                 {
                     "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                    "type": [
-                        "OBO",
-                        "RDF",
-                        "WEBPAGE"
-                    ]
+                    "type": "OBO"
                 }
             ],
             "ontologyDbId": "6b071868",
@@ -2030,11 +1942,7 @@ Update an existing Germplasm Attribute
                 "documentationLinks": [
                     {
                         "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                        "type": [
-                            "OBO",
-                            "RDF",
-                            "WEBPAGE"
-                        ]
+                        "type": "OBO"
                     }
                 ],
                 "ontologyDbId": "6b071868",
@@ -2097,11 +2005,7 @@ Update an existing Germplasm Attribute
                 "documentationLinks": [
                     {
                         "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                        "type": [
-                            "OBO",
-                            "RDF",
-                            "WEBPAGE"
-                        ]
+                        "type": "OBO"
                     }
                 ],
                 "ontologyDbId": "6b071868",
@@ -2366,7 +2270,7 @@ See Search Services for additional implementation details.
                     "Trial evaluation",
                     "Nursery evaluation"
                 ],
-                "defaultValue": 2.0,
+                "defaultValue": "2.0",
                 "documentationURL": "https://wiki.brapi.org/documentation.html",
                 "externalReferences": [
                     {
@@ -2411,11 +2315,7 @@ See Search Services for additional implementation details.
                         "documentationLinks": [
                             {
                                 "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                                "type": [
-                                    "OBO",
-                                    "RDF",
-                                    "WEBPAGE"
-                                ]
+                                "type": "OBO"
                             }
                         ],
                         "ontologyDbId": "6b071868",
@@ -2427,11 +2327,7 @@ See Search Services for additional implementation details.
                     "documentationLinks": [
                         {
                             "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                            "type": [
-                                "OBO",
-                                "RDF",
-                                "WEBPAGE"
-                            ]
+                            "type": "OBO"
                         }
                     ],
                     "ontologyDbId": "6b071868",
@@ -2467,11 +2363,7 @@ See Search Services for additional implementation details.
                         "documentationLinks": [
                             {
                                 "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                                "type": [
-                                    "OBO",
-                                    "RDF",
-                                    "WEBPAGE"
-                                ]
+                                "type": "OBO"
                             }
                         ],
                         "ontologyDbId": "6b071868",
@@ -2534,11 +2426,7 @@ See Search Services for additional implementation details.
                         "documentationLinks": [
                             {
                                 "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                                "type": [
-                                    "OBO",
-                                    "RDF",
-                                    "WEBPAGE"
-                                ]
+                                "type": "OBO"
                             }
                         ],
                         "ontologyDbId": "6b071868",
@@ -2808,7 +2696,7 @@ See Search Services for additional implementation details.
                     "Trial evaluation",
                     "Nursery evaluation"
                 ],
-                "defaultValue": 2.0,
+                "defaultValue": "2.0",
                 "documentationURL": "https://wiki.brapi.org/documentation.html",
                 "externalReferences": [
                     {
@@ -2853,11 +2741,7 @@ See Search Services for additional implementation details.
                         "documentationLinks": [
                             {
                                 "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                                "type": [
-                                    "OBO",
-                                    "RDF",
-                                    "WEBPAGE"
-                                ]
+                                "type": "OBO"
                             }
                         ],
                         "ontologyDbId": "6b071868",
@@ -2869,11 +2753,7 @@ See Search Services for additional implementation details.
                     "documentationLinks": [
                         {
                             "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                            "type": [
-                                "OBO",
-                                "RDF",
-                                "WEBPAGE"
-                            ]
+                            "type": "OBO"
                         }
                     ],
                     "ontologyDbId": "6b071868",
@@ -2909,11 +2789,7 @@ See Search Services for additional implementation details.
                         "documentationLinks": [
                             {
                                 "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                                "type": [
-                                    "OBO",
-                                    "RDF",
-                                    "WEBPAGE"
-                                ]
+                                "type": "OBO"
                             }
                         ],
                         "ontologyDbId": "6b071868",
@@ -2976,11 +2852,7 @@ See Search Services for additional implementation details.
                         "documentationLinks": [
                             {
                                 "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                                "type": [
-                                    "OBO",
-                                    "RDF",
-                                    "WEBPAGE"
-                                ]
+                                "type": "OBO"
                             }
                         ],
                         "ontologyDbId": "6b071868",

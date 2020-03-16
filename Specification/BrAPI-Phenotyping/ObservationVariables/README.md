@@ -224,7 +224,7 @@ See Search Services for additional implementation details.
                     "Trial evaluation",
                     "Nursery evaluation"
                 ],
-                "defaultValue": 2.0,
+                "defaultValue": "2.0",
                 "documentationURL": "https://wiki.brapi.org/documentation.html",
                 "externalReferences": [
                     {
@@ -269,11 +269,7 @@ See Search Services for additional implementation details.
                         "documentationLinks": [
                             {
                                 "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                                "type": [
-                                    "OBO",
-                                    "RDF",
-                                    "WEBPAGE"
-                                ]
+                                "type": "OBO"
                             }
                         ],
                         "ontologyDbId": "6b071868",
@@ -287,11 +283,7 @@ See Search Services for additional implementation details.
                     "documentationLinks": [
                         {
                             "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                            "type": [
-                                "OBO",
-                                "RDF",
-                                "WEBPAGE"
-                            ]
+                            "type": "OBO"
                         }
                     ],
                     "ontologyDbId": "6b071868",
@@ -327,11 +319,7 @@ See Search Services for additional implementation details.
                         "documentationLinks": [
                             {
                                 "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                                "type": [
-                                    "OBO",
-                                    "RDF",
-                                    "WEBPAGE"
-                                ]
+                                "type": "OBO"
                             }
                         ],
                         "ontologyDbId": "6b071868",
@@ -394,11 +382,7 @@ See Search Services for additional implementation details.
                         "documentationLinks": [
                             {
                                 "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                                "type": [
-                                    "OBO",
-                                    "RDF",
-                                    "WEBPAGE"
-                                ]
+                                "type": "OBO"
                             }
                         ],
                         "ontologyDbId": "6b071868",
@@ -662,7 +646,7 @@ See Search Services for additional implementation details.
                     "Trial evaluation",
                     "Nursery evaluation"
                 ],
-                "defaultValue": 2.0,
+                "defaultValue": "2.0",
                 "documentationURL": "https://wiki.brapi.org/documentation.html",
                 "externalReferences": [
                     {
@@ -707,11 +691,7 @@ See Search Services for additional implementation details.
                         "documentationLinks": [
                             {
                                 "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                                "type": [
-                                    "OBO",
-                                    "RDF",
-                                    "WEBPAGE"
-                                ]
+                                "type": "OBO"
                             }
                         ],
                         "ontologyDbId": "6b071868",
@@ -725,11 +705,7 @@ See Search Services for additional implementation details.
                     "documentationLinks": [
                         {
                             "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                            "type": [
-                                "OBO",
-                                "RDF",
-                                "WEBPAGE"
-                            ]
+                            "type": "OBO"
                         }
                     ],
                     "ontologyDbId": "6b071868",
@@ -765,11 +741,7 @@ See Search Services for additional implementation details.
                         "documentationLinks": [
                             {
                                 "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                                "type": [
-                                    "OBO",
-                                    "RDF",
-                                    "WEBPAGE"
-                                ]
+                                "type": "OBO"
                             }
                         ],
                         "ontologyDbId": "6b071868",
@@ -832,11 +804,7 @@ See Search Services for additional implementation details.
                         "documentationLinks": [
                             {
                                 "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                                "type": [
-                                    "OBO",
-                                    "RDF",
-                                    "WEBPAGE"
-                                ]
+                                "type": "OBO"
                             }
                         ],
                         "ontologyDbId": "6b071868",
@@ -1035,7 +1003,7 @@ Call to retrieve a list of observationVariables available in the system.
                     "Trial evaluation",
                     "Nursery evaluation"
                 ],
-                "defaultValue": 2.0,
+                "defaultValue": "2.0",
                 "documentationURL": "https://wiki.brapi.org/documentation.html",
                 "externalReferences": [
                     {
@@ -1080,11 +1048,7 @@ Call to retrieve a list of observationVariables available in the system.
                         "documentationLinks": [
                             {
                                 "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                                "type": [
-                                    "OBO",
-                                    "RDF",
-                                    "WEBPAGE"
-                                ]
+                                "type": "OBO"
                             }
                         ],
                         "ontologyDbId": "6b071868",
@@ -1098,11 +1062,7 @@ Call to retrieve a list of observationVariables available in the system.
                     "documentationLinks": [
                         {
                             "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                            "type": [
-                                "OBO",
-                                "RDF",
-                                "WEBPAGE"
-                            ]
+                            "type": "OBO"
                         }
                     ],
                     "ontologyDbId": "6b071868",
@@ -1138,11 +1098,7 @@ Call to retrieve a list of observationVariables available in the system.
                         "documentationLinks": [
                             {
                                 "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                                "type": [
-                                    "OBO",
-                                    "RDF",
-                                    "WEBPAGE"
-                                ]
+                                "type": "OBO"
                             }
                         ],
                         "ontologyDbId": "6b071868",
@@ -1205,11 +1161,7 @@ Call to retrieve a list of observationVariables available in the system.
                         "documentationLinks": [
                             {
                                 "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                                "type": [
-                                    "OBO",
-                                    "RDF",
-                                    "WEBPAGE"
-                                ]
+                                "type": "OBO"
                             }
                         ],
                         "ontologyDbId": "6b071868",
@@ -1453,7 +1405,7 @@ Add new Observation Variables to the system.
             "Trial evaluation",
             "Nursery evaluation"
         ],
-        "defaultValue": 2.0,
+        "defaultValue": "2.0",
         "documentationURL": "https://wiki.brapi.org/documentation.html",
         "externalReferences": [
             {
@@ -1498,11 +1450,7 @@ Add new Observation Variables to the system.
                 "documentationLinks": [
                     {
                         "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                        "type": [
-                            "OBO",
-                            "RDF",
-                            "WEBPAGE"
-                        ]
+                        "type": "OBO"
                     }
                 ],
                 "ontologyDbId": "6b071868",
@@ -1515,11 +1463,7 @@ Add new Observation Variables to the system.
             "documentationLinks": [
                 {
                     "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                    "type": [
-                        "OBO",
-                        "RDF",
-                        "WEBPAGE"
-                    ]
+                    "type": "OBO"
                 }
             ],
             "ontologyDbId": "6b071868",
@@ -1555,11 +1499,7 @@ Add new Observation Variables to the system.
                 "documentationLinks": [
                     {
                         "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                        "type": [
-                            "OBO",
-                            "RDF",
-                            "WEBPAGE"
-                        ]
+                        "type": "OBO"
                     }
                 ],
                 "ontologyDbId": "6b071868",
@@ -1622,11 +1562,7 @@ Add new Observation Variables to the system.
                 "documentationLinks": [
                     {
                         "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                        "type": [
-                            "OBO",
-                            "RDF",
-                            "WEBPAGE"
-                        ]
+                        "type": "OBO"
                     }
                 ],
                 "ontologyDbId": "6b071868",
@@ -1690,7 +1626,7 @@ Add new Observation Variables to the system.
                     "Trial evaluation",
                     "Nursery evaluation"
                 ],
-                "defaultValue": 2.0,
+                "defaultValue": "2.0",
                 "documentationURL": "https://wiki.brapi.org/documentation.html",
                 "externalReferences": [
                     {
@@ -1735,11 +1671,7 @@ Add new Observation Variables to the system.
                         "documentationLinks": [
                             {
                                 "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                                "type": [
-                                    "OBO",
-                                    "RDF",
-                                    "WEBPAGE"
-                                ]
+                                "type": "OBO"
                             }
                         ],
                         "ontologyDbId": "6b071868",
@@ -1753,11 +1685,7 @@ Add new Observation Variables to the system.
                     "documentationLinks": [
                         {
                             "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                            "type": [
-                                "OBO",
-                                "RDF",
-                                "WEBPAGE"
-                            ]
+                            "type": "OBO"
                         }
                     ],
                     "ontologyDbId": "6b071868",
@@ -1793,11 +1721,7 @@ Add new Observation Variables to the system.
                         "documentationLinks": [
                             {
                                 "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                                "type": [
-                                    "OBO",
-                                    "RDF",
-                                    "WEBPAGE"
-                                ]
+                                "type": "OBO"
                             }
                         ],
                         "ontologyDbId": "6b071868",
@@ -1860,11 +1784,7 @@ Add new Observation Variables to the system.
                         "documentationLinks": [
                             {
                                 "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                                "type": [
-                                    "OBO",
-                                    "RDF",
-                                    "WEBPAGE"
-                                ]
+                                "type": "OBO"
                             }
                         ],
                         "ontologyDbId": "6b071868",
@@ -2049,7 +1969,7 @@ Retrieve variable details
             "Trial evaluation",
             "Nursery evaluation"
         ],
-        "defaultValue": 2.0,
+        "defaultValue": "2.0",
         "documentationURL": "https://wiki.brapi.org/documentation.html",
         "externalReferences": [
             {
@@ -2094,11 +2014,7 @@ Retrieve variable details
                 "documentationLinks": [
                     {
                         "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                        "type": [
-                            "OBO",
-                            "RDF",
-                            "WEBPAGE"
-                        ]
+                        "type": "OBO"
                     }
                 ],
                 "ontologyDbId": "6b071868",
@@ -2112,11 +2028,7 @@ Retrieve variable details
             "documentationLinks": [
                 {
                     "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                    "type": [
-                        "OBO",
-                        "RDF",
-                        "WEBPAGE"
-                    ]
+                    "type": "OBO"
                 }
             ],
             "ontologyDbId": "6b071868",
@@ -2152,11 +2064,7 @@ Retrieve variable details
                 "documentationLinks": [
                     {
                         "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                        "type": [
-                            "OBO",
-                            "RDF",
-                            "WEBPAGE"
-                        ]
+                        "type": "OBO"
                     }
                 ],
                 "ontologyDbId": "6b071868",
@@ -2219,11 +2127,7 @@ Retrieve variable details
                 "documentationLinks": [
                     {
                         "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                        "type": [
-                            "OBO",
-                            "RDF",
-                            "WEBPAGE"
-                        ]
+                        "type": "OBO"
                     }
                 ],
                 "ontologyDbId": "6b071868",
@@ -2411,7 +2315,7 @@ Update an existing Observation Variable
             "Trial evaluation",
             "Nursery evaluation"
         ],
-        "defaultValue": 2.0,
+        "defaultValue": "2.0",
         "documentationURL": "https://wiki.brapi.org/documentation.html",
         "externalReferences": [
             {
@@ -2456,11 +2360,7 @@ Update an existing Observation Variable
                 "documentationLinks": [
                     {
                         "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                        "type": [
-                            "OBO",
-                            "RDF",
-                            "WEBPAGE"
-                        ]
+                        "type": "OBO"
                     }
                 ],
                 "ontologyDbId": "6b071868",
@@ -2474,11 +2374,7 @@ Update an existing Observation Variable
             "documentationLinks": [
                 {
                     "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                    "type": [
-                        "OBO",
-                        "RDF",
-                        "WEBPAGE"
-                    ]
+                    "type": "OBO"
                 }
             ],
             "ontologyDbId": "6b071868",
@@ -2514,11 +2410,7 @@ Update an existing Observation Variable
                 "documentationLinks": [
                     {
                         "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                        "type": [
-                            "OBO",
-                            "RDF",
-                            "WEBPAGE"
-                        ]
+                        "type": "OBO"
                     }
                 ],
                 "ontologyDbId": "6b071868",
@@ -2581,11 +2473,7 @@ Update an existing Observation Variable
                 "documentationLinks": [
                     {
                         "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                        "type": [
-                            "OBO",
-                            "RDF",
-                            "WEBPAGE"
-                        ]
+                        "type": "OBO"
                     }
                 ],
                 "ontologyDbId": "6b071868",

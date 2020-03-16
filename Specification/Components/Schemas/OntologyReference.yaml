@@ -37,6 +37,7 @@ components:
                 - RDF
                 - WEBPAGE
                 type: string
+                example: OBO
         ontologyDbId:
           description: Ontology database unique identifier
           type: string

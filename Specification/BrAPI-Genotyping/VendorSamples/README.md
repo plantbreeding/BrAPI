@@ -204,11 +204,7 @@ Submit a new order to a vendor
                         "documentationLinks": [
                             {
                                 "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                                "type": [
-                                    "OBO",
-                                    "RDF",
-                                    "WEBPAGE"
-                                ]
+                                "type": "OBO"
                             }
                         ],
                         "ontologyDbId": "6b071868",
@@ -220,11 +216,7 @@ Submit a new order to a vendor
                         "documentationLinks": [
                             {
                                 "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                                "type": [
-                                    "OBO",
-                                    "RDF",
-                                    "WEBPAGE"
-                                ]
+                                "type": "OBO"
                             }
                         ],
                         "ontologyDbId": "6b071868",
@@ -428,11 +420,7 @@ Retrieve the plate and sample details of an order being processed
                             "documentationLinks": [
                                 {
                                     "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                                    "type": [
-                                        "OBO",
-                                        "RDF",
-                                        "WEBPAGE"
-                                    ]
+                                    "type": "OBO"
                                 }
                             ],
                             "ontologyDbId": "6b071868",
@@ -444,11 +432,7 @@ Retrieve the plate and sample details of an order being processed
                             "documentationLinks": [
                                 {
                                     "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                                    "type": [
-                                        "OBO",
-                                        "RDF",
-                                        "WEBPAGE"
-                                    ]
+                                    "type": "OBO"
                                 }
                             ],
                             "ontologyDbId": "6b071868",
@@ -768,11 +752,7 @@ Submit a new set of Sample data
                         "documentationLinks": [
                             {
                                 "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                                "type": [
-                                    "OBO",
-                                    "RDF",
-                                    "WEBPAGE"
-                                ]
+                                "type": "OBO"
                             }
                         ],
                         "ontologyDbId": "6b071868",
@@ -784,11 +764,7 @@ Submit a new set of Sample data
                         "documentationLinks": [
                             {
                                 "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                                "type": [
-                                    "OBO",
-                                    "RDF",
-                                    "WEBPAGE"
-                                ]
+                                "type": "OBO"
                             }
                         ],
                         "ontologyDbId": "6b071868",
@@ -976,11 +952,7 @@ Get data for a submitted set of plates
                             "documentationLinks": [
                                 {
                                     "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                                    "type": [
-                                        "OBO",
-                                        "RDF",
-                                        "WEBPAGE"
-                                    ]
+                                    "type": "OBO"
                                 }
                             ],
                             "ontologyDbId": "6b071868",
@@ -992,11 +964,7 @@ Get data for a submitted set of plates
                             "documentationLinks": [
                                 {
                                     "URL": "http://purl.obolibrary.org/obo/ro.owl",
-                                    "type": [
-                                        "OBO",
-                                        "RDF",
-                                        "WEBPAGE"
-                                    ]
+                                    "type": "OBO"
                                 }
                             ],
                             "ontologyDbId": "6b071868",
