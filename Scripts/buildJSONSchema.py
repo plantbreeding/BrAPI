@@ -145,6 +145,7 @@ def getExecList(method, path, tag):
 				]
 	
 	isServerInfoPath = re.fullmatch('^/serverinfo$', path)
+	isSimpleListPath = re.fullmatch('^/commoncropnames$|^/studytypes$|^/observationlevels$|^/ontologies$|^/events$|', path)
 	isBasePath = re.fullmatch('^/[a-z]+$', path)
 	isBaseExtraPath = re.fullmatch('^/[a-z]+/[a-z]+$', path)
 	isDbIdPath = re.fullmatch('^/[a-z]+/\{[a-zA-Z]+}$', path)
@@ -157,6 +158,8 @@ def getExecList(method, path, tag):
 		
 	if isServerInfoPath:
 		execList.append('SaveCalls:V2')
+	elif isSimpleListPath:
+		True
 	elif isVendorPath:
 		if method == 'get':
 			print('vendor get')
