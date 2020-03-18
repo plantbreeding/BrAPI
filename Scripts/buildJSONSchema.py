@@ -138,10 +138,8 @@ def sortPaths(parent):
 
 def getExecList(method, path, tag):
 	execList = [
-					"StatusCode:200:breakiffalse",
 					"ContentType:application/json",
-					"Schema:/" + versionNumber + "/metadata",
-					"Schema:/" + versionNumber + "/" + tag + '/' + buildResponseObjectName(method, path)
+					"Schema:/" + versionNumber + "/metadata"
 				]
 	
 	isServerInfoPath = re.fullmatch('^/serverinfo$', path)
@@ -156,45 +154,51 @@ def getExecList(method, path, tag):
     
 	dbid = mapPathToDbId(path)
 		
-	if isServerInfoPath:
-		execList.append('SaveCalls:V2')
-	elif isSimpleListPath:
-		True
-	elif isVendorPath:
+	
+	if isSearchPath:
+		execList.append("SearchSchema:/" + versionNumber + "/" + tag + '/' + buildResponseObjectName(method, path) + ':' + getSearchPathVariableName(path))
 		if method == 'get':
-			print('vendor get')
+			execList.insert(0, "StatusCode:102,200:breakiffalse")
 		elif method == 'post':
-			print('vendor post')
-	elif isSearchPath:
-		if method == 'get':
-			print('search get')
-		elif method == 'post':
-			varName = path.split('/')[2] + 'SearchResultDbId'
-			execList.append('GetValue:/result/searchResultDbId:' + varName)
-	elif isTablePath:
-		print('table get')
-	elif isBasePath or isBaseExtraPath: 
-		if method == 'get':
-			execList.append('GetValue:/result/data/0/' + dbid + ':' + dbid +'0')
-			execList.append('GetValue:/result/data/1/' + dbid + ':' + dbid +'1')
-		elif method == 'post':
-			execList.append('IsEqual:/result/data/0/' + dbid + ':' + dbid +'0')
-		elif method == 'put':
-			execList.append('IsEqual:/result/data/' + dbid + ':' + dbid +'0')
-	elif isDbIdPath:
-		if method == 'get':
-			execList.append('IsEqual:/result/' + dbid + ':' + dbid +'0')
-		elif method == 'put':
-			execList.append('IsEqual:/result/' + dbid + ':' + dbid +'0')
-	elif isDbIdExtraPath:
-		if method == 'get':
-			print('dbid extra get')
-		elif method == 'post':
-			print('dbid extra post')
-		elif method == 'put':
-			print('dbid extra put')
+			execList.insert(0, "StatusCode:202,200:breakiffalse")
 	else:
-		print('missing exec list for ' + method + path)		
+		execList.insert(0, "StatusCode:200:breakiffalse")
+		execList.append("Schema:/" + versionNumber + "/" + tag + '/' + buildResponseObjectName(method, path))
+		if isServerInfoPath:
+			execList.append('SaveCalls:V2')
+		elif isSimpleListPath:
+			True
+		elif isVendorPath:
+			if method == 'get':
+				True
+			elif method == 'post':
+				True
+		elif isTablePath:
+				True
+		elif isBaseExtraPath:
+				True
+		elif isBasePath: 
+			if method == 'get':
+				execList.append('GetValue:/result/data/0/' + dbid + ':' + dbid +'0')
+				execList.append('GetValue:/result/data/1/' + dbid + ':' + dbid +'1')
+			elif method == 'post':
+				True
+			elif method == 'put':
+				True
+		elif isDbIdPath:
+			if method == 'get':
+				execList.append('IsEqual:/result/' + dbid + ':' + dbid +'0')
+			elif method == 'put':
+				execList.append('IsEqual:/result/' + dbid + ':' + dbid +'0')
+		elif isDbIdExtraPath:
+			if method == 'get':
+				True
+			elif method == 'post':
+				True
+			elif method == 'put':
+				True
+		else:
+			print('missing exec list for ' + method + path)		
 	return execList
 
 def mapPathToDbId(path):
@@ -253,12 +257,15 @@ def getParamsList(method, path):
 	paramsList = []
 	return paramsList
 	
-def buildResponseObjectName(method, path):
+def buildResponseObjectName(method, path, responseCode = '200'):
 	pathParts = path.split('/')
 	name = method
 	for pathPart in pathParts:
 		name = name + pathPart.replace('{', '').replace('}', '').capitalize()
-	return name + 'Response'
+	name = name + 'Response'
+	if responseCode != '200':
+		name = name + responseCode
+	return name 
 
 def isNotDeprecated(obj):
 	if 'deprecated' in obj:
@@ -267,29 +274,27 @@ def isNotDeprecated(obj):
 	
 
 def buildJSONSchemas(method, path, tag, parent):
-	schema = {}
-	try:
-		schema = parent['paths'][path][method]['responses']['200']['content']['application/json']['schema']['properties']['result']
-	except:
-		print('schema not found')
-	
-	schema = fixSchema(schema)
-	schemaObj = {
-					"$schema": "http://json-schema.org/draft-04/schema#",
-					"title": buildResponseObjectName(method, path),
-					"type": "object",
-					"properties": {
-						"result": schema
-					},
-					"required": [
-						"result"
-					]
-				}
-	
-	filename = outPath + 'schemas/' + versionNumber + '/' + tag + '/' + buildResponseObjectName(method, path) + '.json'
-	os.makedirs(os.path.dirname(filename), exist_ok=True)
-	with open(filename, 'w') as outfile:
-		json.dump(schemaObj, outfile, indent=4, sort_keys=True)
+	for responseCode in parent['paths'][path][method]['responses']:
+		if not responseCode.startswith('4'):
+			schema = parent['paths'][path][method]['responses'][responseCode]['content']['application/json']['schema']['properties']['result']
+		
+			schema = fixSchema(schema)
+			schemaObj = {
+							"$schema": "http://json-schema.org/draft-04/schema#",
+							"title": buildResponseObjectName(method, path, responseCode),
+							"type": "object",
+							"properties": {
+								"result": schema
+							},
+							"required": [
+								"result"
+							]
+						}
+			
+			filename = outPath + 'schemas/' + versionNumber + '/' + tag + '/' + buildResponseObjectName(method, path, responseCode) + '.json'
+			os.makedirs(os.path.dirname(filename), exist_ok=True)
+			with open(filename, 'w') as outfile:
+				json.dump(schemaObj, outfile, indent=4, sort_keys=True)
 								
 							
 

@@ -76,7 +76,7 @@ List current available orders
                 "numberOfSamples": 180,
                 "orderId": "96ba0ca3",
                 "requiredServiceInfo": {
-                    "extractDNA": true,
+                    "extractDNA": "true",
                     "genus": "Zea",
                     "species": "mays",
                     "volumePerWell": "2.3 ml"

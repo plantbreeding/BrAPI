@@ -124,7 +124,7 @@ Gets a list of `Variant` matching the search criteria.
                     1000
                 ],
                 "created": "2018-01-01T14:47:23-0600",
-                "end": "518",
+                "end": 518,
                 "filtersApplied": true,
                 "filtersFailed": [
                     "d629a669",
@@ -133,8 +133,8 @@ Gets a list of `Variant` matching the search criteria.
                 "filtersPassed": true,
                 "referenceBases": "TAGGATTGAGCTCTATAT",
                 "referenceName": "chr_20",
-                "start": "500",
-                "svlen": "1500",
+                "start": 500,
+                "svlen": 1500,
                 "updated": "2018-01-01T14:47:23-0600",
                 "variantDbId": "628e89c5",
                 "variantNames": [
@@ -334,7 +334,7 @@ Gets a list of `Variant` matching the search criteria.
                     1000
                 ],
                 "created": "2018-01-01T14:47:23-0600",
-                "end": "518",
+                "end": 518,
                 "filtersApplied": true,
                 "filtersFailed": [
                     "d629a669",
@@ -343,8 +343,8 @@ Gets a list of `Variant` matching the search criteria.
                 "filtersPassed": true,
                 "referenceBases": "TAGGATTGAGCTCTATAT",
                 "referenceName": "chr_20",
-                "start": "500",
-                "svlen": "1500",
+                "start": 500,
+                "svlen": 1500,
                 "updated": "2018-01-01T14:47:23-0600",
                 "variantDbId": "628e89c5",
                 "variantNames": [
@@ -473,7 +473,7 @@ Gets a filtered list of `Variants`.
                     1000
                 ],
                 "created": "2018-01-01T14:47:23-0600",
-                "end": "518",
+                "end": 518,
                 "filtersApplied": true,
                 "filtersFailed": [
                     "d629a669",
@@ -482,8 +482,8 @@ Gets a filtered list of `Variants`.
                 "filtersPassed": true,
                 "referenceBases": "TAGGATTGAGCTCTATAT",
                 "referenceName": "chr_20",
-                "start": "500",
-                "svlen": "1500",
+                "start": 500,
+                "svlen": 1500,
                 "updated": "2018-01-01T14:47:23-0600",
                 "variantDbId": "628e89c5",
                 "variantNames": [
@@ -602,7 +602,7 @@ Gets a filtered list of `Variants`.
             1000
         ],
         "created": "2018-01-01T14:47:23-0600",
-        "end": "518",
+        "end": 518,
         "filtersApplied": true,
         "filtersFailed": [
             "d629a669",
@@ -611,8 +611,8 @@ Gets a filtered list of `Variants`.
         "filtersPassed": true,
         "referenceBases": "TAGGATTGAGCTCTATAT",
         "referenceName": "chr_20",
-        "start": "500",
-        "svlen": "1500",
+        "start": 500,
+        "svlen": 1500,
         "updated": "2018-01-01T14:47:23-0600",
         "variantDbId": "628e89c5",
         "variantNames": [

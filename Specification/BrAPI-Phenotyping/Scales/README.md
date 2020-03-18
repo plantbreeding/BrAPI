@@ -90,15 +90,7 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
     "result": {
         "data": [
             {
-                "dataType": [
-                    "Code",
-                    "Date",
-                    "Duration",
-                    "Nominal",
-                    "Numerical",
-                    "Ordinal",
-                    "Text"
-                ],
+                "dataType": "Numerical",
                 "decimalPlaces": 2,
                 "externalReferences": [
                     {
@@ -236,15 +228,7 @@ Create a new scale object in the database
 ```
 [
     {
-        "dataType": [
-            "Code",
-            "Date",
-            "Duration",
-            "Nominal",
-            "Numerical",
-            "Ordinal",
-            "Text"
-        ],
+        "dataType": "Numerical",
         "decimalPlaces": 2,
         "externalReferences": [
             {
@@ -329,15 +313,7 @@ Create a new scale object in the database
     "result": {
         "data": [
             {
-                "dataType": [
-                    "Code",
-                    "Date",
-                    "Duration",
-                    "Nominal",
-                    "Numerical",
-                    "Ordinal",
-                    "Text"
-                ],
+                "dataType": "Numerical",
                 "decimalPlaces": 2,
                 "externalReferences": [
                     {
@@ -482,15 +458,7 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
         ]
     },
     "result": {
-        "dataType": [
-            "Code",
-            "Date",
-            "Duration",
-            "Nominal",
-            "Numerical",
-            "Ordinal",
-            "Text"
-        ],
+        "dataType": "Numerical",
         "decimalPlaces": 2,
         "externalReferences": [
             {
@@ -630,15 +598,7 @@ Update the details of an existing scale
 + Request (application/json)
 ```
 {
-    "dataType": [
-        "Code",
-        "Date",
-        "Duration",
-        "Nominal",
-        "Numerical",
-        "Ordinal",
-        "Text"
-    ],
+    "dataType": "Numerical",
     "decimalPlaces": 2,
     "externalReferences": [
         {
@@ -720,15 +680,7 @@ Update the details of an existing scale
         ]
     },
     "result": {
-        "dataType": [
-            "Code",
-            "Date",
-            "Duration",
-            "Nominal",
-            "Numerical",
-            "Ordinal",
-            "Text"
-        ],
+        "dataType": "Numerical",
         "decimalPlaces": 2,
         "externalReferences": [
             {

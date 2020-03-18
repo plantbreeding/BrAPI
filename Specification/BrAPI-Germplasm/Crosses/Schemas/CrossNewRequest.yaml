@@ -59,7 +59,7 @@ components:
               crossAttributeValue: 
                 description: the value of a cross attribute
                 type: string
-                example: 45
+                example: '45'
         externalReferences: 
           $ref: '#/components/schemas/ExternalReferences'
           

@@ -264,11 +264,7 @@ Get a filtered set of Observation Units
                 "observationUnitName": "Plot 1",
                 "observationUnitPUI": "http://pui.per/plot/1a9afc14",
                 "observationUnitPosition": {
-                    "entryType": [
-                        "CHECK",
-                        "TEST",
-                        "FILLER"
-                    ],
+                    "entryType": "TEST",
                     "geoCoordinates": {
                         "geometry": {
                             "coordinates": [
@@ -526,11 +522,7 @@ Add new Observation Units
         "observationUnitName": "Plot 1",
         "observationUnitPUI": "http://pui.per/plot/1a9afc14",
         "observationUnitPosition": {
-            "entryType": [
-                "CHECK",
-                "TEST",
-                "FILLER"
-            ],
+            "entryType": "TEST",
             "geoCoordinates": {
                 "geometry": {
                     "coordinates": [
@@ -644,11 +636,7 @@ Add new Observation Units
                 "observationUnitName": "Plot 1",
                 "observationUnitPUI": "http://pui.per/plot/1a9afc14",
                 "observationUnitPosition": {
-                    "entryType": [
-                        "CHECK",
-                        "TEST",
-                        "FILLER"
-                    ],
+                    "entryType": "TEST",
                     "geoCoordinates": {
                         "geometry": {
                             "coordinates": [
@@ -908,11 +896,7 @@ Note - In strictly typed languages, this structure can be represented as a Map o
                 "observationUnitName": "Plot 1",
                 "observationUnitPUI": "http://pui.per/plot/1a9afc14",
                 "observationUnitPosition": {
-                    "entryType": [
-                        "CHECK",
-                        "TEST",
-                        "FILLER"
-                    ],
+                    "entryType": "TEST",
                     "geoCoordinates": {
                         "geometry": {
                             "coordinates": [
@@ -1418,11 +1402,7 @@ Get the details of a specific Observation Unit
         "observationUnitName": "Plot 1",
         "observationUnitPUI": "http://pui.per/plot/1a9afc14",
         "observationUnitPosition": {
-            "entryType": [
-                "CHECK",
-                "TEST",
-                "FILLER"
-            ],
+            "entryType": "TEST",
             "geoCoordinates": {
                 "geometry": {
                     "coordinates": [
@@ -1677,11 +1657,7 @@ Update an existing Observation Units
     "observationUnitName": "Plot 1",
     "observationUnitPUI": "http://pui.per/plot/1a9afc14",
     "observationUnitPosition": {
-        "entryType": [
-            "CHECK",
-            "TEST",
-            "FILLER"
-        ],
+        "entryType": "TEST",
         "geoCoordinates": {
             "geometry": {
                 "coordinates": [
@@ -1792,11 +1768,7 @@ Update an existing Observation Units
         "observationUnitName": "Plot 1",
         "observationUnitPUI": "http://pui.per/plot/1a9afc14",
         "observationUnitPosition": {
-            "entryType": [
-                "CHECK",
-                "TEST",
-                "FILLER"
-            ],
+            "entryType": "TEST",
             "geoCoordinates": {
                 "geometry": {
                     "coordinates": [
@@ -2182,11 +2154,7 @@ observationValue data type inferred from the ontology
                 "observationUnitName": "Plot 1",
                 "observationUnitPUI": "http://pui.per/plot/1a9afc14",
                 "observationUnitPosition": {
-                    "entryType": [
-                        "CHECK",
-                        "TEST",
-                        "FILLER"
-                    ],
+                    "entryType": "TEST",
                     "geoCoordinates": {
                         "geometry": {
                             "coordinates": [
@@ -2511,11 +2479,7 @@ See Search Services for additional implementation details.
                 "observationUnitName": "Plot 1",
                 "observationUnitPUI": "http://pui.per/plot/1a9afc14",
                 "observationUnitPosition": {
-                    "entryType": [
-                        "CHECK",
-                        "TEST",
-                        "FILLER"
-                    ],
+                    "entryType": "TEST",
                     "geoCoordinates": {
                         "geometry": {
                             "coordinates": [

@@ -52,6 +52,7 @@ components:
           - TEST
           - FILLER
           type: string
+          example: TEST
         positionCoordinateX:
           description: The X position coordinate for an observation unit. Different systems may use different coordinate systems.
           type: string

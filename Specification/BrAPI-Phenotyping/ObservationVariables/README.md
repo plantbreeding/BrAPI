@@ -291,15 +291,7 @@ See Search Services for additional implementation details.
                     "version": "7.2.3"
                 },
                 "scale": {
-                    "dataType": [
-                        "Code",
-                        "Date",
-                        "Duration",
-                        "Nominal",
-                        "Numerical",
-                        "Ordinal",
-                        "Text"
-                    ],
+                    "dataType": "Numerical",
                     "decimalPlaces": 2,
                     "externalReferences": [
                         {
@@ -713,15 +705,7 @@ See Search Services for additional implementation details.
                     "version": "7.2.3"
                 },
                 "scale": {
-                    "dataType": [
-                        "Code",
-                        "Date",
-                        "Duration",
-                        "Nominal",
-                        "Numerical",
-                        "Ordinal",
-                        "Text"
-                    ],
+                    "dataType": "Numerical",
                     "decimalPlaces": 2,
                     "externalReferences": [
                         {
@@ -1070,15 +1054,7 @@ Call to retrieve a list of observationVariables available in the system.
                     "version": "7.2.3"
                 },
                 "scale": {
-                    "dataType": [
-                        "Code",
-                        "Date",
-                        "Duration",
-                        "Nominal",
-                        "Numerical",
-                        "Ordinal",
-                        "Text"
-                    ],
+                    "dataType": "Numerical",
                     "decimalPlaces": 2,
                     "externalReferences": [
                         {
@@ -1471,15 +1447,7 @@ Add new Observation Variables to the system.
             "version": "7.2.3"
         },
         "scale": {
-            "dataType": [
-                "Code",
-                "Date",
-                "Duration",
-                "Nominal",
-                "Numerical",
-                "Ordinal",
-                "Text"
-            ],
+            "dataType": "Numerical",
             "decimalPlaces": 2,
             "externalReferences": [
                 {
@@ -1693,15 +1661,7 @@ Add new Observation Variables to the system.
                     "version": "7.2.3"
                 },
                 "scale": {
-                    "dataType": [
-                        "Code",
-                        "Date",
-                        "Duration",
-                        "Nominal",
-                        "Numerical",
-                        "Ordinal",
-                        "Text"
-                    ],
+                    "dataType": "Numerical",
                     "decimalPlaces": 2,
                     "externalReferences": [
                         {
@@ -2036,15 +1996,7 @@ Retrieve variable details
             "version": "7.2.3"
         },
         "scale": {
-            "dataType": [
-                "Code",
-                "Date",
-                "Duration",
-                "Nominal",
-                "Numerical",
-                "Ordinal",
-                "Text"
-            ],
+            "dataType": "Numerical",
             "decimalPlaces": 2,
             "externalReferences": [
                 {
@@ -2382,15 +2334,7 @@ Update an existing Observation Variable
             "version": "7.2.3"
         },
         "scale": {
-            "dataType": [
-                "Code",
-                "Date",
-                "Duration",
-                "Nominal",
-                "Numerical",
-                "Ordinal",
-                "Text"
-            ],
+            "dataType": "Numerical",
             "decimalPlaces": 2,
             "externalReferences": [
                 {

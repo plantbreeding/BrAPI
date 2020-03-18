@@ -231,15 +231,7 @@ List available attributes.
                     "version": "7.2.3"
                 },
                 "scale": {
-                    "dataType": [
-                        "Code",
-                        "Date",
-                        "Duration",
-                        "Nominal",
-                        "Numerical",
-                        "Ordinal",
-                        "Text"
-                    ],
+                    "dataType": "Numerical",
                     "decimalPlaces": 2,
                     "externalReferences": [
                         {
@@ -638,15 +630,7 @@ Create new Germplasm Attributes
             "version": "7.2.3"
         },
         "scale": {
-            "dataType": [
-                "Code",
-                "Date",
-                "Duration",
-                "Nominal",
-                "Numerical",
-                "Ordinal",
-                "Text"
-            ],
+            "dataType": "Numerical",
             "decimalPlaces": 2,
             "externalReferences": [
                 {
@@ -862,15 +846,7 @@ Create new Germplasm Attributes
                     "version": "7.2.3"
                 },
                 "scale": {
-                    "dataType": [
-                        "Code",
-                        "Date",
-                        "Duration",
-                        "Nominal",
-                        "Numerical",
-                        "Ordinal",
-                        "Text"
-                    ],
+                    "dataType": "Numerical",
                     "decimalPlaces": 2,
                     "externalReferences": [
                         {
@@ -1289,15 +1265,7 @@ Get the details for a specific Germplasm Attribute
             "version": "7.2.3"
         },
         "scale": {
-            "dataType": [
-                "Code",
-                "Date",
-                "Duration",
-                "Nominal",
-                "Numerical",
-                "Ordinal",
-                "Text"
-            ],
+            "dataType": "Numerical",
             "decimalPlaces": 2,
             "externalReferences": [
                 {
@@ -1693,15 +1661,7 @@ Update an existing Germplasm Attribute
         "version": "7.2.3"
     },
     "scale": {
-        "dataType": [
-            "Code",
-            "Date",
-            "Duration",
-            "Nominal",
-            "Numerical",
-            "Ordinal",
-            "Text"
-        ],
+        "dataType": "Numerical",
         "decimalPlaces": 2,
         "externalReferences": [
             {
@@ -1914,15 +1874,7 @@ Update an existing Germplasm Attribute
             "version": "7.2.3"
         },
         "scale": {
-            "dataType": [
-                "Code",
-                "Date",
-                "Duration",
-                "Nominal",
-                "Numerical",
-                "Ordinal",
-                "Text"
-            ],
+            "dataType": "Numerical",
             "decimalPlaces": 2,
             "externalReferences": [
                 {
@@ -2335,15 +2287,7 @@ See Search Services for additional implementation details.
                     "version": "7.2.3"
                 },
                 "scale": {
-                    "dataType": [
-                        "Code",
-                        "Date",
-                        "Duration",
-                        "Nominal",
-                        "Numerical",
-                        "Ordinal",
-                        "Text"
-                    ],
+                    "dataType": "Numerical",
                     "decimalPlaces": 2,
                     "externalReferences": [
                         {
@@ -2761,15 +2705,7 @@ See Search Services for additional implementation details.
                     "version": "7.2.3"
                 },
                 "scale": {
-                    "dataType": [
-                        "Code",
-                        "Date",
-                        "Duration",
-                        "Nominal",
-                        "Numerical",
-                        "Ordinal",
-                        "Text"
-                    ],
+                    "dataType": "Numerical",
                     "decimalPlaces": 2,
                     "externalReferences": [
                         {

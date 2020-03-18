@@ -52,7 +52,7 @@ components:
             The end position (exclusive), resulting in [start, end) closed-open interval. This is typically calculated 
             by `start + referenceBases.length`.
           type: integer
-          example: '518'
+          example: 518
         filtersApplied:
           description: True if filters were applied for this variant. VCF column 7 "FILTER" any value other than the missing value.
           format: boolean
@@ -95,11 +95,11 @@ components:
             of reference bases. Genomic positions are non-negative integers less than reference length. Variants spanning 
             the join of circular genomes are represented as two variants one on each side of the join (position 0).
           type: integer
-          example: '500'
+          example: 500
         svlen:
           description: Length of the - if labeled as such in variant_type - structural variation. Based on the use in VCF v4.2
           type: integer
-          example: '1500'
+          example: 1500
         updated:
           description: The time at which this variant was last updated.
           type: string

@@ -70,7 +70,7 @@ components:
               metadata:
                 $ref: '#/components/schemas/metadata'
               result:
-                $ref: '#/components/schemas/Study'
+                $ref: '#/components/schemas/Trial'
             required:
             - metadata
             - result

@@ -31,4 +31,5 @@ components:
       - Ordinal
       - Text
       type: string
+      example: Numerical
 

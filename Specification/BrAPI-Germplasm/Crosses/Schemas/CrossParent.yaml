@@ -32,3 +32,4 @@ components:
           - SELF
           - POPULATION
           type: string
+          example: MALE

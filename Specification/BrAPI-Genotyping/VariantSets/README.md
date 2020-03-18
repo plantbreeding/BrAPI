@@ -1131,7 +1131,7 @@ This call will return an array of `Variants`.
                     1000
                 ],
                 "created": "2018-01-01T14:47:23-0600",
-                "end": "518",
+                "end": 518,
                 "filtersApplied": true,
                 "filtersFailed": [
                     "d629a669",
@@ -1140,8 +1140,8 @@ This call will return an array of `Variants`.
                 "filtersPassed": true,
                 "referenceBases": "TAGGATTGAGCTCTATAT",
                 "referenceName": "chr_20",
-                "start": "500",
-                "svlen": "1500",
+                "start": 500,
+                "svlen": 1500,
                 "updated": "2018-01-01T14:47:23-0600",
                 "variantDbId": "628e89c5",
                 "variantNames": [

@@ -35,7 +35,7 @@ components:
             genus: Zea
             species: mays
             volumePerWell: 2.3 ml
-            extractDNA: true
+            extractDNA: 'true'
         serviceIds:
           description: |-
             A list of unique, alpha-numeric ID which identify the requested services to be applied to this order. 

@@ -108,24 +108,14 @@ Get a filtered list of Planned Cross entities.
                     "germplasmName": "TME_419",
                     "observationUnitDbId": "2e1926a7",
                     "observationUnitName": "my_Ibadan_Plot_9001",
-                    "parentType": [
-                        "MALE",
-                        "FEMALE",
-                        "SELF",
-                        "POPULATION"
-                    ]
+                    "parentType": "MALE"
                 },
                 "parent2": {
                     "germplasmDbId": "d34b10c3",
                     "germplasmName": "TME_419",
                     "observationUnitDbId": "2e1926a7",
                     "observationUnitName": "my_Ibadan_Plot_9001",
-                    "parentType": [
-                        "MALE",
-                        "FEMALE",
-                        "SELF",
-                        "POPULATION"
-                    ]
+                    "parentType": "MALE"
                 },
                 "plannedCrossDbId": "c8905568",
                 "plannedCrossName": "my_Ibadan_Crosses_2018_01"
@@ -245,24 +235,14 @@ Create new Planned Cross entities on this server
             "germplasmName": "TME_419",
             "observationUnitDbId": "2e1926a7",
             "observationUnitName": "my_Ibadan_Plot_9001",
-            "parentType": [
-                "MALE",
-                "FEMALE",
-                "SELF",
-                "POPULATION"
-            ]
+            "parentType": "MALE"
         },
         "parent2": {
             "germplasmDbId": "d34b10c3",
             "germplasmName": "TME_419",
             "observationUnitDbId": "2e1926a7",
             "observationUnitName": "my_Ibadan_Plot_9001",
-            "parentType": [
-                "MALE",
-                "FEMALE",
-                "SELF",
-                "POPULATION"
-            ]
+            "parentType": "MALE"
         },
         "plannedCrossName": "my_Ibadan_Crosses_2018_01"
     }
@@ -327,24 +307,14 @@ Create new Planned Cross entities on this server
                     "germplasmName": "TME_419",
                     "observationUnitDbId": "2e1926a7",
                     "observationUnitName": "my_Ibadan_Plot_9001",
-                    "parentType": [
-                        "MALE",
-                        "FEMALE",
-                        "SELF",
-                        "POPULATION"
-                    ]
+                    "parentType": "MALE"
                 },
                 "parent2": {
                     "germplasmDbId": "d34b10c3",
                     "germplasmName": "TME_419",
                     "observationUnitDbId": "2e1926a7",
                     "observationUnitName": "my_Ibadan_Plot_9001",
-                    "parentType": [
-                        "MALE",
-                        "FEMALE",
-                        "SELF",
-                        "POPULATION"
-                    ]
+                    "parentType": "MALE"
                 },
                 "plannedCrossDbId": "c8905568",
                 "plannedCrossName": "my_Ibadan_Crosses_2018_01"
@@ -508,24 +478,14 @@ Update existing Planned Cross entities on this server
                     "germplasmName": "TME_419",
                     "observationUnitDbId": "2e1926a7",
                     "observationUnitName": "my_Ibadan_Plot_9001",
-                    "parentType": [
-                        "MALE",
-                        "FEMALE",
-                        "SELF",
-                        "POPULATION"
-                    ]
+                    "parentType": "MALE"
                 },
                 "parent2": {
                     "germplasmDbId": "d34b10c3",
                     "germplasmName": "TME_419",
                     "observationUnitDbId": "2e1926a7",
                     "observationUnitName": "my_Ibadan_Plot_9001",
-                    "parentType": [
-                        "MALE",
-                        "FEMALE",
-                        "SELF",
-                        "POPULATION"
-                    ]
+                    "parentType": "MALE"
                 },
                 "plannedCrossDbId": "c8905568",
                 "plannedCrossName": "my_Ibadan_Crosses_2018_01"
