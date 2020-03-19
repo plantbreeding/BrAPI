@@ -541,42 +541,6 @@ Gets a list of call sets matching the search criteria.
 
 
 
-+ Response 102 (application/json)
-```
-{
-    "@context": [
-        "https://brapi.org/jsonld/context/metadata.jsonld"
-    ],
-    "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
-        "pagination": {
-            "currentPage": 0,
-            "pageSize": 1000,
-            "totalCount": 10,
-            "totalPages": 1
-        },
-        "status": [
-            {
-                "message": "Request accepted, response successful",
-                "messageType": "INFO"
-            }
-        ]
-    },
-    "result": {
-        "searchResultsDbId": "551ae08c"
-    }
-}
-```
-
 + Response 200 (application/json)
 ```
 {
@@ -623,6 +587,42 @@ Gets a list of call sets matching the search criteria.
                 ]
             }
         ]
+    }
+}
+```
+
++ Response 202 (application/json)
+```
+{
+    "@context": [
+        "https://brapi.org/jsonld/context/metadata.jsonld"
+    ],
+    "metadata": {
+        "datafiles": [
+            {
+                "fileDescription": "This is an Excel data file",
+                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
+                "fileName": "datafile.xlsx",
+                "fileSize": 4398,
+                "fileType": "application/vnd.ms-excel",
+                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
+            }
+        ],
+        "pagination": {
+            "currentPage": 0,
+            "pageSize": 1000,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": [
+            {
+                "message": "Request accepted, response successful",
+                "messageType": "INFO"
+            }
+        ]
+    },
+    "result": {
+        "searchResultsDbId": "551ae08c"
     }
 }
 ```

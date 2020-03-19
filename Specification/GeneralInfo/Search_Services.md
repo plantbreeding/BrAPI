@@ -108,17 +108,18 @@ The client application can make multiple GET requests using the same `searchResu
 
 The Asynchronous Search implementation is useful when the search query has the potential to take a long time.
 
-1. The client makes a POST request with the search parameters
-2. The server stores the search parameters and associates them with a `searchResultsDbId`
-3. The server begins the search query in an asynchronous process 
-4. The server responds with a 202 HTTP status, and the `searchResultsDbId`
-5. The client makes a GET request with the `searchResultsDbId`
-6. The server responds with a 102 HTTP status, indicating that the search query is not complete yet
-7. Time passes. The client may poll the GET request regularly looking for a change in HTTP status
-8. The server completes the asynchronous process, stores the search results, and marks the query as completed
-8. The client makes a GET request with the `searchResultsDbId`
-9. The server responds with a 200 HTTP status, and the search results
-7. Repeat from step 8 with modified pagination parameters as needed
+1.  The client makes a POST request with the search parameters
+2.  The server stores the search parameters and associates them with a `searchResultsDbId`
+3.  The server begins the search query in an asynchronous process 
+4.  The server responds with a 202 HTTP status, and the `searchResultsDbId`
+5.  The client makes a GET request with the `searchResultsDbId`
+6.  The server responds with a 202 HTTP status, indicating that the search query is not complete yet. 
+    **NOTE** If the server has any progress information, either an estimated time remaining or a number of records processed so far, it is recommended to report this information in a "status" message.
+7.  Time passes. The client may poll the GET request regularly looking for a change in HTTP status
+8.  The server completes the asynchronous process, stores the search results, and marks the query as completed
+9.  The client makes a GET request with the `searchResultsDbId`
+10. The server responds with a 200 HTTP status, and the search results
+11. Repeat from step 8 with modified pagination parameters as needed
 
 **Request and Response Rules**
 

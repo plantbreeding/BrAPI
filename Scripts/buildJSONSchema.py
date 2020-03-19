@@ -143,7 +143,7 @@ def getExecList(method, path, tag):
 				]
 	
 	isServerInfoPath = re.fullmatch('^/serverinfo$', path)
-	isSimpleListPath = re.fullmatch('^/commoncropnames$|^/studytypes$|^/observationlevels$|^/ontologies$|^/events$|', path)
+	isSimpleListPath = re.fullmatch('^/commoncropnames$|^/studytypes$|^/observationlevels$|^/ontologies$|^/events$|^/markerpositions$', path)
 	isBasePath = re.fullmatch('^/[a-z]+$', path)
 	isBaseExtraPath = re.fullmatch('^/[a-z]+/[a-z]+$', path)
 	isDbIdPath = re.fullmatch('^/[a-z]+/\{[a-zA-Z]+}$', path)
@@ -156,11 +156,8 @@ def getExecList(method, path, tag):
 		
 	
 	if isSearchPath:
+		execList.insert(0, "StatusCode:202,200:breakiffalse")
 		execList.append("SearchSchema:/" + versionNumber + "/" + tag + '/' + buildResponseObjectName(method, path) + ':' + getSearchPathVariableName(path))
-		if method == 'get':
-			execList.insert(0, "StatusCode:102,200:breakiffalse")
-		elif method == 'post':
-			execList.insert(0, "StatusCode:202,200:breakiffalse")
 	else:
 		execList.insert(0, "StatusCode:200:breakiffalse")
 		execList.append("Schema:/" + versionNumber + "/" + tag + '/' + buildResponseObjectName(method, path))
@@ -209,6 +206,10 @@ def mapPathToDbId(path):
 			return 'breedingMethodDbId'
 	elif path.startswith('/callsets'):
 			return 'callSetDbId'
+	elif path.startswith('/crosses'):
+			return 'crossDbId'
+	elif path.startswith('/plannedcrosses'):
+			return 'plannedCrossDbId'
 	elif path.startswith('/crossingprojects'):
 			return 'crossingProjectDbId'
 	elif path.startswith('/observationunits'):

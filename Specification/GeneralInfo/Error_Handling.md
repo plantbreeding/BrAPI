@@ -23,12 +23,6 @@ Following the RESTful architecture standard, most errors in BrAPI should be repo
 </tr>
 
 <tr style="vertical-align: top">
-<td>102</td>
-<td>Processing</td>
-<td>Use code 102 when more processing time is needed before a complete response is ready. See BrAPI documentation on Search Services for more details on when to use this code. </td>
-</tr>
-
-<tr style="vertical-align: top">
 <td>400</td>
 <td>Bad Request</td>
 <td>Use code 400 when there is something wrong with the request. This could be a problem with any of the query parameters or request body object. <br/>
