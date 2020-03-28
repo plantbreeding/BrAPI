@@ -6,7 +6,7 @@ A Program can contain multiple Trials. A Trial can contain multiple Studies.
 
 
 
-### Get - /programs [GET /brapi/v2/programs{?commonCropName}{?programName}{?abbreviation}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /programs [GET /brapi/v2/programs{?commonCropName}{?programDbId}{?programName}{?abbreviation}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered list of breeding Programs. This list can be filtered by common crop name to narrow results to a specific crop.
 
@@ -35,6 +35,7 @@ Get a filtered list of breeding Programs. This list can be filtered by common cr
 
 + Parameters
     + commonCropName (Optional, ) ... Filter by the common crop name. Exact match.
+    + programDbId (Optional, ) ... Program filter to only return trials associated with given program id.
     + programName (Optional, ) ... Filter by program name. Exact match.
     + abbreviation (Optional, ) ... Filter by program abbreviation. Exact match.
     + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
