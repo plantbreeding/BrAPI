@@ -316,13 +316,11 @@ Update existing Seasons
  
 + Request (application/json)
 ```
-[
-    {
-        "seasonDbId": "Spring_2018",
-        "seasonName": "Spring",
-        "year": 2018
-    }
-]
+{
+    "seasonDbId": "Spring_2018",
+    "seasonName": "Spring",
+    "year": 2018
+}
 ```
 
 
