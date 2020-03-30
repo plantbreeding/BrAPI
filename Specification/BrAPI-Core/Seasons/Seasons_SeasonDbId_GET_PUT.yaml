@@ -43,9 +43,7 @@ paths:
         content:
           application/json:
             schema:
-              type: array
-              items: 
-                $ref: '#/components/schemas/Season'
+              $ref: '#/components/schemas/Season'
       responses:
         '200':
           $ref: '#/components/responses/SeasonSingleResponse'
