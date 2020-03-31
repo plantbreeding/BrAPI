@@ -60,7 +60,7 @@ paths:
                 required:
                 - metadata
                 - result
-                title: callsResponse
+                title: ServerInfoResponse
                 type: object
           description: OK
           headers: {}
