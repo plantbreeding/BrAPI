@@ -5,7 +5,7 @@
 
 
 
-### Get - /crossingprojects [GET /brapi/v2/crossingprojects{?crossingProjectDbId}{?page}{?pageSize}]
+### Get - /crossingprojects [GET /brapi/v2/crossingprojects{?crossingProjectDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered list of Crossing Projects.
 
@@ -16,6 +16,7 @@ Get a filtered list of Crossing Projects.
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
 |commonCropName|string|the common name of a crop (for multi-crop systems)|
 |crossingProjectDbId|string|the unique identifier for a crossing project|
 |crossingProjectDescription|string|the description for a crossing project|
@@ -31,6 +32,8 @@ Get a filtered list of Crossing Projects.
 
 + Parameters
     + crossingProjectDbId (Optional, ) ... Search for Crossing Projects with this unique id
+    + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
+    + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -71,6 +74,7 @@ Get a filtered list of Crossing Projects.
     "result": {
         "data": [
             {
+                "additionalInfo": {},
                 "commonCropName": "Cassava",
                 "crossingProjectDbId": "ce0e1c29",
                 "crossingProjectDescription": "Crosses between germplasm X and germplasm Y in male nursery study X_2018 and female nursery study Y_2018",
@@ -123,6 +127,7 @@ Create new Crossing Project entities on this server
 
 |Field|Type|Description|
 |---|---|---| 
+|additionalInfo|object|Additional arbitrary info|
 |commonCropName|string|the common name of a crop (for multi-crop systems)|
 |crossingProjectDescription|string|the description for a crossing project|
 |crossingProjectName|string|the human readable name for a crossing project|
@@ -138,6 +143,7 @@ Create new Crossing Project entities on this server
 |Field|Type|Description|
 |---|---|---| 
 |data|array[object]||
+|additionalInfo|object|Additional arbitrary info|
 |commonCropName|string|the common name of a crop (for multi-crop systems)|
 |crossingProjectDbId|string|the unique identifier for a crossing project|
 |crossingProjectDescription|string|the description for a crossing project|
@@ -160,6 +166,7 @@ Create new Crossing Project entities on this server
 ```
 [
     {
+        "additionalInfo": {},
         "commonCropName": "Cassava",
         "crossingProjectDescription": "Crosses between germplasm X and germplasm Y in male nursery study X_2018 and female nursery study Y_2018",
         "crossingProjectName": "Ibadan_Crosses_2018",
@@ -218,6 +225,7 @@ Create new Crossing Project entities on this server
     "result": {
         "data": [
             {
+                "additionalInfo": {},
                 "commonCropName": "Cassava",
                 "crossingProjectDbId": "ce0e1c29",
                 "crossingProjectDescription": "Crosses between germplasm X and germplasm Y in male nursery study X_2018 and female nursery study Y_2018",
@@ -262,7 +270,7 @@ Create new Crossing Project entities on this server
 
 
 
-### Get - /crossingprojects/{crossingProjectDbId} [GET /brapi/v2/crossingprojects/{crossingProjectDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /crossingprojects/{crossingProjectDbId} [GET /brapi/v2/crossingprojects/{crossingProjectDbId}]
 
 Get a filtered list of Crossing Projects.
 
@@ -272,6 +280,7 @@ Get a filtered list of Crossing Projects.
 
 |Field|Type|Description|
 |---|---|---| 
+|additionalInfo|object|Additional arbitrary info|
 |commonCropName|string|the common name of a crop (for multi-crop systems)|
 |crossingProjectDbId|string|the unique identifier for a crossing project|
 |crossingProjectDescription|string|the description for a crossing project|
@@ -287,10 +296,6 @@ Get a filtered list of Crossing Projects.
 
 + Parameters
     + crossingProjectDbId (Required, ) ... Search for Crossing Projects with this unique id
-    + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
-    + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
-    + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
@@ -327,6 +332,7 @@ Get a filtered list of Crossing Projects.
         ]
     },
     "result": {
+        "additionalInfo": {},
         "commonCropName": "Cassava",
         "crossingProjectDbId": "ce0e1c29",
         "crossingProjectDescription": "Crosses between germplasm X and germplasm Y in male nursery study X_2018 and female nursery study Y_2018",
@@ -377,6 +383,7 @@ Update an existing Crossing Project entity on this server
 
 |Field|Type|Description|
 |---|---|---| 
+|additionalInfo|object|Additional arbitrary info|
 |commonCropName|string|the common name of a crop (for multi-crop systems)|
 |crossingProjectDescription|string|the description for a crossing project|
 |crossingProjectName|string|the human readable name for a crossing project|
@@ -391,6 +398,7 @@ Update an existing Crossing Project entity on this server
 
 |Field|Type|Description|
 |---|---|---| 
+|additionalInfo|object|Additional arbitrary info|
 |commonCropName|string|the common name of a crop (for multi-crop systems)|
 |crossingProjectDbId|string|the unique identifier for a crossing project|
 |crossingProjectDescription|string|the description for a crossing project|
@@ -413,6 +421,7 @@ Update an existing Crossing Project entity on this server
 + Request (application/json)
 ```
 {
+    "additionalInfo": {},
     "commonCropName": "Cassava",
     "crossingProjectDescription": "Crosses between germplasm X and germplasm Y in male nursery study X_2018 and female nursery study Y_2018",
     "crossingProjectName": "Ibadan_Crosses_2018",
@@ -468,6 +477,7 @@ Update an existing Crossing Project entity on this server
         ]
     },
     "result": {
+        "additionalInfo": {},
         "commonCropName": "Cassava",
         "crossingProjectDbId": "ce0e1c29",
         "crossingProjectDescription": "Crosses between germplasm X and germplasm Y in male nursery study X_2018 and female nursery study Y_2018",
