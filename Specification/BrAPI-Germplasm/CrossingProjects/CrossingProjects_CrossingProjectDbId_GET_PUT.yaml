@@ -59,7 +59,7 @@ components:
       content:
         application/json:
           schema:
-            title: CrossingProjectListResponse
+            title: CrossingProjectsSingleResponse
             properties:
               '@context':
                 $ref: '#/components/schemas/Context'
