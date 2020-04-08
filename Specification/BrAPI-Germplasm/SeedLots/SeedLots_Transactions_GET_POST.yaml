@@ -51,12 +51,9 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                seedLots:
-                  type: array
-                  items: 
-                    $ref: '#/components/schemas/SeedLotNewTransactionRequest'
+              type: array
+              items: 
+                $ref: '#/components/schemas/SeedLotNewTransactionRequest'
       responses:
         '200':
           $ref: '#/components/responses/SeedLotTransactionListResponse'
