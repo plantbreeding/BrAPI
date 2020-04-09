@@ -433,7 +433,6 @@ Add new Seed Lot Transaction to be recorded
 
 |Field|Type|Description|
 |---|---|---| 
-|seedLots|array[object]||
 |additionalInfo|object|Additional arbitrary info|
 |amount|number|The amount of units being transfered. Could be a count (seeds, bulbs, etc) or a weight (kg of seed).|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
@@ -473,33 +472,31 @@ Add new Seed Lot Transaction to be recorded
  
 + Request (application/json)
 ```
-{
-    "seedLots": [
-        {
-            "additionalInfo": {},
-            "amount": 45,
-            "externalReferences": [
-                {
-                    "referenceID": "doi:10.155454/12349537E12",
-                    "referenceSource": "DOI"
-                },
-                {
-                    "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
-                    "referenceSource": "OBO Library"
-                },
-                {
-                    "referenceID": "75a50e76",
-                    "referenceSource": "Remote Data Collection Upload Tool"
-                }
-            ],
-            "fromSeedLotDbId": "11eef13b",
-            "toSeedLotDbId": "59339b90",
-            "transactionDescription": "f9cd88d2",
-            "transactionTimestamp": "2018-01-01T14:47:23-0600",
-            "units": "seeds"
-        }
-    ]
-}
+[
+    {
+        "additionalInfo": {},
+        "amount": 45,
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12349537E12",
+                "referenceSource": "DOI"
+            },
+            {
+                "referenceID": "http://purl.obolibrary.org/obo/ro.owl",
+                "referenceSource": "OBO Library"
+            },
+            {
+                "referenceID": "75a50e76",
+                "referenceSource": "Remote Data Collection Upload Tool"
+            }
+        ],
+        "fromSeedLotDbId": "11eef13b",
+        "toSeedLotDbId": "59339b90",
+        "transactionDescription": "f9cd88d2",
+        "transactionTimestamp": "2018-01-01T14:47:23-0600",
+        "units": "seeds"
+    }
+]
 ```
 
 
