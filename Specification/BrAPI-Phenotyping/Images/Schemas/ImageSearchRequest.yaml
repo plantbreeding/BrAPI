@@ -76,6 +76,12 @@ components:
               type: string
             type: array
             example: ['47326456', 'fc9823ac']
+          imageDbIds: 
+            description: A list of image Ids to search for
+            items:
+              type: string
+            type: array
+            example: ['564b64a6', '0d122d1d']
           observationUnitDbIds:
             description: A set of observation unit identifiers to search for.
             items:
