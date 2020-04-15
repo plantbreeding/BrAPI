@@ -8,6 +8,11 @@ components:
     TraitBaseClass:
       type: object
       properties:
+        additionalInfo:
+          additionalProperties:
+            type: string
+          description: Additional arbitrary info
+          type: object
         alternativeAbbreviations:
           description: Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention
           items:
