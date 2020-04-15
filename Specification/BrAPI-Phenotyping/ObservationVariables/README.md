@@ -75,6 +75,7 @@ See Search Services for additional implementation details.
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
 |scale|object|Scale metadata|
+|additionalInfo|object|Additional arbitrary info|
 |dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
@@ -100,6 +101,7 @@ See Search Services for additional implementation details.
 |submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
 |synonyms|array[string]|Other variable names|
 |trait|object||
+|additionalInfo|object|Additional arbitrary info|
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
@@ -291,6 +293,7 @@ See Search Services for additional implementation details.
                     "version": "7.2.3"
                 },
                 "scale": {
+                    "additionalInfo": {},
                     "dataType": "Numerical",
                     "decimalPlaces": 2,
                     "externalReferences": [
@@ -348,6 +351,7 @@ See Search Services for additional implementation details.
                     "Corn Height"
                 ],
                 "trait": {
+                    "additionalInfo": {},
                     "alternativeAbbreviations": [
                         "H",
                         "PH",
@@ -505,6 +509,7 @@ See Search Services for additional implementation details.
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
 |scale|object|Scale metadata|
+|additionalInfo|object|Additional arbitrary info|
 |dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
@@ -530,6 +535,7 @@ See Search Services for additional implementation details.
 |submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
 |synonyms|array[string]|Other variable names|
 |trait|object||
+|additionalInfo|object|Additional arbitrary info|
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
@@ -669,6 +675,7 @@ See Search Services for additional implementation details.
                     "version": "7.2.3"
                 },
                 "scale": {
+                    "additionalInfo": {},
                     "dataType": "Numerical",
                     "decimalPlaces": 2,
                     "externalReferences": [
@@ -726,6 +733,7 @@ See Search Services for additional implementation details.
                     "Corn Height"
                 ],
                 "trait": {
+                    "additionalInfo": {},
                     "alternativeAbbreviations": [
                         "H",
                         "PH",
@@ -886,6 +894,7 @@ Call to retrieve a list of observationVariables available in the system.
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
 |scale|object|Scale metadata|
+|additionalInfo|object|Additional arbitrary info|
 |dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
@@ -911,6 +920,7 @@ Call to retrieve a list of observationVariables available in the system.
 |submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
 |synonyms|array[string]|Other variable names|
 |trait|object||
+|additionalInfo|object|Additional arbitrary info|
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
@@ -1054,6 +1064,7 @@ Call to retrieve a list of observationVariables available in the system.
                     "version": "7.2.3"
                 },
                 "scale": {
+                    "additionalInfo": {},
                     "dataType": "Numerical",
                     "decimalPlaces": 2,
                     "externalReferences": [
@@ -1111,6 +1122,7 @@ Call to retrieve a list of observationVariables available in the system.
                     "Corn Height"
                 ],
                 "trait": {
+                    "additionalInfo": {},
                     "alternativeAbbreviations": [
                         "H",
                         "PH",
@@ -1226,6 +1238,7 @@ Add new Observation Variables to the system.
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
 |scale|object|Scale metadata|
+|additionalInfo|object|Additional arbitrary info|
 |dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
@@ -1251,6 +1264,7 @@ Add new Observation Variables to the system.
 |submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
 |synonyms|array[string]|Other variable names|
 |trait|object||
+|additionalInfo|object|Additional arbitrary info|
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
@@ -1317,6 +1331,7 @@ Add new Observation Variables to the system.
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
 |scale|object|Scale metadata|
+|additionalInfo|object|Additional arbitrary info|
 |dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
@@ -1342,6 +1357,7 @@ Add new Observation Variables to the system.
 |submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
 |synonyms|array[string]|Other variable names|
 |trait|object||
+|additionalInfo|object|Additional arbitrary info|
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
@@ -1447,6 +1463,7 @@ Add new Observation Variables to the system.
             "version": "7.2.3"
         },
         "scale": {
+            "additionalInfo": {},
             "dataType": "Numerical",
             "decimalPlaces": 2,
             "externalReferences": [
@@ -1504,6 +1521,7 @@ Add new Observation Variables to the system.
             "Corn Height"
         ],
         "trait": {
+            "additionalInfo": {},
             "alternativeAbbreviations": [
                 "H",
                 "PH",
@@ -1661,6 +1679,7 @@ Add new Observation Variables to the system.
                     "version": "7.2.3"
                 },
                 "scale": {
+                    "additionalInfo": {},
                     "dataType": "Numerical",
                     "decimalPlaces": 2,
                     "externalReferences": [
@@ -1718,6 +1737,7 @@ Add new Observation Variables to the system.
                     "Corn Height"
                 ],
                 "trait": {
+                    "additionalInfo": {},
                     "alternativeAbbreviations": [
                         "H",
                         "PH",
@@ -1836,6 +1856,7 @@ Retrieve variable details
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
 |scale|object|Scale metadata|
+|additionalInfo|object|Additional arbitrary info|
 |dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
@@ -1861,6 +1882,7 @@ Retrieve variable details
 |submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
 |synonyms|array[string]|Other variable names|
 |trait|object||
+|additionalInfo|object|Additional arbitrary info|
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
@@ -1996,6 +2018,7 @@ Retrieve variable details
             "version": "7.2.3"
         },
         "scale": {
+            "additionalInfo": {},
             "dataType": "Numerical",
             "decimalPlaces": 2,
             "externalReferences": [
@@ -2053,6 +2076,7 @@ Retrieve variable details
             "Corn Height"
         ],
         "trait": {
+            "additionalInfo": {},
             "alternativeAbbreviations": [
                 "H",
                 "PH",
@@ -2174,6 +2198,7 @@ Update an existing Observation Variable
 |ontologyName|string|Ontology name|
 |version|string|Ontology version (no specific format)|
 |scale|object|Scale metadata|
+|additionalInfo|object|Additional arbitrary info|
 |dataType|string|<p>Class of the scale, entries can be</p> <p>"Code" -  This scale class is exceptionally used to express complex traits. Code is a nominal scale that combines the expressions of the different traits composing the complex trait. For example a severity trait might be expressed by a 2 digit and 2 character code. The first 2 digits are the percentage of the plant covered by a fungus and the 2 characters refer to the delay in development, e.g. "75VD" means "75 %" of the plant is infected and the plant is very delayed.</p> <p>"Date" - The date class is for events expressed in a time format, See ISO 8601</p> <p>"Duration" - The Duration class is for time elapsed between two events expressed in a time format, e.g. days, hours, months</p> <p>"Nominal" - Categorical scale that can take one of a limited and fixed number of categories. There is no intrinsic ordering to the categories</p> <p>"Numerical" - Numerical scales express the trait with real numbers. The numerical scale defines the unit e.g. centimeter, ton per hectare, branches</p> <p>"Ordinal" - Ordinal scales are scales composed of ordered categories</p> <p>"Text" - A free text is used to express the trait.</p>|
 |decimalPlaces|integer|For numerical, number of decimal places to be reported|
 |externalReferences|array[object]|An array of external reference ids. These are references to this piece of data in an external system. Could be a simple string or a URI.|
@@ -2199,6 +2224,7 @@ Update an existing Observation Variable
 |submissionTimestamp|string (date-time)|Timestamp when the Variable was added (ISO 8601)|
 |synonyms|array[string]|Other variable names|
 |trait|object||
+|additionalInfo|object|Additional arbitrary info|
 |alternativeAbbreviations|array[string]|Other frequent abbreviations of the trait, if any. These abbreviations do not have to follow a convention|
 |attribute|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the attribute is the observed feature (or characteristic) of the entity e.g., for "grain colour", attribute = "colour"|
 |entity|string|A trait can be decomposed as "Trait" = "Entity" + "Attribute", the entity is the part of the plant that the trait refers to e.g., for "grain colour", entity = "grain"|
@@ -2334,6 +2360,7 @@ Update an existing Observation Variable
             "version": "7.2.3"
         },
         "scale": {
+            "additionalInfo": {},
             "dataType": "Numerical",
             "decimalPlaces": 2,
             "externalReferences": [
@@ -2391,6 +2418,7 @@ Update an existing Observation Variable
             "Corn Height"
         ],
         "trait": {
+            "additionalInfo": {},
             "alternativeAbbreviations": [
                 "H",
                 "PH",

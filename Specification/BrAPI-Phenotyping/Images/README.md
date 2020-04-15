@@ -983,6 +983,7 @@ See Search Services for additional implementation details.
 |descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image to search for. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
 |externalReferenceIDs|array[string]|List of external references for the trait to search for|
 |externalReferenceSources|array[string]|List of external references sources for the trait to search for|
+|imageDbIds|array[string]|A list of image Ids to search for|
 |imageFileNames|array[string]|Image file names to search for.|
 |imageFileSizeMax|integer|A maximum image file size to search for.|
 |imageFileSizeMin|integer|A minimum image file size to search for.|
@@ -1053,6 +1054,10 @@ See Search Services for additional implementation details.
     "externalReferenceSources": [
         "OBO Library",
         "Field App Name"
+    ],
+    "imageDbIds": [
+        "564b64a6",
+        "0d122d1d"
     ],
     "imageFileNames": [
         "image_01032019.jpg",
