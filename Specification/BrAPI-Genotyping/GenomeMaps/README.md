@@ -125,7 +125,7 @@ Get list of maps
 
 
 
-### Get - /maps/{mapDbId} [GET /brapi/v2/maps/{mapDbId}{?page}{?pageSize}]
+### Get - /maps/{mapDbId} [GET /brapi/v2/maps/{mapDbId}]
 
 Provides the number of markers on each linkageGroup and the max position on the linkageGroup
 
@@ -154,8 +154,6 @@ Provides the number of markers on each linkageGroup and the max position on the 
 
 + Parameters
     + mapDbId (Required, ) ... The internal db id of a selected map
-    + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
-    + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
