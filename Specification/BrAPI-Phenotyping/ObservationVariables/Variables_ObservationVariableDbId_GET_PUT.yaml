@@ -39,6 +39,11 @@ paths:
         schema:
           type: string
       - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObservationVariableNewRequest'
       responses:
         '200':
           $ref: '#/components/responses/ObservationVariableSingleResponse'
