@@ -39,7 +39,7 @@ components:
             all the strings concatenated together. Express the hash as a lower-case
             hexadecimal string.
           type: string
-          example: 32a19dd72c184cb2823380392b5045bd
+          example: c2365e900c81a89cf74d83dab60df146
         referenceSetName:
           description: The reference set name.
           type: string
@@ -53,7 +53,7 @@ components:
         sourceURI:
           description: Specifies a FASTA format file/string.
           type: string
-          example: https://wiki.brapi.org/files/demo.fasta
+          example: https://wiki.brapi.org/files/demo.fast
         species:
           $ref: '#/components/schemas/OntologyTerm'
 
