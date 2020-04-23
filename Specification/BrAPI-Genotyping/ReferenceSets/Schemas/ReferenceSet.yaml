@@ -12,6 +12,7 @@ components:
         assemblyPUI:
           description: The remaining information is about the source of the sequences Public id of this reference set, such as `GRCH_37`.
           type: string
+          example: 'doi://10.12345/fake/9876'
         additionalInfo:
           additionalProperties:
             type: string
@@ -20,9 +21,11 @@ components:
         description:
           description: Optional free text description of this reference set.
           type: string
+          example: This is an example description for an assembly
         referenceSetDbId:
           description: The reference set ID. Unique in the repository.
           type: string
+          example: 7e029a84
         isDerived:
           description: A reference set may be derived from a source if it contains additional sequences, or some of the sequences within it are derived (see the definition of `isDerived` in `Reference`).
           format: boolean
@@ -36,17 +39,21 @@ components:
             all the strings concatenated together. Express the hash as a lower-case
             hexadecimal string.
           type: string
+          example: 32a19dd72c184cb2823380392b5045bd
         referenceSetName:
           description: The reference set name.
           type: string
+          example: The Best Assembly Ever
         sourceAccessions:
           description: All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) ideally with a version number, e.g. `NC_000001.11`.
           items:
             type: string
           type: array
+          example: ["A0000002", "A0009393"]
         sourceURI:
           description: Specifies a FASTA format file/string.
           type: string
+          example: https://wiki.brapi.org/files/demo.fasta
         species:
           $ref: '#/components/schemas/OntologyTerm'
 

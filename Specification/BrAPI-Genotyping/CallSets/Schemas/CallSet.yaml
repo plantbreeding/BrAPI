@@ -38,7 +38,7 @@ components:
           description: The ID which uniquely identifies a study within the given database server
           type: string
           example: 708149c1
-        variantSetIds:
+        variantSetDbIds:
           description: The IDs of the variant sets this call set has calls in.
           items:
             type: string

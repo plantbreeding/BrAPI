@@ -14,6 +14,12 @@ paths:
         required: false
         schema:
           type: string
+      - name: mapDbId
+        description: The primary DbId for this genomic map
+        in: query
+        required: false
+        schema:
+          type: string
       - name: mapPUI
         description: The DOI or other permanent identifier for this genomic map
         in: query
