@@ -12,7 +12,7 @@ Retrieving genetic or physical maps
 
 
 
-### Get - /maps [GET /brapi/v2/maps{?commonCropName}{?mapPUI}{?scientificName}{?type}{?programDbId}{?trialDbId}{?studyDbId}{?page}{?pageSize}]
+### Get - /maps [GET /brapi/v2/maps{?commonCropName}{?mapDbId}{?mapPUI}{?scientificName}{?type}{?programDbId}{?trialDbId}{?studyDbId}{?page}{?pageSize}]
 
 Get list of maps
 
@@ -42,6 +42,7 @@ Get list of maps
 
 + Parameters
     + commonCropName (Optional, ) ... The common name of the crop
+    + mapDbId (Optional, ) ... The primary DbId for this genomic map
     + mapPUI (Optional, ) ... The DOI or other permanent identifier for this genomic map
     + scientificName (Optional, ) ... Full scientific binomial format name. This includes Genus, Species, and Sub-species
     + type (Optional, ) ... Type of map

@@ -77,19 +77,19 @@ Gets a filtered list of `ReferenceSets`.
         "data": [
             {
                 "additionalInfo": {},
-                "assemblyPUI": "assemblyPUI",
-                "description": "description",
-                "md5checksum": "md5checksum",
-                "referenceSetDbId": "referenceSetDbId",
-                "referenceSetName": "referenceSetName",
+                "assemblyPUI": "doi://10.12345/fake/9876",
+                "description": "This is an example description for an assembly",
+                "md5checksum": "c2365e900c81a89cf74d83dab60df146",
+                "referenceSetDbId": "7e029a84",
+                "referenceSetName": "The Best Assembly Ever",
                 "sourceAccessions": [
-                    "sourceAccessions1",
-                    "sourceAccessions2"
+                    "A0000002",
+                    "A0009393"
                 ],
-                "sourceURI": "sourceURI",
+                "sourceURI": "https://wiki.brapi.org/files/demo.fast",
                 "species": {
-                    "term": "term",
-                    "termURI": "termURI"
+                    "term": "sonic hedgehog",
+                    "termURI": "MGI:MGI:98297"
                 }
             }
         ]
@@ -179,19 +179,19 @@ Gets a `ReferenceSet` by ID.
     },
     "result": {
         "additionalInfo": {},
-        "assemblyPUI": "assemblyPUI",
-        "description": "description",
-        "md5checksum": "md5checksum",
-        "referenceSetDbId": "referenceSetDbId",
-        "referenceSetName": "referenceSetName",
+        "assemblyPUI": "doi://10.12345/fake/9876",
+        "description": "This is an example description for an assembly",
+        "md5checksum": "c2365e900c81a89cf74d83dab60df146",
+        "referenceSetDbId": "7e029a84",
+        "referenceSetName": "The Best Assembly Ever",
         "sourceAccessions": [
-            "sourceAccessions1",
-            "sourceAccessions2"
+            "A0000002",
+            "A0009393"
         ],
-        "sourceURI": "sourceURI",
+        "sourceURI": "https://wiki.brapi.org/files/demo.fast",
         "species": {
-            "term": "term",
-            "termURI": "termURI"
+            "term": "sonic hedgehog",
+            "termURI": "MGI:MGI:98297"
         }
     }
 }
@@ -288,19 +288,19 @@ Gets a list of `ReferenceSet` matching the search criteria.
         "data": [
             {
                 "additionalInfo": {},
-                "assemblyPUI": "assemblyPUI",
-                "description": "description",
-                "md5checksum": "md5checksum",
-                "referenceSetDbId": "referenceSetDbId",
-                "referenceSetName": "referenceSetName",
+                "assemblyPUI": "doi://10.12345/fake/9876",
+                "description": "This is an example description for an assembly",
+                "md5checksum": "c2365e900c81a89cf74d83dab60df146",
+                "referenceSetDbId": "7e029a84",
+                "referenceSetName": "The Best Assembly Ever",
                 "sourceAccessions": [
-                    "sourceAccessions1",
-                    "sourceAccessions2"
+                    "A0000002",
+                    "A0009393"
                 ],
-                "sourceURI": "sourceURI",
+                "sourceURI": "https://wiki.brapi.org/files/demo.fast",
                 "species": {
-                    "term": "term",
-                    "termURI": "termURI"
+                    "term": "sonic hedgehog",
+                    "termURI": "MGI:MGI:98297"
                 }
             }
         ]
@@ -432,19 +432,19 @@ Gets a list of `ReferenceSet` matching the search criteria.
         "data": [
             {
                 "additionalInfo": {},
-                "assemblyPUI": "assemblyPUI",
-                "description": "description",
-                "md5checksum": "md5checksum",
-                "referenceSetDbId": "referenceSetDbId",
-                "referenceSetName": "referenceSetName",
+                "assemblyPUI": "doi://10.12345/fake/9876",
+                "description": "This is an example description for an assembly",
+                "md5checksum": "c2365e900c81a89cf74d83dab60df146",
+                "referenceSetDbId": "7e029a84",
+                "referenceSetName": "The Best Assembly Ever",
                 "sourceAccessions": [
-                    "sourceAccessions1",
-                    "sourceAccessions2"
+                    "A0000002",
+                    "A0009393"
                 ],
-                "sourceURI": "sourceURI",
+                "sourceURI": "https://wiki.brapi.org/files/demo.fast",
                 "species": {
-                    "term": "term",
-                    "termURI": "termURI"
+                    "term": "sonic hedgehog",
+                    "termURI": "MGI:MGI:98297"
                 }
             }
         ]

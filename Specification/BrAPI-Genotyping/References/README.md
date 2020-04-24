@@ -20,7 +20,8 @@
 |length|integer|The length of this reference's sequence.|
 |md5checksum|string|The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).|
 |referenceDbId|string|The reference ID. Unique within the repository.|
-|referenceName|string|The unique name of this reference within the Reference Set (e.g. '22').|
+|referenceName|string|The unique name of this reference within the Reference Set.|
+|referenceSetDbId|string|The reference ID. Unique within the repository.|
 |sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.|
 |sourceDivergence|number (float)|The `sourceDivergence` is the fraction of non-indel bases that do not match the reference this message was derived from.|
 |sourceURI|string|The URI from which the sequence was obtained. Specifies a FASTA format file/string with one name, sequence pair. In most cases, clients should call the `getReferenceBases()` method to obtain sequence bases for a `Reference` instead of attempting to retrieve this URI.|
@@ -80,18 +81,19 @@
         "data": [
             {
                 "additionalInfo": {},
-                "length": 0,
-                "md5checksum": "md5checksum",
-                "referenceDbId": "referenceDbId",
-                "referenceName": "referenceName",
+                "length": 50000000,
+                "md5checksum": "c2365e900c81a89cf74d83dab60df146",
+                "referenceDbId": "fc0a81d0",
+                "referenceName": "Chromosome 2",
+                "referenceSetDbId": "c1ecfef1",
                 "sourceAccessions": [
-                    "sourceAccessions1",
-                    "sourceAccessions2"
+                    "GCF_000001405.26"
                 ],
-                "sourceURI": "sourceURI",
+                "sourceDivergence": 0.01,
+                "sourceURI": "https://wiki.brapi.org/files/demo.fast",
                 "species": {
-                    "term": "term",
-                    "termURI": "termURI"
+                    "term": "sonic hedgehog",
+                    "termURI": "MGI:MGI:98297"
                 }
             }
         ]
@@ -133,7 +135,8 @@
 |length|integer|The length of this reference's sequence.|
 |md5checksum|string|The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).|
 |referenceDbId|string|The reference ID. Unique within the repository.|
-|referenceName|string|The unique name of this reference within the Reference Set (e.g. '22').|
+|referenceName|string|The unique name of this reference within the Reference Set.|
+|referenceSetDbId|string|The reference ID. Unique within the repository.|
 |sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.|
 |sourceDivergence|number (float)|The `sourceDivergence` is the fraction of non-indel bases that do not match the reference this message was derived from.|
 |sourceURI|string|The URI from which the sequence was obtained. Specifies a FASTA format file/string with one name, sequence pair. In most cases, clients should call the `getReferenceBases()` method to obtain sequence bases for a `Reference` instead of attempting to retrieve this URI.|
@@ -182,18 +185,19 @@
     },
     "result": {
         "additionalInfo": {},
-        "length": 0,
-        "md5checksum": "md5checksum",
-        "referenceDbId": "referenceDbId",
-        "referenceName": "referenceName",
+        "length": 50000000,
+        "md5checksum": "c2365e900c81a89cf74d83dab60df146",
+        "referenceDbId": "fc0a81d0",
+        "referenceName": "Chromosome 2",
+        "referenceSetDbId": "c1ecfef1",
         "sourceAccessions": [
-            "sourceAccessions1",
-            "sourceAccessions2"
+            "GCF_000001405.26"
         ],
-        "sourceURI": "sourceURI",
+        "sourceDivergence": 0.01,
+        "sourceURI": "https://wiki.brapi.org/files/demo.fast",
         "species": {
-            "term": "term",
-            "termURI": "termURI"
+            "term": "sonic hedgehog",
+            "termURI": "MGI:MGI:98297"
         }
     }
 }
@@ -280,9 +284,9 @@ Lists `Reference` bases by ID and optional range.
         ]
     },
     "result": {
-        "nextPageToken": "nextPageToken",
-        "offset": 0,
-        "sequence": "sequence"
+        "nextPageToken": "3a3d658a",
+        "offset": 20000,
+        "sequence": "TAGGATTGAGCTCTATATTAGGATTGAGCTCTATATTAGGATTGAGCTCTATATTAGGATTGAGCTCTATATTAGGATTGAGCTCTATATTAGGATTGAGCTCTATATTAGGATTGAGCTCTATATTAGGATTGAGCTCTATATTAGGATTGAGCTCTATAT"
     }
 }
 ```
@@ -337,7 +341,8 @@ version of `SearchReferencesResponse`.
 |length|integer|The length of this reference's sequence.|
 |md5checksum|string|The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).|
 |referenceDbId|string|The reference ID. Unique within the repository.|
-|referenceName|string|The unique name of this reference within the Reference Set (e.g. '22').|
+|referenceName|string|The unique name of this reference within the Reference Set.|
+|referenceSetDbId|string|The reference ID. Unique within the repository.|
 |sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.|
 |sourceDivergence|number (float)|The `sourceDivergence` is the fraction of non-indel bases that do not match the reference this message was derived from.|
 |sourceURI|string|The URI from which the sequence was obtained. Specifies a FASTA format file/string with one name, sequence pair. In most cases, clients should call the `getReferenceBases()` method to obtain sequence bases for a `Reference` instead of attempting to retrieve this URI.|
@@ -400,18 +405,19 @@ version of `SearchReferencesResponse`.
         "data": [
             {
                 "additionalInfo": {},
-                "length": 0,
-                "md5checksum": "md5checksum",
-                "referenceDbId": "referenceDbId",
-                "referenceName": "referenceName",
+                "length": 50000000,
+                "md5checksum": "c2365e900c81a89cf74d83dab60df146",
+                "referenceDbId": "fc0a81d0",
+                "referenceName": "Chromosome 2",
+                "referenceSetDbId": "c1ecfef1",
                 "sourceAccessions": [
-                    "sourceAccessions1",
-                    "sourceAccessions2"
+                    "GCF_000001405.26"
                 ],
-                "sourceURI": "sourceURI",
+                "sourceDivergence": 0.01,
+                "sourceURI": "https://wiki.brapi.org/files/demo.fast",
                 "species": {
-                    "term": "term",
-                    "termURI": "termURI"
+                    "term": "sonic hedgehog",
+                    "termURI": "MGI:MGI:98297"
                 }
             }
         ]
@@ -491,7 +497,8 @@ version of `SearchReferencesResponse`.
 |length|integer|The length of this reference's sequence.|
 |md5checksum|string|The MD5 checksum uniquely representing this `Reference` as a lower-case hexadecimal string, calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).|
 |referenceDbId|string|The reference ID. Unique within the repository.|
-|referenceName|string|The unique name of this reference within the Reference Set (e.g. '22').|
+|referenceName|string|The unique name of this reference within the Reference Set.|
+|referenceSetDbId|string|The reference ID. Unique within the repository.|
 |sourceAccessions|array[string]|All known corresponding accession IDs in INSDC (GenBank/ENA/DDBJ) which must include a version number, e.g. `GCF_000001405.26`.|
 |sourceDivergence|number (float)|The `sourceDivergence` is the fraction of non-indel bases that do not match the reference this message was derived from.|
 |sourceURI|string|The URI from which the sequence was obtained. Specifies a FASTA format file/string with one name, sequence pair. In most cases, clients should call the `getReferenceBases()` method to obtain sequence bases for a `Reference` instead of attempting to retrieve this URI.|
@@ -545,18 +552,19 @@ version of `SearchReferencesResponse`.
         "data": [
             {
                 "additionalInfo": {},
-                "length": 0,
-                "md5checksum": "md5checksum",
-                "referenceDbId": "referenceDbId",
-                "referenceName": "referenceName",
+                "length": 50000000,
+                "md5checksum": "c2365e900c81a89cf74d83dab60df146",
+                "referenceDbId": "fc0a81d0",
+                "referenceName": "Chromosome 2",
+                "referenceSetDbId": "c1ecfef1",
                 "sourceAccessions": [
-                    "sourceAccessions1",
-                    "sourceAccessions2"
+                    "GCF_000001405.26"
                 ],
-                "sourceURI": "sourceURI",
+                "sourceDivergence": 0.01,
+                "sourceURI": "https://wiki.brapi.org/files/demo.fast",
                 "species": {
-                    "term": "term",
-                    "termURI": "termURI"
+                    "term": "sonic hedgehog",
+                    "termURI": "MGI:MGI:98297"
                 }
             }
         ]

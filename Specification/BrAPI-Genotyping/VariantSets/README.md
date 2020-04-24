@@ -954,7 +954,7 @@ Gets a list of `CallSets` associated with a `VariantSet`.
 |sampleDbId|string|The Biosample entity the call set data was generated from.|
 |studyDbId|string|The ID which uniquely identifies a study within the given database server|
 |updated|string (date-time)|The time at which this call set was last updated|
-|variantSetIds|array[string]|The IDs of the variant sets this call set has calls in.|
+|variantSetDbIds|array[string]|The IDs of the variant sets this call set has calls in.|
 
 
  
@@ -1010,7 +1010,7 @@ Gets a list of `CallSets` associated with a `VariantSet`.
                 "sampleDbId": "5e50e11d",
                 "studyDbId": "708149c1",
                 "updated": "2018-01-01T14:47:23-0600",
-                "variantSetIds": [
+                "variantSetDbIds": [
                     "cfd3d60f",
                     "a4e8bfe9"
                 ]
