@@ -208,11 +208,12 @@ Gets a list of `ReferenceSet` matching the search criteria.
 
 |Field|Type|Description|
 |---|---|---| 
-|accession|string|If set, return the reference sets for which the `accession` matches this string (case-sensitive, exact match).|
-|assemblyPUI|string|If set, return the reference sets for which the `assemblyId` matches this string (case-sensitive, exact match).|
-|md5checksum|string|If set, return the reference sets for which the `md5checksum` matches this string (case-sensitive, exact match).|
+|accession||If set, return the reference sets for which the `accession` matches this string (case-sensitive, exact match).|
+|assemblyPUI||If set, return the reference sets for which the `assemblyId` matches this string (case-sensitive, exact match).|
+|md5checksum||If set, return the reference sets for which the `md5checksum` matches this string (case-sensitive, exact match).|
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
+|referenceSetDbIds||The `ReferenceSets` to search.|
 
 
 **Response Fields** 
@@ -244,11 +245,23 @@ Gets a list of `ReferenceSet` matching the search criteria.
 + Request (application/json)
 ```
 {
-    "accession": "A0009283",
-    "assemblyPUI": "doi:10.15454/312953986E3",
-    "md5checksum": "c2365e900c81a89cf74d83dab60df146",
+    "accession": [
+        "A0009283",
+        "A0006657"
+    ],
+    "assemblyPUI": [
+        "doi:10.15454/312953986E3",
+        "doi:10.15454/312953986E3"
+    ],
+    "md5checksum": [
+        "c2365e900c81a89cf74d83dab60df146"
+    ],
     "page": 0,
-    "pageSize": 1000
+    "pageSize": 1000,
+    "referenceSetDbIds": [
+        "32a19dd7",
+        "2c182c18"
+    ]
 }
 ```
 

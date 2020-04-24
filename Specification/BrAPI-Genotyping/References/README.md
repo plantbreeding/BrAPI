@@ -149,6 +149,7 @@
 
 + Parameters
     + referenceDbId (Required, ) ... The ID of the `Reference` to be retrieved.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 
@@ -324,11 +325,15 @@ version of `SearchReferencesResponse`.
 
 |Field|Type|Description|
 |---|---|---| 
-|accession|string|If specified, return the references for which the `accession` matches this string (case-sensitive, exact match).|
-|md5checksum|string|If specified, return the references for which the `md5checksum` matches this string (case-sensitive, exact match).|
+|accessions||If specified, return the references for which the `accession` matches this string (case-sensitive, exact match).|
+|isDerived|boolean (boolean)|A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.|
+|maxLength|integer|The minimum length of this reference's sequence.|
+|md5checksums||If specified, return the references for which the `md5checksum` matches this string (case-sensitive, exact match).|
+|minLength|integer|The minimum length of this reference's sequence.|
 |page|integer|Which result page is requested. The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.|
 |pageSize|integer|The size of the pages to be returned. Default is `1000`.|
-|referenceSetDbId|string|The `ReferenceSet` to search.|
+|referenceDbIds||The `References` to search.|
+|referenceSetDbIds||The `ReferenceSets` to search.|
 
 
 **Response Fields** 
@@ -361,11 +366,25 @@ version of `SearchReferencesResponse`.
 + Request (application/json)
 ```
 {
-    "accession": "A0009283",
-    "md5checksum": "c2365e900c81a89cf74d83dab60df146",
+    "accessions": [
+        "A0009283",
+        "A0006657"
+    ],
+    "maxLength": 90000,
+    "md5checksums": [
+        "c2365e900c81a89cf74d83dab60df146"
+    ],
+    "minLength": 4000,
     "page": 0,
     "pageSize": 1000,
-    "referenceSetDbId": "04c83ea7"
+    "referenceDbIds": [
+        "04c83ea7",
+        "d0998a34"
+    ],
+    "referenceSetDbIds": [
+        "32a19dd7",
+        "2c182c18"
+    ]
 }
 ```
 
