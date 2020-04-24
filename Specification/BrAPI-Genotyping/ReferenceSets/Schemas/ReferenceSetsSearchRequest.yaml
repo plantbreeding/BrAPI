@@ -12,14 +12,22 @@ components:
         properties:
           accession:
             description: If set, return the reference sets for which the `accession` matches this string (case-sensitive, exact match).
-            type: string
-            example: A0009283
+            items: 
+              type: string
+            example: ['A0009283','A0006657'] 
           assemblyPUI:
             description: If set, return the reference sets for which the `assemblyId` matches this string (case-sensitive, exact match).
-            type: string
-            example: doi:10.15454/312953986E3
+            items: 
+              type: string
+            example: ['doi:10.15454/312953986E3', 'doi:10.15454/312953986E3']
           md5checksum: 
             description: If set, return the reference sets for which the `md5checksum` matches this string (case-sensitive, exact match).
-            type: string
-            example: c2365e900c81a89cf74d83dab60df146
+            items: 
+              type: string
+            example: ['c2365e900c81a89cf74d83dab60df146']
+          referenceSetDbIds:
+            description: The `ReferenceSets` to search.
+            items: 
+              type: string
+            example: ['32a19dd7', '2c182c18']
 

@@ -10,16 +10,37 @@ components:
       - $ref: '#/components/schemas/SearchRequestParametersPaging'
       - type: object
         properties:
-          accession:
+          accessions:
             description: If specified, return the references for which the `accession` matches this string (case-sensitive, exact match).
-            type: string
-            example: A0009283
-          md5checksum:
+            items: 
+              type: string
+            example: ['A0009283','A0006657'] 
+          md5checksums:
             description: If specified, return the references for which the `md5checksum` matches this string (case-sensitive, exact match).
-            type: string
-            example: c2365e900c81a89cf74d83dab60df146
-          referenceSetDbId:
-            description: The `ReferenceSet` to search.
-            type: string
-            example: 04c83ea7
+            items: 
+              type: string
+            example: ['c2365e900c81a89cf74d83dab60df146']
+          referenceDbIds:
+            description: The `References` to search.
+            items: 
+              type: string
+            example: ['04c83ea7', 'd0998a34']
+          referenceSetDbIds:
+            description: The `ReferenceSets` to search.
+            items: 
+              type: string
+            example: ['32a19dd7', '2c182c18']
+          isDerived:
+            description: A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.
+            format: boolean
+            type: boolean
+          minLength:
+            description: The minimum length of this reference's sequence.
+            type: integer
+            example: 4000
+          maxLength:
+            description: The minimum length of this reference's sequence.
+            type: integer
+            example: 90000
+            
 
