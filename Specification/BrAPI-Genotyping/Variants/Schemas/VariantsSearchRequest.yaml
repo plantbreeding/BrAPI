@@ -28,6 +28,12 @@ components:
             description: The beginning of the window (0-based, inclusive) for which overlapping variants should be returned. Genomic positions are non-negative integers less than reference length. Requests spanning the join of circular genomes are represented as two requests one on each side of the join (position 0).
             type: integer
             example: 100
+          variantDbIds: 
+            description: The `Variant`s to search.
+            items:
+              type: string
+            type: array
+            example: ['3b63d889', 'ab4d174d']
           variantSetDbIds: 
             description: The `VariantSet` to search.
             items:
