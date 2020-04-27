@@ -49,8 +49,8 @@ paths:
       tags:
       - Lists
     post:
-      summary: Create a New List
-      description: Create a new list
+      summary: Create New List Objects
+      description: Create new list objects in the database
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:

@@ -62,9 +62,9 @@ paths:
       tags:
       - Images
     post:
-      summary: Create a new image meta data object
+      summary: Create new image meta data objects
       description: |-
-        Create a new image meta data object
+        Create new image meta data objects
 
         Implementation Notes
 

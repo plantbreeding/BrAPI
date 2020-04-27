@@ -40,8 +40,8 @@ paths:
       tags:
       - Traits
     post:
-      summary: Add a new Trait
-      description: Create a new trait object in the database
+      summary: Add new Traits
+      description: Create new trait objects in the database
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:

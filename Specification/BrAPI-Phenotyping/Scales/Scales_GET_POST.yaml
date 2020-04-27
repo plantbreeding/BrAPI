@@ -40,8 +40,8 @@ paths:
       tags:
       - Scales
     post:
-      summary: Add a new Scale
-      description: Create a new scale object in the database
+      summary: Add new Scales
+      description: Create new scale objects in the database
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:

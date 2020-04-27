@@ -40,8 +40,8 @@ paths:
       tags:
       - Methods
     post:
-      summary: Add a new Method
-      description: Create a new method object in the database
+      summary: Add new Methods
+      description: Create new method objects in the database
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
