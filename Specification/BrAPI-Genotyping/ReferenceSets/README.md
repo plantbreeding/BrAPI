@@ -143,6 +143,7 @@ Gets a `ReferenceSet` by ID.
 
 + Parameters
     + referenceSetDbId (Required, ) ... The ID of the `ReferenceSet` to be retrieved.
+    + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
 
 
 

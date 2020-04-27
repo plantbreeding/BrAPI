@@ -20,6 +20,7 @@ Gets a list of `Variant` matching the search criteria.
 |pageToken|string|Used to request a specific page of data to be returned.  Tokenized pages are for large data sets which can not be efficiently broken into indexed pages. Use the nextPageToken and prevPageToken from a prior response to construct a query and move to the next or previous page respectively. |
 |referenceDbId|string|Only return variants on this reference.|
 |start|integer|The beginning of the window (0-based, inclusive) for which overlapping variants should be returned. Genomic positions are non-negative integers less than reference length. Requests spanning the join of circular genomes are represented as two requests one on each side of the join (position 0).|
+|variantDbIds|array[string]|The `Variant`s to search.|
 |variantSetDbIds|array[string]|The `VariantSet` to search.|
 
 
@@ -67,6 +68,10 @@ Gets a list of `Variant` matching the search criteria.
     "pageToken": "33c27874",
     "referenceDbId": "120a2d5c",
     "start": 100,
+    "variantDbIds": [
+        "3b63d889",
+        "ab4d174d"
+    ],
     "variantSetDbIds": [
         "ba63d810",
         "434d1760"
