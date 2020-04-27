@@ -10,17 +10,17 @@ components:
       - $ref: '#/components/schemas/SearchRequestParametersPaging'
       - type: object
         properties:
-          accession:
+          accessions:
             description: If set, return the reference sets for which the `accession` matches this string (case-sensitive, exact match).
             items: 
               type: string
             example: ['A0009283','A0006657'] 
-          assemblyPUI:
+          assemblyPUIs:
             description: If set, return the reference sets for which the `assemblyId` matches this string (case-sensitive, exact match).
             items: 
               type: string
             example: ['doi:10.15454/312953986E3', 'doi:10.15454/312953986E3']
-          md5checksum: 
+          md5checksums: 
             description: If set, return the reference sets for which the `md5checksum` matches this string (case-sensitive, exact match).
             items: 
               type: string
