@@ -20,6 +20,12 @@ paths:
         required: false
         schema:
           type: string
+      - description: Filter based on an Event DbId
+        in: query
+        name: eventDbId
+        required: false
+        schema:
+          type: string
       - description: Filter based on an Event Type
         in: query
         name: eventType

@@ -22,19 +22,62 @@ def transform(fileObj):
     returnList = []
     if('paths' in fileObj):
         for path in fileObj['paths']:
-            item = {'dataTypes':['application/json'], 'service': path[1:], 'methods': [], 'versions':['2.0'] }
-            for method in fileObj['paths'][path]:
-                item['methods'].append(method)
-            returnList.append(item)
+            isBasePath = re.fullmatch('^/[a-z]+$', path)
+            if isBasePath and 'get' in fileObj['paths'][path]:
+                if 'parameters' in fileObj['paths'][path]['get']:
+                    item = {'path': path, 'params': fileObj['paths'][path]['get']['parameters']}
+                else:
+                    print('ERROR!!!!')
+                returnList.append(item)
             
     return returnList
                 
                 
 def search(searchList):
-    print(json.dumps({'result': {'calls': searchList}}))
+    for item in searchList:
+        dbid = mapPathToDbId(item['path'])
+        found = False
+        for param in item['params']:
+            if param['name'] == dbid:
+                found = True
+                break
+        if not found:
+            print(dbid)
 
 
-
+def mapPathToDbId(path):
+    ## Special cases because English is difficult
+    if path.startswith('/attributevalues'):
+            return 'attributeValueDbId'
+    elif path.startswith('/breedingmethods'):
+            return 'breedingMethodDbId'
+    elif path.startswith('/callsets'):
+            return 'callSetDbId'
+    elif path.startswith('/crosses'):
+            return 'crossDbId'
+    elif path.startswith('/plannedcrosses'):
+            return 'plannedCrossDbId'
+    elif path.startswith('/crossingprojects'):
+            return 'crossingProjectDbId'
+    elif path.startswith('/observationunits'):
+            return 'observationUnitDbId'
+    elif path.startswith('/people'):
+            return 'personDbId'
+    elif path.startswith('/referencesets'):
+            return 'referenceSetDbId'
+    elif path.startswith('/seedlots'):
+            return 'seedLotDbId'
+    elif path.startswith('/studies'):
+            return 'studyDbId'
+    elif path.startswith('/variables'):
+            return 'observationVariableDbId'
+    elif path.startswith('/variantsets'):
+            return 'variantSetDbId'
+    else:
+        rootPath = path.split('/')[1]        
+        if rootPath[-1] == 's':
+            rootPath = rootPath[:-1]
+        return rootPath + 'DbId'    
 
 if len(sys.argv) > 1 :
     go(sys.argv[1])

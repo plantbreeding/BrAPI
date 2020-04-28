@@ -8,6 +8,12 @@ paths:
       summary: Get a filtered set of Observation Units
       description: Get a filtered set of Observation Units
       parameters:
+      - description: The unique ID of an Observation Unit
+        in: query
+        name: observationUnitDbId
+        required: false
+        schema:
+          type: string
       - description: The unique ID of a germplasm (accession) to filter on
         in: query
         name: germplasmDbId

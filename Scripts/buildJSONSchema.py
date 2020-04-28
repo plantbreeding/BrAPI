@@ -68,6 +68,7 @@ def buildCollection(parent):
 					secondTest['name'] += ' with second DbId' 
 					secondTest['requires'] = getRequiresList(method, path, '1')
 					secondTest['request']['url'] = "{baseurl}" + replacePathParams(method, path, '1')
+					secondTest['event'][0]['exec'] = getExecList(method, path, tagName.replace(' ', ''), '1')
 					tag['item'].append(secondTest)
 				break
 	
@@ -136,7 +137,7 @@ def sortPaths(parent):
 	return sortedPaths
 	
 
-def getExecList(method, path, tag):
+def getExecList(method, path, tag, variablePostfix='0'):
 	execList = [
 					"ContentType:application/json",
 					"Schema:/" + versionNumber + "/metadata"
@@ -184,9 +185,9 @@ def getExecList(method, path, tag):
 				True
 		elif isDbIdPath:
 			if method == 'get':
-				execList.append('IsEqual:/result/' + dbid + ':' + dbid +'0')
+				execList.append('IsEqual:/result/' + dbid + ':' + dbid + variablePostfix)
 			elif method == 'put':
-				execList.append('IsEqual:/result/' + dbid + ':' + dbid +'0')
+				execList.append('IsEqual:/result/' + dbid + ':' + dbid + variablePostfix)
 		elif isDbIdExtraPath:
 			if method == 'get':
 				True
@@ -255,7 +256,19 @@ def getSearchPathVariableName(path):
 	return path.split('/')[2] + 'SearchResultDbId'
 
 def getParamsList(method, path):
+	isSearchPath = re.fullmatch('^/search/[a-z]+(/{searchResultsDbId})?$', path)
 	paramsList = []
+	if isSearchPath:
+		if method.lower() == 'post':
+			param = {'param': 'json', 'value': '{}'}
+			paramsList.append(param)
+	else:
+		if method.lower() == 'post':
+			param = {'param': 'json', 'value': '[{}]'}
+			paramsList.append(param)
+		elif method.lower() == 'put':
+			param = {'param': 'json', 'value': '{}'}
+			paramsList.append(param)
 	return paramsList
 	
 def buildResponseObjectName(method, path, responseCode = '200'):
@@ -364,6 +377,8 @@ def allowNullFields(parent):
 				newParent['properties'][fieldName] = allowNullFields(fieldObj)
 				
 				if not fieldName in requiredFields:
+					if 'enum' in fieldObj:
+						newParent['properties'][fieldName]['enum'].append(None)
 					types = ['null']
 					if 'type' in fieldObj:
 						types.append(fieldObj['type'])
