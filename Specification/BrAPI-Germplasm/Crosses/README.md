@@ -5,7 +5,7 @@
 
 
 
-### Get - /crosses [GET /brapi/v2/crosses{?crossingProjectDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /crosses [GET /brapi/v2/crosses{?crossingProjectDbId}{?crossDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered list of Cross entities.
 
@@ -47,6 +47,7 @@ Get a filtered list of Cross entities.
 
 + Parameters
     + crossingProjectDbId (Optional, ) ... Search for Crossing Projects with this unique id
+    + crossDbId (Optional, ) ... Search for Cross with this unique id
     + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
     + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.

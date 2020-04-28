@@ -114,7 +114,7 @@ The values are used to supply the `observationLevel` parameter in the observatio
 
 
 
-### Get - /observationunits [GET /brapi/v2/observationunits{?germplasmDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationUnitLevelName}{?observationUnitLevelOrder}{?observationUnitLevelCode}{?includeObservations}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /observationunits [GET /brapi/v2/observationunits{?observationUnitDbId}{?germplasmDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationUnitLevelName}{?observationUnitLevelOrder}{?observationUnitLevelCode}{?includeObservations}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a filtered set of Observation Units
 
@@ -189,6 +189,7 @@ Get a filtered set of Observation Units
  
 
 + Parameters
+    + observationUnitDbId (Optional, ) ... The unique ID of an Observation Unit
     + germplasmDbId (Optional, ) ... The unique ID of a germplasm (accession) to filter on
     + studyDbId (Optional, ) ... The unique ID of a studies to filter on
     + locationDbId (Optional, ) ... The unique ID of a location where these observations were collected

@@ -8,7 +8,7 @@ API to manage the details of observation variable Traits. An observation variabl
 
 
 
-### Get - /observations [GET /brapi/v2/observations{?observationUnitDbId}{?germplasmDbId}{?observationVariableDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationUnitLevelName}{?observationUnitLevelOrder}{?observationUnitLevelCode}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /observations [GET /brapi/v2/observations{?observationDbId}{?observationUnitDbId}{?germplasmDbId}{?observationVariableDbId}{?studyDbId}{?locationDbId}{?trialDbId}{?programDbId}{?seasonDbId}{?observationUnitLevelName}{?observationUnitLevelOrder}{?observationUnitLevelCode}{?observationTimeStampRangeStart}{?observationTimeStampRangeEnd}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Retrieve all observations where there are measurements for the given observation variables.
 
@@ -46,6 +46,7 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
  
 
 + Parameters
+    + observationDbId (Optional, ) ... The unique ID of an Observation
     + observationUnitDbId (Optional, ) ... The unique ID of an Observation Unit
     + germplasmDbId (Optional, ) ... The unique ID of a germplasm (accession) to filter on
     + observationVariableDbId (Optional, ) ... The unique ID of an observation variable

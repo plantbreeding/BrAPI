@@ -7,7 +7,7 @@ Location calls.
 
 
 
-### Get - /locations [GET /brapi/v2/locations{?locationType}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
+### Get - /locations [GET /brapi/v2/locations{?locationType}{?locationDbId}{?externalReferenceID}{?externalReferenceSource}{?page}{?pageSize}]
 
 Get a list of locations.
 * The `countryCode` is as per [ISO_3166-1_alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) spec.
@@ -49,6 +49,7 @@ Get a list of locations.
 
 + Parameters
     + locationType (Optional, ) ... Filter by location type specified.
+    + locationDbId (Optional, ) ... Filter by location DbId
     + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
     + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
