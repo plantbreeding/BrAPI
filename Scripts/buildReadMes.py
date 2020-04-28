@@ -83,6 +83,7 @@ def buildGroupTitle(callPath, method, callsStrings):
 	
 	return groupTitle
 
+uniquePaths = []
 def buildTitleStr(path, method, params = [], deprecated = False):
 
 	titleStr = '\n### ' 
@@ -91,13 +92,16 @@ def buildTitleStr(path, method, params = [], deprecated = False):
 		
 	titleStr += method.capitalize() + ' - ' + path
 	
-	titleStr += ' [' + method.upper() + ' /brapi/v2' + path
-	
+	uniquePathStr = ' /brapi/v2' + path
 	for param in params:
 		if param['in'] == 'query' :
-		    titleStr += '{?' + param['name'] + '}'
-		    
-	titleStr += ']\n\n'
+		    uniquePathStr += '{?' + param['name'] + '}'
+	
+	if uniquePathStr in uniquePaths:
+		uniquePathStr += '/'
+	uniquePaths.append(uniquePathStr)
+	
+	titleStr += ' [' + method.upper() + uniquePathStr + ']\n\n'
 	
 	return titleStr
 
