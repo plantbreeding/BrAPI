@@ -1076,7 +1076,7 @@ Get the details of a specific Trial
 
 
 
-### Put - /trials/{trialDbId} [PUT /brapi/v2/trials/{trialDbId}]
+### Put - /trials/{trialDbId} [PUT /brapi/v2/trials/{trialDbId}/]
 
 Update the details of an existing Trial
 

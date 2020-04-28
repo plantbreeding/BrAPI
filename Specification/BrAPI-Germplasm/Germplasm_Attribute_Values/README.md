@@ -389,7 +389,7 @@ Get the details for a specific Germplasm Attribute
 
 
 
-### Put - /attributevalues/{attributeValueDbId} [PUT /brapi/v2/attributevalues/{attributeValueDbId}]
+### Put - /attributevalues/{attributeValueDbId} [PUT /brapi/v2/attributevalues/{attributeValueDbId}/]
 
 Update an existing Germplasm Attribute Value
 

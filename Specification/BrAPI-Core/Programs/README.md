@@ -395,7 +395,7 @@ Get a single breeding Program by Id. This can be used to quickly get the details
 
 
 
-### Put - /programs/{programDbId} [PUT /brapi/v2/programs/{programDbId}]
+### Put - /programs/{programDbId} [PUT /brapi/v2/programs/{programDbId}/]
 
 Update the details of an existing breeding Program.
 

@@ -145,7 +145,7 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 
 ### Post - /methods [POST /brapi/v2/methods]
 
-Create a new method object in the database
+Create new method objects in the database
 
 **Request Fields** 
 
@@ -460,7 +460,7 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 
 
 
-### Put - /methods/{methodDbId} [PUT /brapi/v2/methods/{methodDbId}]
+### Put - /methods/{methodDbId} [PUT /brapi/v2/methods/{methodDbId}/]
 
 Update the details of an existing method
 

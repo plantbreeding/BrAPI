@@ -355,7 +355,7 @@ Add new Observation entities
 
 
 
-### Put - /observations [PUT /brapi/v2/observations]
+### Put - /observations [PUT /brapi/v2/observations/]
 
 Update multiple Observation entities simultaneously with a single call
 
@@ -1007,7 +1007,7 @@ observationTimestamp should be ISO8601 format with timezone -> YYYY-MM-DDThh:mm:
 
 
 
-### Put - /observations/{observationDbId} [PUT /brapi/v2/observations/{observationDbId}]
+### Put - /observations/{observationDbId} [PUT /brapi/v2/observations/{observationDbId}/]
 
 Update an existing Observation
 

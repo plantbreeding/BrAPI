@@ -1583,7 +1583,7 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
 
 
 
-### Put - /studies/{studyDbId} [PUT /brapi/v2/studies/{studyDbId}]
+### Put - /studies/{studyDbId} [PUT /brapi/v2/studies/{studyDbId}/]
 
 Update an existing Study with new data
 

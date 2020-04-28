@@ -342,7 +342,7 @@ Create new Planned Cross entities on this server
 
 
 
-### Put - /plannedcrosses [PUT /brapi/v2/plannedcrosses]
+### Put - /plannedcrosses [PUT /brapi/v2/plannedcrosses/]
 
 Update existing Planned Cross entities on this server
 

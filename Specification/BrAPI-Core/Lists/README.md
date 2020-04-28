@@ -132,7 +132,7 @@ Get filtered set of generic lists
 
 ### Post - /lists [POST /brapi/v2/lists]
 
-Create a new list
+Create new list objects in the database
 
 **Request Fields** 
 
@@ -425,7 +425,7 @@ Get a specific generic lists
 
 
 
-### Put - /lists/{listDbId} [PUT /brapi/v2/lists/{listDbId}]
+### Put - /lists/{listDbId} [PUT /brapi/v2/lists/{listDbId}/]
 
 Update an existing generic list
 

@@ -375,7 +375,7 @@ Get a filtered list of Crossing Projects.
 
 
 
-### Put - /crossingprojects/{crossingProjectDbId} [PUT /brapi/v2/crossingprojects/{crossingProjectDbId}]
+### Put - /crossingprojects/{crossingProjectDbId} [PUT /brapi/v2/crossingprojects/{crossingProjectDbId}/]
 
 Update an existing Crossing Project entity on this server
 

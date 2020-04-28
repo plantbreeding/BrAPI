@@ -498,7 +498,7 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
 
 
 
-### Put - /samples/{sampleDbId} [PUT /brapi/v2/samples/{sampleDbId}]
+### Put - /samples/{sampleDbId} [PUT /brapi/v2/samples/{sampleDbId}/]
 
 Update the details of an existing Sample
 

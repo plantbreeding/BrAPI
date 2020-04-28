@@ -375,7 +375,7 @@ Create new Cross entities on this server
 
 
 
-### Put - /crosses [PUT /brapi/v2/crosses]
+### Put - /crosses [PUT /brapi/v2/crosses/]
 
 Update existing Cross entities on this server
 

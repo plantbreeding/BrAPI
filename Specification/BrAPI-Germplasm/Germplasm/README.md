@@ -969,7 +969,7 @@ Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport
 
 
 
-### Put - /germplasm/{germplasmDbId} [PUT /brapi/v2/germplasm/{germplasmDbId}]
+### Put - /germplasm/{germplasmDbId} [PUT /brapi/v2/germplasm/{germplasmDbId}/]
 
 Germplasm Details by germplasmDbId was merged with Germplasm Multi Crop Passport Data. The MCPD fields are optional and marked with the prefix [MCPD].
 

@@ -284,7 +284,7 @@ Get the a single Season
 
 
 
-### Put - /seasons/{seasonDbId} [PUT /brapi/v2/seasons/{seasonDbId}]
+### Put - /seasons/{seasonDbId} [PUT /brapi/v2/seasons/{seasonDbId}/]
 
 Update existing Seasons
 

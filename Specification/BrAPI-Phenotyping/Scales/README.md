@@ -165,7 +165,7 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
 
 ### Post - /scales [POST /brapi/v2/scales]
 
-Create a new scale object in the database
+Create new scale objects in the database
 
 **Request Fields** 
 
@@ -540,7 +540,7 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
 
 
 
-### Put - /scales/{scaleDbId} [PUT /brapi/v2/scales/{scaleDbId}]
+### Put - /scales/{scaleDbId} [PUT /brapi/v2/scales/{scaleDbId}/]
 
 Update the details of an existing scale
 
