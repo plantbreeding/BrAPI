@@ -2149,7 +2149,7 @@ Retrieve variable details
 
 
 
-### Put - /variables/{observationVariableDbId} [PUT /brapi/v2/variables/{observationVariableDbId}]
+### Put - /variables/{observationVariableDbId} [PUT /brapi/v2/variables/{observationVariableDbId}/]
 
 Update an existing Observation Variable
 

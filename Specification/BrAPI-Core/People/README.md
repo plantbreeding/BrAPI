@@ -407,7 +407,7 @@ Get the details for a specific Person
 
 
 
-### Put - /people/{personDbId} [PUT /brapi/v2/people/{personDbId}]
+### Put - /people/{personDbId} [PUT /brapi/v2/people/{personDbId}/]
 
 Update an existing Person
 

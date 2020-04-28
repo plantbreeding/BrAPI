@@ -702,7 +702,7 @@ Get a specific Seed Lot by seedLotDbId
 
 
 
-### Put - /seedlots/{seedLotDbId} [PUT /brapi/v2/seedlots/{seedLotDbId}]
+### Put - /seedlots/{seedLotDbId} [PUT /brapi/v2/seedlots/{seedLotDbId}/]
 
 Update an existing Seed Lot
 

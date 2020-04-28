@@ -175,7 +175,7 @@ Implementation Notes
 
 ### Post - /images [POST /brapi/v2/images]
 
-Create a new image meta data object
+Create new image meta data objects
 
 Implementation Notes
 
@@ -566,7 +566,7 @@ Implementation Notes
 
 
 
-### Put - /images/{imageDbId} [PUT /brapi/v2/images/{imageDbId}]
+### Put - /images/{imageDbId} [PUT /brapi/v2/images/{imageDbId}/]
 
 Update an image meta data object
 

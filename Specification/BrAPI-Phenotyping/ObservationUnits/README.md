@@ -748,7 +748,7 @@ Add new Observation Units
 
 
 
-### Put - /observationunits [PUT /brapi/v2/observationunits]
+### Put - /observationunits [PUT /brapi/v2/observationunits/]
 
 Update a set of Observation Units
 
@@ -1512,7 +1512,7 @@ Get the details of a specific Observation Unit
 
 
 
-### Put - /observationunits/{observationUnitDbId} [PUT /brapi/v2/observationunits/{observationUnitDbId}]
+### Put - /observationunits/{observationUnitDbId} [PUT /brapi/v2/observationunits/{observationUnitDbId}/]
 
 Update an existing Observation Units
 
