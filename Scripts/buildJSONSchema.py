@@ -227,6 +227,8 @@ def mapPathToDbId(path):
 			return 'observationVariableDbId'
 	elif path.startswith('/variantsets'):
 			return 'variantSetDbId'
+	elif path.startswith('/ontologies'):
+			return 'ontologyDbId'
 	else:
 		rootPath = path.split('/')[1]		
 		if rootPath[-1] == 's':
@@ -257,18 +259,18 @@ def getSearchPathVariableName(path):
 
 def getParamsList(method, path):
 	isSearchPath = re.fullmatch('^/search/[a-z]+(/{searchResultsDbId})?$', path)
-	paramsList = []
+	
+	bodyStr = ''
 	if isSearchPath:
 		if method.lower() == 'post':
-			param = {'param': 'json', 'value': '{}'}
-			paramsList.append(param)
+			bodyStr = '{}'
 	else:
 		if method.lower() == 'post':
-			param = {'param': 'json', 'value': '[{}]'}
-			paramsList.append(param)
+			bodyStr = '[{}]'
 		elif method.lower() == 'put':
-			param = {'param': 'json', 'value': '{}'}
-			paramsList.append(param)
+			bodyStr = '{}'
+	
+	paramsList = [{'param': 'json', 'value': bodyStr}]
 	return paramsList
 	
 def buildResponseObjectName(method, path, responseCode = '200'):
@@ -292,7 +294,7 @@ def buildJSONSchemas(method, path, tag, parent):
 		if not responseCode.startswith('4'):
 			schema = parent['paths'][path][method]['responses'][responseCode]['content']['application/json']['schema']['properties']['result']
 		
-			schema = fixSchema(schema)
+			schema = fixSchema(schema, method, path)
 			schemaObj = {
 							"$schema": "http://json-schema.org/draft-04/schema#",
 							"title": buildResponseObjectName(method, path, responseCode),
@@ -312,16 +314,21 @@ def buildJSONSchemas(method, path, tag, parent):
 								
 							
 
-def fixSchema(schema):
-	if 'data' in schema['properties']:
-		schema['properties']['data']['minItems'] = 1
-		
+def fixSchema(schema, method, path):
+	schema = addMinItems(schema, method, path)
 	schema = removeDeprecated(schema)
 	schema = removeSwaggerTerms(schema)
 	schema = fixStringFormats(schema)
 	schema = allowNullFields(schema)
 	return schema
 
+def addMinItems(parent, method, path):
+	newParent = deepcopy(parent)
+	specialCases = ['get /vendor/orders/{orderId}/plates ', 'get /vendor/orders/{orderId}/results ', 'get /lists/{listDbId}', 'put /lists/{listDbId}', 'put /crosses', 'put /plannedcrosses', 'put /observationunits', 'put /observations']
+	if 'data' in newParent['properties'] and (method.lower() + ' ' + path) not in specialCases:
+		newParent['properties']['data']['minItems'] = 1
+	return newParent	
+	
 def removeDeprecated(parent):
 	newParent = deepcopy(parent)
 	if type(parent) is dict:
@@ -392,7 +399,7 @@ def allowNullFields(parent):
 	return newParent
 			
 def buildMetaData(parent):
-	metaSchema = fixSchema(parent['components']['schemas']['metadata'])
+	metaSchema = fixSchema(parent['components']['schemas']['metadata'], '', '')
 	schemaObj = {
 					"$schema": "http://json-schema.org/draft-04/schema#",
 					"title": "metadata",
