@@ -24,6 +24,7 @@ paths:
                   result:
                     properties:
                       data:
+                        description: the list of all study types available in this server.
                         items:
                           type: string
                         type: array

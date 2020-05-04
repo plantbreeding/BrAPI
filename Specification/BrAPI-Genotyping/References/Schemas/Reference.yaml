@@ -26,6 +26,7 @@ components:
           description: A sequence X is said to be derived from source sequence Y, if X and Y are of the same length and the per-base sequence divergence at A/C/G/T bases is sufficiently small. Two sequences derived from the same official sequence share the same coordinates and annotations, and can be replaced with the official sequence for certain use cases.
           format: boolean
           type: boolean
+          example: false
         length:
           description: The length of this reference's sequence.
           type: integer
