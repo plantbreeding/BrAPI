@@ -1989,7 +1989,7 @@ Call to retrieve the list of study types.
 
 |Field|Type|Description|
 |---|---|---| 
-|data|array[string]||
+|data|array[string]|the list of all study types available in this server.|
 
 
  

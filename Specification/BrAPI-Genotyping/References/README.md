@@ -81,6 +81,7 @@
         "data": [
             {
                 "additionalInfo": {},
+                "isDerived": false,
                 "length": 50000000,
                 "md5checksum": "c2365e900c81a89cf74d83dab60df146",
                 "referenceDbId": "fc0a81d0",
@@ -186,6 +187,7 @@
     },
     "result": {
         "additionalInfo": {},
+        "isDerived": false,
         "length": 50000000,
         "md5checksum": "c2365e900c81a89cf74d83dab60df146",
         "referenceDbId": "fc0a81d0",
@@ -424,6 +426,7 @@ version of `SearchReferencesResponse`.
         "data": [
             {
                 "additionalInfo": {},
+                "isDerived": false,
                 "length": 50000000,
                 "md5checksum": "c2365e900c81a89cf74d83dab60df146",
                 "referenceDbId": "fc0a81d0",
@@ -571,6 +574,7 @@ version of `SearchReferencesResponse`.
         "data": [
             {
                 "additionalInfo": {},
+                "isDerived": false,
                 "length": 50000000,
                 "md5checksum": "c2365e900c81a89cf74d83dab60df146",
                 "referenceDbId": "fc0a81d0",
