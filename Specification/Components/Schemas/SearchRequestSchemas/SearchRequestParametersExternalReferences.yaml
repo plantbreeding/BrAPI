@@ -9,13 +9,13 @@ components:
       type: object
       properties:
         externalReferenceIDs: 
-          description: List of external references for the trait to search for
+          description: List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)
           items:
             type: string
           type: array
           example: ['http://purl.obolibrary.org/obo/ro.owl', '14a19841']
         externalReferenceSources: 
-          description: List of external references sources for the trait to search for
+          description: List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)
           items:
             type: string
           type: array
