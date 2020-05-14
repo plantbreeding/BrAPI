@@ -200,8 +200,8 @@ Get a filtered set of Observation Units
     + observationUnitLevelOrder (Optional, ) ... The Observation Unit Level Order Number. Returns only the observation unit of the specified Level. References ObservationUnit->observationUnitPosition->observationLevel->levelOrder
     + observationUnitLevelCode (Optional, ) ... The Observation Unit Level Code. This parameter should be used together with `observationUnitLevelName` or `observationUnitLevelOrder`. References ObservationUnit->observationUnitPosition->observationLevel->levelCode
     + includeObservations (Optional, ) ... Use this parameter to include a list of observations embedded in each ObservationUnit object. CAUTION - Use this parameter at your own risk. It may return large, unpaginated lists of observation data. Only set this value to True if you are sure you need to.
-    + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
-    + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
+    + externalReferenceID (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceID` parameter)
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -1907,8 +1907,8 @@ observationValue data type inferred from the ontology
 
 |Field|Type|Description|
 |---|---|---| 
-|externalReferenceIDs|array[string]|List of external references for the trait to search for|
-|externalReferenceSources|array[string]|List of external references sources for the trait to search for|
+|externalReferenceIDs|array[string]|List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
+|externalReferenceSources|array[string]|List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)|
 |germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm to search for|
 |germplasmNames|array[string]|List of human readable names to identify germplasm to search for|
 |includeObservations|boolean|Use this parameter to include a list of observations embedded in each ObservationUnit object.   CAUTION - Use this parameter at your own risk. It may return large, unpaginated lists of observation data. Only set this value to True if you are sure you need to.|
@@ -2380,7 +2380,7 @@ See Search Services for additional implementation details.
  
 
 + Parameters
-    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
+    + searchResultsDbId (Required, ) ... Unique identifier which references the search results
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>

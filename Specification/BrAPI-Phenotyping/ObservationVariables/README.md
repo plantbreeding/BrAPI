@@ -17,8 +17,8 @@ See Search Services for additional implementation details.
 |Field|Type|Description|
 |---|---|---| 
 |dataTypes|array[string]|List of scale data types to filter search results|
-|externalReferenceIDs|array[string]|List of external references for the trait to search for|
-|externalReferenceSources|array[string]|List of external references sources for the trait to search for|
+|externalReferenceIDs|array[string]|List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
+|externalReferenceSources|array[string]|List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)|
 |methodDbIds|array[string]|List of methods to filter search results|
 |observationVariableDbIds|array[string]|List of observation variable IDs to search for|
 |observationVariableNames|array[string]|List of human readable observation variable names to search for|
@@ -561,7 +561,7 @@ See Search Services for additional implementation details.
  
 
 + Parameters
-    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
+    + searchResultsDbId (Required, ) ... Unique identifier which references the search results
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -949,8 +949,8 @@ Call to retrieve a list of observationVariables available in the system.
     + observationVariableDbId (Optional, ) ... Variable's unique ID
     + traitClass (Optional, ) ... Variable's trait class (phenological, physiological, morphological, etc.)
     + studyDbId (Optional, ) ... The unique ID of a studies to filter on
-    + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
-    + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
+    + externalReferenceID (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceID` parameter)
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>

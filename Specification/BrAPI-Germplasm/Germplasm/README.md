@@ -261,8 +261,8 @@ Addresses these needs
     + synonym (Optional, ) ... Alternative name or ID used to reference this germplasm
     + parentDbId (Optional, ) ... Search for Germplasm with this parent
     + progenyDbId (Optional, ) ... Search for Germplasm with this child
-    + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
-    + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
+    + externalReferenceID (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceID` parameter)
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -1780,8 +1780,8 @@ See Search Services for additional implementation details.
 |accessionNumbers|array[string]|List unique identifiers for accessions within a genebank|
 |collections|array[string]|A specific panel/collection/population name this germplasm belongs to.|
 |commonCropNames|array[string]|Common name for the crop which this program is for|
-|externalReferenceIDs|array[string]|List of external references for the trait to search for|
-|externalReferenceSources|array[string]|List of external references sources for the trait to search for|
+|externalReferenceIDs|array[string]|List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
+|externalReferenceSources|array[string]|List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)|
 |genus|array[string]|List of Genus names to identify germplasm|
 |germplasmDbIds|array[string]|List of IDs which uniquely identify germplasm to search for|
 |germplasmNames|array[string]|List of human readable names to identify germplasm to search for|
@@ -2173,7 +2173,7 @@ Addresses these needs:
  
 
 + Parameters
-    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
+    + searchResultsDbId (Required, ) ... Unique identifier which references the search results
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>

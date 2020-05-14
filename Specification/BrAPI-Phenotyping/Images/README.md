@@ -59,8 +59,8 @@ Implementation Notes
     + observationUnitDbId (Optional, ) ... The unique identifier of the observation unit an image is portraying
     + observationDbId (Optional, ) ... The unique identifier of the observation an image is associated with
     + descriptiveOntologyTerm (Optional, ) ... A descriptive term associated with an image
-    + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
-    + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
+    + externalReferenceID (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceID` parameter)
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
@@ -981,8 +981,8 @@ See Search Services for additional implementation details.
 |Field|Type|Description|
 |---|---|---| 
 |descriptiveOntologyTerms|array[string]|A list of terms to formally describe the image to search for. Each item could be a simple Tag, an Ontology reference Id, or a full ontology URL.|
-|externalReferenceIDs|array[string]|List of external references for the trait to search for|
-|externalReferenceSources|array[string]|List of external references sources for the trait to search for|
+|externalReferenceIDs|array[string]|List of external reference IDs. Could be a simple strings or a URIs. (use with `externalReferenceSources` parameter)|
+|externalReferenceSources|array[string]|List of identifiers for the source system or database of an external reference (use with `externalReferenceIDs` parameter)|
 |imageDbIds|array[string]|A list of image Ids to search for|
 |imageFileNames|array[string]|Image file names to search for.|
 |imageFileSizeMax|integer|A maximum image file size to search for.|
@@ -1305,7 +1305,7 @@ Implementation Notes
  
 
 + Parameters
-    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
+    + searchResultsDbId (Required, ) ... Unique identifier which references the search results
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>

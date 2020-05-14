@@ -48,8 +48,8 @@ Get a filtered list of Cross entities.
 + Parameters
     + crossingProjectDbId (Optional, ) ... Search for Crossing Projects with this unique id
     + crossDbId (Optional, ) ... Search for Cross with this unique id
-    + externalReferenceID (Optional, ) ... Search for Germplasm by an external reference
-    + externalReferenceSource (Optional, ) ... Search for Germplasm by an external reference
+    + externalReferenceID (Optional, ) ... An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+    + externalReferenceSource (Optional, ) ... An identifier for the source system or database of an external reference (use with `externalReferenceID` parameter)
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>

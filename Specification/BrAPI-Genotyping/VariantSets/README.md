@@ -244,7 +244,7 @@ Gets a list of `VariantSet` matching the search criteria.
  
 
 + Parameters
-    + searchResultsDbId (Required, ) ... Permanent unique identifier which references the search results
+    + searchResultsDbId (Required, ) ... Unique identifier which references the search results
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.
     + Authorization (Optional, ) ... HTTP HEADER - Token used for Authorization <strong> Bearer {token_string} </strong>
