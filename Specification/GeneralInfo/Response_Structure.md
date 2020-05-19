@@ -1,16 +1,18 @@
 
 ### Structure of the response object:
 
-The return objects are encoded in JSON. The response consists of:
-+ A "metadata" key containing pagination, status, and file information;
-+ A "result" key that can contain:
-  + Arbitrary properties; and/or
-  + A "data" key containing an array of objects of the same type.
+The return objects are encoded in JSON. A normal response consists of:
++ An optional `@context` field used for defining fields used by JSON-LD
++ A required `metadata` field containing pagination info, status logging messages, and extra linked file information
++ A required `result` field that contains the payload of requested data. Depending on what request was made, this payload might be a single object or an array of objects
 
+#### @Context
 
-#### The Metadata Key
+The `@context` field is used for defining fields used by JSON-LD. `@context` should be an array of URLs which point to JSON-LD context files. `@context` is optional and should only be included in a response if the requesting client uses JSON-LD. More information on JSON-LD can be found at [json-ld.org](https://json-ld.org/).
 
-The metadata key is structured as followed:
+#### Metadata
+
+The `metadata` field should have the following structure:
 
 
 ````
@@ -42,9 +44,9 @@ The metadata key is structured as followed:
 ````
 
 +  **pagination**: 
-    The `pagination` object is applicable only when the result payload contains the "data" key. It describes the pagination of the records contained in the "data" array, as a way to identify which subset of data is being returned.  
+    The `pagination` object is applicable only when the `result` payload contains a `data` field. It describes the pagination of the records contained in the `data` array, as a way to identify which subset of data is being returned.  
 
-    If the "data" key is not present in the results, pagination should be ignored. All of the following responses are acceptable, and should be ignored equally.
+    If the `data` key is not present in the results, pagination should be ignored. All of the following responses are acceptable, and should be ignored equally.
       - `pagination` key omitted from the metadata
       - `"pagination": null`
       - `"pagination": {}`
@@ -63,10 +65,11 @@ The metadata key is structured as followed:
     The `datafiles` array contains a list of generic file description. These files contain additional information related to the returned object and can be retrieved by a subsequent call to the `fileURL` provided. `fileURL` should be a full URL pointing to the files location. `fileName` is the name of the file, `fileDescription` is the text description of the file, `fileSize` is the size of the file in bytes, and `fileType` is the full MIME type for the file. `fileMD5Hash` contains a string which is the result of running the MD5 Hashing algorithm on the file and this can be used as a check sum to confirm that the file was downloaded correctly. 
 
 
-#### Payload
+#### Result
 
-The BRAPI response payload, which is contained in the "result" key, allows for three different types of responses:
-+ **Single Response**: In this type of response, the "result" key consists of arbitrary properties without a "data" key (in this case, pagination does not apply). 
+The `result` field contains the payload of requested data. Depending on what request was made, this payload might be a **Single Response** or a **List Response**
+
++ **Single Response**: In this type of response, the `result` field is an object describing a single record of data. There should NOT be a `data` array in this case and pagination does not apply. A **Single Response** is used when you are requesting or modifying a single, specific data object by its DbId. 
 ````
 {
   "metadata" : {
@@ -75,13 +78,13 @@ The BRAPI response payload, which is contained in the "result" key, allows for t
     "datafiles" : [ ]
   },
   "result" : {
-    "key0": "master",
+    "key0": "name1",
     "key1": 20,
     "key2": [ "foo", "bar", "baz" ]
   }
 }
 ```` 
-+ **List Response**: In this type of response, the "result" element only contains the "data" key, which is an arbitrarily long array of objects of the same type. 
++ **List Response**: In this type of response, the `result` object only contains a `data` field, which is an arbitrarily long array of objects of the same type. Pagination request parameters and pagination metadata fields apply to this `data` array. 
 ````
 {
   "metadata" : {
@@ -97,21 +100,34 @@ The BRAPI response payload, which is contained in the "result" key, allows for t
   "result" : {
     "data" : [ 
       {
-        "detailKey0" : "detail0",
-        "detailKey1" : [ "foo", "bar" ]
+	    "key0": "name1",
+	    "key1": 20,
+	    "key2": [ "foo", "bar", "baz" ]
       }, 
       {
-        "detailKey0" : "detail1",
-        "detailKey1" : [ "bar", "baz" ]
+	    "key0": "name2",
+	    "key1": 21,
+	    "key2": [ "sin", "cos", "tan" ]
       }, 
       {
-        "detailKey0" : "detail2",
-        "detailKey1" : [ "baz", "foo" ]
+	    "key0": "name3",
+	    "key1": 22,
+	    "key2": [ "grumpy", "sleepy", "dopey" ]
       },
     ]
   }
 }
 ````
+
+#### Special Cases
+
+There are a small number BrAPI endpoints which have exceptions to these general rules. Please review the response schema carefully when you are working with any of the following.
+
++ **Lists** The endpoint `/lists/{listDbId}` should return an object that with all the fields to describe a single list AND a `data` array with the contents of the list. Since a List object could have any number of items in it, it is important that the client can control the pagination of the list contents and pagination only applies to the `data` array. 
++ **Calls** There are few different endpoints which end with `.../calls` and they all return a list of Allele Call objects. The genotype text string for the Calls can be formated differently with different separator and unknown value characters. So all `.../calls` endpoints should respond with a `data` array with the Call objects AND a set of fields which describe the formatting of all the Call objects in the array.
++ **Tables** The endpoints `/observation/table` and `/observationunits/table` can both produce a table structure of data. The `Accept` header is used as input to producedifferent possible formats including CSV, TSV, and JSON. Selecting CSV and TSV should return table data as text using the appropriate separators. JSON should return an object with fields defining a the header row of the table, as well as the `data` array. Each item in the `data` array is a row in the table and is represented as an array of strings. This means Pagination can be applied to the rows of data, but not the columns. 
++ **Errors** Error responses with status codes in the 400's and 500's should not follow the standard response pattern. Checkout the documentation on [Error Handling](https://github.com/plantbreeding/API/blob/master/Specification/GeneralInfo/Error_Handling.md) for more info. 
+
 
 Additional documentation is in the [BrAPI Wiki](https://wiki.brapi.org/index.php/BrAPI). 
 See especially the [Best Practices](https://wiki.brapi.org/index.php/Best_Practices).
