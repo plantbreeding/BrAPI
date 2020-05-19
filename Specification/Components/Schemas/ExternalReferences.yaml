@@ -21,7 +21,7 @@ components:
             type: string
       example: 
         - referenceSource: DOI
-          referenceID: doi:10.155454/12349537E12
+          referenceID: doi:10.155454/12341234
         - referenceSource: OBO Library
           referenceID: http://purl.obolibrary.org/obo/ro.owl
         - referenceSource: Remote Data Collection Upload Tool

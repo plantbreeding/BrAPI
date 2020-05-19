@@ -48,7 +48,7 @@ components:
           default: 1000
           example: 1000
         totalCount:
-          description: The total number of elements that are available on the server and match the requested query paramters. 
+          description: The total number of elements that are available on the server and match the requested query parameters. 
           type: integer
           example: 10
         totalPages:
