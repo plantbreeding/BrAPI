@@ -302,7 +302,7 @@ See Search Services for additional implementation details.
                 },
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -577,7 +577,7 @@ See Search Services for additional implementation details.
                 },
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -871,7 +871,7 @@ StartDate and endDate should be ISO-8601 format for dates
                 },
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -1141,7 +1141,7 @@ StartDate and endDate should be ISO-8601 format for dates
         },
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -1274,7 +1274,7 @@ StartDate and endDate should be ISO-8601 format for dates
                 },
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -1506,7 +1506,7 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
         },
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -1772,7 +1772,7 @@ Update an existing Study with new data
     },
     "externalReferences": [
         {
-            "referenceID": "doi:10.155454/12349537E12",
+            "referenceID": "doi:10.155454/12341234",
             "referenceSource": "DOI"
         },
         {
@@ -1902,7 +1902,7 @@ Update an existing Study with new data
         },
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {

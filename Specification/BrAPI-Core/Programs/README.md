@@ -86,7 +86,7 @@ Get a filtered list of breeding Programs. This list can be filtered by common cr
                 "documentationURL": "https://wiki.brapi.org",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -184,7 +184,7 @@ Add new breeding Programs to the database. The `programDbId` is set by the serve
         "documentationURL": "https://wiki.brapi.org",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -245,7 +245,7 @@ Add new breeding Programs to the database. The `programDbId` is set by the serve
                 "documentationURL": "https://wiki.brapi.org",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -356,7 +356,7 @@ Get a single breeding Program by Id. This can be used to quickly get the details
         "documentationURL": "https://wiki.brapi.org",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -451,7 +451,7 @@ Update the details of an existing breeding Program.
     "documentationURL": "https://wiki.brapi.org",
     "externalReferences": [
         {
-            "referenceID": "doi:10.155454/12349537E12",
+            "referenceID": "doi:10.155454/12341234",
             "referenceSource": "DOI"
         },
         {
@@ -509,7 +509,7 @@ Update the details of an existing breeding Program.
         "documentationURL": "https://wiki.brapi.org",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -681,7 +681,7 @@ See Search Services for additional implementation details.
                 "documentationURL": "https://wiki.brapi.org",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -834,7 +834,7 @@ See Search Services for additional implementation details.
                 "documentationURL": "https://wiki.brapi.org",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {

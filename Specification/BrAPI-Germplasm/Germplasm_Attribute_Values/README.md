@@ -88,7 +88,7 @@ Get the Germplasm Attribute Values
                 "determinedDate": "2018-01-01T14:47:23-0600",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -182,7 +182,7 @@ Create new Germplasm Attribute Values
         "determinedDate": "2018-01-01T14:47:23-0600",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -243,7 +243,7 @@ Create new Germplasm Attribute Values
                 "determinedDate": "2018-01-01T14:47:23-0600",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -352,7 +352,7 @@ Get the details for a specific Germplasm Attribute
         "determinedDate": "2018-01-01T14:47:23-0600",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -443,7 +443,7 @@ Update an existing Germplasm Attribute Value
     "determinedDate": "2018-01-01T14:47:23-0600",
     "externalReferences": [
         {
-            "referenceID": "doi:10.155454/12349537E12",
+            "referenceID": "doi:10.155454/12341234",
             "referenceSource": "DOI"
         },
         {
@@ -501,7 +501,7 @@ Update an existing Germplasm Attribute Value
         "determinedDate": "2018-01-01T14:47:23-0600",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -694,7 +694,7 @@ See Search Services for additional implementation details.
                 "determinedDate": "2018-01-01T14:47:23-0600",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -846,7 +846,7 @@ See Search Services for additional implementation details.
                 "determinedDate": "2018-01-01T14:47:23-0600",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {

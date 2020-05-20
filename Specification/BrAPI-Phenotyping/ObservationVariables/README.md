@@ -230,7 +230,7 @@ See Search Services for additional implementation details.
                 "documentationURL": "https://wiki.brapi.org/documentation.html",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -251,7 +251,7 @@ See Search Services for additional implementation details.
                     "description": "A measuring tape was used",
                     "externalReferences": [
                         {
-                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceID": "doi:10.155454/12341234",
                             "referenceSource": "DOI"
                         },
                         {
@@ -298,7 +298,7 @@ See Search Services for additional implementation details.
                     "decimalPlaces": 2,
                     "externalReferences": [
                         {
-                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceID": "doi:10.155454/12341234",
                             "referenceSource": "DOI"
                         },
                         {
@@ -361,7 +361,7 @@ See Search Services for additional implementation details.
                     "entity": "Stalk",
                     "externalReferences": [
                         {
-                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceID": "doi:10.155454/12341234",
                             "referenceSource": "DOI"
                         },
                         {
@@ -612,7 +612,7 @@ See Search Services for additional implementation details.
                 "documentationURL": "https://wiki.brapi.org/documentation.html",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -633,7 +633,7 @@ See Search Services for additional implementation details.
                     "description": "A measuring tape was used",
                     "externalReferences": [
                         {
-                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceID": "doi:10.155454/12341234",
                             "referenceSource": "DOI"
                         },
                         {
@@ -680,7 +680,7 @@ See Search Services for additional implementation details.
                     "decimalPlaces": 2,
                     "externalReferences": [
                         {
-                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceID": "doi:10.155454/12341234",
                             "referenceSource": "DOI"
                         },
                         {
@@ -743,7 +743,7 @@ See Search Services for additional implementation details.
                     "entity": "Stalk",
                     "externalReferences": [
                         {
-                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceID": "doi:10.155454/12341234",
                             "referenceSource": "DOI"
                         },
                         {
@@ -1001,7 +1001,7 @@ Call to retrieve a list of observationVariables available in the system.
                 "documentationURL": "https://wiki.brapi.org/documentation.html",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -1022,7 +1022,7 @@ Call to retrieve a list of observationVariables available in the system.
                     "description": "A measuring tape was used",
                     "externalReferences": [
                         {
-                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceID": "doi:10.155454/12341234",
                             "referenceSource": "DOI"
                         },
                         {
@@ -1069,7 +1069,7 @@ Call to retrieve a list of observationVariables available in the system.
                     "decimalPlaces": 2,
                     "externalReferences": [
                         {
-                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceID": "doi:10.155454/12341234",
                             "referenceSource": "DOI"
                         },
                         {
@@ -1132,7 +1132,7 @@ Call to retrieve a list of observationVariables available in the system.
                     "entity": "Stalk",
                     "externalReferences": [
                         {
-                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceID": "doi:10.155454/12341234",
                             "referenceSource": "DOI"
                         },
                         {
@@ -1401,7 +1401,7 @@ Add new Observation Variables to the system.
         "documentationURL": "https://wiki.brapi.org/documentation.html",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -1422,7 +1422,7 @@ Add new Observation Variables to the system.
             "description": "A measuring tape was used",
             "externalReferences": [
                 {
-                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceID": "doi:10.155454/12341234",
                     "referenceSource": "DOI"
                 },
                 {
@@ -1468,7 +1468,7 @@ Add new Observation Variables to the system.
             "decimalPlaces": 2,
             "externalReferences": [
                 {
-                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceID": "doi:10.155454/12341234",
                     "referenceSource": "DOI"
                 },
                 {
@@ -1531,7 +1531,7 @@ Add new Observation Variables to the system.
             "entity": "Stalk",
             "externalReferences": [
                 {
-                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceID": "doi:10.155454/12341234",
                     "referenceSource": "DOI"
                 },
                 {
@@ -1616,7 +1616,7 @@ Add new Observation Variables to the system.
                 "documentationURL": "https://wiki.brapi.org/documentation.html",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -1637,7 +1637,7 @@ Add new Observation Variables to the system.
                     "description": "A measuring tape was used",
                     "externalReferences": [
                         {
-                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceID": "doi:10.155454/12341234",
                             "referenceSource": "DOI"
                         },
                         {
@@ -1684,7 +1684,7 @@ Add new Observation Variables to the system.
                     "decimalPlaces": 2,
                     "externalReferences": [
                         {
-                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceID": "doi:10.155454/12341234",
                             "referenceSource": "DOI"
                         },
                         {
@@ -1747,7 +1747,7 @@ Add new Observation Variables to the system.
                     "entity": "Stalk",
                     "externalReferences": [
                         {
-                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceID": "doi:10.155454/12341234",
                             "referenceSource": "DOI"
                         },
                         {
@@ -1955,7 +1955,7 @@ Retrieve variable details
         "documentationURL": "https://wiki.brapi.org/documentation.html",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -1976,7 +1976,7 @@ Retrieve variable details
             "description": "A measuring tape was used",
             "externalReferences": [
                 {
-                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceID": "doi:10.155454/12341234",
                     "referenceSource": "DOI"
                 },
                 {
@@ -2023,7 +2023,7 @@ Retrieve variable details
             "decimalPlaces": 2,
             "externalReferences": [
                 {
-                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceID": "doi:10.155454/12341234",
                     "referenceSource": "DOI"
                 },
                 {
@@ -2086,7 +2086,7 @@ Retrieve variable details
             "entity": "Stalk",
             "externalReferences": [
                 {
-                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceID": "doi:10.155454/12341234",
                     "referenceSource": "DOI"
                 },
                 {
@@ -2357,7 +2357,7 @@ Update an existing Observation Variable
     "documentationURL": "https://wiki.brapi.org/documentation.html",
     "externalReferences": [
         {
-            "referenceID": "doi:10.155454/12349537E12",
+            "referenceID": "doi:10.155454/12341234",
             "referenceSource": "DOI"
         },
         {
@@ -2378,7 +2378,7 @@ Update an existing Observation Variable
         "description": "A measuring tape was used",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -2424,7 +2424,7 @@ Update an existing Observation Variable
         "decimalPlaces": 2,
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -2487,7 +2487,7 @@ Update an existing Observation Variable
         "entity": "Stalk",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -2569,7 +2569,7 @@ Update an existing Observation Variable
         "documentationURL": "https://wiki.brapi.org/documentation.html",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -2590,7 +2590,7 @@ Update an existing Observation Variable
             "description": "A measuring tape was used",
             "externalReferences": [
                 {
-                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceID": "doi:10.155454/12341234",
                     "referenceSource": "DOI"
                 },
                 {
@@ -2637,7 +2637,7 @@ Update an existing Observation Variable
             "decimalPlaces": 2,
             "externalReferences": [
                 {
-                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceID": "doi:10.155454/12341234",
                     "referenceSource": "DOI"
                 },
                 {
@@ -2700,7 +2700,7 @@ Update an existing Observation Variable
             "entity": "Stalk",
             "externalReferences": [
                 {
-                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceID": "doi:10.155454/12341234",
                     "referenceSource": "DOI"
                 },
                 {

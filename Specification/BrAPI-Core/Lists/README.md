@@ -86,7 +86,7 @@ Get filtered set of generic lists
                 "dateModified": "2018-01-01T14:47:23-0600",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -195,7 +195,7 @@ Create new list objects in the database
         "dateModified": "2018-01-01T14:47:23-0600",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -258,7 +258,7 @@ Create new list objects in the database
                 "dateModified": "2018-01-01T14:47:23-0600",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -378,7 +378,7 @@ Get a specific generic lists
         "dateModified": "2018-01-01T14:47:23-0600",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -490,7 +490,7 @@ Update an existing generic list
     "dateModified": "2018-01-01T14:47:23-0600",
     "externalReferences": [
         {
-            "referenceID": "doi:10.155454/12349537E12",
+            "referenceID": "doi:10.155454/12341234",
             "referenceSource": "DOI"
         },
         {
@@ -554,7 +554,7 @@ Update an existing generic list
         "dateModified": "2018-01-01T14:47:23-0600",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -690,7 +690,7 @@ Add new data to a specific generic lists
         "dateModified": "2018-01-01T14:47:23-0600",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -872,7 +872,7 @@ See Search Services for additional implementation details.
                 "dateModified": "2018-01-01T14:47:23-0600",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -1029,7 +1029,7 @@ See Search Services for additional implementation details.
                 "dateModified": "2018-01-01T14:47:23-0600",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {

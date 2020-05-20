@@ -245,7 +245,7 @@ Get a filtered set of Observation Units
                 "additionalInfo": {},
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -310,7 +310,7 @@ Get a filtered set of Observation Units
                         "collector": "917d3ae0",
                         "externalReferences": [
                             {
-                                "referenceID": "doi:10.155454/12349537E12",
+                                "referenceID": "doi:10.155454/12341234",
                                 "referenceSource": "DOI"
                             },
                             {
@@ -504,7 +504,7 @@ Add new Observation Units
         "additionalInfo": {},
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -617,7 +617,7 @@ Add new Observation Units
                 "additionalInfo": {},
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -682,7 +682,7 @@ Add new Observation Units
                         "collector": "917d3ae0",
                         "externalReferences": [
                             {
-                                "referenceID": "doi:10.155454/12349537E12",
+                                "referenceID": "doi:10.155454/12341234",
                                 "referenceSource": "DOI"
                             },
                             {
@@ -877,7 +877,7 @@ Note - In strictly typed languages, this structure can be represented as a Map o
                 "additionalInfo": {},
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -942,7 +942,7 @@ Note - In strictly typed languages, this structure can be represented as a Map o
                         "collector": "917d3ae0",
                         "externalReferences": [
                             {
-                                "referenceID": "doi:10.155454/12349537E12",
+                                "referenceID": "doi:10.155454/12341234",
                                 "referenceSource": "DOI"
                             },
                             {
@@ -1383,7 +1383,7 @@ Get the details of a specific Observation Unit
         "additionalInfo": {},
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -1448,7 +1448,7 @@ Get the details of a specific Observation Unit
                 "collector": "917d3ae0",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -1639,7 +1639,7 @@ Update an existing Observation Units
     "additionalInfo": {},
     "externalReferences": [
         {
-            "referenceID": "doi:10.155454/12349537E12",
+            "referenceID": "doi:10.155454/12341234",
             "referenceSource": "DOI"
         },
         {
@@ -1749,7 +1749,7 @@ Update an existing Observation Units
         "additionalInfo": {},
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -1814,7 +1814,7 @@ Update an existing Observation Units
                 "collector": "917d3ae0",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -2135,7 +2135,7 @@ observationValue data type inferred from the ontology
                 "additionalInfo": {},
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -2200,7 +2200,7 @@ observationValue data type inferred from the ontology
                         "collector": "917d3ae0",
                         "externalReferences": [
                             {
-                                "referenceID": "doi:10.155454/12349537E12",
+                                "referenceID": "doi:10.155454/12341234",
                                 "referenceSource": "DOI"
                             },
                             {
@@ -2424,7 +2424,7 @@ See Search Services for additional implementation details.
                 "additionalInfo": {},
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -2489,7 +2489,7 @@ See Search Services for additional implementation details.
                         "collector": "917d3ae0",
                         "externalReferences": [
                             {
-                                "referenceID": "doi:10.155454/12349537E12",
+                                "referenceID": "doi:10.155454/12341234",
                                 "referenceSource": "DOI"
                             },
                             {

@@ -172,7 +172,7 @@ List available attributes.
                 "documentationURL": "https://wiki.brapi.org/documentation.html",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -193,7 +193,7 @@ List available attributes.
                     "description": "A measuring tape was used",
                     "externalReferences": [
                         {
-                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceID": "doi:10.155454/12341234",
                             "referenceSource": "DOI"
                         },
                         {
@@ -238,7 +238,7 @@ List available attributes.
                     "decimalPlaces": 2,
                     "externalReferences": [
                         {
-                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceID": "doi:10.155454/12341234",
                             "referenceSource": "DOI"
                         },
                         {
@@ -301,7 +301,7 @@ List available attributes.
                     "entity": "Stalk",
                     "externalReferences": [
                         {
-                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceID": "doi:10.155454/12341234",
                             "referenceSource": "DOI"
                         },
                         {
@@ -577,7 +577,7 @@ Create new Germplasm Attributes
         "documentationURL": "https://wiki.brapi.org/documentation.html",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -598,7 +598,7 @@ Create new Germplasm Attributes
             "description": "A measuring tape was used",
             "externalReferences": [
                 {
-                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceID": "doi:10.155454/12341234",
                     "referenceSource": "DOI"
                 },
                 {
@@ -643,7 +643,7 @@ Create new Germplasm Attributes
             "decimalPlaces": 2,
             "externalReferences": [
                 {
-                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceID": "doi:10.155454/12341234",
                     "referenceSource": "DOI"
                 },
                 {
@@ -706,7 +706,7 @@ Create new Germplasm Attributes
             "entity": "Stalk",
             "externalReferences": [
                 {
-                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceID": "doi:10.155454/12341234",
                     "referenceSource": "DOI"
                 },
                 {
@@ -795,7 +795,7 @@ Create new Germplasm Attributes
                 "documentationURL": "https://wiki.brapi.org/documentation.html",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -816,7 +816,7 @@ Create new Germplasm Attributes
                     "description": "A measuring tape was used",
                     "externalReferences": [
                         {
-                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceID": "doi:10.155454/12341234",
                             "referenceSource": "DOI"
                         },
                         {
@@ -861,7 +861,7 @@ Create new Germplasm Attributes
                     "decimalPlaces": 2,
                     "externalReferences": [
                         {
-                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceID": "doi:10.155454/12341234",
                             "referenceSource": "DOI"
                         },
                         {
@@ -924,7 +924,7 @@ Create new Germplasm Attributes
                     "entity": "Stalk",
                     "externalReferences": [
                         {
-                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceID": "doi:10.155454/12341234",
                             "referenceSource": "DOI"
                         },
                         {
@@ -1218,7 +1218,7 @@ Get the details for a specific Germplasm Attribute
         "documentationURL": "https://wiki.brapi.org/documentation.html",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -1239,7 +1239,7 @@ Get the details for a specific Germplasm Attribute
             "description": "A measuring tape was used",
             "externalReferences": [
                 {
-                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceID": "doi:10.155454/12341234",
                     "referenceSource": "DOI"
                 },
                 {
@@ -1284,7 +1284,7 @@ Get the details for a specific Germplasm Attribute
             "decimalPlaces": 2,
             "externalReferences": [
                 {
-                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceID": "doi:10.155454/12341234",
                     "referenceSource": "DOI"
                 },
                 {
@@ -1347,7 +1347,7 @@ Get the details for a specific Germplasm Attribute
             "entity": "Stalk",
             "externalReferences": [
                 {
-                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceID": "doi:10.155454/12341234",
                     "referenceSource": "DOI"
                 },
                 {
@@ -1620,7 +1620,7 @@ Update an existing Germplasm Attribute
     "documentationURL": "https://wiki.brapi.org/documentation.html",
     "externalReferences": [
         {
-            "referenceID": "doi:10.155454/12349537E12",
+            "referenceID": "doi:10.155454/12341234",
             "referenceSource": "DOI"
         },
         {
@@ -1641,7 +1641,7 @@ Update an existing Germplasm Attribute
         "description": "A measuring tape was used",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -1686,7 +1686,7 @@ Update an existing Germplasm Attribute
         "decimalPlaces": 2,
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -1749,7 +1749,7 @@ Update an existing Germplasm Attribute
         "entity": "Stalk",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -1835,7 +1835,7 @@ Update an existing Germplasm Attribute
         "documentationURL": "https://wiki.brapi.org/documentation.html",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -1856,7 +1856,7 @@ Update an existing Germplasm Attribute
             "description": "A measuring tape was used",
             "externalReferences": [
                 {
-                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceID": "doi:10.155454/12341234",
                     "referenceSource": "DOI"
                 },
                 {
@@ -1901,7 +1901,7 @@ Update an existing Germplasm Attribute
             "decimalPlaces": 2,
             "externalReferences": [
                 {
-                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceID": "doi:10.155454/12341234",
                     "referenceSource": "DOI"
                 },
                 {
@@ -1964,7 +1964,7 @@ Update an existing Germplasm Attribute
             "entity": "Stalk",
             "externalReferences": [
                 {
-                    "referenceID": "doi:10.155454/12349537E12",
+                    "referenceID": "doi:10.155454/12341234",
                     "referenceSource": "DOI"
                 },
                 {
@@ -2252,7 +2252,7 @@ See Search Services for additional implementation details.
                 "documentationURL": "https://wiki.brapi.org/documentation.html",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -2273,7 +2273,7 @@ See Search Services for additional implementation details.
                     "description": "A measuring tape was used",
                     "externalReferences": [
                         {
-                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceID": "doi:10.155454/12341234",
                             "referenceSource": "DOI"
                         },
                         {
@@ -2318,7 +2318,7 @@ See Search Services for additional implementation details.
                     "decimalPlaces": 2,
                     "externalReferences": [
                         {
-                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceID": "doi:10.155454/12341234",
                             "referenceSource": "DOI"
                         },
                         {
@@ -2381,7 +2381,7 @@ See Search Services for additional implementation details.
                     "entity": "Stalk",
                     "externalReferences": [
                         {
-                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceID": "doi:10.155454/12341234",
                             "referenceSource": "DOI"
                         },
                         {
@@ -2638,7 +2638,7 @@ See Search Services for additional implementation details.
                 "documentationURL": "https://wiki.brapi.org/documentation.html",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -2659,7 +2659,7 @@ See Search Services for additional implementation details.
                     "description": "A measuring tape was used",
                     "externalReferences": [
                         {
-                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceID": "doi:10.155454/12341234",
                             "referenceSource": "DOI"
                         },
                         {
@@ -2704,7 +2704,7 @@ See Search Services for additional implementation details.
                     "decimalPlaces": 2,
                     "externalReferences": [
                         {
-                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceID": "doi:10.155454/12341234",
                             "referenceSource": "DOI"
                         },
                         {
@@ -2767,7 +2767,7 @@ See Search Services for additional implementation details.
                     "entity": "Stalk",
                     "externalReferences": [
                         {
-                            "referenceID": "doi:10.155454/12349537E12",
+                            "referenceID": "doi:10.155454/12341234",
                             "referenceSource": "DOI"
                         },
                         {

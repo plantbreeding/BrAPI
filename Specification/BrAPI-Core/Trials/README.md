@@ -205,7 +205,7 @@ See Search Services for additional implementation details.
                 "endDate": "2018-01-01",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -403,7 +403,7 @@ See Search Services for additional implementation details.
                 "endDate": "2018-01-01",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -619,7 +619,7 @@ Retrieve a filtered list of breeding Trials. A Trial is a collection of Studies
                 "endDate": "2018-01-01",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -780,7 +780,7 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
         "endDate": "2018-01-01",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -868,7 +868,7 @@ Create new breeding Trials. A Trial represents a collection of related Studies. 
                 "endDate": "2018-01-01",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -1024,7 +1024,7 @@ Get the details of a specific Trial
         "endDate": "2018-01-01",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -1187,7 +1187,7 @@ Update the details of an existing Trial
     "endDate": "2018-01-01",
     "externalReferences": [
         {
-            "referenceID": "doi:10.155454/12349537E12",
+            "referenceID": "doi:10.155454/12341234",
             "referenceSource": "DOI"
         },
         {
@@ -1272,7 +1272,7 @@ Update the details of an existing Trial
         "endDate": "2018-01-01",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {

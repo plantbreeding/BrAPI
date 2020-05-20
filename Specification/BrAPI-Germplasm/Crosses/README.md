@@ -104,7 +104,7 @@ Get a filtered list of Cross entities.
                 "crossingProjectName": "my_Ibadan_Crosses_2018",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -245,7 +245,7 @@ Create new Cross entities on this server
         "crossingProjectName": "my_Ibadan_Crosses_2018",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -325,7 +325,7 @@ Create new Cross entities on this server
                 "crossingProjectName": "my_Ibadan_Crosses_2018",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -508,7 +508,7 @@ Update existing Cross entities on this server
                 "crossingProjectName": "my_Ibadan_Crosses_2018",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
