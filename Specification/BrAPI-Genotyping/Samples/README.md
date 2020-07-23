@@ -98,7 +98,7 @@ Used to retrieve list of Samples from a Sample Tracking system based on some sea
                 "column": 6,
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -232,7 +232,7 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
         "column": 6,
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -305,7 +305,7 @@ Call to register the event of a sample being taken. Sample ID is assigned as a r
                 "column": 6,
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -440,7 +440,7 @@ Used to retrieve the details of a single Sample from a Sample Tracking system.
         "column": 6,
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -576,7 +576,7 @@ Update the details of an existing Sample
     "column": 6,
     "externalReferences": [
         {
-            "referenceID": "doi:10.155454/12349537E12",
+            "referenceID": "doi:10.155454/12341234",
             "referenceSource": "DOI"
         },
         {
@@ -646,7 +646,7 @@ Update the details of an existing Sample
         "column": 6,
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -848,7 +848,7 @@ See Search Services for additional implementation details.
                 "column": 6,
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -1026,7 +1026,7 @@ See Search Services for additional implementation details.
                 "column": 6,
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {

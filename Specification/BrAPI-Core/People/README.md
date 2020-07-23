@@ -85,7 +85,7 @@ Get filtered list of people
                 "emailAddress": "bob@bob.com",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -186,7 +186,7 @@ Create new People entities. `personDbId` is generated and managed by the server.
         "emailAddress": "bob@bob.com",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -248,7 +248,7 @@ Create new People entities. `personDbId` is generated and managed by the server.
                 "emailAddress": "bob@bob.com",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -361,7 +361,7 @@ Get the details for a specific Person
         "emailAddress": "bob@bob.com",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -464,7 +464,7 @@ Update an existing Person
     "emailAddress": "bob@bob.com",
     "externalReferences": [
         {
-            "referenceID": "doi:10.155454/12349537E12",
+            "referenceID": "doi:10.155454/12341234",
             "referenceSource": "DOI"
         },
         {
@@ -523,7 +523,7 @@ Update an existing Person
         "emailAddress": "bob@bob.com",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -708,7 +708,7 @@ See Search Services for additional implementation details.
                 "emailAddress": "bob@bob.com",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -864,7 +864,7 @@ See Search Services for additional implementation details.
                 "emailAddress": "bob@bob.com",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {

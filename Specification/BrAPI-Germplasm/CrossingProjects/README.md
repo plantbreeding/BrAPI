@@ -81,7 +81,7 @@ Get a filtered list of Crossing Projects.
                 "crossingProjectName": "Ibadan_Crosses_2018",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -172,7 +172,7 @@ Create new Crossing Project entities on this server
         "crossingProjectName": "Ibadan_Crosses_2018",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -232,7 +232,7 @@ Create new Crossing Project entities on this server
                 "crossingProjectName": "Ibadan_Crosses_2018",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -339,7 +339,7 @@ Get a filtered list of Crossing Projects.
         "crossingProjectName": "Ibadan_Crosses_2018",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -427,7 +427,7 @@ Update an existing Crossing Project entity on this server
     "crossingProjectName": "Ibadan_Crosses_2018",
     "externalReferences": [
         {
-            "referenceID": "doi:10.155454/12349537E12",
+            "referenceID": "doi:10.155454/12341234",
             "referenceSource": "DOI"
         },
         {
@@ -484,7 +484,7 @@ Update an existing Crossing Project entity on this server
         "crossingProjectName": "Ibadan_Crosses_2018",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {

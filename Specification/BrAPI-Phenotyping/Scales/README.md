@@ -96,7 +96,7 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
                 "decimalPlaces": 2,
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -237,7 +237,7 @@ Create new scale objects in the database
         "decimalPlaces": 2,
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -323,7 +323,7 @@ Create new scale objects in the database
                 "decimalPlaces": 2,
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -470,7 +470,7 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
         "decimalPlaces": 2,
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -613,7 +613,7 @@ Update the details of an existing scale
     "decimalPlaces": 2,
     "externalReferences": [
         {
-            "referenceID": "doi:10.155454/12349537E12",
+            "referenceID": "doi:10.155454/12341234",
             "referenceSource": "DOI"
         },
         {
@@ -696,7 +696,7 @@ Update the details of an existing scale
         "decimalPlaces": 2,
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {

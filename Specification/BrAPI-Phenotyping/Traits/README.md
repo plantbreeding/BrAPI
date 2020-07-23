@@ -101,7 +101,7 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
                 "entity": "Stalk",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -239,7 +239,7 @@ Create new trait objects in the database
         "entity": "Stalk",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -322,7 +322,7 @@ Create new trait objects in the database
                 "entity": "Stalk",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -466,7 +466,7 @@ An Observation Variable has 3 critical parts: A Trait being observed, a Method f
         "entity": "Stalk",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -606,7 +606,7 @@ Update an existing trait
     "entity": "Stalk",
     "externalReferences": [
         {
-            "referenceID": "doi:10.155454/12349537E12",
+            "referenceID": "doi:10.155454/12341234",
             "referenceSource": "DOI"
         },
         {
@@ -686,7 +686,7 @@ Update an existing trait
         "entity": "Stalk",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {

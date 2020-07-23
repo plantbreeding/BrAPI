@@ -92,7 +92,7 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
                 "description": "A measuring tape was used",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -209,7 +209,7 @@ Create new method objects in the database
         "description": "A measuring tape was used",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -279,7 +279,7 @@ Create new method objects in the database
                 "description": "A measuring tape was used",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -406,7 +406,7 @@ An Observation Variable has 3 critical parts; A Trait being observed, a Method f
         "description": "A measuring tape was used",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -525,7 +525,7 @@ Update the details of an existing method
     "description": "A measuring tape was used",
     "externalReferences": [
         {
-            "referenceID": "doi:10.155454/12349537E12",
+            "referenceID": "doi:10.155454/12341234",
             "referenceSource": "DOI"
         },
         {
@@ -592,7 +592,7 @@ Update the details of an existing method
         "description": "A measuring tape was used",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {

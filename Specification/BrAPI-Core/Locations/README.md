@@ -114,7 +114,7 @@ Get a list of locations.
                 "exposure": "Structure, no exposure",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -255,7 +255,7 @@ Add new locations to database
         "exposure": "Structure, no exposure",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -335,7 +335,7 @@ Add new locations to database
                 "exposure": "Structure, no exposure",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -478,7 +478,7 @@ Get details for a location.
         "exposure": "Structure, no exposure",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -621,7 +621,7 @@ Update the details for an existing location.
     "exposure": "Structure, no exposure",
     "externalReferences": [
         {
-            "referenceID": "doi:10.155454/12349537E12",
+            "referenceID": "doi:10.155454/12341234",
             "referenceSource": "DOI"
         },
         {
@@ -698,7 +698,7 @@ Update the details for an existing location.
         "exposure": "Structure, no exposure",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -943,7 +943,7 @@ See Search Services for additional implementation details.
                 "exposure": "Structure, no exposure",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -1126,7 +1126,7 @@ See Search Services for additional implementation details.
                 "exposure": "Structure, no exposure",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {

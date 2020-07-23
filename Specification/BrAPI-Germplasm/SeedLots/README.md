@@ -86,7 +86,7 @@ Get a filtered list of Seed Lot descriptions available in a system.
                 "createdDate": "2018-01-01T14:47:23-0600",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -196,7 +196,7 @@ Add new Seed Lot descriptions to a server
         "createdDate": "2018-01-01T14:47:23-0600",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -261,7 +261,7 @@ Add new Seed Lot descriptions to a server
                 "createdDate": "2018-01-01T14:47:23-0600",
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -383,7 +383,7 @@ Get a filtered list of Seed Lot Transactions
                 "amount": 45,
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -478,7 +478,7 @@ Add new Seed Lot Transaction to be recorded
         "amount": 45,
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -538,7 +538,7 @@ Add new Seed Lot Transaction to be recorded
                 "amount": 45,
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
@@ -653,7 +653,7 @@ Get a specific Seed Lot by seedLotDbId
         "createdDate": "2018-01-01T14:47:23-0600",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -765,7 +765,7 @@ Update an existing Seed Lot
     "createdDate": "2018-01-01T14:47:23-0600",
     "externalReferences": [
         {
-            "referenceID": "doi:10.155454/12349537E12",
+            "referenceID": "doi:10.155454/12341234",
             "referenceSource": "DOI"
         },
         {
@@ -827,7 +827,7 @@ Update an existing Seed Lot
         "createdDate": "2018-01-01T14:47:23-0600",
         "externalReferences": [
             {
-                "referenceID": "doi:10.155454/12349537E12",
+                "referenceID": "doi:10.155454/12341234",
                 "referenceSource": "DOI"
             },
             {
@@ -950,7 +950,7 @@ Get all Transactions related to a specific Seed Lot
                 "amount": 45,
                 "externalReferences": [
                     {
-                        "referenceID": "doi:10.155454/12349537E12",
+                        "referenceID": "doi:10.155454/12341234",
                         "referenceSource": "DOI"
                     },
                     {
