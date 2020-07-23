@@ -8,7 +8,10 @@ components:
     EnvironmentParameter:
       properties:
         parameterName:
-          description: Name of the environment parameter constant within the experiment
+          description: |-
+            Name of the environment parameter constant within the experiment
+            
+            MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. 
           type: string
           example: soil type
         parameterPUI:
@@ -20,7 +23,10 @@ components:
           type: string
           example: the soil type was clay
         value:
-          description: Numerical or categorical value
+          description: |-
+            Numerical or categorical value
+            
+            MIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment.
           type: string
           example: clay soil
         valuePUI:

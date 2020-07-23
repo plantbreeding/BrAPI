@@ -8,7 +8,7 @@ components:
     GermplasmMCPD:
       properties:
         accessionNames:
-          description: 'MCPD (v2.1) (ACCENAME) 11. Either a registered or other designation given to the material received, other than the donors accession number (23) or collecting number (3). First letter uppercase. Multiple names are separated by a semicolon without space.'
+          description: MCPD (v2.1) (ACCENAME) 11. Either a registered or other designation given to the material received, other than the donors accession number (23) or collecting number (3). First letter uppercase. Multiple names are separated by a semicolon without space.
           items:
             type: string
           type: array

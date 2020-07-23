@@ -18,7 +18,10 @@ components:
           description: Additional arbitrary info
           type: object
         accessionNumber:
-          description: This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection
+          description: |-
+            This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection
+            
+            MCPD (v2.1) (ACCENUMB) 2. This is the unique identifier for accessions within a genebank, and is assigned when a sample is entered into the genebank collection (e.g. "PI 113869").
           type: string
           example: A0000003
         acquisitionDate:
@@ -98,18 +101,26 @@ components:
               donorAccessionNumber:
                 description: |-
                   The accession number assigned by the donor
-                  
+            
+                  MIAPPE V1.1 (DM-50) Material source ID (Holding institute/stock centre, accession) - An identifier for the source of the biological material, in the form of a key-value pair comprising the name/identifier of the repository from which the material was sourced plus the accession number of the repository for that material. Where an accession number has not been assigned, but the material has been derived from the crossing of known accessions, the material can be defined as follows: "mother_accession X father_accession", or, if father is unknown, as "mother_accession X UNKNOWN". For in situ material, the region of provenance may be used when an accession is not available.
+                                    
                   MCPD (v2.1) (DONORNUMB) 23. Identifier assigned to an accession by the donor. Follows ACCENUMB standard.
                 type: string
                 example: A0000123
               donorInstituteCode:
                 description: |-
                   The institute code for the donor institute
+            
+                  MIAPPE V1.1 (DM-50) Material source ID (Holding institute/stock centre, accession) - An identifier for the source of the biological material, in the form of a key-value pair comprising the name/identifier of the repository from which the material was sourced plus the accession number of the repository for that material. Where an accession number has not been assigned, but the material has been derived from the crossing of known accessions, the material can be defined as follows: "mother_accession X father_accession", or, if father is unknown, as "mother_accession X UNKNOWN". For in situ material, the region of provenance may be used when an accession is not available.
                   
                   MCPD (v2.1) (DONORCODE) 22. FAO WIEWS code of the donor institute. Follows INSTCODE standard.
                 type: string
                 example: PER001
               germplasmPUI:
+                description: |-
+                  The Permanent Unique Identifier which represents a germplasm from the source or donor
+            
+                  MIAPPE V1.1 (DM-51) Material source DOI - Digital Object Identifier (DOI) of the material source
                 type: string
                 example: http://pui.per/accession/A0000003
             type: object
@@ -124,7 +135,10 @@ components:
           type: string
           example: Aspergillus
         germplasmName:
-          description: Name of the germplasm. It can be the preferred name and does not have to be unique.
+          description: |-
+            Name of the germplasm. It can be the preferred name and does not have to be unique.
+            
+            MCPD (v2.1) (ACCENAME) 11. Either a registered or other designation given to the material received, other than the donors accession number (23) or collecting number (3). First letter uppercase. Multiple names are separated by a semicolon without space.
           type: string
           example: A0000003
         germplasmPUI:
@@ -132,6 +146,8 @@ components:
             The Permanent Unique Identifier which represents a germplasm
             
             MIAPPE V1.1 (DM-41) Biological material ID - Code used to identify the biological material in the data file. Should be unique within the Investigation. Can correspond to experimental plant ID, seed lot ID, etc This material identification is different from a BiosampleID which corresponds to Observation Unit or Samples sections below.
+            
+            MCPD (v2.1) (PUID) 0. Any persistent, unique identifier assigned to the accession so it can be unambiguously referenced at the global level and the information associated with it harvested through automated means. Report one PUID for each accession. The Secretariat of the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) is facilitating the assignment of a persistent unique identifier (PUID), in the form of a DOI, to PGRFA at the accession level. Genebanks not applying a true PUID to their accessions should use, and request recipients to use, the concatenation of INSTCODE, ACCENUMB, and GENUS as a globally unique identifier similar in most respects to the PUID whenever they exchange information on accessions with third parties.
           type: string
           example: http://pui.per/accession/A0000003
         species:
@@ -145,17 +161,20 @@ components:
           example: fructus
         instituteCode:
           description: |-
-            The code for the Institute that has bred the material. 
+            The code for the institute that maintains the material. 
             
             MCPD (v2.1) (INSTCODE) 1. FAO WIEWS code of the institute where the accession is maintained. The codes consist of the 3-letter ISO 3166 country code of the country where the institute is located plus a number (e.g. PER001). The current set of institute codes is available from http://www.fao.org/wiews. For those institutes not yet having an FAO Code, or for those with "obsolete" codes, see "Common formatting rules (v)".
           type: string
           example: PER001
         instituteName:
-          description: The name of the institution which bred the material
+          description: The name of the institute that maintains the material
           type: string
           example: The BrAPI Institute
         pedigree:
-          description: The cross name and optional selection history.
+          description: |-
+            The cross name and optional selection history.
+            
+            MCPD (v2.1) (ANCEST) 20. Information about either pedigree or other description of ancestral information (e.g. parent variety in case of mutant or selection). For example a pedigree 'Hanna/7*Atlas//Turk/8*Atlas' or a description 'mutation found in Hanna', 'selection from Irene' or 'cross involving amongst others Hanna and Irene'.
           type: string
           example: A0000001/A0000002
         seedSource:
@@ -186,7 +205,10 @@ components:
           type: string
           example: Smith, 1822
         synonyms:
-          description: List of alternative names or IDs used to reference this germplasm
+          description: |-
+            List of alternative names or IDs used to reference this germplasm
+            
+            MCPD (v2.1) (OTHERNUMB) 24. Any other identifiers known to exist in other collections for this accession. Use the following format: INSTCODE:ACCENUMB;INSTCODE:identifier;INSTCODE and identifier are separated by a colon without space. Pairs of INSTCODE and identifier are separated by a semicolon without space. When the institute is not known, the identifier should be preceded by a colon.
           type: array
           items:
             type: object
@@ -254,7 +276,10 @@ components:
           type: string
           example: 'EO:0007210; transplanted from study 2351 observation unit ID: pot:894'
         seedSourceDescription:
-          description: Description of the material source
+          description: |-
+            Description of the material source
+            
+            MIAPPE V1.1 (DM-56) Material source description - Description of the material source
           type: string
           example: Branches were collected from a 10-year-old tree growing in a progeny trial established in a loamy brown earth soil.
         germplasmOrigin:
