@@ -86,7 +86,7 @@ spell.word_frequency.load_words([
     'bioinformatics', 'plantbreeding',
     'centimeter', 'centimeters', 'unphased', 'log10',
     'mcpd', 'ncbi', 'miappe', 'ebi', 'biosample', 'biosamples', 'inra', 'gnpis', 'cipos', 'ciend', 'svlen', 'bioversity',
-    'subtaxa', 'subtaxon', 'subform', 'subvariety', 'infraspecific', 'convar', 'convariety', 'amphiploids', 'aneuploids', 'landrace', 'cryo', 'ruderal', 'shrubland',
+    'subtaxa', 'subtaxon', 'subform', 'subvariety', 'infraspecific', 'convar', 'convariety', 'amphiploids', 'aneuploids', 'landrace', 'cryo', 'ruderal', 'shrubland', 'situ',
     'obo', 'rdf', 'obolibrary', 'ontologies', 'vcf', 'hapmap',
     'carotenoid', 'pipet', 'plateless', 'indel', 'parent1', 'parent2',
     'Zea', 'mays', 'fructus', 'c2365e900c81a89cf74d83dab60df146', 
