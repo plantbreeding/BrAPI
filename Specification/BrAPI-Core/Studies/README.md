@@ -64,23 +64,23 @@ See Search Services for additional implementation details.
 |type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation|
 |culturalPractices|string|MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.|
 |dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
-|dataFormat|string|The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)|
-|description|string|The general description of this data link|
-|fileFormat|string|The MIME type of the file (ie text/csv, application/excel, application/zip).|
+|dataFormat|string|The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
+|description|string|The general description of this data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
+|fileFormat|string|The MIME type of the file (ie text/csv, application/excel, application/zip).  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
 |name|string|The name of the external data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
 |provenance|string|The description of the origin or ownership of this linked data. Could be a formal reference to software, method, or workflow.|
 |scientificType|string|The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc|
-|url|string (uri)|MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.|
-|version|string|MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).|
+|url|string (uri)|URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.|
+|version|string|The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date-time)|The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended|
-|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
+|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).|
 |description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
-|parameterName|string|Name of the environment parameter constant within the experiment|
+|parameterName|string|Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. |
 |parameterPUI|string|URI pointing to an ontology class for the parameter|
 |unit|string|Unit of the value for this parameter|
 |unitPUI|string|URI pointing to an ontology class for the unit|
-|value|string|Numerical or categorical value|
+|value|string|Numerical or categorical value  MIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment.|
 |valuePUI|string|URI pointing to an ontology class for the parameter value|
 |experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
@@ -439,23 +439,23 @@ See Search Services for additional implementation details.
 |type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation|
 |culturalPractices|string|MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.|
 |dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
-|dataFormat|string|The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)|
-|description|string|The general description of this data link|
-|fileFormat|string|The MIME type of the file (ie text/csv, application/excel, application/zip).|
+|dataFormat|string|The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
+|description|string|The general description of this data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
+|fileFormat|string|The MIME type of the file (ie text/csv, application/excel, application/zip).  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
 |name|string|The name of the external data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
 |provenance|string|The description of the origin or ownership of this linked data. Could be a formal reference to software, method, or workflow.|
 |scientificType|string|The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc|
-|url|string (uri)|MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.|
-|version|string|MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).|
+|url|string (uri)|URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.|
+|version|string|The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date-time)|The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended|
-|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
+|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).|
 |description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
-|parameterName|string|Name of the environment parameter constant within the experiment|
+|parameterName|string|Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. |
 |parameterPUI|string|URI pointing to an ontology class for the parameter|
 |unit|string|Unit of the value for this parameter|
 |unitPUI|string|URI pointing to an ontology class for the unit|
-|value|string|Numerical or categorical value|
+|value|string|Numerical or categorical value  MIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment.|
 |valuePUI|string|URI pointing to an ontology class for the parameter value|
 |experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
@@ -717,23 +717,23 @@ StartDate and endDate should be ISO-8601 format for dates
 |type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation|
 |culturalPractices|string|MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.|
 |dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
-|dataFormat|string|The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)|
-|description|string|The general description of this data link|
-|fileFormat|string|The MIME type of the file (ie text/csv, application/excel, application/zip).|
+|dataFormat|string|The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
+|description|string|The general description of this data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
+|fileFormat|string|The MIME type of the file (ie text/csv, application/excel, application/zip).  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
 |name|string|The name of the external data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
 |provenance|string|The description of the origin or ownership of this linked data. Could be a formal reference to software, method, or workflow.|
 |scientificType|string|The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc|
-|url|string (uri)|MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.|
-|version|string|MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).|
+|url|string (uri)|URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.|
+|version|string|The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date-time)|The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended|
-|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
+|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).|
 |description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
-|parameterName|string|Name of the environment parameter constant within the experiment|
+|parameterName|string|Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. |
 |parameterPUI|string|URI pointing to an ontology class for the parameter|
 |unit|string|Unit of the value for this parameter|
 |unitPUI|string|URI pointing to an ontology class for the unit|
-|value|string|Numerical or categorical value|
+|value|string|Numerical or categorical value  MIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment.|
 |valuePUI|string|URI pointing to an ontology class for the parameter value|
 |experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
@@ -971,23 +971,23 @@ StartDate and endDate should be ISO-8601 format for dates
 |type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation|
 |culturalPractices|string|MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.|
 |dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
-|dataFormat|string|The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)|
-|description|string|The general description of this data link|
-|fileFormat|string|The MIME type of the file (ie text/csv, application/excel, application/zip).|
+|dataFormat|string|The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
+|description|string|The general description of this data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
+|fileFormat|string|The MIME type of the file (ie text/csv, application/excel, application/zip).  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
 |name|string|The name of the external data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
 |provenance|string|The description of the origin or ownership of this linked data. Could be a formal reference to software, method, or workflow.|
 |scientificType|string|The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc|
-|url|string (uri)|MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.|
-|version|string|MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).|
+|url|string (uri)|URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.|
+|version|string|The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date-time)|The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended|
-|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
+|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).|
 |description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
-|parameterName|string|Name of the environment parameter constant within the experiment|
+|parameterName|string|Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. |
 |parameterPUI|string|URI pointing to an ontology class for the parameter|
 |unit|string|Unit of the value for this parameter|
 |unitPUI|string|URI pointing to an ontology class for the unit|
-|value|string|Numerical or categorical value|
+|value|string|Numerical or categorical value  MIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment.|
 |valuePUI|string|URI pointing to an ontology class for the parameter value|
 |experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
@@ -1036,23 +1036,23 @@ StartDate and endDate should be ISO-8601 format for dates
 |type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation|
 |culturalPractices|string|MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.|
 |dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
-|dataFormat|string|The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)|
-|description|string|The general description of this data link|
-|fileFormat|string|The MIME type of the file (ie text/csv, application/excel, application/zip).|
+|dataFormat|string|The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
+|description|string|The general description of this data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
+|fileFormat|string|The MIME type of the file (ie text/csv, application/excel, application/zip).  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
 |name|string|The name of the external data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
 |provenance|string|The description of the origin or ownership of this linked data. Could be a formal reference to software, method, or workflow.|
 |scientificType|string|The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc|
-|url|string (uri)|MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.|
-|version|string|MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).|
+|url|string (uri)|URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.|
+|version|string|The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date-time)|The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended|
-|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
+|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).|
 |description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
-|parameterName|string|Name of the environment parameter constant within the experiment|
+|parameterName|string|Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. |
 |parameterPUI|string|URI pointing to an ontology class for the parameter|
 |unit|string|Unit of the value for this parameter|
 |unitPUI|string|URI pointing to an ontology class for the unit|
-|value|string|Numerical or categorical value|
+|value|string|Numerical or categorical value  MIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment.|
 |valuePUI|string|URI pointing to an ontology class for the parameter value|
 |experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
@@ -1372,23 +1372,23 @@ An additionalInfo field was added to provide a controlled vocabulary for less co
 |type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation|
 |culturalPractices|string|MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.|
 |dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
-|dataFormat|string|The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)|
-|description|string|The general description of this data link|
-|fileFormat|string|The MIME type of the file (ie text/csv, application/excel, application/zip).|
+|dataFormat|string|The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
+|description|string|The general description of this data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
+|fileFormat|string|The MIME type of the file (ie text/csv, application/excel, application/zip).  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
 |name|string|The name of the external data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
 |provenance|string|The description of the origin or ownership of this linked data. Could be a formal reference to software, method, or workflow.|
 |scientificType|string|The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc|
-|url|string (uri)|MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.|
-|version|string|MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).|
+|url|string (uri)|URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.|
+|version|string|The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date-time)|The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended|
-|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
+|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).|
 |description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
-|parameterName|string|Name of the environment parameter constant within the experiment|
+|parameterName|string|Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. |
 |parameterPUI|string|URI pointing to an ontology class for the parameter|
 |unit|string|Unit of the value for this parameter|
 |unitPUI|string|URI pointing to an ontology class for the unit|
-|value|string|Numerical or categorical value|
+|value|string|Numerical or categorical value  MIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment.|
 |valuePUI|string|URI pointing to an ontology class for the parameter value|
 |experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
@@ -1603,23 +1603,23 @@ Update an existing Study with new data
 |type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation|
 |culturalPractices|string|MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.|
 |dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
-|dataFormat|string|The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)|
-|description|string|The general description of this data link|
-|fileFormat|string|The MIME type of the file (ie text/csv, application/excel, application/zip).|
+|dataFormat|string|The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
+|description|string|The general description of this data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
+|fileFormat|string|The MIME type of the file (ie text/csv, application/excel, application/zip).  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
 |name|string|The name of the external data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
 |provenance|string|The description of the origin or ownership of this linked data. Could be a formal reference to software, method, or workflow.|
 |scientificType|string|The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc|
-|url|string (uri)|MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.|
-|version|string|MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).|
+|url|string (uri)|URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.|
+|version|string|The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date-time)|The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended|
-|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
+|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).|
 |description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
-|parameterName|string|Name of the environment parameter constant within the experiment|
+|parameterName|string|Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. |
 |parameterPUI|string|URI pointing to an ontology class for the parameter|
 |unit|string|Unit of the value for this parameter|
 |unitPUI|string|URI pointing to an ontology class for the unit|
-|value|string|Numerical or categorical value|
+|value|string|Numerical or categorical value  MIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment.|
 |valuePUI|string|URI pointing to an ontology class for the parameter value|
 |experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
@@ -1667,23 +1667,23 @@ Update an existing Study with new data
 |type|string|The type of person this contact represents (ex: Coordinator, Scientist, PI, etc.)  MIAPPE V1.1 (DM-34) Person role - Type of contribution of the person to the investigation|
 |culturalPractices|string|MIAPPE V1.1 (DM-28) Cultural practices - General description of the cultural practices of the study.|
 |dataLinks|array[object]|List of links to extra data files associated with this study. Extra data could include notes, images, and reference data.|
-|dataFormat|string|The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)|
-|description|string|The general description of this data link|
-|fileFormat|string|The MIME type of the file (ie text/csv, application/excel, application/zip).|
+|dataFormat|string|The structure of the data within a file. For example - VCF, table, image archive, multispectral image archives in EDAM ontology (used in Galaxy)  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
+|description|string|The general description of this data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
+|fileFormat|string|The MIME type of the file (ie text/csv, application/excel, application/zip).  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
 |name|string|The name of the external data link  MIAPPE V1.1 (DM-38) Data file description - Description of the format of the data file. May be a standard file format name, or a description of organization of the data in a tabular file.|
 |provenance|string|The description of the origin or ownership of this linked data. Could be a formal reference to software, method, or workflow.|
 |scientificType|string|The general type of data. For example- Genotyping, Phenotyping raw data, Phenotyping reduced data, Environmental, etc|
-|url|string (uri)|MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.|
-|version|string|MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).|
+|url|string (uri)|URL describing the location of this data file to view or download  MIAPPE V1.1 (DM-37) Data file link - Link to the data file (or digital object) in a public database or in a persistent institutional repository; or identifier of the data file when submitted together with the MIAPPE submission.|
+|version|string|The version number for this data   MIAPPE V1.1 (DM-39) Data file version - The version of the dataset (the actual data).|
 |documentationURL|string (uri)|A URL to the human readable documentation of this object|
 |endDate|string (date-time)|The date the study ends  MIAPPE V1.1 (DM-15) End date of study - Date and, if relevant, time when the experiment ended|
-|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.|
+|environmentParameters|array[object]|Environmental parameters that were kept constant throughout the study and did not change between observation units.  MIAPPE V1.1 (DM-57) Environment - Environmental parameters that were kept constant throughout the study and did not change between observation units or assays. Environment characteristics that vary over time, i.e. environmental variables, should be recorded as Observed Variables (see below).|
 |description|string|Human-readable value of the environment parameter (defined above) constant within the experiment|
-|parameterName|string|Name of the environment parameter constant within the experiment|
+|parameterName|string|Name of the environment parameter constant within the experiment  MIAPPE V1.1 (DM-58) Environment parameter - Name of the environment parameter constant within the experiment. |
 |parameterPUI|string|URI pointing to an ontology class for the parameter|
 |unit|string|Unit of the value for this parameter|
 |unitPUI|string|URI pointing to an ontology class for the unit|
-|value|string|Numerical or categorical value|
+|value|string|Numerical or categorical value  MIAPPE V1.1 (DM-59) Environment parameter value - Value of the environment parameter (defined above) constant within the experiment.|
 |valuePUI|string|URI pointing to an ontology class for the parameter value|
 |experimentalDesign|object|The experimental and statistical design full description plus a category PUI taken from crop research ontology or agronomy ontology|
 |PUI|string|MIAPPE V1.1 (DM-23) Type of experimental design - Type of experimental  design of the study, in the form of an accession number from the Crop Ontology.|
