@@ -156,31 +156,47 @@ paths:
               type: object
               additionalProperties:
                   $ref: '#/components/schemas/ObservationNewRequest'
-            example:
-              '<observationDbId_1>':
-                germplasmDbId: 2408ab11
-                germplasmName: A0000001
-                observationTimeStamp: 2019-06-28T18:49:43.516Z
-                observationUnitDbId: 598111d4
-                observationUnitName: Plot 1
-                observationVariableDbId: c403d107
-                observationVariableName: Plant Height in meters
-                collector: 917d3ae0
-                studyDbId: ef2829db
-                uploadedBy: a2f7f60b
-                value: '2.3'
-              '<observationDbId_2>':
-                germplasmDbId: 69310ca4
-                germplasmName: A0000438
-                observationTimeStamp: 2019-06-28T18:49:43.516Z
-                observationUnitDbId: 1177a714
-                observationUnitName: Plot 13
-                observationVariableDbId: e4f8ba8c
-                observationVariableName: Carotenoid
-                collector: 03ba8c2c
-                studyDbId: 6f9e267d
-                uploadedBy: 182c72ad
-                value: '2.5'
+              example:
+                '<observationDbId_1>':
+                  additionalInfo: {}
+                  collector: 917d3ae0
+                  externalReferences:
+                  - referenceID: 75a50e76
+                    referenceSource: Remote Data Collection Upload Tool
+                  germplasmDbId: 2408ab11
+                  germplasmName: A0000003
+                  observationTimeStamp: '2020-08-12T22:10:40.413Z'
+                  observationUnitDbId: 598111d4
+                  observationUnitName: Plot 1
+                  observationVariableDbId: c403d107
+                  observationVariableName: Plant Height in meters
+                  season:
+                    season: Spring
+                    seasonDbId: Spring_2018
+                    year: 2018
+                  studyDbId: ef2829db
+                  uploadedBy: a2f7f60b
+                  value: '2.3'
+                '<observationDbId_2>':
+                  additionalInfo: {}
+                  collector: 03ba8c2c
+                  externalReferences:
+                  - referenceID: 75a50e76
+                    referenceSource: Remote Data Collection Upload Tool
+                  germplasmDbId: 69310ca4
+                  germplasmName: A0000438
+                  observationTimeStamp: '2020-08-12T22:10:40.413Z'
+                  observationUnitDbId: 1177a714
+                  observationUnitName: Plot 13
+                  observationVariableDbId: e4f8ba8c
+                  observationVariableName: Carotenoid
+                  season:
+                    season: Spring
+                    seasonDbId: Spring_2018
+                    year: 2018
+                  studyDbId: 6f9e267d
+                  uploadedBy: 182c72ad
+                  value: '2.5'
       responses:
         '200':
           $ref: '#/components/responses/ObservationListResponse'
