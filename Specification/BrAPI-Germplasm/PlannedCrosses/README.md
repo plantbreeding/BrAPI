@@ -391,7 +391,7 @@ Update existing Planned Cross entities on this server
 + Request (application/json)
 ```
 {
-    "c8905568": {
+    "<plannedCrossDbId_1>": {
         "additionalInfo": {},
         "crossAttributes": [
             {
@@ -399,24 +399,53 @@ Update existing Planned Cross entities on this server
                 "crossAttributeValue": "string"
             }
         ],
-        "crossName": "my_Ibadan_Crosses_2018_01",
         "crossType": "BIPARENTAL",
         "crossingProjectDbId": "696d7c92",
         "crossingProjectName": "my_Ibadan_Crosses_2018",
         "parent1": {
             "germplasmDbId": "d34b10c3",
             "germplasmName": "TME_419",
-            "observationUnitDbId": "2e1926a7",
+            "observationUnitDbId": "3f0a1798",
             "observationUnitName": "my_Ibadan_Plot_9001",
-            "parentType": "MALE"
+            "parentType": "FEMALE"
         },
         "parent2": {
-            "germplasmDbId": "843fb211",
+            "germplasmDbId": "776a609c",
             "germplasmName": "TME_419",
-            "observationUnitDbId": "f05e955f",
+            "observationUnitDbId": "2e1926a7",
             "observationUnitName": "my_Ibadan_Plot_9002",
+            "parentType": "MALE"
+        },
+        "plannedCrossName": "my_Ibadan_Crosses_2018_01",
+        "pollinationTimeStamp": "2019-08-15T18:49:00.327Z"
+    },
+    "<plannedCrossDbId_2>": {
+        "additionalInfo": {},
+        "crossAttributes": [
+            {
+                "crossAttributeName": "string",
+                "crossAttributeValue": "string"
+            }
+        ],
+        "crossType": "BIPARENTAL",
+        "crossingProjectDbId": "696d7c92",
+        "crossingProjectName": "my_Ibadan_Crosses_2018",
+        "parent1": {
+            "germplasmDbId": "c43a2fd2",
+            "germplasmName": "TME_419",
+            "observationUnitDbId": "3f2a37b8",
+            "observationUnitName": "my_Ibadan_Plot_9013",
             "parentType": "FEMALE"
-        }
+        },
+        "parent2": {
+            "germplasmDbId": "124b10ad",
+            "germplasmName": "TME_419",
+            "observationUnitDbId": 27194637,
+            "observationUnitName": "my_Ibadan_Plot_9014",
+            "parentType": "MALE"
+        },
+        "plannedCrossName": "my_Ibadan_Crosses_2018_02",
+        "pollinationTimeStamp": "2019-08-15T18:49:00.327Z"
     }
 }
 ```

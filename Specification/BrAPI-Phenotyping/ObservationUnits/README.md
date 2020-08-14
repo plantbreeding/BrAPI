@@ -836,7 +836,144 @@ Note - In strictly typed languages, this structure can be represented as a Map o
  
 + Request (application/json)
 ```
-{}
+{
+    "<observationUnitDbId_1>": {
+        "additionalInfo": {},
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12341234",
+                "referenceSource": "DOI"
+            }
+        ],
+        "germplasmDbId": "e9d9ed57",
+        "germplasmName": "A0000001",
+        "locationDbId": "0e208b20",
+        "locationName": "Field Station Alpha",
+        "observationUnitName": "Plot 31",
+        "observationUnitPUI": "http://pui.per/plot/1a9afc14",
+        "observationUnitPosition": {
+            "entryType": "TEST",
+            "geoCoordinates": {
+                "geometry": {
+                    "coordinates": [
+                        -76.506042,
+                        42.417373,
+                        123
+                    ],
+                    "type": "Point"
+                },
+                "type": "Feature"
+            },
+            "observationLevel": {
+                "levelCode": "Plot_456",
+                "levelName": "plot",
+                "levelOrder": 2
+            },
+            "observationLevelRelationships": [
+                {
+                    "levelCode": "Field_1",
+                    "levelName": "field",
+                    "levelOrder": 0
+                },
+                {
+                    "levelCode": "Block_6",
+                    "levelName": "block",
+                    "levelOrder": 1
+                },
+                {
+                    "levelCode": "Plot_456",
+                    "levelName": "plot",
+                    "levelOrder": 2
+                }
+            ],
+            "positionCoordinateX": "78",
+            "positionCoordinateXType": "GRID_COL",
+            "positionCoordinateY": "08",
+            "positionCoordinateYType": "GRID_ROW"
+        },
+        "programDbId": "2d763a7a",
+        "programName": "The Perfect Breeding Program",
+        "seedLotDbId": "261ecb09",
+        "studyDbId": "9865addc",
+        "studyName": "Purple_Tomato_1",
+        "treatments": [
+            {
+                "factor": "fertilizer",
+                "modality": "low fertilizer"
+            }
+        ],
+        "trialDbId": "776a609c",
+        "trialName": "Purple Tomato"
+    },
+    "<observationUnitDbId_2>": {
+        "additionalInfo": {},
+        "externalReferences": [
+            {
+                "referenceID": "doi:10.155454/12341234",
+                "referenceSource": "DOI"
+            }
+        ],
+        "germplasmDbId": "e9d9ed57",
+        "germplasmName": "A0000001",
+        "locationDbId": "0e208b20",
+        "locationName": "Field Station Alpha",
+        "observationUnitName": "Plot 17",
+        "observationUnitPUI": "http://pui.per/plot/1a9afc14",
+        "observationUnitPosition": {
+            "entryType": "TEST",
+            "geoCoordinates": {
+                "geometry": {
+                    "coordinates": [
+                        -76.506042,
+                        42.417373,
+                        123
+                    ],
+                    "type": "Point"
+                },
+                "type": "Feature"
+            },
+            "observationLevel": {
+                "levelCode": "Plot_123",
+                "levelName": "plot",
+                "levelOrder": 2
+            },
+            "observationLevelRelationships": [
+                {
+                    "levelCode": "Field_1",
+                    "levelName": "field",
+                    "levelOrder": 0
+                },
+                {
+                    "levelCode": "Block_12",
+                    "levelName": "block",
+                    "levelOrder": 1
+                },
+                {
+                    "levelCode": "Plot_123",
+                    "levelName": "plot",
+                    "levelOrder": 2
+                }
+            ],
+            "positionCoordinateX": "74",
+            "positionCoordinateXType": "GRID_COL",
+            "positionCoordinateY": "03",
+            "positionCoordinateYType": "GRID_ROW"
+        },
+        "programDbId": "2d763a7a",
+        "programName": "The Perfect Breeding Program",
+        "seedLotDbId": "261ecb09",
+        "studyDbId": "9865addc",
+        "studyName": "Purple_Tomato_1",
+        "treatments": [
+            {
+                "factor": "fertilizer",
+                "modality": "low fertilizer"
+            }
+        ],
+        "trialDbId": "776a609c",
+        "trialName": "Purple Tomato"
+    }
+}
 ```
 
 
