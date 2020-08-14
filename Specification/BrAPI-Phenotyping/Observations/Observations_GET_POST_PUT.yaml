@@ -165,7 +165,7 @@ paths:
                     referenceSource: Remote Data Collection Upload Tool
                   germplasmDbId: 2408ab11
                   germplasmName: A0000003
-                  observationTimeStamp: '2020-08-12T22:10:40.413Z'
+                  observationTimeStamp: '2020-08-12T18:10:40.413Z'
                   observationUnitDbId: 598111d4
                   observationUnitName: Plot 1
                   observationVariableDbId: c403d107
@@ -185,7 +185,7 @@ paths:
                     referenceSource: Remote Data Collection Upload Tool
                   germplasmDbId: 69310ca4
                   germplasmName: A0000438
-                  observationTimeStamp: '2020-08-12T22:10:40.413Z'
+                  observationTimeStamp: '2020-08-12T18:10:40.413Z'
                   observationUnitDbId: 1177a714
                   observationUnitName: Plot 13
                   observationVariableDbId: e4f8ba8c
