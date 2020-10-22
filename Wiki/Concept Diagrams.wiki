@@ -1,0 +1,16 @@
+BrAPI Concept diagram from the planning stages of BrAPI
+
+== Trial Design ==
+
+This is the Trial Design diagram defined in the Hackaton 2016
+
+[[File:Trial Design V.1.0.0.jpg]]
+
+== Data Model ==
+BrAPI Rough data model 2017
+
+[[Image:BrapiDiagram.jpg|875px]]
+
+Work in progress ERD diagram from the BrAPI Dataset repository:
+
+[[Image:Old BrAPI Dataset.png|875px]]

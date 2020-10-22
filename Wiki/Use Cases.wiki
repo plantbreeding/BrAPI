@@ -1,0 +1,31 @@
+== Use Case List ==
+
+{| class="wikitable"
+! Use Case !! Teams Involved
+|-
+| [[ Convert to ICASA/AgMIP ]] || TERRA REF, UoA, UoF
+|-
+| [[ Automated Sample Submission ]] || GOBii, DArT, Cornell Genotyping
+|-
+| [[ Phenotype Data Collection ]] || KSU Field Book, Breedbase, BMS, Breeding Insight
+|-
+| [[ Pedigree Verification ]] || 
+|-
+| [[ Data QC ]] || 
+|-
+| [[ Sample Collection ]] ||
+|-
+| [[ Is Germplasm Present ]] ||
+|-
+| [[ Elixir Excelerate phenotyping data discovery ]] ||
+|-
+| [[ Flapjack Genotype Visualization ]] || GOBii, JHI Flapjack
+|-
+| [[ Data analysis and visualization (HIDAP) ]] || HIDAP, Breedbase
+|-
+| [[ Trial Search Usecase ]] ||
+|-
+| [[ Genotyping Search Usecase ]] ||
+|-
+| [[ BMS - KDX Integration ]] || BMS, DArT KDX
+|}

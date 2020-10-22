@@ -1,0 +1,39 @@
+Information about the calls which make up [[ BrAPI ]]
+
+== URL Structure ==
+API requests are structured as 
+
+    https://'''<server>'''/brapi/v1/'''<call>'''
+
+where <code><server></code> is the base URL of the API host server, <code>v1</code> is the major version number of the API, and <code><call></code> is the path of the desired  service call]].
+  
+Example: <code><nowiki>https://test-server.brapi.org/brapi/v1/markerprofiles/2939 </nowiki></code>
+
+
+To distinguish between multiple databases available from the same server, include the database name as part of the <code><server></code> identifier. An arbitrary number of levels can be inserted between the domain name and the brapi level, if needed.
+
+Example:  <code><nowiki>https://test-server.brapi.org/</nowiki>'''maize_db_01'''/brapi/v1/markerprofiles/2939 </code> 
+
+Example:  <code><nowiki>https://test-server.brapi.org/</nowiki>'''cornell/cals/wheat_db'''/brapi/v1/markerprofiles/2939 </code>
+
+== Calls ==
+Here is a list of all the web service calls which make up [[ BrAPI ]].
+
+&#x2714; = Present, &#x26a0; = Deprecated
+{| class="wikitable"
+|-
+! Call
+! [[V1.0]]
+! [[V1.1]]
+! [[V1.2]]
+|-
+| [[BrAPI Call:calls | /calls ]]
+| &#x2714;
+| &#x2714;
+| &#x2714;
+|-
+| /markers
+| &#x2714;
+| &#x26a0;
+| &#x26a0;
+|}

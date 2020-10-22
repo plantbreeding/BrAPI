@@ -1,0 +1,26 @@
+The european project Elixir Excelerate is working on a phenotyping data discovering use case which will develop a user interface capable of searching & accessing phenotyping experiment data across multiple Breeding API endpoints.
+
+For this use case to work on your BrAPI endpoint, you should implement these calls:
+* '''[MANDATORY]''' [https://github.com/plantbreeding/API/blob/master/Specification/Calls/Calls.md#call-search-brapiv1calls Call Search [/brapi/v1/calls]] (requires pagination)
+* '''[MANDATORY]''' [https://github.com/plantbreeding/API/blob/master/Specification/Studies/StudiesSearch_POST.md#search-studies-post-post-brapiv1studies-search Search Studies (POST) [POST /brapi/v1/studies-search]] (requires pagination) 
+**'''OR''' [https://github.com/plantbreeding/API/blob/master/Specification/Studies/StudiesSearch_GET.md#search-studies-brapiv1studies-search Search Studies (GET) [/brapi/v1/studies-search]] (requires pagination)
+* '''[MANDATORY]''' [https://github.com/plantbreeding/API/blob/master/Specification/Studies/Studies_Germplasm_GET.md#study-germplasm-details-brapiv1studiesstudydbidgermplasm Study Germplasm Details [/brapi/v1/studies/{studyDbId}/germplasm]] (requires pagination)
+* '''[MANDATORY]''' [https://github.com/plantbreeding/API/blob/master/Specification/Studies/Studies_GET.md Study Details [/brapi/v1/studies/{studyDbId}]] Adds metadata about the study
+* '''[MANDATORY]''' [https://github.com/plantbreeding/API/blob/master/Specification/Studies/Studies_ObservationVariables_GET.md#study-observation-variables-brapiv1studiesstudydbidobservationvariables Study Observation Variables [/brapi/v1/studies/{studyDbId}/observationvariables]] (requires pagination)
+* '''[RECOMMENDED]''' [https://github.com/plantbreeding/API/blob/master/Specification/Programs/ProgramSearch.md#program-search-brapiv1programs-search Program Search [/brapi/v1/programs-search]] (requires the "programDbId" search parameter)
+* '''[RECOMMENDED]''' [https://github.com/plantbreeding/API/blob/master/Specification/Trials/ListTrialSummaries.md#get-list-of-trial-summaries-brapiv1trials Get List of Trial Summaries [/brapi/v1/trials]] (requires pagination)
+* '''[RECOMMENDED]''' [https://github.com/plantbreeding/API/blob/master/Specification/Locations/LocationDetails.md#location-details-brapiv1locationslocationdbid Location Details [/brapi/v1/locations/{locationDbId}]] Might be redundant with the location in the study details call
+* '''[RECOMMENDED]''' [https://github.com/plantbreeding/API/blob/master/Specification/Phenotypes/PhenotypeSearch.md#phenotype-search-brapiv1phenotypes-search Phenotype Search [/brapi/v1/phenotypes-search]] (requires the "studyDbIds" parameter & pagination) 
+**'''OR''' [https://github.com/plantbreeding/API/blob/master/Specification/Studies/Studies_ObservationUnits_GET.md#observation-unit-details-brapiv1studiesstudydbidobservationunits Observation Unit Details [/brapi/v1/studies/{studyDbId}/observationunits]] (requires pagination)
+
+These calls are listed here by order of importance. From the most important and mandatory calls to the least important and recommended calls. Some of these calls have alternatives, you can implement one or both of them.
+
+Recommended calls bring extra information on phenotyping studies and should be implemented if you have them in your database. For example, if you reference `"locationDbId": "33"` in your study search result, you should then also implement the location details call.
+
+The study details call should provide the location details if present in your databse. 
+
+A work in progress implementation of a multi BrAPI endpoint data harvester is accessible on github [GnpIS/BrAPI-extract-index-prototype](https://github.com/gnpis/BrAPI-extract-index-prototype) and soon will be migrated to the github [Elixir Europe community](https://github.com/elixir-europe)
+
+An example of a BrAPI server implementation each of these calls is accessible at:<br>
+https://urgi.versailles.inra.fr/gnpis-core-srv/swagger-ui.html <br>
+Warning: This server has not been tested for 100% compliance with BrAPI standards. Refer to the BrAPI documentation when in doubt.

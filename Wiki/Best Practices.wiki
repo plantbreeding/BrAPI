@@ -1,0 +1,14 @@
+The [[ BrAPI Community ]] has developed a set of Best Practices when working with [[ BrAPI ]] implementations.
+
+* [[ Alternative Standards ]] - Notes on conversions and mappings to other existing standards including MIAPPE, ICASA, MCPD, GeoJSON, and GA4GH Variants Schema
+* [[ Authentication ]] - Notes on Authentication and Authorization, focusing on OAuth2
+* [[ CORS | Cross-Origin Resource Sharing (CORS) ]]  - Notes on common [[ CORS ]] errors and how to deal with them
+* [[ Dates and Times ]] - Notes on encoding Dates and Times
+* [[ DbIds and Names ]] - Notes on DbIds, Names, PUIs, DOIs, and External References
+* [[ Error Handling ]] - Notes on handling Errors
+* [[ Location Coordinates ]] - Notes on use GPS Coordinates and GeoJSON
+* [[ Pagination ]] - Notes on Pagination
+* [[ Required and Additional Fields ]] - Notes on Fields and Parameters when they are Required, Added, and Deprecated
+* [[ RESTfulness ]] - General REST best practices, including notes on HTTP verbs, HTTP status codes, and URL construction.
+* [[ Search Services ]] - Notes on Search implementations
+* [[ Versioning ]] - Notes on BrAPI Versioning Scheme

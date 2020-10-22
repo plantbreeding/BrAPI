@@ -1,0 +1,13 @@
+This page describes the calls that support tab-separated files as their return type, and what the format of those files should look like.
+
+''' /allelematrix-search?format=tsv '''
+
+A call to /allelematrix-search should return all of the data (allele calls) for a specified set of germplasm lines by a specified set of markers. The BrAPI definition of the TSV format is as close as possible to the normal JSON response:
+
+    markerprofileDbIds  mpdbid1  mpdbid2  mpdbid3  ...
+    marker1             A        A|T      G
+    marker2             N        C        G/C
+    marker3             N        C        A/T
+    ...
+
+Note that the above example uses the BrAPI defined defaults of `N` = unknown, `|` = phased heterozygotes separator and `/` = unphased heterozygotes separator, although client parameters may request a server to use different values.

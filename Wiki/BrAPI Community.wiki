@@ -1,0 +1,13 @@
+The [[ BrAPI Community]] has been steadily growing since the creation of [[ BrAPI ]]. Interested in becoming an official member of the community reach out to a [[ BrAPI Coordinator ]]
+
+== Active BrAPI Implementations ==
+{| class="wikitable"
+|-
+! Project
+! Team
+! URL
+|-
+| BrAPI Test Server
+| brapi.org
+| [https://test-server.brapi.org test-server.brapi.org]
+|}

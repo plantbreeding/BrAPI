@@ -1,0 +1,44 @@
+==Propose a mapping on MIAPPE V1.1:==
+https://docs.google.com/spreadsheets/d/1yEoWoY2Z9k6AVhGPUEFEOoY38oYk95LlP1K1OVvYSFo/edit?usp=sharing
+
+
+== Proposed evolutions for BrAPI V2 MIAPPE V1.1 compliant ==
+* studyType is not required for BrAPI, but mandatory for MIAPPE
+* Seasons -> sometimes season / sometime's’ date, it make sense, it can be a year in a multiannual study, a season (spring 2007), a campaign within a multiannual trial (pest study 2008)
+
+* Very Important  : in Study/ObservationUnit traceability of derived material : bioSampleIDs for derived material, lotNumber: 
+** In /brapi/v2/phenotype-search and /brapi/v2/study/blahId/observationUnits add :
+   `“derivedMaterialIDs”:[{“source”:”biosample”, “ID”:”SAMEA179865230”}, {“source”:”gnpis.lot”,   “ID”:”INRA:CoeSt6 _SMH03”}, {“source”:”kernel”, “ID”:”239865”}]`
+** brapi/v1/phenotype-search?biosampleID=SAMEA179865230
+
+* Add Taxon id (NCBI) to germplasm (propagate to obsUnit / study ?) : `“taxon”:{“source”:”NCBI”, “id”:”http://purl.obolibrary.org/obo/NCBITaxon_4577”}`
+* Need update calls to update BrAPI with external identifiers (Add biosample to underlying DB?)
+
+* Data authorship and licensing information on study/trial/programme levels
+
+== Meeting minutes Day 1 ==
+
+Details in shared [Google Document](https://docs.google.com/document/d/1bYVuF_NC3P1kDclXsArJwsxt3996gv7N31EuxDhEcJU/edit?usp=sharing). Here are the summary points:
+* Mapping of BRAPI calls to MIAPPE 1.1 standard (confirmation of some work already started)
+* Elixir will provide BRAPI to MIAPPE mapping (generation of ISA formats)
+* Need more documentation and improvement of existing documentation (much of the discussion involved clarification of BRAPI calls/entities):
+
+Several changes discussed for MIAPPE conformance:
+ * Addition of "description" to study object
+ * Addition of "institutionName/institutionAddress" to location, with downstream implications -- use locationDbId in place of location object.
+ * Data Link (open issue #7)
+ * Discussion of bioSampleID (needs broader group input on samples call). MIAPPE v1.1 explicitly requires BioSampleID.
+ * Addition of "ncbiTaxonId" in germplasm call
+ * Adding  "license" for trial and study calls
+ * Adding "datasetAuthorship" for trial call
+ 
+
+== Meeting minutes Day 2 ==
+ * ```json
+   "observationUnit.xRefs": [
+     {"source": "biosample", "ID": "SAMEA179865230"}, 
+     {"source": "gnpis.lot", "ID": "INRA:CoeSt6 _SMH03"}, 
+     {"source": "kernelExperimentalID", "ID": "239865"}
+   ]
+   ```
+* keep sample call. sample is different from observationUnit

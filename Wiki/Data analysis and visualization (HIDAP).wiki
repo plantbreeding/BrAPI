@@ -1,0 +1,1 @@
+The Brapi calls that are initially needed have been reviewed and appear to be all present. A call GET /crops : List supported crops for multi-crop databases, has been added to the apiary definition as defined in the API of the Breeding Management System.

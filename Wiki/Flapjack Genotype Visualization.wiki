@@ -1,0 +1,50 @@
+For a service to provide data to [Flapjack](https://ics.hutton.ac.uk/flapjack) for genotype data visualization, the following BrAPI calls must be implemented.
+
+0) '''/calls''' - required
+
+:Flapjack's first step is to query the available calls to find out if the service can be used, and also to determine whether or not the /allelematrix call can return data to Flapjack in tsv format.
+
+1) '''/token''' - optional
+
+:If the user provides authentication details, then Flapjack will attempt a BrAPI login.
+
+2) '''/studies-search?studyType=genotype''' - optional
+
+:To help filter the list of germplasm, Flapjack will call /studies with the studyType parameter set to "genotype".
+
+3) '''/maps''' - optional
+
+:Flapjack will retrieve the list of available maps and display them to the user for selection.
+
+4) '''/maps/_mapDbId_''' - only used if 3) is implemented by server
+
+:Flapjack will look for the maxPosition entry for each linkage group/chromosome to set the length of each chromosome. If the call can't be made, then the position of the last marker (in the next) call will be used instead.
+
+5) '''/maps/_mapDbID_/positions''' - only used if 3) is implemented by server
+
+:Flapjack pulls back information on each marker associated with the user's selected map.
+
+
+At this point, Flapjack will make a determination (from /calls) as to which path to take.
+
+
+Route 1)
+
+1) '''/allelematrices'''
+
+:Flapjack will retrieve a list of the available genotype matrices and present it to the user for selection.
+
+2) '''/allelematrix-search?format=flapjack'''
+
+:Flapjack will download the matrix of allele data, in Flapjack format (http://flapjack.hutton.ac.uk/en/latest/projects_&_data_formats.html#data-sets-maps-and-genotypes).
+ 
+
+Route 2)
+
+1) '''/markerprofiles?studyDbId=_studyDbID_'''
+
+:Flapjack will download a list of marker profiles IDs that associate the germplasm in the study with the markers from the map. This call is also used to retrieve the germplasm name (germplasmName) for each line. The studyDbId filter will only be used if 2) above is implemented.
+
+2) '''/allelematrix-search''' or '''/allelematrix-search?format=tsv''' - at least one option required
+
+:Flapjack will download the matrix of allele data, either in JSON format (always required) or optionally in tab-separated-format (https://github.com/plantbreeding/Documentation/wiki/BrAPI-TSV-Expected-Formats). Flapjack uses the information provided in /calls (step 0) to decide which method it will call.

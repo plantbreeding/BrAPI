@@ -1,0 +1,44 @@
+The BrAPI Validation Test Suite provides a mechanism that allows:
+
+a) A given client implementation to ensure that it complies with the core API requirements for a given Use Case
+
+OR
+
+b) A given server implementation to ensure that it provides all of the core API requirements for a given Use Case.
+
+The first requirement therefore is:
+
+i) An enumeration of the various Use Cases
+
+AND
+
+ii) A list of the API calls required to support the Use Case and the call parameters and responses that provide the evidence of compliance
+
+==Test Server URL==
+A client intending to use the BrAPI can be provided with this URL which it may then use to interrogate the server and retrieve the entity records relevant to each API call.
+
+For each Use Case, the compliance documentation will list the API calls and provide the minimal JSON response that would be returned by the server (this same data may be also used for compliance testing of a server by the Test Client).
+
+Given the nature of REST api usage, rather than providing a "compliance report", it is up to the implementor of the client code to check that they correctly process the responses and are able to view all of the data returned by the server.
+
+We should make available a predefined list of entities that are available via the various API calls. The list is also made available as a comma- or tab-separated file to facilitate easy inspection.
+
+==Test Client Web Page==
+When an implementor of a BrAPI server wishes to ensure that their implementation is compliant with a particular version of the BrAPI, they are able to:
+
+enter a public accessible URL to their server
+select the Use Case(s) they wish to test
+BrAPI compliance level
+Submit the compliance test request.
+The result of a "compliance report" that indicates, for each Use Case:
+
+the sequence of API calls that were made to the provided URL
+the response received
+whether the response provided matches the expected response (any exceptions or "extra" information could also be provided)
+"Compliance" in this instance is if all expected response fields are present. Extra information should not prevent a succesful compliance result.
+
+==Test Dataset Development==
+https://docs.google.com/spreadsheets/d/1tTXwLANWbgZU29UcuUWbCGiPJnO1KY93ojup6hy5094/edit#gid=485098686
+
+==Work in progress relational DB dataset example==
+https://github.com/gcornut/BrAPI-Dataset

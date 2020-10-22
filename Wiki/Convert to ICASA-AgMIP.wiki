@@ -1,0 +1,3 @@
+Use Case: Collect data from BrAPI endpoints to produce AgMIP files, which can then be submitted to the [https://data.nal.usda.gov/about-ag-data-commons Ag Data Commons].
+
+More details here: https://datascience.cals.arizona.edu/news/2020/06/hackathon-building-agricultural-research-data-network

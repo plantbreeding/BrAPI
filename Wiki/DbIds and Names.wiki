@@ -1,0 +1,21 @@
+== DbIds ==
+
+Most objects represented in BrAPI have a DbId field. This field represents a primary key which will uniquely identify that object ''within the database being queried.'' It is NOT guaranteed to be unique across multiple systems, though it could be. DbIds should primarily be used to link data together within a system. 
+
+For example, in a given call, an Observation Unit object is returned with the <code>stduyDbId</code>. In a subsequent call to the same system, you should be able to retrieve the Study Object directly based on the <code>stduyDbId</code>.
+
+'''DbIds Special Case''' 
+
+There was a special case raised in [https://github.com/plantbreeding/API/issues/85 GitHub Issue #85] where the DbId string was a URL (a DOI url in this specific case, but any url will have the same problem). URLs generally contains the <code>/</code> character which makes them difficult to use as parts of the path in a REST call.
+
+Recommendation: If possible, avoid using URLs as DbIds to avoid this issue. There are other fields available for communicating a variety of URLs to a client, reserve the DbId field for a convenient primary key for linking to other objects.
+
+If you must use a URL as a DbId, you must encode it in some way to hide the slashes. Your system will need to accept the encoded string in a request and un-encode it before querying the database. Likewise, when responding to a request, your system will need to retrieve the URL from the database and encode it before  returning. The specific encoding schema doesn't matter, as long as it produces consistent results within your system. [https://github.com/plantbreeding/API/issues/85 GitHub Issue #85] describes a double URL symbol encoding scheme which works. Hexadecimal encoding is another option.
+
+== PUIs ==
+
+== External References ==
+
+== Names ==
+
+Most objects represented in BrAPI have a Name field. This field is meant to be a short, human readable summary of the object. It is NOT guaranteed to be unique in ANY WAY. Names are a convenient way to interact with users by printing on a screen or searching. Names may be created by a human user or generated automatically by some concatenation of other data points. Name fields should not be used to pass any data other than the intended human readable reference string. For example, the name <code>Field_Trial_abc123</code> should never be parsed to extract <code>abc123</code> as a usable DbId or piece of data.

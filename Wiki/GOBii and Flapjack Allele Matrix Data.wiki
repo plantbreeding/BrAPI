@@ -1,0 +1,59 @@
+Back to [[ Use Cases ]]
+
+[[Use Cases | Use case]] for connecting Flapjack visualization tools with Allele Matrix data in GOBii
+==Problem Statement==
+At the Montpelier hackathon, the GOBII and JHI folks worked out the following means of retrieving genomic matrices from GOBII:
+
+/studies-search?studyType=genoype: from FlapJack’s and GOBII’s perspective, a study would be a GOBII dataset (https://github.com/plantbreeding/API/blob/master/Specification/Studies/SearchStudies.md); studies-search would provide a list of dataset names (concatenated with their respective experiment names) from which to get a study ID;
+/markerprofiles?studyDbId={studyDbId}: this call would provide the markerprofile ID for the allele-matrix search; BRAPI defines a marker profile as “the allele calls for a specified germplasm line, for all markers, for a specified set of genotyping experiments or all experiments.”
+allelematrix-search?markerProfileDbId={markerProfileDbId} retrieves the allele data for the specified marker profile/germaplsm (https://github.com/plantbreeding/API/blob/master/Specification/MarkerProfiles/MarkerProfileAlleleMatrix.md).
+Making this all work with GOBII presents some problems because of the way that GOBII organizes its data. The GOBII datamodel does not provide a study entity the way that breeding management systems do. Rather, the GOBII entities involved are:
+
+dataset: a dataset corresponds to and describes a two-dimensional matrix containing marker and sample data;
+dnarun: the dnarun corresponds to a sample;
+germplasm: A germplasm has an external ID that can be used to reference a germplasm entity in another system, and a germplasm corresponds to multiple dnaruns; in other words, a given tissue sample is expected to be sequenced more than once, resulting in multiple dnaruns for the same germplasm.
+There are a couple of problems here:
+
+If GOBII provides a study-search call, it should mean that it also supports retrieval of study details through /studies/{studyDbId}; however, virtually none of the data keys retrieved for study details exist in GOBII: https://github.com/plantbreeding/API/blob/master/Specification/Studies/StudyDetails.md
+GOBII's native search semantics allow for extraction of matrices based on datasetid, list of samples, or list of markers. Using the allelematrix-search as it is would require breaking a dataset request down into what is really an extract by sample list when doing so is not necessary: The queries in GOBII would have to retrieve the germplasm/dnarun IDs for a "study" (i.e., dataset) and then re-retrieve the same dataset when the germplasm/dnarun IDs are provided to the allelematrix-search call. If you already have the actual name of the dataset, it is more straightforward to directly retrieve the matrix for that specific dataset.
+
+==Proposal==
+Allow a new property, matrixDbId, in the POST to the allematrix-search call;
+`allelematrix-search' will support flapjack genotype format;
+Add a new resource, /allematrices:
+The GET result is as follows:
+
+   {
+      "data":[
+         {
+            "name":"testDs1",
+            "matrixDbId":27,
+            "description":"a test dataset",
+            "lastUpdated":"2017-06-12",
+            "studyDbId":13
+         },
+         {
+            "name":"testDs2",
+            "matrixDbId":28,
+            "description":"a second test dataset",
+            "lastUpdated":"2017-06-12",
+            "studyDbId":13
+         }
+      ]
+   }
+
+A POST will be designed in the future: this will be useful for high throughput genotyping scenarios;
+/allematrices can be called with query parameter studyDbId= to filter matrices to specific studies.
+
+==Implementation Notes==
+The new Flapjack workflow would be as follows
+*/maps (pick a map)
+*/maps/{id}/positions
+*/maps/{id}
+*/allelematrices (list of matrices)
+*/allelematrix-search (in flapjack format)
+This workflow would replace the existing one: https://github.com/plantbreeding/documentation/wiki/Flapjack-(Genotype-Visualization)-BrAPI-Steps
+
+GOBII:
+*The /studies call will return a list of projects: thus, matrices can be filtered by project;
+*The list of matrices will be a concatenation of experiment name with dataset name;

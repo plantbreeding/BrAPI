@@ -1,0 +1,733 @@
+Dave Mathews is one of the founding members of BrAPI
+
+== Decisions ==
+
+cropName in the URL
+
+cropName is a species group.
+
+We propose to allow to add /cropName/ at the beginning of the url calls : /cropName/brapi/v1/maps/27.
+Note that on BMS or other servers you can have multiple databases, therefore you can have those two urls : 
+server.com/maize/brapi/v1/maps/27 and server.com/wheat//brapi/v1/maps/27
+In this case, cropName is not handled by the API, it comes before the API. It is handled by Apache or as a subdomain.
+
+Internationalization: We defer to later versions of the api to include internationalization support. Generally, different languages is not the domain of the api and can be supported on the application layer. However, the server can use the locale setting to return different languages.
+
+REST response encoding has to be in UTF-8.
+
+Every response should have a metadata field which is null if no metadata is available. Otherwise, it contains two keys, status (with a list of hashes) and pagination (see apiary documentation).
+
+The data is reported in the "result" key in the response. 
+
+Question about repeating the query in the status response. Reviewing the calls, use case of repeating the query was not clear. 
+
+Authentication: is hard. We want to be secure. The initial login service will be modeled on the OAuth2.0 password type authentication call. Likely move to implementation of OAuth2.0 in the future.
+
+Inventory and Sample Tracking use cases: important to have datatypes to link into such systems (using the extractId concept etc), but will not be part of version 1.0.
+
+Formats for data analysis (such as file downloads in VCF): left to application layer at the moment, but discuss for inclusion in version 2.0.
+
+Release Draft Standard 
+* Review calls for inclusion in version 1.0
+* Draft deadline: Sept 1, 2015
+* Review period after that: 1 month (by Oct 1.)
+* Revisions: 1 months (by Nov 1.)
+* Finalize implementation: 1 month (by Dec 1).
+* Announcement and workshop, possibly hackathon, at PAG. Poster? Software demo?
+* Publication: In Bioinformatics? In early 2016.
+
+Important: Implementations should be worked on during the entire time to identify problems.
+
+
+Standardizing JSON key names discussion:
+* Use dbId for internal ids: i.e., germplasmDbId, studyDbId etc.
+* pedigree instead of pedigreeString
+* x and y for coordinates (as opposed to xCoordinate, as implied to be a coordinate)
+* the API should not supply labels (xLabels, for example) this is application level responsibility
+* externalIds : { id : namespace : URI } instead of germplasmURI or germplasmPUI
+* germplasmName
+
+groups going forward:  
+Genotyping: JHI, Clay, Lukas, Kelly, Dart  
+Phenotype: Naymesh, Trevor, Lukas, Reinhard, Jorge, Celso, Cyril, Brian, Mathieu  
+Germplasm: Erik, Celso, Sebastian, Reinhard Akhil, Mathieu  
+Authentication: Naymesh, Jack, Valentin, Iain, Akhil  
+Convergence group: Lukas, Naymesh, Jack, Akhil, Gordon  
+Testing and Validation (post Sept)  
+Marketing, Fundraising, Propaganda: (post Sept)  
+
+Meet on the internets every two weeks in one of the time zones.
+
+
+Discussion about pagination and result JSON keys:
+
+example marker profiles 
+  
+add markerprofile/{id}/scores call to report scores, which will report scores in the "result" key as a list, and will be paginated. 
+
+As a general rule, the "result" key provides a list on which the pagination will work on.
+
+== Meeting Notes ==
+
+
+===2015===
+====3-dec-15====
+
+ Jan Erik, Cyril, Iain, Clay 
+* JHI attending San Diego but not PAG
+* GOBII launch Jan 7*8
+* markerprofile data germplasmdbid is shown as integer, should be string
+* Cyril developing a javascript widget fed by local JSON files. Ontology, observation variables
+* Doodle shows Wed pm best for PAG BRAPI meeting
+
+====15-Oct-15====
+*can we divide the complicated endpoints into two or more simple endpoint. Some of the endpoints are getting too complimented to implement
+*need test data set and testing script to validate implementation
+*need to schedule meeting before or after PAG to work on API
+
+====1-oct-15====
+
+Convergence
+
+====28-sep-15====
+
+ Cyril, Marie*Angelique
+Phenotypes, Studies
+* mandatory vs. optional options, which ones must be implemented by the server.  What to return if an optional option is not suppported?
+
+====17-sep-15====
+
+ Jan Erik, Jack, Clay, Dave, Naymesh
+* Naymesh is working on Github/Apiary connection
+* germplasm:
+** Handling errors. See Convergence
+** kinds of "synonyms": breederCode, accessionNumber, germplasmPUI, synonym
+** Search by name should return only germplasmId and displayName.
+** Search by name should specify whether synonyms are also searched for.
+
+====10-sep-15====
+
+ Clay, Lukas, Dave, Guillaume, Cyril, Gordon, Reinhard, Nick Morales, Mirella Flores, Jan Erik
+* New collaborators at BTI, Nick and Mirella
+* Jan Erik's todo list
+* Working group for Convergence. Will work at BTI.
+* Cyril will activate Germplasm and Phenotype groups
+* separate call for MCPD germplasm info
+* What is germplasm "breederCode"?  synonyms, dbxref, URI  
+stable unique identifier in the database.  search parameter "name"
+* service registry ics.hutton.ac.uk/resources/brapi/matrix.html
+
+====13-aug-15====
+
+ Clay, Cyril, Dave, Mathieu, Guillaume Cornut, Gordon, Reinhard, Jan Erik, Marie*Angelique
+* Traits vs. Observation Variables.  Give use case of calling a trait to get its OVs.
+* Study	Details
+* Optional response data types.	 Need documentation of response	for each call.
+* Draft	deadline Sept 1.  Is anyone working on a Full implementation?  Service Registry can specify which calls are supported	by each	service provider.  Someone should review the whole thing though to assure consistent use of our best practices.  Need Indicators of what is a successful implementation.
+* Make a todo list for the status of each section (Markerprofiles, Germplasm etc).  On Github wiki, as Issues.
+* Redundancy between Studies list and studies/id Details.  How much metadata for filtering should be included in the list?  Add a parameter ?full to get fuller information?
+
+====23-jul-15====
+
+ Jan Erik, Clay, Dave
+* looked at Observation	Variables, especially scale name and dataType
+
+====16-jul-15====
+
+ Clay, Cyril, Marie*Angelique, Jan Erik, Iain, Sebastian, Lukas
+* Crop Ontology, Marie: need service for ObservationVariables, including method and scale.
+* Cyril: observationUnit metadata for autocompletion searching in the app to find a single observation unit.
+* Cyril: study details: add list of germplasms and observationVariables
+
+====11-jun-15====
+
+ Jan Erik, Naymesh, Clay, Dave, Akhil
+* Talk by Joshua Bloch on how to design APIs well
+* Version 1 as a goal of the hackathon.  "Rule of Three" implementations, and a consumer.
+* Specify crop in URL, species as a querystring option
+
+====4-jun-15====
+
+ Iain, Gordon, Sebastian, Jan Erik, Clay, Dave, Cyril
+* Flapjack*T3: getting map lists.  slow, esp encrypted with SSL
+* Big overhead for marker names with each markerprofiles call Define a 2*dimensional germplasm*list x markers markerprofiles call?
+* Error responses need to be specified
+* Hackathon plans, https://github.com/plantbreeding/documentation/wiki/Proposed*Agenda*for*the*2015*Plant*Breeding*Public*API*Hackathon
+* Field trial data. Also Metadata, like who did the work, what year, location. Cyril has 5*10 user stories
+* BMS API: http://api.leafnode.io:10081/bmsapi/
+* genotyping data in compressed formats, HDF5, tabix, ... Use AcceptHeaders to specify format request.
+* Swagger API documenting package
+** post these notes on wiki
+
+====28-may-15====
+
+ Jan Erik, Puthick, Dave, Akhil (Leafnode), Naymesh, Clay, Mylah
+* Hackathon plans:  groups of 2 to 5; plenary sessions; Release 1?
+* Need to write up some user stories, epics
+* IRRI mobile devices. examples KDSmart, Android Fieldbook. For practical performance need to be efficient in number of calls/responses.
+* Naymesh, BMS API: http://api.leafnode.io:10081/bmsapi/
+* Google Sign*in: https://developers.google.com/identity/protocols/OpenIDConnect
+
+====21-may-15====
+
+ Dave, Iain, Gordon, Reinhard
+* Flapjack is now connecting to Germinate.  Needs implementations, especially https examples to test
+
+====14-may-15====
+
+ Clay, Lukas, Dave
+* How does the backend server get the info about which user from Google signon?
+* Janrain Social Login, http://developers.janrain.com/overview/social*login/social*login*flow*walkthrough/
+* markerprofiles
+
+====30-apr-15====
+
+ Dave, Clay, Reinhard, Lukas
+* should implement genotype markerprofiles
+* Clay will implement maps for T3
+* Structure map data by chromosome. Query by region.
+* API for Marker types? Markers?
+***D* Authentication?  email Puthick
+* NOAA API for weather data, http://www.ncdc.noaa.gov/cdo*web/webservices/
+* need to add API for marker query
+
+====23-apr-15====
+
+ Dave, Clay, Iain, Gordon, Jan Erik
+* Germinate participating, will be in Seattle http://ics.hutton.ac.uk/germinate*maize/
+* expecting Hackathon registration website soon
+* June 11 demo of BMS in Mexico
+* multiple keys, how to specify? One composite key?
+* GOBII director will be in Seattle
+* API should allow for composite id (e.g. separated by dash), id's do not need to be integers
+
+====16-apr-15====
+
+ Lukas, Clay, Jan Erik, Dave, Jack Lagare, Nikki, Mylah
+* Hackathon registration website coming soon
+* schema incompatibilities? e.g. T3 has no markerprofile table, no markerprofileId's
+* genomic prediction as a use case for the hackathon. Push results back too?
+* data flow scenarios for the use case.  intermediate transactions with transactionID, completion status, polling
+* different field data collection scenarios, compare to identify common way for the API
+* diagram the relationships and entities in the API
+*goals for hackathon (v1 release?)
+*review requirements for several use cases
+*https://hackathon.guide/
+*http://www.techrepublic.com/article/how-to-organize-a-hackathon-6-key-tips/
+
+====9-apr-15====
+
+ Iain, Clay, Dave, Gordon, Reinhard, Jan Erik
+* Hackathon: June 15 is busy in Seattle, rooms hard to find. Washington DC instead?  Or July 13 or 20?
+* W3C Agriculture Community Group.  Invited Kiura to join us.
+* Reinhard: JSON*LD, HATEOS philosophy, Darwin Core extension tdwg Taxonomic Data Working Group. Documenting authorities for data (genetic map, SNP, gene).  Authority: original source, semantics/schema documentation, other lists of identifiers. mcpd Multicrop Phenotype Descriptors.  "@" notation eol Encyclopedia Of Life
+* BMS connects strongly with Crop Ontology. Not easy to keep updated.
+* JSON*LD support packages.  Adopted by Google etc, schema.org Action buttons.
+* JHI: Germinate is trying to implement the APIs.  Flapjack as client: requires a map, though they might try to do without. Clay will try to implement the current map API in T3.
+* transferring Big Data, JSON verbosity vs tab*delimited, gzip compression
+* Which markers are most relevant (mapped?) for a set of germplasm lines? A potential client functionality to find this out?
+* schema.org gives examples in JSON-LD
+* for large data transfer enable gzip compression on server, use paging in API
+* Clay will work on Genome Map service that can be used by Flapjack
+
+====2-apr-15====
+
+ Lukas, Reinhard, Dave
+* JSON*LD
+* Reinhard: Darwin Core Germplasm Extensions, MultiCrop Descriptors
+* W3C Agriculture Community Group.  Invite Kiura to join us.
+
+====26-mar-15====
+
+ Cyril, Lukas, Clay, Reinhard, Iain, Gordon
+* phenotype data: Use POST to sent lists of germplasm IDs etc?
+*D* JSON Schema: document some return values
+* gzip compression: Server does it automatically
+*Google Genomics is implementing the API defined by the Global Alliance for Genomics and Health for visualization, analysis. Interesting link is the Developer's guide. They also have a resource for "Datasets". https://cloud.google.com/genomics/
+*discussed need for documenting parameters of API call (integer, string)
+
+====19-mar-15====
+
+ Lukas, Clay, Jack Lagare, Dave, Reinhard Simon, Nikki
+* genetic maps
+* GA4GH API "beacons": http://genomicsandhealth.org/our*work/work*products/beacons
+* phenotypes: multivariables
+* JSON*LD, RDF, semantic
+*reviewed Genome Map endpoint
+*example of compliance test suite for API https://github.com/ga4gh/compliance
+*JSON-ld RDF http://json-ld.org/
+
+====12-mar-15====
+
+ Iain, Gordon, Lukas, Jan Erik, Clay, Dave
+* Hackathon.  22Jun is popular. Lukas only 15Jun. Will do 15Jun, Seattle. Start 9am on Mon, till 5pm Fri.
+* Jeremy Edwards is interested to join.  Sook and Stephen from Tripal?
+* implementation.  Reference implementation, validator for the backends.
+* "fixture": a test dataset to load into the backend for validating the implementation with.  Handling different schemas?  Different export formats?  Will take some munging.  Add some messiness to test the odd cases.  Test suite should test for non*success error codes too. Also test all the optional parameters. Use "Selenium" to talk directly to the browser.
+* For hackathon, invite absent friends to teleconference in.
+* Add calls to retrieve Maps.  Marker/chromosome/position.  Map units (basepairs, cM).
+* Authentication, OAuth: Puthick is implementing.
+* Hackathon June 15 in Seattle, WA. Start 9am on Mon, till 5pm Fri.
+* Jeremy Edwards is interested to join. Sook and Stephen from Tripal?
+* implementation. Reference implementation, validator for the backends.
+* "fixture": a test dataset to load into the backend for validating the implementation with. Handling different schemas? Different export formats? Will take some munging. Add some messiness	to test	the odd cases. Test suite should	test for non-success error codes too. Also test all	the optional parameters. Use "Selenium" to talk directly to the browser.
+* For hackathon, invite	absent friends to teleconference in.
+* Add calls to retrieve	Maps. Marker/chromosome/position. Map	units (basepairs, cM).
+* Authentication, OAuth: Puthick is implementing.
+
+====5-mar-15====
+
+ Clay, Manacleto, Marko, Jack Lagare,
+* May hackathon; 90*day advance notice for foreign travel
+* Tripal web services, http://demo.tripal.info/2.x/web_services
+* IRRI: expand, MD5 checksum, OAuth2, status codes.  Use case is mobile app to upload phenotypic study data.  Such as "planted", "fertilized", etc.
+* Looked at demo API using Tripal and Drupal to access Chado
+* http://demo.tripal.info/2.x/web_services
+* http://demo.tripal.info/2.x/
+
+====26-feb-15====
+
+ Jack Gardiner, Clay
+* status codes
+* Genomes2Fields GbyE project
+* API for server*based analyses, Mylah
+
+====19-feb-15====
+
+ Jan Erik, Clay, Jack Lagare, Nikki, Mylah
+* Hackathon in May, week*long.  In New Zealand?  Seattle?
+* HATEOS or not?
+* :id ?
+* germplasm definition
+* Cornell: germplasm, studies, phenotypes
+
+====12-feb-15====
+
+ Clay, Dave, Jan Erik, Jack Gardiner
+* markerprofile = f(experiment, extract, tissue sample, plant, growout, seed stock)(germplasm|experiment sample) = f(extract, tissue sample, plant, growout, seed stock) markerprofile = f(germplasm, experiment) GET /brapi/v1/markerprofiles/993 GET /brapi/v1/germplasm/{id}/genotypingexperiment/{geid} GET /brapi/v1/germplasm/{id}/genotypingexperiment
+
+====5-feb-15====
+
+ Mylah, Dave, Jack Lagare, Nikki Carumba, Lukas, Clay, Marko, Jack Gardiner
+* Cyril's Phenotypes on Apiary: should be "Studies".
+* Examples of each group's own API (as opposed to proposals for the shared API) can be put in Wiki pages instead of Apiary.
+* Use http verbs GET, POST, PUT, DELETE.
+* "studies/id" method should return description of the study as well as list of traits evaluated.
+* "studies/id/traits/id" returns all the phenotype result values for one study and trait, for all germplasm ids.
+* We should use the mailing list to announce that we've made changes in the Apiary and GitHub documentation and for discussions.
+*Cyril's Phenotypes on Apiary: should be "Studies".
+*Examples of each group's own API (as opposed to proposals for the shared API) can be put in Wiki pages instead of Apiary.
+*Use http verbs GET, POST, PUT, DELETE.
+*"studies/id" method should return description of the study as well as list of traits evaluated.
+*"studies/id/traits/id" returns all the phenotype result values for one study and trait, for all germplasm ids.
+*We should use the mailing list to announce that we've	made changes in the Apiary and GitHub documentation and for discussions.
+
+====29-Jan-15====
+
+*should api implementation fallback to latest version? No, this may break client who expect an older version
+*singular or plural nouns? Lets standardize on plural
+*https://blog.apigee.com/detail/restful_api_design_nouns_are_good_verbs_are_bad Do not use verbs if you can use the standard http (GET, POST, PUT, DELETE)
+*Ask Rebecca if she can setup apiary to integrate with GitHub. This will track changes in API
+
+====22-Jan-15====
+
+Discussed structure of API calls
+
+*Object/ID/verb model was favored
+*Versioning: Including the version allows for changes to be made that break earlier versions; allows us to learn from the mistakes we made; don't need decimal places in version numbers, so just v1, v2, etc. -- Is it for the entire API? Current consensus is yes. -- The changing of (addition of) mandatory parameters would be an example of an incompatible change
+
+Authentication
+
+*Should we include security token in every call? If we use https, the cookie carries the token. Can explain when we develop the log-in API. Jack proposes that sessions and cookies are not standard to RESTful APIs. More common to use tokens. Clay points out that OAuth2 uses tokens. If we do decide to use tokens, will need to have tokens as mandatory parameters. 
+
+Review of calls that we modified last week
+
+*Fixed previous confusion between genotype and germplasm. Will now use markerprofile to refer to genotyping calls for a sample. We went through and changed all calls to markerprofile. Also, established best practice that object is followed by id for that object.
+*Reviewed question of whether to include number of pages. Mylah commented that it is very useful to have this. Suggested that we have total count, current page, page size, total pages.
+*Agreed to use ExtractID as the source that gives rise to a markerprofile.
+*Suggested that Field Data Collection (in table of contents) should be converted to nouns such as Studies and Traits; Clay will take a look at this off line.
+
+====15-Jan-15====
+
+DArT presented the DAL resources that were released under an open source model 
+
+Discussed the Spoke and Hub model 
+* Hub and Spoke has some advantages and disadvantages; speeds development but may not be as scalable
+* The Hub would need to have an API defined
+
+Additional details about the DAL
+* Designed to be comprehensive
+* REST calls are structured with an initial action such as switch, update, list, get, etc.
+* If first word is a noun, it provides a context
+* Leading underscore indicates a context
+* Parameter mapping is for environmental sensor data
+* genotype in KDDart is equivalent to germplasm in BMS
+* Have REST calls for help that provides documentation on calls
+* for JSON, use and array inside a hash as common data structure
+* HTTP has a sub-header that can be used to specify JSON or XML
+* Demonstrate get genotype
+*- To get genotype, need genotype_id, so get list of genotypes
+*- Have pagination mechanism for specifying number of records per page
+* Marker data
+*- multiple genotyping service definitions are supported
+*- Marker data has 2 problems: can have many markers and can also have many samples; added blocksination, the equivalent of pagination for data with many columns
+*- Found that putting just a number as an attribute is not a good idea, better to have a noun describing the attribute first
+*- Marker definitions include meta-data about marker (read depth, quality score, etc.)
+* Filtering marker data
+*- can e.g. limit to a chromosome
+* Have an export function for creating a csv file with a link to the file
+* Links that appear depend on your permissions -- e.g. user without permissions to add alias will not receive link to add alias
+
+BMS API presentation
+* Still embryonic
+* written in Java using Spring framework; uses Swagger for translating API into user interface for exploring API calls
+* Hateos principle incorporated in results; enables click through on built-in urls
+* Having the Dart design will be very useful for moving forward in elaborating the BMS API
+
+Authentication
+* We reviewed the Oauth2 standard with iPlant
+* We should run everything over https 
+* Authentication service providers will require that password will be encrypted on client side
+* Proposal to standardize on the Dart mechanism for logging in securely; T3 comments that they use a simpler mechanism and standardizing on the Dart mechanism would dis-enfranchise some systems.
+* Dart will have a test implementation of OAuth2 using iPlant service by May.
+
+Status Metadata
+* Suggestion to follow Dart convention of using HTTP error codes (numbers) with extensions
+
+Review of Apiary calls that we have already defined
+* Captured changes in Apiary
+
+Discussion of Domains and Development status
+* Proposed that a minimal set of core calls be defined that would provide base capabilities. By keeping this core set small we would minimize the burden placed on systems that want to be able to state that they have implemented the Plant Breeding Public API. 
+* The core set would be augmented with specialized domains. By implementing calls in specialized domains an implementor would be able to provide extended functionality through a standardized API
+* For API calls, we propose a tiered structure with Finalized, Proposed, and  Under Discussion. Promotion of calls from Under Discussion to Proposed to Finalized would be determined by group consensus.
+
+===2014===
+====18-dec-14====
+
+ Rion Dooley, Joe Stubbs, (iPlant), Jack Gardiner, Darwin, Clay, Jan Erik, Dave, Argem Flores (IRRI), Trevor Rife, Lukas
+
+OAuth2 authorization framework used by iPlant Agave.  Allows
+independent apps to allow users to authenticate more easily.  webIDE is
+an OAauth consumer to GitHub.  "scopes" for read*only vs write etc
+(grants, roles permissions, apples). Relies on SSL/TLS.  "flows":
+Authorization, Implicit, Client*credentials, Device Choice. Affects how
+many network roundtrips required for each operation.  
+*JWT: JSON Web Token, digitally signed using JSON Web Signature  
+*IDP: Identity Providers: OLAP, Active Directory, Google, Twitter, Agave
+Authentication server is usually completely separate from API, contains
+all the password info.  Passes profile info along with the token to the
+backend server.  Profile can include which client app was used for
+connecting, which user they are.  
+*OpenIDConnect is built on top of OAuth2; still evolving.  
+*iPlant could set us up as tenants of their Agave/OAuth provider service.  
+*The Agave "Files" endpoint (web service) allows setting fine*grained
+permissions per*user on behalf of defined "systems".  There's a "Systems"
+endpoint too.  A whole web app can be built in Agave plus clientside
+javascript; working un*branded prototypes are on Github.  Agave has
+Swagger "live docs" for working with development.  
+*Swagger: API development shell 
+*developer.google.com has an Oauth playground  
+*Runscope is another.
+*meeting rescheduled to 11am EST so representatives from iPlant can present OAuth
+*OAuth not required for reading public data but it will reduce load from web bots
+*should use iPlant OAuth server for authentication
+*could use iPlant Agave API and platform for file upload/download and defining authorization to systems
+*development resources for OAuth API (swagger.io, https://developers.google.com/oauthplayground, https://www.runscope.com/)
+
+====12-dec-14====
+
+
+* Meet on the Thursday after PAG.  At the Marriott.  Can come: Jack Gardiner, Lukas, Jan Erik.
+* http://cassava*test.sgn.cornell.edu/brapi/0.1/study/list is getting close.
+* T3 client for genotype data, http://malt.pw.usda.gov/t3/wheatplus/brapi/clusterapp.php
+* error responses?  Agave has a Status field. And a human*oriented Message.
+* Tracking germplasm Stocks vs genotyping experiments
+* BMS has no unique Name for lines, only the ID number is unique.
+** T3 returns "0" when line is not found.  Then crashes if no allele result.
+*reviewed germplasm API implementations
+*Do we want to add detailed error messages to our API even for successful responses? One example of this is the API on Facebook
+*Plant Animal Genome Conference - some people in the Group want to meet on Jan 15th to work on API
+
+====4-dec-14====
+
+
+* API group workshop after PAG?
+* cf. the API for SolveBio, www.solvebio.com
+*reviewed API implementations
+*demo of Apache Cordova access
+*discuss which workshops at PAG will be interested in the API
+*for next week meeting Lukas will work on adding Field Data Collection API to Cassavabase Clay will work on improving genotype API in T3
+*Plant Animal Genome Conference - can we meet Wednesday Jan 14th in afternoon to work on API
+
+====20-nov-14====
+
+ Lukas, Jan Erik, Clay, Dave
+* Unity, unity.phenome*networks.com, https://www.youtube.com/watch?v=tzEzcI2aH7U
+* http://malt.pw.usda.gov/t3/wheatplus, steptoe, morex
+Use Firebug to see the responses.
+* Optional and mandatory fields are flagged in Apiary.
+* OpenID, OAuth1.0, OAuth2.0, etc for access authentication
+* permissions: groups, allowed operations: read/write/own
+first step, for now: owner can write, everyone can read
+* iPlant Agave API. Ask Nirav for intro
+* "Genomes to Fields": using BMS on iPlant for phenotype data
+plus weather and other data types
+* context, what previous projects are similar?
+Moby? semantic web, SSWAP (Gessler)? BioSQL, Chado, Linux
+
+====6-nov-14====
+
+ Iain, Jack Gardiner, Darwin, Clay, Dave
+
+* API group workshop after PAG?  waiting for word from Jan Erik
+* fieldbook client at triticeaetoolbox.org/wheat/brapi/0.1/fieldBookApp.html
+Works on http://api.leafnode.io:8080 without the "brapi/0.1"
+* Iowa/CIMMYT "Genotypes to Fields" project.
+Weather, traits, trials, genotyping data
+* dokuwiki bigdata.iastate.edu/doku.php
+*Links: http://triticeaetoolbox.org/wheat/brapi/0.1/fieldBookApp.html paste this URL http://api.leafnode.io:8080
+*Darwin offered to host an open source dokuwiki for the group. A couple of sites shown are http://bigdata.iastate.edu/doku.php (open to self registration) and http://enviratron.lawrencelab.org/ (closed wiki to group members)
+
+====30-oct-14====
+
+ Grzegorz, Jan Erik, Clay, Dave M, Jack Lagare
+https://global.gotomeeting.com/join/240809973
+* KDDArT genus example. Providing additional responses besides those required
+* "Shared" ("open", "social"?) API, vs. "public", "standard"
+* Do we need to require using ID's? Could we use names only?
+* Cassavabase comparegenotypes test suite
+* Meteor
+
+====23-oct-14====
+
+ Clay, Jan Erik, Jack Gardiner, Darwin
+* tester/debugger
+* API for genetic maps?  genome maps?
+ensembl REST api rest.ensembl.org
+* location: name, coordinates, year, planting date.
+* syntax vs semantics
+
+====16-oct-14====
+
+ Andrzej, Clay, Dave, Jack Lagare, Mylah Anacleto
+https://global.gotomeeting.com/join/240809973
+* Daylight Savings Time switch confusion, done in Oz and NZ, not US or IRRI
+* PAG talk in IBP Workshop
+* Cassavabase comparegenotypes test suite
+* Data Terminal is from IRRI. Docs in the Github Wiki for field*data*collection
+http://54.85.214.6/terminal*api/index.php/v0_1/transaction
+dev.breeding4rice.irri.org/index.php/fieldDataCollection/browse/observations?module=trial
+Has Upload, Validate, Summary
+
+====9-oct-14====
+
+ no meeting
+
+====2-oct-14====
+
+ Darwin, Dave, Clay, Jack Gardiner, DArT
+https://global.gotomeeting.com/join/240809973
+* API Day after PAG:
+Yes: Jack Gardiner, Trevor, Lukas, Clay, Dave, Jan Erik, DArT
+No: Darwin,
+Maybe: Marko, Rebecca
+* Lukas's test client now shows the raw request, and raw response!
+http://cassava*test.sgn.cornell.edu/brapiclient/comparegenotypes
+* KDDArT, http://software.kddart.com/help/DAL/reference.html?tab=3
+We should limit our data*submission API to phenotype / fieldbook
+Corresponds to KDDArT's Experiments => Trial Data => Import ...
+* for next time: Read KDDArT's docs, including Authentication.
+
+====25-sep-14====
+
+ Clay, Lukas, Jan Erik, Jack Gardiner, Dave
+* http://cassava*test.sgn.cornell.edu/brapiclient/comparegenotypes
+Code at https://github.com/solgenomics/sgn/blob/master/mason/brapiclient/comparegenotypes.mas
+Need to implement two services: Germplasm ID by Name, Alleles By Germplasm Id
+* IBP user meeting in October.  Lukas, Jan Erik, Helen too.
+* CIMMYT decided a month ago to adopt BMS for their Maize and Wheat programs.
+* KDDArT has public API now, software.kddart.com/help/DAL/
+* Lukas and Jan Erik may be traveling to Thailand meeting during next week's
+8pm Eastern meeting.  Will try gotomeeting again.
+
+====18-sep-14====
+
+ Clay, Jan Erik, Lukas, Andrzej, Naymesh, Markko, Jack Lagare, Mylah Anacleto, Dave
+https://global.gotomeeting.com/join/719803645
+* Fieldbook.
+** list: List trials with info about them.  Restrict the list by Program.
+** design: Download the design for a trial.  Should include the traits.
+** traits/list
+** germplasm: just the name
+** plot, block, range: need definitions.  Specify data type, number vs string.
+** observation unit = plot.  number of measurements per plot for each trait.
+** simple two*dimensional row/column?
+** blocks can have columns
+* Andrzej, docs on KDDArT: http://software.kddart.com/help/DAL/
+* Mylah and Jack: best practices.  They store on Google sites. E.g. naming parameters in Camel Case,
+CORS for cross*domain requests, responses on errors like syntax, no results, protocol errors
+Scale uses ids instead of values.  Data types for parameters: numeric, boolean, string.
+Response is a JSON object, must specify types.
+"id" means a unique key, could be a string.
+* implementation: api.leafnode.io:8080/study/list
+* Wiki at github/plantbreeding/field*data*collection/wiki
+* For next time: implement List Studies by Program, add link on Wiki
+* Swagger to convert code to documentation.
+* Marko: Will we meet at PAG?  A full day, after?  Ask mailing list.
+* naymesh@leafnode.io to be added to Apiary and Github
+
+Actions
+
+*Implement the APIs and add the link to your implementation on the API Implementations Page.
+
+Agenda for 02-October-2014
+
+*PAG 2015 - who can commit to attend API meeting after conference?
+*DataTerminal API
+
+====11-sep-14====
+
+ Darwin, Iain, Clay, James, Dave
+Recording at https://connect.unl.edu/p9qxbtn14ef/
+* Carolyn Lawrence's Maize project "LawrenceLab" is working with IBP and
+Prism.
+* James Hutton Inst is looking at Agave, http://agaveapi.co/.  Wants to
+get Flapjack to access API's genotype data.  Gordon Stephen,
+
+====4-sep-14====
+
+ Clay, Darwin, Jan Erik, Dart, Jack Gardiner, Lukas, Naymesh, Rebecca
+* JSONP, has security problems.  CORS is better.
+* Test installations were to try implementing.
+* Decided!: CORS
+
+====28-aug-14====
+
+ Lukas, Clay, Dave
+Recording at https://connect.unl.edu/p7t3f9rfj1h/
+* Lukas's client to fetch genotype data for two germplasm lines and calculate
+their percent genetic similarity.
+cassava*test.sgn.cornell.edu/brapiclient/comparegenotypes
+Not JSONP yet.  The code is at
+https://github.com/solgenomics/sgn/blob/master/mason/brapiclient/comparegenotypes.mas
+Using Catalyst to handle JSONP instead of JSON:
+https://github.com/solgenomics/sgn/blob/master/lib/SGN/Controller/AJAX/BrAPI.pm
+* Use CORS instead of JSONP?
+http://en.wikipedia.org/wiki/Cross*origin_resource_sharing
+* for next time: Try CORS implementation.  This is needed only for
+compatibility with Javascript clients.
+* *Search* for germplasm by synonyms, not just include?  Add a matchMethod
+for this?
+
+* Thin the number of genotype scores returned to a user*specified maximum?
+
+====21-aug-14====
+
+ Jan Erik, Lukas, Clay, Trevor, James, Andrzej, Dave
+* Fieldbook API
+* BMS API from Leafnode: http://api.leafnode.io:18080
+* Authentication service needed.  Authenticate to filter which trials to see?
+* Lukas's client app for genotype calls: Problem with cross*browser
+scripting, AJAX calls only work within the same server.  Andrzej: Use
+JSONP instead of JSON.  See
+http://jquery*howto.blogspot.com/2013/09/jquery*cross*domain*ajax*request.html#jsonp
+* For next time: Compare JSONP with alternatives and select one.
+
+====14-aug-14====
+
+ Lukas, Jan Erik, Clay, Marko
+Recording: https://connect.unl.edu/p4vtfcq4wa2/
+* Record the Adobe Connect sessions?  Yes for this one.
+* Fieldbook section added to the apiary page.
+* Cassavabase examples: https://github.com/solgenomics/sgn/blob/topic/breeding_api/lib/SGN/Controller/AJAX/BrAPI.pm
+* germplasm matchmethods: exact, wildcard (%, .); not regex (overkill).
+** Page the results.  Have a default pagesize (for all services) in case none is specified.  1000.
+** Include germplasm synonyms with a key "include", values "synonym", "GRIN", "...".
+* Example app coming from Lukas: % similarity of two germplasm lines.
+* Make links from apiary to source code of implementations.  Also the Android Fieldbook java code repository.
+* For next time: Fix implementations to match the specifications.  Look at Fieldbook.
+* Next meeting: Asia*friendly time, 8pm EDT.  Then 9:30am EDT for UK, iff James Hutton agrees.
+
+====7-aug-14====
+
+ Lukas, Jan Erik, Clay
+* Tablet API
+http://docs.fieldbook1.apiary.io/   Add this to the "plantbreeding" API.
+http://malt.pw.usda.gov/cbirkett/t3/wheatplus/brapi/design/list
+http://malt.pw.usda.gov/cbirkett/t3/wheatplus/brapi/design/125
+* Trevor Rife is willing to join sometimes.
+* Efficio is now Leafnode.  Can't attend before end of August.  More
+interested in phenotypic aspects like fieldbook.
+* Marko is in Finland recovering from an accident.  Can join starting next
+week. Returning to Philippines at end of August.
+* No reply from DArT yet.
+* Suggest a morning time for next meeting, 9am EDT / 4pm Finland?  Jan
+Erik will first check with David Marshall and Marko.
+
+====31-jul-14====
+
+ Lukas, Jan Erik, Clay
+* Germplasm search types: regex, %, * ?
+* Option to return all Lines in the database? Needs Count of Lines that
+will be returned
+* Implement the paging for "Alleles By Germplasm Id".
+* Implement a consumer/displayer for each other's API implementations.
+* 4pm in Ithaca = 4am in Manila, 6am in Canberra, 8am in Auckland,
+midnight in Switzerland.  Rotating inconveniences?  Have an 8pm EDT meeting
+every other week?
+* Tablet interface API progress (Marko)?  Invite the Android Fieldbook
+(Trevor Rife, Central time)?
+* Invite Katmandoo, http://www.katmandoo.org/ ?
+
+====16-jul-14====
+
+ Lukas, Clay, Naymesh, Jan Erik
+* genotype data API changes from me
+* T3's partial implementation of "Alleles By Germplasm Id":
+http://malt.pw.usda.gov/cbirkett/t3/wheatplus/brapi/genotype/993
+* new service "Germplasm ID by Name"
+BMS implementation, based on ICIS schema (works but takes a while):
+http://api.leafnode.io:18080/germplasm/search?q=INDIA
+* Documentation of standard HTTP status codes is at
+http://www.restapitutorial.com/httpstatuscodes.html
+* for next week:
+** Implement "Alleles By Germplasm Id" with all options.
+** Document "Germplasm ID by Name".
+
+====9-jul-14====
+
+ Lukas, Clay, Naymesh, Gary
+* CIMMYT meeting on BMS and KDDArT is happening now.
+* implementations of "Allele Count by Germplasm Id":
+** Cassavabase: http://cassava*test.sgn.cornell.edu/brapi/0.1/genotype/29417/count?analysisMethod=GBS*Pst1
+** GDMS: http://api.leafnode.io:18080/genotype/2063321/count
+** T3: http://malt.pw.usda.gov/t3/wheatplus/brapi/0.1/genotype/993/count?analysisMethod=GoldenGate
+* Naymesh: GDMS (ICRISAT India).  As a user story.  See
+GDMS_Tutorial.pdf.  He can write a consumer for our API similar to this.
+* Gary: Make interoperability a theme for PAG "Managing Crop Pheno" workshop.
+* PAG Computer Demo of API and user story
+* for next week: Implement "Get Genotype By Id" with all options.
+
+====2-jul-14====
+
+
+* Naymesh, ICRISAT, GDMS.
+* allele returns AA, BB, AB, NA
+
+====26-jun-14====
+
+
+* http://codewiz.biz/article/post/Guide+to+building+a+REST+API+with+PHP+and+Apache
+
+====20-jun-14====
+
+ Lukas, Jan*Erik, Clay, (Matthia)
+OAuth (v2) is more complicated than OpenID
+https://api.23andme.com/docs/reference/#genotypes
+For next week,
+* Implement "Get Marker Count By Germplasm Id" from
+http://docs.breeding.apiary.io/, disregarding analysisMethod.  Return two
+keys: total_markers, missing_values, in JSON
+* Lukas will get Rebecca to add us as editors.
+* Meet Thursdays at 4pm EDT.

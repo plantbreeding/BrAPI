@@ -1,0 +1,15 @@
+Back to [[ Use Cases ]]
+
+[[ Use Cases | Use case ]] Determine whether a germplasm present in one system is present in another.
+
+== Use Case ==
+<strong>As a Cassavabase or BMS user, I want to match my germplasm with a germplasm record in the other system</strong>
+*I have a variety in one system and I want to know if there is any data about that variety in the other system
+**If the variety was created in the other system based on a record in the first system, then we could use foreign keys to identify the exact match
+**If the variety hasn’t been transferred, we would have to search on names to see if we have a match
+***If there is a single string match, could
+****Assume the germplasm records refer to the same germplasm
+****-or- Ask user if they want to consider a match and give option of bailing out
+***Should we make the match permanent by copying db keys to the respective records?
+***If there are multiple matches:
+****Provide the user with a list of matches

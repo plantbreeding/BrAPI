@@ -1,0 +1,13 @@
+Get common SNPs markers for germplasm used in a breeding program and landraces or wild material available in genebanks.
+
+'''Description'''
+
+Find all germplasm by taxonomy (variety, species, genebank accession, panel) and location (country, town) Find all allele matrix related to these germplasm
+
+'''Data types'''
+
+Germplasm with minimal passport data. Allele matrix
+
+'''Story 1'''
+
+As a banana breeder, I want to compare allelic diversity from my breeding lines with existing diverstiy available in genebank and display them in a user-friendly way. I want to retrieve list of germplasm from MGIS and from MusaBase, then retrieve common markers between the two datasets and visualize a chromosome area with Flapjack.

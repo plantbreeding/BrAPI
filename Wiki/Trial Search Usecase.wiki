@@ -1,0 +1,32 @@
+== Trial Search : Identify Trial and studies by metadata/linked data==
+* Description
+
+Find all studies by : germplasm (variety, species, genbank accession, panel, population/collection), trait (specific trait, category like yield or phenology, ontology driven search), location (country, town, laboratory), year, project
+* Data types
+
+Studies with minimal metadata.
+
+== Trial Search : Display Trial and studies on a map==
+* Description
+
+Find all studies by : germplasm (variety, species, genbank accession, panel, population/collection), trait (specific trait, category like yield or phenology, ontology driven search), location (country, town, laboratory), year, project
+* Data types
+
+Map (google map / Open street map type ) with al trial spoted
+
+== Get all germplasm/traits for a specific dataset==
+* Description
+
+Given a trial search result, list all germplasm (variety, species, genbank accession, panel, population/collection) and display them in dedicated list. This is to help fine data querying. There is the same need for traits.
+* Data type
+
+List of display name/id/sourceID.
+
+== Get all phenotype data for a given germplasm/year/trait/location==
+* Description
+
+Find the phenotype data by : germplasm (variety, species, genbank accession, panel, population/collection), trait (specific trait, category like yield or phenology, ontology driven search), location (country, town, laboratory), year, project, trial/study.
+Note that we don’t want full trial/study data but only a subset. 
+* Data type
+
+Sufficient information to build a data set for genetic/phenotypic meta analysis : germplasm identification, treatments name and description, studyId, Observations (trait, value, date), year, location.

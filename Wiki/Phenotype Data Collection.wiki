@@ -1,0 +1,90 @@
+Back to [[ Use Cases ]]
+
+== PhenoApps Hackathon - Cornell 2018 ==
+The [https://github.com/PhenoApps/Field-Book KSU Fieldbook] team began mapping BrAPI data model to Fieldbook app data model. 
+
+''' Download '''
+To download Fieldbook data from a central server use the following calls:
+# GET /studies/{studyDbId}
+# GET /studies/{studyDbId}/observationunits
+# GET /studies/{studyDbId}/observationvariables
+
+== Old Notes ==
+=== Field Data Collection ===
+''''' This was originally created July 29, 2016 as a thought experiment. It needs to be updated'''''
+
+To be able to collect field trial data with a hand held device the following Brapi calls are initially needed and have been reviewed:
+
+#GET /trials : Get list of trial summaries STATUS: OK as is
+#GET /studies/{studyDbId} : Get study details with expand parameters.
+#*Fields required:
+#**trialDbId
+#**trialName
+#*Field to remove:
+#**programDbId
+#POST /studies/{studyDbId}/observationunits : Save or update measurements STATUS: OK as is
+#POST /variables-search : Search observation variables (IRRI use case: no pre-defined variables in study) STATUS: NEW call needed. Has been added to apiary!
+#GET /programs : List Programs STATUS: NEW parameter added to filter by name/abbreviation. Not required so doesn’t break current implementation.
+
+=== Core Entities and Operations ===
+''''' This was originally created June 29, 2015 as a thought experiment. It needs to be updated'''''
+
+Entities and Operations for Version 1 of the field data collection APIs.
+
+'''Crop'''
+* List of crops supported
+* Should crop param be a part of URL (path parameter) or a query parameter? We prefer the former.
+
+''' Program'''
+* List of Programs
+* Filters e.g. "my programs"
+
+''' Study'''
+* List all Studies
+* List study types
+* Study Details
+** Collection Order/Traversal schemes (different from planting order) is important for collection
+* Filter by season, location, type
+
+'''Trait'''
+* List of traits
+* Filter by program, name
+
+
+'''Measurement'''
+* CRUD
+
+
+''' Notes from hacking day 1'''
+
+* Common data structure for entities and whether to return all fields with "N/A" or to not return not applicable fields at all.
+* Does things like pictures make sense as a trait?
+
+''' V2'''
+
+''' Misc other methods we might need'''
+
+* List of scales/methods
+* Treatments
+* List Plot att
+
+
+''' User'''
+* List of users
+
+''' Extra Info'''
+
+* Core API data structure
+* Extra info - implementation specific extra info : general structure
+
+   {
+      id: 1,
+      name: "Trial A",
+      // OtherFieldsOfCoreAPI...
+      extraInfo : {
+          implementationId : "BMS or KDDART",
+          body : {
+            // any data structure implementor might want to add as extra info here
+          }
+      }
+   }

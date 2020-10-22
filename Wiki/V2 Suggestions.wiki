@@ -1,0 +1,53 @@
+==V2 Suggestions from [[Hackathons#2017_Seattle | Seattle Hackathon]]==
+===Location call===
+Good in its current state. Additional info important.Locations will be used for GnpIS.site soon need /brapi/v1/locations/{id} 
+
+''OK''
+
+=== A study can be part of n trial, not a single one. ===
+
+''OK''
+=== Add licence in trial / study.===
+
+''Pull request''
+
+===Important simplification===
+Remove data in {“results”:{“data”:[...]}}  ->  {“results”:[...]}
+
+''maybe V2''
+
+=== Redundancy  ===
+Those two call are ewuivalent 
+/brapi/v1/studies/studyDbId/observations  ->  /brapi/v1/phenotypes-search?studyDbIds=[studyDbId]
+Align (suppress /brapi/v1/studies/studyDbId/observations ?)
+Document be clear on the alternatives that must return exactly the same things.
+
+''To be reviewed''
+
+=== Add Taxon id (NCBI) ===
+to germplasm (propagate to obsUnit / study ?) : “taxon”:{“source”:”NCBI”, “id”:”http://purl.obolibrary.org/obo/NCBITaxon_4577”}
+
+''Pull request''
+
+=== Materials.BodyPart ===
+Add somewhere : Materials.BodyPart (observation?), Materials.Life Stage (observation ?), 
+=== Materials.TimeFactor===
+Materials.TimeFactor(harvestDate:2315, and possibly study.)
+=== Add Ontology Description in Ontology Metadata===
+
+''OK PUll request''
+
+=== Add Study.lastUpdate===
+
+''OK to be discussed in a date Group (Timestamp, Date, ....)''
+
+
+=== Geospatial data===
+=== Dataset resource===
+=== HATEOS or JSON-LD===
+Consider using HAL+JSON - backwards-compatible JSON with hyperlinks to other endpoints. 
+http://stateless.co/hal_specification.html
+=== FAIR adaptation ===
+Brapi endpoint will be harvested for FAIR Finder. FAIR on top of Brapi studies. 
+Findable, Accessible, Interoperable, Reusable 
+https://www.nature.com/articles/sdata201618

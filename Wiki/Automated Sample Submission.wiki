@@ -1,0 +1,109 @@
+Back to [[ Use Cases ]]
+
+==EiB Automated Sample Submission Project (2018)==
+[[File:Vendor_Sample_Submission_v3.png|right|800px]]
+
+===Project Objectives===
+# ''Eliminate the need for manual intervention and email communication while maintaining sample ID integrity.''  <br /> The current process for submitting sample data to an external vendor involves collecting sample data manually into a spreadsheet, then emailing this spreadsheet to the vendor. Then when the vendor is finished processing, all the data needs to be manually loaded into GOBii (or some other genomics database) to be used effectively. During this process, the connection to the original plant that was sampled can be lost, so that subsequent analysis of phenotypic and genotypic data for breeding selections is not possible, or requires manual intervention.  The primary goal of this project is to reduce the need for email communication of data, reduce the need for manual interactions, and maintain the integrity of the sample ID to facilitate breeding selections. 
+# ''Prove system integration is possible and effective.''  <br /> This project will act as an example to stake holders that integration between existing EiB systems through web services is an effective strategy.  
+# ''Define and refine a generic process for handling future system integrations.'' <br /> During this project, special attention will be paid to the process. We need to establish a consistent way for multiple development teams within EiB to come together and integrate their tools. This includes cross team communication strategies, stake holder reporting structures, and integration testing tools.
+
+===Initial Design===
+The sequence diagram below illustrates the various web service calls needed to automatically submit sample data to a vendor. In the first phase of this project we will focus on the framework needed for systems to communicate with each other. In subsequent phases we will focus on concepts with more variation across EiB systems, such as marker/marker group selections, protocol vendors, analyses etc. 
+
+Entities
+* ''Sample Source''  <br /> The Sample Source represents the place where sample data originates. This could be a sample collection app or a larger management system. All interactions with the Sample Source are Out Of Scope for this project, but might be important to consider while developing.
+* ''Sample Orchestrator''  <br /> The Sample Orchestrator represents the client entity and is responsible for orchestrating communication between the Sample Source, the Vendor and GOBii. This could exist as a stand-alone tool (ie Sample Tracker) or could be built into a larger system (ie BMS or EBS)
+* ''Vendor''  <br /> The Vendor represent an internal or external vendor ordering system. This server handles all the order submission requests and returns the processing status of a particular order. For the initial proof of concept, we will utilize the external vendors DArT and the Cornell Genomics Facility.
+* ''GOBii''  <br /> GOBii is the repository for genomic data. It will handle web service requests for adding sample data and vendor output matrix data.
+
+Steps
+# At some point prior to submission, the Sample Orchestrator will get vendor specification information from the Vendor. This information will include things like what services the vendor can provide and what plate layouts the vendor will accept. This call does NOT need to happen before every sample submission, and in some cases, the data may need to be transferred manually instead of in a web service call.
+#	The collected sample information will need to be pushed from the Sample Source to the Sample Orchestrator to start the submission process. The Sample Orchestrator may need to collect additional information from the Sample Source (ie germplasm) depending on what data the Vendor needs. This interaction between the Sample Source and Orchestrator is considered Out Of Scope for the initial phase of this project. It is assumed that the Sample Orchestrator has access to all the data it needs to build full plate data objects.
+#	GOBii is considered to be the owner of all marker data. In some cases, the Sample Orchestrator may need to get a list of markers from GOBii, which can be used to tell the Vendor which markers to look for. This call is Out Of Scope for the initial phase of this project. It is assumed that the Sample Orchestrator will request a particular specific service from the Vendor, and the Vendor will know which markers to use based on the requested service. 
+#	The Sample Orchestrator will submit a request object containing plate and service information to the Vendor. If the data is accepted, the Vendor will respond with a vendor submission ID. This ID can be used to check the status of a submission.
+#	The Sample Orchestrator will begin poling the Vendor for the status of the submission using the submission ID. There are 5 possible status’s a Vendor can respond with:
+#*	“registered” – The sample data has been submitted and recorded
+#*	“received” – The physical samples have been received by the Vendor
+#*	“inProgress” – The lab has begun working on the samples.
+#*	“completed” – The lab has finished the work on the samples and there are data files ready for collection.
+#*	“rejected” – A fatal error has occurred somewhere in this process.
+#	When the Sample Orchestrator gets a “received” status from the Vendor, it can send project and sample data to GOBii. The submission of project and sample data in GOBii could take a significant amount of time and may require an asynchronous call.
+#	When the Sample Orchestrator gets a “completed” status from the Vendor, it will need to retrieve the URLs for the files created by the Vendor. The Sample Orchestrator is not responsible for downloading these files, it only needs to pass the URL to an appropriate system. 
+#	The Sample Orchestrator will push the matrix file URL(s) to GOBii, along with some identifying information about the Vendor. GOBii will response with a data load ID which can be used to track the status of the data load into GOBii, which could take some time.
+#	GOBii is responsible for downloading the matrix files directly from the Vendor using the URL(s) provided.
+#	The Sample Orchestrator will poll GOBii to monitor the status of the data load.
+
+===Assumptions===
+For the first phase of this project, it is assumed that
+# All interactions between the Sample Orchestrator and the Sample Source are already working, can be handled manually, or will be handled in a separate project scope. 
+# Vendor Protocols will initially be manually aligned between vendor specification and GOBii vendor protocols
+# Sample Orchestrator will push Project/Experiment/dataset to GOBii as needed
+# Sample Orchestrator represents a set of functionality, not necessarily a single concrete system
+# Vendor services will define the markers to be used; custom marker services will be managed in a separate project
+# Load checking in GOBii will be asynchronous
+# A vendor contract ID is available before submitting samples. This ID will connect a submission to valid payment and legal information.
+# Proper implementations of OAuth2 token based authentication are not in scope for this project.
+
+===Known Issues===
+# Markers can easily become out of sync between a Vendor, GOBii and the sample producer. A more robust synchronization process is needed to fix this. Eventually, GOBii should be the primary source for Marker information, and a list of markers should be sent to the Vendor with the samples.
+
+===Web Service Calls===
+These are the Web Service call definitions used in this project.
+
+[https://app.swaggerhub.com/apis/PlantBreedingAPI/SampleSubmissionAPI/1.0 SwaggerHub ]
+
+<br clear=all>
+
+==Old Notes (2015)==
+''''' These notes are from 2015 and need to be updated '''''
+
+'''Genotyping and Phenotyping systems integration stories'''
+
+''Story 1''
+
+As a plant breeder
+
+I want to order genotyping (sequencing?) on the materials (germplasm) I have used in my nursery
+
+So that I can select the best plants for advancing and use in field trials based on the genetic markers for traits I am optimising for.
+
+''Story 2''
+
+As a plant breeder
+
+I want to query for genotyping/marker information (for specific traits?) for the materials (germplasm) I have used in my trial
+
+So that I can co-relate marker information with the phenotypes I have collected during the trial and draw conclusions with more certainly
+
+Systems where such integration user stories may fit :
+
+* Cassavabase and BMS 
+* Cornell GOBII (Genomic and Open-Source Breeding Informatics Initiative) system and BMS
+* KDDArT and BMS
+
+''Story 3''
+
+As a cassava breeder:
+
+I want to send a list of germplasm to cassavabase for genotyping or other purposes and vice versa (from cassavabase to bms or from bms to cassavabase).
+
+Cassavabase needs to be able to figure out if they match.
+
+''Story 4''
+
+Want to know the status of each entry of a germplasm list in the other system, e.g. is it there, was a match found, synonyms, etc.
+
+''Story 5''
+
+As a cassava breeder:
+
+I want to be sure that traits measured in one system will work in the other.
+
+Use Variable ID and Identifier to verify that corresponding terms exist in the two systems.
+
+Might need a mechanism for handling temporary variables to deal with miss-matches.
+
+Long term satisfaction will depend on the discipline of the breeding programs in maintaining consistency of crop ontologies and synchronization with the Crop Ontology site. Could create components and terms on the fly.
+
+Provide an option to remove variables from a data set if they don't have a match. Provide options such as add as temporary or disregard.

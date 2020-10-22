@@ -1,0 +1,889 @@
+The [[ BrAPI Community ]] regularly gets together for [[BrAPI]] [[ Hackathons ]]. Each Hacakthon is a chance for representatives of the community to meet in person, work on implementations together, and further the development of the [[ BrAPI ]] spec.
+
+== 2018 Texcoco ==
+==== Agenda ====
+
+TBD
+
+==== Topics ====
+
+TBD
+
+==== Debrief ====
+
+TBD
+
+== 2018 Versailles ==
+==== Agenda ====
+
+[https://docs.google.com/document/d/1G3XPLlu9MHLHP003ExmfgM0uaObX_2lVVBv4qKyZ8-g/edit Agenda Google Doc]
+
+==== Topics ====
+
+[https://docs.google.com/document/d/11u0qMTgCBjlYfqed5w_CKZULiJAhC4xscIph1Qc3sEY/edit Topics Google Doc]
+
+==== Debrief ====
+
+[https://brapi.org/news.php?id=feb-14-2018 Versailles Debrief News Post]
+
+== 2017 Seattle ==
+==== Agenda ====									
+{| class="wikitable"
+|-
+! Date 
+! Start 
+! End 
+! Activity
+|-
+| **Monday, 12-Jun** 
+| 8:15 
+| 9:00
+| Breakfast on site
+|-
+|-
+|
+| 9:00 
+| 9:30 
+| Introductions 
+|-
+|
+|
+|
+| Introduction to the Hackathon 
+|-
+|
+|
+|
+| Introductions by the participants 
+|-
+|
+|
+|
+| If available, comments from our hosts (Gary A. or Jim L.) 
+|-
+|
+| 9:30 
+| 9:45 
+| Update on Excellence in Breeding initiative and its relationship with BrAPI 
+|-
+|
+| 9:45 
+| 10:15 
+| Implementation status updates (15 min each) 
+|-
+|
+|
+|
+| CassavaBase 
+|-
+|
+|
+|
+| INRA/GNPIS 
+|-
+|
+| 10:15 
+| 10:30 
+| Break 
+|-
+|
+| 10:30 
+| 11:00
+| Review and confirm uses cases and other tasks that will be worked on and determine who will work on each one 
+|-
+|
+| 11:00 
+| 12:30 
+| Breakout into working sessions 
+|-
+|
+| 12:30 
+| 13:30 
+| Lunch 
+|-
+|
+| 13:30 
+| 15:15 
+| Continue working in breakout sessions 
+|-
+|
+| 15:15 
+| 15:30 
+| Break 
+|-
+|
+| 15:30 
+| 16:30 
+| Continue working in breakout sessions 
+|-
+|
+| 16:30 
+| 17:15 
+| Debrief 
+|-
+| 
+| 
+| 
+| 
+|-
+| 
+|18:00
+|21:00? 
+|Social hour followed by dinner
+|-
+|
+|
+|
+|
+|-
+| **Tuesday, 13-Jun** 
+| 8:15 
+| 9:00 
+| Breakfast on site 
+|-
+|
+| 9:00 
+| 9:45 
+| Implementation status updates (15 min each) 
+|-
+|
+|
+|
+| JHI 
+|-
+|
+|
+|
+| Excelerate 
+|-
+|
+|
+|
+| CIRAD 
+|-
+|
+| 9:45 
+| 10:30 
+| Review any identified issues with the specification of BrAPI version 1 
+|-
+|
+| 10:30 
+| 10:45 
+| Break 
+|-
+|
+| 10:45 
+| 11:00 
+| Set up any needed working breakout session to address v1 specification issues 
+|-
+|
+| 11:15 
+| 12:30 
+| Continue working in breakout sessions 
+|-
+|
+| 12:30 
+| 13:30 
+| Lunch 
+|-
+|
+| 13:30 
+| 15:15 
+| Continue working in breakout sessions 
+|-
+|
+| 15:15 
+| 15:30 
+| Break 
+|-
+|
+| 15:30 
+| 16:30 
+| Continue working in breakout sessions 
+|-
+|
+| 16:30 
+| 17:15 
+| Debrief 
+|-
+|
+|
+|
+|
+|-
+| **Wednesday, 14-Jun** 
+| 8:15 
+| 9:00 
+| Breakfast on site 
+|-
+|
+| 9:00 
+| 9:45 
+| Implementation status updates (15 min each) 
+|-
+|
+|
+|
+| CIP 
+|-
+|
+|
+|
+| BMS 
+|-
+|
+|
+|
+| IRRI 
+|-
+|
+| 9:45 
+| 10:30 
+| Continue working in breakout sessions 
+|-
+|
+| 10:30 
+| 10:45 
+| Break 
+|-
+|
+| 10:45 
+| 12:30 
+| Continue working in breakout sessions 
+|-
+|
+| 12:30 
+| 13:30 
+| Lunch 
+|-
+|
+| 13:30 
+| 15:15 
+| Continue working in breakout sessions 
+|-
+|
+| 15:15 
+| 15:30 
+| Break 
+|-
+|
+| 15:30 
+| 16:30 
+| Continue working in breakout sessions 
+|-
+|
+| 16:30 
+| 17:15 
+| Debrief 
+|-
+|
+|
+|
+|
+|-
+| **Thursday, 15-Jun** 
+| 8:15 
+| 9:00 
+| Breakfast on site 
+|-
+|
+| 9:00 
+| 9:45 
+| Implementation status updates (15 min each) 
+|-
+|
+|
+|
+| Kansas State FieldBook 
+|-
+|
+|
+|
+| GOBII 
+|-
+|
+|
+|
+| Bioversity (MGIS & Drupal) 
+|-
+|
+| 9:45 
+| 10:30 
+| Discuss what should be or goals for version 2 
+|-
+|
+| 10:30 
+| 10:45 
+| Break 
+|-
+|
+| 10:45 
+| 12:30 
+| Continue working in breakout sessions 
+|-
+|
+| 12:30 
+| 13:30 
+| Lunch 
+|-
+|
+| 13:30 
+| 13:45 
+| Check to see if any adjustments are needed to topics and make-up of the working groups 
+|-
+|
+| 13:45 
+| 15:15 
+| Continue working in breakout sessions 
+|-
+|
+| 15:15 
+| 15:30 
+| Break 
+|-
+|
+| 15:30 
+| 16:30 
+| Continue working in breakout sessions 
+|-
+|
+| 16:30 
+| 17:15 
+| Debrief 
+|-
+|
+|
+|
+|
+|-
+| **Friday, 16-Jun** 
+| 8:15 
+| 9:00 
+| Breakfast on site 
+|-
+|
+| 9:00 
+| 10:30 
+| Continue working in breakout sessions 
+|-
+|
+| 10:30 
+| 10:45 
+| Break 
+|-
+|
+| 10:45 
+| 11:30 
+| Continue working in breakout sessions 
+|-
+|
+| 11:30 
+| 12:30 
+| Finish discussing possible objectives for version 2 
+|-
+|
+| 12:30 
+| 13:30 
+| Lunch 
+|-
+|
+| 13:30 
+| 15:15 
+| Summaries from the working groups 
+|-
+|
+| 15:15 
+| 15:30 
+| Break 
+|-
+|
+| 15:30 
+| 16:00 
+| Finish summaries 
+|-
+|
+| 16:00 
+| 17:00 
+| Next steps 
+|}
+
+==== Topics ====
+# BrAPI Validation Test Suite
+# Interfacing with Hand helds
+#* IRRI work on making their hand held API consistent with BrAPI	
+#* KSU Fieldbook
+# Working with genebanks
+#* Genebank to breeding system for regeneration (CIMMYT is working on identify the calls required to include in our application(GrinGlobal))
+#* Data integration between passport data, genotyping data from genebank and breeding IS (Bioversity, BTI and Cirad)
+# GoBII
+#* Breeding System to Genomic system (Gobii project)		
+#* Continue development of Samples call implementation for interfacing with GOBII
+#* [[ GOBii and Flapjack Allele Matrix Data | FlapJack integration]]
+# BrAPI and analytical pipelines
+#* Would Galaxy be a good platform?
+#* Models for how to wire up Galaxy to use BrAPI
+#* Other pipeline options				
+# Exchange between systems				
+#* Breeding System to Datawarehouse (CIMMYT wants to work with Germinate(JHI)			
+#* Cassavabase and BMS: implement germplasm match use case (see Germplasm match use case sheet)
+#* MusaBase and MGIS: consolidate germplasm match use case (similar to Germplasm match use case sheet)
+#* [TERRA-REF/BETYdb](https://docs.google.com/document/d/1WGDvlqZ8KjdKN8FFbdUwIqfNSQhVN16KoqPxvBgKRsw/edit#) and BMS
+# Sample tracking information exchange				
+#* Proposed calls for exchanging plate information developed by Cornell Genotyping Center and Cassavabase			
+#* Or between GOBII and DNA Sample Tracker (CIMMYT is working on identifying the calls required to include in DNA Sample Tracker)			
+# MIAPPE				
+#* What extensions or modification of existing calls would be needed to make BrAPI able to pass MIAPPE datatsets?			
+# BrAPI version 2: potential areas for extending BrAPI				
+#* Extenstion to Location Definition			
+#* Geospatial data
+#* Dataset resource	 		
+#* HATEOS or JSON-LD
+#* FAIR adaptation (Findable, Accessible, Interoperable, Reusable https://www.nature.com/articles/sdata201618)	
+# BrAPI and the Excellence in Breeding Initiative (EiB)				
+#* The Bioinformatics and Biometrics module of the EiB has volunteered to try to secure funding for a BrAPI coordinator/developer
+
+==== Debrief ====
+
+== 2016 Montpilier ==
+==== Agenda ====
+{| class="wikitable"
+!Date
+!Time
+!Description
+!(Room)/speakers
+|-
+|Monday  12 December
+
+||9:00
+|Welcome remarks 
+|(Salle du conseil)
+|-
+|
+|9:15-9:40
+|Current status of BrAPI and next steps to version 2 
+|Jan Erik Backlund
+|-
+|
+|9:40-10:00
+|BrAPI implementation at BTI
+|Lukas Mueller and Nick Morales
+|-
+|
+|10:00-10:20
+|BrAPI implementation at GOBII
+|Philip Glaser and Angel Raquel
+|-
+|
+|10:20-10:40
+|BrAPI implementation at James Hutton institute
+|Iain Milne and Gordon Stephen
+|-
+|
+|10:40-11:00
+|Coffee break
+|(mezzanine)
+|-
+|
+|11:00-11:20
+|BrAPI implementation at Bioversity
+|Valentin Guignon and Mathieu Rouard
+|-
+|
+|11:20-11:40
+|BrAPI implementation at INRA
+|Cyril Pommier and Guillaume Cornut
+|-
+|
+|11:40-12:00
+|Excelerate project
+|Richard Finkers and Cyril Pommier
+|-
+|
+|12:00-12:20
+|GA4GH rest API at EBI
+|Electra Tapanari
+|-
+|
+|12:30–14:00
+|Lunch
+|(Hibiscus room)
+|-
+|
+|14:00 -17:30
+|Use case1:  Germplasm exchange 
+*Calls call 
+*Working authentication
+*Germplasm search call
+*User interface to display (and combine) a list of germplasm retrieved from other system(s) (eg. MusaBase + MGIS : retrieve breeding germplasm and related genebank germplasm; GnpIS Germplasm unified interface)
+*Search engine use case
+|Common use case for everybody in this meeting
+(Salle du conseil / Passiflore room)
+|-
+|
+|17:30-18:00
+|Wrap up
+|(Salle du conseil)
+|-
+|
+|18:30
+|Welcome cocktail: Wine and cheese 
+|Bioversity office
+|-
+|Tuesday  13 December
+|9:00-12:00
+|Use case1:  Germplasm exchange (cont.)
+|Argane room (video conf possible)
+Passiflore room
+|-
+|
+|12:00 –13:30
+|Buffet Lunch 
+|Mezzanine
+|-
+|
+|14:00-17:00
+|BREAKOUT
+Use case1:  Genotyping data and visualization
+Use case2:  Phenotyping, phenotype image data and ontologies, , incl. search engine use case
+|Argane room (video conf possible)
+Passiflore room
+|-
+|
+|17:00-17:30 
+|Wrap up
+|
+|-
+|Wednesday  14 December
+|9:00-17:00
+|BREAKOUT
+Use case2:  Phenotyping, phenotype image data and ontologies (cont.)
+Use case3: Genotyping data and visualization (cont.)
+|Bambou room
+Passiflore room
+|-
+|
+|Lunch available from 12:00
+|Passiflore room
+(Lunch boxes)
+|-
+|Thursday  15 December
+|9:00-12:00
+|BREAKOUT
+Use case3: Genotyping data and visualization (cont.)
+Use case4: MIAPPE – BrAPI mapping 
+|Bambou room
+Passiflore room
+|-
+|
+|12:00–14:00
+|Lunch available from 12:00
+|Passiflore room
+(Lunch boxes)
+|-
+|
+|14:00-17:00
+|BREAKOUT
+Use case3: Genotyping data and visualization (cont.)
+Use case 5: Hackathon search engine
+|Bambou room
+Passiflore room
+|-
+|
+|17:00-17:30 
+|Wrap up
+|
+|-
+|Friday 16 December
+|10:00-12:00
+|Open question session for various topics (e.g. Android fieldbook, Testing)
+|Bambou room
+|-
+|
+|12:00–14:00
+|Lunch available from 12:00
+|Passiflore room
+(Lunch boxes)
+|-
+|
+|14:00-16:00
+|BREAKOUT
+* Time to finish implementation of use cases
+* Preparation of BRAPI meeting at PAG
+|Bambou room
+Passiflore room
+|-
+|
+|16:00
+|Close of the meeting
+|Bambou room
+|}
+
+==== Topics====
+
+==== Debrief ====
+
+== 2016 Ithaca ==
+==== Agenda ====
+General information about buses and meals
+* Daily, Monday 7/25-Friday 7/29
+* 8:15 am shuttle picks up at Fairfield Inn & Suites
+** Note – complimentary breakfast available at Fairfield Inn & Suites as well
+* 8:30 Bus departs hotel, arrives at Cornell before 9:00am
+* 8:45 Panera morning pastries/fruit/coffee etc. set up
+* 10:45am Mid-morning refreshments set up
+* 12:15 pm Lunch set up
+* 3:15 pm Afternoon snack set up
+* 5:30 pm Bus picks up at 5:30 for 5:45pm departure
+ 
+Bus for Group Dinner on Wednesday 7/27:
+* Bus picks up at 5:30 for 5:45 departure to hotel, bus will wait and then depart hotel for Agava restaurant at 7:15pm to arrive at 7:30pm. Bus will wait and return to hotel around 9:30pm.
+ 
+
+Break out sign up sheet: [https://drive.google.com/open?id=1hBX-MVLm6oLB1V1GGimxmWNoNt_2Z9vw62Yb61xND1o Breakouts ]
+
+Monday
+* 9:00 Welcome
+* 9:15 Goals of this workshop
+* 9:30 Demo of Apiary sites and other Brapi infrastructure
+* 10:00 Brapi Success Stories (HIDAP)
+* 10:30 Coffee Break
+* 10:45 Breakout sessions presentation
+* 11:00 Breakout session
+* 12:30 Lunch
+* 1:30  Breakout session
+* 3:30  Coffee Break
+* 3:45  Breakout session
+* 5:00  Wrap up
+* Dinner
+
+Tuesday 
+* 9:00 Break-out De-brief
+* 9:45 Discussion: Brapi Analysis Services
+* 10:30 Coffee Break
+* 10:45 Breakout session
+* 12:30 Lunch
+* 1:30 Breakout De-brief
+* 2:00 Break-out sessions
+* 3:30 Coffee Break
+* 3:45 Breakout Session
+* 5:00 Wrap Up
+
+
+Wednesday 
+* 9:00 Break-out De-brief
+* 9:45 Discussion: File downloads through Brapi
+* 10:30 Coffee Break
+* 10:45 Breakout session
+* 12:30 Lunch
+* 1:30 Breakout De-brief
+* 2:00 Break-out sessions
+* 3:30 Coffee Break
+* 3:45 Breakout Session
+* 5:00 Wrap Up
+
+
+Thursday 
+* 9:00 Break-out De-brief
+* 9:45 Presentation: BMS - KDE Explorer connection
+* 10:30 Coffee Break
+* 10:45 Breakout session
+* 12:30 Lunch
+* 1:30 Breakout De-brief
+* 2:00 Break-out sessions
+* 3:30 Coffee Break
+* 3:45 Breakout Session
+* 5:00 Wrap Up
+
+Friday
+* 9:00 Break-out De-brief
+* 9:45 Presentation: MIAPE compliance
+* 10:30 Coffee Break
+* 10:45 Break-out session
+* 12:30 Lunch
+* 1:30 Open Discussion
+* 2:00 Fun stuff
+
+==== Topics ====
+* Genotypic data analysis -- Passing large data sets
+* Handhelds -- IRRI's implementation; KSU Field Book
+* BrAPI for Statistical analysis -- HIDAP, R API
+* Exchange of studies, e.g. passing a study from BMS to CassavaBase
+* GOBII -- Pulling sample meta data based on SampleID
+* KDExplorer -- passing data using BrAPI
+* Use of MIAPPE, ISA-TAB, Observation Variable call
+* API Compliance; API standard applied to BrAPI
+* Standardizing allele formats (eg A/T or AT, missing data, etc)
+* BrAPI Community Organization -- How do we keep keep things going between hackathons?
+* Pulling data into (and out of) Flapjack; use of BrAPI repository
+
+==== Debrief ====
+Went well
+* Nice space
+* Good food
+* Better in making time for hacking
+* Focused use cases
+* New tools: Slack & Github Issues
+* Almost ready to freeze
+* Party bus!
+* Roadmap (Raul and Ernesto)
+* Demos (KDExplorer, Hidap, Flapjack & Germinate3 with new alleleMatrix call)
+* Session mgmt
+* Good breakout sessions
+
+Could have been better
+* Making enough time for hacking
+* Wifi was problematic at times
+* Port blocking
+* No pole on the party bus!
+* Better introduction for new comers
+* Apiary remains a less than ideal tool
+
+
+== 2015 Seattle==
+==== Agenda ====
+
+There won't be a fixed, rigid agenda.  Rather we will provide a framework to help get us started but from there will adapt according to the progress and interests of the group.  Moreover, the session will not be monolithic: we expect that there will be natural sub-groups within the overall hackathon that will operate quite independently.  We will make a concerted effort, however, to intersperse plenary sessions in which each of the working groups will have a chance to present their progress, ideas, and proposals for changing or extending the API to make it more useful in the context of the problem space that the group is addressing. 
+
+''' Goals:'''
+
+* Get energized about developing and using the API!
+* To push ahead with real-world prototypes by hacking up working examples of web services and applications that consume those services
+* To exchange ideas and techniques for writing web services and for developing applications to consume web services
+* To iteratively refine the API definition based on our experiences with implementing the web services and with using the web services
+* Do we get to a release 1 of the API by the end of the hackathon?
+
+''' Organization:'''
+
+Ideas for areas to focus on:
+
+# Working with germplasm lists
+# Working with ontologies
+# Connecting with field data recorders
+# Passing large genotypic data sets efficiently.
+# Authentication
+# Maps: genetic (cM) and sequence (bp)
+# Documenting the data-types of return values
+# Exchanging field trial and/or nursery data sets.  
+#*Such a data set will be a large, complex object so it will probably be best to divide and conquer. Possible components might be:
+
+* Germplasm list
+* List of traits
+* Field layout (coordinate) information
+* Experimental design
+* Phenotypic data
+
+For each area, spend 30-60 minutes reviewing the existing API calls.  Identify any gaps that would need to be addressed to fully enable the desired functionality. If there are gaps, set up a small group (2-3 people) to work on defining the missing API calls.  Meanwhile, the rest of the participants working on this project would forge ahead with developing web services or with integrating API calls into their application.
+
+''' Specific suggestions for topics to cover:'''
+
+Set of standardised success/error messages for the API.
+* mixture of HTTP codes and API-specific codes for more information.
+
+Client side stuff (eg Flapjack) - download progress tracking
+* preferable to always have a getCount() call before getting data
+
+Missing data/data separators
+* can we define a standard and/or agree on MarkerProfile headers for this?
+
+How to handle back-end database failures
+* what to return if queries fail: empty results, error codes?
+
+Problems with integers as IDs
+* eg no concept of MarkerProfile in Germinate: marry dataset ID & germplasm ID (into a String)
+
+Lots of stuff on subsetting data sets:
+* do we want a method to only return subsets of germplasm data? (how do you define this)
+* do we want a method to only return germplasm (subsetted or otherwise) with only subsets of marker data (eg only what the selected map has)?
+* subsetted loading: eg, only pull back the data for one chromosome to reduce memory load on mobile clients
+* currently no way to retrieve a list of chromosomes from a map
+
+Performance issues (tied in with subsetting potentially)
+* overheads of compression and/or encryption
+* the verbosity of json request/responses
+* optimizations (or additional API methods) that could help here
+
+I think, ultimately though, the best outcome for us will be to have the API locked down well enough so we can demonstrate clients being able to connect to multiple resources. We're still finding subtle differences in implementations and/or apiary docs that are preventing this.
+
+
+''' Wrap up'''
+
+''' Accomplishments''': Give each of the sub-groups to summarize what was accomplished.
+
+''' Retrospective''': The retrospective is a technique used in agile development for capturing what went well and what could be improved. This will help us with figuring out how best to move forward
+
+''' How to keep the momentum''': What can we do to keep the momentum going?  Should we keep with the sub-groups and have less frequent full group meetings rather than continue with our weekly full group conference call?
+
+''' Things we need to figure out:'''
+* A buddy system for new participants.
+* A list of tasks
+
+==== Topics ====
+
+'''Use Cases'''
+
+[[ Trial Search Usecase]]
+
+[[ Sample Data To Lab]]
+
+==== Debrief ====
+''' Standardization of data-types returned'''
+* We agreed that we must document what each parameter in the response means and what its data type is.  E.g. some id's are string and some are integer.  
+* This can be done either
+*# statically in the [Apiary documentation](http://docs.breeding.apiary.io/#germplasm) (see example in the "Germplasm details" endpoint)
+*# dynamically from the implementation code, by some coding frameworks.  See the KDDart example.
+* [JSON-LD](http://json-ld.org/primer/latest/) (linked data) gives this documentation in the response body itself, largely by linking to an external page describing each parameter in detail.
+* KDDart implements a "/help" service for each API endpoint, which delivers a structured documentation in XML or JSON. Example [http://kddart-dal.diversityarrays.com/dal/help?operation=add/project&ctype=json](http://kddart-dal.diversityarrays.com/dal/help?operation=add/project&ctype=json) for the "/add/project" endpoint.
+
+''' Genetic and physical maps'''
+* Added species as an optional parameter to get maps
+* Changed Genome Map Details to Genome Map Data
+* Added Genome Map Details to return list of linkage groups with number of markers and max position
+* Added pagination to maps and data
+* For Get Map Data, added min and max position as optional parameters
+
+''' Authentication'''
+
+''' How do we bypass authentication when testing?'''
+* In automated testing, we can use dummy access tokens saved in the database.
+* Or we don’t bypass authentication. Instead, we use JUnit/PHPUnit to simulate the OAuth2 flow.
+
+''' How do we indicate that a call is to be authenticated or not?'''
+* No authentication needed: Service discovery + API status
+* We don’t require the ''accessToken'' parameter anymore. If not present, public data is returned. If ''accessToken'' parameter is present, private data available to the client is returned.
+
+''' Can we implement something that is easily pluggable (a centralized authentication system shared by multiple API implementations)?'''
+* Not that practical since most API providers already have their own authentication system.
+* Who will be responsible for this?
+* Where will it be located?
+* Use API management tools (note that you still have to devise a way to do a more granular level of determining the level of access for a user hence this is not enough on its own)? 
+*# apiaxle.com (FREE)
+*# https://www.akana.com/solutions/api-gateway (PAID)
+*# http://wso2.com/api-management/try-it/
+
+'''# Agreements'''
+* Different systems may have different requirements with regards to authentication. For example, Google+ API combined with implementing an OAuth2 server.
+* OAuth2 is a standard shared by multiple APIs currently available. 
+* Agreement that ''accessToken'' parameter indicates the requirement that web service call requires the user to be authenticated.
+
+''' Handling large genotype data'''
+
+* ''/brapi/allelematrix'' as a single response to return line-x-marker allele matrix
+* requires list of markerprofile IDs as input, therefore POST
+* deciding which markerProfiles to use will be application-specific - use new call ''/brapi/markerprofiles/methods'' to return list of all methods, then application can offer user the choice
+* matrix embedded in JSON response as blob-like object (is this possible?)
+* optional support for &filetype= text/vcf/flapjack/hdf5/etc ? 
+
+''' Germplasm List'''
+
+* exact match is case insensitive
+* wildcard could be both * or % and ? for 1 character. do we need to deal with STARTS WITH/ENDS WITH/CONTAINS/NOT ?
+* regexp could be an addtional method. need for escape 
+* json structure should include a metadata section for pagination and status
+* for the permanent identifier, eed at least to provide URI
+* Germplasm details should be compliant with multicrop passport data to add for instance biological status, type of storage, taxonomy authority (http://www.bioversityinternational.org/e-library/publications/detail/faobioversity-multi-crop-passport-descriptors-v2-mcpd-v2/)
+* what about passport data for genebank material?
+* Implementation as a Drupal/Tripal module: http://tripal.info/extensions/modules/breeding-api
+
+''' Field Data Collection'''
+* Day 1 : [Identification of entities and operations required for v1](https://github.com/plantbreeding/documentation/wiki/Field-Data-Collection-v1-Core-Entities-and-Operations)
+* Day 2 : [Creation of actual calls and data structure son Apiary](http://docs.breeding.apiary.io/#fielddatacollection)

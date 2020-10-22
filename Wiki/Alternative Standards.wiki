@@ -1,0 +1,21 @@
+==  MIAPPE ==
+
+Here is the complete list of [[ MIAPPE|MIAPPE to BrAPI Field Mappings ]]
+
+BrAPI V2 endpoints required to fully support MIAPPE data:
+* GET /trials
+* GET /studies
+* GET /locations
+* GET /germplasm
+* GET /observationunits
+* GET /events
+* GET /samples
+* GET /variables
+
+== ICASA ==
+== MCPD ==
+
+Multi-Crop Passport Descriptors (MCPD) "is a widely used international standard to facilitate germplasm passport information exchange" ( [https://www.bioversityinternational.org/e-library/publications/detail/faobioversity-multi-crop-passport-descriptors-v21-mcpd-v21/ bioversityinternational.org] ). In BrAPI, the primary way to share Germplasm data is through the "GET /germplasm" endpoint. This endpoint has 24 fields out of the available 41 MCPD fields
+
+== GeoJSON ==
+== GA4GH Variants Schema ==
