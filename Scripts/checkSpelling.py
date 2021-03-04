@@ -84,7 +84,7 @@ spell.word_frequency.load_words([
     'phenotyping', 'genotyping', 'agronomy', 'phenological', 'agronomical',
     'authorships', 'orcid',
     'bioinformatics', 'plantbreeding',
-    'centimeter', 'centimeters', 'unphased', 'log10', 'summarising',
+    'centimeter', 'centimeters', 'unphased', 'log10', 'summarising', 'submitter',
     'mcpd', 'ncbi', 'miappe', 'ebi', 'biosample', 'biosamples', 'inra', 'gnpis', 'cipos', 'ciend', 'svlen', 'bioversity',
     'subtaxa', 'subtaxon', 'subform', 'subvariety', 'infraspecific', 'convar', 'convariety', 'amphiploids', 'aneuploids', 'landrace', 'cryo', 'ruderal', 'shrubland', 'situ',
     'obo', 'rdf', 'obolibrary', 'ontologies', 'vcf', 'hapmap',
