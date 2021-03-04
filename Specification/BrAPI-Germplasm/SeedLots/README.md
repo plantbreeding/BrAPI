@@ -327,7 +327,7 @@ Get a filtered list of Seed Lot Transactions
 |toSeedLotDbId|string|The identifier for the Seed Lot being transfered into|
 |transactionDbId|string|Unique DbId for the Seed Lot Transaction|
 |transactionDescription|string|A general description of this Seed Lot Transaction|
-|transactionTimestamp|string (date-time)|The time stamp for when the transaction occured|
+|transactionTimestamp|string (date-time)|The time stamp for when the transaction occurred|
 |units|string|Description of the things being transfered in this transaction (seeds, bulbs, kg, etc)|
 
 
@@ -441,7 +441,7 @@ Add new Seed Lot Transaction to be recorded
 |fromSeedLotDbId|string|The identifier for the Seed Lot being transfered out of|
 |toSeedLotDbId|string|The identifier for the Seed Lot being transfered into|
 |transactionDescription|string|A general description of this Seed Lot Transaction|
-|transactionTimestamp|string (date-time)|The time stamp for when the transaction occured|
+|transactionTimestamp|string (date-time)|The time stamp for when the transaction occurred|
 |units|string|Description of the things being transfered in this transaction (seeds, bulbs, kg, etc)|
 
 
@@ -459,7 +459,7 @@ Add new Seed Lot Transaction to be recorded
 |toSeedLotDbId|string|The identifier for the Seed Lot being transfered into|
 |transactionDbId|string|Unique DbId for the Seed Lot Transaction|
 |transactionDescription|string|A general description of this Seed Lot Transaction|
-|transactionTimestamp|string (date-time)|The time stamp for when the transaction occured|
+|transactionTimestamp|string (date-time)|The time stamp for when the transaction occurred|
 |units|string|Description of the things being transfered in this transaction (seeds, bulbs, kg, etc)|
 
 
@@ -896,7 +896,7 @@ Get all Transactions related to a specific Seed Lot
 |toSeedLotDbId|string|The identifier for the Seed Lot being transfered into|
 |transactionDbId|string|Unique DbId for the Seed Lot Transaction|
 |transactionDescription|string|A general description of this Seed Lot Transaction|
-|transactionTimestamp|string (date-time)|The time stamp for when the transaction occured|
+|transactionTimestamp|string (date-time)|The time stamp for when the transaction occurred|
 |units|string|Description of the things being transfered in this transaction (seeds, bulbs, kg, etc)|
 
 
@@ -904,7 +904,7 @@ Get all Transactions related to a specific Seed Lot
 
 + Parameters
     + seedLotDbId (Required, ) ... Unique id for a seed lot on this server
-    + transactionDbId (Optional, ) ... Unique id for a Transaction that has occured
+    + transactionDbId (Optional, ) ... Unique id for a Transaction that has occurred
     + transactionDirection (Optional, ) ... Filter results to only include transactions directed to the specific Seed Lot (TO), away from the specific Seed Lot (FROM), or both (BOTH). The default value for this parameter is BOTH
     + page (Optional, ) ... Used to request a specific page of data to be returned.The page indexing starts at 0 (the first page is 'page'= 0). Default is `0`.
     + pageSize (Optional, ) ... The size of the pages to be returned. Default is `1000`.

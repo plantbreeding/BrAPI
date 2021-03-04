@@ -18,7 +18,7 @@ Get list of events
 |---|---|---| 
 |data|array[object]||
 |additionalInfo|object|Additional arbitrary info|
-|date|array[string]|A list of dates when the event occured  MIAPPE V1.1 (DM-68) Event date - Date and time of the event.|
+|date|array[string]|A list of dates when the event occurred  MIAPPE V1.1 (DM-68) Event date - Date and time of the event.|
 |eventDbId|string|Internal database identifier|
 |eventDescription|string|A detailed, human-readable description of this event  MIAPPE V1.1 (DM-67) Event description - Description of the event, including details such as amount applied and possibly duration of the event. |
 |eventParameters|array[object]|A list of objects describing additional event parameters. Each of the following accepts a human-readable value or URI|
@@ -34,8 +34,8 @@ Get list of events
  
 
 + Parameters
-    + studyDbId (Optional, ) ... Filter based on study unique identifier in which the events occured
-    + observationUnitDbId (Optional, ) ... Filter based on an ObservationUnit unique identifier in which the events occured
+    + studyDbId (Optional, ) ... Filter based on study unique identifier in which the events occurred
+    + observationUnitDbId (Optional, ) ... Filter based on an ObservationUnit unique identifier in which the events occurred
     + eventDbId (Optional, ) ... Filter based on an Event DbId
     + eventType (Optional, ) ... Filter based on an Event Type
     + dateRangeStart (Optional, ) ... Filter based on an Date Range

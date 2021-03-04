@@ -78,7 +78,7 @@ Get a filtered list of Crossing Projects.
                 "commonCropName": "Cassava",
                 "crossingProjectDbId": "ce0e1c29",
                 "crossingProjectDescription": "Crosses between germplasm X and germplasm Y in male nursery study X_2018 and female nursery study Y_2018",
-                "crossingProjectName": "Ibadan_Crosses_2018",
+                "crossingProjectName": "Crosses_2018",
                 "externalReferences": [
                     {
                         "referenceID": "doi:10.155454/12341234",
@@ -169,7 +169,7 @@ Create new Crossing Project entities on this server
         "additionalInfo": {},
         "commonCropName": "Cassava",
         "crossingProjectDescription": "Crosses between germplasm X and germplasm Y in male nursery study X_2018 and female nursery study Y_2018",
-        "crossingProjectName": "Ibadan_Crosses_2018",
+        "crossingProjectName": "Crosses_2018",
         "externalReferences": [
             {
                 "referenceID": "doi:10.155454/12341234",
@@ -229,7 +229,7 @@ Create new Crossing Project entities on this server
                 "commonCropName": "Cassava",
                 "crossingProjectDbId": "ce0e1c29",
                 "crossingProjectDescription": "Crosses between germplasm X and germplasm Y in male nursery study X_2018 and female nursery study Y_2018",
-                "crossingProjectName": "Ibadan_Crosses_2018",
+                "crossingProjectName": "Crosses_2018",
                 "externalReferences": [
                     {
                         "referenceID": "doi:10.155454/12341234",
@@ -336,7 +336,7 @@ Get a filtered list of Crossing Projects.
         "commonCropName": "Cassava",
         "crossingProjectDbId": "ce0e1c29",
         "crossingProjectDescription": "Crosses between germplasm X and germplasm Y in male nursery study X_2018 and female nursery study Y_2018",
-        "crossingProjectName": "Ibadan_Crosses_2018",
+        "crossingProjectName": "Crosses_2018",
         "externalReferences": [
             {
                 "referenceID": "doi:10.155454/12341234",
@@ -424,7 +424,7 @@ Update an existing Crossing Project entity on this server
     "additionalInfo": {},
     "commonCropName": "Cassava",
     "crossingProjectDescription": "Crosses between germplasm X and germplasm Y in male nursery study X_2018 and female nursery study Y_2018",
-    "crossingProjectName": "Ibadan_Crosses_2018",
+    "crossingProjectName": "Crosses_2018",
     "externalReferences": [
         {
             "referenceID": "doi:10.155454/12341234",
@@ -481,7 +481,7 @@ Update an existing Crossing Project entity on this server
         "commonCropName": "Cassava",
         "crossingProjectDbId": "ce0e1c29",
         "crossingProjectDescription": "Crosses between germplasm X and germplasm Y in male nursery study X_2018 and female nursery study Y_2018",
-        "crossingProjectName": "Ibadan_Crosses_2018",
+        "crossingProjectName": "Crosses_2018",
         "externalReferences": [
             {
                 "referenceID": "doi:10.155454/12341234",
