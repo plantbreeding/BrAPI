@@ -1,18 +1,45 @@
 Back to [[ Use Cases ]]
 
-== PhenoApps Hackathon - Cornell 2018 ==
-The [https://github.com/PhenoApps/Field-Book KSU Fieldbook] team began mapping BrAPI data model to Fieldbook app data model. 
+== PhenoApps KSU Field Book ==
+The [https://github.com/PhenoApps/Field-Book KSU Fieldbook] is BrAPI compatible. 
 
-''' Download '''
-To download Fieldbook data from a central server use the following calls:
-# GET /studies/{studyDbId}
-# GET /studies/{studyDbId}/observationunits
-# GET /studies/{studyDbId}/observationvariables
+===BrAPI V1.3===
+The following BrAPI V1.3 endpoints are needed for full Field Book BrAPI functionality:
+* [https://brapi.docs.apiary.io/#reference/programs/programs/get-programs                               GET  /programs                                   ]
+* [https://brapi.docs.apiary.io/#reference/trials/trials/get-trials                                     GET  /trials                                     ]
+* [https://brapi.docs.apiary.io/#reference/study/studies/get-studies                                    GET  /studies                                    ]
+* [https://brapi.docs.apiary.io/#reference/study/studies/get-studies-by-studydbid                       GET  /studies/{studyDbId}                        ]
+* [https://brapi.docs.apiary.io/#reference/study/studies/get-studies-observationunits-by-studydbid      GET  /studies/{studyDbId}/observationunits       ]
+* [https://brapi.docs.apiary.io/#reference/study/studies/get-studies-observationvariables-by-studydbid  GET  /studies/{studyDbId}/observationvariables   ]
+* [https://brapi.docs.apiary.io/#reference/observation-variables/variables/get-variables                GET  /variables                                  ]
+* [https://brapi.docs.apiary.io/#reference/phenotypes/phenotypes/post-phenotypes                        POST /phenotypes                                 ]
+* [https://brapi.docs.apiary.io/#reference/study/studies/put-studies-observations-by-studydbid          PUT  /studies/{studyDbId}/observations           ]
+* [https://brapi.docs.apiary.io/#reference/images/images/post-images                                    POST /images                                     ]
+* [https://brapi.docs.apiary.io/#reference/images/images/put-images-by-imagedbid                        PUT  /images/{imageDbId}                         ]
+* [https://brapi.docs.apiary.io/#reference/images/images/put-images-imagecontent-by-imagedbid           PUT  /images/{imageDbId}/imagecontent            ]
+
+
+===BrAPI V2.0===
+Coming soon!
+
+
+===Trait Mapping Notes===
+When downloading data from a BrAPI compliant database to KSU Field Book, Field Book will make a call to "GET /observationvariables" to retrieve a list of ObservationVariable objects. It maps "observationVariableDbId" to "externalDbId" directly. It will attempt to map the first synonym from the "synonyms" list to "trait". If there are no "synonyms" (null or empty list), then it will map "observationVariableName" to "trait". The "trait" column from the .trt file is directly mapped to "trait" in the Field Book internal DB and used as the display identifier in the app. 
+
+When uploading data from KSU Field Book to a BrAPI compliant database, Traits are not uploaded, only Observations are uploaded. Each BrAPI Observation has a field "observationVariableDbId" which is populated from the "externalDbId".
+
+From a data server perceptive, whatever value is mapped to BrAPI "observationVariableDbId", Field Book will use that value to upload observation data attached to known traits. 
+
+  BrAPI                           Field Book
+  "observationVariableDbId"  ->   "externalDbId"
+  "synonyms"                 ->   "trait"
+  "observationVariableName"  ->   "trait"
 
 == Old Notes ==
-=== Field Data Collection ===
-''''' This was originally created July 29, 2016 as a thought experiment. It needs to be updated'''''
 
+''''' These notes were originally created July 29, 2016 as a thought experiment. They are maintained for historical reference only. '''''
+
+=== Field Data Collection ===
 To be able to collect field trial data with a hand held device the following Brapi calls are initially needed and have been reviewed:
 
 #GET /trials : Get list of trial summaries STATUS: OK as is

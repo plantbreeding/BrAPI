@@ -1,6 +1,6 @@
 == DbIds ==
 
-Most objects represented in BrAPI have a DbId field. This field represents a primary key which will uniquely identify that object ''within the database being queried.'' It is NOT guaranteed to be unique across multiple systems, though it could be. DbIds should primarily be used to link data together within a system. 
+All objects represented in BrAPI have a <code>xxxDbId</code> field. This field represents a primary key which will uniquely identify that object ''within the database being queried.'' It is NOT guaranteed to be unique across multiple systems, though it could be. DbIds should primarily be used to link data together within a system. 
 
 For example, in a given call, an Observation Unit object is returned with the <code>stduyDbId</code>. In a subsequent call to the same system, you should be able to retrieve the Study Object directly based on the <code>stduyDbId</code>.
 
@@ -13,9 +13,13 @@ Recommendation: If possible, avoid using URLs as DbIds to avoid this issue. Ther
 If you must use a URL as a DbId, you must encode it in some way to hide the slashes. Your system will need to accept the encoded string in a request and un-encode it before querying the database. Likewise, when responding to a request, your system will need to retrieve the URL from the database and encode it before  returning. The specific encoding schema doesn't matter, as long as it produces consistent results within your system. [https://github.com/plantbreeding/API/issues/85 GitHub Issue #85] describes a double URL symbol encoding scheme which works. Hexadecimal encoding is another option.
 
 == PUIs ==
+Several BrAPI entities have a <code>xxxPUI</code> field for a '''P'''ermanent '''U'''nique '''I'''dentifier. This is meant to be a global identifier shared across different data sources. PUIs usually take the form of a URI, with a combination of identifying authority and unique identity value. For example, the [https://www.doi.org/ Digital Object Identifier (DOI)] system is often used to assign PUIs. 
+
+Unlike DbIds, PUIs are never used in BrAPI paths, so there is no problem if a PUI contains slashes. In several cases, PUIs can be used as query parameters, so it can be helpful to use the encoding <code>%2F</code> to replace an slash characters in URL query parameters.
 
 == External References ==
+Every BrAPI V2 entity has a list of <code>externalReferences</code>. These are meant to record additional identifiers for a data object, usually originating from other tools and systems. This can assist with linking to different systems, without altering the DbIds or PUIs. A particularly important use case for using <code>externalReferences</code> comes from uploading data to a database. When uploading data, the original DbId is not preserved by default because it is assumed that each system will assign a new primary key for new data. The <code>externalReferences</code> allow the originating system to preserve a DbId while uploading. This is often very useful for maintaining links between data.
 
 == Names ==
 
-Most objects represented in BrAPI have a Name field. This field is meant to be a short, human readable summary of the object. It is NOT guaranteed to be unique in ANY WAY. Names are a convenient way to interact with users by printing on a screen or searching. Names may be created by a human user or generated automatically by some concatenation of other data points. Name fields should not be used to pass any data other than the intended human readable reference string. For example, the name <code>Field_Trial_abc123</code> should never be parsed to extract <code>abc123</code> as a usable DbId or piece of data.
+Most objects represented in BrAPI have a <code>xxxName</code> field. This field is meant to be a short, human readable summary of the object. It is NOT guaranteed to be unique in ANY WAY. Names are a convenient way to interact with users by printing on a screen or searching. Names may be created by a human user or generated automatically by some concatenation of other data points. Name fields should not be used to pass any data other than the intended human readable reference string. For example, the name <code>Field_Trial_abc123</code> should '''never''' be parsed to extract <code>abc123</code> as a usable DbId or piece of data.

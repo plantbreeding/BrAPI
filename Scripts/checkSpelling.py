@@ -67,7 +67,7 @@ spell.word_frequency.load_words([
     'brapi',
     'json', 'jsonld', 'csv', 'tsv', 'flapjack', 'jpg', 'svg', 'postgres', 'md5sum', 'md5checksum', 'md5checksums', 'fileadmin', 'pdfs', 'xlsx', 'vnd',
     'http', 'https', 'url', 'urls', 'href', 'html', 'webpage', 'www', 'wiews', 'prev',
-    'openapi', 'apiary', 'github', 'swaggerhub', 'ga4gh', 
+    'openapi', 'apiary', 'github', 'swaggerhub', 'ga4gh', 'apis', 'auth',
     'brapicore', 'brapiphenotyping', 'brapigenotyping', 'brapigermplasm',
     'enum', 'wsmime', 'uuid',
     '$ref', 'metadata', 'desc',
@@ -75,7 +75,7 @@ spell.word_frequency.load_words([
     'uppercase', 'lowercase', 'concatenated', 'whitespace', 'tokenized',
     'xref', 'xrefs', 'xmlns', 'foaf', 'w3c',
     'preprocessing','debug', 'async', 'upload', 'uploaded', 'imagecontent', 'unpaginated',
-    '2px', '5px', '10px', '20px', '#ddd',
+    '2px', '5px', '10px', '20px', '#ddd', 'ddd', 'btn',
     'thh', 'ss+hhmm', 'yyyy', 'o8601', 'timezone', 'date-time', 'timestamp', 's84', 't18', 'easting', 'northing',
     #plant
     'germplasm', 'genebank', 'genebanks',

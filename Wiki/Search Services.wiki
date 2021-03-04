@@ -59,6 +59,7 @@ The request `GET /names?first=Bob&last=Evans` will return no records because the
 
 
 == POST Search Entity ==
+[[File:V2_search_scenarios.png|right|700px]]
 
 There are several "Search" calls specified in BrAPI. The calls all start with `/search/...`, and are used to search for entities without knowing the primary key (DbId). These calls can be used when presenting search options to a user, or when a system needs to access an entity using a candidate key, which is not the DbId. All search calls should have a set of optional parameters, which are specific to that entity and its fields. 
 
@@ -105,6 +106,30 @@ The Asynchronous Search implementation is useful when the search query has the p
 #  The client makes a GET request with the `searchResultsDbId`
 # The server responds with a 200 HTTP status, and the search results
 # Repeat from step 8 with modified pagination parameters as needed
+
+===Generic Client Pseudo Code===
+
+When creating a generic BrAPI client application which uses a search function, it is important to be prepared for the different types of responses from different servers. Search endpoints can respond with a <code>200 OK</code> status, <code>202 Accepted</code> status, or a <code>4XX Error</code> status. The pseudo-code below is an example of how a client application might handle these different possible response codes.
+
+  request = buildSearchRequest();
+  response = POSTSearchRequest(request);
+  
+  if (response.httpStatus == '200')
+    results = response.body;
+  
+  else if (response.httpStatus == '202')
+    response = GETSearchResults(response.body.searchResultsDbId);
+  
+    while(response.httpStatus == '202')
+      sleep(5);
+      response = GETSearchResults(response.body.searchResultsDbId);
+  
+    if(GETstatus == '200')
+      results = response.body;
+    else
+      error();
+  else
+    error();
 
 ===Request and Response Rules===
 

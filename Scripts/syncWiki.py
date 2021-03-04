@@ -15,7 +15,7 @@ def login(session, username, password):
 	    'action': 'query',
 	    'meta': 'tokens',
 	    'type': 'login',
-	})
+	}, verify=verifySSL)
 	r1.raise_for_status()
 	
 	# log in
@@ -25,7 +25,7 @@ def login(session, username, password):
 	    'lgname': username,
 	    'lgpassword': password,
 	    'lgtoken': r1.json()['query']['tokens']['logintoken'],
-	})
+	}, verify=verifySSL)
 	if r2.json()['login']['result'] != 'Success':
 	    raise RuntimeError(r2.json()['login']['reason'])
 	
@@ -34,7 +34,7 @@ def login(session, username, password):
 	    'format': 'json',
 	    'action': 'query',
 	    'meta': 'tokens',
-	})
+	}, verify=verifySSL)
 	return r3.json()['query']['tokens']['csrftoken']
 
 def downloadAllPages(session, dir):
@@ -43,7 +43,7 @@ def downloadAllPages(session, dir):
 	    'action': 'query',
 	    'list': 'allpages',
 	    'aplimit': 'max',
-	})
+	}, verify=verifySSL)
 	
 	allpages = allPagesResponse.json()['query']['allpages']
 	
@@ -55,7 +55,7 @@ def downloadAllPages(session, dir):
 		    'prop': 'wikitext',
 		    'formatversion': '2',
 		    'pageid': page['pageid']
-		})
+		}, verify=verifySSL)
 		
 		outFilePath = dir + page['title'].replace('/', '-') + '.wiki'
 		fullText = pageContentResponse.json()['parse']['wikitext']
@@ -63,7 +63,47 @@ def downloadAllPages(session, dir):
 		with open(outFilePath, "w") as outFile:
 			outFile.write(fullText)
 			print(outFilePath)
+			
+def downloadAllImages(session, dir):
+	allImagesResponse = session.get(api_url, params={
+	    'format': 'json',
+	    'action': 'query',
+	    'list': 'allimages',
+	    'ailimit': 'max',
+	}, verify=verifySSL)
+	
+	allImages = allImagesResponse.json()['query']['allimages']
+	
+	for image in allImages:
+		
+		pageContentResponse = session.get(image['url'], verify=verifySSL, stream=True)
+		
+		outFilePath = dir + "images/" + image['name'].replace('/', '-')
+		
+		with open(outFilePath, "wb") as outFile:
+			for chunk in pageContentResponse.iter_content(1024):
+				outFile.write(chunk)
+			print(outFilePath)
 
+def restoreAllImages(session, outputDir, wikiToken):
+	filePaths = glob.glob(outputDir + 'images/**/*', recursive=True)
+	for filePath in filePaths:
+		params = {
+		    "action": "upload",
+		    "filename": os.path.basename(filePath),
+		    "format": "json",
+		    "token": wikiToken,
+		    "ignorewarnings": 1
+		}
+		
+		file = {'file':(os.path.basename(filePath), open(filePath, 'rb'), 'multipart/form-data')}
+		
+		r5 = session.post(api_url, files=file, data=params)
+		print()
+		print(r5.text)
+		print()
+	
+	
 def restoreAllPages(session, outputDir, wikiToken):
 	filenames = glob.glob(outputDir + '/**/*.wiki', recursive=True)
 	for file in filenames:
@@ -122,9 +162,13 @@ def main():
 	session = requests.Session()
 	if '-restore' in sys.argv:
 		wikiToken = login(session, userName, passw)
-		restoreAllPages(session, outputDir, wikiToken)
+		##restoreAllPages(session, outputDir, wikiToken)
+		restoreAllImages(session, outputDir, wikiToken)
 	else:
 		downloadAllPages(session, outputDir)
+		downloadAllImages(session, outputDir)
 
+verifySSL=True
 api_url = 'https://wiki.brapi.org/api.php'
+##api_url = 'https://132.236.81.198/api.php'
 main()
