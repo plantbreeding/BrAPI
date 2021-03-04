@@ -53,7 +53,7 @@ components:
           example: ['8439eaff', 'd7682e7a', '305ae51c']
         date:
           description: |-
-            A list of dates when the event occured
+            A list of dates when the event occurred
             
             MIAPPE V1.1 (DM-68) Event date - Date and time of the event.
           items:

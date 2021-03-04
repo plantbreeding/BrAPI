@@ -16,7 +16,7 @@ components:
         crossingProjectName:
           description: the human readable name for a crossing project
           type: string
-          example: Ibadan_Crosses_2018
+          example: Crosses_2018
         crossingProjectDescription:
           description: the description for a crossing project
           type: string

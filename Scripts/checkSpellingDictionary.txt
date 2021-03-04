@@ -1,0 +1,47 @@
+brapi
+brapicore brapiphenotyping brapigenotyping brapigermplasm
+openapi apiary github swaggerhub ga4gh apis auth
+
+json jsonld csv tsv flapjack jpg svg png postgres xlsx vnd tabular
+md5sum md5checksum md5checksums checksum
+
+url urls href html webpage www wiews prev
+
+enum wsmime uuid
+metadata asc desc schemas
+wiki wikipedia
+uppercase lowercase concatenated whitespace tokenized
+xref xrefs xmlns foaf w3c
+preprocessing debug async upload uploaded imagecontent unpaginated pagination
+boolean ordinal
+
+2px 5px 10px 20px #ddd ddd btn
+thh hhmm yyyy o8601 timezone date-time timestamp s84 t18 easting northing
+
+
+bioinformatics plantbreeding datasets
+germplasm genebank genebanks
+multi-crop subblock
+pui peco envo puid r001 geodetic georeference georeferencing gazetteer
+
+phenotypes phenotyping genotyping agronomy agronomic phenological agronomical cytogenetic
+
+authorships
+centimeter centimeters unphased log10 
+summarising submitter descriptors hyphens
+
+mcpd ncbi miappe ebi biosample biosamples inra gnpis cipos ciend svlen bioversity FAO
+
+subtaxa subtaxon subform subvariety infraspecific convar convariety amphiploids aneuploids landrace cryo ruderal shrubland situ clonal backcross
+accessions subsp cultivar cultivars seq homozygotes methylation quantification contig
+ 
+obo rdf obolibrary ontologies vcf hapmap MLS chr
+malting carotenoid pipet plateless indel parent1 parent2
+
+Zea mays fructus c2365e900c81a89cf74d83dab60df146 
+
+tomatillo hadron coladas townsville
+
+https://www.bioversityInternational.org/fileadmin/user_upload/online_library/publications/pdfs/FAOBIOVERSITY_MULTI-CROP_PASSPORT_DESCRIPTORS_V.2.1_2015_2020.pdf
+https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3
+http://orcid.org/0000-0001-8640-1750

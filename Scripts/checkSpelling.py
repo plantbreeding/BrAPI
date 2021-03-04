@@ -62,35 +62,8 @@ def camel_case_split(identifier):
     return [m.group(0) for m in matches]
 
 spell = SpellChecker()
-spell.word_frequency.load_words([
-    #tech
-    'brapi',
-    'json', 'jsonld', 'csv', 'tsv', 'flapjack', 'jpg', 'svg', 'postgres', 'md5sum', 'md5checksum', 'md5checksums', 'fileadmin', 'pdfs', 'xlsx', 'vnd',
-    'http', 'https', 'url', 'urls', 'href', 'html', 'webpage', 'www', 'wiews', 'prev',
-    'openapi', 'apiary', 'github', 'swaggerhub', 'ga4gh', 'apis', 'auth',
-    'brapicore', 'brapiphenotyping', 'brapigenotyping', 'brapigermplasm',
-    'enum', 'wsmime', 'uuid',
-    '$ref', 'metadata', 'asc', 'desc', 'schemas',
-    'wiki', 'wikipedia',
-    'uppercase', 'lowercase', 'concatenated', 'whitespace', 'tokenized',
-    'xref', 'xrefs', 'xmlns', 'foaf', 'w3c',
-    'preprocessing','debug', 'async', 'upload', 'uploaded', 'imagecontent', 'unpaginated', 'boolean',
-    '2px', '5px', '10px', '20px', '#ddd', 'ddd', 'btn',
-    'thh', 'ss+hhmm', 'yyyy', 'o8601', 'timezone', 'date-time', 'timestamp', 's84', 't18', 'easting', 'northing',
-    #plant
-    'germplasm', 'genebank', 'genebanks',
-    'multi-crop', 'subblock',
-    'pui', 'peco', 'envo', 'puid', 'r001', 'geodetic', 'georeference', 'georeferencing',
-    'phenotyping', 'genotyping', 'agronomy', 'phenological', 'agronomical',
-    'authorships', 'orcid',
-    'bioinformatics', 'plantbreeding',
-    'centimeter', 'centimeters', 'unphased', 'log10', 'summarising', 'submitter',
-    'mcpd', 'ncbi', 'miappe', 'ebi', 'biosample', 'biosamples', 'inra', 'gnpis', 'cipos', 'ciend', 'svlen', 'bioversity',
-    'subtaxa', 'subtaxon', 'subform', 'subvariety', 'infraspecific', 'convar', 'convariety', 'amphiploids', 'aneuploids', 'landrace', 'cryo', 'ruderal', 'shrubland', 'situ',
-    'obo', 'rdf', 'obolibrary', 'ontologies', 'vcf', 'hapmap',
-    'carotenoid', 'pipet', 'plateless', 'indel', 'parent1', 'parent2',
-    'Zea', 'mays', 'fructus', 'c2365e900c81a89cf74d83dab60df146', 
-    #fun
-    'tomatillo', 'hadron', 'coladas', 'townsville'])
-splitPattern = re.compile("(?:\\\\n|[\s\'\.\-\\\"\*`:;/,_=^@#<>{}()\[\]])+")  
+spell.word_frequency.load_text_file('./checkSpellingDictionary.txt')
+spell.word_frequency.load_words(['$ref', 'ss+hhmm'])
+##splitPattern = re.compile("(?:\\\\n|[\s\'\.\-\\\"\*`:;/,_=^@#<>{}()\[\]])+")
+splitPattern = re.compile("([^\w\d]|[_])+")  
 go()

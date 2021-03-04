@@ -30,7 +30,7 @@ components:
               type: string
             example: ['b2903842', 'dcbb8558']
           expandHomozygotes:
-            description: Should homozygotes be expanded (true) or collapsed into a single occurence (false)
+            description: Should homozygotes be expanded (true) or collapsed into a single occurrence (false)
             type: boolean
             example: true
           sepPhased:

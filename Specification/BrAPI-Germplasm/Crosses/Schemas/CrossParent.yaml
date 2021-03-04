@@ -23,7 +23,7 @@ components:
         observationUnitName: 
           description: the human readable name for an observation unit
           type: string
-          example: my_Ibadan_Plot_9001
+          example: my_Plot_9001
         parentType: 
           description: The type of parent ex. 'MALE', 'FEMALE', 'SELF', 'POPULATION', etc.
           enum:

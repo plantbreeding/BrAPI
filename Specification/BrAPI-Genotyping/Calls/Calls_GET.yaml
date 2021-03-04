@@ -30,7 +30,7 @@ paths:
           schema:
             type: string
         - name: expandHomozygotes
-          description: Should homozygotes be expanded (true) or collapsed into a single occurence (false)
+          description: Should homozygotes be expanded (true) or collapsed into a single occurrence (false)
           in: query
           required: false
           schema:

@@ -31,7 +31,7 @@ components:
                     items:
                       $ref: '#/components/schemas/Call'
                   expandHomozygotes: 
-                    description: Should homozygotes be expanded (true) or collapsed into a single occurence (false)
+                    description: Should homozygotes be expanded (true) or collapsed into a single occurrence (false)
                     type: boolean
                     example: true
                   sepPhased:

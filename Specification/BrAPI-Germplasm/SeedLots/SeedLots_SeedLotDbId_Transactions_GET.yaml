@@ -15,7 +15,7 @@ paths:
         schema:
           type: string
       - name: transactionDbId
-        description: Unique id for a Transaction that has occured
+        description: Unique id for a Transaction that has occurred
         in: query
         required: false
         schema:

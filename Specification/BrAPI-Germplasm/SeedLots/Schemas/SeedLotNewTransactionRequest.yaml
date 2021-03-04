@@ -18,7 +18,7 @@ components:
           type: string
           example: f9cd88d2
         transactionTimestamp:
-          description: The time stamp for when the transaction occured
+          description: The time stamp for when the transaction occurred
           type: string
           format: date-time
         toSeedLotDbId:
