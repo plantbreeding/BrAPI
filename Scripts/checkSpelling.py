@@ -70,11 +70,11 @@ spell.word_frequency.load_words([
     'openapi', 'apiary', 'github', 'swaggerhub', 'ga4gh', 'apis', 'auth',
     'brapicore', 'brapiphenotyping', 'brapigenotyping', 'brapigermplasm',
     'enum', 'wsmime', 'uuid',
-    '$ref', 'metadata', 'desc', 'schemas',
+    '$ref', 'metadata', 'asc', 'desc', 'schemas',
     'wiki', 'wikipedia',
     'uppercase', 'lowercase', 'concatenated', 'whitespace', 'tokenized',
     'xref', 'xrefs', 'xmlns', 'foaf', 'w3c',
-    'preprocessing','debug', 'async', 'upload', 'uploaded', 'imagecontent', 'unpaginated',
+    'preprocessing','debug', 'async', 'upload', 'uploaded', 'imagecontent', 'unpaginated', 'boolean',
     '2px', '5px', '10px', '20px', '#ddd', 'ddd', 'btn',
     'thh', 'ss+hhmm', 'yyyy', 'o8601', 'timezone', 'date-time', 'timestamp', 's84', 't18', 'easting', 'northing',
     #plant
