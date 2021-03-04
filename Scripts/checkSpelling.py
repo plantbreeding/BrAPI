@@ -70,7 +70,7 @@ spell.word_frequency.load_words([
     'openapi', 'apiary', 'github', 'swaggerhub', 'ga4gh', 'apis', 'auth',
     'brapicore', 'brapiphenotyping', 'brapigenotyping', 'brapigermplasm',
     'enum', 'wsmime', 'uuid',
-    '$ref', 'metadata', 'desc',
+    '$ref', 'metadata', 'desc', 'schemas',
     'wiki', 'wikipedia',
     'uppercase', 'lowercase', 'concatenated', 'whitespace', 'tokenized',
     'xref', 'xrefs', 'xmlns', 'foaf', 'w3c',
