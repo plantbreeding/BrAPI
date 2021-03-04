@@ -3,15 +3,21 @@
 import sys
 import glob
 import re
+import os
 from spellchecker import SpellChecker
 
 def go():
     rootPath = './Specification/'
     exitOnFail = False
+    
+    spell = SpellChecker()
+    spell.word_frequency.load_words(['$ref', 'ss+hhmm'])
+    spell.word_frequency.load_text_file(os.path.dirname(os.path.realpath(__file__)) + '/checkSpellingDictionary.txt')
+    
     if len(sys.argv) > 1 :
         rootPath = sys.argv[1];
     if len(sys.argv) > 2 :
-        exitOnFail = sys.argv[2] == '-f';
+        exitOnFail = sys.argv[2] == '-f';            
     if(rootPath[-1] == '/'):
         rootPath = rootPath + '**/*.yaml'
     
@@ -42,6 +48,7 @@ def go():
                 exit(1)
 
 def parseLine(line):
+    splitPattern = re.compile("([^\w\d]|[_])+")  
     words = splitPattern.split(line)
     # Split Camel Case words 
     wordsCamel = []
@@ -61,9 +68,6 @@ def camel_case_split(identifier):
     matches = re.finditer('.+?(?:(?<=[a-z0-9])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z0-9])|$)', identifier)
     return [m.group(0) for m in matches]
 
-spell = SpellChecker()
-spell.word_frequency.load_text_file('./checkSpellingDictionary.txt')
-spell.word_frequency.load_words(['$ref', 'ss+hhmm'])
+
 ##splitPattern = re.compile("(?:\\\\n|[\s\'\.\-\\\"\*`:;/,_=^@#<>{}()\[\]])+")
-splitPattern = re.compile("([^\w\d]|[_])+")  
 go()
