@@ -2,6 +2,17 @@
 import yaml
 import sys
 
+def findRef(ref, parent):
+    refPath = ref.split('/')[1:]
+    refObj = parent
+    for refPart in refPath:
+        if refPart in refObj:
+            refObj = refObj[refPart]
+        else:
+            raise Exception('Schema not found ' + obj[fieldStr])
+    
+    return refObj
+
 def dereferenceAll(obj, parent):
     #print(breadCrumb)
     try:
@@ -9,15 +20,7 @@ def dereferenceAll(obj, parent):
             for fieldStr in obj:
                 #print(fieldStr)
                 if(fieldStr == '$ref'):
-                    refPath = obj[fieldStr].split('/')[1:]
-                    refObj = parent
-                    for refPart in refPath:
-                        if refPart in refObj:
-                            refObj = refObj[refPart]
-                        else:
-                            raise Exception('Schema not found ' + obj[fieldStr])
-
-                    refObj = dereferenceAll(refObj, parent)
+                    refObj = dereferenceAll(findRef(obj[fieldStr], parent), parent)
                     #refObj['title'] = refPath[-1]
                     obj = {**obj, **refObj}
                 elif(fieldStr == 'allOf'):
