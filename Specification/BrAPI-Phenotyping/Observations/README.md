@@ -1253,7 +1253,11 @@ Update an existing Observation
 
 ### Post - /search/observations [POST /brapi/v2/search/observations]
 
-Submit a search request for a set of Observations. Returns an Id which reference the results of this search
+Submit a search request for `Observations`<br/>
+Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
+If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
+Use the corresponding `GET /search/observations/{searchResultsDbId}` to retrieve the results of the search. <br/> 
+Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
 
 **Request Fields** 
 
@@ -1551,11 +1555,12 @@ Submit a search request for a set of Observations. Returns an Id which reference
 
 ### Get - /search/observations/{searchResultsDbId} [GET /brapi/v2/search/observations/{searchResultsDbId}{?page}{?pageSize}]
 
-Returns a list of Observations based on search criteria.
-
-observationTimeStamp - Iso Standard 8601.
-
-observationValue data type inferred from the ontology
+Get the results of a `Observations` search request <br/>
+Clients should submit a search request using the corresponding `POST /search/observations` endpoint.
+Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
+If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
+Use this endpoint to retrieve the results of the search. <br/> 
+Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
 
 
 

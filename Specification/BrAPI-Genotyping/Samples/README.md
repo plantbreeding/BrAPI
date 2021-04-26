@@ -706,9 +706,11 @@ Update the details of an existing Sample
 
 ### Post - /search/samples [POST /brapi/v2/search/samples]
 
-Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
-
-See Search Services for additional implementation details.
+Submit a search request for `Samples`<br/>
+Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
+If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
+Use the corresponding `GET /search/samples/{searchResultsDbId}` to retrieve the results of the search. <br/> 
+Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
 
 **Request Fields** 
 
@@ -941,9 +943,12 @@ See Search Services for additional implementation details.
 
 ### Get - /search/samples/{searchResultsDbId} [GET /brapi/v2/search/samples/{searchResultsDbId}{?page}{?pageSize}]
 
-Used to retrieve list of Samples from a Sample Tracking system based on some search criteria.
-
-See Search Services for additional implementation details.
+Get the results of a `Samples` search request <br/>
+Clients should submit a search request using the corresponding `POST /search/samples` endpoint.
+Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
+If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
+Use this endpoint to retrieve the results of the search. <br/> 
+Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
 
 
 

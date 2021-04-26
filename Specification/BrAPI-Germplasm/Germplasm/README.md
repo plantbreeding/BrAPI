@@ -1761,17 +1761,11 @@ Implementation Notes
 
 ### Post - /search/germplasm [POST /brapi/v2/search/germplasm]
 
-Search for a set of germplasm based on some criteria
-
-Addresses these needs 
-
-- General germplasm search mechanism that accepts POST for complex queries 
-
-- Possibility to search germplasm by more parameters than those allowed by the existing germplasm search 
-
-- Possibility to get MCPD details by PUID rather than dbId
-
-See Search Services for additional implementation details.
+Submit a search request for `Germplasm`<br/>
+Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
+If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
+Use the corresponding `GET /search/germplasm/{searchResultsDbId}` to retrieve the results of the search. <br/> 
+Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
 
 **Request Fields** 
 
@@ -2105,15 +2099,12 @@ See Search Services for additional implementation details.
 
 ### Get - /search/germplasm/{searchResultsDbId} [GET /brapi/v2/search/germplasm/{searchResultsDbId}{?page}{?pageSize}]
 
-See Search Services for additional implementation details.
-
-Addresses these needs: 
-
-1. General germplasm search mechanism that accepts POST for complex queries 
-
-2. possibility to search germplasm by more parameters than those allowed by the existing germplasm search 
-
-3. possibility to get MCPD details by PUID rather than dbId
+Get the results of a `Germplasm` search request <br/>
+Clients should submit a search request using the corresponding `POST /search/germplasm` endpoint.
+Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
+If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
+Use this endpoint to retrieve the results of the search. <br/> 
+Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
 
 
 

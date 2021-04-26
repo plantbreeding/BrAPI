@@ -739,8 +739,11 @@ Add new data to a specific generic lists
 
 ### Post - /search/lists [POST /brapi/v2/search/lists]
 
-Advanced searching for the list resource.
-See Search Services for additional implementation details.
+Submit a search request for Lists <br/>
+Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
+If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
+Use the corresponding `GET /search/lists/{searchResultsDbId}` to retrieve the results of the search. <br/> 
+Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
 
 **Request Fields** 
 
@@ -954,8 +957,12 @@ See Search Services for additional implementation details.
 
 ### Get - /search/lists/{searchResultsDbId} [GET /brapi/v2/search/lists/{searchResultsDbId}{?page}{?pageSize}]
 
-Advanced searching for the list resource.
-See Search Services for additional implementation details.
+Get the results of a `List` search request <br/>
+Clients should submit a search request using the corresponding `POST /search/lists` endpoint.
+Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
+If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
+Use this endpoint to retrieve the results of the search. <br/> 
+Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
 
 
 

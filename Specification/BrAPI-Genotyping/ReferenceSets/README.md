@@ -203,7 +203,11 @@ Gets a `ReferenceSet` by ID.
 
 ### Post - /search/referencesets [POST /brapi/v2/search/referencesets]
 
-Gets a list of `ReferenceSet` matching the search criteria.
+Submit a search request for `ReferenceSets`<br/>
+Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
+If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
+Use the corresponding `GET /search/referencesets/{searchResultsDbId}` to retrieve the results of the search. <br/> 
+Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
 
 **Request Fields** 
 
@@ -378,7 +382,12 @@ Gets a list of `ReferenceSet` matching the search criteria.
 
 ### Get - /search/referencesets/{searchResultsDbId} [GET /brapi/v2/search/referencesets/{searchResultsDbId}{?page}{?pageSize}]
 
-Gets a list of `ReferenceSet` matching the search criteria.
+Get the results of a `ReferenceSets` search request <br/>
+Clients should submit a search request using the corresponding `POST /search/referencesets` endpoint.
+Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
+If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
+Use this endpoint to retrieve the results of the search. <br/> 
+Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
 
 
 

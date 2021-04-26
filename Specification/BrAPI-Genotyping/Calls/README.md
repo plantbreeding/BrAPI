@@ -128,9 +128,15 @@ Gets a filtered list of `Call` JSON objects.
 
 ### Post - /search/calls [POST /brapi/v2/search/calls]
 
-Submit a search request for `Calls`
-
-** THIS ENDPOINT USES TOKEN BASED PAGING **
+Submit a search request for `Calls`<br/>
+Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
+If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
+Use the corresponding `GET /search/calls/{searchResultsDbId}` to retrieve the results of the search. <br/> 
+Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details. 
+<br/>
+<br/>
+<strong>NOTE:</strong> This endpoint uses Token based pagination. Please Review the 
+<a target="_blank" href="https://wiki.brapi.org/index.php/Pagination">Pagination documentation</a> for additional implementation details.
 
 **Request Fields** 
 
@@ -315,11 +321,16 @@ Submit a search request for `Calls`
 
 ### Get - /search/calls/{searchResultsDbId} [GET /brapi/v2/search/calls/{searchResultsDbId}{?pageToken}{?pageSize}]
 
-Returns a filtered list of `Call` JSON objects.
-
-See Search Services for additional implementation details.
-
-** THIS ENDPOINT USES TOKEN BASED PAGING **
+Get the results of a `Calls` search request <br/>
+Clients should submit a search request using the corresponding `POST /search/calls` endpoint.
+Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
+If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
+Use this endpoint to retrieve the results of the search. <br/> 
+Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
+<br/>
+<br/>
+<strong>NOTE:</strong> This endpoint uses Token based pagination. Please Review the 
+<a target="_blank" href="https://wiki.brapi.org/index.php/Pagination">Pagination documentation</a> for additional implementation details.
 
 
 

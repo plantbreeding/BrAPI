@@ -426,7 +426,11 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 
 ### Post - /search/markerpositions [POST /brapi/v2/search/markerpositions]
 
-Get marker position information, based on Map, Linkage Group, and Marker ID
+Submit a search request for `MarkerPositions`<br/>
+Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
+If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
+Use the corresponding `GET /search/markerpositions/{searchResultsDbId}` to retrieve the results of the search. <br/> 
+Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
 
 **Request Fields** 
 
@@ -588,7 +592,12 @@ Get marker position information, based on Map, Linkage Group, and Marker ID
 
 ### Get - /search/markerpositions/{searchResultsDbId} [GET /brapi/v2/search/markerpositions/{searchResultsDbId}{?page}{?pageSize}]
 
-Get marker position information, based on Map, Linkage Group, and Marker ID
+Get the results of a `MarkerPositions` search request <br/>
+Clients should submit a search request using the corresponding `POST /search/markerpositions` endpoint.
+Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
+If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
+Use this endpoint to retrieve the results of the search. <br/> 
+Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
 
 
 

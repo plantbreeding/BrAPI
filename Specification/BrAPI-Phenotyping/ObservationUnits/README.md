@@ -2018,27 +2018,11 @@ Update an existing Observation Units
 
 ### Post - /search/observationunits [POST /brapi/v2/search/observationunits]
 
-Returns a list of observationUnit with the observed Phenotypes.
-
-See Search Services for additional implementation details.
-
-Use case - this section allows to get a dataset from multiple studies. It allows to integrate data from several databases.
-
-Example Use cases 
-
-- Study a panel of germplasm across multiple studies
-
-- Get all data for a specific study 
-
-- Get simple atomic phenotyping values 
-
-- Study Locations for adaptation to climate change
-
-- Find phenotypes that are from after a certain timestamp
-
-observationTimeStampRangeStart and observationTimeStampRangeEnd use Iso Standard 8601.
-
-observationValue data type inferred from the ontology
+Submit a search request for `ObservationUnits`<br/>
+Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
+If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
+Use the corresponding `GET /search/observationunits/{searchResultsDbId}` to retrieve the results of the search. <br/> 
+Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
 
 **Request Fields** 
 
@@ -2442,9 +2426,12 @@ observationValue data type inferred from the ontology
 
 ### Get - /search/observationunits/{searchResultsDbId} [GET /brapi/v2/search/observationunits/{searchResultsDbId}{?page}{?pageSize}]
 
-Returns a list of observationUnit with the observed Phenotypes.
-
-See Search Services for additional implementation details.
+Get the results of a `ObservationUnits` search request <br/>
+Clients should submit a search request using the corresponding `POST /search/observationunits` endpoint.
+Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
+If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
+Use this endpoint to retrieve the results of the search. <br/> 
+Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
 
 
 

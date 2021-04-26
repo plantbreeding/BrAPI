@@ -550,8 +550,11 @@ Update the details of an existing breeding Program.
 
 ### Post - /search/programs [POST /brapi/v2/search/programs]
 
-Advanced searching for the programs resource.
-See Search Services for additional implementation details.
+Submit a search request for `Programs`<br/>
+Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
+If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
+Use the corresponding `GET /search/programs/{searchResultsDbId}` to retrieve the results of the search. <br/> 
+Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
 
 **Request Fields** 
 
@@ -760,8 +763,12 @@ See Search Services for additional implementation details.
 
 ### Get - /search/programs/{searchResultsDbId} [GET /brapi/v2/search/programs/{searchResultsDbId}{?page}{?pageSize}]
 
-Advanced searching for the programs resource.
-See Search Services for additional implementation details.
+Get the results of a `Programs` search request <br/>
+Clients should submit a search request using the corresponding `POST /search/programs` endpoint.
+Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
+If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
+Use this endpoint to retrieve the results of the search. <br/> 
+Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
 
 
 

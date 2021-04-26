@@ -13,9 +13,11 @@ A "study" in BrAPI represents an "study" in MIAPPE (Minimal Information about a 
 
 ### Post - /search/studies [POST /brapi/v2/search/studies]
 
-Get list of studies
-StartDate and endDate should be ISO-8601 format for dates
-See Search Services for additional implementation details.
+Submit a search request for `Studies`<br/>
+Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
+If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
+Use the corresponding `GET /search/studies/{searchResultsDbId}` to retrieve the results of the search. <br/> 
+Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
 
 **Request Fields** 
 
@@ -414,11 +416,12 @@ See Search Services for additional implementation details.
 
 ### Get - /search/studies/{searchResultsDbId} [GET /brapi/v2/search/studies/{searchResultsDbId}{?page}{?pageSize}]
 
-Get list of studies
-
-StartDate and endDate should be ISO-8601 format for dates
-
-See Search Services for additional implementation details.
+Get the results of a `Studies` search request <br/>
+Clients should submit a search request using the corresponding `POST /search/studies` endpoint.
+Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
+If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
+Use this endpoint to retrieve the results of the search. <br/> 
+Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
 
 
 
