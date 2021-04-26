@@ -1,11 +1,12 @@
 brapi
 brapicore brapiphenotyping brapigenotyping brapigermplasm
+observationunits attributevalues callsets markerpositions referencesets variantsets
 openapi apiary github swaggerhub ga4gh apis auth
 
 json jsonld csv tsv flapjack jpg svg png postgres xlsx vnd tabular
 md5sum md5checksum md5checksums checksum
 
-url urls href html webpage www wiews prev
+url urls href html webpage www wiews prev php
 
 enum wsmime uuid
 metadata asc desc schemas

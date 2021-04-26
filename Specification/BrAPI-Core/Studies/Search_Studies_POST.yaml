@@ -5,12 +5,13 @@ openapi: 3.0.0
 paths:
   /search/studies:
     post:
-      summary: Submit a search request for Studies
-      description: 'Get list of studies
-
-        StartDate and endDate should be ISO-8601 format for dates
-
-        See Search Services for additional implementation details.'
+      summary: Submit a search request for `Studies`
+      description: |-
+        Submit a search request for `Studies`<br/>
+        Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
+        If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
+        Use the corresponding `GET /search/studies/{searchResultsDbId}` to retrieve the results of the search. <br/> 
+        Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:

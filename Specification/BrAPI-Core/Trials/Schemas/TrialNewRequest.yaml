@@ -9,7 +9,7 @@ components:
       type: object
       properties:
         active:
-          description: Is this trail currently active
+          description: Is this trial currently active
           type: boolean
           example: true
         additionalInfo:

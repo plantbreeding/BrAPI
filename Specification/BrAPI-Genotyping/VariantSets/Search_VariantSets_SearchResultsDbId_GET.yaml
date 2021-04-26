@@ -5,8 +5,14 @@ openapi: 3.0.0
 paths:
   /search/variantsets/{searchResultsDbId}:
     get:
-      summary: Gets a list of `VariantSet` matching the search criteria.
-      description: Gets a list of `VariantSet` matching the search criteria.
+      summary: Get the results of a `VariantSets` search request
+      description: |-
+        Get the results of a `VariantSets` search request <br/>
+        Clients should submit a search request using the corresponding `POST /search/variantsets` endpoint.
+        Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
+        If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
+        Use this endpoint to retrieve the results of the search. <br/> 
+        Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
       parameters:
       - $ref: '#/components/parameters/searchResultsDbId'
       - $ref: '#/components/parameters/page'
