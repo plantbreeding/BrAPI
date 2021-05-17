@@ -12,6 +12,8 @@ paths:
         Observation levels indicate the granularity level at which the measurements are taken. `levelName` defines the level, `levelOrder` defines where that level exists in the hierarchy of levels. `levelOrder`s lower numbers are at the top of the hierarchy (ie field > 0) and higher numbers are at the bottom of the hierarchy (ie plant > 6). 
         
         The values are used to supply the `observationLevel` parameter in the observation unit details call.
+              
+        For more information on Observation Levels, please review the <a target="_blank" href="https://wiki.brapi.org/index.php/Observation_Levels">Observation Levels documentation</a>.
       parameters:
       - description: Filter by study DbId
         in: query
