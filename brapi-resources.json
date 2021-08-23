@@ -99,9 +99,9 @@
 				"logo": "https://urgi.versailles.inra.fr/var/storage/images/media/images/logos/urgi/3450-2-eng-GB/URGI_small.png",
 				"resource": {
 					"name": "URGI GnpIS Information System",
-					"base-url": "https://urgi.versailles.inra.fr/gnpis-core-srv/brapi/v1/",
+					"base-url": "https://urgi.versailles.inra.fr/faidare/brapi/v1/",
 					"logo": "https://urgi.versailles.inra.fr/var/storage/images/media/images/logos/urgi/3450-2-eng-GB/URGI_small.png",
-					"description": "See web service documentation at https://urgi.versailles.inra.fr/gnpis-core-srv/swagger-ui.html."
+					"description": "See web service documentation at https://urgi.versailles.inra.fr/faidare/swagger-ui.html."
 				}
 			},
 			{
