@@ -1,0 +1,37 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    NIRSProtocolSearchRequest:
+      allOf:
+      - $ref: '#/components/schemas/SearchRequestParametersPaging'
+      - $ref: '#/components/schemas/SearchRequestParametersExternalReferences'
+      - type: object
+        properties:
+          NIRSProtocolDbIds:
+            description: description
+            items:
+              type: string
+            type: array
+            example: ['d8bd96c7', 'a2b9c8e7']
+          NIRSProtocolNames:
+            description: description
+            items:
+              type: string
+            type: array
+            example: ['SCIO 740-1050', 'HONDA 900-1500']
+          deviceTypes:
+            description: description
+            items:
+              type: string
+            type: array
+            example: ['SCIO', 'HONDA']
+          frequencies:
+            description: description
+            items:
+              type: integer
+            type: array
+            example: [740, 742, 744, 746]

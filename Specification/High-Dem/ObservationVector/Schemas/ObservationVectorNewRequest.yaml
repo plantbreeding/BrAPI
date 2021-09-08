@@ -1,0 +1,33 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    ObservationVector:
+      type: object
+      properties:
+        additionalInfo:
+          additionalProperties:
+            type: string
+          description: Additional arbitrary info
+          type: object
+        observationUnitDbId:
+          description: description
+          type: string
+          example: e3675c4a
+        protocolDbId:
+          description: description
+          type: string
+          example: fe6f5c50
+        observationTimeStamp:
+          description: The date and time when this observation was made
+          format: date-time
+          type: string
+        vector:
+          description: description
+          type: array
+          example: ["0.0355", "0.1442", "0.4322", "0.5473"]
+          items:
+            type: string

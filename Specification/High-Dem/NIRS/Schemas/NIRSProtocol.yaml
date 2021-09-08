@@ -1,0 +1,19 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    NIRSProtocol:
+      allOf:
+      - $ref: '#/components/schemas/NIRSProtocolNewRequest'
+      - type: object
+        required:
+        - nirsDbId
+        properties:
+          nirsDbId:
+            description: The ID which uniquely identifies the NIRS Matrix
+            type: string
+            example: f60f15b2
+

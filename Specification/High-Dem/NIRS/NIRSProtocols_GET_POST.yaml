@@ -1,0 +1,88 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /nirsProtocols:
+    get:
+      summary: Get a filtered list of breeding NIRSProtocols
+      description: description
+      parameters:
+      - name: nirsProtocolDbId
+        description: description
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: nirsProtocolName
+        description: description
+        in: query
+        required: false
+        schema:
+          type: string
+      - $ref: '#/components/parameters/externalReferenceID'
+      - $ref: '#/components/parameters/externalReferenceSource'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/NIRSProtocolListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - NIRSProtocols
+    post:
+      summary: Add new breeding NIRSProtocols to the database
+      description: description
+      parameters:
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items: 
+                $ref: '#/components/schemas/NIRSProtocolNewRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/NIRSProtocolListResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - NIRSProtocols
+components:
+  responses:
+    NIRSProtocolListResponse:
+      content:
+        application/json:
+          schema:
+            title: NIRSProtocolListResponse
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadata'
+              result:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/components/schemas/NIRSProtocol'
+                    type: array
+                required:
+                - data
+                type: object
+            required:
+            - metadata
+            - result
+            type: object
+      description: description
+      headers: {}
