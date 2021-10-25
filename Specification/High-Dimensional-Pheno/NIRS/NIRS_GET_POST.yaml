@@ -3,10 +3,10 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /nirsProtocols:
+  /nirs:
     get:
-      summary: Get a filtered list of breeding NIRSProtocols
-      description: description
+      summary: Get a filtered list of NIRS Protocols
+      description: Get a filtered list of NIRS Protocols
       parameters:
       - name: nirsProtocolDbId
         description: description
@@ -35,10 +35,10 @@ paths:
         '403':
           $ref: '#/components/responses/403Forbidden'
       tags:
-      - NIRSProtocols
+      - NIRS
     post:
-      summary: Add new breeding NIRSProtocols to the database
-      description: description
+      summary: Add a new NIRS Protocol to the database
+      description: Add a new NIRS Protocol to the database
       parameters:
       - $ref: '#/components/parameters/authorizationHeader'
       requestBody:
@@ -58,7 +58,7 @@ paths:
         '403':
           $ref: '#/components/responses/403Forbidden'
       tags:
-      - NIRSProtocols
+      - NIRS
 components:
   responses:
     NIRSProtocolListResponse:

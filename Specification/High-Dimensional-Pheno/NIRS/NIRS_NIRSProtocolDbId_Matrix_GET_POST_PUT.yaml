@@ -1,0 +1,83 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths:
+  /nirs/{nirsProtocolDbId}/matrix:
+    get:
+      summary: Get a NIRS data matrix by NIRSProtocolDbId
+      description: Get a NIRS data matrix by NIRSProtocolDbId
+      parameters:
+      - name: nirsProtocolDbId
+        description: Filter by the common crop name. Exact match.
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      responses:
+        '200':
+          $ref: '#/components/responses/MatrixResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - NIRS
+    post:
+      summary: Submit a new matrix
+      description: Submit a new matrix
+      parameters:
+      - name: nirsProtocolDbId
+        description: Filter by the common crop name. Exact match.
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MatrixNewRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/MatrixResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - NIRS
+    put:
+      summary: Update an existing matrix
+      description: Update an existing matrix 
+      parameters:
+      - name: nirsProtocolDbId
+        description: Filter by the common crop name. Exact match.
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/authorizationHeader'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MatrixNewRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/MatrixResponse'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      tags:
+      - NIRS
+

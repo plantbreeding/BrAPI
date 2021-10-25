@@ -3,32 +3,33 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /search/nirsProtocols:
-    post:
-      summary: Submit a search request for `NIRSProtocols`
+  /search/nirs/matrix/{searchResultsDbId}:
+    get:
+      summary: Get the results for NIRS matrix rows search request
       description: |-
-        Submit a search request for `NIRSProtocols`<br/>
+        Get the results for NIRS matrix rows search request <br/>
+        Clients should submit a search request using the corresponding `POST /search/nirsProtocols` endpoint.
         Search requests allow a client to send a complex query for data. However, the server may not respond with the search results immediately. 
         If a server needs more time to process the request, it might respond with a `searchResultsDbId`. 
-        Use the corresponding `GET /search/nirsProtocols/{searchResultsDbId}` to retrieve the results of the search. <br/> 
+        Use this endpoint to retrieve the results of the search. <br/> 
         Review the <a target="_blank" href="https://wiki.brapi.org/index.php/Search_Services#POST_Search_Entity">Search Services documentation</a> for additional implementation details.
       parameters:
+      - $ref: '#/components/parameters/searchResultsDbId'
+      - $ref: '#/components/parameters/page'
+      - $ref: '#/components/parameters/pageSize'
       - $ref: '#/components/parameters/authorizationHeader'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/NIRSProtocolSearchRequest'
       responses:
+        '202': 
+          $ref: '#/components/responses/202AcceptedSearchResponse' 
         '200':
           $ref: '#/components/responses/NIRSProtocolListResponse'
-        '202':
-          $ref: '#/components/responses/202AcceptedSearchResponse'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
           $ref: '#/components/responses/401Unauthorized'
         '403':
           $ref: '#/components/responses/403Forbidden'
+        '404':
+          $ref: '#/components/responses/404NotFound'
       tags:
-      - NIRSProtocols
+      - NIRS

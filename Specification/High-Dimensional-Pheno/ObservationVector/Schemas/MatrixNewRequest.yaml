@@ -1,0 +1,11 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  schemas:
+    MatrixNewRequest:
+      type: array
+      items:
+        $ref: '#/components/schemas/ObservationVector'

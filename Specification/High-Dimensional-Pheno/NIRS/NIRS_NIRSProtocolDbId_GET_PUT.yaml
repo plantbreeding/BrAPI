@@ -3,10 +3,10 @@ info:
   version: ''
 openapi: 3.0.0
 paths:
-  /nirsProtocols/{nirsProtocolDbId}:
+  /nirs/{nirsProtocolDbId}:
     get:
-      summary: Get a breeding NIRSProtocol by Id
-      description: Get a single breeding NIRSProtocol by Id. This can be used to quickly get the details of a NIRSProtocol when you have the Id from another entity. 
+      summary: Get a NIRS Protocol by Id
+      description: Get a single NIRS Protocol by Id. This can be used to quickly get the details of a NIRSProtocol when you have the Id from another entity. 
       parameters:
       - name: nirsProtocolDbId
         description: Filter by the common crop name. Exact match.
@@ -25,10 +25,10 @@ paths:
         '403':
           $ref: '#/components/responses/403Forbidden'
       tags:
-      - NIRSProtocols
+      - NIRS
     put:
-      summary: Update an existing NIRSProtocol
-      description: Update the details of an existing breeding NIRSProtocol. 
+      summary: Update an existing NIRS Protocol
+      description: Update the details of an existing breeding NIRS Protocol. 
       parameters:
       - name: nirsProtocolDbId
         description: Filter by the common crop name. Exact match.
@@ -52,7 +52,7 @@ paths:
         '403':
           $ref: '#/components/responses/403Forbidden'
       tags:
-      - NIRSProtocols
+      - NIRS
 components:
   responses:
     NIRSProtocolSingleResponse:
