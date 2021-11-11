@@ -1,4 +1,4 @@
-# BrAPI V2.0
+# BrAPI V2.1
 The Breeding API (BrAPI) is a Standardized RESTful Web Service API Specification for communicating Plant Breeding Data. BrAPI allows for easy data sharing between databases and tools involved in plant breeding.
 
 ## Versions
@@ -17,11 +17,16 @@ BrAPI V2 is divided into four modules:
 
 | Version | Status | Release Date | SwaggerHub | Apiary | Notes |
 |---------|--------|--------------|------------|--------|-------|
+|[V2.1](https://github.com/plantbreeding/API/tree/V2.0) |Released |Mar 11, 2020 | | | [Release Notes](https://github.com/plantbreeding/API/releases/tag/V2.1) / [Change File](https://github.com/plantbreeding/API/releases/download/V2.1/BrAPI_V2-1_Release_Notes.xlsx)|
+|                                                       |                      |             |[BrAPI Core](https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI-Core/2.1)               |[BrAPI Core](https://brapicore21.docs.apiary.io) | |
+|                                                       |                      |             |[BrAPI Phenotyping](https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI-Phenotyping/2.1) |[BrAPI Phenotyping](https://brapiphenotyping21.docs.apiary.io) | |
+|                                                       |                      |             |[BrAPI Genotyping](https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI-Genotyping/2.1)   |[BrAPI Genotyping](https://brapigenotyping21.docs.apiary.io) | |
+|                                                       |                      |             |[BrAPI Germplasm](https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI-Germplasm/2.1)     |[BrAPI Germplasm](https://brapigermplasm21.docs.apiary.io) | |
 |[V2.0](https://github.com/plantbreeding/API/tree/V2.0) |Released |Mar 11, 2020 | | | [Release Notes](https://github.com/plantbreeding/API/releases/tag/V2.0) / [Change File](https://github.com/plantbreeding/API/releases/download/V2.0/BrAPI_V2-0_Release_Notes.xlsx)|
-|                                                       |                      |             |[BrAPI Core](https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI-Core)               |[BrAPI Core](https://brapicore.docs.apiary.io) | |
-|                                                       |                      |             |[BrAPI Phenotyping](https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI-Phenotyping) |[BrAPI Phenotyping](https://brapiphenotyping.docs.apiary.io) | |
-|                                                       |                      |             |[BrAPI Genotyping](https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI-Genotyping)   |[BrAPI Genotyping](https://brapigenotyping.docs.apiary.io) | |
-|                                                       |                      |             |[BrAPI Germplasm](https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI-Germplasm)     |[BrAPI Germplasm](https://brapigermplasm.docs.apiary.io) | |
+|                                                       |                      |             |[BrAPI Core](https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI-Core/2.0)               |[BrAPI Core](https://brapicore20.docs.apiary.io) | |
+|                                                       |                      |             |[BrAPI Phenotyping](https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI-Phenotyping/2.0) |[BrAPI Phenotyping](https://brapiphenotyping20.docs.apiary.io) | |
+|                                                       |                      |             |[BrAPI Genotyping](https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI-Genotyping/2.0)   |[BrAPI Genotyping](https://brapigenotyping20.docs.apiary.io) | |
+|                                                       |                      |             |[BrAPI Germplasm](https://app.swaggerhub.com/apis/PlantBreedingAPI/BrAPI-Germplasm/2.0)     |[BrAPI Germplasm](https://brapigermplasm20.docs.apiary.io) | |
 
 ### V1
 
