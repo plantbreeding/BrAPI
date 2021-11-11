@@ -1,0 +1,49 @@
+info:
+  title: BrAPI
+  version: ''
+openapi: 3.0.0
+paths: {}
+components:
+  responses:
+    CallsListResponse: 
+      description: OK
+      headers: {}
+      content:
+        application/json:
+          schema:
+            title: CallsListResponse
+            required:
+            - metadata
+            - result
+            type: object
+            properties:
+              '@context':
+                $ref: '#/components/schemas/Context'
+              metadata:
+                $ref: '#/components/schemas/metadataTokenPagination'
+              result:
+                type: object
+                required:
+                - data
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Call'
+                  expandHomozygotes: 
+                    description: Should homozygotes be expanded (true) or collapsed into a single occurrence (false)
+                    type: boolean
+                    example: true
+                  sepPhased:
+                    description: The string used as a separator for phased allele calls.
+                    type: string
+                    example: '~'
+                  sepUnphased:
+                    description: The string used as a separator for unphased allele calls.
+                    type: string
+                    example: '|'
+                  unknownString:
+                    description: The string used as a representation for missing data.
+                    type: string
+                    example: '-'
+                    

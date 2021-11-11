@@ -1,0 +1,25 @@
+components: {}
+info:
+  description: This branch is reserved for documenting new concepts before they are added to the BrAPI standard specification.
+  title: BrAPI New Concept Preview
+  version: '0.0.0-proposal'
+openapi: 3.1.0
+paths: {}
+servers:
+- url: https://test-server.brapi.org/brapi/v2
+tags:
+- name: High-Dimensional-Phenotypes
+  description: description
+  externalDocs:
+    description: description
+    url: https://wiki.brapi.org/
+- name: Genotype-Matrix-Redesign
+  description: description
+  externalDocs:
+    description: description
+    url: https://wiki.brapi.org/
+- name: Agronomy-And-Crop-Modeling
+  description: description
+  externalDocs:
+    description: description
+    url: https://wiki.brapi.org/
