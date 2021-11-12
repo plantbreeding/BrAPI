@@ -31,7 +31,7 @@ authorships
 centimeter centimeters unphased log10 
 summarising submitter descriptors hyphens
 
-mcpd ncbi miappe ebi biosample biosamples inra gnpis cipos ciend svlen bioversity FAO
+mcpd ncbi miappe ebi biosample biosamples inra gnpis cipos ciend svlen bioversity FAO nirs
 
 subtaxa subtaxon subform subvariety infraspecific convar convariety amphiploids aneuploids landrace cryo ruderal shrubland situ clonal backcross
 accessions subsp cultivar cultivars seq homozygotes methylation quantification contig
