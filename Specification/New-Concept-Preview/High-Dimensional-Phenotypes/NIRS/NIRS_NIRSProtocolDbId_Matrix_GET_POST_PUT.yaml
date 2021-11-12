@@ -9,9 +9,19 @@ paths:
       description: Get a NIRS data matrix by NIRSProtocolDbId
       parameters:
       - name: nirsProtocolDbId
-        description: Filter by the common crop name. Exact match.
+        description: Path parameter protocol id
         in: path
         required: true
+        schema:
+          type: string
+      - name: studyDbId
+        description: filter by study
+        in: query
+        schema:
+          type: string
+      - name: observationUnitDbId
+        description: filter by study
+        in: query
         schema:
           type: string
       - $ref: '#/components/parameters/authorizationHeader'

@@ -14,7 +14,7 @@ paths:
         required: false
         schema:
           type: string
-      - name: nirsProtocolName
+      - name: observationUnitDbId
         description: description
         in: query
         required: false

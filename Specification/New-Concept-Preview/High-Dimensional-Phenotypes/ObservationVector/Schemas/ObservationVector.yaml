@@ -17,6 +17,10 @@ components:
           description: description
           type: string
           example: e3675c4a
+        observationUnitName:
+          description: description
+          type: string
+          example: Plot ABC
         sampleDbId:
           description: description
           type: string
@@ -25,6 +29,10 @@ components:
           description: description
           type: string
           example: fe6f5c50
+        tissue_type:
+          description: description
+          type: string
+          example: root
         observationTimeStamp:
           description: The date and time when this observation was made
           format: date-time

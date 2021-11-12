@@ -20,32 +20,16 @@ components:
           format: uri
           type: string
           example: https://wiki.brapi.org
-        NIRSProtocolDbId:
-          description: description
-          type: string
-          example: fe6f5c50
-        NIRSProtocolName:
-          description: description
-          type: string
-          example: SCIO 740-1050
         deviceType:
           description: description
           type: string
           example: SCIO
-        frequencies:
+        header_column_names:
           description: description
           type: array
           example: [740, 742, 744, 746]
           items:
             type: integer
-        ObservationVariableDbId:
-          description: description
-          type: string
-          example: e3675c4a
-        ObservationVariableName:
-          description: description
-          type: string
-          example: NIRS scan with SCIO
 
           
 

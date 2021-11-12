@@ -12,7 +12,7 @@ components:
         required:
         - nirsDbId
         properties:
-          nirsDbId:
+          protocol_id:
             description: The ID which uniquely identifies the NIRS Matrix
             type: string
             example: f60f15b2
