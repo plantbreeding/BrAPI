@@ -22,6 +22,7 @@ components:
             This could be a supplementary data file, an informational file, the uploaded file where the data originated from, a generated file representing the whole dataset in a particular format, or any other related file. 
           items:
             $ref: '#/components/schemas/dataFile'
+          example: []
           type: array
         status:
           description: |-
