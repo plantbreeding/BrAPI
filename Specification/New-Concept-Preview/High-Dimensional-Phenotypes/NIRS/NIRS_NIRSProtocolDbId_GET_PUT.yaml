@@ -25,7 +25,7 @@ paths:
         '403':
           $ref: '#/components/responses/403Forbidden'
       tags:
-      - NIRS
+      - High-Dimensional-Phenotypes
     put:
       summary: Update an existing NIRS Protocol
       description: Update the details of an existing breeding NIRS Protocol. 
@@ -52,7 +52,7 @@ paths:
         '403':
           $ref: '#/components/responses/403Forbidden'
       tags:
-      - NIRS
+      - High-Dimensional-Phenotypes
 components:
   responses:
     NIRSProtocolSingleResponse:

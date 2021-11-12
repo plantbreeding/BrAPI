@@ -31,4 +31,4 @@ paths:
         '403':
           $ref: '#/components/responses/403Forbidden'
       tags:
-      - NIRS
+      - High-Dimensional-Phenotypes

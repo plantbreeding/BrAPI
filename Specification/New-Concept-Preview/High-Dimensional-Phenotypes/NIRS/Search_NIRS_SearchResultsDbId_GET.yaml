@@ -32,4 +32,4 @@ paths:
         '404':
           $ref: '#/components/responses/404NotFound'
       tags:
-      - NIRS
+      - High-Dimensional-Phenotypes

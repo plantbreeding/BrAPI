@@ -82,4 +82,4 @@ paths:
         '403':
           $ref: '#/components/responses/403Forbidden'
       tags:
-      - Events
+      - Agronomy-And-Crop-Modeling

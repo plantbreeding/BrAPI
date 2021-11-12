@@ -35,7 +35,7 @@ paths:
         '403':
           $ref: '#/components/responses/403Forbidden'
       tags:
-      - NIRS
+      - High-Dimensional-Phenotypes
     post:
       summary: Add a new NIRS Protocol to the database
       description: Add a new NIRS Protocol to the database
@@ -58,7 +58,7 @@ paths:
         '403':
           $ref: '#/components/responses/403Forbidden'
       tags:
-      - NIRS
+      - High-Dimensional-Phenotypes
 components:
   responses:
     NIRSProtocolListResponse:

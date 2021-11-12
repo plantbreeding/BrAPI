@@ -25,7 +25,7 @@ paths:
         '403':
           $ref: '#/components/responses/403Forbidden'
       tags:
-      - NIRS
+      - High-Dimensional-Phenotypes
     post:
       summary: Submit a new matrix
       description: Submit a new matrix
@@ -52,7 +52,7 @@ paths:
         '403':
           $ref: '#/components/responses/403Forbidden'
       tags:
-      - NIRS
+      - High-Dimensional-Phenotypes
     put:
       summary: Update an existing matrix
       description: Update an existing matrix 
@@ -79,5 +79,5 @@ paths:
         '403':
           $ref: '#/components/responses/403Forbidden'
       tags:
-      - NIRS
+      - High-Dimensional-Phenotypes
 
