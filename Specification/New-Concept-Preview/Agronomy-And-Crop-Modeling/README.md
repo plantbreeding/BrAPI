@@ -1,7 +1,7 @@
-# Group Events
 
-An event is discrete occurrence at a particular time in the experiment (which can be natural, such as rain, or unnatural, such as planting, watering, etc). Events may be the realization of Treatments or parts of Treatments, or may be confounding to Treatments. Can be applied at the whole study level or to only a subset of observation units.  
-[also see the [MIAPPE](https://www.miappe.org/) definition]
+# Group Agronomy and Crop Modeling
+
+Agronomy and Crop Modeling description
 
 
 
@@ -54,16 +54,7 @@ Get list of events
         "https://brapi.org/jsonld/context/metadata.jsonld"
     ],
     "metadata": {
-        "datafiles": [
-            {
-                "fileDescription": "This is an Excel data file",
-                "fileMD5Hash": "c2365e900c81a89cf74d83dab60df146",
-                "fileName": "datafile.xlsx",
-                "fileSize": 4398,
-                "fileType": "application/vnd.ms-excel",
-                "fileURL": "https://wiki.brapi.org/examples/datafile.xlsx"
-            }
-        ],
+        "datafiles": [],
         "pagination": {
             "currentPage": 0,
             "pageSize": 1000,
