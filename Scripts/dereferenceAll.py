@@ -51,6 +51,38 @@ def dereferenceAll(obj, parent):
     return obj
 
 
+def dereferenceAllOfClause(obj, parent):
+    #print(breadCrumb)
+    try:
+        if type(obj) is dict:
+            for fieldStr in obj:
+                #print(fieldStr)
+                if(fieldStr == 'allOf'):
+                    comboObj = {'properties': {}, 'type': 'object'}
+                    for item in obj[fieldStr]:
+                        itemObj = dereferenceAll(item, parent)
+                        comboObj['properties'] = {**(comboObj['properties']), **(itemObj['properties'])}
+                        if 'title' in itemObj:
+                            comboObj['title'] = itemObj['title']
+                        if 'description' in itemObj:
+                            comboObj['description'] = itemObj['description']
+                        if 'example' in itemObj:
+                            comboObj['example'] = itemObj['example']
+                        
+                    obj = comboObj
+                else:
+                    obj[fieldStr] = dereferenceAllOfClause(obj[fieldStr], parent)
+        elif type(obj) is list:
+            newList = []
+            for item in obj:
+                newList.append(dereferenceAllOfClause(item, parent))
+            obj = newList
+    except Exception as ex:
+        ##print(obj)
+        raise ex
+    return obj
+
+
 def dereferenceBrAPI(filePath = './brapi_openapi.yaml', verbose = False):    
     fileObj = {}
     if verbose :

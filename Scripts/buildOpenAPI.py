@@ -9,7 +9,7 @@ import yaml
 import glob
 import sys
 import os
-from dereferenceAll import dereferenceBrAPI
+import dereferenceAll
 
 
 def str_presenter(dumper, data):
@@ -62,6 +62,8 @@ def go(rootPaths, metaFilePath = './swaggerMetaData.yaml'):
             
     out['paths'].update(paths)
     out['components'].update(defin)
+    
+    out = dereferenceAll.dereferenceAllOfClause(out, out)
     
     with open(outFilePath, 'w') as outfile:
         print(outFilePath)
