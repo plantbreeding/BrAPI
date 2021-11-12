@@ -36,29 +36,29 @@ paths:
           $ref: '#/components/responses/403Forbidden'
       tags:
       - High-Dimensional-Phenotypes
-    post:
-      summary: Add a new NIRS Protocol to the database
-      description: Add a new NIRS Protocol to the database
-      parameters:
-      - $ref: '#/components/parameters/authorizationHeader'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: array
-              items: 
-                $ref: '#/components/schemas/NIRSProtocolNewRequest'
-      responses:
-        '200':
-          $ref: '#/components/responses/NIRSProtocolListResponse'
-        '400':
-          $ref: '#/components/responses/400BadRequest'
-        '401':
-          $ref: '#/components/responses/401Unauthorized'
-        '403':
-          $ref: '#/components/responses/403Forbidden'
-      tags:
-      - High-Dimensional-Phenotypes
+#    post:
+#      summary: Add a new NIRS Protocol to the database
+#      description: Add a new NIRS Protocol to the database
+#      parameters:
+#      - $ref: '#/components/parameters/authorizationHeader'
+#      requestBody:
+#        content:
+#          application/json:
+#            schema:
+#              type: array
+#              items: 
+#                $ref: '#/components/schemas/NIRSProtocolNewRequest'
+#      responses:
+#        '200':
+#          $ref: '#/components/responses/NIRSProtocolListResponse'
+#        '400':
+#          $ref: '#/components/responses/400BadRequest'
+#        '401':
+#          $ref: '#/components/responses/401Unauthorized'
+#        '403':
+#          $ref: '#/components/responses/403Forbidden'
+#      tags:
+#      - High-Dimensional-Phenotypes
 components:
   responses:
     NIRSProtocolListResponse:
