@@ -1,6 +1,30 @@
 components: {}
 info:
-  description: This branch is reserved for documenting new concepts before they are added to the BrAPI standard specification.
+  description: |- 
+    This branch is reserved for documenting new concepts before they are added to the BrAPI standard specification.
+
+    <div class="current-brapi-section brapi-section">
+    <h2 class="brapi-section-title">BrAPI New Concept Preview</h2>
+    <div class="brapi-section-description">This branch is reserved for documenting new concepts before they are added to the BrAPI standard specification.</div>
+    </div>
+    
+    <style>
+    .brapi-section-title{
+      margin: 0 10px 0 0;
+      font-size: 20px;
+    }
+    .current-brapi-section{
+      font-weight: bolder;
+      border-radius: 5px; 
+      background-color: #ddd;
+    }
+    .brapi-section{
+      padding: 5px 5px; 
+    }
+    .brapi-section-description{
+      margin: 5px 0 0 5px;
+    }
+    </style>
   title: BrAPI New Concept Preview
   version: '0.0.0-proposal'
 openapi: 3.1.0
