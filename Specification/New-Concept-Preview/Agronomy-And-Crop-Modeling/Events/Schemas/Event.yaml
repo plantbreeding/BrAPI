@@ -24,9 +24,11 @@ components:
           description: |-
             General category for this event (e.g. Sowing, Watering, Rain). Each eventType should correspond to exactly one eventTypeDbId, if provided.
             
+            ICASA "event"
+
             MIAPPE V1.1 (DM-65) Event type - Short name of the event.
           type: string
-          example: Watering
+          example: tillage
         eventTypeDbId:
           description: |-
             An identifier for this event type, in the form of an ontology class reference
@@ -67,22 +69,43 @@ components:
           items: 
             type: object
             properties:
-              key:
-                description: Specifies the relationship between the event and the given property. E.g. fertilizer, operator
+              name:
+                description: |-
+                  The full name of an event parameter
+
+                  ICASA "Variable_Name"
                 type: string
-                example: operator
+                example: tillage_implement
+              code:
+                description: |-
+                  The shortened code name of an event parameter
+
+                  ICASA "Code_Display"
+                type: string
+                example: tiimp
+              unit:
+                description: |-
+                  The unit or data type of the value. If the value IS NOT a number, then this field should specify a data type eg. text, boolean, date, etc. If the value IS a number, then this field should specify the units used eg. ml, cm, etc
+
+                  ICASA "Unit_or_type"
+                type: string
+                example: text
               value:
-                description: The value of the property for this event. E.g. nitrogen, John Doe
+                description: |-
+                  The value of this event parameter
                 type: string
-                example: Bob Robertson
-              rdfValue:
-                description: The type of the value given above, e.g. http://xmlns.com/foaf/0.1/Agent
-                type: string
-                example: http://xmlns.com/foaf/0.1/Agent
+                example: TI001
           example:
-          - key: http://www.example.fr/vocabulary/2018#hasContact,
-            value: http://www.example.fr/id/agent/marie,
-            valueRdfType: http://xmlns.com/foaf/0.1/Agent,
-          - key: fertilizer
-            value: nitrogen
-            valueRdfType: null
+          - name: "tillage_implement"
+            code: "tiimp"
+            unit: "code"
+            value: "TI001"
+          - name: "tillage_operations_depth"
+            code: "tidep"
+            unit: "cm"
+            value: "20"
+          - name: "till_mix_effectiveness"
+            code: "timix"
+            unit: "percent"
+            value: "50"
+
