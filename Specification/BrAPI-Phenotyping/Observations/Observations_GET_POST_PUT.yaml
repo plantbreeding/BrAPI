@@ -97,7 +97,8 @@ paths:
         schema:
           format: date-time
           type: string
-      - $ref: '#/components/parameters/externalReferenceID'
+      - $ref: '#/components/parameters/externalReferenceID' 
+      - $ref: '#/components/parameters/externalReferenceId'
       - $ref: '#/components/parameters/externalReferenceSource'
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
