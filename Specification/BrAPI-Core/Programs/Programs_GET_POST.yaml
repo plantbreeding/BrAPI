@@ -8,18 +8,8 @@ paths:
       summary: Get a filtered list of breeding Programs
       description: Get a filtered list of breeding Programs. This list can be filtered by common crop name to narrow results to a specific crop.
       parameters:
-      - name: commonCropName
-        description: Filter by the common crop name. Exact match.
-        in: query
-        required: false
-        schema:
-          type: string
-      - name: programDbId
-        description: Program filter to only return trials associated with given program id.
-        in: query
-        required: false
-        schema:
-          type: string
+      - $ref: '#/components/parameters/commonCropName'
+      - $ref: '#/components/parameters/programDbId'
       - name: programName
         description: Filter by program name. Exact match.
         in: query

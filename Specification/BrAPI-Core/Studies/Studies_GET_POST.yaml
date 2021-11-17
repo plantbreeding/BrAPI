@@ -11,21 +11,9 @@ paths:
         
         StartDate and endDate should be ISO-8601 format for dates
       parameters:
-      - description: Common name for the crop associated with this study
-        in: query
-        name: commonCropName
-        required: false
-        schema:
-          type: string
       - description: Filter based on study type unique identifier
         in: query
         name: studyType
-        required: false
-        schema:
-          type: string
-      - description: Program filter to only return studies associated with given program id.
-        in: query
-        name: programDbId
         required: false
         schema:
           type: string
@@ -116,6 +104,8 @@ paths:
           - desc
           - DESC
           type: string
+      - $ref: '#/components/parameters/commonCropName'
+      - $ref: '#/components/parameters/programDbId'
       - $ref: '#/components/parameters/externalReferenceID'
       - $ref: '#/components/parameters/externalReferenceSource'
       - $ref: '#/components/parameters/page'
