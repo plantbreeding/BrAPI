@@ -38,12 +38,22 @@ paths:
         
         BAD    "call": "germplasm/<germplasmDbId>/pedigree"
       parameters:
-      - description: The data format supported by the call.
+      - description: Filter the list of endpoints based on the response content type.
+        in: query
+        name: contentType
+        required: false
+        schema:
+          $ref: '#/components/schemas/ContentTypes'
+      - description: |-
+          **Deprecated in v2.1** Please use `contentType`. Reference issue number 443
+
+          The data format supported by the call.
+        deprecated: true
         in: query
         name: dataType
         required: false
         schema:
-          $ref: '#/components/schemas/WSMIMEDataTypes'
+          $ref: '#/components/schemas/ContentTypes'
       - $ref: '#/components/parameters/authorizationHeader'
       responses:
         '200':
