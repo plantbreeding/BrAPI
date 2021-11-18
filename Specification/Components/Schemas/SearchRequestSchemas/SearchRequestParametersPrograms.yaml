@@ -9,13 +9,21 @@ components:
       type: object
       properties:
         programDbIds:
-          description: A program identifier to search for
+          description: |-
+            A BrAPI Program represents the high level organization or group who is responsible for conducting trials and studies. Things like Breeding Programs and Funded Projects are considered BrAPI Programs. 
+
+            Use this parameter to only return results associated with the given programs. 
+
+            Use `GET /programs` to find the list of available programs on a server.
           items:
             type: string
           type: array
           example: ['8f5de35b', '0e2d4a13']
         programNames:
-          description: A name of a program to search for
+          description: |-
+            Use this parameter to only return results associated with the given program names. Program names are not required to be unique.
+
+            Use `GET /programs` to find the list of available programs on a server.
           items:
             type: string
           type: array

@@ -8,6 +8,8 @@ components:
     VariantSetsSearchRequest: 
       allOf:
       - $ref: '#/components/schemas/SearchRequestParametersPaging'
+      - $ref: '#/components/schemas/SearchRequestParametersCommonCropNames'
+      - $ref: '#/components/schemas/SearchRequestParametersPrograms'
       - $ref: '#/components/schemas/SearchRequestParametersStudies'
       - type: object
         properties: 

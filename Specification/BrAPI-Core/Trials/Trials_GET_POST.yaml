@@ -14,20 +14,8 @@ paths:
         required: false
         schema:
           type: boolean
-      - name: commonCropName
-        description: Common name for the crop associated with this trial
-        in: query
-        required: false
-        schema:
-          type: string
       - name: contactDbId
         description: Contact entities associated with this trial
-        in: query
-        required: false
-        schema:
-          type: string
-      - name: programDbId
-        description: Program filter to only return trials associated with given program id.
         in: query
         required: false
         schema:
@@ -123,6 +111,8 @@ paths:
           - desc
           - DESC
           type: string
+      - $ref: '#/components/parameters/programDbId'
+      - $ref: '#/components/parameters/commonCropName'
       - $ref: '#/components/parameters/externalReferenceID' 
       - $ref: '#/components/parameters/externalReferenceId'
       - $ref: '#/components/parameters/externalReferenceSource'

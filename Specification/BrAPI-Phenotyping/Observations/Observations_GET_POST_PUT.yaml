@@ -53,12 +53,6 @@ paths:
         required: false
         schema:
           type: string
-      - description: The unique ID of a program to filter on
-        in: query
-        name: programDbId
-        required: false
-        schema:
-          type: string
       - description: The year or Phenotyping campaign of a multi-annual study (trees, grape, ...)
         in: query
         name: seasonDbId
@@ -97,8 +91,14 @@ paths:
         schema:
           format: date-time
           type: string
+<<<<<<< HEAD
+      - $ref: '#/components/parameters/commonCropName'
+      - $ref: '#/components/parameters/programDbId'
+      - $ref: '#/components/parameters/externalReferenceID'
+=======
       - $ref: '#/components/parameters/externalReferenceID' 
       - $ref: '#/components/parameters/externalReferenceId'
+>>>>>>> brapi-V2.1
       - $ref: '#/components/parameters/externalReferenceSource'
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'

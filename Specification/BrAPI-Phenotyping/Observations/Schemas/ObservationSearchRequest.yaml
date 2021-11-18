@@ -8,6 +8,7 @@ components:
     ObservationSearchRequest: 
       allOf:
       - $ref: '#/components/schemas/SearchRequestParametersPaging'
+      - $ref: '#/components/schemas/SearchRequestParametersCommonCropNames'
       - $ref: '#/components/schemas/SearchRequestParametersPrograms'
       - $ref: '#/components/schemas/SearchRequestParametersTrials'
       - $ref: '#/components/schemas/SearchRequestParametersStudies'

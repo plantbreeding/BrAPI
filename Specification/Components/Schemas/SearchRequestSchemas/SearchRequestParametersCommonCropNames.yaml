@@ -9,7 +9,12 @@ components:
       type: object
       properties:
         commonCropNames:
-          description: Common name for the crop which this program is for
+          description: |-
+            The BrAPI Common Crop Name is the simple, generalized, widely accepted name of the organism being researched. It is most often used in multi-crop systems where digital resources need to be divided at a high level. Things like 'Maize', 'Wheat', and 'Rice' are examples of common crop names.
+
+            Use this parameter to only return results associated with the given crops. 
+
+            Use `GET /commoncropnames` to find the list of available crops on a server.
           items:
             type: string
           type: array

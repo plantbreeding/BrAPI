@@ -23,8 +23,14 @@ paths:
         required: false
         schema:
           type: string
+<<<<<<< HEAD
+      - $ref: '#/components/parameters/commonCropName'
+      - $ref: '#/components/parameters/programDbId'
+      - $ref: '#/components/parameters/externalReferenceID'
+=======
       - $ref: '#/components/parameters/externalReferenceID' 
       - $ref: '#/components/parameters/externalReferenceId'
+>>>>>>> brapi-V2.1
       - $ref: '#/components/parameters/externalReferenceSource'
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'

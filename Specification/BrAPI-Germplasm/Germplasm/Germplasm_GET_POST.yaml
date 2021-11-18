@@ -33,12 +33,6 @@ paths:
         required: false
         schema:
           type: string
-      - name: commonCropName
-        description: The common crop name related to this germplasm
-        in: query
-        required: false
-        schema:
-          type: string
       - name: accessionNumber
         description: Unique identifiers for accessions within a genebank
         in: query
@@ -87,8 +81,14 @@ paths:
         required: false
         schema:
           type: string
+<<<<<<< HEAD
+      - $ref: '#/components/parameters/commonCropName'
+      - $ref: '#/components/parameters/programDbId'
+      - $ref: '#/components/parameters/externalReferenceID'
+=======
       - $ref: '#/components/parameters/externalReferenceID' 
       - $ref: '#/components/parameters/externalReferenceId'
+>>>>>>> brapi-V2.1
       - $ref: '#/components/parameters/externalReferenceSource'
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'
