@@ -16,10 +16,20 @@ components:
           description: The name of the available call as recorded in the documentation
           type: string
           example: germplasm/{germplasmDbId}/pedigree
-        dataTypes:
-          description: The possible data formats returned by the available call
+        contentTypes:
+          description: The possible content types returned by the service endpoint
           items:
-            $ref: '#/components/schemas/WSMIMEDataTypes'
+            $ref: '#/components/schemas/ContentTypes'
+          type: array
+          example: ['application/json']
+        dataTypes:
+          description:  |-
+            **Deprecated in v2.1** Please use `contentTypes`. Reference issue number 443
+
+            The possible data formats returned by the available call
+          deprecated: true
+          items:
+            $ref: '#/components/schemas/ContentTypes'
           type: array
           example: ['application/json']
         methods:
