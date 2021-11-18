@@ -77,7 +77,8 @@ paths:
         required: false
         schema:
           type: boolean
-      - $ref: '#/components/parameters/externalReferenceID'
+      - $ref: '#/components/parameters/externalReferenceID' 
+      - $ref: '#/components/parameters/externalReferenceId'
       - $ref: '#/components/parameters/externalReferenceSource'
       - $ref: '#/components/parameters/page'
       - $ref: '#/components/parameters/pageSize'

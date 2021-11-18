@@ -6,7 +6,18 @@ paths: {}
 components:
   parameters:
     externalReferenceID:
+      deprecated: true
       name: externalReferenceID
+      description:  |-
+        **Deprecated in v2.1** Please use `externalReferenceId`. Reference issue number 460 
+
+        An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
+      in: query
+      required: false
+      schema:
+        type: string
+    externalReferenceId:
+      name: externalReferenceId
       description: An external reference ID. Could be a simple string or a URI. (use with `externalReferenceSource` parameter)
       in: query
       required: false
@@ -14,7 +25,7 @@ components:
         type: string
     externalReferenceSource:
       name: externalReferenceSource
-      description: An identifier for the source system or database of an external reference (use with `externalReferenceID` parameter)
+      description: An identifier for the source system or database of an external reference (use with `externalReferenceId` parameter)
       in: query
       required: false
       schema:
