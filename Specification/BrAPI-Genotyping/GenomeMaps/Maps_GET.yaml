@@ -38,9 +38,6 @@ paths:
         required: false
         schema:
           type: string
-          enum:
-          - physical
-          - genomic
       - name: programDbId
         description: Unique Id to filter by Program
         in: query
